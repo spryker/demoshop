@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "73c176a376a77aacd4af86322c1d22d0",
+    "content-hash": "3060af0ae6ec3462f6b7511280f3c7fd",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -917,16 +917,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
+                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
-                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
+                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
                 "shasum": ""
             },
             "require": {
@@ -991,7 +991,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-11T11:18:38+00:00"
+            "time": "2017-03-22T22:24:40+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3009,11 +3009,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "5cc8142e8505bc962ee6b647f15f7ce5d8f4f6ca",
+                "reference": "a13d25e56fcad021fdf58b8170de3fb9564b1054",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3023,8 +3023,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/5cc8142e8505bc962ee6b647f15f7ce5d8f4f6ca",
-                "reference": "5cc8142e8505bc962ee6b647f15f7ce5d8f4f6ca",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/a13d25e56fcad021fdf58b8170de3fb9564b1054",
+                "reference": "a13d25e56fcad021fdf58b8170de3fb9564b1054",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3078,9 +3078,9 @@
             ],
             "description": "Application bundle",
             "support": {
-                "source": "https://github.com/spryker/Application/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Application/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-23T09:42:51+00:00"
         },
         {
             "name": "spryker/assertion",
@@ -5633,11 +5633,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "85a6ef1520a7be659c06d9b4c5cccd151417b90b",
+                "reference": "a19b3bdbc6d3521313daeca7715e139dfa7e0ab3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5647,8 +5647,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/85a6ef1520a7be659c06d9b4c5cccd151417b90b",
-                "reference": "85a6ef1520a7be659c06d9b4c5cccd151417b90b",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/a19b3bdbc6d3521313daeca7715e139dfa7e0ab3",
+                "reference": "a19b3bdbc6d3521313daeca7715e139dfa7e0ab3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5694,9 +5694,9 @@
             ],
             "description": "Gui bundle",
             "support": {
-                "source": "https://github.com/spryker/Gui/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-23T09:43:00+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -6533,6 +6533,215 @@
                 "source": "https://github.com/spryker/Monolog/tree/master"
             },
             "time": "2016-09-01T09:24:33+00:00"
+        },
+        {
+            "name": "spryker/navigation",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/Navigation.git",
+                "reference": "fd47fb755a3cf35c78e0a0d82b8cf5251dfcd829",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Navigation/zipball/fd47fb755a3cf35c78e0a0d82b8cf5251dfcd829",
+                "reference": "fd47fb755a3cf35c78e0a0d82b8cf5251dfcd829",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/key-builder": "^1.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel-orm": "^1.1.0",
+                "spryker/storage": "^3.0.0",
+                "spryker/touch": "^3.0.0",
+                "spryker/twig": "^3.0.0",
+                "spryker/url": "^3.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/silex": "If you want to use the NavigationTwigServiceProvider you need to install spryker/silex."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Navigation bundle",
+            "support": {
+                "source": "https://github.com/spryker/Navigation/tree/1.0.0"
+            },
+            "time": "2017-03-23T10:43:39+00:00"
+        },
+        {
+            "name": "spryker/navigation-collector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/NavigationCollector.git",
+                "reference": "bd75c8b6ef7dce2af5ca2558f95f7ea1d4033b42",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/NavigationCollector/zipball/bd75c8b6ef7dce2af5ca2558f95f7ea1d4033b42",
+                "reference": "bd75c8b6ef7dce2af5ca2558f95f7ea1d4033b42",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/collector": "^5.1.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/key-builder": "^1.0.0",
+                "spryker/navigation": "^1.0.0",
+                "spryker/propel-orm": "^1.1.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/touch": "^3.0.0",
+                "spryker/util-data-reader": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "NavigationCollector bundle",
+            "support": {
+                "source": "https://github.com/spryker/NavigationCollector/tree/master"
+            },
+            "time": "2017-03-23T10:43:39+00:00"
+        },
+        {
+            "name": "spryker/navigation-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/NavigationGui.git",
+                "reference": "8e5e1631b97ea04b507b89b09dfd5b54905570c7",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/8e5e1631b97ea04b507b89b09dfd5b54905570c7",
+                "reference": "8e5e1631b97ea04b507b89b09dfd5b54905570c7",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/category": "^3.0.0",
+                "spryker/cms": "^4.0.0",
+                "spryker/gui": "^3.1.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/navigation": "^1.0.0",
+                "spryker/propel-orm": "^1.1.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/url": "^3.1.0",
+                "spryker/util-text": "^1.1.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Navigation GUI bundle",
+            "support": {
+                "source": "https://github.com/spryker/NavigationGui/tree/master"
+            },
+            "time": "2017-03-23T10:43:39+00:00"
         },
         {
             "name": "spryker/new-relic",
@@ -9342,11 +9551,11 @@
         },
         {
             "name": "spryker/step-engine",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/StepEngine.git",
-                "reference": "9f1df73d874fad338710921b44989f472c8a25c4",
+                "reference": "08f1f82bff3ad135d821d2cb3315f65195c6fb84",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9356,8 +9565,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/StepEngine/zipball/9f1df73d874fad338710921b44989f472c8a25c4",
-                "reference": "9f1df73d874fad338710921b44989f472c8a25c4",
+                "url": "https://api.github.com/repos/spryker/StepEngine/zipball/08f1f82bff3ad135d821d2cb3315f65195c6fb84",
+                "reference": "08f1f82bff3ad135d821d2cb3315f65195c6fb84",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9402,9 +9611,9 @@
             ],
             "description": "StepEngine bundle",
             "support": {
-                "source": "https://github.com/spryker/StepEngine/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/StepEngine/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-23T09:33:48+00:00"
         },
         {
             "name": "spryker/stock",
@@ -10092,11 +10301,11 @@
         },
         {
             "name": "spryker/url",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Url.git",
-                "reference": "2554c7dad6be177590ba384015b5d7cf0db8b5c0",
+                "reference": "107af8441a278340691476e7dfec5ab48bdc454c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10106,8 +10315,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Url/zipball/2554c7dad6be177590ba384015b5d7cf0db8b5c0",
-                "reference": "2554c7dad6be177590ba384015b5d7cf0db8b5c0",
+                "url": "https://api.github.com/repos/spryker/Url/zipball/107af8441a278340691476e7dfec5ab48bdc454c",
+                "reference": "107af8441a278340691476e7dfec5ab48bdc454c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10152,9 +10361,9 @@
             ],
             "description": "Url bundle",
             "support": {
-                "source": "https://github.com/spryker/Url/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Url/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-23T09:43:35+00:00"
         },
         {
             "name": "spryker/user",

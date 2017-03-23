@@ -70,6 +70,9 @@
     "spryker/messenger": "^3.0.0",
     "spryker/money": "^2.0.0",
     "spryker/monolog": "^2.0.0",
+    "spryker/navigation": "^1.0.0",
+    "spryker/navigation-collector": "^1.0.0",
+    "spryker/navigation-gui": "^1.0.0",
     "spryker/new-relic": "^3.0.0",
     "spryker/new-relic-api": "^1.0.0",
     "spryker/newsletter": "^4.0.0",
@@ -98,6 +101,7 @@
     "spryker/propel-query-builder": "^0.1.1",
     "spryker/queue": "^0.3.0",
     "spryker/quote": "^1.0.0",
+    "spryker/rabbit-mq": "dev-master",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^4.0.0",
     "spryker/sales": "^5.0.0",
@@ -128,8 +132,7 @@
     "spryker/zed-navigation": "^1.0.0",
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5",
-    "spryker/rabbit-mq": "dev-master"
+    "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.11",
