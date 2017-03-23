@@ -1534,30 +1534,59 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "4242ef32bf960012033f22179d10d48867811938"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ff5ec0f5fb5532b12c388722bb233e0367b25b89"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
 =======
                 "reference": "2812ebabac21a9bb7ae5980905c04a9b2ed44c2a"
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "fc2aa3643132ef72ef2eb3a1a08daed8478b3798"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2188,6 +2217,8 @@
                     "Spryker\\Zed\\TaxProductConnector\\": "Bundles/TaxProductConnector/src",
                     "Unit\\Spryker\\Zed\\TaxProductConnector\\": "Bundles/TaxProductConnector/tests",
                     "Functional\\Spryker\\Zed\\TaxProductConnector\\": "Bundles/TaxProductConnector/tests",
+                    "Spryker\\Yves\\Testify\\": "Bundles/Testify/src",
+                    "Spryker\\Zed\\Testify\\": "Bundles/Testify/src",
                     "Spryker\\Shared\\Testify\\": "Bundles/Testify/src",
                     "Spryker\\Shared\\Touch\\": "Bundles/Touch/src",
                     "Unit\\Spryker\\Shared\\Touch\\": "Bundles/Touch/tests",
@@ -2337,30 +2368,59 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-27 16:16:43"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-27 10:20:21"
 =======
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
             "time": "2017-03-16 20:19:59"
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-03-23 07:43:40"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
