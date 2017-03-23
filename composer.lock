@@ -7,12 +7,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
 <<<<<<< HEAD
     "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
 =======
@@ -53,7 +56,13 @@
     "content-hash": "081059a52bcb2493440bf0698a85ab91",
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1012 update spryker/spryker
+=======
+=======
+    "content-hash": "d16302664d7ca0b4d5a83ae470deac89",
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1489,13 +1498,18 @@
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> core-1012 added more open glob patterns
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
             "name": "spryker/rabbit-mq",
             "version": "dev-master",
             "source": {
@@ -1542,6 +1556,7 @@
                 "source": "https://github.com/spryker/rabbit-mq"
             },
             "time": "2017-03-20 15:48:36"
+<<<<<<< HEAD
 <<<<<<< HEAD
         },
         {
@@ -1816,9 +1831,12 @@
 =======
             "time": "2017-03-09 13:20:46"
 >>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
         },
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> core-1012 added more open glob patterns
 <<<<<<< HEAD
 >>>>>>> core-1012 added more open glob patterns
@@ -1828,11 +1846,14 @@
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
             "name": "spryker/spryker",
             "version": "dev-feature/core-1012-enable-3rd-party-bundles",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1848,6 +1869,8 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
 <<<<<<< HEAD
                 "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
 =======
@@ -1939,7 +1962,13 @@
                 "reference": "a2eebea2114ad59d89a57749684d25e04d0a8b80"
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1012 update spryker/spryker
+=======
+=======
+                "reference": "7b7517fff308ae971d87f53275e480b8e89ff7b8"
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2695,6 +2724,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
 =======
@@ -2705,6 +2735,8 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-13 14:07:00"
 =======
@@ -2976,7 +3008,13 @@
             "time": "2017-03-20 16:01:21"
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1012 update spryker/spryker
+=======
+=======
+            "time": "2017-03-23 08:07:13"
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7545,6 +7583,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
             },
             "dist": {
@@ -7556,6 +7595,8 @@
 >>>>>>> core-1012 added spryker/spryker template paths in project
 =======
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
 <<<<<<< HEAD
                 "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
             },
@@ -7579,12 +7620,15 @@
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
 <<<<<<< HEAD
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
                 "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0283903c14b7545138a7974be659b4af1fb7464b",
                 "reference": "0283903c14b7545138a7974be659b4af1fb7464b",
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
@@ -7640,7 +7684,12 @@
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1012 update spryker/spryker
+=======
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7678,6 +7727,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-17 13:33:48"
 =======
 =======
@@ -7686,6 +7736,8 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-09 15:17:56"
 =======
@@ -7742,7 +7794,13 @@
             "time": "2017-03-17T13:33:48+00:00"
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1012 update spryker/spryker
+=======
+=======
+            "time": "2017-03-09 15:17:56"
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -8099,38 +8157,38 @@
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v3.0.9",
+            "version": "v2.8.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "34ddcc46f09f6564f03cb61134ee51f3b309aa58"
+                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/34ddcc46f09f6564f03cb61134ee51f3b309aa58",
-                "reference": "34ddcc46f09f6564f03cb61134ee51f3b309aa58",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/5a6a2605ee365b98ec7159fb517ff36afebb7fff",
+                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "twig/twig": "~1.23|~2.0"
+                "php": ">=5.3.9",
+                "twig/twig": "~1.28|~2.0"
             },
             "require-dev": {
-                "symfony/asset": "~2.8|~3.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/finder": "~2.8|~3.0",
-                "symfony/form": "~3.0.4",
-                "symfony/http-kernel": "~2.8|~3.0",
+                "symfony/asset": "~2.7|~3.0.0",
+                "symfony/console": "~2.8|~3.0.0",
+                "symfony/expression-language": "~2.4|~3.0.0",
+                "symfony/finder": "~2.3|~3.0.0",
+                "symfony/form": "^2.8.18",
+                "symfony/http-kernel": "~2.8|~3.0.0",
                 "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.8|~3.0",
-                "symfony/security": "~2.8|~3.0",
-                "symfony/security-acl": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0",
-                "symfony/templating": "~2.8|~3.0",
-                "symfony/translation": "~2.8|~3.0",
-                "symfony/var-dumper": "~2.8.9|~3.0.9|~3.1.3|~3.2",
-                "symfony/yaml": "~2.8|~3.0"
+                "symfony/routing": "~2.2|~3.0.0",
+                "symfony/security": "~2.6|~3.0.0",
+                "symfony/security-acl": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.2|~3.0.0",
+                "symfony/templating": "~2.1|~3.0.0",
+                "symfony/translation": "~2.7|~3.0.0",
+                "symfony/var-dumper": "~2.7.16|~2.8.9|~3.0.9",
+                "symfony/yaml": "^2.0.5|~3.0.0"
             },
             "suggest": {
                 "symfony/asset": "For using the AssetExtension",
@@ -8149,7 +8207,7 @@
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -8176,7 +8234,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2016-07-28T11:13:34+00:00"
+            "time": "2017-02-28T13:13:45+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -8243,35 +8301,34 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v2.8.18",
+            "version": "v2.7.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "0b9f50851bc6c787d53794d4e7f45cc3ed5e9d08"
+                "reference": "d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/0b9f50851bc6c787d53794d4e7f45cc3ed5e9d08",
-                "reference": "0b9f50851bc6c787d53794d4e7f45cc3ed5e9d08",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60",
+                "reference": "d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/twig-bridge": "~2.7|~3.0.0",
-                "twig/twig": "~1.28|~2.0"
+                "symfony/http-kernel": "~2.4",
+                "symfony/routing": "~2.2",
+                "symfony/twig-bridge": "~2.7"
             },
             "require-dev": {
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/console": "~2.3|~3.0.0",
-                "symfony/dependency-injection": "~2.2|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0"
+                "symfony/config": "~2.2",
+                "symfony/console": "~2.3",
+                "symfony/dependency-injection": "~2.2",
+                "symfony/stopwatch": "~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -8298,7 +8355,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2017-02-28T13:13:45+00:00"
+            "time": "2016-10-22T15:04:15+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -8397,10 +8454,13 @@
         "spryker/spryker": 20,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "spryker/rabbit-mq": 20,
 =======
 =======
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
 <<<<<<< HEAD
 =======
 =======
@@ -8418,6 +8478,9 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update spryker/spryker
+=======
+        "spryker/rabbit-mq": 20,
+>>>>>>> core-1012 update TransferConfig and spryker/spryker
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20
