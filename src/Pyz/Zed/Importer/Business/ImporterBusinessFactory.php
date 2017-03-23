@@ -52,6 +52,8 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
             ImporterConfig::RESOURCE_SHIPMENT => $this->createInstallerFactory()->createShipmentInstaller(),
             ImporterConfig::RESOURCE_DISCOUNT => $this->createInstallerFactory()->createDiscountInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_OPTIONS => $this->createInstallerFactory()->createProductOptionsInstaller(),
+            ImporterConfig::RESOURCE_NAVIGATION => $this->createInstallerFactory()->createNavigationInstaller(),
+            ImporterConfig::RESOURCE_NAVIGATION_NODE => $this->createInstallerFactory()->createNavigationNodeInstaller(),
         ];
     }
 

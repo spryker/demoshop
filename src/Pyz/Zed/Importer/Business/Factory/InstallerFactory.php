@@ -15,6 +15,8 @@ use Pyz\Zed\Importer\Business\Installer\Cms\CmsBlockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
+use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationInstaller;
+use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationNodeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
@@ -298,6 +300,34 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Navigation\NavigationInstaller
+     */
+    public function createNavigationInstaller()
+    {
+        $navigationInstaller = new NavigationInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterNavigationCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $navigationInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Navigation\NavigationNodeInstaller
+     */
+    public function createNavigationNodeInstaller()
+    {
+        $navigationNodeInstaller = new NavigationNodeInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterNavigationNodesCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $navigationNodeInstaller;
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     public function getImporterTaxCollection()
@@ -466,6 +496,26 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_SHIPMENT => $this->createImporterFactory()->createShipmentImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getImporterNavigationCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_NAVIGATION => $this->createImporterFactory()->createNavigationImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getImporterNavigationNodesCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_NAVIGATION_NODE => $this->createImporterFactory()->createNavigationNodeImporter(),
         ];
     }
 

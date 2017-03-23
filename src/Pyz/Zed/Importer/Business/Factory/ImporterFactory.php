@@ -14,6 +14,8 @@ use Pyz\Zed\Importer\Business\Importer\Cms\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
+use Pyz\Zed\Importer\Business\Importer\Navigation\NavigationImporter;
+use Pyz\Zed\Importer\Business\Importer\Navigation\NavigationNodeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
@@ -320,6 +322,33 @@ class ImporterFactory extends AbstractFactory
             $this->getGlossaryFacade(),
             $this->getProductOptionFacade()
         );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Navigation\NavigationImporter
+     */
+    public function createNavigationImporter()
+    {
+        $navigationImporter = new NavigationImporter(
+            $this->getLocaleFacade(),
+            $this->getNavigationFacade()
+        );
+
+        return $navigationImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Navigation\NavigationNodeImporter
+     */
+    public function createNavigationNodeImporter()
+    {
+        $navigationImporter = new NavigationNodeImporter(
+            $this->getLocaleFacade(),
+            $this->getNavigationFacade(),
+            $this->getUrlFacade()
+        );
+
+        return $navigationImporter;
     }
 
     /**

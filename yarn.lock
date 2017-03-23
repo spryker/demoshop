@@ -992,12 +992,12 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
-foundation-sites@~6.2.1:
-  version "6.2.4"
-  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.2.4.tgz#554746c9f3d505bd5646b4dcc03f8a9941e67f7b"
+foundation-sites@~6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.3.1.tgz#23853372deb9480c13b426499eaf0c8f90cdbe1d"
   dependencies:
-    jquery "^2.2.0"
-    what-input "^2.0.0"
+    jquery ">=2.2.0"
+    what-input "^4.0.3"
 
 fs-extra@^0.26.4:
   version "0.26.7"
@@ -1397,7 +1397,7 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-jquery@^2.1.4, jquery@^2.2.0, jquery@~2.2.4:
+jquery@>=2.2.0, jquery@^2.2.0, jquery@~2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
 
@@ -1766,11 +1766,11 @@ moment@~2.17.1:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
-motion-ui@~1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/motion-ui/-/motion-ui-1.1.1.tgz#6141c44fcbf6877403dbbfaff7cf6abd8449fa12"
+motion-ui@~1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/motion-ui/-/motion-ui-1.2.2.tgz#ee13bdc498c9d691f0d2907114afd8b0d7a76b2f"
   dependencies:
-    jquery "^2.1.4"
+    jquery "^2.2.0"
 
 ms@0.7.1:
   version "0.7.1"
@@ -3013,9 +3013,9 @@ webpack@~2.2.0:
     webpack-sources "^0.1.4"
     yargs "^6.0.0"
 
-what-input@^2.0.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/what-input/-/what-input-2.1.1.tgz#86b6e0338d670a9fd936892b8f5115c4fe0d1d0b"
+what-input@^4.0.3:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/what-input/-/what-input-4.1.1.tgz#475ef53c4503bd13ac145e38ed7105a67eb69d79"
 
 whet.extend@~0.9.9:
   version "0.9.9"

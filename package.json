@@ -22,10 +22,10 @@
   "dependencies": {
     "es6-promise": "~4.1.0",
     "font-awesome": "~4.7.0",
-    "foundation-sites": "~6.2.1",
+    "foundation-sites": "~6.3.1",
     "jquery": "~2.2.4",
     "lodash": "~4.17.2",
-    "motion-ui": "~1.1.0"
+    "motion-ui": "~1.2.2"
   },
   "devDependencies": {
     "@spryker/oryx": "^0.4.5",

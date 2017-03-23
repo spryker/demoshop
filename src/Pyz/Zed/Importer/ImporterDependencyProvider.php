@@ -29,6 +29,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
     const FACADE_URL = 'FACADE_URL';
     const FACADE_PRODUCT_OPTION = 'FACADE_PRODUCT_OPTION';
+    const FACADE_NAVIGATION = 'FACADE_NAVIGATION';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -60,6 +61,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addDiscountFacade($container);
         $container = $this->addUrlFacade($container);
         $container = $this->addCountryFacade($container);
+        $container = $this->addNavigationFacade($container);
         $container = $this->addCmsQueryContainer($container);
         $container = $this->addProductQueryContainer($container);
         $container = $this->addPriceQueryContainer($container);
@@ -264,6 +266,20 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[static::FACADE_COUNTRY] = function (Container $container) {
             return $container->getLocator()->country()->facade();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addNavigationFacade(Container $container)
+    {
+        $container[static::FACADE_NAVIGATION] = function (Container $container) {
+            return $container->getLocator()->navigation()->facade();
         };
 
         return $container;

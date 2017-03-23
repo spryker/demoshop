@@ -5,11 +5,19 @@
 
 'use strict';
 
-require('foundation-sites/dist/plugins/foundation.core');
-require('foundation-sites/dist/plugins/foundation.toggler');
-require('foundation-sites/dist/plugins/foundation.util.mediaQuery.js');
-require('foundation-sites/dist/plugins/foundation.util.motion.js');
-require('foundation-sites/dist/plugins/foundation.util.triggers.js');
+// core
+require('foundation-sites/js/foundation.core');
+
+// utils
+require('foundation-sites/js/foundation.util.mediaQuery.js');
+require('foundation-sites/js/foundation.util.motion.js');
+require('foundation-sites/js/foundation.util.triggers.js');
+require('foundation-sites/js/foundation.util.keyboard.js');
+require('foundation-sites/js/foundation.util.box.js');
+
+// plugins
+require('foundation-sites/js/foundation.toggler');
+require('foundation-sites/js/foundation.dropdown.js');
 
 $(document).ready(function(){
     $(document).foundation();
