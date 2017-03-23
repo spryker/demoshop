@@ -1491,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a08787573ca23b7417f9cd158e74b681fad03386"
+                "reference": "35e98ced8b69fbba090e7c0f2ea59316c2c812d9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1753,6 +1753,20 @@
                     "Unit\\Spryker\\Shared\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Yves\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
+                    "Spryker\\Client\\Navigation\\": "Bundles/Navigation/src",
+                    "Spryker\\Shared\\Navigation\\": "Bundles/Navigation/src",
+                    "Spryker\\Yves\\Navigation\\": "Bundles/Navigation/src",
+                    "Spryker\\Zed\\Navigation\\": "Bundles/Navigation/src",
+                    "Functional\\Spryker\\Shared\\Navigation\\": "Bundles/Navigation/tests",
+                    "Functional\\Spryker\\Zed\\Navigation\\": "Bundles/Navigation/tests",
+                    "Spryker\\Shared\\NavigationCollector\\": "Bundles/NavigationCollector/src",
+                    "Spryker\\Zed\\NavigationCollector\\": "Bundles/NavigationCollector/src",
+                    "Functional\\Spryker\\Shared\\NavigationCollector\\": "Bundles/NavigationCollector/tests",
+                    "Functional\\Spryker\\Zed\\NavigationCollector\\": "Bundles/NavigationCollector/tests",
+                    "Spryker\\Shared\\NavigationGui\\": "Bundles/NavigationGui/src",
+                    "Spryker\\Zed\\NavigationGui\\": "Bundles/NavigationGui/src",
+                    "Functional\\Spryker\\Shared\\NavigationGui\\": "Bundles/NavigationGui/tests",
+                    "Functional\\Spryker\\Zed\\NavigationGui\\": "Bundles/NavigationGui/tests",
                     "Spryker\\Shared\\ZedNavigation\\": "Bundles/ZedNavigation/src",
                     "Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/src",
                     "Unit\\Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/tests",
@@ -2104,7 +2118,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-23 09:51:01"
+            "time": "2017-03-23 10:44:34"
         },
         {
             "name": "swiftmailer/swiftmailer",
