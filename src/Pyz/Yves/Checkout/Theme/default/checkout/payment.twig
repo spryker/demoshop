@@ -1,13 +1,15 @@
 {% extends "@checkout/layout.twig" %}
 {% import "@checkout/checkout/_macros.twig" as checkout %}
 
+{% block title %}
+    <h3>{{ 'checkout.step.payment.title' | trans }}</h3>
+{% endblock %}
+
 {% block content %}
     <div class="row columns">
         {{ form_start(paymentForm, { attr: { id: 'payment-form' }}) }}
 
             <div class="callout">
-                <h4>{{ 'checkout.step.payment.title' | trans }}</h4>
-
                 <ul class="no-bullet">
                     {% for method in paymentForm.paymentSelection %}
                         <li>

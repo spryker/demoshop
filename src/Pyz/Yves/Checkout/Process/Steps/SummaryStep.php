@@ -11,9 +11,10 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class SummaryStep extends AbstractBaseStep
+class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
 
     /**
@@ -105,6 +106,34 @@ class SummaryStep extends AbstractBaseStep
                 $quoteTransfer->getBundleItems()
             ),
         ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreadcrumbItemTitle()
+    {
+        return 'checkout.step.summary.title';
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemEnabled(AbstractTransfer $dataTransfer)
+    {
+        return $this->postCondition($dataTransfer);
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemHidden(AbstractTransfer $dataTransfer)
+    {
+        return !$this->requireInput($dataTransfer);
     }
 
 }

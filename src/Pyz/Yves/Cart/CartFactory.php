@@ -112,4 +112,12 @@ class CartFactory extends AbstractFactory
         return new VoucherForm();
     }
 
+    /**
+     * @return \Pyz\Yves\Checkout\Plugin\CheckoutBreadcrumbPlugin
+     */
+    public function getCheckoutBreadcrumbPlugin()
+    {
+        return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_CHECKOUT_BREADCRUMB);
+    }
+
 }
