@@ -6,20 +6,27 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
 =======
 >>>>>>> update composer
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "0882e407668436f239b82f0f9f09a42a",
 =======
 =======
 >>>>>>> update composer
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "094e6eb9da52c217e1a80f303c9a0bb5",
 =======
 =======
 >>>>>>> update composer
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "5e147bf30ceaea8ebc2335aa0741e83f",
 =======
@@ -44,9 +51,21 @@
 >>>>>>> update composer
 >>>>>>> update composer
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+<<<<<<< HEAD
 >>>>>>> update composer
+=======
+=======
+=======
+=======
+    "content-hash": "372756d7195bfd2b6907ca98cd8173b1",
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1536,8 +1555,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -1549,6 +1571,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1556,9 +1580,13 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "4242ef32bf960012033f22179d10d48867811938"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -1598,6 +1626,11 @@
 =======
                 "reference": "9adc899355a2d241b4b0fa13191ff7cda46bed56"
 >>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "e156185db47f059d5ee63c41d0dd5568d039d6dc"
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
@@ -1733,6 +1766,7 @@
                 "spryker/zend": "*"
             },
             "require-dev": {
+                "fzaninotto/faker": "^1.6",
                 "spryker/code-sniffer": "*"
             },
             "bin": [
@@ -2386,8 +2420,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -2399,6 +2436,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -2406,9 +2445,13 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-27 16:16:43"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -2448,6 +2491,11 @@
 =======
             "time": "2017-03-24 09:41:31"
 >>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-03-24 10:45:07"
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
