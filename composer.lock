@@ -1535,8 +1535,11 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 <<<<<<< HEAD
@@ -1544,9 +1547,13 @@
 =======
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 <<<<<<< HEAD
@@ -1554,9 +1561,13 @@
 =======
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ff5ec0f5fb5532b12c388722bb233e0367b25b89"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 <<<<<<< HEAD
@@ -1581,6 +1592,11 @@
 =======
 =======
                 "reference": "fc2aa3643132ef72ef2eb3a1a08daed8478b3798"
+>>>>>>> update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "9adc899355a2d241b4b0fa13191ff7cda46bed56"
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
@@ -2369,8 +2385,11 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 <<<<<<< HEAD
@@ -2378,9 +2397,13 @@
 =======
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 <<<<<<< HEAD
@@ -2388,9 +2411,13 @@
 =======
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-27 10:20:21"
 =======
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 <<<<<<< HEAD
@@ -2415,6 +2442,11 @@
 =======
 =======
             "time": "2017-03-23 07:43:40"
+>>>>>>> update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-03-24 09:41:31"
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
