@@ -21,4 +21,3 @@ $config[TwigConstants::YVES_PATH_CACHE_ENABLED] = true;
 
 $config[TwigConstants::ZED_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . $store . '/cache/Zed/twig/.pathCache';
 $config[TwigConstants::ZED_PATH_CACHE_ENABLED] = true;
-

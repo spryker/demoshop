@@ -1868,6 +1868,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
 =======
 =======
@@ -1988,6 +1989,9 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
                 "reference": "ea75756db54723399b795617102e99a0a1777076"
+>>>>>>> core-1012 update spryker/spryker
+=======
+                "reference": "3665d85f4db9ddfb0639b4f0dbdb9a9894d67f06"
 >>>>>>> core-1012 update spryker/spryker
             },
             "require": {
@@ -2747,6 +2751,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
 =======
@@ -3047,6 +3052,9 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
             "time": "2017-03-24 07:00:45"
+>>>>>>> core-1012 update spryker/spryker
+=======
+            "time": "2017-03-24 07:32:12"
 >>>>>>> core-1012 update spryker/spryker
         },
         {
