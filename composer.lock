@@ -10,6 +10,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
 =======
@@ -22,6 +23,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> added a console command to generate databuilder objects; added faker library
 <<<<<<< HEAD
     "content-hash": "0882e407668436f239b82f0f9f09a42a",
 =======
@@ -38,11 +41,19 @@
 >>>>>>> update composer
 =======
 >>>>>>> update spryker/spryker
+=======
+    "content-hash": "0882e407668436f239b82f0f9f09a42a",
+=======
+<<<<<<< HEAD
+    "content-hash": "094e6eb9da52c217e1a80f303c9a0bb5",
+=======
+>>>>>>> added a console command to generate databuilder objects; added faker library
 <<<<<<< HEAD
     "content-hash": "5e147bf30ceaea8ebc2335aa0741e83f",
 =======
     "content-hash": "0d7d8479cc5d366759b86489c1f85821",
 >>>>>>> added a console command to generate databuilder objects; added faker library
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> added a console command to generate databuilder objects; added faker library
 <<<<<<< HEAD
@@ -97,7 +108,14 @@
 =======
     "content-hash": "6e06a4eef48f0133367a9a17a34586e2",
 >>>>>>> update spryker/spryker, disable mails for testing
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+=======
+>>>>>>> added a console command to generate databuilder objects; added faker library
+>>>>>>> added a console command to generate databuilder objects; added faker library
+>>>>>>> added a console command to generate databuilder objects; added faker library
+>>>>>>> added a console command to generate databuilder objects; added faker library
     "packages": [
         {
             "name": "braintree/braintree_php",

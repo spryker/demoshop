@@ -136,6 +136,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new GenerateYvesIdeAutoCompletionConsole();
             $commands[] = new GenerateIdeAutoCompletionConsole();
             $commands[] = new CacheWarmerConsole();
+            $commands[] = new DataBuilderGeneratorConsole();
             $commands[] = new CompletionCommand();
             $commands[] = new DataBuilderGeneratorConsole();
         }
