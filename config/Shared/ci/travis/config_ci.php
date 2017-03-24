@@ -5,6 +5,7 @@ use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Kernel\KernelConstants;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
@@ -15,6 +16,7 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Testify\TestifyConstants;
+use Spryker\Shared\Twig\TwigConstants;
 
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 $config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
@@ -137,3 +139,10 @@ $config[TestifyConstants::BOOTSTRAP_CLASS_YVES] = YvesBootstrap::class;
 $config[TestifyConstants::BOOTSTRAP_CLASS_ZED] = ZedBootstrap::class;
 
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
+
+$store = Store::getInstance()->getStoreName();
+$config[TwigConstants::YVES_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . $store . '/cache/Yves/twig/.pathCache';
+$config[TwigConstants::YVES_PATH_CACHE_ENABLED] = true;
+
+$config[TwigConstants::ZED_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . $store . '/cache/Zed/twig/.pathCache';
+$config[TwigConstants::ZED_PATH_CACHE_ENABLED] = true;
