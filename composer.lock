@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
 =======
 =======
@@ -63,6 +64,9 @@
     "content-hash": "d16302664d7ca0b4d5a83ae470deac89",
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+=======
+    "content-hash": "fc1f634ce047b693e84d48af47e93ea4",
+>>>>>>> core-1012 update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -488,16 +492,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.2",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/0d6c7ca039329247e4f0f8f8f6506810e8248855",
+                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +553,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-02-27T10:51:17+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -695,16 +699,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.3",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
                 "shasum": ""
             },
             "require": {
@@ -769,7 +773,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-22T22:24:40+00:00"
+            "time": "2017-03-11T11:18:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1499,6 +1503,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> core-1012 update spryker/spryker
@@ -1848,11 +1853,14 @@
 >>>>>>> core-1012 update spryker/spryker
 =======
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+=======
+>>>>>>> core-1012 update spryker/spryker
             "name": "spryker/spryker",
             "version": "dev-feature/core-1012-enable-3rd-party-bundles",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1977,6 +1985,9 @@
 =======
                 "reference": "cd17f6d2d03381d6ea8778d74baf33689ce7d539"
 >>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+=======
+                "reference": "ea75756db54723399b795617102e99a0a1777076"
 >>>>>>> core-1012 update spryker/spryker
             },
             "require": {
@@ -2735,6 +2746,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-03-23 13:32:10"
 =======
 =======
@@ -3032,6 +3044,9 @@
 =======
             "time": "2017-03-23 09:40:23"
 >>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+=======
+            "time": "2017-03-24 07:00:45"
 >>>>>>> core-1012 update spryker/spryker
         },
         {
@@ -4795,16 +4810,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.33.0",
+            "version": "v1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a"
+                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9935b662e24d6e634da88901ab534cc12e8c728f",
+                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f",
                 "shasum": ""
             },
             "require": {
@@ -4813,12 +4828,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.3@dev"
+                "symfony/phpunit-bridge": "~3.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.33-dev"
+                    "dev-master": "1.32-dev"
                 }
             },
             "autoload": {
@@ -4853,7 +4868,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-03-22T15:40:09+00:00"
+            "time": "2017-02-27T00:07:03+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -5426,27 +5441,27 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.9.0",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c"
+                "reference": "99b528e01276054458da9553b587cfb959dfa436"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/b71641582297eab52753b72cd4eb45a5ded4485c",
-                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/99b528e01276054458da9553b587cfb959dfa436",
+                "reference": "99b528e01276054458da9553b587cfb959dfa436",
                 "shasum": ""
             },
             "require": {
                 "container-interop/container-interop": "^1.1",
-                "php": "^5.6 || ^7.0",
-                "zendframework/zend-stdlib": "^2.7.6 || ^3.1"
+                "php": "^5.5 || ^7.0",
+                "zendframework/zend-stdlib": "^2.7 || ^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "^4.0",
                 "zendframework/zend-cache": "^2.6.1",
-                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-config": "^2.6",
                 "zendframework/zend-db": "^2.7",
                 "zendframework/zend-filter": "^2.6",
@@ -5458,20 +5473,20 @@
                 "zendframework/zend-uri": "^2.5"
             },
             "suggest": {
-                "zendframework/zend-db": "Zend\\Db component, required by the (No)RecordExists validator",
+                "zendframework/zend-db": "Zend\\Db component",
                 "zendframework/zend-filter": "Zend\\Filter component, required by the Digits validator",
-                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages",
+                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages as well as to use the various Date validators",
                 "zendframework/zend-i18n-resources": "Translations of validator messages",
-                "zendframework/zend-math": "Zend\\Math component, required by the Csrf validator",
+                "zendframework/zend-math": "Zend\\Math component",
                 "zendframework/zend-servicemanager": "Zend\\ServiceManager component to allow using the ValidatorPluginManager and validator chains",
-                "zendframework/zend-session": "Zend\\Session component, required by the Csrf validator",
+                "zendframework/zend-session": "Zend\\Session component",
                 "zendframework/zend-uri": "Zend\\Uri component, required by the Uri and Sitemap\\Loc validators"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.9-dev",
-                    "dev-develop": "2.10-dev"
+                    "dev-master": "2.8-dev",
+                    "dev-develop": "2.9-dev"
                 },
                 "zf": {
                     "component": "Zend\\Validator",
@@ -5493,7 +5508,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2017-03-17T10:15:50+00:00"
+            "time": "2017-01-29T17:24:24+00:00"
         }
     ],
     "packages-dev": [
@@ -7603,6 +7618,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
             },
             "dist": {
@@ -7619,12 +7635,15 @@
 =======
 >>>>>>> core-1012 update spryker/spryker
 <<<<<<< HEAD
+=======
+>>>>>>> core-1012 update spryker/spryker
                 "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0283903c14b7545138a7974be659b4af1fb7464b",
                 "reference": "0283903c14b7545138a7974be659b4af1fb7464b",
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> core-1012 added spryker/spryker template paths in project
@@ -7722,6 +7741,8 @@
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
 >>>>>>> core-1012 update spryker/spryker
 >>>>>>> core-1012 update spryker/spryker
+=======
+>>>>>>> core-1012 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7755,6 +7776,7 @@
                 "phpcs",
                 "standards"
             ],
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -7841,6 +7863,9 @@
 =======
             "time": "2017-03-17 13:33:48"
 >>>>>>> core-1012 update spryker/spryker
+>>>>>>> core-1012 update spryker/spryker
+=======
+            "time": "2017-03-09 15:17:56"
 >>>>>>> core-1012 update spryker/spryker
         },
         {
@@ -8198,38 +8223,38 @@
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v3.0.9",
+            "version": "v2.8.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "34ddcc46f09f6564f03cb61134ee51f3b309aa58"
+                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/34ddcc46f09f6564f03cb61134ee51f3b309aa58",
-                "reference": "34ddcc46f09f6564f03cb61134ee51f3b309aa58",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/5a6a2605ee365b98ec7159fb517ff36afebb7fff",
+                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "twig/twig": "~1.23|~2.0"
+                "php": ">=5.3.9",
+                "twig/twig": "~1.28|~2.0"
             },
             "require-dev": {
-                "symfony/asset": "~2.8|~3.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/finder": "~2.8|~3.0",
-                "symfony/form": "~3.0.4",
-                "symfony/http-kernel": "~2.8|~3.0",
+                "symfony/asset": "~2.7|~3.0.0",
+                "symfony/console": "~2.8|~3.0.0",
+                "symfony/expression-language": "~2.4|~3.0.0",
+                "symfony/finder": "~2.3|~3.0.0",
+                "symfony/form": "^2.8.18",
+                "symfony/http-kernel": "~2.8|~3.0.0",
                 "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.8|~3.0",
-                "symfony/security": "~2.8|~3.0",
-                "symfony/security-acl": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0",
-                "symfony/templating": "~2.8|~3.0",
-                "symfony/translation": "~2.8|~3.0",
-                "symfony/var-dumper": "~2.8.9|~3.0.9|~3.1.3|~3.2",
-                "symfony/yaml": "~2.8|~3.0"
+                "symfony/routing": "~2.2|~3.0.0",
+                "symfony/security": "~2.6|~3.0.0",
+                "symfony/security-acl": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.2|~3.0.0",
+                "symfony/templating": "~2.1|~3.0.0",
+                "symfony/translation": "~2.7|~3.0.0",
+                "symfony/var-dumper": "~2.7.16|~2.8.9|~3.0.9",
+                "symfony/yaml": "^2.0.5|~3.0.0"
             },
             "suggest": {
                 "symfony/asset": "For using the AssetExtension",
@@ -8248,7 +8273,7 @@
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -8275,7 +8300,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2016-07-28T11:13:34+00:00"
+            "time": "2017-02-28T13:13:45+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -8342,35 +8367,34 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v2.8.18",
+            "version": "v2.7.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "0b9f50851bc6c787d53794d4e7f45cc3ed5e9d08"
+                "reference": "d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/0b9f50851bc6c787d53794d4e7f45cc3ed5e9d08",
-                "reference": "0b9f50851bc6c787d53794d4e7f45cc3ed5e9d08",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60",
+                "reference": "d6a6a89a3340455a73e7efad9d6eb2bb5cac4e60",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/twig-bridge": "~2.7|~3.0.0",
-                "twig/twig": "~1.28|~2.0"
+                "symfony/http-kernel": "~2.4",
+                "symfony/routing": "~2.2",
+                "symfony/twig-bridge": "~2.7"
             },
             "require-dev": {
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/console": "~2.3|~3.0.0",
-                "symfony/dependency-injection": "~2.2|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0"
+                "symfony/config": "~2.2",
+                "symfony/console": "~2.3",
+                "symfony/dependency-injection": "~2.2",
+                "symfony/stopwatch": "~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -8397,7 +8421,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2017-02-28T13:13:45+00:00"
+            "time": "2016-10-22T15:04:15+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -8497,6 +8521,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "spryker/rabbit-mq": 20,
 =======
 =======
@@ -8523,6 +8548,8 @@
 =======
         "spryker/rabbit-mq": 20,
 >>>>>>> core-1012 update TransferConfig and spryker/spryker
+=======
+>>>>>>> core-1012 update spryker/spryker
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20
