@@ -4,69 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-<<<<<<< HEAD
-    "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-    "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
-    "content-hash": "6526d21e7696cb9a5ff9e32a205c5a67",
-=======
-    "content-hash": "12c4765f6a5d1b15c3a631fe5c1a213c",
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-=======
-=======
-=======
-=======
-    "content-hash": "fb3a9d9e7e53a3d4c852aa0dabb88ba3",
->>>>>>> core-1012 added spryker/spryker template paths in project
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
-=======
-=======
-    "content-hash": "081059a52bcb2493440bf0698a85ab91",
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update spryker/spryker
-=======
-=======
     "content-hash": "d16302664d7ca0b4d5a83ae470deac89",
->>>>>>> core-1012 update TransferConfig and spryker/spryker
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
-    "content-hash": "fc1f634ce047b693e84d48af47e93ea4",
->>>>>>> core-1012 update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -492,16 +430,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/0d6c7ca039329247e4f0f8f8f6506810e8248855",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -553,7 +491,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-02-27T10:51:17+00:00"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -699,16 +637,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
+                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
-                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
+                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
                 "shasum": ""
             },
             "require": {
@@ -773,7 +711,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-11T11:18:38+00:00"
+            "time": "2017-03-22T22:24:40+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1500,21 +1438,6 @@
             "time": "2016-01-06T14:59:35+00:00"
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
->>>>>>> core-1012 update TransferConfig and spryker/spryker
             "name": "spryker/rabbit-mq",
             "version": "dev-master",
             "source": {
@@ -1561,438 +1484,14 @@
                 "source": "https://github.com/spryker/rabbit-mq"
             },
             "time": "2017-03-20 15:48:36"
-<<<<<<< HEAD
-<<<<<<< HEAD
         },
         {
-=======
-=======
-            "name": "spryker-eco/showcase",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker-eco/showcase.git",
-                "reference": "04ff38c92f3171f6b02bb57adee0dd1a094a4af9"
-            },
-            "require": {
-                "spryker/kernel": "^3.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "SprykerEco": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Showcase for 3rd party vendor namespace'd bundles",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-03-08 07:39:35"
-        },
-        {
-            "name": "spryker/config",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/Config.git",
-                "reference": "daf168a020a648d3bb7e0b23657aede6378c92f5",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Config/zipball/daf168a020a648d3bb7e0b23657aede6378c92f5",
-                "reference": "daf168a020a648d3bb7e0b23657aede6378c92f5",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "spryker/kernel": "^3.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/symfony": "*",
-                "spryker/testify": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                },
-                "psr-4": {
-                    "Config\\Module\\": "tests/_support/Module"
-                },
-                "files": [
-                    "src/Spryker/Shared/Config.php"
-                ]
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Config bundle",
-            "support": {
-                "source": "https://github.com/spryker/Config/tree/beta/core-714-big-core-cleanup"
-            },
-            "time": "2017-02-22T12:08:46+00:00"
-        },
-        {
-            "name": "spryker/kernel",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/Kernel.git",
-                "reference": "1fa6760071779b4e88433c6ff15f510846fa41b2",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/1fa6760071779b4e88433c6ff15f510846fa41b2",
-                "reference": "1fa6760071779b4e88433c6ff15f510846fa41b2",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "everon/collection": "^1.0.0",
-                "php": ">=5.6.0",
-                "spryker/config": "^3.0.0",
-                "spryker/propel-orm": "^1.0.0",
-                "spryker/silex": "^2.0.0",
-                "spryker/symfony": "^3.0.0",
-                "spryker/util-encoding": "^2.0.0",
-                "spryker/zend": "^2.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/console": "^3.0.0",
-                "spryker/testify": "*",
-                "spryker/transfer": "^3.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Kernel bundle",
-            "support": {
-                "source": "https://github.com/spryker/Kernel/tree/beta/core-714-big-core-cleanup"
-            },
-            "time": "2017-02-22T12:08:46+00:00"
-        },
-        {
-            "name": "spryker/propel-orm",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/PropelOrm.git",
-                "reference": "4c30599d6fab6ca1cc9bae221f524bf10914e9fc",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/PropelOrm/zipball/4c30599d6fab6ca1cc9bae221f524bf10914e9fc",
-                "reference": "4c30599d6fab6ca1cc9bae221f524bf10914e9fc",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "propel/propel": "2.0.0-alpha7"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\Zed\\PropelOrm\\": "src/Spryker/Zed/PropelOrm"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "PropelOrm bundle",
-            "support": {
-                "source": "https://github.com/spryker/PropelOrm/tree/master"
-            },
-            "time": "2017-02-22T11:52:27+00:00"
-        },
-        {
-            "name": "spryker/silex",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/Silex.git",
-                "reference": "74f923cb4691ff23bd1daa73052fc8ef99cf6bd9",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Silex/zipball/74f923cb4691ff23bd1daa73052fc8ef99cf6bd9",
-                "reference": "74f923cb4691ff23bd1daa73052fc8ef99cf6bd9",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "silex/silex": "^1.3.5"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Silex bundle",
-            "support": {
-                "source": "https://github.com/spryker/Silex/tree/master"
-            },
-            "time": "2016-12-09T13:45:20+00:00"
->>>>>>> core-1012 added more open glob patterns
-=======
-            "time": "2017-03-08 15:06:34"
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
-            "time": "2017-03-09 13:20:46"
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-        },
-        {
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-=======
-=======
-=======
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
             "name": "spryker/spryker",
             "version": "dev-feature/core-1012-enable-3rd-party-bundles",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "2a35f3e4b8da944c20def9649a5dc78f79d6a466"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
-                "reference": "5e4ad17255c912ad39b68ec0dc19d264a59fc784"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
-                "reference": "0ae996092bfd1d61126d630508608967b73c4db2"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
-                "reference": "73084230e89edfceb5d2ff9487eed37df534d535"
-=======
-                "reference": "f5f82dabb092bd3df4aebece41a0dc5c0522f1f1"
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "390d20f07a9f02075fe3e03fe358e38b9b62b8e7"
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "8816f968964cd190f06890d35ec341449ff70645"
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-=======
-=======
-=======
-                "reference": "00e120953e9bc126da24820c4748a002f46dc33e"
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "a2eebea2114ad59d89a57749684d25e04d0a8b80"
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update spryker/spryker
-=======
-=======
-                "reference": "7b7517fff308ae971d87f53275e480b8e89ff7b8"
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
-=======
-                "reference": "cd17f6d2d03381d6ea8778d74baf33689ce7d539"
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-=======
-                "reference": "ea75756db54723399b795617102e99a0a1777076"
->>>>>>> core-1012 update spryker/spryker
-=======
                 "reference": "3665d85f4db9ddfb0639b4f0dbdb9a9894d67f06"
->>>>>>> core-1012 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2743,319 +2242,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-03-23 13:32:10"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-03-13 14:07:00"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-03-22 15:41:58"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
-            "time": "2017-03-20 11:42:08"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
-            "time": "2017-03-13 14:07:00"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
-            "time": "2017-03-08 14:59:48"
-=======
-            "time": "2017-03-07 12:57:54"
-        },
-        {
-            "name": "spryker/symfony",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/Symfony.git",
-                "reference": "9936122f00e8302ba5d550944ee5f6d93f2899a7",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Symfony/zipball/9936122f00e8302ba5d550944ee5f6d93f2899a7",
-                "reference": "9936122f00e8302ba5d550944ee5f6d93f2899a7",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "symfony-cmf/routing": "^1.3.0",
-                "symfony/debug": "^2.6.13",
-                "symfony/filesystem": "^2.6.13",
-                "symfony/finder": "^2.6.13",
-                "symfony/form": "^2.7.0",
-                "symfony/http-foundation": "^2.8.0",
-                "symfony/http-kernel": "^2.6.13",
-                "symfony/intl": "^2.8.8",
-                "symfony/options-resolver": "^2.6.13",
-                "symfony/process": "^2.6.13",
-                "symfony/property-access": "^2.6.13",
-                "symfony/routing": "^2.6.13",
-                "symfony/security": "^2.6.13",
-                "symfony/serializer": "^2.6.13",
-                "symfony/translation": "^2.6.13",
-                "symfony/twig-bridge": "^2.7.0",
-                "symfony/validator": "^2.6.13",
-                "symfony/yaml": "^2.6.13"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Symfony bundle",
-            "support": {
-                "source": "https://github.com/spryker/Symfony/tree/beta/core-714-big-core-cleanup"
-            },
-            "time": "2017-02-22T12:08:46+00:00"
-        },
-        {
-            "name": "spryker/util-encoding",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/UtilEncoding.git",
-                "reference": "d4bec731fa08736d8681597a48e0752b75170dca",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilEncoding/zipball/d4bec731fa08736d8681597a48e0752b75170dca",
-                "reference": "d4bec731fa08736d8681597a48e0752b75170dca",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "UtilEncoding bundle",
-            "support": {
-                "source": "https://github.com/spryker/UtilEncoding/tree/beta/core-714-big-core-cleanup"
-            },
-            "time": "2017-02-22T12:08:46+00:00"
-        },
-        {
-            "name": "spryker/zend",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/Zend.git",
-                "reference": "86272edb4cc935780bfa320ad48814c3dcd0940d",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Zend/zipball/86272edb4cc935780bfa320ad48814c3dcd0940d",
-                "reference": "86272edb4cc935780bfa320ad48814c3dcd0940d",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "zendframework/zend-code": "^2.6.2",
-                "zendframework/zend-config": "^2.5.1",
-                "zendframework/zend-eventmanager": "^2.6.2",
-                "zendframework/zend-filter": "^2.5.1",
-                "zendframework/zend-http": "^2.5.3",
-                "zendframework/zend-servicemanager": "^2.7.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Zend bundle",
-            "support": {
-                "source": "https://github.com/spryker/Zend/tree/master"
-            },
-            "time": "2016-12-09T13:45:20+00:00"
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-03-09 11:11:10"
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-03-09 14:05:10"
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-<<<<<<< HEAD
->>>>>>> core-1012 update stores.php to use US store as second store, fixed missing US db config
-=======
-=======
-=======
-            "time": "2017-03-20 13:00:50"
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-03-20 16:01:21"
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update spryker/spryker
-=======
-=======
-            "time": "2017-03-23 08:07:13"
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
-=======
-            "time": "2017-03-23 09:40:23"
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-=======
-            "time": "2017-03-24 07:00:45"
->>>>>>> core-1012 update spryker/spryker
-=======
             "time": "2017-03-24 07:32:12"
->>>>>>> core-1012 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4818,16 +4005,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.32.0",
+            "version": "v1.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f"
+                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9935b662e24d6e634da88901ab534cc12e8c728f",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
+                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
                 "shasum": ""
             },
             "require": {
@@ -4836,12 +4023,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.2"
+                "symfony/phpunit-bridge": "~3.3@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.32-dev"
+                    "dev-master": "1.33-dev"
                 }
             },
             "autoload": {
@@ -4876,7 +4063,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-02-27T00:07:03+00:00"
+            "time": "2017-03-22T15:40:09+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -5449,27 +4636,27 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.8.2",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436"
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/99b528e01276054458da9553b587cfb959dfa436",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/b71641582297eab52753b72cd4eb45a5ded4485c",
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c",
                 "shasum": ""
             },
             "require": {
                 "container-interop/container-interop": "^1.1",
-                "php": "^5.5 || ^7.0",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-stdlib": "^2.7.6 || ^3.1"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.0",
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
                 "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-config": "^2.6",
                 "zendframework/zend-db": "^2.7",
                 "zendframework/zend-filter": "^2.6",
@@ -5481,20 +4668,20 @@
                 "zendframework/zend-uri": "^2.5"
             },
             "suggest": {
-                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-db": "Zend\\Db component, required by the (No)RecordExists validator",
                 "zendframework/zend-filter": "Zend\\Filter component, required by the Digits validator",
-                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages as well as to use the various Date validators",
+                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages",
                 "zendframework/zend-i18n-resources": "Translations of validator messages",
-                "zendframework/zend-math": "Zend\\Math component",
+                "zendframework/zend-math": "Zend\\Math component, required by the Csrf validator",
                 "zendframework/zend-servicemanager": "Zend\\ServiceManager component to allow using the ValidatorPluginManager and validator chains",
-                "zendframework/zend-session": "Zend\\Session component",
+                "zendframework/zend-session": "Zend\\Session component, required by the Csrf validator",
                 "zendframework/zend-uri": "Zend\\Uri component, required by the Uri and Sitemap\\Loc validators"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.9-dev",
+                    "dev-develop": "2.10-dev"
                 },
                 "zf": {
                     "component": "Zend\\Validator",
@@ -5516,7 +4703,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2017-01-29T17:24:24+00:00"
+            "time": "2017-03-17T10:15:50+00:00"
         }
     ],
     "packages-dev": [
@@ -7597,23 +6784,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-03-07T12:41:16+00:00"
-=======
-<<<<<<< HEAD
             "time": "2017-03-07 12:41:16"
-=======
-<<<<<<< HEAD
-            "time": "2017-03-07T12:41:16+00:00"
-=======
-            "time": "2017-03-07 12:41:16"
->>>>>>> core-1012 added more open glob patterns
->>>>>>> core-1012 added more open glob patterns
->>>>>>> core-1012 added more open glob patterns
-=======
-            "time": "2017-03-07 12:41:16"
->>>>>>> core-1012 update spryker/spryker
         },
         {
             "name": "spryker/code-sniffer",
@@ -7621,136 +6792,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
                 "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-=======
->>>>>>> core-1012 update spryker/spryker
-                "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0283903c14b7545138a7974be659b4af1fb7464b",
-                "reference": "0283903c14b7545138a7974be659b4af1fb7464b",
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-                "reference": "0283903c14b7545138a7974be659b4af1fb7464b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0283903c14b7545138a7974be659b4af1fb7464b",
-                "reference": "0283903c14b7545138a7974be659b4af1fb7464b",
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/837b6b1414854e2df616e3a22c237c00e56e5eb9",
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9",
-=======
-                "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
-                "reference": "bc202be12d221f290fa0bdc9ab2d053e5efb5cac",
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-=======
-=======
-=======
-=======
-=======
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/837b6b1414854e2df616e3a22c237c00e56e5eb9",
-                "reference": "837b6b1414854e2df616e3a22c237c00e56e5eb9",
->>>>>>> core-1012 added spryker/spryker template paths in project
->>>>>>> core-1012 added spryker/spryker template paths in project
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
-=======
-=======
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update spryker/spryker
-=======
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
-=======
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7784,97 +6831,7 @@
                 "phpcs",
                 "standards"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-03-17 13:33:48"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-03-09 15:17:56"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-03-17 13:33:48"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
-            "time": "2017-03-09 15:17:56"
-=======
-=======
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
-            "time": "2017-03-08T10:04:51+00:00"
-=======
-            "time": "2017-03-06 11:14:49"
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-03-08 10:04:51"
->>>>>>> core-1012 added spryker/spryker template paths in project
->>>>>>> core-1012 added spryker/spryker template paths in project
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-<<<<<<< HEAD
->>>>>>> core-1012 added spryker/spryker template paths in project
-=======
-=======
-=======
-            "time": "2017-03-17 13:33:48"
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-03-17T13:33:48+00:00"
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update spryker/spryker
-=======
-=======
-            "time": "2017-03-09 15:17:56"
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
-=======
-            "time": "2017-03-17 13:33:48"
->>>>>>> core-1012 update spryker/spryker
->>>>>>> core-1012 update spryker/spryker
-=======
-            "time": "2017-03-09 15:17:56"
->>>>>>> core-1012 update spryker/spryker
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -8526,38 +7483,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         "spryker/rabbit-mq": 20,
-=======
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-1012 update spryker/spryker
-<<<<<<< HEAD
-        "spryker/rabbit-mq": 20,
-=======
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
-<<<<<<< HEAD
->>>>>>> core-1012 added more open glob patterns
->>>>>>> core-1012 added more open glob patterns
-        "spryker/architecture-sniffer": 20,
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
-=======
-        "spryker/rabbit-mq": 20,
->>>>>>> core-1012 update TransferConfig and spryker/spryker
-=======
->>>>>>> core-1012 update spryker/spryker
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20
