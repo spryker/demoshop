@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<transfers xmlns="http://xsd.spryker.com"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/transfer-01.xsd" >
+
+    <transfer name="StorageProductRelations">
+        <property name="abstractProducts" type="StorageProductAbstractRelation[]" singular="abstractProduct" />
+        <property name="type" type="string" />
+        <property name="isActive" type="bool" />
+    </transfer>
+
+    <transfer name="StorageProductAbstractRelation">
+        <property name="name" type="string" />
+        <property name="price" type="int" />
+        <property name="url" type="string" />
+        <property name="sku" type="string" />
+        <property name="order" type="int" />
+        <property name="imageSets" type="array" singular="imageSet" />
+    </transfer>
+
+</transfers>

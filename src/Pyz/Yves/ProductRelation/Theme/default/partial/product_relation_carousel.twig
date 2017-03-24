@@ -1,0 +1,26 @@
+{% if productRelations %}
+<div class="row">
+    <div class="small-12 columns">
+        <div class="callout">
+            <h3>{{ name }}</h3>
+            <div class="row align-spaced">
+                <div class="small-11 columns">
+                    <div class="carousel" data-component="carousel">
+                    {% for relation in productRelations %}
+
+                        {% include "@catalog/catalog/partials/product.twig" with {
+                          detailsUrl: relation.url,
+                          name:relation.name,
+                          priceValue: relation.price,
+                          product: relation,
+                          imageUrl: (relation.imageSets|length ? relation.imageSets.default[0].externalUrlSmall : '')
+                        } %}
+
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

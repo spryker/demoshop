@@ -76,6 +76,15 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
+$jobs[] = [
+    'name' => 'product-relation-updater',
+    'command' => '$PHP_BIN vendor/bin/console product-relation:update -vvv',
+    'schedule' => '*/10 * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
 /* StateMachine */
 /*
 $jobs[] = [

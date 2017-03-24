@@ -20,6 +20,7 @@ use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductOptionCollector;
+use Pyz\Zed\Collector\Business\Storage\ProductRelationCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
@@ -29,6 +30,7 @@ use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Propel\ProductRelationCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
@@ -436,6 +438,37 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\Collector\Business\Storage\ProductRelationCollector
+     */
+    public function createStorageProductRelationCollector()
+    {
+        $productRelationCollector = new ProductRelationCollector(
+            $this->getUtilDataReaderService(),
+            $this->getProductImageQueryContainer(),
+            $this->getProductFacade(),
+            $this->getPriceFacade(),
+            $this->getProductRelationQueryContainer()
+        );
+
+        $productRelationCollector->setTouchQueryContainer(
+            $this->getTouchQueryContainer()
+        );
+        $productRelationCollector->setQueryBuilder(
+            $this->createStorageProductRelationCollectorPropelQuery()
+        );
+
+        return $productRelationCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\ProductRelationCollectorQuery
+     */
+    public function createStorageProductRelationCollectorPropelQuery()
+    {
+        return new ProductRelationCollectorQuery();
+    }
+
+    /**
      * @return \Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery
      */
     public function createProductOptionCollectorPropelQuery()
@@ -576,6 +609,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getProductFacade()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductRelation\Persistence\ProductRelationQueryContainerInterface
+     */
+    protected function getProductRelationQueryContainer()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_RELATION);
     }
 
     /**

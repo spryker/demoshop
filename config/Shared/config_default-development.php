@@ -9,6 +9,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
@@ -93,3 +94,5 @@ $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker
 $config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;
 
 $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
+
+$config[EventConstants::LOGGER_ACTIVE] = true;

@@ -1,0 +1,20 @@
+
+.carousel {
+  font-size:14px;
+
+  .image-container {
+     width: 150px;
+     height: 180px;
+  }
+
+  .slick-slide {
+     margin-left: 10px;
+  }
+
+  .product-name {
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+  }
+
+}

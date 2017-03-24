@@ -36,8 +36,10 @@ use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NavigationCollector\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
+use Spryker\Zed\ProductRelation\ProductRelationConfig;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
 use Spryker\Zed\Url\UrlConfig;
+use \Pyz\Zed\Collector\Communication\Plugin\ProductRelationCollectorPlugin;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
@@ -61,6 +63,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const QUERY_CONTAINER_CATEGORY = 'category query container';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
+    const QUERY_CONTAINER_PRODUCT_RELATION = 'query container product relation';
 
     const PLUGIN_PRODUCT_DATA_PAGE_MAP = 'PLUGIN_PRODUCT_DATA_PAGE_MAP';
     const PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP = 'PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP';
@@ -93,6 +96,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->queryContainer();
+        };
+
+        $container[self::QUERY_CONTAINER_PRODUCT_RELATION] = function (Container $container) {
+            return $container->getLocator()->productRelation()->queryContainer();
         };
 
         $container[self::FACADE_SEARCH] = function (Container $container) {
@@ -131,6 +138,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 UrlConfig::RESOURCE_TYPE_URL => new UrlCollectorStoragePlugin(),
                 ProductSearchConfig::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
                 ProductOptionConfig::RESOURCE_TYPE_PRODUCT_OPTION => new ProductOptionCollectorStoragePlugin(),
+                ProductRelationConfig::RESOURCE_TYPE_PRODUCT_RELATION => new ProductRelationCollectorPlugin(),
             ];
         };
 

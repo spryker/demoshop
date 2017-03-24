@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
+    "content-hash": "66a498869e19714a169a6ec4af585cb9",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -637,16 +637,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.3",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +711,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-22T22:24:40+00:00"
+            "time": "2017-03-11T11:18:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1443,7 +1443,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "ad28b94faf72770e3a929bfcf6a204f419c3abee"
+                "reference": "a7c54c42daf083c9ec5f79155710ff76b4a8e424"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -1483,15 +1483,15 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-03-20 15:48:36"
+            "time": "2017-03-17 13:57:20"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-502-product-relations",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
+                "reference": "4f476c7058e2a4a5ba8f987e7502c5b101c58395"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1753,20 +1753,6 @@
                     "Unit\\Spryker\\Shared\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Yves\\Money\\": "Bundles/Money/tests",
                     "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
-                    "Spryker\\Client\\Navigation\\": "Bundles/Navigation/src",
-                    "Spryker\\Shared\\Navigation\\": "Bundles/Navigation/src",
-                    "Spryker\\Yves\\Navigation\\": "Bundles/Navigation/src",
-                    "Spryker\\Zed\\Navigation\\": "Bundles/Navigation/src",
-                    "Functional\\Spryker\\Shared\\Navigation\\": "Bundles/Navigation/tests",
-                    "Functional\\Spryker\\Zed\\Navigation\\": "Bundles/Navigation/tests",
-                    "Spryker\\Shared\\NavigationCollector\\": "Bundles/NavigationCollector/src",
-                    "Spryker\\Zed\\NavigationCollector\\": "Bundles/NavigationCollector/src",
-                    "Functional\\Spryker\\Shared\\NavigationCollector\\": "Bundles/NavigationCollector/tests",
-                    "Functional\\Spryker\\Zed\\NavigationCollector\\": "Bundles/NavigationCollector/tests",
-                    "Spryker\\Shared\\NavigationGui\\": "Bundles/NavigationGui/src",
-                    "Spryker\\Zed\\NavigationGui\\": "Bundles/NavigationGui/src",
-                    "Functional\\Spryker\\Shared\\NavigationGui\\": "Bundles/NavigationGui/tests",
-                    "Functional\\Spryker\\Zed\\NavigationGui\\": "Bundles/NavigationGui/tests",
                     "Spryker\\Shared\\ZedNavigation\\": "Bundles/ZedNavigation/src",
                     "Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/src",
                     "Unit\\Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/tests",
@@ -2071,6 +2057,12 @@
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
+                    "Spryker\\Shared\\ProductRelation\\": "Bundles/ProductRelation/src",
+                    "Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/src",
+                    "Unit\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
+                    "Functional\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
+                    "Spryker\\Client\\ProductRelation\\": "Bundles/ProductRelation/src",
+                    "Spryker\\Yves\\ProductRelation\\": "Bundles/ProductRelation/src",
                     "Spryker\\Client\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Shared\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/src",
@@ -2095,7 +2087,11 @@
                     "Spryker\\Shared\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
                     "Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
                     "Unit\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
-                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests"
+                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
+                    "Spryker\\Shared\\Event\\": "Bundles/Event/src",
+                    "Spryker\\Zed\\Event\\": "Bundles/Event/src",
+                    "Unit\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
+                    "Functional\\Spryker\\Zed\\Event\\": "Bundles/Event/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -2118,7 +2114,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-23 13:32:10"
+            "time": "2017-03-23 12:57:33"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3962,16 +3958,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.33.0",
+            "version": "v1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a"
+                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9935b662e24d6e634da88901ab534cc12e8c728f",
+                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f",
                 "shasum": ""
             },
             "require": {
@@ -3980,12 +3976,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.3@dev"
+                "symfony/phpunit-bridge": "~3.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.33-dev"
+                    "dev-master": "1.32-dev"
                 }
             },
             "autoload": {
@@ -4020,7 +4016,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-03-22T15:40:09+00:00"
+            "time": "2017-02-27T00:07:03+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -6741,7 +6737,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",

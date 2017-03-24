@@ -49,6 +49,7 @@ use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
+use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
 
@@ -115,6 +116,7 @@ class YvesBootstrap
         $this->application->register(new FormFactoryServiceProvider());
         $this->application->register(new LanguageServiceProvider());
         $this->application->register(new TwigMoneyServiceProvider());
+        $this->application->register(new ProductRelationTwigServiceProvider());
         $this->application->register(new NavigationTwigServiceProvider());
     }
 
