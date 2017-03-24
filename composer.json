@@ -77,7 +77,8 @@
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
-    "stecman/symfony-console-completion": "^0.7.0"
+    "stecman/symfony-console-completion": "^0.7.0",
+    "fzaninotto/faker": "^1.6"
   },
   "autoload": {
     "psr-0": {

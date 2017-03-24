@@ -4,7 +4,23 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
+=======
+<<<<<<< HEAD
+    "content-hash": "0882e407668436f239b82f0f9f09a42a",
+=======
+<<<<<<< HEAD
+    "content-hash": "094e6eb9da52c217e1a80f303c9a0bb5",
+=======
+<<<<<<< HEAD
+    "content-hash": "5e147bf30ceaea8ebc2335aa0741e83f",
+=======
+    "content-hash": "0d7d8479cc5d366759b86489c1f85821",
+>>>>>>> added a console command to generate databuilder objects; added faker library
+>>>>>>> added a console command to generate databuilder objects; added faker library
+>>>>>>> added a console command to generate databuilder objects; added faker library
+>>>>>>> added a console command to generate databuilder objects; added faker library
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -5123,6 +5139,54 @@
                 "webdriver"
             ],
             "time": "2017-01-13T15:48:08+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3|^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2016-04-29T12:21:54+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",
