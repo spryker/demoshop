@@ -22,6 +22,7 @@ use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
@@ -416,3 +417,19 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
 ];
 
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
+
+$config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
+$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 10000;
+$config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
+
+/*
+ * Queues can have different adapters and maximum worker number
+ * QUEUE_ADAPTER_CONFIGURATION can have the array like this as an example:
+ *
+ *   'mailQueue' => [
+ *       QueueConfig::CONFIG_QUEUE_ADAPTER => \Spryker\Client\RabbitMq\Model\RabbitMqAdapter::class,
+ *       QueueConfig::CONFIG_MAX_WORKER_NUMBER => 5
+ *   ],
+ *
+ */
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];

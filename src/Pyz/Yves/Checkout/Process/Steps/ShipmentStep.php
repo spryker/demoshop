@@ -11,9 +11,10 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class ShipmentStep extends AbstractBaseStep
+class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
 
     /**
@@ -30,15 +31,15 @@ class ShipmentStep extends AbstractBaseStep
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $shipmentPlugins
      * @param string $stepRoute
-     * @param string $route
+     * @param string $escapeRoute
      */
     public function __construct(
         CalculationClientInterface $calculationClient,
         StepHandlerPluginCollection $shipmentPlugins,
         $stepRoute,
-        $route
+        $escapeRoute
     ) {
-        parent::__construct($stepRoute, $route);
+        parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
         $this->shipmentPlugins = $shipmentPlugins;
@@ -56,7 +57,7 @@ class ShipmentStep extends AbstractBaseStep
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
@@ -96,6 +97,34 @@ class ShipmentStep extends AbstractBaseStep
         }
 
         return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreadcrumbItemTitle()
+    {
+        return 'checkout.step.shipment.title';
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemEnabled(AbstractTransfer $dataTransfer)
+    {
+        return $this->postCondition($dataTransfer);
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemHidden(AbstractTransfer $dataTransfer)
+    {
+        return !$this->requireInput($dataTransfer);
     }
 
 }

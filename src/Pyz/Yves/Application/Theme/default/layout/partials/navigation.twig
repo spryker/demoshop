@@ -17,13 +17,4 @@
     </div>
 </div>
 
-<div class="callout">
-    <div class="row">
-        <div class="large-12 columns show-for-large">
-            <ul class="menu">
-                {% include '@application/layout/partials/category-items.twig' %}
-            </ul>
-        </div>
-    </div>
-</div>
-
+{{ spyNavigation('MAIN_NAVIGATION', '@application/layout/navigation/main.twig') }}

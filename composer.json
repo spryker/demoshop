@@ -56,7 +56,8 @@
     "ext-pdo_pgsql": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
-    "ext-redis": "*"
+    "ext-redis": "*",
+    "spryker/rabbit-mq": "dev-master"
   },
   "require-dev": {
     "codeception/codeception": "~2.1.10",
@@ -101,6 +102,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/architecture-sniffer.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/rabbit-mq.git"
     }
   ],
   "scripts": {

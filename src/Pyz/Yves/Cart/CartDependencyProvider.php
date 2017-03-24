@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Cart;
 
+use Pyz\Yves\Checkout\Plugin\CheckoutBreadcrumbPlugin;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
@@ -17,6 +18,7 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_CALCULATION = 'calculation client';
     const CLIENT_CART = 'cart client';
     const PLUGIN_APPLICATION = 'application plugin';
+    const PLUGIN_CHECKOUT_BREADCRUMB = 'PLUGIN_CHECKOUT_BREADCRUMB';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -60,6 +62,10 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
             $pimplePlugin = new Pimple();
 
             return $pimplePlugin->getApplication();
+        };
+
+        $container[self::PLUGIN_CHECKOUT_BREADCRUMB] = function () {
+            return new CheckoutBreadcrumbPlugin();
         };
 
         return $container;

@@ -11,9 +11,10 @@ use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginWithMessengerInterface;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class PaymentStep extends AbstractBaseStep
+class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
 
     /**
@@ -88,6 +89,34 @@ class PaymentStep extends AbstractBaseStep
         }
 
         return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreadcrumbItemTitle()
+    {
+        return 'checkout.step.payment.title';
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemEnabled(AbstractTransfer $dataTransfer)
+    {
+        return $this->postCondition($dataTransfer);
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemHidden(AbstractTransfer $dataTransfer)
+    {
+        return !$this->requireInput($dataTransfer);
     }
 
 }

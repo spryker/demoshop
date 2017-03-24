@@ -5,9 +5,12 @@
 
 @import '~motion-ui/motion-ui';
 @import '~foundation-sites/scss/foundation';
-
 @import 'settings';
 
+// add color variables
+@include add-foundation-colors;
+
+// plugins
 @include foundation-global-styles;
 @include foundation-flex-grid;
 @include foundation-typography;

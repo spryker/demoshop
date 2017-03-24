@@ -11,9 +11,10 @@ use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class AddressStep extends AbstractBaseStep
+class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
 
     /**
@@ -149,6 +150,34 @@ class AddressStep extends AbstractBaseStep
         }
 
         return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreadcrumbItemTitle()
+    {
+        return 'checkout.step.address.title';
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemEnabled(AbstractTransfer $dataTransfer)
+    {
+        return $this->postCondition($dataTransfer);
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     *
+     * @return bool
+     */
+    public function isBreadcrumbItemHidden(AbstractTransfer $dataTransfer)
+    {
+        return !$this->requireInput($dataTransfer);
     }
 
 }

@@ -1,29 +1,35 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% block breadcrumb %}{% endblock %}
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    <li><a href="{{ url('cart') }}">{{ 'cart.cart'|trans }}</a></li>
+    {% include '@Checkout/checkout/partials/breadcrumb.twig' %}
+{% endblock %}
 
 {% block content %}
+    {% set isGuest = (guestForm.vars.value.customer and guestForm.vars.value.customer.isGuest) %}
+
     <div class="row small-unstack" data-component="viewer">
         <div class="small-12 large-6 columns">
             <div class="callout secondary">
                 <fieldset class="__checkout-proceed-as-selector">
                     <legend>{{ 'customer.signup' | trans }}</legend>
 
-                    <input id="register" type="radio" name="checkoutProceedAs" checked data-viewer-show="user">
+                    <input id="register" type="radio" name="checkoutProceedAs" data-viewer-show="user" {% if not isGuest %}checked{% endif %}>
                     <label for="register">{{ 'checkout.customer.proceed_as_user' | trans }}</label>
 
-                    <input id="guest" type="radio" name="checkoutProceedAs" data-viewer-show="guest">
+                    <input id="guest" type="radio" name="checkoutProceedAs" data-viewer-show="guest" {% if isGuest %}checked{% endif %}>
                     <label for="guest">{{ 'checkout.customer.proceed_as_guest' | trans }}</label>
                 </fieldset>
             </div>
 
-            <div class="__checkout-proceed-as-method" data-viewer-id="guest">
+            <div class="__checkout-proceed-as-method" data-viewer-id="guest" {% if isGuest %}data-viewer-default{% endif %}>
                 {{ form_start(guestForm, {'attr': {'class': 'callout'}}) }}
                     {% include '@Customer/guest/partials/guest-form-body.twig' with {'form': guestForm.customer} %}
                 {{ form_end(guestForm) }}
             </div>
 
-            <div class="__checkout-proceed-as-method" data-viewer-id="user" data-viewer-default>
+            <div class="__checkout-proceed-as-method" data-viewer-id="user" {% if not isGuest %}data-viewer-default{% endif %}>
                 {{ form_start(registerForm, { 'attr': { 'class': 'callout' }}) }}
                     {% include '@Customer/register/partials/register-form-body.twig' with {'form': registerForm.customer} %}
                 {{ form_end(registerForm) }}
