@@ -1572,6 +1572,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1584,6 +1585,8 @@
 >>>>>>> removed wrong construct
 =======
 >>>>>>> update compose
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
@@ -1597,6 +1600,8 @@
 >>>>>>> removed wrong construct
 =======
 >>>>>>> update compose
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1610,6 +1615,8 @@
 >>>>>>> removed wrong construct
 =======
 >>>>>>> update compose
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "4242ef32bf960012033f22179d10d48867811938"
 =======
@@ -1690,9 +1697,21 @@
 =======
                 "reference": "5861fc27d7a64ccb3f8ecd15765e4fe0526291b2"
 >>>>>>> update compose
+<<<<<<< HEAD
 >>>>>>> update compose
+<<<<<<< HEAD
 >>>>>>> update compose
+<<<<<<< HEAD
 >>>>>>> update compose
+=======
+=======
+=======
+=======
+                "reference": "1c6902d33dbe0e05c934e44245ed918621e5968a"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2462,11 +2481,11 @@
                     "ErrorHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
                     "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
                     "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
-                    "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
                     "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module"
                 },
                 "files": [
+                    "autoload.php",
                     "Bundles/Config/src/Spryker/Shared/Config.php"
                 ]
             },
@@ -2474,6 +2493,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2492,6 +2512,8 @@
 >>>>>>> removed wrong construct
 =======
 >>>>>>> update compose
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
@@ -2505,6 +2527,8 @@
 >>>>>>> removed wrong construct
 =======
 >>>>>>> update compose
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -2518,6 +2542,8 @@
 >>>>>>> removed wrong construct
 =======
 >>>>>>> update compose
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-27 16:16:43"
 =======
@@ -2598,9 +2624,21 @@
 =======
             "time": "2017-03-27 14:04:29"
 >>>>>>> update compose
+<<<<<<< HEAD
 >>>>>>> update compose
+<<<<<<< HEAD
 >>>>>>> update compose
+<<<<<<< HEAD
 >>>>>>> update compose
+=======
+=======
+=======
+=======
+            "time": "2017-03-27 14:33:53"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
