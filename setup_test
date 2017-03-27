@@ -100,8 +100,6 @@ function configureCodeception {
 
 function runCollectors() {
 
-   export PGPASSWORD=$DATABASE_PASSWORD
-
    labelText "Run collectors."
    $CONSOLE setup:search $VERBOSITY
    $CONSOLE collector:search:export $VERBOSITY
@@ -125,7 +123,6 @@ do
            backupTestingEnvData
            ;;
          "--collectors" | "-c" )
-           resetDataStores
            runCollectors
            ;;
          "--full" | "-f" )
