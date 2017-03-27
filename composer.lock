@@ -1677,6 +1677,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1705,6 +1706,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
@@ -1734,6 +1737,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1774,6 +1779,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
 =======
@@ -1782,6 +1789,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
                 "reference": "27a57e768920d2072cfa452104b48b580cb5b81c"
 =======
@@ -1791,6 +1800,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
                 "reference": "4242ef32bf960012033f22179d10d48867811938"
 =======
@@ -1800,6 +1811,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
                 "reference": "ff5ec0f5fb5532b12c388722bb233e0367b25b89"
 =======
@@ -1956,10 +1969,25 @@
 =======
                 "reference": "e156185db47f059d5ee63c41d0dd5568d039d6dc"
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+                "reference": "3834ab23bf1b7cc25d11e34b8e4defbe0ef03263"
+>>>>>>> removed wrong construct
+>>>>>>> removed wrong construct
+>>>>>>> removed wrong construct
+>>>>>>> removed wrong construct
+>>>>>>> removed wrong construct
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2755,6 +2783,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -2783,6 +2812,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
@@ -2812,6 +2843,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -2852,6 +2885,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
             "time": "2017-03-29 09:37:26"
 =======
 =======
@@ -2860,6 +2895,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
             "time": "2017-03-28 10:34:34"
 =======
@@ -2869,6 +2906,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
             "time": "2017-03-27 16:16:43"
 =======
@@ -2878,6 +2917,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> removed wrong construct
 <<<<<<< HEAD
             "time": "2017-03-27 10:20:21"
 =======
@@ -3032,9 +3073,21 @@
 =======
             "time": "2017-03-24 10:45:07"
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+=======
+=======
+=======
+=======
+            "time": "2017-03-27 05:39:17"
+>>>>>>> removed wrong construct
+>>>>>>> removed wrong construct
+>>>>>>> removed wrong construct
+>>>>>>> removed wrong construct
         },
         {
             "name": "swiftmailer/swiftmailer",
