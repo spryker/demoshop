@@ -59,8 +59,8 @@
     "spryker/rabbit-mq": "dev-master"
   },
   "require-dev": {
-    "codeception/codeception": "~2.1.10",
-    "codeception/c3": "~2.0.0",
+    "codeception/codeception": "^2.2.10",
+    "codeception/c3": "^2.0.0",
     "pdepend/pdepend": "~2.2.2",
     "phploc/phploc": "~3.0.1",
     "phpmd/phpmd": "^2.4",
