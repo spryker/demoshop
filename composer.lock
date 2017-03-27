@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "094e6eb9da52c217e1a80f303c9a0bb5",
+=======
+    "content-hash": "1d8b9911794d61c7854c0b366b33607c",
+>>>>>>> added tool for vendor/bin/console autocompletion
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -6866,7 +6870,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",
