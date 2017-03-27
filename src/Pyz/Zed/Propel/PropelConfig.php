@@ -19,8 +19,7 @@ class PropelConfig extends SprykerPropelConfig
     {
         return array_merge(
             [APPLICATION_SOURCE_DIR . '/*/Zed/*/Persistence/Propel/Schema/'],
-            parent::getPropelSchemaPathPatterns(),
-            $this->getSprykerFilePathPatterns()
+            parent::getPropelSchemaPathPatterns()
         );
     }
 
