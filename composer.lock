@@ -7,12 +7,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
 =======
 >>>>>>> update composer
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
     "content-hash": "0882e407668436f239b82f0f9f09a42a",
 =======
@@ -20,6 +23,8 @@
 >>>>>>> update composer
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
     "content-hash": "094e6eb9da52c217e1a80f303c9a0bb5",
 =======
@@ -64,8 +69,17 @@
     "content-hash": "372756d7195bfd2b6907ca98cd8173b1",
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+=======
+=======
+=======
+    "content-hash": "75b48badab1019229676e0533caa265b",
+>>>>>>> update compose
+>>>>>>> update compose
+>>>>>>> update compose
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1557,6 +1571,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1567,6 +1582,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> removed wrong construct
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
@@ -1578,6 +1595,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> removed wrong construct
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1589,6 +1608,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> removed wrong construct
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
                 "reference": "4242ef32bf960012033f22179d10d48867811938"
 =======
@@ -1657,9 +1678,21 @@
                 "reference": "3834ab23bf1b7cc25d11e34b8e4defbe0ef03263"
 >>>>>>> removed wrong construct
 >>>>>>> removed wrong construct
+<<<<<<< HEAD
 >>>>>>> removed wrong construct
+<<<<<<< HEAD
 >>>>>>> removed wrong construct
+<<<<<<< HEAD
 >>>>>>> removed wrong construct
+=======
+=======
+=======
+=======
+                "reference": "5861fc27d7a64ccb3f8ecd15765e4fe0526291b2"
+>>>>>>> update compose
+>>>>>>> update compose
+>>>>>>> update compose
+>>>>>>> update compose
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2446,6 +2479,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -2456,6 +2490,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> removed wrong construct
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
@@ -2467,6 +2503,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> removed wrong construct
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -2478,6 +2516,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> removed wrong construct
+=======
+>>>>>>> update compose
 <<<<<<< HEAD
             "time": "2017-03-27 16:16:43"
 =======
@@ -2546,9 +2586,21 @@
             "time": "2017-03-27 05:39:17"
 >>>>>>> removed wrong construct
 >>>>>>> removed wrong construct
+<<<<<<< HEAD
 >>>>>>> removed wrong construct
+<<<<<<< HEAD
 >>>>>>> removed wrong construct
+<<<<<<< HEAD
 >>>>>>> removed wrong construct
+=======
+=======
+=======
+=======
+            "time": "2017-03-27 14:04:29"
+>>>>>>> update compose
+>>>>>>> update compose
+>>>>>>> update compose
+>>>>>>> update compose
         },
         {
             "name": "swiftmailer/swiftmailer",
