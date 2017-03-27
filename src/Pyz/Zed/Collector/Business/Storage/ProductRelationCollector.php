@@ -24,6 +24,9 @@ use Spryker\Zed\ProductRelation\Persistence\ProductRelationQueryContainerInterfa
 use Spryker\Zed\ProductRelation\ProductRelationConfig;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class ProductRelationCollector extends AbstractStoragePropelCollector
 {
 
