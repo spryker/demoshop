@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Navigation\Persistence;
 
-use Spryker\Zed\Navigation\Persistence\Propel\AbstractSpyNavigationNodeLocalizedAttributesQuery as BaseSpyNavigationNodeLocalizedAttributesQuery;
+use Orm\Zed\Navigation\Persistence\Base\SpyNavigationNodeLocalizedAttributesQuery as BaseSpyNavigationNodeLocalizedAttributesQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_navigation_node_localized_attributes' table.

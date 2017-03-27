@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\Transfer;
+namespace Pyz\Zed\Twig;
 
-use Spryker\Zed\Transfer\TransferConfig as SprykerTransferConfig;
+use Spryker\Zed\Twig\TwigConfig as SprykerTwigConfig;
 
-class TransferConfig extends SprykerTransferConfig
+class TwigConfig extends SprykerTwigConfig
 {
 }

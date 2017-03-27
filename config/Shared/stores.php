@@ -30,7 +30,7 @@ $stores['DE'] = [
     'locales' => [
         // first entry is default
         'en' => 'en_US',
-         'de' => 'de_DE',
+        'de' => 'de_DE',
     ],
     // first entry is default
     'countries' => ['DE', 'AT'],

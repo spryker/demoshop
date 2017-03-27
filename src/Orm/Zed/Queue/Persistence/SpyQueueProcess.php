@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Queue\Persistence;
 
-use Spryker\Zed\Queue\Persistence\Propel\AbstractSpyQueueProcess as BaseSpyQueueProcess;
+use Orm\Zed\Queue\Persistence\Base\SpyQueueProcess as BaseSpyQueueProcess;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_queue_process' table.
