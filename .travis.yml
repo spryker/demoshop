@@ -86,8 +86,6 @@ before_script:
   - vendor/bin/console twig:cache:warmer
 
 script:
-  - vendor/bin/console transfer:generate
-
   - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
 
