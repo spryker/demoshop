@@ -74,7 +74,7 @@ before_script:
   - mkdir -p shared/data/common/jenkins/jobs
   - mkdir -p data/DE/cache/Yves/twig -m 0777
   - mkdir -p data/DE/cache/Zed/twig -m 0777
-  - mkdir -p data/DE/logs/ZED -m 0777
+  - mkdir -p data/DE/logs -m 0777
   - chmod -R 777 data/
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
@@ -82,6 +82,8 @@ before_script:
   - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh; fi
+
+  - vendor/bin/console twig:cache:warmer
 
 script:
   - vendor/bin/console transfer:generate

@@ -7,13 +7,9 @@
 
 namespace Pyz\Yves\Twig\Plugin\Provider;
 
-use Pyz\Yves\Twig\Loader\YvesFilesystemLoader;
 use Silex\Application;
 use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
-use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
-use Spryker\Shared\Kernel\KernelConstants;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Yves\Application\Routing\Helper;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,7 +50,6 @@ class TwigServiceProvider extends SilexTwigServiceProvider
 
         parent::register($app);
 
-        $this->registerYvesLoader($app);
         $this->registerTwigLoaderChain($app);
         $this->registerTwigCache($app);
         $this->registerTwig($app);
@@ -124,29 +119,6 @@ class TwigServiceProvider extends SilexTwigServiceProvider
         $helper = new Helper($this->app);
 
         return $helper->getRouteFromDestination($controller);
-    }
-
-    /**
-     * @param \Silex\Application $app
-     *
-     * @return void
-     */
-    protected function registerYvesLoader(Application $app)
-    {
-        $app['twig.loader.yves'] = $app->share(function () {
-            $themeName = Config::get(ApplicationConstants::YVES_THEME);
-            $namespaces = Config::get(KernelConstants::PROJECT_NAMESPACES);
-            $store = Store::getInstance()->getStoreName();
-
-            $paths = [];
-            foreach ($namespaces as $namespace) {
-                $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s' . $store . '/Theme/' . $themeName;
-                $paths[] = APPLICATION_SOURCE_DIR . '/' . $namespace . '/Yves/%s/Theme/' . $themeName;
-            }
-            $paths[] = Config::get(KernelConstants::SPRYKER_ROOT) . '/*/src/Spryker/Yves/%1$s/Theme/' . $themeName;
-
-            return new YvesFilesystemLoader($paths);
-        });
     }
 
     /**

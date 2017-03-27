@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\Twig;
+namespace Pyz\Zed\Development;
 
-use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Zed\Development\DevelopmentConfig as SprykerDevelopmentConfig;
 
-class TwigDependencyProvider extends AbstractBundleDependencyProvider
+class DevelopmentConfig extends SprykerDevelopmentConfig
 {
 }
