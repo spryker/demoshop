@@ -79,7 +79,6 @@ class CustomerOverviewCest
      */
     public function testICanGoFromOverviewToProfilePage(CustomerOverviewTester $i)
     {
-
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerOverviewPage::URL);
         $i->click(CustomerOverviewPage::LINK_TO_PROFILE_PAGE);
