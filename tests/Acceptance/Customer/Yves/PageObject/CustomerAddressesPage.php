@@ -14,7 +14,7 @@ class CustomerAddressesPage extends Customer
 
     const URL = '/customer/address';
 
-    const ADD_ADDRESS_LINK = 'Add new address';
+    const ADD_ADDRESS_LINK = '//a[@data-id="customer-add-new-address"]';
 
     const ADDRESS_A = 'address a';
     const ADDRESS_B = 'address b';
