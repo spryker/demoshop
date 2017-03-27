@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Navigation\Persistence;
 
-use Spryker\Zed\Navigation\Persistence\Propel\AbstractSpyNavigation as BaseSpyNavigation;
+use Orm\Zed\Navigation\Persistence\Base\SpyNavigation as BaseSpyNavigation;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_navigation' table.

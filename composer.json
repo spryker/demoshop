@@ -35,7 +35,6 @@
     "symfony/security": "^2.6.13",
     "symfony/serializer": "^2.6.13",
     "symfony/translation": "^2.6.13",
-    "symfony/twig-bridge": "^2.7.0",
     "symfony/validator": "^2.6.13",
     "symfony/yaml": "^2.6.13",
     "swiftmailer/swiftmailer" : "^5.4.5",
@@ -68,7 +67,7 @@
     "sebastian/phpcpd": "~2.0.2",
     "sensiolabs/security-checker": "~3.0.2",
     "silex/web-profiler": "~1.0.8",
-    "symfony/web-profiler-bundle": "v2.7.20",
+    "symfony/web-profiler-bundle": "*",
     "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "~2.0.2",
@@ -85,7 +84,8 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests",
-      "Acceptance": "tests"
+      "Acceptance": "tests",
+      "Unit\\Spryker\\Shared\\Twig\\": "vendor/spryker/spryker/Bundles/Twig/tests"
     }
   },
   "minimum-stability": "dev",
@@ -106,6 +106,14 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/rabbit-mq.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker-eco/showcase.git"
+    },
+    {
+      "type": "composer",
+      "url": "https://code.spryker.com/repo/private"
     }
   ],
   "scripts": {

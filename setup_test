@@ -32,7 +32,7 @@ function displayHelp {
     echo "      Run only collectors storage, search."
     echo " "
     echo "  -f, --full"
-    echo "      Run collectors storage, search and backup database."
+    echo "      Run collectors storage, search, backup database and generate twig cache files."
     echo " "
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
@@ -135,6 +135,7 @@ do
             backupTestingEnvData
             runCollectors
             configureCodeception
+            generateTwigCacheFiles
            ;;
         *)
             displayHeader

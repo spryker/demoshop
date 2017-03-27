@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Navigation\Persistence;
 
-use Spryker\Zed\Navigation\Persistence\Propel\AbstractSpyNavigationNodeQuery as BaseSpyNavigationNodeQuery;
+use Orm\Zed\Navigation\Persistence\Base\SpyNavigationNodeQuery as BaseSpyNavigationNodeQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_navigation_node' table.

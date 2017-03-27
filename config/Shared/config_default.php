@@ -57,6 +57,9 @@ $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Yves/twig',
 ];
 
+$config[TwigConstants::YVES_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Yves/twig/.pathCache';
+$config[TwigConstants::ZED_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/Zed/twig/.pathCache';
+
 $config[PropelConstants::ZED_DB_ENGINE_MYSQL] = PropelConfig::DB_ENGINE_MYSQL;
 $config[PropelConstants::ZED_DB_ENGINE_PGSQL] = PropelConfig::DB_ENGINE_PGSQL;
 $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
@@ -167,8 +170,9 @@ $config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
-$config[ApplicationConstants::YVES_THEME]
+$config[TwigConstants::YVES_THEME]
     = $config[CmsConstants::YVES_THEME] = 'default';
+
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
@@ -384,7 +388,7 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_MYSQL => 'MySql',
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
-$config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = $config[KernelConstants::SPRYKER_ROOT] . '/*/src/*/Zed/*/Persistence/Propel/Schema/';
+$config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = APPLICATION_VENDOR_DIR . '/*/*/src/*/Zed/*/Persistence/Propel/Schema/';
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [

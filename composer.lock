@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a7d35a2df4cc0f7ab739d01c9d87d34",
+    "content-hash": "5e147bf30ceaea8ebc2335aa0741e83f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1491,13 +1491,135 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c721e3f223dd5f4f7ef522206f1747baeda236dd"
+                "reference": "ff5ec0f5fb5532b12c388722bb233e0367b25b89"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
                 "moneyphp/money": "~3.0.0",
                 "paragonie/random_compat": "~1.2.1",
                 "phpdocumentor/graphviz": "~1.0.4"
+            },
+            "replace": {
+                "spryker/acl": "*",
+                "spryker/application": "*",
+                "spryker/assertion": "*",
+                "spryker/auth": "*",
+                "spryker/auth-mail-connector": "*",
+                "spryker/availability": "*",
+                "spryker/availability-cart-connector": "*",
+                "spryker/availability-gui": "*",
+                "spryker/braintree": "*",
+                "spryker/cache": "*",
+                "spryker/calculation": "*",
+                "spryker/cart": "*",
+                "spryker/catalog": "*",
+                "spryker/category": "*",
+                "spryker/category-exporter": "*",
+                "spryker/checkout": "*",
+                "spryker/cms": "*",
+                "spryker/cms-gui": "*",
+                "spryker/collector": "*",
+                "spryker/collector-search-connector": "*",
+                "spryker/collector-storage-connector": "*",
+                "spryker/config": "*",
+                "spryker/console": "*",
+                "spryker/country": "*",
+                "spryker/csv": "*",
+                "spryker/currency": "*",
+                "spryker/customer": "*",
+                "spryker/customer-group": "*",
+                "spryker/customer-group-discount-connector": "*",
+                "spryker/development": "*",
+                "spryker/discount": "*",
+                "spryker/discount-calculation-connector": "*",
+                "spryker/discount-sales-aggregator-connector": "*",
+                "spryker/dummy-payment": "*",
+                "spryker/elastica": "*",
+                "spryker/error-handler": "*",
+                "spryker/event-journal": "*",
+                "spryker/glossary": "*",
+                "spryker/graph": "*",
+                "spryker/graphviz": "*",
+                "spryker/gui": "*",
+                "spryker/guzzle": "*",
+                "spryker/heartbeat": "*",
+                "spryker/installer": "*",
+                "spryker/invoice": "*",
+                "spryker/kernel": "*",
+                "spryker/key-builder": "*",
+                "spryker/library": "*",
+                "spryker/locale": "*",
+                "spryker/log": "*",
+                "spryker/mail": "*",
+                "spryker/maintenance": "*",
+                "spryker/mandrill": "*",
+                "spryker/messenger": "*",
+                "spryker/money": "*",
+                "spryker/monolog": "*",
+                "spryker/new-relic": "*",
+                "spryker/new-relic-api": "*",
+                "spryker/newsletter": "*",
+                "spryker/nopayment": "*",
+                "spryker/oms": "*",
+                "spryker/oms-discount-connector": "*",
+                "spryker/payment": "*",
+                "spryker/payolution": "*",
+                "spryker/payone": "*",
+                "spryker/pimple": "*",
+                "spryker/price": "*",
+                "spryker/price-cart-connector": "*",
+                "spryker/product": "*",
+                "spryker/product-bundle": "*",
+                "spryker/product-cart-connector": "*",
+                "spryker/product-category": "*",
+                "spryker/product-discount-connector": "*",
+                "spryker/product-image": "*",
+                "spryker/product-management": "*",
+                "spryker/product-option": "*",
+                "spryker/product-option-cart-connector": "*",
+                "spryker/product-option-discount-connector": "*",
+                "spryker/product-search": "*",
+                "spryker/propel": "*",
+                "spryker/propel-orm": "*",
+                "spryker/queue": "*",
+                "spryker/quote": "*",
+                "spryker/ratepay": "*",
+                "spryker/redis": "*",
+                "spryker/refund": "*",
+                "spryker/sales": "*",
+                "spryker/sales-aggregator": "*",
+                "spryker/sales-split": "*",
+                "spryker/search": "*",
+                "spryker/sequence-number": "*",
+                "spryker/session": "*",
+                "spryker/setup": "*",
+                "spryker/shipment": "*",
+                "spryker/silex": "*",
+                "spryker/sql-criteria-builder": "*",
+                "spryker/state-machine": "*",
+                "spryker/step-engine": "*",
+                "spryker/stock": "*",
+                "spryker/stock-sales-connector": "*",
+                "spryker/storage": "*",
+                "spryker/symfony": "*",
+                "spryker/tax": "*",
+                "spryker/tax-product-connector": "*",
+                "spryker/testify": "*",
+                "spryker/touch": "*",
+                "spryker/transfer": "*",
+                "spryker/twig": "*",
+                "spryker/url": "*",
+                "spryker/user": "*",
+                "spryker/util-data-reader": "*",
+                "spryker/util-date-time": "*",
+                "spryker/util-encoding": "*",
+                "spryker/util-network": "*",
+                "spryker/util-sanitize": "*",
+                "spryker/util-text": "*",
+                "spryker/wishlist": "*",
+                "spryker/zed-navigation": "*",
+                "spryker/zed-request": "*",
+                "spryker/zend": "*"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -1999,7 +2121,9 @@
                     "Spryker\\Zed\\Transfer\\": "Bundles/Transfer/src",
                     "Unit\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
                     "Functional\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
+                    "Unit\\Spryker\\Shared\\Twig\\": "Bundles/Twig/tests",
                     "Spryker\\Shared\\Twig\\": "Bundles/Twig/src",
+                    "Spryker\\Yves\\Twig\\": "Bundles/Twig/src",
                     "Spryker\\Zed\\Twig\\": "Bundles/Twig/src",
                     "Spryker\\Shared\\Url\\": "Bundles/Url/src",
                     "Unit\\Spryker\\Shared\\Url\\": "Bundles/Url/tests",
@@ -2118,7 +2242,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-23 13:32:10"
+            "time": "2017-03-27 10:20:21"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3756,87 +3880,6 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "time": "2017-03-04T12:20:59+00:00"
-        },
-        {
-            "name": "symfony/twig-bridge",
-            "version": "v2.8.18",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/5a6a2605ee365b98ec7159fb517ff36afebb7fff",
-                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "twig/twig": "~1.28|~2.0"
-            },
-            "require-dev": {
-                "symfony/asset": "~2.7|~3.0.0",
-                "symfony/console": "~2.8|~3.0.0",
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/finder": "~2.3|~3.0.0",
-                "symfony/form": "^2.8.18",
-                "symfony/http-kernel": "~2.8|~3.0.0",
-                "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/security": "~2.6|~3.0.0",
-                "symfony/security-acl": "~2.6|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0",
-                "symfony/templating": "~2.1|~3.0.0",
-                "symfony/translation": "~2.7|~3.0.0",
-                "symfony/var-dumper": "~2.7.16|~2.8.9|~3.0.9",
-                "symfony/yaml": "^2.0.5|~3.0.0"
-            },
-            "suggest": {
-                "symfony/asset": "For using the AssetExtension",
-                "symfony/expression-language": "For using the ExpressionExtension",
-                "symfony/finder": "",
-                "symfony/form": "For using the FormExtension",
-                "symfony/http-kernel": "For using the HttpKernelExtension",
-                "symfony/routing": "For using the RoutingExtension",
-                "symfony/security": "For using the SecurityExtension",
-                "symfony/stopwatch": "For using the StopwatchExtension",
-                "symfony/templating": "For using the TwigEngine",
-                "symfony/translation": "For using the TranslationExtension",
-                "symfony/var-dumper": "For using the DumpExtension",
-                "symfony/yaml": "For using the YamlExtension"
-            },
-            "type": "symfony-bridge",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Bridge\\Twig\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Twig Bridge",
-            "homepage": "https://symfony.com",
-            "time": "2017-02-28T13:13:45+00:00"
         },
         {
             "name": "symfony/validator",
@@ -7142,6 +7185,87 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
             "time": "2017-02-18T17:06:33+00:00"
+        },
+        {
+            "name": "symfony/twig-bridge",
+            "version": "v2.8.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/twig-bridge.git",
+                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/5a6a2605ee365b98ec7159fb517ff36afebb7fff",
+                "reference": "5a6a2605ee365b98ec7159fb517ff36afebb7fff",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "twig/twig": "~1.28|~2.0"
+            },
+            "require-dev": {
+                "symfony/asset": "~2.7|~3.0.0",
+                "symfony/console": "~2.8|~3.0.0",
+                "symfony/expression-language": "~2.4|~3.0.0",
+                "symfony/finder": "~2.3|~3.0.0",
+                "symfony/form": "^2.8.18",
+                "symfony/http-kernel": "~2.8|~3.0.0",
+                "symfony/polyfill-intl-icu": "~1.0",
+                "symfony/routing": "~2.2|~3.0.0",
+                "symfony/security": "~2.6|~3.0.0",
+                "symfony/security-acl": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.2|~3.0.0",
+                "symfony/templating": "~2.1|~3.0.0",
+                "symfony/translation": "~2.7|~3.0.0",
+                "symfony/var-dumper": "~2.7.16|~2.8.9|~3.0.9",
+                "symfony/yaml": "^2.0.5|~3.0.0"
+            },
+            "suggest": {
+                "symfony/asset": "For using the AssetExtension",
+                "symfony/expression-language": "For using the ExpressionExtension",
+                "symfony/finder": "",
+                "symfony/form": "For using the FormExtension",
+                "symfony/http-kernel": "For using the HttpKernelExtension",
+                "symfony/routing": "For using the RoutingExtension",
+                "symfony/security": "For using the SecurityExtension",
+                "symfony/stopwatch": "For using the StopwatchExtension",
+                "symfony/templating": "For using the TwigEngine",
+                "symfony/translation": "For using the TranslationExtension",
+                "symfony/var-dumper": "For using the DumpExtension",
+                "symfony/yaml": "For using the YamlExtension"
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\Twig\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Twig Bridge",
+            "homepage": "https://symfony.com",
+            "time": "2017-02-28T13:13:45+00:00"
         },
         {
             "name": "symfony/var-dumper",
