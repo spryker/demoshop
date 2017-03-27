@@ -14,6 +14,7 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Testify\TestifyConstants;
+use Spryker\Shared\Twig\TwigConstants;
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
