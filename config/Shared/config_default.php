@@ -212,7 +212,7 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
 
 /** For a better performance you can turn off Zed authentication */
 $config[AuthConstants::AUTH_ZED_ENABLED]
-    = $config[ZedRequestConstants::AUTH_ZED_ENABLED] = true;
+    = $config[ZedRequestConstants::AUTH_ZED_ENABLED] = false;
 
 $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     'yves_system' => [
@@ -264,6 +264,12 @@ $config[AclConstants::ACL_DEFAULT_RULES] = [
     [
         'bundle' => 'heartbeat',
         'controller' => 'index',
+        'action' => 'index',
+        'type' => 'allow',
+    ],
+    [
+        'bundle' => 'api',
+        'controller' => 'rest',
         'action' => 'index',
         'type' => 'allow',
     ],
