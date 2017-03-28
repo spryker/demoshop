@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "094e6eb9da52c217e1a80f303c9a0bb5",
+    "content-hash": "35c160347f0b3f894cd24f7a7c3b216b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1487,11 +1487,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-908-rest-api",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4242ef32bf960012033f22179d10d48867811938"
+                "reference": "5eaf6ce7025daa7890d9db4a88a253169bd4827a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1634,6 +1634,10 @@
                     "Functional\\Spryker\\Shared\\Acl\\": "Bundles/Acl/tests",
                     "Spryker\\Zed\\Acl\\": "Bundles/Acl/src",
                     "Functional\\Spryker\\Zed\\Acl\\": "Bundles/Acl/tests",
+                    "Spryker\\Shared\\Api\\": "Bundles/Api/src",
+                    "Functional\\Spryker\\Shared\\Api\\": "Bundles/Api/tests",
+                    "Spryker\\Zed\\Api\\": "Bundles/Api/src",
+                    "Functional\\Spryker\\Zed\\Api\\": "Bundles/Api/tests",
                     "Spryker\\Shared\\Application\\": "Bundles/Application/src",
                     "Unit\\Spryker\\Shared\\Application\\": "Bundles/Application/tests",
                     "Spryker\\Yves\\Application\\": "Bundles/Application/src",
@@ -1748,6 +1752,11 @@
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
+                    "Spryker\\Shared\\CustomerApi\\": "Bundles/CustomerApi/src",
+                    "Functional\\Spryker\\Shared\\CustomerApi\\": "Bundles/CustomerApi/tests",
+                    "Acceptance\\CustomerApi\\": "Bundles/CustomerApi/tests",
+                    "Spryker\\Zed\\CustomerApi\\": "Bundles/CustomerApi/src",
+                    "Functional\\Spryker\\Zed\\CustomerApi\\": "Bundles/CustomerApi/tests",
                     "Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/src",
                     "Unit\\Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
                     "Functional\\Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
@@ -2242,7 +2251,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-27 16:16:43"
+            "time": "2017-03-28 10:56:46"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6823,7 +6832,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-03-08 12:29:10"
+            "time": "2017-03-08T12:29:10+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6866,7 +6875,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6913,7 +6922,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-17 13:33:48"
+            "time": "2017-03-17T13:33:48+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
