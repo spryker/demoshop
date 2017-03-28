@@ -16,6 +16,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
 <<<<<<< HEAD
@@ -42,6 +43,8 @@
 =======
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update
 <<<<<<< HEAD
 =======
 >>>>>>> update spryker/spryker
@@ -212,7 +215,13 @@
 =======
     "content-hash": "6e06a4eef48f0133367a9a17a34586e2",
 >>>>>>> update spryker/spryker, disable mails for testing
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+=======
+    "content-hash": "8731f60e9880ab5c71b05769c038020a",
+>>>>>>> update
+>>>>>>> update
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1728,6 +1737,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1770,6 +1780,8 @@
 >>>>>>> update spryker/spryker, disable mails for testing
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
@@ -1813,6 +1825,8 @@
 >>>>>>> update spryker/spryker, disable mails for testing
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1863,6 +1877,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
 =======
@@ -2145,7 +2161,13 @@
                 "reference": "cc5fa42cf944854965251a55fa7e99ea980a9ae4"
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+=======
+=======
+                "reference": "cc5fa42cf944854965251a55fa7e99ea980a9ae4"
+>>>>>>> update
+>>>>>>> update
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2951,6 +2973,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -2993,6 +3016,8 @@
 >>>>>>> update spryker/spryker, disable mails for testing
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
@@ -3036,6 +3061,8 @@
 >>>>>>> update spryker/spryker, disable mails for testing
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -3086,6 +3113,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update
             "time": "2017-03-29 09:37:26"
 =======
 =======
@@ -3345,6 +3374,9 @@
             "time": "2017-03-28 14:44:04"
 >>>>>>> update spryker/spryker
 >>>>>>> update spryker/spryker
+=======
+            "time": "2017-03-28 14:44:04"
+>>>>>>> update
         },
         {
             "name": "swiftmailer/swiftmailer",
