@@ -174,11 +174,8 @@ function resetDevelopmentState {
     $CONSOLE transfer:generate
     writeErrorMessage "Generating Transfer Objects failed"
 
-    labelText "Installing Propel"
-    $CONSOLE propel:install $VERBOSITY
-    $CONSOLE propel:diff $VERBOSITY
-    $CONSOLE propel:migrate $VERBOSITY
-    writeErrorMessage "Propel setup failed"
+    $CONSOLE setup:install -- $VERBOSITY
+    writeErrorMessage "Setup install failed"
 
     labelText "Initializing DB"
     $CONSOLE setup:init-db $VERBOSITY
