@@ -20,7 +20,7 @@ class SetupConfig extends SprykerSetupConfig
 {
 
     /**
-     * The following commands are a boilerplate stack. Please customize on project level.
+     * The following commands are a boilerplate stack. Please customize for your project.
      *
      * For a first initial migration you must use OPTION_NO_DIFF false.
      *
