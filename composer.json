@@ -101,7 +101,7 @@
     "spryker/propel-query-builder": "^0.1.1",
     "spryker/queue": "^0.3.0",
     "spryker/quote": "^1.0.0",
-    "spryker/rabbit-mq": "dev-master",
+    "spryker/rabbit-mq": "^0.1.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^4.0.0",
     "spryker/sales": "^5.0.0",
