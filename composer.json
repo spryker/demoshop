@@ -152,7 +152,8 @@
     "phpunit/phpunit": "^5.0",
     "spryker/architecture-sniffer": "^0.3.0",
     "spryker/code-generator": "^0.2.0",
-    "spryker/code-sniffer": "*"
+    "spryker/code-sniffer": "*",
+    "stecman/symfony-console-completion": "^0.7.0"
   },
   "autoload": {
     "psr-0": {
@@ -188,6 +189,10 @@
     },
     {
       "type": "git",
+      "url": "git@github.com:spryker/architecture-sniffer.git"
+    },
+    {
+      "type": "git",
       "url": "git@github.com:spryker/rabbit-mq.git"
     },
     {
@@ -197,8 +202,7 @@
   ],
   "scripts": {
     "compile": [
-      "mkdir -p ./data/DE/logs",
-      "echo '' > c3.php",
+      "mkdir -p ./data/DE/logs/ZED",
       "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
       "./deploy/heroku/run.sh"
     ],

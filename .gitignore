@@ -30,7 +30,7 @@ config/accumulated-config.json
 /deploy/setup/params_local.sh
 /deploy/setup/frontend/params_local.sh
 
-/src/Generated
+/src/Generated/
 /vendor/
 FOSS.md
 
