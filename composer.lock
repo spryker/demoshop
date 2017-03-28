@@ -1727,6 +1727,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1767,6 +1768,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
@@ -1808,6 +1811,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1878,6 +1883,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "27a57e768920d2072cfa452104b48b580cb5b81c"
 =======
@@ -2128,8 +2135,17 @@
 =======
                 "reference": "02b5abdd4a4f0152f24b5fb616a3af65dc934f5f"
 >>>>>>> update spryker/spryker, disable mails for testing
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, disable mails for testing
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+=======
+=======
+                "reference": "cc5fa42cf944854965251a55fa7e99ea980a9ae4"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2268,6 +2284,7 @@
             ],
             "type": "library",
             "autoload": {
+<<<<<<< HEAD
                 "psr-0": {
                     "Spryker\\Shared\\Acl\\": "Bundles/Acl/src",
                     "Functional\\Spryker\\Shared\\Acl\\": "Bundles/Acl/tests",
@@ -2902,6 +2919,8 @@
                     "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
                     "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module"
                 },
+=======
+>>>>>>> update spryker/spryker
                 "files": [
                     "autoload.php",
                     "Bundles/Config/src/Spryker/Shared/Config.php"
@@ -2911,6 +2930,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2971,6 +2991,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
@@ -3012,6 +3034,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -3082,6 +3106,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-28 10:34:34"
 =======
@@ -3312,7 +3338,13 @@
 =======
             "time": "2017-03-28 12:45:30"
 >>>>>>> update spryker/spryker, disable mails for testing
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, disable mails for testing
+=======
+=======
+            "time": "2017-03-28 14:44:04"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
