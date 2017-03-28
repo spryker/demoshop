@@ -3,8 +3,8 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
-    
+    "spryker/spryker": "dev-feature/tests",
+
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
     "guzzlehttp/guzzle": "~6.2.1",
