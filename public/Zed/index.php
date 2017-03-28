@@ -1,6 +1,5 @@
 <?php
 
-use Generated\Shared\DataBuilder\AddressBuilder;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Config\Application\Environment;
 
