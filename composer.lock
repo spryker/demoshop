@@ -1491,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "55860cd386c261029a8bf9c8e6ba25e8463f63b4"
+                "reference": "84c3544d5cbff92f7c7b13675e145f454c550459"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2105,7 +2105,11 @@
                     "Spryker\\Shared\\Event\\": "Bundles/Event/src",
                     "Spryker\\Zed\\Event\\": "Bundles/Event/src",
                     "Unit\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
-                    "Functional\\Spryker\\Zed\\Event\\": "Bundles/Event/tests"
+                    "Functional\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
+                    "Spryker\\Shared\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
+                    "Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
+                    "Unit\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests",
+                    "Functional\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -2128,7 +2132,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-27 08:35:43"
+            "time": "2017-03-28 10:50:08"
         },
         {
             "name": "swiftmailer/swiftmailer",

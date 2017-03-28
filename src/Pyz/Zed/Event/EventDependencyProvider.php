@@ -21,11 +21,11 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\Event\Dependency\Plugin\EventSubscriberInterface[]
+     * @return \Spryker\Zed\Event\Dependency\EventSubscriberCollectionInterface
      */
-    public function getEventSubscribers()
+    public function getEventSubscriberCollection()
     {
-        return [];
+        return parent::getEventSubscriberCollection();
     }
 
 }
