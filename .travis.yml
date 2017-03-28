@@ -50,6 +50,11 @@ addons:
     - zed.de.spryker.test
     - www.de.spryker.test
 
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
 services:
   - postgresql
   - redis
@@ -77,8 +82,8 @@ before_script:
   - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -r; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -r; fi
 
   - vendor/bin/console twig:cache:warmer
 
