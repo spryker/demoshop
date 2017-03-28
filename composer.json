@@ -101,7 +101,7 @@
     "spryker/propel-query-builder": "^0.1.1",
     "spryker/queue": "^0.3.0",
     "spryker/quote": "^1.0.0",
-    "spryker/rabbit-mq": "dev-master",
+    "spryker/rabbit-mq": "^0.1.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^4.0.0",
     "spryker/sales": "^5.0.0",
@@ -152,7 +152,8 @@
     "phpunit/phpunit": "^5.0",
     "spryker/architecture-sniffer": "^0.3.0",
     "spryker/code-generator": "^0.2.0",
-    "spryker/code-sniffer": "*"
+    "spryker/code-sniffer": "*",
+    "stecman/symfony-console-completion": "^0.7.0"
   },
   "autoload": {
     "psr-0": {
@@ -188,6 +189,10 @@
     },
     {
       "type": "git",
+      "url": "git@github.com:spryker/architecture-sniffer.git"
+    },
+    {
+      "type": "git",
       "url": "git@github.com:spryker/rabbit-mq.git"
     },
     {
@@ -197,8 +202,7 @@
   ],
   "scripts": {
     "compile": [
-      "mkdir -p ./data/DE/logs",
-      "echo '' > c3.php",
+      "mkdir -p ./data/DE/logs/ZED",
       "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
       "./deploy/heroku/run.sh"
     ],

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "058d2863dd16963b50a53d2279e9e0ef",
+    "content-hash": "9bff9c7e9f3b47e1add0e4291f6bdfad",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "c32a3f92834db08ceedb4666ea2265c3aa43396e"
+                "reference": "559d63ec2181404f3a3cb6aa3c7002005ed748a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/c32a3f92834db08ceedb4666ea2265c3aa43396e",
-                "reference": "c32a3f92834db08ceedb4666ea2265c3aa43396e",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/559d63ec2181404f3a3cb6aa3c7002005ed748a5",
+                "reference": "559d63ec2181404f3a3cb6aa3c7002005ed748a5",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-03-25T03:19:52+00:00"
+            "time": "2017-03-28T11:58:30+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -10625,11 +10625,11 @@
         },
         {
             "name": "spryker/util-encoding",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilEncoding.git",
-                "reference": "d4bec731fa08736d8681597a48e0752b75170dca",
+                "reference": "3d0190fde0dd651bab20cf4b03fb3a9f6af398b8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10639,8 +10639,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilEncoding/zipball/d4bec731fa08736d8681597a48e0752b75170dca",
-                "reference": "d4bec731fa08736d8681597a48e0752b75170dca",
+                "url": "https://api.github.com/repos/spryker/UtilEncoding/zipball/3d0190fde0dd651bab20cf4b03fb3a9f6af398b8",
+                "reference": "3d0190fde0dd651bab20cf4b03fb3a9f6af398b8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10672,9 +10672,9 @@
             ],
             "description": "UtilEncoding bundle",
             "support": {
-                "source": "https://github.com/spryker/UtilEncoding/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/UtilEncoding/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-03-28T09:47:21+00:00"
         },
         {
             "name": "spryker/util-network",
