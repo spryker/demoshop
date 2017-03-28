@@ -1710,6 +1710,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1746,6 +1747,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
@@ -1783,6 +1786,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1847,6 +1852,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "27a57e768920d2072cfa452104b48b580cb5b81c"
 =======
@@ -2079,8 +2086,17 @@
 =======
                 "reference": "74b020bf12b255e8aa114f7cc3d9bb9cf1c6099e"
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+=======
+=======
+                "reference": "f0d0ec210e44f619677a2189b4caca2137570b49"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2880,6 +2896,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -2916,6 +2933,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
@@ -2953,6 +2972,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -3017,6 +3038,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-03-28 10:34:34"
 =======
@@ -3235,7 +3258,13 @@
 =======
             "time": "2017-03-28 09:48:36"
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+=======
+            "time": "2017-03-28 10:23:47"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
