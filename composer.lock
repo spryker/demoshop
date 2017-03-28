@@ -15,6 +15,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
 <<<<<<< HEAD
@@ -39,6 +40,8 @@
 >>>>>>> update composer
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
 <<<<<<< HEAD
 =======
 >>>>>>> update spryker/spryker
@@ -47,6 +50,8 @@
 >>>>>>> update compose
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
     "content-hash": "0882e407668436f239b82f0f9f09a42a",
 =======
 =======
@@ -201,7 +206,13 @@
 =======
     "content-hash": "e5223f5096450cc0e75163a339b047e6",
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+=======
+    "content-hash": "6e06a4eef48f0133367a9a17a34586e2",
+>>>>>>> update spryker/spryker, disable mails for testing
+>>>>>>> update spryker/spryker, disable mails for testing
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1685,13 +1696,18 @@
         {
             "name": "spryker/spryker",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "dev-feature/tests",
 =======
             "version": "dev-feature/new-tests-architecture",
 >>>>>>> update composer
+=======
+            "version": "dev-feature/tests",
+>>>>>>> update spryker/spryker, disable mails for testing
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1749,6 +1765,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
 <<<<<<< HEAD
                 "reference": "bd8d260d50a747408d07bbbf9a9b427407cc16ed"
 =======
@@ -1788,6 +1806,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
 <<<<<<< HEAD
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
@@ -1836,6 +1856,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
                 "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
 =======
 =======
@@ -1854,6 +1876,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
 <<<<<<< HEAD
                 "reference": "27a57e768920d2072cfa452104b48b580cb5b81c"
 =======
@@ -2095,8 +2119,17 @@
 =======
                 "reference": "f0d0ec210e44f619677a2189b4caca2137570b49"
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+=======
+=======
+=======
+                "reference": "02b5abdd4a4f0152f24b5fb616a3af65dc934f5f"
+>>>>>>> update spryker/spryker, disable mails for testing
+>>>>>>> update spryker/spryker, disable mails for testing
+>>>>>>> update spryker/spryker, disable mails for testing
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2897,6 +2930,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -2935,6 +2969,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
 <<<<<<< HEAD
             "time": "2017-04-11 13:31:31"
 =======
@@ -2974,6 +3010,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
 <<<<<<< HEAD
             "time": "2017-03-29 09:37:26"
 =======
@@ -3022,6 +3060,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
             "time": "2017-03-29 09:37:26"
 =======
 =======
@@ -3040,6 +3080,8 @@
 >>>>>>> update spryker/spryker, added databuilder generator to setup_test
 =======
 >>>>>>> update spryker/spryker
+=======
+>>>>>>> update spryker/spryker, disable mails for testing
 <<<<<<< HEAD
             "time": "2017-03-28 10:34:34"
 =======
@@ -3264,7 +3306,13 @@
 =======
             "time": "2017-03-28 10:23:47"
 >>>>>>> update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> update spryker/spryker
+=======
+=======
+            "time": "2017-03-28 12:45:30"
+>>>>>>> update spryker/spryker, disable mails for testing
+>>>>>>> update spryker/spryker, disable mails for testing
         },
         {
             "name": "swiftmailer/swiftmailer",
