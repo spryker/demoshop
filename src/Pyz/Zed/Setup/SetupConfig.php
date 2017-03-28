@@ -22,7 +22,7 @@ class SetupConfig extends SprykerSetupConfig
     /**
      * The following commands are a boilerplate stack. Please customize for your project.
      *
-     * For a first initial migration you must use OPTION_NO_DIFF false.
+     * For a first initial migration you must use PropelInstallConsole with OPTION_NO_DIFF set to false.
      *
      * @return array
      */
