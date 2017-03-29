@@ -18,7 +18,6 @@ function displayHeader {
 }
 
 function displayHelp {
-
     displayHeader
 
     echo ""
@@ -42,16 +41,11 @@ function displayHelp {
 warningText "This script should be used only in development and NEVER IN PRODUCTION"
 
 function backupTestingEnvData {
-
     dropDevelopmentDatabase
 
     labelText "Running setup:install"
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
-
-    labelText "Running propel code generation/migrations"
-    $CONSOLE propel:diff $VERBOSITY
-    $CONSOLE propel:migrate $VERBOSITY
 
     labelText "Importing Demo data"
     $CONSOLE import:demo-data $VERBOSITY
@@ -63,7 +57,6 @@ function backupTestingEnvData {
 }
 
 function restoreTestingEnvData {
-
    dropAndRestoreTestDatabase $DATABASE_BACKUP_PATH
 }
 
@@ -75,7 +68,6 @@ function backupDatabaseForTests {
 }
 
 function dropAndRestoreTestDatabase {
-
     if [[ -z "$1" ]]; then
           DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
     else
@@ -99,6 +91,7 @@ function configureCodeception {
 }
 
 function runCollectors() {
+
 
    labelText "Run collectors."
    $CONSOLE setup:search $VERBOSITY

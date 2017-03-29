@@ -76,7 +76,8 @@
     "phpunit/phpunit": "^5.0",
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
-    "spryker/code-sniffer": "dev-master"
+    "spryker/code-sniffer": "dev-master",
+    "stecman/symfony-console-completion": "^0.7.0"
   },
   "autoload": {
     "psr-0": {
