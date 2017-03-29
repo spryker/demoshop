@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb278ab26a3d5cf692fd28f532252e40",
+    "content-hash": "6a67204ef32c8ac1ad4a266a9b7ca2f7",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1491,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "336f6178af9b986cda434fb5c837e23c7f4281a7"
+                "reference": "ec014ccee03bbd51a9862bea7f081352ac4926af"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2256,7 +2256,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-28 15:20:40"
+            "time": "2017-03-29 07:14:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
