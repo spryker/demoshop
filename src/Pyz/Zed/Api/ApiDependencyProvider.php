@@ -7,6 +7,8 @@
 namespace Pyz\Zed\Api;
 
 use Spryker\Zed\Api\ApiDependencyProvider as SprykerApiDependencyProvider;
+use Spryker\Zed\Api\Communication\Plugin\Processor\Post\Action\AddActionPostProcessorPlugin;
+use Spryker\Zed\Api\Communication\Plugin\Processor\Post\Action\DeleteActionPostProcessorPlugin;
 use Spryker\Zed\Api\Communication\Plugin\Processor\Pre\Action\AddActionPreProcessorPlugin;
 use Spryker\Zed\Api\Communication\Plugin\Processor\Pre\Action\FindActionPreProcessorPlugin;
 use Spryker\Zed\Api\Communication\Plugin\Processor\Pre\Action\GetActionPreProcessorPlugin;
@@ -72,7 +74,10 @@ class ApiDependencyProvider extends SprykerApiDependencyProvider
      */
     protected function getPostProcessorPluginCollection()
     {
-        return [];
+        return [
+            new AddActionPostProcessorPlugin(),
+            new DeleteActionPostProcessorPlugin(),
+        ];
     }
 
 }
