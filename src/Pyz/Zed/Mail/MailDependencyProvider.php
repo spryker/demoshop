@@ -32,12 +32,12 @@ class MailDependencyProvider extends SprykerMailDependencyProvider
         $container = parent::provideBusinessLayerDependencies($container);
 
         $container->extend(self::MAIL_TYPE_COLLECTION, function (MailTypeCollectionAddInterface $mailCollection) {
-//            $mailCollection
-//                ->add(new CustomerRegistrationMailTypePlugin())
-//                ->add(new NewsletterSubscribedMailTypePlugin())
-//                ->add(new NewsletterUnsubscribedMailTypePlugin())
-//                ->add(new OrderConfirmationMailTypePlugin())
-//                ->add(new OrderShippedMailTypePlugin());
+            $mailCollection
+                ->add(new CustomerRegistrationMailTypePlugin())
+                ->add(new NewsletterSubscribedMailTypePlugin())
+                ->add(new NewsletterUnsubscribedMailTypePlugin())
+                ->add(new OrderConfirmationMailTypePlugin())
+                ->add(new OrderShippedMailTypePlugin());
 
             return $mailCollection;
         });
