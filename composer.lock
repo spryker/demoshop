@@ -1491,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5eaf6ce7025daa7890d9db4a88a253169bd4827a"
+                "reference": "40e0afca583b53ce8d3376d1d4ceb2095e721295"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1983,6 +1983,11 @@
                     "Unit\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Functional\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Acceptance\\ProductCategory\\": "Bundles/ProductCategory/tests",
+                    "Spryker\\Shared\\ProductApi\\": "Bundles/ProductApi/src",
+                    "Functional\\Spryker\\Shared\\ProductApi\\": "Bundles/ProductApi/tests",
+                    "Acceptance\\ProductApi\\": "Bundles/ProductApi/tests",
+                    "Spryker\\Zed\\ProductApi\\": "Bundles/ProductApi/src",
+                    "Functional\\Spryker\\Zed\\ProductApi\\": "Bundles/ProductApi/tests",
                     "Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/src",
                     "Spryker\\Client\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
@@ -2251,7 +2256,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-28 10:56:46"
+            "time": "2017-03-29 18:46:34"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6832,7 +6837,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-03-08T12:29:10+00:00"
+            "time": "2017-03-08 12:29:10"
         },
         {
             "name": "spryker/code-generator",
@@ -6922,7 +6927,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-17T13:33:48+00:00"
+            "time": "2017-03-17 13:33:48"
         },
         {
             "name": "squizlabs/php_codesniffer",
