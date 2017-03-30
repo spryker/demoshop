@@ -1,22 +1,29 @@
 <?php
+
 namespace Helper;
 
-// here you can define custom actions
-// all public methods declared in helper class will be available in $I
-
-use Codeception\Module\Cli;
+use Codeception\Module;
 use Codeception\TestInterface;
 use Codeception\Util\FileSystem;
 
-class Console extends \Codeception\Module
+class Console extends Module
 {
+
     const RUNNER = 'console_runner.php';
     const SANDBOX_DIR = 'cli_sandbox/';
 
+    /**
+     * @var array
+     */
     protected $config = [
-      'cleanup_dirs' => ['data', 'src']
+      'cleanup_dirs' => ['data', 'src'],
     ];
 
+    /**
+     * @param \Codeception\TestInterface $test
+     *
+     * @return void
+     */
     public function _after(TestInterface $test)
     {
         foreach ($this->config['cleanup_dirs'] as $dir) {
@@ -26,7 +33,11 @@ class Console extends \Codeception\Module
         }
     }
 
-
+    /**
+     * @param string $command
+     *
+     * @return void
+     */
     public function runSprykerCommand($command)
     {
         $command = 'php ' . codecept_data_dir() . self::RUNNER . " $command";
@@ -34,12 +45,11 @@ class Console extends \Codeception\Module
     }
 
     /**
-     * @return Cli
+     * @return \Codeception\Module\Cli|\Codeception\Module
      */
     protected function getCli()
     {
         return $this->getModule('Cli');
     }
-
 
 }

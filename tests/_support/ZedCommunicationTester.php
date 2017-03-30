@@ -15,12 +15,14 @@
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class ZedCommunicationTester extends \Codeception\Actor
 {
+
     use _generated\ZedCommunicationTesterActions;
 
    /**
     * Define custom actions here
     */
+
 }

@@ -1,5 +1,5 @@
 <?php
-const APPLICATION_ENV='development';
+const APPLICATION_ENV = 'development';
 const APPLICATION_STORE = 'DE';
 const APPLICATION_ROOT_DIR = __DIR__ . '/cli_sandbox';
 const APPLICATION_VENDOR_DIR = __DIR__ . '/../../vendor/';

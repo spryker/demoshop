@@ -7,17 +7,12 @@
 
 namespace Pyz\Zed\Mail;
 
-use Spryker\Zed\Customer\Communication\Plugin\Mail\CustomerRegistrationMailTypePlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Mail\Business\Model\Mail\MailTypeCollectionAddInterface;
 use Spryker\Zed\Mail\Business\Model\Provider\MailProviderCollectionAddInterface;
 use Spryker\Zed\Mail\Communication\Plugin\MailProviderPlugin;
 use Spryker\Zed\Mail\MailConfig;
 use Spryker\Zed\Mail\MailDependencyProvider as SprykerMailDependencyProvider;
-use Spryker\Zed\Newsletter\Communication\Plugin\Mail\NewsletterSubscribedMailTypePlugin;
-use Spryker\Zed\Newsletter\Communication\Plugin\Mail\NewsletterUnsubscribedMailTypePlugin;
-use Spryker\Zed\Oms\Communication\Plugin\Mail\OrderConfirmationMailTypePlugin;
-use Spryker\Zed\Oms\Communication\Plugin\Mail\OrderShippedMailTypePlugin;
 
 class MailDependencyProvider extends SprykerMailDependencyProvider
 {

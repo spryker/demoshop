@@ -88,8 +88,8 @@ before_script:
   - vendor/bin/console twig:cache:warmer
 
 script:
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x ZedPresenation ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g ZedPresentation ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi

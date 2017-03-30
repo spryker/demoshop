@@ -1,11 +1,22 @@
 <?php
+
+namespace Console;
+
+use ConsoleTester;
+
 class GenerateDataBuildersCest
 {
-    // tests
-    public function dataBuilder(ConsoleTester $I)
+
+    /**
+     * @param \Console\ConsoleTester $i
+     *
+     * @return void
+     */
+    public function dataBuilder(ConsoleTester $i)
     {
-        $I->runSprykerCommand('transfer:databuilder:generate -vvv');
-        $I->seeInShellOutput('CustomerBuilder.php was generated');
-        $I->seeFileFound(codecept_data_dir() . 'cli_sandbox/src/Generated/Shared/DataBuilder/CustomerBuilder.php');
+        $i->runSprykerCommand('transfer:databuilder:generate -vvv');
+        $i->seeInShellOutput('CustomerBuilder.php was generated');
+        $i->seeFileFound(codecept_data_dir() . 'cli_sandbox/src/Generated/Shared/DataBuilder/CustomerBuilder.php');
     }
+
 }

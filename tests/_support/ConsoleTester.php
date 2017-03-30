@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -15,12 +14,10 @@
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class ConsoleTester extends \Codeception\Actor
 {
+
     use _generated\ConsoleTesterActions;
 
-   /**
-    * Define custom actions here
-    */
 }

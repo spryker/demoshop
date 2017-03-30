@@ -1,15 +1,27 @@
 <?php
-class GenerateBundlesCest
+
+namespace Console;
+
+use ConsoleTester;
+use Helper\Console;
+
+class GenerateBundleCest
 {
-    // tests
-    public function generateZedBundle(ConsoleTester $I)
+
+    /**
+     * @param \ConsoleTester $i
+     *
+     * @return void
+     */
+    public function generateZedBundle(ConsoleTester $i)
     {
-        $I->runSprykerCommand('code:generate:bundle:zed Acme -vvv');
-        $I->seeInShellOutput('Generated: Pyz/Zed/Acme/AcmeConfig.php');
-        $I->seeInShellOutput('Generated: ZedBundleCodeGenerator');
-        $bundleDir = codecept_data_dir() . \Helper\Console::SANDBOX_DIR . 'src/Pyz/Zed/Acme';
-        $I->seeFileFound('AcmeConfig.php', $bundleDir);
-        $I->seeFileFound('AcmeDependencyProvider.php', $bundleDir);
-        $I->seeFileFound('AcmeFacade.php', $bundleDir . '/Business');
+        $i->runSprykerCommand('code:generate:bundle:zed Acme -vvv');
+        $i->seeInShellOutput('Generated: Pyz/Zed/Acme/AcmeConfig.php');
+        $i->seeInShellOutput('Generated: ZedBundleCodeGenerator');
+        $bundleDir = codecept_data_dir() . Console::SANDBOX_DIR . 'src/Pyz/Zed/Acme';
+        $i->seeFileFound('AcmeConfig.php', $bundleDir);
+        $i->seeFileFound('AcmeDependencyProvider.php', $bundleDir);
+        $i->seeFileFound('AcmeFacade.php', $bundleDir . '/Business');
     }
+
 }
