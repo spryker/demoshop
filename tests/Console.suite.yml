@@ -1,0 +1,9 @@
+class_name: ConsoleTester
+modules:
+    enabled:
+        - Cli
+        - Filesystem
+        - \Helper\Console
+        - \Testify\Module\Environment
+        - \Testify\Helper\ZedBootstrap
+        - \Testify\Helper\Dependency
