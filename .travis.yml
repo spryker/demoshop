@@ -81,7 +81,6 @@ before_script:
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
-  - "phantomjs --webdriver=4444 > /dev/null 2>$1 &"
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
@@ -89,6 +88,7 @@ before_script:
   - vendor/bin/console twig:cache:warmer
 
 script:
+  - phantomjs testrunner.js
   - "if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x ZedPresentation -vvv ; fi"
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g ZedPresentation ; fi
 
