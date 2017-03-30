@@ -30,10 +30,3 @@ coverage:
     remote: true
     c3_url: 'http://zed.de.project.local'
     whitelist: { include: ['src/Pyz/*.php'] }
-
-extensions:
-    enabled:
-        - Codeception\Extension\Phantoman
-    config:
-        Codeception\Extension\Phantoman:
-            suites: ['Acceptance', 'ZedPresentation']
