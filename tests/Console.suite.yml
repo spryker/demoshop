@@ -4,7 +4,3 @@ modules:
         - Cli
         - Filesystem
         - \Helper\Console
-        - \Testify\Module\Environment
-        - \Testify\Helper\ZedBootstrap:
-            depends: \Testify\Helper\BundleConfig
-        - \Testify\Helper\Dependency
