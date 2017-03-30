@@ -36,4 +36,4 @@ extensions:
         - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\Phantoman:
-            suites: ['Acceptance']
+            suites: ['Acceptance', 'ZedPresentation']
