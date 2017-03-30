@@ -17,6 +17,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
 <<<<<<< HEAD
@@ -222,6 +223,9 @@
     "content-hash": "8731f60e9880ab5c71b05769c038020a",
 >>>>>>> update
 >>>>>>> update
+=======
+    "content-hash": "8731f60e9880ab5c71b05769c038020a",
+>>>>>>> update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1704,18 +1708,11 @@
         },
         {
             "name": "spryker/spryker",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "dev-feature/tests",
-=======
-            "version": "dev-feature/new-tests-architecture",
->>>>>>> update composer
-=======
-            "version": "dev-feature/tests",
->>>>>>> update spryker/spryker, disable mails for testing
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1784,6 +1781,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -2188,6 +2187,9 @@
 =======
                 "reference": "d07676aea2ea6aa2d3b4e2d509083c915e5ddd38"
 >>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+=======
+                "reference": "de080b30dcb5679cf9eb6211136d60624877ae60"
 >>>>>>> update spryker/spryker
             },
             "require": {
@@ -2997,6 +2999,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -3041,6 +3044,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -3413,6 +3418,9 @@
 >>>>>>> update spryker/spryker
 =======
             "time": "2017-03-29 15:59:35"
+>>>>>>> update spryker/spryker
+=======
+            "time": "2017-03-30 14:26:53"
 >>>>>>> update spryker/spryker
         },
         {
