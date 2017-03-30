@@ -7,10 +7,10 @@
 namespace Pyz\Zed\Api;
 
 use Spryker\Zed\Api\ApiDependencyProvider as SprykerApiDependencyProvider;
-use Spryker\Zed\Api\Communication\Plugin\Processor\Post\Action\AddActionPostProcessorPlugin;
-use Spryker\Zed\Api\Communication\Plugin\Processor\Post\Action\DeleteActionPostProcessorPlugin;
 use Spryker\Zed\CustomerApi\Communication\Plugin\Api\CustomerApiPlugin;
+use Spryker\Zed\CustomerApi\Communication\Plugin\Api\CustomerApiValidatorPlugin;
 use Spryker\Zed\ProductApi\Communication\Plugin\Api\ProductApiPlugin;
+use Spryker\Zed\ProductApi\Communication\Plugin\Api\ProductApiValidatorPlugin;
 
 class ApiDependencyProvider extends SprykerApiDependencyProvider
 {
@@ -27,13 +27,13 @@ class ApiDependencyProvider extends SprykerApiDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\Api\Business\Model\Processor\Post\PostProcessorInterface[]
+     * @return \Spryker\Zed\Api\Dependency\Plugin\ApiPluginInterface[]
      */
-    protected function getPostProcessorPluginCollection()
+    protected function getApiValidatorPluginCollection()
     {
         return [
-            new AddActionPostProcessorPlugin(),
-            new DeleteActionPostProcessorPlugin(),
+            new CustomerApiValidatorPlugin(),
+            new ProductApiValidatorPlugin(),
         ];
     }
 
