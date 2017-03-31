@@ -27,15 +27,14 @@ use Spryker\Zed\Customer\Dependency\Facade\CustomerToMailBridge;
 use Spryker\Zed\Mail\Business\MailFacadeInterface;
 use Spryker\Zed\Newsletter\Business\NewsletterFacade;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Testify\Helper\Dependency;
 use Testify\Helper\DependencyHelperTrait;
 use Testify\Helper\LocatorHelperTrait;
 
 class Customer extends Module
 {
 
-    use LocatorHelperTrait;
     use DependencyHelperTrait;
+    use LocatorHelperTrait;
 
     /**
      * @param \Codeception\TestInterface $step
@@ -230,7 +229,6 @@ class Customer extends Module
             CustomerLoginPage::FORM_FIELD_SELECTOR_EMAIL => $customerTransfer->getEmail(),
             CustomerLoginPage::FORM_FIELD_SELECTOR_PASSWORD => $customerTransfer->getPassword(),
         ]);
-
 
         $i->wait(2);
     }
