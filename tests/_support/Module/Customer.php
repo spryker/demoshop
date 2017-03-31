@@ -11,7 +11,7 @@ use Acceptance\Customer\Yves\PageObject\CustomerAddressesPage;
 use Acceptance\Customer\Yves\PageObject\Customer as PageObjectCustomer;
 use Acceptance\Customer\Yves\PageObject\CustomerLoginPage;
 use Codeception\Module;
-use Codeception\TestCase;
+use Codeception\TestInterface;
 use Codeception\Util\Stub;
 use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
@@ -28,17 +28,21 @@ use Spryker\Zed\Mail\Business\MailFacadeInterface;
 use Spryker\Zed\Newsletter\Business\NewsletterFacade;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Testify\Helper\Dependency;
-use Testify\Helper\Locator;
+use Testify\Helper\DependencyHelperTrait;
+use Testify\Helper\LocatorHelperTrait;
 
 class Customer extends Module
 {
 
+    use LocatorHelperTrait;
+    use DependencyHelperTrait;
+
     /**
-     * @param \Codeception\TestCase $step
+     * @param \Codeception\TestInterface $step
      *
      * @return void
      */
-    public function _before(TestCase $step)
+    public function _before(TestInterface $step)
     {
         $this->cleanUpDatabase();
     }
@@ -135,10 +139,16 @@ class Customer extends Module
         $customerTransfer = PageObjectCustomer::getCustomerData($email);
 
         $mailMock = new CustomerToMailBridge($this->getMailMock());
-        $this->getDependencyModule()->setDependency(CustomerDependencyProvider::FACADE_MAIL, $mailMock);
+        $this->setDependency(CustomerDependencyProvider::FACADE_MAIL, $mailMock);
+        $this->getFacade()->registerCustomer($customerTransfer);
+    }
 
-        $customerFacade = $this->getLocatorModule()->getLocator()->customer()->facade();
-        $customerFacade->registerCustomer($customerTransfer);
+    /**
+     * @return \Spryker\Zed\Customer\Business\CustomerFacadeInterface
+     */
+    private function getFacade()
+    {
+        return $this->getLocator()->customer()->facade();
     }
 
     /**
@@ -147,22 +157,6 @@ class Customer extends Module
     private function getMailMock()
     {
         return Stub::makeEmpty(MailFacadeInterface::class);
-    }
-
-    /**
-     * @return \Codeception\Module|\Testify\Helper\Locator
-     */
-    private function getLocatorModule()
-    {
-        return $this->getModule('\\' . Locator::class);
-    }
-
-    /**
-     * @return \Codeception\Module|\Testify\Helper\Dependency
-     */
-    private function getDependencyModule()
-    {
-        return $this->getModule('\\' . Dependency::class);
     }
 
     /**
@@ -228,20 +222,21 @@ class Customer extends Module
     public function amLoggedInCustomer($email = PageObjectCustomer::NEW_CUSTOMER_EMAIL)
     {
         $this->haveRegisteredCustomer($email);
+        $customerTransfer = PageObjectCustomer::getCustomerData($email);
 
         $i = $this->getWebDriver();
         $i->amOnPage(CustomerLoginPage::URL);
-        $customerTransfer = PageObjectCustomer::getCustomerData($email);
         $i->submitForm(['name' => 'loginForm'], [
             CustomerLoginPage::FORM_FIELD_SELECTOR_EMAIL => $customerTransfer->getEmail(),
             CustomerLoginPage::FORM_FIELD_SELECTOR_PASSWORD => $customerTransfer->getPassword(),
         ]);
 
+
         $i->wait(2);
     }
 
     /**
-     * @return \Codeception\Module\WebDriver
+     * @return \Codeception\Module|\Codeception\Module\WebDriver
      */
     protected function getWebDriver()
     {
