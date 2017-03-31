@@ -12,6 +12,7 @@ use Acceptance\Customer\Yves\PageObject\Customer as PageObjectCustomer;
 use Acceptance\Customer\Yves\PageObject\CustomerLoginPage;
 use Codeception\Module;
 use Codeception\TestCase;
+use Codeception\Util\Stub;
 use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
 use Generated\Shared\Transfer\NewsletterTypeTransfer;
@@ -21,9 +22,13 @@ use Orm\Zed\Customer\Persistence\SpyCustomerAddress;
 use Orm\Zed\Customer\Persistence\SpyCustomerQuery;
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Client\Session\SessionClient;
-use Spryker\Zed\Customer\Business\CustomerFacade;
+use Spryker\Zed\Customer\CustomerDependencyProvider;
+use Spryker\Zed\Customer\Dependency\Facade\CustomerToMailBridge;
+use Spryker\Zed\Mail\Business\MailFacadeInterface;
 use Spryker\Zed\Newsletter\Business\NewsletterFacade;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Testify\Helper\Dependency;
+use Testify\Helper\Locator;
 
 class Customer extends Module
 {
@@ -129,8 +134,35 @@ class Customer extends Module
 
         $customerTransfer = PageObjectCustomer::getCustomerData($email);
 
-        $customerFacade = new CustomerFacade();
+        $mailMock = new CustomerToMailBridge($this->getMailMock());
+        $this->getDependencyModule()->setDependency(CustomerDependencyProvider::FACADE_MAIL, $mailMock);
+
+        $customerFacade = $this->getLocatorModule()->getLocator()->customer()->facade();
         $customerFacade->registerCustomer($customerTransfer);
+    }
+
+    /**
+     * @return object|\Spryker\Zed\Mail\Business\MailFacadeInterface
+     */
+    private function getMailMock()
+    {
+        return Stub::makeEmpty(MailFacadeInterface::class);
+    }
+
+    /**
+     * @return \Codeception\Module|\Testify\Helper\Locator
+     */
+    private function getLocatorModule()
+    {
+        return $this->getModule('\\' . Locator::class);
+    }
+
+    /**
+     * @return \Codeception\Module|\Testify\Helper\Dependency
+     */
+    private function getDependencyModule()
+    {
+        return $this->getModule('\\' . Dependency::class);
     }
 
     /**
