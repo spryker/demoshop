@@ -15,8 +15,8 @@ module.exports = {
             this.$root = $root;
             this.$root.slick({
                 infinite: true,
-                slidesToShow: 6,
-                slidesToScroll: 6,
+                slidesToShow: 4,
+                slidesToScroll: 4,
                 responsive: [
                     {
                         breakpoint: 1024,
