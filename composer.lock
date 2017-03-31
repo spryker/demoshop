@@ -1739,6 +1739,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1783,6 +1784,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -2202,6 +2205,9 @@
 >>>>>>> update spryker/spryker
 =======
                 "reference": "0baf2f075710c79bc69f6f6a24567cfd48f945cd"
+>>>>>>> update spryker/spryker
+=======
+                "reference": "611eb680d05104f87512ae162aa471b92aa71433"
 >>>>>>> update spryker/spryker
             },
             "require": {
@@ -3014,6 +3020,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -3058,6 +3065,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -3445,6 +3454,9 @@
 >>>>>>> update spryker/spryker
 =======
             "time": "2017-03-30 15:44:51"
+>>>>>>> update spryker/spryker
+=======
+            "time": "2017-03-31 08:52:52"
 >>>>>>> update spryker/spryker
         },
         {
