@@ -88,8 +88,8 @@ before_script:
   - vendor/bin/console twig:cache:warmer
 
 script:
-  - phantomjs testrunner.js
-  - "if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x ZedPresentation -vvv ; fi"
+  - vendor/bin/phantomjs --webdriver=4444 > /dev/null &
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x ZedPresentation -vvv ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g ZedPresentation ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff ; fi
