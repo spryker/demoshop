@@ -15,3 +15,6 @@ modules:
         - \Module\Customer
         - Cli
         - Asserts
+
+coverage:
+  enabled: false
