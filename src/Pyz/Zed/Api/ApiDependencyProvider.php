@@ -7,27 +7,27 @@
 namespace Pyz\Zed\Api;
 
 use Spryker\Zed\Api\ApiDependencyProvider as SprykerApiDependencyProvider;
-use Spryker\Zed\CustomerApi\Communication\Plugin\Api\CustomerApiPlugin;
+use Spryker\Zed\CustomerApi\Communication\Plugin\Api\CustomerApiResourcePlugin;
 use Spryker\Zed\CustomerApi\Communication\Plugin\Api\CustomerApiValidatorPlugin;
-use Spryker\Zed\ProductApi\Communication\Plugin\Api\ProductApiPlugin;
+use Spryker\Zed\ProductApi\Communication\Plugin\Api\ProductApiResourcePlugin;
 use Spryker\Zed\ProductApi\Communication\Plugin\Api\ProductApiValidatorPlugin;
 
 class ApiDependencyProvider extends SprykerApiDependencyProvider
 {
 
     /**
-     * @return \Spryker\Zed\Api\Dependency\Plugin\ApiPluginInterface[]
+     * @return \Spryker\Zed\Api\Dependency\Plugin\ApiResourcePluginInterface[]
      */
     protected function getApiPluginCollection()
     {
         return [
-            new CustomerApiPlugin(),
-            new ProductApiPlugin(),
+            new CustomerApiResourcePlugin(),
+            new ProductApiResourcePlugin(),
         ];
     }
 
     /**
-     * @return \Spryker\Zed\Api\Dependency\Plugin\ApiPluginInterface[]
+     * @return \Spryker\Zed\Api\Dependency\Plugin\ApiResourcePluginInterface[]
      */
     protected function getApiValidatorPluginCollection()
     {
