@@ -17,6 +17,8 @@ class ZedBootstrap extends SprykerZedBootstrap
 {
 
     /**
+     * @SuppressWarnings(PHPMD)
+     *
      * @return void
      */
     protected function setUp()
