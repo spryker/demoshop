@@ -23,6 +23,7 @@ $(function(){
         require('./components/aside'),
         require('./components/viewer'),
         require('./components/suggestions'),
-        require('./components/carousel')
+        require('./components/carousel'),
+        require('./components/add-to-wishlist')
     ]);
 });

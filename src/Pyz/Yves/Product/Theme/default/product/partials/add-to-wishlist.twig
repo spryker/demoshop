@@ -1,0 +1,12 @@
+<div class="add-to-wishlist" data-component="add-to-wishlist" data-wishlist-collection-url="{{ path('wishlist/add-to-wishlist') }}">
+    <form class="row add-to-wishlist " method="POST" action="{{ path('wishlist/add-item', {sku: product.sku}) }}">
+        <div class="small-12 columns">
+            <button type="button" class="button expanded info js-button" {{ (not product.isVariant) ? 'disabled' : '' }}>
+                <i class="fa fa-heart"></i>{{ 'page.detail.add-to-wishlist' | trans }}
+            </button>
+        </div>
+
+        <input type="hidden" name="wishlist-name" value="" class="js-wishlist-name" />
+    </form>
+    <div class="add-to-wishlist__panel-container js-panel is-hidden"></div>
+</div>

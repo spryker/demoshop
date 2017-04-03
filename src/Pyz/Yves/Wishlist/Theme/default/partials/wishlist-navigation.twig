@@ -1,0 +1,10 @@
+{% set active = active|default('') %}
+{% block wishlistSubmenu %}
+    {% if wishlistCollection.wishlists|length %}
+        <ul class="nested vertical menu">
+            {% for wishlist in wishlistCollection.wishlists %}
+                <li {% if active == wishlist.name %}class="active"{% endif %}><a href="{{ path('wishlist/details', { wishlistName: (wishlist.name ) }) }}">{{ wishlist.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

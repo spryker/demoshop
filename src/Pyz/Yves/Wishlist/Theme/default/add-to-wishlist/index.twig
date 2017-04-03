@@ -1,0 +1,13 @@
+{% if wishlistCollection.wishlists|length > 0 %}
+    <div class="callout add-to-wishlist-panel">
+        <div class="row">
+            <div class="columns __no-margin-bottom">
+                <ul class="menu vertical">
+                    {% for wishlist in wishlistCollection.wishlists %}
+                        <li><a class="js-wishlist-option" data-wishlist-name="{{ wishlist.name }}">{{ wishlist.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,9 +1,23 @@
+{% set active = active|default('') %}
 <ul class="menu vertical">
-    <li {% if active == 'overview' %}class="active"{% endif %}><a href="{{ path('customer/overview') }}" data-id="sidebar-overview">{{ 'customer.account.overview' | trans }}</a></li>
-    <li {% if active == 'profile' %}class="active"{% endif %}><a href="{{ path('customer/profile') }}" data-id="sidebar-profile">{{ 'customer.account.profile_data' | trans }}</a></li>
-    <li {% if active == 'address' %}class="active"{% endif %}><a href="{{ path('customer/address') }}" data-id="sidebar-address">{{ 'customer.account.address' | trans }}</a></li>
-    <li {% if active == 'order' %}class="active"{% endif %}><a href="{{ path('customer/order') }}" data-id="sidebar-order">{{ 'customer.account.order_history' | trans }}</a></li>
-    <li {% if active == 'newsletter' %}class="active"{% endif %}><a href="{{ path('customer/newsletter') }}" data-id="sidebar-newsletter">{{ 'customer.account.newsletter' | trans }}</a></li>
-    <li {% if active == 'wishlist' %}class="active"{% endif %}><a href="{{ path('wishlist') }}" data-id="sidebar-wishlist">{{ 'wishlist.wishlist' | trans }}</a></li>
+    <li {% if active == 'overview' %}class="active"{% endif %}>
+        <a href="{{ path('customer/overview') }}" data-id="sidebar-overview">{{ 'customer.account.overview' | trans }}</a>
+    </li>
+    <li {% if active == 'profile' %}class="active"{% endif %}>
+        <a href="{{ path('customer/profile') }}" data-id="sidebar-profile">{{ 'customer.account.profile_data' | trans }}</a>
+    </li>
+    <li {% if active == 'address' %}class="active"{% endif %}>
+        <a href="{{ path('customer/address') }}" data-id="sidebar-address">{{ 'customer.account.address' | trans }}</a>
+    </li>
+    <li {% if active == 'order' %}class="active"{% endif %}>
+        <a href="{{ path('customer/order') }}" data-id="sidebar-order">{{ 'customer.account.order_history' | trans }}</a>
+    </li>
+    <li {% if active == 'newsletter' %}class="active"{% endif %}>
+        <a href="{{ path('customer/newsletter') }}" data-id="sidebar-newsletter">{{ 'customer.account.newsletter' | trans }}</a>
+    </li>
+    <li {% if active == 'wishlist' %}class="active"{% endif %}>
+        <a href="{{ path('wishlist/overview') }}" data-id="sidebar-wishlist">{{ 'wishlist.wishlist' | trans }}</a>
+        {% block wishlistSubmenu %}{% endblock %}
+    </li>
 </ul>
 

@@ -695,6 +695,30 @@ customer.account.wishlist.overview.sku,"Sku",de_DE
 customer.account.wishlist.overview.name,"Name",de_DE
 customer.account.wishlist.overview.price,"Preis",de_DE
 customer.account.wishlist.overview.variant,"Produktvariante",de_DE
+customer.account.wishlist.overview.title,"Manage wishlists",en_US
+customer.account.wishlist.overview.title,"Wunschliste verwalten",de_DE
+customer.account.wishlist.overview.empty,"You do not have any lists yet.",en_US
+customer.account.wishlist.overview.empty,"Es sind noch keine Produckte in deiner Wunschliste.",de_DE
+customer.account.wishlist.overview.enter_name,"Enter name here",en_US
+customer.account.wishlist.overview.enter_name,"Name hier eingeben",de_DE
+customer.account.wishlist.overview.add_new,"Add new wishlist",en_US
+customer.account.wishlist.overview.add_new,"Neue Liste hinzufügen",de_DE
+customer.account.wishlist.overview.item_count,"# of items in the list",en_US
+customer.account.wishlist.overview.item_count,"# Produkte in der Liste",de_DE
+customer.account.wishlist.overview.date,"Date of creation",en_US
+customer.account.wishlist.overview.date,"Erstelldatum",de_DE
+customer.account.wishlist.overview.edit,"Edit",en_US
+customer.account.wishlist.overview.edit,"Bearbeiten",de_DE
+customer.account.wishlist.overview.delete,"Delete",en_US
+customer.account.wishlist.overview.delete,"Löschen",de_DE
+customer.account.wishlist.add_all_available_to_cart,"Add all available products to cart",en_US
+customer.account.wishlist.add_all_available_to_cart,"Alle Produkte zum Warenkorb hinzufügen",de_DE
+customer.account.wishlist.availability,Availability,en_US
+customer.account.wishlist.availability,Verfügbarkeit,de_DE
+customer.account.wishlist.available,Available,en_US
+customer.account.wishlist.available,Verfügbar,de_DE
+customer.account.wishlist.not_available,Currently not available,en_US
+customer.account.wishlist.not_available,Nicht verfügbar,de_DE
 newsletter.subscribe,"Subscribe for newsletter",en_US
 newsletter.subscribe,"In den Newsletter eintragen",de_DE
 pagination.previous,"Previous",en_US
