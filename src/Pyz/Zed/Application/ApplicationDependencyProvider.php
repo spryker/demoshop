@@ -11,7 +11,6 @@ use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
 
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 
-use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 
 use Silex\Provider\ServiceControllerServiceProvider;
@@ -20,12 +19,9 @@ use Silex\Provider\SessionServiceProvider;
 
 use Silex\Provider\TwigServiceProvider;
 
-use Silex\Provider\UrlGeneratorServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
 use Spryker\Service\UtilDateTime\ServiceProvider\DateTimeFormatterServiceProvider;
 
 use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
-use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Config\Environment;
 use Spryker\Shared\ErrorHandler\Plugin\ServiceProvider\WhoopsErrorHandlerServiceProvider;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
@@ -34,7 +30,6 @@ use Spryker\Zed\Api\Communication\Plugin\ApiServiceProviderPlugin;
 use Spryker\Zed\Api\Communication\Plugin\ServiceProvider\ApiRoutingServiceProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
-use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\HeaderServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -107,32 +102,23 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      */
     protected function getServiceProviders(Container $container)
     {
+        $coreProviders = parent::getServiceProviders($container);
+
         $providers = [
-            new RequestServiceProvider(),
-            new SslServiceProvider(),
-            new ServiceControllerServiceProvider(),
-            new RoutingServiceProvider(),
-            new MvcRoutingServiceProvider(),
-            new SilexRoutingServiceProvider(),
-            new AssertionServiceProvider(),
-            new ValidatorServiceProvider(),
-            new FormServiceProvider(),
-            new UrlGeneratorServiceProvider(),
-            new HttpFragmentServiceProvider(),
-            new HeaderServiceProvider(),
-            new SubRequestServiceProvider(),
-            new HeadersSecurityServiceProvider(),
             new LogServiceProvider(),
             new SessionServiceProvider(),
             $this->getSessionServiceProvider($container),
+            new SslServiceProvider(),
             new AuthBootstrapProvider(),
             new AclBootstrapProvider(),
             new TwigServiceProvider(),
             new SprykerTwigServiceProvider(),
             new EnvironmentInformationServiceProvider(),
             $this->getGatewayServiceProvider(),
+            new AssertionServiceProvider(),
             new UserServiceProvider($container),
             new TwigMoneyServiceProvider(),
+            new SubRequestServiceProvider(),
             new WebProfilerServiceProvider(),
             new ZedHstsServiceProvider(),
             new FormFactoryServiceProvider(),
@@ -142,14 +128,13 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new NewRelicRequestTransactionServiceProvider(),
             new TranslationServiceProvider(),
             new DateTimeFormatterServiceProvider(),
+            new GuiTwigExtensionServiceProvider(),
             new RedirectAfterLoginProvider(),
             new PropelServiceProvider(),
             new GuiTwigExtensionServiceProvider(),
         ];
 
-        if (Environment::isDevelopment()) {
-            $providers[] = new WhoopsErrorHandlerServiceProvider();
-        }
+        $providers = array_merge($providers, $coreProviders);
 
         return $providers;
     }
