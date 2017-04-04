@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Wishlist\Controller;
 
 use Spryker\Yves\Kernel\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Spryker\Client\Wishlist\WishlistClientInterface getClient()
