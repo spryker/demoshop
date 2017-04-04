@@ -1491,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
+                "reference": "ae2e3c0da935beeec3da80e0f076e850313ba5c7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2195,6 +2195,12 @@
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
+                    "Spryker\\Shared\\ProductRelation\\": "Bundles/ProductRelation/src",
+                    "Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/src",
+                    "Unit\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
+                    "Functional\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
+                    "Spryker\\Client\\ProductRelation\\": "Bundles/ProductRelation/src",
+                    "Spryker\\Yves\\ProductRelation\\": "Bundles/ProductRelation/src",
                     "Spryker\\Client\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Shared\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/src",
@@ -2219,7 +2225,15 @@
                     "Spryker\\Shared\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
                     "Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
                     "Unit\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
-                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests"
+                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
+                    "Spryker\\Shared\\Event\\": "Bundles/Event/src",
+                    "Spryker\\Zed\\Event\\": "Bundles/Event/src",
+                    "Unit\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
+                    "Functional\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
+                    "Spryker\\Shared\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
+                    "Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
+                    "Unit\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests",
+                    "Functional\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -2242,7 +2256,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-29 09:37:26"
+            "time": "2017-04-04 09:28:53"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4771,16 +4785,16 @@
         },
         {
             "name": "codeception/c3",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "47842d23030638237fd3306657c5fe998273fc18"
+                "reference": "8adf2a1699e1f0215f24b27889bf0478f5c77d52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/47842d23030638237fd3306657c5fe998273fc18",
-                "reference": "47842d23030638237fd3306657c5fe998273fc18",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/8adf2a1699e1f0215f24b27889bf0478f5c77d52",
+                "reference": "8adf2a1699e1f0215f24b27889bf0478f5c77d52",
                 "shasum": ""
             },
             "require": {
@@ -4817,7 +4831,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-02-04T01:52:32+00:00"
+            "time": "2017-04-04T01:02:46+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -5539,16 +5553,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.7",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69"
+                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/09e2277d14ea467e5a984010f501343ef29ffc69",
-                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
+                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
                 "shasum": ""
             },
             "require": {
@@ -5598,7 +5612,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-01T09:12:17+00:00"
+            "time": "2017-04-02T07:44:40+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -5788,16 +5802,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.17",
+            "version": "5.7.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf"
+                "reference": "69c4f49ff376af2692bad9cebd883d17ebaa98a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/68752b665d3875f9a38a357e3ecb35c79f8673bf",
-                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/69c4f49ff376af2692bad9cebd883d17ebaa98a1",
+                "reference": "69c4f49ff376af2692bad9cebd883d17ebaa98a1",
                 "shasum": ""
             },
             "require": {
@@ -5866,7 +5880,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-19T16:52:12+00:00"
+            "time": "2017-04-03T02:22:27+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6874,12 +6888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
+                "reference": "c6501b62b0ea5ddc5448f5d6598ab3ca9654b317"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/c6501b62b0ea5ddc5448f5d6598ab3ca9654b317",
+                "reference": "c6501b62b0ea5ddc5448f5d6598ab3ca9654b317",
                 "shasum": ""
             },
             "require": {
@@ -6913,7 +6927,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-17 13:33:48"
+            "time": "2017-03-29T16:24:48+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
