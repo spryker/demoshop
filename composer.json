@@ -51,6 +51,7 @@
     "spryker/dummy-payment": "^2.0.0",
     "spryker/elastica": "^3.0.0",
     "spryker/error-handler": "^2.0.0",
+    "spryker/event": "^1.0.0",
     "spryker/event-journal": "^3.0.0",
     "spryker/glossary": "^3.0.0",
     "spryker/graph": "^3.0.0",
@@ -95,6 +96,8 @@
     "spryker/product-option": "^4.0.0",
     "spryker/product-option-cart-connector": "^4.0.0",
     "spryker/product-option-discount-connector": "^4.0.0",
+    "spryker/product-relation": "^1.0.0",
+    "spryker/product-relation-collector": "^1.0.0",
     "spryker/product-search": "^5.0.0",
     "spryker/propel": "^3.0.0",
     "spryker/propel-orm": "^1.0.0",
@@ -194,10 +197,6 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/rabbit-mq.git"
-    },
-    {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
     }
   ],
   "scripts": {

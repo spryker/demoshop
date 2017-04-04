@@ -91,6 +91,15 @@ let config = {
                 }]
             })
         }, {
+            test: /\.(png|jpg|gif)$/i,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '/img/vendor/[name].[ext]',
+                    publicPath: settings.paths.publicPath
+                }
+            }]
+        }, {
             test: /\.(ttf|woff2?|eot|svg|otf)\??(\d*\w*=?\.?)+$/i,
             use: [{
                 loader: 'file-loader',

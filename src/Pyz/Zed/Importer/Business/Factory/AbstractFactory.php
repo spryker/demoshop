@@ -169,6 +169,22 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\ProductRelation\Business\ProductRelationFacadeInterface
+     */
+    protected function getProductRelationFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_RELATION);
+    }
+
+    /**
+     * @return \Spryker\Service\UtilEncoding\UtilEncodingService
+     */
+    protected function getUtilEncodingService()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::SERVICE_UTIL_ENCODING);
+    }
+
+    /**
      * @return \Spryker\Zed\Navigation\Business\NavigationFacadeInterface
      */
     protected function getNavigationFacade()
