@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bff9c7e9f3b47e1add0e4291f6bdfad",
+    "content-hash": "0af4f1b40f6bfc2b01d98b6bc8195329",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "559d63ec2181404f3a3cb6aa3c7002005ed748a5"
+                "reference": "f428466d75cbcf60264c6f4b455d9210bf6a2338"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/559d63ec2181404f3a3cb6aa3c7002005ed748a5",
-                "reference": "559d63ec2181404f3a3cb6aa3c7002005ed748a5",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/f428466d75cbcf60264c6f4b455d9210bf6a2338",
+                "reference": "f428466d75cbcf60264c6f4b455d9210bf6a2338",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-03-28T11:58:30+00:00"
+            "time": "2017-04-04T09:11:43+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -1613,16 +1613,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.7",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69"
+                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/09e2277d14ea467e5a984010f501343ef29ffc69",
-                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
+                "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
                 "shasum": ""
             },
             "require": {
@@ -1672,7 +1672,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-01T09:12:17+00:00"
+            "time": "2017-04-02T07:44:40+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1862,16 +1862,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.17",
+            "version": "5.7.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf"
+                "reference": "69c4f49ff376af2692bad9cebd883d17ebaa98a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/68752b665d3875f9a38a357e3ecb35c79f8673bf",
-                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/69c4f49ff376af2692bad9cebd883d17ebaa98a1",
+                "reference": "69c4f49ff376af2692bad9cebd883d17ebaa98a1",
                 "shasum": ""
             },
             "require": {
@@ -1940,7 +1940,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-19T16:52:12+00:00"
+            "time": "2017-04-03T02:22:27+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3090,7 +3090,7 @@
             "version": "3.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Application.git",
+                "url": "git@github.com:spryker/Application.git",
                 "reference": "7d93d76f01f903e56c9b908ed63e0df167e01cea",
                 "mirrors": [
                     {
@@ -3299,7 +3299,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/AuthMailConnector.git",
+                "url": "git@github.com:spryker/AuthMailConnector.git",
                 "reference": "2300ca403314500e99411ccf41b312327532ed8d",
                 "mirrors": [
                     {
@@ -3571,7 +3571,7 @@
             "version": "0.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Braintree.git",
+                "url": "git@github.com:spryker/Braintree.git",
                 "reference": "10233623778fc362c18ff2f4665d6de6da7e65a7",
                 "mirrors": [
                     {
@@ -4043,7 +4043,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Checkout.git",
+                "url": "git@github.com:spryker/Checkout.git",
                 "reference": "066455d69c96ea360bddb633fc535d512ce5a8ab",
                 "mirrors": [
                     {
@@ -4119,7 +4119,7 @@
             "version": "4.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Cms.git",
+                "url": "git@github.com:spryker/Cms.git",
                 "reference": "385631cc77d3038ecc24b561d113729462dd2780",
                 "mirrors": [
                     {
@@ -5002,7 +5002,7 @@
             "version": "3.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Development.git",
+                "url": "git@github.com:spryker/Development.git",
                 "reference": "949c6192909aea1a498d4d1cb7b33b6bbd85a2a8",
                 "mirrors": [
                     {
@@ -5148,7 +5148,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/DiscountCalculationConnector.git",
+                "url": "git@github.com:spryker/DiscountCalculationConnector.git",
                 "reference": "9e2f99ed88ce375aaf9afe1914acc96d13c198fa",
                 "mirrors": [
                     {
@@ -5213,7 +5213,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/DiscountSalesAggregatorConnector.git",
+                "url": "git@github.com:spryker/DiscountSalesAggregatorConnector.git",
                 "reference": "8f5fe094803bd57aaf477c88c0c109441b61b5a3",
                 "mirrors": [
                     {
@@ -5357,7 +5357,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Elastica.git",
+                "url": "git@github.com:spryker/Elastica.git",
                 "reference": "c9a28ec4b5a640259827f4ab76d4517b6ccf8992",
                 "mirrors": [
                     {
@@ -5462,6 +5462,73 @@
                 "source": "https://github.com/spryker/ErrorHandler/tree/beta/core-714-big-core-cleanup"
             },
             "time": "2017-02-22T12:08:46+00:00"
+        },
+        {
+            "name": "spryker/event",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/Event.git",
+                "reference": "4654c53add28ee7ff78e30675055629c9ff2799f",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Event/zipball/4654c53add28ee7ff78e30675055629c9ff2799f",
+                "reference": "4654c53add28ee7ff78e30675055629c9ff2799f",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/log": "^3.0.0",
+                "spryker/monolog": "^2.0.0",
+                "spryker/queue": "^0.3.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Event bundle",
+            "support": {
+                "source": "https://github.com/spryker/Event/tree/master"
+            },
+            "time": "2017-04-04T12:30:05+00:00"
         },
         {
             "name": "spryker/event-journal",
@@ -5669,7 +5736,7 @@
             "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Graphviz.git",
+                "url": "git@github.com:spryker/Graphviz.git",
                 "reference": "d55068c88baf0649801f0abb4ad10ad350a55c79",
                 "mirrors": [
                     {
@@ -5714,7 +5781,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Gui.git",
+                "url": "git@github.com:spryker/Gui.git",
                 "reference": "a19b3bdbc6d3521313daeca7715e139dfa7e0ab3",
                 "mirrors": [
                     {
@@ -5781,7 +5848,7 @@
             "version": "2.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Guzzle.git",
+                "url": "git@github.com:spryker/Guzzle.git",
                 "reference": "30ef0cc03107950ecb7246ed109768d5f6200b57",
                 "mirrors": [
                     {
@@ -5998,11 +6065,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "a0d7f04cd3dbd10f357a794e4ddb0aba0b0e6f78",
+                "reference": "2d5ce453e17925b1fbf7b5a12244a6742d73da6a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6012,8 +6079,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/a0d7f04cd3dbd10f357a794e4ddb0aba0b0e6f78",
-                "reference": "a0d7f04cd3dbd10f357a794e4ddb0aba0b0e6f78",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/2d5ce453e17925b1fbf7b5a12244a6742d73da6a",
+                "reference": "2d5ce453e17925b1fbf7b5a12244a6742d73da6a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6063,14 +6130,14 @@
             "support": {
                 "source": "https://github.com/spryker/Kernel/tree/master"
             },
-            "time": "2017-03-09T12:38:03+00:00"
+            "time": "2017-03-29T09:37:26+00:00"
         },
         {
             "name": "spryker/key-builder",
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/KeyBuilder.git",
+                "url": "git@github.com:spryker/KeyBuilder.git",
                 "reference": "2e990117a9bc887b882a1727945cbf79fef58581",
                 "mirrors": [
                     {
@@ -6259,7 +6326,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Mail.git",
+                "url": "git@github.com:spryker/Mail.git",
                 "reference": "5bf31f6d0dfbfb6905d88ff6b0a26a664045992c",
                 "mirrors": [
                     {
@@ -6688,7 +6755,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/NavigationCollector.git",
+                "url": "git@github.com:spryker/NavigationCollector.git",
                 "reference": "bd75c8b6ef7dce2af5ca2558f95f7ea1d4033b42",
                 "mirrors": [
                     {
@@ -7162,7 +7229,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/OmsDiscountConnector.git",
+                "url": "git@github.com:spryker/OmsDiscountConnector.git",
                 "reference": "ba78a0d023ed39d2ec7cd0c4e27c1d27c6c932ff",
                 "mirrors": [
                     {
@@ -7628,7 +7695,7 @@
             "version": "5.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Product.git",
+                "url": "git@github.com:spryker/Product.git",
                 "reference": "8090d589d2d7871d78715122f8c5c2bc9dd1f94c",
                 "mirrors": [
                     {
@@ -7845,7 +7912,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductCategory.git",
+                "url": "git@github.com:spryker/ProductCategory.git",
                 "reference": "602619b4f9f417ba0fbd16b5f861110389d9f30f",
                 "mirrors": [
                     {
@@ -8343,6 +8410,161 @@
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
+            "name": "spryker/product-relation",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductRelation.git",
+                "reference": "9a53d839cf0ea78169d47fd1e904597eb7b84e0f",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductRelation/zipball/9a53d839cf0ea78169d47fd1e904597eb7b84e0f",
+                "reference": "9a53d839cf0ea78169d47fd1e904597eb7b84e0f",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/application": "^3.0.0",
+                "spryker/category": "^3.0.0",
+                "spryker/gui": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/key-builder": "^1.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/log": "^3.0.0",
+                "spryker/money": "^2.0.0",
+                "spryker/price": "^4.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/product-category": "^4.0.0",
+                "spryker/product-image": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/propel-query-builder": "^0.1.1",
+                "spryker/storage": "^3.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/touch": "^3.0.0",
+                "spryker/url": "^3.0.0",
+                "spryker/util-encoding": "^2.0.0",
+                "spryker/util-text": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/event": "Event bundle is required to listen for changes affecting product relations.",
+                "spryker/silex": "Is required by product relation Twig component.",
+                "spryker/twig": "Is required because of the product relation component."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/",
+                    "Acceptance": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductRelation bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductRelation/tree/master"
+            },
+            "time": "2017-04-04T12:48:51+00:00"
+        },
+        {
+            "name": "spryker/product-relation-collector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/ProductRelationCollector.git",
+                "reference": "65dff9d11c465a1b8f51f55f157dadd4b0e4cc8e",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductRelationCollector/zipball/65dff9d11c465a1b8f51f55f157dadd4b0e4cc8e",
+                "reference": "65dff9d11c465a1b8f51f55f157dadd4b0e4cc8e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/collector": "^5.1.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/price": "^4.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/product-image": "^3.0.0",
+                "spryker/product-relation": "^1.0.0",
+                "spryker/propel-orm": "^1.1.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/touch": "^3.0.0",
+                "spryker/url": "^3.0.0",
+                "spryker/util-data-reader": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductRelationCollector bundle",
+            "time": "2017-04-04T09:26:21+00:00"
+        },
+        {
             "name": "spryker/product-search",
             "version": "5.0.1",
             "source": {
@@ -8726,7 +8948,7 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/rabbit-mq.git",
@@ -8770,7 +8992,7 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-03-20 15:48:36"
+            "time": "2017-03-20T15:48:36+00:00"
         },
         {
             "name": "spryker/redis",
@@ -8822,7 +9044,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Refund.git",
+                "url": "git@github.com:spryker/Refund.git",
                 "reference": "12833bcd9def38145a68f114c423476e876719af",
                 "mirrors": [
                     {
@@ -8896,7 +9118,7 @@
             "version": "5.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Sales.git",
+                "url": "git@github.com:spryker/Sales.git",
                 "reference": "137c0a596cdf2d5c69e7f5f739a42c4602002e1e",
                 "mirrors": [
                     {
@@ -8982,7 +9204,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SalesAggregator.git",
+                "url": "git@github.com:spryker/SalesAggregator.git",
                 "reference": "1a36298d11eb8d3ef94c9f627296734c466eaabc",
                 "mirrors": [
                     {
@@ -9698,7 +9920,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Stock.git",
+                "url": "git@github.com:spryker/Stock.git",
                 "reference": "796fb1f924843a8f752decc50f616ec3c5c3e295",
                 "mirrors": [
                     {
@@ -10113,7 +10335,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Testify.git",
+                "url": "git@github.com:spryker/Testify.git",
                 "reference": "d5fd314498293b436880526e4080370beb7eea79",
                 "mirrors": [
                     {
@@ -10245,7 +10467,7 @@
             "version": "3.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Transfer.git",
+                "url": "git@github.com:spryker/Transfer.git",
                 "reference": "e2696738bd5ecc1752f7e83d4a5e61af557c422a",
                 "mirrors": [
                     {
@@ -10314,7 +10536,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Twig.git",
+                "url": "git@github.com:spryker/Twig.git",
                 "reference": "abb340720fff3fb138ff5a0215363c44abafbe7d",
                 "mirrors": [
                     {
@@ -13946,16 +14168,16 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "47842d23030638237fd3306657c5fe998273fc18"
+                "reference": "8adf2a1699e1f0215f24b27889bf0478f5c77d52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/47842d23030638237fd3306657c5fe998273fc18",
-                "reference": "47842d23030638237fd3306657c5fe998273fc18",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/8adf2a1699e1f0215f24b27889bf0478f5c77d52",
+                "reference": "8adf2a1699e1f0215f24b27889bf0478f5c77d52",
                 "shasum": ""
             },
             "require": {
@@ -13992,7 +14214,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-02-04T01:52:32+00:00"
+            "time": "2017-04-04T01:02:46+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -14339,16 +14561,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v3.0.5",
+            "version": "v3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "462f4d089e641deef4759ac1117387c9bfd62764"
+                "reference": "59a6a299e2f5612dc8692d40e84373703a5df1b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/462f4d089e641deef4759ac1117387c9bfd62764",
-                "reference": "462f4d089e641deef4759ac1117387c9bfd62764",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/59a6a299e2f5612dc8692d40e84373703a5df1b5",
+                "reference": "59a6a299e2f5612dc8692d40e84373703a5df1b5",
                 "shasum": ""
             },
             "require": {
@@ -14379,7 +14601,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-03-09T17:41:10+00:00"
+            "time": "2017-03-29T09:29:53+00:00"
         },
         {
             "name": "silex/web-profiler",
@@ -14532,7 +14754,7 @@
             "version": "0.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/architecture-sniffer.git",
+                "url": "git@github.com:spryker/architecture-sniffer.git",
                 "reference": "2811ba37c774f16a619f278daae5d836ce8e578f"
             },
             "dist": {
@@ -14974,9 +15196,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "spryker/rabbit-mq": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

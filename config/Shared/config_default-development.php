@@ -9,6 +9,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -92,6 +93,8 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 $config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;
 
 $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
+
+$config[EventConstants::LOGGER_ACTIVE] = true;
 
 $config[TwigConstants::YVES_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/cache/Yves/twig/.pathCache';
 $config[TwigConstants::ZED_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/cache/Zed/twig/.pathCache';

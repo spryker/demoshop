@@ -9,6 +9,7 @@ use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -59,3 +60,10 @@ $config[TwigConstants::ZED_TWIG_OPTIONS] = [
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => false,
 ];
+
+/* RabbitMQ */
+$config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
+$config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
+$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
+$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
+$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';

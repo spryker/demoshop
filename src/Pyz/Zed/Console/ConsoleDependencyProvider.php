@@ -36,6 +36,7 @@ use Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
+use Spryker\Zed\ProductRelation\Communication\Console\ProductRelationUpdaterConsole;
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
@@ -91,6 +92,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new SessionRemoveLockConsole(),
             new QueueTaskConsole(),
             new QueueWorkerConsole(),
+            new ProductRelationUpdaterConsole(),
 
             // Setup commands
             new RunnerConsole(),
