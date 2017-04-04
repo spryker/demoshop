@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a67204ef32c8ac1ad4a266a9b7ca2f7",
+    "content-hash": "0882e407668436f239b82f0f9f09a42a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -637,16 +637,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc"
+                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/fd1c642915a9c3613b8a64ede49dd37d84da82cc",
-                "reference": "fd1c642915a9c3613b8a64ede49dd37d84da82cc",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
+                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +711,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-11T11:18:38+00:00"
+            "time": "2017-03-22T22:24:40+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1443,7 +1443,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "a7c54c42daf083c9ec5f79155710ff76b4a8e424"
+                "reference": "ad28b94faf72770e3a929bfcf6a204f419c3abee"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -1483,15 +1483,15 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-03-17 13:57:20"
+            "time": "2017-03-20 15:48:36"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-502-product-relations",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ab05725f0402803e21b4699aeb82300a271b5aee"
+                "reference": "ab0b4742cdcb05f522fe9456ca6be5846da7a443"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2195,12 +2195,6 @@
                     "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
                     "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
                     "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
-                    "Spryker\\Shared\\ProductRelation\\": "Bundles/ProductRelation/src",
-                    "Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/src",
-                    "Unit\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
-                    "Functional\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
-                    "Spryker\\Client\\ProductRelation\\": "Bundles/ProductRelation/src",
-                    "Spryker\\Yves\\ProductRelation\\": "Bundles/ProductRelation/src",
                     "Spryker\\Client\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Shared\\ProductBundle\\": "Bundles/ProductBundle/src",
                     "Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/src",
@@ -2225,15 +2219,7 @@
                     "Spryker\\Shared\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
                     "Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
                     "Unit\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
-                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
-                    "Spryker\\Shared\\Event\\": "Bundles/Event/src",
-                    "Spryker\\Zed\\Event\\": "Bundles/Event/src",
-                    "Unit\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
-                    "Functional\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
-                    "Spryker\\Shared\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
-                    "Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
-                    "Unit\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests",
-                    "Functional\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests"
+                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests"
                 },
                 "psr-4": {
                     "Application\\Module\\": "Bundles/Application/tests/_support/Module",
@@ -2256,7 +2242,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-03-31 09:53:51"
+            "time": "2017-03-29 09:37:26"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4022,16 +4008,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.32.0",
+            "version": "v1.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f"
+                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9935b662e24d6e634da88901ab534cc12e8c728f",
-                "reference": "9935b662e24d6e634da88901ab534cc12e8c728f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
+                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
                 "shasum": ""
             },
             "require": {
@@ -4040,12 +4026,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.2"
+                "symfony/phpunit-bridge": "~3.3@dev"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.32-dev"
+                    "dev-master": "1.33-dev"
                 }
             },
             "autoload": {
@@ -4080,7 +4066,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-02-27T00:07:03+00:00"
+            "time": "2017-03-22T15:40:09+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -6591,16 +6577,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v3.0.5",
+            "version": "v3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "462f4d089e641deef4759ac1117387c9bfd62764"
+                "reference": "59a6a299e2f5612dc8692d40e84373703a5df1b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/462f4d089e641deef4759ac1117387c9bfd62764",
-                "reference": "462f4d089e641deef4759ac1117387c9bfd62764",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/59a6a299e2f5612dc8692d40e84373703a5df1b5",
+                "reference": "59a6a299e2f5612dc8692d40e84373703a5df1b5",
                 "shasum": ""
             },
             "require": {
@@ -6631,7 +6617,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-03-09T17:41:10+00:00"
+            "time": "2017-03-29T09:29:53+00:00"
         },
         {
             "name": "silex/web-profiler",
@@ -6880,7 +6866,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07 12:41:16"
+            "time": "2017-03-07T12:41:16+00:00"
         },
         {
             "name": "spryker/code-sniffer",
