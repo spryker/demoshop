@@ -19,6 +19,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Wishlist\Form\AddAllAvailableProductsToCartFormType;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Spryker\Yves\Kernel\Controller\AbstractController;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -27,10 +28,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class WishlistController extends AbstractController
 {
-
-    // TODO: write tests
-    // TODO: cleanup
-    // TODO: Check with Alessandro the table styling. Only borders?
 
     const DEFAULT_NAME = 'My wishlist';
     const DEFAULT_ITEMS_PER_PAGE = 10;
@@ -172,22 +169,10 @@ class WishlistController extends AbstractController
             ->handleRequest($request);
 
         if ($addAllAvailableProductsToCartForm->isValid()) {
-            $data = $addAllAvailableProductsToCartForm->getData();
-
-            $wishlistMoveToCartRequestCollectionTransfer = new WishlistMoveToCartRequestCollectionTransfer();
-            foreach ($data[AddAllAvailableProductsToCartFormType::FIELD_SKU] as $sku) {
-                $wishlistItemTransfer = new WishlistItemTransfer();
-                $wishlistItemTransfer
-                    ->setSku($sku)
-                    ->setWishlistName($wishlistName)
-                    ->setFkCustomer($this->getIdCustomer());
-
-                $wishlistMoveToCartRequestTransfer = (new WishlistMoveToCartRequestTransfer())
-                    ->setSku($sku)
-                    ->setWishlistItem($wishlistItemTransfer);
-
-                $wishlistMoveToCartRequestCollectionTransfer->addRequest($wishlistMoveToCartRequestTransfer);
-            }
+            $wishlistMoveToCartRequestCollectionTransfer = $this->prepareWishlistMoveToCartRequestCollectionTransfer(
+                $wishlistName,
+                $addAllAvailableProductsToCartForm
+            );
 
             $count = $wishlistMoveToCartRequestCollectionTransfer->getRequests()->count();
             if ($count) {
@@ -279,6 +264,34 @@ class WishlistController extends AbstractController
             ->createCustomerClient()
             ->getCustomer()
             ->getIdCustomer();
+    }
+
+    /**
+     * @param string $wishlistName
+     * @param \Symfony\Component\Form\FormInterface $addAllAvailableProductsToCartForm
+     *
+     * @return \Generated\Shared\Transfer\WishlistMoveToCartRequestCollectionTransfer
+     */
+    protected function prepareWishlistMoveToCartRequestCollectionTransfer($wishlistName, FormInterface $addAllAvailableProductsToCartForm)
+    {
+        $data = $addAllAvailableProductsToCartForm->getData();
+        $wishlistMoveToCartRequestCollectionTransfer = new WishlistMoveToCartRequestCollectionTransfer();
+
+        foreach ($data[AddAllAvailableProductsToCartFormType::FIELD_SKU] as $sku) {
+            $wishlistItemTransfer = new WishlistItemTransfer();
+            $wishlistItemTransfer
+                ->setSku($sku)
+                ->setWishlistName($wishlistName)
+                ->setFkCustomer($this->getIdCustomer());
+
+            $wishlistMoveToCartRequestTransfer = (new WishlistMoveToCartRequestTransfer())
+                ->setSku($sku)
+                ->setWishlistItem($wishlistItemTransfer);
+
+            $wishlistMoveToCartRequestCollectionTransfer->addRequest($wishlistMoveToCartRequestTransfer);
+        }
+
+        return $wishlistMoveToCartRequestCollectionTransfer;
     }
 
 }
