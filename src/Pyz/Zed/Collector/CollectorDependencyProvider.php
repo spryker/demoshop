@@ -29,6 +29,7 @@ use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Navigation\NavigationConfig;
+use Spryker\Shared\ProductRelation\ProductRelationConstants;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
@@ -36,6 +37,7 @@ use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NavigationCollector\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
+use Spryker\Zed\ProductRelationCollector\Communication\Plugin\ProductRelationCollectorPlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
 use Spryker\Zed\Url\UrlConfig;
 
@@ -131,6 +133,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 UrlConfig::RESOURCE_TYPE_URL => new UrlCollectorStoragePlugin(),
                 ProductSearchConfig::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
                 ProductOptionConfig::RESOURCE_TYPE_PRODUCT_OPTION => new ProductOptionCollectorStoragePlugin(),
+                ProductRelationConstants::RESOURCE_TYPE_PRODUCT_RELATION => new ProductRelationCollectorPlugin(),
             ];
         };
 

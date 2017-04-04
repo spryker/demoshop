@@ -24,6 +24,7 @@
     "font-awesome": "~4.7.0",
     "foundation-sites": "~6.3.1",
     "jquery": "~2.2.4",
+    "slick-carousel": "~1.6.0",
     "lodash": "~4.17.2",
     "motion-ui": "~1.2.2"
   },
