@@ -1491,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8d27ec70b3910d68579195defd199a66d8ad1491"
+                "reference": "b9a556d3730a46d6b3add52267a2715b36391608"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1634,6 +1634,10 @@
                     "Functional\\Spryker\\Shared\\Acl\\": "Bundles/Acl/tests",
                     "Spryker\\Zed\\Acl\\": "Bundles/Acl/src",
                     "Functional\\Spryker\\Zed\\Acl\\": "Bundles/Acl/tests",
+                    "Spryker\\Shared\\Api\\": "Bundles/Api/src",
+                    "Functional\\Spryker\\Shared\\Api\\": "Bundles/Api/tests",
+                    "Spryker\\Zed\\Api\\": "Bundles/Api/src",
+                    "Functional\\Spryker\\Zed\\Api\\": "Bundles/Api/tests",
                     "Spryker\\Shared\\Application\\": "Bundles/Application/src",
                     "Unit\\Spryker\\Shared\\Application\\": "Bundles/Application/tests",
                     "Spryker\\Yves\\Application\\": "Bundles/Application/src",
@@ -1748,6 +1752,11 @@
                     "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
                     "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
                     "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
+                    "Spryker\\Shared\\CustomerApi\\": "Bundles/CustomerApi/src",
+                    "Functional\\Spryker\\Shared\\CustomerApi\\": "Bundles/CustomerApi/tests",
+                    "Acceptance\\CustomerApi\\": "Bundles/CustomerApi/tests",
+                    "Spryker\\Zed\\CustomerApi\\": "Bundles/CustomerApi/src",
+                    "Functional\\Spryker\\Zed\\CustomerApi\\": "Bundles/CustomerApi/tests",
                     "Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/src",
                     "Unit\\Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
                     "Functional\\Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
@@ -1974,6 +1983,11 @@
                     "Unit\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Functional\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
                     "Acceptance\\ProductCategory\\": "Bundles/ProductCategory/tests",
+                    "Spryker\\Shared\\ProductApi\\": "Bundles/ProductApi/src",
+                    "Functional\\Spryker\\Shared\\ProductApi\\": "Bundles/ProductApi/tests",
+                    "Acceptance\\ProductApi\\": "Bundles/ProductApi/tests",
+                    "Spryker\\Zed\\ProductApi\\": "Bundles/ProductApi/src",
+                    "Functional\\Spryker\\Zed\\ProductApi\\": "Bundles/ProductApi/tests",
                     "Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/src",
                     "Spryker\\Client\\ProductOption\\": "Bundles/ProductOption/src",
                     "Unit\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
@@ -2256,7 +2270,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-04 15:40:07"
+            "time": "2017-04-05 17:05:49"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2373,16 +2387,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2"
+                "reference": "8444bde28e3c2a33e571e6f180c2d78bfdc4480d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/741d6d4cd1414d67d48eb71aba6072b46ba740c2",
-                "reference": "741d6d4cd1414d67d48eb71aba6072b46ba740c2",
+                "url": "https://api.github.com/repos/symfony/config/zipball/8444bde28e3c2a33e571e6f180c2d78bfdc4480d",
+                "reference": "8444bde28e3c2a33e571e6f180c2d78bfdc4480d",
                 "shasum": ""
             },
             "require": {
@@ -2425,20 +2439,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-01T18:18:25+00:00"
+            "time": "2017-04-04T15:30:56+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "28fb243a2b5727774ca309ec2d92da240f1af0dd"
+                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/28fb243a2b5727774ca309ec2d92da240f1af0dd",
-                "reference": "28fb243a2b5727774ca309ec2d92da240f1af0dd",
+                "url": "https://api.github.com/repos/symfony/console/zipball/c30243cc51f726812be3551316b109a2f5deaf8d",
+                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d",
                 "shasum": ""
             },
             "require": {
@@ -2488,7 +2502,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-06T19:30:27+00:00"
+            "time": "2017-04-04T14:33:42+00:00"
         },
         {
             "name": "symfony/debug",
@@ -6880,7 +6894,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7054,7 +7068,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -7111,7 +7125,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -7224,7 +7238,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -7410,16 +7424,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "4100f347aff890bc16b0b4b42843b599db257b2d"
+                "reference": "81dce20f69a8b40427e1f4e6462178df87cafc03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/4100f347aff890bc16b0b4b42843b599db257b2d",
-                "reference": "4100f347aff890bc16b0b4b42843b599db257b2d",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/81dce20f69a8b40427e1f4e6462178df87cafc03",
+                "reference": "81dce20f69a8b40427e1f4e6462178df87cafc03",
                 "shasum": ""
             },
             "require": {
@@ -7472,7 +7486,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-02-20T13:45:48+00:00"
+            "time": "2017-03-12T16:07:05+00:00"
         },
         {
             "name": "symfony/web-profiler-bundle",
