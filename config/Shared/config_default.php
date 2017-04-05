@@ -69,7 +69,7 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
 
-/**
+/*
  * Elasticsearch settings
  */
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST]
@@ -93,13 +93,13 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = 'page';
 
-/**
+/*
  * Page search settings
  */
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
-/**
+/*
  * Hostname(s) for Yves - Shop frontend
  * In production you probably use a CDN for static content
  */
@@ -116,7 +116,7 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
     = 'www.de.demoshop.local';
 
-/**
+/*
  * Hostname(s) for Zed - Shop frontend
  * In production you probably use HTTPS for Zed
  */
@@ -213,7 +213,9 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
 
-/** For a better performance you can turn off Zed authentication */
+/*
+ * When not needed you can turn off Zed authentication
+ */
 $config[AuthConstants::AUTH_ZED_ENABLED]
     = $config[ZedRequestConstants::AUTH_ZED_ENABLED] = true;
 
@@ -230,7 +232,7 @@ $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
-/**
+/*
  * ACL: Allow or disallow of urls for Zed Admin GUI for ALL users
  */
 $config[AclConstants::ACL_DEFAULT_RULES] = [
@@ -272,7 +274,7 @@ $config[AclConstants::ACL_DEFAULT_RULES] = [
     ],
 ];
 
-/**
+/*
  * ACL: Allow or disallow of urls for Zed Admin GUI
  */
 $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
@@ -296,7 +298,7 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
     ],
 ];
 
-/**
+/*
  * ACL: Special rules for specific users
  */
 $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
@@ -312,7 +314,7 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
-/**
+/*
  * Zed Navigation Cache
  * The cache should always be activated. Refresh/build with CLI command:
  * vendor/bin/console application:build-navigation-cache
