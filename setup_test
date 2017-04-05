@@ -91,9 +91,6 @@ function configureCodeception {
 }
 
 function runCollectors() {
-
-
-
    labelText "Run collectors."
    $CONSOLE setup:search $VERBOSITY
    $CONSOLE collector:search:export $VERBOSITY
