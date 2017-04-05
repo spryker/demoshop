@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "29e2ed3b91171260db0ffa8d527252e0",
+    "content-hash": "ec9799fc0aff2ae07f493e237aec69ba",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -8621,10 +8621,10 @@
         },
         {
             "name": "spryker/product-relation",
-            "version": "dev-master",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductRelation.git",
+                "url": "https://github.com/spryker/ProductRelation.git",
                 "reference": "6d4ba7648d594bf9ded67d5b76fe146b1cac4397",
                 "mirrors": [
                     {
@@ -8701,6 +8701,9 @@
                 "proprietary"
             ],
             "description": "ProductRelation bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductRelation/tree/1.0.2"
+            },
             "time": "2017-04-05T17:47:07+00:00"
         },
         {
@@ -15419,20 +15422,13 @@
             "alias_normalized": "0.1.0.0",
             "version": "9999999-dev",
             "package": "spryker/product-api"
-        },
-        {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "9999999-dev",
-            "package": "spryker/product-relation"
         }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/api": 20,
         "spryker/customer-api": 20,
-        "spryker/product-api": 20,
-        "spryker/product-relation": 20
+        "spryker/product-api": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
