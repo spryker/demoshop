@@ -14,6 +14,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 {
 
     const SERVICE_DATA = 'util data service';
+    const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
 
     const FACADE_CATEGORY = 'FACADE_CATEGORY';
     const FACADE_CMS = 'FACADE_CMS';
@@ -29,6 +30,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_DISCOUNT = 'FACADE_DISCOUNT';
     const FACADE_URL = 'FACADE_URL';
     const FACADE_PRODUCT_OPTION = 'FACADE_PRODUCT_OPTION';
+    const FACADE_PRODUCT_RELATION = 'FACADE_PRODUCT_RELATION';
     const FACADE_NAVIGATION = 'FACADE_NAVIGATION';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
@@ -67,10 +69,12 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addPriceQueryContainer($container);
         $container = $this->addCategoryQueryContainer($container);
         $container = $this->addShipmentQueryContainer($container);
+        $container = $this->addProductRelationFacade($container);
 
         $container = $this->addTaxQueryContainer($container);
 
         $container = $this->addUtilDataReaderService($container);
+        $container = $this->addUtilEncodingService($container);
 
         return $container;
     }
@@ -378,6 +382,34 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[static::SERVICE_DATA] = function (Container $container) {
             return $container->getLocator()->utilDataReader()->service();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addProductRelationFacade(Container $container)
+    {
+        $container[static::FACADE_PRODUCT_RELATION] = function (Container $container) {
+            return $container->getLocator()->productRelation()->facade();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addUtilEncodingService(Container $container)
+    {
+        $container[static::SERVICE_UTIL_ENCODING] = function (Container $container) {
+            return $container->getLocator()->utilEncoding()->service();
         };
 
         return $container;

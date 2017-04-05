@@ -30,7 +30,8 @@ config/accumulated-config.json
 /deploy/setup/params_local.sh
 /deploy/setup/frontend/params_local.sh
 
-/src/Generated
+/src/Generated/
+/src/Orm/Propel/DE/Migration_pgsql/
 /vendor/
 FOSS.md
 

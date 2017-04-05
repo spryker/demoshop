@@ -37,7 +37,7 @@
     "symfony/translation": "^2.6.13",
     "symfony/validator": "^2.6.13",
     "symfony/yaml": "^2.6.13",
-    "swiftmailer/swiftmailer" : "^5.4.5",
+    "swiftmailer/swiftmailer": "^5.4.5",
     "twig/twig": "^1.20.0",
     "zendframework/zend-code": "^2.6.2",
     "zendframework/zend-config": "^2.5.1",
@@ -60,7 +60,7 @@
   },
   "require-dev": {
     "codeception/codeception": "^2.2.10",
-    "codeception/c3": "^2.0.0",
+    "codeception/c3": "2.0.10",
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
@@ -76,7 +76,8 @@
     "phpunit/phpunit": "^5.0",
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
-    "spryker/code-sniffer": "dev-master"
+    "spryker/code-sniffer": "dev-master",
+    "stecman/symfony-console-completion": "^0.7.0"
   },
   "autoload": {
     "psr-0": {
