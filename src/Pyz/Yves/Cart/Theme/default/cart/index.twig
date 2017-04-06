@@ -59,6 +59,9 @@
             </div>
         {% endif %}
     </div>
+
+    {{ product_relation("up-selling", {quote : cart}, 'You might also be interested in these products', '@ProductRelation/partial/product_relation_carousel.twig') }}
+
 {% endblock %}
 
 {% block footer %}{% endblock %}

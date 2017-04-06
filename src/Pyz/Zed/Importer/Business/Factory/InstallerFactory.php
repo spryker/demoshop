@@ -19,6 +19,7 @@ use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationInstaller;
 use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationNodeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller;
@@ -246,6 +247,28 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_PRODUCT_OPTIONS => $this->createImporterFactory()->createProductOptionImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller
+     */
+    public function createProductRelationsInstaller()
+    {
+        return new ProductRelationInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterProductRelationCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductRelationCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_RELATIONS => $this->createImporterFactory()->createProductRelationImporter(),
         ];
     }
 

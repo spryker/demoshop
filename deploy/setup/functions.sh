@@ -111,6 +111,9 @@ function installZed {
 
     dropDevelopmentDatabase
 
+    labelText "Removing propel migration files for core development"
+    rm src/Orm/Propel/DE/Migration_pgsql/*
+
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
