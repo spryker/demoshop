@@ -165,11 +165,11 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         return $providers;
     }
 
-        /**
-         * @param \Spryker\Zed\Kernel\Container $container
-         *
-         * @return array
-         */
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Silex\ServiceProviderInterface[]
+     */
     protected function getInternalCallServiceProviders(Container $container)
     {
         return [
@@ -193,7 +193,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return array
+     * @return \Silex\ServiceProviderInterface[]
      */
     protected function getInternalCallServiceProvidersWithAuthentication(Container $container)
     {

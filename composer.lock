@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec9799fc0aff2ae07f493e237aec69ba",
+    "content-hash": "93cf443193e04f7045335ad07bb1dc28",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "f428466d75cbcf60264c6f4b455d9210bf6a2338"
+                "reference": "8faccd344f2fe88bc8e247ecb6e6157f16679020"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/f428466d75cbcf60264c6f4b455d9210bf6a2338",
-                "reference": "f428466d75cbcf60264c6f4b455d9210bf6a2338",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/8faccd344f2fe88bc8e247ecb6e6157f16679020",
+                "reference": "8faccd344f2fe88bc8e247ecb6e6157f16679020",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-04-04T09:11:43+00:00"
+            "time": "2017-04-06T12:37:41+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -7288,11 +7288,11 @@
         },
         {
             "name": "spryker/oms",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Oms.git",
-                "reference": "546c67c9b8b6d8f1815915efaf954642ca5a4986",
+                "url": "https://github.com/spryker/Oms.git",
+                "reference": "6b82939530098f39fa22ba36fe416a4846cc9802",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7302,8 +7302,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Oms/zipball/546c67c9b8b6d8f1815915efaf954642ca5a4986",
-                "reference": "546c67c9b8b6d8f1815915efaf954642ca5a4986",
+                "url": "https://api.github.com/repos/spryker/Oms/zipball/6b82939530098f39fa22ba36fe416a4846cc9802",
+                "reference": "6b82939530098f39fa22ba36fe416a4846cc9802",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7362,9 +7362,9 @@
             ],
             "description": "Oms bundle",
             "support": {
-                "source": "https://github.com/spryker/Oms/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Oms/tree/6.0.1"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-04-06T13:52:45+00:00"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -9994,11 +9994,11 @@
         },
         {
             "name": "spryker/state-machine",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/StateMachine.git",
-                "reference": "f879ad886b8dbcb421230c7c8d738f81fee802b1",
+                "url": "https://github.com/spryker/StateMachine.git",
+                "reference": "ea8abb365d6848a595ce204766bed116c610b582",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10008,8 +10008,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/f879ad886b8dbcb421230c7c8d738f81fee802b1",
-                "reference": "f879ad886b8dbcb421230c7c8d738f81fee802b1",
+                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/ea8abb365d6848a595ce204766bed116c610b582",
+                "reference": "ea8abb365d6848a595ce204766bed116c610b582",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10055,9 +10055,9 @@
             ],
             "description": "StateMachine bundle",
             "support": {
-                "source": "https://github.com/spryker/StateMachine/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/StateMachine/tree/2.0.1"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-04-06T13:52:45+00:00"
         },
         {
             "name": "spryker/step-engine",
@@ -14378,16 +14378,16 @@
     "packages-dev": [
         {
             "name": "codeception/c3",
-            "version": "2.0.10",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "47842d23030638237fd3306657c5fe998273fc18"
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/47842d23030638237fd3306657c5fe998273fc18",
-                "reference": "47842d23030638237fd3306657c5fe998273fc18",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
                 "shasum": ""
             },
             "require": {
@@ -14424,7 +14424,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-02-04T01:52:32+00:00"
+            "time": "2017-04-06T00:08:55+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -15055,16 +15055,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.8.1",
+            "version": "0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716"
+                "reference": "95cc87cf9bffba0b761f58d0196d39c0aba66cc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/12f5dac810fa8592aa15e357676ff2777bba3716",
-                "reference": "12f5dac810fa8592aa15e357676ff2777bba3716",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/95cc87cf9bffba0b761f58d0196d39c0aba66cc3",
+                "reference": "95cc87cf9bffba0b761f58d0196d39c0aba66cc3",
                 "shasum": ""
             },
             "require": {
@@ -15098,7 +15098,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-17T13:33:48+00:00"
+            "time": "2017-04-06T12:18:02+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
