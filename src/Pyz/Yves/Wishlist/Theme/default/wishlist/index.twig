@@ -7,7 +7,7 @@
 {% block customerNavigation %}
     {% include "@customer/partials/navigation.twig" %}
 
-    {% include "@Wishlist/partials/wishlist-navigation.twig" with {'active': wishlistName, 'wishlistCollection': wishlistOverview.wishlistCollection} %}
+    {% include "@Wishlist/partials/wishlist-navigation.twig" with {'activeSubmenu': wishlistName, 'wishlistCollection': wishlistOverview.meta.wishlistCollection} %}
 {% endblock %}
 
 {% block customerContent %}
@@ -18,9 +18,12 @@
                     <div class="small-12 columns">
                         <h4 class="float-left">{{ wishlistName }}</h4>
 
-                        {% if addAllAvailableProductsToCartForm.sku|length %}
+                        {% if availability|length %}
                             {{ form_start(addAllAvailableProductsToCartForm, {action: path('wishlist/move-all-available-to-cart', { wishlistName: wishlistName })}) }}
                                 <button type="submit" class="button float-right"><i class="fa fa-shopping-cart"></i>{{ 'customer.account.wishlist.add_all_available_to_cart' | trans }}</button>
+                                {% for wishlistItemMetaField in addAllAvailableProductsToCartForm.wishlistItemMetaCollection %}
+                                    {{ form_widget(wishlistItemMetaField) }}
+                                {% endfor %}
                             {{ form_end(addAllAvailableProductsToCartForm) }}
                         {% endif %}
                     </div>
@@ -61,14 +64,16 @@
                                         {% endfor %}
                                     </td>
                                     <td>
-                                        {% if item.isAvailable %}
+                                        {% if availability[item.sku] is not defined %}
+                                            N/A
+                                        {% elseif availability[item.sku] %}
                                             {{ 'customer.account.wishlist.available' | trans }}
                                         {% else %}
                                             {{ 'customer.account.wishlist.not_available' | trans }}
                                         {% endif %}
                                     </td>
                                     <td>
-                                        {% if item.isAvailable %}
+                                        {% if availability[item.sku] is defined and availability[item.sku] %}
                                             <form id="addToCart_{{ loop.index }}" class="float-left" method="POST" action="{{ path('wishlist/move-to-cart', {sku: item.product.sku, 'wishlist-name': wishlistName}) }}">
                                                 <a title="{{ 'customer.account.wishlist.add-to-cart' | trans }}" onclick="document.getElementById('addToCart_{{ loop.index }}').submit()">
                                                     <i class="fa fa-shopping-cart"></i>

@@ -14,6 +14,7 @@ class WishlistDependencyProvider extends AbstractBundleDependencyProvider
 {
 
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
+    const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -36,6 +37,10 @@ class WishlistDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[self::CLIENT_CUSTOMER] = function (Container $container) {
             return $container->getLocator()->customer()->client();
+        };
+
+        $container[self::CLIENT_AVAILABILITY] = function (Container $container) {
+            return $container->getLocator()->availability()->client();
         };
 
         return $container;

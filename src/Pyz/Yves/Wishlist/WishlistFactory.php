@@ -94,4 +94,12 @@ class WishlistFactory extends AbstractFactory
         return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY);
     }
 
+    /**
+     * @return \Spryker\Client\Availability\AvailabilityClientInterface
+     */
+    public function getAvailabilityClient()
+    {
+        return $this->getProvidedDependency(WishlistDependencyProvider::CLIENT_AVAILABILITY);
+    }
+
 }

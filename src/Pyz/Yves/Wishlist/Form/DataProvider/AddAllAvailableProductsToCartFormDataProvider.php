@@ -21,7 +21,7 @@ class AddAllAvailableProductsToCartFormDataProvider
     public function getData(WishlistOverviewResponseTransfer $wishlistOverviewResponseTransfer = null)
     {
         $data = [
-            AddAllAvailableProductsToCartFormType::FIELD_SKU => $this->getSkuCollection($wishlistOverviewResponseTransfer),
+            AddAllAvailableProductsToCartFormType::WISHLIST_ITEM_META_COLLECTION => $this->getWishlistItemMetaCollection($wishlistOverviewResponseTransfer),
         ];
 
         return $data;
@@ -30,25 +30,17 @@ class AddAllAvailableProductsToCartFormDataProvider
     /**
      * @param \Generated\Shared\Transfer\WishlistOverviewResponseTransfer|null $wishlistOverviewResponseTransfer
      *
-     * @return array
+     * @return \Generated\Shared\Transfer\WishlistItemMetaTransfer[]
      */
-    protected function getSkuCollection(WishlistOverviewResponseTransfer $wishlistOverviewResponseTransfer = null)
+    protected function getWishlistItemMetaCollection(WishlistOverviewResponseTransfer $wishlistOverviewResponseTransfer = null)
     {
-        $skuCollection = [];
-
         if (!$wishlistOverviewResponseTransfer) {
-            return $skuCollection;
+            return [];
         }
 
-        foreach ($wishlistOverviewResponseTransfer->getMeta()->getWishlistItemMetaCollection() as $wishlistItemMetaTransfer) {
-            if (!$wishlistItemMetaTransfer->getIsAvailable()) {
-                continue;
-            }
-
-            $skuCollection[] = $wishlistItemMetaTransfer->getSku();
-        }
-
-        return $skuCollection;
+        return $wishlistOverviewResponseTransfer->getMeta()
+            ->getWishlistItemMetaCollection()
+            ->getArrayCopy();
     }
 
 }

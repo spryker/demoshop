@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Wishlist\Controller;
 
+use Generated\Shared\Transfer\WishlistResponseTransfer;
 use Generated\Shared\Transfer\WishlistTransfer;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Spryker\Yves\Kernel\Controller\AbstractController;
@@ -33,7 +34,6 @@ class WishlistOverviewController extends AbstractController
             ->handleRequest($request);
 
         if ($wishlistForm->isValid()) {
-
             $wishlistResponseTransfer = $this->getClient()->validateAndCreateWishlist($this->getWishlistTransfer($wishlistForm));
 
             if ($wishlistResponseTransfer->getIsSuccess()) {
@@ -42,9 +42,7 @@ class WishlistOverviewController extends AbstractController
                 return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
             }
 
-            foreach ($wishlistResponseTransfer->getErrors() as $error) {
-                $wishlistForm->addError(new FormError($error));
-            }
+            $this->handleResponseErrors($wishlistResponseTransfer, $wishlistForm);
         }
 
         $wishlistCollection = $this->getClient()->getCustomerWishlistCollection();
@@ -77,9 +75,7 @@ class WishlistOverviewController extends AbstractController
                 return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
             }
 
-            foreach ($wishlistResponseTransfer->getErrors() as $error) {
-                $wishlistForm->addError(new FormError($error));
-            }
+            $this->handleResponseErrors($wishlistResponseTransfer, $wishlistForm);
         }
         $wishlistCollection = $this->getClient()->getCustomerWishlistCollection();
 
@@ -129,6 +125,19 @@ class WishlistOverviewController extends AbstractController
             ->createCustomerClient()
             ->getCustomer()
             ->getIdCustomer();
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\WishlistResponseTransfer $wishlistResponseTransfer
+     * @param \Symfony\Component\Form\FormInterface $wishlistForm
+     *
+     * @return void
+     */
+    protected function handleResponseErrors(WishlistResponseTransfer $wishlistResponseTransfer, FormInterface $wishlistForm)
+    {
+        foreach ($wishlistResponseTransfer->getErrors() as $error) {
+            $wishlistForm->addError(new FormError($error));
+        }
     }
 
 }

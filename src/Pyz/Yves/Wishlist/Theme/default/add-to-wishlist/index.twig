@@ -1,4 +1,4 @@
-{% if wishlistCollection.wishlists|length > 0 %}
+{% if wishlistCollection is defined and wishlistCollection.wishlists|length > 0 %}
     <div class="callout add-to-wishlist-panel">
         <div class="row">
             <div class="columns __no-margin-bottom">

@@ -9,13 +9,12 @@ namespace Pyz\Yves\Wishlist\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class AddAllAvailableProductsToCartFormType extends AbstractType
 {
 
-    const FIELD_SKU = 'sku';
+    const WISHLIST_ITEM_META_COLLECTION = 'wishlistItemMetaCollection';
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
@@ -25,7 +24,7 @@ class AddAllAvailableProductsToCartFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $this->addSkuFieldCollection($builder);
+        $this->addWishlistItemMetaCollectionField($builder);
     }
 
     /**
@@ -33,11 +32,11 @@ class AddAllAvailableProductsToCartFormType extends AbstractType
      *
      * @return $this
      */
-    protected function addSkuFieldCollection(FormBuilderInterface $builder)
+    protected function addWishlistItemMetaCollectionField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SKU, CollectionType::class, [
+        $builder->add(self::WISHLIST_ITEM_META_COLLECTION, CollectionType::class, [
             'label' => false,
-            'entry_type' => HiddenType::class,
+            'entry_type' => WishlistItemMetaFormType::class,
             'allow_add' => true,
         ]);
 

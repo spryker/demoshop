@@ -21,6 +21,10 @@ class AddToWishlistController extends AbstractController
      */
     public function indexAction()
     {
+        if (!$this->getFactory()->createCustomerClient()->isLoggedIn()) {
+            return [];
+        }
+
         $wishlistCollection = $this->getClient()->getCustomerWishlistCollection();
 
         return $this->viewResponse([
