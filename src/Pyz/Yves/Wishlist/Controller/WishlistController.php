@@ -114,6 +114,8 @@ class WishlistController extends AbstractController
 
         $this->getClient()->removeItem($wishlistItemTransfer);
 
+        $this->addSuccessMessage('customer.account.wishlist.item.removed');
+
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
             'wishlistName' => $wishlistItemTransfer->getWishlistName(),
         ]);
@@ -137,7 +139,7 @@ class WishlistController extends AbstractController
 
         $this->getClient()->moveToCart($wishlistMoveToCartRequestTransfer);
 
-        $this->addSuccessMessage('Item moved to cart successfully.');
+        $this->addSuccessMessage('customer.account.wishlist.item.moved_to_cart');
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
             'wishlistName' => $wishlistItemTransfer->getWishlistName(),
@@ -165,7 +167,7 @@ class WishlistController extends AbstractController
             if ($wishlistMoveToCartRequestCollectionTransfer->getRequests()->count()) {
                 $this->getClient()->moveCollectionToCart($wishlistMoveToCartRequestCollectionTransfer);
 
-                $this->addSuccessMessage('Available items moved to cart successfully.');
+                $this->addSuccessMessage('customer.account.wishlist.item.moved_all_available_to_cart');
             }
         }
 

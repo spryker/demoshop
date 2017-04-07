@@ -37,7 +37,7 @@ class WishlistOverviewController extends AbstractController
             $wishlistResponseTransfer = $this->getClient()->validateAndCreateWishlist($this->getWishlistTransfer($wishlistForm));
 
             if ($wishlistResponseTransfer->getIsSuccess()) {
-                $this->addSuccessMessage('Wishlist created successfully.');
+                $this->addSuccessMessage('customer.account.wishlist.created');
 
                 return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
             }
@@ -70,7 +70,7 @@ class WishlistOverviewController extends AbstractController
             $wishlistResponseTransfer = $this->getClient()->validateAndUpdateWishlist($this->getWishlistTransfer($wishlistForm));
 
             if ($wishlistResponseTransfer->getIsSuccess()) {
-                $this->addSuccessMessage('Wishlist updated successfully.');
+                $this->addSuccessMessage('customer.account.wishlist.updated');
 
                 return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
             }
@@ -98,7 +98,7 @@ class WishlistOverviewController extends AbstractController
             ->setName($wishlistName);
 
         $this->getClient()->removeWishlistByName($wishlistTransfer);
-        $this->addSuccessMessage('Wishlist deleted successfully.');
+        $this->addSuccessMessage('customer.account.wishlist.deleted');
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_OVERVIEW);
     }
