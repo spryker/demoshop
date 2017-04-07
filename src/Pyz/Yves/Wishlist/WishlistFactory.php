@@ -8,6 +8,8 @@
 namespace Pyz\Yves\Wishlist;
 
 use Generated\Shared\Transfer\WishlistTransfer;
+use Pyz\Yves\Wishlist\Business\AvailabilityReader;
+use Pyz\Yves\Wishlist\Business\MoveToCartHandler;
 use Pyz\Yves\Wishlist\Form\AddAllAvailableProductsToCartFormType;
 use Pyz\Yves\Wishlist\Form\DataProvider\AddAllAvailableProductsToCartFormDataProvider;
 use Pyz\Yves\Wishlist\Form\DataProvider\WishlistFormDataProvider;
@@ -100,6 +102,22 @@ class WishlistFactory extends AbstractFactory
     public function getAvailabilityClient()
     {
         return $this->getProvidedDependency(WishlistDependencyProvider::CLIENT_AVAILABILITY);
+    }
+
+    /**
+     * @return \Pyz\Yves\Wishlist\Business\MoveToCartHandlerInterface
+     */
+    public function createMoveToCartHandler()
+    {
+        return new MoveToCartHandler($this->getClient(), $this->createCustomerClient(), $this->createAvailabilityReader());
+    }
+
+    /**
+     * @return \Pyz\Yves\Wishlist\Business\AvailabilityReaderInterface
+     */
+    public function createAvailabilityReader()
+    {
+        return new AvailabilityReader($this->getAvailabilityClient());
     }
 
 }

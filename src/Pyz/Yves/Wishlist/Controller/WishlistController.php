@@ -7,9 +7,7 @@
 
 namespace Pyz\Yves\Wishlist\Controller;
 
-use Generated\Shared\Transfer\WishlistItemMetaTransfer;
 use Generated\Shared\Transfer\WishlistItemTransfer;
-use Generated\Shared\Transfer\WishlistMoveToCartRequestCollectionTransfer;
 use Generated\Shared\Transfer\WishlistMoveToCartRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewResponseTransfer;
@@ -69,6 +67,10 @@ class WishlistController extends AbstractController
             throw new NotFoundHttpException();
         }
 
+        $availability = $this->getFactory()
+            ->createAvailabilityReader()
+            ->getAvailability($wishlistOverviewResponse->getMeta()->getWishlistItemMetaCollection());
+
         $addAllAvailableProductsToCartForm = $this->createAddAllAvailableProductsToCartForm($wishlistOverviewResponse);
 
         return $this->viewResponse([
@@ -76,7 +78,7 @@ class WishlistController extends AbstractController
             'currentPage' => $wishlistOverviewResponse->getPagination()->getPage(),
             'totalPages' => $wishlistOverviewResponse->getPagination()->getPagesTotal(),
             'wishlistName' => $wishlistName,
-            'availability' => $this->getAvailability($wishlistOverviewResponse->getMeta()->getWishlistItemMetaCollection()),
+            'availability' => $availability,
             'addAllAvailableProductsToCartForm' => $addAllAvailableProductsToCartForm->createView(),
         ]);
     }
@@ -159,14 +161,15 @@ class WishlistController extends AbstractController
             ->handleRequest($request);
 
         if ($addAllAvailableProductsToCartForm->isValid()) {
-            $wishlistMoveToCartRequestCollectionTransfer = $this->createMoveAvailableItemsToCartRequestCollection(
-                $wishlistName,
-                $addAllAvailableProductsToCartForm->get(AddAllAvailableProductsToCartFormType::WISHLIST_ITEM_META_COLLECTION)->getData()
-            );
+            $wishlistItemMetaTransferCollection = $addAllAvailableProductsToCartForm
+                ->get(AddAllAvailableProductsToCartFormType::WISHLIST_ITEM_META_COLLECTION)
+                ->getData();
 
-            if ($wishlistMoveToCartRequestCollectionTransfer->getRequests()->count()) {
-                $this->getClient()->moveCollectionToCart($wishlistMoveToCartRequestCollectionTransfer);
+            $count = $this->getFactory()
+                ->createMoveToCartHandler()
+                ->moveAllAvailableToCart($wishlistName, $wishlistItemMetaTransferCollection);
 
+            if ($count) {
                 $this->addSuccessMessage('customer.account.wishlist.item.moved_all_available_to_cart');
             }
         }
@@ -239,85 +242,6 @@ class WishlistController extends AbstractController
         );
 
         return $addAllAvailableProductsToCartForm;
-    }
-
-    /**
-     * @return int
-     */
-    protected function getIdCustomer()
-    {
-        return $customerClient = $this->getFactory()
-            ->createCustomerClient()
-            ->getCustomer()
-            ->getIdCustomer();
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer[] $wishlistItemMetaTransferCollection
-     *
-     * @return array
-     */
-    protected function getAvailability($wishlistItemMetaTransferCollection)
-    {
-        $availability = [];
-        $availabilityClient = $this->getFactory()->getAvailabilityClient();
-
-        foreach ($wishlistItemMetaTransferCollection as $wishlistItemMetaTransfer) {
-            $sku = $wishlistItemMetaTransfer->getSku();
-            $idProductAbstract = $wishlistItemMetaTransfer->getIdProductAbstract();
-
-            $storageAvailabilityTransfer = $availabilityClient->getProductAvailabilityByIdProductAbstract($idProductAbstract);
-            $isAvailable = $storageAvailabilityTransfer->getConcreteProductAvailableItems()[$sku];
-
-            $availability[$sku] = $isAvailable;
-        }
-
-        return $availability;
-    }
-
-    /**
-     * @param string $wishlistName
-     * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer[] $wishlistItemMetaTransferCollection
-     *
-     * @return \Generated\Shared\Transfer\WishlistMoveToCartRequestCollectionTransfer
-     */
-    protected function createMoveAvailableItemsToCartRequestCollection($wishlistName, $wishlistItemMetaTransferCollection)
-    {
-        $wishlistMoveToCartRequestCollectionTransfer = new WishlistMoveToCartRequestCollectionTransfer();
-        $availability = $this->getAvailability($wishlistItemMetaTransferCollection);
-
-        foreach ($wishlistItemMetaTransferCollection as $wishlistItemMetaTransfer) {
-            if (!isset($availability[$wishlistItemMetaTransfer->getSku()]) || !$availability[$wishlistItemMetaTransfer->getSku()]) {
-                continue;
-            }
-
-            $wishlistMoveToCartRequestTransfer = $this->createWishlistMoveToCartRequestTransfer($wishlistName, $wishlistItemMetaTransfer);
-
-            $wishlistMoveToCartRequestCollectionTransfer->addRequest($wishlistMoveToCartRequestTransfer);
-        }
-
-        return $wishlistMoveToCartRequestCollectionTransfer;
-    }
-
-    /**
-     * @param string $wishlistName
-     * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer $wishlistItemMetaTransfer
-     *
-     * @return \Generated\Shared\Transfer\WishlistMoveToCartRequestTransfer
-     */
-    protected function createWishlistMoveToCartRequestTransfer($wishlistName, WishlistItemMetaTransfer $wishlistItemMetaTransfer)
-    {
-        $wishlistItemTransfer = new WishlistItemTransfer();
-        $wishlistItemTransfer
-            ->setSku($wishlistItemMetaTransfer->getSku())
-            ->setWishlistName($wishlistName)
-            ->setFkCustomer($this->getIdCustomer());
-
-        $wishlistMoveToCartRequestTransfer = (new WishlistMoveToCartRequestTransfer())
-            ->setSku($wishlistItemMetaTransfer->getSku())
-            ->setWishlistItem($wishlistItemTransfer);
-
-        return $wishlistMoveToCartRequestTransfer;
     }
 
 }
