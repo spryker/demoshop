@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Twig;
 
-use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Zed\Twig\TwigConfig as SprykerTwigConfig;
 
 class TwigConfig extends SprykerTwigConfig
