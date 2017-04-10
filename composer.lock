@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "14bdd065b0728e85bdd1194898345ca0",
+    "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1487,11 +1487,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-1167-twig-cache-warmer-mixes-up-themes",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7af00dbd351d64b18690be9926358eb25471e887"
+                "reference": "211c2cc7da13561a958d05e45ab216753e5ab238"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2270,7 +2270,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-10 11:24:35"
+            "time": "2017-04-10 12:01:02"
         },
         {
             "name": "swiftmailer/swiftmailer",
