@@ -6,6 +6,7 @@
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
 use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
@@ -15,23 +16,6 @@ use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
 class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements StepEngineFormDataProviderInterface
 {
-
-    /**
-     * @var \Generated\Shared\Transfer\CustomerTransfer
-     */
-    protected $customerTransfer;
-
-    /**
-     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Spryker\Shared\Kernel\Store $store
-     */
-    public function __construct(CustomerClientInterface $customerClient, Store $store)
-    {
-        parent::__construct($customerClient, $store);
-
-        $this->customerTransfer = $this->customerClient->getCustomer();
-    }
-
     /**
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *

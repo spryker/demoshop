@@ -7,7 +7,9 @@
 
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
+use Silex\Tests\Provider\ValidatorServiceProviderTest\Constraint\Custom;
 use Spryker\Shared\Kernel\Store;
 
 abstract class AbstractAddressFormDataProvider
@@ -16,9 +18,9 @@ abstract class AbstractAddressFormDataProvider
     const COUNTRY_GLOSSARY_PREFIX = 'countries.iso.';
 
     /**
-     * @var \Pyz\Client\Customer\CustomerClientInterface
+     * @var \Generated\Shared\Transfer\CustomerTransfer
      */
-    protected $customerClient;
+    protected $customerTransfer;
 
     /**
      * @var \Spryker\Shared\Kernel\Store
@@ -26,12 +28,13 @@ abstract class AbstractAddressFormDataProvider
     protected $store;
 
     /**
-     * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
      * @param \Spryker\Shared\Kernel\Store $store
      */
-    public function __construct(CustomerClientInterface $customerClient, Store $store)
+    public function __construct(CustomerTransfer $customerTransfer, Store $store)
     {
-        $this->customerClient = $customerClient;
+        $this->customerTransfer = $customerTransfer;
         $this->store = $store;
     }
 

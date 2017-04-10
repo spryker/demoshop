@@ -21,7 +21,7 @@ class AddressFormDataProvider extends AbstractAddressFormDataProvider
      */
     public function getData($idCustomerAddress = null)
     {
-        $customerTransfer = $this->customerClient->getCustomer();
+        $customerTransfer = $this->customerTransfer;
 
         if ($idCustomerAddress === null) {
             return $this->getDefaultAddressData($customerTransfer);
