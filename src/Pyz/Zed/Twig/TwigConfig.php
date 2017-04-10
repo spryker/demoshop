@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Twig;
 
+use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Zed\Twig\TwigConfig as SprykerTwigConfig;
 
 /**
@@ -35,7 +36,7 @@ class TwigConfig extends SprykerTwigConfig
      *
      * @return array
      */
-    public function getZedDirectoryPathPattern()
+    public function getZedDirectoryPathPatterns()
     {
         $directories = [
             'src/*/Zed/*/Presentation',
@@ -52,14 +53,14 @@ class TwigConfig extends SprykerTwigConfig
      *
      * @return array
      */
-    public function getYvesDirectoryPathPattern()
+    public function getYvesDirectoryPathPatterns()
     {
-        $directories = [
-            'src/*/Yves/*/Theme',
-            'vendor/spryker/spryker/Bundles/*/src/*/Yves/*/Theme',
-        ];
+        $currentThemeName = $this->get(TwigConstants::YVES_THEME);
 
-        $directories = array_merge($directories, glob('vendor/*/*/src/*/Yves/*/Theme'));
+        $directories = parent::getYvesDirectoryPathPatterns();
+
+        $directories = array_merge($directories, glob('vendor/spryker/spryker/Bundles/*/src/*/Yves/*/Theme/' . $currentThemeName));
+        $directories = array_merge($directories, glob('vendor/*/*/src/*/Yves/*/Theme/' . $currentThemeName));
 
         return $directories;
     }
