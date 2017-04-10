@@ -9,8 +9,9 @@ module.exports = {
     init: function($root, state) {
         this.$root = $root;
         this.$form = $('form', this.$root);
-        this.$button = $('.js-button', this.$root);
         this.$panel = $('.js-panel', this.$root);
+        this.$button = $('.js-button', this.$root);
+        this.defaultButtonContent = this.$button.html();
         this.state = state;
 
         this.mapEvents();
@@ -61,13 +62,11 @@ module.exports = {
     },
 
     startLoader: function() {
-        // TODO: implement startLoader
-        console.log('loading...');
+        this.$button.html('<i class="fa fa-spinner fa-spin"></i>');
     },
 
     stopLoader: function() {
-        // TODO: implement stopLoader
-        console.log('done');
+        this.$button.html(this.defaultButtonContent);
     },
 
     getWishlistOptions: function() {

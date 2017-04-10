@@ -40,6 +40,8 @@ module.exports = {
     fetch: function() {
         var that = this;
 
+        that.view.startLoader();
+
         setTimeout(function() {
             var params = {
                 q: that.state.current.query
@@ -56,6 +58,8 @@ module.exports = {
                     suggestions: data.suggestion,
                     navigationIndex: 0
                 });
+            }).complete(function(){
+                that.view.stopLoader();
             });
         }, 0);
     }
