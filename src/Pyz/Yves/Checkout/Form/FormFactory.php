@@ -141,10 +141,7 @@ class FormFactory extends SprykerFormFactory
      */
     protected function createAddressFormDataProvider()
     {
-        $idCustomer = $this->getCustomerClient()->getCustomer()->getIdCustomer();
-        $customerTransfer = $this->getCustomerClient()->getCustomerById($idCustomer);
-
-        return new CheckoutAddressFormDataProvider($customerTransfer, $this->getStore());
+        return new CheckoutAddressFormDataProvider($this->getCustomerClient(), $this->getStore());
     }
 
     /**
