@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
+    "content-hash": "3e10f9b146c5a84097293d9532a2baab",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1487,11 +1487,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1113-nested-navigation-on-project-level-isnt-working",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "11e53aacb74ae9dda0f4921f89bcd3485bfe2875"
+                "reference": "77dd24b8c877c45ee736639036d2f634e762d78f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2270,7 +2270,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-10 12:24:34"
+            "time": "2017-04-10 12:10:22"
         },
         {
             "name": "swiftmailer/swiftmailer",
