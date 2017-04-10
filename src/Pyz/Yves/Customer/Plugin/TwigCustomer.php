@@ -21,7 +21,7 @@ class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
     /**
      * @param \Silex\Application $application
      *
-     * @return array
+     * @return \Twig_SimpleFunction[]
      */
     public function getFunctions(Application $application)
     {

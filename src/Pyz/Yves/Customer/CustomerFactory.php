@@ -39,7 +39,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler
+     * @return \Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationFailureHandler
      */
     public function createCustomerAuthenticationFailureHandler()
     {
@@ -129,7 +129,7 @@ class CustomerFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Shared\Application\Communication\Application
+     * @return \Spryker\Shared\Kernel\Communication\Application
      */
     public function createApplication()
     {
