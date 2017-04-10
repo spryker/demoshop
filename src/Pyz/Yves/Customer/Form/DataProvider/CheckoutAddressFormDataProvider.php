@@ -29,7 +29,8 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     {
         parent::__construct($customerClient, $store);
 
-        $this->customerTransfer = $this->customerClient->getCustomer();
+        $customerTransfer = $this->customerClient->getCustomer();
+        $this->customerTransfer = $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
     }
 
     /**
