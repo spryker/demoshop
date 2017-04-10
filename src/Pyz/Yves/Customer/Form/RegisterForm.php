@@ -58,8 +58,8 @@ class RegisterForm extends AbstractType
     {
         $builder->add(self::FIELD_SALUTATION, 'choice', [
             'choices' => [
-                'Mr' => 'email.orderEmail.salutationMale',
-                'Mrs' => 'email.orderEmail.salutationFemale',
+                'Mr' => 'customer.salutation.mr',
+                'Ms' => 'customer.salutation.ms',
             ],
             'required' => true,
             'label' => 'address.salutation',

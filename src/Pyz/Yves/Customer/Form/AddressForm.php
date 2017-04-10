@@ -104,7 +104,7 @@ class AddressForm extends AbstractType
         $builder->add(self::FIELD_SALUTATION, 'choice', [
             'choices' => [
                 'Mr' => 'customer.salutation.mr',
-                'Mrs' => 'customer.salutation.mrs',
+                'Ms' => 'customer.salutation.ms',
             ],
             'label' => 'profile.form.salutation',
             'required' => true,
