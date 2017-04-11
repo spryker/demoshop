@@ -34,6 +34,7 @@
     "symfony/security": "^2.6.13",
     "symfony/serializer": "^2.6.13",
     "symfony/translation": "^2.6.13",
+    "symfony/twig-bridge": "^2.7.0",
     "symfony/validator": "^2.6.13",
     "symfony/yaml": "^2.6.13",
     "swiftmailer/swiftmailer": "^5.4.5",
@@ -59,7 +60,7 @@
   },
   "require-dev": {
     "codeception/codeception": "^2.2.10",
-    "codeception/c3": "2.0.10",
+    "codeception/c3": "^2.0.12",
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
