@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
+    "content-hash": "2e046a185bcc2a3d245d147e9fa27cc6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1487,11 +1487,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-795-salutation-not-persisted-with-order",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
+=======
+                "reference": "44dd373fa020af8d58ca7a4748aa24b4bee0584b"
+>>>>>>> CORE-975 Updated composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2270,7 +2274,11 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
+=======
+            "time": "2017-04-11 11:25:01"
+>>>>>>> CORE-975 Updated composer
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6975,7 +6983,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07 12:41:16"
+            "time": "2017-03-07T12:41:16+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7022,7 +7030,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06 12:18:02"
+            "time": "2017-04-06T12:18:02+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
