@@ -34,6 +34,10 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
                     if ($this->isEdit($context)) {
                         $translation = $this->getEditableOutput($placeholders[$identifier], $translation);
                     }
+
+                    if (empty($translation)) {
+                        $translation = $placeholders[$identifier];
+                    }
                 }
                 return $translation;
             }, ['needs_context' => true]),
