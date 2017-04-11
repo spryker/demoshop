@@ -26,9 +26,9 @@ use Spryker\Zed\Customer\CustomerDependencyProvider;
 use Spryker\Zed\Customer\Dependency\Facade\CustomerToMailBridge;
 use Spryker\Zed\Mail\Business\MailFacadeInterface;
 use Spryker\Zed\Newsletter\Business\NewsletterFacade;
+use SprykerTest\Shared\Testify\Helper\DependencyHelperTrait;
+use SprykerTest\Shared\Testify\Helper\LocatorHelperTrait;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Testify\Helper\DependencyHelperTrait;
-use Testify\Helper\LocatorHelperTrait;
 
 class Customer extends Module
 {

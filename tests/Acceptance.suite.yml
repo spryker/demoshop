@@ -10,8 +10,8 @@ modules:
         - \Propel\Helper\Connection
         - \Application\Module\Yves
         - \Application\Module\Zed
-        - \SprykerTest\Shared\Testify\Helper\Locator
-        - \SprykerTest\Shared\Testify\Helper\Dependency
+        - \SprykerTest\Shared\Testify\Helper\LocatorHelper
+        - \SprykerTest\Shared\Testify\Helper\DependencyHelper
         - \Module\Customer
         - Cli
         - Asserts
