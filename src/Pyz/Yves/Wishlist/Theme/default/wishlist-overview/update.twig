@@ -1,0 +1,23 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.wishlist' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'wishlist'} %}
+
+    {% include "@Wishlist/partials/wishlist-navigation.twig" with {'active': 'wishlist'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="row xlarge-unstack">
+        <div class="columns">
+            <div class="callout">
+                <h4>{{ 'customer.account.wishlist.overview.title' | trans }}</h4>
+
+                {% include '@Wishlist/wishlist-overview/partials/wishlist-update-table.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

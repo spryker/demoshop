@@ -10,7 +10,8 @@ var _ = require('lodash');
 var BaseState = {
     current: {},
 
-    init: function(controller) {
+    init: function(initialState, controller) {
+        this.current = initialState;
         this.set = createStateSetter(controller);
     }
 };
