@@ -18,6 +18,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
 =======
 <<<<<<< HEAD
@@ -225,6 +226,9 @@
 >>>>>>> update
 =======
     "content-hash": "8731f60e9880ab5c71b05769c038020a",
+>>>>>>> update spryker/spryker
+=======
+    "content-hash": "9248df676577e8c50a83155a03b19c76",
 >>>>>>> update spryker/spryker
     "packages": [
         {
@@ -1741,6 +1745,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
 =======
 =======
@@ -1785,6 +1790,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -2214,6 +2221,9 @@
 >>>>>>> update spryker/spryker
 =======
                 "reference": "aa7b22300aa8e004b98a74d3ce05bdd56e6fbd60"
+>>>>>>> update spryker/spryker
+=======
+                "reference": "e3ad35c1aff16db6d36aa60515215642e132aac6"
 >>>>>>> update spryker/spryker
             },
             "require": {
@@ -3028,6 +3038,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-04-12 08:57:47"
 =======
 =======
@@ -3072,6 +3083,8 @@
 >>>>>>> update spryker/spryker
 =======
 >>>>>>> update
+=======
+>>>>>>> update spryker/spryker
 =======
 >>>>>>> update spryker/spryker
 =======
@@ -3469,6 +3482,9 @@
 >>>>>>> update spryker/spryker
 =======
             "time": "2017-03-31 10:08:09"
+>>>>>>> update spryker/spryker
+=======
+            "time": "2017-04-11 10:27:43"
 >>>>>>> update spryker/spryker
         },
         {
