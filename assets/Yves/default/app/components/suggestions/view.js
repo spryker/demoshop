@@ -19,6 +19,8 @@ module.exports = {
         this.$input = $('.js-input', this.$root);
         this.$inputHint = $('.js-input-hint', this.$root);
         this.$panel = $('.js-panel', this.$root);
+        this.$button = $('.js-search-button', this.$root);
+        this.defaultButtonContent = this.$button.html();
         this.state = state;
 
         this.mapEvents();
@@ -223,5 +225,13 @@ module.exports = {
         }
 
         return '';
+    },
+
+    startLoader: function() {
+        this.$button.html('<i class="fa fa-spinner fa-spin"></i>');
+    },
+
+    stopLoader: function() {
+        this.$button.html(this.defaultButtonContent);
     }
 };

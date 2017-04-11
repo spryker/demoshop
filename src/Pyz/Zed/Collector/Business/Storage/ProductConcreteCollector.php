@@ -97,6 +97,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     {
         return [
             StorageProductTransfer::ID_PRODUCT_CONCRETE => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            StorageProductTransfer::ID_PRODUCT_ABSTRACT => $collectItemData[self::ID_PRODUCT_ABSTRACT],
             StorageProductTransfer::NAME => $collectItemData[self::NAME],
             StorageProductTransfer::DESCRIPTION => $this->getDescription($collectItemData),
             StorageProductTransfer::ATTRIBUTES => $this->getConcreteAttributes($collectItemData),

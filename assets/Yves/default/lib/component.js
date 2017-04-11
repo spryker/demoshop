@@ -30,11 +30,9 @@ function mount(component) {
         var view = View.create(component.view);
         var controller = Controller.create(component.controller);
 
-        state.init(controller);
+        state.init(component.initialState, controller);
         view.init($(root), state);
         controller.init(view, state);
-
-        state.set(component.initialState);
     });
 }
 

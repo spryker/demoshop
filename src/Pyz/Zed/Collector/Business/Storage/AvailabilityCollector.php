@@ -24,11 +24,13 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
+        $concreteProductsAvailability = $this->getConcreteProductsAvailability(
+            $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
+        );
+
         return [
-            StorageAvailabilityTransfer::IS_ABSTRACT_PRODUCT_AVAILABLE => $collectItemData[AvailabilityCollectorQuery::QUANTITY] > 0,
-            StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $this->getConcreteProductsAvailability(
-                $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
-            ),
+            StorageAvailabilityTransfer::IS_ABSTRACT_PRODUCT_AVAILABLE => $this->isProductAbstractAvailable($concreteProductsAvailability),
+            StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $concreteProductsAvailability,
         ];
     }
 
@@ -68,6 +70,22 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     protected function collectKey($data, $localeName, array $collectedItemData)
     {
         return $this->generateKey($collectedItemData[AvailabilityCollectorQuery::ID_PRODUCT_ABSTRACT], $localeName);
+    }
+
+    /**
+     * @param array $concreteProductsAvailability
+     *
+     * @return bool
+     */
+    protected function isProductAbstractAvailable(array $concreteProductsAvailability)
+    {
+        foreach ($concreteProductsAvailability as $isConcreteAvailable) {
+            if ($isConcreteAvailable) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

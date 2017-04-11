@@ -105,13 +105,7 @@
                 </p>
             {% endif %}
 
-            <form class="row align-bottom" method="POST" action="{{ path('wishlist/add-item', {sku: product.sku}) }}">
-                <div class="small-12 columns">
-                    <button type="submit" class="button expanded info" {{ (not product.isVariant) ? 'disabled' : '' }}>
-                        <i class="fa fa-heart"></i>{{ 'page.detail.add-to-wishlist' | trans }}
-                    </button>
-                </div>
-            </form>
+            {% include '@Product/product/partials/add-to-wishlist.twig' %}
         </div>
     </div>
 
