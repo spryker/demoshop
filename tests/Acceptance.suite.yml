@@ -6,12 +6,12 @@ modules:
             browser: chrome
             window_size: 1920x1080
 
-        - \Testify\Helper\Environment
+        - \SprykerTest\Shared\Testify\Helper\Environment
         - \Propel\Helper\Connection
         - \Application\Module\Yves
         - \Application\Module\Zed
-        - \Testify\Helper\Locator
-        - \Testify\Helper\Dependency
+        - \SprykerTest\Shared\Testify\Helper\Locator
+        - \SprykerTest\Shared\Testify\Helper\Dependency
         - \Module\Customer
         - Cli
         - Asserts
