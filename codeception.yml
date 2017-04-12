@@ -17,25 +17,15 @@ settings:
     memory_limit: 1024M
     log: true
 
-modules:
-    config:
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/_data/dump.sql
-
 coverage:
     enabled: true
     remote: true
     c3_url: 'http://zed.de.project.local'
     whitelist: { include: ['src/Pyz/*.php'] }
 
-env:
-    phantoman:
-      extensions:
-          enabled:
-              - Codeception\Extension\Phantoman
-          config:
-              Codeception\Extension\Phantoman:
-                  suites: ['Acceptance', 'ZedPresentation']
+extensions:
+    enabled:
+        - Codeception\Extension\Phantoman
+    config:
+        Codeception\Extension\Phantoman:
+            suites: ['Acceptance', 'Presentation']
