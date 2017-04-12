@@ -6,6 +6,7 @@
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
 use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
@@ -69,7 +70,7 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     {
         $customerTransfer = $this->customerClient->getCustomer();
 
-        if ($customerTransfer !== null) {
+        if ($customerTransfer instanceof CustomerTransfer) {
             return $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
         }
 
