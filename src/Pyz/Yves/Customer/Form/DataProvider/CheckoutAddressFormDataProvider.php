@@ -29,7 +29,7 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     {
         parent::__construct($customerClient, $store);
 
-        $this->customerTransfer = $this->getCustomerTransfer();
+        $this->customerTransfer = $this->getCustomer();
     }
 
     /**
@@ -63,12 +63,17 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     }
 
     /**
-     * @return \Generated\Shared\Transfer\CustomerTransfer
+     * @return \Generated\Shared\Transfer\CustomerTransfer|null
      */
-    protected function getCustomerTransfer()
+    protected function getCustomer()
     {
         $customerTransfer = $this->customerClient->getCustomer();
-        return $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
+
+        if ($customerTransfer !== null) {
+            return $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
+        }
+
+        return null;
     }
 
     /**
