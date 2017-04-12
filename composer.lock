@@ -1491,11 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
-=======
-                "reference": "44dd373fa020af8d58ca7a4748aa24b4bee0584b"
->>>>>>> CORE-975 Updated composer
+                "reference": "0930f370f2d69d7fa701614589b30bbe1ee37dfa"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2274,11 +2270,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-            "time": "2017-04-12 08:57:47"
-=======
-            "time": "2017-04-11 11:25:01"
->>>>>>> CORE-975 Updated composer
+            "time": "2017-04-12 13:20:44"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5133,6 +5125,54 @@
             "time": "2017-01-13T15:48:08+00:00"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3|^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2016-04-29T12:21:54+00:00"
+        },
+        {
             "name": "jakoch/phantomjs-installer",
             "version": "2.1.1-p08",
             "source": {
@@ -6694,16 +6734,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v3.0.7",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "59a6a299e2f5612dc8692d40e84373703a5df1b5"
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/59a6a299e2f5612dc8692d40e84373703a5df1b5",
-                "reference": "59a6a299e2f5612dc8692d40e84373703a5df1b5",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/462f4d089e641deef4759ac1117387c9bfd62764",
+                "reference": "462f4d089e641deef4759ac1117387c9bfd62764",
                 "shasum": ""
             },
             "require": {
@@ -6734,7 +6774,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-03-29T09:29:53+00:00"
+            "time": "2017-03-09T17:41:10+00:00"
         },
         {
             "name": "silex/web-profiler",
@@ -6983,7 +7023,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-03-07 12:41:16"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7030,7 +7070,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06T12:18:02+00:00"
+            "time": "2017-04-06 12:18:02"
         },
         {
             "name": "squizlabs/php_codesniffer",
