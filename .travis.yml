@@ -89,8 +89,8 @@ before_script:
 
 script:
   - vendor/bin/phantomjs --webdriver=4444 > /dev/null &
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x ZedPresentation -vvv ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g ZedPresentation ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x Presentation -vvv ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g Presentation ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
