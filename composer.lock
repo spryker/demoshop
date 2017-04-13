@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9176bf0ca2eac6c868812d3219596e2",
+    "content-hash": "dee2868f5921cc168c57e38fc6510fb5",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -3562,6 +3562,73 @@
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
+            "name": "spryker/availability-data-feed",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/AvailabilityDataFeed.git",
+                "reference": "7c6ce4a2699ce92f245ca3a780979963473c3aef",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/AvailabilityDataFeed/zipball/7c6ce4a2699ce92f245ca3a780979963473c3aef",
+                "reference": "7c6ce4a2699ce92f245ca3a780979963473c3aef",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/stock": "^4.0.0"
+            },
+            "require-dev": {
+                "spryker/availability": "^5.0.0",
+                "spryker/code-sniffer": "*",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Availability DataFeed bundle",
+            "support": {
+                "source": "https://github.com/spryker/AvailabilityDataFeed/tree/master"
+            },
+            "time": "2017-04-13T12:53:00+00:00"
+        },
+        {
             "name": "spryker/availability-gui",
             "version": "2.0.0",
             "source": {
@@ -4048,6 +4115,71 @@
                 "source": "https://github.com/spryker/Category/tree/master"
             },
             "time": "2017-04-10T15:06:58+00:00"
+        },
+        {
+            "name": "spryker/category-data-feed",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/CategoryDataFeed.git",
+                "reference": "1fe093a5ae258b94b64d0ef454d5dcffec6a3543",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CategoryDataFeed/zipball/1fe093a5ae258b94b64d0ef454d5dcffec6a3543",
+                "reference": "1fe093a5ae258b94b64d0ef454d5dcffec6a3543",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/category": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "DataFeed bundle",
+            "support": {
+                "source": "https://github.com/spryker/CategoryDataFeed/tree/master"
+            },
+            "time": "2017-04-13T12:53:00+00:00"
         },
         {
             "name": "spryker/category-exporter",
@@ -7830,6 +7962,70 @@
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
+            "name": "spryker/price-data-feed",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/PriceDataFeed.git",
+                "reference": "22850329e48651890db1a3b7580301921456541e",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/PriceDataFeed/zipball/22850329e48651890db1a3b7580301921456541e",
+                "reference": "22850329e48651890db1a3b7580301921456541e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/price": "^4.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Price DataFeed bundle",
+            "support": {
+                "source": "https://github.com/spryker/PriceDataFeed/tree/master"
+            },
+            "time": "2017-04-13T12:53:00+00:00"
+        },
+        {
             "name": "spryker/product",
             "version": "5.1.1",
             "source": {
@@ -7900,6 +8096,71 @@
                 "source": "https://github.com/spryker/Product/tree/master"
             },
             "time": "2017-04-10T10:34:39+00:00"
+        },
+        {
+            "name": "spryker/product-abstract-data-feed",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductAbstractDataFeed.git",
+                "reference": "b8eb28f6fd8f97d6eac1a15ff4b7f1f4246bfd4a",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductAbstractDataFeed/zipball/b8eb28f6fd8f97d6eac1a15ff4b7f1f4246bfd4a",
+                "reference": "b8eb28f6fd8f97d6eac1a15ff4b7f1f4246bfd4a",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/propel-orm": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Abstract product DataFeed bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductAbstractDataFeed/tree/0.1.0"
+            },
+            "time": "2017-04-12T18:18:00+00:00"
         },
         {
             "name": "spryker/product-api",
