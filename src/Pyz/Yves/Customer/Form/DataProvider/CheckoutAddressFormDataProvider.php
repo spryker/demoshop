@@ -6,7 +6,6 @@
 namespace Pyz\Yves\Customer\Form\DataProvider;
 
 use Generated\Shared\Transfer\AddressTransfer;
-use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
