@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\ProductGroup\Persistence;
 
-use Orm\Zed\ProductGroup\Persistence\Base\SpyProductAbstractGroup as BaseSpyProductAbstractGroup;
+use Spryker\Zed\ProductGroup\Persistence\AbstractSpyProductAbstractGroup as BaseSpyProductAbstractGroup;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_abstract_group' table.
@@ -16,5 +16,5 @@ use Orm\Zed\ProductGroup\Persistence\Base\SpyProductAbstractGroup as BaseSpyProd
  */
 class SpyProductAbstractGroup extends BaseSpyProductAbstractGroup
 {
-// TODO add abstract
+
 }
