@@ -11,7 +11,6 @@ use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
 
 use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
 use Spryker\Shared\Config\Environment;
-
 use Spryker\Zed\Cache\Communication\Console\EmptyAllCachesConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleClientCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleCodeGeneratorConsole;
