@@ -325,13 +325,18 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $attributeMapCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
         );
-
-        $attributeMapCollector->setQueryBuilder(
-            new AttributeMapCollectorQuery()
-        );
+        $attributeMapCollector->setQueryBuilder($this->createAttributeMapCollectorQuery());
         $attributeMapCollector->setConfig($this->getConfig());
 
         return $attributeMapCollector;
+    }
+
+    /**
+     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery
+     */
+    protected function createAttributeMapCollectorQuery()
+    {
+        return new AttributeMapCollectorQuery();
     }
 
     /**
@@ -396,6 +401,16 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 
         $queryBuilderClassName = $classList[$name];
 
+        return $this->createQueryBuilderByClassName($queryBuilderClassName);
+    }
+
+    /**
+     * @param string $queryBuilderClassName
+     *
+     * @return \Spryker\Zed\Collector\Persistence\Collector\AbstractCollectorQuery
+     */
+    protected function createQueryBuilderByClassName($queryBuilderClassName)
+    {
         return new $queryBuilderClassName();
     }
 
@@ -417,7 +432,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 
         $queryBuilderClassName = $classList[$name];
 
-        return new $queryBuilderClassName();
+        return $this->createQueryBuilderByClassName($queryBuilderClassName);
     }
 
     /**

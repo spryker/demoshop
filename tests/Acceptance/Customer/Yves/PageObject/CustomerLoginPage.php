@@ -12,7 +12,7 @@ class CustomerLoginPage extends Customer
 
     const URL = '/register';
 
-    const FORGOT_PASSWORD_LINK = 'Forgot Password';
+    const FORGOT_PASSWORD_LINK = '//a[@data-id="customer-forgot-password-link"]';
 
     const TITLE_LOGIN = 'Access your account';
     const TITLE_FORGOT_PASSWORD = 'Recover my password';

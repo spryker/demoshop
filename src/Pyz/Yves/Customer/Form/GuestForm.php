@@ -17,7 +17,7 @@ class GuestForm extends AbstractType
     const FIELD_FIRST_NAME = 'first_name';
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_EMAIL = 'email';
-    const IS_GUEST = 'is_guest';
+    const FIELD_IS_GUEST = 'is_guest';
     const FIELD_ACCEPT_TERMS = 'accept_terms';
 
     /**
@@ -124,7 +124,7 @@ class GuestForm extends AbstractType
      */
     protected function addIsGuestField(FormBuilderInterface $builder)
     {
-        $builder->add(self::IS_GUEST, 'hidden', [
+        $builder->add(self::FIELD_IS_GUEST, 'hidden', [
             'data' => true,
         ]);
 
@@ -158,7 +158,7 @@ class GuestForm extends AbstractType
      */
     protected function addIsGuestTransformer(FormBuilderInterface $builder)
     {
-        $builder->get(self::IS_GUEST)->addModelTransformer(new CallbackTransformer(
+        $builder->get(self::FIELD_IS_GUEST)->addModelTransformer(new CallbackTransformer(
             function ($isGuest) {
                 return $isGuest;
             },

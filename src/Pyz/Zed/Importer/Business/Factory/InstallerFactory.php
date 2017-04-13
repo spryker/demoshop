@@ -15,8 +15,11 @@ use Pyz\Zed\Importer\Business\Installer\Cms\CmsBlockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
 use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
+use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationInstaller;
+use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationNodeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller;
@@ -248,6 +251,28 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller
+     */
+    public function createProductRelationsInstaller()
+    {
+        return new ProductRelationInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterProductRelationCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductRelationCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_RELATIONS => $this->createImporterFactory()->createProductRelationImporter(),
+        ];
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller
      */
     public function createTaxInstaller()
@@ -295,6 +320,34 @@ class InstallerFactory extends AbstractFactory
             $this->getConfig()->getImportDataDirectory(),
             $this->getProductSearchFacade()
         );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Navigation\NavigationInstaller
+     */
+    public function createNavigationInstaller()
+    {
+        $navigationInstaller = new NavigationInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterNavigationCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $navigationInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Navigation\NavigationNodeInstaller
+     */
+    public function createNavigationNodeInstaller()
+    {
+        $navigationNodeInstaller = new NavigationNodeInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterNavigationNodesCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $navigationNodeInstaller;
     }
 
     /**
@@ -466,6 +519,26 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_SHIPMENT => $this->createImporterFactory()->createShipmentImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getImporterNavigationCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_NAVIGATION => $this->createImporterFactory()->createNavigationImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getImporterNavigationNodesCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_NAVIGATION_NODE => $this->createImporterFactory()->createNavigationNodeImporter(),
         ];
     }
 

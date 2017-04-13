@@ -14,8 +14,11 @@ use Pyz\Zed\Importer\Business\Importer\Cms\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
+use Pyz\Zed\Importer\Business\Importer\Navigation\NavigationImporter;
+use Pyz\Zed\Importer\Business\Importer\Navigation\NavigationNodeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductRelation\ProductRelationImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
@@ -28,16 +31,11 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
 use Pyz\Zed\Importer\Business\Importer\Tax\TaxImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
-use Spryker\Zed\Cms\Business\Block\BlockManager;
-use Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManager;
-use Spryker\Zed\Cms\Business\Page\PageManager;
-use Spryker\Zed\Cms\Business\Template\TemplateManager;
-use Spryker\Zed\Cms\CmsConfig;
 use Spryker\Zed\Shipment\Business\Model\Carrier;
 use Spryker\Zed\Shipment\Business\Model\Method;
-use Symfony\Component\Finder\Finder;
 
 /**
+ * @SuppressWarnings(PHPMD.TooManyMethods)
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
  */
 class ImporterFactory extends AbstractFactory
@@ -256,12 +254,7 @@ class ImporterFactory extends AbstractFactory
     {
         $cmsBlockImporter = new CmsBlockImporter(
             $this->getLocaleFacade(),
-            $this->createCmsBlockManager(),
-            $this->createCmsPageManager(),
-            $this->createCmsGlossaryKeyMappingManager(),
-            $this->createCmsTemplateManager(),
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsToUrlBridge(),
+            $this->getCmsFacade(),
             $this->getCmsQueryContainer()
         );
 
@@ -275,16 +268,20 @@ class ImporterFactory extends AbstractFactory
     {
         $cmsPageImporter = new CmsPageImporter(
             $this->getLocaleFacade(),
-            $this->createCmsBlockManager(),
-            $this->createCmsPageManager(),
-            $this->createCmsGlossaryKeyMappingManager(),
-            $this->createCmsTemplateManager(),
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsToUrlBridge(),
+            $this->getCmsFacade(),
+            $this->getUrlFacade(),
             $this->getCmsQueryContainer()
         );
 
         return $cmsPageImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Cms\Business\CmsFacadeInterface
+     */
+    protected function getCmsFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_CMS);
     }
 
     /**
@@ -329,72 +326,43 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Zed\Cms\Business\Template\TemplateManagerInterface
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductRelation\ProductRelationImporter
      */
-    protected function createCmsTemplateManager()
+    public function createProductRelationImporter()
     {
-        return new TemplateManager(
-            $this->getCmsQueryContainer(),
-            $this->createCmsConfig(),
-            $this->createFinder()
+        return new ProductRelationImporter(
+            $this->getLocaleFacade(),
+            $this->getProductRelationFacade(),
+            $this->getUtilEncodingService(),
+            $this->getProductFacade()
         );
     }
 
     /**
-     * @return \Spryker\Zed\Cms\CmsConfig
+     * @return \Pyz\Zed\Importer\Business\Importer\Navigation\NavigationImporter
      */
-    protected function createCmsConfig()
+    public function createNavigationImporter()
     {
-        return new CmsConfig();
-    }
-
-    /**
-     * @return \Symfony\Component\Finder\Finder
-     */
-    protected function createFinder()
-    {
-        return new Finder();
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Business\Page\PageManagerInterface
-     */
-    protected function createCmsPageManager()
-    {
-        return new PageManager(
-            $this->getCmsQueryContainer(),
-            $this->createCmsTemplateManager(),
-            $this->createCmsBlockManager(),
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsToTouchBridge(),
-            $this->getCmsToUrlBridge()
+        $navigationImporter = new NavigationImporter(
+            $this->getLocaleFacade(),
+            $this->getNavigationFacade()
         );
+
+        return $navigationImporter;
     }
 
     /**
-     * @return \Spryker\Zed\Cms\Business\Block\BlockManagerInterface
+     * @return \Pyz\Zed\Importer\Business\Importer\Navigation\NavigationNodeImporter
      */
-    protected function createCmsBlockManager()
+    public function createNavigationNodeImporter()
     {
-        return new BlockManager(
-            $this->getCmsQueryContainer(),
-            $this->getCmsToTouchBridge(),
-            $this->getProvidedDependency(ImporterDependencyProvider::PLUGIN_PROPEL_CONNECTION)
+        $navigationImporter = new NavigationNodeImporter(
+            $this->getLocaleFacade(),
+            $this->getNavigationFacade(),
+            $this->getUrlFacade()
         );
-    }
 
-    /**
-     * @return \Spryker\Zed\Cms\Business\Mapping\GlossaryKeyMappingManagerInterface
-     */
-    protected function createCmsGlossaryKeyMappingManager()
-    {
-        return new GlossaryKeyMappingManager(
-            $this->getCmsToGlossaryBridge(),
-            $this->getCmsQueryContainer(),
-            $this->createCmsTemplateManager(),
-            $this->createCmsPageManager(),
-            $this->getProvidedDependency(ImporterDependencyProvider::PLUGIN_PROPEL_CONNECTION)
-        );
+        return $navigationImporter;
     }
 
     /**

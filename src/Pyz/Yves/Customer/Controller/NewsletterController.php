@@ -66,9 +66,11 @@ class NewsletterController extends AbstractCustomerController
     {
         if ($subscribe === true) {
             $this->processSubscription($customerTransfer);
-        } else {
-            $this->processUnsubscription($customerTransfer);
+
+            return;
         }
+
+        $this->processUnsubscription($customerTransfer);
     }
 
     /**
@@ -84,9 +86,11 @@ class NewsletterController extends AbstractCustomerController
 
         if ($subscriptionResult->getIsSuccess()) {
             $this->addSuccessMessage(self::MESSAGE_SUBSCRIPTION_SUCCESS);
-        } else {
-            $this->addErrorMessage($subscriptionResult->getErrorMessage());
+
+            return;
         }
+
+        $this->addErrorMessage($subscriptionResult->getErrorMessage());
     }
 
     /**

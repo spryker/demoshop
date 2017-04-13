@@ -20,6 +20,7 @@ class ProductSearchAttributeMapInstaller extends AbstractInstaller
     protected $productSearchFacade;
 
     /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param array|\Pyz\Zed\Importer\Business\Importer\ImporterInterface[] $importerCollection
      * @param string $dataDirectory
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade

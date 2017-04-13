@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-983-generated-directory-removal",
+    "spryker/spryker": "dev-master",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
@@ -38,7 +38,7 @@
     "symfony/twig-bridge": "^2.7.0",
     "symfony/validator": "^2.6.13",
     "symfony/yaml": "^2.6.13",
-    "swiftmailer/swiftmailer" : "^5.4.5",
+    "swiftmailer/swiftmailer": "^5.4.5",
     "twig/twig": "^1.20.0",
     "zendframework/zend-code": "^2.6.2",
     "zendframework/zend-config": "^2.5.1",
@@ -56,27 +56,29 @@
     "ext-pdo_pgsql": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
-    "ext-redis": "*"
+    "ext-redis": "*",
+    "spryker/rabbit-mq": "dev-master"
   },
   "require-dev": {
-    "codeception/codeception": "~2.1.10",
-    "codeception/c3": "~2.0.0",
-    "pdepend/pdepend": "~2.2.2",
-    "phploc/phploc": "~3.0.1",
+    "codeception/codeception": "^2.2.10",
+    "codeception/c3": "^2.0.12",
+    "pdepend/pdepend": "^2.2.2",
+    "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
     "sebastian/phpcpd": "~2.0.2",
     "sensiolabs/security-checker": "~3.0.2",
     "silex/web-profiler": "~1.0.8",
-    "symfony/web-profiler-bundle": "v2.7.20",
+    "symfony/web-profiler-bundle": "*",
     "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
-    "sllh/composer-versions-check": "~2.0.2",
+    "sllh/composer-versions-check": "^2.0.2",
     "jakoch/phantomjs-installer": "^2.1.0",
     "php-mock/php-mock": "^1.0",
-    "spryker/architecture-sniffer": "*",
     "phpunit/phpunit": "^5.0",
+    "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
-    "spryker/code-sniffer": "dev-master"
+    "spryker/code-sniffer": "dev-master",
+    "stecman/symfony-console-completion": "^0.7.0"
   },
   "autoload": {
     "psr-0": {
@@ -84,7 +86,8 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests",
-      "Acceptance": "tests"
+      "Acceptance": "tests",
+      "Unit\\Spryker\\Shared\\Twig\\": "vendor/spryker/spryker/Bundles/Twig/tests"
     }
   },
   "minimum-stability": "dev",
@@ -101,11 +104,19 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/architecture-sniffer.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/rabbit-mq.git"
+    },
+    {
+      "type": "composer",
+      "url": "https://code.spryker.com/repo/private"
     }
   ],
   "scripts": {
     "compile": [
-      "mkdir -p ./data/DE/logs",
+      "mkdir -p ./data/DE/logs/ZED",
       "echo '<?php return \"development-heroku\";' > config/Shared/console_env_local.php",
       "./deploy/heroku/run.sh"
     ],

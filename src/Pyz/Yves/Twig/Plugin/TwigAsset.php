@@ -9,6 +9,8 @@ namespace Pyz\Yves\Twig\Plugin;
 
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Config;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Twig_SimpleFunction;
 
@@ -25,9 +27,8 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
      */
     public function getFunctions(Application $application)
     {
-        $isDomainSecured = $this->isDomainSecured($application);
-        $assetUrlBuilder = $this->getFactory()->createAssetUrlBuilder($isDomainSecured);
-        $mediaUrlBuilder = $this->getFactory()->createMediaUrlBuilder($isDomainSecured);
+        $assetUrlBuilder = $this->getAssetUrlBuilder($application);
+        $mediaUrlBuilder = $this->getMediaUrlBuilder($application);
 
         return [
             new Twig_SimpleFunction('asset', function ($value) use ($assetUrlBuilder) {
@@ -61,6 +62,40 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
         $requestStack = $this->getRequestStack($application);
 
         return $requestStack->getCurrentRequest()->isSecure();
+    }
+
+    /**
+     * @param \Silex\Application $application
+     *
+     * @return \Pyz\Yves\Twig\Model\MediaUrlBuilderInterface
+     */
+    protected function getMediaUrlBuilder(Application $application)
+    {
+        $isDomainSecured = $this->isDomainSecured($application);
+        $host = Config::get(ApplicationConstants::HOST_STATIC_MEDIA);
+
+        if ($isDomainSecured) {
+            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_MEDIA);
+        }
+
+        return $this->getFactory()->createMediaUrlBuilder($host);
+    }
+
+    /**
+     * @param \Silex\Application $application
+     *
+     * @return \Pyz\Yves\Twig\Model\AssetUrlBuilderInterface
+     */
+    protected function getAssetUrlBuilder(Application $application)
+    {
+        $isDomainSecured = $this->isDomainSecured($application);
+        $host = Config::get(ApplicationConstants::HOST_STATIC_ASSETS);
+
+        if ($isDomainSecured) {
+            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_ASSETS);
+        }
+
+        return $this->getFactory()->createAssetUrlBuilder($host);
     }
 
 }

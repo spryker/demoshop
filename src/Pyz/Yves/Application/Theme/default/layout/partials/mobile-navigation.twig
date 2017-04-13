@@ -1,9 +1,9 @@
 <div class="callout">
     <h5>{{ 'navigation.menu.categories' | trans }}</h5>
+
+    {{ spyNavigation('MAIN_NAVIGATION', '@application/layout/navigation/main-mobile.twig') }}
+
     <ul class="menu vertical">
-
-        {% include '@application/layout/partials/category-items.twig' %}
-
         <li><hr/></li>
         <li class="row align-middle">
             <a class="shrink columns" href="/cart"><i class="fa fa-shopping-cart"></i>Cart</a>

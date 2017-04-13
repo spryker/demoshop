@@ -30,6 +30,12 @@ if [[ `echo "$@" | grep '\-vvv'` ]]; then
     VERBOSITY='-vvv'
 fi
 
+function generateTwigCacheFiles {
+    labelText "Generating twig cache files"
+    vendor/bin/console twig:cache:warmer
+    writeErrorMessage "Cache WarmUp failed"
+}
+
 function createDevelopmentDatabase {
     # postgres
     sudo createdb ${DATABASE_NAME}
@@ -89,6 +95,8 @@ function installDemoshop {
     sleep 1
     installYves
 
+    generateTwigCacheFiles
+
     successText "Setup successful"
 }
 
@@ -102,6 +110,9 @@ function installZed {
     resetDataStores
 
     dropDevelopmentDatabase
+
+    labelText "Removing propel migration files for core development"
+    rm src/Orm/Propel/DE/Migration_pgsql/*
 
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
@@ -166,15 +177,14 @@ function resetDevelopmentState {
     $CONSOLE transfer:generate
     writeErrorMessage "Generating Transfer Objects failed"
 
-    labelText "Installing Propel"
-    $CONSOLE propel:install $VERBOSITY
-    $CONSOLE propel:diff $VERBOSITY
-    $CONSOLE propel:migrate $VERBOSITY
-    writeErrorMessage "Propel setup failed"
+    $CONSOLE setup:install -- $VERBOSITY
+    writeErrorMessage "Setup install failed"
 
     labelText "Initializing DB"
     $CONSOLE setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
+
+    generateTwigCacheFiles
 }
 
 function dropDevelopmentDatabase {

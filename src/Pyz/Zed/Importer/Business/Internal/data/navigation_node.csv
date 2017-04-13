@@ -1,0 +1,39 @@
+navigation_key,node_key,parent,node_type,title.en_US,url.en_US,css_class.en_US,title.de_DE,url.de_DE,css_class.de_DE
+MAIN_NAVIGATION,1,,label,Top Categories,,,Top Kategorien,,
+MAIN_NAVIGATION,2,1,category,Notebooks,/en/computer/notebooks,,Notebooks,/de/computer/notebooks,
+MAIN_NAVIGATION,3,1,category,Tablets,/en/computer/tablets,,Tablets,/de/computer/tablets,
+MAIN_NAVIGATION,4,1,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,
+MAIN_NAVIGATION,5,1,category,Smartwatches,/en/smart-wearables/smartwatches,,Smartwatches,/de/intelligente-tragbare-geräte/smartwatches,
+MAIN_NAVIGATION,6,,category,Computer,/en/computer,,Computer,/de/computer,
+MAIN_NAVIGATION,7,6,category,Notebooks,/en/computer/notebooks,,Notebooks,/de/computer/notebooks,
+MAIN_NAVIGATION,8,6,category,Workstations,/en/computer/pc's/workstations,,Workstations,/de/computer/pc's/workstations,
+MAIN_NAVIGATION,9,6,category,Tablets,/en/computer/tablets,,Tablets,/de/computer/tablets,
+MAIN_NAVIGATION,10,,category,Cameras,/en/cameras-&-camcorders,,Kameras,/de/kameras-&-camcorders,
+MAIN_NAVIGATION,11,10,category,Digital Cameras,/en/cameras-&-camcorders/digital-cameras,,Digitale Kameras,/de/kameras-&-camcorders/digitale-kameras,
+MAIN_NAVIGATION,12,10,category,Camcorders,/en/cameras-&-camcorders/camcorders,,Digitale Videokameras,/de/kameras-&-camcorders/digitale-videokameras,
+MAIN_NAVIGATION,13,,label,Other Categories,,,Weitere Kategorien,,
+MAIN_NAVIGATION,14,13,category,Telecom & Navigation,/en/telecom-&-navigation,,Telekommunikation & Navigation,/de/telekommunikation-&-navigation,
+MAIN_NAVIGATION,15,14,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,
+MAIN_NAVIGATION,16,13,category,Smart Wearables,/en/smart-wearables,,Intelligente tragbare Geräte,/de/intelligente-tragbare-geräte,
+MAIN_NAVIGATION,17,16,category,Smartwatches,/en/smart-wearables/smartwatches,,Smartwatches,/de/intelligente-tragbare-geräte/smartwatches,
+MAIN_NAVIGATION,18,,label,More,,,Mehr,,
+MAIN_NAVIGATION,19,18,label,CMS Pages,,,CMS Seiten,,
+MAIN_NAVIGATION,20,19,cms_page,GTC,/en/gtc,,AGB,/de/agb,
+MAIN_NAVIGATION,21,19,cms_page,Data privacy,/en/privacy,,Datenschutz,/de/datenschutz,
+MAIN_NAVIGATION,22,18,label,External Links,,,Externe Links,,
+MAIN_NAVIGATION,23,22,external_url,Spryker Tech Blog,https://tech.spryker.com/,,Spryker Tech Blog,https://tech.spryker.com/,
+MAIN_NAVIGATION,24,22,external_url,Spryker Documentation,http://spryker.github.io,,Spryker Dokumentation,http://spryker.github.io,
+MAIN_NAVIGATION,25,18,category,Product Bundles,/en/product-bundles,,Product Bundles,/de/product-bundles,
+FOOTER_NAVIGATION,26,,cms_page,Imprint,/en/imprint,,Impressum,/de/impressum,
+FOOTER_NAVIGATION,27,,cms_page,GTC,/en/gtc,,AGB,/de/agb,
+FOOTER_NAVIGATION,28,,cms_page,Data privacy,/en/privacy,,Datenschutz,/de/datenschutz,
+PAYMENT_PROVIDERS,29,,label,Foo,,picture__image--foo,Foo,,picture__image--foo
+PAYMENT_PROVIDERS,30,,label,Bar,,picture__image--bar,Bar,,picture__image--bar
+PAYMENT_PROVIDERS,31,,label,Baz,,picture__image--baz,Baz,,picture__image--baz
+SHIPMENT_PROVIDERS,32,,label,Foo,,picture__image--foo,Foo,,picture__image--foo
+SHIPMENT_PROVIDERS,33,,label,Bar,,picture__image--bar,Bar,,picture__image--bar
+SHIPMENT_PROVIDERS,34,,label,Baz,,picture__image--baz,Baz,,picture__image--baz
+SOCIAL_LINKS,35,,external_url,Twitter,https://twitter.com/sprysys?lang=de,picture__icon--twitter,Twitter,https://twitter.com/sprysys?lang=de,picture__icon--twitter
+SOCIAL_LINKS,36,,external_url,Xing,https://www.xing.com/companies/sprykersystemsgmbh,picture__icon--xing,Xing,https://www.xing.com/companies/sprykersystemsgmbh,picture__icon--xing
+SOCIAL_LINKS,37,,external_url,LinkedIn,https://www.linkedin.com/company/spryker-systems-gmbh,picture__icon--linkedin,LinkedIn,https://www.linkedin.com/company/spryker-systems-gmbh,picture__icon--linkedin
+SOCIAL_LINKS,38,,external_url,YouTube,https://www.youtube.com,picture__icon--youtube,YouTube,https://www.youtube.com,picture__icon--youtube

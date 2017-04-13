@@ -22,7 +22,12 @@ use Silex\Provider\TwigServiceProvider;
 use Spryker\Service\UtilDateTime\ServiceProvider\DateTimeFormatterServiceProvider;
 
 use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
+use Spryker\Shared\Config\Environment;
+use Spryker\Shared\ErrorHandler\Plugin\ServiceProvider\WhoopsErrorHandlerServiceProvider;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
+use Spryker\Zed\Api\Communication\Plugin\ApiControllerListenerPlugin;
+use Spryker\Zed\Api\Communication\Plugin\ApiServiceProviderPlugin;
+use Spryker\Zed\Api\Communication\Plugin\ServiceProvider\ApiRoutingServiceProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
@@ -55,14 +60,12 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
 
     const SERVICE_UTIL_DATE_TIME = 'util date time service';
-
     const SERVICE_NETWORK = 'util network service';
-
     const SERVICE_UTIL_IO = 'util io service';
-
     const SERVICE_DATA = 'util data service';
 
     const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
+    const SERVICE_PROVIDER_API = 'SERVICE_PROVIDER_API';
     const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_CALL_SERVICE_PROVIDER';
     const INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION = 'INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION';
 
@@ -74,15 +77,19 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     public function provideCommunicationLayerDependencies(Container $container)
     {
         $container[self::SERVICE_PROVIDER] = function (Container $container) {
-            return $this->getServiceProvider($container);
+            return $this->getServiceProviders($container);
+        };
+
+        $container[self::SERVICE_PROVIDER_API] = function (Container $container) {
+            return $this->getApiServiceProviders($container);
         };
 
         $container[self::INTERNAL_CALL_SERVICE_PROVIDER] = function (Container $container) {
-            return $this->getInternalCallServiceProvider($container);
+            return $this->getInternalCallServiceProviders($container);
         };
 
         $container[self::INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION] = function (Container $container) {
-            return $this->getInternalCallServiceProviderWithAuthentication($container);
+            return $this->getInternalCallServiceProvidersWithAuthentication($container);
         };
 
         return $container;
@@ -93,9 +100,9 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      *
      * @return \Silex\ServiceProviderInterface[]
      */
-    protected function getServiceProvider(Container $container)
+    protected function getServiceProviders(Container $container)
     {
-        $coreProviders = parent::getServiceProvider($container);
+        $coreProviders = parent::getServiceProviders($container);
 
         $providers = [
             new LogServiceProvider(),
@@ -135,9 +142,34 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return array
+     * @return \Silex\ServiceProviderInterface[]
      */
-    protected function getInternalCallServiceProvider(Container $container)
+    protected function getApiServiceProviders(Container $container)
+    {
+        $providers = [
+            // Add Auth service providers
+            new RequestServiceProvider(),
+            new SslServiceProvider(),
+            new ServiceControllerServiceProvider(),
+            new RoutingServiceProvider(),
+            $this->getApiServiceProvider(),
+            new ApiRoutingServiceProvider(),
+            new PropelServiceProvider(),
+        ];
+
+        if (Environment::isDevelopment()) {
+            $providers[] = new WhoopsErrorHandlerServiceProvider();
+        }
+
+        return $providers;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Silex\ServiceProviderInterface[]
+     */
+    protected function getInternalCallServiceProviders(Container $container)
     {
         return [
             new LogServiceProvider(),
@@ -160,9 +192,9 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return array
+     * @return \Silex\ServiceProviderInterface[]
      */
-    protected function getInternalCallServiceProviderWithAuthentication(Container $container)
+    protected function getInternalCallServiceProvidersWithAuthentication(Container $container)
     {
         return [
             new LogServiceProvider(),
@@ -208,6 +240,18 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     {
         $controllerListener = new GatewayControllerListenerPlugin();
         $serviceProvider = new GatewayServiceProviderPlugin();
+        $serviceProvider->setControllerListener($controllerListener);
+
+        return $serviceProvider;
+    }
+
+    /**
+     * @return \Spryker\Zed\Api\Communication\Plugin\ApiServiceProviderPlugin
+     */
+    protected function getApiServiceProvider()
+    {
+        $controllerListener = new ApiControllerListenerPlugin();
+        $serviceProvider = new ApiServiceProviderPlugin();
         $serviceProvider->setControllerListener($controllerListener);
 
         return $serviceProvider;

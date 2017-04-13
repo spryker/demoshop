@@ -13,6 +13,11 @@ interface CatalogClientInterface extends SprykerCatalogClientInterface
 {
 
     /**
+     * Specification:
+     * - Returns a list of featured products.
+     *
+     * @api
+     *
      * @param int $limit
      *
      * @return mixed

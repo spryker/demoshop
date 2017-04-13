@@ -137,27 +137,11 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToGlossaryInterface
+     * @return \Spryker\Zed\Url\Business\UrlFacadeInterface
      */
-    protected function getCmsToGlossaryBridge()
+    protected function getUrlFacade()
     {
-        return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_GLOSSARY);
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToTouchInterface
-     */
-    protected function getCmsToTouchBridge()
-    {
-        return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_TOUCH);
-    }
-
-    /**
-     * @return \Spryker\Zed\Cms\Dependency\Facade\CmsToUrlInterface
-     */
-    protected function getCmsToUrlBridge()
-    {
-        return $this->getProvidedDependency(ImporterDependencyProvider::BRIDGE_CMS_TO_URL);
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_URL);
     }
 
     /**
@@ -182,6 +166,30 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     protected function getProductOptionFacade()
     {
         return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_OPTION);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductRelation\Business\ProductRelationFacadeInterface
+     */
+    protected function getProductRelationFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_RELATION);
+    }
+
+    /**
+     * @return \Spryker\Service\UtilEncoding\UtilEncodingService
+     */
+    protected function getUtilEncodingService()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::SERVICE_UTIL_ENCODING);
+    }
+
+    /**
+     * @return \Spryker\Zed\Navigation\Business\NavigationFacadeInterface
+     */
+    protected function getNavigationFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_NAVIGATION);
     }
 
 }

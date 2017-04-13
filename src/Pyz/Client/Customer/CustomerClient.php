@@ -19,6 +19,10 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
 {
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
      * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
@@ -31,6 +35,10 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\AddressTransfer $addressTransfer
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
@@ -45,6 +53,10 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\AddressTransfer $addressTransfer
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
@@ -59,6 +71,10 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
@@ -78,6 +94,10 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @return void
      */
     public function markCustomerAsDirty()

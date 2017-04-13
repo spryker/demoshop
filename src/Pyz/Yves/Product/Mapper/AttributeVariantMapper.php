@@ -174,7 +174,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
     {
         static $filteredAttributes = [];
 
-        foreach ($selectedNode as $attributePath => $attributeValue) {
+        foreach (array_keys($selectedNode) as $attributePath) {
             list($key, $value) = explode(ProductConfig::ATTRIBUTE_MAP_PATH_DELIMITER, $attributePath);
             $filteredAttributes[$key][] = $value;
             if (is_array($value)) {

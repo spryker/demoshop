@@ -19,6 +19,9 @@ use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class ProductCategoryImporter extends AbstractImporter
 {
 
@@ -68,6 +71,7 @@ class ProductCategoryImporter extends AbstractImporter
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface $productQueryContainer
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
@@ -174,23 +178,54 @@ class ProductCategoryImporter extends AbstractImporter
      */
     protected function getIdNodeAndCategory($categoryKey)
     {
-        if (!$this->cacheCategories->has($categoryKey)) {
-            $category = $this->getCategoryEntityByKey($categoryKey);
-
-            if (!$category) {
-                return [];
-            }
-
-            $idCategory = $category->getIdCategory();
-            $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
-
-            $this->cacheCategories->set(self::CATEGORY_KEY, $idCategory);
-            $this->cacheNodes->set(self::CATEGORY_KEY, $idNode);
-        } else {
-            $idCategory = $this->cacheCategories->get(self::CATEGORY_KEY);
-            $idNode = $this->cacheNodes->get(self::CATEGORY_KEY);
+        if ($this->cacheCategories->has($categoryKey)) {
+            return $this->getFromCache();
         }
 
+        return $this->getFromDatabase($categoryKey);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getFromCache()
+    {
+        $idCategory = $this->cacheCategories->get(self::CATEGORY_KEY);
+        $idNode = $this->cacheNodes->get(self::CATEGORY_KEY);
+
+        return $this->buildResult($idCategory, $idNode);
+    }
+
+    /**
+     * @param string $categoryKey
+     *
+     * @return array
+     */
+    protected function getFromDatabase($categoryKey)
+    {
+        $category = $this->getCategoryEntityByKey($categoryKey);
+
+        if (!$category) {
+            return [];
+        }
+
+        $idCategory = $category->getIdCategory();
+        $idNode = $category->getNodes()->getFirst()->getIdCategoryNode();
+
+        $this->cacheCategories->set(self::CATEGORY_KEY, $idCategory);
+        $this->cacheNodes->set(self::CATEGORY_KEY, $idNode);
+
+        return $this->buildResult($idCategory, $idNode);
+    }
+
+    /**
+     * @param int $idCategory
+     * @param int $idNode
+     *
+     * @return array
+     */
+    protected function buildResult($idCategory, $idNode)
+    {
         if (!$idCategory || !$idNode) {
             return [];
         }

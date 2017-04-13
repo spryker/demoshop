@@ -1,6 +1,10 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% block breadcrumb %}{% endblock %}
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    <li><a href="{{ url('cart') }}">{{ 'cart.cart'|trans }}</a></li>
+    {% include '@Checkout/checkout/partials/breadcrumb.twig' %}
+{% endblock %}
 
 {% block navigation %}{% endblock %}
 

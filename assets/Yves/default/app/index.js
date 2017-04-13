@@ -22,6 +22,8 @@ $(function(){
     run([
         require('./components/aside'),
         require('./components/viewer'),
-        require('./components/suggestions')
+        require('./components/suggestions'),
+        require('./components/carousel'),
+        require('./components/add-to-wishlist')
     ]);
 });

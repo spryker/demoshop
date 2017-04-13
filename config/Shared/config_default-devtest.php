@@ -9,11 +9,13 @@ use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Payone\PayoneConstants;
+use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Testify\TestifyConstants;
+use Spryker\Shared\Twig\TwigConstants;
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
@@ -50,3 +52,18 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_devtest';
 
 $config[TestifyConstants::BOOTSTRAP_CLASS_YVES] = YvesBootstrap::class;
 $config[TestifyConstants::BOOTSTRAP_CLASS_ZED] = ZedBootstrap::class;
+
+$config[TwigConstants::ZED_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+
+$config[TwigConstants::YVES_TWIG_OPTIONS] = [
+    'cache' => false,
+];
+
+/* RabbitMQ */
+$config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
+$config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
+$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
+$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
+$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';

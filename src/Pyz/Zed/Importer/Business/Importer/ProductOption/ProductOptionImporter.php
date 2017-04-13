@@ -90,14 +90,16 @@ class ProductOptionImporter extends AbstractImporter
 
             $this->lastGroupId = $this->createOptionGroup($data, $productOptionValueTransfer);
             $this->addProductAbstractToGroup($abstractProductSKUs, $this->lastGroupId);
-        } else {
-            if ($this->isOptionValueExisting($productOptionValueTransfer->getValue())) {
-                return;
-            }
 
-            $productOptionValueTransfer->setFkProductOptionGroup($this->lastGroupId);
-            $this->productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
+            return;
         }
+
+        if ($this->isOptionValueExisting($productOptionValueTransfer->getValue())) {
+            return;
+        }
+
+        $productOptionValueTransfer->setFkProductOptionGroup($this->lastGroupId);
+        $this->productOptionFacade->saveProductOptionValue($productOptionValueTransfer);
     }
 
     /**
@@ -106,6 +108,7 @@ class ProductOptionImporter extends AbstractImporter
     public function isImported()
     {
         $query = SpyProductOptionValueQuery::create();
+
         return $query->count() > 0;
     }
 

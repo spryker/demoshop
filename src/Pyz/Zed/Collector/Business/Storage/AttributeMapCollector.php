@@ -23,6 +23,9 @@ use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class AttributeMapCollector extends AbstractStoragePropelCollector
 {
 
@@ -196,8 +199,8 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     protected function filterUniqueAttributeKeys(array $productAttributes)
     {
         $uniqueAttributes = [];
-        foreach ($productAttributes as $idProductConcrete => $attributes) {
-            foreach ($attributes as $key => $value) {
+        foreach ($productAttributes as $attributes) {
+            foreach (array_keys($attributes) as $key) {
                 if (isset($uniqueAttributes[$key])) {
                     continue;
                 }

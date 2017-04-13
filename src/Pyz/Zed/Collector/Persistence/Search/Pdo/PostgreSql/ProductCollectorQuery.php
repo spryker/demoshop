@@ -32,6 +32,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 MIN(spy_product_abstract.sku)                                   AS abstract_sku,
                 GROUP_CONCAT(DISTINCT spy_product.sku)                          AS concrete_skus,
                 GROUP_CONCAT(DISTINCT spy_product_category.fk_category)         AS category_ids,
+                GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)       AS category_node_ids,
                 GROUP_CONCAT(DISTINCT spy_product_abstract.is_featured)         AS is_featured,
                 MIN(spy_product_image_set.id_product_image_set)                 AS id_image_set,
                 spy_touch.id_touch                                              AS %s,
@@ -57,6 +58,8 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                       spy_product_search.fk_locale = spy_locale.id_locale)
                 INNER JOIN spy_product_category 
                   ON (spy_product_category.fk_product_abstract = spy_product_abstract.id_product_abstract)
+                INNER JOIN spy_category_node
+                  ON (spy_product_category.fk_category = spy_category_node.fk_category)
                 INNER JOIN spy_stock_product 
                   ON (spy_product.id_product = spy_stock_product.fk_product)
                 LEFT JOIN spy_touch_search 

@@ -63,6 +63,8 @@ class CollectorConfig extends SprykerCollectorConfig
     }
 
     /**
+     * @SuppressWarnings(PHPMD.BooleanGetMethodName)
+     *
      * @return bool
      */
     public function getEnablePrepareScopeKeyJoinFixFeatureFlag()

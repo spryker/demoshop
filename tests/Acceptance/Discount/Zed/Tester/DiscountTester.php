@@ -34,7 +34,7 @@ class DiscountTester extends ZedAcceptanceTester
         $i->fillField('#discount_discountGeneral_valid_from', $validFrom);
         $i->fillField('#discount_discountGeneral_valid_to', $validTo);
 
-        $i->click('Discount calculation');
+        $i->click('//div[@class="tabs-container"]/ul/li[2]/a');
         $i->selectOption('#discount_discountCalculator_calculator_plugin', DiscountCreatePage::$discountData[$discountName]['calcType']);
         $i->fillField('#discount_discountCalculator_amount', DiscountCreatePage::$discountData[$discountName]['amount']);
         $i->click('#btn-calculation-get');

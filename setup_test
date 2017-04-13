@@ -18,7 +18,6 @@ function displayHeader {
 }
 
 function displayHelp {
-
     displayHeader
 
     echo ""
@@ -32,7 +31,7 @@ function displayHelp {
     echo "      Run only collectors storage, search."
     echo " "
     echo "  -f, --full"
-    echo "      Run collectors storage, search and backup database."
+    echo "      Run collectors storage, search, backup database and generate twig cache files."
     echo " "
     echo "  -v, -vv, -vvv"
     echo "      Set verbosity level"
@@ -42,16 +41,11 @@ function displayHelp {
 warningText "This script should be used only in development and NEVER IN PRODUCTION"
 
 function backupTestingEnvData {
-
     dropDevelopmentDatabase
 
     labelText "Running setup:install"
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
-
-    labelText "Running propel code generation/migrations"
-    $CONSOLE propel:diff $VERBOSITY
-    $CONSOLE propel:migrate $VERBOSITY
 
     labelText "Importing Demo data"
     $CONSOLE import:demo-data $VERBOSITY
@@ -63,7 +57,6 @@ function backupTestingEnvData {
 }
 
 function restoreTestingEnvData {
-
    dropAndRestoreTestDatabase $DATABASE_BACKUP_PATH
 }
 
@@ -75,7 +68,6 @@ function backupDatabaseForTests {
 }
 
 function dropAndRestoreTestDatabase {
-
     if [[ -z "$1" ]]; then
           DATABASE_BACKUP_PATH=$DATABASE_NAME.backup;
     else
@@ -100,9 +92,6 @@ function configureCodeception {
 
 function runCollectors() {
 
-   export PGPASSWORD=$DATABASE_PASSWORD
-   labelText "Reset touch table."
-   psql -h 127.0.0.1 -U $DATABASE_USER  -d $DATABASE_NAME -c 'UPDATE spy_touch set touched=now()' -w
 
    labelText "Run collectors."
    $CONSOLE setup:search $VERBOSITY
@@ -127,7 +116,6 @@ do
            backupTestingEnvData
            ;;
          "--collectors" | "-c" )
-           resetDataStores
            runCollectors
            ;;
          "--full" | "-f" )
@@ -135,6 +123,7 @@ do
             backupTestingEnvData
             runCollectors
             configureCodeception
+            generateTwigCacheFiles
            ;;
         *)
             displayHeader

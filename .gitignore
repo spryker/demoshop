@@ -27,7 +27,11 @@ GTAGS
 /config/cubes.*
 config/accumulated-config.json
 
-/src/Generated
+/deploy/setup/params_local.sh
+/deploy/setup/frontend/params_local.sh
+
+/src/Generated/
+/src/Orm/Propel/DE/Migration_pgsql/
 /vendor/
 FOSS.md
 

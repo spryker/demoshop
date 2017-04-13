@@ -11,12 +11,10 @@ use Pyz\Yves\Twig\Model\AssetUrlBuilder;
 use Pyz\Yves\Twig\Model\MediaUrlBuilder;
 use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
 use Pyz\Yves\Twig\Model\YvesExtension;
-use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config\Config;
-use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\Kernel\Application;
+use Spryker\Yves\Twig\TwigFactory as SprykerTwigFactory;
 
-class TwigFactory extends AbstractFactory
+class TwigFactory extends SprykerTwigFactory
 {
 
     /**
@@ -47,34 +45,22 @@ class TwigFactory extends AbstractFactory
     }
 
     /**
-     * @param bool $isDomainSecured
+     * @param string $host
      *
      * @return \Pyz\Yves\Twig\Model\AssetUrlBuilderInterface
      */
-    public function createAssetUrlBuilder($isDomainSecured = false)
+    public function createAssetUrlBuilder($host)
     {
-        $host = Config::get(ApplicationConstants::HOST_STATIC_ASSETS);
-
-        if ($isDomainSecured) {
-            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_ASSETS);
-        }
-
         return new AssetUrlBuilder($host, $this->createCacheBuster());
     }
 
     /**
-     * @param bool $isDomainSecured
+     * @param string $host
      *
      * @return \Pyz\Yves\Twig\Model\MediaUrlBuilderInterface
      */
-    public function createMediaUrlBuilder($isDomainSecured = false)
+    public function createMediaUrlBuilder($host)
     {
-        $host = Config::get(ApplicationConstants::HOST_STATIC_MEDIA);
-
-        if ($isDomainSecured) {
-            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_MEDIA);
-        }
-
         return new MediaUrlBuilder($host);
     }
 
