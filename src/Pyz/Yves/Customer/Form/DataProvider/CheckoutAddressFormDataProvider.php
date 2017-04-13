@@ -68,13 +68,9 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
      */
     protected function getCustomer()
     {
-        $customerTransfer = $this->customerClient->getCustomer();
+        $this->customerClient->markCustomerAsDirty();
 
-        if ($customerTransfer instanceof CustomerTransfer) {
-            return $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
-        }
-
-        return null;
+        return $this->customerClient->getCustomer();
     }
 
     /**
