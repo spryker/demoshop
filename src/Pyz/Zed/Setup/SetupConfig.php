@@ -7,11 +7,11 @@
 
 namespace Pyz\Zed\Setup;
 
-use Spryker\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
+use Spryker\Zed\Cache\Communication\Console\EmptyAllCachesConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Propel\Communication\Console\PropelInstallConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
-use Spryker\Zed\Setup\Communication\Console\RemoveGeneratedDirectoryConsole;
+use Spryker\Zed\Setup\Communication\Console\EmptyGeneratedDirectoryConsole;
 use Spryker\Zed\Setup\SetupConfig as SprykerSetupConfig;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Zed\ZedNavigation\Communication\Console\BuildNavigationConsole;
@@ -29,8 +29,8 @@ class SetupConfig extends SprykerSetupConfig
     public function getSetupInstallCommandNames()
     {
         return [
-            DeleteAllCachesConsole::COMMAND_NAME,
-            RemoveGeneratedDirectoryConsole::COMMAND_NAME,
+            EmptyAllCachesConsole::COMMAND_NAME,
+            EmptyGeneratedDirectoryConsole::COMMAND_NAME,
             // Important note: After first initial migration you must use
             // PropelInstallConsole::COMMAND_NAME => ['--' . PropelInstallConsole::OPTION_NO_DIFF => true]
             // from there on to persist migration files.

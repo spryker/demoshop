@@ -11,8 +11,7 @@ use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
 
 use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
 use Spryker\Shared\Config\Environment;
-use Spryker\Zed\Cache\Communication\Console\DeleteAllCachesConsole;
-
+use Spryker\Zed\Cache\Communication\Console\EmptyAllCachesConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleClientCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleSharedCodeGeneratorConsole;
@@ -44,12 +43,12 @@ use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
 use Spryker\Zed\Session\Communication\Console\SessionRemoveLockConsole;
 use Spryker\Zed\Setup\Communication\Console\DeployPreparePropelConsole;
+use Spryker\Zed\Setup\Communication\Console\EmptyGeneratedDirectoryConsole;
 use Spryker\Zed\Setup\Communication\Console\InstallConsole;
 use Spryker\Zed\Setup\Communication\Console\JenkinsDisableConsole;
 use Spryker\Zed\Setup\Communication\Console\JenkinsEnableConsole;
 use Spryker\Zed\Setup\Communication\Console\JenkinsGenerateConsole;
 use Spryker\Zed\Setup\Communication\Console\Npm\RunnerConsole;
-use Spryker\Zed\Setup\Communication\Console\RemoveGeneratedDirectoryConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as StateMachineCheckConditionConsole;
 use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
 use Spryker\Zed\StateMachine\Communication\Console\ClearLocksConsole as StateMachineClearLocksConsole;
@@ -75,7 +74,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
             new TouchCleanUpConsole(),
-            new DeleteAllCachesConsole(),
+            new EmptyAllCachesConsole(),
             new DemoDataImportConsole(),
             new UpdaterConsole(),
             new GeneratorConsole(),
@@ -96,7 +95,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 
             // Setup commands
             new RunnerConsole(),
-            new RemoveGeneratedDirectoryConsole(),
+            new EmptyGeneratedDirectoryConsole(),
             new InstallConsole(),
             new JenkinsEnableConsole(),
             new JenkinsDisableConsole(),
