@@ -15,14 +15,6 @@ class Functional extends Module
 {
 
     /**
-     * @param array|null $config
-     */
-    public function __construct($config = null)
-    {
-        parent::__construct($config);
-    }
-
-    /**
      * @param \Codeception\TestCase $test
      *
      * @return void

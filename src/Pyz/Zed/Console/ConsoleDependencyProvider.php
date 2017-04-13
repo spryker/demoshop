@@ -58,6 +58,7 @@ use Spryker\Zed\StateMachine\Communication\Console\CheckConditionConsole as Stat
 use Spryker\Zed\StateMachine\Communication\Console\CheckTimeoutConsole as StateMachineCheckTimeoutConsole;
 use Spryker\Zed\StateMachine\Communication\Console\ClearLocksConsole as StateMachineClearLocksConsole;
 use Spryker\Zed\Touch\Communication\Console\TouchCleanUpConsole;
+use Spryker\Zed\Transfer\Communication\Console\DataBuilderGeneratorConsole;
 use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Zed\Transfer\Communication\Console\ValidatorConsole;
 use Spryker\Zed\Twig\Communication\Console\CacheWarmerConsole;
@@ -134,7 +135,9 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new GenerateYvesIdeAutoCompletionConsole();
             $commands[] = new GenerateIdeAutoCompletionConsole();
             $commands[] = new CacheWarmerConsole();
+            $commands[] = new DataBuilderGeneratorConsole();
             $commands[] = new CompletionCommand();
+            $commands[] = new DataBuilderGeneratorConsole();
         }
 
         return $commands;
