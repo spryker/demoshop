@@ -1491,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
+                "reference": "7d838ff57917f9649648effaddefbdc0913b0cc6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2184,13 +2184,13 @@
                     "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
                     "Spryker\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/src",
                     "Unit\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/tests",
+                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilDataReader/tests",
                     "Spryker\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/src",
                     "Unit\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
                     "Functional\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
+                    "Spryker\\Shared\\UtilDateTime\\": "Bundles/UtilDateTime/src",
                     "Spryker\\Service\\UtilText\\": "Bundles/UtilText/src",
                     "Unit\\Spryker\\Service\\UtilText\\": "Bundles/UtilText/tests",
-                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilDataReader/tests",
-                    "Spryker\\Shared\\UtilDateTime\\": "Bundles/UtilDateTime/src",
                     "Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/src",
                     "Functional\\Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
                     "Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/src",
@@ -2270,7 +2270,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-12 08:57:47"
+            "time": "2017-04-13 09:14:25"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5176,16 +5176,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe"
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5a5a9fc8025a08d8919be87d6884d5a92520cefe",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
                 "shasum": ""
             },
             "require": {
@@ -5214,7 +5214,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-01-26T22:05:40+00:00"
+            "time": "2017-04-12T18:52:22+00:00"
         },
         {
             "name": "pdepend/pdepend",
