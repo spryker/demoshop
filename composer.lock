@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "93cf443193e04f7045335ad07bb1dc28",
+    "content-hash": "e9176bf0ca2eac6c868812d3219596e2",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "7cda739edb564e6228242553df836b1cb07c4cff"
+                "reference": "c82a621783835ec783b96e379e641bed04169786"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/7cda739edb564e6228242553df836b1cb07c4cff",
-                "reference": "7cda739edb564e6228242553df836b1cb07c4cff",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/c82a621783835ec783b96e379e641bed04169786",
+                "reference": "c82a621783835ec783b96e379e641bed04169786",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-04-11T10:34:58+00:00"
+            "time": "2017-04-11T22:33:37+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -1141,16 +1141,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe"
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5a5a9fc8025a08d8919be87d6884d5a92520cefe",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
                 "shasum": ""
             },
             "require": {
@@ -1179,7 +1179,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-01-26T22:05:40+00:00"
+            "time": "2017-04-12T18:52:22+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3722,11 +3722,11 @@
         },
         {
             "name": "spryker/cache",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Cache.git",
-                "reference": "d1baf3b611448aac7b58d350edae6ce60528c484",
+                "reference": "47154abd2196d54441c123493bbf27ce33cf14a9",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3736,8 +3736,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Cache/zipball/d1baf3b611448aac7b58d350edae6ce60528c484",
-                "reference": "d1baf3b611448aac7b58d350edae6ce60528c484",
+                "url": "https://api.github.com/repos/spryker/Cache/zipball/47154abd2196d54441c123493bbf27ce33cf14a9",
+                "reference": "47154abd2196d54441c123493bbf27ce33cf14a9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3771,9 +3771,9 @@
             ],
             "description": "Cache bundle",
             "support": {
-                "source": "https://github.com/spryker/Cache/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Cache/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-04-10T13:13:21+00:00"
         },
         {
             "name": "spryker/calculation",
@@ -4256,11 +4256,11 @@
         },
         {
             "name": "spryker/cms-gui",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsGui.git",
-                "reference": "0beb774093eec5a638448420cf7d8371e36b913b",
+                "reference": "424d06dde841be3f4d6b7bf3af972f21cd84bf87",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4270,8 +4270,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/0beb774093eec5a638448420cf7d8371e36b913b",
-                "reference": "0beb774093eec5a638448420cf7d8371e36b913b",
+                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/424d06dde841be3f4d6b7bf3af972f21cd84bf87",
+                "reference": "424d06dde841be3f4d6b7bf3af972f21cd84bf87",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4320,16 +4320,16 @@
             ],
             "description": "CmsGui bundle",
             "support": {
-                "source": "https://github.com/spryker/CmsGui/tree/master"
+                "source": "https://github.com/spryker/CmsGui/tree/2.0.2"
             },
-            "time": "2017-02-27T09:54:40+00:00"
+            "time": "2017-04-11T14:50:53+00:00"
         },
         {
             "name": "spryker/collector",
             "version": "5.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Collector.git",
+                "url": "git@github.com:spryker/Collector.git",
                 "reference": "3c35711040f5f068b734787bbfb36306422c80af",
                 "mirrors": [
                     {
@@ -5735,11 +5735,11 @@
         },
         {
             "name": "spryker/glossary",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Glossary.git",
-                "reference": "2ed03becc7466b270a4d2d84404c68e6191411aa",
+                "reference": "39a63ce318b274868064159d084d4593b8d19150",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5749,8 +5749,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Glossary/zipball/2ed03becc7466b270a4d2d84404c68e6191411aa",
-                "reference": "2ed03becc7466b270a4d2d84404c68e6191411aa",
+                "url": "https://api.github.com/repos/spryker/Glossary/zipball/39a63ce318b274868064159d084d4593b8d19150",
+                "reference": "39a63ce318b274868064159d084d4593b8d19150",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5804,9 +5804,9 @@
             ],
             "description": "Glossary bundle",
             "support": {
-                "source": "https://github.com/spryker/Glossary/tree/master"
+                "source": "https://github.com/spryker/Glossary/tree/3.0.2"
             },
-            "time": "2017-03-24T07:00:43+00:00"
+            "time": "2017-04-11T14:32:11+00:00"
         },
         {
             "name": "spryker/graph",
@@ -9745,11 +9745,11 @@
         },
         {
             "name": "spryker/setup",
-            "version": "3.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Setup.git",
-                "reference": "4e72da0212413acd34423766b29f5abb54ddb2b4",
+                "reference": "cc82199451f5e3edabe6ce1cd1bebf983ab01add",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9759,8 +9759,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Setup/zipball/4e72da0212413acd34423766b29f5abb54ddb2b4",
-                "reference": "4e72da0212413acd34423766b29f5abb54ddb2b4",
+                "url": "https://api.github.com/repos/spryker/Setup/zipball/cc82199451f5e3edabe6ce1cd1bebf983ab01add",
+                "reference": "cc82199451f5e3edabe6ce1cd1bebf983ab01add",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9770,7 +9770,7 @@
                 ]
             },
             "require": {
-                "spryker/cache": "^3.0.0",
+                "spryker/cache": "^3.1.0",
                 "spryker/config": "^3.0.0",
                 "spryker/installer": "^4.0.0",
                 "spryker/kernel": "^3.0.0",
@@ -9787,7 +9787,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "4.0.x-dev"
                 }
             },
             "autoload": {
@@ -9807,9 +9807,9 @@
             ],
             "description": "Setup bundle",
             "support": {
-                "source": "https://github.com/spryker/Setup/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Setup/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-04-10T13:13:22+00:00"
         },
         {
             "name": "spryker/shipment",
@@ -10259,7 +10259,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Storage.git",
+                "url": "git@github.com:spryker/Storage.git",
                 "reference": "cae41239650cf41ea1ec44a495a8cf545b05e229",
                 "mirrors": [
                     {
@@ -10677,11 +10677,11 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Transfer.git",
-                "reference": "e2696738bd5ecc1752f7e83d4a5e61af557c422a",
+                "reference": "d2741a222a248efd46fb6438cb9984f6dbe1502d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10691,8 +10691,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Transfer/zipball/e2696738bd5ecc1752f7e83d4a5e61af557c422a",
-                "reference": "e2696738bd5ecc1752f7e83d4a5e61af557c422a",
+                "url": "https://api.github.com/repos/spryker/Transfer/zipball/d2741a222a248efd46fb6438cb9984f6dbe1502d",
+                "reference": "d2741a222a248efd46fb6438cb9984f6dbe1502d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10740,9 +10740,9 @@
             ],
             "description": "Transfer bundle",
             "support": {
-                "source": "https://github.com/spryker/Transfer/tree/beta/core-1012-enable-3rd-party-bundles"
+                "source": "https://github.com/spryker/Transfer/tree/master"
             },
-            "time": "2017-03-24T07:00:41+00:00"
+            "time": "2017-04-10T13:13:21+00:00"
         },
         {
             "name": "spryker/twig",

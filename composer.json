@@ -116,7 +116,7 @@
     "spryker/search": "^6.0.0",
     "spryker/sequence-number": "^3.0.0",
     "spryker/session": "^3.0.0",
-    "spryker/setup": "^3.0.0",
+    "spryker/setup": "^4.0.0",
     "spryker/shipment": "^4.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
