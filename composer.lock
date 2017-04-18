@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dee2868f5921cc168c57e38fc6510fb5",
+    "content-hash": "91f71b4ac155ae68882270e2e094e4f1",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "c82a621783835ec783b96e379e641bed04169786"
+                "reference": "00ef880e9327c6c13a3a14da66bd65e847a2bd83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/c82a621783835ec783b96e379e641bed04169786",
-                "reference": "c82a621783835ec783b96e379e641bed04169786",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/00ef880e9327c6c13a3a14da66bd65e847a2bd83",
+                "reference": "00ef880e9327c6c13a3a14da66bd65e847a2bd83",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-04-11T22:33:37+00:00"
+            "time": "2017-04-18T08:13:42+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -569,6 +569,54 @@
                 "zf2"
             ],
             "time": "2017-03-07T09:04:45+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3|^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2016-04-29T12:21:54+00:00"
         },
         {
             "name": "guzzle/guzzle",
@@ -3157,7 +3205,7 @@
             "version": "3.1.3",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Application.git",
+                "url": "https://github.com/spryker/Application.git",
                 "reference": "7c0723256ea02c1a5b49997e5819223d6a81b99a",
                 "mirrors": [
                     {
@@ -5128,7 +5176,7 @@
             "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CustomerGroup.git",
+                "url": "https://github.com/spryker/CustomerGroup.git",
                 "reference": "c98de06cd18c7660ac4723b7b7a7ab4e5fd2b7c2",
                 "mirrors": [
                     {
@@ -6336,11 +6384,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "2d5ce453e17925b1fbf7b5a12244a6742d73da6a",
+                "reference": "e0e22927d974f9b0445d2a43510b2dd1a5ef1d89",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6350,8 +6398,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/2d5ce453e17925b1fbf7b5a12244a6742d73da6a",
-                "reference": "2d5ce453e17925b1fbf7b5a12244a6742d73da6a",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/e0e22927d974f9b0445d2a43510b2dd1a5ef1d89",
+                "reference": "e0e22927d974f9b0445d2a43510b2dd1a5ef1d89",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6401,14 +6449,14 @@
             "support": {
                 "source": "https://github.com/spryker/Kernel/tree/master"
             },
-            "time": "2017-03-29T09:37:26+00:00"
+            "time": "2017-04-11T11:07:02+00:00"
         },
         {
             "name": "spryker/key-builder",
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/KeyBuilder.git",
+                "url": "https://github.com/spryker/KeyBuilder.git",
                 "reference": "2e990117a9bc887b882a1727945cbf79fef58581",
                 "mirrors": [
                     {
@@ -6833,11 +6881,11 @@
         },
         {
             "name": "spryker/money",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Money.git",
-                "reference": "22fa648da8289ca2b88eeab42e5caa4ead07f56b",
+                "reference": "c29ff2a95ce3c62344115c41d2230078d79f5bf9",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6847,8 +6895,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Money/zipball/22fa648da8289ca2b88eeab42e5caa4ead07f56b",
-                "reference": "22fa648da8289ca2b88eeab42e5caa4ead07f56b",
+                "url": "https://api.github.com/repos/spryker/Money/zipball/c29ff2a95ce3c62344115c41d2230078d79f5bf9",
+                "reference": "c29ff2a95ce3c62344115c41d2230078d79f5bf9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6901,9 +6949,9 @@
             ],
             "description": "Money bundle",
             "support": {
-                "source": "https://github.com/spryker/Money/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Money/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-04-13T15:10:13+00:00"
         },
         {
             "name": "spryker/monolog",
@@ -9364,7 +9412,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Quote.git",
+                "url": "https://github.com/spryker/Quote.git",
                 "reference": "0e2944397d0c243839b0d6404c2f00caabbcdc90",
                 "mirrors": [
                     {
@@ -9589,11 +9637,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "5.1.1",
+            "version": "5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "137c0a596cdf2d5c69e7f5f739a42c4602002e1e",
+                "reference": "09b82aac40e3971eaee1b1dd50c2cd31167bb2b4",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9603,8 +9651,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/137c0a596cdf2d5c69e7f5f739a42c4602002e1e",
-                "reference": "137c0a596cdf2d5c69e7f5f739a42c4602002e1e",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/09b82aac40e3971eaee1b1dd50c2cd31167bb2b4",
+                "reference": "09b82aac40e3971eaee1b1dd50c2cd31167bb2b4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9671,7 +9719,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2017-03-27T15:54:31+00:00"
+            "time": "2017-04-13T14:35:57+00:00"
         },
         {
             "name": "spryker/sales-aggregator",
@@ -10806,11 +10854,11 @@
         },
         {
             "name": "spryker/testify",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Testify.git",
-                "reference": "d5fd314498293b436880526e4080370beb7eea79",
+                "reference": "a78050aba1307310e32dba34305549eeac521d94",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10820,8 +10868,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Testify/zipball/d5fd314498293b436880526e4080370beb7eea79",
-                "reference": "d5fd314498293b436880526e4080370beb7eea79",
+                "url": "https://api.github.com/repos/spryker/Testify/zipball/a78050aba1307310e32dba34305549eeac521d94",
+                "reference": "a78050aba1307310e32dba34305549eeac521d94",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10834,12 +10882,17 @@
                 "codeception/codeception": "^2.2.10",
                 "php-mock/php-mock": "^1.0.1",
                 "satooshi/php-coveralls": "^1.0.0",
+                "spryker/application": "^3.0.0",
                 "spryker/config": "^3.0.0",
                 "spryker/error-handler": "^2.0.0",
+                "spryker/gui": "^3.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/propel": "^3.0.0",
                 "spryker/propel-orm": "^1.0.0",
-                "spryker/silex": "^2.0.0"
+                "spryker/silex": "^2.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/twig": "^3.0.0",
+                "spryker/zed-request": "^3.0.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -10868,7 +10921,7 @@
             "support": {
                 "source": "https://github.com/spryker/Testify/tree/master"
             },
-            "time": "2017-03-27T12:43:21+00:00"
+            "time": "2017-04-13T14:59:37+00:00"
         },
         {
             "name": "spryker/touch",
@@ -10938,11 +10991,11 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Transfer.git",
-                "reference": "d2741a222a248efd46fb6438cb9984f6dbe1502d",
+                "reference": "bcd571fd3eada6c3a90368fbb8f5032c3b37650a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10952,8 +11005,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Transfer/zipball/d2741a222a248efd46fb6438cb9984f6dbe1502d",
-                "reference": "d2741a222a248efd46fb6438cb9984f6dbe1502d",
+                "url": "https://api.github.com/repos/spryker/Transfer/zipball/bcd571fd3eada6c3a90368fbb8f5032c3b37650a",
+                "reference": "bcd571fd3eada6c3a90368fbb8f5032c3b37650a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10963,6 +11016,7 @@
                 ]
             },
             "require": {
+                "fzaninotto/faker": "^1.6",
                 "spryker/kernel": "^3.0.0",
                 "spryker/log": "^3.0.0",
                 "spryker/symfony": "^3.0.0",
@@ -11003,7 +11057,7 @@
             "support": {
                 "source": "https://github.com/spryker/Transfer/tree/master"
             },
-            "time": "2017-04-10T13:13:21+00:00"
+            "time": "2017-04-13T12:20:40+00:00"
         },
         {
             "name": "spryker/twig",
@@ -15630,16 +15684,16 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.1",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "d9ad139d6c2e8edf5e313ffbe37ff13344cf0684"
+                "reference": "cf219ede922fb47956726f35e2127277ebd302ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/d9ad139d6c2e8edf5e313ffbe37ff13344cf0684",
-                "reference": "d9ad139d6c2e8edf5e313ffbe37ff13344cf0684",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/cf219ede922fb47956726f35e2127277ebd302ca",
+                "reference": "cf219ede922fb47956726f35e2127277ebd302ca",
                 "shasum": ""
             },
             "require": {
@@ -15666,7 +15720,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2015-05-27T22:58:02+00:00"
+            "time": "2017-04-17T09:08:13+00:00"
         }
     ],
     "aliases": [
