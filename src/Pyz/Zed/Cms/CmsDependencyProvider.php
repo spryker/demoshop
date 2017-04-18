@@ -7,9 +7,11 @@
 namespace Pyz\Zed\Cms;
 
 use Spryker\Zed\CmsUserConnector\Communication\Plugin\UserCmsVersionPostSavePlugin;
+use Spryker\Zed\CmsUserConnector\Communication\Plugin\UserCmsVersionTransferExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
 
-class CmsDependencyProvider extends \Spryker\Zed\Cms\CmsDependencyProvider
+class CmsDependencyProvider extends SprykerCmsDependencyProvider
 {
 
     /**
@@ -21,6 +23,18 @@ class CmsDependencyProvider extends \Spryker\Zed\Cms\CmsDependencyProvider
     {
         return [
             new UserCmsVersionPostSavePlugin()
+        ];
+    }
+
+    /**
+     * @param Container $container
+     *
+     * @return array
+     */
+    protected function getTransferExpanderPlugins(Container $container)
+    {
+        return [
+            new UserCmsVersionTransferExpanderPlugin()
         ];
     }
 
