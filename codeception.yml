@@ -14,14 +14,6 @@ settings:
     memory_limit: 1024M
     log: true
 
-modules:
-    config:
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/_data/dump.sql
-
 coverage:
     enabled: true
     remote: true
@@ -33,4 +25,4 @@ extensions:
         - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\Phantoman:
-            suites: ['Acceptance']
+            suites: ['Acceptance', 'Presentation']

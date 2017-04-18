@@ -5,13 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Discount\Zed\PageObject;
+namespace Pyz\Zed\Transfer;
 
-class DiscountListPage
+use Spryker\Zed\Transfer\TransferConfig as SprykerTransferConfig;
+
+class TransferConfig extends SprykerTransferConfig
 {
-
-    const URL = '/discount/index/list';
-
-    const SELECTOR_DATA_TABLE = '.dataTables_wrapper';
-
 }

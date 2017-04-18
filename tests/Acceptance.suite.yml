@@ -5,8 +5,16 @@ modules:
             url: ''
             browser: chrome
             window_size: 1920x1080
+
+        - \SprykerTest\Shared\Testify\Helper\Environment
+        - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
         - \Application\Module\Yves
         - \Application\Module\Zed
+        - \SprykerTest\Shared\Testify\Helper\LocatorHelper
+        - \SprykerTest\Shared\Testify\Helper\DependencyHelper
         - \Module\Customer
         - Cli
         - Asserts
+
+coverage:
+  enabled: false
