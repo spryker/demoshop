@@ -173,10 +173,7 @@
       "YvesUnit": "tests",
       "Functional": "tests",
       "Acceptance": "tests"
-    },
-    "files": [
-      "vendor/spryker/spryker/autoload.php"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {
