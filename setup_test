@@ -47,6 +47,14 @@ function backupTestingEnvData {
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
+    labelText "Generate DataBuilders"
+    $CONSOLE transfer:databuilder:generate $VERBOSITY
+    writeErrorMessage "Generate DataBuilders failed"
+
+    labelText "Running propel code generation/migrations"
+    $CONSOLE propel:diff $VERBOSITY
+    $CONSOLE propel:migrate $VERBOSITY
+
     labelText "Importing Demo data"
     $CONSOLE import:demo-data $VERBOSITY
     writeErrorMessage "DemoData import failed"
