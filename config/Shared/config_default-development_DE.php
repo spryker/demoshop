@@ -84,16 +84,3 @@ $config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
 ];
-
-$config[FileSystemConstants::FILESYSTEM_STORAGE] = [
-    'productImage' => [
-        'type' => \Spryker\Service\FileSystem\Model\Storage\Builder\LocalAdapter::class,
-        'root' => 'data/DE/uploads/',
-        'path' => 'images/product/',
-    ],
-    'customerImage' => [
-        'type' => \Spryker\Service\FileSystem\Model\Storage\Builder\LocalAdapter::class,
-        'root' => 'data/DE/uploads/',
-        'path' => 'customer/',
-    ],
-];
