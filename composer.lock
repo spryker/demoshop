@@ -6439,7 +6439,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06T12:18:02+00:00"
+            "time": "2017-04-06 12:18:02"
         },
         {
             "name": "squizlabs/php_codesniffer",
