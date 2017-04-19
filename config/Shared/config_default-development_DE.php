@@ -5,6 +5,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
@@ -82,4 +83,17 @@ $config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
+];
+
+$config[FileSystemConstants::FILESYSTEM_STORAGE] = [
+    'productImage' => [
+        'type' => \Spryker\Service\FileSystem\Model\Storage\Builder\LocalAdapter::class,
+        'root' => 'data/DE/uploads/',
+        'path' => 'images/product/',
+    ],
+    'customerImage' => [
+        'type' => \Spryker\Service\FileSystem\Model\Storage\Builder\LocalAdapter::class,
+        'root' => 'data/DE/uploads/',
+        'path' => 'customer/',
+    ],
 ];
