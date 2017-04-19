@@ -1,0 +1,9 @@
+{{ form_start(wishlistForm) }}
+    <div class="input-group">
+        {{ form_widget(wishlistForm.name, {attr: {class: 'input-group-field', placeholder: 'customer.account.wishlist.overview.enter_name'|trans}}) }}
+        <div class="input-group-button">
+            <input type="submit" class="button" value="{{ 'customer.account.wishlist.overview.add_new' | trans }}" />
+        </div>
+    </div>
+    {{ form_errors(wishlistForm) }}
+{{ form_end(wishlistForm) }}

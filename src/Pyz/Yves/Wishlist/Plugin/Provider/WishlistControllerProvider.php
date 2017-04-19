@@ -13,11 +13,15 @@ use Silex\Application;
 class WishlistControllerProvider extends AbstractYvesControllerProvider
 {
 
-    const ROUTE_WISHLIST_OVERVIEW = 'wishlist';
-    const ROUTE_WISHLIST_OVERVIEW_BROWSE = 'wishlist/browse';
+    const ROUTE_ADD_TO_WISHLIST = 'wishlist/add-to-wishlist';
+    const ROUTE_WISHLIST_OVERVIEW = 'wishlist/overview';
+    const ROUTE_WISHLIST_UPDATE = 'wishlist/update';
+    const ROUTE_WISHLIST_DELETE = 'wishlist/delete';
+    const ROUTE_WISHLIST_DETAILS = 'wishlist/details';
     const ROUTE_ADD_ITEM = 'wishlist/add-item';
     const ROUTE_REMOVE_ITEM = 'wishlist/remove-item';
     const ROUTE_MOVE_TO_CART = 'wishlist/move-to-cart';
+    const ROUTE_MOVE_ALL_AVAILABLE_TO_CART = 'wishlist/move-all-available-to-cart';
 
     /**
      * @param \Silex\Application $app
@@ -28,29 +32,46 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createGetController('/{wishlist}', static::ROUTE_WISHLIST_OVERVIEW, 'Wishlist', 'Wishlist')
+        $this->createGetController('/{wishlist}/add-to-wishlist', static::ROUTE_ADD_TO_WISHLIST, 'Wishlist', 'AddToWishlist')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist');
 
-        $this->createGetController('/{wishlist}/browse', static::ROUTE_WISHLIST_OVERVIEW_BROWSE, 'Wishlist', 'Wishlist')
+        $this->createController('/{wishlist}', static::ROUTE_WISHLIST_OVERVIEW, 'Wishlist', 'WishlistOverview')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist');
 
-        $this->createGetController('/{wishlist}/add-item', static::ROUTE_ADD_ITEM, 'Wishlist', 'Wishlist', 'addItem')
+        $this->createController('/{wishlist}/update/{wishlistName}', static::ROUTE_WISHLIST_UPDATE, 'Wishlist', 'WishlistOverview', 'update')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist')
-            ->method('POST');
+            ->assert('wishlistName', '.+');
 
-        $this->createGetController('/{wishlist}/remove-item', static::ROUTE_REMOVE_ITEM, 'Wishlist', 'Wishlist', 'removeItem')
+        $this->createPostController('/{wishlist}/delete/{wishlistName}', static::ROUTE_WISHLIST_DELETE, 'Wishlist', 'WishlistOverview', 'delete')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist')
-            ->method('POST');
+            ->assert('wishlistName', '.+');
 
-        $this->createController('/{wishlist}/move-to-cart', static::ROUTE_MOVE_TO_CART, 'Wishlist', 'Wishlist', 'moveToCart')
+        $this->createGetController('/{wishlist}/details/{wishlistName}', static::ROUTE_WISHLIST_DETAILS, 'Wishlist', 'Wishlist')
             ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
             ->value('wishlist', 'wishlist')
-            ->assert('sku', '[a-zA-Z0-9-_]+')
-            ->method('POST');
+            ->assert('wishlistName', '.+');
+
+        $this->createPostController('/{wishlist}/add-item', static::ROUTE_ADD_ITEM, 'Wishlist', 'Wishlist', 'addItem')
+            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
+            ->value('wishlist', 'wishlist');
+
+        $this->createPostController('/{wishlist}/remove-item', static::ROUTE_REMOVE_ITEM, 'Wishlist', 'Wishlist', 'removeItem')
+            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
+            ->value('wishlist', 'wishlist');
+
+        $this->createPostController('/{wishlist}/move-to-cart', static::ROUTE_MOVE_TO_CART, 'Wishlist', 'Wishlist', 'moveToCart')
+            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
+            ->value('wishlist', 'wishlist')
+            ->assert('sku', '[a-zA-Z0-9-_]+');
+
+        $this->createPostController('/{wishlist}/move-all-available-to-cart/{wishlistName}', static::ROUTE_MOVE_ALL_AVAILABLE_TO_CART, 'Wishlist', 'Wishlist', 'moveAllAvailableToCart')
+            ->assert('wishlist', $allowedLocalesPattern . 'wishlist|wishlist')
+            ->value('wishlist', 'wishlist')
+            ->assert('wishlistName', '.+');
     }
 
 }

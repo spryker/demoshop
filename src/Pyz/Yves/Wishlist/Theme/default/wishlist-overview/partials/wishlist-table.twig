@@ -1,0 +1,33 @@
+{% if wishlistCollection.wishlists|length %}
+    <table>
+        <thead>
+            <tr>
+                <th width="40%">{{ 'customer.account.wishlist.overview.name' | trans }}</th>
+                <th width="30%">{{ 'customer.account.wishlist.overview.item_count' | trans }}</th>
+                <th width="20%">{{ 'customer.account.wishlist.overview.date' | trans }}</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for wishlist in wishlistCollection.wishlists %}
+            <tr>
+                <td>
+                    {% block wishlistName %}
+                        <a href="{{ path('wishlist/details', { wishlistName: wishlist.name }) }}">{{ wishlist.name }}</a>
+                    {% endblock %}
+                </td>
+                <td>{{ wishlist.numberOfItems }}</td>
+                <td>{{ wishlist.createdAt | formatDate }}</td>
+                <td>
+                    <form id="deleteWishlist_{{ loop.index }}" method="POST" action="{{ path('wishlist/delete', {wishlistName: wishlist.name}) }}">
+                        <a href="{{ url('wishlist/update', {wishlistName: wishlist.name}) }}" title="{{ 'customer.account.wishlist.overview.edit' | trans }}"><i class="fa fa-edit"></i></a>
+                        <a title="{{ 'customer.account.wishlist.overview.delete' | trans }}" onclick="document.getElementById('deleteWishlist_{{ loop.index }}').submit()"><i class="fa fa-remove"></i></a>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    {{ 'customer.account.wishlist.overview.empty' | trans }}
+{% endif %}

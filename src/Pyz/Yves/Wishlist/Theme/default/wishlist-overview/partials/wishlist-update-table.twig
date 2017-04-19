@@ -1,0 +1,17 @@
+{% extends "@Wishlist/wishlist-overview/partials/wishlist-table.twig" %}
+
+{% block wishlistName %}
+    {% if wishlist.idWishlist == wishlistForm.vars.data.idWishlist %}
+        {{ form_start(wishlistForm) }}
+            <div class="input-group __no-margin-bottom">
+                {{ form_widget(wishlistForm.name, {attr: {class: 'input-group-field', placeholder: 'customer.account.wishlist.overview.enter_name'|trans}}) }}
+                <div class="input-group-button">
+                    <button type="submit" class="button float-right"><i class="fa fa-edit"></i></button>
+                </div>
+            </div>
+            {{ form_errors(wishlistForm) }}
+        {{ form_end(wishlistForm) }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

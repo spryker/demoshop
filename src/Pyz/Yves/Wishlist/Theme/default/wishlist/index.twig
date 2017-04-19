@@ -5,24 +5,42 @@
 {% endblock %}
 
 {% block customerNavigation %}
-    {% include "@customer/partials/navigation.twig" with {'active': 'wishlist'} %}
+    {% include "@customer/partials/navigation.twig" %}
+
+    {% include "@Wishlist/partials/wishlist-navigation.twig" with {'activeSubmenu': wishlistName, 'wishlistCollection': wishlistOverview.meta.wishlistCollection} %}
 {% endblock %}
 
 {% block customerContent %}
     <div class="row xlarge-unstack">
         <div class="columns">
             <div class="callout">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h4 class="float-left">{{ wishlistName }}</h4>
+
+                        {% if availability|length %}
+                            {{ form_start(addAllAvailableProductsToCartForm, {action: path('wishlist/move-all-available-to-cart', { wishlistName: wishlistName })}) }}
+                                <button type="submit" class="button float-right"><i class="fa fa-shopping-cart"></i>{{ 'customer.account.wishlist.add_all_available_to_cart' | trans }}</button>
+                                {% for wishlistItemMetaField in addAllAvailableProductsToCartForm.wishlistItemMetaCollection %}
+                                    {{ form_widget(wishlistItemMetaField) }}
+                                {% endfor %}
+                            {{ form_end(addAllAvailableProductsToCartForm) }}
+                        {% endif %}
+                    </div>
+                </div>
+
                 {% if wishlistOverview.items|length %}
                     <table>
-                        <tbody>
+                        <thead>
                             <tr>
-                                <th>&nbsp;</th>
-                                <th>{{ 'customer.account.wishlist.overview.sku' | trans }}</th>
-                                <th>{{ 'customer.account.wishlist.overview.name' | trans  }}</th>
-                                <th>{{ 'customer.account.wishlist.overview.price' | trans  }}</th>
+                                <th>{{ 'customer.account.wishlist.product' | trans  }}</th>
+                                <th>{{ 'customer.account.wishlist.price' | trans  }}</th>
                                 <th>{{ 'customer.account.wishlist.overview.variant' | trans  }}</th>
-                                <th>&nbsp;</th>
+                                <th>{{ 'customer.account.wishlist.availability' | trans  }}</th>
+                                <th></th>
                             </tr>
+                        </thead>
+                        <tbody>
                         {% for item in wishlistOverview.items %}
                             {% if item.product is defined %}
                                 <tr>
@@ -30,9 +48,13 @@
                                     {% if item.product.imageSets is defined and item.product.imageSets.default is defined %}
                                         {% set imageUrl = item.product.imageSets.default[0].externalUrlSmall %}
                                     {% endif %}
-                                    <td><img width="75" src="{{ imageUrl }}" /></td>
-                                    <td>{{ item.product.sku }}</td>
-                                    <td>{{ item.product.name }}</td>
+                                    <td>
+                                        <a href="{{ item.product.url }}">{{ item.product.name }}</a>
+                                        <div><small>{{ item.product.sku }}</small></div>
+                                        {% if imageUrl %}
+                                            <img width="75" src="{{ imageUrl }}" />
+                                        {% endif %}
+                                    </td>
                                     <td nowrap="nowrap">{{ item.product.price | money }}</td>
                                     <td>
                                         {% for attribute in item.product.superAttributesDefinition %}
@@ -42,26 +64,26 @@
                                         {% endfor %}
                                     </td>
                                     <td>
-                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/move-to-cart', {sku: item.product.sku}) }}">
-                                            <div class="small-12 columns">
-                                                <button type="submit" class="button success">
-                                                    <i class="fa fa-shopping-cart"></i>{{ 'customer.account.wishlist.add-to-cart' | trans }}
-                                                </button>
-                                            </div>
-                                        </form>
-                                        <form class="row align-bottom" method="POST" action="{{ path('wishlist/remove-item', {sku: item.product.sku}) }}">
-                                            <div class="small-12 columns">
-                                                <button type="submit" class="button warning">
-                                                    <i class="fa fa-minus"></i>{{ 'customer.account.wishlist.remove' | trans }}
-                                                </button>
-                                            </div>
-                                        </form>
-                                        <form class="row align-bottom" method="GET" action="{{ item.product.url }}">
-                                            <div class="small-12 columns">
-                                                <button type="submit" class="button info">
-                                                    <i class="fa fa-file"></i>{{ 'customer.account.wishlist.view-in-shop' | trans }}
-                                                </button>
-                                            </div>
+                                        {% if availability[item.sku] is not defined %}
+                                            N/A
+                                        {% elseif availability[item.sku] %}
+                                            {{ 'customer.account.wishlist.available' | trans }}
+                                        {% else %}
+                                            {{ 'customer.account.wishlist.not_available' | trans }}
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if availability[item.sku] is defined and availability[item.sku] %}
+                                            <form id="addToCart_{{ loop.index }}" class="float-left" method="POST" action="{{ path('wishlist/move-to-cart', {sku: item.product.sku, 'wishlist-name': wishlistName}) }}">
+                                                <a title="{{ 'customer.account.wishlist.add-to-cart' | trans }}" onclick="document.getElementById('addToCart_{{ loop.index }}').submit()">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </a>
+                                            </form>
+                                        {% endif %}
+                                        <form id="deleteWishlistItem_{{ loop.index }}" class="float-left" method="POST" action="{{ path('wishlist/remove-item', {sku: item.product.sku, 'wishlist-name': wishlistName}) }}">
+                                            <a title="{{ 'customer.account.wishlist.remove' | trans }}" onclick="document.getElementById('deleteWishlistItem_{{ loop.index }}').submit()">
+                                                <i class="fa fa-remove"></i>
+                                            </a>
                                         </form>
                                     </td>
                                 </tr>
@@ -72,18 +94,19 @@
 
                     <div class="row align-center">
                         {% include '@Application/layout/partials/pagination.twig' with {
-                        parameters: {},
-                        currentPage: currentPage,
-                        paginationPath: 'wishlist/browse',
-                        maxPage: totalPages,
-                        showAlwaysFirstAndLast: true
+                            parameters: {
+                                wishlistName: wishlistName
+                            },
+                            currentPage: currentPage,
+                            paginationPath: 'wishlist/details',
+                            maxPage: totalPages,
+                            showAlwaysFirstAndLast: true
                         } %}
                     </div>
                 {% else %}
-                    Your wishlist is empty.
+                    {{ 'customer.account.wishlist.empty' | trans }}
                 {% endif %}
             </div>
         </div>
-
     </div>
 {% endblock %}
