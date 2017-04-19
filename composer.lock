@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1a4e18b383a02eae0bc8a105bc6ffa2",
+    "content-hash": "09a68193c0a6a184d69b862d0bc0cd6e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,7 +1535,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1213-filesystem-filemanager",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
@@ -6439,7 +6439,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06 12:18:02"
+            "time": "2017-04-06T12:18:02+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
