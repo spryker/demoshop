@@ -98,6 +98,25 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
      *
      * @api
      *
+     * @return \Generated\Shared\Transfer\CustomerTransfer|null
+     */
+    public function getCustomer()
+    {
+        $customerTransfer = parent::getCustomer();
+
+        if ($customerTransfer && $customerTransfer->getIsDirty()) {
+            $customerTransfer = $this->getCustomerById($customerTransfer->getIdCustomer());
+            $this->setCustomer($customerTransfer);
+        }
+
+        return $customerTransfer;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @api
+     *
      * @return void
      */
     public function markCustomerAsDirty()
