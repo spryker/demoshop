@@ -27,4 +27,17 @@ class TransferConfig extends SprykerTransferConfig
         return $directoryGlobPatterns;
     }
 
+    /**
+     * @project Only needed in Project, not in demoshop
+     *
+     * @return array
+     */
+    public function getDataBuilderSourceDirectories()
+    {
+        $globPatterns = parent::getDataBuilderSourceDirectories();
+        $globPatterns[] = APPLICATION_VENDOR_DIR . '/spryker/spryker/Bundles/*/tests/_data/';
+
+        return $globPatterns;
+    }
+
 }

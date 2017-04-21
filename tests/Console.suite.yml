@@ -1,0 +1,6 @@
+class_name: ConsoleTester
+modules:
+    enabled:
+        - Cli
+        - Filesystem
+        - \Helper\Console
