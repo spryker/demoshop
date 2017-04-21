@@ -24,6 +24,7 @@ $(function(){
         require('./components/viewer'),
         require('./components/suggestions'),
         require('./components/carousel'),
-        require('./components/add-to-wishlist')
+        require('./components/add-to-wishlist'),
+        require('./components/product-group')
     ]);
 });

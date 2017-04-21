@@ -777,6 +777,8 @@ cart.pre.check.availability.failed, "The availability of product sku is stock at
 cart.pre.check.availability.failed, "Zurzeit haben wir nur stock von diesem Produkt zur Verfügung.",de_DE
 product.detail.out_of_stock, "This product is currently not available.",en_US
 product.detail.out_of_stock, "Das Produkt ist zur Zeit nicht verfügbar.",de_DE
+product.groups,Product Groups,en_US
+product.groups,Produktgruppen,de_DE
 cart.pre.check.availability.failed.empty, "Currently this product is not available. ",en_US
 cart.pre.check.availability.failed.empty, "Zurzeit diesem Produkt ist nicht Verfügbar.",de_DE
 mail.sender.name,"Spryker demoshop",en_US

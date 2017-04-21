@@ -1,7 +1,23 @@
-<div class="callout">
+<div class="callout" {% if productGroupItems is defined and productGroupItems|length %}data-component="product-group"{% endif %}>
     <a href="{{ detailsUrl }}" class="thumbnail __preview-image">
         <img src="{{ imageUrl }}">
+        {% if productGroupItems is defined %}
+            {% for productGroupItem in productGroupItems %}
+                <img src="{{ productGroupItem.imageSets.default[0].externalUrlSmall }}" class="hide" id="product-group-item-image-{{ idProductAbstract }}-{{ productGroupItem.idProductAbstract }}">
+            {% endfor %}
+        {% endif %}
     </a>
+    <div>
+        {% if productGroupItems is defined and productGroupItems|length %}
+            <ul class="simple menu">
+                {% for productGroupItem in productGroupItems %}
+                    <li data-product-group-preview="product-group-item-image-{{ idProductAbstract }}-{{ productGroupItem.idProductAbstract }}">
+                        <a href="{{ productGroupItem.url }}">{{ productGroupItem.sku }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
     <p>
         <strong>{{ name }}</strong><br>
         {{ priceValue | money }}

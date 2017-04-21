@@ -34,6 +34,10 @@ class ProductController extends AbstractController
             ->getAvailabilityClient()
             ->getProductAvailabilityByIdProductAbstract($storageProductTransfer->getIdProductAbstract());
 
+        $productGroupItems = $this->getFactory()
+            ->getProductGroupClient()
+            ->findProductGroupItemsByIdProductAbstract($storageProductTransfer->getIdProductAbstract(), $this->getLocale());
+
         $productData = [
             'product' => $storageProductTransfer,
             'productCategories' => $categories,
@@ -42,6 +46,7 @@ class ProductController extends AbstractController
             'page_keywords' => $storageProductTransfer->getMetaKeywords(),
             'page_description' => $storageProductTransfer->getMetaDescription(),
             'productOptionGroups' => $productOptionGroupsTransfer,
+            'productGroupItems' => $productGroupItems,
         ];
 
         return $productData;
