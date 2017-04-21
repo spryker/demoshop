@@ -30,12 +30,15 @@ use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Shared\Product\ProductConfig;
+use Spryker\Shared\ProductGroup\ProductGroupConfig;
 use Spryker\Shared\ProductRelation\ProductRelationConstants;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NavigationCollector\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
+use Spryker\Zed\ProductGroupCollector\Communication\Plugin\ProductAbstractGroupsCollectorStoragePlugin;
+use Spryker\Zed\ProductGroupCollector\Communication\Plugin\ProductGroupCollectorStoragePlugin;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 use Spryker\Zed\ProductRelationCollector\Communication\Plugin\ProductRelationCollectorPlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
@@ -134,6 +137,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 ProductSearchConfig::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
                 ProductOptionConfig::RESOURCE_TYPE_PRODUCT_OPTION => new ProductOptionCollectorStoragePlugin(),
                 ProductRelationConstants::RESOURCE_TYPE_PRODUCT_RELATION => new ProductRelationCollectorPlugin(),
+                ProductGroupConfig::RESOURCE_TYPE_PRODUCT_GROUP => new ProductGroupCollectorStoragePlugin(),
+                ProductGroupConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_GROUPS => new ProductAbstractGroupsCollectorStoragePlugin(),
             ];
         };
 

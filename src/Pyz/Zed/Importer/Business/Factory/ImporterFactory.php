@@ -16,6 +16,12 @@ use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Importer\Business\Importer\Navigation\NavigationImporter;
 use Pyz\Zed\Importer\Business\Importer\Navigation\NavigationNodeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductGroup\ProductGroupImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductRelation\ProductRelationImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAbstractImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductAttributeKeyImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductCategoryImporter;
@@ -322,6 +328,17 @@ class ImporterFactory extends AbstractFactory
             $this->getLocaleFacade(),
             $this->getGlossaryFacade(),
             $this->getProductOptionFacade()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductGroup\ProductGroupImporter
+     */
+    public function createProductGroupImporter()
+    {
+        return new ProductGroupImporter(
+            $this->getLocaleFacade(),
+            $this->getProductGroupFacade()
         );
     }
 

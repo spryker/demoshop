@@ -32,6 +32,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_PRODUCT_OPTION = 'FACADE_PRODUCT_OPTION';
     const FACADE_PRODUCT_RELATION = 'FACADE_PRODUCT_RELATION';
     const FACADE_NAVIGATION = 'FACADE_NAVIGATION';
+    const FACADE_PRODUCT_GROUP = 'FACADE_PRODUCT_GROUP';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -64,13 +65,14 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addUrlFacade($container);
         $container = $this->addCountryFacade($container);
         $container = $this->addNavigationFacade($container);
+        $container = $this->addProductRelationFacade($container);
+        $container = $this->addProductGroupFacade($container);
+
         $container = $this->addCmsQueryContainer($container);
         $container = $this->addProductQueryContainer($container);
         $container = $this->addPriceQueryContainer($container);
         $container = $this->addCategoryQueryContainer($container);
         $container = $this->addShipmentQueryContainer($container);
-        $container = $this->addProductRelationFacade($container);
-
         $container = $this->addTaxQueryContainer($container);
 
         $container = $this->addUtilDataReaderService($container);
@@ -284,6 +286,20 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[static::FACADE_NAVIGATION] = function (Container $container) {
             return $container->getLocator()->navigation()->facade();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addProductGroupFacade(Container $container)
+    {
+        $container[static::FACADE_PRODUCT_GROUP] = function (Container $container) {
+            return $container->getLocator()->productGroup()->facade();
         };
 
         return $container;

@@ -17,6 +17,12 @@ use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationInstaller;
 use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationNodeInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductGroup\ProductGroupInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAbstractInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductAttributeKeyInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller;
@@ -247,6 +253,28 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_PRODUCT_OPTIONS => $this->createImporterFactory()->createProductOptionImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductGroup\ProductGroupInstaller
+     */
+    public function createProductGroupInstaller()
+    {
+        return new ProductGroupInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterProductGroupCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductGroupCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_GROUPS => $this->createImporterFactory()->createProductGroupImporter(),
         ];
     }
 
