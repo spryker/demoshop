@@ -1,9 +1,9 @@
 {% if productGroupItems|length %}
     <div data-component="product-group">
-        <ul class="simple menu">
+        <ul class="product-group">
             {% for productGroupItem in productGroupItems %}
                 <li data-product-group-item-preview="{{ productGroupItem.imageSets.default[0].externalUrlSmall }}">
-                    <a href="{{ productGroupItem.url }}">{{ productGroupItem.sku }}</a>
+                    <a href="{{ productGroupItem.url }}" {% if productGroupItem.colorCode %}style="background-color: {{ productGroupItem.colorCode }};"{% endif %}></a>
                 </li>
             {% endfor %}
         </ul>

@@ -64,7 +64,8 @@ class ProductAbstractImporter extends AbstractProductImporter
         $productAbstractTransfer
             ->setSku($data['abstract_sku'])
             ->setAttributes($this->getAttributes($data))
-            ->setIsFeatured($data['is_featured']);
+            ->setIsFeatured($data['is_featured'])
+            ->setColorCode($this->getRandomColor());
 
         foreach ($this->localeFacade->getLocaleCollection() as $localeTransfer) {
             $localizedAttributesTransfer = $this->buildLocalizedAttributesTransfer($data, $localeTransfer);
@@ -76,6 +77,13 @@ class ProductAbstractImporter extends AbstractProductImporter
         $productAbstractTransfer->setImageSets(new ArrayObject($imageSets));
 
         return $productAbstractTransfer;
+    }
+
+    /**
+     * @return string
+     */
+    private function getRandomColor() {
+        return '#' . strtoupper(substr(md5(rand()), 0, 6));
     }
 
     /**
