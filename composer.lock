@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a21eec5f41b85e61a153cdbd747c327",
+    "content-hash": "fcca6fe79abae7ca015a80680ef78a2e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.25.8",
+            "version": "3.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "8c12f611bf5d89318141db7bc8dee644423957bd"
+                "reference": "fb58de550919d0472f62dcb9e1bb11d793c6d297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8c12f611bf5d89318141db7bc8dee644423957bd",
-                "reference": "8c12f611bf5d89318141db7bc8dee644423957bd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fb58de550919d0472f62dcb9e1bb11d793c6d297",
+                "reference": "fb58de550919d0472f62dcb9e1bb11d793c6d297",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-04-18T18:47:31+00:00"
+            "time": "2017-04-20T21:58:43+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1804,7 +1804,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b7c5f13c3a9bc4cc7878936567d16377a95a1d52"
+                "reference": "bc2f6092a0393e1689c4cd95edf8c183bb4bb1cb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1852,6 +1852,7 @@
                 "spryker/error-handler": "*",
                 "spryker/event-journal": "*",
                 "spryker/file-system": "*",
+                "spryker/flysystem": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
@@ -1953,7 +1954,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-19 21:46:27"
+            "time": "2017-04-21 00:40:51"
         },
         {
             "name": "swiftmailer/swiftmailer",
