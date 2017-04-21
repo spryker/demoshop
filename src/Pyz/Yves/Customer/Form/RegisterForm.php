@@ -60,6 +60,8 @@ class RegisterForm extends AbstractType
             'choices' => [
                 'Mr' => 'customer.salutation.mr',
                 'Ms' => 'customer.salutation.ms',
+                'Mrs' => 'customer.salutation.mrs',
+                'Dr' => 'customer.salutation.dr',
             ],
             'required' => true,
             'label' => 'address.salutation',

@@ -105,6 +105,8 @@ class AddressForm extends AbstractType
             'choices' => [
                 'Mr' => 'customer.salutation.mr',
                 'Ms' => 'customer.salutation.ms',
+                'Mrs' => 'customer.salutation.mrs',
+                'Dr' => 'customer.salutation.dr',
             ],
             'label' => 'profile.form.salutation',
             'required' => true,
