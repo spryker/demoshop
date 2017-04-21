@@ -8,7 +8,6 @@
 namespace Pyz\Client\Catalog;
 
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin;
-use Pyz\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\ProductGroupResultFormatter;
 use Spryker\Client\Catalog\CatalogDependencyProvider as SprykerCatalogDependencyProvider;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 use Spryker\Client\Kernel\Container;
@@ -82,7 +81,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new PaginatedResultFormatterPlugin(),
             new RawCatalogSearchResultFormatterPlugin(),
             new SpellingSuggestionResultFormatterPlugin(),
-            new ProductGroupResultFormatter(),
         ];
     }
 
@@ -120,7 +118,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
         $container[self::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function () {
             return [
                 new RawCatalogSearchResultFormatterPlugin(),
-                new ProductGroupResultFormatter(),
             ];
         };
 

@@ -24,8 +24,7 @@
                         detailsUrl: product.url,
                         name: product.abstract_name,
                         priceValue: product.price,
-                        imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
-                        productGroupItems: productGroups[product.id_product_abstract]
+                        imageUrl: (product.images|length ? product.images.0.external_url_small : '')
                     } %}
                 </div>
             {% endfor %}

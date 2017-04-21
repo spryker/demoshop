@@ -10,19 +10,25 @@ module.exports = {
     view: {
         init: function($root) {
             this.$root = $root;
-            this.$mainImage = $('.thumbnail img:nth-child(1)', this.$root);
-            this.$productGroupItems = $('li[data-product-group-preview]', this.$root);
+            this.$container = $root.parents('.js-product-container');
+
+            if (!this.$container.length) {
+                return;
+            }
+
+            this.$image = $('.thumbnail img:nth-child(1)', this.$container);
+            this.originalImageSrc = this.$image.attr('src');
+            this.$productGroupItems = $('li[data-product-group-item-preview]', this.$root);
+
             this.$productGroupItems.hover(this.itemOver.bind(this), this.itemOut.bind(this));
         },
 
         itemOver: function(e) {
-            $('#' + $(e.currentTarget).data('productGroupPreview')).removeClass('hide');
-            this.$mainImage.addClass('hide');
+            this.$image.attr('src', $(e.currentTarget).data('productGroupItemPreview'));
         },
 
-        itemOut: function(e) {
-            $('#' + $(e.currentTarget).data('productGroupPreview')).addClass('hide');
-            this.$mainImage.removeClass('hide');
+        itemOut: function() {
+            this.$image.attr('src', this.originalImageSrc);
         }
     }
 };

@@ -9,7 +9,6 @@ namespace Pyz\Client\Catalog;
 
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\FeaturedProductsQueryPlugin;
 use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
-use Spryker\Client\ProductGroup\ProductGroupClient;
 
 class CatalogFactory extends SprykerCatalogFactory
 {
@@ -38,14 +37,6 @@ class CatalogFactory extends SprykerCatalogFactory
     public function getFeaturedProductsQueryExpanderPlugins()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS);
-    }
-
-    /**
-     * @return \Spryker\Client\ProductGroup\ProductGroupClientInterface
-     */
-    public function getProductGroupClient()
-    {
-        return new ProductGroupClient();
     }
 
 }

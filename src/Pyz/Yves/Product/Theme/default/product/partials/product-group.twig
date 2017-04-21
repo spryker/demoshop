@@ -1,10 +1,6 @@
 {% if productGroupItems|length %}
     <div class="callout">
         <h5>{{ 'product.groups' | trans }}</h5>
-        <ul class="simple menu">
-            {% for productGroupItem in productGroupItems %}
-                <li><a href="{{ productGroupItem.url }}">{{ productGroupItem.sku }}</a></li>
-            {% endfor %}
-        </ul>
+        {{ spyProductGroupItems(product.idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
     </div>
 {% endif %}

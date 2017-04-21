@@ -9,11 +9,12 @@
                     {% for relation in productRelations %}
 
                         {% include "@catalog/catalog/partials/product.twig" with {
-                          detailsUrl: relation.url,
-                          name:relation.name,
-                          priceValue: relation.price,
-                          product: relation,
-                          imageUrl: (relation.imageSets|length ? relation.imageSets.default[0].externalUrlSmall : '')
+                            idProductAbstract: relation.idProductAbstract,
+                            detailsUrl: relation.url,
+                            name:relation.name,
+                            priceValue: relation.price,
+                            product: relation,
+                            imageUrl: (relation.imageSets|length ? relation.imageSets.default[0].externalUrlSmall : '')
                         } %}
 
                     {% endfor %}
