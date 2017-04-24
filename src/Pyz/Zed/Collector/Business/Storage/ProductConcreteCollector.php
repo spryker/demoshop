@@ -12,7 +12,9 @@ use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
+use Orm\Zed\ProductImage\Persistence\SpyProductImageSet;
 use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Collection\ObjectCollection;
 use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
@@ -147,16 +149,32 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      */
     protected function generateProductConcreteImageSets($idProductAbstract, $idProductConcrete)
     {
-        $imageSets = $this->productImageQueryContainer
+        $abstractImageSets = $this->productImageQueryContainer
             ->queryProductImageSet()
-                ->filterByFkProductAbstract($idProductAbstract)
-                ->_or()
-                ->filterByFkProduct($idProductConcrete)
+            ->filterByFkProductAbstract($idProductAbstract)
             ->find();
 
+        $concreteImageSets = $this->productImageQueryContainer
+            ->queryProductImageSet()
+            ->filterByFkProduct($idProductConcrete)
+            ->find();
+
+        $result = $this->getImageCollectionsIndexedByImageSetKey($concreteImageSets)
+            + $this->getImageCollectionsIndexedByImageSetKey($abstractImageSets);
+
+        return $result;
+    }
+
+    /**
+     * @param ObjectCollection $imageSets
+     * @return array
+     */
+    protected function getImageCollectionsIndexedByImageSetKey(ObjectCollection $imageSets)
+    {
         $result = [];
+
+        /** @var SpyProductImageSet $imageSetEntity */
         foreach ($imageSets as $imageSetEntity) {
-            $result[$imageSetEntity->getName()] = [];
             $productsToImages = $imageSetEntity->getSpyProductImageSetToProductImages(
                 $this->productImageQueryContainer->queryProductImageSetToProductImage()
                     ->orderBySortOrder(Criteria::DESC)
