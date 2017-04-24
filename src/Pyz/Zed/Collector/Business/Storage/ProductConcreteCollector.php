@@ -12,7 +12,6 @@ use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
-use Orm\Zed\ProductImage\Persistence\SpyProductImageSet;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Collection\ObjectCollection;
 use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
@@ -166,14 +165,15 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     }
 
     /**
-     * @param ObjectCollection $imageSets
+     * @param \Propel\Runtime\Collection\ObjectCollection $imageSets
+     *
      * @return array
      */
     protected function getImageCollectionsIndexedByImageSetKey(ObjectCollection $imageSets)
     {
         $result = [];
 
-        /** @var SpyProductImageSet $imageSetEntity */
+        /** @var \Orm\Zed\ProductImage\Persistence\SpyProductImageSet $imageSetEntity */
         foreach ($imageSets as $imageSetEntity) {
             $productsToImages = $imageSetEntity->getSpyProductImageSetToProductImages(
                 $this->productImageQueryContainer->queryProductImageSetToProductImage()
