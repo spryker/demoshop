@@ -8,7 +8,10 @@
 namespace Pyz\Zed\Importer\Business\Importer\ProductGroup;
 
 use Generated\Shared\Transfer\ProductGroupTransfer;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Orm\Zed\ProductGroup\Persistence\SpyProductGroupQuery;
+use Propel\Runtime\Formatter\SimpleArrayFormatter;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductGroup\Business\ProductGroupFacadeInterface;
@@ -17,12 +20,17 @@ class ProductGroupImporter extends AbstractImporter
 {
 
     const FIELD_GROUP_KEY = 'group_key';
-    const FIELD_ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+    const FIELD_ABSTRACT_SKU = 'abstract_sku';
 
     /**
      * @var \Spryker\Zed\ProductGroup\Business\ProductGroupFacadeInterface
      */
     protected $productGroupFacade;
+
+    /**
+     * @var array|null
+     */
+    protected static $productAbstractSkuCache;
 
     /**
      * @var array
@@ -72,12 +80,43 @@ class ProductGroupImporter extends AbstractImporter
         }
 
         $productGroupTransfer = new ProductGroupTransfer();
-        $productGroupTransfer->addIdProductAbstract($data[static::FIELD_ID_PRODUCT_ABSTRACT]);
+        $productGroupTransfer->addIdProductAbstract($this->getIdProductAbstract($data[static::FIELD_ABSTRACT_SKU]));
 
         if ($this->isGroupKeyCached($data)) {
             $this->extendProductGroup($this->getCachedIdProductGroup($data), $productGroupTransfer);
         } else {
             $this->createProductGroup($data[static::FIELD_GROUP_KEY], $productGroupTransfer);
+        }
+    }
+
+    /**
+     * @param string $productAbstractSku
+     *
+     * @return int
+     */
+    protected function getIdProductAbstract($productAbstractSku)
+    {
+        if (!static::$productAbstractSkuCache) {
+            $this->warmUpSkuCache();
+        }
+
+        return static::$productAbstractSkuCache[$productAbstractSku];
+    }
+
+    /**
+     * @return void
+     */
+    protected function warmUpSkuCache()
+    {
+        $query = SpyProductAbstractQuery::create()
+            ->select([
+                SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
+                SpyProductAbstractTableMap::COL_SKU,
+            ])
+            ->setFormatter(new SimpleArrayFormatter());
+
+        foreach ($query->find() as $product) {
+            static::$productAbstractSkuCache[$product[SpyProductAbstractTableMap::COL_SKU]] = $product[SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT];
         }
     }
 
