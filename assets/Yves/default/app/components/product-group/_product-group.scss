@@ -22,5 +22,9 @@ ul.product-group {
       text-align: center;
       color: #fefefe;
     }
+
+    &:first-child a {
+      border: 2px solid $secondary-color;
+    }
   }
 }
