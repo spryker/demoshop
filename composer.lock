@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "8092098de7e628561253ffee8cbf8c5578387cf1"
+                "reference": "117e4c103ff216988db2de131cb9ace953ee64f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/8092098de7e628561253ffee8cbf8c5578387cf1",
-                "reference": "8092098de7e628561253ffee8cbf8c5578387cf1",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/117e4c103ff216988db2de131cb9ace953ee64f4",
+                "reference": "117e4c103ff216988db2de131cb9ace953ee64f4",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-04-18T12:52:36+00:00"
+            "time": "2017-04-24T22:41:02+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -933,16 +933,16 @@
         },
         {
             "name": "league/csv",
-            "version": "8.0.0",
+            "version": "8.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "0a1b535df48507f58ed3c7ab44e72272b11163ac"
+                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/0a1b535df48507f58ed3c7ab44e72272b11163ac",
-                "reference": "0a1b535df48507f58ed3c7ab44e72272b11163ac",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/43fd8b022815a0758d85e925dd92a43fe0d41bb4",
+                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4",
                 "shasum": ""
             },
             "require": {
@@ -950,13 +950,13 @@
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "^1.9",
+                "friendsofphp/php-cs-fixer": "^1.9",
                 "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "8.0-dev"
+                    "dev-master": "8.2-dev"
                 }
             },
             "autoload": {
@@ -986,7 +986,7 @@
                 "read",
                 "write"
             ],
-            "time": "2015-12-11T09:28:14+00:00"
+            "time": "2017-02-23T08:25:03+00:00"
         },
         {
             "name": "mandrill/mandrill",
@@ -1033,16 +1033,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
+                "reference": "ecf367c3bac3f2d1133a456c18dceb2b40fa5843"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/ecf367c3bac3f2d1133a456c18dceb2b40fa5843",
+                "reference": "ecf367c3bac3f2d1133a456c18dceb2b40fa5843",
                 "shasum": ""
             },
             "require": {
@@ -1055,7 +1055,7 @@
                 "ext-intl": "*",
                 "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "^1.0",
+                "moneyphp/iso-currencies": "^3.0",
                 "php-http/message": "^1.4",
                 "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
@@ -1107,7 +1107,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-22T22:24:40+00:00"
+            "time": "2017-04-21T11:28:24+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4900,11 +4900,11 @@
         },
         {
             "name": "spryker/csv",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Csv.git",
-                "reference": "8cb90a168a9dd3d574e3dfed8e7bac68e6a68d6b",
+                "reference": "1afdab6557f98949cae0a06b87b01cc3e0fa18a1",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4914,8 +4914,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Csv/zipball/8cb90a168a9dd3d574e3dfed8e7bac68e6a68d6b",
-                "reference": "8cb90a168a9dd3d574e3dfed8e7bac68e6a68d6b",
+                "url": "https://api.github.com/repos/spryker/Csv/zipball/1afdab6557f98949cae0a06b87b01cc3e0fa18a1",
+                "reference": "1afdab6557f98949cae0a06b87b01cc3e0fa18a1",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4925,7 +4925,11 @@
                 ]
             },
             "require": {
-                "league/csv": "~8.0.0"
+                "league/csv": "^8.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
@@ -4937,11 +4941,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "csv bundle",
+            "description": "Csv bundle",
             "support": {
-                "source": "https://github.com/spryker/Csv/tree/master"
+                "source": "https://github.com/spryker/Csv/tree/2.0.1"
             },
-            "time": "2016-04-01T13:06:05+00:00"
+            "time": "2017-04-19T13:55:42+00:00"
         },
         {
             "name": "spryker/currency",
@@ -7682,7 +7686,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Payolution.git",
+                "url": "https://github.com/spryker/Payolution.git",
                 "reference": "127ed4c3190b45ca76a3569e9d8c576344ebe4ae",
                 "mirrors": [
                     {
@@ -11900,16 +11904,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.6",
+            "version": "v5.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
+                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
-                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
+                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
                 "shasum": ""
             },
             "require": {
@@ -11950,7 +11954,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-02-13T07:52:53+00:00"
+            "time": "2017-04-20T17:32:18+00:00"
         },
         {
             "name": "symfony-cmf/routing",
@@ -13958,16 +13962,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.33.1",
+            "version": "v1.33.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "a87f959f4b691da66aada267a2dfdb260d0bb58a"
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a87f959f4b691da66aada267a2dfdb260d0bb58a",
-                "reference": "a87f959f4b691da66aada267a2dfdb260d0bb58a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/dd6ca96227917e1e85b41c7c3cc6507b411e0927",
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927",
                 "shasum": ""
             },
             "require": {
@@ -14016,7 +14020,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-04-18T21:43:11+00:00"
+            "time": "2017-04-20T17:39:48+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -15699,16 +15703,16 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.4",
+            "version": "1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "cf219ede922fb47956726f35e2127277ebd302ca"
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/cf219ede922fb47956726f35e2127277ebd302ca",
-                "reference": "cf219ede922fb47956726f35e2127277ebd302ca",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/8dcfd392135a5bd938c3c83ea71419501ad9855d",
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d",
                 "shasum": ""
             },
             "require": {
@@ -15735,7 +15739,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-04-17T09:08:13+00:00"
+            "time": "2017-04-21T14:50:31+00:00"
         }
     ],
     "aliases": [
