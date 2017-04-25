@@ -21,6 +21,9 @@ use Twig_Loader_Filesystem;
 class TwigServiceProvider extends SilexTwigServiceProvider
 {
 
+    const SPRYKER_APPLICATION_YVES = 'yves';
+    const SPRYKER_APPLICATION_SHARED = 'shared';
+
     /**
      * @var \Spryker\Yves\Kernel\Application
      */
