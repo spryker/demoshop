@@ -1,0 +1,23 @@
+{% extends '@Cms/layout/full.twig' %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+    <!-- CMS_PLACEHOLDER : "title" -->
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <div class="row">
+                    <h1>{{ spyCms('title') | raw }}</h1>
+                    <div class="col-lg-6">
+                        {{ spyCmsBlock('static_left_block') }}
+                    </div>
+                    <div class="col-lg-6">
+                        {{ spyCmsBlock('static_right_block') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

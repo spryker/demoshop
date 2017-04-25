@@ -43,6 +43,7 @@ use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
+use Spryker\Yves\Twig\Plugin\ServiceProvider\SharedTwigServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
@@ -89,6 +90,7 @@ class YvesBootstrap
     {
         $this->application->register(new StorageRequestCacheServiceProvider());
         $this->application->register(new SprykerTwigServiceProvider());
+        $this->application->register(new SharedTwigServiceProvider());
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());

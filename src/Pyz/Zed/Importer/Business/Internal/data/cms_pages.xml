@@ -1,8 +1,13 @@
 <?xml version="1.0"?>
 <pages>
     <page>
-        <template>static</template>
+        <template>
+            <name>static full page</name>
+            <path>@Cms/template/static_full_page.twig</path>
+        </template>
         <is_searchable>1</is_searchable>
+        <active>1</active>
+        <publish>1</publish>
         <locales>
             <de_DE>
                 <url>/de/impressum</url>
@@ -140,8 +145,13 @@
         </locales>
     </page>
     <page>
-        <template>static</template>
+        <template>
+            <name>static full page</name>
+            <path>@Cms/template/static_full_page.twig</path>
+        </template>
         <is_searchable>1</is_searchable>
+        <active>1</active>
+        <publish>1</publish>
         <locales>
             <de_DE>
                 <url>/de/agb</url>
@@ -393,8 +403,13 @@
         </locales>
     </page>
     <page>
-        <template>static</template>
+        <template>
+            <name>static full page</name>
+            <path>@Cms/template/static_full_page.twig</path>
+        </template>
         <is_searchable>1</is_searchable>
+        <active>1</active>
+        <publish>1</publish>
         <locales>
             <de_DE>
                 <url>/de/datenschutz</url>
@@ -482,6 +497,124 @@
         <p>
             <a target="_blank" href="https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html">Sample Data Privacy Policy Statement</a>
             provided by the Law Offices of Weiß & Partner</p>
+            ]]></translation>
+                    </placeholder>
+                </placeholders>
+            </en_US>
+        </locales>
+    </page>
+    <page>
+        <template>
+            <name>static full page</name>
+            <path>@Cms/template/static_full_page.twig</path>
+        </template>
+        <is_searchable>1</is_searchable>
+        <active>0</active>
+        <publish>1</publish>
+        <locales>
+            <de_DE>
+                <url>/de/loremde</url>
+                <localized_attributes>
+                    <name>Lorem ipsum</name>
+                    <meta_title>Lorem ipsum</meta_title>
+                    <meta_keywords>Lorem ipsum</meta_keywords>
+                    <meta_description>Lorem ipsum</meta_description>
+                </localized_attributes>
+                <placeholders>
+                    <placeholder>
+                        <name>title</name>
+                        <translation>
+                            <![CDATA[
+                        <h2>Datenschutzerklärung</h2>
+                 ]]></translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>content</name>
+                        <translation><![CDATA[
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            ]]></translation>
+                    </placeholder>
+                </placeholders>
+            </de_DE>
+            <en_US>
+                <url>/en/lorem</url>
+                <localized_attributes>
+                    <name>Lorem ipsum</name>
+                    <meta_title>Lorem ipsum</meta_title>
+                    <meta_keywords>Lorem ipsum</meta_keywords>
+                    <meta_description>Lorem ipsum</meta_description>
+                </localized_attributes>
+                <placeholders>
+                    <placeholder>
+                        <name>title</name>
+                        <translation>
+                            <![CDATA[
+                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                 ]]></translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>content</name>
+                        <translation><![CDATA[
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            ]]></translation>
+                    </placeholder>
+                </placeholders>
+            </en_US>
+        </locales>
+    </page>
+    <page>
+        <template>
+            <name>static full page</name>
+            <path>@Cms/template/static_full_page.twig</path>
+        </template>
+        <is_searchable>1</is_searchable>
+        <active>1</active>
+        <publish>0</publish>
+        <locales>
+            <de_DE>
+                <url>/de/dolorde</url>
+                <localized_attributes>
+                    <name>Dolor sit amet</name>
+                    <meta_title>Dolor sit amet</meta_title>
+                    <meta_keywords>Dolor sit amet</meta_keywords>
+                    <meta_description>Dolor sit amet</meta_description>
+                </localized_attributes>
+                <placeholders>
+                    <placeholder>
+                        <name>title</name>
+                        <translation>
+                            <![CDATA[
+                        <h2>Datenschutzerklärung</h2>
+                 ]]></translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>content</name>
+                        <translation><![CDATA[
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            ]]></translation>
+                    </placeholder>
+                </placeholders>
+            </de_DE>
+            <en_US>
+                <url>/en/dolor</url>
+                <localized_attributes>
+                    <name>Dolor sit amet</name>
+                    <meta_title>Dolor sit amet</meta_title>
+                    <meta_keywords>Dolor sit amet</meta_keywords>
+                    <meta_description>Dolor sit amet</meta_description>
+                </localized_attributes>
+                <placeholders>
+                    <placeholder>
+                        <name>title</name>
+                        <translation>
+                            <![CDATA[
+                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                 ]]></translation>
+                    </placeholder>
+                    <placeholder>
+                        <name>content</name>
+                        <translation><![CDATA[
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
             ]]></translation>
                     </placeholder>
                 </placeholders>
