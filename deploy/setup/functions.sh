@@ -195,6 +195,11 @@ function dropDevelopmentDatabase {
             sudo pg_ctlcluster 9.4 main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
             writeErrorMessage "Deleting DB command failed"
         fi
+
+        labelText "Removing propel migration files for core development"
+        rm src/Orm/Propel/DE/Migration_pgsql/*
+        writeErrorMessage "Removing propel migration files command failed"
+
     fi
 
     # MYSQL=`which mysql`
@@ -202,6 +207,7 @@ function dropDevelopmentDatabase {
     #    labelText "Drop MySQL database: ${1}"
     #    mysql -u root -e "DROP DATABASE IF EXISTS ${1};"
     # fi
+
 }
 
 function updateComposerBinary {

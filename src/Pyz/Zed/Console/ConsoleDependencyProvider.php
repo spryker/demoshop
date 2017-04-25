@@ -14,6 +14,7 @@ use Spryker\Shared\Config\Environment;
 use Spryker\Zed\Cache\Communication\Console\EmptyAllCachesConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleClientCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleCodeGeneratorConsole;
+use Spryker\Zed\CodeGenerator\Communication\Console\BundleServiceCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleSharedCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleYvesCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsole;
@@ -116,6 +117,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new BundleCodeGeneratorConsole();
             $commands[] = new BundleYvesCodeGeneratorConsole();
             $commands[] = new BundleZedCodeGeneratorConsole();
+            $commands[] = new BundleServiceCodeGeneratorConsole();
             $commands[] = new BundleSharedCodeGeneratorConsole();
             $commands[] = new BundleClientCodeGeneratorConsole();
             $commands[] = new GenerateZedIdeAutoCompletionConsole();
