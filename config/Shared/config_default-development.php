@@ -10,8 +10,6 @@ use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Event\EventConstants;
-use Spryker\Shared\FileSystem\FileSystemConstants;
-use Spryker\Shared\Flysystem\FlysystemConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -102,8 +100,3 @@ $config[EventConstants::LOGGER_ACTIVE] = true;
 
 $config[TwigConstants::YVES_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/cache/Yves/twig/.pathCache';
 $config[TwigConstants::ZED_PATH_CACHE_FILE] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/cache/Zed/twig/.pathCache';
-
-$config[FileSystemConstants::FILESYSTEM_STORAGE] = [
-  FileSystemConstants::FILESYSTEM_SERVICE => [],
-];
-$config[FlysystemConstants::FILESYSTEM_STORAGE] = $config[FileSystemConstants::FILESYSTEM_STORAGE];

@@ -12,6 +12,8 @@ use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Event\EventConstants;
+use Spryker\Shared\FileSystem\FileSystemConstants;
+use Spryker\Shared\Flysystem\FlysystemConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -449,3 +451,8 @@ $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
         QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
     ],
 ];
+
+$config[FileSystemConstants::FILESYSTEM_STORAGE] = [
+    FileSystemConstants::FILESYSTEM_SERVICE => [],
+];
+$config[FlysystemConstants::FILESYSTEM_STORAGE] = $config[FileSystemConstants::FILESYSTEM_STORAGE];
