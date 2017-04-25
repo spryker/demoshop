@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "91f71b4ac155ae68882270e2e094e4f1",
+    "content-hash": "37b237dae62bd879bffb24b1dd43c636",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -15350,16 +15350,16 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "0.2.2",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "dea10627760ef92754d5d44be5692440dd712ee3"
+                "reference": "65ab46467692d374fc0d36bbc5cf4a3354ad63cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/dea10627760ef92754d5d44be5692440dd712ee3",
-                "reference": "dea10627760ef92754d5d44be5692440dd712ee3",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/65ab46467692d374fc0d36bbc5cf4a3354ad63cc",
+                "reference": "65ab46467692d374fc0d36bbc5cf4a3354ad63cc",
                 "shasum": ""
             },
             "require": {
@@ -15389,7 +15389,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07T12:41:16+00:00"
+            "time": "2017-04-24T20:04:57+00:00"
         },
         {
             "name": "spryker/code-sniffer",

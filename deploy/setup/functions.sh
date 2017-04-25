@@ -196,10 +196,6 @@ function dropDevelopmentDatabase {
             writeErrorMessage "Deleting DB command failed"
         fi
 
-        labelText "Removing propel migration files for core development"
-        rm src/Orm/Propel/DE/Migration_pgsql/*
-        writeErrorMessage "Removing propel migration files command failed"
-
     fi
 
     # MYSQL=`which mysql`
