@@ -10,6 +10,9 @@ namespace Pyz\Zed\Importer;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
+/**
+ * @SuppressWarnings(PHPMD.TooManyMethods)
+ */
 class ImporterDependencyProvider extends AbstractBundleDependencyProvider
 {
 
