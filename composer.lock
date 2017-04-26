@@ -685,16 +685,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.4",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "ecf367c3bac3f2d1133a456c18dceb2b40fa5843"
+                "reference": "2bd76fb0ba281bd90150a747bb7a8415c7e241f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/ecf367c3bac3f2d1133a456c18dceb2b40fa5843",
-                "reference": "ecf367c3bac3f2d1133a456c18dceb2b40fa5843",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/2bd76fb0ba281bd90150a747bb7a8415c7e241f3",
+                "reference": "2bd76fb0ba281bd90150a747bb7a8415c7e241f3",
                 "shasum": ""
             },
             "require": {
@@ -759,7 +759,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-04-21T11:28:24+00:00"
+            "time": "2017-04-26T12:54:44+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6720a0e699c450d07bca54a7409849a7e07bf3db"
+                "reference": "28e96f2211d52bac5d827aeaba366e3f1ab06e71"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1687,7 +1687,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-25 08:45:12"
+            "time": "2017-04-26 13:26:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6392,7 +6392,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-04-24T20:17:25+00:00"
+            "time": "2017-04-24 20:17:25"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6400,12 +6400,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "95cc87cf9bffba0b761f58d0196d39c0aba66cc3"
+                "reference": "5ab7bfc7abf17d2b5f54170398234d6726f40ccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/95cc87cf9bffba0b761f58d0196d39c0aba66cc3",
-                "reference": "95cc87cf9bffba0b761f58d0196d39c0aba66cc3",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/5ab7bfc7abf17d2b5f54170398234d6726f40ccc",
+                "reference": "5ab7bfc7abf17d2b5f54170398234d6726f40ccc",
                 "shasum": ""
             },
             "require": {
@@ -6439,7 +6439,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06T12:18:02+00:00"
+            "time": "2017-04-26T13:25:55+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
