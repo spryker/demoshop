@@ -57,7 +57,8 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "spryker/rabbit-mq": "dev-master"
+    "spryker/rabbit-mq": "dev-master",
+    "league/flysystem": "^1.0"
   },
   "require-dev": {
     "codeception/codeception": "^2.2.10",
