@@ -109,7 +109,7 @@ class CmsPageImporter extends CmsBlockImporter
      *
      * @return void
      */
-    protected function checkActivation(array $page, int $idCmsPage)
+    protected function checkActivation(array $page, $idCmsPage)
     {
         if (array_key_exists('active', $page) && !(bool)$page['active']) {
             $this->cmsFacade->deactivatePage($idCmsPage);

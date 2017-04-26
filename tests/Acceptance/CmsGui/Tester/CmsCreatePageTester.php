@@ -73,7 +73,7 @@ class CmsCreatePageTester extends ZedAcceptanceTester
     /**
      * @return $this
      */
-    public function clickActivateButton()
+    public function clickPublishButton()
     {
         $this->click('//*[@id="page-wrapper"]/div[2]/div[2]/div/a[1]');
 

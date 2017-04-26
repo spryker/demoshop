@@ -1,21 +1,22 @@
 <?php
+
 /**
- * Copyright © 2017-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Cms;
 
+use Spryker\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
 use Spryker\Zed\CmsUserConnector\Communication\Plugin\UserCmsVersionPostSavePlugin;
 use Spryker\Zed\CmsUserConnector\Communication\Plugin\UserCmsVersionTransferExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
 
 class CmsDependencyProvider extends SprykerCmsDependencyProvider
 {
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */
@@ -27,7 +28,7 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array
      */
