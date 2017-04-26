@@ -57,9 +57,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "spryker/rabbit-mq": "dev-master",
-    "league/flysystem-aws-s3-v3": "^1.0",
-    "aws/aws-sdk-php": "^3.26"
+    "spryker/rabbit-mq": "dev-master"
   },
   "require-dev": {
     "codeception/codeception": "^2.2.10",

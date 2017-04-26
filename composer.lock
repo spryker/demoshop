@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4723d3214421a13327be5b08b604e2af",
+    "content-hash": "820ba2bfafb730f86df9679219fb2785",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1213-filesystem-filemanager",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6720a0e699c450d07bca54a7409849a7e07bf3db"
+                "reference": "5216857cd2a7336a18a0a0e6bf9914ddd24a4f73"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1586,6 +1586,8 @@
                 "spryker/elastica": "*",
                 "spryker/error-handler": "*",
                 "spryker/event-journal": "*",
+                "spryker/file-system": "*",
+                "spryker/flysystem": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
@@ -1687,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-25 08:45:12"
+            "time": "2017-04-25 21:41:46"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6392,7 +6394,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-04-24T20:17:25+00:00"
+            "time": "2017-04-24 20:17:25"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6439,7 +6441,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06T12:18:02+00:00"
+            "time": "2017-04-06 12:18:02"
         },
         {
             "name": "squizlabs/php_codesniffer",
