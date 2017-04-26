@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c9b57fe3ddef6c53767297d243a9646",
+    "content-hash": "4723d3214421a13327be5b08b604e2af",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -685,16 +685,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
+                "reference": "ecf367c3bac3f2d1133a456c18dceb2b40fa5843"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/ecf367c3bac3f2d1133a456c18dceb2b40fa5843",
+                "reference": "ecf367c3bac3f2d1133a456c18dceb2b40fa5843",
                 "shasum": ""
             },
             "require": {
@@ -707,7 +707,7 @@
                 "ext-intl": "*",
                 "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "^1.0",
+                "moneyphp/iso-currencies": "^3.0",
                 "php-http/message": "^1.4",
                 "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
@@ -759,7 +759,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-22T22:24:40+00:00"
+            "time": "2017-04-21T11:28:24+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-795-salutation-not-persisted-with-order",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "82a84854551a5b61929f93ce9f2d0d28c459305b"
+                "reference": "6720a0e699c450d07bca54a7409849a7e07bf3db"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1687,7 +1687,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-21 10:36:57"
+            "time": "2017-04-25 08:45:12"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6357,12 +6357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "dea10627760ef92754d5d44be5692440dd712ee3"
+                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/dea10627760ef92754d5d44be5692440dd712ee3",
-                "reference": "dea10627760ef92754d5d44be5692440dd712ee3",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/b33c464eb25d115e10f6e206d9e8bb777d1cf658",
+                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658",
                 "shasum": ""
             },
             "require": {
@@ -6392,7 +6392,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07 12:41:16"
+            "time": "2017-04-24T20:17:25+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6439,7 +6439,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06 12:18:02"
+            "time": "2017-04-06T12:18:02+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -6966,16 +6966,16 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.4",
+            "version": "1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "cf219ede922fb47956726f35e2127277ebd302ca"
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/cf219ede922fb47956726f35e2127277ebd302ca",
-                "reference": "cf219ede922fb47956726f35e2127277ebd302ca",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/8dcfd392135a5bd938c3c83ea71419501ad9855d",
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d",
                 "shasum": ""
             },
             "require": {
@@ -7002,7 +7002,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-04-17T09:08:13+00:00"
+            "time": "2017-04-21T14:50:31+00:00"
         },
         {
             "name": "webmozart/assert",
