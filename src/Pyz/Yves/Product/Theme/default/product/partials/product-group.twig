@@ -1,6 +1,10 @@
-{% if productGroupItems|length %}
-    <div class="callout">
-        <h5>{{ 'product.groups' | trans }}</h5>
-        {{ spyProductGroupItems(product.idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
-    </div>
-{% endif %}
+{% extends '@ProductGroup/partials/product-group-items.twig' %}
+
+{% block content %}
+    {% if productGroupItems|length %}
+        <div class="callout">
+            <h5>{{ 'product.groups' | trans }}</h5>
+            {{ parent() }}
+        </div>
+    {% endif %}
+{% endblock %}
