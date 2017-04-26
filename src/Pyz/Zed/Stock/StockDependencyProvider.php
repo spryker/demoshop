@@ -7,9 +7,9 @@
 
 namespace Pyz\Zed\Stock;
 
+use \Spryker\Zed\ProductBundle\Communication\Plugin\Stock\ProductBundleAvailabilityHandlerPlugin;
 use Spryker\Zed\Availability\Communication\Plugin\AvailabilityHandlerPlugin;
 use Spryker\Zed\Stock\StockDependencyProvider as SprykerStockDependencyProvider;
-use \Spryker\Zed\ProductBundle\Communication\Plugin\Stock\ProductBundleAvailabilityHandlerPlugin;
 
 class StockDependencyProvider extends SprykerStockDependencyProvider
 {
