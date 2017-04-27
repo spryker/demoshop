@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
+    "content-hash": "e5f24c951fa0ff746fbb62e7fd721135",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1143-remove-switch-case-from-session-service-provider",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "0b4420025a069d5e95bec84d4c6880b2f8ae5dc4"
+=======
+<<<<<<< HEAD
+                "reference": "3af61973017751d2b57f7aba80b9acd4fbfa3dd0"
+=======
+                "reference": "6f40d868fb71c32f2864c3268b0e0c6dfdddd0df"
+>>>>>>> core-1143 reverted config change
+>>>>>>> core-1143 reverted config change
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1697,15 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-05-24 10:03:33"
+=======
+<<<<<<< HEAD
+            "time": "2017-05-04 16:17:19"
+=======
+            "time": "2017-04-28 07:29:32"
+>>>>>>> core-1143 reverted config change
+>>>>>>> core-1143 reverted config change
         },
         {
             "name": "swiftmailer/swiftmailer",
