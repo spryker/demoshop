@@ -211,6 +211,10 @@ customer.salutation.mr,Herr,de_DE
 customer.salutation.mr,Mr.,en_US
 customer.salutation.mrs,Frau,de_DE
 customer.salutation.mrs,Mrs.,en_US
+customer.salutation.ms,Frau,de_DE
+customer.salutation.ms,Ms.,en_US
+customer.salutation.dr,Dr.,en_US
+customer.salutation.dr,Dr.,de_DE
 customer.birth_date,"Geburtsdatum (TT.MM.YYYY)",de_DE
 customer.birth_date,"Date of birth (DD.MM.YYYY)",en_US
 customer.email,"E-Mail Adresse",de_DE
@@ -515,7 +519,7 @@ address.salutation,Salutation,en_US
 address.salutation,Anrede,de_DE
 email.orderEmail.salutationMale,Mr.,en_US
 email.orderEmail.salutationMale,Hr.,de_DE
-email.orderEmail.salutationFemale,Ms.,en_US
+email.orderEmail.salutationFemale,Ms. / Mrs.,en_US
 email.orderEmail.salutationFemale,Fr.,de_DE
 customer.login.failed,"Login failed",en_US
 customer.login.failed,"Login fehlgeschlagen",de_DE

@@ -21,13 +21,13 @@ use Orm\Zed\Customer\Persistence\SpyCustomer;
 use Orm\Zed\Customer\Persistence\SpyCustomerAddress;
 use Orm\Zed\Customer\Persistence\SpyCustomerQuery;
 use Pyz\Shared\Newsletter\NewsletterConstants;
-use SprykerTest\Shared\Testify\Helper\DependencyHelperTrait;
-use SprykerTest\Shared\Testify\Helper\LocatorHelperTrait;
 use Spryker\Client\Session\SessionClient;
 use Spryker\Zed\Customer\CustomerDependencyProvider;
 use Spryker\Zed\Customer\Dependency\Facade\CustomerToMailBridge;
 use Spryker\Zed\Mail\Business\MailFacadeInterface;
 use Spryker\Zed\Newsletter\Business\NewsletterFacade;
+use SprykerTest\Shared\Testify\Helper\DependencyHelperTrait;
+use SprykerTest\Shared\Testify\Helper\LocatorHelperTrait;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class Customer extends Module
