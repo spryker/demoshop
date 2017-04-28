@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "37b237dae62bd879bffb24b1dd43c636",
+    "content-hash": "cb56916adf437a71c0430e0382f91334",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -5329,11 +5329,11 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Development.git",
-                "reference": "949c6192909aea1a498d4d1cb7b33b6bbd85a2a8",
+                "url": "https://github.com/spryker/Development.git",
+                "reference": "cbe3e2caf6e7f0ee45fa75e9ae8081f568395729",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5343,8 +5343,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/949c6192909aea1a498d4d1cb7b33b6bbd85a2a8",
-                "reference": "949c6192909aea1a498d4d1cb7b33b6bbd85a2a8",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/cbe3e2caf6e7f0ee45fa75e9ae8081f568395729",
+                "reference": "cbe3e2caf6e7f0ee45fa75e9ae8081f568395729",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5389,9 +5389,9 @@
             ],
             "description": "Development bundle",
             "support": {
-                "source": "https://github.com/spryker/Development/tree/master"
+                "source": "https://github.com/spryker/Development/tree/3.1.2"
             },
-            "time": "2017-03-27T10:20:21+00:00"
+            "time": "2017-04-28T14:28:08+00:00"
         },
         {
             "name": "spryker/discount",
@@ -7478,7 +7478,7 @@
             "version": "6.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Oms.git",
+                "url": "https://github.com/spryker/Oms.git",
                 "reference": "6b82939530098f39fa22ba36fe416a4846cc9802",
                 "mirrors": [
                     {
@@ -8584,11 +8584,11 @@
         },
         {
             "name": "spryker/product-image",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductImage.git",
-                "reference": "0abea77d81bee8e8aecd96bd739a87a4490e4e97",
+                "url": "https://github.com/spryker/ProductImage.git",
+                "reference": "aefd5eeb31f4fac11950742bf51c4e096182454d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8598,8 +8598,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductImage/zipball/0abea77d81bee8e8aecd96bd739a87a4490e4e97",
-                "reference": "0abea77d81bee8e8aecd96bd739a87a4490e4e97",
+                "url": "https://api.github.com/repos/spryker/ProductImage/zipball/aefd5eeb31f4fac11950742bf51c4e096182454d",
+                "reference": "aefd5eeb31f4fac11950742bf51c4e096182454d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8643,17 +8643,17 @@
             ],
             "description": "ProductImage bundle",
             "support": {
-                "source": "https://github.com/spryker/ProductImage/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/ProductImage/tree/3.0.1"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-04-28T09:37:33+00:00"
         },
         {
             "name": "spryker/product-management",
-            "version": "0.3.3",
+            "version": "0.3.4",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductManagement.git",
-                "reference": "12926aface989f90b822ba8cd0fb774f2384af51",
+                "url": "https://github.com/spryker/ProductManagement.git",
+                "reference": "33abde3a1a229eb3ba8d897a31e566f1efa433e1",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8663,8 +8663,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/12926aface989f90b822ba8cd0fb774f2384af51",
-                "reference": "12926aface989f90b822ba8cd0fb774f2384af51",
+                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/33abde3a1a229eb3ba8d897a31e566f1efa433e1",
+                "reference": "33abde3a1a229eb3ba8d897a31e566f1efa433e1",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8721,9 +8721,9 @@
             ],
             "description": "ProductManagement bundle",
             "support": {
-                "source": "https://github.com/spryker/ProductManagement/tree/master"
+                "source": "https://github.com/spryker/ProductManagement/tree/0.3.4"
             },
-            "time": "2017-04-13T14:11:46+00:00"
+            "time": "2017-04-28T09:37:33+00:00"
         },
         {
             "name": "spryker/product-option",
