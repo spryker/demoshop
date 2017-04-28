@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6f98dd1db24c75d0414597b28512c38f3552c279"
+                "reference": "987dab502ae79c342d1c108114ef9f02157582f4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1671,6 +1671,7 @@
                 "spryker/event-journal": "*",
                 "spryker/file-system": "*",
                 "spryker/flysystem": "*",
+                "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
@@ -1773,7 +1774,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-28 20:24:03"
+            "time": "2017-04-28 22:53:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
