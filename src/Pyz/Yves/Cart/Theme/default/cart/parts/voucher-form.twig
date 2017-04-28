@@ -1,14 +1,16 @@
 {{ form_start(voucherForm) }}
-    <div class="callout">
-        <div class="row">
-            <div class="small-12 medium-8 columns">
-                <h5>{{ voucherForm.voucher_code.vars.label | trans }}</h5>
-                {{ form_widget(voucherForm.voucher_code) }}
-                {{ form_errors(voucherForm.voucher_code) }}
+<div class="callout">
+    <div class="row">
+        <div class="small-12 columns">
+            <h5>{{ voucherForm.voucher_code.vars.label | trans }}</h5>
+            <div class="input-group">
+                {{ form_widget(voucherForm.voucher_code, {attr: {class: 'input-group-field'}}) }}
+                <div class="input-group-button">
+                    <button class="button expanded info" type="submit"><i class="fa fa-gift"></i>{{ 'cart.voucher.redeem' | trans }}</button>
+                </div>
             </div>
-            <div class="small-12 medium-4 columns align-bottom">
-                <button class="button expanded info" type="submit"><i class="fa fa-gift"></i>{{ 'cart.voucher.redeem' | trans }}</button>
-            </div>
+            {{ form_errors(voucherForm.voucher_code) }}
         </div>
     </div>
+</div>
 {{ form_end(voucherForm) }}
