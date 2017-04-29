@@ -53,7 +53,6 @@ use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
-use Spryker\Yves\Twig\Plugin\ServiceProvider\SharedTwigServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 
 class YvesBootstrap
@@ -90,7 +89,6 @@ class YvesBootstrap
     {
         $this->application->register(new StorageRequestCacheServiceProvider());
         $this->application->register(new SprykerTwigServiceProvider());
-        $this->application->register(new SharedTwigServiceProvider());
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());

@@ -132,7 +132,6 @@ class TwigServiceProvider extends SilexTwigServiceProvider
             return new Twig_Loader_Chain(
                 [
                     $app['twig.loader.yves'],
-                    $app['twig.loader.shared'],
                     $app['twig.loader.filesystem'],
                 ]
             );
