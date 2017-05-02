@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
+    "content-hash": "04d66fa4ecea5391533eec47ee06e2db",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-905-product-groups",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e2ef870380deb07d3e52aebf9bed348342238bf4"
+                "reference": "ec3ddc92bd56487f03c9073220298920361b7d72"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1687,7 +1687,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-28 14:39:18"
+            "time": "2017-05-02 12:45:51"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6392,7 +6392,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-04-24 20:17:25"
+            "time": "2017-04-24T20:17:25+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6439,7 +6439,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-26 13:25:55"
+            "time": "2017-04-26T13:25:55+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

@@ -8,9 +8,9 @@
 namespace Pyz\Zed\Importer\Business\Importer\ProductGroup;
 
 use Generated\Shared\Transfer\ProductGroupTransfer;
-use Orm\Zed\ProductGroup\Persistence\SpyProductGroupQuery;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
+use Orm\Zed\ProductGroup\Persistence\SpyProductGroupQuery;
 use Propel\Runtime\Formatter\SimpleArrayFormatter;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
