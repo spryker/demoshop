@@ -16,7 +16,7 @@
                             {{ form_widget(method, {'attr': {'class': '__toggler'}}) }}
                             {{ form_label(method) }}
                             <div class="__toggler-target">
-                                <div class="row">
+                                <div class="row columns">
                                     {{ checkout.include_subform(paymentForm[method.vars.value]) }}
                                 </div>
                                 {% if not loop.last %}<hr>{% endif %}

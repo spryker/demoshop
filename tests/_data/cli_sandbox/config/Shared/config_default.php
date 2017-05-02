@@ -5,13 +5,11 @@ use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
-use Spryker\Shared\Calculation\PriceTaxMode;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
-use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
@@ -24,7 +22,6 @@ use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
-use Spryker\Shared\Queue\QueueConfig;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
@@ -70,7 +67,7 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
 
-/*
+/**
  * Elasticsearch settings
  */
 $config[ApplicationConstants::ELASTICA_PARAMETER__HOST]
@@ -94,13 +91,13 @@ $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
     = 'page';
 
-/*
+/**
  * Page search settings
  */
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
-/*
+/**
  * Hostname(s) for Yves - Shop frontend
  * In production you probably use a CDN for static content
  */
@@ -117,7 +114,7 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
     = 'www.de.project.local';
 
-/*
+/**
  * Hostname(s) for Zed - Shop frontend
  * In production you probably use HTTPS for Zed
  */
@@ -193,7 +190,7 @@ $config[ApplicationConstants::YVES_COOKIE_DEVICE_ID_VALID_FOR] = '+5 year';
 $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_NAME] = 'vid';
 $config[ApplicationConstants::YVES_COOKIE_VISITOR_ID_VALID_FOR] = '+30 minute';
 
-$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|de)?/customer|^(/en|de)?/wishlist)';
+$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer|^/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 $currentStore = Store::getInstance()->getStoreName();
@@ -213,9 +210,7 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
 
-/*
- * When not needed you can turn off Zed authentication
- */
+/** For a better performance you can turn off Zed authentication */
 $config[AuthConstants::AUTH_ZED_ENABLED]
     = $config[ZedRequestConstants::AUTH_ZED_ENABLED] = true;
 
@@ -232,7 +227,7 @@ $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
-/*
+/**
  * ACL: Allow or disallow of urls for Zed Admin GUI for ALL users
  */
 $config[AclConstants::ACL_DEFAULT_RULES] = [
@@ -274,7 +269,7 @@ $config[AclConstants::ACL_DEFAULT_RULES] = [
     ],
 ];
 
-/*
+/**
  * ACL: Allow or disallow of urls for Zed Admin GUI
  */
 $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
@@ -298,7 +293,7 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
     ],
 ];
 
-/*
+/**
  * ACL: Special rules for specific users
  */
 $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
@@ -314,7 +309,7 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
     ],
 ];
 
-/*
+/**
  * Zed Navigation Cache
  * The cache should always be activated. Refresh/build with CLI command:
  * vendor/bin/console application:build-navigation-cache
@@ -427,9 +422,6 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
 
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
-$config[EventConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application_events.log';
-$config[EventConstants::LOGGER_ACTIVE] = false;
-
 $config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
 $config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 10000;
 $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
@@ -444,9 +436,4 @@ $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
  *   ],
  *
  */
-$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
-    EventConstants::EVENT_QUEUE => [
-        QueueConfig::CONFIG_QUEUE_ADAPTER => \Spryker\Client\RabbitMq\Model\RabbitMqAdapter::class,
-        QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
-    ],
-];
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];

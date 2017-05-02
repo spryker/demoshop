@@ -29,7 +29,7 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
     {
         parent::__construct($customerClient, $store);
 
-        $this->customerTransfer = $this->customerClient->getCustomer();
+        $this->customerTransfer = $this->getCustomer();
     }
 
     /**
@@ -60,6 +60,16 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
             CheckoutAddressCollectionForm::OPTION_ADDRESS_CHOICES => $this->getAddressChoices(),
             CheckoutAddressCollectionForm::OPTION_COUNTRY_CHOICES => $this->getAvailableCountries(),
         ];
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\CustomerTransfer|null
+     */
+    protected function getCustomer()
+    {
+        $this->customerClient->markCustomerAsDirty();
+
+        return $this->customerClient->getCustomer();
     }
 
     /**

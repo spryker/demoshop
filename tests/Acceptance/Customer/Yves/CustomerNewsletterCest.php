@@ -9,6 +9,9 @@ namespace Acceptance\Customer\Yves;
 
 use Acceptance\Customer\Yves\PageObject\CustomerNewsletterPage;
 use Acceptance\Customer\Yves\Tester\CustomerLoginTester;
+use Codeception\Util\Stub;
+use Spryker\Zed\Newsletter\Dependency\Facade\NewsletterToMailInterface;
+use Spryker\Zed\Newsletter\NewsletterDependencyProvider;
 
 /**
  * @group Acceptance
@@ -28,6 +31,9 @@ class CustomerNewsletterCest
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerNewsletterPage::URL);
+
+        $i->setDependency(NewsletterDependencyProvider::FACADE_MAIL, Stub::makeEmpty(NewsletterToMailInterface::class));
+
         $i->click(['name' => CustomerNewsletterPage::FORM_FIELD_SELECTOR_NEWSLETTER_SUBSCRIPTION]);
         $i->click(CustomerNewsletterPage::BUTTON_SUBMIT);
         $i->waitForText(CustomerNewsletterPage::SUCCESS_MESSAGE_SUBSCRIBED);
@@ -41,6 +47,9 @@ class CustomerNewsletterCest
     public function testICanUnSubscribeNewsletter(CustomerLoginTester $i)
     {
         $i->amLoggedInCustomer();
+
+        $i->setDependency(NewsletterDependencyProvider::FACADE_MAIL, Stub::makeEmpty(NewsletterToMailInterface::class));
+
         $i->addNewsletterSubscription(CustomerNewsletterPage::NEW_CUSTOMER_EMAIL);
         $i->amOnPage(CustomerNewsletterPage::URL);
         $i->click(['name' => CustomerNewsletterPage::FORM_FIELD_SELECTOR_NEWSLETTER_SUBSCRIPTION]);

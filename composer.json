@@ -7,13 +7,13 @@
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
     "guzzlehttp/guzzle": "~6.2.1",
-    "league/csv": "~8.1.0",
+    "league/csv": "^8.1.0",
     "filp/whoops": "^2.1",
     "mandrill/mandrill": "~1.0.55",
     "monolog/monolog": "~1.21.0",
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
-    "predis/predis": "~1.0.3",
+    "predis/predis": "1.0.4",
     "propel/propel": "2.0.0-alpha7",
     "psr/log": "~1.0.0",
     "ruflin/elastica": "~3.2.0",
@@ -77,7 +77,8 @@
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
-    "stecman/symfony-console-completion": "^0.7.0"
+    "stecman/symfony-console-completion": "^0.7.0",
+    "fzaninotto/faker": "^1.6"
   },
   "autoload": {
     "psr-0": {
@@ -85,9 +86,11 @@
       "Unit": "tests",
       "YvesUnit": "tests",
       "Functional": "tests",
-      "Acceptance": "tests",
-      "Unit\\Spryker\\Shared\\Twig\\": "vendor/spryker/spryker/Bundles/Twig/tests"
-    }
+      "Acceptance": "tests"
+    },
+    "files": [
+      "vendor/spryker/spryker/autoload.php"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

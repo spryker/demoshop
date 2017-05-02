@@ -14,8 +14,8 @@ use Orm\Zed\ProductRelation\Persistence\SpyProductRelationQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\ProductRelation\Business\ProductRelationFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
+use Spryker\Zed\ProductRelation\Business\ProductRelationFacadeInterface;
 
 class ProductRelationImporter extends AbstractImporter
 {
