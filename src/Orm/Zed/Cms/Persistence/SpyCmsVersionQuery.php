@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Cms\Persistence;
 
-use Orm\Zed\Cms\Persistence\Base\SpyCmsVersionQuery as BaseSpyCmsVersionQuery;
+use Spryker\Zed\Cms\Persistence\Propel\AbstractSpyCmsVersionQuery as BaseSpyCmsVersionQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_cms_version' table.

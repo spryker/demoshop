@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Cms\Persistence;
 
-use Orm\Zed\Cms\Persistence\Base\SpyCmsVersion as BaseSpyCmsVersion;
+use Spryker\Zed\Cms\Persistence\Propel\AbstractSpyCmsVersion as BaseSpyCmsVersion;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_cms_version' table.
