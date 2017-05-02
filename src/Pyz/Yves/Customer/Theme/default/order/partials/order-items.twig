@@ -22,13 +22,13 @@
                     {{ orderItem.name }}
                 </td>
                 <td class="text-right">
-                    {{ orderItem.unitGrossPriceWithProductOptions | money }}
+                    {{ orderItem.unitSubtotalAggregation | money }}
                 </td>
                 <td class="text-right">
                     {{ orderItem.quantity }}
                 </td>
                 <td class="text-right">
-                    {{ orderItem.sumGrossPriceWithProductOptions | money }}
+                    {{ orderItem.unitPriceToPayAggregation | money }}
                 </td>
             </tr>
             {% include "@customer/order/partials/order-items-options.twig" %}

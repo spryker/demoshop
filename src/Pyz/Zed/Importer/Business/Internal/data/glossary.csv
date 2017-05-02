@@ -115,7 +115,7 @@ page.checkout.terms,"Ich akzeptiere die AGBs.",de_DE
 page.checkout.terms,"I accept the general terms and conditions.",en_US
 page.checkout.finalize.enter-voucher,"Gutscheincode eingeben",de_DE
 page.checkout.finalize.enter-voucher,"Enter voucher code",en_US
-page.checkout.finalize.tos,"Mit dem Klick auf die Schaltfläche „Jetzt kaufen“ bestätige ich die ABG von Spryker Toys",de_DE
+page.checkout.finalize.tos,"Mit dem Klick auf die Schaltfläche „Jetzt kaufen" bestätige ich die ABG von Spryker Toys",de_DE
 page.checkout.finalize.tos,"With a click to the button ""Buy now"" I confirm the GTCs.",en_US
 page.checkout.finalize.buy-now,"Jetzt kaufen",de_DE
 page.checkout.finalize.buy-now,"Buy now",en_US
@@ -836,7 +836,7 @@ mail.order.shipped.text,"Your order is already on its way.",en_US
 mail.order.shipped.details,"Bestelldetails",de_DE
 mail.order.shipped.details,"Details of your order",en_US
 mail.order.shipped.order_number,"Bestellnummer",de_DE
-mail.order.shipped.order_number,"Order number",en_US
+mail.order.shipped.order_number,"Order number",en_US"
 mail.order.shipped.price_including_tax,"Preis inklusive Steuern",de_DE
 mail.order.shipped.price_including_tax,"Total price including taxes",en_US
 mail.order.shipped.date,"Datum",de_DE
@@ -867,3 +867,37 @@ cart.item.sku,"SKU",en_US
 cart.item.sku,"SKU",de_DE
 checkout.summary.item.option.description,"Product options:",en_US
 checkout.summary.item.option.description,"Produktoptionen:",de_DE
+invoice.order.address.billing,"Billing address",en_US
+invoice.order.address.billing,"Rechnungsadresse",de_DE
+invoice.order.address.shipping,"Shipping address",en_US
+invoice.order.address.shipping,"Lieferadresse",de_DE
+invoice.header,"Invoice",en_US
+invoice.header,"Rechnung",de_DE
+invoice.order.number,"Invoice number",en_US
+invoice.order.number,"Rechnungsnummer",de_DE
+invoice.customer.number,"Customer reference",en_US
+invoice.customer.number,"Kundennummer",de_DE
+invoice.created.at,"Invoice date",en_US
+invoice.created.at,"Rechnungsdatum",de_DE
+invoice.order.item.sku,"SKU",en_US
+invoice.order.item.sku,"SKU",de_DE
+invoice.order.item.product_name,"PRODUCT NAME",en_US
+invoice.order.item.product_name,"PRODUKT NAME",de_DE
+invoice.order.item.quantity,"QUANTITY",en_US
+invoice.order.item.quantity,"ANZAHL",de_DE
+invoice.order.item.price,"ITEM PRICE",en_US
+invoice.order.item.price,"EINZELPREIS",de_DE
+invoice.order.item.price_total,"ITEM TOTAL",en_US
+invoice.order.item.price_total,"GESAMTPREIS",de_DE
+invoice.order.grand_total,"GRAND TOTAL",en_US
+invoice.order.grand_total,"GESAMTBETRAG",de_DE
+invoice.order.tax_amount,"Incl. VAT",en_US
+invoice.order.tax_amount,"Inkl. MwSt",de_DE
+invoice.order.expenses.total,"Shipping costs",en_US
+invoice.order.expenses.total,"Versandkosten",de_DE
+invoice.company.address,"Spryker Systems GmbH<br/>Julie-Wolfthorn-Straße 1<br />10115 Berlin / Germany",en_US
+invoice.company.address,"Spryker Systems GmbH<br/>Julie-Wolfthorn-Straße 1<br />10115 Berlin / Germany",de_DE
+invoice.company.bank.information,"Bank Name<br/>IBAN 1234 5678 9123 4567 89<br />BIC 12345678<br/>Handelsregister ABC123456<br />Steuernummer 12/345/6789",en_US
+invoice.company.bank.information,"Bank Name<br/>IBAN 1234 5678 9123 4567 89<br />BIC 12345678<br/>Handelsregister ABC123456<br />Steuernummer 12/345/6789",de_DE
+invoice.company.contact.information,"+49 (0)30 2084983 50<br/>hello@spryker.com",en_US
+invoice.company.contact.information,"+49 (0)30 2084983 50<br/>hello@spryker.com",de_DE"

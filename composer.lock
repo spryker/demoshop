@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fd33c59d9b6215f698bc64928909bb8",
+    "content-hash": "cb6de2a04d21874201c6b8cf813e1f75",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1487,11 +1487,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-922-calculator-cleanup",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d83e5575d8f783cd962d5010887d38f05a2f9a57"
+                "reference": "c5b92b4f507cbd6db4f849718f1c5ce1291a0a8f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1828,6 +1828,7 @@
                     "Spryker\\Zed\\Heartbeat\\": "Bundles/Heartbeat/src",
                     "Unit\\Spryker\\Zed\\Heartbeat\\": "Bundles/Heartbeat/tests",
                     "Spryker\\Zed\\Installer\\": "Bundles/Installer/src",
+                    "Spryker\\Zed\\Invoice\\": "Bundles/Invoice/src",
                     "Spryker\\Shared\\Invoice\\": "Bundles/Invoice/src",
                     "Unit\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
                     "Functional\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
@@ -2270,7 +2271,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-12 08:57:47"
+            "time": "2017-05-02 15:10:59"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -53,6 +53,7 @@ use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
+use Pyz\Yves\Calculation\Plugin\Provider\CalculationControllerProvider;
 
 class YvesBootstrap
 {
@@ -161,6 +162,7 @@ class YvesBootstrap
             new HeartbeatControllerProvider($isSsl),
             new NewsletterControllerProvider($isSsl),
             new CatalogControllerProvider($isSsl),
+            new CalculationControllerProvider($isSsl),
         ];
     }
 

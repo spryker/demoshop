@@ -6,7 +6,7 @@
                 <div class="small-12 columns text-center medium-text-left">
                     <ul class="no-bullet __no-margin-bottom">
                         <li class="lead">
-                            {{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong>
+                            {{ cartItem.name }} - <strong>{{ cartItem.unitPrice | money }}</strong>
                         </li>
                             <li class="__secondary">{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</li>
 
@@ -22,7 +22,7 @@
                         {% if cartItem.productOptions|length > 0 %}
                             <li>{{ 'cart.item.option.description' | trans }}</li>
                             {% for productOption in cartItem.productOptions %}
-                               <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
+                               <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitPrice | money }}</strong> </li>
                             {% endfor %}
                         {% endif %}
                     </ul>

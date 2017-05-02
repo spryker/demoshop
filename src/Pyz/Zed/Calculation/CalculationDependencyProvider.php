@@ -7,6 +7,20 @@
 namespace Pyz\Zed\Calculation;
 
 use Spryker\Zed\Calculation\CalculationDependencyProvider as SprykerCalculationDependencyProvider;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountAmountAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountTotalCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ExpenseTotalCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\GrandTotalCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemDiscountAmountFullAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\PriceCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\PriceToPayAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemProductOptionPriceAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemSubtotalAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemTaxAmountFullAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\RefundableAmountCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\RefundTotalCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\SubtotalCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\TaxTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\ExpensesGrossSumAmountCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\ExpenseTotalsCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\GrandTotalTotalsCalculatorPlugin;
@@ -32,58 +46,234 @@ use Spryker\Zed\TaxProductConnector\Communication\Plugin\ProductItemTaxRateCalcu
 use Spryker\Zed\Tax\Communication\Plugin\ExpenseTaxCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\ItemTaxCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\TaxAmountCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\CanceledTotalCalculationPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\TaxRateAverageAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\TaxAmountAfterCancellationCalculatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\OrderTaxTotalCalculationPlugin;
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
 
     /**
+     * This calculator stack working with quote object which happens to be processed in cart/checkout
+     *
+     * You can view calculated values in: http://www.de.project.local/calculation/debug. For this to work you must have items in cart.
+     *
+     * RemoveTotalsCalculatorPlugin - Reset TotalsTransfer object
+     *
+     * RemoveAllCalculatedDiscountsCalculatorPlugin - Reset CalculateDiscounts for:
+     *   - Item.calculatedDiscounts
+     *   - Item.productOption.calculatedDiscounts
+     *   - Expense.calculatedDiscounts
+     *
+     * PriceCalculatorPlugin - Calculates price based on tax mode, tax mode is set in this calculator based on CalculationConstants::TAX_MODE configuration key.
+     *    - Item.unitPrice
+     *    - Item.sumPrice
+     *    - Item.productOption.unitPrice
+     *    - Item.productOption.sumPrice
+     *    - Expense.unitPrice
+     *    - Expense.sumPrice
+     *  When "gross" mode:
+     *    - Item.sumGrossPrice
+     *    - Item.productOption.sumGrossPrice
+     *    - Expense.sumGrossPrice
+     *  When "Net" mode:
+     *    - Item.sumNetPrice
+     *    - Item.productOption.sumNetPrice
+     *    - Expense.sumNetPrice
+     *
+     * ItemProductOptionPriceAggregatorPlugin - Item option price sum total
+     *    - Item.unitProductOptionAggregation
+     *    - Item.sumProductOptionAggregation
+     *
+     * ItemSubtotalAggregatorPlugin - Total price amount (item + options + item expenses)
+     *    - Item.unitSubtotal
+     *    - Item.sumSubtotal
+     *
+     * SubtotalCalculatorPlugin - Sum of item sumAggregation
+     *    - Total.subtotal
+     *
+     * DiscountCalculatorPlugin - Discount bundle calculator, runs cart rules/applies voucher codes.
+     *    - Item.calculatedDiscounts[].unitGrossAmount
+     *    - Item.productOptions.calculatedDiscounts[].unitGrossAmount
+     *    - Expense.calculatedDiscounts[].unitGrossAmount
+     *
+     * DiscountAmountAggregatorPlugin - Sums all discounts for corresponding object
+     *    - Item.unitDiscountAmountAggregation
+     *    - Item.sumDiscountAmountAggregation
+     *    - Item.productOptions.unitDiscountAmountAggregation
+     *    - Item.productOptions.sumDiscountAmountAggregation
+     *    - Expense.unitDiscountAmountAggregation
+     *    - Expense.sumDiscountAmountAggregation
+     *
+     *    - Item.calculatedDiscounts[].sumGrossAmount
+     *    - Item.productOptions.calculatedDiscounts[].sumGrossAmount
+     *    - Expense.calculatedDiscounts[].sumGrossAmount
+     *
+     * ItemDiscountAmountFullAggregatorPlugin - Sums item all discounts with additions (option and item expense discounts)
+     *    - Item.unitDiscountAmountFullAggregation
+     *    - Item.sumDiscountAmountFullAggregation
+     *
+     * PriceToPayAggregatorPlugin - Final price customer have to pay after discounts
+     *    - Item.unitPriceToPayAggregation
+     *    - Item.sumPriceToPayAggregation
+     *    - Expense.unitPriceToPayAggregation
+     *    - Expense.sumPriceToPayAggregation
+     *
+     * ProductItemTaxRateCalculatorPlugin - Sets tax rate to item based on shipping address
+     *    - Item.taxRate
+     *
+     * ProductOptionTaxRateCalculatorPlugin - Sets tax rate to expense based on shipping address
+     *    - Item.productOptions[].taxRate
+     *
+     * ShipmentTaxRateCalculatorPlugin - Sets tax rate to expense based on shipping address
+     *    - Expense.taxRate
+     *
+     * TaxAmountCalculatorPlugin - Calculates tax amount based on tax mode after discounts
+     *    - Item.unitTaxAmount
+     *    - Item.sumTaxAmount
+     *    - Item.productOptions[].unitTaxAmount
+     *    - Item.productOptions[].sumTaxAmount
+     *    - Expense.unitTaxAmount
+     *    - Expense.sumTaxAmount
+     *
+     * ItemTaxAmountFullAggregatorPlugin - Calculate for all item additions
+     *    - Item.unitTaxAmountFullAggregation
+     *    - Item.sumTaxAmountFullAggregation
+     *
+     * TaxRateAverageAggregatorPlugin - Calculate tax rate average aggregation used when recalculating taxable amount after refund
+     *    - Item.taxRateAverageAggregation
+     *
+     * RefundableAmountCalculatorPlugin - Calculate refundable for each item and expenses
+     *    - Item.refundableAmount
+     *    - Expense.refundableAmount
+     *
+     * CalculateBundlePricePlugin -  Calculate bundle item total, from bundled items
+     *    - BundledItem.unitPrice
+     *    - BundledItem.sumPrice
+     *    - BundledItem.unitGrossPrice
+     *    - BundledItem.sumGrossPrice
+     *    - BundledItem.unitNetPrice
+     *    - BundledItem.sumNetPrice
+     *    – BundledItem.unitTaxAmountFullAggregation
+     *    - BundledItem.sumTaxAmountFullAggregation
+     *    - BundledItem.unitTaxAmountAggregation
+     *    - BundledItem.sumTaxAmountAggregation
+     *
+     * ExpenseTotalCalculatorPlugin - Calculate order expenses total
+     *    - Totals.expenseTotal
+     *
+     * DiscountTotalCalculatorPlugin - Calculate discount total
+     *    - Totals.discountTotal
+     *
+     * RefundTotalCalculatorPlugin - Calculate refund total
+     *    - Totals.refundTotal
+     *
+     * GrandTotalCalculatorPlugin - Calculate grand total
+     *    - Totals.grandTotal
+     *
+     * TaxTotalCalculatorPlugin - Total tax amount
+     *    - Totals.taxTotal.amount
+     *
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculatorPluginInterface[]
+     * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculationPluginInterface[]
      */
-    protected function getCalculatorStack(Container $container)
+    protected function getQuoteCalculatorPluginStack(Container $container)
     {
-        return [
-            //Remove calculated values, start with clean state.
+        $calculatorPlugins = [
             new RemoveTotalsCalculatorPlugin(),
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
 
-            //Item calculators
-            new ItemGrossAmountsCalculatorPlugin(),
-            new ProductOptionGrossSumCalculatorPlugin(),
+            new PriceCalculatorPlugin(),
+            new ItemProductOptionPriceAggregatorPlugin(),
+
+            new ItemSubtotalAggregatorPlugin(),
+
+            new SubtotalCalculatorPlugin(),
+
+            new DiscountCalculatorPlugin(),
+            new DiscountAmountAggregatorPlugin(),
+            new ItemDiscountAmountFullAggregatorPlugin(),
+
+            new PriceToPayAggregatorPlugin(),
+
             new ProductItemTaxRateCalculatorPlugin(),
             new ProductOptionTaxRateCalculatorPlugin(),
-            new ItemTaxCalculatorPlugin(),
-
-            //SubTotal
-            new SubtotalTotalsCalculatorPlugin(),
-
-            //Expenses (e.g. shipping)
-            new ExpensesGrossSumAmountCalculatorPlugin(),
             new ShipmentTaxRateCalculatorPlugin(),
-            new ExpenseTaxCalculatorPlugin(),
-            new ExpenseTotalsCalculatorPlugin(),
+            new TaxAmountCalculatorPlugin(),
+            new ItemTaxAmountFullAggregatorPlugin(),
+            new TaxRateAverageAggregatorPlugin(),
 
-            //Grand total
-            new GrandTotalTotalsCalculatorPlugin(),
-
-            //Discounts
-            new DiscountCalculatorPlugin(),
-            new SumGrossCalculatedDiscountAmountCalculatorPlugin(),
-            new ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin(),
-            new ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin(),
-            new DiscountTotalsCalculatorPlugin(),
-            new DiscountTotalsWithProductOptionsCalculatorPlugin(),
-            new ExpenseTaxWithDiscountsCalculatorPlugin(),
+            new RefundableAmountCalculatorPlugin(),
 
             new CalculateBundlePricePlugin(),
 
-            //GrandTotal with discounts
-            new GrandTotalWithDiscountsCalculatorPlugin(),
+            new ExpenseTotalCalculatorPlugin(),
+            new DiscountTotalCalculatorPlugin(),
+            new RefundTotalCalculatorPlugin(),
+            new GrandTotalCalculatorPlugin(),
 
-            //TaxTotal
-            new TaxTotalsCalculatorPlugin(),
-            new TaxTotalAmountWithProductOptionsAndDiscountsCalculatorPlugin(),
+            new TaxTotalCalculatorPlugin(),
+        ];
+
+
+        $legacyCalculatorPlugin = $this->getLegacyCalculatorPluginStack();
+
+        return array_merge($calculatorPlugins, $legacyCalculatorPlugin);
+    }
+
+    /**
+     * Calculator plugin stack, used for BC to have old fields populated.
+     *
+     * @return array
+     */
+    protected function getLegacyCalculatorPluginStack()
+    {
+        return [
+            new ProductOptionGrossSumCalculatorPlugin(),
+            new ProductOptionTaxRateCalculatorPlugin(),
+            new SumGrossCalculatedDiscountAmountCalculatorPlugin(),
+            new ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin(),
+            new ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin(),
+            new ExpenseTaxCalculatorPlugin(),
+        ];
+    }
+
+    /**
+     * This calculator plugin stack working with order object which happens to be created after order is placed
+     *
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculationPluginInterface[]
+     */
+    protected function getOrderCalculatorPluginStack(Container $container)
+    {
+        return [
+
+            new PriceCalculatorPlugin(),
+            new ItemProductOptionPriceAggregatorPlugin(),
+            new ItemSubtotalAggregatorPlugin(),
+
+            new SubtotalCalculatorPlugin(),
+
+            new DiscountAmountAggregatorPlugin(),
+            new ItemDiscountAmountFullAggregatorPlugin(),
+
+            new PriceToPayAggregatorPlugin(),
+
+            new TaxAmountAfterCancellationCalculatorPlugin(),
+
+            new RefundableAmountCalculatorPlugin(),
+
+            new ExpenseTotalCalculatorPlugin(),
+            new DiscountTotalCalculatorPlugin(),
+            new RefundTotalCalculatorPlugin(),
+            new CanceledTotalCalculationPlugin(),
+            new GrandTotalCalculatorPlugin(),
+
+            new OrderTaxTotalCalculationPlugin(),
 
         ];
     }
