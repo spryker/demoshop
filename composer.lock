@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8c35de392f85c0709ac7769fbd718e07d5d18088"
+                "reference": "66305782ab955a01f3bb659683476356001d54f0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1671,6 +1671,7 @@
                 "spryker/event-journal": "*",
                 "spryker/file-system": "*",
                 "spryker/flysystem": "*",
+                "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
                 "spryker/glossary": "*",
@@ -1774,7 +1775,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-04-28 23:01:30"
+            "time": "2017-05-02 11:45:30"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6526,7 +6527,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-26T13:25:55+00:00"
+            "time": "2017-04-26 13:25:55"
         },
         {
             "name": "squizlabs/php_codesniffer",
