@@ -145,7 +145,6 @@
     "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
-    "codeception/codeception": "^2.2.11",
     "codeception/c3": "^2.0.12",
     "pdepend/pdepend": "^2.2.4",
     "phploc/phploc": "^3.0.1",
@@ -199,11 +198,11 @@
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/architecture-sniffer.git"
+      "url": "https://github.com/spryker/architecture-sniffer.git"
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/rabbit-mq.git"
+      "url": "https://github.com/spryker/rabbit-mq.git"
     }
   ],
   "scripts": {
