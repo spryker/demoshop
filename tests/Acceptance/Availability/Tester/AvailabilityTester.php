@@ -13,10 +13,10 @@ use YvesAcceptanceTester;
 class AvailabilityTester extends YvesAcceptanceTester
 {
 
-    const FUJITSU_PRODUCT_PAGE = '/en/fujitsu-esprimo-e420-56';
-    const FUJITSU2_PRODUCT_PAGE = 'en/fujitsu-esprimo-e920-57';
+    const FUJITSU_PRODUCT_PAGE = '/en/fujitsu-esprimo-e420-14';
+    const FUJITSU2_PRODUCT_PAGE = 'en/fujitsu-esprimo-e920-68';
 
-    const CART_PRE_CHECK_AVAILABILITY_ERROR_MESSAGE = 'The availability of product 058_29804808 is 10 at the moment.';
+    const CART_PRE_CHECK_AVAILABILITY_ERROR_MESSAGE = 'The availability of product 119_29804808 is 10 at the moment.';
 
     /**
      * @return void
