@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
+    "content-hash": "0d23c653e3f59bf7435dd0cebc407061",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-763-product-labels",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4eef83410c2efffe9221d4d2ee22ea00cc765ccc"
+                "reference": "c76b03e49db3de0a2ac423816c6c6b5be90c9bce"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1625,6 +1625,7 @@
                 "spryker/product-category": "*",
                 "spryker/product-discount-connector": "*",
                 "spryker/product-image": "*",
+                "spryker/product-label": "*",
                 "spryker/product-management": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
