@@ -7,6 +7,7 @@
 namespace Pyz\Yves\Calculation\Controller;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider;
+use Spryker\Shared\Calculation\CalculationTaxMode;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 

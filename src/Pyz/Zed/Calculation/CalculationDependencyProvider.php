@@ -182,7 +182,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      */
     protected function getQuoteCalculatorPluginStack(Container $container)
     {
-        $calculatorPlugins = [
+        return [
             new RemoveTotalsCalculatorPlugin(),
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
 
@@ -197,13 +197,14 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new DiscountAmountAggregatorPlugin(),
             new ItemDiscountAmountFullAggregatorPlugin(),
 
-            new PriceToPayAggregatorPlugin(),
-
             new ProductItemTaxRateCalculatorPlugin(),
             new ProductOptionTaxRateCalculatorPlugin(),
             new ShipmentTaxRateCalculatorPlugin(),
             new TaxAmountCalculatorPlugin(),
             new ItemTaxAmountFullAggregatorPlugin(),
+
+            new PriceToPayAggregatorPlugin(),
+
             new TaxRateAverageAggregatorPlugin(),
 
             new RefundableAmountCalculatorPlugin(),
@@ -216,28 +217,6 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new GrandTotalCalculatorPlugin(),
 
             new TaxTotalCalculatorPlugin(),
-        ];
-
-
-        $legacyCalculatorPlugin = $this->getLegacyCalculatorPluginStack();
-
-        return array_merge($calculatorPlugins, $legacyCalculatorPlugin);
-    }
-
-    /**
-     * Calculator plugin stack, used for BC to have old fields populated.
-     *
-     * @return array
-     */
-    protected function getLegacyCalculatorPluginStack()
-    {
-        return [
-            new ProductOptionGrossSumCalculatorPlugin(),
-            new ProductOptionTaxRateCalculatorPlugin(),
-            new SumGrossCalculatedDiscountAmountCalculatorPlugin(),
-            new ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin(),
-            new ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin(),
-            new ExpenseTaxCalculatorPlugin(),
         ];
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb6de2a04d21874201c6b8cf813e1f75",
+    "content-hash": "9d1a2844b9a53c893ebbc09dfb208cf9",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -316,6 +316,54 @@
             "time": "2017-03-07T09:04:45+00:00"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3|^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2016-04-29T12:21:54+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.2.3",
             "source": {
@@ -537,16 +585,16 @@
         },
         {
             "name": "league/csv",
-            "version": "8.1.2",
+            "version": "8.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "33447984f7a7038fefaa5a6177e8407b66bc85b4"
+                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/33447984f7a7038fefaa5a6177e8407b66bc85b4",
-                "reference": "33447984f7a7038fefaa5a6177e8407b66bc85b4",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/43fd8b022815a0758d85e925dd92a43fe0d41bb4",
+                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4",
                 "shasum": ""
             },
             "require": {
@@ -560,7 +608,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "8.1-dev"
+                    "dev-master": "8.2-dev"
                 }
             },
             "autoload": {
@@ -590,7 +638,7 @@
                 "read",
                 "write"
             ],
-            "time": "2016-10-27T11:21:24+00:00"
+            "time": "2017-02-23T08:25:03+00:00"
         },
         {
             "name": "mandrill/mandrill",
@@ -637,16 +685,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.3",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6"
+                "reference": "2bd76fb0ba281bd90150a747bb7a8415c7e241f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/295c5135af2aedba535587e3d9daa30c176964b6",
-                "reference": "295c5135af2aedba535587e3d9daa30c176964b6",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/2bd76fb0ba281bd90150a747bb7a8415c7e241f3",
+                "reference": "2bd76fb0ba281bd90150a747bb7a8415c7e241f3",
                 "shasum": ""
             },
             "require": {
@@ -659,7 +707,7 @@
                 "ext-intl": "*",
                 "florianv/swap": "^3.0",
                 "henrikbjorn/phpspec-code-coverage": "^2.0.2",
-                "moneyphp/iso-currencies": "^1.0",
+                "moneyphp/iso-currencies": "^3.0",
                 "php-http/message": "^1.4",
                 "php-http/mock-client": "^0.3.3",
                 "phpspec/phpspec": "^2.5",
@@ -711,7 +759,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-03-22T22:24:40+00:00"
+            "time": "2017-04-26T12:54:44+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1362,16 +1410,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "v1.3.5",
+            "version": "v1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "374c7e04040a6f781c90f7d746726a5daa78e783"
+                "reference": "ff8aa6bc2e066e14b07e0c63e9bd9dd1458af136"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/374c7e04040a6f781c90f7d746726a5daa78e783",
-                "reference": "374c7e04040a6f781c90f7d746726a5daa78e783",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/ff8aa6bc2e066e14b07e0c63e9bd9dd1458af136",
+                "reference": "ff8aa6bc2e066e14b07e0c63e9bd9dd1458af136",
                 "shasum": ""
             },
             "require": {
@@ -1393,7 +1441,7 @@
                 "symfony/dom-crawler": "~2.3|3.0.*",
                 "symfony/finder": "~2.3|3.0.*",
                 "symfony/form": "~2.3|3.0.*",
-                "symfony/locale": "~2.3|3.0.*",
+                "symfony/intl": "~2.3|3.0.*",
                 "symfony/monolog-bridge": "~2.3|3.0.*",
                 "symfony/options-resolver": "~2.3|3.0.*",
                 "symfony/phpunit-bridge": "~2.7",
@@ -1403,7 +1451,7 @@
                 "symfony/translation": "~2.3|3.0.*",
                 "symfony/twig-bridge": "~2.3|3.0.*",
                 "symfony/validator": "~2.3|3.0.*",
-                "twig/twig": "~1.8|~2.0"
+                "twig/twig": "~1.28|~2.0"
             },
             "type": "library",
             "extra": {
@@ -1435,7 +1483,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2016-01-06T14:59:35+00:00"
+            "time": "2017-04-30T16:26:54+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1443,7 +1491,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "ad28b94faf72770e3a929bfcf6a204f419c3abee"
+                "reference": "a252f3d0e3dac79cc6ccc621f4c7d85761583823"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -1483,7 +1531,7 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-03-20 15:48:36"
+            "time": "2017-04-28 14:56:33"
         },
         {
             "name": "spryker/spryker",
@@ -1491,10 +1539,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c5b92b4f507cbd6db4f849718f1c5ce1291a0a8f"
+                "reference": "d642032592a71b675fc42d97a755a14d0abe7974"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
+                "fzaninotto/faker": "^1.6",
                 "moneyphp/money": "~3.0.0",
                 "paragonie/random_compat": "~1.2.1",
                 "phpdocumentor/graphviz": "~1.0.4"
@@ -1629,641 +1678,8 @@
             ],
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Spryker\\Shared\\Acl\\": "Bundles/Acl/src",
-                    "Functional\\Spryker\\Shared\\Acl\\": "Bundles/Acl/tests",
-                    "Spryker\\Zed\\Acl\\": "Bundles/Acl/src",
-                    "Functional\\Spryker\\Zed\\Acl\\": "Bundles/Acl/tests",
-                    "Spryker\\Shared\\Api\\": "Bundles/Api/src",
-                    "Functional\\Spryker\\Shared\\Api\\": "Bundles/Api/tests",
-                    "Spryker\\Zed\\Api\\": "Bundles/Api/src",
-                    "Functional\\Spryker\\Zed\\Api\\": "Bundles/Api/tests",
-                    "Spryker\\Shared\\Application\\": "Bundles/Application/src",
-                    "Unit\\Spryker\\Shared\\Application\\": "Bundles/Application/tests",
-                    "Spryker\\Yves\\Application\\": "Bundles/Application/src",
-                    "Unit\\Spryker\\Yves\\Application\\": "Bundles/Application/tests",
-                    "Spryker\\Zed\\Application\\": "Bundles/Application/src",
-                    "Unit\\Spryker\\Zed\\Application\\": "Bundles/Application/tests",
-                    "Spryker\\Zed\\Assertion\\": "Bundles/Assertion/src",
-                    "Unit\\Spryker\\Zed\\Assertion\\": "Bundles/Assertion/tests",
-                    "Spryker\\Client\\Auth\\": "Bundles/Auth/src",
-                    "Unit\\Spryker\\Client\\Auth\\": "Bundles/Auth/tests",
-                    "Functional\\Spryker\\Client\\Auth\\": "Bundles/Auth/tests",
-                    "Spryker\\Shared\\Auth\\": "Bundles/Auth/src",
-                    "Unit\\Spryker\\Shared\\Auth\\": "Bundles/Auth/tests",
-                    "Functional\\Spryker\\Shared\\Auth\\": "Bundles/Auth/tests",
-                    "Spryker\\Zed\\Auth\\": "Bundles/Auth/src",
-                    "Unit\\Spryker\\Zed\\Auth\\": "Bundles/Auth/tests",
-                    "Functional\\Spryker\\Zed\\Auth\\": "Bundles/Auth/tests",
-                    "Acceptance\\Auth\\Login\\": "Bundles/Auth/tests",
-                    "Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/src",
-                    "Unit\\Spryker\\Zed\\AuthMailConnector\\": "Bundles/AuthMailConnector/tests",
-                    "Spryker\\Shared\\Availability\\": "Bundles/Availability/src",
-                    "Unit\\Spryker\\Zed\\Availability\\": "Bundles/Availability/tests",
-                    "Acceptance\\Availability\\": "Bundles/Availability/tests",
-                    "Spryker\\Zed\\Availability\\": "Bundles/Availability/src",
-                    "Spryker\\Client\\Availability\\": "Bundles/Availability/src",
-                    "Functional\\Spryker\\Zed\\Availability\\": "Bundles/Availability/tests",
-                    "Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/src",
-                    "Unit\\Spryker\\Zed\\AvailabilityCartConnector\\": "Bundles/AvailabilityCartConnector/tests",
-                    "Spryker\\Yves\\Braintree\\": "Bundles/Braintree/src",
-                    "Spryker\\Client\\Braintree\\": "Bundles/Braintree/src",
-                    "Unit\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
-                    "Functional\\Spryker\\Client\\Braintree\\": "Bundles/Braintree/tests",
-                    "Acceptance\\Braintree\\": "Bundles/Braintree/tests",
-                    "Spryker\\Shared\\Braintree\\": "Bundles/Braintree/src",
-                    "Unit\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
-                    "Functional\\Spryker\\Shared\\Braintree\\": "Bundles/Braintree/tests",
-                    "Spryker\\Zed\\Braintree\\": "Bundles/Braintree/src",
-                    "Unit\\Spryker\\Zed\\Braintree\\": "Bundles/Braintree/tests",
-                    "Functional\\Spryker\\Zed\\Braintree\\": "Bundles/Braintree/tests",
-                    "Spryker\\Zed\\Cache\\": "Bundles/Cache/src",
-                    "Spryker\\Shared\\Calculation\\": "Bundles/Calculation/src",
-                    "Unit\\Spryker\\Shared\\Calculation\\": "Bundles/Calculation/tests",
-                    "Spryker\\Client\\Calculation\\": "Bundles/Calculation/src",
-                    "Unit\\Spryker\\Client\\Calculation\\": "Bundles/Calculation/tests",
-                    "Spryker\\Zed\\Calculation\\": "Bundles/Calculation/src",
-                    "Unit\\Spryker\\Zed\\Calculation\\": "Bundles/Calculation/tests",
-                    "Spryker\\Client\\Cart\\": "Bundles/Cart/src",
-                    "Unit\\Spryker\\Client\\Cart\\": "Bundles/Cart/tests",
-                    "Functional\\Spryker\\Client\\Cart\\": "Bundles/Cart/tests",
-                    "Spryker\\Shared\\Cart\\": "Bundles/Cart/src",
-                    "Unit\\Spryker\\Shared\\Cart\\": "Bundles/Cart/tests",
-                    "Functional\\Spryker\\Shared\\Cart\\": "Bundles/Cart/tests",
-                    "Spryker\\Zed\\Cart\\": "Bundles/Cart/src",
-                    "Unit\\Spryker\\Zed\\Cart\\": "Bundles/Cart/tests",
-                    "Functional\\Spryker\\Zed\\Cart\\": "Bundles/Cart/tests",
-                    "Spryker\\Client\\Catalog\\": "Bundles/Catalog/src",
-                    "Unit\\Spryker\\Client\\Catalog\\": "Bundles/Catalog/tests",
-                    "Spryker\\Shared\\Catalog\\": "Bundles/Catalog/src",
-                    "Unit\\Spryker\\Shared\\Catalog\\": "Bundles/Catalog/tests",
-                    "Spryker\\Shared\\Category\\": "Bundles/Category/src",
-                    "Unit\\Spryker\\Shared\\Category\\": "Bundles/Category/tests",
-                    "Functional\\Spryker\\Shared\\Category\\": "Bundles/Category/tests",
-                    "Spryker\\Zed\\Category\\": "Bundles/Category/src",
-                    "Unit\\Spryker\\Zed\\Category\\": "Bundles/Category/tests",
-                    "Functional\\Spryker\\Zed\\Category\\": "Bundles/Category/tests",
-                    "Acceptance\\Category\\": "Bundles/Category/tests",
-                    "Spryker\\Client\\CategoryExporter\\": "Bundles/CategoryExporter/src",
-                    "Spryker\\Shared\\CategoryExporter\\": "Bundles/CategoryExporter/src",
-                    "Spryker\\Client\\Checkout\\": "Bundles/Checkout/src",
-                    "Spryker\\Yves\\Checkout\\": "Bundles/Checkout/src",
-                    "Spryker\\Yves\\StepEngine\\": "Bundles/StepEngine/src",
-                    "Unit\\Spryker\\Yves\\StepEngine\\": "Bundles/StepEngine/tests",
-                    "Unit\\Spryker\\Client\\Checkout\\": "Bundles/Checkout/tests",
-                    "Functional\\Spryker\\Client\\Checkout\\": "Bundles/Checkout/tests",
-                    "Spryker\\Shared\\Checkout\\": "Bundles/Checkout/src",
-                    "Unit\\Spryker\\Shared\\Checkout\\": "Bundles/Checkout/tests",
-                    "Functional\\Spryker\\Shared\\Checkout\\": "Bundles/Checkout/tests",
-                    "Spryker\\Zed\\Checkout\\": "Bundles/Checkout/src",
-                    "Unit\\Spryker\\Zed\\Checkout\\": "Bundles/Checkout/tests",
-                    "Functional\\Spryker\\Zed\\Checkout\\": "Bundles/Checkout/tests",
-                    "Spryker\\Client\\Cms\\": "Bundles/Cms/src",
-                    "Functional\\Spryker\\Client\\Cms\\": "Bundles/Cms/tests",
-                    "Spryker\\Shared\\Cms\\": "Bundles/Cms/src",
-                    "Functional\\Spryker\\Shared\\Cms\\": "Bundles/Cms/tests",
-                    "Spryker\\Zed\\Cms\\": "Bundles/Cms/src",
-                    "Functional\\Spryker\\Zed\\Cms\\": "Bundles/Cms/tests",
-                    "Unit\\Spryker\\Zed\\Cms\\": "Bundles/Cms/tests",
-                    "Spryker\\Client\\Collector\\": "Bundles/Collector/src",
-                    "Unit\\Spryker\\Client\\Collector\\": "Bundles/Collector/tests",
-                    "Spryker\\Shared\\Collector\\": "Bundles/Collector/src",
-                    "Unit\\Spryker\\Shared\\Collector\\": "Bundles/Collector/tests",
-                    "Spryker\\Zed\\Collector\\": "Bundles/Collector/src",
-                    "Unit\\Spryker\\Zed\\Collector\\": "Bundles/Collector/tests",
-                    "Spryker\\Zed\\CollectorStorageConnector\\": "Bundles/CollectorStorageConnector/src",
-                    "Spryker\\Zed\\CollectorSearchConnector\\": "Bundles/CollectorSearchConnector/src",
-                    "Spryker\\Shared\\Config\\": "Bundles/Config/src",
-                    "Unit\\Spryker\\Shared\\Config\\": "Bundles/Config/tests",
-                    "Spryker\\Zed\\Console\\": "Bundles/Console/src",
-                    "Unit\\Spryker\\Zed\\Console\\": "Bundles/Console/tests",
-                    "Functional\\Spryker\\Zed\\Console\\": "Bundles/Console/tests",
-                    "Spryker\\Shared\\Country\\": "Bundles/Country/src",
-                    "Functional\\Spryker\\Shared\\Country\\": "Bundles/Country/tests",
-                    "Spryker\\Zed\\Country\\": "Bundles/Country/src",
-                    "Functional\\Spryker\\Zed\\Country\\": "Bundles/Country/tests",
-                    "Spryker\\Client\\Customer\\": "Bundles/Customer/src",
-                    "Unit\\Spryker\\Client\\Customer\\": "Bundles/Customer/tests",
-                    "Functional\\Spryker\\Client\\Customer\\": "Bundles/Customer/tests",
-                    "Spryker\\Shared\\Customer\\": "Bundles/Customer/src",
-                    "Unit\\Spryker\\Shared\\Customer\\": "Bundles/Customer/tests",
-                    "Functional\\Spryker\\Shared\\Customer\\": "Bundles/Customer/tests",
-                    "Acceptance\\Customer\\": "Bundles/Customer/tests",
-                    "Spryker\\Zed\\Customer\\": "Bundles/Customer/src",
-                    "Unit\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
-                    "Functional\\Spryker\\Zed\\Customer\\": "Bundles/Customer/tests",
-                    "Spryker\\Shared\\CustomerApi\\": "Bundles/CustomerApi/src",
-                    "Functional\\Spryker\\Shared\\CustomerApi\\": "Bundles/CustomerApi/tests",
-                    "Acceptance\\CustomerApi\\": "Bundles/CustomerApi/tests",
-                    "Spryker\\Zed\\CustomerApi\\": "Bundles/CustomerApi/src",
-                    "Functional\\Spryker\\Zed\\CustomerApi\\": "Bundles/CustomerApi/tests",
-                    "Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/src",
-                    "Unit\\Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
-                    "Functional\\Spryker\\Shared\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
-                    "Acceptance\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
-                    "Spryker\\Zed\\CustomerGroup\\": "Bundles/CustomerGroup/src",
-                    "Unit\\Spryker\\Zed\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
-                    "Functional\\Spryker\\Zed\\CustomerGroup\\": "Bundles/CustomerGroup/tests",
-                    "Spryker\\Client\\Currency\\": "Bundles/Currency/src",
-                    "Spryker\\Zed\\Currency\\": "Bundles/Currency/src",
-                    "Spryker\\Yves\\Currency\\": "Bundles/Currency/src",
-                    "Spryker\\Shared\\Currency\\": "Bundles/Currency/src",
-                    "Functional\\Client\\Currency\\": "Bundles/Currency/tests",
-                    "Functional\\Zed\\Currency\\": "Bundles/Currency/tests",
-                    "Functional\\Yves\\Currency\\": "Bundles/Currency/tests",
-                    "Unit\\Shared\\Currency\\": "Bundles/Currency/tests",
-                    "Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/src",
-                    "Unit\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
-                    "Functional\\Spryker\\Shared\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
-                    "Spryker\\Zed\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/src",
-                    "Unit\\Spryker\\Zed\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
-                    "Functional\\Spryker\\Zed\\CustomerMailConnector\\": "Bundles/CustomerMailConnector/tests",
-                    "Spryker\\Zed\\Development\\": "Bundles/Development/src",
-                    "Spryker\\Shared\\Development\\": "Bundles/Development/src",
-                    "Unit\\Spryker\\Zed\\Development\\": "Bundles/Development/tests",
-                    "Spryker\\Shared\\Discount\\": "Bundles/Discount/src",
-                    "Unit\\Spryker\\Shared\\Discount\\": "Bundles/Discount/tests",
-                    "Functional\\Spryker\\Shared\\Discount\\": "Bundles/Discount/tests",
-                    "Spryker\\Zed\\Discount\\": "Bundles/Discount/src",
-                    "Unit\\Spryker\\Zed\\Discount\\": "Bundles/Discount/tests",
-                    "Functional\\Spryker\\Zed\\Discount\\": "Bundles/Discount/tests",
-                    "Spryker\\Shared\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/src",
-                    "Unit\\Spryker\\Shared\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
-                    "Functional\\Spryker\\Shared\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
-                    "Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/src",
-                    "Unit\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountCalculationConnector\\": "Bundles/DiscountCalculationConnector/tests",
-                    "Spryker\\Yves\\DummyPayment\\": "Bundles/DummyPayment/src",
-                    "Spryker\\Shared\\DummyPayment\\": "Bundles/DummyPayment/src",
-                    "Spryker\\Zed\\DummyPayment\\": "Bundles/DummyPayment/src",
-                    "Spryker\\Shared\\ErrorHandler\\": "Bundles/ErrorHandler/src",
-                    "Unit\\Spryker\\Shared\\ErrorHandler\\": "Bundles/ErrorHandler/tests",
-                    "Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/src",
-                    "Unit\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
-                    "Functional\\Spryker\\Client\\EventJournal\\": "Bundles/EventJournal/tests",
-                    "Spryker\\Shared\\EventJournal\\": "Bundles/EventJournal/src",
-                    "Unit\\Spryker\\Shared\\EventJournal\\": "Bundles/EventJournal/tests",
-                    "Functional\\Spryker\\Shared\\EventJournal\\": "Bundles/EventJournal/tests",
-                    "Spryker\\Zed\\EventJournal\\": "Bundles/EventJournal/src",
-                    "Unit\\Spryker\\Zed\\EventJournal\\": "Bundles/EventJournal/tests",
-                    "Functional\\Spryker\\Zed\\EventJournal\\": "Bundles/EventJournal/tests",
-                    "Spryker\\Client\\Glossary\\": "Bundles/Glossary/src",
-                    "Unit\\Spryker\\Client\\Glossary\\": "Bundles/Glossary/tests",
-                    "Functional\\Spryker\\Client\\Glossary\\": "Bundles/Glossary/tests",
-                    "Spryker\\Shared\\Glossary\\": "Bundles/Glossary/src",
-                    "Unit\\Spryker\\Shared\\Glossary\\": "Bundles/Glossary/tests",
-                    "Functional\\Spryker\\Shared\\Glossary\\": "Bundles/Glossary/tests",
-                    "Spryker\\Zed\\Glossary\\": "Bundles/Glossary/src",
-                    "Unit\\Spryker\\Zed\\Glossary\\": "Bundles/Glossary/tests",
-                    "Functional\\Spryker\\Zed\\Glossary\\": "Bundles/Glossary/tests",
-                    "Spryker\\Shared\\Graph\\": "Bundles/Graph/src",
-                    "Unit\\Spryker\\Shared\\Graph\\": "Bundles/Graph/tests",
-                    "Spryker\\Zed\\Graph\\": "Bundles/Graph/src",
-                    "Unit\\Spryker\\Zed\\Graph\\": "Bundles/Graph/tests",
-                    "Spryker\\Shared\\Gui\\": "Bundles/Gui/src",
-                    "Spryker\\Zed\\Gui\\": "Bundles/Gui/src",
-                    "Unit\\Spryker\\Zed\\Gui\\": "Bundles/Gui/tests",
-                    "Spryker\\Shared\\Heartbeat\\": "Bundles/Heartbeat/src",
-                    "Unit\\Spryker\\Shared\\Heartbeat\\": "Bundles/Heartbeat/tests",
-                    "Spryker\\Zed\\Heartbeat\\": "Bundles/Heartbeat/src",
-                    "Unit\\Spryker\\Zed\\Heartbeat\\": "Bundles/Heartbeat/tests",
-                    "Spryker\\Zed\\Installer\\": "Bundles/Installer/src",
-                    "Spryker\\Zed\\Invoice\\": "Bundles/Invoice/src",
-                    "Spryker\\Shared\\Invoice\\": "Bundles/Invoice/src",
-                    "Unit\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
-                    "Functional\\Spryker\\Shared\\Invoice\\": "Bundles/Invoice/tests",
-                    "Spryker\\Service\\Kernel\\": "Bundles/Kernel/src",
-                    "Unit\\Spryker\\Service\\Kernel\\": "Bundles/Kernel/tests",
-                    "Functional\\Spryker\\Service\\Kernel\\": "Bundles/Kernel/tests",
-                    "Spryker\\Client\\Kernel\\": "Bundles/Kernel/src",
-                    "Unit\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
-                    "Functional\\Spryker\\Client\\Kernel\\": "Bundles/Kernel/tests",
-                    "Spryker\\Shared\\Kernel\\": "Bundles/Kernel/src",
-                    "Unit\\Spryker\\Shared\\Kernel\\": "Bundles/Kernel/tests",
-                    "Functional\\Spryker\\Shared\\Kernel\\": "Bundles/Kernel/tests",
-                    "Spryker\\Yves\\Kernel\\": "Bundles/Kernel/src",
-                    "Unit\\Spryker\\Yves\\Kernel\\": "Bundles/Kernel/tests",
-                    "Functional\\Spryker\\Yves\\Kernel\\": "Bundles/Kernel/tests",
-                    "Spryker\\Zed\\Kernel\\": "Bundles/Kernel/src",
-                    "Unit\\Spryker\\Zed\\Kernel\\": "Bundles/Kernel/tests",
-                    "Functional\\Spryker\\Zed\\Kernel\\": "Bundles/Kernel/tests",
-                    "Spryker\\Shared\\KeyBuilder\\": "Bundles/KeyBuilder/src",
-                    "Unit\\Spryker\\Shared\\KeyBuilder\\": "Bundles/KeyBuilder/tests",
-                    "Spryker\\Client\\Locale\\": "Bundles/Locale/src",
-                    "Unit\\Spryker\\Client\\Locale\\": "Bundles/Locale/tests",
-                    "Functional\\Spryker\\Client\\Locale\\": "Bundles/Locale/tests",
-                    "Spryker\\Shared\\Locale\\": "Bundles/Locale/src",
-                    "Unit\\Spryker\\Shared\\Locale\\": "Bundles/Locale/tests",
-                    "Functional\\Spryker\\Shared\\Locale\\": "Bundles/Locale/tests",
-                    "Spryker\\Zed\\Locale\\": "Bundles/Locale/src",
-                    "Unit\\Spryker\\Zed\\Locale\\": "Bundles/Locale/tests",
-                    "Functional\\Spryker\\Zed\\Locale\\": "Bundles/Locale/tests",
-                    "Spryker\\Shared\\Log\\": "Bundles/Log/src",
-                    "Unit\\Spryker\\Shared\\Log\\": "Bundles/Log/tests",
-                    "Spryker\\Zed\\Log\\": "Bundles/Log/src",
-                    "Unit\\Spryker\\Zed\\Log\\": "Bundles/Log/tests",
-                    "Spryker\\Shared\\Mail\\": "Bundles/Mail/src",
-                    "Unit\\Spryker\\Shared\\Mail\\": "Bundles/Mail/tests",
-                    "Functional\\Spryker\\Shared\\Mail\\": "Bundles/Mail/tests",
-                    "Spryker\\Zed\\Mail\\": "Bundles/Mail/src",
-                    "Unit\\Spryker\\Zed\\Mail\\": "Bundles/Mail/tests",
-                    "Functional\\Spryker\\Zed\\Mail\\": "Bundles/Mail/tests",
-                    "Spryker\\Shared\\Maintenance\\": "Bundles/Maintenance/src",
-                    "Unit\\Spryker\\Shared\\Maintenance\\": "Bundles/Maintenance/tests",
-                    "Spryker\\Zed\\Maintenance\\": "Bundles/Maintenance/src",
-                    "Unit\\Spryker\\Zed\\Maintenance\\": "Bundles/Maintenance/tests",
-                    "Spryker\\Shared\\Messenger\\": "Bundles/Messenger/src",
-                    "Spryker\\Yves\\Messenger\\": "Bundles/Messenger/src",
-                    "Unit\\Spryker\\Shared\\Messenger\\": "Bundles/Messenger/tests",
-                    "Spryker\\Zed\\Messenger\\": "Bundles/Messenger/src",
-                    "Unit\\Spryker\\Zed\\Messenger\\": "Bundles/Messenger/tests",
-                    "Spryker\\Client\\Money\\": "Bundles/Money/src",
-                    "Spryker\\Shared\\Money\\": "Bundles/Money/src",
-                    "Spryker\\Yves\\Money\\": "Bundles/Money/src",
-                    "Spryker\\Zed\\Money\\": "Bundles/Money/src",
-                    "Unit\\Spryker\\Client\\Money\\": "Bundles/Money/tests",
-                    "Unit\\Spryker\\Shared\\Money\\": "Bundles/Money/tests",
-                    "Unit\\Spryker\\Yves\\Money\\": "Bundles/Money/tests",
-                    "Unit\\Spryker\\Zed\\Money\\": "Bundles/Money/tests",
-                    "Spryker\\Client\\Navigation\\": "Bundles/Navigation/src",
-                    "Spryker\\Shared\\Navigation\\": "Bundles/Navigation/src",
-                    "Spryker\\Yves\\Navigation\\": "Bundles/Navigation/src",
-                    "Spryker\\Zed\\Navigation\\": "Bundles/Navigation/src",
-                    "Functional\\Spryker\\Shared\\Navigation\\": "Bundles/Navigation/tests",
-                    "Functional\\Spryker\\Zed\\Navigation\\": "Bundles/Navigation/tests",
-                    "Spryker\\Shared\\NavigationCollector\\": "Bundles/NavigationCollector/src",
-                    "Spryker\\Zed\\NavigationCollector\\": "Bundles/NavigationCollector/src",
-                    "Functional\\Spryker\\Shared\\NavigationCollector\\": "Bundles/NavigationCollector/tests",
-                    "Functional\\Spryker\\Zed\\NavigationCollector\\": "Bundles/NavigationCollector/tests",
-                    "Spryker\\Shared\\NavigationGui\\": "Bundles/NavigationGui/src",
-                    "Spryker\\Zed\\NavigationGui\\": "Bundles/NavigationGui/src",
-                    "Functional\\Spryker\\Shared\\NavigationGui\\": "Bundles/NavigationGui/tests",
-                    "Functional\\Spryker\\Zed\\NavigationGui\\": "Bundles/NavigationGui/tests",
-                    "Spryker\\Shared\\ZedNavigation\\": "Bundles/ZedNavigation/src",
-                    "Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/src",
-                    "Unit\\Spryker\\Zed\\ZedNavigation\\": "Bundles/ZedNavigation/tests",
-                    "Spryker\\Shared\\NewRelic\\": "Bundles/NewRelic/src",
-                    "Spryker\\Zed\\NewRelic\\": "Bundles/NewRelic/src",
-                    "Spryker\\Yves\\NewRelic\\": "Bundles/NewRelic/src",
-                    "Spryker\\Shared\\NewRelicApi\\": "Bundles/NewRelicApi/src",
-                    "Spryker\\Client\\Newsletter\\": "Bundles/Newsletter/src",
-                    "Functional\\Spryker\\Client\\Newsletter\\": "Bundles/Newsletter/tests",
-                    "Spryker\\Shared\\Newsletter\\": "Bundles/Newsletter/src",
-                    "Functional\\Spryker\\Shared\\Newsletter\\": "Bundles/Newsletter/tests",
-                    "Spryker\\Zed\\Newsletter\\": "Bundles/Newsletter/src",
-                    "Functional\\Spryker\\Zed\\Newsletter\\": "Bundles/Newsletter/tests",
-                    "Spryker\\Shared\\Oms\\": "Bundles/Oms/src",
-                    "Unit\\Spryker\\Shared\\Oms\\": "Bundles/Oms/tests",
-                    "Functional\\Spryker\\Shared\\Oms\\": "Bundles/Oms/tests",
-                    "Spryker\\Zed\\Oms\\": "Bundles/Oms/src",
-                    "Unit\\Spryker\\Zed\\Oms\\": "Bundles/Oms/tests",
-                    "Functional\\Spryker\\Zed\\Oms\\": "Bundles/Oms/tests",
-                    "Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\OmsDiscountConnector\\": "Bundles/OmsDiscountConnector/tests",
-                    "Spryker\\Client\\Payment\\": "Bundles/Payment/src",
-                    "Unit\\Spryker\\Client\\Payment\\": "Bundles/Payment/tests",
-                    "Functional\\Spryker\\Client\\Payment\\": "Bundles/Payment/tests",
-                    "Spryker\\Shared\\Payment\\": "Bundles/Payment/src",
-                    "Unit\\Spryker\\Shared\\Payment\\": "Bundles/Payment/tests",
-                    "Functional\\Spryker\\Shared\\Payment\\": "Bundles/Payment/tests",
-                    "Spryker\\Zed\\Payment\\": "Bundles/Payment/src",
-                    "Unit\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
-                    "Functional\\Spryker\\Zed\\Payment\\": "Bundles/Payment/tests",
-                    "Spryker\\Client\\Payolution\\": "Bundles/Payolution/src",
-                    "Spryker\\Yves\\Payolution\\": "Bundles/Payolution/src",
-                    "Unit\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
-                    "Functional\\Spryker\\Client\\Payolution\\": "Bundles/Payolution/tests",
-                    "Spryker\\Shared\\Payolution\\": "Bundles/Payolution/src",
-                    "Unit\\Spryker\\Shared\\Payolution\\": "Bundles/Payolution/tests",
-                    "Functional\\Spryker\\Shared\\Payolution\\": "Bundles/Payolution/tests",
-                    "Spryker\\Zed\\Payolution\\": "Bundles/Payolution/src",
-                    "Unit\\Spryker\\Zed\\Payolution\\": "Bundles/Payolution/tests",
-                    "Functional\\Spryker\\Zed\\Payolution\\": "Bundles/Payolution/tests",
-                    "Spryker\\Client\\Payone\\": "Bundles/Payone/src",
-                    "Unit\\Spryker\\Client\\Payone\\": "Bundles/Payone/tests",
-                    "Functional\\Spryker\\Client\\Payone\\": "Bundles/Payone/tests",
-                    "Spryker\\Shared\\Payone\\": "Bundles/Payone/src",
-                    "Unit\\Spryker\\Shared\\Payone\\": "Bundles/Payone/tests",
-                    "Functional\\Spryker\\Shared\\Payone\\": "Bundles/Payone/tests",
-                    "Spryker\\Zed\\Payone\\": "Bundles/Payone/src",
-                    "Unit\\Spryker\\Zed\\Payone\\": "Bundles/Payone/tests",
-                    "Functional\\Spryker\\Zed\\Payone\\": "Bundles/Payone/tests",
-                    "Spryker\\Shared\\Price\\": "Bundles/Price/src",
-                    "Unit\\Spryker\\Shared\\Price\\": "Bundles/Price/tests",
-                    "Functional\\Spryker\\Shared\\Price\\": "Bundles/Price/tests",
-                    "Spryker\\Zed\\Price\\": "Bundles/Price/src",
-                    "Unit\\Spryker\\Zed\\Price\\": "Bundles/Price/tests",
-                    "Functional\\Spryker\\Zed\\Price\\": "Bundles/Price/tests",
-                    "Spryker\\Shared\\PriceCartConnector\\": "Bundles/PriceCartConnector/src",
-                    "Unit\\Spryker\\Shared\\PriceCartConnector\\": "Bundles/PriceCartConnector/tests",
-                    "Functional\\Spryker\\Shared\\PriceCartConnector\\": "Bundles/PriceCartConnector/tests",
-                    "Spryker\\Zed\\PriceCartConnector\\": "Bundles/PriceCartConnector/src",
-                    "Unit\\Spryker\\Zed\\PriceCartConnector\\": "Bundles/PriceCartConnector/tests",
-                    "Functional\\Spryker\\Zed\\PriceCartConnector\\": "Bundles/PriceCartConnector/tests",
-                    "Spryker\\Client\\Product\\": "Bundles/Product/src",
-                    "Unit\\Spryker\\Client\\Product\\": "Bundles/Product/tests",
-                    "Functional\\Spryker\\Client\\Product\\": "Bundles/Product/tests",
-                    "Spryker\\Shared\\Product\\": "Bundles/Product/src",
-                    "Unit\\Spryker\\Shared\\Product\\": "Bundles/Product/tests",
-                    "Functional\\Spryker\\Shared\\Product\\": "Bundles/Product/tests",
-                    "Spryker\\Zed\\Product\\": "Bundles/Product/src",
-                    "Spryker\\Yves\\Product\\": "Bundles/Product/src",
-                    "Unit\\Spryker\\Zed\\Product\\": "Bundles/Product/tests",
-                    "Functional\\Spryker\\Zed\\Product\\": "Bundles/Product/tests",
-                    "Spryker\\Shared\\ProductCartConnector\\": "Bundles/ProductCartConnector/src",
-                    "Unit\\Spryker\\Shared\\ProductCartConnector\\": "Bundles/ProductCartConnector/tests",
-                    "Functional\\Spryker\\Shared\\ProductCartConnector\\": "Bundles/ProductCartConnector/tests",
-                    "Spryker\\Zed\\ProductCartConnector\\": "Bundles/ProductCartConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductCartConnector\\": "Bundles/ProductCartConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductCartConnector\\": "Bundles/ProductCartConnector/tests",
-                    "Spryker\\Shared\\ProductCategory\\": "Bundles/ProductCategory/src",
-                    "Unit\\Spryker\\Shared\\ProductCategory\\": "Bundles/ProductCategory/tests",
-                    "Functional\\Spryker\\Shared\\ProductCategory\\": "Bundles/ProductCategory/tests",
-                    "Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/src",
-                    "Spryker\\Yves\\ProductCategory\\": "Bundles/ProductCategory/src",
-                    "Unit\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
-                    "Functional\\Spryker\\Zed\\ProductCategory\\": "Bundles/ProductCategory/tests",
-                    "Acceptance\\ProductCategory\\": "Bundles/ProductCategory/tests",
-                    "Spryker\\Shared\\ProductApi\\": "Bundles/ProductApi/src",
-                    "Functional\\Spryker\\Shared\\ProductApi\\": "Bundles/ProductApi/tests",
-                    "Acceptance\\ProductApi\\": "Bundles/ProductApi/tests",
-                    "Spryker\\Zed\\ProductApi\\": "Bundles/ProductApi/src",
-                    "Functional\\Spryker\\Zed\\ProductApi\\": "Bundles/ProductApi/tests",
-                    "Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/src",
-                    "Spryker\\Client\\ProductOption\\": "Bundles/ProductOption/src",
-                    "Unit\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
-                    "Functional\\Spryker\\Shared\\ProductOption\\": "Bundles/ProductOption/tests",
-                    "Acceptance\\ProductOption\\": "Bundles/ProductOption/tests",
-                    "Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/src",
-                    "Unit\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
-                    "Functional\\Spryker\\Zed\\ProductOption\\": "Bundles/ProductOption/tests",
-                    "Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/src",
-                    "Spryker\\Zed\\ProductImage\\": "Bundles/ProductImage/src",
-                    "Unit\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
-                    "Functional\\Spryker\\Shared\\ProductImage\\": "Bundles/ProductImage/tests",
-                    "Spryker\\Yves\\ProductImage\\": "Bundles/ProductImage/src",
-                    "Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
-                    "Unit\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
-                    "Functional\\Spryker\\Shared\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
-                    "Spryker\\Zed\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductOptionCartConnector\\": "Bundles/ProductOptionCartConnector/tests",
-                    "Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductOptionDiscountConnector\\": "Bundles/ProductOptionDiscountConnector/tests",
-                    "Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/src",
-                    "Unit\\Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/tests",
-                    "Functional\\Spryker\\Shared\\ProductSearch\\": "Bundles/ProductSearch/tests",
-                    "Spryker\\Client\\ProductSearch\\": "Bundles/ProductSearch/src",
-                    "Unit\\Spryker\\Client\\ProductSearch\\": "Bundles/ProductSearch/tests",
-                    "Functional\\Spryker\\Client\\ProductSearch\\": "Bundles/ProductSearch/tests",
-                    "Spryker\\Zed\\ProductSearch\\": "Bundles/ProductSearch/src",
-                    "Unit\\Spryker\\Zed\\ProductSearch\\": "Bundles/ProductSearch/tests",
-                    "Functional\\Spryker\\Zed\\ProductSearch\\": "Bundles/ProductSearch/tests",
-                    "Acceptance\\ProductSearch\\": "Bundles/ProductSearch/tests",
-                    "Spryker\\Shared\\Propel\\": "Bundles/Propel/src",
-                    "Unit\\Spryker\\Shared\\Propel\\": "Bundles/Propel/tests",
-                    "Functional\\Spryker\\Shared\\Propel\\": "Bundles/Propel/tests",
-                    "Spryker\\Zed\\Propel\\": "Bundles/Propel/src",
-                    "Unit\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
-                    "Functional\\Spryker\\Zed\\Propel\\": "Bundles/Propel/tests",
-                    "Spryker\\Zed\\PropelOrm\\": "Bundles/PropelOrm/src",
-                    "Unit\\Spryker\\Zed\\PropelOrm\\": "Bundles/PropelOrm/tests",
-                    "Functional\\Spryker\\Zed\\PropelOrm\\": "Bundles/PropelOrm/tests",
-                    "Spryker\\Client\\Quote\\": "Bundles/Quote/src",
-                    "Spryker\\Shared\\Refund\\": "Bundles/Refund/src",
-                    "Spryker\\Zed\\Refund\\": "Bundles/Refund/src",
-                    "Acceptance\\Refund\\": "Bundles/Refund/tests",
-                    "Unit\\Spryker\\Shared\\Refund\\": "Bundles/Refund/tests",
-                    "Unit\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
-                    "Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/src",
-                    "Spryker\\Yves\\Ratepay\\": "Bundles/Ratepay/src",
-                    "Spryker\\Shared\\Ratepay\\": "Bundles/Ratepay/src",
-                    "Spryker\\Client\\Ratepay\\": "Bundles/Ratepay/src",
-                    "Functional\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
-                    "Unit\\Spryker\\Zed\\Ratepay\\": "Bundles/Ratepay/tests",
-                    "Functional\\Spryker\\Zed\\Refund\\": "Bundles/Refund/tests",
-                    "Spryker\\Client\\Sales\\": "Bundles/Sales/src",
-                    "Unit\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
-                    "Functional\\Spryker\\Client\\Sales\\": "Bundles/Sales/tests",
-                    "Acceptance\\Sales\\": "Bundles/Sales/tests",
-                    "Spryker\\Shared\\Sales\\": "Bundles/Sales/src",
-                    "Unit\\Spryker\\Shared\\Sales\\": "Bundles/Sales/tests",
-                    "Functional\\Spryker\\Shared\\Sales\\": "Bundles/Sales/tests",
-                    "Spryker\\Zed\\Sales\\": "Bundles/Sales/src",
-                    "Unit\\Spryker\\Zed\\Sales\\": "Bundles/Sales/tests",
-                    "Functional\\Spryker\\Zed\\Sales\\": "Bundles/Sales/tests",
-                    "Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/src",
-                    "Unit\\Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/tests",
-                    "Functional\\Spryker\\Shared\\SalesSplit\\": "Bundles/SalesSplit/tests",
-                    "Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/src",
-                    "Unit\\Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/tests",
-                    "Functional\\Spryker\\Zed\\SalesSplit\\": "Bundles/SalesSplit/tests",
-                    "Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/src",
-                    "Unit\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
-                    "Functional\\Spryker\\Zed\\SalesAggregator\\": "Bundles/SalesAggregator/tests",
-                    "Spryker\\Client\\Search\\": "Bundles/Search/src",
-                    "Unit\\Spryker\\Client\\Search\\": "Bundles/Search/tests",
-                    "Functional\\Spryker\\Client\\Search\\": "Bundles/Search/tests",
-                    "Spryker\\Shared\\Search\\": "Bundles/Search/src",
-                    "Unit\\Spryker\\Shared\\Search\\": "Bundles/Search/tests",
-                    "Functional\\Spryker\\Shared\\Search\\": "Bundles/Search/tests",
-                    "Spryker\\Zed\\Search\\": "Bundles/Search/src",
-                    "Unit\\Spryker\\Zed\\Search\\": "Bundles/Search/tests",
-                    "Functional\\Spryker\\Zed\\Search\\": "Bundles/Search/tests",
-                    "Spryker\\Shared\\SequenceNumber\\": "Bundles/SequenceNumber/src",
-                    "Functional\\Spryker\\Shared\\SequenceNumber\\": "Bundles/SequenceNumber/tests",
-                    "Spryker\\Zed\\SequenceNumber\\": "Bundles/SequenceNumber/src",
-                    "Functional\\Spryker\\Zed\\SequenceNumber\\": "Bundles/SequenceNumber/tests",
-                    "Spryker\\Client\\Session\\": "Bundles/Session/src",
-                    "Spryker\\Shared\\Session\\": "Bundles/Session/src",
-                    "Spryker\\Zed\\Session\\": "Bundles/Session/src",
-                    "Spryker\\Shared\\Setup\\": "Bundles/Setup/src",
-                    "Unit\\Spryker\\Shared\\Setup\\": "Bundles/Setup/tests",
-                    "Functional\\Spryker\\Shared\\Setup\\": "Bundles/Setup/tests",
-                    "Spryker\\Zed\\Setup\\": "Bundles/Setup/src",
-                    "Unit\\Spryker\\Zed\\Setup\\": "Bundles/Setup/tests",
-                    "Functional\\Spryker\\Zed\\Setup\\": "Bundles/Setup/tests",
-                    "Spryker\\Client\\Shipment\\": "Bundles/Shipment/src",
-                    "Unit\\Spryker\\Client\\Shipment\\": "Bundles/Shipment/tests",
-                    "Spryker\\Shared\\Shipment\\": "Bundles/Shipment/src",
-                    "Unit\\Spryker\\Shared\\Shipment\\": "Bundles/Shipment/tests",
-                    "Spryker\\Zed\\Shipment\\": "Bundles/Shipment/src",
-                    "Unit\\Spryker\\Zed\\Shipment\\": "Bundles/Shipment/tests",
-                    "Acceptance\\Shipment\\": "Bundles/Shipment/tests",
-                    "Spryker\\Shared\\SqlCriteriaBuilder\\": "Bundles/SqlCriteriaBuilder/src",
-                    "Spryker\\Shared\\Stock\\": "Bundles/Stock/src",
-                    "Unit\\Spryker\\Shared\\Stock\\": "Bundles/Stock/tests",
-                    "Functional\\Spryker\\Shared\\Stock\\": "Bundles/Stock/tests",
-                    "Spryker\\Zed\\Stock\\": "Bundles/Stock/src",
-                    "Unit\\Spryker\\Zed\\Stock\\": "Bundles/Stock/tests",
-                    "Functional\\Spryker\\Zed\\Stock\\": "Bundles/Stock/tests",
-                    "Spryker\\Zed\\StockSalesConnector\\": "Bundles/StockSalesConnector/src",
-                    "Unit\\Spryker\\Zed\\StockSalesConnector\\": "Bundles/StockSalesConnector/tests",
-                    "Functional\\Spryker\\Zed\\StockSalesConnector\\": "Bundles/StockSalesConnector/tests",
-                    "Spryker\\Client\\Storage\\": "Bundles/Storage/src",
-                    "Unit\\Spryker\\Client\\Storage\\": "Bundles/Storage/tests",
-                    "Functional\\Spryker\\Client\\Storage\\": "Bundles/Storage/tests",
-                    "Spryker\\Shared\\Storage\\": "Bundles/Storage/src",
-                    "Unit\\Spryker\\Shared\\Storage\\": "Bundles/Storage/tests",
-                    "Functional\\Spryker\\Shared\\Storage\\": "Bundles/Storage/tests",
-                    "Spryker\\Yves\\Storage\\": "Bundles/Storage/src",
-                    "Unit\\Spryker\\Yves\\Storage\\": "Bundles/Storage/tests",
-                    "Functional\\Spryker\\Yves\\Storage\\": "Bundles/Storage/tests",
-                    "Spryker\\Zed\\Storage\\": "Bundles/Storage/src",
-                    "Unit\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
-                    "Functional\\Spryker\\Zed\\Storage\\": "Bundles/Storage/tests",
-                    "Spryker\\Shared\\Symfony\\": "Bundles/Symfony/src",
-                    "Spryker\\Shared\\Tax\\": "Bundles/Tax/src",
-                    "Unit\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
-                    "Functional\\Spryker\\Shared\\Tax\\": "Bundles/Tax/tests",
-                    "Spryker\\Zed\\Tax\\": "Bundles/Tax/src",
-                    "Unit\\Spryker\\Zed\\Tax\\": "Bundles/Tax/tests",
-                    "Functional\\Spryker\\Zed\\Tax\\": "Bundles/Tax/tests",
-                    "Spryker\\Zed\\TaxProductConnector\\": "Bundles/TaxProductConnector/src",
-                    "Unit\\Spryker\\Zed\\TaxProductConnector\\": "Bundles/TaxProductConnector/tests",
-                    "Functional\\Spryker\\Zed\\TaxProductConnector\\": "Bundles/TaxProductConnector/tests",
-                    "Spryker\\Shared\\Testify\\": "Bundles/Testify/src",
-                    "Spryker\\Shared\\Touch\\": "Bundles/Touch/src",
-                    "Unit\\Spryker\\Shared\\Touch\\": "Bundles/Touch/tests",
-                    "Functional\\Spryker\\Shared\\Touch\\": "Bundles/Touch/tests",
-                    "Spryker\\Zed\\Touch\\": "Bundles/Touch/src",
-                    "Unit\\Spryker\\Zed\\Touch\\": "Bundles/Touch/tests",
-                    "Functional\\Spryker\\Zed\\Touch\\": "Bundles/Touch/tests",
-                    "Spryker\\Shared\\Transfer\\": "Bundles/Transfer/src",
-                    "Unit\\Spryker\\Shared\\Transfer\\": "Bundles/Transfer/tests",
-                    "Functional\\Spryker\\Shared\\Transfer\\": "Bundles/Transfer/tests",
-                    "Spryker\\Zed\\Transfer\\": "Bundles/Transfer/src",
-                    "Unit\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
-                    "Functional\\Spryker\\Zed\\Transfer\\": "Bundles/Transfer/tests",
-                    "Unit\\Spryker\\Shared\\Twig\\": "Bundles/Twig/tests",
-                    "Spryker\\Shared\\Twig\\": "Bundles/Twig/src",
-                    "Spryker\\Yves\\Twig\\": "Bundles/Twig/src",
-                    "Spryker\\Zed\\Twig\\": "Bundles/Twig/src",
-                    "Spryker\\Shared\\Url\\": "Bundles/Url/src",
-                    "Unit\\Spryker\\Shared\\Url\\": "Bundles/Url/tests",
-                    "Functional\\Spryker\\Shared\\Url\\": "Bundles/Url/tests",
-                    "Spryker\\Zed\\Url\\": "Bundles/Url/src",
-                    "Unit\\Spryker\\Zed\\Url\\": "Bundles/Url/tests",
-                    "Functional\\Spryker\\Zed\\Url\\": "Bundles/Url/tests",
-                    "Spryker\\Shared\\User\\": "Bundles/User/src",
-                    "Unit\\Spryker\\Shared\\User\\": "Bundles/User/tests",
-                    "Functional\\Spryker\\Shared\\User\\": "Bundles/User/tests",
-                    "Spryker\\Zed\\User\\": "Bundles/User/src",
-                    "Unit\\Spryker\\Zed\\User\\": "Bundles/User/tests",
-                    "Functional\\Spryker\\Zed\\User\\": "Bundles/User/tests",
-                    "Spryker\\Client\\Wishlist\\": "Bundles/Wishlist/src",
-                    "Unit\\Spryker\\Client\\Wishlist\\": "Bundles/Wishlist/tests",
-                    "Functional\\Spryker\\Client\\Wishlist\\": "Bundles/Wishlist/tests",
-                    "Spryker\\Shared\\Wishlist\\": "Bundles/Wishlist/src",
-                    "Unit\\Spryker\\Shared\\Wishlist\\": "Bundles/Wishlist/tests",
-                    "Functional\\Spryker\\Shared\\Wishlist\\": "Bundles/Wishlist/tests",
-                    "Spryker\\Zed\\Wishlist\\": "Bundles/Wishlist/src",
-                    "Unit\\Spryker\\Zed\\Wishlist\\": "Bundles/Wishlist/tests",
-                    "Functional\\Spryker\\Zed\\Wishlist\\": "Bundles/Wishlist/tests",
-                    "Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Spryker\\Yves\\ZedRequest\\": "Bundles/ZedRequest/src",
-                    "Functional\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Functional\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Unit\\Spryker\\Client\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Unit\\Spryker\\Shared\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Unit\\Spryker\\Zed\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Unit\\Spryker\\Yves\\ZedRequest\\": "Bundles/ZedRequest/tests",
-                    "Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\ProductDiscountConnector\\": "Bundles/ProductDiscountConnector/tests",
-                    "Spryker\\Shared\\StateMachine\\": "Bundles/StateMachine/src",
-                    "Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/src",
-                    "Unit\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Functional\\Spryker\\Zed\\StateMachine\\": "Bundles/StateMachine/tests",
-                    "Spryker\\Shared\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
-                    "Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/src",
-                    "Unit\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Functional\\Spryker\\Zed\\DiscountSalesAggregatorConnector\\": "Bundles/DiscountSalesAggregatorConnector/tests",
-                    "Spryker\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/src",
-                    "Unit\\Service\\UtilDataReader\\": "Bundles/UtilDataReader/tests",
-                    "Spryker\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/src",
-                    "Unit\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
-                    "Functional\\Service\\UtilDateTime\\": "Bundles/UtilDateTime/tests",
-                    "Spryker\\Service\\UtilText\\": "Bundles/UtilText/src",
-                    "Unit\\Spryker\\Service\\UtilText\\": "Bundles/UtilText/tests",
-                    "Functional\\Spryker\\Service\\UtilText\\": "Bundles/UtilDataReader/tests",
-                    "Spryker\\Shared\\UtilDateTime\\": "Bundles/UtilDateTime/src",
-                    "Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/src",
-                    "Functional\\Spryker\\Service\\UtilSanitize\\": "Bundles/UtilSanitize/tests",
-                    "Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/src",
-                    "Functional\\Spryker\\Service\\UtilNetwork\\": "Bundles/UtilNetwork/tests",
-                    "Spryker\\Service\\UtilEncoding\\": "Bundles/UtilEncoding/src",
-                    "Functional\\Spryker\\Service\\UtilEncoding\\": "Bundles/UtilEncoding/tests",
-                    "Spryker\\Shared\\ProductManagement\\": "Bundles/ProductManagement/src",
-                    "Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/src",
-                    "Unit\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
-                    "Functional\\Spryker\\Zed\\ProductManagement\\": "Bundles/ProductManagement/tests",
-                    "Spryker\\Shared\\CmsGui\\": "Bundles/CmsGui/src",
-                    "Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/src",
-                    "Unit\\Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/tests",
-                    "Functional\\Spryker\\Zed\\CmsGui\\": "Bundles/CmsGui/tests",
-                    "Spryker\\Shared\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
-                    "Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/src",
-                    "Unit\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
-                    "Functional\\Spryker\\Zed\\CustomerGroupDiscountConnector\\": "Bundles/CustomerGroupDiscountConnector/tests",
-                    "Spryker\\Shared\\ProductRelation\\": "Bundles/ProductRelation/src",
-                    "Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/src",
-                    "Unit\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
-                    "Functional\\Spryker\\Zed\\ProductRelation\\": "Bundles/ProductRelation/tests",
-                    "Spryker\\Client\\ProductRelation\\": "Bundles/ProductRelation/src",
-                    "Spryker\\Yves\\ProductRelation\\": "Bundles/ProductRelation/src",
-                    "Spryker\\Client\\ProductBundle\\": "Bundles/ProductBundle/src",
-                    "Spryker\\Shared\\ProductBundle\\": "Bundles/ProductBundle/src",
-                    "Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/src",
-                    "Spryker\\Yves\\ProductBundle\\": "Bundles/ProductBundle/src",
-                    "Unit\\Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/tests",
-                    "Functional\\Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/tests",
-                    "Acceptance\\Spryker\\Zed\\ProductBundle\\": "Bundles/ProductBundle/tests",
-                    "Spryker\\Zed\\AvailabilityGui\\": "Bundles/AvailabilityGui/src",
-                    "Functional\\Spryker\\Zed\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
-                    "Acceptance\\AvailabilityGui\\": "Bundles/AvailabilityGui/tests",
-                    "Spryker\\Client\\Queue\\": "Bundles/Queue/src",
-                    "Unit\\Spryker\\Client\\Queue\\": "Bundles/Queue/tests",
-                    "Functional\\Spryker\\Client\\Queue\\": "Bundles/Queue/tests",
-                    "Spryker\\Shared\\Queue\\": "Bundles/Queue/src",
-                    "Unit\\Spryker\\Shared\\Queue\\": "Bundles/Queue/tests",
-                    "Functional\\Spryker\\Shared\\Queue\\": "Bundles/Queue/tests",
-                    "Spryker\\Zed\\Queue\\": "Bundles/Queue/src",
-                    "Unit\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests",
-                    "Functional\\Spryker\\Zed\\Queue\\": "Bundles/Queue/tests",
-                    "Spryker\\Yves\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
-                    "Spryker\\Client\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
-                    "Spryker\\Shared\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
-                    "Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/src",
-                    "Unit\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
-                    "Functional\\Spryker\\Zed\\PropelQueryBuilder\\": "Bundles/PropelQueryBuilder/tests",
-                    "Spryker\\Shared\\Event\\": "Bundles/Event/src",
-                    "Spryker\\Zed\\Event\\": "Bundles/Event/src",
-                    "Unit\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
-                    "Functional\\Spryker\\Zed\\Event\\": "Bundles/Event/tests",
-                    "Spryker\\Shared\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
-                    "Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/src",
-                    "Unit\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests",
-                    "Functional\\Spryker\\Zed\\ProductRelationCollector\\": "Bundles/ProductRelationCollector/tests"
-                },
-                "psr-4": {
-                    "Application\\Module\\": "Bundles/Application/tests/_support/Module",
-                    "Braintree\\Module\\": "Bundles/Braintree/tests/_support/Module",
-                    "Catalog\\Module\\": "Bundles/Catalog/tests/_support/Module",
-                    "Config\\Module\\": "Bundles/Config/tests/_support/Module",
-                    "Customer\\Module\\": "Bundles/Customer/tests/_support/Module",
-                    "ErrorHandler\\Module\\": "Bundles/ErrorHandler/tests/_support/Module",
-                    "Oms\\Module\\": "Bundles/Oms/tests/_support/Module",
-                    "Propel\\Module\\": "Bundles/Propel/tests/_support/Module",
-                    "Sales\\Module\\": "Bundles/Sales/tests/_support/Module",
-                    "Testify\\Module\\": "Bundles/Testify/tests/_support/Module",
-                    "Transfer\\Module\\": "Bundles/Transfer/tests/_support/Module"
-                },
                 "files": [
+                    "autoload.php",
                     "Bundles/Config/src/Spryker/Shared/Config.php"
                 ]
             },
@@ -2271,20 +1687,20 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-02 15:10:59"
+            "time": "2017-05-02 15:23:19"
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.6",
+            "version": "v5.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
+                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
-                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
+                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
                 "shasum": ""
             },
             "require": {
@@ -2325,7 +1741,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-02-13T07:52:53+00:00"
+            "time": "2017-04-20T17:32:18+00:00"
         },
         {
             "name": "symfony-cmf/routing",
@@ -2388,16 +1804,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.2.7",
+            "version": "v3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "8444bde28e3c2a33e571e6f180c2d78bfdc4480d"
+                "reference": "e5533fcc0b3dd377626153b2852707878f363728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/8444bde28e3c2a33e571e6f180c2d78bfdc4480d",
-                "reference": "8444bde28e3c2a33e571e6f180c2d78bfdc4480d",
+                "url": "https://api.github.com/repos/symfony/config/zipball/e5533fcc0b3dd377626153b2852707878f363728",
+                "reference": "e5533fcc0b3dd377626153b2852707878f363728",
                 "shasum": ""
             },
             "require": {
@@ -2440,20 +1856,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-04T15:30:56+00:00"
+            "time": "2017-04-12T14:13:17+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v3.2.7",
+            "version": "v3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d"
+                "reference": "a7a17e0c6c3c4d70a211f80782e4b90ddadeaa38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/c30243cc51f726812be3551316b109a2f5deaf8d",
-                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/a7a17e0c6c3c4d70a211f80782e4b90ddadeaa38",
+                "reference": "a7a17e0c6c3c4d70a211f80782e4b90ddadeaa38",
                 "shasum": ""
             },
             "require": {
@@ -2503,20 +1919,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-04T14:33:42+00:00"
+            "time": "2017-04-26T01:39:17+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "e90099a2958d4833a02d05b504cc06e1c234abcc"
+                "reference": "344f50ce827413b3640bfcb1e37386a67d06ea1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/e90099a2958d4833a02d05b504cc06e1c234abcc",
-                "reference": "e90099a2958d4833a02d05b504cc06e1c234abcc",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/344f50ce827413b3640bfcb1e37386a67d06ea1f",
+                "reference": "344f50ce827413b3640bfcb1e37386a67d06ea1f",
                 "shasum": ""
             },
             "require": {
@@ -2560,7 +1976,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-18T19:13:35+00:00"
+            "time": "2017-04-19T19:56:30+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2624,16 +2040,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "31ab6827a696244094e6e20d77e7d404f8eb4252"
+                "reference": "dc40154e26a0116995e4f2f0c71cb9c2fe0775a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/31ab6827a696244094e6e20d77e7d404f8eb4252",
-                "reference": "31ab6827a696244094e6e20d77e7d404f8eb4252",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/dc40154e26a0116995e4f2f0c71cb9c2fe0775a3",
+                "reference": "dc40154e26a0116995e4f2f0c71cb9c2fe0775a3",
                 "shasum": ""
             },
             "require": {
@@ -2669,20 +2085,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-26T15:40:40+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "7131327eb95d86d72039fd1216226c28f36fd02a"
+                "reference": "16d55394b31547e4a8494551b85c9b9915545347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/7131327eb95d86d72039fd1216226c28f36fd02a",
-                "reference": "7131327eb95d86d72039fd1216226c28f36fd02a",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/16d55394b31547e4a8494551b85c9b9915545347",
+                "reference": "16d55394b31547e4a8494551b85c9b9915545347",
                 "shasum": ""
             },
             "require": {
@@ -2718,20 +2134,20 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-20T08:46:40+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/form",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "4707a3ad3bd71ed3dc540bc9eaa6e4d37ccd4c16"
+                "reference": "4c2d1f26dd56d9569160820821267e1554ac82dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/4707a3ad3bd71ed3dc540bc9eaa6e4d37ccd4c16",
-                "reference": "4707a3ad3bd71ed3dc540bc9eaa6e4d37ccd4c16",
+                "url": "https://api.github.com/repos/symfony/form/zipball/4c2d1f26dd56d9569160820821267e1554ac82dd",
+                "reference": "4c2d1f26dd56d9569160820821267e1554ac82dd",
                 "shasum": ""
             },
             "require": {
@@ -2793,20 +2209,20 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-04T15:24:26+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "0717efd2f2264dbd3d8e1bc69a0418c2fd6295d2"
+                "reference": "cfa9013809ad18514855144d14bb321cf4673561"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/0717efd2f2264dbd3d8e1bc69a0418c2fd6295d2",
-                "reference": "0717efd2f2264dbd3d8e1bc69a0418c2fd6295d2",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/cfa9013809ad18514855144d14bb321cf4673561",
+                "reference": "cfa9013809ad18514855144d14bb321cf4673561",
                 "shasum": ""
             },
             "require": {
@@ -2848,20 +2264,20 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-04T15:24:26+00:00"
+            "time": "2017-05-01T14:31:55+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "3256e9e554f02ba2dd49cff253f15df69c36cf40"
+                "reference": "30813aa885b2a19b30d7768bec58af089d66f146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/3256e9e554f02ba2dd49cff253f15df69c36cf40",
-                "reference": "3256e9e554f02ba2dd49cff253f15df69c36cf40",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/30813aa885b2a19b30d7768bec58af089d66f146",
+                "reference": "30813aa885b2a19b30d7768bec58af089d66f146",
                 "shasum": ""
             },
             "require": {
@@ -2930,20 +2346,20 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-05T04:04:34+00:00"
+            "time": "2017-05-01T16:14:16+00:00"
         },
         {
             "name": "symfony/intl",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "aa4be25dd37cf05bf6cc33d2aec5e85faa9ca830"
+                "reference": "b1abf566251f3fcd6a5b6ce57279b3ae31398e45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/aa4be25dd37cf05bf6cc33d2aec5e85faa9ca830",
-                "reference": "aa4be25dd37cf05bf6cc33d2aec5e85faa9ca830",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/b1abf566251f3fcd6a5b6ce57279b3ae31398e45",
+                "reference": "b1abf566251f3fcd6a5b6ce57279b3ae31398e45",
                 "shasum": ""
             },
             "require": {
@@ -3006,20 +2422,20 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2017-03-05T17:40:13+00:00"
+            "time": "2017-05-01T14:31:55+00:00"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "4aed5e68824e32d72203ec8a3195d6afd6b22a5d"
+                "reference": "55bf349a3395afad81a369d57b3b99c373fbbdf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/4aed5e68824e32d72203ec8a3195d6afd6b22a5d",
-                "reference": "4aed5e68824e32d72203ec8a3195d6afd6b22a5d",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/55bf349a3395afad81a369d57b3b99c373fbbdf5",
+                "reference": "55bf349a3395afad81a369d57b3b99c373fbbdf5",
                 "shasum": ""
             },
             "require": {
@@ -3060,7 +2476,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2017-03-21T21:39:01+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -3462,16 +2878,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "41336b20b52f5fd5b42a227e394e673c8071118f"
+                "reference": "aff35fb3dee799c84a7313c576b72208b046ef8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/41336b20b52f5fd5b42a227e394e673c8071118f",
-                "reference": "41336b20b52f5fd5b42a227e394e673c8071118f",
+                "url": "https://api.github.com/repos/symfony/process/zipball/aff35fb3dee799c84a7313c576b72208b046ef8d",
+                "reference": "aff35fb3dee799c84a7313c576b72208b046ef8d",
                 "shasum": ""
             },
             "require": {
@@ -3507,20 +2923,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-04T12:20:59+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/property-access",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "6b87ffe782b889d68b3e18006e421e3d6961320d"
+                "reference": "28a9b519a9cd1131b486362bfc6a00cdb9779a42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/6b87ffe782b889d68b3e18006e421e3d6961320d",
-                "reference": "6b87ffe782b889d68b3e18006e421e3d6961320d",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/28a9b519a9cd1131b486362bfc6a00cdb9779a42",
+                "reference": "28a9b519a9cd1131b486362bfc6a00cdb9779a42",
                 "shasum": ""
             },
             "require": {
@@ -3567,20 +2983,20 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2017-03-21T21:39:01+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/routing",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "d145cd396f702c497cb24b21785ddac90a23fe71"
+                "reference": "a8f328c7e701b7bb05a93fca62a5ab2b6b3e500e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/d145cd396f702c497cb24b21785ddac90a23fe71",
-                "reference": "d145cd396f702c497cb24b21785ddac90a23fe71",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/a8f328c7e701b7bb05a93fca62a5ab2b6b3e500e",
+                "reference": "a8f328c7e701b7bb05a93fca62a5ab2b6b3e500e",
                 "shasum": ""
             },
             "require": {
@@ -3642,20 +3058,20 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-02T15:56:34+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/security",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "f02bb70fe032d386bc2634d0538fa88c9d9df9fb"
+                "reference": "6482bca72f4f582ff06f232b70b68ecd3be18eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/f02bb70fe032d386bc2634d0538fa88c9d9df9fb",
-                "reference": "f02bb70fe032d386bc2634d0538fa88c9d9df9fb",
+                "url": "https://api.github.com/repos/symfony/security/zipball/6482bca72f4f582ff06f232b70b68ecd3be18eaf",
+                "reference": "6482bca72f4f582ff06f232b70b68ecd3be18eaf",
                 "shasum": ""
             },
             "require": {
@@ -3722,7 +3138,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-04T15:24:26+00:00"
+            "time": "2017-05-01T14:31:55+00:00"
         },
         {
             "name": "symfony/security-acl",
@@ -3787,16 +3203,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "d1c3d68daee29bbf0b4600745899a7000c215642"
+                "reference": "dee868baf516dda46c9164395088032ca76bc14a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/d1c3d68daee29bbf0b4600745899a7000c215642",
-                "reference": "d1c3d68daee29bbf0b4600745899a7000c215642",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/dee868baf516dda46c9164395088032ca76bc14a",
+                "reference": "dee868baf516dda46c9164395088032ca76bc14a",
                 "shasum": ""
             },
             "require": {
@@ -3847,20 +3263,20 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-21T22:47:17+00:00"
+            "time": "2017-05-01T14:31:55+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "047e97a64d609778cadfc76e3a09793696bb19f1"
+                "reference": "32b7c0bffc07772cf1a902e3464ef77117fa07c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/047e97a64d609778cadfc76e3a09793696bb19f1",
-                "reference": "047e97a64d609778cadfc76e3a09793696bb19f1",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/32b7c0bffc07772cf1a902e3464ef77117fa07c7",
+                "reference": "32b7c0bffc07772cf1a902e3464ef77117fa07c7",
                 "shasum": ""
             },
             "require": {
@@ -3911,20 +3327,20 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-21T21:39:01+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "d2ca1022ea710262134c9687e0fec65422dd16c4"
+                "reference": "362aa855b5819355811b58f8b5f15679196a181e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/d2ca1022ea710262134c9687e0fec65422dd16c4",
-                "reference": "d2ca1022ea710262134c9687e0fec65422dd16c4",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/362aa855b5819355811b58f8b5f15679196a181e",
+                "reference": "362aa855b5819355811b58f8b5f15679196a181e",
                 "shasum": ""
             },
             "require": {
@@ -3936,7 +3352,7 @@
                 "symfony/console": "~2.8|~3.0.0",
                 "symfony/expression-language": "~2.4|~3.0.0",
                 "symfony/finder": "~2.3|~3.0.0",
-                "symfony/form": "^2.8.18",
+                "symfony/form": "^2.8.19",
                 "symfony/http-kernel": "~2.8|~3.0.0",
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/routing": "~2.2|~3.0.0",
@@ -3992,20 +3408,20 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2017-03-21T21:39:01+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/validator",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "43f617ee200af4f4dedbb0782c6c689e06994286"
+                "reference": "e125c9ec86d615231817302115a1558cd74d9aa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/43f617ee200af4f4dedbb0782c6c689e06994286",
-                "reference": "43f617ee200af4f4dedbb0782c6c689e06994286",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/e125c9ec86d615231817302115a1558cd74d9aa1",
+                "reference": "e125c9ec86d615231817302115a1558cd74d9aa1",
                 "shasum": ""
             },
             "require": {
@@ -4065,20 +3481,20 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-23T16:08:03+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "286d84891690b0e2515874717e49360d1c98a703"
+                "reference": "93ccdde79f4b079c7558da4656a3cb1c50c68e02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/286d84891690b0e2515874717e49360d1c98a703",
-                "reference": "286d84891690b0e2515874717e49360d1c98a703",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/93ccdde79f4b079c7558da4656a3cb1c50c68e02",
+                "reference": "93ccdde79f4b079c7558da4656a3cb1c50c68e02",
                 "shasum": ""
             },
             "require": {
@@ -4114,20 +3530,20 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-20T09:41:44+00:00"
+            "time": "2017-05-01T14:31:55+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v1.33.0",
+            "version": "v1.33.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a"
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
-                "reference": "05cf49921b13f6f01d3cfdf9018cfa7a8086fd5a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/dd6ca96227917e1e85b41c7c3cc6507b411e0927",
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927",
                 "shasum": ""
             },
             "require": {
@@ -4176,7 +3592,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-03-22T15:40:09+00:00"
+            "time": "2017-04-20T17:39:48+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -5177,16 +4593,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe"
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5a5a9fc8025a08d8919be87d6884d5a92520cefe",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
                 "shasum": ""
             },
             "require": {
@@ -5215,7 +4631,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-01-26T22:05:40+00:00"
+            "time": "2017-04-12T18:52:22+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -6941,12 +6357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "dea10627760ef92754d5d44be5692440dd712ee3"
+                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/dea10627760ef92754d5d44be5692440dd712ee3",
-                "reference": "dea10627760ef92754d5d44be5692440dd712ee3",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/b33c464eb25d115e10f6e206d9e8bb777d1cf658",
+                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658",
                 "shasum": ""
             },
             "require": {
@@ -6976,7 +6392,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-03-07 12:41:16"
+            "time": "2017-04-24T20:17:25+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6984,12 +6400,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "95cc87cf9bffba0b761f58d0196d39c0aba66cc3"
+                "reference": "5ab7bfc7abf17d2b5f54170398234d6726f40ccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/95cc87cf9bffba0b761f58d0196d39c0aba66cc3",
-                "reference": "95cc87cf9bffba0b761f58d0196d39c0aba66cc3",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/5ab7bfc7abf17d2b5f54170398234d6726f40ccc",
+                "reference": "5ab7bfc7abf17d2b5f54170398234d6726f40ccc",
                 "shasum": ""
             },
             "require": {
@@ -7023,7 +6439,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-06 12:18:02"
+            "time": "2017-04-26T13:25:55+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -7150,16 +6566,16 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.2.7",
+            "version": "v3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "2fe0caa60c1a1dfeefd0425741182687a9b382b8"
+                "reference": "9fab1ab6f77b77f3df5fc5250fc6956811699b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/2fe0caa60c1a1dfeefd0425741182687a9b382b8",
-                "reference": "2fe0caa60c1a1dfeefd0425741182687a9b382b8",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/9fab1ab6f77b77f3df5fc5250fc6956811699b57",
+                "reference": "9fab1ab6f77b77f3df5fc5250fc6956811699b57",
                 "shasum": ""
             },
             "require": {
@@ -7203,20 +6619,20 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2017-04-12T14:13:17+00:00"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.2.7",
+            "version": "v3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c"
+                "reference": "02983c144038e697c959e6b06ef6666de759ccbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
-                "reference": "a48f13dc83c168f1253a5d2a5a4fb46c36244c4c",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/02983c144038e697c959e6b06ef6666de759ccbc",
+                "reference": "02983c144038e697c959e6b06ef6666de759ccbc",
                 "shasum": ""
             },
             "require": {
@@ -7256,7 +6672,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2017-05-01T14:55:58+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -7320,16 +6736,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.2.7",
+            "version": "v3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "403944e294cf4ceb3b8447f54cbad88ea7b99cee"
+                "reference": "f1ad34e8af09ed17570e027cf0c58a12eddec286"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/403944e294cf4ceb3b8447f54cbad88ea7b99cee",
-                "reference": "403944e294cf4ceb3b8447f54cbad88ea7b99cee",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/f1ad34e8af09ed17570e027cf0c58a12eddec286",
+                "reference": "f1ad34e8af09ed17570e027cf0c58a12eddec286",
                 "shasum": ""
             },
             "require": {
@@ -7372,20 +6788,20 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T09:12:04+00:00"
+            "time": "2017-04-12T14:13:17+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "9e4369666d02ee9b8830da878b7f6a769eb96f4b"
+                "reference": "e02577b841394a78306d7b547701bb7bb705bad5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/9e4369666d02ee9b8830da878b7f6a769eb96f4b",
-                "reference": "9e4369666d02ee9b8830da878b7f6a769eb96f4b",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/e02577b841394a78306d7b547701bb7bb705bad5",
+                "reference": "e02577b841394a78306d7b547701bb7bb705bad5",
                 "shasum": ""
             },
             "require": {
@@ -7421,20 +6837,20 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-18T17:06:33+00:00"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v3.2.7",
+            "version": "v3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "81dce20f69a8b40427e1f4e6462178df87cafc03"
+                "reference": "fa47963ac7979ddbd42b2d646d1b056bddbf7bb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/81dce20f69a8b40427e1f4e6462178df87cafc03",
-                "reference": "81dce20f69a8b40427e1f4e6462178df87cafc03",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/fa47963ac7979ddbd42b2d646d1b056bddbf7bb8",
+                "reference": "fa47963ac7979ddbd42b2d646d1b056bddbf7bb8",
                 "shasum": ""
             },
             "require": {
@@ -7445,9 +6861,11 @@
                 "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
             },
             "require-dev": {
+                "ext-iconv": "*",
                 "twig/twig": "~1.20|~2.0"
             },
             "suggest": {
+                "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
                 "ext-symfony_debug": ""
             },
             "type": "library",
@@ -7487,20 +6905,20 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-03-12T16:07:05+00:00"
+            "time": "2017-05-01T14:55:58+00:00"
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v2.8.19",
+            "version": "v2.8.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "04f0c08ddd64bdd9b19ff919a1934b3a5916e06a"
+                "reference": "9b5160af794c2f6e1263432f672f71b890ab91ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/04f0c08ddd64bdd9b19ff919a1934b3a5916e06a",
-                "reference": "04f0c08ddd64bdd9b19ff919a1934b3a5916e06a",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/9b5160af794c2f6e1263432f672f71b890ab91ac",
+                "reference": "9b5160af794c2f6e1263432f672f71b890ab91ac",
                 "shasum": ""
             },
             "require": {
@@ -7546,20 +6964,20 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2017-04-03T20:37:06+00:00"
+            "time": "2017-04-25T14:22:01+00:00"
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.1",
+            "version": "1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "d9ad139d6c2e8edf5e313ffbe37ff13344cf0684"
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/d9ad139d6c2e8edf5e313ffbe37ff13344cf0684",
-                "reference": "d9ad139d6c2e8edf5e313ffbe37ff13344cf0684",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/8dcfd392135a5bd938c3c83ea71419501ad9855d",
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d",
                 "shasum": ""
             },
             "require": {
@@ -7586,7 +7004,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2015-05-27T22:58:02+00:00"
+            "time": "2017-04-21T14:50:31+00:00"
         },
         {
             "name": "webmozart/assert",
