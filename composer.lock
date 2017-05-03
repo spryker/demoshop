@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1035-category-touch-logic",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0b4420025a069d5e95bec84d4c6880b2f8ae5dc4"
+                "reference": "07ad2b39818279b4abd99cce12382e31662e0dda"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-24 10:03:33"
+            "time": "2017-05-03 09:32:30"
         },
         {
             "name": "swiftmailer/swiftmailer",
