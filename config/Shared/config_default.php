@@ -452,7 +452,5 @@ $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
     ],
 ];
 
-$config[FileSystemConstants::FILESYSTEM_STORAGE] = [
-    FileSystemConstants::FILESYSTEM_SERVICE => [],
-];
-$config[FlysystemConstants::FILESYSTEM_STORAGE] = $config[FileSystemConstants::FILESYSTEM_STORAGE];
+$config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
+$config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
