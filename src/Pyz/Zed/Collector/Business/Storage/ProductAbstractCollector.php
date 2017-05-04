@@ -37,6 +37,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     const ID_CATEGORY_NODE = 'id_category_node';
     const SKU = 'sku';
     const URL = 'url';
+    const COLOR_CODE = 'color_code';
     const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
     const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
     const NAME = 'name';
@@ -121,6 +122,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::NAME => $collectItemData[self::NAME],
             StorageProductTransfer::SKU => $collectItemData[self::SKU],
             StorageProductTransfer::URL => $collectItemData[self::URL],
+            StorageProductTransfer::COLOR_CODE => $collectItemData[self::COLOR_CODE],
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
             StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
             StorageProductTransfer::IMAGE_SETS => $this->generateProductAbstractImageSets(

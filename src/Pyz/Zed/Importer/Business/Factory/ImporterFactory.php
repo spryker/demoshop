@@ -23,6 +23,7 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductConcreteImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductGroup\ProductGroupImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductRelation\ProductRelationImporter;
@@ -322,6 +323,17 @@ class ImporterFactory extends AbstractFactory
             $this->getLocaleFacade(),
             $this->getGlossaryFacade(),
             $this->getProductOptionFacade()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductGroup\ProductGroupImporter
+     */
+    public function createProductGroupImporter()
+    {
+        return new ProductGroupImporter(
+            $this->getLocaleFacade(),
+            $this->getProductGroupFacade()
         );
     }
 

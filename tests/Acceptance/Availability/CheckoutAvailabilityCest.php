@@ -46,7 +46,7 @@ class CheckoutAvailabilityCest
         $zedTester->does(function (ZedAcceptanceTester $i) {
             $i->amLoggedInUser();
 
-            $idProductFujitsu = 56;
+            $idProductFujitsu = 14;
 
             $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
