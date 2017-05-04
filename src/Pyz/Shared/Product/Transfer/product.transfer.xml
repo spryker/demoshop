@@ -5,6 +5,7 @@
 
     <transfer name="ProductAbstract">
         <property name="isFeatured" type="bool" />
+        <property name="colorCode" type="string" />
     </transfer>
 
     <transfer name="StorageProduct">
@@ -28,6 +29,7 @@
         <property name="categories" type="StorageProductCategory[]" singular="category" />
         <property name="imageSets" type="array" singular="imageSet" />
         <property name="images" type="StorageProductImage[]" singular="image" />
+        <property name="colorCode" type="string" />
     </transfer>
 
     <transfer name="StorageAttributeMap">

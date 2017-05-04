@@ -1,0 +1,10 @@
+{% extends '@ProductGroup/partials/product-group-items.twig' %}
+
+{% block content %}
+    {% if productGroupItems|length %}
+        <div class="callout">
+            <h5>{{ 'product.groups' | trans }}</h5>
+            {{ parent() }}
+        </div>
+    {% endif %}
+{% endblock %}
