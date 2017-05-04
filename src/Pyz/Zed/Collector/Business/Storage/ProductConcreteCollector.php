@@ -19,8 +19,8 @@ use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
-use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
+use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
 class ProductConcreteCollector extends AbstractStoragePdoCollector
 {

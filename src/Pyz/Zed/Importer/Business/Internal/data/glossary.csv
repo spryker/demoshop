@@ -211,6 +211,10 @@ customer.salutation.mr,Herr,de_DE
 customer.salutation.mr,Mr.,en_US
 customer.salutation.mrs,Frau,de_DE
 customer.salutation.mrs,Mrs.,en_US
+customer.salutation.ms,Frau,de_DE
+customer.salutation.ms,Ms.,en_US
+customer.salutation.dr,Dr.,en_US
+customer.salutation.dr,Dr.,de_DE
 customer.birth_date,"Geburtsdatum (TT.MM.YYYY)",de_DE
 customer.birth_date,"Date of birth (DD.MM.YYYY)",en_US
 customer.email,"E-Mail Adresse",de_DE
@@ -515,7 +519,7 @@ address.salutation,Salutation,en_US
 address.salutation,Anrede,de_DE
 email.orderEmail.salutationMale,Mr.,en_US
 email.orderEmail.salutationMale,Hr.,de_DE
-email.orderEmail.salutationFemale,Ms.,en_US
+email.orderEmail.salutationFemale,Ms. / Mrs.,en_US
 email.orderEmail.salutationFemale,Fr.,de_DE
 customer.login.failed,"Login failed",en_US
 customer.login.failed,"Login fehlgeschlagen",de_DE
@@ -867,3 +871,23 @@ cart.item.sku,"SKU",en_US
 cart.item.sku,"SKU",de_DE
 checkout.summary.item.option.description,"Product options:",en_US
 checkout.summary.item.option.description,"Produktoptionen:",de_DE
+DummyPaymentCreditCard,Dummy Payment: Credit Card,en_US
+DummyPaymentCreditCard,Beispiel-Zahlungsart: Kreditkarte,de_DE
+payment.dummy-payment.credit-card,Pay with the following credit card:,en_US
+payment.dummy-payment.credit-card,Mit der folgenden Kreditkarte bezahlen:,de_DE
+dummyPaymentCreditCard.card_type,Card Type,en_US
+dummyPaymentCreditCard.card_type,Kartentyp,de_DE
+dummyPaymentCreditCard.card_number,Card Number,en_US
+dummyPaymentCreditCard.card_number,Nummer,de_DE
+dummyPaymentCreditCard.name_on_card,Name on the Card,en_US
+dummyPaymentCreditCard.name_on_card,Name auf der Karte,de_DE
+dummyPaymentCreditCard.card_expires,Expiry Date,en_US
+dummyPaymentCreditCard.card_expires,Gültig bis,de_DE
+dummyPaymentCreditCard.card_security_code,CVC,en_US
+dummyPaymentCreditCard.card_security_code,CVC,de_DE
+DummyPaymentInvoice,Dummy Payment: Invoice,en_US
+DummyPaymentInvoice,Beispiel-Zahlungsart: Auf Rechnung,de_DE
+dummyPaymentInvoice.invoice,Pay with invoice:,en_US
+dummyPaymentInvoice.invoice,Auf Rechnung bezahlen:,de_DE
+dummyPaymentInvoice.date_of_birth,Date of Birth,en_US
+dummyPaymentInvoice.date_of_birth,Geburtsdatum,de_DE

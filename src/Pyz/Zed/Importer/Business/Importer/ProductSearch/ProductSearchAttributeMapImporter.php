@@ -9,8 +9,8 @@ namespace Pyz\Zed\Importer\Business\Importer\ProductSearch;
 
 use Generated\Shared\Search\PageIndexMap;
 use InvalidArgumentException;
-use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
+use Orm\Zed\ProductSearch\Persistence\Base\SpyProductSearchAttributeMapQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;

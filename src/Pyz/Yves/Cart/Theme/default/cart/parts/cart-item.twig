@@ -29,16 +29,15 @@
                 </div>
             </div>
             <form class="row align-right" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
-                <div class="small-6 medium-2 columns">
-                    <label class="__no-margin-bottom">
-                        {{ 'cart.item_quantity' | trans }}:
-                        <input class="__no-margin-bottom" type="number" value="{{cartItem.quantity}}" name="quantity">
+                <div class="small-4 columns">
+                    <label>{{ 'cart.item_quantity' | trans }}:
+                        <div class="input-group">
+                            <input class="input-group-field" type="number" value="{{cartItem.quantity}}" name="quantity">
+                            <div class="input-group-button">
+                                <button type="submit" class="button expanded __no-margin-bottom"><i class="fa fa-refresh"></i></button>
+                            </div>
+                        </div>
                     </label>
-                </div>
-                <div class="small-6 medium-2 columns align-bottom">
-                    <button type="submit" class="button expanded __no-margin-bottom">
-                        <i class="fa fa-refresh"></i>
-                    </button>
                 </div>
                 <input type="hidden" value="{{cartItem.groupKey}}" name="groupKey">
             </form>
