@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d642032592a71b675fc42d97a755a14d0abe7974"
+                "reference": "7f0e825da9ba97043df24fb4e598e1e762a66bed"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1687,7 +1687,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-02 15:23:19"
+            "time": "2017-05-04 14:21:26"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6392,7 +6392,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-04-24T20:17:25+00:00"
+            "time": "2017-04-24 20:17:25"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6439,7 +6439,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-26T13:25:55+00:00"
+            "time": "2017-04-26 13:25:55"
         },
         {
             "name": "squizlabs/php_codesniffer",
