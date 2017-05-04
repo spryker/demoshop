@@ -7,12 +7,12 @@
     <div class="row">
         <div class="small-12 columns">
             <div class="callout">
+                <h1>{{ spyCms('title') | raw }}</h1>
                 <div class="row">
-                    <h1>{{ spyCms('title') | raw }}</h1>
-                    <div class="col-lg-6">
+                    <div class="columns col-lg-6">
                         {{ spyCmsBlock('static_left_block') }}
                     </div>
-                    <div class="col-lg-6">
+                    <div class="columns col-lg-6">
                         {{ spyCmsBlock('static_right_block') }}
                     </div>
                 </div>

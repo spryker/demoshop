@@ -15,6 +15,8 @@ use Twig_SimpleFunction;
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
+    const CMS_PREFIX_KEY = 'generated.cms';
+
     /**
      * @param \Silex\Application $application
      *
@@ -30,9 +32,29 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
                 if (isset($placeholders[$identifier])) {
                     $translation = $placeholders[$identifier];
                 }
+
+                if ($this->isGlossaryKey($translation)) {
+                    $translator = $this->getTranslator($application);
+                    $translation = $translator->trans($translation);
+                }
+
+                if ($this->isGlossaryKey($translation)) {
+                    $translation = '';
+                }
+
                 return $translation;
             }, ['needs_context' => true]),
         ];
+    }
+
+    /**
+     * @param string $translation
+     *
+     * @return string
+     */
+    protected function isGlossaryKey($translation)
+    {
+        return strpos($translation, static::CMS_PREFIX_KEY) === 0;
     }
 
     /**

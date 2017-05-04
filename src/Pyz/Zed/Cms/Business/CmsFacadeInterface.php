@@ -10,7 +10,6 @@ namespace Pyz\Zed\Cms\Business;
 use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Cms\Business\CmsFacadeInterface as SprykerCmsFacadeInterface;
-use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 interface CmsFacadeInterface extends SprykerCmsFacadeInterface
 {
