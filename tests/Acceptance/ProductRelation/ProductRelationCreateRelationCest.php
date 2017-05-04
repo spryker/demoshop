@@ -35,7 +35,7 @@ class ProductRelationCreateRelationCest
 
         $i->selectRelationType(ProductRelationTypes::TYPE_RELATED_PRODUCTS);
         $i->filterProductsByName('Samsung Bundle');
-        $i->selectProduct(145);
+        $i->selectProduct(214);
 
         $i->switchToAssignProductsTab();
 
@@ -53,10 +53,10 @@ class ProductRelationCreateRelationCest
 
         $yvesTester->does(function (YvesAcceptanceTester $i) {
 
-            $i->amOnPage('/en/samsung-bundle-133');
+            $i->amOnPage('/en/samsung-bundle-213');
 
             $i->canSee('Similar products');
-            $i->canSee('Canon LEGRIA HF G25');
+            $i->canSee('HP EliteDesk 800 G2');
 
         });
     }

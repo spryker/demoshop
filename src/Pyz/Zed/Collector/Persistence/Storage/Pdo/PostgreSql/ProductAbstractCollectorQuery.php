@@ -23,6 +23,7 @@ SELECT
   spy_product_abstract.sku AS sku,
   spy_product_abstract_localized_attributes.name AS name,
   spy_product_abstract.attributes AS abstract_attributes,
+  spy_product_abstract.color_code AS color_code,
   spy_url.url AS url,
   spy_product_abstract_localized_attributes.attributes AS abstract_localized_attributes,
   spy_product_abstract_localized_attributes.description AS description,
