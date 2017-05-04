@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "64127d49f7b7676ed18be119a2ab09be01b9c28d"
+                "reference": "47b20b4d4fb902a24f5a37c9d7d5db344952d422"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1626,6 +1626,7 @@
                 "spryker/product-discount-connector": "*",
                 "spryker/product-image": "*",
                 "spryker/product-label": "*",
+                "spryker/product-label-gui": "*",
                 "spryker/product-management": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
