@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Collector;
 
 use Pyz\Zed\Category\Communication\Plugin\CategoryNodeDataPageMapPlugin;
-use Pyz\Zed\Cms\Communication\Plugin\CmsPageDataPageMapPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\AttributeMapCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\AvailabilityCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
@@ -69,7 +68,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
     const PLUGIN_PRODUCT_DATA_PAGE_MAP = 'PLUGIN_PRODUCT_DATA_PAGE_MAP';
     const PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP = 'PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP';
-    const PLUGIN_CMS_PAGE_DATA_PAGE_MAP = 'PLUGIN_CMS_PAGE_DATA_PAGE_MAP';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -148,10 +146,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP] = function (Container $container) {
             return new CategoryNodeDataPageMapPlugin();
-        };
-
-        $container[self::PLUGIN_CMS_PAGE_DATA_PAGE_MAP] = function (Container $container) {
-            return new CmsPageDataPageMapPlugin();
         };
 
         $container[static::SERVICE_DATA] = function (Container $container) {

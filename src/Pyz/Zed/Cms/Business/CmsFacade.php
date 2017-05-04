@@ -13,25 +13,10 @@ use Spryker\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 /**
- * @method \Pyz\Zed\Cms\Business\CmsBusinessFactory getFactory()
+ * @method \Spryker\Zed\Cms\Business\CmsBusinessFactory getFactory()
  */
 class CmsFacade extends SprykerCmsFacade implements CmsFacadeInterface
 {
-
-    /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
-     * @param array $cmsData
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     *
-     * @return \Generated\Shared\Transfer\PageMapTransfer
-     */
-    public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $cmsData, LocaleTransfer $locale)
-    {
-        return $this
-            ->getFactory()
-            ->createCmsDataPageMapBuilder()
-            ->buildPageMap($pageMapBuilder, $cmsData, $locale);
-    }
 
     /**
      * @param \Generated\Shared\Transfer\PageTransfer $pageTransfer

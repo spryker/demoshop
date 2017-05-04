@@ -16,15 +16,6 @@ interface CmsFacadeInterface extends SprykerCmsFacadeInterface
 {
 
     /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
-     * @param array $cmsData
-     * @param \Generated\Shared\Transfer\LocaleTransfer $locale
-     *
-     * @return \Generated\Shared\Transfer\PageMapTransfer
-     */
-    public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $cmsData, LocaleTransfer $locale);
-
-    /**
      * @param \Generated\Shared\Transfer\PageTransfer $pageTransfer
      * @param string $url
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
