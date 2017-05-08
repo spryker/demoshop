@@ -57,8 +57,6 @@
     "spryker/error-handler": "^2.0.0",
     "spryker/event": "^1.0.0",
     "spryker/event-journal": "^3.0.0",
-    "spryker/fact-finder": "^0.1.0",
-    "spryker/fact-finder-demo": "^0.1.0",
     "spryker/glossary": "^3.0.0",
     "spryker/graph": "^3.0.0",
     "spryker/graphviz": "^2.0.0",
