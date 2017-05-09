@@ -100,7 +100,7 @@ class CmsPageImporter extends CmsBlockImporter
     protected function publishPage(array $page, $idCmsPage)
     {
         if (isset($page['publish']) && (bool)$page['publish']) {
-            $this->cmsFacade->publishAndVersion($idCmsPage);
+            $this->cmsFacade->publishWithVersion($idCmsPage);
         }
     }
 
