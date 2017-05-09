@@ -9,7 +9,7 @@ namespace Pyz\Zed\Sales;
 
 use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
 use Spryker\Zed\Discount\Communication\Plugin\Sales\DiscountOrderHydratePlugin;
-use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionOrderHydrate;
+use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionOrderHydratePlugin;
 
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
@@ -19,7 +19,7 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
     protected function getHydrateOrderPlugins()
     {
         return [
-            new ProductOptionOrderHydrate(),
+            new ProductOptionOrderHydratePlugin(),
             new DiscountOrderHydratePlugin(),
         ];
     }

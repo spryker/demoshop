@@ -6,7 +6,6 @@
 
 namespace Pyz\Zed\Calculation;
 
-use Spryker\Zed\Calculation\CalculationDependencyProvider as SprykerCalculationDependencyProvider;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountAmountAggregatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ExpenseTotalCalculatorPlugin;
@@ -22,29 +21,41 @@ use Spryker\Zed\Calculation\Communication\Plugin\Calculator\RefundTotalCalculato
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\SubtotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\TaxTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\RemoveTotalsCalculatorPlugin;
-use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountCalculatorPlugin;
-use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountTotalsCalculatorPlugin;
-use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\ExpenseTaxWithDiscountsCalculatorPlugin;
-use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\GrandTotalWithDiscountsCalculatorPlugin;
-use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
-use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\SumGrossCalculatedDiscountAmountCalculatorPlugin;
-use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\ProductBundle\Communication\Plugin\Calculation\CalculateBundlePricePlugin;
-use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\DiscountTotalsWithProductOptionsCalculatorPlugin;
-use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin;
-use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin;
-use Spryker\Zed\ProductOptionDiscountConnector\Communication\Plugin\Calculator\TaxTotalAmountWithProductOptionsAndDiscountsCalculatorPlugin;
-use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionTaxRateCalculatorPlugin;
-use Spryker\Zed\Shipment\Communication\Plugin\ShipmentTaxRateCalculatorPlugin;
-use Spryker\Zed\TaxProductConnector\Communication\Plugin\ProductItemTaxRateCalculatorPlugin;
-use Spryker\Zed\Tax\Communication\Plugin\ExpenseTaxCalculatorPlugin;
-use Spryker\Zed\Tax\Communication\Plugin\ItemTaxCalculatorPlugin;
-use Spryker\Zed\Tax\Communication\Plugin\TaxTotalsCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\CanceledTotalCalculationPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\TaxRateAverageAggregatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\OrderTaxTotalCalculationPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\Calculator\TaxAmountCalculatorPlugin;
 use Spryker\Zed\Tax\Communication\Plugin\Calculator\TaxAmountAfterCancellationCalculatorPlugin;
+
+use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountCalculatorPlugin;
+
+use Spryker\Zed\ProductBundle\Communication\Plugin\Calculation\CalculateBundlePricePlugin;
+
+use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionTaxRateCalculatorPlugin;
+use Spryker\Zed\Shipment\Communication\Plugin\ShipmentTaxRateCalculatorPlugin;
+use Spryker\Zed\TaxProductConnector\Communication\Plugin\ProductItemTaxRateCalculatorPlugin;
+
+use Spryker\Zed\CalculationMigration\Communication\Plugin\DiscountTotalsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ExpensesGrossSumAmountCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ExpenseTaxCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ExpenseTaxWithDiscountsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ExpenseTotalsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\GrandTotalTotalsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\GrandTotalWithDiscountsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ItemGrossAmountsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ItemTaxCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ProductOptionGrossSumCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\SubtotalTotalsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\SumGrossCalculatedDiscountAmountCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\TaxTotalsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\RemoveAllCalculatedDiscountsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\TaxTotalAmountWithProductOptionsAndDiscountsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\DiscountTotalsWithProductOptionsCalculatorPlugin;
+use Spryker\Zed\CalculationMigration\Communication\Plugin\ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin;
+
+use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Calculation\CalculationDependencyProvider as SprykerCalculationDependencyProvider;
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
@@ -176,6 +187,8 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      */
     protected function getQuoteCalculatorPluginStack(Container $container)
     {
+        return $this->getDeprecatedCalculatorPlugins();
+
         return [
             new RemoveTotalsCalculatorPlugin(),
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
@@ -247,6 +260,44 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             new OrderTaxTotalCalculationPlugin(),
 
+        ];
+    }
+
+    protected function getDeprecatedCalculatorPlugins()
+    {
+        return [
+            //Remove calculated values, start with clean state.
+            new RemoveTotalsCalculatorPlugin(),
+            new RemoveAllCalculatedDiscountsCalculatorPlugin(),
+            //Item calculators
+            new ItemGrossAmountsCalculatorPlugin(),
+            new ProductOptionGrossSumCalculatorPlugin(),
+            new ProductItemTaxRateCalculatorPlugin(),
+            new ProductOptionTaxRateCalculatorPlugin(),
+            new ItemTaxCalculatorPlugin(),
+            //SubTotal
+            new SubtotalTotalsCalculatorPlugin(),
+            //Expenses (e.g. shipping)
+            new ExpensesGrossSumAmountCalculatorPlugin(),
+            new ShipmentTaxRateCalculatorPlugin(),
+            new ExpenseTaxCalculatorPlugin(),
+            new ExpenseTotalsCalculatorPlugin(),
+            //Grand total
+            new GrandTotalTotalsCalculatorPlugin(),
+            //Discounts
+            new DiscountCalculatorPlugin(),
+            new SumGrossCalculatedDiscountAmountCalculatorPlugin(),
+            new ItemsWithProductOptionsAndDiscountsGrossPriceCalculatorPlugin(),
+            new ItemsWithProductOptionsAndDiscountsTaxCalculatorPlugin(),
+            new DiscountTotalsCalculatorPlugin(),
+            new DiscountTotalsWithProductOptionsCalculatorPlugin(),
+            new ExpenseTaxWithDiscountsCalculatorPlugin(),
+            new CalculateBundlePricePlugin(),
+            //GrandTotal with discounts
+            new GrandTotalWithDiscountsCalculatorPlugin(),
+            //TaxTotal
+            new TaxTotalsCalculatorPlugin(),
+            new TaxTotalAmountWithProductOptionsAndDiscountsCalculatorPlugin(),
         ];
     }
 
