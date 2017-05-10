@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Customer;
 
+use Pyz\Shared\Newsletter\NewsletterConstants;
 use Pyz\Yves\Customer\Plugin\AuthenticationHandler;
 use Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin;
 use Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin;
@@ -15,6 +16,7 @@ use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
+use Spryker\Zed\Newsletter\Communication\Plugin\CustomerAnonymizer\CustomerUnsubscribePlugin;
 
 class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 {
@@ -114,6 +116,18 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
         };
 
         return $container;
+    }
+
+    /**
+     * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerAnonymizerPluginInterface[]
+     */
+    protected function getCustomerDeletePlugins()
+    {
+        return [
+            new CustomerUnsubscribePlugin([
+                NewsletterConstants::EDITORIAL_NEWSLETTER
+            ])
+        ];
     }
 
 }

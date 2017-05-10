@@ -7,8 +7,10 @@
 
 namespace Pyz\Zed\Customer;
 
+use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Newsletter\Communication\Plugin\CustomerAnonymizer\CustomerUnsubscribePlugin;
 
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
@@ -34,6 +36,18 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
         };
 
         return $container;
+    }
+
+    /**
+     * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerAnonymizerPluginInterface[]
+     */
+    protected function getCustomerDeletePlugins()
+    {
+        return [
+            new CustomerUnsubscribePlugin([
+                NewsletterConstants::EDITORIAL_NEWSLETTER
+            ])
+        ];
     }
 
 }
