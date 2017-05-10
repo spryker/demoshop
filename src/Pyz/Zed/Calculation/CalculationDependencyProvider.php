@@ -187,7 +187,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      */
     protected function getQuoteCalculatorPluginStack(Container $container)
     {
-        return $this->getDeprecatedCalculatorPlugins();
+        //return $this->getDeprecatedCalculatorPlugins();
 
         return [
             new RemoveTotalsCalculatorPlugin(),
