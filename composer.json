@@ -17,6 +17,7 @@
     "ext-redis": "*",
     "spryker/acl": "^3.0.0",
     "spryker/api": "dev-master as 0.1",
+    "spryker/api-query-builder": "dev-master as 0.1",
     "spryker/application": "^3.0.0",
     "spryker/assertion": "^3.0.0",
     "spryker/auth": "^3.0.0",
