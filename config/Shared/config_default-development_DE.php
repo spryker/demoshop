@@ -5,7 +5,6 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
-use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
