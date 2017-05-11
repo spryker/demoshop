@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "575370919291eb9fe6fbe09165bbbc7a",
+=======
+    "content-hash": "52673e8cfc1682c7e23fa6c1f750af5b",
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1618,11 +1622,51 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1251-data-importer",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
+=======
+<<<<<<< HEAD
+                "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
+=======
+<<<<<<< HEAD
+                "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
+=======
+<<<<<<< HEAD
+                "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
+=======
+<<<<<<< HEAD
+                "reference": "ea82a49283255b6cc85bd3f4d9bae555d8aee89b"
+=======
+<<<<<<< HEAD
+                "reference": "93c1d5f3b441a94e25208bd2e632c34aaf4567aa"
+=======
+<<<<<<< HEAD
+                "reference": "e7f2398737cfc544be8e3fb40563bdcfae0caff5"
+=======
+<<<<<<< HEAD
+                "reference": "29e126fcd24752ce3a2a7a87379eb4fb0d839052"
+=======
+<<<<<<< HEAD
+                "reference": "c9f3229553119c2f832714296869b399893827e6"
+=======
+<<<<<<< HEAD
+                "reference": "094b35934fa9184529ba398ca38c268cd60b9731"
+=======
+                "reference": "75b54ab48936d6dd82ed2d419cb7daa318c6f59d"
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1798,7 +1842,47 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-18 10:17:22"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-12 15:07:34"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-11 16:21:14"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-11 12:31:33"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-03 12:18:51"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-03 09:27:02"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-29 12:15:48"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-29 10:28:24"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-28 11:41:05"
+=======
+            "time": "2017-05-11 09:48:54"
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
         },
         {
             "name": "swiftmailer/swiftmailer",

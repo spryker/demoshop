@@ -21,6 +21,7 @@ use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsol
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
+use Spryker\Zed\DataImport\Communication\Console\DataImportConsole;
 use Spryker\Zed\Development\Communication\Console\BundleCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
@@ -102,6 +103,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new QueueWorkerConsole(),
             new ProductRelationUpdaterConsole(),
             new ProductLabelValidityConsole(),
+            new DataImportConsole(),
+            new DataImportConsole('data:import:glossary'),
 
             // Setup commands
             new RunnerConsole(),
