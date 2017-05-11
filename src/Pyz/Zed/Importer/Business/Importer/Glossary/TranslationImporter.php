@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Importer\Business\Importer\Glossary;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Glossary\Business\GlossaryFacadeInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
