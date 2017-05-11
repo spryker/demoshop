@@ -47,9 +47,7 @@ class TranslationImporter extends AbstractImporter
      */
     public function isImported()
     {
-        $query = SpyGlossaryKeyQuery::create();
-
-        return $query->count() > 0;
+        return false;
     }
 
     /**
@@ -72,9 +70,12 @@ class TranslationImporter extends AbstractImporter
             $localeTransfer = new LocaleTransfer();
             $localeTransfer->setLocaleName($translationData['locale']);
 
-            if (!$this->glossaryFacade->hasTranslation($translationKey, $localeTransfer)) {
-                $this->glossaryFacade->createAndTouchTranslation($translationKey, $localeTransfer, $translationData['translation'], true);
+            if ($this->glossaryFacade->hasTranslation($translationKey, $localeTransfer)) {
+                $this->glossaryFacade->updateAndTouchTranslation($translationKey, $localeTransfer, $translationData['translation'], true);
+                continue;
             }
+
+            $this->glossaryFacade->createAndTouchTranslation($translationKey, $localeTransfer, $translationData['translation'], true);
         }
     }
 

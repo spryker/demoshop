@@ -1539,7 +1539,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "64941925cc9388ecc6deb297106d47a5d7861e0d"
+=======
+                "reference": "752a8eaa0fd9bfc98d1efaab38155a9db535815d"
+>>>>>>> core-1091 allow update in Glossary importer, always run the glossary importer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1693,11 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-05-19 09:17:21"
+=======
+            "time": "2017-05-11 09:11:07"
+>>>>>>> core-1091 allow update in Glossary importer, always run the glossary importer
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6404,12 +6412,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
+<<<<<<< HEAD
                 "reference": "a046d4119e68b9b70d614dd74fc90c28b0ce3237"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a046d4119e68b9b70d614dd74fc90c28b0ce3237",
                 "reference": "a046d4119e68b9b70d614dd74fc90c28b0ce3237",
+=======
+                "reference": "64dafda32274f32fa6c51e6ad981391053b469f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/64dafda32274f32fa6c51e6ad981391053b469f7",
+                "reference": "64dafda32274f32fa6c51e6ad981391053b469f7",
+>>>>>>> core-1091 allow update in Glossary importer, always run the glossary importer
                 "shasum": ""
             },
             "require": {
@@ -6443,7 +6460,11 @@
                 "phpcs",
                 "standards"
             ],
+<<<<<<< HEAD
             "time": "2017-05-12 09:59:47"
+=======
+            "time": "2017-05-11T09:38:17+00:00"
+>>>>>>> core-1091 allow update in Glossary importer, always run the glossary importer
         },
         {
             "name": "squizlabs/php_codesniffer",
