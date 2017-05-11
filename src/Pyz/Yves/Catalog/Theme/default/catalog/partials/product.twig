@@ -1,7 +1,10 @@
-<div class="callout">
+<div class="callout js-product-container">
     <a href="{{ detailsUrl }}" class="thumbnail __preview-image">
         <img src="{{ imageUrl }}">
     </a>
+    {% if idProductAbstract is defined %}
+        {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+    {% endif %}
     <p>
         <strong>{{ name }}</strong><br>
         {{ priceValue | money }}

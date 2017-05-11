@@ -73,11 +73,19 @@ class ProductFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\Availability\AvailabilityClient
+     * @return \Spryker\Client\Availability\AvailabilityClientInterface
      */
     public function getAvailabilityClient()
     {
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_AVAILABILITY);
+    }
+
+    /**
+     * @return \Spryker\Client\ProductGroup\ProductGroupClientInterface
+     */
+    public function getProductGroupClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_GROUP);
     }
 
 }
