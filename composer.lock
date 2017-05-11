@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d1a2844b9a53c893ebbc09dfb208cf9",
+    "content-hash": "0a0fe759778540786d0f7be95bbb85f7",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1486,6 +1486,48 @@
             "time": "2017-04-30T16:26:54+00:00"
         },
         {
+            "name": "spryker/calculation-migration",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/Calculation-migration.git",
+                "reference": "d9d358258ac9a59c5a9fd4f9631c83dc756f9d4e"
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/util-text": "^1.1.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Unit": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Calculation bundle",
+            "time": "2017-05-11 13:52:56"
+        },
+        {
             "name": "spryker/rabbit-mq",
             "version": "dev-master",
             "source": {
@@ -1539,7 +1581,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6a8d0ec709b1069ac8d5130222d55d1a016294a0"
+                "reference": "32116901d3233971c13181350880203da0e7252f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1687,20 +1729,20 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-08 11:54:54"
+            "time": "2017-05-11 12:48:11"
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.7",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4"
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9a06dc570a0367850280eefd3f1dc2da45aef517",
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
                 "shasum": ""
             },
             "require": {
@@ -1741,20 +1783,20 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-04-20T17:32:18+00:00"
+            "time": "2017-05-01T15:54:03+00:00"
         },
         {
             "name": "symfony-cmf/routing",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony-cmf/Routing.git",
-                "reference": "b93704ca098334f56e9b317932f21a4362e620db"
+                "url": "https://github.com/symfony-cmf/routing.git",
+                "reference": "fb1e7f85ff8c6866238b7e73a490a0a0243ae8ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/Routing/zipball/b93704ca098334f56e9b317932f21a4362e620db",
-                "reference": "b93704ca098334f56e9b317932f21a4362e620db",
+                "url": "https://api.github.com/repos/symfony-cmf/routing/zipball/fb1e7f85ff8c6866238b7e73a490a0a0243ae8ac",
+                "reference": "fb1e7f85ff8c6866238b7e73a490a0a0243ae8ac",
                 "shasum": ""
             },
             "require": {
@@ -1800,7 +1842,7 @@
                 "database",
                 "routing"
             ],
-            "time": "2016-03-31T09:11:39+00:00"
+            "time": "2017-05-09T08:10:41+00:00"
         },
         {
             "name": "symfony/config",
@@ -6400,12 +6442,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "5ab7bfc7abf17d2b5f54170398234d6726f40ccc"
+                "reference": "64dafda32274f32fa6c51e6ad981391053b469f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/5ab7bfc7abf17d2b5f54170398234d6726f40ccc",
-                "reference": "5ab7bfc7abf17d2b5f54170398234d6726f40ccc",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/64dafda32274f32fa6c51e6ad981391053b469f7",
+                "reference": "64dafda32274f32fa6c51e6ad981391053b469f7",
                 "shasum": ""
             },
             "require": {
@@ -6415,7 +6457,7 @@
             "require-dev": {
                 "phpunit/phpunit": "~5.2"
             },
-            "type": "library",
+            "type": "phpcodesniffer-standard",
             "autoload": {
                 "psr-4": {
                     "Spryker\\": "Spryker"
@@ -6439,7 +6481,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-04-26 13:25:55"
+            "time": "2017-05-11 09:38:17"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -7061,6 +7103,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
+        "spryker/calculation-migration": 20,
         "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
