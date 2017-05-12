@@ -1,0 +1,18 @@
+{% extends '@Cms/layout/full.twig' %}
+
+{% block content %}
+    <!-- CMS_PLACEHOLDER : "Placeholder1" -->
+    <!-- CMS_PLACEHOLDER : "Placeholder2" -->
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="callout">
+                    <div class="row">
+                        <div class="small-12 xlarge-9 xxlarge-8 columns">
+                            {{ spyCms('Placeholder1') | raw }}
+                            {{ spyCms('Placeholder2') | raw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

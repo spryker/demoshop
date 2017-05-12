@@ -59,9 +59,9 @@ class CmsGuiCreatePageCest
 
         $iPage->amOnPage(sprintf(CmsEditPage::URL, $idCmsPage));
 
-        $iPage->clickActivateButton();
+        $iPage->clickPublishButton();
 
-        $iPage->see(CmsEditPage::PAGE_ACTIVATE_SUCCESS_MESSAGE);
+        $iPage->see(CmsEditPage::PAGE_PUBLISH_SUCCESS_MESSAGE);
 
         $iPage->runCollectors();
 
