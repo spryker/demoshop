@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bffb341c81631c9cc37aa1efe98f8516",
+    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-771-cms-version",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a8e8993cdf203610a53c2a0e0ddea83e5109e808"
+                "reference": "cff0f9ca4ba339a24a79c053d3d2d0ebb0ec62af"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1566,9 +1566,7 @@
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
                 "spryker/cms": "*",
-                "spryker/cms-collector": "*",
                 "spryker/cms-gui": "*",
-                "spryker/cms-user-connector": "*",
                 "spryker/collector": "*",
                 "spryker/collector-search-connector": "*",
                 "spryker/collector-storage-connector": "*",
@@ -1689,7 +1687,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-11 09:46:27"
+            "time": "2017-05-10 13:08:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
