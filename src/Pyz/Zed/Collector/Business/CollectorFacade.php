@@ -139,40 +139,6 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      *
      * @return void
      */
-    public function runStoragePageCollector(
-        SpyTouchQuery $baseQuery,
-        LocaleTransfer $localeTransfer,
-        BatchResultInterface $result,
-        ReaderInterface $dataReader,
-        WriterInterface $dataWriter,
-        TouchUpdaterInterface $touchUpdater,
-        OutputInterface $output
-    ) {
-
-        $collector = $this->getFactory()
-            ->createStoragePageCollector();
-
-        $this->runCollector(
-            $collector,
-            $baseQuery,
-            $localeTransfer,
-            $result,
-            $dataReader,
-            $dataWriter,
-            $touchUpdater,
-            $output
-        );
-    }
-
-    /**
-     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
-     *
-     * @return void
-     */
     public function runSearchCategoryNodeCollector(
         SpyTouchQuery $baseQuery,
         LocaleTransfer $localeTransfer,
@@ -185,40 +151,6 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
 
         $collector = $this->getFactory()
             ->createSearchCategoryNodeCollector();
-
-        $this->runCollector(
-            $collector,
-            $baseQuery,
-            $localeTransfer,
-            $result,
-            $dataReader,
-            $dataWriter,
-            $touchUpdater,
-            $output
-        );
-    }
-
-    /**
-     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
-     *
-     * @return void
-     */
-    public function runSearchCmsPageCollector(
-        SpyTouchQuery $baseQuery,
-        LocaleTransfer $localeTransfer,
-        BatchResultInterface $result,
-        ReaderInterface $dataReader,
-        WriterInterface $dataWriter,
-        TouchUpdaterInterface $touchUpdater,
-        OutputInterface $output
-    ) {
-
-        $collector = $this->getFactory()
-            ->createSearchCmsPageCollector();
 
         $this->runCollector(
             $collector,
