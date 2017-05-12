@@ -1,9 +1,11 @@
-{% for stepBreadcrumbItem in stepBreadcrumbs.breadcrumbs %}
-    <li class="{% if stepBreadcrumbItem.isActive %}active{% elseif not stepBreadcrumbItem.isEnabled %}disabled{% endif %}">
-        {% if stepBreadcrumbItem.isEnabled and not stepBreadcrumbItem.isActive %}
-            <a href="{{ url(stepBreadcrumbItem.route) }}">{{ stepBreadcrumbItem.title | trans }}</a>
-        {% else %}
-            {{ stepBreadcrumbItem.title | trans }}
-        {% endif %}
-    </li>
-{% endfor %}
+{% if stepBreadcrumbs is defined %}
+    {% for stepBreadcrumbItem in stepBreadcrumbs.breadcrumbs %}
+        <li class=“{% if stepBreadcrumbItem.isActive %}active{% elseif not stepBreadcrumbItem.isEnabled %}disabled{% endif %}“>
+            {% if stepBreadcrumbItem.isEnabled and not stepBreadcrumbItem.isActive %}
+                <a href=“{{ url(stepBreadcrumbItem.route) }}“>{{ stepBreadcrumbItem.title | trans }}</a>
+            {% else %}
+                {{ stepBreadcrumbItem.title | trans }}
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endif %}

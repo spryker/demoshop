@@ -174,7 +174,7 @@ function resetDevelopmentState {
     $CONSOLE transfer:generate
     writeErrorMessage "Generating Transfer Objects failed"
 
-    $CONSOLE setup:install -- $VERBOSITY
+    $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
     labelText "Initializing DB"
