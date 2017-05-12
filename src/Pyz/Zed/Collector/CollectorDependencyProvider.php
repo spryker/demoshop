@@ -8,15 +8,12 @@
 namespace Pyz\Zed\Collector;
 
 use Pyz\Zed\Category\Communication\Plugin\CategoryNodeDataPageMapPlugin;
-use Pyz\Zed\Cms\Communication\Plugin\CmsPageDataPageMapPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\AttributeMapCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\AvailabilityCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\CmsPageCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\PageCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductAbstractCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductConcreteCollectorPlugin;
@@ -33,6 +30,8 @@ use Spryker\Shared\Product\ProductConfig;
 use Spryker\Shared\ProductGroup\ProductGroupConfig;
 use Spryker\Shared\ProductRelation\ProductRelationConstants;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
+use Spryker\Zed\CmsCollector\Communication\Plugin\CmsVersionPageCollectorSearchPlugin;
+use Spryker\Zed\CmsCollector\Communication\Plugin\CmsVersionPageCollectorStoragePlugin;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
 use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Spryker\Zed\Kernel\Container;
@@ -69,7 +68,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
     const PLUGIN_PRODUCT_DATA_PAGE_MAP = 'PLUGIN_PRODUCT_DATA_PAGE_MAP';
     const PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP = 'PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP';
-    const PLUGIN_CMS_PAGE_DATA_PAGE_MAP = 'PLUGIN_CMS_PAGE_DATA_PAGE_MAP';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -116,7 +114,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return [
                 ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT => new ProductCollectorSearchPlugin(),
                 CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE => new CategoryNodeCollectorSearchPlugin(),
-                CmsConstants::RESOURCE_TYPE_PAGE => new CmsPageCollectorSearchPlugin(),
+                CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorSearchPlugin(),
             ];
         };
 
@@ -130,7 +128,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 CategoryConstants::RESOURCE_TYPE_NAVIGATION => new NavigationCollectorStoragePlugin(),
                 NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU => new NavigationMenuCollectorStoragePlugin(),
                 TranslationManager::TOUCH_TRANSLATION => new TranslationCollectorStoragePlugin(),
-                CmsConstants::RESOURCE_TYPE_PAGE => new PageCollectorStoragePlugin(),
+                CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorStoragePlugin(),
                 CmsConstants::RESOURCE_TYPE_BLOCK => new BlockCollectorStoragePlugin(),
                 UrlConfig::RESOURCE_TYPE_REDIRECT => new RedirectCollectorStoragePlugin(),
                 UrlConfig::RESOURCE_TYPE_URL => new UrlCollectorStoragePlugin(),
@@ -148,10 +146,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP] = function (Container $container) {
             return new CategoryNodeDataPageMapPlugin();
-        };
-
-        $container[self::PLUGIN_CMS_PAGE_DATA_PAGE_MAP] = function (Container $container) {
-            return new CmsPageDataPageMapPlugin();
         };
 
         $container[static::SERVICE_DATA] = function (Container $container) {

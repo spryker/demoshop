@@ -31,6 +31,8 @@ class CmsBlockImporter extends AbstractImporter
     const TRANSLATION = 'translation';
     const TEMPLATE = 'template';
     const TEMPLATE_PATH = 'template_path';
+    const TEMPLATE_ATTRIBUTE_NAME = 'name';
+    const TEMPLATE_ATTRIBUTE_PATH = 'path';
     const PAGE = 'page';
     const REDIRECT = 'redirect';
     const BLOCK = 'block';
@@ -60,24 +62,6 @@ class CmsBlockImporter extends AbstractImporter
      * @var \Pyz\Zed\Cms\Business\CmsFacadeInterface
      */
     protected $cmsFacade;
-
-    /**
-     * @var array
-     */
-    protected $templates = [
-        'static' => '@Cms/template/static_full_page.twig',
-        'quotes' => '@Cms/template/static_quotes_page.twig',
-        'quote_block' => '@Cms/template/quotes_block.twig',
-    ];
-
-    /**
-     * @var array
-     */
-    protected $templateNames = [
-        'static' => 'static full page',
-        'quotes' => 'static quotes page',
-        'quote_block' => 'quotes block',
-    ];
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -144,17 +128,17 @@ class CmsBlockImporter extends AbstractImporter
     }
 
     /**
-     * @param string $template
+     * @param array $template
      *
      * @return \Generated\Shared\Transfer\CmsTemplateTransfer
      */
-    protected function findOrCreateTemplate($template)
+    protected function findOrCreateTemplate(array $template)
     {
-        if ($this->cmsFacade->hasTemplate($this->templates[$template])) {
-            return $this->cmsFacade->getTemplate($this->templates[$template]);
+        if ($this->cmsFacade->hasTemplate($template[static::TEMPLATE_ATTRIBUTE_PATH])) {
+            return $this->cmsFacade->getTemplate($template[static::TEMPLATE_ATTRIBUTE_PATH]);
         }
 
-        return $this->cmsFacade->createTemplate($this->templateNames[$template], $this->templates[$template]);
+        return $this->cmsFacade->createTemplate($template[static::TEMPLATE_ATTRIBUTE_NAME], $template[static::TEMPLATE_ATTRIBUTE_PATH]);
     }
 
     /**
