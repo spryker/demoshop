@@ -14,13 +14,8 @@ class DeleteController extends AbstractCustomerController
 {
 
     /**
-     * @return void
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function indexAction()
-    {
-        $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
-    }
-
     public function confirmAction()
     {
         $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
