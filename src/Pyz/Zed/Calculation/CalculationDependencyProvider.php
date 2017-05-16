@@ -104,6 +104,9 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      *    - Expense.unitPriceToPayAggregation
      *    - Expense.sumPriceToPayAggregation
      *
+     * TaxRateAverageAggregatorPlugin -  average tax rate for item, used when recalculating canceled amount when refunded
+     *    - Item.taxRateAverageAggregation
+     *
      * ProductItemTaxRateCalculatorPlugin - Sets tax rate to item based on shipping address
      *    - Item.taxRate
      *
