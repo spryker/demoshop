@@ -148,24 +148,34 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      */
     protected function generateProductConcreteImageSets($idProductAbstract, $idProductConcrete)
     {
-        $abstractImageSets = $this->productImageQueryContainer
+        $abstractDefaultImageSets = $this->productImageQueryContainer
+            ->queryProductImageSet()
+            ->filterByFkProductAbstract($idProductAbstract)
+            ->filterByFkLocale(null)
+            ->find();
+
+        $abstractLocalizedImageSets = $this->productImageQueryContainer
             ->queryProductImageSet()
             ->filterByFkProductAbstract($idProductAbstract)
             ->filterByFkLocale($this->locale->getIdLocale())
-            ->_or()
+            ->find();
+
+        $concreteDefaultImageSets = $this->productImageQueryContainer
+            ->queryProductImageSet()
+            ->filterByFkProduct($idProductConcrete)
             ->filterByFkLocale(null)
             ->find();
 
-        $concreteImageSets = $this->productImageQueryContainer
+        $concreteLocalizedImageSets = $this->productImageQueryContainer
             ->queryProductImageSet()
             ->filterByFkProduct($idProductConcrete)
             ->filterByFkLocale($this->locale->getIdLocale())
-            ->_or()
-            ->filterByFkLocale(null)
             ->find();
 
-        $result = $this->getImageCollectionsIndexedByImageSetKey($concreteImageSets)
-            + $this->getImageCollectionsIndexedByImageSetKey($abstractImageSets);
+        $result = $this->getImageCollectionsIndexedByImageSetKey($concreteLocalizedImageSets)
+                + $this->getImageCollectionsIndexedByImageSetKey($concreteDefaultImageSets)
+                + $this->getImageCollectionsIndexedByImageSetKey($abstractLocalizedImageSets)
+                + $this->getImageCollectionsIndexedByImageSetKey($abstractDefaultImageSets);
 
         return $result;
     }
