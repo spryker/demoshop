@@ -86,6 +86,35 @@ class CmsPageImporter extends CmsBlockImporter
             $this->createPageUrl($pageTransfer, $urlTransfer->getUrl(), $localeTransfer);
             $this->createPlaceholder($placeholders, $pageTransfer, $localeTransfer);
         }
+
+        $this->publishPage($page, $pageTransfer->getIdCmsPage());
+        $this->deactivatePageIfNeeded($page, $pageTransfer->getIdCmsPage());
+    }
+
+    /**
+     * @param array $page
+     * @param int $idCmsPage
+     *
+     * @return void
+     */
+    protected function publishPage(array $page, $idCmsPage)
+    {
+        if (isset($page['publish']) && (bool)$page['publish']) {
+            $this->cmsFacade->publishWithVersion($idCmsPage);
+        }
+    }
+
+    /**
+     * @param array $page
+     * @param int $idCmsPage
+     *
+     * @return void
+     */
+    protected function deactivatePageIfNeeded(array $page, $idCmsPage)
+    {
+        if (array_key_exists('active', $page) && !(bool)$page['active']) {
+            $this->cmsFacade->deactivatePage($idCmsPage);
+        }
     }
 
 }
