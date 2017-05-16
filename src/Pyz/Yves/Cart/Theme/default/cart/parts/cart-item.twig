@@ -6,7 +6,7 @@
                 <div class="small-12 columns text-center medium-text-left">
                     <ul class="no-bullet __no-margin-bottom">
                         <li class="lead">
-                            {{ cartItem.name }} - <strong>{{ cartItem.unitPrice | money }}</strong>
+                            {{ cartItem.name }} - <strong><small>{{ cartItem.unitPrice | money }}</small></strong>
                         </li>
                             <li class="__secondary">{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</li>
 
@@ -28,7 +28,13 @@
                     </ul>
                 </div>
             </div>
-            <form class="row align-right" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
+
+
+
+            <form class="row align-right align-middle" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
+                <div class="columns">
+                    <br>{{ 'cart.item.item_total' | trans }} -  <strong>{{ cartItem.sumSubtotalAggregation | money }}</strong>
+                </div>
                 <div class="small-4 columns">
                     <label>{{ 'cart.item_quantity' | trans }}:
                         <div class="input-group">
