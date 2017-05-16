@@ -337,6 +337,9 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     {
         $imageSets = $this->productImageQueryContainer
             ->queryImageSetByProductAbstractId($idProductAbstract)
+            ->filterByFkLocale($this->locale->getIdLocale())
+            ->_or()
+            ->filterByFkLocale(null)
             ->find();
 
         $result = [];

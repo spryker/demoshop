@@ -151,11 +151,17 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
         $abstractImageSets = $this->productImageQueryContainer
             ->queryProductImageSet()
             ->filterByFkProductAbstract($idProductAbstract)
+            ->filterByFkLocale($this->locale->getIdLocale())
+            ->_or()
+            ->filterByFkLocale(null)
             ->find();
 
         $concreteImageSets = $this->productImageQueryContainer
             ->queryProductImageSet()
             ->filterByFkProduct($idProductConcrete)
+            ->filterByFkLocale($this->locale->getIdLocale())
+            ->_or()
+            ->filterByFkLocale(null)
             ->find();
 
         $result = $this->getImageCollectionsIndexedByImageSetKey($concreteImageSets)
