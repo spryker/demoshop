@@ -14,22 +14,23 @@ class DeleteController extends AbstractCustomerController
 {
 
     /**
+     * @return void
+     */
+    public function indexAction()
+    {
+
+    }
+
+    /**
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function confirmAction()
     {
         $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
 
-        $isSuccessful = $this->getClient()->anonymizeCustomer($loggedInCustomerTransfer);
+        $this->getClient()->anonymizeCustomer($loggedInCustomerTransfer);
 
-        if ($isSuccessful) {
-            $this->getClient()->logout();
-            $this->addSuccessMessage(Messages::CUSTOMER_ANONYMIZATION_SUCCESS);
-            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
-        }
-
-        $this->addErrorMessage(Messages::CUSTOMER_ANONYMIZATION_FAILED);
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_DELETE);
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGOUT);
     }
 
 }
