@@ -15,7 +15,7 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
 
     /**
-     * @return array|/Spryker/Zed/Sales/Dependency/Plugin/HydrateOrderPluginInterface[]
+     * @return array|\Spryker\Zed\Sales\Dependency\Plugin\HydrateOrderPluginInterface[]
      */
     protected function getHydrateOrderPlugins()
     {
