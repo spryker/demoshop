@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8182b3798ce48a4e53ef14ffe3abeb07a3afb95e"
+                "reference": "952b9b280116c4402d06faaa732589b270e9cbbb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-17 12:59:55"
+            "time": "2017-05-17 13:09:19"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6353,7 +6353,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-05-12T14:13:12+00:00"
+            "time": "2017-05-12 14:13:12"
         },
         {
             "name": "spryker/code-generator",
