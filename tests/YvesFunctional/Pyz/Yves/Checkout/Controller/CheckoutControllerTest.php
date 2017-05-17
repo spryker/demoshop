@@ -25,7 +25,6 @@ use ReflectionProperty;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\Session\SessionClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
-use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\Price\PriceTaxMode;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
@@ -397,7 +396,6 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
      */
     private function setQuoteForShipment()
     {
-
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setTaxMode(PriceTaxMode::TAX_MODE_GROSS);
 

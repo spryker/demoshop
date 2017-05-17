@@ -15,7 +15,6 @@ use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
-use Generated\Shared\Transfer\TotalsTransfer;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderItemState;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderProcess;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
@@ -35,8 +34,6 @@ use Spryker\Zed\ProductOption\Business\ProductOptionFacade;
  */
 class ProductOptionFacadeAggregatorTest extends Test
 {
-
-
 
     /**
      * @return void

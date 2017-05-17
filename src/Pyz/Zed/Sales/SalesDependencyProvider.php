@@ -7,12 +7,13 @@
 
 namespace Pyz\Zed\Sales;
 
-use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
 use Spryker\Zed\Discount\Communication\Plugin\Sales\DiscountOrderHydratePlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionOrderHydratePlugin;
+use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
 
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
+
     /**
      * @return array|/Spryker/Zed/Sales/Dependency/Plugin/HydrateOrderPluginInterface[]
      */
@@ -23,4 +24,5 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new DiscountOrderHydratePlugin(),
         ];
     }
+
 }
