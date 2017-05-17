@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Shared\Customer\Code\Messages;
 
 class DeleteController extends AbstractCustomerController
 {
@@ -18,7 +17,6 @@ class DeleteController extends AbstractCustomerController
      */
     public function indexAction()
     {
-
     }
 
     /**
