@@ -51,6 +51,11 @@
                                 </div>
                             {% endfor %}
                         </div>
+
+                        {% include '@Product/product/partials/product-labels.twig' with {
+                            productLabelTransferCollection: productLabelTransferCollection
+                        } %}
+
                     </div>
                 </div>
                 <div class="row">

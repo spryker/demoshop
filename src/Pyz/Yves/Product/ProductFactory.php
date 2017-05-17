@@ -88,4 +88,12 @@ class ProductFactory extends AbstractFactory
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_GROUP);
     }
 
+    /**
+     * @return \Spryker\Client\ProductLabel\ProductLabelClientInterface
+     */
+    public function getProductLabelClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_LABEL);
+    }
+
 }
