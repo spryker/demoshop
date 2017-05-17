@@ -41,7 +41,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     /**
      * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerAnonymizerPluginInterface[]
      */
-    protected function getCustomerDeletePlugins()
+    protected function getCustomerAnonymizerPlugins()
     {
         return [
             new CustomerUnsubscribePlugin([

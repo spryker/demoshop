@@ -118,16 +118,4 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerAnonymizerPluginInterface[]
-     */
-    protected function getCustomerDeletePlugins()
-    {
-        return [
-            new CustomerUnsubscribePlugin([
-                NewsletterConstants::EDITORIAL_NEWSLETTER
-            ])
-        ];
-    }
-
 }
