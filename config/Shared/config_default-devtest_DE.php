@@ -11,8 +11,8 @@ use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Session\SessionConstants;
-use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
 // ---------- Yves host
@@ -67,10 +67,11 @@ $config[PropelConstants::ZED_DB_DATABASE] = 'DE_devtest_zed';
 // ---------- Elasticsearch
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_devtest';
 
+// ---------- RabbitMq
+$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
+$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
+
 // ---------- Session
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED];
 $config[SessionConstants::YVES_SESSION_REDIS_DATABASE] = 5;
-
-// ---------- Jenkins
-$config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';

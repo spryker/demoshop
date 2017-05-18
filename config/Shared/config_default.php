@@ -9,15 +9,18 @@ use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
+use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
-use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Price\PriceConstants;
+use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\Queue\QueueConfig;
+use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
@@ -60,10 +63,7 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_MYSQL => 'MySql',
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
-$config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = sprintf(
-    '%s/*/src/*/Zed/*/Persistence/Propel/Schema/',
-    $config[KernelConstants::SPRYKER_ROOT]
-);
+$config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = APPLICATION_VENDOR_DIR . '/*/*/src/*/Zed/*/Persistence/Propel/Schema/';
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
 // ---------- Authentication
@@ -71,7 +71,7 @@ $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
 // For a better performance you can turn off Zed authentication
-$AUTH_ZED_ENABLED = true;
+$AUTH_ZED_ENABLED = false;
 $config[AuthConstants::AUTH_ZED_ENABLED] = $AUTH_ZED_ENABLED;
 $config[ZedRequestConstants::AUTH_ZED_ENABLED] = $AUTH_ZED_ENABLED;
 $config[AuthConstants::AUTH_DEFAULT_CREDENTIALS] = [
@@ -191,11 +191,21 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 // ---------- Twig
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s//cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s//cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => sprintf('%s/data/%s/cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
+$config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
+    '%s/data/%s/cache/Yves/twig/.pathCache',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE
+);
+$config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
+    '%s/data/%s/cache/Zed/twig/.pathCache',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE
+);
 
 // ---------- Navigation
 // The cache should always be activated. Refresh/build with CLI command: vendor/bin/console application:build-navigation-cache
@@ -214,10 +224,12 @@ $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION] = true;
 // ---------- Session
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS_LOCKING;
 $config[SessionConstants::YVES_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
+$config[SessionConstants::YVES_SESSION_COOKIE_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_0_5_HOUR;
 $config[SessionConstants::YVES_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::YVES_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
+$config[SessionConstants::ZED_SESSION_COOKIE_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_BROWSER_SESSION;
 $config[SessionConstants::ZED_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::ZED_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
 $config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_TIMEOUT_MILLISECONDS] = 0;
@@ -244,6 +256,7 @@ $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = $HST
 
 // ---------- SSL
 $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
+$config[SessionConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
     'heartbeat' => '/heartbeat',
@@ -254,7 +267,7 @@ $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
 // ---------- Theme
 $YVES_THEME = 'default';
-$config[ApplicationConstants::YVES_THEME] = $YVES_THEME;
+$config[TwigConstants::YVES_THEME] = $YVES_THEME;
 $config[CmsConstants::YVES_THEME] = $YVES_THEME;
 
 // ---------- Error handling
@@ -311,19 +324,45 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
 // ---------- NewRelic
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
-// ---------- Customer (should go into bundle configuration)
-$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^/customer|^/wishlist)';
+// ---------- Queue
+$config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
+$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 10000;
+$config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
+/*
+ * Queues can have different adapters and maximum worker number
+ * QUEUE_ADAPTER_CONFIGURATION can have the array like this as an example:
+ *
+ *   'mailQueue' => [
+ *       QueueConfig::CONFIG_QUEUE_ADAPTER => \Spryker\Client\RabbitMq\Model\RabbitMqAdapter::class,
+ *       QueueConfig::CONFIG_MAX_WORKER_NUMBER => 5
+ *   ],
+ *
+ *
+ */
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
+    EventConstants::EVENT_QUEUE => [
+        QueueConfig::CONFIG_QUEUE_ADAPTER => \Spryker\Client\RabbitMq\Model\RabbitMqAdapter::class,
+        QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
+    ],
+];
+
+// ---------- Events
+$config[EventConstants::LOGGER_ACTIVE] = false;
+
+// ---------- Customer
+$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|de)?/customer|^(/en|de)?/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
-// ---------- Price (should go into bundle configuration)
+// ---------- Price
 $DEFAULT_PRICE_TYPE = 'DEFAULT';
 $config[PriceConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
 $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
 
-// ---------- Taxes (should go into bundle configuration)
+// ---------- Taxes
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
-// ---------- Event journal (deprecated)
+// ---------- Event journal
 $config[EventJournalConstants::COLLECTORS]['YVES'] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
     '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',

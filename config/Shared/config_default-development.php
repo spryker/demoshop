@@ -8,18 +8,23 @@ use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
+use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Payone\PayoneConstants;
-use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
+use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
+
+$CURRENT_STORE = Store::getInstance()->getStoreName();
 
 // ---------- General environment
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
@@ -45,10 +50,9 @@ $config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
 
 // ---------- RabbitMQ
-$config[ApplicationConstants::ZED_RABBITMQ_HOST] = 'localhost';
-$config[ApplicationConstants::ZED_RABBITMQ_PORT] = '5672';
-$config[ApplicationConstants::ZED_RABBITMQ_USERNAME] = 'DE_development';
-$config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
+$config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
+$config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
+$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
 
 // ---------- Session
 $config[SessionConstants::YVES_SESSION_COOKIE_SECURE] = false;
@@ -57,13 +61,16 @@ $config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::S
 $config[SessionConstants::YVES_SESSION_REDIS_PORT] = $config[StorageConstants::STORAGE_REDIS_PORT];
 $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = $config[StorageConstants::STORAGE_REDIS_PASSWORD];
 $config[SessionConstants::YVES_SESSION_REDIS_DATABASE] = 1;
+$config[SessionConstants::ZED_SESSION_COOKIE_SECURE] = false;
 $config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL];
 $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
 $config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
 $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
 $config[SessionConstants::ZED_SESSION_REDIS_DATABASE] = 2;
+$config[SessionConstants::ZED_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_YEAR;
 
 // ---------- Jenkins
+$config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
 
 // ---------- Zed request
@@ -86,11 +93,23 @@ $config[PayoneConstants::PAYONE] = [
 
 // ---------- Twig
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => false,
+    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => false,
+    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
+$config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
+    '%s/data/%s/%s/cache/Yves/twig/.pathCache',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE,
+    APPLICATION_ENV
+);
+$config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
+    '%s/data/%s/%s/cache/Zed/twig/.pathCache',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE,
+    APPLICATION_ENV
+);
 
 // ---------- Navigation
 $config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
@@ -112,6 +131,9 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
+
+// ---------- Events
+$config[EventConstants::LOGGER_ACTIVE] = true;
 
 // ---------- Event journal (deprecated)
 $config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;

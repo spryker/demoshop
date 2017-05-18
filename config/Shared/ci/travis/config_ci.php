@@ -7,6 +7,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\Kernel\KernelConstants;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
@@ -18,7 +19,10 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Testify\TestifyConstants;
+use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
+
+$CURRENT_STORE = Store::getInstance()->getStoreName();
 
 // ---------- General
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
@@ -93,25 +97,18 @@ $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_PORT] = 5432;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 
-// ---------- RabbitMQ
-$config[ApplicationConstants::ZED_RABBITMQ_HOST] = 'localhost';
-$config[ApplicationConstants::ZED_RABBITMQ_PORT] = '5672';
-$config[ApplicationConstants::ZED_RABBITMQ_USERNAME] = 'DE_development';
-$config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
-$config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
-
 // ---------- Elasticsearch
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]
-    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
-    = $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
-    = 'de_search';
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
-    = $config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
-    = $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE]
-    = 'page';
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT]
-    = $config[SearchConstants::ELASTICA_PARAMETER__PORT]
-    = '9200';
+$ELASTICA_INDEX_NAME = 'de_search';
+$ELASTICA_DOCUMENT_TYPE = 'page';
+$ELASTICA_PORT = '9200';
+$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
+$config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 // ---------- Session
@@ -127,6 +124,20 @@ $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YV
 $config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
 $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD];
 $config[SessionConstants::ZED_SESSION_REDIS_DATABASE] = 2;
+
+// ---------- Twig
+$config[TwigConstants::YVES_PATH_CACHE_ENABLED] = true;
+$config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
+    '%s/data/%s/cache/Yves/twig/.pathCache',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE
+);
+$config[TwigConstants::ZED_PATH_CACHE_ENABLED] = true;
+$config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
+    '%s/data/%s/cache/Zed/twig/.pathCache',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE
+);
 
 // ---------- Jenkins
 $config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
