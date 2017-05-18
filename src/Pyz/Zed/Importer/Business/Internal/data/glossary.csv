@@ -400,9 +400,9 @@ customer.address.is_default_billing,"Standard Rechnungsadresse",de_DE
 customer.address.is_default_shipping,"Is default shipping address",en_US
 customer.address.is_default_shipping,"Standard Lieferadresse",de_DE
 customer.anonymization.success,"Your account has been deleted successfully",en_US
-customer.anonymization.success,"Dein Account wurde gelöscht",de_DE
+customer.anonymization.success,"Ihr Account wurde gelöscht",de_DE
 customer.anonymization.failed,"Your account could not be deleted",en_US
-customer.anonymization.failed,"Dein Account konnte nicht gelöscht werden.",de_DE
+customer.anonymization.failed,"Ihr Account konnte nicht gelöscht werden.",de_DE
 customer.authorization.success,"Registration Successful",en_US
 customer.authorization.success,"Registrierung erfolgreich",de_DE
 customer.profile.change.success,"Profile was successfully saved",en_US
