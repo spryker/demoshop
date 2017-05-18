@@ -29,8 +29,6 @@
                 </div>
             </div>
 
-
-
             <form class="row align-right align-middle" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
                 <div class="columns">
                     <br>{{ 'cart.item.item_total' | trans }} -  <strong>{{ cartItem.sumSubtotalAggregation | money }}</strong>
