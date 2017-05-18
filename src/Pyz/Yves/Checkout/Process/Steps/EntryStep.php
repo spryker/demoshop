@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use Pyz\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 
 /**
@@ -14,6 +15,18 @@ use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
  */
 class EntryStep extends AbstractBaseStep
 {
+
+    /**
+     * @var \Pyz\Client\Customer\CustomerClientInterface
+     */
+    protected $customerClient;
+
+    public function __construct($stepRoute, $escapeRoute, CustomerClientInterface $customerClient)
+    {
+        parent::__construct($stepRoute, $escapeRoute);
+
+        $this->customerClient = $customerClient;
+    }
 
     /**
      * Require input, should we render view with form or just skip step after calling execute.
@@ -36,6 +49,13 @@ class EntryStep extends AbstractBaseStep
      */
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
+        $customerTransfer = $this->customerClient->getCustomer();
+        $customerTransfer = $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
+
+        if (!$customerTransfer->getIdCustomer()) {
+            return false;
+        }
+
         return true;
     }
 
