@@ -22,24 +22,32 @@ class EntryStep extends AbstractBaseStep implements StepWithExternalRedirectInte
      */
     protected $customerClient;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $externalRedirect;
 
     /**
      * @var string
      */
-    protected $logoutRoute;
+    protected $routeLogout;
 
+    /**
+     * @param string $stepRoute
+     * @param string $escapeRoute
+     * @param CustomerClientInterface $customerClient
+     * @param $routeLogout
+     */
     public function __construct(
         $stepRoute,
         $escapeRoute,
         CustomerClientInterface $customerClient,
-        $logoutRoute
+        $routeLogout
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
-        $this->logoutRoute = $logoutRoute;
+        $this->routeLogout = $routeLogout;
     }
 
     /**
@@ -64,11 +72,14 @@ class EntryStep extends AbstractBaseStep implements StepWithExternalRedirectInte
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
         $customerTransfer = $this->customerClient->getCustomer();
-        $customerTransfer = $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
 
-        if (!$customerTransfer->getIdCustomer()) {
-            $this->externalRedirect = $this->logoutRoute;
-            return false;
+        if ($customerTransfer) {
+            $customerTransfer = $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
+
+            if (!$customerTransfer->getIdCustomer()) {
+                $this->externalRedirect = $this->routeLogout;
+                return false;
+            }
         }
 
         return true;
