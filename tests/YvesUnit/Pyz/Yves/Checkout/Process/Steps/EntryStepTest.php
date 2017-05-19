@@ -9,6 +9,7 @@ namespace YvesUnit\Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use PHPUnit_Framework_TestCase;
+use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -59,7 +60,9 @@ class EntryStepTest extends PHPUnit_Framework_TestCase
     {
         return new EntryStep(
             'entry_route',
-            'escape_route'
+            'escape_route',
+            $this->createCustomerClient(),
+            '/logout'
         );
     }
 
@@ -71,4 +74,11 @@ class EntryStepTest extends PHPUnit_Framework_TestCase
         return Request::createFromGlobals();
     }
 
+    /**
+     * @return CustomerClient
+     */
+    protected function createCustomerClient()
+    {
+        return new CustomerClient();
+    }
 }
