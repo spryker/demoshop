@@ -18,6 +18,7 @@ use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\StepEngine\Process\StepBreadcrumbGenerator;
@@ -69,7 +70,8 @@ class StepFactory extends SprykerStepFactory
         return new EntryStep(
             CheckoutControllerProvider::CHECKOUT_INDEX,
             ApplicationControllerProvider::ROUTE_HOME,
-            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER)
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getApplication()->path(CustomerControllerProvider::ROUTE_LOGOUT)
         );
     }
 

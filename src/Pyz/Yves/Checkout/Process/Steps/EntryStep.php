@@ -9,11 +9,12 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Pyz\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
 
 /**
  * Entry step executed first, it's needed to redirect customer to next required step.
  */
-class EntryStep extends AbstractBaseStep
+class EntryStep extends AbstractBaseStep implements StepWithExternalRedirectInterface
 {
 
     /**
@@ -21,11 +22,24 @@ class EntryStep extends AbstractBaseStep
      */
     protected $customerClient;
 
-    public function __construct($stepRoute, $escapeRoute, CustomerClientInterface $customerClient)
-    {
+    /** @var string */
+    protected $externalRedirect;
+
+    /**
+     * @var string
+     */
+    protected $logoutRoute;
+
+    public function __construct(
+        $stepRoute,
+        $escapeRoute,
+        CustomerClientInterface $customerClient,
+        $logoutRoute
+    ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
+        $this->logoutRoute = $logoutRoute;
     }
 
     /**
@@ -53,10 +67,21 @@ class EntryStep extends AbstractBaseStep
         $customerTransfer = $this->customerClient->getCustomerById($customerTransfer->getIdCustomer());
 
         if (!$customerTransfer->getIdCustomer()) {
+            $this->externalRedirect = $this->logoutRoute;
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * Return external redirect url, when redirect occurs not within same application. Used after execute.
+     *
+     * @return string
+     */
+    public function getExternalRedirectUrl()
+    {
+        return $this->externalRedirect;
     }
 
 }
