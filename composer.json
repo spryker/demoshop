@@ -42,6 +42,7 @@
     "twig/twig": "^1.20.0",
     "zendframework/zend-config": "^3.1.0",
     "zendframework/zend-filter": "^2.5.1",
+    "zendframework/zend-servicemanager": "^3.3",
     "ext-bcmath": "*",
     "ext-curl": "*",
     "ext-gd": "*",
