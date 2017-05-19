@@ -5,19 +5,19 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\DataImport\Business\Model\Locale;
+namespace Pyz\Zed\DataImport\Business\Model\Price;
 
-use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
+use Orm\Zed\Price\Persistence\SpyPriceTypeQuery;
 use Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class LocaleNameToIdLocaleStep implements DataImportStepInterface
+class PriceTypeToIdPriceTypeStep implements DataImportStepInterface
 {
 
-    const KEY_SOURCE = 'localeName';
-    const KEY_TARGET = 'idLocale';
+    const KEY_SOURCE = 'priceType';
+    const KEY_TARGET = 'idPriceType';
 
     /**
      * @var string
@@ -62,31 +62,31 @@ class LocaleNameToIdLocaleStep implements DataImportStepInterface
         }
 
         if (!isset($this->resolved[$dataSet[$this->source]])) {
-            $this->resolved[$dataSet[$this->source]] = $this->resolveIdLocale($dataSet[$this->source]);
+            $this->resolved[$dataSet[$this->source]] = $this->resolveIdPriceType($dataSet[$this->source]);
         }
 
         $dataSet[$this->target] = $this->resolved[$dataSet[$this->source]];
     }
 
     /**
-     * @param string $localeName
+     * @param string $priceType
      *
      * @throws \Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException
      *
      * @return int
      */
-    protected function resolveIdLocale($localeName)
+    protected function resolveIdPriceType($priceType)
     {
-        $query = SpyLocaleQuery::create();
-        $localeEntity = $query->filterByLocaleName($localeName)->findOne();
+        $query = SpyPriceTypeQuery::create();
+        $priceTypeEntity = $query->filterByName($priceType)->findOneOrCreate();
 
-        if (!$localeEntity) {
-            throw new EntityNotFoundException(sprintf('Locale by name "%s" not found.', $localeName));
+        if (!$priceTypeEntity) {
+            throw new EntityNotFoundException(sprintf('Price type by name "%s" not found.', $priceType));
         }
 
-        $localeEntity->save();
+        $priceTypeEntity->save();
 
-        return $localeEntity->getIdLocale();
+        return $priceTypeEntity->getIdPriceType();
     }
 
 }

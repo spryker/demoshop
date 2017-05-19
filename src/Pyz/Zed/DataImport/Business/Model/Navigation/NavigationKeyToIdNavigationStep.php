@@ -5,19 +5,19 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\DataImport\Business\Model\Locale;
+namespace Pyz\Zed\DataImport\Business\Model\Navigation;
 
-use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
+use Orm\Zed\Navigation\Persistence\SpyNavigationQuery;
 use Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class LocaleNameToIdLocaleStep implements DataImportStepInterface
+class NavigationKeyToIdNavigationStep implements DataImportStepInterface
 {
 
-    const KEY_SOURCE = 'localeName';
-    const KEY_TARGET = 'idLocale';
+    const KEY_SOURCE = 'navigationKey';
+    const KEY_TARGET = 'idNavigation';
 
     /**
      * @var string
@@ -62,31 +62,29 @@ class LocaleNameToIdLocaleStep implements DataImportStepInterface
         }
 
         if (!isset($this->resolved[$dataSet[$this->source]])) {
-            $this->resolved[$dataSet[$this->source]] = $this->resolveIdLocale($dataSet[$this->source]);
+            $this->resolved[$dataSet[$this->source]] = $this->resolveIdNavigation($dataSet[$this->source]);
         }
 
         $dataSet[$this->target] = $this->resolved[$dataSet[$this->source]];
     }
 
     /**
-     * @param string $localeName
+     * @param string $navigationKey
      *
      * @throws \Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException
      *
      * @return int
      */
-    protected function resolveIdLocale($localeName)
+    protected function resolveIdNavigation($navigationKey)
     {
-        $query = SpyLocaleQuery::create();
-        $localeEntity = $query->filterByLocaleName($localeName)->findOne();
+        $query = SpyNavigationQuery::create();
+        $navigationEntity = $query->findOneByKey($navigationKey);
 
-        if (!$localeEntity) {
-            throw new EntityNotFoundException(sprintf('Locale by name "%s" not found.', $localeName));
+        if (!$navigationEntity) {
+            throw new EntityNotFoundException(sprintf('Navigation by key "%s" not found.', $navigationKey));
         }
 
-        $localeEntity->save();
-
-        return $localeEntity->getIdLocale();
+        return $navigationEntity->getIdNavigation();
     }
 
 }

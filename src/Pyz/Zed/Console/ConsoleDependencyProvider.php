@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Console;
 
+use Pyz\Zed\DataImport\DataImportConfig;
 use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
 
 use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
@@ -104,7 +105,21 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new ProductRelationUpdaterConsole(),
             new ProductLabelValidityConsole(),
             new DataImportConsole(),
-            new DataImportConsole('data:import:glossary'),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_CATEGORY),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_GLOSSARY),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_NAVIGATION),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_NAVIGATION_NODE),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRICE),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRODUCT_ABSTRACT),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRODUCT_CONCRETE),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRODUCT_ATTRIBUTE_KEY),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRODUCT_RELATION),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_SHIPMENT),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_STOCK),
+            new DataImportConsole('data:import:' . DataImportConfig::IMPORT_TYPE_TAX),
 
             // Setup commands
             new RunnerConsole(),

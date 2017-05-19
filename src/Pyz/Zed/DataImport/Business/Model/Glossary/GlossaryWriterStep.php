@@ -1,30 +1,34 @@
 <?php
 
 /**
- * Copyright © 2017-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\DataImport\Business\Model\Glossary;
 
-use ArrayObject;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery;
+use Pyz\Zed\Glossary\GlossaryConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class GlossaryWriterStep implements DataImportStepInterface
 {
+
+    const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
+    const TOUCH_ITEM_ID_KEY = 'touchItemId';
 
     const DATA_SET_KEY_KEY = 'key';
     const DATA_SET_KEY_TRANSLATION = 'translation';
     const DATA_SET_KEY_ID_LOCALE = 'idLocale';
 
     /**
-     * @param \ArrayObject $dataSet
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
      * @return void
      */
-    public function execute(ArrayObject $dataSet)
+    public function execute(DataSetInterface $dataSet)
     {
         $query = SpyGlossaryKeyQuery::create();
         $glossaryKeyEntity = $query->filterByKey($dataSet[static::DATA_SET_KEY_KEY])->findOneOrCreate();
@@ -35,6 +39,5 @@ class GlossaryWriterStep implements DataImportStepInterface
         $glossaryKeyEntity->setValue($dataSet[static::DATA_SET_KEY_TRANSLATION]);
         $glossaryKeyEntity->save();
     }
-
 
 }

@@ -5,19 +5,19 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\DataImport\Business\Model\Locale;
+namespace Pyz\Zed\DataImport\Business\Model\Country;
 
-use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
+use Orm\Zed\Country\Persistence\SpyCountryQuery;
 use Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class LocaleNameToIdLocaleStep implements DataImportStepInterface
+class CountryNameToIdCountryStep implements DataImportStepInterface
 {
 
-    const KEY_SOURCE = 'localeName';
-    const KEY_TARGET = 'idLocale';
+    const KEY_SOURCE = 'countryName';
+    const KEY_TARGET = 'idCountry';
 
     /**
      * @var string
@@ -62,31 +62,31 @@ class LocaleNameToIdLocaleStep implements DataImportStepInterface
         }
 
         if (!isset($this->resolved[$dataSet[$this->source]])) {
-            $this->resolved[$dataSet[$this->source]] = $this->resolveIdLocale($dataSet[$this->source]);
+            $this->resolved[$dataSet[$this->source]] = $this->resolveIdCountry($dataSet[$this->source]);
         }
 
         $dataSet[$this->target] = $this->resolved[$dataSet[$this->source]];
     }
 
     /**
-     * @param string $localeName
+     * @param string $countryName
      *
      * @throws \Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException
      *
      * @return int
      */
-    protected function resolveIdLocale($localeName)
+    protected function resolveIdCountry($countryName)
     {
-        $query = SpyLocaleQuery::create();
-        $localeEntity = $query->filterByLocaleName($localeName)->findOne();
+        $query = SpyCountryQuery::create();
+        $countryEntity = $query->filterByName($countryName)->findOne();
 
-        if (!$localeEntity) {
-            throw new EntityNotFoundException(sprintf('Locale by name "%s" not found.', $localeName));
+        if (!$countryEntity) {
+            throw new EntityNotFoundException(sprintf('Country by name "%s" not found.', $countryName));
         }
 
-        $localeEntity->save();
+        $countryEntity->save();
 
-        return $localeEntity->getIdLocale();
+        return $countryEntity->getIdCountry();
     }
 
 }

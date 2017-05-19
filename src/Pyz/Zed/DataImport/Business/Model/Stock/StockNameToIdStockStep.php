@@ -5,19 +5,19 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\DataImport\Business\Model\Locale;
+namespace Pyz\Zed\DataImport\Business\Model\Stock;
 
-use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
+use Orm\Zed\Stock\Persistence\SpyStockQuery;
 use Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class LocaleNameToIdLocaleStep implements DataImportStepInterface
+class StockNameToIdStockStep implements DataImportStepInterface
 {
 
-    const KEY_SOURCE = 'localeName';
-    const KEY_TARGET = 'idLocale';
+    const KEY_SOURCE = 'name';
+    const KEY_TARGET = 'idStock';
 
     /**
      * @var string
@@ -62,31 +62,31 @@ class LocaleNameToIdLocaleStep implements DataImportStepInterface
         }
 
         if (!isset($this->resolved[$dataSet[$this->source]])) {
-            $this->resolved[$dataSet[$this->source]] = $this->resolveIdLocale($dataSet[$this->source]);
+            $this->resolved[$dataSet[$this->source]] = $this->resolveIdStock($dataSet[$this->source]);
         }
 
         $dataSet[$this->target] = $this->resolved[$dataSet[$this->source]];
     }
 
     /**
-     * @param string $localeName
+     * @param string $stockName
      *
      * @throws \Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException
      *
      * @return int
      */
-    protected function resolveIdLocale($localeName)
+    protected function resolveIdStock($stockName)
     {
-        $query = SpyLocaleQuery::create();
-        $localeEntity = $query->filterByLocaleName($localeName)->findOne();
+        $query = SpyStockQuery::create();
+        $stockEntity = $query->filterByName($stockName)->findOneOrCreate();
 
-        if (!$localeEntity) {
-            throw new EntityNotFoundException(sprintf('Locale by name "%s" not found.', $localeName));
+        if (!$stockEntity) {
+            throw new EntityNotFoundException(sprintf('Stock by name "%s" not found.', $stockName));
         }
 
-        $localeEntity->save();
+        $stockEntity->save();
 
-        return $localeEntity->getIdLocale();
+        return $stockEntity->getIdStock();
     }
 
 }
