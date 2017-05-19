@@ -23,7 +23,7 @@ class TwigFactory extends SprykerTwigFactory
     private $settings;
 
     /**
-     * @param \Spryker\Yves\Kernel\Application
+     * @param \Spryker\Yves\Kernel\Application $application
      *
      * @return \Pyz\Yves\Twig\Model\YvesExtension
      */
