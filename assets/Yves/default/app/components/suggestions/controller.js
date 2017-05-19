@@ -58,7 +58,7 @@ module.exports = {
                     suggestions: data.suggestion,
                     navigationIndex: 0
                 });
-            }).complete(function(){
+            }).done(function(){
                 that.view.stopLoader();
             });
         }, 0);
