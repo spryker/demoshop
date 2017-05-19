@@ -260,6 +260,7 @@
         },
         {
             "name": "filp/whoops",
+<<<<<<< HEAD
             "version": "2.1.9",
             "source": {
                 "type": "git",
@@ -270,6 +271,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/filp/whoops/zipball/b238974e1c7cc1859b0c16ddc1c02ecb70ecc07f",
                 "reference": "b238974e1c7cc1859b0c16ddc1c02ecb70ecc07f",
+=======
+            "version": "2.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "f2950be7da8b8d6c4e77821b6c9d486e36cdc4f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/f2950be7da8b8d6c4e77821b6c9d486e36cdc4f3",
+                "reference": "f2950be7da8b8d6c4e77821b6c9d486e36cdc4f3",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -317,7 +330,11 @@
                 "whoops",
                 "zf2"
             ],
+<<<<<<< HEAD
             "time": "2017-06-03T18:33:07+00:00"
+=======
+            "time": "2017-03-07T09:04:45+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "fzaninotto/faker",
@@ -1627,46 +1644,175 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "ea82a49283255b6cc85bd3f4d9bae555d8aee89b"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "93c1d5f3b441a94e25208bd2e632c34aaf4567aa"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "e7f2398737cfc544be8e3fb40563bdcfae0caff5"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "29e126fcd24752ce3a2a7a87379eb4fb0d839052"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "c9f3229553119c2f832714296869b399893827e6"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
                 "reference": "094b35934fa9184529ba398ca38c268cd60b9731"
 =======
                 "reference": "75b54ab48936d6dd82ed2d419cb7daa318c6f59d"
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                "reference": "63b6e4d8900f535f473908c8cf688294536981be"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+                "reference": "7f11799dba61e8eecd9087ced07bb7f4462a5400"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+                "reference": "b7f2c82b30717d8b1df47ebb13cb5e417d2391b4"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+                "reference": "0b4420025a069d5e95bec84d4c6880b2f8ae5dc4"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+                "reference": "86760a70b5af7b2915d01696ef9e9ba9a45355c7"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+                "reference": "64941925cc9388ecc6deb297106d47a5d7861e0d"
+=======
+<<<<<<< HEAD
+                "reference": "cff0f9ca4ba339a24a79c053d3d2d0ebb0ec62af"
+=======
+                "reference": "75b54ab48936d6dd82ed2d419cb7daa318c6f59d"
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+=======
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "75b54ab48936d6dd82ed2d419cb7daa318c6f59d"
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+=======
+=======
+=======
+=======
+                "reference": "5f95125f5d7fdd2b200597ecbdfd0dded84c53d2"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1688,7 +1834,10 @@
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
+<<<<<<< HEAD
                 "spryker/cart-variant": "*",
+=======
+>>>>>>> core-1251 update composer
                 "spryker/catalog": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
@@ -1766,6 +1915,7 @@
                 "spryker/product-cart-connector": "*",
                 "spryker/product-category": "*",
                 "spryker/product-discount-connector": "*",
+<<<<<<< HEAD
                 "spryker/product-group": "*",
                 "spryker/product-group-collector": "*",
                 "spryker/product-image": "*",
@@ -1774,14 +1924,20 @@
                 "spryker/product-label-collector": "*",
                 "spryker/product-label-discount-connector": "*",
                 "spryker/product-label-gui": "*",
+=======
+                "spryker/product-image": "*",
+>>>>>>> core-1251 update composer
                 "spryker/product-management": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
                 "spryker/product-search": "*",
+<<<<<<< HEAD
                 "spryker/product-set": "*",
                 "spryker/product-set-collector": "*",
                 "spryker/product-set-gui": "*",
+=======
+>>>>>>> core-1251 update composer
                 "spryker/propel": "*",
                 "spryker/propel-orm": "*",
                 "spryker/queue": "*",
@@ -1843,46 +1999,175 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-07-18 10:17:22"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-07-12 15:07:34"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-07-11 16:21:14"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-07-11 12:31:33"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-07-03 12:18:51"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-07-03 09:27:02"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-06-29 12:15:48"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-06-29 10:28:24"
 =======
+=======
+>>>>>>> core-1251 update composer
 <<<<<<< HEAD
             "time": "2017-06-28 11:41:05"
 =======
             "time": "2017-05-11 09:48:54"
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            "time": "2017-06-06 10:55:32"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+            "time": "2017-06-02 15:01:31"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+            "time": "2017-06-02 08:36:55"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+            "time": "2017-05-24 10:03:33"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+>>>>>>> core-1251 update composer
+<<<<<<< HEAD
+            "time": "2017-05-23 08:58:48"
+=======
+=======
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+            "time": "2017-05-19 09:17:21"
+=======
+<<<<<<< HEAD
+            "time": "2017-05-10 13:08:41"
+=======
+            "time": "2017-05-11 09:48:54"
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+=======
+<<<<<<< HEAD
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+<<<<<<< HEAD
+>>>>>>> core-1251 Added Glossary Import with new DataImport bundle
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-05-11 09:48:54"
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+<<<<<<< HEAD
+>>>>>>> core-1251 Migrated some Importer to new DataImport structure
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-05-19 11:59:41"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2118,7 +2403,16 @@
         },
         {
             "name": "symfony/debug",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.22",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -2128,6 +2422,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/debug/zipball/8470d7701177a88edeb0cec59b44d50ef4477e9b",
                 "reference": "8470d7701177a88edeb0cec59b44d50ef4477e9b",
+=======
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/debug.git",
+                "reference": "344f50ce827413b3640bfcb1e37386a67d06ea1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/344f50ce827413b3640bfcb1e37386a67d06ea1f",
+                "reference": "344f50ce827413b3640bfcb1e37386a67d06ea1f",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2171,7 +2477,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-01T20:52:29+00:00"
+=======
+            "time": "2017-04-19T19:56:30+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2235,7 +2545,19 @@
         },
         {
             "name": "symfony/filesystem",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.22",
+=======
+            "version": "v2.8.21",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -2284,7 +2606,16 @@
         },
         {
             "name": "symfony/finder",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.22",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -2294,6 +2625,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/finder/zipball/4f4e84811004e065a3bb5ceeb1d9aa592630f9ad",
                 "reference": "4f4e84811004e065a3bb5ceeb1d9aa592630f9ad",
+=======
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "b058a6f0cb6ee9b6b727aae03d5a62474a308528"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/b058a6f0cb6ee9b6b727aae03d5a62474a308528",
+                "reference": "b058a6f0cb6ee9b6b727aae03d5a62474a308528",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2329,6 +2672,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-01T20:52:29+00:00"
         },
         {
@@ -2341,8 +2685,29 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/form/zipball/73bba414c5397b04a40f1464279126b8b69daa80",
                 "reference": "73bba414c5397b04a40f1464279126b8b69daa80",
+=======
+                "url": "https://api.github.com/repos/symfony/form/zipball/b5ec089eaa117e7806f1ccb986529fac4d6fc97a",
+                "reference": "b5ec089eaa117e7806f1ccb986529fac4d6fc97a",
+=======
+            "time": "2017-05-25T22:57:22+00:00"
+        },
+        {
+            "name": "symfony/form",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/form.git",
+                "reference": "698ba1c2057b6593569dba375727e88ad1bd3dba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/form/zipball/698ba1c2057b6593569dba375727e88ad1bd3dba",
+                "reference": "698ba1c2057b6593569dba375727e88ad1bd3dba",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2404,7 +2769,12 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-23T05:57:41+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-06T02:49:00+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/http-foundation",
@@ -2416,8 +2786,34 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/9ff3a0b3756ace2e3da7dded37e920ee776faa4e",
                 "reference": "9ff3a0b3756ace2e3da7dded37e920ee776faa4e",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2b592ca5fe2ad7ee8a92d409d2b830277ad58231",
+                "reference": "2b592ca5fe2ad7ee8a92d409d2b830277ad58231",
+=======
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
+                "reference": "de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
+=======
+            "time": "2017-05-29T18:50:29+00:00"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "03bf5ded5a4b54473e7551df5cfab854f7434ed4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/03bf5ded5a4b54473e7551df5cfab854f7434ed4",
+                "reference": "03bf5ded5a4b54473e7551df5cfab854f7434ed4",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2459,7 +2855,16 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-17T14:02:19+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-20T23:27:56+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-01T20:52:29+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/http-kernel",
@@ -2471,8 +2876,34 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/fadab94a5a9fb8e4d59884782b20b35274ff4876",
                 "reference": "fadab94a5a9fb8e4d59884782b20b35274ff4876",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/658cf693cb1fcb6f357a3e4e01656920ac60f19d",
+                "reference": "658cf693cb1fcb6f357a3e4e01656920ac60f19d",
+=======
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
+                "reference": "03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
+=======
+            "time": "2017-05-19T11:49:58+00:00"
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-kernel.git",
+                "reference": "ae9dd4cfde4a3efa94475863fc330825715fe549"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/ae9dd4cfde4a3efa94475863fc330825715fe549",
+                "reference": "ae9dd4cfde4a3efa94475863fc330825715fe549",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2483,8 +2914,12 @@
                 "symfony/http-foundation": "~2.7.20|~2.8.13|~3.1.6"
             },
             "conflict": {
+<<<<<<< HEAD
                 "symfony/config": "<2.7",
                 "twig/twig": "<1.34|<2.4,>=2"
+=======
+                "symfony/config": "<2.7"
+>>>>>>> core-1251 update composer
             },
             "require-dev": {
                 "symfony/browser-kit": "~2.3|~3.0.0",
@@ -2542,7 +2977,16 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-17T18:00:03+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-05T08:52:59+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-07T20:12:31+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/intl",
@@ -2556,6 +3000,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/intl/zipball/ce9f1a14753752d39dcc47611daed005767ab78d",
                 "reference": "ce9f1a14753752d39dcc47611daed005767ab78d",
+=======
+            "time": "2017-05-29T19:14:58+00:00"
+        },
+        {
+            "name": "symfony/intl",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "c207fd155d523d2b4ece97a6a092d1d2df2489b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/c207fd155d523d2b4ece97a6a092d1d2df2489b0",
+                "reference": "c207fd155d523d2b4ece97a6a092d1d2df2489b0",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2618,11 +3078,27 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
             "time": "2017-06-01T20:52:29+00:00"
         },
         {
             "name": "symfony/options-resolver",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+            "version": "v2.8.22",
+=======
+            "time": "2017-05-27T17:24:13+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v2.8.21",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -2676,6 +3152,7 @@
         },
         {
             "name": "symfony/polyfill-intl-icu",
+<<<<<<< HEAD
             "version": "v1.4.0",
             "source": {
                 "type": "git",
@@ -2686,11 +3163,27 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/3191cbe0ce64987bd382daf6724af31c53daae01",
                 "reference": "3191cbe0ce64987bd382daf6724af31c53daae01",
+=======
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-icu.git",
+                "reference": "2d6e2b20d457603eefb6e614286c22efca30fdb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/2d6e2b20d457603eefb6e614286c22efca30fdb4",
+                "reference": "2d6e2b20d457603eefb6e614286c22efca30fdb4",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
+<<<<<<< HEAD
                 "symfony/intl": "~2.3|~3.0|~4.0"
+=======
+                "symfony/intl": "~2.3|~3.0"
+>>>>>>> core-1251 update composer
             },
             "suggest": {
                 "ext-intl": "For best performance"
@@ -2698,7 +3191,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.4-dev"
+=======
+                    "dev-master": "1.3-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
@@ -2730,6 +3227,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2017-06-09T08:25:21+00:00"
         },
         {
@@ -2744,6 +3242,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
                 "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
+=======
+            "time": "2016-11-14T01:06:16+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2755,7 +3269,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.4-dev"
+=======
+                    "dev-master": "1.3-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
@@ -2789,6 +3307,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2017-06-09T14:24:12+00:00"
         },
         {
@@ -2803,6 +3322,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/7dd1a8b9f0442273fdfeb1c4f5eaff6890a82789",
                 "reference": "7dd1a8b9f0442273fdfeb1c4f5eaff6890a82789",
+=======
+            "time": "2016-11-14T01:06:16+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php54",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php54.git",
+                "reference": "90e085822963fdcc9d1c5b73deb3d2e5783b16a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/90e085822963fdcc9d1c5b73deb3d2e5783b16a0",
+                "reference": "90e085822963fdcc9d1c5b73deb3d2e5783b16a0",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2811,7 +3346,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.4-dev"
+=======
+                    "dev-master": "1.3-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
@@ -2847,6 +3386,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2017-06-09T08:25:21+00:00"
         },
         {
@@ -2861,6 +3401,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/94566239a7720cde0820f15f0cc348ddb51ba51d",
                 "reference": "94566239a7720cde0820f15f0cc348ddb51ba51d",
+=======
+            "time": "2016-11-14T01:06:16+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php55",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php55.git",
+                "reference": "03e3f0350bca2220e3623a0e340eef194405fc67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/03e3f0350bca2220e3623a0e340eef194405fc67",
+                "reference": "03e3f0350bca2220e3623a0e340eef194405fc67",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2870,7 +3426,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.4-dev"
+=======
+                    "dev-master": "1.3-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
@@ -2903,6 +3463,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2017-06-09T08:25:21+00:00"
         },
         {
@@ -2917,6 +3478,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/bc0b7d6cb36b10cfabb170a3e359944a95174929",
                 "reference": "bc0b7d6cb36b10cfabb170a3e359944a95174929",
+=======
+            "time": "2016-11-14T01:06:16+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php56",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php56.git",
+                "reference": "1dd42b9b89556f18092f3d1ada22cb05ac85383c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/1dd42b9b89556f18092f3d1ada22cb05ac85383c",
+                "reference": "1dd42b9b89556f18092f3d1ada22cb05ac85383c",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2926,7 +3503,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.4-dev"
+=======
+                    "dev-master": "1.3-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
@@ -2959,6 +3540,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2017-06-09T08:25:21+00:00"
         },
         {
@@ -2973,6 +3555,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/032fd647d5c11a9ceab8ee8747e13b5448e93874",
                 "reference": "032fd647d5c11a9ceab8ee8747e13b5448e93874",
+=======
+            "time": "2016-11-14T01:06:16+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php70",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php70.git",
+                "reference": "13ce343935f0f91ca89605a2f6ca6f5c2f3faac2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/13ce343935f0f91ca89605a2f6ca6f5c2f3faac2",
+                "reference": "13ce343935f0f91ca89605a2f6ca6f5c2f3faac2",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -2982,7 +3580,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.4-dev"
+=======
+                    "dev-master": "1.3-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
@@ -3018,6 +3620,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2017-06-09T14:24:12+00:00"
         },
         {
@@ -3032,6 +3635,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/ebccbde4aad410f6438d86d7d261c6b4d2b9a51d",
                 "reference": "ebccbde4aad410f6438d86d7d261c6b4d2b9a51d",
+=======
+            "time": "2016-11-14T01:06:16+00:00"
+        },
+        {
+            "name": "symfony/polyfill-util",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-util.git",
+                "reference": "746bce0fca664ac0a575e465f65c6643faddf7fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/746bce0fca664ac0a575e465f65c6643faddf7fb",
+                "reference": "746bce0fca664ac0a575e465f65c6643faddf7fb",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3040,7 +3659,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.4-dev"
+=======
+                    "dev-master": "1.3-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
@@ -3070,11 +3693,27 @@
                 "polyfill",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2017-06-09T08:25:21+00:00"
         },
         {
             "name": "symfony/process",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+            "version": "v2.8.22",
+=======
+            "time": "2016-11-14T01:06:16+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v2.8.21",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -3123,7 +3762,16 @@
         },
         {
             "name": "symfony/property-access",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.22",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -3131,8 +3779,25 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/property-access/zipball/9bfc1ec424bc5481cbe3e3c84cc70628a47f1db1",
                 "reference": "9bfc1ec424bc5481cbe3e3c84cc70628a47f1db1",
+=======
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/43f19429ef128373f30549456e5b363255d4789d",
+                "reference": "43f19429ef128373f30549456e5b363255d4789d",
+=======
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/property-access.git",
+                "reference": "28a9b519a9cd1131b486362bfc6a00cdb9779a42"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/28a9b519a9cd1131b486362bfc6a00cdb9779a42",
+                "reference": "28a9b519a9cd1131b486362bfc6a00cdb9779a42",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3179,7 +3844,12 @@
                 "property path",
                 "reflection"
             ],
+<<<<<<< HEAD
             "time": "2017-07-03T08:04:30+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-01T20:52:29+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/routing",
@@ -3191,8 +3861,29 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/routing/zipball/5cdaffed631e88c972f283bb4f9ca699f3c8bffa",
                 "reference": "5cdaffed631e88c972f283bb4f9ca699f3c8bffa",
+=======
+                "url": "https://api.github.com/repos/symfony/routing/zipball/d428588038f13a0e5771a2a8ccbc9de46bba9a19",
+                "reference": "d428588038f13a0e5771a2a8ccbc9de46bba9a19",
+=======
+            "time": "2017-04-12T14:07:15+00:00"
+        },
+        {
+            "name": "symfony/routing",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/routing.git",
+                "reference": "a8f328c7e701b7bb05a93fca62a5ab2b6b3e500e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/a8f328c7e701b7bb05a93fca62a5ab2b6b3e500e",
+                "reference": "a8f328c7e701b7bb05a93fca62a5ab2b6b3e500e",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3254,7 +3945,12 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
             "time": "2017-06-20T23:27:56+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-01T20:52:29+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/security",
@@ -3266,8 +3962,34 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/security/zipball/261fbfa5ba41d1fc8812fee0fbad1e47a9bc4313",
                 "reference": "261fbfa5ba41d1fc8812fee0fbad1e47a9bc4313",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/security/zipball/8a62532e77044067d8120195e268fb2afb2ab262",
+                "reference": "8a62532e77044067d8120195e268fb2afb2ab262",
+=======
+                "url": "https://api.github.com/repos/symfony/security/zipball/c7080e57698b343646cdf7908eaca05df95e3949",
+                "reference": "c7080e57698b343646cdf7908eaca05df95e3949",
+=======
+            "time": "2017-04-12T14:07:15+00:00"
+        },
+        {
+            "name": "symfony/security",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/security.git",
+                "reference": "4d015dac686c9f58da3e87ec7fe2271c900c9a8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/security/zipball/4d015dac686c9f58da3e87ec7fe2271c900c9a8f",
+                "reference": "4d015dac686c9f58da3e87ec7fe2271c900c9a8f",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3334,7 +4056,19 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-17T14:02:19+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-03T08:04:30+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-01T20:52:29+00:00"
+=======
+            "time": "2017-05-15T11:59:37+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/security-acl",
@@ -3399,7 +4133,16 @@
         },
         {
             "name": "symfony/serializer",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.22",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -3407,8 +4150,25 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/serializer/zipball/ff6bd03c458a6007b05a2c4c4199cbc3417bf074",
                 "reference": "ff6bd03c458a6007b05a2c4c4199cbc3417bf074",
+=======
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/c6ccf71a899711efa21b0a98150b2c0af08f3cb2",
+                "reference": "c6ccf71a899711efa21b0a98150b2c0af08f3cb2",
+=======
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/serializer.git",
+                "reference": "dee868baf516dda46c9164395088032ca76bc14a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/dee868baf516dda46c9164395088032ca76bc14a",
+                "reference": "dee868baf516dda46c9164395088032ca76bc14a",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3459,7 +4219,12 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-03T14:09:54+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-01T20:52:29+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/translation",
@@ -3471,8 +4236,29 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/translation/zipball/a89af885b8c6d0142c79a02ca9cc059ed25d40d8",
                 "reference": "a89af885b8c6d0142c79a02ca9cc059ed25d40d8",
+=======
+                "url": "https://api.github.com/repos/symfony/translation/zipball/14db4cc1172a722aaa3b558bfa8eff593b43cd46",
+                "reference": "14db4cc1172a722aaa3b558bfa8eff593b43cd46",
+=======
+            "time": "2017-05-01T14:31:55+00:00"
+        },
+        {
+            "name": "symfony/translation",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation.git",
+                "reference": "32b7c0bffc07772cf1a902e3464ef77117fa07c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/32b7c0bffc07772cf1a902e3464ef77117fa07c7",
+                "reference": "32b7c0bffc07772cf1a902e3464ef77117fa07c7",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3523,7 +4309,12 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-24T16:44:49+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-01T20:52:29+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/twig-bridge",
@@ -3535,13 +4326,43 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/788060db7bf10fc5b42ba27ecb60ec63fcdc852f",
                 "reference": "788060db7bf10fc5b42ba27ecb60ec63fcdc852f",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/7a2abb5e30d97fbe22c825420ba982fedaf6d39c",
+                "reference": "7a2abb5e30d97fbe22c825420ba982fedaf6d39c",
+=======
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/2e4aaf7a49d851732543d6308c117b8bd3a061c1",
+                "reference": "2e4aaf7a49d851732543d6308c117b8bd3a061c1",
+=======
+            "time": "2017-04-12T14:07:15+00:00"
+        },
+        {
+            "name": "symfony/twig-bridge",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/twig-bridge.git",
+                "reference": "362aa855b5819355811b58f8b5f15679196a181e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/362aa855b5819355811b58f8b5f15679196a181e",
+                "reference": "362aa855b5819355811b58f8b5f15679196a181e",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
+<<<<<<< HEAD
                 "twig/twig": "~1.34|~2.4"
+=======
+                "twig/twig": "~1.28|~2.0"
+>>>>>>> core-1251 update composer
             },
             "conflict": {
                 "symfony/form": "<2.8.23"
@@ -3607,7 +4428,16 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-17T14:02:19+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-23T05:57:41+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-06T02:49:00+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/validator",
@@ -3619,8 +4449,29 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/validator/zipball/6c019627f2a69b9ab2ac41fd53102148a55af564",
                 "reference": "6c019627f2a69b9ab2ac41fd53102148a55af564",
+=======
+                "url": "https://api.github.com/repos/symfony/validator/zipball/9f323f762ad21bfb9df7c1afacbdd8addf0f8c50",
+                "reference": "9f323f762ad21bfb9df7c1afacbdd8addf0f8c50",
+=======
+            "time": "2017-04-12T14:07:15+00:00"
+        },
+        {
+            "name": "symfony/validator",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/validator.git",
+                "reference": "e125c9ec86d615231817302115a1558cd74d9aa1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/e125c9ec86d615231817302115a1558cd74d9aa1",
+                "reference": "e125c9ec86d615231817302115a1558cd74d9aa1",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3680,7 +4531,12 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-03T08:04:30+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-02T14:36:56+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/yaml",
@@ -3694,6 +4550,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
                 "reference": "4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
+=======
+            "time": "2017-04-12T14:07:15+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "93ccdde79f4b079c7558da4656a3cb1c50c68e02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/93ccdde79f4b079c7558da4656a3cb1c50c68e02",
+                "reference": "93ccdde79f4b079c7558da4656a3cb1c50c68e02",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -3729,6 +4601,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-06-01T20:52:29+00:00"
         },
         {
@@ -3747,6 +4620,26 @@
             },
             "require": {
                 "php": ">=5.3.3"
+=======
+            "time": "2017-05-01T14:31:55+00:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.33.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/dd6ca96227917e1e85b41c7c3cc6507b411e0927",
+                "reference": "dd6ca96227917e1e85b41c7c3cc6507b411e0927",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.7"
+>>>>>>> core-1251 update composer
             },
             "require-dev": {
                 "psr/container": "^1.0",
@@ -3756,15 +4649,22 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.34-dev"
+=======
+                    "dev-master": "1.33-dev"
+>>>>>>> core-1251 update composer
                 }
             },
             "autoload": {
                 "psr-0": {
                     "Twig_": "lib/"
+<<<<<<< HEAD
                 },
                 "psr-4": {
                     "Twig\\": "src/"
+=======
+>>>>>>> core-1251 update composer
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3794,7 +4694,15 @@
             "keywords": [
                 "templating"
             ],
+<<<<<<< HEAD
             "time": "2017-07-04T13:19:31+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-07T18:45:17+00:00"
+=======
+            "time": "2017-04-20T17:39:48+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "zendframework/zend-code",
@@ -6017,7 +6925,10 @@
             "keywords": [
                 "git"
             ],
+<<<<<<< HEAD
             "abandoned": true,
+=======
+>>>>>>> core-1251 update composer
             "time": "2017-01-23T20:57:12+00:00"
         },
         {
@@ -6444,6 +7355,7 @@
         },
         {
             "name": "sllh/composer-versions-check",
+<<<<<<< HEAD
             "version": "v2.0.3",
             "source": {
                 "type": "git",
@@ -6454,6 +7366,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/f6fe100dd71a9fa0d3c922612b445fb179e19127",
                 "reference": "f6fe100dd71a9fa0d3c922612b445fb179e19127",
+=======
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Soullivaneuh/composer-versions-check.git",
+                "reference": "4810ab669723609a74bbf6c515d1aac2bd6562d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/4810ab669723609a74bbf6c515d1aac2bd6562d3",
+                "reference": "4810ab669723609a74bbf6c515d1aac2bd6562d3",
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -6494,7 +7418,11 @@
                 "update",
                 "versions"
             ],
+<<<<<<< HEAD
             "time": "2017-06-16T09:29:23+00:00"
+=======
+            "time": "2016-04-29T17:38:05+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "spryker/architecture-sniffer",
@@ -6554,7 +7482,11 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
+<<<<<<< HEAD
             "time": "2017-05-12 14:13:12"
+=======
+            "time": "2017-05-12T14:13:12+00:00"
+>>>>>>> core-1251 update composer
         },
         {
             "name": "spryker/code-generator",
@@ -6605,12 +7537,39 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
+<<<<<<< HEAD
                 "reference": "664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b",
                 "reference": "664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b",
+=======
+<<<<<<< HEAD
+                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b26a5262069333b5734e52c0bf0acf3a7860b6ea",
+                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea",
+=======
+<<<<<<< HEAD
+                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
+                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
+=======
+                "reference": "0cda0285021733517ce35417de1f2b3cf0dd17bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0cda0285021733517ce35417de1f2b3cf0dd17bc",
+                "reference": "0cda0285021733517ce35417de1f2b3cf0dd17bc",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -6644,7 +7603,31 @@
                 "phpcs",
                 "standards"
             ],
+<<<<<<< HEAD
             "time": "2017-07-17 14:09:59"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-27 13:05:34"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-27T13:05:34+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-10 19:45:38"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-10T19:45:38+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-05-19 15:56:04"
+=======
+            "time": "2017-05-12T09:59:47+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -6771,7 +7754,19 @@
         },
         {
             "name": "symfony/browser-kit",
+<<<<<<< HEAD
             "version": "v3.3.5",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.4",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.2",
+=======
+            "version": "v3.3.0",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -6828,7 +7823,19 @@
         },
         {
             "name": "symfony/css-selector",
+<<<<<<< HEAD
             "version": "v3.3.5",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.4",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.2",
+=======
+            "version": "v3.3.0",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -6941,7 +7948,19 @@
         },
         {
             "name": "symfony/dom-crawler",
+<<<<<<< HEAD
             "version": "v3.3.5",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.4",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.2",
+=======
+            "version": "v3.3.0",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -6997,7 +8016,19 @@
         },
         {
             "name": "symfony/stopwatch",
+<<<<<<< HEAD
             "version": "v2.8.25",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.24",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.22",
+=======
+            "version": "v2.8.21",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -7046,7 +8077,16 @@
         },
         {
             "name": "symfony/var-dumper",
+<<<<<<< HEAD
             "version": "v3.3.5",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.4",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.2",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -7054,8 +8094,30 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/var-dumper/zipball/0f32b62d21991700250fed5109b092949007c5b3",
                 "reference": "0f32b62d21991700250fed5109b092949007c5b3",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/9ee920bba1d2ce877496dcafca7cbffff4dbe08a",
+                "reference": "9ee920bba1d2ce877496dcafca7cbffff4dbe08a",
+=======
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/347c4247a3e40018810b476fcd5dec36d46d08dc",
+                "reference": "347c4247a3e40018810b476fcd5dec36d46d08dc",
+=======
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "568ce40d88b14f6b42aa48f50572cc4427be9757"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/568ce40d88b14f6b42aa48f50572cc4427be9757",
+                "reference": "568ce40d88b14f6b42aa48f50572cc4427be9757",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -7067,7 +8129,11 @@
             },
             "require-dev": {
                 "ext-iconv": "*",
+<<<<<<< HEAD
                 "twig/twig": "~1.34|~2.4"
+=======
+                "twig/twig": "~1.20|~2.0"
+>>>>>>> core-1251 update composer
             },
             "suggest": {
                 "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
@@ -7110,7 +8176,16 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
             "time": "2017-07-10T14:18:27+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-05T13:02:37+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-02T09:10:29+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "symfony/web-profiler-bundle",
@@ -7122,8 +8197,34 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/f7024dcaf577f7a07e02abc63937b68e7dcac5dd",
                 "reference": "f7024dcaf577f7a07e02abc63937b68e7dcac5dd",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/aafd081320be71cf7d26cb477fbbe52d4cb0ad8f",
+                "reference": "aafd081320be71cf7d26cb477fbbe52d4cb0ad8f",
+=======
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/54aa5d69b22644cfc6b2d99ee04c37169e445ade",
+                "reference": "54aa5d69b22644cfc6b2d99ee04c37169e445ade",
+=======
+            "time": "2017-05-22T17:32:12+00:00"
+        },
+        {
+            "name": "symfony/web-profiler-bundle",
+            "version": "v2.8.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/web-profiler-bundle.git",
+                "reference": "1821bc46078487c0bc9b69390efda498c1ec78a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/1821bc46078487c0bc9b69390efda498c1ec78a1",
+                "reference": "1821bc46078487c0bc9b69390efda498c1ec78a1",
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
                 "shasum": ""
             },
             "require": {
@@ -7131,7 +8232,11 @@
                 "symfony/http-kernel": "~2.4|~3.0.0",
                 "symfony/routing": "~2.2|~3.0.0",
                 "symfony/twig-bridge": "~2.7|~3.0.0",
+<<<<<<< HEAD
                 "twig/twig": "~1.34|~2.4"
+=======
+                "twig/twig": "~1.28|~2.0"
+>>>>>>> core-1251 update composer
             },
             "require-dev": {
                 "symfony/config": "~2.2|~3.0.0",
@@ -7169,7 +8274,19 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-11T06:54:57+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-07-03T08:04:30+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-02T07:47:27+00:00"
+=======
+            "time": "2017-05-18T09:06:54+00:00"
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
+>>>>>>> core-1251 update composer
         },
         {
             "name": "theseer/fdomdocument",
