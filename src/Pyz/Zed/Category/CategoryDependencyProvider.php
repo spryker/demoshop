@@ -11,6 +11,7 @@ use Spryker\Zed\Cms\Communication\Plugin\ReadCmsBlockCategoryRelationPlugin;
 use Spryker\Zed\Cms\Communication\Plugin\RemoveCmsBlockCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\ReadProductCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\RemoveProductCategoryRelationPlugin;
+use Spryker\Zed\ProductCategory\Communication\Plugin\UpdateProductCategoryRelationPlugin;
 
 class CategoryDependencyProvider extends SprykerDependencyProvider
 {
@@ -29,6 +30,19 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
         );
 
         return $deletePlugins;
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Dependency\Plugin\CategoryRelationUpdatePluginInterface[]
+     */
+    protected function getRelationUpdatePluginStack()
+    {
+        return array_merge(
+            [
+                new UpdateProductCategoryRelationPlugin(),
+            ],
+            parent::getRelationUpdatePluginStack()
+        );
     }
 
     /**
