@@ -12,14 +12,13 @@ use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
-use Propel\Runtime\Collection\ObjectCollection;
 use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
+use Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
 class ProductConcreteCollector extends AbstractStoragePdoCollector
@@ -52,6 +51,11 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     protected $productImageQueryContainer;
 
     /**
+     * @var \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface
+     */
+    protected $productImageFacade;
+
+    /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     private $productFacade;
@@ -66,18 +70,21 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
+     * @param \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface $productImageFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
         ProductFacadeInterface $productFacade,
         PriceFacadeInterface $priceFacade,
-        ProductImageQueryContainerInterface $productImageQueryContainer
+        ProductImageQueryContainerInterface $productImageQueryContainer,
+        ProductImageFacadeInterface $productImageFacade
     ) {
         parent::__construct($utilDataReaderService);
 
         $this->priceFacade = $priceFacade;
         $this->productImageQueryContainer = $productImageQueryContainer;
         $this->productFacade = $productFacade;
+        $this->productImageFacade = $productImageFacade;
     }
 
     /**
@@ -148,59 +155,21 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      */
     protected function generateProductConcreteImageSets($idProductAbstract, $idProductConcrete)
     {
-        $abstractDefaultImageSets = $this->productImageQueryContainer
-            ->queryProductImageSet()
-            ->filterByFkProductAbstract($idProductAbstract)
-            ->filterByFkLocale(null)
-            ->find();
+        $imageSetTransfers = $this->productImageFacade->getCombinedConcreteImageSets(
+            $idProductConcrete,
+            $idProductAbstract,
+            $this->locale->getIdLocale()
+        );
 
-        $abstractLocalizedImageSets = $this->productImageQueryContainer
-            ->queryProductImageSet()
-            ->filterByFkProductAbstract($idProductAbstract)
-            ->filterByFkLocale($this->locale->getIdLocale())
-            ->find();
-
-        $concreteDefaultImageSets = $this->productImageQueryContainer
-            ->queryProductImageSet()
-            ->filterByFkProduct($idProductConcrete)
-            ->filterByFkLocale(null)
-            ->find();
-
-        $concreteLocalizedImageSets = $this->productImageQueryContainer
-            ->queryProductImageSet()
-            ->filterByFkProduct($idProductConcrete)
-            ->filterByFkLocale($this->locale->getIdLocale())
-            ->find();
-
-        $result = $this->getImageCollectionsIndexedByImageSetKey($concreteLocalizedImageSets)
-                + $this->getImageCollectionsIndexedByImageSetKey($concreteDefaultImageSets)
-                + $this->getImageCollectionsIndexedByImageSetKey($abstractLocalizedImageSets)
-                + $this->getImageCollectionsIndexedByImageSetKey($abstractDefaultImageSets);
-
-        return $result;
-    }
-
-    /**
-     * @param \Propel\Runtime\Collection\ObjectCollection $imageSets
-     *
-     * @return array
-     */
-    protected function getImageCollectionsIndexedByImageSetKey(ObjectCollection $imageSets)
-    {
         $result = [];
 
-        /** @var \Orm\Zed\ProductImage\Persistence\SpyProductImageSet $imageSetEntity */
-        foreach ($imageSets as $imageSetEntity) {
-            $productsToImages = $imageSetEntity->getSpyProductImageSetToProductImages(
-                $this->productImageQueryContainer->queryProductImageSetToProductImage()
-                    ->orderBySortOrder(Criteria::DESC)
-            );
-            foreach ($productsToImages as $productToImageEntity) {
-                $imageEntity = $productToImageEntity->getSpyProductImage();
-                $result[$imageSetEntity->getName()][] = [
-                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $imageEntity->getIdProductImage(),
-                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $imageEntity->getExternalUrlLarge(),
-                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $imageEntity->getExternalUrlSmall(),
+        /** @var \Generated\Shared\Transfer\ProductImageSetTransfer $imageSetTransfer */
+        foreach ($imageSetTransfers as $imageSetTransfer) {
+            foreach ($imageSetTransfer->getProductImages() as $productImageTransfer) {
+                $result[$imageSetTransfer->getName()][] = [
+                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $productImageTransfer->getIdProductImage(),
+                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $productImageTransfer->getExternalUrlLarge(),
+                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $productImageTransfer->getExternalUrlSmall(),
                 ];
             }
         }
