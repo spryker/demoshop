@@ -69,9 +69,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new EntryStep(
             CheckoutControllerProvider::CHECKOUT_INDEX,
-            ApplicationControllerProvider::ROUTE_HOME,
-            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
-            $this->getApplication()->path(CustomerControllerProvider::ROUTE_LOGOUT)
+            ApplicationControllerProvider::ROUTE_HOME
         );
     }
 
@@ -84,7 +82,8 @@ class StepFactory extends SprykerStepFactory
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
             $this->createCustomerStepHandler(),
             CheckoutControllerProvider::CHECKOUT_CUSTOMER,
-            ApplicationControllerProvider::ROUTE_HOME
+            ApplicationControllerProvider::ROUTE_HOME,
+            $this->getApplication()->path(CustomerControllerProvider::ROUTE_LOGOUT)
         );
     }
 

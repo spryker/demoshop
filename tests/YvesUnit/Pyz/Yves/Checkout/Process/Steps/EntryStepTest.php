@@ -75,10 +75,11 @@ class EntryStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return CustomerClient
+     * @return \Pyz\Client\Customer\CustomerClient
      */
     protected function createCustomerClient()
     {
         return new CustomerClient();
     }
+
 }
