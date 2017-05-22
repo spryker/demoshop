@@ -13,7 +13,6 @@ use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
-use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
@@ -47,8 +46,8 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
         CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
-    )
-    {
+    ) {
+
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;

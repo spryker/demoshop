@@ -9,6 +9,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\Checkout\Process\Steps\AbstractPlaceOrderStep;
@@ -62,7 +63,16 @@ class PlaceOrderStep extends AbstractPlaceOrderStep
      */
     public function preCondition(AbstractTransfer $dataTransfer)
     {
-        return !$this->isCartEmpty($dataTransfer);
+        if ($this->isCartEmpty($dataTransfer)) {
+            return false;
+        }
+
+        if (!$dataTransfer->getCheckoutConfirmed()) {
+            $this->escapeRoute = CheckoutControllerProvider::CHECKOUT_SUMMARY;
+            return false;
+        }
+
+        return true;
     }
 
     /**
