@@ -132,7 +132,8 @@ class CustomerStepTest extends PHPUnit_Framework_TestCase
             $customerClientMock,
             $authHandlerMock,
             'customer_step',
-            'escape_route'
+            'escape_route',
+            '/logout'
         );
     }
 

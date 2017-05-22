@@ -60,9 +60,7 @@ class EntryStepTest extends PHPUnit_Framework_TestCase
     {
         return new EntryStep(
             'entry_route',
-            'escape_route',
-            $this->createCustomerClient(),
-            '/logout'
+            'escape_route'
         );
     }
 
