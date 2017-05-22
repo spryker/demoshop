@@ -1700,12 +1700,15 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "63b6e4d8900f535f473908c8cf688294536981be"
 =======
 =======
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "7f11799dba61e8eecd9087ced07bb7f4462a5400"
 =======
@@ -1713,6 +1716,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "b7f2c82b30717d8b1df47ebb13cb5e417d2391b4"
 =======
@@ -1720,6 +1725,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "0b4420025a069d5e95bec84d4c6880b2f8ae5dc4"
 =======
@@ -1727,6 +1734,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "86760a70b5af7b2915d01696ef9e9ba9a45355c7"
 =======
@@ -1799,20 +1808,65 @@
 =======
                 "reference": "5f95125f5d7fdd2b200597ecbdfd0dded84c53d2"
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "98a6deee4a1431d441548eb89025ae6ae8d3574f"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2055,12 +2109,15 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-06-06 10:55:32"
 =======
 =======
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-02 15:01:31"
 =======
@@ -2068,6 +2125,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-02 08:36:55"
 =======
@@ -2075,6 +2134,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-05-24 10:03:33"
 =======
@@ -2082,6 +2143,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-05-23 08:58:48"
 =======
@@ -2154,20 +2217,65 @@
 =======
             "time": "2017-05-19 11:59:41"
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-05-22 06:42:18"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6926,9 +7034,13 @@
                 "git"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "abandoned": true,
 =======
 >>>>>>> core-1251 update composer
+=======
+            "abandoned": true,
+>>>>>>> core-1251 update spryker/spryker
             "time": "2017-01-23T20:57:12+00:00"
         },
         {
