@@ -24,6 +24,14 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class ProductAbstractWriter implements DataImportStepInterface
 {
 
+    const BULK_SIZE = 50;
+
+    const TOUCH_ITEM_TYPE_PRODUCT_ABSTRACT = 'touchItemTypeProductAbstract';
+    const TOUCH_ITEM_ID_KEY_PRODUCT_ABSTRACT = 'touchItemIdProductAbstract';
+
+    const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
+    const TOUCH_ITEM_ID_KEY = 'touchItemId';
+
     const ABSTRACT_SKU = 'abstract_sku';
     const IS_FEATURED = 'is_featured';
     const COLOR_CODE = 'color_code';
@@ -54,6 +62,12 @@ class ProductAbstractWriter implements DataImportStepInterface
         $this->importProductAbstractLocalizedAttributes($dataSet, $productAbstractEntity);
         $this->importProductCategories($dataSet, $productAbstractEntity);
         $this->importProductAbstractImages($dataSet, $productAbstractEntity);
+
+        $dataSet[static::TOUCH_ITEM_TYPE_PRODUCT_ABSTRACT] = ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
+        $dataSet[static::TOUCH_ITEM_ID_KEY_PRODUCT_ABSTRACT] = $productAbstractEntity->getIdProductAbstract();
+
+        $dataSet[static::TOUCH_ITEM_TYPE_PRODUCT_ABSTRACT] = ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
+        $dataSet[static::TOUCH_ITEM_ID_KEY_PRODUCT_ABSTRACT] = $productAbstractEntity->getIdProductAbstract();
     }
 
     /**

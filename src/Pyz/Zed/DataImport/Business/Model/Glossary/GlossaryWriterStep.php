@@ -9,12 +9,13 @@ namespace Pyz\Zed\DataImport\Business\Model\Glossary;
 
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery;
-use Pyz\Zed\Glossary\GlossaryConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class GlossaryWriterStep implements DataImportStepInterface
 {
+
+    const BULK_SIZE = 50;
 
     const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
     const TOUCH_ITEM_ID_KEY = 'touchItemId';

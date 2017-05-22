@@ -14,6 +14,7 @@ use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Shared\Product\ProductConfig;
+use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Product\Persistence\ProductQueryContainerInterface;

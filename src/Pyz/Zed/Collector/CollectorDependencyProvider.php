@@ -22,7 +22,6 @@ use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
 use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
 use Spryker\Shared\Availability\AvailabilityConfig;
-use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\CmsBlock\CmsBlockConfig;
 use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;

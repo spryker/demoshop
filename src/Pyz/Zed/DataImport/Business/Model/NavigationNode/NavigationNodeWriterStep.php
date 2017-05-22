@@ -11,15 +11,38 @@ use Orm\Zed\Navigation\Persistence\SpyNavigationNode;
 use Orm\Zed\Navigation\Persistence\SpyNavigationNodeLocalizedAttributes;
 use Orm\Zed\Navigation\Persistence\SpyNavigationNodeLocalizedAttributesQuery;
 use Orm\Zed\Navigation\Persistence\SpyNavigationNodeQuery;
+use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Zed\DataImport\Business\Exception\NavigationNodeByKeyNotFoundException;
+use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationKeyToIdNavigationStep;
 use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
+use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class NavigationNodeWriterStep implements DataImportStepInterface
 {
 
+    const DATA_SET_KEY_NAVIGATION_KEY = 'navigation_key';
+    const DATA_SET_KEY_NODE_KEY = 'node_key';
+    const DATA_SET_KEY_PARENT_NODE_KEY = 'parent_node_key';
+    const DATA_SET_KEY_POSITION = 'position';
+    const DATA_SET_KEY_NODE_TYPE = 'node_type';
+    const DATA_SET_KEY_TITLE = 'title';
+    const DATA_SET_KEY_URL = 'url';
+    const DATA_SET_KEY_CSS_CLASS = 'css_class';
+
     const DEFAULT_IS_ACTIVE = true;
+
+    const BULK_SIZE = 50;
+
+    const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
+    const TOUCH_ITEM_ID_KEY = 'touchItemId';
+
+    const NODE_TYPE_LINK = 'link';
+    const NODE_TYPE_EXTERNAL_URL = 'external_url';
+    const NODE_TYPE_CATEGORY = 'category';
+    const NODE_TYPE_CMS_PAGE = 'cms_page';
+    const DATA_SET_KEY_IS_ACTIVE = 'is_active';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -30,21 +53,19 @@ class NavigationNodeWriterStep implements DataImportStepInterface
     {
         $query = SpyNavigationNodeQuery::create();
         $navigationNodeEntity = $query
-            ->filterByFkNavigation($dataSet['idNavigation'])
-            ->filterByNodeKey($dataSet['node_key'])
+            ->filterByFkNavigation($dataSet[NavigationKeyToIdNavigationStep::KEY_TARGET])
+            ->filterByNodeKey($dataSet[static::DATA_SET_KEY_NODE_KEY])
             ->findOneOrCreate();
 
         $navigationNodeEntity->setPosition($this->getPosition($navigationNodeEntity, $dataSet));
         $navigationNodeEntity->setIsActive($this->getIsActive($navigationNodeEntity, $dataSet));
         $navigationNodeEntity->setNodeType($this->getNodeType($navigationNodeEntity, $dataSet));
 
-        if (!empty($dataSet['parent_node_key'])) {
+        if (!empty($dataSet[static::DATA_SET_KEY_PARENT_NODE_KEY])) {
             $navigationNodeEntity->setFkParentNavigationNode(
-                $this->getFkParentNavigationNode($dataSet['parent_node_key'])
+                $this->getFkParentNavigationNode($dataSet[static::DATA_SET_KEY_PARENT_NODE_KEY])
             );
         }
-
-        $navigationNodeEntity->save();
 
         foreach ($dataSet[LocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
             $query = SpyNavigationNodeLocalizedAttributesQuery::create();
@@ -54,12 +75,28 @@ class NavigationNodeWriterStep implements DataImportStepInterface
                 ->findOneOrCreate();
 
             $navigationNodeLocalizedAttributesEntity->setTitle($this->getTitle($navigationNodeLocalizedAttributesEntity, $localizedAttributes));
-            $navigationNodeLocalizedAttributesEntity->setLink($this->getLink($navigationNodeLocalizedAttributesEntity, $localizedAttributes));
-            $navigationNodeLocalizedAttributesEntity->setCssClass($this->getCssClass($navigationNodeLocalizedAttributesEntity, $localizedAttributes));
-            $navigationNodeLocalizedAttributesEntity->setExternalUrl($this->getExternalUrl($navigationNodeLocalizedAttributesEntity, $localizedAttributes));
 
-            $navigationNodeLocalizedAttributesEntity->save();
+            if ($navigationNodeEntity->getNodeType() === static::NODE_TYPE_LINK) {
+                $navigationNodeLocalizedAttributesEntity->setLink($this->getLink($navigationNodeLocalizedAttributesEntity, $localizedAttributes));
+            }
+
+            if ($navigationNodeEntity->getNodeType() === static::NODE_TYPE_EXTERNAL_URL) {
+                $navigationNodeLocalizedAttributesEntity->setExternalUrl($this->getExternalUrl($navigationNodeLocalizedAttributesEntity, $localizedAttributes));
+            }
+
+            if ($navigationNodeEntity->getNodeType() === static::NODE_TYPE_CATEGORY || $navigationNodeEntity->getNodeType() === static::NODE_TYPE_CMS_PAGE) {
+                $navigationNodeLocalizedAttributesEntity->setFkUrl($this->getFkUrl($navigationNodeLocalizedAttributesEntity, $localizedAttributes, $idLocale));
+            }
+
+            $navigationNodeLocalizedAttributesEntity->setCssClass($this->getCssClass($navigationNodeLocalizedAttributesEntity, $localizedAttributes));
+
+            $navigationNodeEntity->addSpyNavigationNodeLocalizedAttributes($navigationNodeLocalizedAttributesEntity);
         }
+
+        $navigationNodeEntity->save();
+
+        $dataSet[static::TOUCH_ITEM_TYPE_KEY] = NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU;
+        $dataSet[static::TOUCH_ITEM_ID_KEY] = $navigationNodeEntity->getFkNavigation();
     }
 
     /**
@@ -92,8 +129,8 @@ class NavigationNodeWriterStep implements DataImportStepInterface
      */
     protected function getPosition(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
-        if (isset($dataSet['position']) && !empty($dataSet['position'])) {
-            return (int)$dataSet['position'];
+        if (isset($dataSet[static::DATA_SET_KEY_POSITION]) && !empty($dataSet[static::DATA_SET_KEY_POSITION])) {
+            return (int)$dataSet[static::DATA_SET_KEY_POSITION];
         }
 
         return $navigationNodeEntity->getPosition();
@@ -107,8 +144,8 @@ class NavigationNodeWriterStep implements DataImportStepInterface
      */
     protected function getIsActive(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
-        if (isset($dataSet['is_active']) && !empty($dataSet['is_active'])) {
-            return (bool)$dataSet['is_active'];
+        if (isset($dataSet[static::DATA_SET_KEY_IS_ACTIVE]) && !empty($dataSet[static::DATA_SET_KEY_IS_ACTIVE])) {
+            return (bool)$dataSet[static::DATA_SET_KEY_IS_ACTIVE];
         }
 
         if ($navigationNodeEntity->getIsActive() !== null) {
@@ -126,8 +163,8 @@ class NavigationNodeWriterStep implements DataImportStepInterface
      */
     protected function getNodeType(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
-        if (isset($dataSet['node_type']) && !empty($dataSet['node_type'])) {
-            return $dataSet['node_type'];
+        if (isset($dataSet[static::DATA_SET_KEY_NODE_TYPE]) && !empty($dataSet[static::DATA_SET_KEY_NODE_TYPE])) {
+            return $dataSet[static::DATA_SET_KEY_NODE_TYPE];
         }
 
         return $navigationNodeEntity->getNodeType();
@@ -141,8 +178,8 @@ class NavigationNodeWriterStep implements DataImportStepInterface
      */
     protected function getTitle(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes['title']) && !empty($localizedAttributes['title'])) {
-            return $localizedAttributes['title'];
+        if (isset($localizedAttributes[static::DATA_SET_KEY_TITLE]) && !empty($localizedAttributes[static::DATA_SET_KEY_TITLE])) {
+            return $localizedAttributes[static::DATA_SET_KEY_TITLE];
         }
 
         return $navigationNodeLocalizedAttributes->getTitle();
@@ -156,8 +193,8 @@ class NavigationNodeWriterStep implements DataImportStepInterface
      */
     protected function getLink(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes['link']) && !empty($localizedAttributes['link'])) {
-            return $localizedAttributes['link'];
+        if (isset($localizedAttributes[static::DATA_SET_KEY_URL]) && !empty($localizedAttributes[static::DATA_SET_KEY_URL])) {
+            return $localizedAttributes[static::DATA_SET_KEY_URL];
         }
 
         return $navigationNodeLocalizedAttributes->getLink();
@@ -171,11 +208,35 @@ class NavigationNodeWriterStep implements DataImportStepInterface
      */
     protected function getExternalUrl(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes['external_url']) && !empty($localizedAttributes['external_url'])) {
-            return $localizedAttributes['external_url'];
+        if (isset($localizedAttributes[static::DATA_SET_KEY_URL]) && !empty($localizedAttributes[static::DATA_SET_KEY_URL])) {
+            return $localizedAttributes[static::DATA_SET_KEY_URL];
         }
 
         return $navigationNodeLocalizedAttributes->getExternalUrl();
+    }
+
+    /**
+     * @param \Orm\Zed\Navigation\Persistence\SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes
+     * @param array $localizedAttributes
+     * @param int $idLocale
+     *
+     * @return int
+     */
+    protected function getFkUrl(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes, $idLocale)
+    {
+        if (isset($localizedAttributes[static::DATA_SET_KEY_URL]) && !empty($localizedAttributes[static::DATA_SET_KEY_URL])) {
+            $query = SpyUrlQuery::create();
+            $urlEntity = $query
+                ->filterByFkLocale($idLocale)
+                ->filterByUrl($localizedAttributes[static::DATA_SET_KEY_URL])
+                ->findOne();
+
+            if ($urlEntity) {
+                return $urlEntity->getIdUrl();
+            }
+        }
+
+        return $navigationNodeLocalizedAttributes->getFkUrl();
     }
 
     /**
@@ -186,8 +247,8 @@ class NavigationNodeWriterStep implements DataImportStepInterface
      */
     protected function getCssClass(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes['css_class']) && !empty($localizedAttributes['css_class'])) {
-            return $localizedAttributes['css_class'];
+        if (isset($localizedAttributes[static::DATA_SET_KEY_CSS_CLASS]) && !empty($localizedAttributes[static::DATA_SET_KEY_CSS_CLASS])) {
+            return $localizedAttributes[static::DATA_SET_KEY_CSS_CLASS];
         }
 
         return $navigationNodeLocalizedAttributes->getCssClass();

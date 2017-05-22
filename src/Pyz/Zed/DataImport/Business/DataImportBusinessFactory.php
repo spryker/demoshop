@@ -39,6 +39,8 @@ use Pyz\Zed\DataImport\Business\Model\Tax\TaxSetNameToIdTaxSetStep;
 use Pyz\Zed\DataImport\Business\Model\Tax\TaxWriterStep;
 use Pyz\Zed\DataImport\DataImportDependencyProvider;
 use Spryker\Shared\ProductSearch\Code\KeyBuilder\FilterGlossaryKeyBuilder;
+use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainer;
 use Spryker\Zed\DataImport\Business\DataImportBusinessFactory as SprykerDataImportBusinessFactory;
 
 /**
@@ -82,8 +84,14 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetImporter = $this->createDataSetImporter();
         $dataSetImporter->addDataImportStep($this->createLocaleNameToIdStep());
+        $dataSetImporter->addDataImportStep($this->createTransactionBeginStep(GlossaryWriterStep::BULK_SIZE));
         $dataSetImporter->addDataImportStep(new GlossaryWriterStep());
-
+        $dataSetImporter->addDataImportStep($this->createTransactionEndStep(GlossaryWriterStep::BULK_SIZE));
+        $dataSetImporter->addDataImportStep($this->createTouchStep(
+            GlossaryWriterStep::TOUCH_ITEM_TYPE_KEY,
+            GlossaryWriterStep::TOUCH_ITEM_ID_KEY,
+            GlossaryWriterStep::BULK_SIZE
+        ));
         $dataImporter->addDataSetImporter($dataSetImporter);
 
         return $dataImporter;
@@ -97,12 +105,42 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCategoryDataImporterConfiguration());
         $dataSet = $this->createDataSetImporter();
         $dataSet->addDataImportStep($this->createLocaleNameToIdStep());
-        $dataSet->addDataImportStep(new CategoryWriterStep());
+        $dataSet->addDataImportStep($this->createTransactionBeginStep(CategoryWriterStep::BULK_SIZE));
+        $dataSet->addDataImportStep(new CategoryWriterStep(
+            $this->createCategoryUrlPathGenerator(),
+            $this->createCategoryQuery()
+        ));
+        $dataSet->addDataImportStep($this->createTransactionEndStep(CategoryWriterStep::BULK_SIZE));
         $dataSet->addDataImportStep($this->createCategoryRebuildCacheStep());
-        $dataSet->addDataImportStep($this->createTouchStep(CategoryWriterStep::TOUCH_ITEM_TYPE_KEY, CategoryWriterStep::TOUCH_ITEM_ID_KEY));
+        $dataSet->addDataImportStep($this->createTouchStep(
+            CategoryWriterStep::TOUCH_ITEM_TYPE_KEY_CATEGORY,
+            CategoryWriterStep::TOUCH_ITEM_ID_KEY_CATEGORY,
+            CategoryWriterStep::BULK_SIZE
+        ));
+        $dataSet->addDataImportStep($this->createTouchStep(
+            CategoryWriterStep::TOUCH_ITEM_TYPE_KEY_URL,
+            CategoryWriterStep::TOUCH_ITEM_ID_KEY_URL,
+            CategoryWriterStep::BULK_SIZE
+        ));
         $dataImporter->addDataSetImporter($dataSet);
 
         return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface
+     */
+    protected function createCategoryUrlPathGenerator()
+    {
+        return new UrlPathGenerator();
+    }
+
+    /**
+     * @return \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     */
+    protected function createCategoryQuery()
+    {
+        return new CategoryQueryContainer();
     }
 
     /**
@@ -189,7 +227,14 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getNavigationDataImporterConfiguration());
         $dataSet = $this->createDataSetImporter();
+        $dataSet->addDataImportStep($this->createTransactionBeginStep(NavigationWriterStep::BULK_SIZE));
         $dataSet->addDataImportStep(new NavigationWriterStep());
+        $dataSet->addDataImportStep($this->createTransactionEndStep(NavigationWriterStep::BULK_SIZE));
+        $dataSet->addDataImportStep($this->createTouchStep(
+            NavigationWriterStep::TOUCH_ITEM_TYPE_KEY,
+            NavigationWriterStep::TOUCH_ITEM_ID_KEY,
+            NavigationWriterStep::BULK_SIZE
+        ));
         $dataImporter->addDataSetImporter($dataSet);
 
         return $dataImporter;
@@ -203,9 +248,20 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getNavigationNodeDataImporterConfiguration());
         $dataSet = $this->createDataSetImporter();
         $dataSet->addDataImportStep($this->createAddLocalesStep());
-        $dataSet->addDataImportStep($this->createNavigationKeyToIdNavigationStep('navigation_key'));
-        $dataSet->addDataImportStep($this->createLocalizedAttributesExtractorStep(['title', 'url', 'css_class']));
+        $dataSet->addDataImportStep($this->createNavigationKeyToIdNavigationStep(NavigationNodeWriterStep::DATA_SET_KEY_NAVIGATION_KEY));
+        $dataSet->addDataImportStep($this->createLocalizedAttributesExtractorStep([
+            NavigationNodeWriterStep::DATA_SET_KEY_TITLE,
+            NavigationNodeWriterStep::DATA_SET_KEY_URL,
+            NavigationNodeWriterStep::DATA_SET_KEY_CSS_CLASS,
+        ]));
+        $dataSet->addDataImportStep($this->createTransactionBeginStep(NavigationNodeWriterStep::BULK_SIZE));
         $dataSet->addDataImportStep(new NavigationNodeWriterStep());
+        $dataSet->addDataImportStep($this->createTransactionEndStep(NavigationNodeWriterStep::BULK_SIZE));
+        $dataSet->addDataImportStep($this->createTouchStep(
+            NavigationNodeWriterStep::TOUCH_ITEM_TYPE_KEY,
+            NavigationNodeWriterStep::TOUCH_ITEM_ID_KEY,
+            NavigationNodeWriterStep::BULK_SIZE
+        ));
         $dataImporter->addDataSetImporter($dataSet);
 
         return $dataImporter;
@@ -240,7 +296,19 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             'meta_description',
             'meta_keywords',
         ]));
+        $dataSet->addDataImportStep($this->createTransactionBeginStep(ProductAbstractWriter::BULK_SIZE));
         $dataSet->addDataImportStep(new ProductAbstractWriter());
+        $dataSet->addDataImportStep($this->createTransactionEndStep(ProductAbstractWriter::BULK_SIZE));
+        $dataSet->addDataImportStep($this->createTouchStep(
+            NavigationNodeWriterStep::TOUCH_ITEM_TYPE_KEY,
+            NavigationNodeWriterStep::TOUCH_ITEM_ID_KEY,
+            ProductAbstractWriter::BULK_SIZE
+        ));
+        $dataSet->addDataImportStep($this->createTouchStep(
+            NavigationNodeWriterStep::TOUCH_ITEM_TYPE_KEY,
+            NavigationNodeWriterStep::TOUCH_ITEM_ID_KEY,
+            ProductAbstractWriter::BULK_SIZE
+        ));
         $dataImporter->addDataSetImporter($dataSet);
 
         return $dataImporter;
