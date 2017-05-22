@@ -130,7 +130,7 @@
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
     "spryker/state-machine": "^2.0.0",
-    "spryker/step-engine": "^2.0.0",
+    "spryker/step-engine": "^3.0.0",
     "spryker/stock": "^4.0.0",
     "spryker/stock-sales-connector": "^3.0.0",
     "spryker/storage": "^3.0.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "519a7fde77da22a4417dc06e83dbb9de",
+    "content-hash": "33953b5a711126d3c0d1f0288c01a043",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -3821,11 +3821,11 @@
         },
         {
             "name": "spryker/braintree",
-            "version": "0.5.0",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Braintree.git",
-                "reference": "10233623778fc362c18ff2f4665d6de6da7e65a7",
+                "reference": "9cd5e023877591f7e9730f50c2a28b05f62e69c9",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3835,8 +3835,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Braintree/zipball/10233623778fc362c18ff2f4665d6de6da7e65a7",
-                "reference": "10233623778fc362c18ff2f4665d6de6da7e65a7",
+                "url": "https://api.github.com/repos/spryker/Braintree/zipball/9cd5e023877591f7e9730f50c2a28b05f62e69c9",
+                "reference": "9cd5e023877591f7e9730f50c2a28b05f62e69c9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3858,7 +3858,7 @@
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/refund": "^4.0.0",
                 "spryker/sales": "^5.0.0",
-                "spryker/step-engine": "^2.0.0",
+                "spryker/step-engine": "^2.0.0 || ^3.0.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-text": "^1.1.0"
             },
@@ -3901,10 +3901,7 @@
                 "proprietary"
             ],
             "description": "Braintree bundle",
-            "support": {
-                "source": "https://github.com/spryker/Braintree/tree/master"
-            },
-            "time": "2017-02-23T15:00:28+00:00"
+            "time": "2017-05-22T08:35:13+00:00"
         },
         {
             "name": "spryker/cache",
@@ -4356,11 +4353,11 @@
         },
         {
             "name": "spryker/checkout",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Checkout.git",
-                "reference": "066455d69c96ea360bddb633fc535d512ce5a8ab",
+                "reference": "dbc5eb06d30271d313c884a4f545e1b4160919c8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4370,8 +4367,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Checkout/zipball/066455d69c96ea360bddb633fc535d512ce5a8ab",
-                "reference": "066455d69c96ea360bddb633fc535d512ce5a8ab",
+                "url": "https://api.github.com/repos/spryker/Checkout/zipball/dbc5eb06d30271d313c884a4f545e1b4160919c8",
+                "reference": "dbc5eb06d30271d313c884a4f545e1b4160919c8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4384,7 +4381,7 @@
                 "spryker/kernel": "^3.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/quote": "^1.0.0",
-                "spryker/step-engine": "^2.0.0",
+                "spryker/step-engine": "^2.0.0 || ^3.0.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/zed-request": "^3.0.0"
             },
@@ -4425,10 +4422,7 @@
                 "proprietary"
             ],
             "description": "Checkout bundle",
-            "support": {
-                "source": "https://github.com/spryker/Checkout/tree/beta/core-714-big-core-cleanup"
-            },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-05-22T08:35:13+00:00"
         },
         {
             "name": "spryker/cms",
@@ -5810,11 +5804,11 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DummyPayment.git",
-                "reference": "3e53d3e80b20feef1312664d7bd33a2fdab5974e",
+                "reference": "608e28879092c463485e763642431e05dfc32635",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5824,8 +5818,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/3e53d3e80b20feef1312664d7bd33a2fdab5974e",
-                "reference": "3e53d3e80b20feef1312664d7bd33a2fdab5974e",
+                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/608e28879092c463485e763642431e05dfc32635",
+                "reference": "608e28879092c463485e763642431e05dfc32635",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5841,7 +5835,7 @@
                 "spryker/payment": "^3.0.0",
                 "spryker/refund": "^4.0.0",
                 "spryker/sales": "^5.0.0",
-                "spryker/step-engine": "^2.0.0",
+                "spryker/step-engine": "^2.0.0 || ^3.0.0",
                 "spryker/symfony": "^3.0.0"
             },
             "require-dev": {
@@ -5878,10 +5872,7 @@
                 "proprietary"
             ],
             "description": "DummyPayment bundle",
-            "support": {
-                "source": "https://github.com/spryker/DummyPayment/tree/beta/core-714-big-core-cleanup"
-            },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-05-22T08:35:13+00:00"
         },
         {
             "name": "spryker/elastica",
@@ -7877,11 +7868,11 @@
         },
         {
             "name": "spryker/payolution",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Payolution.git",
-                "reference": "127ed4c3190b45ca76a3569e9d8c576344ebe4ae",
+                "reference": "e6ee934879181cd8b1c333a270c3ca836d550dd6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7891,8 +7882,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payolution/zipball/127ed4c3190b45ca76a3569e9d8c576344ebe4ae",
-                "reference": "127ed4c3190b45ca76a3569e9d8c576344ebe4ae",
+                "url": "https://api.github.com/repos/spryker/Payolution/zipball/e6ee934879181cd8b1c333a270c3ca836d550dd6",
+                "reference": "e6ee934879181cd8b1c333a270c3ca836d550dd6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7914,7 +7905,7 @@
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/sales-aggregator": "^4.0.0",
                 "spryker/session": "^3.0.0",
-                "spryker/step-engine": "^2.0.0",
+                "spryker/step-engine": "^2.0.0 || ^3.0.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-text": "^1.1.0",
                 "spryker/zed-request": "^3.0.0"
@@ -7954,10 +7945,7 @@
                 "proprietary"
             ],
             "description": "Payolution bundle",
-            "support": {
-                "source": "https://github.com/spryker/Payolution/tree/beta/core-714-big-core-cleanup"
-            },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-05-22T08:35:13+00:00"
         },
         {
             "name": "spryker/payone",
@@ -10715,11 +10703,11 @@
         },
         {
             "name": "spryker/step-engine",
-            "version": "2.1.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/StepEngine.git",
-                "reference": "08f1f82bff3ad135d821d2cb3315f65195c6fb84",
+                "reference": "2679400b754000d4134d846976ce2b90fd6f2233",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10729,8 +10717,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/StepEngine/zipball/08f1f82bff3ad135d821d2cb3315f65195c6fb84",
-                "reference": "08f1f82bff3ad135d821d2cb3315f65195c6fb84",
+                "url": "https://api.github.com/repos/spryker/StepEngine/zipball/2679400b754000d4134d846976ce2b90fd6f2233",
+                "reference": "2679400b754000d4134d846976ce2b90fd6f2233",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10777,7 +10765,7 @@
             "support": {
                 "source": "https://github.com/spryker/StepEngine/tree/master"
             },
-            "time": "2017-03-23T09:33:48+00:00"
+            "time": "2017-05-22T08:35:13+00:00"
         },
         {
             "name": "spryker/stock",
