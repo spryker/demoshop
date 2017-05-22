@@ -42,6 +42,20 @@ class PlaceOrderStep extends AbstractPlaceOrderStep
     }
 
     /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    public function postCondition(AbstractTransfer $quoteTransfer)
+    {
+        if (!$quoteTransfer->getCheckoutConfirmed()) {
+            return false;
+        }
+
+        return parent::postCondition($quoteTransfer);
+    }
+
+    /**
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
      * @return bool

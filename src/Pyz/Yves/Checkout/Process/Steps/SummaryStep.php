@@ -7,11 +7,13 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
@@ -45,7 +47,8 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
         CartClientInterface $cartClient,
         $stepRoute,
         $escapeRoute
-    ) {
+    )
+    {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
@@ -71,6 +74,8 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
+        $this->markCheckoutConfirmed($request, $quoteTransfer);
+
         return $this->calculationClient->recalculate($quoteTransfer);
     }
 
@@ -134,6 +139,19 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     public function isBreadcrumbItemHidden(AbstractTransfer $dataTransfer)
     {
         return !$this->requireInput($dataTransfer);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return void
+     */
+    protected function markCheckoutConfirmed(Request $request, QuoteTransfer $quoteTransfer)
+    {
+        if ($request->isMethod('POST')) {
+            $quoteTransfer->setCheckoutConfirmed(true);
+        }
     }
 
 }
