@@ -160,6 +160,7 @@ class ProductOptionImporter extends AbstractImporter
     }
 
     /**
+     * @param array $data
      * @param \Generated\Shared\Transfer\ProductOptionValueTransfer $productOptionValueTransfer
      *
      * @return int
