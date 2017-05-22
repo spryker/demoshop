@@ -92,6 +92,7 @@ class UrlGenerator extends SymfonyUrlGenerator
     /**
      * @param string $url
      * @param string $baseHost
+     * @param \Symfony\Component\Routing\Route $route
      *
      * @return string
      */
