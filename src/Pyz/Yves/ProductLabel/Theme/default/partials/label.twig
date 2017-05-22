@@ -1,0 +1,11 @@
+<span class="product-label__item">
+    {% if productLabelTransfer.getFrontEndReference() == 'tag-template' %}
+        {% include '@ProductLabel/partials/labels/tag.twig' with {
+            productLabelTransfer: productLabelTransfer
+        } %}
+    {% else %}
+        {% include '@ProductLabel/partials/labels/default.twig' with {
+            productLabelTransfer: productLabelTransfer
+        } %}
+    {% endif %}
+</span>

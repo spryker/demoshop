@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Importer\ProductLabel;
 
 use ArrayObject;
+use DateTime;
 use Generated\Shared\Transfer\ProductLabelLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductLabelTransfer;
 use Orm\Zed\ProductLabel\Persistence\SpyProductLabelQuery;
@@ -22,6 +23,9 @@ class ProductLabelImporter extends AbstractImporter
     const FIELD_NAME = 'name';
     const FIELD_IS_ACTIVE = 'is_active';
     const FIELD_IS_EXCLUSIVE = 'is_exclusive';
+    const FIELD_FRONT_END_REFERENCE = 'front_end_reference';
+    const FIELD_VALID_FROM = 'valid_from';
+    const FIELD_VALID_TO = 'valid_to';
     const FIELD_ATTRIBUTE_NAME_PREFIX = 'name.';
     const FIELD_PRODUCT_ABSTRACT_SKUS = 'product_abstract_skus';
 
@@ -75,7 +79,13 @@ class ProductLabelImporter extends AbstractImporter
         $productLabelTransfer->setName($data[static::FIELD_NAME]);
         $productLabelTransfer->setIsActive((int)$data[static::FIELD_IS_ACTIVE]);
         $productLabelTransfer->setIsExclusive((int)$data[static::FIELD_IS_EXCLUSIVE]);
+        $productLabelTransfer->setFrontEndReference($data[static::FIELD_FRONT_END_REFERENCE]);
         $productLabelTransfer->setLocalizedAttributesCollection($this->getLocalizedAttributesTransferCollection($data));
+
+        if ($data[static::FIELD_VALID_FROM] && $data[static::FIELD_VALID_TO]) {
+            $productLabelTransfer->setValidFrom(new DateTime($data[static::FIELD_VALID_FROM]));
+            $productLabelTransfer->setValidTo(new DateTime($data[static::FIELD_VALID_TO]));
+        }
 
         $this->productLabelFacade->createLabel($productLabelTransfer);
 

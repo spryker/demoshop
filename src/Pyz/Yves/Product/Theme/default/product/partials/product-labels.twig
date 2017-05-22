@@ -1,7 +1,4 @@
-{% if productLabelTransferCollection|length > 0 %}
-    <div style="position: absolute; top: 20px; right: 20px;">
-    {% for productLabelTransfer in productLabelTransferCollection %}
-        <div style="border: 1px solid #000; background: #f8f8f8; padding: 5px; margin-bottom: 5px;">{{ productLabelTransfer.getName() }}</div>
-    {% endfor %}
-    </div>
-{% endif %}
+{% include '@ProductLabel/partials/group.twig' with {
+    productLabelTransferCollection: productLabelTransferCollection,
+    cssClass: 'product-label__group--floating'
+} %}

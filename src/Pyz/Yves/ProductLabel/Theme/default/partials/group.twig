@@ -1,0 +1,7 @@
+<div class="product-label__group {{ cssClass|default('') }}">
+    {% for productLabelTransfer in productLabelTransferCollection %}
+        {% include '@ProductLabel/partials/label.twig' with {
+            productLabelTransfer: productLabelTransfer
+        } %}
+    {% endfor %}
+</div>
