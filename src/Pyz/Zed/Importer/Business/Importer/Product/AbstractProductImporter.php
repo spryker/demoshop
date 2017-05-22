@@ -49,6 +49,7 @@ abstract class AbstractProductImporter extends AbstractImporter
     }
 
     /**
+     * @param string $key
      * @param string $localeCode
      *
      * @return string

@@ -127,21 +127,25 @@ class ProductCategoryImporter extends AbstractImporter
             return;
         }
 
-        $idNodeAndCategory = $this->getIdNodeAndCategory($product[self::CATEGORY_KEY]);
-        if (empty($idNodeAndCategory)) {
-            throw new LogicException(sprintf(
-                'Category with key "%s" for product with sku "%" does not exist',
-                $product[self::CATEGORY_KEY],
-                $product[self::ABSTRACT_SKU]
-            ));
+        $categoryKeys = explode(',', $product[self::CATEGORY_KEY]);
+        foreach ($categoryKeys as $categoryKey) {
+            $idNodeAndCategory = $this->getIdNodeAndCategory($categoryKey);
+            if (empty($idNodeAndCategory)) {
+                throw new LogicException(sprintf(
+                    'Category with key "%s" for product with sku "%" does not exist',
+                    $product[self::CATEGORY_KEY],
+                    $product[self::ABSTRACT_SKU]
+                ));
+            }
+
+            $this->createProductCategoryMapping(
+                $idProductAbstract,
+                $idNodeAndCategory[self::RESULT_CATEGORY_ID]
+            );
+
+            $this->touchCategoryNodeActive($idNodeAndCategory[self::RESULT_NODE_ID]);
         }
 
-        $this->createProductCategoryMapping(
-            $idProductAbstract,
-            $idNodeAndCategory[self::RESULT_CATEGORY_ID]
-        );
-
-        $this->touchCategoryNodeActive($idNodeAndCategory[self::RESULT_NODE_ID]);
         $this->touchProductActive($idProductAbstract);
     }
 

@@ -75,10 +75,14 @@
                 {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
                 <p>
                     <span class="stat">{{ product.price | money }}</span>
+                    <br/>
+                    <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
                 </p>
 
                 {% include '@Product/product/partials/variants.twig' %}
             </div>
+
+            {{ spyProductGroupItems(product.idProductAbstract, '@Product/product/partials/product-group.twig') }}
 
             {% set available = false %}
 

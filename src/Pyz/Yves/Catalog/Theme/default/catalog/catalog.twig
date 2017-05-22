@@ -27,6 +27,7 @@
                 {% for product in products %}
                     <div class="small-12 medium-6 large-6 xlarge-4 columns">
                         {% include "@catalog/catalog/partials/product.twig" with {
+                            idProductAbstract: product.id_product_abstract,
                             detailsUrl: product.url,
                             name: product.abstract_name,
                             priceValue: product.price,

@@ -3,6 +3,7 @@
 
     <table name="spy_product_abstract" idMethod="native" allowPkInsert="true" phpName="SpyProductAbstract">
         <column name="is_featured" type="BOOLEAN" default="0" />
+        <column name="color_code" required="false" type="VARCHAR" default="NULL" size="8" />
     </table>
 
 </database>

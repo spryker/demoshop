@@ -163,7 +163,6 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
 
         $result = [];
 
-        /** @var \Generated\Shared\Transfer\ProductImageSetTransfer $imageSetTransfer */
         foreach ($imageSetTransfers as $imageSetTransfer) {
             foreach ($imageSetTransfer->getProductImages() as $productImageTransfer) {
                 $result[$imageSetTransfer->getName()][] = [

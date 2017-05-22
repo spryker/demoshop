@@ -42,7 +42,7 @@ const settings = {
 
     // oryx entry settings
     entry: {
-        dirs: [path.resolve('vendor/spryker')],
+        dirs: [path.resolve('vendor/spryker'), path.resolve('vendor/spryker-eco')],
         patterns: ['**/Yves/**/*.entry.js'],
         defineName: p => path.basename(p, '.entry.js'),
         description: 'looking for entry points...'
