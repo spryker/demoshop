@@ -142,8 +142,7 @@ function installZed {
 function removeLogFiles {
     if [[ -d "./data/DE/logs" ]]; then
         labelText "Clear logs"
-        rm -rf "./data/DE/logs"
-        mkdir "./data/DE/logs"
+        /bin/bash -c 'rm -rf ./data/DE/logs/*'
         writeErrorMessage "Could not remove logs directory"
     fi
 }
@@ -151,7 +150,7 @@ function removeLogFiles {
 function removeCacheFiles {
     if [[ -d "./data/DE/cache" ]]; then
         labelText "Clear cache"
-        rm -rf "./data/DE/cache"
+        /bin/bash -c 'rm -rf ./data/DE/cache/*'
         writeErrorMessage "Could not remove cache directory"
     fi
 }
