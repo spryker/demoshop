@@ -9,7 +9,6 @@ namespace Pyz\Zed\SalesAggregator;
 
 use Spryker\Zed\Kernel\Container;
 
-use Spryker\Zed\ProductBundle\Communication\Plugin\SalesAggregator\ProductBundlePriceAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\DiscountTotalAmountAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\DiscountTotalAmountWithProductOptionsAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\ExpenseTotalAggregatorPlugin;
@@ -25,6 +24,7 @@ use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\Order
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\OrderExpenseTaxWithDiscountsAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\OrderGrandTotalWithDiscountsAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\OrderTaxAmountWithProductOptionsAndDiscountsAggregatorPlugin;
+use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\ProductBundlePriceAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\ProductOptionDiscountsAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\ProductOptionsGrossPriceAggregatorPlugin;
 use Spryker\Zed\SalesAggregator\Communication\Plugin\OrderAmountAggregator\SubtotalOrderAggregatorPlugin;

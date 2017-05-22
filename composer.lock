@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a0fe759778540786d0f7be95bbb85f7",
+    "content-hash": "f0a168940142c42ce38ec0a083c627b8",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1486,48 +1486,6 @@
             "time": "2017-04-30T16:26:54+00:00"
         },
         {
-            "name": "spryker/calculation-migration",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/Calculation-migration.git",
-                "reference": "d9d358258ac9a59c5a9fd4f9631c83dc756f9d4e"
-            },
-            "require": {
-                "spryker/kernel": "^3.0.0",
-                "spryker/util-text": "^1.1.0",
-                "spryker/zed-request": "^3.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Calculation bundle",
-            "time": "2017-05-11 13:52:56"
-        },
-        {
             "name": "spryker/rabbit-mq",
             "version": "dev-master",
             "source": {
@@ -1581,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4e0b5b5483d18de67b12b1d8dfd254e4c25757ab"
+                "reference": "1f4a8479d49bb168faf2b2f6c884b00b2899e360"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1731,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-18 12:06:47"
+            "time": "2017-05-22 07:21:50"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3839,16 +3797,16 @@
         },
         {
             "name": "zendframework/zend-filter",
-            "version": "2.7.1",
+            "version": "2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-filter.git",
-                "reference": "84c50246428efb0a1e52868e162dab3e149d5b80"
+                "reference": "b8d0ff872f126631bf63a932e33aa2d22d467175"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/84c50246428efb0a1e52868e162dab3e149d5b80",
-                "reference": "84c50246428efb0a1e52868e162dab3e149d5b80",
+                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/b8d0ff872f126631bf63a932e33aa2d22d467175",
+                "reference": "b8d0ff872f126631bf63a932e33aa2d22d467175",
                 "shasum": ""
             },
             "require": {
@@ -3856,10 +3814,10 @@
                 "zendframework/zend-stdlib": "^2.7 || ^3.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
                 "pear/archive_tar": "^1.4",
-                "phpunit/phpunit": "~4.0",
-                "zendframework/zend-crypt": "^2.6",
+                "phpunit/phpunit": "^6.0.10 || ^5.7.17",
+                "zendframework/zend-coding-standard": "~1.0.0",
+                "zendframework/zend-crypt": "^2.6 || ^3.0",
                 "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
                 "zendframework/zend-uri": "^2.5"
             },
@@ -3895,7 +3853,7 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2016-04-18T18:32:43+00:00"
+            "time": "2017-05-17T20:56:17+00:00"
         },
         {
             "name": "zendframework/zend-http",
@@ -4209,16 +4167,16 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.9.0",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c"
+                "reference": "c9a8160a0191e34bb98ac1ecd4e453391c424bb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/b71641582297eab52753b72cd4eb45a5ded4485c",
-                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/c9a8160a0191e34bb98ac1ecd4e453391c424bb3",
+                "reference": "c9a8160a0191e34bb98ac1ecd4e453391c424bb3",
                 "shasum": ""
             },
             "require": {
@@ -4276,7 +4234,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2017-03-17T10:15:50+00:00"
+            "time": "2017-05-17T22:06:13+00:00"
         }
     ],
     "packages-dev": [
@@ -5609,23 +5567,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
+                "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
+                "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -5657,7 +5615,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08T07:14:41+00:00"
+            "time": "2017-05-18T13:44:30+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -6343,7 +6301,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "2811ba37c774f16a619f278daae5d836ce8e578f"
+                "reference": "4398004c312988c3997aa91932419abf1bdf5616"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6395,7 +6353,49 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-03-08 12:29:10"
+            "time": "2017-05-12 14:13:12"
+        },
+        {
+            "name": "spryker/calculation-migration",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/Calculation-migration.git",
+                "reference": "d9d358258ac9a59c5a9fd4f9631c83dc756f9d4e"
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/util-text": "^1.1.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Unit": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Calculation bundle",
+            "time": "2017-05-11T13:52:56+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6446,12 +6446,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "64dafda32274f32fa6c51e6ad981391053b469f7"
+                "reference": "a046d4119e68b9b70d614dd74fc90c28b0ce3237"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/64dafda32274f32fa6c51e6ad981391053b469f7",
-                "reference": "64dafda32274f32fa6c51e6ad981391053b469f7",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a046d4119e68b9b70d614dd74fc90c28b0ce3237",
+                "reference": "a046d4119e68b9b70d614dd74fc90c28b0ce3237",
                 "shasum": ""
             },
             "require": {
@@ -6485,7 +6485,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-05-11T09:38:17+00:00"
+            "time": "2017-05-12 09:59:47"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -7107,7 +7107,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
-        "spryker/calculation-migration": 20,
         "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
