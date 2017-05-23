@@ -21,7 +21,7 @@ class NewRelicServiceProvider extends AbstractServiceProvider
 {
 
     /**
-     * @var \Spryker\Shared\NewRelic\ApiInterface
+     * @var \Spryker\Shared\NewRelicApi\NewRelicApiInterface
      */
     protected $newRelicApi;
 
