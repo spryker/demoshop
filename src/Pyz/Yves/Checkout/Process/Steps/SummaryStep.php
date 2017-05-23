@@ -47,7 +47,6 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
         $stepRoute,
         $escapeRoute
     ) {
-
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->calculationClient = $calculationClient;
