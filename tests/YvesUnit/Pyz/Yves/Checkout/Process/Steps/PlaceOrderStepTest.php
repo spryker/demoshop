@@ -43,8 +43,9 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
         $checkoutResponseTransfer->setRedirectUrl($redirectUrl);
         $checkoutClientMock->expects($this->once())->method('placeOrder')->willReturn($checkoutResponseTransfer);
 
+        $quoteTransfer = $this->createQuoteTransfer();
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
-        $placeOrderStep->execute($this->createRequest(), new QuoteTransfer());
+        $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
         $this->assertEquals($redirectUrl, $placeOrderStep->getExternalRedirectUrl());
     }
 
@@ -64,7 +65,7 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
         $checkoutClientMock->expects($this->once())->method('placeOrder')->willReturn($checkoutResponseTransfer);
 
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
-        $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer = $this->createQuoteTransfer();
 
         $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
 
@@ -88,7 +89,9 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
         $flashMessengerMock->expects($this->exactly(2))->method('addErrorMessage');
 
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock, $flashMessengerMock);
-        $placeOrderStep->execute($this->createRequest(), new QuoteTransfer());
+
+        $quoteTransfer = $this->createQuoteTransfer();
+        $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
     }
 
     /**
@@ -101,7 +104,7 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
         $checkoutClientMock = $this->createCheckoutClientMock();
         $checkoutClientMock->expects($this->once())->method('placeOrder')->willReturn($checkoutResponseTransfer);
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
-        $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer = $this->createQuoteTransfer();
         $quoteTransfer->setOrderReference('#123');
 
         $placeOrderStep->execute($this->createRequest(), $quoteTransfer);
@@ -116,7 +119,8 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
         $checkoutClientMock = $this->createCheckoutClientMock();
         $placeOrderStep = $this->createPlaceOrderStep($checkoutClientMock);
 
-        $this->assertFalse($placeOrderStep->requireInput(new QuoteTransfer()));
+        $quoteTransfer = $this->createQuoteTransfer();
+        $this->assertFalse($placeOrderStep->requireInput($quoteTransfer));
     }
 
     /**
@@ -169,6 +173,17 @@ class PlaceOrderStepTest extends PHPUnit_Framework_TestCase
     protected function createShipmentMock()
     {
         return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\QuoteTransfer
+     */
+    protected function createQuoteTransfer()
+    {
+        $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setCheckoutConfirmed(true);
+
+        return $quoteTransfer;
     }
 
 }
