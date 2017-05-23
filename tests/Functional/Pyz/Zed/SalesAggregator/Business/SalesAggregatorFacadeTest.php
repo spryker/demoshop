@@ -400,8 +400,8 @@ class SalesAggregatorFacadeTest extends Test
     /**
      * @param \Orm\Zed\Oms\Persistence\SpyOmsOrderItemState $omsState
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $salesOrder
-     * @param int $quantity
      * @param bool $createDiscounts
+     * @param int $quantity
      * @param int $grossPrice
      * @param int $taxRate
      * @param int $discountAmount
