@@ -95,6 +95,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface $productImageFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
