@@ -15,7 +15,6 @@ use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
-use Symfony\Component\VarDumper\VarDumper;
 
 class ProductManagementAttributeWriter implements DataImportStepInterface
 {

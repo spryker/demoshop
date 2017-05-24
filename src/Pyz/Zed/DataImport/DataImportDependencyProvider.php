@@ -41,5 +41,4 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         };
     }
 
-
 }

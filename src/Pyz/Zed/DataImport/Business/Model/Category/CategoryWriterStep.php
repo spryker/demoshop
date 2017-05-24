@@ -13,7 +13,6 @@ use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Zed\DataImport\Business\Exception\CategoryByKeyNotFoundException;
 use Pyz\Zed\DataImport\Business\Model\Locale\LocaleNameToIdLocaleStep;
-use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
 use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
 use Spryker\Zed\Category\CategoryConfig;

@@ -18,7 +18,6 @@ use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Pyz\Shared\Product\ProductConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
-use Symfony\Component\VarDumper\VarDumper;
 
 class ProductConcreteWriter implements DataImportStepInterface
 {

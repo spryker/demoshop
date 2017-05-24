@@ -15,7 +15,6 @@ use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKey
 use Spryker\Shared\ProductSearch\Code\KeyBuilder\GlossaryKeyBuilderInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
-use Symfony\Component\VarDumper\VarDumper;
 
 class ProductSearchAttributeWriter implements DataImportStepInterface
 {
