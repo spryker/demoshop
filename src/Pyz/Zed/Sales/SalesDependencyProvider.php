@@ -11,6 +11,7 @@ use Spryker\Zed\Discount\Communication\Plugin\Sales\DiscountOrderHydratePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderHydratePlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionOrderHydratePlugin;
 use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
+use Spryker\Zed\Shipment\Communication\Plugin\ShipmentOrderHydratePlugin;
 
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
@@ -24,6 +25,7 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new ProductOptionOrderHydratePlugin(),
             new DiscountOrderHydratePlugin(),
             new ProductBundleOrderHydratePlugin(),
+            new ShipmentOrderHydratePlugin(),
         ];
     }
 

@@ -16,6 +16,7 @@ use Orm\Zed\Sales\Persistence\SpySalesOrder;
 use Orm\Zed\Sales\Persistence\SpySalesOrderAddress;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItem;
 use Orm\Zed\Sales\Persistence\SpySalesOrderItemOption;
+use Orm\Zed\Sales\Persistence\SpySalesShipment;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
 use Spryker\Zed\SalesAggregator\Business\SalesAggregatorFacade;
 
@@ -298,7 +299,7 @@ class SalesAggregatorFacadeTest extends Test
         $salesOrderEntity = new SpySalesOrder();
         $salesOrderEntity->setBillingAddress($salesOrderAddressEntity);
         $salesOrderEntity->setShippingAddress(clone $salesOrderAddressEntity);
-        $salesOrderEntity->setShipmentMethod($shipmentMethodEntity);
+
         $salesOrderEntity->setOrderReference('123');
         $salesOrderEntity->save();
 
@@ -386,7 +387,29 @@ class SalesAggregatorFacadeTest extends Test
             );
         }
 
+        $this->createSpySalesShipment($salesOrderEntity->getIdSalesOrder(), $salesExpenseEntity->getIdSalesExpense());
+
         return $salesOrderEntity;
+    }
+
+    /**
+     * @param int $idSalesOrder
+     * @param int $idSalesExpense
+     *
+     * @return \Orm\Zed\Sales\Persistence\SpySalesShipment
+     */
+    protected function createSpySalesShipment($idSalesOrder, $idSalesExpense)
+    {
+        $salesShipmentEntity = new SpySalesShipment();
+        $salesShipmentEntity->setDeliveryTime('1 h');
+        $salesShipmentEntity->setCarrierName('Carrier name');
+        $salesShipmentEntity->setName('Shipment name');
+        $salesShipmentEntity->setFkSalesOrder($idSalesOrder);
+        $salesShipmentEntity->setFkSalesExpense($idSalesExpense);
+
+        $salesShipmentEntity->save();
+
+        return $salesShipmentEntity;
     }
 
     /**
