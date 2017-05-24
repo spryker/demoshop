@@ -1,46 +1,110 @@
 <div class="callout">
-    <a href="/cart/remove/{{cartItem.sku}}/{{cartItem.groupKey}}" class="close-button float-right">&times;</a>
     <div class="row">
-        <div class="small-12 columns">
-            <div class="row align-top">
-                <div class="small-12 columns text-center medium-text-left">
-                    <ul class="no-bullet __no-margin-bottom">
-                        <li class="lead">
-                            {{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong>
+        
+        <div class="small-12 large-4 columns">
+            <div class="row">
+                <div class="small-4 large-12 columns">
+                    <strong>Product</strong>
+                </div>
+                <div class="small-8 large-12 columns">
+                    <ul class="no-bullet">
+                        <li class="lead">{{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong></li>
+                        <li class="__secondary"><small>{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</small></li>
+                        <li>
+                            <a href="/cart/remove/{{cartItem.sku}}/{{cartItem.groupKey}}">
+                                &times; <small>remove</small>
+                            </a>
                         </li>
-                            <li class="__secondary">{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</li>
-
-                        {% if bundleItems is defined %}
-                            <br />
-                            <li>{{ 'cart.item.bundle.description' | trans }}</li>
-
-                            {% for bundleItem in bundleItems %}
-                                <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
-                            {% endfor %}
-                        {% endif %}
-
-                        {% if cartItem.productOptions|length > 0 %}
-                            <li>{{ 'cart.item.option.description' | trans }}</li>
-                            {% for productOption in cartItem.productOptions %}
-                               <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
-                            {% endfor %}
-                        {% endif %}
                     </ul>
                 </div>
             </div>
-            <form class="row align-right" method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
-                <div class="small-4 columns">
-                    <label>{{ 'cart.item_quantity' | trans }}:
-                        <div class="input-group">
-                            <input class="input-group-field" type="number" value="{{cartItem.quantity}}" name="quantity">
-                            <div class="input-group-button">
-                                <button type="submit" class="button expanded __no-margin-bottom"><i class="fa fa-refresh"></i></button>
+        </div>
+    
+        <div class="small-12 large-8 columns">
+            <div class="row">
+    
+                {% if bundleItems is defined %}
+                    <div class="small-12 large-6 columns">
+                        <div class="row">
+                            <div class="small-4 large-12 columns">
+                                <strong>{{ 'cart.item.bundle.description' | trans }}</strong>
+                            </div>
+                            <div class="small-8 large-12 columns">
+                                <ul class="no-bullet">
+                                    {% for bundleItem in bundleItems %}
+                                        <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </div>
-                    </label>
+                    </div>
+                {% else %}
+                    <div class="small-12 large-6 columns">
+                        <div class="row">
+                            <div class="small-4 large-12 columns">
+                                <strong>Product variants</strong>
+                            </div>
+                            <p class="small-8 large-12 columns">
+                                <select>
+                                    <option>Test</option>
+                                </select>
+    
+                                <select>
+                                    <option>Test</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+    
+                <div class="small-12 large-6 columns">
+                    <div class="row">
+                        <div class="small-4 large-12 columns">
+                            <strong>{{ 'cart.item.option.description' | trans }}</strong>
+                        </div>
+                        <div class="small-8 large-12 columns">
+                            {% if cartItem.productOptions|length > 0 %}
+                                <ul class="no-bullet">
+                                    {% for productOption in cartItem.productOptions %}
+                                        <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-                <input type="hidden" value="{{cartItem.groupKey}}" name="groupKey">
-            </form>
+    
+                <div class="small-12 large-6 columns">
+                    <div class="row">
+                        <div class="small-4 large-12 columns">
+                            <strong>{{ 'cart.item_quantity' | trans }}</strong>
+                        </div>
+                        <div class="small-8 large-12 columns">
+                            <form method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
+                                <div class="input-group">
+                                    <input class="input-group-field" type="number" value="{{cartItem.quantity}}" name="quantity">
+                                    <div class="input-group-button">
+                                        <button type="submit" class="button expanded __no-margin-bottom"><i class="fa fa-refresh"></i></button>
+                                    </div>
+                                </div>
+                                <input type="hidden" value="{{cartItem.groupKey}}" name="groupKey">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="small-12 large-6 columns">
+                    <div class="row">
+                        <div class="small-4 large-12 columns">
+                            <strong>Total price</strong>
+                        </div>
+                        <div class="small-8 large-12 columns">
+                            <span class="lead">12.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 </div>

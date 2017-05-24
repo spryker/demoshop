@@ -11,57 +11,45 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        {% if cart.items|length > 0 %}
-            <div class="small-12 large-6 columns">
+    {% if cart.items|length > 0 %}
+        <div class="row">
+            <div class="small-12 columns">
                 {% for cartItem in cartItems %}
                      {% if cartItem.bundleProduct is defined %}
-                         {% include '@cart/cart/parts/cart-item.twig' with {'cartItem': cartItem.bundleProduct, 'bundleItems' : cartItem.bundleItems} %}
+                         {% include '@cart/cart/parts/cart-item.twig' with {
+                            cartItem: cartItem.bundleProduct,
+                            bundleItems: cartItem.bundleItems
+                         } %}
                      {% else %}
                          {% include '@cart/cart/parts/cart-item.twig' %}
                      {% endif %}
                 {% endfor %}
             </div>
+        </div>
 
+        <div class="row">
             <div class="small-12 large-6 columns">
-                <div class="callout">
-                    <h5 class="subheader float-right">{{ app['cart.quantity'] }} {{ 'item' | trans }}</h5>
-                    <h5>{{ 'cart.your-order' | trans }}</h5>
-                    <ul class="no-bullet">
-                        <li>{{ 'cart.price.subtotal' | trans }} <span class="float-right">{{ cart.totals.subtotal | money }}</span></li>
-
-                        <li><hr/></li>
-
-                        {% include '@cart/cart/parts/cart-discounts.twig' %}
-
-                        <li>{{ 'cart.price.grand.total' | trans }} <strong class="float-right">{{ cart.totals.grandTotal | money }}</strong></li>
-
-                        <li>{{ 'cart.total.tax_total' | trans }} <span class="float-right">{{ cart.totals.taxTotal.amount | money }}</span></li>
-                    </ul>
-                    {% if cart.items|length %}
-                        <p class="__padding-top">
-                            <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
-                                <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
-                            </a>
-                        </p>
-                    {% endif %}
-                </div>
-
                 {% include '@cart/cart/parts/voucher-form.twig' %}
             </div>
-
-        {% else %}
-
-            <div class="small-12 columns">
-                <div class="callout secondary text-center">
-                    {{ 'cart.empty'|trans }}
-                </div>
+            
+            <div class="small-12 large-6 columns">
+                {% include '@cart/cart/parts/cart-summary.twig' %}
             </div>
-        {% endif %}
-    </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="small-12 columns">
+                {% include '@cart/cart/parts/cart-empty.twig' %}
+            </div>
+        </div>
+    {% endif %}
 
-    {{ product_relation("up-selling", {quote : cart}, 'You might also be interested in these products', '@ProductRelation/partial/product_relation_carousel.twig') }}
-
+    {{ product_relation(
+        "up-selling",
+        { quote: cart },
+        'You might also be interested in these products',
+        '@ProductRelation/partial/product_relation_carousel.twig'
+    ) }}
 {% endblock %}
 
 {% block footer %}{% endblock %}
