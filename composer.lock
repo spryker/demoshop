@@ -1701,12 +1701,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "63b6e4d8900f535f473908c8cf688294536981be"
 =======
 =======
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
@@ -1718,6 +1721,8 @@
 >>>>>>> core-1251 update composer
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "b7f2c82b30717d8b1df47ebb13cb5e417d2391b4"
 =======
@@ -1725,6 +1730,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
@@ -1853,6 +1860,11 @@
 =======
                 "reference": "98a6deee4a1431d441548eb89025ae6ae8d3574f"
 >>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "0c1419014e30d543aef6b4dbdffa7bda82c2bd41"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
@@ -2110,12 +2122,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-06-06 10:55:32"
 =======
 =======
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
@@ -2127,6 +2142,8 @@
 >>>>>>> core-1251 update composer
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-02 08:36:55"
 =======
@@ -2134,6 +2151,8 @@
 >>>>>>> core-1251 Migrated some Importer to new DataImport structure
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
@@ -2262,6 +2281,11 @@
 =======
             "time": "2017-05-22 06:42:18"
 >>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-05-24 05:35:51"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
@@ -7595,10 +7619,14 @@
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-05-12 14:13:12"
 =======
             "time": "2017-05-12T14:13:12+00:00"
 >>>>>>> core-1251 update composer
+=======
+            "time": "2017-05-12 14:13:12"
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "spryker/code-generator",
@@ -7716,17 +7744,26 @@
                 "standards"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-17 14:09:59"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-27 13:05:34"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-27T13:05:34+00:00"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-10 19:45:38"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-10T19:45:38+00:00"
 =======
@@ -7736,10 +7773,25 @@
             "time": "2017-05-12T09:59:47+00:00"
 >>>>>>> core-1251 update composer
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+<<<<<<< HEAD
 >>>>>>> core-1251 update composer
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-05-19 15:56:04"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "squizlabs/php_codesniffer",
