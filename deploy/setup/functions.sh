@@ -132,9 +132,27 @@ function installZed {
     labelText "Setting up IDE autocompletion"
     $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
 
+    removeLogFiles
+
     setupZedFrontend
 
     labelText "Zed setup completed successfully"
+}
+
+function removeLogFiles {
+    if [[ -d "./data/DE/logs" ]]; then
+        labelText "Clear logs"
+        /bin/bash -c 'rm -rf ./data/DE/logs/*'
+        writeErrorMessage "Could not remove logs directory"
+    fi
+}
+
+function removeCacheFiles {
+    if [[ -d "./data/DE/cache" ]]; then
+        labelText "Clear cache"
+        /bin/bash -c 'rm -rf ./data/DE/cache/*'
+        writeErrorMessage "Could not remove cache directory"
+    fi
 }
 
 function installYves {
@@ -246,18 +264,8 @@ function dumpAutoload {
 }
 
 function resetYves {
-    if [[ -d "./data/DE/logs" ]]; then
-        labelText "Clear logs"
-        rm -rf "./data/DE/logs"
-        mkdir "./data/DE/logs"
-        writeErrorMessage "Could not remove logs directory"
-    fi
-
-    if [[ -d "./data/DE/cache" ]]; then
-        labelText "Clear cache"
-        rm -rf "./data/DE/cache"
-        writeErrorMessage "Could not remove cache directory"
-    fi
+    removeLogFiles
+    removeCacheFiles
 
     cleanupProjectFrontendDeps
     cleanupYvesFrontendPublicAssets

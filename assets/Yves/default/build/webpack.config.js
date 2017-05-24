@@ -46,7 +46,7 @@ let config = {
 
     output: {
         path: settings.paths.publicDir,
-        filename: `/js/[name].js`
+        filename: './js/[name].js'
     },
 
     resolve: {
