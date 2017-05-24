@@ -8,19 +8,11 @@
 namespace Pyz\Zed\Application;
 
 use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
-
-use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
-
 use Silex\Provider\HttpFragmentServiceProvider;
-
 use Silex\Provider\ServiceControllerServiceProvider;
-
 use Silex\Provider\SessionServiceProvider;
-
 use Silex\Provider\TwigServiceProvider;
-
 use Spryker\Service\UtilDateTime\ServiceProvider\DateTimeFormatterServiceProvider;
-
 use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
 use Spryker\Shared\Config\Environment;
 use Spryker\Shared\ErrorHandler\Plugin\ServiceProvider\WhoopsErrorHandlerServiceProvider;
@@ -182,7 +174,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new MvcRoutingServiceProvider(),
             new SilexRoutingServiceProvider(),
             $this->getGatewayServiceProvider(),
-            new NewRelicServiceProvider(),
+            new NewRelicRequestTransactionServiceProvider(),
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
             new TwigServiceProvider(),
@@ -211,6 +203,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new MvcRoutingServiceProvider(),
             new SilexRoutingServiceProvider(),
             $this->getGatewayServiceProvider(),
+            new NewRelicRequestTransactionServiceProvider(),
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
             new TwigServiceProvider(),
