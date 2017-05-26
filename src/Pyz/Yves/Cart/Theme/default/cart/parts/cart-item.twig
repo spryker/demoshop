@@ -1,15 +1,18 @@
-<div class="callout">
+<div class="callout cart-item">
     <div class="row">
         
-        <div class="small-12 large-4 columns">
+        <div class="small-12 large-4 columns cart-item__section">
             <div class="row">
-                <div class="small-4 large-12 columns">
-                    <strong>Product</strong>
+                <div class="small-12 medium-4 large-12 columns">
+                    <strong class="cart-item__section-title">Product</strong>
                 </div>
-                <div class="small-8 large-12 columns">
+                <div class="small-12 medium-8 large-12 columns">
                     <ul class="no-bullet">
                         <li class="lead">{{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong></li>
                         <li class="__secondary"><small>{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</small></li>
+                        <li>
+                            <img class="thumbnail cart-item__image" src="//placeholdit.imgix.net/~text?txtsize=33&txt=Image-1&w=250&h=150" />
+                        </li>
                         <li>
                             <a href="/cart/remove/{{cartItem.sku}}/{{cartItem.groupKey}}">
                                 &times; <small>remove</small>
@@ -24,12 +27,12 @@
             <div class="row">
     
                 {% if bundleItems is defined %}
-                    <div class="small-12 large-6 columns">
+                    <div class="small-12 large-6 columns cart-item__section">
                         <div class="row">
-                            <div class="small-4 large-12 columns">
-                                <strong>{{ 'cart.item.bundle.description' | trans }}</strong>
+                            <div class="small-12 medium-4 large-12 columns">
+                                <strong class="cart-item__section-title">{{ 'cart.item.bundle.description' | trans }}</strong>
                             </div>
-                            <div class="small-8 large-12 columns">
+                            <div class="small-12 medium-8 large-12 columns">
                                 <ul class="no-bullet">
                                     {% for bundleItem in bundleItems %}
                                         <li> - {{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
@@ -39,12 +42,12 @@
                         </div>
                     </div>
                 {% else %}
-                    <div class="small-12 large-6 columns">
+                    <div class="small-12 large-6 columns cart-item__section">
                         <div class="row">
-                            <div class="small-4 large-12 columns">
-                                <strong>Product variants</strong>
+                            <div class="small-12 medium-4 large-12 columns">
+                                <strong class="cart-item__section-title">Product variants</strong>
                             </div>
-                            <p class="small-8 large-12 columns">
+                            <p class="small-12 medium-8 large-12 columns">
                                 <select>
                                     <option>Test</option>
                                 </select>
@@ -57,12 +60,12 @@
                     </div>
                 {% endif %}
     
-                <div class="small-12 large-6 columns">
+                <div class="small-12 large-6 columns cart-item__section">
                     <div class="row">
-                        <div class="small-4 large-12 columns">
-                            <strong>{{ 'cart.item.option.description' | trans }}</strong>
+                        <div class="small-12 medium-4 large-12 columns">
+                            <strong class="cart-item__section-title">{{ 'cart.item.option.description' | trans }}</strong>
                         </div>
-                        <div class="small-8 large-12 columns">
+                        <div class="small-12 medium-8 large-12 columns">
                             {% if cartItem.productOptions|length > 0 %}
                                 <ul class="no-bullet">
                                     {% for productOption in cartItem.productOptions %}
@@ -74,12 +77,12 @@
                     </div>
                 </div>
     
-                <div class="small-12 large-6 columns">
+                <div class="small-12 large-6 columns cart-item__section">
                     <div class="row">
-                        <div class="small-4 large-12 columns">
-                            <strong>{{ 'cart.item_quantity' | trans }}</strong>
+                        <div class="small-12 medium-4 large-12 columns">
+                            <strong class="cart-item__section-title">{{ 'cart.item_quantity' | trans }}</strong>
                         </div>
-                        <div class="small-8 large-12 columns">
+                        <div class="small-12 medium-8 large-12 columns">
                             <form method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
                                 <div class="input-group">
                                     <input class="input-group-field" type="number" value="{{cartItem.quantity}}" name="quantity">
@@ -93,13 +96,13 @@
                     </div>
                 </div>
     
-                <div class="small-12 large-6 columns">
+                <div class="small-12 large-6 columns cart-item__section">
                     <div class="row">
-                        <div class="small-4 large-12 columns">
-                            <strong>Total price</strong>
+                        <div class="small-12 medium-4 large-12 columns">
+                            <strong class="cart-item__section-title">Total price</strong>
                         </div>
-                        <div class="small-8 large-12 columns">
-                            <span class="lead">12.00</span>
+                        <div class="small-12 medium-8 large-12 columns">
+                            <h3><strong>&euro;12.00</strong></h3>
                         </div>
                     </div>
                 </div>
