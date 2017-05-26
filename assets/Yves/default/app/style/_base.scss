@@ -25,6 +25,10 @@ i {
     padding-top: $global-padding;
 }
 
+.__no-margin-bottom {
+    margin-bottom: 0;
+}
+
 .__secondary {
     color: $medium-gray;
 }
