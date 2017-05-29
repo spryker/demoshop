@@ -12,10 +12,10 @@ use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
+use Spryker\Yves\Cart\CartFactory as SprykerCartFactory;
 
-class CartFactory extends AbstractFactory
+class CartFactory extends SprykerCartFactory
 {
 
     /**
