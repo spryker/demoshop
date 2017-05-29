@@ -51,10 +51,7 @@
                                 </div>
                             {% endfor %}
                         </div>
-
-                        {% include '@Product/product/partials/product-labels.twig' with {
-                            productLabelTransferCollection: productLabelTransferCollection
-                        } %}
+                        {{ spyProductLabelItems(product.getIdProductAbstract(), '@Product/product/partials/product-labels.twig') }}
 
                     </div>
                 </div>

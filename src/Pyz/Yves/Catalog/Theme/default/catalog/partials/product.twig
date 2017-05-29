@@ -3,6 +3,7 @@
         <img src="{{ imageUrl }}">
     </a>
     {% if idProductAbstract is defined %}
+        {{ spyProductLabelItems(idProductAbstract, '@Catalog/catalog/partials/product-labels.twig') }}
         {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
     {% endif %}
     <p>
