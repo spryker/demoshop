@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
+    "content-hash": "2aba920fae50dd0000f258d34808d681",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-1198",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "39c41f116ab6a36c4bc66c0f908a92613b179d09"
+                "reference": "d0c1fc2645c582e5403013d2c1654b93654f9d93"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-22 08:35:13"
+            "time": "2017-05-23 11:24:23"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5816,7 +5816,6 @@
             "keywords": [
                 "git"
             ],
-            "abandoned": true,
             "time": "2017-01-23T20:57:12+00:00"
         },
         {
@@ -6396,7 +6395,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-04-24 20:17:25"
+            "time": "2017-04-24T20:17:25+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6443,7 +6442,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-05-19 15:56:04"
+            "time": "2017-05-19T15:56:04+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

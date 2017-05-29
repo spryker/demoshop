@@ -867,8 +867,8 @@ customer.order.options,"Produktoptionen:",de_DE
 customer.order.options,"Product options:",en_US
 countries.iso.AT,"Österreich",de_DE
 countries.iso.AT,"Austria",en_US
-cart.item.option.description,"Product options:",en_US
-cart.item.option.description,"Produktoptionen:",de_DE
+cart.item.option.description,"Product options",en_US
+cart.item.option.description,"Produktoptionen",de_DE
 cart.item.sku,"SKU",en_US
 cart.item.sku,"SKU",de_DE
 checkout.summary.item.option.description,"Product options:",en_US
