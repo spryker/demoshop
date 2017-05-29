@@ -9,6 +9,7 @@ namespace Pyz\Yves\Collector;
 
 use Pyz\Yves\Collector\Mapper\ParameterMerger;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
+use Pyz\Yves\ProductSet\ResourceCreator\ProductSetResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CollectorFactory extends AbstractFactory
@@ -24,6 +25,7 @@ class CollectorFactory extends AbstractFactory
             $this->createCategoryResourceCreator(),
             $this->createRedirectResourceCreator(),
             $this->createPageResourceCreator(),
+            new ProductSetResourceCreator(), // TODO: get from dependency provider
         ];
     }
 

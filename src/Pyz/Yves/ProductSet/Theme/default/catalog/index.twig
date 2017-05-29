@@ -1,0 +1,14 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    <li><a href="{{ url('product-sets') }}">{{ 'Product Sets' | trans }}</a></li> {# TODO: trans #}
+{% endblock %}
+
+{% block title %}
+    <h3>{{ 'Product Sets' | trans }}</h3> {# TODO: trans #}
+{% endblock %}
+
+{% block content %}
+    {% include "@ProductSet/catalog/_partials/catalog.twig" %}
+{% endblock %}

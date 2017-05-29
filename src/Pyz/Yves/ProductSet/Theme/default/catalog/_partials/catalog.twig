@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+
+            {% for productSet in product_sets %}
+                <div class="small-12 medium-6 large-6 xlarge-4 columns">
+                    {% include "@ProductSet/catalog/_partials/product-set.twig" with {
+                        url: productSet.url,
+                        name: productSet.name,
+                        imageUrl: (productSet.imageSets|length ? productSet.imageSets.default.0.external_url_small : '')
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
