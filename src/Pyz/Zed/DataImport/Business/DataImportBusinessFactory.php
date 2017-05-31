@@ -27,6 +27,7 @@ use Pyz\Zed\DataImport\Business\Model\ProductAbstract\AddProductAbstractSkusStep
 use Pyz\Zed\DataImport\Business\Model\ProductAbstract\ProductAbstractWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\ProductAttributeKeyWriter;
+use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ConcreteSkuToAbstractSkuStep;
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ConcreteSkuToIdProductStep;
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductConcreteWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductGroup\ProductGroupWriter;
@@ -201,11 +202,20 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(ProductStockWriterStep::BULK_SIZE);
         $dataSetStepBroker
             ->addStep($this->createConcreteSkuToIdProductStep())
+            ->addStep($this->createConcreteSkuToAbstractSkuStep())
             ->addStep(new ProductStockWriterStep($this->getTouchFacade(), ProductStockWriterStep::BULK_SIZE));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\DataImport\Business\Model\ProductConcrete\ConcreteSkuToAbstractSkuStep
+     */
+    protected function createConcreteSkuToAbstractSkuStep()
+    {
+        return new ConcreteSkuToAbstractSkuStep();
     }
 
     /**

@@ -27,58 +27,58 @@
                     <placeholder>
                         <name>content</name>
                         <translation><![CDATA[
-        <p>Demoshop<br/>
-            Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
+<p>Demoshop<br/>
+    Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
 
-        <p>Telefon: 030 5678909<br/>
-            E-Mail: <a href="mailto:info@spryker.com">info@spryker.com</a><br/>
-        </p>
+<p>Telefon: 030 5678909<br/>
+    E-Mail: <a href="mailto:info@spryker.com">info@spryker.com</a><br/>
+</p>
 
-        <p><strong>Vertreten durch:</strong><br/>Spryker<br/>Geschäftsführer: Max Mustermann<br/>Registergericht: Hamburg<br/>Registernummer:
-            56789</p>
+<p><strong>Vertreten durch:</strong><br/>Spryker<br/>Geschäftsführer: Max Mustermann<br/>Registergericht: Hamburg<br/>Registernummer:
+    56789</p>
 
-        <p><strong>Registereintrag:</strong><br/>Eingetragen im Handelsregister.<br/>Registergericht: Hamburg<br/>Registernummer:
-            34567888456789</p>
+<p><strong>Registereintrag:</strong><br/>Eingetragen im Handelsregister.<br/>Registergericht: Hamburg<br/>Registernummer:
+    34567888456789</p>
 
-        <p><strong>Umsatzsteuer-ID: </strong><br/>Umsatzsteuer-Identifikationsnummer nach §27a Umsatzsteuergesetz:<br/>34567</p>
+<p><strong>Umsatzsteuer-ID: </strong><br/>Umsatzsteuer-Identifikationsnummer nach §27a Umsatzsteuergesetz:<br/>34567</p>
 
-        <p>Quelle: <a href="http://www.experten-branchenbuch.de/">www.experten-branchenbuch.de</a></p><br/><br/>
+<p>Quelle: <a href="http://www.experten-branchenbuch.de/">www.experten-branchenbuch.de</a></p><br/><br/>
 
-        <h2>Datenschutzerklärung:</h2>
+<h2>Datenschutzerklärung:</h2>
 
-        <p><strong>Datenschutz</strong><br/>Nachfolgend möchten wir Sie über unsere Datenschutzerklärung informieren. Sie finden
-            hier Informationen über die Erhebung und Verwendung persönlicher Daten bei der Nutzung unserer Webseite. Wir
-            beachten dabei das für Deutschland geltende Datenschutzrecht. Sie können diese Erklärung jederzeit auf unserer
-            Webseite abrufen.
-            <br/><br/>
-            Wir weisen ausdrücklich darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
-            Sicherheitslücken aufweisen und nicht lückenlos vor dem Zugriff durch Dritte geschützt werden kann.
-            <br/><br/>
-            Die Verwendung der Kontaktdaten unseres Impressums zur gewerblichen Werbung ist ausdrücklich nicht erwünscht, es sei
-            denn wir hatten zuvor unsere schriftliche Einwilligung erteilt oder es besteht bereits eine Geschäftsbeziehung. Der
-            Anbieter und alle auf dieser Website genannten Personen widersprechen hiermit jeder kommerziellen Verwendung und
-            Weitergabe ihrer Daten.
-            <br/><br/>
-            <strong>Personenbezogene Daten</strong>
-            <br/>
-            Sie können unsere Webseite ohne Angabe personenbezogener Daten besuchen. Soweit auf unseren Seiten personenbezogene
-            Daten (wie Name, Anschrift oder E-Mail Adresse) erhoben werden, erfolgt dies, soweit möglich, auf freiwilliger
-            Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Sofern zwischen Ihnen
-            und uns ein Vertragsverhältnis begründet, inhaltlich ausgestaltet oder geändert werden soll oder Sie an uns eine
-            Anfrage stellen, erheben und verwenden wir personenbezogene Daten von Ihnen, soweit dies zu diesen Zwecken
-            erforderlich ist (Bestandsdaten). Wir erheben, verarbeiten und nutzen personenbezogene Daten soweit dies
-            erforderlich ist, um Ihnen die Inanspruchnahme des Webangebots zu ermöglichen (Nutzungsdaten). Sämtliche
-            personenbezogenen Daten werden nur solange gespeichert wie dies für den geannten Zweck (Bearbeitung Ihrer Anfrage
-            oder Abwicklung eines Vertrags) erforderlich ist. Hierbei werden steuer- und handelsrechtliche Aufbewahrungsfristen
-            berücksichtigt. Auf Anordnung der zuständigen Stellen dürfen wir im Einzelfall Auskunft über diese Daten
-            (Bestandsdaten) erteilen, soweit dies für Zwecke der Strafverfolgung, zur Gefahrenabwehr, zur Erfüllung der
-            gesetzlichen Aufgaben der Verfassungsschutzbehörden oder des Militärischen Abschirmdienstes oder zur Durchsetzung
-            der Rechte am geistigen Eigentum erforderlich ist.</p>
+<p><strong>Datenschutz</strong><br/>Nachfolgend möchten wir Sie über unsere Datenschutzerklärung informieren. Sie finden
+    hier Informationen über die Erhebung und Verwendung persönlicher Daten bei der Nutzung unserer Webseite. Wir
+    beachten dabei das für Deutschland geltende Datenschutzrecht. Sie können diese Erklärung jederzeit auf unserer
+    Webseite abrufen.
+    <br/><br/>
+    Wir weisen ausdrücklich darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+    Sicherheitslücken aufweisen und nicht lückenlos vor dem Zugriff durch Dritte geschützt werden kann.
+    <br/><br/>
+    Die Verwendung der Kontaktdaten unseres Impressums zur gewerblichen Werbung ist ausdrücklich nicht erwünscht, es sei
+    denn wir hatten zuvor unsere schriftliche Einwilligung erteilt oder es besteht bereits eine Geschäftsbeziehung. Der
+    Anbieter und alle auf dieser Website genannten Personen widersprechen hiermit jeder kommerziellen Verwendung und
+    Weitergabe ihrer Daten.
+    <br/><br/>
+    <strong>Personenbezogene Daten</strong>
+    <br/>
+    Sie können unsere Webseite ohne Angabe personenbezogener Daten besuchen. Soweit auf unseren Seiten personenbezogene
+    Daten (wie Name, Anschrift oder E-Mail Adresse) erhoben werden, erfolgt dies, soweit möglich, auf freiwilliger
+    Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Sofern zwischen Ihnen
+    und uns ein Vertragsverhältnis begründet, inhaltlich ausgestaltet oder geändert werden soll oder Sie an uns eine
+    Anfrage stellen, erheben und verwenden wir personenbezogene Daten von Ihnen, soweit dies zu diesen Zwecken
+    erforderlich ist (Bestandsdaten). Wir erheben, verarbeiten und nutzen personenbezogene Daten soweit dies
+    erforderlich ist, um Ihnen die Inanspruchnahme des Webangebots zu ermöglichen (Nutzungsdaten). Sämtliche
+    personenbezogenen Daten werden nur solange gespeichert wie dies für den geannten Zweck (Bearbeitung Ihrer Anfrage
+    oder Abwicklung eines Vertrags) erforderlich ist. Hierbei werden steuer- und handelsrechtliche Aufbewahrungsfristen
+    berücksichtigt. Auf Anordnung der zuständigen Stellen dürfen wir im Einzelfall Auskunft über diese Daten
+    (Bestandsdaten) erteilen, soweit dies für Zwecke der Strafverfolgung, zur Gefahrenabwehr, zur Erfüllung der
+    gesetzlichen Aufgaben der Verfassungsschutzbehörden oder des Militärischen Abschirmdienstes oder zur Durchsetzung
+    der Rechte am geistigen Eigentum erforderlich ist.</p>
 
-        <p><strong>Auskunftsrecht</strong><br/>Sie haben das jederzeitige Recht, sich unentgeltlich und unverzüglich über die zu
-            Ihrer Person erhobenen Daten zu erkundigen. Sie haben das jederzeitige Recht, Ihre Zustimmung zur Verwendung Ihrer
-            angegeben persönlichen Daten mit Wirkung für die Zukunft zu widerrufen. Zur Auskunftserteilung wenden Sie sich bitte
-            an den Anbieter unter den Kontaktdaten im Impressum.</p>
+<p><strong>Auskunftsrecht</strong><br/>Sie haben das jederzeitige Recht, sich unentgeltlich und unverzüglich über die zu
+    Ihrer Person erhobenen Daten zu erkundigen. Sie haben das jederzeitige Recht, Ihre Zustimmung zur Verwendung Ihrer
+    angegeben persönlichen Daten mit Wirkung für die Zukunft zu widerrufen. Zur Auskunftserteilung wenden Sie sich bitte
+    an den Anbieter unter den Kontaktdaten im Impressum.</p>
         ]]></translation>
                     </placeholder>
                 </placeholders>
@@ -102,42 +102,42 @@
                         <name>content</name>
                         <translation><![CDATA[
 
-        <p>Demoshop<br/>
-            Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
+<p>Demoshop<br/>
+    Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
 
-        <p>Telephone: 030 5678909<br/>
-            E-Mail: <a href="mailto:info@spryker.com">info@spryker.com</a><br/>
-        </p>
+<p>Telephone: 030 5678909<br/>
+    E-Mail: <a href="mailto:info@spryker.com">info@spryker.com</a><br/>
+</p>
 
-        <p><strong>Represented by</strong><br/>Spryker<br/>Managing Director: Max Mustermann<br/>Register Court: Hamburg<br/>Register Number:
-            56789</p>
+<p><strong>Represented by</strong><br/>Spryker<br/>Managing Director: Max Mustermann<br/>Register Court: Hamburg<br/>Register Number:
+    56789</p>
 
-        <p><strong>Register Entry:</strong><br/>Entry in Handelsregister.<br/>Register Court: Hamburg<br/>Register number:
-            34567888456789</p>
+<p><strong>Register Entry:</strong><br/>Entry in Handelsregister.<br/>Register Court: Hamburg<br/>Register number:
+    34567888456789</p>
 
-        <p>Source: <a href="http://www.muster-vorlagen.net" target="_blank">Muster-Vorlagen.net – Impressum Generator</a></p><br/><br/>
+<p>Source: <a href="http://www.muster-vorlagen.net" target="_blank">Muster-Vorlagen.net – Impressum Generator</a></p><br/><br/>
 
-        <h2>Disclaimer:</h2>
+<h2>Disclaimer:</h2>
 
-        <p><strong>Accountability for content</strong><br/>
-           The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents' accuracy,
-           completeness or topicality. According to statutory provisions, we are furthermore responsible for our own content on these
-           web pages. In this context, please note that we are accordingly not obliged to monitor merely the transmitted or saved information
-           of third parties, or investigate circumstances pointing to illegal activity. Our obligations to remove or block the use of
-           information under generally applicable laws remain unaffected by this as per §§ 8 to 10 of the Telemedia Act (TMG).
-           <br/><br/>
+<p><strong>Accountability for content</strong><br/>
+   The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents' accuracy,
+   completeness or topicality. According to statutory provisions, we are furthermore responsible for our own content on these
+   web pages. In this context, please note that we are accordingly not obliged to monitor merely the transmitted or saved information
+   of third parties, or investigate circumstances pointing to illegal activity. Our obligations to remove or block the use of
+   information under generally applicable laws remain unaffected by this as per §§ 8 to 10 of the Telemedia Act (TMG).
+   <br/><br/>
 
-            <strong>Accountability for links</strong><br/>
-           Responsibility for the content of external links (to web pages of third parties) lies solely with the operators of the
-           linked pages. No violations were evident to us at the time of linking. Should any legal infringement become known to us, we
-           will remove the respective link immediately.</p>
+    <strong>Accountability for links</strong><br/>
+   Responsibility for the content of external links (to web pages of third parties) lies solely with the operators of the
+   linked pages. No violations were evident to us at the time of linking. Should any legal infringement become known to us, we
+   will remove the respective link immediately.</p>
 
-        <p><strong>Copyright</strong><br/>
-           Our web pages and their contents are subject to German copyright law. Unless expressly permitted by law (§ 44a et seq.
-           of the copyright law), every form of utilizing, reproducing or processing works subject to copyright protection on our web
-           pages requires the prior consent of the respective owner of the rights. Individual reproductions of a work are allowed only
-           for private use, so must not serve either directly or indirectly for earnings. Unauthorized utilization of copyrighted works
-           is punishable (§ 106 of the copyright law).</p>
+<p><strong>Copyright</strong><br/>
+   Our web pages and their contents are subject to German copyright law. Unless expressly permitted by law (§ 44a et seq.
+   of the copyright law), every form of utilizing, reproducing or processing works subject to copyright protection on our web
+   pages requires the prior consent of the respective owner of the rights. Individual reproductions of a work are allowed only
+   for private use, so must not serve either directly or indirectly for earnings. Unauthorized utilization of copyrighted works
+   is punishable (§ 106 of the copyright law).</p>
         ]]></translation>
                     </placeholder>
                 </placeholders>

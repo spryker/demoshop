@@ -16,11 +16,15 @@ use Orm\Zed\ProductImage\Persistence\SpyProductImage;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetQuery;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImage;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
+use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Shared\Product\ProductConfig;
+use Spryker\Service\UtilText\UtilTextService;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
+use Spryker\Zed\Url\UrlConfig;
 
 class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInterface
 {
@@ -49,6 +53,22 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     const LOCALES = 'locales';
 
     /**
+     * @var \Spryker\Service\UtilText\UtilTextServiceInterface
+     */
+    protected $utilTextService;
+
+    /**
+     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
+     * @param null|int $bulkSize
+     */
+    public function __construct(DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    {
+        parent::__construct($touchFacade, $bulkSize);
+
+        $this->utilTextService = new UtilTextService();
+    }
+
+    /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
      * @return void
@@ -60,6 +80,7 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
         $this->importProductAbstractLocalizedAttributes($dataSet, $productAbstractEntity);
         $this->importProductCategories($dataSet, $productAbstractEntity);
         $this->importProductAbstractImages($dataSet, $productAbstractEntity);
+        $this->importProductUrls($productAbstractEntity);
 
         $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstractEntity->getIdProductAbstract());
     }
@@ -71,8 +92,7 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function importProductAbstract(DataSetInterface $dataSet)
     {
-        $query = SpyProductAbstractQuery::create();
-        $productAbstractEntity = $query
+        $productAbstractEntity = SpyProductAbstractQuery::create()
             ->filterBySku($dataSet[static::ABSTRACT_SKU])
             ->findOneOrCreate();
 
@@ -96,8 +116,7 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     protected function importProductAbstractLocalizedAttributes(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
     {
         foreach ($dataSet[static::LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
-            $query = SpyProductAbstractLocalizedAttributesQuery::create();
-            $productAbstractLocalizedAttributesEntity = $query
+            $productAbstractLocalizedAttributesEntity = SpyProductAbstractLocalizedAttributesQuery::create()
                 ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
@@ -133,8 +152,7 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function deleteAssignedCategories(SpyProductAbstract $productAbstractEntity)
     {
-        $query = SpyProductCategoryQuery::create();
-        $query
+        SpyProductCategoryQuery::create()
             ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
             ->find()
             ->delete();
@@ -153,7 +171,6 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
         $categoryKeys = $this->getCategoryKeys($dataSet[static::CATEGORY_KEY]);
 
         foreach ($categoryKeys as $categoryKey) {
-
             if (!isset($dataSet[static::CATEGORY_KEYS][$categoryKey])) {
                 throw new DataKeyNotFoundInDataSetException(sprintf(
                     'The category with key "%s" was not found in categoryKeys. Maybe there is a typo. Given Categories: "%s"',
@@ -196,16 +213,13 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
         $imageSetName = (isset($dataSet[static::IMAGE_SET_NAME])) ? $dataSet[static::IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
 
         foreach ($dataSet[static::LOCALES] as $localeName => $idLocale) {
-
-            $query = SpyProductImageSetQuery::create();
-            $productImageSetEntity = $query
+            $productImageSetEntity = SpyProductImageSetQuery::create()
                 ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
                 ->filterByFkLocale($idLocale)
                 ->filterByName($imageSetName)
                 ->findOneOrCreate();
 
-            $query = SpyProductImageSetToProductImageQuery::create();
-            $productImageSetToProductImageEntityCollection = $query
+            $productImageSetToProductImageEntityCollection = SpyProductImageSetToProductImageQuery::create()
                 ->filterByFkProductImageSet($productImageSetEntity->getIdProductImageSet())
                 ->find();
 
@@ -228,6 +242,31 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
                 ->setSpyProductImageSet($productImageSetEntity)
                 ->setSortOrder(0)
                 ->save();
+        }
+    }
+
+    /**
+     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
+     *
+     * @return void
+     */
+    protected function importProductUrls(SpyProductAbstract $productAbstractEntity)
+    {
+        foreach ($productAbstractEntity->getSpyProductAbstractLocalizedAttributess() as $spyProductAbstractLocalizedAttributes) {
+            $productName = $this->utilTextService->generateSlug($spyProductAbstractLocalizedAttributes->getName());
+            $localeName = $spyProductAbstractLocalizedAttributes->getLocale()->getLocaleName();
+            $url = '/' . mb_substr($localeName, 0, 2) . '/' . $productName . '-' . $productAbstractEntity->getIdProductAbstract();
+
+            $urlEntity = SpyUrlQuery::create()
+                ->filterByFkLocale($spyProductAbstractLocalizedAttributes->getFkLocale())
+                ->filterByFkResourceProductAbstract($spyProductAbstractLocalizedAttributes->getFkProductAbstract())
+                ->findOneOrCreate();
+
+            $urlEntity
+                ->setUrl($url)
+                ->save();
+
+            $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
         }
     }
 
