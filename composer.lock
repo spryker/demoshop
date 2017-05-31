@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fb68ef99982a70716e95771380f59720de5ac70c"
+                "reference": "29c1043e0921b6cd114b8af39cdc4b66e82b2d6a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-24 14:29:35"
+            "time": "2017-05-31 08:46:30"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5615,7 +5615,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08T07:14:41+00:00"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -6396,7 +6396,6 @@
             ],
             "description": "Calculation bundle",
             "time": "2017-05-11 13:52:56"
-            "time": "2017-05-12 14:13:12"
         },
         {
             "name": "spryker/code-generator",
@@ -6486,7 +6485,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-05-19 15:56:04"
+            "time": "2017-05-19T15:56:04+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
