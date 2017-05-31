@@ -142,7 +142,7 @@ class ProductLabelImporter extends AbstractImporter
             $abstractProductIds[] = $idProductAbstract;
         }
 
-        $this->productLabelFacade->setAbstractProductRelationsForLabel(
+        $this->productLabelFacade->addAbstractProductRelationsForLabel(
             $productLabelTransfer->getIdProductLabel(),
             $abstractProductIds
         );
