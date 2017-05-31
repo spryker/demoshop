@@ -17,10 +17,13 @@ use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Pyz\Shared\Product\ProductConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class ProductConcreteWriter implements DataImportStepInterface
+class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInterface
 {
+
+    const BULK_SIZE = 50;
 
     const ATTRIBUTES = 'attributes';
     const LOCALIZED_ATTRIBUTES = 'localizedAttributes';
@@ -47,6 +50,8 @@ class ProductConcreteWriter implements DataImportStepInterface
 
         $this->importProductLocalizedAttributes($dataSet, $productEntity);
         $this->importProductImages($dataSet, $productEntity);
+
+        $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_CONCRETE, $productEntity->getIdProduct());
     }
 
     /**

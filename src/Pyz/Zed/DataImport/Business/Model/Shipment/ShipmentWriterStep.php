@@ -15,6 +15,8 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class ShipmentWriterStep implements DataImportStepInterface
 {
 
+    const BULK_SIZE = 50;
+
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *

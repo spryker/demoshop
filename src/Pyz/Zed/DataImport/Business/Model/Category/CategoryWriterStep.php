@@ -7,57 +7,44 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\Category;
 
+use Exception;
+use Orm\Zed\Category\Persistence\SpyCategory;
 use Orm\Zed\Category\Persistence\SpyCategoryAttributeQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
-use Pyz\Zed\DataImport\Business\Exception\CategoryByKeyNotFoundException;
-use Pyz\Zed\DataImport\Business\Model\Locale\LocaleNameToIdLocaleStep;
-use Spryker\Zed\Category\Business\Generator\UrlPathGenerator;
-use Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface;
+use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository;
+use Pyz\Zed\DataImport\Business\Model\Locale\AddLocalesStep;
+use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
 use Spryker\Zed\Category\CategoryConfig;
-use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
-class CategoryWriterStep implements DataImportStepInterface
+class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
-
-    const TOUCH_ITEM_TYPE_KEY_CATEGORY = 'touchItemTypeCategory';
-    const TOUCH_ITEM_ID_KEY_CATEGORY = 'touchItemIdCategory';
-
-    const TOUCH_ITEM_TYPE_KEY_URL = 'touchItemTypeUrl';
-    const TOUCH_ITEM_ID_KEY_URL = 'touchItemIdUrl';
 
     const DATA_SET_KEY_CATEGORY_KEY = 'category_key';
     const DATA_SET_KEY_PARENT_CATEGORY_KEY = 'parent_category_key';
 
     /**
-     * @var \Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface
+     * @var \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository
      */
-    protected $urlPathGenerator;
+    protected $categoryRepository;
 
     /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
+     * @param \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository $categoryRepository
+     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
      */
-    protected $categoryQuery;
-
-    /**
-     * @var array
-     */
-    protected $savedCategories = [];
-
-    /**
-     * @param \Spryker\Zed\Category\Business\Generator\UrlPathGeneratorInterface $urlPathGenerator
-     * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQuery
-     */
-    public function __construct(UrlPathGeneratorInterface $urlPathGenerator, CategoryQueryContainerInterface $categoryQuery)
+    public function __construct(CategoryRepository $categoryRepository, DataImportToTouchInterface $touchFacade)
     {
-        $this->urlPathGenerator = $urlPathGenerator;
-        $this->categoryQuery = $categoryQuery;
+        parent::__construct($touchFacade, static::BULK_SIZE);
+
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -67,117 +54,128 @@ class CategoryWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $dataSetArrayCopy = $dataSet->getArrayCopy();
+        $categoryEntity = $this->createCategory($dataSet);
+        $this->addAttributes($categoryEntity, $dataSet);
+        $this->addNode($categoryEntity, $dataSet);
 
-        $this->saveCategory($dataSetArrayCopy);
-        $this->saveCategoryAttribute($dataSetArrayCopy);
-        $this->saveCategoryNode($dataSetArrayCopy, $dataSet);
+        $categoryEntity->save();
+
+        $this->categoryRepository->addCategory($categoryEntity);
     }
 
     /**
-     * @param array $dataSetArrayCopy
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
+     *
+     * @return \Orm\Zed\Category\Persistence\SpyCategory
+     */
+    protected function createCategory(DataSetInterface $dataSet)
+    {
+        $query = SpyCategoryQuery::create();
+        $categoryEntity = $query
+            ->filterByCategoryKey($dataSet[self::DATA_SET_KEY_CATEGORY_KEY])
+            ->findOneOrCreate();
+
+        $categoryEntity->fromArray($dataSet->getArrayCopy());
+
+        $categoryEntity->save();
+
+        return $categoryEntity;
+    }
+
+    /**
+     * @param \Orm\Zed\Category\Persistence\SpyCategory $categoryEntity
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
      * @return void
      */
-    protected function saveCategory(array $dataSetArrayCopy)
+    protected function addAttributes(SpyCategory $categoryEntity, DataSetInterface $dataSet)
     {
-        if (!isset($this->savedCategories[$dataSetArrayCopy[self::DATA_SET_KEY_CATEGORY_KEY]])) {
-            $query = SpyCategoryQuery::create();
-            $categoryEntity = $query
-                ->filterByCategoryKey($dataSetArrayCopy[self::DATA_SET_KEY_CATEGORY_KEY])
+        $localizedAttributeCollection = $dataSet[LocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES];
+        foreach ($localizedAttributeCollection as $idLocale => $localizedAttributes) {
+            $query = SpyCategoryAttributeQuery::create();
+            $categoryAttributeEntity = $query
+                ->filterByCategory($categoryEntity)
+                ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
 
-            $categoryEntity->fromArray($dataSetArrayCopy);
-            $categoryEntity->save();
-
-            $this->savedCategories[$dataSetArrayCopy[self::DATA_SET_KEY_CATEGORY_KEY]] = $categoryEntity->getIdCategory();
+            $categoryAttributeEntity->fromArray($localizedAttributes);
+            $categoryAttributeEntity->save();
         }
     }
 
     /**
-     * @param array $dataSetArrayCopy
-     *
-     * @return void
-     */
-    protected function saveCategoryAttribute(array $dataSetArrayCopy)
-    {
-        $query = SpyCategoryAttributeQuery::create();
-        $categoryAttributeEntity = $query
-            ->filterByFkCategory($this->savedCategories[$dataSetArrayCopy[self::DATA_SET_KEY_CATEGORY_KEY]])
-            ->filterByFkLocale($dataSetArrayCopy[LocaleNameToIdLocaleStep::KEY_TARGET])
-            ->findOneOrCreate();
-
-        $categoryAttributeEntity->fromArray($dataSetArrayCopy);
-        $categoryAttributeEntity->save();
-    }
-
-    /**
-     * @param array $dataSetArrayCopy
+     * @param \Orm\Zed\Category\Persistence\SpyCategory $categoryEntity
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
-     * @throws \Pyz\Zed\DataImport\Business\Exception\CategoryByKeyNotFoundException
-     *
      * @return void
      */
-    protected function saveCategoryNode(array $dataSetArrayCopy, DataSetInterface $dataSet)
+    protected function addNode(SpyCategory $categoryEntity, DataSetInterface $dataSet)
     {
         $query = SpyCategoryNodeQuery::create();
         $categoryNodeEntity = $query
-            ->filterByFkCategory($this->savedCategories[$dataSetArrayCopy[self::DATA_SET_KEY_CATEGORY_KEY]])
+            ->filterByCategory($categoryEntity)
             ->findOneOrCreate();
 
         if (!empty($dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY])) {
-            if (!isset($this->savedCategories[$dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY]])) {
-                throw new CategoryByKeyNotFoundException(sprintf(
-                    'Category by key "%s" not found. Check if the category is already saved. Saved Categories: "%s"',
-                    $dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY],
-                    implode('', array_keys($this->savedCategories))
-                ));
-            }
-            $categoryNodeEntity->setFkParentCategoryNode($this->savedCategories[$dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY]]);
+            $idParentCategoryNode = $this->categoryRepository->getIdCategoryNodeByCategoryKey($dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY]);
+            $categoryNodeEntity->setFkParentCategoryNode($idParentCategoryNode);
         }
 
-        $categoryNodeEntity->fromArray($dataSetArrayCopy);
+        $categoryNodeEntity->fromArray($dataSet->getArrayCopy());
         $categoryNodeEntity->save();
 
-        if ($categoryNodeEntity->isRoot()) {
-            $dataSet[static::TOUCH_ITEM_TYPE_KEY_CATEGORY] = CategoryConfig::RESOURCE_TYPE_NAVIGATION;
-            $dataSet[static::TOUCH_ITEM_ID_KEY_CATEGORY] = $categoryNodeEntity->getIdCategoryNode();
+        $this->addMainTouchable(CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE, $categoryNodeEntity->getIdCategoryNode());
+
+        foreach ($categoryEntity->getAttributes() as $categoryAttributesEntity) {
+            $idLocale = $categoryAttributesEntity->getFkLocale();
+            $languageIdentifier = $this->getLanguageIdentifier($idLocale, $dataSet);
+            $urlPathParts = [$languageIdentifier];
+            if (!$categoryNodeEntity->getIsRoot()) {
+                $parentUrl = $this->categoryRepository->getParentUrl(
+                    $dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY],
+                    $idLocale
+                );
+
+                $urlPathParts = explode('/', ltrim($parentUrl, '/'));
+                $urlPathParts[] = $categoryAttributesEntity->getName();
+            }
+
+            $callback = function ($value) {
+                return mb_strtolower(str_replace(' ', '-', $value));
+            };
+            $urlPathParts = array_map($callback, $urlPathParts);
+            $url = '/' . implode('/', $urlPathParts);
+
+            $query = SpyUrlQuery::create();
+            $urlEntity = $query
+                ->filterByFkLocale($idLocale)
+                ->filterByFkResourceCategorynode($categoryNodeEntity->getIdCategoryNode())
+                ->findOneOrCreate();
+
+            $urlEntity->setUrl($url);
+            $urlEntity->save();
+
+            $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
         }
-
-        $idLocale = $dataSetArrayCopy[LocaleNameToIdLocaleStep::KEY_TARGET];
-        $idCategoryNode = $categoryNodeEntity->getIdCategoryNode();
-        $urlPathParts = $this->categoryQuery->queryPath($idCategoryNode, $idLocale)->find();
-        $languageIdentifier = $this->getLanguageIdentifierFromLocale($dataSet['localeName']);
-        array_unshift(
-            $urlPathParts,
-            [
-                UrlPathGenerator::CATEGORY_NAME => $languageIdentifier,
-            ]
-        );
-        $url = $this->urlPathGenerator->generate($urlPathParts);
-
-        $query = SpyUrlQuery::create();
-        $urlEntity = $query
-            ->filterByFkLocale($idLocale)
-            ->filterByFkResourceCategorynode($idCategoryNode)
-            ->findOneOrCreate();
-
-        $urlEntity->setUrl($url);
-        $urlEntity->save();
-
-        $dataSet[static::TOUCH_ITEM_TYPE_KEY_URL] = UrlConfig::RESOURCE_TYPE_URL;
-        $dataSet[static::TOUCH_ITEM_ID_KEY_URL] = $urlEntity->getIdUrl();
     }
 
     /**
-     * @param string $localeName
+     * @param int $idLocale
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
+     *
+     * @throws \Exception
      *
      * @return string
      */
-    protected function getLanguageIdentifierFromLocale($localeName)
+    protected function getLanguageIdentifier($idLocale, DataSetInterface $dataSet)
     {
-        return mb_substr($localeName, 0, 2);
+        foreach ($dataSet[AddLocalesStep::KEY_LOCALES] as $localeName => $localeId) {
+            if ($idLocale === $localeId) {
+                return mb_substr($localeName, 0, 2);
+            }
+        }
+
+        throw new Exception(sprintf('Could not extract language identifier for idLocale "%s"', $idLocale));
     }
 
 }

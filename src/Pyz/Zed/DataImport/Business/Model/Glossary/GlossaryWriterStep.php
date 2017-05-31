@@ -10,15 +10,14 @@ namespace Pyz\Zed\DataImport\Business\Model\Glossary;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\Glossary\GlossaryConfig;
 
-class GlossaryWriterStep implements DataImportStepInterface
+class GlossaryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
-
-    const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
-    const TOUCH_ITEM_ID_KEY = 'touchItemId';
 
     const DATA_SET_KEY_KEY = 'key';
     const DATA_SET_KEY_TRANSLATION = 'translation';
@@ -36,9 +35,11 @@ class GlossaryWriterStep implements DataImportStepInterface
         $glossaryKeyEntity->save();
 
         $query = SpyGlossaryTranslationQuery::create();
-        $glossaryKeyEntity = $query->filterByGlossaryKey($glossaryKeyEntity)->filterByFkLocale($dataSet[static::DATA_SET_KEY_ID_LOCALE])->findOneOrCreate();
-        $glossaryKeyEntity->setValue($dataSet[static::DATA_SET_KEY_TRANSLATION]);
-        $glossaryKeyEntity->save();
+        $glossaryTranslationEntity = $query->filterByGlossaryKey($glossaryKeyEntity)->filterByFkLocale($dataSet[static::DATA_SET_KEY_ID_LOCALE])->findOneOrCreate();
+        $glossaryTranslationEntity->setValue($dataSet[static::DATA_SET_KEY_TRANSLATION]);
+        $glossaryTranslationEntity->save();
+
+        $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
     }
 
 }

@@ -15,6 +15,11 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class ProductRelationWriter implements DataImportStepInterface
 {
 
+    const KEY_RELATION_TYPE = 'relation_type';
+    const KEY_RULE = 'rule';
+    const KEY_IS_ACTIVE = 'is_active';
+    const KEY_IS_REBUILD_SCHEDULED = 'is_rebuild_scheduled';
+
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
@@ -24,8 +29,10 @@ class ProductRelationWriter implements DataImportStepInterface
     {
         $query = SpyProductRelationTypeQuery::create();
         $productRelationTypeEntity = $query
-            ->filterByKey($dataSet['relation_type'])
+            ->filterByKey($dataSet[static::KEY_RELATION_TYPE])
             ->findOneOrCreate();
+
+        $productRelationTypeEntity->save();
 
         $query = SpyProductRelationQuery::create();
         $productRelationEntity = $query
@@ -33,9 +40,10 @@ class ProductRelationWriter implements DataImportStepInterface
             ->filterByFkProductRelationType($productRelationTypeEntity->getIdProductRelationType())
             ->findOneOrCreate();
 
-        $productRelationEntity->setQuerySetData($dataSet['rule']);
-        $productRelationEntity->setIsActive((isset($dataSet['is_active'])) ? $dataSet['is_active'] : true);
-        $productRelationEntity->setIsRebuildScheduled((isset($dataSet['is_rebuild_scheduled'])) ? $dataSet['is_rebuild_scheduled'] : true);
+        $productRelationEntity
+            ->setQuerySetData($dataSet[static::KEY_RULE])
+            ->setIsActive((isset($dataSet[static::KEY_IS_ACTIVE])) ? $dataSet[static::KEY_IS_ACTIVE] : true)
+            ->setIsRebuildScheduled((isset($dataSet[static::KEY_IS_REBUILD_SCHEDULED])) ? $dataSet[static::KEY_IS_REBUILD_SCHEDULED] : true);
 
         $productRelationEntity->save();
     }

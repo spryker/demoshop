@@ -19,12 +19,16 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_GLOSSARY = 'glossary';
     const IMPORT_TYPE_NAVIGATION = 'navigation';
     const IMPORT_TYPE_NAVIGATION_NODE = 'navigation-node';
-    const IMPORT_TYPE_PRICE = 'price';
+    const IMPORT_TYPE_PRICE_TYPE = 'price-type';
+    const IMPORT_TYPE_PRODUCT_PRICE = 'product-price';
+    const IMPORT_TYPE_PRODUCT_STOCK = 'product-stock';
     const IMPORT_TYPE_PRODUCT_ABSTRACT = 'product-abstract';
     const IMPORT_TYPE_PRODUCT_CONCRETE = 'product-concrete';
     const IMPORT_TYPE_PRODUCT_ATTRIBUTE_KEY = 'product-attribute-key';
     const IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE = 'product-management-attribute';
     const IMPORT_TYPE_PRODUCT_RELATION = 'product-relation';
+    const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
+    const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP = 'product-search-attribute-map';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE = 'product-search-attribute';
     const IMPORT_TYPE_SHIPMENT = 'shipment';
@@ -66,9 +70,25 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
-    public function getPriceDataImporterConfiguration()
+    public function getProductPriceDataImporterConfiguration()
     {
-        return $this->buildImporterConfiguration('price.csv', static::IMPORT_TYPE_PRICE);
+        return $this->buildImporterConfiguration('product_price.csv', static::IMPORT_TYPE_PRODUCT_PRICE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getPriceTypeDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('price_type.csv', static::IMPORT_TYPE_PRICE_TYPE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductStockDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_stock.csv', static::IMPORT_TYPE_PRODUCT_STOCK);
     }
 
     /**
@@ -157,6 +177,22 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductSearchAttributeDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_search_attribute.csv', static::IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductGroupDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_group.csv', static::IMPORT_TYPE_PRODUCT_GROUP);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductOptionDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_option.csv', static::IMPORT_TYPE_PRODUCT_OPTION);
     }
 
     /**

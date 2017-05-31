@@ -19,15 +19,13 @@ use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
 use Pyz\Shared\Product\ProductConfig;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class ProductAbstractWriter implements DataImportStepInterface
+class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
-
-    const TOUCH_ITEM_TYPE_PRODUCT_ABSTRACT = 'touchItemTypeProductAbstract';
-    const TOUCH_ITEM_ID_KEY_PRODUCT_ABSTRACT = 'touchItemIdProductAbstract';
 
     const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
     const TOUCH_ITEM_ID_KEY = 'touchItemId';
@@ -63,11 +61,7 @@ class ProductAbstractWriter implements DataImportStepInterface
         $this->importProductCategories($dataSet, $productAbstractEntity);
         $this->importProductAbstractImages($dataSet, $productAbstractEntity);
 
-        $dataSet[static::TOUCH_ITEM_TYPE_PRODUCT_ABSTRACT] = ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
-        $dataSet[static::TOUCH_ITEM_ID_KEY_PRODUCT_ABSTRACT] = $productAbstractEntity->getIdProductAbstract();
-
-        $dataSet[static::TOUCH_ITEM_TYPE_PRODUCT_ABSTRACT] = ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
-        $dataSet[static::TOUCH_ITEM_ID_KEY_PRODUCT_ABSTRACT] = $productAbstractEntity->getIdProductAbstract();
+        $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstractEntity->getIdProductAbstract());
     }
 
     /**
@@ -202,6 +196,7 @@ class ProductAbstractWriter implements DataImportStepInterface
         $imageSetName = (isset($dataSet[static::IMAGE_SET_NAME])) ? $dataSet[static::IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
 
         foreach ($dataSet[static::LOCALES] as $localeName => $idLocale) {
+
             $query = SpyProductImageSetQuery::create();
             $productImageSetEntity = $query
                 ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())

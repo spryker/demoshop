@@ -17,9 +17,11 @@ use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationKeyToIdNavigationStep
 use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
-class NavigationNodeWriterStep implements DataImportStepInterface
+class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
     const DATA_SET_KEY_NAVIGATION_KEY = 'navigation_key';
@@ -95,8 +97,7 @@ class NavigationNodeWriterStep implements DataImportStepInterface
 
         $navigationNodeEntity->save();
 
-        $dataSet[static::TOUCH_ITEM_TYPE_KEY] = NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU;
-        $dataSet[static::TOUCH_ITEM_ID_KEY] = $navigationNodeEntity->getFkNavigation();
+        $this->addMainTouchable(NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU, $navigationNodeEntity->getFkNavigation());
     }
 
     /**

@@ -11,18 +11,17 @@ use Orm\Zed\Navigation\Persistence\SpyNavigation;
 use Orm\Zed\Navigation\Persistence\SpyNavigationQuery;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
-class NavigationWriterStep implements DataImportStepInterface
+class NavigationWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
     const NAME = 'name';
     const KEY = 'key';
 
     const BULK_SIZE = 50;
-
-    const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
-    const TOUCH_ITEM_ID_KEY = 'touchItemId';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -39,8 +38,7 @@ class NavigationWriterStep implements DataImportStepInterface
         $navigationEntity->setName($this->getName($navigationEntity, $dataSet));
         $navigationEntity->save();
 
-        $dataSet[static::TOUCH_ITEM_TYPE_KEY] = NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU;
-        $dataSet[static::TOUCH_ITEM_ID_KEY] = $navigationEntity->getIdNavigation();
+        $this->addMainTouchable(NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU, $navigationEntity->getIdNavigation());
     }
 
     /**
