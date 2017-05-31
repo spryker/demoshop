@@ -1539,19 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "0b4420025a069d5e95bec84d4c6880b2f8ae5dc4"
-=======
-<<<<<<< HEAD
-                "reference": "3af61973017751d2b57f7aba80b9acd4fbfa3dd0"
-=======
-                "reference": "6f40d868fb71c32f2864c3268b0e0c6dfdddd0df"
->>>>>>> core-1143 reverted config change
->>>>>>> core-1143 reverted config change
-=======
-                "reference": "85d6285ce6de89663e31cf7f0ce1a56ee0a5f8a9"
->>>>>>> core-1143 update spryker/spryker
+                "reference": "541f1dfb7b37af65344ef5d7445ce5eb139d65e3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1701,19 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-05-24 10:03:33"
-=======
-<<<<<<< HEAD
-            "time": "2017-05-04 16:17:19"
-=======
-            "time": "2017-04-28 07:29:32"
->>>>>>> core-1143 reverted config change
->>>>>>> core-1143 reverted config change
-=======
-            "time": "2017-05-05 07:35:43"
->>>>>>> core-1143 update spryker/spryker
+            "time": "2017-05-31 12:39:23"
         },
         {
             "name": "swiftmailer/swiftmailer",
