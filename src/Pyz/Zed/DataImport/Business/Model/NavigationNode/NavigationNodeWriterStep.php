@@ -19,7 +19,6 @@ use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
-use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
