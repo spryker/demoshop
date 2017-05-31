@@ -11,6 +11,7 @@ use Pyz\Zed\DataImport\Business\Model\Category\AddCategoryKeysStep;
 use Pyz\Zed\DataImport\Business\Model\Category\CategoryRebuildCacheStep;
 use Pyz\Zed\DataImport\Business\Model\Category\CategoryWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository;
+use Pyz\Zed\DataImport\Business\Model\CmsTemplate\CmsTemplateWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository;
 use Pyz\Zed\DataImport\Business\Model\Glossary\GlossaryWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Locale\AddLocalesStep;
@@ -63,6 +64,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createGlossaryImporter())
             ->addDataImporter($this->createNavigationImporter())
             ->addDataImporter($this->createNavigationNodeImporter())
+            ->addDataImporter($this->createCmsTemplateImporter())
             ->addDataImporter($this->createTaxImporter())
             ->addDataImporter($this->createStockImporter())
             ->addDataImporter($this->createPriceTypeImporter())
@@ -149,6 +151,22 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     protected function getCategoryFacade()
     {
         return $this->getProvidedDependency(DataImportDependencyProvider::FACADE_CATEGORY);
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createCmsTemplateImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCmsTemplateDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep(new CmsTemplateWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
     }
 
     /**

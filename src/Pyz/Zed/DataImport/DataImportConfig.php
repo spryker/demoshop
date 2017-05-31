@@ -31,6 +31,10 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP = 'product-search-attribute-map';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE = 'product-search-attribute';
+    const IMPORT_TYPE_CMS_TEMPLATE = 'cms-template';
+    const IMPORT_TYPE_CMS_PAGE = 'cms-page';
+    const IMPORT_TYPE_CMS_BLOCK = 'cms-block';
+    const IMPORT_TYPE_CMS_PLACEHOLDER = 'cms-placeholder';
     const IMPORT_TYPE_SHIPMENT = 'shipment';
     const IMPORT_TYPE_STOCK = 'stock';
     const IMPORT_TYPE_TAX = 'tax';
@@ -193,6 +197,38 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductOptionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_option.csv', static::IMPORT_TYPE_PRODUCT_OPTION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCmsTemplateDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('cms_template.csv', static::IMPORT_TYPE_CMS_TEMPLATE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCmsPageDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('cms_page.csv', static::IMPORT_TYPE_CMS_PAGE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCmsBlockDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('cms_block.csv', static::IMPORT_TYPE_CMS_BLOCK);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCmsPlaceholderDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('cms_placeholder.csv', static::IMPORT_TYPE_CMS_PLACEHOLDER);
     }
 
     /**
