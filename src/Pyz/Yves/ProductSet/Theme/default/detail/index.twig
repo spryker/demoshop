@@ -32,6 +32,7 @@
     </div>
 {% endblock %}
 
+{# TODO: cleanup template #}
 {% block content %}
     <div class="row">
         <div class="small-12 large-6 columns">
@@ -54,7 +55,7 @@
                         <div class="row">
                             {% for image in productSet.imageSets.default %}
                                 <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.external_url_large }}" target="_blank" data-viewer-show="{{ image.external_url_large }}">
-                                    <span class="thumbnail __preview-image __preview-image--small">
+                                    <span class="thumbnail __preview-image __preview-image--small __no-margin-bottom">
                                         <img src="{{ image.external_url_large }}">
                                     </span>
                                 </a>
@@ -66,13 +67,61 @@
         </div>
 
         <div class="small-12 large-6 columns">
-
             <div class="callout">
-                <h5>{{ 'Products in this set' | trans }}</h5> {# TODO: trans #}
+                <form method="GET" data-component="product-set-form">
+                    <h5>{{ 'Products in this set' | trans }}</h5> {# TODO: trans #}
 
-                ...
+                    {% for storageProduct in storageProducts %}
+                        <div class="row">
+                            <div class="small-5 columns">
+                                <a href="{{ storageProduct.url }}" class="thumbnail __preview-image __no-margin-bottom">
+                                    <img src="{{ storageProduct.images.0.externalUrlSmall }}">
+                                </a>
+                            </div>
+                            <div class="small-7 columns">
+                                <p>
+                                    <a href="{{ storageProduct.url }}"><strong>{{ storageProduct.name }}</strong></a><br>
+                                    {{ storageProduct.price | money }}
+                                </p>
+
+                                {% include '@ProductSet/detail/_partials/variants.twig' with {product: storageProduct}%}
+
+                                <a href="{{ path('cart/add', {sku: storageProduct.sku}) }}" class="button expanded success __no-margin-bottom js-add-to-cart {{ (not storageProduct.isVariant or not storageProduct.available) ? 'disabled' : '' }}">
+                                    <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                                </a>
+
+                                {% if not storageProduct.available %}
+                                    <p>
+                                        <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if not loop.last %}
+                            <hr />
+                        {% endif %}
+                    {% endfor %}
+                </form>
             </div>
 
+            {# TODO: use symfony form? AND different controller-action #}
+            <form method="POST">
+                {% set isDisabled = false %}
+
+                {# TODO: logic is not good (test with all unavailable products) #}
+                {% for storageProduct in storageProducts %}
+                    {% if storageProduct.isVariant %}
+                        {% if storageProduct.available %}
+                            <input type="hidden" name="skus[]" value="{{ storageProduct.sku }}" />
+                        {% endif %}
+                    {% else %}
+                        {% set isDisabled = true %}
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class="button expanded success margin" {% if isDisabled %}disabled{% endif %} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                    <i class="fa fa-cart-plus"></i>{{ 'Add all to Cart' | trans }}
+                </button>
+            </form>
 
         </div>
     </div>

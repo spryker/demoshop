@@ -9,6 +9,7 @@ namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Pyz\Yves\Product\Mapper\StorageImageMapper;
+use Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapper;
 use Pyz\Yves\Product\Mapper\StorageProductCategoryMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
@@ -28,7 +29,8 @@ class ProductFactory extends AbstractFactory
         return new ProductResourceCreator(
             $this->createStorageProductMapper(),
             $this->createStorageImageMapper(),
-            $this->createStorageProductCategoryMapper()
+            $this->createStorageProductCategoryMapper(),
+            $this->createStorageProductAvailabilityMapper()
         );
     }
 
@@ -86,6 +88,14 @@ class ProductFactory extends AbstractFactory
     public function getProductGroupClient()
     {
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_GROUP);
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface
+     */
+    protected function createStorageProductAvailabilityMapper()
+    {
+        return new StorageProductAvailabilityMapper($this->getAvailabilityClient());
     }
 
 }

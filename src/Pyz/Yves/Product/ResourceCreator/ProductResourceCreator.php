@@ -9,6 +9,7 @@ namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Pyz\Yves\Product\Mapper\StorageImageMapperInterface;
+use Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface;
 use Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Silex\Application;
@@ -35,18 +36,26 @@ class ProductResourceCreator extends AbstractResourceCreator
     protected $storageProductCategoryMapper;
 
     /**
+     * @var \Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface
+     */
+    protected $storageProductAvailabilityMapper;
+
+    /**
      * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
      * @param \Pyz\Yves\Product\Mapper\StorageImageMapperInterface $storageImageMapper
      * @param \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface $storageProductCategoryMapper
+     * @param \Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface $storageProductAvailabilityMapper
      */
     public function __construct(
         StorageProductMapperInterface $storageProductMapper,
         StorageImageMapperInterface $storageImageMapper,
-        StorageProductCategoryMapperInterface $storageProductCategoryMapper
+        StorageProductCategoryMapperInterface $storageProductCategoryMapper,
+        StorageProductAvailabilityMapperInterface $storageProductAvailabilityMapper
     ) {
         $this->storageProductMapper = $storageProductMapper;
         $this->storageImageMapper = $storageImageMapper;
         $this->storageProductCategoryMapper = $storageProductCategoryMapper;
+        $this->storageProductAvailabilityMapper = $storageProductAvailabilityMapper;
     }
 
     /**
@@ -73,6 +82,7 @@ class ProductResourceCreator extends AbstractResourceCreator
         $storageProductTransfer = $this->storageProductMapper->mapStorageProduct($data, $this->getSelectedAttributes($application));
         $storageProductTransfer = $this->storageImageMapper->mapProductImages($storageProductTransfer);
         $storageProductTransfer = $this->storageProductCategoryMapper->mapProductCategories($storageProductTransfer, $data);
+        $storageProductTransfer = $this->storageProductAvailabilityMapper->mapAvailability($storageProductTransfer);
 
         return [
             '_controller' => $service,

@@ -10,6 +10,7 @@ namespace Pyz\Yves\Product\Mapper;
 use Generated\Shared\Transfer\StorageAttributeMapTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Client\Product\ProductClientInterface;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\Product\ProductConfig;
 
 class AttributeVariantMapper implements AttributeVariantMapperInterface
@@ -167,18 +168,17 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
 
     /**
      * @param array $selectedNode
+     * @param array $filteredAttributes
      *
      * @return array
      */
-    protected function findAvailableAttributes(array $selectedNode)
+    protected function findAvailableAttributes(array $selectedNode, array $filteredAttributes = [])
     {
-        static $filteredAttributes = [];
-
         foreach (array_keys($selectedNode) as $attributePath) {
             list($key, $value) = explode(ProductConfig::ATTRIBUTE_MAP_PATH_DELIMITER, $attributePath);
             $filteredAttributes[$key][] = $value;
             if (is_array($value)) {
-                return $this->findAvailableAttributes($value);
+                return $this->findAvailableAttributes($value, $filteredAttributes);
             }
         }
 
@@ -188,25 +188,23 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
     /**
      * @param array $attributeMap
      * @param array $selectedAttributes
+     * @param array $selectedNode
      *
      * @return array
      */
-    protected function findSelectedNode(array $attributeMap, array $selectedAttributes)
+    protected function findSelectedNode(array $attributeMap, array $selectedAttributes, array $selectedNode = [])
     {
-        static $selectedNode = [];
-
         $selectedKey = array_shift($selectedAttributes);
         foreach ($attributeMap as $variantKey => $variant) {
             if ($variantKey !== $selectedKey) {
                 continue;
             }
 
-            $selectedNode = $variant;
-            return $this->findSelectedNode($variant, $selectedAttributes);
+            return $this->findSelectedNode($variant, $selectedAttributes, $variant);
         }
 
         if (count($selectedAttributes) > 0) {
-            $this->findSelectedNode($attributeMap, $selectedAttributes);
+            return $this->findSelectedNode($attributeMap, $selectedAttributes, $selectedNode);
         }
 
         return $selectedNode;

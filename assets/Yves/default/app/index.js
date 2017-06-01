@@ -25,6 +25,7 @@ $(function(){
         require('./components/suggestions'),
         require('./components/carousel'),
         require('./components/add-to-wishlist'),
-        require('./components/product-group')
+        require('./components/product-group'),
+        require('./components/product-set-form')
     ]);
 });
