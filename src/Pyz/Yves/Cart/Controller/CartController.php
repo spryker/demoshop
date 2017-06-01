@@ -36,7 +36,7 @@ class CartController extends AbstractController
             ->getCheckoutBreadcrumbPlugin()
             ->generateStepBreadcrumbs($quoteTransfer);
 
-        $attributes = $this->getFactory()->createAttributesMapper()->buildMap($quoteTransfer->getItems());
+        $attributes = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
