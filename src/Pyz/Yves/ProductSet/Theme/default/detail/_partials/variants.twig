@@ -1,5 +1,5 @@
 {# TODO: merge this template with @Product/product/partials/variants.twig somehow #}
-% if product.superAttributes|length > 0 %}
+{% if product.superAttributes|length > 0 %}
     <p>
         {% for attributeName,attributes in product.superAttributes %}
             <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}: </strong>
