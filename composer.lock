@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5f24c951fa0ff746fbb62e7fd721135",
+    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1143-remove-switch-case-from-session-service-provider",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9373ff13bdabb1c123e8d5d92d6b2aae8271e45e"
+                "reference": "86e45ac512c47b4316f9942c4ac0979c82272cab"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-05-31 14:03:42"
+            "time": "2017-06-01 06:49:06"
         },
         {
             "name": "swiftmailer/swiftmailer",
