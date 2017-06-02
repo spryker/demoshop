@@ -10,9 +10,15 @@
                     <ul class="no-bullet">
                         <li class="lead">{{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong></li>
                         <li class="__secondary"><small>{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</small></li>
-                        <li>
-                            <img class="thumbnail cart-item__image" src="//placeholdit.imgix.net/~text?txtsize=33&txt=Image-1&w=250&h=150" />
-                        </li>
+                        {% set imageSet = cartItem.imageSets | first %}
+                            {% if imageSet is not empty  %}
+                                {% set productImage = imageSet.productImages | first %}
+                                {% if productImage is not empty  %}
+                                    <li>
+                                        <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}" />
+                                    </li>
+                                {% endif %}
+                            {% endif %}
                         <li>
                             <a href="/cart/remove/{{cartItem.sku}}/{{cartItem.groupKey}}">
                                 &times; <small>remove</small>
