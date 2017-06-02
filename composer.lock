@@ -1705,6 +1705,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "63b6e4d8900f535f473908c8cf688294536981be"
 =======
 =======
@@ -1721,6 +1722,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 code style, update spryjker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "7f11799dba61e8eecd9087ced07bb7f4462a5400"
 =======
@@ -2010,17 +2013,53 @@
                 "reference": "2d6c35de9ce269c371facd7909809d2b108114e3"
 >>>>>>> core-1251 code style, update spryjker/spryker
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "1f51b83cb178e9c4178d546cad20d078059251a1"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2268,6 +2307,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-06-06 10:55:32"
 =======
 =======
@@ -2284,6 +2324,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 code style, update spryjker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-02 15:01:31"
 =======
@@ -2573,17 +2615,53 @@
             "time": "2017-05-31 06:03:29"
 >>>>>>> core-1251 code style, update spryjker/spryker
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 code style, update spryjker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-06-02 10:31:26"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
