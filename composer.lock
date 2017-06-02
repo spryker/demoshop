@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b7f2c82b30717d8b1df47ebb13cb5e417d2391b4"
+                "reference": "eb06ab115d22554e7cf17e5a56e6e2243e2831af"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-02 08:36:55"
+            "time": "2017-06-02 09:58:46"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6361,12 +6361,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658"
+                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/b33c464eb25d115e10f6e206d9e8bb777d1cf658",
-                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
+                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
                 "shasum": ""
             },
             "require": {
@@ -6396,7 +6396,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-04-24 20:17:25"
+            "time": "2017-06-02T10:23:39+00:00"
         },
         {
             "name": "spryker/code-sniffer",
