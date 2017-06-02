@@ -26,6 +26,7 @@ use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
+use Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
 /**
@@ -73,6 +74,11 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected $productImageQueryContainer;
 
     /**
+     * @var \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface
+     */
+    protected $productImageFacade;
+
+    /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     private $productFacade;
@@ -89,6 +95,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface $productImageFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
@@ -96,7 +103,8 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
         ProductImageQueryContainerInterface $productImageQueryContainer,
         ProductFacadeInterface $productFacade,
-        PriceFacadeInterface $priceFacade
+        PriceFacadeInterface $priceFacade,
+        ProductImageFacadeInterface $productImageFacade
     ) {
         parent::__construct($utilDataReaderService);
 
@@ -106,6 +114,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         $this->priceFacade = $priceFacade;
         $this->categoryCacheCollection = new Collection([]);
         $this->productFacade = $productFacade;
+        $this->productImageFacade = $productImageFacade;
     }
 
     /**
@@ -337,19 +346,19 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function generateProductAbstractImageSets($idProductAbstract)
     {
-        $imageSets = $this->productImageQueryContainer
-            ->queryImageSetByProductAbstractId($idProductAbstract)
-            ->find();
+        $imageSetTransfers = $this->productImageFacade->getCombinedAbstractImageSets(
+            $idProductAbstract,
+            $this->locale->getIdLocale()
+        );
 
         $result = [];
-        foreach ($imageSets as $imageSetEntity) {
-            $result[$imageSetEntity->getName()] = [];
-            foreach ($imageSetEntity->getSpyProductImageSetToProductImages() as $productsToImageEntity) {
-                $imageEntity = $productsToImageEntity->getSpyProductImage();
-                $result[$imageSetEntity->getName()][] = [
-                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $imageEntity->getIdProductImage(),
-                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $imageEntity->getExternalUrlLarge(),
-                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $imageEntity->getExternalUrlSmall(),
+
+        foreach ($imageSetTransfers as $imageSetTransfer) {
+            foreach ($imageSetTransfer->getProductImages() as $productImageTransfer) {
+                $result[$imageSetTransfer->getName()][] = [
+                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $productImageTransfer->getIdProductImage(),
+                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $productImageTransfer->getExternalUrlLarge(),
+                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $productImageTransfer->getExternalUrlSmall(),
                 ];
             }
         }
