@@ -142,7 +142,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getProductCategoryQueryContainer(),
             $this->getProductImageQueryContainer(),
             $this->getProductFacade(),
-            $this->getPriceFacade()
+            $this->getPriceFacade(),
+            $this->getProductImageFacade()
         );
 
         $storageProductCollector->setTouchQueryContainer(
@@ -249,7 +250,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getUtilDataReaderService(),
             $this->getProductFacade(),
             $this->getPriceFacade(),
-            $this->getProductImageQueryContainer()
+            $this->getProductImageQueryContainer(),
+            $this->getProductImageFacade()
         );
 
         $productConcreteCollector->setTouchQueryContainer(
@@ -537,6 +539,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getUtilDataReaderService()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::SERVICE_DATA);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface
+     */
+    protected function getProductImageFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_IMAGE);
     }
 
 }
