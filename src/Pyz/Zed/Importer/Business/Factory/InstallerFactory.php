@@ -29,6 +29,7 @@ use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductSet\ProductSetInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
@@ -267,12 +268,34 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductSet\ProductSetInstaller
+     */
+    public function createProductSetInstaller()
+    {
+        return new ProductSetInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterProductSetCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     public function getImporterProductGroupCollection()
     {
         return [
             ImporterConfig::RESOURCE_PRODUCT_GROUPS => $this->createImporterFactory()->createProductGroupImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductSetCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_SETS => $this->createImporterFactory()->createProductSetImporter(),
         ];
     }
 

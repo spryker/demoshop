@@ -37,6 +37,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_NAVIGATION = 'FACADE_NAVIGATION';
     const FACADE_PRODUCT_GROUP = 'FACADE_PRODUCT_GROUP';
     const FACADE_PRODUCT_LABEL = 'FACADE_PRODUCT_LABEL';
+    const FACADE_PRODUCT_SET = 'FACADE_PRODUCT_SET';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -72,6 +73,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addProductRelationFacade($container);
         $container = $this->addProductGroupFacade($container);
         $container = $this->addProductLabelFacade($container);
+        $container = $this->addProductSetFacade($container);
 
         $container = $this->addCmsQueryContainer($container);
         $container = $this->addProductQueryContainer($container);
@@ -319,6 +321,20 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[static::FACADE_PRODUCT_LABEL] = function (Container $container) {
             return $container->getLocator()->productLabel()->facade();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addProductSetFacade(Container $container)
+    {
+        $container[static::FACADE_PRODUCT_SET] = function (Container $container) {
+            return $container->getLocator()->productSet()->facade();
         };
 
         return $container;

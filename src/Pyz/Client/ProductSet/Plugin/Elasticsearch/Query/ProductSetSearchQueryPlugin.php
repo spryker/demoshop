@@ -99,6 +99,7 @@ class ProductSetSearchQueryPlugin extends AbstractPlugin implements QueryInterfa
                 PageIndexMap::INTEGER_SORT . '.' . ProductSetStorageTransfer::WEIGHT => [
                     'order' => 'desc',
                     'mode' => 'min',
+                    'unmapped_type' => 'integer',
                 ],
             ]
         );
