@@ -14,7 +14,7 @@ use Orm\Zed\Navigation\Persistence\SpyNavigationNodeQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Zed\DataImport\Business\Exception\NavigationNodeByKeyNotFoundException;
 use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationKeyToIdNavigationStep;
-use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
+use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
@@ -68,7 +68,7 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
             );
         }
 
-        foreach ($dataSet[LocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
+        foreach ($dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
             $query = SpyNavigationNodeLocalizedAttributesQuery::create();
             $navigationNodeLocalizedAttributesEntity = $query
                 ->filterByFkNavigationNode($navigationNodeEntity->getIdNavigationNode())

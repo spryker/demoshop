@@ -10,7 +10,7 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductSearchAttribute;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchAttributeQuery;
-use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
+use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Spryker\Shared\ProductSearch\Code\KeyBuilder\GlossaryKeyBuilderInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -58,7 +58,7 @@ class ProductSearchAttributeWriter implements DataImportStepInterface
 
         $glossaryKeyEntity->save();
 
-        foreach ($dataSet[LocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttribute) {
+        foreach ($dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttribute) {
             $query = SpyGlossaryTranslationQuery::create();
             $glossaryTranslationEntity = $query
                 ->filterByFkLocale($idLocale)

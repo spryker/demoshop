@@ -11,7 +11,7 @@ use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeQuery;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValue;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueQuery;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueTranslation;
-use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
+use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -62,7 +62,7 @@ class ProductManagementAttributeWriter implements DataImportStepInterface
                 ->save();
 
             foreach ($dataSet['locales'] as $localeName => $idLocale) {
-                $attributeValueTranslations = $dataSet[LocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES][$idLocale]['values'];
+                $attributeValueTranslations = $dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES][$idLocale]['values'];
                 if (!empty($attributeValueTranslations)) {
                     $attributeValueTranslations = array_map($callback, explode(',', $attributeValueTranslations));
 

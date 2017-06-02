@@ -34,7 +34,8 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_CMS_TEMPLATE = 'cms-template';
     const IMPORT_TYPE_CMS_PAGE = 'cms-page';
     const IMPORT_TYPE_CMS_BLOCK = 'cms-block';
-    const IMPORT_TYPE_CMS_PLACEHOLDER = 'cms-placeholder';
+    const IMPORT_TYPE_DISCOUNT = 'discount';
+    const IMPORT_TYPE_DISCOUNT_VOUCHER = 'discount-voucher';
     const IMPORT_TYPE_SHIPMENT = 'shipment';
     const IMPORT_TYPE_STOCK = 'stock';
     const IMPORT_TYPE_TAX = 'tax';
@@ -226,9 +227,17 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
-    public function getCmsPlaceholderDataImporterConfiguration()
+    public function getDiscountDataImporterConfiguration()
     {
-        return $this->buildImporterConfiguration('cms_placeholder.csv', static::IMPORT_TYPE_CMS_PLACEHOLDER);
+        return $this->buildImporterConfiguration('discount.csv', static::IMPORT_TYPE_DISCOUNT);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getDiscountVoucherDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('discount_voucher.csv', static::IMPORT_TYPE_DISCOUNT_VOUCHER);
     }
 
     /**

@@ -10,7 +10,7 @@ namespace Pyz\Zed\DataImport\Business\Model\Product;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class LocalizedAttributesExtractorStep implements DataImportStepInterface
+class ProductLocalizedAttributesExtractorStep implements DataImportStepInterface
 {
 
     const KEY_LOCALIZED_ATTRIBUTES = 'localizedAttributes';

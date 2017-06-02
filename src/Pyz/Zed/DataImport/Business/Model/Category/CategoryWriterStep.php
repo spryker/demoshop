@@ -15,7 +15,7 @@ use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository;
 use Pyz\Zed\DataImport\Business\Model\Locale\AddLocalesStep;
-use Pyz\Zed\DataImport\Business\Model\Product\LocalizedAttributesExtractorStep;
+use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
@@ -90,7 +90,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      */
     protected function addAttributes(SpyCategory $categoryEntity, DataSetInterface $dataSet)
     {
-        $localizedAttributeCollection = $dataSet[LocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES];
+        $localizedAttributeCollection = $dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES];
         foreach ($localizedAttributeCollection as $idLocale => $localizedAttributes) {
             $query = SpyCategoryAttributeQuery::create();
             $categoryAttributeEntity = $query
