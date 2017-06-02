@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "024ad6269dd3437f9a211607925313354250c4a4"
+                "reference": "d67c60ad9c17d3b94cbc2151e8abca2e35e1a784"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,7 +1689,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-01 12:08:13"
+            "time": "2017-06-02 15:31:39"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6395,7 +6395,7 @@
                 "proprietary"
             ],
             "description": "Calculation bundle",
-            "time": "2017-05-11 13:52:56"
+            "time": "2017-05-11T13:52:56+00:00"
         },
         {
             "name": "spryker/code-generator",
