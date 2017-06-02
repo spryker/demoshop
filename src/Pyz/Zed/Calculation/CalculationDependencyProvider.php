@@ -227,6 +227,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             new PriceToPayAggregatorPlugin(),
 
+            new TaxAmountCalculatorPlugin(),
             new ItemTaxAmountFullAggregatorPlugin(),
             new TaxAmountAfterCancellationCalculatorPlugin(),
 
