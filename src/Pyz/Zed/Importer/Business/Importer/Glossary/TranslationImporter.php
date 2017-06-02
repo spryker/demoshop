@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Importer\Business\Importer\Glossary;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Glossary\Business\GlossaryFacadeInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -47,9 +46,7 @@ class TranslationImporter extends AbstractImporter
      */
     public function isImported()
     {
-        $query = SpyGlossaryKeyQuery::create();
-
-        return $query->count() > 0;
+        return false;
     }
 
     /**
@@ -72,9 +69,12 @@ class TranslationImporter extends AbstractImporter
             $localeTransfer = new LocaleTransfer();
             $localeTransfer->setLocaleName($translationData['locale']);
 
-            if (!$this->glossaryFacade->hasTranslation($translationKey, $localeTransfer)) {
-                $this->glossaryFacade->createAndTouchTranslation($translationKey, $localeTransfer, $translationData['translation'], true);
+            if ($this->glossaryFacade->hasTranslation($translationKey, $localeTransfer)) {
+                $this->glossaryFacade->updateAndTouchTranslation($translationKey, $localeTransfer, $translationData['translation'], true);
+                continue;
             }
+
+            $this->glossaryFacade->createAndTouchTranslation($translationKey, $localeTransfer, $translationData['translation'], true);
         }
     }
 
