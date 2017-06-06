@@ -39,6 +39,9 @@ class ProductLabelImporter extends AbstractImporter
      */
     protected $productFacade;
 
+    /**
+     * @var array
+     */
     protected $productAbstractSkuToIdMap = [];
 
     /**
