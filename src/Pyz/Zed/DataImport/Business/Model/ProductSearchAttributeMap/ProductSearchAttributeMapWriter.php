@@ -17,6 +17,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class ProductSearchAttributeMapWriter implements DataImportStepInterface
 {
 
+    const KEY_TARGET_FIELD = 'target_field';
+    const KEY_ATTRIBUTE_KEY = 'attribute_key';
+    const KEY_SYNCED = 'synced';
+
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
@@ -29,21 +33,20 @@ class ProductSearchAttributeMapWriter implements DataImportStepInterface
         $pageIndexMap = new PageIndexMap();
 
         $validTargetFields = $pageIndexMap->getProperties();
-        if (!in_array($dataSet['target_field'], $validTargetFields)) {
+        if (!in_array($dataSet[static::KEY_TARGET_FIELD], $validTargetFields)) {
             throw new InvalidArgumentException(sprintf(
                 'Invalid target field "%s" for attribute "%s"',
-                $dataSet['target_field'],
-                $dataSet['attribute_key']
+                $dataSet[static::KEY_TARGET_FIELD],
+                $dataSet[static::KEY_ATTRIBUTE_KEY]
             ));
         }
 
-        $query = SpyProductSearchAttributeMapQuery::create();
-        $productSearchAttributeMapEntity = $query
-            ->filterByFkProductAttributeKey($dataSet[AddProductAttributeKeysStep::KEY_TARGET][$dataSet['attribute_key']])
-            ->filterByTargetField($dataSet['attribute_key'])
+        $productSearchAttributeMapEntity = SpyProductSearchAttributeMapQuery::create()
+            ->filterByFkProductAttributeKey($dataSet[AddProductAttributeKeysStep::KEY_TARGET][$dataSet[static::KEY_ATTRIBUTE_KEY]])
+            ->filterByTargetField($dataSet[static::KEY_TARGET_FIELD])
             ->findOneOrCreate();
 
-        $productSearchAttributeMapEntity->setSynced((isset($dataSet['synced'])) ? $dataSet['synced'] : true);
+        $productSearchAttributeMapEntity->setSynced((isset($dataSet[static::KEY_SYNCED])) ? $dataSet[static::KEY_SYNCED] : true);
         $productSearchAttributeMapEntity->save();
     }
 

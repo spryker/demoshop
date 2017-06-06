@@ -1,0 +1,3 @@
+discount_key,quantity,custom_code,random_generated_code_length,max_number_of_uses,voucher_batch,is_active
+discount_3,10,spryker,4,10,1,1
+discount_4,100,intelcore,10,0,1,1

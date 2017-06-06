@@ -1,0 +1,338 @@
+template_name,is_searchable,is_active,publish,page_key,url.de_DE,url.en_US,name.de_DE,name.en_US,meta_title.de_DE,meta_title.en_US,meta_keywords.de_DE,meta_keywords.en_US,meta_description.de_DE,meta_description.en_US,placeholder_name.0,placeholder_name.1,placeholder_value.0.de_DE,placeholder_value.1.de_DE,placeholder_value.0.en_US,placeholder_value.1.en_US
+static full page,1,1,1,page_1,/de/impressum,/en/imprint,Impressum,Imprint,Impressum,Imprint,Impressum,Imprint,Impressum,Imprint,title,content,<h2>Impressum</h2>,"<p>Demoshop<br/>
+    Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
+
+<p>Telefon: 030 5678909<br/>
+    E-Mail: <a href=""mailto:info@spryker.com"">info@spryker.com</a><br/>
+</p>
+
+<p><strong>Vertreten durch:</strong><br/>Spryker<br/>Geschäftsführer: Max Mustermann<br/>Registergericht: Hamburg<br/>Registernummer:
+    56789</p>
+
+<p><strong>Registereintrag:</strong><br/>Eingetragen im Handelsregister.<br/>Registergericht: Hamburg<br/>Registernummer:
+    34567888456789</p>
+
+<p><strong>Umsatzsteuer-ID: </strong><br/>Umsatzsteuer-Identifikationsnummer nach §27a Umsatzsteuergesetz:<br/>34567</p>
+
+<p>Quelle: <a href=""http://www.experten-branchenbuch.de/"">www.experten-branchenbuch.de</a></p><br/><br/>
+
+<h2>Datenschutzerklärung:</h2>
+
+<p><strong>Datenschutz</strong><br/>Nachfolgend möchten wir Sie über unsere Datenschutzerklärung informieren. Sie finden
+    hier Informationen über die Erhebung und Verwendung persönlicher Daten bei der Nutzung unserer Webseite. Wir
+    beachten dabei das für Deutschland geltende Datenschutzrecht. Sie können diese Erklärung jederzeit auf unserer
+    Webseite abrufen.
+    <br/><br/>
+    Wir weisen ausdrücklich darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+    Sicherheitslücken aufweisen und nicht lückenlos vor dem Zugriff durch Dritte geschützt werden kann.
+    <br/><br/>
+    Die Verwendung der Kontaktdaten unseres Impressums zur gewerblichen Werbung ist ausdrücklich nicht erwünscht, es sei
+    denn wir hatten zuvor unsere schriftliche Einwilligung erteilt oder es besteht bereits eine Geschäftsbeziehung. Der
+    Anbieter und alle auf dieser Website genannten Personen widersprechen hiermit jeder kommerziellen Verwendung und
+    Weitergabe ihrer Daten.
+    <br/><br/>
+    <strong>Personenbezogene Daten</strong>
+    <br/>
+    Sie können unsere Webseite ohne Angabe personenbezogener Daten besuchen. Soweit auf unseren Seiten personenbezogene
+    Daten (wie Name, Anschrift oder E-Mail Adresse) erhoben werden, erfolgt dies, soweit möglich, auf freiwilliger
+    Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Sofern zwischen Ihnen
+    und uns ein Vertragsverhältnis begründet, inhaltlich ausgestaltet oder geändert werden soll oder Sie an uns eine
+    Anfrage stellen, erheben und verwenden wir personenbezogene Daten von Ihnen, soweit dies zu diesen Zwecken
+    erforderlich ist (Bestandsdaten). Wir erheben, verarbeiten und nutzen personenbezogene Daten soweit dies
+    erforderlich ist, um Ihnen die Inanspruchnahme des Webangebots zu ermöglichen (Nutzungsdaten). Sämtliche
+    personenbezogenen Daten werden nur solange gespeichert wie dies für den geannten Zweck (Bearbeitung Ihrer Anfrage
+    oder Abwicklung eines Vertrags) erforderlich ist. Hierbei werden steuer- und handelsrechtliche Aufbewahrungsfristen
+    berücksichtigt. Auf Anordnung der zuständigen Stellen dürfen wir im Einzelfall Auskunft über diese Daten
+    (Bestandsdaten) erteilen, soweit dies für Zwecke der Strafverfolgung, zur Gefahrenabwehr, zur Erfüllung der
+    gesetzlichen Aufgaben der Verfassungsschutzbehörden oder des Militärischen Abschirmdienstes oder zur Durchsetzung
+    der Rechte am geistigen Eigentum erforderlich ist.</p>
+
+<p><strong>Auskunftsrecht</strong><br/>Sie haben das jederzeitige Recht, sich unentgeltlich und unverzüglich über die zu
+    Ihrer Person erhobenen Daten zu erkundigen. Sie haben das jederzeitige Recht, Ihre Zustimmung zur Verwendung Ihrer
+    angegeben persönlichen Daten mit Wirkung für die Zukunft zu widerrufen. Zur Auskunftserteilung wenden Sie sich bitte
+    an den Anbieter unter den Kontaktdaten im Impressum.</p>",<h2>About</h2>,"<p>Demoshop<br/>
+    Julie-Wolfthornstraße 1<br/>10555 Berlin</p>
+
+<p>Telephone: 030 5678909<br/>
+    E-Mail: <a href=""mailto:info@spryker.com"">info@spryker.com</a><br/>
+</p>
+
+<p><strong>Represented by</strong><br/>Spryker<br/>Managing Director: Max Mustermann<br/>Register Court: Hamburg<br/>Register Number:
+    56789</p>
+
+<p><strong>Register Entry:</strong><br/>Entry in Handelsregister.<br/>Register Court: Hamburg<br/>Register number:
+    34567888456789</p>
+
+<p>Source: <a href=""http://www.muster-vorlagen.net"" target=""_blank"">Muster-Vorlagen.net – Impressum Generator</a></p><br/><br/>
+
+<h2>Disclaimer:</h2>
+
+<p><strong>Accountability for content</strong><br/>
+   The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents' accuracy,
+   completeness or topicality. According to statutory provisions, we are furthermore responsible for our own content on these
+   web pages. In this context, please note that we are accordingly not obliged to monitor merely the transmitted or saved information
+   of third parties, or investigate circumstances pointing to illegal activity. Our obligations to remove or block the use of
+   information under generally applicable laws remain unaffected by this as per §§ 8 to 10 of the Telemedia Act (TMG).
+   <br/><br/>
+
+    <strong>Accountability for links</strong><br/>
+   Responsibility for the content of external links (to web pages of third parties) lies solely with the operators of the
+   linked pages. No violations were evident to us at the time of linking. Should any legal infringement become known to us, we
+   will remove the respective link immediately.</p>
+
+<p><strong>Copyright</strong><br/>
+   Our web pages and their contents are subject to German copyright law. Unless expressly permitted by law (§ 44a et seq.
+   of the copyright law), every form of utilizing, reproducing or processing works subject to copyright protection on our web
+   pages requires the prior consent of the respective owner of the rights. Individual reproductions of a work are allowed only
+   for private use, so must not serve either directly or indirectly for earnings. Unauthorized utilization of copyrighted works
+   is punishable (§ 106 of the copyright law).</p>"
+static full page,1,1,1,page_2,/de/agb,/en/gtc,AGB,GTC,AGB,GTC,AGB,GTC,AGB,GTC,title,content,<h2>Allgemeine Geschäftsbedingungen (AGB)</h2>,"<h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+     ]]></translation>
+        </placeholder>
+        <placeholder>
+            <name>content</name>
+            <translation><![CDATA[
+<br/>
+<br/><br/>
+<b>§ 1 Geltungsbereich & Abwehrklausel</b>
+<br/><br/>
+
+<div align=""justify"">(1) Für die über diesen Internet-Shop begründeten Rechtsbeziehungen zwischen dem Betreiber des
+    Shops (nachfolgend „Anbieter“) und seinen Kunden gelten ausschließlich die folgenden Allgemeinen
+    Geschäftsbedingungen in der jeweiligen Fassung zum Zeitpunkt der Bestellung.
+    <br/><br/>
+    (2) Abweichende Allgemeine Geschäftsbedingungen des Kunden werden zurückgewiesen.
+</div>
+<br/><br/>
+<b>§ 2 Zustandekommen des Vertrages</b>
+<br/><br/>
+
+<div align=""justify"">(1) Die Präsentation der Waren im Internet-Shop stellt kein bindendes Angebot des Anbieters auf
+    Abschluss eines Kaufvertrages dar. Der Kunde wird hierdurch lediglich aufgefordert, durch eine Bestellung ein
+    Angebot abzugeben.
+    <br/><br/>
+    (2) Durch das Absenden der Bestellung im Internet-Shop gibt der Kunde ein verbindliches Angebot gerichtet auf den
+    Abschluss eines Kaufvertrages über die im Warenkorb enthaltenen Waren ab. Mit dem Absenden der Bestellung erkennt
+    der Kunde auch diese Geschäftsbedingungen als für das Rechtsverhältnis mit dem Anbieter allein maßgeblich an.
+    <br/><br/>
+    (3) Der Anbieter bestätigt den Eingang der Bestellung des Kunden durch Versendung einer Bestätigungs-E-Mail. Diese
+    Bestellbestätigung stellt noch nicht die Annahme des Vertragsangebotes durch den Anbieter dar. Sie dient lediglich
+    der Information des Kunden, dass die Bestellung beim Anbieter eingegangen ist. Die Erklärung der Annahme des
+    Vertragsangebotes erfolgt durch die Auslieferung der Ware oder eine ausdrückliche Annahmeerklärung.
+</div>
+<br/><br/>
+
+<b>§ 3 Eigentumsvorbehalt</b>
+<br/><br/>
+
+<div align=""justify"">Die gelieferte Ware verbleibt bis zur vollständigen Bezahlung im Eigentum des Anbieters.
+
+</div>
+<br/><br/>
+<b>§ 4 Fälligkeit</b>
+<br/><br/>
+
+<div align=""justify"">Die Zahlung des Kaufpreises ist mit Vertragsschluss fällig.</div>
+
+<br/><br/>
+<b>§ 5 Gewährleistung</b>
+<br/><br/>
+
+<div align=""justify"">(1) Die Gewährleistungsrechte des Kunden richten sich nach den allgemeinen gesetzlichen
+    Vorschriften, soweit nachfolgend nichts anderes bestimmt ist. Für Schadensersatzansprüche des Kunden gegenüber dem
+    Anbieter gilt die Regelung in § 6 dieser AGB.
+    <br/><br/>
+    (2) Die Verjährungsfrist für Gewährleistungsansprüche des Kunden beträgt bei Verbrauchern bei neu hergestellten
+    Sachen 2 Jahre, bei gebrauchten Sachen 1 Jahr. Gegenüber Unternehmern beträgt die Verjährungsfrist bei neu
+    hergestellten Sachen und bei gebrauchten Sachen 1 Jahr.
+    Die vorstehende Verkürzung der Verjährungsfristen gilt nicht für Schadensersatzansprüche des Kunden aufgrund einer
+    Verletzung des Lebens, des Körpers, der Gesundheit sowie für Schadensersatzansprüche aufgrund einer Verletzung
+    wesentlicher Vertragspflichten. Wesentliche Vertragspflichten sind solche, deren Erfüllung zur Erreichung des Ziels
+    des Vertrags notwendig ist, z.B. hat der Anbieter dem Kunden die Sache frei von Sach- und Rechtsmängeln zu übergeben
+    und
+    das Eigentum an ihr zu verschaffen.
+    Die vorstehende Verkürzung der Verjährungsfristen gilt ebenfalls nicht für Schadensersatzansprüche, die auf einer
+    vorsätzlichen oder grob fahrlässigen Pflichtverletzung des Anbieters, seiner gesetzlichen Vertreter oder
+    Erfüllungsgehilfen beruhen.
+    Gegenüber Unternehmern ebenfalls ausgenommen von der Verkürzung der Verjährungsfristen ist
+    der Rückgriffsanspruch nach § 478 BGB.
+
+    <br/><br/>
+    (3) Eine Garantie wird von dem Anbieter nicht erklärt.
+
+</div>
+<br/><br/>
+<b>§ 6 Haftungsausschluss</b>
+<br/><br/>
+
+<div align=""justify"">(1) Schadensersatzansprüche des Kunden sind ausgeschlossen, soweit nachfolgend nichts anderes
+    bestimmt ist. Der vorstehende Haftungsausschluss gilt auch zugunsten der gesetzlichen Vertreter und
+    Erfüllungsgehilfen des Anbieters, sofern der Kunde Ansprüche gegen diese geltend macht.
+    <br/><br/>
+    (2) Von dem unter Ziffer 1 bestimmten Haftungsausschluss ausgenommen sind Schadensersatzansprüche aufgrund einer
+    Verletzung des Lebens, des Körpers, der Gesundheit und Schadensersatzansprüche aus der Verletzung wesentlicher
+    Vertragspflichten. Wesentliche Vertragspflichten sind solche, deren Erfüllung zur Erreichung des Ziels des Vertrags
+    notwendig ist, z.B. hat der Anbieter dem Kunden die Sache frei von Sach- und Rechtsmängeln zu übergeben und
+    das Eigentum an ihr zu verschaffen. Von dem Haftungsausschluss ebenfalls ausgenommen ist die Haftung für Schäden,
+    die auf einer vorsätzlichen oder grob fahrlässigen Pflichtverletzung des Anbieters, seiner gesetzlichen Vertreter
+    oder Erfüllungsgehilfen beruhen.
+    <br/><br/>
+    (3) Vorschriften des Produkthaftungsgesetzes (ProdHaftG) bleiben unberührt.
+
+</div>
+<br/><br/>
+<b>§ 7 Abtretungs- und Verpfändungsverbot</b>
+<br/><br/>
+
+<div align=""justify"">Die Abtretung oder Verpfändung von dem Kunden gegenüber dem Anbieter zustehenden
+    Ansprüchen oder Rechten ist ohne Zustimmung des Anbieters ausgeschlossen, sofern der Kunde
+    nicht ein berechtigtes Interesse an der Abtretung oder Verpfändung nachweist.
+
+</div>
+<br/><br/>
+<b>§ 8 Aufrechnung</b>
+<br/><br/>
+
+<div align=""justify"">Ein Aufrechnungsrecht des Kunden besteht nur, wenn seine zur Aufrechnung gestellte Forderung
+    rechtskräftig festgestellt wurde oder unbestritten ist.
+
+</div>
+<br/><br/>
+<b>§ 9 Rechtswahl & Gerichtsstand</b>
+<br/><br/>
+
+<div align=""justify"">(1) Auf die vertraglichen Beziehungen zwischen dem Anbieter und dem Kunden findet das Recht der
+    Bundesrepublik Deutschland Anwendung. Von dieser Rechtswahl ausgenommen sind die
+    zwingenden Verbraucherschutzvorschriften des Landes, in dem der Kunde seinen gewöhnlichen
+    Aufenthalt hat. Die Anwendung des UN-Kaufrechts ist ausgeschlossen.
+    <br/><br/>
+    (2) Gerichtsstand für alle Streitigkeiten aus dem Vertragsverhältnis zwischen dem Kunden und dem Anbieter ist der
+    Sitz des Anbieters, sofern es sich bei dem Kunden um einen Kaufmann, eine juristische Person des öffentlichen Rechts
+    oder ein öffentlich-rechtliches Sondervermögen handelt.
+
+</div>
+<br/><br/>
+<b>§ 10 Salvatorische Klausel</b>
+
+<div align=""justify"">Sollte eine Bestimmung dieser Allgemeinen Geschäftsbedingungen unwirksam sein, wird davon die
+    Wirksamkeit der übrigen Bestimmungen nicht berührt.
+</div>
+<br/><br/>
+
+<div style=""font-size:11px;"">
+    <br/>
+    <i>Quelle: <a href=""http://www.kluge-recht.de"">kluge-recht.de</a></i>
+</div>",<h2>General Terms and Conditions (GTC)</h2>,"<br/>
+<br/><br/>
+<b>General Terms</b>
+<br/><br/>
+
+<div align=""justify"">(1) This privacy policy has been compiled to better serve those who are concerned with how their
+'Personally identifiable information' (PII) is being used online. PII, as used in US privacy law and information security,
+is information that can be used on its own or with other information to identify, contact, or locate a single person, or
+to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect,
+use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
+    <br/><br/>
+    (2) We do not collect information from visitors of our site or other details to help you with your experience.
+</div>
+<br/><br/>
+<b>Using your Information</b>
+<br/><br/>
+
+<div align=""justify""> We may use the information we collect from you when you register, make a purchase, sign up
+for our newsletter, respond to a survey or marketing communication, surf the website, or use certain other site features
+in the following ways:
+    <br/><br/>
+    To personalize user's experience and to allow us to deliver the type of content and product offerings in which you
+    are most interested.
+</div>
+<br/><br/>
+
+<b>Protecting visitor information</b>
+<br/><br/>
+
+<div align=""justify"">Our website is scanned on a regular basis for security holes and known vulnerabilities in
+order to make your visit to our site as safe as possible. Your personal information is contained behind secured networks
+and is only accessible by a limited number of persons who have special access rights to such systems, and are required to
+ keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket
+  Layer (SSL) technology.
+</div>
+<br/><br/>
+<b>Cookies</b>
+<br/><br/>
+
+<div align=""justify"">We do not use cookies for tracking purposes. You can choose to have your computer warn you each time a
+cookie is being sent, or you can choose to turn off all cookies. You do this through your browser (like Internet Explorer)
+settings. Each browser is a little different, so look at your browser's Help menu to learn the correct way to modify your cookies.
+If you disable cookies off, some features will be disabled that make your site experience more efficient and some of our services will
+not function properly.
+</div>
+
+<br/><br/>
+<b>Google</b>
+<br/><br/>
+
+<div align=""justify"">Google's advertising requirements can be summed up by Google's Advertising Principles. They are put
+in place to provide a positive experience for users. https://support.google.com/adwordspolicy/answer/1316548?hl=en
+We use Google AdSense Advertising on our website. Google, as a third-party vendor, uses cookies to serve ads on our site.
+Google's use of the DART cookie enables it to serve ads to our users based on previous visits to our site and other sites on
+the Internet. Users may opt-out of the use of the DART cookie by visiting the Google Ad and Content Network privacy policy.
+</div>
+<br/><br/>
+<b>Implementation</b>
+<br/><br/>
+
+<div align=""justify"">We along with third-party vendors, such as Google use first-party cookies (such as the Google Analytics
+cookies) and third-party cookies (such as the DoubleClick cookie) or other third-party identifiers together to compile data
+regarding user interactions with ad impressions and other ad service functions as they relate to our website.
+ Users can set preferences for how Google advertises to you using the Google Ad Settings page. Alternatively, you can opt
+  out by visiting the Network Advertising initiative opt out page or permanently using the Google Analytics Opt Out Browser add on.
+</div>
+<br/><br/>
+
+
+<div style=""font-size:11px;"">
+    <br/>
+</div>"
+static full page,1,1,1,page_3,/de/datenschutz,/en/privacy,Datenschutzerklärung,Data Privacy,Datenschutzerklärung,Data Privacy,Datenschutzerklärung,Data Privacy,Datenschutzerklärung,Data Privacy,title,content,<h2>Datenschutzerklärung</h2>,"<p>Die Nutzung unserer Seite ist ohne eine Angabe von personenbezogenen Daten möglich. Für die Nutzung einzelner
+    Services unserer Seite können sich hierfür abweichende Regelungen ergeben, die in diesem Falle nachstehend gesondert
+    erläutert werden. Ihre personenbezogenen Daten (z.B. Name, Anschrift, E-Mail, Telefonnummer, u.ä.) werden von uns
+    nur gemäß den Bestimmungen des deutschen Datenschutzrechts verarbeitet. Daten sind dann personenbezogen, wenn sie
+    eindeutig einer bestimmten natürlichen Person zugeordnet werden können. Die rechtlichen Grundlagen des Datenschutzes
+    finden Sie im Bundesdatenschutzgesetz (BDSG) und dem Telemediengesetz (TMG). Nachstehende Regelungen informieren Sie
+    insoweit über die Art, den Umfang und Zweck der Erhebung, die Nutzung und die Verarbeitung von personenbezogenen
+    Daten durch den Anbieter</p>
+
+<p>Wir weisen darauf hin, dass die internetbasierte Datenübertragung Sicherheitslücken aufweist, ein lückenloser Schutz
+    vor Zugriffen durch Dritte somit unmöglich ist.</p>
+
+<h3>Auskunft/Widerruf/Löschung</h3>
+
+<p>Sie können sich aufgrund des Bundesdatenschutzgesetzes bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer
+    personenbezogenen Daten und deren Berichtigung, Sperrung, Löschung oder einem Widerruf einer erteilten Einwilligung
+    unentgeltlich an uns wenden. Wir weisen darauf hin, dass Ihnen ein Recht auf Berichtigung falscher Daten oder
+    Löschung personenbezogener Daten zusteht, sollte diesem Anspruch keine gesetzliche Aufbewahrungspflicht
+    entgegenstehen.</p>
+
+<p>
+    <a target=""_blank"" href=""https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html"">Muster-Datenschutzerklärung</a>
+    der Anwaltskanzlei Weiß &amp; Partner</p>",<h2>Data Privacy Policy</h2>,"<p>Our website may be used without entering personal information. Different rules may apply to certain services on our site,
+ however, and are explained separately below. We collect personal information from you (e.g. name, address, email address,
+ telephone number, etc.) in accordance with the provisions of German data protection statutes. Information is considered
+ personal if it can be associated exclusively to a specific natural person. The legal framework for data protection may be found
+ in the German Federal Data Protection Act (BDSG) and the Telemedia Act (TMG). The provisions below serve to provide information
+ as to the manner, extent and purpose for collecting, using and processing personal information by the provider.</p>
+
+<p>Please be aware that data transfer via the internet is subject to security risks and, therefore, complete protection
+against third-party access to transferred data cannot be ensured.</p>
+
+<h3>Information/Cancellation/Deletion</h3>
+
+<p>On the basis of the Federal Data Protection Act, you may contact us at no cost if you have questions relating to the
+collection, processing or use of your personal information, if you wish to request the correction, blocking or deletion of the
+same, or if you wish to cancel explicitly granted consent. Please note that you have the right to have incorrect data corrected or
+to have personal data deleted, where such claim is not barred by any legal obligation to retain this data.</p>
+
+<p>
+    <a target=""_blank"" href=""https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html"">Sample Data Privacy Policy Statement</a>
+    provided by the Law Offices of Weiß & Partner</p>"

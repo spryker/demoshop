@@ -1706,6 +1706,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "63b6e4d8900f535f473908c8cf688294536981be"
 =======
 =======
@@ -2050,16 +2051,49 @@
                 "reference": "1f51b83cb178e9c4178d546cad20d078059251a1"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "f588e8f7936cc1c1c23cd85d86d1403c9086046c"
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2300,6 +2334,7 @@
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
 =======
 =======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2652,16 +2687,49 @@
             "time": "2017-06-02 10:31:26"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-06-06 10:16:45"
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7996,12 +8064,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
+<<<<<<< HEAD
                 "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
                 "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
+=======
+                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/b33c464eb25d115e10f6e206d9e8bb777d1cf658",
+                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658",
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
                 "shasum": ""
             },
             "require": {
@@ -8031,7 +8108,19 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
+<<<<<<< HEAD
             "time": "2017-06-28T10:19:12+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-28 10:19:12"
+=======
+<<<<<<< HEAD
+            "time": "2017-06-28T10:19:12+00:00"
+=======
+            "time": "2017-04-24 20:17:25"
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+>>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
         },
         {
             "name": "spryker/code-sniffer",

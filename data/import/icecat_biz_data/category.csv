@@ -1,0 +1,15 @@
+category_key,parent_category_key,name.de_DE,name.en_US,meta_title.de_DE,meta_title.en_US,meta_description.de_DE,meta_description.en_US,meta_keywords.de_DE,meta_keywords.en_US,is_active,is_in_menu,is_clickable,is_searchable,is_root,is_main,node_order
+demoshop,,Demoshop,Demoshop,Demoshop,Demoshop,Deutsche Version des Demoshop,English version of Demoshop,Deutsche Version des Demoshop,English version of Demoshop,1,1,1,0,1,1,
+cameras-and-camcorder,demoshop,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,1,1,1,1,0,1,90
+camcorders,cameras-and-camcorder,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,1,1,1,1,0,1,90
+digital-cameras,cameras-and-camcorder,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,1,1,1,1,0,1,100
+computer,demoshop,Computer,Computer,Computer,Computer,Computer,Computer,Computer,Computer,1,1,1,1,0,1,100
+notebooks,computer,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,1,1,1,1,0,1,100
+pcs-and-workstations,computer,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,1,1,1,1,0,1,90
+tablets,computer,Tablets,Tablets,Tablets,Tablets,Tablets,Tablets,Tablets,Tablets,1,1,1,1,0,1,80
+smart-wearables,demoshop,Intelligente tragbare Geräte,Smart Wearables,Intelligente tragbare Geräte,Smart Wearables,Intelligente tragbare Geräte,Smart Wearables,Intelligente tragbare Geräte,Smart Wearables,1,1,1,1,0,1,70
+smartwatches,smart-wearables,Smartwatches,Smartwatches,Smartwatches,Smartwatches,Smartwatches,Smartwatches,Smartwatches,Smartwatches,1,1,1,1,0,1,70
+telecom-and-navigation,demoshop,Telekommunikation & Navigation,Telecom & Navigation,Telekommunikation & Navigation,Telecom & Navigation,Telekommunikation & Navigation,Telecom & Navigation,Telekommunikation & Navigation,Telecom & Navigation,1,1,1,1,0,1,80
+smartphones,telecom-and-navigation,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,1,1,1,1,0,1,80
+product-bundles,demoshop,Product Bundles,Product Bundles,Product Bundles,Product Bundles,Hier findest du verschiedene Produkte zu einem Bündel kombiniert.,Hier findest du verschiedene Produkte zu einem Bündel kombiniert.,Product Bundles,Product Bundles,1,1,1,1,0,1,60
+variant-showcase,demoshop,Variant Showcase,Variant Showcase,Variant Showcase,Variant Showcase,Diese Produkte haben mehr als eine Variante.,Diese Produkte haben mehr als eine Variante.,Variant Showcase,Variant Showcase,1,1,1,1,0,1,50

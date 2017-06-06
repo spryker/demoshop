@@ -12,10 +12,9 @@ use Orm\Zed\Discount\Persistence\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPoolQuery;
 use Spryker\Shared\Discount\DiscountConstants;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
-use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class DiscountWriterStep extends TouchAwareStep implements DataImportStepInterface
+class DiscountWriterStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;

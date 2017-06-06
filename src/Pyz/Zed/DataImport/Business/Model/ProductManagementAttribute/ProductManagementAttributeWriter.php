@@ -7,12 +7,14 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute;
 
+use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeQuery;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValue;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueQuery;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueTranslation;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
+use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
@@ -26,8 +28,7 @@ class ProductManagementAttributeWriter implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyProductManagementAttributeQuery::create();
-        $productManagementAttributeEntity = $query
+        $productManagementAttributeEntity = SpyProductManagementAttributeQuery::create()
             ->filterByFkProductAttributeKey($dataSet[AddProductAttributeKeysStep::KEY_TARGET][$dataSet['key']])
             ->findOneOrCreate();
 
@@ -42,8 +43,7 @@ class ProductManagementAttributeWriter implements DataImportStepInterface
         };
         $values = array_map($callback, explode(',', $dataSet['values']));
 
-        $query = SpyProductManagementAttributeValueQuery::create();
-        $productManagementAttributeValueEntityCollection = $query
+        $productManagementAttributeValueEntityCollection = SpyProductManagementAttributeValueQuery::create()
             ->findByFkProductManagementAttribute($productManagementAttributeEntity->getIdProductManagementAttribute());
 
         foreach ($productManagementAttributeValueEntityCollection as $productManagementAttributeValueEntity) {
@@ -53,6 +53,13 @@ class ProductManagementAttributeWriter implements DataImportStepInterface
 
             $productManagementAttributeValueEntity->delete();
         }
+
+        $glossaryKey = ProductManagementConstants::PRODUCT_MANAGEMENT_ATTRIBUTE_GLOSSARY_PREFIX . $dataSet['key'];
+        $glossaryKeyEntity = SpyGlossaryKeyQuery::create()
+            ->filterByKey($glossaryKey)
+            ->findOneOrCreate();
+
+        $glossaryKeyEntity->save();
 
         foreach ($values as $index => $value) {
             $productManagementAttributeValueEntity = new SpyProductManagementAttributeValue();

@@ -13,15 +13,20 @@ use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherQuery;
 use Propel\Runtime\Collection\ObjectCollection;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
-use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
-use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Discount\DiscountConfig;
 
-class DiscountVoucherWriterStep extends TouchAwareStep implements DataImportStepInterface
+class DiscountVoucherWriterStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
+    const KEY_DISCOUNT_KEY = 'discount_key';
+    const KEY_RANDOM_GENERATED_CODE_LENGTH = 'random_generated_code_length';
+    const KEY_QUANTITY = 'quantity';
+    const KEY_CUSTOM_CODE = 'custom_code';
+    const KEY_VOUCHER_BATCH = 'voucher_batch';
+    const KEY_IS_ACTIVE = 'is_active';
+    const KEY_MAX_NUMBER_OF_USES = 'max_number_of_uses';
 
     /**
      * @var \Spryker\Zed\Discount\DiscountConfig
@@ -29,14 +34,10 @@ class DiscountVoucherWriterStep extends TouchAwareStep implements DataImportStep
     protected $discountConfig;
 
     /**
-     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
-     * @param int $bulkSize
      * @param \Spryker\Zed\Discount\DiscountConfig $discountConfig
      */
-    public function __construct(DataImportToTouchInterface $touchFacade, $bulkSize, DiscountConfig $discountConfig)
+    public function __construct(DiscountConfig $discountConfig)
     {
-        parent::__construct($touchFacade, $bulkSize);
-
         $this->discountConfig = $discountConfig;
     }
 
@@ -48,15 +49,15 @@ class DiscountVoucherWriterStep extends TouchAwareStep implements DataImportStep
     public function execute(DataSetInterface $dataSet)
     {
         $discountEntity = SpyDiscountQuery::create()
-            ->findOneByDiscountKey($dataSet['discount_key']);
+            ->findOneByDiscountKey($dataSet[static::KEY_DISCOUNT_KEY]);
 
-        $voucherBatch = $dataSet['voucher_batch'];
+        $voucherBatch = $dataSet[static::KEY_VOUCHER_BATCH];
 
         if ($this->voucherBatchExists($discountEntity, $voucherBatch)) {
             return;
         }
 
-        $codes = $this->generateCodes((int)$dataSet['random_generated_code_length'], (int)$dataSet['quantity'], $dataSet['custom_code']);
+        $codes = $this->generateCodes((int)$dataSet[static::KEY_RANDOM_GENERATED_CODE_LENGTH], (int)$dataSet[static::KEY_QUANTITY], $dataSet[static::KEY_CUSTOM_CODE]);
 
         $voucherCodeCollection = new ObjectCollection();
         $voucherCodeCollection->setModel(SpyDiscountVoucher::class);
@@ -64,10 +65,10 @@ class DiscountVoucherWriterStep extends TouchAwareStep implements DataImportStep
         foreach ($codes as $code) {
             $discountVoucherEntity = new SpyDiscountVoucher();
             $discountVoucherEntity
-                ->setIsActive($dataSet['is_active'])
+                ->setIsActive($dataSet[static::KEY_IS_ACTIVE])
                 ->setVoucherBatch($voucherBatch)
                 ->setCode($code)
-                ->setMaxNumberOfUses($dataSet['max_number_of_uses'])
+                ->setMaxNumberOfUses($dataSet[static::KEY_MAX_NUMBER_OF_USES])
                 ->setFkDiscountVoucherPool($discountEntity->getFkDiscountVoucherPool());
 
             $voucherCodeCollection->append($discountVoucherEntity);

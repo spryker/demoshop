@@ -8,8 +8,8 @@
 namespace Pyz\Zed\DataImport\Business;
 
 use Pyz\Zed\DataImport\Business\Model\Category\AddCategoryKeysStep;
-use Pyz\Zed\DataImport\Business\Model\Category\CategoryRebuildCacheStep;
 use Pyz\Zed\DataImport\Business\Model\Category\CategoryWriterStep;
+use Pyz\Zed\DataImport\Business\Model\Category\Hook\CategoryAfterImportHook;
 use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository;
 use Pyz\Zed\DataImport\Business\Model\CmsBlock\CmsBlockWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\CmsPageWriterStep;
@@ -41,6 +41,7 @@ use Pyz\Zed\DataImport\Business\Model\ProductGroup\ProductGroupWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute\ProductManagementAttributeWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductOption\ProductOptionWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductPrice\ProductPriceWriterStep;
+use Pyz\Zed\DataImport\Business\Model\ProductRelation\Hook\ProductRelationAfterImportHook;
 use Pyz\Zed\DataImport\Business\Model\ProductRelation\ProductRelationWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductSearchAttribute\ProductSearchAttributeWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductSearchAttributeMap\ProductSearchAttributeMapWriter;
@@ -130,10 +131,10 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addStep(new CategoryWriterStep(
                 $this->createCategoryRepository(),
                 $this->getTouchFacade()
-            ))
-            ->addStep($this->createCategoryRebuildCacheStep());
+            ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+        $dataImporter->addAfterImportHook($this->createCategoryAfterImportHook());
 
         return $dataImporter;
     }
@@ -147,11 +148,11 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\DataImport\Business\Model\Category\CategoryRebuildCacheStep
+     * @return \Pyz\Zed\DataImport\Business\Model\Category\Hook\CategoryAfterImportHook
      */
-    protected function createCategoryRebuildCacheStep()
+    protected function createCategoryAfterImportHook()
     {
-        return new CategoryRebuildCacheStep(
+        return new CategoryAfterImportHook(
             $this->getCategoryFacade()
         );
     }
@@ -248,7 +249,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(DiscountWriterStep::BULK_SIZE);
         $dataSetStepBroker
-            ->addStep(new DiscountWriterStep($this->getTouchFacade(), DiscountWriterStep::BULK_SIZE));
+            ->addStep(new DiscountWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
@@ -264,7 +265,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(DiscountVoucherWriterStep::BULK_SIZE);
         $dataSetStepBroker
-            ->addStep(new DiscountVoucherWriterStep($this->getTouchFacade(), DiscountVoucherWriterStep::BULK_SIZE, $this->createDiscountConfig()));
+            ->addStep(new DiscountVoucherWriterStep($this->createDiscountConfig()));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
@@ -588,8 +589,17 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addStep(new ProductRelationWriter());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+        $dataImporter->addAfterImportHook($this->createProductRelationAfterImportHook());
 
         return $dataImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\DataImport\Business\Model\ProductRelation\Hook\ProductRelationAfterImportHook
+     */
+    protected function createProductRelationAfterImportHook()
+    {
+        return new ProductRelationAfterImportHook();
     }
 
     /**

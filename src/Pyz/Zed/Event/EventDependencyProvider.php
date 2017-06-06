@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Event;
 
-use Spryker\Zed\DataImport\Communication\Plugin\DataImportConsoleDebugEventSubscriberPlugin;
 use Spryker\Zed\Event\EventDependencyProvider as SprykerEventDependencyProvider;
 
 class EventDependencyProvider extends SprykerEventDependencyProvider
@@ -27,7 +26,7 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
     public function getEventSubscriberCollection()
     {
         $eventSubscriberCollection = parent::getEventSubscriberCollection();
-        $eventSubscriberCollection->add(new DataImportConsoleDebugEventSubscriberPlugin());
+//        $eventSubscriberCollection->add(new DataImportConsoleDebugEventSubscriberPlugin());
 //        $eventSubscriberCollection->add(new DataImportConsoleTimerEventSubscriberPlugin());
 
         return $eventSubscriberCollection;
