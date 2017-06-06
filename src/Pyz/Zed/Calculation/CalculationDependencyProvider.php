@@ -41,7 +41,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
     /**
      * This calculator stack working with quote object which happens to be processed in cart/checkout
      *
-     * You can view calculated values in: http://www.de.project.local/calculation/debug. For this to work you must have items in cart.
+     * You can view calculated values in: http://{domain.tld}/calculation/debug. For this to work you must have items in cart.
      *
      * RemoveTotalsCalculatorPlugin - Reset TotalsTransfer object
      *
