@@ -9,6 +9,8 @@ namespace Pyz\Yves\Calculation\Controller;
 
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use \Spryker\Shared\Config\Environment;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @method \Spryker\Client\Calculation\CalculationClientInterface getClient()
@@ -24,8 +26,11 @@ class DebugController extends AbstractController
      */
     public function cartAction(Request $request)
     {
-        $quoteTransfer = $this->getFactory()->getQuoteClient()->getQuote();
+        if (!Environment::isDevelopment()) {
+            throw new NotFoundHttpException();
+        }
 
+        $quoteTransfer = $this->getFactory()->getQuoteClient()->getQuote();
         $quoteTransfer = $this->getClient()->recalculate($quoteTransfer);
 
         return [
