@@ -7,9 +7,9 @@
 
 namespace Pyz\Yves\Calculation\Controller;
 
+use \Spryker\Shared\Config\Environment;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use \Spryker\Shared\Config\Environment;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -21,6 +21,8 @@ class DebugController extends AbstractController
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      *
      * @return array
      */
