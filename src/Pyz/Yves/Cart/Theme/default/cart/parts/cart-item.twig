@@ -52,29 +52,32 @@
                     {% set itemAttributes = attribute(attributes, cartItem.sku) %}
                     {% set itemSuperAttributes = attribute(itemAttributes, 'attributes') %}
 
+                    <form method="POST" action="{{ path('cart/update', {'sku': cartItem.sku }) }}">
 
+                        <input type="submit" value="Submit">
 
-                    <div class="small-12 large-6 columns cart-item__section">
-                        <div class="row">
-                            <div class="small-12 medium-4 large-12 columns">
-                                <strong class="cart-item__section-title">Product variants</strong>
+                        <div class="small-12 large-6 columns cart-item__section">
+                            <div class="row">
+                                <div class="small-12 medium-4 large-12 columns">
+                                    <strong class="cart-item__section-title">Product variants</strong>
+                                </div>
+                                {% for attributeName, attributeOptions in itemSuperAttributes %}
+                                    <p class="small-12 medium-8 large-12 columns">
+                                        {{ attributeName }}:
+                                    </p>
+                                    <p class="small-12 medium-8 large-12 columns">
+                                        <select name="attributes[{{ attributeName }}]">
+                                            {% for option, selected in attributeOptions %}
+                                                <option  value="{{ option }}" {% if selected %}selected{% endif %}>
+                                                    {{ option }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </p>
+                                {% endfor %}
                             </div>
-                            {% for attributeName, attributeOptions in itemSuperAttributes %}
-                                <p class="small-12 medium-8 large-12 columns">
-                                    {{ attributeName }}:
-                                </p>
-                                <p class="small-12 medium-8 large-12 columns">
-                                    <select>
-                                        {% for option, selected in attributeOptions %}
-                                            <option value="{{ option }}" {% if selected %}selected{% endif %}>
-                                                {{ option }}
-                                            </option>
-                                        {% endfor %}
-                                    </select>
-                                </p>
-                            {% endfor %}
                         </div>
-                    </div>
+                    </form>
                 {% endif %}
     
                 <div class="small-12 large-6 columns cart-item__section">

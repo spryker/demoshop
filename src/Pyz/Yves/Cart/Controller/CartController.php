@@ -38,6 +38,8 @@ class CartController extends AbstractController
 
         $attributes = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
 
+        //narrow down the products based on selection
+
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
@@ -88,6 +90,40 @@ class CartController extends AbstractController
     public function changeAction($sku, $quantity, $groupKey = null)
     {
         $cartOperationHandler = $this->getCartOperationHandler();
+        $cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
+        $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
+
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+    }
+
+    /**
+     * @param string $sku
+     * @param int $quantity
+     * @param array $selectedAttributes
+     * @param string|null $groupKey
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null)
+    {
+
+        $quoteTransfer = $this->getClient()->getQuote();
+        $cartOperationHandler = $this->getCartOperationHandler();
+
+        $storageProductTransfer = $cartOperationHandler->mapSelectedAttributesToStorageProduct($sku, $selectedAttributes, $quoteTransfer);
+
+        if ($storageProductTransfer->getIsVariant() === true) {
+
+            $cartItem = $cartOperationHandler->findItemInCartBySku($sku, $quoteTransfer);
+            $productOptions = $cartItem->getProductOptions(); //we must not lose the options
+            $cartOperationHandler->remove($sku, $groupKey);  //removing the existing items
+
+            $sku = $storageProductTransfer->getSku();
+            $cartOperationHandler->add($sku, $quantity, array_keys($productOptions->getArrayCopy()));
+            return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+
+        }
+
         $cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 

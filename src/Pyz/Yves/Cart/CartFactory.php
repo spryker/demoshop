@@ -11,6 +11,8 @@ use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
+use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
+use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\Cart\CartFactory as SprykerCartFactory;
@@ -59,7 +61,9 @@ class CartFactory extends SprykerCartFactory
             $this->createCartOperationHandler(),
             $this->getCartClient(),
             $this->getLocale(),
-            $this->getFlashMessenger()
+            $this->getFlashMessenger(),
+            $this->getProductClient(),
+            $this->createStorageProductMapper()
         );
     }
 
@@ -118,6 +122,25 @@ class CartFactory extends SprykerCartFactory
     public function getCheckoutBreadcrumbPlugin()
     {
         return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_CHECKOUT_BREADCRUMB);
+    }
+
+
+    //this will be moved to product client later
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
+     */
+    protected function createAttributeVariantMapper()
+    {
+        return new AttributeVariantMapper($this->getProductClient());
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\StorageProductMapper
+     */
+    protected function createStorageProductMapper()
+    {
+        return new StorageProductMapper($this->createAttributeVariantMapper());
     }
 
 }
