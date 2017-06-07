@@ -178,13 +178,14 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             new SubtotalCalculatorPlugin(),
 
+            new ProductItemTaxRateCalculatorPlugin(),
+            new ProductOptionTaxRateCalculatorPlugin(),
+            new ShipmentTaxRateCalculatorPlugin(),
+
             new DiscountCalculatorPlugin(),
             new DiscountAmountAggregatorPlugin(),
             new ItemDiscountAmountFullAggregatorPlugin(),
 
-            new ProductItemTaxRateCalculatorPlugin(),
-            new ProductOptionTaxRateCalculatorPlugin(),
-            new ShipmentTaxRateCalculatorPlugin(),
             new TaxAmountCalculatorPlugin(),
             new ItemTaxAmountFullAggregatorPlugin(),
 
@@ -199,9 +200,9 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new ExpenseTotalCalculatorPlugin(),
             new DiscountTotalCalculatorPlugin(),
             new RefundTotalCalculatorPlugin(),
+            new TaxTotalCalculatorPlugin(),
             new GrandTotalCalculatorPlugin(),
 
-            new TaxTotalCalculatorPlugin(),
         ];
     }
 
