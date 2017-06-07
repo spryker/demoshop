@@ -112,10 +112,6 @@
       "url": "git@github.com:spryker/rabbit-mq.git"
     },
     {
-      "type": "git",
-      "url": "git@github.com:spryker/Calculation-migration.git"
-    },
-    {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
     }
