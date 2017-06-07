@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Product\Mapper;
 
-use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 
 class StorageProductMapper implements StorageProductMapperInterface

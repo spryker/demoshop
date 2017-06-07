@@ -32,12 +32,14 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
      * @var string
      */
     protected $locale;
+
     /**
-     * @var ProductClientInterface
+     * @var \Spryker\Client\Product\ProductClientInterface
      */
     protected $productClient;
+
     /**
-     * @var StorageProductMapper
+     * @var \Pyz\Yves\Product\Mapper\StorageProductMapper
      */
     protected $productMapper;
 
@@ -46,7 +48,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $locale
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
-     * @param ProductClientInterface $productClient
+     * @param \Spryker\Client\Product\ProductClientInterface $productClient
      * @param \Pyz\Yves\Product\Mapper\StorageProductMapper $productMapper
      */
     public function __construct(
@@ -155,7 +157,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         $items = $quoteTransfer->getItems();
 
         foreach ($items as $item) {
-            if ($item->getSku() === $sku)  { //we need sku to get product abstract
+            if ($item->getSku() === $sku) {
                 return $this->getStorageProductForSelectedAttributes($selectedAttributes, $item);
             }
         }
@@ -164,7 +166,9 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     }
 
     /**
+     * @param string $sku
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \Generated\Shared\Transfer\ItemTransfer
      */
     public function findItemInCartBySku($sku, $quoteTransfer)
@@ -172,7 +176,7 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         $items = $quoteTransfer->getItems();
 
         foreach ($items as $item) {
-            if ($item->getSku() === $sku)  { //we need sku to get product abstract
+            if ($item->getSku() === $sku) {
                 return $item;
             }
         }
@@ -301,6 +305,8 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     /**
      * @param array $selectedAttributes
      * @param \Generated\Shared\Transfer\ItemTransfer $item
+     *
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     protected function getStorageProductForSelectedAttributes(array $selectedAttributes, $item)
     {

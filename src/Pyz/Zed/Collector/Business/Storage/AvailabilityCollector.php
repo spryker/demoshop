@@ -24,7 +24,6 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-
         $concreteProductsAvailability = $this->getConcreteProductsAvailability(
             $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
         );
@@ -34,7 +33,7 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
             StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $concreteProductsAvailability,
             StorageAvailabilityTransfer::CONCRETE_PRODUCTS_AVAILABILITY => $this->getConcreteProductsStock(
                 $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
-            )
+            ),
         ];
     }
 
@@ -55,7 +54,6 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
         return $concreteProductStock;
     }
 
-
     /**
      * @param int $idAvailabilityAbstract
      *
@@ -72,7 +70,6 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
 
         return $concreteProductStock;
     }
-
 
     /**
      * @return string
@@ -121,9 +118,9 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     }
 
     /**
-     * @param $idAvailabilityAbstact
+     * @param string $idAvailabilityAbstact
      *
-     * @return SpyAvailability[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return \Orm\Zed\Availability\Persistence\SpyAvailability[]|\Propel\Runtime\Collection\ObjectCollection
      */
     protected function getConcreteProductStock($idAvailabilityAbstact)
     {

@@ -112,7 +112,6 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         return $request->query->get('attributes', []);
     }
 
-
     /**
      * @param mixed $unusedParameter
      * @param \Symfony\Component\HttpFoundation\Request $request

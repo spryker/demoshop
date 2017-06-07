@@ -8,9 +8,9 @@
 namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Checkout\Plugin\CheckoutBreadcrumbPlugin;
+use Spryker\Yves\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
-use Spryker\Yves\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {

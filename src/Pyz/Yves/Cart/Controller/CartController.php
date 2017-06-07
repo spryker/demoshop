@@ -106,7 +106,6 @@ class CartController extends AbstractController
      */
     public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null)
     {
-
         $quoteTransfer = $this->getClient()->getQuote();
         $cartOperationHandler = $this->getCartOperationHandler();
 

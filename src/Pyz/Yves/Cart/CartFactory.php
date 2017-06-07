@@ -14,8 +14,8 @@ use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\Cart\CartFactory as SprykerCartFactory;
+use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 
 class CartFactory extends SprykerCartFactory
 {
@@ -123,7 +123,6 @@ class CartFactory extends SprykerCartFactory
     {
         return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_CHECKOUT_BREADCRUMB);
     }
-
 
     //this will be moved to product client later
 
