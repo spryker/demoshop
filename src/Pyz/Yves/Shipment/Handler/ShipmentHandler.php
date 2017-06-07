@@ -102,14 +102,14 @@ class ShipmentHandler
      *
      * @return void
      */
-    protected function setPrice(ExpenseTransfer $shipmentExpenseTransfer, $price,  $priceMode)
+    protected function setPrice(ExpenseTransfer $shipmentExpenseTransfer, $price, $priceMode)
     {
-        if (PriceMode::PRICE_MODE_NET === $priceMode) {
+        if ($priceMode === PriceMode::PRICE_MODE_NET) {
             $shipmentExpenseTransfer->setUnitGrossPrice(0);
             $shipmentExpenseTransfer->setUnitNetPrice($price);
         } else {
             $shipmentExpenseTransfer->setUnitNetPrice(0);
-            $shipmentExpenseTransfer->setSumGrossPrice($price);
+            $shipmentExpenseTransfer->setUnitGrossPrice($price);
         }
     }
 
