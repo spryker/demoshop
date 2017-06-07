@@ -10,34 +10,55 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductConcrete;
 use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductLocalizedAttributesQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
+use Orm\Zed\ProductBundle\Persistence\SpyProductBundleQuery;
 use Orm\Zed\ProductImage\Persistence\SpyProductImage;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetQuery;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImage;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Pyz\Shared\Product\ProductConfig;
+use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
 
-    const ATTRIBUTES = 'attributes';
-    const LOCALIZED_ATTRIBUTES = 'localizedAttributes';
-    const NAME = 'name';
-    const DESCRIPTION = 'description';
-    const IMAGE_SET_NAME = 'image_set_name';
-    const IMAGE_BIG = 'image_big';
-    const IMAGE_SMALL = 'image_small';
-    const LOCALES = 'locales';
-    const CONCRETE_SKU = 'concrete_sku';
-    const IS_ACTIVE = 'is_active';
-    const ID_ABSTRACT_PRODUCT = 'idAbstractProduct';
-    const IS_COMPLETE = 'is_complete';
-    const IS_SEARCHABLE = 'is_searchable';
+    const KEY_ATTRIBUTES = 'attributes';
+    const KEY_LOCALIZED_ATTRIBUTES = 'localizedAttributes';
+    const KEY_NAME = 'name';
+    const KEY_DESCRIPTION = 'description';
+    const KEY_IMAGE_SET_NAME = 'image_set_name';
+    const KEY_IMAGE_BIG = 'image_big';
+    const KEY_IMAGE_SMALL = 'image_small';
+    const KEY_LOCALES = 'locales';
+    const KEY_CONCRETE_SKU = 'concrete_sku';
+    const KEY_IS_ACTIVE = 'is_active';
+    const KEY_ABSTRACT_SKU = 'abstract_sku';
+    const KEY_IS_COMPLETE = 'is_complete';
+    const KEY_IS_SEARCHABLE = 'is_searchable';
+    const KEY_BUNDLES = 'bundled';
+
+    /**
+     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
+     */
+    protected $productRepository;
+
+    /**
+     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
+     * @param int|null $bulkSize
+     */
+    public function __construct(ProductRepository $productRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    {
+        parent::__construct($touchFacade, $bulkSize);
+
+        $this->productRepository = $productRepository;
+    }
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -48,8 +69,11 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
     {
         $productEntity = $this->importProduct($dataSet);
 
+        $this->productRepository->addProductConcrete($productEntity, $dataSet[static::KEY_ABSTRACT_SKU]);
+
         $this->importProductLocalizedAttributes($dataSet, $productEntity);
         $this->importProductImages($dataSet, $productEntity);
+        $this->importBundles($dataSet, $productEntity);
 
         $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_CONCRETE, $productEntity->getIdProduct());
     }
@@ -63,13 +87,15 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
     {
         $query = SpyProductQuery::create();
         $productEntity = $query
-            ->filterBySku($dataSet[static::CONCRETE_SKU])
+            ->filterBySku($dataSet[static::KEY_CONCRETE_SKU])
             ->findOneOrCreate();
 
+        $idAbstract = $this->productRepository->getIdAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
+
         $productEntity
-            ->setIsActive(isset($dataSet[static::IS_ACTIVE]) ? $dataSet[static::IS_ACTIVE] : true)
-            ->setFkProductAbstract($dataSet[static::ID_ABSTRACT_PRODUCT])
-            ->setAttributes(json_encode($dataSet[static::ATTRIBUTES]));
+            ->setIsActive(isset($dataSet[static::KEY_IS_ACTIVE]) ? $dataSet[static::KEY_IS_ACTIVE] : true)
+            ->setFkProductAbstract($idAbstract)
+            ->setAttributes(json_encode($dataSet[static::KEY_ATTRIBUTES]));
 
         $productEntity->save();
 
@@ -84,7 +110,7 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function importProductLocalizedAttributes(DataSetInterface $dataSet, SpyProduct $productEntity)
     {
-        foreach ($dataSet[static::LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
+        foreach ($dataSet[static::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
             $query = SpyProductLocalizedAttributesQuery::create();
             $productLocalizedAttributesEntity = $query
                 ->filterByFkProduct($productEntity->getIdProduct())
@@ -92,10 +118,10 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
                 ->findOneOrCreate();
 
             $productLocalizedAttributesEntity
-                ->setName($localizedAttributes[static::NAME])
-                ->setDescription($localizedAttributes[static::DESCRIPTION])
-                ->setIsComplete(isset($localizedAttributes[static::IS_COMPLETE]) ? $localizedAttributes[static::IS_COMPLETE] : true)
-                ->setAttributes(json_encode($localizedAttributes[static::ATTRIBUTES]));
+                ->setName($localizedAttributes[static::KEY_NAME])
+                ->setDescription($localizedAttributes[static::KEY_DESCRIPTION])
+                ->setIsComplete(isset($localizedAttributes[static::KEY_IS_COMPLETE]) ? $localizedAttributes[static::KEY_IS_COMPLETE] : true)
+                ->setAttributes(json_encode($localizedAttributes[static::KEY_ATTRIBUTES]));
 
             $productLocalizedAttributesEntity->save();
 
@@ -105,7 +131,7 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
 
-            $productSearchEntity->setIsSearchable($localizedAttributes[static::IS_SEARCHABLE]);
+            $productSearchEntity->setIsSearchable($localizedAttributes[static::KEY_IS_SEARCHABLE]);
             $productSearchEntity->save();
         }
     }
@@ -118,9 +144,9 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function importProductImages(DataSetInterface $dataSet, SpyProduct $productEntity)
     {
-        $imageSetName = (isset($dataSet[static::IMAGE_SET_NAME])) ? $dataSet[static::IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
+        $imageSetName = (isset($dataSet[static::KEY_IMAGE_SET_NAME])) ? $dataSet[static::KEY_IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
 
-        foreach ($dataSet[static::LOCALES] as $localeName => $idLocale) {
+        foreach ($dataSet[static::KEY_LOCALES] as $localeName => $idLocale) {
             $query = SpyProductImageSetQuery::create();
             $productImageSetEntity = $query
                 ->filterByFkProduct($productEntity->getIdProduct())
@@ -143,8 +169,8 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
 
             $productImageEntity = new SpyProductImage();
             $productImageEntity
-                ->setExternalUrlLarge($dataSet[static::IMAGE_BIG])
-                ->setExternalUrlSmall($dataSet[static::IMAGE_SMALL]);
+                ->setExternalUrlLarge($dataSet[static::KEY_IMAGE_BIG])
+                ->setExternalUrlSmall($dataSet[static::KEY_IMAGE_SMALL]);
 
             $productImageSetToProductImageEntity = new SpyProductImageSetToProductImage();
             $productImageSetToProductImageEntity
@@ -152,6 +178,33 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
                 ->setSpyProductImageSet($productImageSetEntity)
                 ->setSortOrder(0)
                 ->save();
+        }
+    }
+
+    /**
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
+     * @param \Orm\Zed\Product\Persistence\SpyProduct $productEntity
+     *
+     * @return void
+     */
+    protected function importBundles(DataSetInterface $dataSet, SpyProduct $productEntity)
+    {
+        if (!empty($dataSet[static::KEY_BUNDLES])) {
+            $bundleProducts = explode(',', $dataSet[static::KEY_BUNDLES]);
+            foreach ($bundleProducts as $bundleProduct) {
+                $bundleProduct = trim($bundleProduct);
+                list($sku, $quantity) = explode('/', $bundleProduct);
+                $idProduct = $this->productRepository->getIdProductByConcreteSku($sku);
+
+                $productBundleEntity = SpyProductBundleQuery::create()
+                    ->filterByFkProduct($productEntity->getIdProduct())
+                    ->filterByFkBundledProduct($idProduct)
+                    ->findOneOrCreate();
+
+                $productBundleEntity
+                    ->setQuantity($quantity)
+                    ->save();
+            }
         }
     }
 

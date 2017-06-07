@@ -11,22 +11,39 @@ use Orm\Zed\Availability\Persistence\SpyAvailabilityAbstractQuery;
 use Orm\Zed\Availability\Persistence\SpyAvailabilityQuery;
 use Orm\Zed\Stock\Persistence\SpyStockProductQuery;
 use Orm\Zed\Stock\Persistence\SpyStockQuery;
-use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ConcreteSkuToAbstractSkuStep;
-use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ConcreteSkuToIdProductStep;
+use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Zed\Availability\AvailabilityConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Stock\StockConfig;
 
 class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
-    const KEY_SKU = 'concreteSku';
     const KEY_NAME = 'name';
+    const KEY_CONCRETE_SKU = 'concrete_sku';
     const KEY_QUANTITY = 'quantity';
     const KEY_IS_NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
+
+    /**
+     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
+     */
+    protected $productRepository;
+
+    /**
+     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
+     * @param int|null $bulkSize
+     */
+    public function __construct(ProductRepository $productRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    {
+        parent::__construct($touchFacade, $bulkSize);
+
+        $this->productRepository = $productRepository;
+    }
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -35,8 +52,7 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyStockQuery::create();
-        $stockEntity = $query
+        $stockEntity = SpyStockQuery::create()
             ->filterByName($dataSet[static::KEY_NAME])
             ->findOneOrCreate();
 
@@ -44,9 +60,10 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
 
         $this->addMainTouchable(StockConfig::TOUCH_STOCK_TYPE, $stockEntity->getIdStock());
 
-        $query = SpyStockProductQuery::create();
-        $stockProductEntity = $query
-            ->filterByFkProduct($dataSet[ConcreteSkuToIdProductStep::KEY_TARGET])
+        $idProduct = $this->productRepository->getIdProductByConcreteSku($dataSet[static::KEY_CONCRETE_SKU]);
+
+        $stockProductEntity = SpyStockProductQuery::create()
+            ->filterByFkProduct($idProduct)
             ->filterByFkStock($stockEntity->getIdStock())
             ->findOneOrCreate();
 
@@ -58,9 +75,10 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
 
         $this->addSubTouchable(StockConfig::TOUCH_STOCK_PRODUCT, $stockProductEntity->getIdStockProduct());
 
-        $query = SpyAvailabilityAbstractQuery::create();
-        $availabilityAbstractEntity = $query
-            ->filterByAbstractSku($dataSet[ConcreteSkuToAbstractSkuStep::KEY_TARGET])
+        $productAbstractSku = $this->productRepository->getAbstractSkuByConcreteSku($dataSet[static::KEY_CONCRETE_SKU]);
+
+        $availabilityAbstractEntity = SpyAvailabilityAbstractQuery::create()
+            ->filterByAbstractSku($productAbstractSku)
             ->findOneOrCreate();
 
         $abstractQuantity = $dataSet[static::KEY_QUANTITY];
@@ -72,9 +90,8 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
             ->setQuantity($abstractQuantity)
             ->save();
 
-        $query = SpyAvailabilityQuery::create();
-        $availabilityEntity = $query
-            ->filterBySku($dataSet[static::KEY_SKU])
+        $availabilityEntity = SpyAvailabilityQuery::create()
+            ->filterBySku($dataSet[static::KEY_CONCRETE_SKU])
             ->filterByFkAvailabilityAbstract($availabilityAbstractEntity->getIdAvailabilityAbstract())
             ->findOneOrCreate();
 

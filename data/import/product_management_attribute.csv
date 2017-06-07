@@ -1,4 +1,4 @@
-key,input_type,allow_input,is_multiple,values,key.en_US,key.de_DE,values.en_US,values.de_DE
+key,input_type,allow_input,is_multiple,values,key_translation.en_US,key_translation.de_DE,value_translations.en_US,value_translations.de_DE
 storage_capacity,text,yes,no,"16 GB, 32 GB, 64 GB, 128 GB",Storage Capacity ,Speichergröße,,
 series,text,yes,no,"Jade Plus, Jade Z, Jade S, Ace Plus, Ace 3, Ace 2",Series,Serie,,
 width,text,yes,no,"4.2 cm, 3.6 cm, 4 cm",Width,Breite,,

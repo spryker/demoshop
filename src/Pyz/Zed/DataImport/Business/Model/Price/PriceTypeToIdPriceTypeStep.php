@@ -16,8 +16,8 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class PriceTypeToIdPriceTypeStep implements DataImportStepInterface
 {
 
-    const KEY_SOURCE = 'priceType';
-    const KEY_TARGET = 'idPriceType';
+    const KEY_SOURCE = 'price_type';
+    const KEY_TARGET = 'id_price_type';
 
     /**
      * @var string

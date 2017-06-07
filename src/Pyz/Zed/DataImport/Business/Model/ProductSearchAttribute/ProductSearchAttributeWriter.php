@@ -12,12 +12,17 @@ use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchAttributeQuery;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
+use Pyz\Zed\Glossary\GlossaryConfig;
 use Spryker\Shared\ProductSearch\Code\KeyBuilder\GlossaryKeyBuilderInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
-class ProductSearchAttributeWriter implements DataImportStepInterface
+class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportStepInterface
 {
+
+    const BULK_SIZE = 50;
 
     /**
      * @var \Spryker\Shared\ProductSearch\Code\KeyBuilder\GlossaryKeyBuilderInterface
@@ -26,9 +31,13 @@ class ProductSearchAttributeWriter implements DataImportStepInterface
 
     /**
      * @param \Spryker\Shared\ProductSearch\Code\KeyBuilder\GlossaryKeyBuilderInterface $glossaryKeyBuilder
+     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
+     * @param int|null $bulkSize
      */
-    public function __construct(GlossaryKeyBuilderInterface $glossaryKeyBuilder)
+    public function __construct(GlossaryKeyBuilderInterface $glossaryKeyBuilder, DataImportToTouchInterface $touchFacade, $bulkSize = null)
     {
+        parent::__construct($touchFacade, $bulkSize);
+
         $this->glossaryKeyBuilder = $glossaryKeyBuilder;
     }
 
@@ -67,6 +76,8 @@ class ProductSearchAttributeWriter implements DataImportStepInterface
 
             $glossaryTranslationEntity->setValue($localizedAttribute['key']);
             $glossaryTranslationEntity->save();
+
+            $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
         }
     }
 

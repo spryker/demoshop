@@ -18,7 +18,8 @@ use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImage;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Shared\Product\ProductConfig;
-use Spryker\Service\UtilText\UtilTextService;
+use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
+use Spryker\Service\UtilText\UtilTextServiceInterface;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
@@ -30,9 +31,6 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
 {
 
     const BULK_SIZE = 50;
-
-    const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
-    const TOUCH_ITEM_ID_KEY = 'touchItemId';
 
     const ABSTRACT_SKU = 'abstract_sku';
     const IS_FEATURED = 'is_featured';
@@ -53,19 +51,27 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     const LOCALES = 'locales';
 
     /**
+     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
+     */
+    protected $productRepository;
+
+    /**
      * @var \Spryker\Service\UtilText\UtilTextServiceInterface
      */
     protected $utilTextService;
 
     /**
+     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     * @param \Spryker\Service\UtilText\UtilTextServiceInterface $utilTextService
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
-     * @param null|int $bulkSize
+     * @param int|null $bulkSize
      */
-    public function __construct(DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    public function __construct(ProductRepository $productRepository, UtilTextServiceInterface $utilTextService, DataImportToTouchInterface $touchFacade, $bulkSize = null)
     {
         parent::__construct($touchFacade, $bulkSize);
 
-        $this->utilTextService = new UtilTextService();
+        $this->productRepository = $productRepository;
+        $this->utilTextService = $utilTextService;
     }
 
     /**
@@ -77,12 +83,15 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     {
         $productAbstractEntity = $this->importProductAbstract($dataSet);
 
+        $this->productRepository->addProductAbstract($productAbstractEntity);
+
         $this->importProductAbstractLocalizedAttributes($dataSet, $productAbstractEntity);
         $this->importProductCategories($dataSet, $productAbstractEntity);
         $this->importProductAbstractImages($dataSet, $productAbstractEntity);
         $this->importProductUrls($productAbstractEntity);
 
         $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstractEntity->getIdProductAbstract());
+        $this->addSubTouchable(ProductConfig::RESOURCE_TYPE_ATTRIBUTE_MAP, $productAbstractEntity->getIdProductAbstract());
     }
 
     /**

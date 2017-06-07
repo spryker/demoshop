@@ -8,18 +8,21 @@
 namespace Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute;
 
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
+use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeQuery;
-use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValue;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueQuery;
 use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueTranslation;
-use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
+use Pyz\Zed\Glossary\GlossaryConfig;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class ProductManagementAttributeWriter implements DataImportStepInterface
+class ProductManagementAttributeWriter extends TouchAwareStep implements DataImportStepInterface
 {
+
+    const BULK_SIZE = 50;
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -37,11 +40,6 @@ class ProductManagementAttributeWriter implements DataImportStepInterface
             ->setInputType($dataSet['input_type']);
 
         $productManagementAttributeEntity->save();
-
-        $callback = function ($value) {
-            return trim($value);
-        };
-        $values = array_map($callback, explode(',', $dataSet['values']));
 
         $productManagementAttributeValueEntityCollection = SpyProductManagementAttributeValueQuery::create()
             ->findByFkProductManagementAttribute($productManagementAttributeEntity->getIdProductManagementAttribute());
@@ -61,28 +59,46 @@ class ProductManagementAttributeWriter implements DataImportStepInterface
 
         $glossaryKeyEntity->save();
 
-        foreach ($values as $index => $value) {
-            $productManagementAttributeValueEntity = new SpyProductManagementAttributeValue();
-            $productManagementAttributeValueEntity
-                ->setSpyProductManagementAttribute($productManagementAttributeEntity)
-                ->setValue($value)
+        foreach ($dataSet[ProductManagementLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $attributes) {
+            $glossaryTranslationEntity = SpyGlossaryTranslationQuery::create()
+                ->filterByFkGlossaryKey($glossaryKeyEntity->getIdGlossaryKey())
+                ->filterByFkLocale($idLocale)
+                ->findOneOrCreate();
+
+            $glossaryTranslationEntity
+                ->setValue($attributes['key_translation'])
                 ->save();
 
-            foreach ($dataSet['locales'] as $localeName => $idLocale) {
-                $attributeValueTranslations = $dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES][$idLocale]['values'];
-                if (!empty($attributeValueTranslations)) {
-                    $attributeValueTranslations = array_map($callback, explode(',', $attributeValueTranslations));
+            $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
+
+            if (!empty($attributes['value_translations'])) {
+                foreach ($attributes['value_translations'] as $value => $translation) {
+                    $productManagementAttributeValueEntity = SpyProductManagementAttributeValueQuery::create()
+                        ->filterBySpyProductManagementAttribute($productManagementAttributeEntity)
+                        ->filterByValue($value)
+                        ->findOneOrCreate();
+
+                    $productManagementAttributeValueEntity->save();
 
                     $productManagementAttributeValueTranslationEntity = new SpyProductManagementAttributeValueTranslation();
                     $productManagementAttributeValueTranslationEntity
                         ->setSpyProductManagementAttributeValue($productManagementAttributeValueEntity)
-                        ->setTranslation($attributeValueTranslations[$index])
+                        ->setTranslation($translation)
                         ->setFkLocale($idLocale)
                         ->save();
                 }
+
+                continue;
             }
 
-            $productManagementAttributeValueEntity->save();
+            foreach ($attributes['values'] as $value) {
+                $productManagementAttributeValueEntity = SpyProductManagementAttributeValueQuery::create()
+                    ->filterBySpyProductManagementAttribute($productManagementAttributeEntity)
+                    ->filterByValue($value)
+                    ->findOneOrCreate();
+
+                $productManagementAttributeValueEntity->save();
+            }
         }
     }
 

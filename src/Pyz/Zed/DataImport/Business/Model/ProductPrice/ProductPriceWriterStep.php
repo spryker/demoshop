@@ -8,6 +8,8 @@
 namespace Pyz\Zed\DataImport\Business\Model\ProductPrice;
 
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
+use Pyz\Zed\DataImport\Business\Model\Price\PriceTypeToIdPriceTypeStep;
+use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -16,6 +18,23 @@ class ProductPriceWriterStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
+
+    const KEY_ABSTRACT_SKU = 'abstract_sku';
+    const KEY_CONCRETE_SKU = 'concrete_sku';
+    const KEY_PRICE = 'price';
+
+    /**
+     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
+     */
+    protected $productRepository;
+
+    /**
+     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     */
+    public function __construct(ProductRepository $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -27,24 +46,28 @@ class ProductPriceWriterStep implements DataImportStepInterface
     public function execute(DataSetInterface $dataSet)
     {
         $query = SpyPriceProductQuery::create();
-        $query->filterByFkPriceType($dataSet['idPriceType']);
+        $query->filterByFkPriceType($dataSet[PriceTypeToIdPriceTypeStep::KEY_TARGET]);
 
-        if (empty($dataSet['idAbstractProduct']) && empty($dataSet['idProduct'])) {
+        if (empty($dataSet[static::KEY_ABSTRACT_SKU]) && empty($dataSet[static::KEY_CONCRETE_SKU])) {
             throw new DataKeyNotFoundInDataSetException(sprintf(
-                'One of "idProduct" or "idAbstractProduct" must be in the data set. Given: "%s"',
+                'One of "%s" or "%s" must be in the data set. Given: "%s"',
+                static::KEY_ABSTRACT_SKU,
+                static::KEY_CONCRETE_SKU,
                 implode(', ', array_keys($dataSet->getArrayCopy()))
             ));
         }
 
-        if (!empty($dataSet['idAbstractProduct'])) {
-            $query->filterByFkProductAbstract($dataSet['idAbstractProduct']);
+        if (!empty($dataSet[static::KEY_ABSTRACT_SKU])) {
+            $idProductAbstract = $this->productRepository->getIdAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
+            $query->filterByFkProductAbstract($idProductAbstract);
         }
-        if (!empty($dataSet['idProduct'])) {
-            $query->filterByFkProduct($dataSet['idProduct']);
+        if (!empty($dataSet[static::KEY_CONCRETE_SKU])) {
+            $idProduct = $this->productRepository->getIdProductByConcreteSku($dataSet[static::KEY_CONCRETE_SKU]);
+            $query->filterByFkProduct($idProduct);
         }
 
         $productPrice = $query->findOneOrCreate();
-        $productPrice->setPrice((int)$dataSet['price']);
+        $productPrice->setPrice((int)$dataSet[static::KEY_PRICE]);
         $productPrice->save();
     }
 

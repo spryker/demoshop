@@ -9,11 +9,12 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductGroup;
 
 use Orm\Zed\ProductGroup\Persistence\SpyProductAbstractGroupQuery;
 use Orm\Zed\ProductGroup\Persistence\SpyProductGroupQuery;
-use Pyz\Zed\DataImport\Business\Model\ProductAbstract\AbstractSkuToIdAbstractProductStep;
+use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Shared\ProductGroup\ProductGroupConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
+use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductGroupWriter extends TouchAwareStep implements DataImportStepInterface
 {
@@ -25,14 +26,30 @@ class ProductGroupWriter extends TouchAwareStep implements DataImportStepInterfa
     const KEY_POSITION = 'position';
 
     /**
+     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
+     */
+    protected $productRepository;
+
+    /**
+     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
+     * @param int|null $bulkSize
+     */
+    public function __construct(ProductRepository $productRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    {
+        parent::__construct($touchFacade, $bulkSize);
+
+        $this->productRepository = $productRepository;
+    }
+
+    /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
      * @return void
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyProductGroupQuery::create();
-        $productGroupEntity = $query
+        $productGroupEntity = SpyProductGroupQuery::create()
             ->filterByProductGroupKey($dataSet[static::KEY_PRODUCT_GROUP_KEY])
             ->findOneOrCreate();
 
@@ -40,15 +57,16 @@ class ProductGroupWriter extends TouchAwareStep implements DataImportStepInterfa
 
         $this->addMainTouchable(ProductGroupConfig::RESOURCE_TYPE_PRODUCT_GROUP, $productGroupEntity->getIdProductGroup());
 
-        $query = SpyProductAbstractGroupQuery::create();
-        $productAbstractGroup = $query
-            ->filterByFkProductAbstract($dataSet[AbstractSkuToIdAbstractProductStep::KEY_TARGET])
+        $idProductAbstract = $this->productRepository->getIdAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
+
+        $productAbstractGroup = SpyProductAbstractGroupQuery::create()
+            ->filterByFkProductAbstract($idProductAbstract)
             ->filterByFkProductGroup($productGroupEntity->getIdProductGroup())
             ->findOneOrCreate();
 
-        $productAbstractGroup->setPosition($dataSet[static::KEY_POSITION]);
-
-        $productAbstractGroup->save();
+        $productAbstractGroup
+            ->setPosition($dataSet[static::KEY_POSITION])
+            ->save();
 
         $this->addSubTouchable(ProductGroupConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_GROUPS, $productAbstractGroup->getFkProductAbstract());
     }

@@ -1,4 +1,4 @@
-abstractSku,concreteSku,priceType,price
+abstract_sku,concrete_sku,price_type,price
 001,,DEFAULT,9999
 002,,DEFAULT,9999
 003,,DEFAULT,6500

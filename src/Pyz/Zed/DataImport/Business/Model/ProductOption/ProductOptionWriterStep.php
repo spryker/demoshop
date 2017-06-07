@@ -80,7 +80,7 @@ class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepIn
                     ->findOneOrCreate()
                     ->save();
 
-                $this->addMainTouchable(ProductOptionConfig::RESOURCE_TYPE_PRODUCT_OPTION, $idProductAbstract);
+                $this->addSubTouchable(ProductOptionConfig::RESOURCE_TYPE_PRODUCT_OPTION, $idProductAbstract);
             }
         }
 
@@ -129,7 +129,7 @@ class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepIn
             ->setValue($translation)
             ->save();
 
-        $this->addSubTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
+        $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
     }
 
 }

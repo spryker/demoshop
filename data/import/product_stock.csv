@@ -1,4 +1,4 @@
-concreteSku,name,quantity,is_never_out_of_stock
+concrete_sku,name,quantity,is_never_out_of_stock
 001_25904006,Warehouse1,10,0
 002_25904004,Warehouse1,0,1
 003_26138343,Warehouse1,10,0

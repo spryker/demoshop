@@ -36,7 +36,7 @@ class LocalizedAttributesExtractorStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $localizedPlaceholder = [];
+        $localizedAttributes = [];
         foreach ($dataSet[AddLocalesStep::KEY_LOCALES] as $localeName => $idLocale) {
             $attributes = [];
 
@@ -44,10 +44,10 @@ class LocalizedAttributesExtractorStep implements DataImportStepInterface
                 $attributes[$attributeName] = $dataSet[$attributeName . '.' . $localeName];
             }
 
-            $localizedPlaceholder[$idLocale] = $attributes;
+            $localizedAttributes[$idLocale] = $attributes;
         }
 
-        $dataSet[self::KEY_LOCALIZED_ATTRIBUTES] = $localizedPlaceholder;
+        $dataSet[static::KEY_LOCALIZED_ATTRIBUTES] = $localizedAttributes;
     }
 
 }

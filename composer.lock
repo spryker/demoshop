@@ -1645,50 +1645,69 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "ea82a49283255b6cc85bd3f4d9bae555d8aee89b"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "93c1d5f3b441a94e25208bd2e632c34aaf4567aa"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "e7f2398737cfc544be8e3fb40563bdcfae0caff5"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "29e126fcd24752ce3a2a7a87379eb4fb0d839052"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "c9f3229553119c2f832714296869b399893827e6"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
                 "reference": "094b35934fa9184529ba398ca38c268cd60b9731"
 =======
@@ -2085,15 +2104,45 @@
                 "reference": "f588e8f7936cc1c1c23cd85d86d1403c9086046c"
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "1e0e68cd70569e43bad7bc26386b355296b72d24"
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2281,50 +2330,69 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-07-18 10:17:22"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-07-12 15:07:34"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-07-11 16:21:14"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-07-11 12:31:33"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-07-03 12:18:51"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-07-03 09:27:02"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-06-29 12:15:48"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-06-29 10:28:24"
 =======
 =======
 >>>>>>> core-1251 update composer
+=======
+>>>>>>> core-1251 updated Importer
 <<<<<<< HEAD
             "time": "2017-06-28 11:41:05"
 =======
@@ -2721,15 +2789,45 @@
             "time": "2017-06-06 10:16:45"
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+<<<<<<< HEAD
 >>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-06-07 06:04:54"
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
+>>>>>>> core-1251 updated Importer
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -58,7 +58,7 @@ class TaxWriterStep implements DataImportStepInterface
     {
         $taxRateEntity = $this->findOrCreateTaxRate($dataSet);
 
-        if (!isset($dataSet[static::KEY_TAX_SET_NAME])) {
+        if (empty($dataSet[static::KEY_TAX_SET_NAME])) {
             return;
         }
 

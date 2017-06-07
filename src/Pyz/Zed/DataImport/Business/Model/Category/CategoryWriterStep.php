@@ -70,8 +70,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      */
     protected function createCategory(DataSetInterface $dataSet)
     {
-        $query = SpyCategoryQuery::create();
-        $categoryEntity = $query
+        $categoryEntity = SpyCategoryQuery::create()
             ->filterByCategoryKey($dataSet[self::DATA_SET_KEY_CATEGORY_KEY])
             ->findOneOrCreate();
 
@@ -92,8 +91,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
     {
         $localizedAttributeCollection = $dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES];
         foreach ($localizedAttributeCollection as $idLocale => $localizedAttributes) {
-            $query = SpyCategoryAttributeQuery::create();
-            $categoryAttributeEntity = $query
+            $categoryAttributeEntity = SpyCategoryAttributeQuery::create()
                 ->filterByCategory($categoryEntity)
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
@@ -111,8 +109,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      */
     protected function addNode(SpyCategory $categoryEntity, DataSetInterface $dataSet)
     {
-        $query = SpyCategoryNodeQuery::create();
-        $categoryNodeEntity = $query
+        $categoryNodeEntity = SpyCategoryNodeQuery::create()
             ->filterByCategory($categoryEntity)
             ->findOneOrCreate();
 
@@ -125,6 +122,10 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
         $categoryNodeEntity->save();
 
         $this->addMainTouchable(CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE, $categoryNodeEntity->getIdCategoryNode());
+
+        if ($categoryNodeEntity->getIsRoot()) {
+            $this->addSubTouchable(CategoryConfig::RESOURCE_TYPE_NAVIGATION, $categoryNodeEntity->getIdCategoryNode());
+        }
 
         foreach ($categoryEntity->getAttributes() as $categoryAttributesEntity) {
             $idLocale = $categoryAttributesEntity->getFkLocale();
@@ -146,14 +147,14 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
             $urlPathParts = array_map($callback, $urlPathParts);
             $url = '/' . implode('/', $urlPathParts);
 
-            $query = SpyUrlQuery::create();
-            $urlEntity = $query
+            $urlEntity = SpyUrlQuery::create()
                 ->filterByFkLocale($idLocale)
                 ->filterByFkResourceCategorynode($categoryNodeEntity->getIdCategoryNode())
                 ->findOneOrCreate();
 
-            $urlEntity->setUrl($url);
-            $urlEntity->save();
+            $urlEntity
+                ->setUrl($url)
+                ->save();
 
             $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
         }
