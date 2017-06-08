@@ -24,7 +24,7 @@ class ProductSetControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createController('/{sets}', self::ROUTE_PRODUCT_SETS, 'ProductSet', 'Catalog', 'index')
+        $this->createController('/{sets}', self::ROUTE_PRODUCT_SETS, 'ProductSet', 'List', 'index')
             ->assert('sets', $allowedLocalesPattern . 'product-sets|product-sets')
             ->value('sets', 'product-sets');
     }

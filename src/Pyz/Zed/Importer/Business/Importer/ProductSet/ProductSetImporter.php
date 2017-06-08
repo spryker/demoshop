@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\ProductSet;
 
-use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedProductSetTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
 use Generated\Shared\Transfer\ProductImageTransfer;
@@ -175,7 +174,7 @@ class ProductSetImporter extends AbstractImporter
     }
 
     /**
-     * @return LocaleTransfer[]
+     * @return \Generated\Shared\Transfer\LocaleTransfer[]
      */
     protected function getAvailableLocales()
     {

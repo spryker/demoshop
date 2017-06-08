@@ -6,14 +6,11 @@
 'use strict';
 
 module.exports = {
-    name: 'product-set-form',
+    name: 'product-variants',
     view: {
         init: function($root) {
             this.$root = $root;
 
-            $('.js-add-to-cart', $root).on('click', this.onAddToCartClick.bind(this));
-
-            // TODO: move this to product-variant component and refactor current PDP solution as well
             $('.js-reset-variant-attribute', $root).on('click', this.onResetVariantAttributeClick.bind(this));
         },
 
@@ -26,12 +23,6 @@ module.exports = {
 
             $input.val('');
             $form.submit();
-        },
-
-        onAddToCartClick: function(e) {
-            var $target = $(e.currentTarget);
-
-            $target.addClass('disabled');
         }
     }
 };

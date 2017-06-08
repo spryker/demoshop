@@ -9,9 +9,7 @@ namespace Pyz\Yves\ProductSet\ResourceCreator;
 
 use Generated\Shared\Transfer\ProductSetStorageTransfer;
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
-use Pyz\Yves\Product\Mapper\StorageImageMapperInterface;
-use Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface;
-use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
+use Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface;
 use Pyz\Yves\ProductSet\Controller\DetailController;
 use Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapperInterface;
 use Silex\Application;
@@ -33,40 +31,23 @@ class ProductSetResourceCreator extends AbstractResourceCreator
     protected $productClient;
 
     /**
-     * @var \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
+     * @var \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
-    protected $storageProductMapper;
-
-    /**
-     * @var \Pyz\Yves\Product\Mapper\StorageImageMapperInterface
-     */
-    protected $storageImageMapper;
-
-    /**
-     * @var \Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface
-     */
-    protected $storageProductAvailabilityMapper;
+    protected $storageProductMapperPlugin;
 
     /**
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
      * @param \Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapperInterface $productSetStorageMapper
-     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
-     * @param \Pyz\Yves\Product\Mapper\StorageImageMapperInterface $storageImageMapper
-     * @param \Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface $storageProductAvailabilityMapper
-     * FIXME: remove cross bundle dependencies
+     * @param \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface $storageProductMapperPlugin
      */
     public function __construct(
         ProductClientInterface $productClient,
         ProductSetStorageMapperInterface $productSetStorageMapper,
-        StorageProductMapperInterface $storageProductMapper,
-        StorageImageMapperInterface $storageImageMapper,
-        StorageProductAvailabilityMapperInterface $storageProductAvailabilityMapper
+        StorageProductMapperPluginInterface $storageProductMapperPlugin
     ) {
-        $this->productClient = $productClient;
         $this->productSetStorageMapper = $productSetStorageMapper;
-        $this->storageProductMapper = $storageProductMapper;
-        $this->storageImageMapper = $storageImageMapper;
-        $this->storageProductAvailabilityMapper = $storageProductAvailabilityMapper;
+        $this->productClient = $productClient;
+        $this->storageProductMapperPlugin = $storageProductMapperPlugin;
     }
 
     /**
@@ -108,16 +89,14 @@ class ProductSetResourceCreator extends AbstractResourceCreator
      */
     protected function mapStorageProducts(Application $application, ProductSetStorageTransfer $productSetStorageTransfer)
     {
-        // TODO: this logic should come from product client?
         $storageProductTransfers = [];
         foreach ($productSetStorageTransfer->getIdProductAbstracts() as $idProductAbstract) {
             $productAbstractData = $this->productClient->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract);
 
-            $storageProductTransfer = $this->storageProductMapper->mapStorageProduct($productAbstractData, $this->getSelectedAttributes($application, $idProductAbstract));
-            $storageProductTransfer = $this->storageImageMapper->mapProductImages($storageProductTransfer);
-            $storageProductTransfer = $this->storageProductAvailabilityMapper->mapAvailability($storageProductTransfer);
-
-            $storageProductTransfers[] = $storageProductTransfer;
+            $storageProductTransfers[] = $this->storageProductMapperPlugin->mapStorageProduct(
+                $productAbstractData,
+                $this->getSelectedAttributes($application, $idProductAbstract)
+            );
         }
 
         return $storageProductTransfers;

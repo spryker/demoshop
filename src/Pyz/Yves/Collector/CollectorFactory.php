@@ -9,14 +9,6 @@ namespace Pyz\Yves\Collector;
 
 use Pyz\Yves\Collector\Mapper\ParameterMerger;
 use Pyz\Yves\Collector\Mapper\UrlMapper;
-use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
-use Pyz\Yves\Product\Mapper\StorageImageMapper;
-use Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapper;
-use Pyz\Yves\Product\Mapper\StorageProductMapper;
-use Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapper;
-use Pyz\Yves\ProductSet\ResourceCreator\ProductSetResourceCreator;
-use Spryker\Client\Availability\AvailabilityClient;
-use Spryker\Client\Product\ProductClient;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CollectorFactory extends AbstractFactory
@@ -103,18 +95,11 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return ProductSetResourceCreator
+     * @return \Pyz\Yves\ProductSet\ResourceCreator\ProductSetResourceCreator
      */
     protected function createProductSetResourceCreator()
     {
-        // TODO: get from dependency provider
-        return new ProductSetResourceCreator(
-            new ProductClient(),
-            new ProductSetStorageMapper(),
-            new StorageProductMapper(new AttributeVariantMapper(new ProductClient())),
-            new StorageImageMapper(),
-            new StorageProductAvailabilityMapper(new AvailabilityClient())
-        );
+        return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_SET_RESOURCE_CREATOR);
     }
 
 }

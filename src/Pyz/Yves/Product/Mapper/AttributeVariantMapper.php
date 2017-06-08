@@ -10,7 +10,6 @@ namespace Pyz\Yves\Product\Mapper;
 use Generated\Shared\Transfer\StorageAttributeMapTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Client\Product\ProductClientInterface;
-use Spryker\Shared\Config\Config;
 use Spryker\Shared\Product\ProductConfig;
 
 class AttributeVariantMapper implements AttributeVariantMapperInterface

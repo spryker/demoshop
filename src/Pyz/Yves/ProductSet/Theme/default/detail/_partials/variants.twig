@@ -1,36 +1,9 @@
-{# TODO: merge this template with @Product/product/partials/variants.twig somehow #}
 {% if product.superAttributes|length > 0 %}
     <p>
         {% for attributeName,attributes in product.superAttributes %}
-            <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}: </strong>
-
-                {% if product.selectedAttributes[attributeName] is defined and product.selectedAttributes[attributeName] %}
-                    {{ product.selectedAttributes[attributeName] }}
-
-                    <a class="js-reset-variant-attribute">{{ 'reset' | trans }}</a>
-
-                    <input name="attribute[{{ product.idProductAbstract }}][{{ attributeName }}]" value="{{ product.selectedAttributes[attributeName] }}" type="hidden" class="js-variant-attribute-field" />
-                {% else %}
-
-                    {% if attributeName in product.availableAttributes|keys %}
-                        {% set attributes = product.availableAttributes[attributeName] %}
-                    {% endif %}
-
-                    {% if product.availableAttributes[attributeName] is not defined and product.selectedAttributes|length > 0 %}
-                        {{ 'product.attribute.not_available' | trans }}
-                    {% else %}
-                        <select name="attribute[{{ product.idProductAbstract }}][{{ attributeName }}]" onchange="this.form.submit()">
-                            <option value="">{{ 'product.attribute._none' | trans }}</option>
-
-                            {% for attribute in attributes %}
-                                <option value="{{ attribute }}">
-                                    {{ attribute }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
-                {% endif %}
-            </label>
+            {% include '@Product/product/partials/variant.twig' with {
+                attributeFieldName: 'attribute[' ~ product.idProductAbstract ~ '][' ~ attributeName ~ ']'
+            } %}
         {% endfor %}
     </p>
 {% endif %}

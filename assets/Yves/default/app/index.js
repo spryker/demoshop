@@ -26,6 +26,7 @@ $(function(){
         require('./components/carousel'),
         require('./components/add-to-wishlist'),
         require('./components/product-group'),
-        require('./components/product-set-form')
+        require('./components/disable-on-click'),
+        require('./components/product-variants')
     ]);
 });

@@ -15,7 +15,7 @@ interface StorageProductAvailabilityMapperInterface
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
-     * @return \Generated\Shared\Transfer\StorageAvailabilityTransfer|\Generated\Shared\Transfer\StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function mapAvailability(StorageProductTransfer $storageProductTransfer);
 
