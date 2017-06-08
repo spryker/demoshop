@@ -433,8 +433,8 @@ customer.order.item_price,Preis,de_DE
 customer.order.item_price,Price,en_US
 customer.order.item_quantity,Anzahl,de_DE
 customer.order.item_quantity,Quantity,en_US
-customer.order.item_sum,Summe,de_DE
-customer.order.item_sum,"Grand Total",en_US
+customer.order.item_sum,"Item total",de_DE
+customer.order.item_sum,"Item total",en_US
 customer.order.subTotal,Zwischensumme,de_DE
 customer.order.subTotal,Subtotal,en_US
 customer.order.shipment,Versand,de_DE
@@ -929,3 +929,5 @@ dummyPaymentInvoice.date_of_birth,Date of Birth,en_US
 dummyPaymentInvoice.date_of_birth,Geburtsdatum,de_DE
 cart.item.item_total,"Item total",en_US
 cart.item.item_total,"Item total",de_DE
+cart.shipping,"Shipping",en_US
+cart.shipping,"Versand",de_DE
