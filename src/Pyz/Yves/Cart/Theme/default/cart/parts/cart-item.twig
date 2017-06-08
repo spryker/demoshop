@@ -66,13 +66,36 @@
                                         {{ attributeName }}:
                                     </p>
                                     <p class="small-12 medium-8 large-12 columns">
-                                        <select name="attributes[{{ attributeName }}]">
-                                            {% for option, selected in attributeOptions %}
-                                                <option  value="{{ option }}" {% if selected %}selected{% endif %}>
-                                                    {{ option }}
+                                        {#{% if  selectedAttributes %}#}
+                                            {#<select name="selectedAttributes[{{ attributeName }}]">#}
+                                                {#{{ dump(attributeOptions) }}#}
+                                                {#{% if attributeOptions is iterable %}#}
+                                                    {#{% for option in attributeOptions %}#}
+                                                        {#<option  value="{{ option }}" {% if attributeOptions|length== 1 %}selected{% endif %}>#}
+                                                            {#{{ option }}#}
+                                                        {#</option>#}
+                                                    {#{% endfor %}#}
+                                                {#{% else %}#}
+                                                    {#<option  value="{{ attributeOptions }}" selected>#}
+                                                        {#{{ attributeOptions }}#}
+                                                    {#</option>#}
+                                                {#{% endif %}#}
+                                            {#</select>#}
+                                        {#{% else %}#}
+                                        <select name="selectedAttributes[{{ attributeName }}]">
+                                            {% if attributeOptions is iterable %}
+                                                {% for option, selected in attributeOptions %}
+                                                    <option  value="{{ option }}" {% if selected %}selected{% endif %}>
+                                                        {{ option }}
+                                                    </option>
+                                                {% endfor %}
+                                            {% else %}
+                                                <option  value="{{ attributeOptions }}" selected>
+                                                    {{ attributeOptions }}
                                                 </option>
-                                            {% endfor %}
+                                            {% endif %}
                                         </select>
+                                        {#{% endif %}#}
                                     </p>
                                 {% endfor %}
                             </div>

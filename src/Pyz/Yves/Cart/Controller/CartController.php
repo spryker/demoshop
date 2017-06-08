@@ -20,7 +20,7 @@ class CartController extends AbstractController
     /**
      * @return array
      */
-    public function indexAction()
+    public function indexAction($itemAttributes = null)
     {
         $quoteTransfer = $this->getClient()
             ->getQuote();
@@ -36,14 +36,19 @@ class CartController extends AbstractController
             ->getCheckoutBreadcrumbPlugin()
             ->generateStepBreadcrumbs($quoteTransfer);
 
-        $attributes = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
+        //remove selected attributes for sku that was changes
 
-        //narrow down the products based on selection
+        $availableAttributesForAllItemsBySku = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
+
+        if ($itemAttributes) {
+            unset($availableAttributesForAllItemsBySku[key($itemAttributes)]);
+            $availableAttributesForAllItemsBySku = array_merge_recursive($itemAttributes, $availableAttributesForAllItemsBySku);
+        }
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
-            'attributes' => $attributes,
+            'attributes' => $availableAttributesForAllItemsBySku,
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
         ]);
@@ -106,27 +111,44 @@ class CartController extends AbstractController
      */
     public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null)
     {
+
+        unset($selectedAttributes['processor_frequency']);
+
         $quoteTransfer = $this->getClient()->getQuote();
         $cartOperationHandler = $this->getCartOperationHandler();
 
+        //find out if we have a concrete product
         $storageProductTransfer = $cartOperationHandler->mapSelectedAttributesToStorageProduct($sku, $selectedAttributes, $quoteTransfer);
 
-        if ($storageProductTransfer->getIsVariant() === true) {
-
-            $cartItem = $cartOperationHandler->findItemInCartBySku($sku, $quoteTransfer);
-            $productOptions = $cartItem->getProductOptions(); //we must not lose the options
-            $cartOperationHandler->remove($sku, $groupKey);  //removing the existing items
-
-            $sku = $storageProductTransfer->getSku();
-            $cartOperationHandler->add($sku, $quantity, array_keys($productOptions->getArrayCopy()));
-            return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
-
-        }
+//        if ($storageProductTransfer->getIsVariant() === true) {
+//
+//            $cartItem = $cartOperationHandler->findItemInCartBySku($sku, $quoteTransfer);
+//            $productOptions = $cartItem->getProductOptions(); //we must not lose the options
+//            $cartOperationHandler->remove($sku, $groupKey);  //removing the existing items
+//
+//            $sku = $storageProductTransfer->getSku();
+//            $cartOperationHandler->add($sku, $quantity, array_keys($productOptions->getArrayCopy()));
+//            return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+//
+//        }
 
         $cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
-        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+        $shit2 = [];
+
+        foreach ($storageProductTransfer->getAvailableAttributes() as $key => $attributes) {
+            $shit2[$key] = array_map(function ($a) { return false; }, array_flip($attributes));
+        }
+
+        $shit = array_merge($shit2, (array)$selectedAttributes);
+
+        return $this->redirectResponseInternal(
+            CartControllerProvider::ROUTE_CART,
+            [
+                'availableAttributes' => [$sku => ['attributes' => $shit]]
+            ]
+        );
     }
 
     /**

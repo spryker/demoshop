@@ -37,7 +37,8 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
         $controller = $this->createController('/{cart}', self::ROUTE_CART, 'Cart', 'Cart');
         $controller->assert('cart', $allowedLocalesPattern . 'cart|cart');
-        $controller->value('cart', 'cart');
+        $controller->value('cart', 'cart')
+            ->convert('itemAttributes', [$this, 'getAvailableAttributesFromRequest']);
 
         $this->createController('/{cart}/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
@@ -66,7 +67,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->assert('sku', self::SKU_PATTERN)
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->convert('groupKey', [$this, 'getGroupKeyFromRequest'])
-            ->convert('selectedAttributes', [$this, 'getProductVariantsFromRequest'])
+            ->convert('selectedAttributes', [$this, 'getSelectedAttributesFromRequest'])
             ->method('POST');
 
         $this->createController('/{cart}/voucher/add', self::ROUTE_CART_VOUCHER_ADD, 'Cart', 'Voucher', 'add')
@@ -103,13 +104,28 @@ class CartControllerProvider extends AbstractYvesControllerProvider
      *
      * @return int
      */
-    public function getProductVariantsFromRequest($unusedParameter, Request $request)
+    public function getSelectedAttributesFromRequest($unusedParameter, Request $request)
     {
         if ($request->isMethod('POST')) {
-            return $request->request->get('attributes', []);
+            return $request->request->get('selectedAttributes', []);
         }
 
-        return $request->query->get('attributes', []);
+        return $request->query->get('selectedAttributes', []);
+    }
+
+    /**
+     * @param mixed $unusedParameter
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return int
+     */
+    public function getAvailableAttributesFromRequest($unusedParameter, Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            return $request->request->get('availableAttributes', []);
+        }
+
+        return $request->query->get('availableAttributes', []);
     }
 
     /**
