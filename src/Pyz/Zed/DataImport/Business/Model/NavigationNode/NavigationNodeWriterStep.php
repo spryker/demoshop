@@ -23,27 +23,24 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const DATA_SET_KEY_NAVIGATION_KEY = 'navigation_key';
-    const DATA_SET_KEY_NODE_KEY = 'node_key';
-    const DATA_SET_KEY_PARENT_NODE_KEY = 'parent_node_key';
-    const DATA_SET_KEY_POSITION = 'position';
-    const DATA_SET_KEY_NODE_TYPE = 'node_type';
-    const DATA_SET_KEY_TITLE = 'title';
-    const DATA_SET_KEY_URL = 'url';
-    const DATA_SET_KEY_CSS_CLASS = 'css_class';
+    const BULK_SIZE = 50;
 
     const DEFAULT_IS_ACTIVE = true;
 
-    const BULK_SIZE = 50;
-
-    const TOUCH_ITEM_TYPE_KEY = 'touchItemType';
-    const TOUCH_ITEM_ID_KEY = 'touchItemId';
+    const KEY_NAVIGATION_KEY = 'navigation_key';
+    const KEY_NODE_KEY = 'node_key';
+    const KEY_PARENT_NODE_KEY = 'parent_node_key';
+    const KEY_POSITION = 'position';
+    const KEY_NODE_TYPE = 'node_type';
+    const KEY_TITLE = 'title';
+    const KEY_URL = 'url';
+    const KEY_IS_ACTIVE = 'is_active';
+    const KEY_CSS_CLASS = 'css_class';
 
     const NODE_TYPE_LINK = 'link';
     const NODE_TYPE_EXTERNAL_URL = 'external_url';
     const NODE_TYPE_CATEGORY = 'category';
     const NODE_TYPE_CMS_PAGE = 'cms_page';
-    const DATA_SET_KEY_IS_ACTIVE = 'is_active';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -52,25 +49,24 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyNavigationNodeQuery::create();
-        $navigationNodeEntity = $query
+        $navigationNodeEntity = SpyNavigationNodeQuery::create()
             ->filterByFkNavigation($dataSet[NavigationKeyToIdNavigationStep::KEY_TARGET])
-            ->filterByNodeKey($dataSet[static::DATA_SET_KEY_NODE_KEY])
+            ->filterByNodeKey($dataSet[static::KEY_NODE_KEY])
             ->findOneOrCreate();
 
-        $navigationNodeEntity->setPosition($this->getPosition($navigationNodeEntity, $dataSet));
-        $navigationNodeEntity->setIsActive($this->getIsActive($navigationNodeEntity, $dataSet));
-        $navigationNodeEntity->setNodeType($this->getNodeType($navigationNodeEntity, $dataSet));
+        $navigationNodeEntity
+            ->setPosition($this->getPosition($navigationNodeEntity, $dataSet))
+            ->setIsActive($this->getIsActive($navigationNodeEntity, $dataSet))
+            ->setNodeType($this->getNodeType($navigationNodeEntity, $dataSet));
 
-        if (!empty($dataSet[static::DATA_SET_KEY_PARENT_NODE_KEY])) {
+        if (!empty($dataSet[static::KEY_PARENT_NODE_KEY])) {
             $navigationNodeEntity->setFkParentNavigationNode(
-                $this->getFkParentNavigationNode($dataSet[static::DATA_SET_KEY_PARENT_NODE_KEY])
+                $this->getFkParentNavigationNode($dataSet[static::KEY_PARENT_NODE_KEY])
             );
         }
 
         foreach ($dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
-            $query = SpyNavigationNodeLocalizedAttributesQuery::create();
-            $navigationNodeLocalizedAttributesEntity = $query
+            $navigationNodeLocalizedAttributesEntity = SpyNavigationNodeLocalizedAttributesQuery::create()
                 ->filterByFkNavigationNode($navigationNodeEntity->getIdNavigationNode())
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
@@ -108,8 +104,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getFkParentNavigationNode($nodeKey)
     {
-        $query = SpyNavigationNodeQuery::create();
-        $parentNavigationNodeEntity = $query->findOneByNodeKey($nodeKey);
+        $parentNavigationNodeEntity = SpyNavigationNodeQuery::create()
+            ->findOneByNodeKey($nodeKey);
 
         if (!$parentNavigationNodeEntity) {
             throw new NavigationNodeByKeyNotFoundException(sprintf(
@@ -129,8 +125,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getPosition(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
-        if (isset($dataSet[static::DATA_SET_KEY_POSITION]) && !empty($dataSet[static::DATA_SET_KEY_POSITION])) {
-            return (int)$dataSet[static::DATA_SET_KEY_POSITION];
+        if (isset($dataSet[static::KEY_POSITION]) && !empty($dataSet[static::KEY_POSITION])) {
+            return (int)$dataSet[static::KEY_POSITION];
         }
 
         return $navigationNodeEntity->getPosition();
@@ -144,8 +140,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getIsActive(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
-        if (isset($dataSet[static::DATA_SET_KEY_IS_ACTIVE]) && !empty($dataSet[static::DATA_SET_KEY_IS_ACTIVE])) {
-            return (bool)$dataSet[static::DATA_SET_KEY_IS_ACTIVE];
+        if (isset($dataSet[static::KEY_IS_ACTIVE]) && !empty($dataSet[static::KEY_IS_ACTIVE])) {
+            return (bool)$dataSet[static::KEY_IS_ACTIVE];
         }
 
         if ($navigationNodeEntity->getIsActive() !== null) {
@@ -163,8 +159,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getNodeType(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
-        if (isset($dataSet[static::DATA_SET_KEY_NODE_TYPE]) && !empty($dataSet[static::DATA_SET_KEY_NODE_TYPE])) {
-            return $dataSet[static::DATA_SET_KEY_NODE_TYPE];
+        if (isset($dataSet[static::KEY_NODE_TYPE]) && !empty($dataSet[static::KEY_NODE_TYPE])) {
+            return $dataSet[static::KEY_NODE_TYPE];
         }
 
         return $navigationNodeEntity->getNodeType();
@@ -178,8 +174,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getTitle(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes[static::DATA_SET_KEY_TITLE]) && !empty($localizedAttributes[static::DATA_SET_KEY_TITLE])) {
-            return $localizedAttributes[static::DATA_SET_KEY_TITLE];
+        if (isset($localizedAttributes[static::KEY_TITLE]) && !empty($localizedAttributes[static::KEY_TITLE])) {
+            return $localizedAttributes[static::KEY_TITLE];
         }
 
         return $navigationNodeLocalizedAttributes->getTitle();
@@ -193,8 +189,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getLink(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes[static::DATA_SET_KEY_URL]) && !empty($localizedAttributes[static::DATA_SET_KEY_URL])) {
-            return $localizedAttributes[static::DATA_SET_KEY_URL];
+        if (isset($localizedAttributes[static::KEY_URL]) && !empty($localizedAttributes[static::KEY_URL])) {
+            return $localizedAttributes[static::KEY_URL];
         }
 
         return $navigationNodeLocalizedAttributes->getLink();
@@ -208,8 +204,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getExternalUrl(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes[static::DATA_SET_KEY_URL]) && !empty($localizedAttributes[static::DATA_SET_KEY_URL])) {
-            return $localizedAttributes[static::DATA_SET_KEY_URL];
+        if (isset($localizedAttributes[static::KEY_URL]) && !empty($localizedAttributes[static::KEY_URL])) {
+            return $localizedAttributes[static::KEY_URL];
         }
 
         return $navigationNodeLocalizedAttributes->getExternalUrl();
@@ -224,11 +220,10 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getFkUrl(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes, $idLocale)
     {
-        if (isset($localizedAttributes[static::DATA_SET_KEY_URL]) && !empty($localizedAttributes[static::DATA_SET_KEY_URL])) {
-            $query = SpyUrlQuery::create();
-            $urlEntity = $query
+        if (isset($localizedAttributes[static::KEY_URL]) && !empty($localizedAttributes[static::KEY_URL])) {
+            $urlEntity = SpyUrlQuery::create()
                 ->filterByFkLocale($idLocale)
-                ->filterByUrl($localizedAttributes[static::DATA_SET_KEY_URL])
+                ->filterByUrl($localizedAttributes[static::KEY_URL])
                 ->findOne();
 
             if ($urlEntity) {
@@ -247,8 +242,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      */
     protected function getCssClass(SpyNavigationNodeLocalizedAttributes $navigationNodeLocalizedAttributes, array $localizedAttributes)
     {
-        if (isset($localizedAttributes[static::DATA_SET_KEY_CSS_CLASS]) && !empty($localizedAttributes[static::DATA_SET_KEY_CSS_CLASS])) {
-            return $localizedAttributes[static::DATA_SET_KEY_CSS_CLASS];
+        if (isset($localizedAttributes[static::KEY_CSS_CLASS]) && !empty($localizedAttributes[static::KEY_CSS_CLASS])) {
+            return $localizedAttributes[static::KEY_CSS_CLASS];
         }
 
         return $navigationNodeLocalizedAttributes->getCssClass();

@@ -17,10 +17,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class NavigationWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
+    const BULK_SIZE = 50;
+
     const NAME = 'name';
     const KEY = 'key';
-
-    const BULK_SIZE = 50;
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -29,13 +29,13 @@ class NavigationWriterStep extends TouchAwareStep implements DataImportStepInter
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyNavigationQuery::create();
-        $navigationEntity = $query
+        $navigationEntity = SpyNavigationQuery::create()
             ->filterByKey($dataSet[static::KEY])
             ->findOneOrCreate();
 
-        $navigationEntity->setName($this->getName($navigationEntity, $dataSet));
-        $navigationEntity->save();
+        $navigationEntity
+            ->setName($this->getName($navigationEntity, $dataSet))
+            ->save();
 
         $this->addMainTouchable(NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU, $navigationEntity->getIdNavigation());
     }

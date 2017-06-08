@@ -30,14 +30,20 @@ class GlossaryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyGlossaryKeyQuery::create();
-        $glossaryKeyEntity = $query->filterByKey($dataSet[static::DATA_SET_KEY_KEY])->findOneOrCreate();
+        $glossaryKeyEntity = SpyGlossaryKeyQuery::create()
+            ->filterByKey($dataSet[static::DATA_SET_KEY_KEY])
+            ->findOneOrCreate();
+
         $glossaryKeyEntity->save();
 
-        $query = SpyGlossaryTranslationQuery::create();
-        $glossaryTranslationEntity = $query->filterByGlossaryKey($glossaryKeyEntity)->filterByFkLocale($dataSet[static::DATA_SET_KEY_ID_LOCALE])->findOneOrCreate();
-        $glossaryTranslationEntity->setValue($dataSet[static::DATA_SET_KEY_TRANSLATION]);
-        $glossaryTranslationEntity->save();
+        $glossaryTranslationEntity = SpyGlossaryTranslationQuery::create()
+            ->filterByGlossaryKey($glossaryKeyEntity)
+            ->filterByFkLocale($dataSet[static::DATA_SET_KEY_ID_LOCALE])
+            ->findOneOrCreate();
+
+        $glossaryTranslationEntity
+            ->setValue($dataSet[static::DATA_SET_KEY_TRANSLATION])
+            ->save();
 
         $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
     }

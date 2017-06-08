@@ -80,14 +80,14 @@ class TaxWriterStep implements DataImportStepInterface
         if ($this->countryRepository->hasCountryByName($dataSet[static::KEY_COUNTRY_NAME])) {
             $idCountry = $this->countryRepository->getIdCountryByName($dataSet[static::KEY_COUNTRY_NAME]);
         }
-        $query = new SpyTaxRateQuery();
-        $taxRateEntity = $query
+        $taxRateEntity = SpyTaxRateQuery::create()
             ->filterByFkCountry($idCountry)
             ->filterByName($dataSet[static::KEY_TAX_RATE_NAME])
             ->findOneOrCreate();
 
-        $taxRateEntity->setRate($dataSet[static::KEY_TAX_RATE_PERCENT]);
-        $taxRateEntity->save();
+        $taxRateEntity
+            ->setRate($dataSet[static::KEY_TAX_RATE_PERCENT])
+            ->save();
 
         return $taxRateEntity;
     }
@@ -99,8 +99,7 @@ class TaxWriterStep implements DataImportStepInterface
      */
     protected function findOrCreateTaxSet(DataSetInterface $dataSet)
     {
-        $query = new SpyTaxSetQuery();
-        $taxSetEntity = $query
+        $taxSetEntity = SpyTaxSetQuery::create()
             ->filterByName($dataSet[static::KEY_TAX_SET_NAME])
             ->findOneOrCreate();
 
@@ -117,8 +116,7 @@ class TaxWriterStep implements DataImportStepInterface
      */
     protected function findOrCreateTaxSetTax(SpyTaxRate $taxRateEntity, SpyTaxSet $taxSetEntity)
     {
-        $query = new SpyTaxSetTaxQuery();
-        $taxSetTaxEntity = $query
+        $taxSetTaxEntity = SpyTaxSetTaxQuery::create()
             ->filterByFkTaxRate($taxRateEntity->getIdTaxRate())
             ->filterByFkTaxSet($taxSetEntity->getIdTaxSet())
             ->findOneOrCreate();
@@ -139,8 +137,7 @@ class TaxWriterStep implements DataImportStepInterface
             return;
         }
 
-        $query = SpyShipmentMethodQuery::create();
-        $shipmentMethodEntity = $query
+        $shipmentMethodEntity = SpyShipmentMethodQuery::create()
             ->filterByIsActive(true)
             ->filterByFkTaxSet(null, Criteria::ISNULL)
             ->findOne();
@@ -149,8 +146,9 @@ class TaxWriterStep implements DataImportStepInterface
             return;
         }
 
-        $shipmentMethodEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
-        $shipmentMethodEntity->save();
+        $shipmentMethodEntity
+            ->setFkTaxSet($taxSetEntity->getIdTaxSet())
+            ->save();
 
         unset($this->shipmentSets[$taxSetEntity->getName()]);
     }

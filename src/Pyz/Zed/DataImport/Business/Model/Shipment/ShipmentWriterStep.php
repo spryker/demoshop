@@ -24,22 +24,21 @@ class ShipmentWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyShipmentCarrierQuery::create();
-        $shipmentCarrier = $query
+        $shipmentCarrier = SpyShipmentCarrierQuery::create()
             ->filterByName($dataSet['carrier'])
             ->findOneOrCreate();
 
         $shipmentCarrier->save();
 
-        $query = SpyShipmentMethodQuery::create();
-        $shipmentMethod = $query
+        $shipmentMethod = SpyShipmentMethodQuery::create()
             ->filterByName($dataSet['name'])
             ->filterByFkShipmentCarrier($shipmentCarrier->getIdShipmentCarrier())
             ->findOneOrCreate();
 
-        $shipmentMethod->setDefaultPrice($dataSet['price']);
-        $shipmentMethod->setFkTaxSet($dataSet['idTaxSet']);
-        $shipmentMethod->save();
+        $shipmentMethod
+            ->setDefaultPrice($dataSet['price'])
+            ->setFkTaxSet($dataSet['idTaxSet'])
+            ->save();
     }
 
 }

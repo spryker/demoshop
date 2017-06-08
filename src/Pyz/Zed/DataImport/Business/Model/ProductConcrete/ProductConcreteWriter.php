@@ -85,8 +85,7 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function importProduct(DataSetInterface $dataSet)
     {
-        $query = SpyProductQuery::create();
-        $productEntity = $query
+        $productEntity = SpyProductQuery::create()
             ->filterBySku($dataSet[static::KEY_CONCRETE_SKU])
             ->findOneOrCreate();
 
@@ -111,8 +110,7 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
     protected function importProductLocalizedAttributes(DataSetInterface $dataSet, SpyProduct $productEntity)
     {
         foreach ($dataSet[static::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
-            $query = SpyProductLocalizedAttributesQuery::create();
-            $productLocalizedAttributesEntity = $query
+            $productLocalizedAttributesEntity = SpyProductLocalizedAttributesQuery::create()
                 ->filterByFkProduct($productEntity->getIdProduct())
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
@@ -121,18 +119,17 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
                 ->setName($localizedAttributes[static::KEY_NAME])
                 ->setDescription($localizedAttributes[static::KEY_DESCRIPTION])
                 ->setIsComplete(isset($localizedAttributes[static::KEY_IS_COMPLETE]) ? $localizedAttributes[static::KEY_IS_COMPLETE] : true)
-                ->setAttributes(json_encode($localizedAttributes[static::KEY_ATTRIBUTES]));
+                ->setAttributes(json_encode($localizedAttributes[static::KEY_ATTRIBUTES]))
+                ->save();
 
-            $productLocalizedAttributesEntity->save();
-
-            $query = SpyProductSearchQuery::create();
-            $productSearchEntity = $query
+            $productSearchEntity = SpyProductSearchQuery::create()
                 ->filterByFkProduct($productEntity->getIdProduct())
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
 
-            $productSearchEntity->setIsSearchable($localizedAttributes[static::KEY_IS_SEARCHABLE]);
-            $productSearchEntity->save();
+            $productSearchEntity
+                ->setIsSearchable($localizedAttributes[static::KEY_IS_SEARCHABLE])
+                ->save();
         }
     }
 
@@ -147,15 +144,13 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
         $imageSetName = (isset($dataSet[static::KEY_IMAGE_SET_NAME])) ? $dataSet[static::KEY_IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
 
         foreach ($dataSet[static::KEY_LOCALES] as $localeName => $idLocale) {
-            $query = SpyProductImageSetQuery::create();
-            $productImageSetEntity = $query
+            $productImageSetEntity = SpyProductImageSetQuery::create()
                 ->filterByFkProduct($productEntity->getIdProduct())
                 ->filterByFkLocale($idLocale)
                 ->filterByName($imageSetName)
                 ->findOneOrCreate();
 
-            $query = SpyProductImageSetToProductImageQuery::create();
-            $productImageSetToProductImageEntityCollection = $query
+            $productImageSetToProductImageEntityCollection = SpyProductImageSetToProductImageQuery::create()
                 ->filterByFkProductImageSet($productImageSetEntity->getIdProductImageSet())
                 ->find();
 

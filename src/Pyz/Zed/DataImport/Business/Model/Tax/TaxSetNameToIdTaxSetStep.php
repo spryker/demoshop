@@ -77,8 +77,9 @@ class TaxSetNameToIdTaxSetStep implements DataImportStepInterface
      */
     protected function resolveIdStock($taxSetName)
     {
-        $query = SpyTaxSetQuery::create();
-        $taxSetEntity = $query->filterByName($taxSetName)->findOneOrCreate();
+        $taxSetEntity = SpyTaxSetQuery::create()
+            ->filterByName($taxSetName)
+            ->findOneOrCreate();
 
         if (!$taxSetEntity) {
             throw new EntityNotFoundException(sprintf('Tax set by name "%s" not found.', $taxSetName));

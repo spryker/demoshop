@@ -28,8 +28,12 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
 
     const BULK_SIZE = 50;
 
-    const DATA_SET_KEY_CATEGORY_KEY = 'category_key';
-    const DATA_SET_KEY_PARENT_CATEGORY_KEY = 'parent_category_key';
+    const KEY_NAME = 'name';
+    const KEY_META_TITLE = 'meta_title';
+    const KEY_META_DESCRIPTION = 'meta_description';
+    const KEY_META_KEYWORDS = 'meta_keywords';
+    const KEY_CATEGORY_KEY = 'category_key';
+    const KEY_PARENT_CATEGORY_KEY = 'parent_category_key';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository
@@ -71,7 +75,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
     protected function createCategory(DataSetInterface $dataSet)
     {
         $categoryEntity = SpyCategoryQuery::create()
-            ->filterByCategoryKey($dataSet[self::DATA_SET_KEY_CATEGORY_KEY])
+            ->filterByCategoryKey($dataSet[self::KEY_CATEGORY_KEY])
             ->findOneOrCreate();
 
         $categoryEntity->fromArray($dataSet->getArrayCopy());
@@ -113,8 +117,8 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
             ->filterByCategory($categoryEntity)
             ->findOneOrCreate();
 
-        if (!empty($dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY])) {
-            $idParentCategoryNode = $this->categoryRepository->getIdCategoryNodeByCategoryKey($dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY]);
+        if (!empty($dataSet[self::KEY_PARENT_CATEGORY_KEY])) {
+            $idParentCategoryNode = $this->categoryRepository->getIdCategoryNodeByCategoryKey($dataSet[self::KEY_PARENT_CATEGORY_KEY]);
             $categoryNodeEntity->setFkParentCategoryNode($idParentCategoryNode);
         }
 
@@ -133,7 +137,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
             $urlPathParts = [$languageIdentifier];
             if (!$categoryNodeEntity->getIsRoot()) {
                 $parentUrl = $this->categoryRepository->getParentUrl(
-                    $dataSet[self::DATA_SET_KEY_PARENT_CATEGORY_KEY],
+                    $dataSet[self::KEY_PARENT_CATEGORY_KEY],
                     $idLocale
                 );
 

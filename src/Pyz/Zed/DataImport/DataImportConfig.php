@@ -45,7 +45,13 @@ class DataImportConfig extends SprykerDataImportConfig
      */
     protected function getDataImportRootPath()
     {
-        return APPLICATION_ROOT_DIR . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'import' . DIRECTORY_SEPARATOR;
+        $pathParts = [
+            APPLICATION_ROOT_DIR,
+            'data',
+            'import',
+        ];
+
+        return implode(DIRECTORY_SEPARATOR, $pathParts);
     }
 
     /**

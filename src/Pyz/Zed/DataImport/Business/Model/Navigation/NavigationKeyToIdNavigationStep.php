@@ -77,8 +77,8 @@ class NavigationKeyToIdNavigationStep implements DataImportStepInterface
      */
     protected function resolveIdNavigation($navigationKey)
     {
-        $query = SpyNavigationQuery::create();
-        $navigationEntity = $query->findOneByKey($navigationKey);
+        $navigationEntity = SpyNavigationQuery::create()
+            ->findOneByKey($navigationKey);
 
         if (!$navigationEntity) {
             throw new EntityNotFoundException(sprintf('Navigation by key "%s" not found.', $navigationKey));

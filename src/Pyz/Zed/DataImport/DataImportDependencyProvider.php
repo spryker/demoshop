@@ -15,6 +15,7 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
 
     const FACADE_CATEGORY = 'category facade';
     const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const FACADE_PRODUCT_RELATION = 'product relation facade';
     const SERVICE_UTIL_TEXT = 'util text service';
 
     /**
@@ -28,6 +29,7 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
 
         $this->addCategoryFacade($container);
         $this->addProductSearchFacade($container);
+        $this->addProductRelationFacade($container);
         $this->addUtilTextService($container);
 
         return $container;
@@ -54,6 +56,18 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
     {
         $container[static::FACADE_PRODUCT_SEARCH] = function (Container $container) {
             return $container->getLocator()->productSearch()->facade();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    private function addProductRelationFacade(Container $container)
+    {
+        $container[static::FACADE_PRODUCT_RELATION] = function (Container $container) {
+            return $container->getLocator()->productRelation()->facade();
         };
     }
 

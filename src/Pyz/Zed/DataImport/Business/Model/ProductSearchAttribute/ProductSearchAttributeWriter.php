@@ -24,6 +24,8 @@ class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportS
 
     const BULK_SIZE = 50;
 
+    const KEY = 'key';
+
     /**
      * @var \Spryker\Shared\ProductSearch\Code\KeyBuilder\GlossaryKeyBuilderInterface
      */

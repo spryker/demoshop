@@ -20,6 +20,7 @@ class DiscountVoucherWriterStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 50;
+
     const KEY_DISCOUNT_KEY = 'discount_key';
     const KEY_RANDOM_GENERATED_CODE_LENGTH = 'random_generated_code_length';
     const KEY_QUANTITY = 'quantity';
@@ -115,7 +116,7 @@ class DiscountVoucherWriterStep implements DataImportStepInterface
             }
 
             $codesToGenerate[] = $code;
-        } while ($quantity != count($codesToGenerate));
+        } while ($quantity !== count($codesToGenerate));
 
         return $codesToGenerate;
     }

@@ -101,7 +101,9 @@ class CategoryRepository
      */
     private function loadCategoryKeys()
     {
-        $categoryNodeEntityCollection = SpyCategoryNodeQuery::create()->joinWithCategory()->find();
+        $categoryNodeEntityCollection = SpyCategoryNodeQuery::create()
+            ->joinWithCategory()
+            ->find();
 
         foreach ($categoryNodeEntityCollection as $categoryNodeEntity) {
             $this->categoryKeys[$categoryNodeEntity->getCategory()->getCategoryKey()] = $categoryNodeEntity->getIdCategoryNode();

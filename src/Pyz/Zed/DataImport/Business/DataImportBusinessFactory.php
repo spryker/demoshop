@@ -124,10 +124,10 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
             ->addStep($this->createLocalizedAttributesExtractorStep([
-                'name',
-                'meta_title',
-                'meta_description',
-                'meta_keywords',
+                CategoryWriterStep::KEY_NAME,
+                CategoryWriterStep::KEY_META_TITLE,
+                CategoryWriterStep::KEY_META_DESCRIPTION,
+                CategoryWriterStep::KEY_META_KEYWORDS,
             ]))
             ->addStep(new CategoryWriterStep(
                 $this->createCategoryRepository(),
@@ -432,11 +432,11 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(NavigationNodeWriterStep::BULK_SIZE);
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
-            ->addStep($this->createNavigationKeyToIdNavigationStep(NavigationNodeWriterStep::DATA_SET_KEY_NAVIGATION_KEY))
+            ->addStep($this->createNavigationKeyToIdNavigationStep(NavigationNodeWriterStep::KEY_NAVIGATION_KEY))
             ->addStep($this->createLocalizedAttributesExtractorStep([
-                NavigationNodeWriterStep::DATA_SET_KEY_TITLE,
-                NavigationNodeWriterStep::DATA_SET_KEY_URL,
-                NavigationNodeWriterStep::DATA_SET_KEY_CSS_CLASS,
+                NavigationNodeWriterStep::KEY_TITLE,
+                NavigationNodeWriterStep::KEY_URL,
+                NavigationNodeWriterStep::KEY_CSS_CLASS,
             ]))
             ->addStep(new NavigationNodeWriterStep($this->getTouchFacade(), NavigationNodeWriterStep::BULK_SIZE));
 
@@ -467,14 +467,14 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
             ->addStep($this->createAddCategoryKeysStep())
-            ->addStep($this->createTaxSetNameToIdTaxSetStep('tax_set_name'))
+            ->addStep($this->createTaxSetNameToIdTaxSetStep(ProductAbstractWriter::KEY_TAX_SET_NAME))
             ->addStep($this->createAttributesExtractorStep())
             ->addStep($this->createProductLocalizedAttributesExtractorStep([
-                'name',
-                'description',
-                'meta_title',
-                'meta_description',
-                'meta_keywords',
+                ProductAbstractWriter::KEY_NAME,
+                ProductAbstractWriter::KEY_DESCRIPTION,
+                ProductAbstractWriter::KEY_META_TITLE,
+                ProductAbstractWriter::KEY_META_DESCRIPTION,
+                ProductAbstractWriter::KEY_META_KEYWORDS,
             ]))
             ->addStep(new ProductAbstractWriter(
                 $this->createProductRepository(),
@@ -508,9 +508,9 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addStep($this->createAddLocalesStep())
             ->addStep($this->createAttributesExtractorStep())
             ->addStep($this->createProductLocalizedAttributesExtractorStep([
-                'name',
-                'description',
-                'is_searchable',
+                ProductConcreteWriter::KEY_NAME,
+                ProductConcreteWriter::KEY_DESCRIPTION,
+                ProductConcreteWriter::KEY_IS_SEARCHABLE,
             ]))
             ->addStep(new ProductConcreteWriter(
                 $this->createProductRepository(),
@@ -613,7 +613,17 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
      */
     protected function createProductRelationAfterImportHook()
     {
-        return new ProductRelationAfterImportHook();
+        return new ProductRelationAfterImportHook(
+            $this->getProductRelationFacade()
+        );
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductRelation\Business\ProductRelationFacadeInterface
+     */
+    protected function getProductRelationFacade()
+    {
+        return $this->getProvidedDependency(DataImportDependencyProvider::FACADE_PRODUCT_RELATION);
     }
 
     /**
@@ -644,7 +654,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
             ->addStep($this->createAddProductAttributeKeysStep())
-            ->addStep($this->createLocalizedAttributesExtractorStep(['key']))
+            ->addStep($this->createLocalizedAttributesExtractorStep([ProductSearchAttributeWriter::KEY]))
             ->addStep(new ProductSearchAttributeWriter(
                 $this->createSearchGlossaryKeyBuilder(),
                 $this->getTouchFacade(),

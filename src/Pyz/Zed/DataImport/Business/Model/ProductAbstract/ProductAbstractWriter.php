@@ -18,6 +18,7 @@ use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImage;
 use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Shared\Product\ProductConfig;
+use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Service\UtilText\UtilTextServiceInterface;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
@@ -32,23 +33,23 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
 
     const BULK_SIZE = 50;
 
-    const ABSTRACT_SKU = 'abstract_sku';
-    const IS_FEATURED = 'is_featured';
-    const COLOR_CODE = 'color_code';
-    const ID_TAX_SET = 'idTaxSet';
-    const ATTRIBUTES = 'attributes';
-    const LOCALIZED_ATTRIBUTES = 'localizedAttributes';
-    const NAME = 'name';
-    const DESCRIPTION = 'description';
-    const META_TITLE = 'meta_title';
-    const META_DESCRIPTION = 'meta_description';
-    const META_KEYWORDS = 'meta_keywords';
-    const CATEGORY_KEY = 'category_key';
-    const CATEGORY_KEYS = 'categoryKeys';
-    const IMAGE_SET_NAME = 'image_set_name';
-    const IMAGE_BIG = 'image_big';
-    const IMAGE_SMALL = 'image_small';
-    const LOCALES = 'locales';
+    const KEY_ABSTRACT_SKU = 'abstract_sku';
+    const KEY_IS_FEATURED = 'is_featured';
+    const KEY_COLOR_CODE = 'color_code';
+    const KEY_ID_TAX_SET = 'idTaxSet';
+    const KEY_ATTRIBUTES = 'attributes';
+    const KEY_NAME = 'name';
+    const KEY_DESCRIPTION = 'description';
+    const KEY_META_TITLE = 'meta_title';
+    const KEY_META_DESCRIPTION = 'meta_description';
+    const KEY_META_KEYWORDS = 'meta_keywords';
+    const KEY_TAX_SET_NAME = 'tax_set_name';
+    const KEY_CATEGORY_KEY = 'category_key';
+    const KEY_CATEGORY_KEYS = 'categoryKeys';
+    const KEY_IMAGE_SET_NAME = 'image_set_name';
+    const KEY_IMAGE_BIG = 'image_big';
+    const KEY_IMAGE_SMALL = 'image_small';
+    const KEY_LOCALES = 'locales';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
@@ -102,14 +103,14 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     protected function importProductAbstract(DataSetInterface $dataSet)
     {
         $productAbstractEntity = SpyProductAbstractQuery::create()
-            ->filterBySku($dataSet[static::ABSTRACT_SKU])
+            ->filterBySku($dataSet[static::KEY_ABSTRACT_SKU])
             ->findOneOrCreate();
 
         $productAbstractEntity
-            ->setIsFeatured($dataSet[static::IS_FEATURED])
-            ->setColorCode($dataSet[static::COLOR_CODE])
-            ->setFkTaxSet($dataSet[static::ID_TAX_SET])
-            ->setAttributes(json_encode($dataSet[static::ATTRIBUTES]));
+            ->setIsFeatured($dataSet[static::KEY_IS_FEATURED])
+            ->setColorCode($dataSet[static::KEY_COLOR_CODE])
+            ->setFkTaxSet($dataSet[static::KEY_ID_TAX_SET])
+            ->setAttributes(json_encode($dataSet[static::KEY_ATTRIBUTES]));
 
         $productAbstractEntity->save();
 
@@ -124,19 +125,19 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function importProductAbstractLocalizedAttributes(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
     {
-        foreach ($dataSet[static::LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
+        foreach ($dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
             $productAbstractLocalizedAttributesEntity = SpyProductAbstractLocalizedAttributesQuery::create()
                 ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
                 ->filterByFkLocale($idLocale)
                 ->findOneOrCreate();
 
             $productAbstractLocalizedAttributesEntity
-                ->setName($localizedAttributes[static::NAME])
-                ->setDescription($localizedAttributes[static::DESCRIPTION])
-                ->setMetaTitle($localizedAttributes[static::META_TITLE])
-                ->setMetaDescription($localizedAttributes[static::META_DESCRIPTION])
-                ->setMetaKeywords($localizedAttributes[static::META_KEYWORDS])
-                ->setAttributes(json_encode($localizedAttributes[static::ATTRIBUTES]));
+                ->setName($localizedAttributes[static::KEY_NAME])
+                ->setDescription($localizedAttributes[static::KEY_DESCRIPTION])
+                ->setMetaTitle($localizedAttributes[static::KEY_META_TITLE])
+                ->setMetaDescription($localizedAttributes[static::KEY_META_DESCRIPTION])
+                ->setMetaKeywords($localizedAttributes[static::KEY_META_KEYWORDS])
+                ->setAttributes(json_encode($localizedAttributes[static::KEY_ATTRIBUTES]));
 
             $productAbstractLocalizedAttributesEntity->save();
         }
@@ -177,21 +178,21 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function reAssignCategories(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
     {
-        $categoryKeys = $this->getCategoryKeys($dataSet[static::CATEGORY_KEY]);
+        $categoryKeys = $this->getCategoryKeys($dataSet[static::KEY_CATEGORY_KEY]);
 
         foreach ($categoryKeys as $categoryKey) {
-            if (!isset($dataSet[static::CATEGORY_KEYS][$categoryKey])) {
+            if (!isset($dataSet[static::KEY_CATEGORY_KEYS][$categoryKey])) {
                 throw new DataKeyNotFoundInDataSetException(sprintf(
                     'The category with key "%s" was not found in categoryKeys. Maybe there is a typo. Given Categories: "%s"',
                     $categoryKey,
-                    implode(array_values($dataSet[static::CATEGORY_KEYS]))
+                    implode(array_values($dataSet[static::KEY_CATEGORY_KEYS]))
                 ));
             }
 
             $productCategoryEntity = new SpyProductCategory();
             $productCategoryEntity
                 ->setFkProductAbstract($productAbstractEntity->getIdProductAbstract())
-                ->setFkCategory($dataSet[static::CATEGORY_KEYS][$categoryKey])
+                ->setFkCategory($dataSet[static::KEY_CATEGORY_KEYS][$categoryKey])
                 ->save();
         }
     }
@@ -219,9 +220,9 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
      */
     protected function importProductAbstractImages(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
     {
-        $imageSetName = (isset($dataSet[static::IMAGE_SET_NAME])) ? $dataSet[static::IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
+        $imageSetName = (isset($dataSet[static::KEY_IMAGE_SET_NAME])) ? $dataSet[static::KEY_IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
 
-        foreach ($dataSet[static::LOCALES] as $localeName => $idLocale) {
+        foreach ($dataSet[static::KEY_LOCALES] as $localeName => $idLocale) {
             $productImageSetEntity = SpyProductImageSetQuery::create()
                 ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
                 ->filterByFkLocale($idLocale)
@@ -242,8 +243,8 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
 
             $productImageEntity = new SpyProductImage();
             $productImageEntity
-                ->setExternalUrlLarge($dataSet[static::IMAGE_BIG])
-                ->setExternalUrlSmall($dataSet[static::IMAGE_SMALL]);
+                ->setExternalUrlLarge($dataSet[static::KEY_IMAGE_BIG])
+                ->setExternalUrlSmall($dataSet[static::KEY_IMAGE_SMALL]);
 
             $productImageSetToProductImageEntity = new SpyProductImageSetToProductImage();
             $productImageSetToProductImageEntity

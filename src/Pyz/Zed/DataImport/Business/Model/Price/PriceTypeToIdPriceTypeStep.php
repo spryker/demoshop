@@ -77,8 +77,9 @@ class PriceTypeToIdPriceTypeStep implements DataImportStepInterface
      */
     protected function resolveIdPriceType($priceType)
     {
-        $query = SpyPriceTypeQuery::create();
-        $priceTypeEntity = $query->filterByName($priceType)->findOne();
+        $priceTypeEntity = SpyPriceTypeQuery::create()
+            ->filterByName($priceType)
+            ->findOne();
 
         if (!$priceTypeEntity) {
             throw new EntityNotFoundException(sprintf('Price type by name "%s" not found.', $priceType));

@@ -23,8 +23,7 @@ class PriceTypeWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyPriceTypeQuery::create();
-        $priceTypeEntity = $query
+        $priceTypeEntity = SpyPriceTypeQuery::create()
             ->filterByName($dataSet[self::KEY_NAME])
             ->findOneOrCreate();
 
