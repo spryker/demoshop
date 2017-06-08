@@ -31,7 +31,7 @@ class CategoryAfterImportHook implements DataImporterAfterImportInterface
      */
     public function afterImport()
     {
-        $this->categoryFacade->rebuildClosureTable();
+//        $this->categoryFacade->rebuildClosureTable();
     }
 
 }

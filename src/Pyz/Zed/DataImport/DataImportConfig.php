@@ -51,7 +51,7 @@ class DataImportConfig extends SprykerDataImportConfig
             'import',
         ];
 
-        return implode(DIRECTORY_SEPARATOR, $pathParts);
+        return implode(DIRECTORY_SEPARATOR, $pathParts) . DIRECTORY_SEPARATOR;
     }
 
     /**

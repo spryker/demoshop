@@ -10,6 +10,8 @@ namespace Pyz\Zed\DataImport\Business\Model\Category;
 use Exception;
 use Orm\Zed\Category\Persistence\SpyCategory;
 use Orm\Zed\Category\Persistence\SpyCategoryAttributeQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryClosureTableQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
@@ -125,6 +127,8 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
         $categoryNodeEntity->fromArray($dataSet->getArrayCopy());
         $categoryNodeEntity->save();
 
+        $this->addToClosureTable($categoryNodeEntity);
+
         $this->addMainTouchable(CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE, $categoryNodeEntity->getIdCategoryNode());
 
         if ($categoryNodeEntity->getIsRoot()) {
@@ -181,6 +185,39 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
         }
 
         throw new Exception(sprintf('Could not extract language identifier for idLocale "%s"', $idLocale));
+    }
+
+    /**
+     * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $categoryNodeEntity
+     *
+     * @return void
+     */
+    private function addToClosureTable(SpyCategoryNode $categoryNodeEntity)
+    {
+        if ($categoryNodeEntity->getFkParentCategoryNode() !== null) {
+            $categoryClosureEntityCollection = SpyCategoryClosureTableQuery::create()
+                ->findByFkCategoryNodeDescendant($categoryNodeEntity->getFkParentCategoryNode());
+
+            foreach ($categoryClosureEntityCollection as $categoryClosureEntity) {
+                $newCategoryClosureTableEntity = SpyCategoryClosureTableQuery::create()
+                    ->filterByFkCategoryNode($categoryClosureEntity->getFkCategoryNode())
+                    ->filterByFkCategoryNodeDescendant($categoryNodeEntity->getIdCategoryNode())
+                    ->findOneOrCreate();
+
+                $newCategoryClosureTableEntity
+                    ->setDepth($categoryClosureEntity->getDepth() + 1)
+                    ->save();
+            }
+        }
+
+        $categoryClosureTableEntity = SpyCategoryClosureTableQuery::create()
+            ->filterByFkCategoryNode($categoryNodeEntity->getIdCategoryNode())
+            ->filterByFkCategoryNodeDescendant($categoryNodeEntity->getIdCategoryNode())
+            ->findOneOrCreate();
+
+        $categoryClosureTableEntity
+            ->setDepth(0)
+            ->save();
     }
 
 }
