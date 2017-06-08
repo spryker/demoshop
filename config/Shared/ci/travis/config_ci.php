@@ -28,54 +28,49 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 
 // ---------- Yves host
+$config[ApplicationConstants::HOST_YVES] = 'www.de.spryker.test';
 $config[ApplicationConstants::PORT_YVES] = '';
 $config[ApplicationConstants::PORT_SSL_YVES] = '';
-$config[ApplicationConstants::HOST_YVES] = 'www.de.spryker.test';
-$config[ApplicationConstants::BASE_URL_YVES]
-    = $config[ProductManagementConstants::BASE_URL_YVES]
-    = $config[PayoneConstants::BASE_URL_YVES]
-    = $config[PayolutionConstants::BASE_URL_YVES]
-    = $config[NewsletterConstants::BASE_URL_YVES]
-    = $config[CustomerConstants::BASE_URL_YVES]
-    = sprintf(
-        'http://%s%s',
-        $config[ApplicationConstants::HOST_YVES],
-        $config[ApplicationConstants::PORT_YVES]
-    );
-$config[ApplicationConstants::BASE_URL_SSL_YVES]
-    = sprintf(
-        'https://%s%s',
-        $config[ApplicationConstants::HOST_YVES],
-        $config[ApplicationConstants::PORT_SSL_YVES]
-    );
+$config[ApplicationConstants::BASE_URL_YVES] = sprintf(
+    'http://%s%s',
+    $config[ApplicationConstants::HOST_YVES],
+    $config[ApplicationConstants::PORT_YVES]
+);
+$config[ApplicationConstants::BASE_URL_SSL_YVES] = sprintf(
+    'https://%s%s',
+    $config[ApplicationConstants::HOST_YVES],
+    $config[ApplicationConstants::PORT_SSL_YVES]
+);
+$config[ProductManagementConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[PayoneConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[PayolutionConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[NewsletterConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
 // ---------- Zed host
+$config[ApplicationConstants::HOST_ZED] = 'zed.de.spryker.test';
 $config[ApplicationConstants::PORT_ZED] = ':80';
-$config[ApplicationConstants::PORT_SSL_ZED] = '';
-$config[ApplicationConstants::HOST_ZED]
-    = $config[\Spryker\Shared\ZedRequest\ZedRequestConstants::HOST_ZED_API]
-    = 'zed.de.spryker.test';
-$config[ApplicationConstants::BASE_URL_ZED]
-    = $config[ZedRequestConstants::BASE_URL_ZED_API]
-    = sprintf(
-        'http://%s%s',
-        $config[ApplicationConstants::HOST_ZED],
-        $config[ApplicationConstants::PORT_ZED]
-    );
-$config[ZedRequestConstants::BASE_URL_SSL_ZED_API]
-    = sprintf(
-        'https://%s%s',
-        $config[ApplicationConstants::HOST_ZED],
-        $config[ApplicationConstants::PORT_SSL_ZED]
-    );
+$config[ApplicationConstants::PORT_SSL_ZED] = ':80';
+$config[ApplicationConstants::BASE_URL_ZED] = sprintf(
+    'http://%s%s',
+    $config[ApplicationConstants::HOST_ZED],
+    $config[ApplicationConstants::PORT_ZED]
+);
+$config[ApplicationConstants::BASE_URL_SSL_ZED] = sprintf(
+    'https://%s%s',
+    $config[ApplicationConstants::HOST_ZED],
+    $config[ApplicationConstants::PORT_SSL_ZED]
+);
+$config[ZedRequestConstants::HOST_ZED_API] = $config[ApplicationConstants::HOST_ZED];
+$config[ZedRequestConstants::BASE_URL_ZED_API] = $config[ApplicationConstants::BASE_URL_ZED];
+$config[ZedRequestConstants::BASE_URL_SSL_ZED_API] = $config[ApplicationConstants::BASE_URL_SSL_ZED];
 
-// ---------- Assets
-$config[ApplicationConstants::BASE_URL_STATIC_ASSETS]
-    = $config[ApplicationConstants::BASE_URL_STATIC_MEDIA]
-    = $config[ApplicationConstants::BASE_URL_YVES];
-$config[ApplicationConstants::BASE_URL_SSL_STATIC_ASSETS]
-    = $config[ApplicationConstants::BASE_URL_SSL_STATIC_MEDIA]
-    = $config[ApplicationConstants::BASE_URL_SSL_YVES];
+// ---------- Assets / Media
+$config[ApplicationConstants::BASE_URL_STATIC_ASSETS] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[ApplicationConstants::BASE_URL_STATIC_MEDIA] = $config[ApplicationConstants::BASE_URL_YVES];
+$config[ApplicationConstants::BASE_URL_SSL_STATIC_ASSETS] = $config[ApplicationConstants::BASE_URL_SSL_YVES];
+$config[ApplicationConstants::BASE_URL_SSL_STATIC_MEDIA] = $config[ApplicationConstants::BASE_URL_SSL_YVES];
 
 // ---------- Testify
 $config[TestifyConstants::BOOTSTRAP_CLASS_YVES] = YvesBootstrap::class;
@@ -113,12 +108,14 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 // ---------- Session
 $config[SessionConstants::SESSION_IS_TEST] = (bool)getenv("SESSION_IS_TEST");
+$config[SessionConstants::YVES_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_YVES];
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];
 $config[SessionConstants::YVES_SESSION_REDIS_HOST] = $config[StorageConstants::STORAGE_REDIS_HOST];
 $config[SessionConstants::YVES_SESSION_REDIS_PORT] = $config[StorageConstants::STORAGE_REDIS_PORT];
 $config[SessionConstants::YVES_SESSION_REDIS_PASSWORD] = $config[StorageConstants::STORAGE_REDIS_PASSWORD];
 $config[SessionConstants::YVES_SESSION_REDIS_DATABASE] = 1;
+$config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED];
 $config[SessionConstants::ZED_SESSION_REDIS_PROTOCOL] = $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL];
 $config[SessionConstants::ZED_SESSION_REDIS_HOST] = $config[SessionConstants::YVES_SESSION_REDIS_HOST];
 $config[SessionConstants::ZED_SESSION_REDIS_PORT] = $config[SessionConstants::YVES_SESSION_REDIS_PORT];
