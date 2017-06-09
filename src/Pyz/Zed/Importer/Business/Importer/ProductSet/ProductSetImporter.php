@@ -98,6 +98,7 @@ class ProductSetImporter extends AbstractImporter
         $productSetTransfer = new ProductSetTransfer();
         $productSetTransfer
             ->setWeight($data['weight'])
+            ->setProductSetKey($data['product_set_key'])
             ->setIsActive((bool)(int)$data['is_active']);
 
         return $productSetTransfer;
