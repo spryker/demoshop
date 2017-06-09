@@ -7,16 +7,15 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\ProductStock;
 
-use Orm\Zed\Availability\Persistence\SpyAvailabilityAbstractQuery;
-use Orm\Zed\Availability\Persistence\SpyAvailabilityQuery;
 use Orm\Zed\Stock\Persistence\SpyStockProductQuery;
 use Orm\Zed\Stock\Persistence\SpyStockQuery;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
-use Spryker\Zed\Availability\AvailabilityConfig;
+use Spryker\Zed\Availability\Business\AvailabilityFacadeInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
+use Spryker\Zed\ProductBundle\Business\ProductBundleFacadeInterface;
 use Spryker\Zed\Stock\StockConfig;
 
 class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInterface
@@ -27,6 +26,7 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
     const KEY_CONCRETE_SKU = 'concrete_sku';
     const KEY_QUANTITY = 'quantity';
     const KEY_IS_NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
+    const KEY_IS_BUNDLE = 'is_bundle';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
@@ -34,15 +34,29 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
     protected $productRepository;
 
     /**
+     * @var \Spryker\Zed\Availability\Business\AvailabilityFacadeInterface
+     */
+    protected $availabilityFacade;
+
+    /**
+     * @var \Spryker\Zed\ProductBundle\Business\ProductBundleFacadeInterface
+     */
+    protected $productBundleFacade;
+
+    /**
      * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     * @param \Spryker\Zed\Availability\Business\AvailabilityFacadeInterface $availabilityFacade
+     * @param \Spryker\Zed\ProductBundle\Business\ProductBundleFacadeInterface $productBundleFacade
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
      * @param int|null $bulkSize
      */
-    public function __construct(ProductRepository $productRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    public function __construct(ProductRepository $productRepository, AvailabilityFacadeInterface $availabilityFacade, ProductBundleFacadeInterface $productBundleFacade, DataImportToTouchInterface $touchFacade, $bulkSize = null)
     {
         parent::__construct($touchFacade, $bulkSize);
 
         $this->productRepository = $productRepository;
+        $this->availabilityFacade = $availabilityFacade;
+        $this->productBundleFacade = $productBundleFacade;
     }
 
     /**
@@ -58,7 +72,7 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
 
         $stockEntity->save();
 
-        $this->addMainTouchable(StockConfig::TOUCH_STOCK_TYPE, $stockEntity->getIdStock());
+        $this->addSubTouchable(StockConfig::TOUCH_STOCK_TYPE, $stockEntity->getIdStock());
 
         $idProduct = $this->productRepository->getIdProductByConcreteSku($dataSet[static::KEY_CONCRETE_SKU]);
 
@@ -73,34 +87,14 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
 
         $stockProductEntity->save();
 
-        $this->addSubTouchable(StockConfig::TOUCH_STOCK_PRODUCT, $stockProductEntity->getIdStockProduct());
+        $this->addMainTouchable(StockConfig::TOUCH_STOCK_PRODUCT, $stockProductEntity->getIdStockProduct());
 
-        $productAbstractSku = $this->productRepository->getAbstractSkuByConcreteSku($dataSet[static::KEY_CONCRETE_SKU]);
+        $this->availabilityFacade->updateAvailability($dataSet[static::KEY_CONCRETE_SKU]);
 
-        $availabilityAbstractEntity = SpyAvailabilityAbstractQuery::create()
-            ->filterByAbstractSku($productAbstractSku)
-            ->findOneOrCreate();
-
-        $abstractQuantity = $dataSet[static::KEY_QUANTITY];
-        if (!$availabilityAbstractEntity->isNew()) {
-            $abstractQuantity += $availabilityAbstractEntity->getQuantity();
+        if ($dataSet[static::KEY_IS_BUNDLE]) {
+            $this->productBundleFacade->updateBundleAvailability($dataSet[static::KEY_CONCRETE_SKU]);
+            $this->productBundleFacade->updateAffectedBundlesAvailability($dataSet[static::KEY_CONCRETE_SKU]);
         }
-
-        $availabilityAbstractEntity
-            ->setQuantity($abstractQuantity)
-            ->save();
-
-        $availabilityEntity = SpyAvailabilityQuery::create()
-            ->filterBySku($dataSet[static::KEY_CONCRETE_SKU])
-            ->filterByFkAvailabilityAbstract($availabilityAbstractEntity->getIdAvailabilityAbstract())
-            ->findOneOrCreate();
-
-        $availabilityEntity
-            ->setQuantity($dataSet[static::KEY_QUANTITY])
-            ->setIsNeverOutOfStock($dataSet[static::KEY_IS_NEVER_OUT_OF_STOCK])
-            ->save();
-
-        $this->addSubTouchable(AvailabilityConfig::RESOURCE_TYPE_AVAILABILITY_ABSTRACT, $availabilityAbstractEntity->getIdAvailabilityAbstract());
     }
 
 }

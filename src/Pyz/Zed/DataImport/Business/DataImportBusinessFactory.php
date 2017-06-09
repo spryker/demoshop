@@ -52,8 +52,10 @@ use Pyz\Zed\DataImport\Business\Model\Tax\TaxSetNameToIdTaxSetStep;
 use Pyz\Zed\DataImport\Business\Model\Tax\TaxWriterStep;
 use Pyz\Zed\DataImport\DataImportDependencyProvider;
 use Spryker\Shared\ProductSearch\Code\KeyBuilder\FilterGlossaryKeyBuilder;
+use Spryker\Zed\Availability\Business\AvailabilityFacade;
 use Spryker\Zed\DataImport\Business\DataImportBusinessFactory as SprykerDataImportBusinessFactory;
 use Spryker\Zed\Discount\DiscountConfig;
+use Spryker\Zed\ProductBundle\Business\ProductBundleFacade;
 
 /**
  * @method \Pyz\Zed\DataImport\DataImportConfig getConfig()
@@ -82,13 +84,13 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createProductManagementAttributeImporter())
             ->addDataImporter($this->createProductAbstractImporter())
             ->addDataImporter($this->createProductConcreteImporter())
+            ->addDataImporter($this->createProductStockImporter())
             ->addDataImporter($this->createProductOptionImporter())
             ->addDataImporter($this->createProductGroupImporter())
             ->addDataImporter($this->createProductPriceImporter())
             ->addDataImporter($this->createProductRelationImporter())
             ->addDataImporter($this->createProductSearchAttributeMapImporter())
             ->addDataImporter($this->createProductSearchAttributeImporter())
-            ->addDataImporter($this->createProductStockImporter())
             ->addDataImporter($this->createShipmentImporter())
             ->addDataImporter($this->createNavigationImporter())
             ->addDataImporter($this->createNavigationNodeImporter());
@@ -324,6 +326,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker
             ->addStep(new ProductStockWriterStep(
                 $this->createProductRepository(),
+                new AvailabilityFacade(),
+                new ProductBundleFacade(),
                 $this->getTouchFacade(),
                 ProductStockWriterStep::BULK_SIZE
             ));
