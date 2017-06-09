@@ -35,9 +35,10 @@
 
                         {% include '@cart/cart/parts/cart-discounts.twig' %}
 
-                        <li><strong>{{ 'cart.shipping' | trans }}</strong></li>
-
                         {% if cart.shipment is defined and cart.shipment.method is defined %}
+
+                            <li><strong>{{ 'cart.shipping' | trans }}</strong></li>
+
                             <li>
                                 {{ cart.shipment.method.name }}
                                 <span class="float-right">{{ cart.shipment.method.defaultPrice | money }}</span>
