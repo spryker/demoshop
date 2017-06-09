@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
 namespace Pyz\Yves\Cart\Handler;
-
 
 use Generated\Shared\Transfer\StorageProductTransfer;
 
@@ -10,9 +13,10 @@ interface CartItemHandlerInterface
 {
 
     /**
-     * @param $sku
-     * @param $selectedAttributes
-     * @return StorageProductTransfer
+     * @param string $sku
+     * @param array $selectedAttributes
+     *
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function getProductStorageTransfer($sku, $selectedAttributes);
 
@@ -21,6 +25,8 @@ interface CartItemHandlerInterface
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param int $quantity
      * @param string $groupKey
+     *
+     * @return void
      */
     public function replaceCartItem(
         $currentItemSku,
@@ -30,8 +36,8 @@ interface CartItemHandlerInterface
     );
 
     /**
-     * @param $selectedAttributes
-     * @param StorageProductTransfer $storageProductTransfer
+     * @param array $selectedAttributes
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
      * @return array
      */
@@ -42,11 +48,15 @@ interface CartItemHandlerInterface
 
     /**
      * @param string $message
+     *
+     * @return void
      */
     public function addInfoFlashMessage($message);
 
     /**
      * @param string $message
+     *
+     * @return void
      */
     public function addSuccessFlashMessage($message);
 

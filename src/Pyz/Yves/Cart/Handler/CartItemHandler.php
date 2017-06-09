@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
 namespace Pyz\Yves\Cart\Handler;
-
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
@@ -14,27 +17,30 @@ class CartItemHandler implements CartItemHandlerInterface
 {
 
     /**
-     * @var CartOperationHandler
+     * @var \Pyz\Yves\Cart\Handler\CartOperationHandler
      */
     protected $cartOperationHandler;
+
     /**
-     * @var CartClientInterface
+     * @var \Spryker\Client\Cart\CartClientInterface
      */
     protected $cartClient;
+
     /**
      * @var \Spryker\Client\Product\ProductClientInterface
      */
     protected $productClient;
+
     /**
      * @var \Pyz\Yves\Product\Mapper\StorageProductMapper
      */
     protected $productMapper;
 
     /**
-     * @param CartOperationHandler $cartOperationHandler
-     * @param CartClientInterface $cartClient
-     * @param ProductClientInterface $productClient
-     * @param StorageProductMapper $productMapper
+     * @param \Pyz\Yves\Cart\Handler\CartOperationHandler $cartOperationHandler
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
+     * @param \Spryker\Client\Product\ProductClientInterface $productClient
+     * @param \Pyz\Yves\Product\Mapper\StorageProductMapper $productMapper
      */
     public function __construct(
         CartOperationHandler $cartOperationHandler,
@@ -49,9 +55,10 @@ class CartItemHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @param $sku
-     * @param $selectedAttributes
-     * @return StorageProductTransfer
+     * @param string $sku
+     * @param array $selectedAttributes
+     *
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function getProductStorageTransfer($sku, $selectedAttributes)
     {
@@ -62,6 +69,8 @@ class CartItemHandler implements CartItemHandlerInterface
 
     /**
      * @param string $message
+     *
+     * @return void
      */
     public function addSuccessFlashMessage($message)
     {
@@ -70,6 +79,8 @@ class CartItemHandler implements CartItemHandlerInterface
 
     /**
      * @param string $message
+     *
+     * @return void
      */
     public function addInfoFlashMessage($message)
     {
@@ -81,6 +92,8 @@ class CartItemHandler implements CartItemHandlerInterface
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param int $quantity
      * @param string $groupKey
+     *
+     * @return void
      */
     public function replaceCartItem(
         $currentItemSku,
@@ -97,8 +110,8 @@ class CartItemHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @param $selectedAttributes
-     * @param StorageProductTransfer $storageProductTransfer
+     * @param array $selectedAttributes
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
      * @return array
      */
@@ -154,7 +167,7 @@ class CartItemHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @return CartClientInterface
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     protected function getCartClient()
     {
@@ -162,13 +175,12 @@ class CartItemHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function getQuoteTransfer()
     {
         return $this->cartClient->getQuote();
     }
-
 
     /**
      * @param string $sku
@@ -191,6 +203,7 @@ class CartItemHandler implements CartItemHandlerInterface
      * Removes empty nodes from array
      *
      * @param array $haystack
+     *
      * @return mixed
      */
     public function arrayRemoveEmpty($haystack)
@@ -209,9 +222,10 @@ class CartItemHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @param $sku
-     * @param QuoteTransfer $quoteTransfer
-     * @param $groupKey
+     * @param string $sku
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $groupKey
+     *
      * @return \ArrayObject|\Generated\Shared\Transfer\ProductOptionTransfer[]
      */
     protected function removeItemFromCart($sku, QuoteTransfer $quoteTransfer, $groupKey)
@@ -221,5 +235,5 @@ class CartItemHandler implements CartItemHandlerInterface
         $this->cartOperationHandler->remove($sku, $groupKey);
         return $productOptions;  //removing the existing items
     }
-}
 
+}

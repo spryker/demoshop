@@ -47,6 +47,8 @@ class BaseHandler
 
     /**
      * @param string $message
+     *
+     * @return void
      */
     public function addSuccessFlashMessage($message)
     {
@@ -55,6 +57,8 @@ class BaseHandler
 
     /**
      * @param string $message
+     *
+     * @return void
      */
     public function addInfoFlashMessage($message)
     {

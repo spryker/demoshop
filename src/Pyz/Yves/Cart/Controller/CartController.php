@@ -18,7 +18,7 @@ class CartController extends AbstractController
 {
 
     /**
-     * @param array $itemAttributes
+     * @param array|null $itemAttributes
      *
      * @return array
      */
@@ -129,7 +129,7 @@ class CartController extends AbstractController
         return $this->redirectResponseInternal(
             CartControllerProvider::ROUTE_CART,
             [
-                'availableAttributes' => [$sku => ['attributes' => $attributes]]
+                'availableAttributes' => [$sku => ['attributes' => $attributes]],
             ]
         );
     }
