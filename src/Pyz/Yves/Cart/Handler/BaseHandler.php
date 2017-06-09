@@ -45,12 +45,18 @@ class BaseHandler
         }
     }
 
-    public function setSuccessMessage($message)
+    /**
+     * @param string $message
+     */
+    public function addSuccessFlashMessage($message)
     {
         $this->flashMessenger->addSuccessMessage($message);
     }
 
-    public function addInfoMessage($message)
+    /**
+     * @param string $message
+     */
+    public function addInfoFlashMessage($message)
     {
         $this->flashMessenger->addInfoMessage($message);
     }

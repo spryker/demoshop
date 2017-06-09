@@ -9,10 +9,7 @@ namespace Pyz\Yves\Cart\Handler;
 
 use ArrayObject;
 use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\StorageProductTransfer;
-use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Client\Product\ProductClientInterface;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class ProductBundleCartOperationHandler extends BaseHandler implements CartOperationInterface
@@ -34,38 +31,22 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     protected $locale;
 
     /**
-     * @var \Spryker\Client\Product\ProductClientInterface
-     */
-    protected $productClient;
-
-    /**
-     * @var \Pyz\Yves\Product\Mapper\StorageProductMapper
-     */
-    protected $productMapper;
-
-    /**
      * @param \Pyz\Yves\Cart\Handler\CartOperationInterface $cartOperationHandler
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $locale
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
-     * @param \Spryker\Client\Product\ProductClientInterface $productClient
-     * @param \Pyz\Yves\Product\Mapper\StorageProductMapper $productMapper
      */
     public function __construct(
         CartOperationInterface $cartOperationHandler,
         CartClientInterface $cartClient,
         $locale,
-        FlashMessengerInterface $flashMessenger,
-        ProductClientInterface $productClient,
-        StorageProductMapper $productMapper
+        FlashMessengerInterface $flashMessenger
     ) {
         $this->cartOperationHandler = $cartOperationHandler;
 
         parent::__construct($flashMessenger);
         $this->cartClient = $cartClient;
         $this->locale = $locale;
-        $this->productClient = $productClient;
-        $this->productMapper = $productMapper;
     }
 
     /**
@@ -143,56 +124,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
 
         $quoteTransfer = $this->cartClient->changeItemQuantity($sku, $groupKey, $quantity);
         $this->cartClient->storeQuote($quoteTransfer);
-    }
-
-    /**
-     * @param string $sku
-     * @param array $selectedAttributes
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
-     */
-    public function mapSelectedAttributesToStorageProduct($sku, array $selectedAttributes, $quoteTransfer)
-    {
-        $items = $quoteTransfer->getItems();
-
-        foreach ($items as $item) {
-            if ($item->getSku() === $sku) {
-                return $this->getStorageProductForSelectedAttributes($selectedAttributes, $item);
-            }
-        }
-
-        return new StorageProductTransfer();
-    }
-
-    /**
-     * @param string $sku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
-    public function findItemInCartBySku($sku, $quoteTransfer)
-    {
-        $items = $quoteTransfer->getItems();
-
-        foreach ($items as $item) {
-            if ($item->getSku() === $sku) {
-                return $item;
-            }
-        }
-    }
-
-    /**
-     * @param array $productData
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
-     */
-    protected function mapAbstractStorageProduct(array $productData)
-    {
-        $storageProductTransfer = new StorageProductTransfer();
-        $storageProductTransfer->fromArray($productData, true);
-
-        return $storageProductTransfer;
     }
 
     /**
@@ -300,21 +231,6 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
         }
 
         return $bundleItemQuantity;
-    }
-
-    /**
-     * @param array $selectedAttributes
-     * @param \Generated\Shared\Transfer\ItemTransfer $item
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
-     */
-    protected function getStorageProductForSelectedAttributes(array $selectedAttributes, $item)
-    {
-        $productData = $this->productClient->getProductAbstractFromStorageById(
-            $item->getIdProductAbstract(),
-            $this->locale
-        );
-        return $this->productMapper->mapStorageProduct($productData, $selectedAttributes);
     }
 
 }

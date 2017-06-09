@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Cart\Form\VoucherForm;
+use Pyz\Yves\Cart\Handler\CartItemHandler;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
@@ -61,7 +62,18 @@ class CartFactory extends SprykerCartFactory
             $this->createCartOperationHandler(),
             $this->getCartClient(),
             $this->getLocale(),
-            $this->getFlashMessenger(),
+            $this->getFlashMessenger()
+        );
+    }
+
+    /**
+     * @return \Pyz\Yves\Cart\Handler\CartItemHandlerInterface
+     */
+    public function createCartItemHandler()
+    {
+        return new CartItemHandler(
+            $this->createCartOperationHandler(),
+            $this->getCartClient(),
             $this->getProductClient(),
             $this->createStorageProductMapper()
         );
@@ -123,8 +135,6 @@ class CartFactory extends SprykerCartFactory
     {
         return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_CHECKOUT_BREADCRUMB);
     }
-
-    //this will be moved to product client later
 
     /**
      * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
