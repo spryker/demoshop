@@ -34,7 +34,7 @@ use Spryker\Zed\Url\UrlConfig;
 class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     const KEY_TEMPLATE_NAME = 'template_name';
     const KEY_PAGE_KEY = 'page_key';

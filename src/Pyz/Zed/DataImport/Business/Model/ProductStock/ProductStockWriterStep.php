@@ -21,7 +21,7 @@ use Spryker\Zed\Stock\StockConfig;
 class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
     const KEY_NAME = 'name';
     const KEY_CONCRETE_SKU = 'concrete_sku';
     const KEY_QUANTITY = 'quantity';

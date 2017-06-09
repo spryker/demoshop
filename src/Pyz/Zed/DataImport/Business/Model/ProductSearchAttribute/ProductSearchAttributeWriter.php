@@ -22,7 +22,7 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     const KEY = 'key';
 

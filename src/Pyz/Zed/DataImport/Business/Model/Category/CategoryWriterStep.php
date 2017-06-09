@@ -28,7 +28,7 @@ use Spryker\Zed\Url\UrlConfig;
 class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     const KEY_NAME = 'name';
     const KEY_META_TITLE = 'meta_title';
@@ -141,7 +141,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
             $urlPathParts = [$languageIdentifier];
             if (!$categoryNodeEntity->getIsRoot()) {
                 $parentUrl = $this->categoryRepository->getParentUrl(
-                    $dataSet[self::KEY_PARENT_CATEGORY_KEY],
+                    $dataSet[static::KEY_PARENT_CATEGORY_KEY],
                     $idLocale
                 );
 

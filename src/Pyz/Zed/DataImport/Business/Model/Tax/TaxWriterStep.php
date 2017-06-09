@@ -21,7 +21,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class TaxWriterStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     const KEY_COUNTRY_NAME = 'country_name';
     const KEY_TAX_RATE_NAME = 'tax_rate_name';

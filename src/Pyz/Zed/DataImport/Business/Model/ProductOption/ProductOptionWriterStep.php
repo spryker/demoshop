@@ -27,7 +27,7 @@ use Spryker\Zed\ProductOption\ProductOptionConfig;
 class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 1;
+    const BULK_SIZE = 100;
 
     const KEY_ABSTRACT_PRODUCT_SKUS = 'abstract_product_skus';
     const KEY_GROUP_NAME_TRANSLATION_KEY = 'group_name_translation_key';

@@ -24,7 +24,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     const KEY_BLOCK_NAME = 'block_name';
     const KEY_BLOCK_TYPE = 'type';

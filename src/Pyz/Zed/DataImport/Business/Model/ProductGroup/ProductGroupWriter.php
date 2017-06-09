@@ -19,7 +19,7 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 class ProductGroupWriter extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     const KEY_ABSTRACT_SKU = 'abstract_sku';
     const KEY_PRODUCT_GROUP_KEY = 'group_key';

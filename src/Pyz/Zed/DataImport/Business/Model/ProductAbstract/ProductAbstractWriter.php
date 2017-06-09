@@ -31,7 +31,7 @@ use Spryker\Zed\Url\UrlConfig;
 class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     const KEY_ABSTRACT_SKU = 'abstract_sku';
     const KEY_IS_FEATURED = 'is_featured';

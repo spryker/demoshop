@@ -22,7 +22,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class ProductManagementAttributeWriter extends TouchAwareStep implements DataImportStepInterface
 {
 
-    const BULK_SIZE = 50;
+    const BULK_SIZE = 100;
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
