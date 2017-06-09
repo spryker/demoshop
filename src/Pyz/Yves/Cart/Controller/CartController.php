@@ -112,36 +112,39 @@ class CartController extends AbstractController
     public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null)
     {
 
-        unset($selectedAttributes['processor_frequency']);
-
         $quoteTransfer = $this->getClient()->getQuote();
         $cartOperationHandler = $this->getCartOperationHandler();
 
         //find out if we have a concrete product
         $storageProductTransfer = $cartOperationHandler->mapSelectedAttributesToStorageProduct($sku, $selectedAttributes, $quoteTransfer);
 
-//        if ($storageProductTransfer->getIsVariant() === true) {
-//
-//            $cartItem = $cartOperationHandler->findItemInCartBySku($sku, $quoteTransfer);
-//            $productOptions = $cartItem->getProductOptions(); //we must not lose the options
-//            $cartOperationHandler->remove($sku, $groupKey);  //removing the existing items
-//
-//            $sku = $storageProductTransfer->getSku();
-//            $cartOperationHandler->add($sku, $quantity, array_keys($productOptions->getArrayCopy()));
-//            return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
-//
-//        }
+        if ($storageProductTransfer->getIsVariant() === true) {
+
+            $cartItem = $cartOperationHandler->findItemInCartBySku($sku, $quoteTransfer);
+            $productOptions = $cartItem->getProductOptions(); //we must not lose the options
+            $cartOperationHandler->remove($sku, $groupKey);  //removing the existing items
+
+            $sku = $storageProductTransfer->getSku();
+            $cartOperationHandler->add($sku, $quantity, array_keys($productOptions->getArrayCopy()));
+            $cartOperationHandler->setSuccessMessage('Cart item updated');
+            return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+
+        }
 
         $cartOperationHandler->changeQuantity($sku, $quantity, $groupKey);
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
-        $shit2 = [];
+        $mergedAttributes = [];
 
         foreach ($storageProductTransfer->getAvailableAttributes() as $key => $attributes) {
-            $shit2[$key] = array_map(function ($a) { return false; }, array_flip($attributes));
+            $mergedAttributes[$key] = array_map(function ($item) { return false; }, array_flip($attributes));
         }
 
-        $shit = array_merge($shit2, (array)$selectedAttributes);
+        $selectedAttributes = $this->array_remove_empty($selectedAttributes);
+
+        $shit = array_merge($mergedAttributes, (array)$selectedAttributes);
+
+        $cartOperationHandler->addInfoMessage('Please continue narrowing down variants');
 
         return $this->redirectResponseInternal(
             CartControllerProvider::ROUTE_CART,
@@ -157,6 +160,21 @@ class CartController extends AbstractController
     protected function getCartOperationHandler()
     {
         return $this->getFactory()->createProductBundleCartOperationHandler();
+    }
+
+    protected function array_remove_empty($haystack)
+    {
+        foreach ($haystack as $key => $value) {
+            if (is_array($value)) {
+                $haystack[$key] = $this->array_remove_empty($haystack[$key]);
+            }
+
+            if (empty($haystack[$key])) {
+                unset($haystack[$key]);
+            }
+        }
+
+        return $haystack;
     }
 
 }
