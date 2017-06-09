@@ -1,90 +1,78 @@
 <?xml version="1.0"?>
 <blocks>
     <block>
-        <template>quote_block</template>
-        <blockName>quotes_1</blockName>
+        <template>
+            <name>static_block</name>
+            <path>@Cms/template/static_block.twig</path>
+        </template>
+        <blockName>static_left_block</blockName>
         <locales>
             <de_DE>
                 <placeholders>
                     <placeholder>
-                        <name>quote</name>
-                        <translation>Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen.</translation>
+                        <name>header</name>
+                        <translation>Links Block</translation>
                     </placeholder>
                     <placeholder>
-                        <name>reference</name>
-                        <translation>Luciano De Crescenzo</translation>
+                        <name>body</name>
+                        <translation><![CDATA[
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                         ]]>
+                        </translation>
                     </placeholder>
                 </placeholders>
             </de_DE>
             <en_US>
                 <placeholders>
                     <placeholder>
-                        <name>quote</name>
-                        <translation>##ENGLISH## Wir sind alle Engel mit nur einem Flügel - um fliegen zu können; müssen wir uns umarmen.</translation>
+                        <name>header</name>
+                        <translation>Left Block</translation>
                     </placeholder>
                     <placeholder>
-                        <name>reference</name>
-                        <translation>Luciano De Crescenzo</translation>
+                        <name>body</name>
+                        <translation><![CDATA[
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                         ]]>
+                        </translation>
                     </placeholder>
                 </placeholders>
             </en_US>
         </locales>
     </block>
     <block>
-        <template>quote_block</template>
-        <blockName>quotes_2</blockName>
+        <template>
+            <name>static_block</name>
+            <path>@Cms/template/static_block.twig</path>
+        </template>
+        <blockName>static_right_block</blockName>
         <locales>
             <de_DE>
                 <placeholders>
                     <placeholder>
-                        <name>quote</name>
-                        <translation>Eine Hochzeit ist ein Ereignis; eine Ehe eine Leistung.</translation>
+                        <name>header</name>
+                        <translation>Recht Block</translation>
                     </placeholder>
                     <placeholder>
-                        <name>reference</name>
-                        <translation>Unbekannter Autor</translation>
+                        <name>body</name>
+                        <translation><![CDATA[
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                         ]]>
+                        </translation>
                     </placeholder>
                 </placeholders>
             </de_DE>
             <en_US>
                 <placeholders>
                     <placeholder>
-                        <name>quote</name>
-                        <translation>##ENGLISH## Eine Hochzeit ist ein Ereignis; eine Ehe eine Leistung.</translation>
+                        <name>header</name>
+                        <translation>Right Block</translation>
                     </placeholder>
                     <placeholder>
-                        <name>reference</name>
-                        <translation>##ENGLISH## Unbekannter Autor</translation>
-                    </placeholder>
-                </placeholders>
-            </en_US>
-        </locales>
-    </block>
-    <block>
-        <template>quote_block</template>
-        <blockName>quotes_3</blockName>
-        <locales>
-            <de_DE>
-                <placeholders>
-                    <placeholder>
-                        <name>quote</name>
-                        <translation>Gäbe es nicht das Herz; das du liebst; wärest du feiner Staub; den der Wind davonträgt.</translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>reference</name>
-                        <translation>Khalil Gibran</translation>
-                    </placeholder>
-                </placeholders>
-            </de_DE>
-            <en_US>
-                <placeholders>
-                    <placeholder>
-                        <name>quote</name>
-                        <translation>##ENGLISH## Gäbe es nicht das Herz; das du liebst; wärest du feiner Staub; den der Wind davonträgt.</translation>
-                    </placeholder>
-                    <placeholder>
-                        <name>reference</name>
-                        <translation>##ENGLISH## Khalil Gibran</translation>
+                        <name>body</name>
+                        <translation><![CDATA[
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                         ]]>
+                        </translation>
                     </placeholder>
                 </placeholders>
             </en_US>

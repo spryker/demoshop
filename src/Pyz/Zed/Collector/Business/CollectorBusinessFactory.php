@@ -9,14 +9,12 @@ namespace Pyz\Zed\Collector\Business;
 
 use Exception;
 use Pyz\Zed\Collector\Business\Search\CategoryNodeCollector as SearchCategoryNodeCollector;
-use Pyz\Zed\Collector\Business\Search\CmsPageCollector as SearchCmsPageCollector;
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\AttributeMapCollector;
 use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
 use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector as StorageCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
-use Pyz\Zed\Collector\Business\Storage\PageCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductOptionCollector;
@@ -28,7 +26,6 @@ use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQ
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery as StoragePageCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
@@ -113,30 +110,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Business\Search\CmsPageCollector
-     */
-    public function createSearchCmsPageCollector()
-    {
-        $cmsPageCollector = new SearchCmsPageCollector(
-            $this->getUtilDataReaderService(),
-            $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_CMS_PAGE_DATA_PAGE_MAP),
-            $this->getSearchFacade()
-        );
-
-        $cmsPageCollector->setTouchQueryContainer(
-            $this->getTouchQueryContainer()
-        );
-        $cmsPageCollector->setCriteriaBuilder(
-            $this->createCriteriaBuilder()
-        );
-        $cmsPageCollector->setQueryBuilder(
-            $this->createSearchPdoQueryAdapterByName('CmsPageCollectorQuery')
-        );
-
-        return $cmsPageCollector;
-    }
-
-    /**
      * @return \Pyz\Zed\Collector\Business\Storage\NavigationCollector
      */
     public function createStorageNavigationCollector()
@@ -159,26 +132,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Business\Storage\PageCollector
-     */
-    public function createStoragePageCollector()
-    {
-        $storagePageCollector = new PageCollector(
-            $this->getUtilDataReaderService()
-        );
-
-        $storagePageCollector->setTouchQueryContainer(
-            $this->getTouchQueryContainer()
-        );
-        $storagePageCollector->setQueryBuilder(
-            $this->createStoragePageCollectorPropelQuery()
-        );
-        $storagePageCollector->setConfig($this->getConfig());
-
-        return $storagePageCollector;
-    }
-
-    /**
      * @return \Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector
      */
     public function createStorageProductAbstractCollector()
@@ -189,7 +142,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getProductCategoryQueryContainer(),
             $this->getProductImageQueryContainer(),
             $this->getProductFacade(),
-            $this->getPriceFacade()
+            $this->getPriceFacade(),
+            $this->getProductImageFacade()
         );
 
         $storageProductCollector->setTouchQueryContainer(
@@ -296,7 +250,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getUtilDataReaderService(),
             $this->getProductFacade(),
             $this->getPriceFacade(),
-            $this->getProductImageQueryContainer()
+            $this->getProductImageQueryContainer(),
+            $this->getProductImageFacade()
         );
 
         $productConcreteCollector->setTouchQueryContainer(
@@ -464,14 +419,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\PageCollectorQuery
-     */
-    public function createStoragePageCollectorPropelQuery()
-    {
-        return new StoragePageCollectorPropelQuery();
-    }
-
-    /**
      * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery
      */
     public function createStorageRedirectCollectorPropelQuery()
@@ -592,6 +539,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getUtilDataReaderService()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::SERVICE_DATA);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface
+     */
+    protected function getProductImageFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_IMAGE);
     }
 
 }

@@ -62,6 +62,8 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     /**
      * Require input for customer authentication if the customer is not logged in already, or haven't authenticated yet.
      *
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     *
      * @return bool
      */
     public function requireInput(AbstractTransfer $quoteTransfer)

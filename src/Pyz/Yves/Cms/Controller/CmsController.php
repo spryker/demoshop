@@ -28,11 +28,16 @@ class CmsController extends AbstractController
         $edit = (bool)$request->get('edit', false);
 
         if (!$meta['is_active']) {
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException('The Cms Page is not active');
         }
 
         if (!$this->isPageActiveInGivenDate($meta, new DateTime())) {
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException('The Cms Page is not active in given dates');
+        }
+
+        $loader = $this->getApplication()['twig']->getLoader();
+        if (!$loader->exists($meta['template'])) {
+            throw new NotFoundHttpException('The Cms Page template is not found');
         }
 
         return $this->renderView($meta['template'], [

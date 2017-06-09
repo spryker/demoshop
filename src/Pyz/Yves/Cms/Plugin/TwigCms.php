@@ -15,6 +15,8 @@ use Twig_SimpleFunction;
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
+    const CMS_PREFIX_KEY = 'generated.cms';
+
     /**
      * @param \Silex\Application $application
      *
@@ -24,45 +26,35 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
     {
         return [
             new Twig_SimpleFunction('spyCms', function (array $context, $identifier) use ($application) {
-                $translator = $this->getTranslator($application);
                 $placeholders = $context['placeholders'];
 
                 $translation = '';
                 if (isset($placeholders[$identifier])) {
-                    $translation = $translator->trans($placeholders[$identifier]);
-
-                    if ($this->isEdit($context)) {
-                        $translation = $this->getEditableOutput($placeholders[$identifier], $translation);
-                    }
-
-                    if (empty($translation)) {
-                        $translation = $placeholders[$identifier];
-                    }
+                    $translation = $placeholders[$identifier];
                 }
+
+                if ($this->isGlossaryKey($translation)) {
+                    $translator = $this->getTranslator($application);
+                    $translation = $translator->trans($translation);
+                }
+
+                if ($this->isGlossaryKey($translation)) {
+                    $translation = '';
+                }
+
                 return $translation;
             }, ['needs_context' => true]),
         ];
     }
 
     /**
-     * @param array $context
-     *
-     * @return bool
-     */
-    protected function isEdit(array $context)
-    {
-        return !empty($context['edit']) && $context['edit'] === true;
-    }
-
-    /**
-     * @param string $glossaryKeyName
      * @param string $translation
      *
      * @return string
      */
-    protected function getEditableOutput($glossaryKeyName, $translation)
+    protected function isGlossaryKey($translation)
     {
-        return '<data class="spy-cms-editable" value="' . $glossaryKeyName . '">' . $translation . '</data>';
+        return strpos($translation, static::CMS_PREFIX_KEY) === 0;
     }
 
     /**

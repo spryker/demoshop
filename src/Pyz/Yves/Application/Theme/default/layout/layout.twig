@@ -2,17 +2,18 @@
 <html class="no-js" lang="{{ app.locale | slice(0, 2) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block page_title %}{{ page_title | default('global.spryker.shop') | trans }}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta name="description" content="{{ page_description | default('') | trans }}" />
     <meta name="keywords" content="{{ page_keywords | default('') | trans }}" />
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="generator" content="spryker" />
     {% block page_meta %}{% endblock %}
 
-    <link rel="stylesheet" href="/assets/default/css/vendor.css">
-    <link rel="stylesheet" href="/assets/default/css/app.css">
+    <link rel="stylesheet" href="/assets/default/css/vendor.css" />
+    <link rel="stylesheet" href="/assets/default/css/app.css" />
     {% block stylesheets %}{% endblock %}
+    
+    <title>{% block page_title %}{{ page_title | default('global.spryker.shop') | trans }}{% endblock %}</title>
 </head>
 
 <body data-component="main">
