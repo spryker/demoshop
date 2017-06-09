@@ -80,13 +80,37 @@ class ProductSetImporter extends AbstractImporter
             return;
         }
 
-        // general data
+        $productSetTransfer = $this->mapGeneralData($data);
+        $productSetTransfer = $this->mapLocalizedData($productSetTransfer, $data);
+        $productSetTransfer = $this->mapProducts($productSetTransfer, $data);
+        $productSetTransfer = $this->mapProductImageSets($productSetTransfer, $data);
+
+        $this->productSetFacade->createProductSet($productSetTransfer);
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return \Generated\Shared\Transfer\ProductSetTransfer
+     */
+    protected function mapGeneralData(array $data)
+    {
         $productSetTransfer = new ProductSetTransfer();
         $productSetTransfer
             ->setWeight($data['weight'])
             ->setIsActive((bool)(int)$data['is_active']);
 
-        // localized data
+        return $productSetTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductSetTransfer $productSetTransfer
+     * @param array $data
+     *
+     * @return \Generated\Shared\Transfer\ProductSetTransfer
+     */
+    protected function mapLocalizedData(ProductSetTransfer $productSetTransfer, array $data)
+    {
         foreach ($this->getAvailableLocales() as $localeTransfer) {
             if (!isset($data['name.' . $localeTransfer->getLocaleName()])) {
                 continue;
@@ -110,15 +134,36 @@ class ProductSetImporter extends AbstractImporter
             $productSetTransfer->addLocalizedData($localizedProductSetTransfer);
         }
 
-        // products
+        return $productSetTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductSetTransfer $productSetTransfer
+     * @param array $data
+     *
+     * @return \Generated\Shared\Transfer\ProductSetTransfer
+     */
+    protected function mapProducts(ProductSetTransfer $productSetTransfer, array $data)
+    {
         $productAbstractSkus = explode(',', $data['abstract_skus']);
         $productAbstractSkus = array_map('trim', $productAbstractSkus);
+
         foreach ($productAbstractSkus as $productAbstractSku) {
             $idProductAbstract = $this->getIdProductAbstract($productAbstractSku);
             $productSetTransfer->addIdProductAbstract($idProductAbstract);
         }
 
-        // images
+        return $productSetTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductSetTransfer $productSetTransfer
+     * @param array $data
+     *
+     * @return \Generated\Shared\Transfer\ProductSetTransfer
+     */
+    protected function mapProductImageSets(ProductSetTransfer $productSetTransfer, array $data)
+    {
         $imageSetIndex = 1;
         while (array_key_exists('image_set.' . $imageSetIndex, $data)) {
             $productImageSetTransfer = new ProductImageSetTransfer();
@@ -139,7 +184,7 @@ class ProductSetImporter extends AbstractImporter
             $imageSetIndex++;
         }
 
-        $this->productSetFacade->createProductSet($productSetTransfer);
+        return $productSetTransfer;
     }
 
     /**
