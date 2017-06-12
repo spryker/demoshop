@@ -68,6 +68,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->convert('groupKey', [$this, 'getGroupKeyFromRequest'])
             ->convert('selectedAttributes', [$this, 'getSelectedAttributesFromRequest'])
+            ->convert('optionValueIds', [$this, 'getProductOptionsFromRequest'])
             ->method('POST');
 
         $this->createController('/{cart}/voucher/add', self::ROUTE_CART_VOUCHER_ADD, 'Cart', 'Voucher', 'add')

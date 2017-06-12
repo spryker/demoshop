@@ -38,17 +38,17 @@ class CartController extends AbstractController
             ->getCheckoutBreadcrumbPlugin()
             ->generateStepBreadcrumbs($quoteTransfer);
 
-        $availableAttributesForAllItemsBySku = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
+        $itemAttributesBySku = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
 
         if ($itemAttributes) {
-            unset($availableAttributesForAllItemsBySku[key($itemAttributes)]);
-            $availableAttributesForAllItemsBySku = array_merge_recursive($itemAttributes, $availableAttributesForAllItemsBySku);
+            unset($itemAttributesBySku[key($itemAttributes)]);
+            $itemAttributesBySku = array_merge_recursive($itemAttributes, $itemAttributesBySku);
         }
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
-            'attributes' => $availableAttributesForAllItemsBySku,
+            'attributes' => $itemAttributesBySku,
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
         ]);
@@ -106,10 +106,11 @@ class CartController extends AbstractController
      * @param int $quantity
      * @param array $selectedAttributes
      * @param string|null $groupKey
+     * @param array $optionValueIds
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null)
+    public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null, $optionValueIds = [])
     {
         $cartItemHandler = $this->getFactory()->createCartItemHandler();
 
@@ -118,7 +119,7 @@ class CartController extends AbstractController
 
         if ($storageProductTransfer->getIsVariant() === true) {
 
-            $cartItemHandler->replaceCartItem($sku, $storageProductTransfer, $quantity, $groupKey);
+            $cartItemHandler->replaceCartItem($sku, $storageProductTransfer, $quantity, $groupKey, $optionValueIds);
             $cartItemHandler->addSuccessFlashMessage('Cart item updated');
             return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
         }

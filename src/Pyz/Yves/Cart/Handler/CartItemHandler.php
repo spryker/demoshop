@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Cart\Handler;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Client\Cart\CartClientInterface;
@@ -92,6 +91,7 @@ class CartItemHandler implements CartItemHandlerInterface
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param int $quantity
      * @param string $groupKey
+     * @param array $optionValueIds
      *
      * @return void
      */
@@ -99,14 +99,14 @@ class CartItemHandler implements CartItemHandlerInterface
         $currentItemSku,
         StorageProductTransfer $storageProductTransfer,
         $quantity,
-        $groupKey
+        $groupKey,
+        $optionValueIds
     ) {
 
-        $quoteTransfer = $this->getQuoteTransfer();
-        $productOptions = $this->removeItemFromCart($currentItemSku, $quoteTransfer, $groupKey);
+        $this->removeItemFromCart($currentItemSku, $groupKey);
 
         $newItemSku = $storageProductTransfer->getSku();
-        $this->cartOperationHandler->add($newItemSku, $quantity, array_keys($productOptions->getArrayCopy()));
+        $this->cartOperationHandler->add($newItemSku, $quantity, $optionValueIds);
     }
 
     /**
@@ -223,17 +223,13 @@ class CartItemHandler implements CartItemHandlerInterface
 
     /**
      * @param string $sku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $groupKey
      *
-     * @return \ArrayObject|\Generated\Shared\Transfer\ProductOptionTransfer[]
+     * @return void
      */
-    protected function removeItemFromCart($sku, QuoteTransfer $quoteTransfer, $groupKey)
+    protected function removeItemFromCart($sku, $groupKey)
     {
-        $cartItem = $this->findItemInCartBySku($sku, $quoteTransfer);
-        $productOptions = $cartItem->getProductOptions(); //we must not lose the options
         $this->cartOperationHandler->remove($sku, $groupKey);
-        return $productOptions;  //removing the existing items
     }
 
 }

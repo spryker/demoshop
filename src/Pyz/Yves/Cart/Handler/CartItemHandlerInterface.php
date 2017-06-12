@@ -25,6 +25,7 @@ interface CartItemHandlerInterface
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param int $quantity
      * @param string $groupKey
+     * @param array $optionValueIds
      *
      * @return void
      */
@@ -32,7 +33,8 @@ interface CartItemHandlerInterface
         $currentItemSku,
         StorageProductTransfer $storageProductTransfer,
         $quantity,
-        $groupKey
+        $groupKey,
+        $optionValueIds
     );
 
     /**
