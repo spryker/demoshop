@@ -337,10 +337,10 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $this->assertSame(7.0, $recalculatedItemTransfer->getTaxRate());
         $this->assertSame(7, $recalculatedItemTransfer->getUnitTaxAmount());
         $this->assertSame(7, $recalculatedItemTransfer->getSumTaxAmount());
-        $this->assertSame(46, $recalculatedItemTransfer->getUnitTaxAmountFullAggregation());
-        $this->assertSame(46, $recalculatedItemTransfer->getSumTaxAmountFullAggregation());
+        $this->assertSame(47, $recalculatedItemTransfer->getUnitTaxAmountFullAggregation());
+        $this->assertSame(47, $recalculatedItemTransfer->getSumTaxAmountFullAggregation());
 
-        $this->assertSame(46, $totalsTransfer->getTaxTotal()->getAmount());
+        $this->assertSame(47, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
     /**
