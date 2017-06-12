@@ -142,7 +142,9 @@ function installZed {
 function removeLogFiles {
     if [[ -d "./data/DE/logs" ]]; then
         labelText "Clear logs"
-        /bin/bash -c 'rm -rf ./data/DE/logs/*' || true
+        sudo service filebeat stop || true
+        /bin/bash -c 'rm -rf ./data/DE/logs/*'
+        sudo service filebeat start || true
         writeErrorMessage "Could not remove logs directory"
     fi
 }
