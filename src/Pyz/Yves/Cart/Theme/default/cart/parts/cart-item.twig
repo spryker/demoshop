@@ -50,7 +50,6 @@
                 {% else %}
 
                     {% set itemAttributes = attribute(attributes, cartItem.sku) %}
-                    {% set itemSuperAttributes = attribute(itemAttributes, 'attributes') %}
 
                     <form method="POST" action="{{ path('cart/update', {'sku': cartItem.sku }) }}">
 
@@ -59,9 +58,8 @@
                                 <div class="small-12 medium-4 large-12 columns">
                                     <strong class="cart-item__section-title">Product variants</strong>
                                 </div>
-                                {% for attributeName, attributeOptions in itemSuperAttributes %}
+                                {% for attributeName, attributeOptions in itemAttributes %}
 
-                                    <p class="small-12 medium-8 large-12 columns">
                                         <div  data-component="cart-item">
                                             {% if attributeOptions is iterable %}
                                                 <p class="small-12 medium-8 large-12 columns">
@@ -72,11 +70,11 @@
                                                     <option  value="">
                                                         {{ 'Please select' }}
                                                     </option>
-                                                        {% for option, selected in attributeOptions %}
-                                                            <option  value="{{ option }}" {% if selected %}selected{% endif %}>
-                                                                {{ option }}
-                                                            </option>
-                                                        {% endfor %}
+                                                    {% for option, selected in attributeOptions %}
+                                                        <option  value="{{ option }}" {% if selected %}selected{% endif %}>
+                                                            {{ option }}
+                                                        </option>
+                                                    {% endfor %}
                                                 </select>
                                                 <input name="selectedAttributes[{{ attributeName }}]" type="hidden">
                                             {% else %}
@@ -85,33 +83,33 @@
                                                 </p>
                                                 <a href="{{ url("cart") }}">reset</a>
                                                 <input name="selectedAttributes[{{ attributeName }}]" type="hidden" value="{{ attributeOptions }}">
-                                            {% endif %}
 
+                                            {% endif %}
                                         </div>
-                                    </p>
                                 {% endfor %}
                             </div>
                         </div>
                     </form>
                 {% endif %}
-    
-                <div class="small-12 large-6 columns cart-item__section">
-                    <div class="row">
-                        <div class="small-12 medium-4 large-12 columns">
-                            <strong class="cart-item__section-title">{{ 'cart.item.option.description' | trans }}</strong>
-                        </div>
-                        <div class="small-12 medium-8 large-12 columns">
 
-                            {% if cartItem.productOptions|length > 0 %}
-                                <ul class="no-bullet">
-                                    {% for productOption in cartItem.productOptions %}
-                                        <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
+                {% if cartItem.productOptions|length > 0 %}
+                    <div class="small-12 large-6 columns cart-item__section">
+                        <div class="row">
+                            <div class="small-12 medium-4 large-12 columns">
+                                <strong class="cart-item__section-title">{{ 'cart.item.option.description' | trans }}</strong>
+                            </div>
+                            <div class="small-12 medium-8 large-12 columns">
+
+                                    <ul class="no-bullet">
+                                        {% for productOption in cartItem.productOptions %}
+                                            <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
+                                        {% endfor %}
+                                    </ul>
+
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
     
                 <div class="small-12 large-6 columns cart-item__section">
                     <div class="row">

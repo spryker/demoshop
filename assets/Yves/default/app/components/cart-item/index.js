@@ -22,7 +22,6 @@ module.exports = {
         itemChanged: function(event) {
             var $selectedValue = this.$container.children('select option:selected').val();
             this.$root.children('input:hidden').val($selectedValue);
-            debugger;
             this.$root.closest('form').submit();
 
             event.preventDefault();
