@@ -142,7 +142,7 @@ function installZed {
 function removeLogFiles {
     if [[ -d "./data/DE/logs" ]]; then
         labelText "Clear logs"
-        /bin/bash -c 'rm -rf ./data/DE/logs/*'
+        /bin/bash -c 'rm -rf ./data/DE/logs/*' || true
         writeErrorMessage "Could not remove logs directory"
     fi
 }
