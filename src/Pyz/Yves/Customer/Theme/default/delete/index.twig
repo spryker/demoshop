@@ -1,0 +1,31 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.profile_data' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'profile'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="row xlarge-unstack">
+        <div class="columns">
+            <div class="callout">
+                <h5>{{ "customer.profile.delete" | trans }}</h5>
+                <hr>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <label>{{ "customer.profile.delete.confirmation_question" | trans }}</label>
+                    </div>
+                </div>
+
+                <div class="row align-right">
+                    <div class="small-12 medium-6 large-4 columns align-bottom">
+                        <a href="{{ url('customer/delete/confirm') }}" class="button alert expanded">{{ "customer.profile.delete" | trans }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
