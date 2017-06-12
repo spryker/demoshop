@@ -11,6 +11,7 @@ use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\OrderListTransfer;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
@@ -35,6 +36,10 @@ class CustomerController extends AbstractCustomerController
         $customerTransfer = $this
             ->getClient()
             ->getCustomerByEmail($loggedInCustomerTransfer);
+
+        if (!$customerTransfer->getIdCustomer()) {
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGOUT);
+        }
 
         $overviewRequest = $this->createOverviewRequest($customerTransfer);
 
