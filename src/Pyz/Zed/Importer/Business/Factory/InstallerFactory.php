@@ -35,6 +35,8 @@ use Pyz\Zed\Importer\ImporterConfig;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
 
 /**
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ *
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
  */
 class InstallerFactory extends AbstractFactory
