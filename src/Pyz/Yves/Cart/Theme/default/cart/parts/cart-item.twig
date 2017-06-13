@@ -72,8 +72,8 @@
                                                     <option  value="">
                                                         {{ 'Please select' }}
                                                     </option>
-                                                    {% for option, selected in attributeOptions %}
-                                                        <option  value="{{ option }}" {% if selected %}selected{% endif %}>
+                                                    {% for option, properties in attributeOptions %}
+                                                        <option  value="{{ option }}" {% if attribute(properties,'selected') %}selected{% endif %} {% if not attribute(properties,'available') %}disabled{% endif %}>
                                                             {{ option }}
                                                         </option>
                                                     {% endfor %}
