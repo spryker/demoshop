@@ -154,7 +154,8 @@ $config[StorageConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION] = true;
 
 $config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS_LOCKING;
-$config[SessionConstants::YVES_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
+$config[SessionConstants::YVES_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_YEAR;
+$config[SessionConstants::YVES_SESSION_COOKIE_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_0_5_HOUR;
 $config[SessionConstants::YVES_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::YVES_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_YVES];
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
@@ -163,6 +164,7 @@ $config[SessionConstants::YVES_SESSION_PERSISTENT_CONNECTION] = $config[StorageC
 $config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
 $config[SessionConstants::ZED_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
 $config[SessionConstants::ZED_SESSION_FILE_PATH] = session_save_path();
+$config[SessionConstants::ZED_SESSION_COOKIE_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_BROWSER_SESSION;
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED_GUI];
 $config[SessionConstants::ZED_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
 
@@ -178,7 +180,10 @@ $config[TwigConstants::YVES_THEME]
     = $config[CmsConstants::YVES_THEME] = 'default';
 
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
-$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_SSL_ENABLED]
+    = $config[SessionConstants::YVES_SSL_ENABLED]
+    = false;
+
 $config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
     'heartbeat' => '/heartbeat',
