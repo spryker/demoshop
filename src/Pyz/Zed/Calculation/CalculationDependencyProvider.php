@@ -226,10 +226,11 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new DiscountAmountAggregatorPlugin(),
             new ItemDiscountAmountFullAggregatorPlugin(),
 
-            new PriceToPayAggregatorPlugin(),
-
             new TaxAmountCalculatorPlugin(),
             new ItemTaxAmountFullAggregatorPlugin(),
+
+            new PriceToPayAggregatorPlugin(),
+
             new TaxAmountAfterCancellationCalculatorPlugin(),
 
             new RefundableAmountCalculatorPlugin(),
@@ -238,9 +239,8 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new DiscountTotalCalculatorPlugin(),
             new RefundTotalCalculatorPlugin(),
             new CanceledTotalCalculationPlugin(),
-            new GrandTotalCalculatorPlugin(),
-
             new OrderTaxTotalCalculationPlugin(),
+            new GrandTotalCalculatorPlugin(),
         ];
     }
 
