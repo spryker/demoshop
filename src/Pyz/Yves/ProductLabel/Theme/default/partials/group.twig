@@ -1,8 +1,10 @@
 <div class="product-label-group">
     {% for productLabelTransfer in productLabelTransferCollection %}
-        {% include '@ProductLabel/partials/label.twig' with {
-            productLabelTransfer: productLabelTransfer
-        } %}
+        {% if loop.index <= 2 %}
+            {% include '@ProductLabel/partials/label.twig' with {
+                productLabelTransfer: productLabelTransfer
+            } %}
+        {% endif %}
     {% endfor %}
 </div>
 
