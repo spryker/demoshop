@@ -102,11 +102,10 @@ class CartItemHandler implements CartItemHandlerInterface
         $groupKey,
         $optionValueIds
     ) {
-
-        $this->removeItemFromCart($currentItemSku, $groupKey);
-
         $newItemSku = $storageProductTransfer->getSku();
         $this->cartOperationHandler->add($newItemSku, $quantity, $optionValueIds);
+
+        $this->removeItemFromCart($currentItemSku, $groupKey);
     }
 
     /**
@@ -122,13 +121,17 @@ class CartItemHandler implements CartItemHandlerInterface
         $availableAttributes = [];
 
         foreach ($storageProductTransfer->getAvailableAttributes() as $key => $attributes) {
-            $availableAttributes[$key] = array_map(function ($item) {
-                return false;
-            }, array_flip($attributes));
+            foreach ($attributes as $attribute) {
+                $availableAttributes[$key][$attribute]['selected'] = false;
+            }
         }
 
         $selectedAttributes = $this->arrayRemoveEmpty($selectedAttributes);
-        return array_merge($availableAttributes, (array)$selectedAttributes);
+        foreach ($selectedAttributes as $key=>$attribute) {
+            $availableAttributes[$key][$attribute]['selected'] = true;
+            $availableAttributes[$key][$attribute]['available'] = true;
+        }
+        return $availableAttributes;
 
     }
 
@@ -204,7 +207,7 @@ class CartItemHandler implements CartItemHandlerInterface
      *
      * @param array $haystack
      *
-     * @return mixed
+     * @return array
      */
     public function arrayRemoveEmpty($haystack)
     {

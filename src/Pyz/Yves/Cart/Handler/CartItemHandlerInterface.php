@@ -62,4 +62,13 @@ interface CartItemHandlerInterface
      */
     public function addSuccessFlashMessage($message);
 
+    /**
+     * Removes empty nodes from array
+     *
+     * @param array $haystack
+     *
+     * @return array
+     */
+    public function arrayRemoveEmpty($haystack);
+
 }

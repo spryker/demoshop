@@ -63,7 +63,7 @@
                                 {% for attributeName, attributeOptions in itemAttributes %}
 
                                         <div  data-component="cart-item">
-                                            {% if attributeOptions is iterable %}
+                                            {% if attributeOptions|length > 1 %}
                                                 <p class="small-12 medium-8 large-12 columns">
                                                     {{ attributeName }}:
                                                 </p>
@@ -80,11 +80,13 @@
                                                 </select>
                                                 <input name="selectedAttributes[{{ attributeName }}]" type="hidden">
                                             {% else %}
-                                                <p class="small-12 medium-8 large-12 columns">
-                                                    <label>{{ attributeName }}: {{ attributeOptions }} </label>
-                                                </p>
-                                                <a href="{{ url("cart") }}">reset</a>
-                                                <input name="selectedAttributes[{{ attributeName }}]" type="hidden" value="{{ attributeOptions }}">
+                                                {% for option, properties in attributeOptions %}
+                                                    <p class="small-12 medium-8 large-12 columns">
+                                                        <label>{{ attributeName }}: {{ option }} </label> <a href="{{ url("cart") }}">reset</a>
+                                                    </p>
+
+                                                    <input name="selectedAttributes[{{ attributeName }}]" type="hidden" value="{{ option }}">
+                                                {% endfor %}
 
                                             {% endif %}
                                         </div>
