@@ -38,10 +38,12 @@ class CartController extends AbstractController
             ->getCheckoutBreadcrumbPlugin()
             ->generateStepBreadcrumbs($quoteTransfer);
 
-        $itemAttributesBySku = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
+        $itemAttributesBySku = $this->getFactory()->createCartItemsAttributeMapper()
+            ->buildMap($quoteTransfer->getItems()->getArrayCopy());
 
         $itemAttributesBySku = $this->getFactory()
             ->createCartItemHandler()->narrowDownOptions($itemAttributesBySku, $itemAttributes);
+
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,

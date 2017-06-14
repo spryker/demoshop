@@ -66,7 +66,7 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
-    public function getProductStorageTransfer($sku, $selectedAttributes)
+    public function getProductStorageTransfer($sku, array $selectedAttributes)
     {
         //find out if we have a concrete product
         $quoteTransfer = $this->getQuoteTransfer();
@@ -87,7 +87,7 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
         StorageProductTransfer $storageProductTransfer,
         $quantity,
         $groupKey,
-        $optionValueIds
+        array $optionValueIds
     ) {
         $newItemSku = $storageProductTransfer->getSku();
         $this->cartOperationHandler->add($newItemSku, $quantity, $optionValueIds);
@@ -170,7 +170,7 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
      *
      * @return array
      */
-    public function arrayRemoveEmpty($haystack)
+    public function arrayRemoveEmpty(array $haystack)
     {
         foreach ($haystack as $key => $value) {
             if (is_array($value)) {

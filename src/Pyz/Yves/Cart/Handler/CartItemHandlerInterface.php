@@ -18,7 +18,7 @@ interface CartItemHandlerInterface
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
-    public function getProductStorageTransfer($sku, $selectedAttributes);
+    public function getProductStorageTransfer($sku, array $selectedAttributes);
 
     /**
      * @param string $currentItemSku
@@ -34,7 +34,7 @@ interface CartItemHandlerInterface
         StorageProductTransfer $storageProductTransfer,
         $quantity,
         $groupKey,
-        $optionValueIds
+        array $optionValueIds
     );
 
     /**
@@ -44,7 +44,7 @@ interface CartItemHandlerInterface
      *
      * @return array
      */
-    public function arrayRemoveEmpty($haystack);
+    public function arrayRemoveEmpty(array $haystack);
 
     /**
      * @param array $itemAttributesBySku
