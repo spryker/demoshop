@@ -30,7 +30,7 @@ class ListController extends AbstractController
         $offset = $request->query->get(static::PARAM_OFFSET);
 
         $searchResults = $this->getFactory()
-            ->getProductSetCollectorClient()
+            ->getProductSetClient()
             ->getProductSetList($limit, $offset);
 
         return $this->viewResponse($searchResults);

@@ -5,14 +5,14 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Client\ProductSetCollector;
+namespace Pyz\Client\ProductSet;
 
-use Spryker\Client\ProductSetCollector\Plugin\Elasticsearch\ResultFormatter\ProductSetListResultFormatterPlugin;
-use Spryker\Client\ProductSetCollector\ProductSetCollectorDependencyProvider as SprykerProductSetCollectorDependencyProvider;
+use Spryker\Client\ProductSet\Plugin\Elasticsearch\ResultFormatter\ProductSetListResultFormatterPlugin;
+use Spryker\Client\ProductSet\ProductSetDependencyProvider as SprykerProductSetDependencyProvider;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\LocalizedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\StoreQueryExpanderPlugin;
 
-class ProductSetCollectorDependencyProvider extends SprykerProductSetCollectorDependencyProvider
+class ProductSetDependencyProvider extends SprykerProductSetDependencyProvider
 {
 
     /**

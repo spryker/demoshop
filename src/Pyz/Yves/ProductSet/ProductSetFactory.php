@@ -43,11 +43,11 @@ class ProductSetFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\ProductSetCollector\ProductSetCollectorClientInterface
+     * @return \Spryker\Client\ProductSet\ProductSetClientInterface
      */
-    public function getProductSetCollectorClient()
+    public function getProductSetClient()
     {
-        return $this->getProvidedDependency(ProductSetDependencyProvider::CLIENT_PRODUCT_SET_COLLECTOR);
+        return $this->getProvidedDependency(ProductSetDependencyProvider::CLIENT_PRODUCT_SET);
     }
 
     /**

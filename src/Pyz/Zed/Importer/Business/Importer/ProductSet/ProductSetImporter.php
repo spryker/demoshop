@@ -113,23 +113,23 @@ class ProductSetImporter extends AbstractImporter
     protected function mapLocalizedData(ProductSetTransfer $productSetTransfer, array $data)
     {
         foreach ($this->getAvailableLocales() as $localeTransfer) {
-            if (!isset($data['name.' . $localeTransfer->getLocaleName()])) {
+            if (!isset($data[sprintf('name.%s', $localeTransfer->getLocaleName())])) {
                 continue;
             }
 
             $productSetDataTransfer = new ProductSetDataTransfer();
             $productSetDataTransfer
                 ->setFkLocale($localeTransfer->getIdLocale())
-                ->setName($data['name.' . $localeTransfer->getLocaleName()])
-                ->setDescription($data['description.' . $localeTransfer->getLocaleName()])
-                ->setMetaTitle($data['meta_title.' . $localeTransfer->getLocaleName()])
-                ->setMetaKeywords($data['meta_keywords.' . $localeTransfer->getLocaleName()])
-                ->setMetaDescription($data['meta_description.' . $localeTransfer->getLocaleName()]);
+                ->setName($data[sprintf('name.%s', $localeTransfer->getLocaleName())])
+                ->setDescription($data[sprintf('description.%s', $localeTransfer->getLocaleName())])
+                ->setMetaTitle($data[sprintf('meta_title.%s', $localeTransfer->getLocaleName())])
+                ->setMetaKeywords($data[sprintf('meta_keywords.%s', $localeTransfer->getLocaleName())])
+                ->setMetaDescription($data[sprintf('meta_description.%s', $localeTransfer->getLocaleName())]);
 
             $localizedProductSetTransfer = new LocalizedProductSetTransfer();
             $localizedProductSetTransfer
                 ->setLocale($localeTransfer)
-                ->setUrl($data['url.' . $localeTransfer->getLocaleName()])
+                ->setUrl($data[sprintf('url.%s', $localeTransfer->getLocaleName())])
                 ->setProductSetData($productSetDataTransfer);
 
             $productSetTransfer->addLocalizedData($localizedProductSetTransfer);
@@ -166,16 +166,16 @@ class ProductSetImporter extends AbstractImporter
     protected function mapProductImageSets(ProductSetTransfer $productSetTransfer, array $data)
     {
         $imageSetIndex = 1;
-        while (array_key_exists('image_set.' . $imageSetIndex, $data)) {
+        while (array_key_exists(sprintf('image_set.%s', $imageSetIndex), $data)) {
             $productImageSetTransfer = new ProductImageSetTransfer();
-            $productImageSetTransfer->setName($data['image_set.' . $imageSetIndex]);
+            $productImageSetTransfer->setName($data[sprintf('image_set.%s', $imageSetIndex)]);
 
             $imageIndex = 1;
-            while (array_key_exists('image_small.' . $imageSetIndex . '.' . $imageIndex, $data) && array_key_exists('image_large.' . $imageSetIndex . '.' . $imageIndex, $data)) {
+            while (array_key_exists(sprintf('image_small.%s.%s', $imageSetIndex, $imageIndex), $data) && array_key_exists(sprintf('image_large.%s.%s', $imageSetIndex, $imageIndex), $data)) {
                 $productImageTransfer = new ProductImageTransfer();
                 $productImageTransfer
-                    ->setExternalUrlSmall($data['image_small.' . $imageSetIndex . '.' . $imageIndex])
-                    ->setExternalUrlLarge($data['image_large.' . $imageSetIndex . '.' . $imageIndex]);
+                    ->setExternalUrlSmall($data[sprintf('image_small.%s.%s', $imageSetIndex, $imageIndex)])
+                    ->setExternalUrlLarge($data[sprintf('image_large.%s.%s', $imageSetIndex, $imageIndex)]);
 
                 $productImageSetTransfer->addProductImage($productImageTransfer);
                 $imageIndex++;

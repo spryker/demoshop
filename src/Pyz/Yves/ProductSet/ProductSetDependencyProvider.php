@@ -16,7 +16,7 @@ class ProductSetDependencyProvider extends AbstractBundleDependencyProvider
 
     const CLIENT_CART = 'CLIENT_CART';
     const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
-    const CLIENT_PRODUCT_SET_COLLECTOR = 'CLIENT_PRODUCT_SET_COLLECTOR';
+    const CLIENT_PRODUCT_SET = 'CLIENT_PRODUCT_SET';
 
     const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
 
@@ -29,7 +29,7 @@ class ProductSetDependencyProvider extends AbstractBundleDependencyProvider
     {
         $this->provideCartClient($container);
         $this->provideProductClient($container);
-        $this->provideProductSetCollectorClient($container);
+        $this->provideProductSetClient($container);
 
         $this->provideStorageProductMapperPlugin($container);
 
@@ -65,10 +65,10 @@ class ProductSetDependencyProvider extends AbstractBundleDependencyProvider
      *
      * @return void
      */
-    protected function provideProductSetCollectorClient(Container $container)
+    protected function provideProductSetClient(Container $container)
     {
-        $container[self::CLIENT_PRODUCT_SET_COLLECTOR] = function (Container $container) {
-            return $container->getLocator()->productSetCollector()->client();
+        $container[self::CLIENT_PRODUCT_SET] = function (Container $container) {
+            return $container->getLocator()->productSet()->client();
         };
     }
 
