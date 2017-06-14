@@ -107,10 +107,11 @@ class ShipmentHandler
         if ($priceMode === PriceMode::PRICE_MODE_NET) {
             $shipmentExpenseTransfer->setUnitGrossPrice(0);
             $shipmentExpenseTransfer->setUnitNetPrice($price);
-        } else {
-            $shipmentExpenseTransfer->setUnitNetPrice(0);
-            $shipmentExpenseTransfer->setUnitGrossPrice($price);
+            return;
         }
+           
+        $shipmentExpenseTransfer->setUnitNetPrice(0);
+        $shipmentExpenseTransfer->setUnitGrossPrice($price);
     }
 
     /**
