@@ -75,7 +75,8 @@ class CartFactory extends SprykerCartFactory
             $this->createCartOperationHandler(),
             $this->getCartClient(),
             $this->getProductClient(),
-            $this->createStorageProductMapper()
+            $this->createStorageProductMapper(),
+            $this->getFlashMessenger()
         );
     }
 

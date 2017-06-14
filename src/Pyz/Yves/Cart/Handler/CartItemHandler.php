@@ -11,8 +11,10 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Product\ProductClientInterface;
+use Spryker\Shared\Cart\CartConstants;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
-class CartItemHandler implements CartItemHandlerInterface
+class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
 {
 
     /**
@@ -40,13 +42,18 @@ class CartItemHandler implements CartItemHandlerInterface
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
      * @param \Pyz\Yves\Product\Mapper\StorageProductMapper $productMapper
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
         CartOperationHandler $cartOperationHandler,
         CartClientInterface $cartClient,
         ProductClientInterface $productClient,
-        StorageProductMapper $productMapper
+        StorageProductMapper $productMapper,
+        FlashMessengerInterface $flashMessenger
     ) {
+
+        parent::__construct($flashMessenger);
+
         $this->cartOperationHandler = $cartOperationHandler;
         $this->cartClient = $cartClient;
         $this->productClient = $productClient;
@@ -67,26 +74,6 @@ class CartItemHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @param string $message
-     *
-     * @return void
-     */
-    public function addSuccessFlashMessage($message)
-    {
-        $this->cartOperationHandler->addSuccessFlashMessage($message);
-    }
-
-    /**
-     * @param string $message
-     *
-     * @return void
-     */
-    public function addInfoFlashMessage($message)
-    {
-        $this->cartOperationHandler->addInfoFlashMessage($message);
-    }
-
-    /**
      * @param string $currentItemSku
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param int $quantity
@@ -104,35 +91,9 @@ class CartItemHandler implements CartItemHandlerInterface
     ) {
         $newItemSku = $storageProductTransfer->getSku();
         $this->cartOperationHandler->add($newItemSku, $quantity, $optionValueIds);
+        $this->setFlashMessagesFromLastZedRequest($this->cartClient);
 
         $this->removeItemFromCart($currentItemSku, $groupKey);
-    }
-
-    /**
-     * @param array $selectedAttributes
-     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
-     *
-     * @return array
-     */
-    public function mergeProductAttributesWithSelectedAttributes(
-        $selectedAttributes,
-        StorageProductTransfer $storageProductTransfer
-    ) {
-        $availableAttributes = [];
-
-        foreach ($storageProductTransfer->getAvailableAttributes() as $key => $attributes) {
-            foreach ($attributes as $attribute) {
-                $availableAttributes[$key][$attribute]['selected'] = false;
-            }
-        }
-
-        $selectedAttributes = $this->arrayRemoveEmpty($selectedAttributes);
-        foreach ($selectedAttributes as $key => $attribute) {
-            $availableAttributes[$key][$attribute]['selected'] = true;
-            $availableAttributes[$key][$attribute]['available'] = true;
-        }
-        return $availableAttributes;
-
     }
 
     /**
@@ -233,6 +194,43 @@ class CartItemHandler implements CartItemHandlerInterface
     protected function removeItemFromCart($sku, $groupKey)
     {
         $this->cartOperationHandler->remove($sku, $groupKey);
+    }
+
+    /**
+     * @param array $itemAttributesBySku
+     * @param array $itemAttributes
+     *
+     * @return array
+     */
+    public function narrowDownOptions(array $itemAttributesBySku, array $itemAttributes = null)
+    {
+        $sku = '';
+        $availableAttributes = [];
+
+        if ($itemAttributes) {
+            foreach ($itemAttributes as $sku => $attributes) {
+                foreach ($attributes as $key => $attribute) {
+                    unset($itemAttributesBySku[$sku][$key]);
+                    $itemAttributesBySku[$sku][$key][$attribute][CartConstants::SELECTED] = true;
+                    $itemAttributesBySku[$sku][$key][$attribute][CartConstants::AVAILABLE] = true;
+                }
+
+                $storageProductTransfer = $this->getProductStorageTransfer($sku, $itemAttributes[$sku]);
+                $availableAttributes = $storageProductTransfer->getAvailableAttributes();
+                continue;
+            }
+
+            foreach ($itemAttributesBySku[$sku] as $key => $attributes) {
+                foreach ($attributes as $attribute => $options) {
+                    if (array_key_exists($key, $availableAttributes)) {
+                        if (in_array($attribute, $availableAttributes[$key]) === false) {
+                            unset($itemAttributesBySku[$sku][$key][$attribute]);
+                        }
+                    }
+                }
+            }
+        }
+        return $itemAttributesBySku;
     }
 
 }

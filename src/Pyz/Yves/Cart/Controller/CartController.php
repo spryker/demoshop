@@ -40,7 +40,8 @@ class CartController extends AbstractController
 
         $itemAttributesBySku = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
 
-        $itemAttributesBySku = $this->narrowDownOptions($itemAttributes, $itemAttributesBySku);
+        $itemAttributesBySku = $this->getFactory()
+            ->createCartItemHandler()->narrowDownOptions($itemAttributesBySku, $itemAttributes);
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
@@ -117,7 +118,6 @@ class CartController extends AbstractController
         if ($storageProductTransfer->getIsVariant() === true) {
 
             $cartItemHandler->replaceCartItem($sku, $storageProductTransfer, $quantity, $groupKey, $optionValueIds);
-            $cartItemHandler->addSuccessFlashMessage('Cart item updated');
             return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
         }
 
@@ -135,40 +135,6 @@ class CartController extends AbstractController
     protected function getCartOperationHandler()
     {
         return $this->getFactory()->createProductBundleCartOperationHandler();
-    }
-
-    /**
-     * @param array $itemAttributes
-     * @param array $itemAttributesBySku
-     *
-     * @return mixed
-     */
-    protected function narrowDownOptions($itemAttributes, $itemAttributesBySku)
-    {
-        if ($itemAttributes) {
-            foreach ($itemAttributes as $sku => $attributes) {
-                foreach ($attributes as $key => $attribute) {
-                    unset($itemAttributesBySku[$sku][$key]);
-                    $itemAttributesBySku[$sku][$key][$attribute]['selected'] = true;
-                    $itemAttributesBySku[$sku][$key][$attribute]['available'] = true;
-                }
-                $cartItemHandler = $this->getFactory()->createCartItemHandler();
-                $storageProductTransfer = $cartItemHandler->getProductStorageTransfer($sku, $itemAttributes[$sku]);
-                $shit1 = $storageProductTransfer->getAvailableAttributes();
-                continue;
-            }
-
-            foreach ($itemAttributesBySku[$sku] as $key => $attributes) {
-                foreach ($attributes as $attribute => $options) {
-                    if (array_key_exists($key, $shit1)) {
-                        if (in_array($attribute, $shit1[$key]) === false) {
-                            unset($itemAttributesBySku[$sku][$key][$attribute]);
-                        }
-                    }
-                }
-            }
-        }
-        return $itemAttributesBySku;
     }
 
 }
