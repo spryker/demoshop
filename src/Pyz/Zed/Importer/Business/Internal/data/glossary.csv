@@ -399,6 +399,10 @@ customer.address.is_default_billing,"Is default billing address",en_US
 customer.address.is_default_billing,"Standard Rechnungsadresse",de_DE
 customer.address.is_default_shipping,"Is default shipping address",en_US
 customer.address.is_default_shipping,"Standard Lieferadresse",de_DE
+customer.anonymization.success,"Your account has been deleted successfully",en_US
+customer.anonymization.success,"Ihr Account wurde gelöscht",de_DE
+customer.anonymization.failed,"Your account could not be deleted",en_US
+customer.anonymization.failed,"Ihr Account konnte nicht gelöscht werden.",de_DE
 customer.authorization.success,"Registration Successful",en_US
 customer.authorization.success,"Registrierung erfolgreich",de_DE
 customer.profile.change.success,"Profile was successfully saved",en_US
@@ -459,6 +463,12 @@ customer.profile,"My Account",en_US
 customer.profile,"Mein Account",de_DE
 customer.profile.update,"Update Profile",en_US
 customer.profile.update,"Profil Bearbeiten",de_DE
+customer.profile.delete,"Delete Account",en_US
+customer.profile.delete,"Account Löschen",de_DE
+customer.profile.delete.description,"This will delete all of the account information.",en_US
+customer.profile.delete.description,"Zusammen mit dem Account werden alle persönlichen Daten gelöscht.",de_DE
+customer.profile.delete.confirmation_question,"Are you sure you want to delete your account?",en_US
+customer.profile.delete.confirmation_question,"Wollen Sie Ihren Account wirklich löschen?",de_DE
 customer.profile.first_name,"First Name",en_US
 customer.profile.first_name,Vorname,de_DE
 customer.profile.last_name,"Last Name",en_US

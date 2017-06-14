@@ -29,6 +29,8 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CUSTOMER_ORDER_DETAILS = 'customer/order/details';
     const ROUTE_CUSTOMER_NEWSLETTER = 'customer/newsletter';
     const ROUTE_CUSTOMER_NEWSLETTER_UNSUBSCRIBE = 'customer/newsletter/unsubscribe';
+    const ROUTE_CUSTOMER_DELETE = 'customer/delete';
+    const ROUTE_CUSTOMER_DELETE_CONFIRM = 'customer/delete/confirm';
 
     /**
      * @param \Silex\Application $app
@@ -86,6 +88,14 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
             ->value('customer', 'customer');
 
         $this->createController('/{customer}/newsletter', self::ROUTE_CUSTOMER_NEWSLETTER, 'Customer', 'Newsletter', 'index')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+            ->value('customer', 'customer');
+
+        $this->createController('/{customer}/delete', self::ROUTE_CUSTOMER_DELETE, 'Customer', 'Delete', 'index')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+            ->value('customer', 'customer');
+
+        $this->createController('/{customer}/delete/confirm', self::ROUTE_CUSTOMER_DELETE_CONFIRM, 'Customer', 'Delete', 'confirm')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
     }
