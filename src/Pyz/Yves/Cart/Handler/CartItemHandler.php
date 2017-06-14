@@ -127,7 +127,7 @@ class CartItemHandler implements CartItemHandlerInterface
         }
 
         $selectedAttributes = $this->arrayRemoveEmpty($selectedAttributes);
-        foreach ($selectedAttributes as $key=>$attribute) {
+        foreach ($selectedAttributes as $key => $attribute) {
             $availableAttributes[$key][$attribute]['selected'] = true;
             $availableAttributes[$key][$attribute]['available'] = true;
         }

@@ -40,7 +40,6 @@ class CartController extends AbstractController
 
         $itemAttributesBySku = $this->getFactory()->createCartItemsAttributeMapper()->buildMap($quoteTransfer->getItems());
 
-
         $itemAttributesBySku = $this->narrowDownOptions($itemAttributes, $itemAttributesBySku);
 
         return $this->viewResponse([
@@ -139,8 +138,9 @@ class CartController extends AbstractController
     }
 
     /**
-     * @param $itemAttributes
-     * @param $itemAttributesBySku
+     * @param array $itemAttributes
+     * @param array $itemAttributesBySku
+     *
      * @return mixed
      */
     protected function narrowDownOptions($itemAttributes, $itemAttributesBySku)
