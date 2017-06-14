@@ -109,7 +109,7 @@ class ShipmentHandler
             $shipmentExpenseTransfer->setUnitNetPrice($price);
             return;
         }
-           
+
         $shipmentExpenseTransfer->setUnitNetPrice(0);
         $shipmentExpenseTransfer->setUnitGrossPrice($price);
     }
