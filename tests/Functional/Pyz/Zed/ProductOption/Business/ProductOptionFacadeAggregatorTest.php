@@ -15,7 +15,6 @@ use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\SaveOrderTransfer;
-use Generated\Shared\Transfer\TotalsTransfer;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderItemState;
 use Orm\Zed\Oms\Persistence\SpyOmsOrderProcess;
 use Orm\Zed\Sales\Persistence\SpySalesOrder;
@@ -35,58 +34,6 @@ use Spryker\Zed\ProductOption\Business\ProductOptionFacade;
  */
 class ProductOptionFacadeAggregatorTest extends Test
 {
-
-    /**
-     * @return void
-     */
-    public function testAggregateOrderItemProductOptionGrossPriceShouldSumAllItemsWithProductOptions()
-    {
-        $productOptionFacade = $this->createProductOptionFacade();
-
-        $orderTransfer = $this->createOrderTransferWithRelatedPersistedData();
-
-        $productOptionFacade->aggregateOrderItemProductOptionGrossPrice($orderTransfer);
-
-        $recalculatedOrderItemTransfer = $orderTransfer->getItems()[0];
-        $recalculatedOrderItemOptionTransfer = $recalculatedOrderItemTransfer->getProductOptions()[0];
-
-        $this->assertSame(200, $recalculatedOrderItemOptionTransfer->getSumGrossPrice());
-    }
-
-    /**
-     * @return void
-     */
-    public function testAggregatorOrderSubtotalWithOptionShouldSumAllOptionsAmounts()
-    {
-        $productOptionFacade = $this->createProductOptionFacade();
-
-        $orderTransfer = new OrderTransfer();
-
-        $totalsTransfer = new TotalsTransfer();
-        $totalsTransfer->setSubtotal(0);
-
-        $orderTransfer->setTotals($totalsTransfer);
-
-        $itemTransfer = new ItemTransfer();
-
-        $productOptionTransfer = new ProductOptionTransfer();
-        $productOptionTransfer->setSku('123');
-        $productOptionTransfer->setSumGrossPrice(100);
-        $itemTransfer->addProductOption($productOptionTransfer);
-
-        $productOptionTransfer = new ProductOptionTransfer();
-        $productOptionTransfer->setSku('123');
-        $productOptionTransfer->setSumGrossPrice(200);
-        $itemTransfer->addProductOption($productOptionTransfer);
-
-        $orderTransfer->addItem($itemTransfer);
-
-        $productOptionFacade->aggregateOrderSubtotalWithProductOptions($orderTransfer);
-
-        $totals = $orderTransfer->getTotals();
-
-        $this->assertSame(300, $totals->getSubtotal());
-    }
 
     /**
      * @return void
