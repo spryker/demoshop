@@ -18,11 +18,11 @@ class CartController extends AbstractController
 {
 
     /**
-     * @param array|null $itemAttributes
+     * @param array|null $selectedAttributes
      *
      * @return array
      */
-    public function indexAction($itemAttributes = null)
+    public function indexAction($selectedAttributes = null)
     {
         $quoteTransfer = $this->getClient()
             ->getQuote();
@@ -38,11 +38,8 @@ class CartController extends AbstractController
             ->getCheckoutBreadcrumbPlugin()
             ->generateStepBreadcrumbs($quoteTransfer);
 
-        $itemAttributesBySku = $this->getFactory()->createCartItemsAttributeMapper()
-            ->buildMap($quoteTransfer->getItems());
-
         $itemAttributesBySku = $this->getFactory()
-            ->createCartItemHandler()->narrowDownOptions($itemAttributesBySku, $itemAttributes);
+            ->createCartItemsAttributeProvider()->getItemsAttributes($quoteTransfer, $selectedAttributes);
 
 
         return $this->viewResponse([
@@ -112,22 +109,16 @@ class CartController extends AbstractController
      */
     public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null, $optionValueIds = [])
     {
-        $cartItemHandler = $this->getFactory()->createCartItemHandler();
+        $quoteTransfer = $this->getClient()->getQuote();
 
-        //here we do narrowing down
-        $storageProductTransfer = $cartItemHandler->getProductStorageTransfer($sku, $selectedAttributes);
-
-        if ($storageProductTransfer->getIsVariant() === true) {
-
-            $cartItemHandler->replaceCartItem($sku, $storageProductTransfer, $quantity, $groupKey, $optionValueIds);
+        if ($this->getFactory()->createCartItemsAttributeProvider()->tryToReplaceItem($sku, $quantity, $selectedAttributes, $quoteTransfer->getItems(), $groupKey, $optionValueIds)) {
             return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
         }
 
         return $this->redirectResponseInternal(
             CartControllerProvider::ROUTE_CART,
-            [
-                'availableAttributes' => [$sku => $cartItemHandler->arrayRemoveEmpty($selectedAttributes)],
-            ]
+            $this->getFactory()
+                ->createCartItemsAttributeProvider()->formatUpdateActionResponse($sku, $selectedAttributes)
         );
     }
 

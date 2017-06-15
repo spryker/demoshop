@@ -1,0 +1,107 @@
+<?php
+
+namespace Pyz\Yves\Cart\Plugin\Provider;
+
+use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\StorageProductTransfer;
+use Pyz\Yves\Cart\Handler\CartItemHandlerInterface;
+use Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginInterface;
+
+class AttributeVariantsProvider
+{
+
+    /**
+     * @var \Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginInterface
+     */
+    protected $cartVariantAttributeMapperPlugin;
+    /**
+     * @var \Pyz\Yves\Cart\Handler\CartItemHandlerInterface
+     */
+    protected $cartItemHandler;
+
+    /**
+     * CartItemsAttributeProvider constructor.
+     * @param \Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginInterface $cartVariantAttributeMapperPlugin
+     * @param \Pyz\Yves\Cart\Handler\CartItemHandlerInterface $cartItemHandler
+     */
+    public function __construct(
+        CartVariantAttributeMapperPluginInterface $cartVariantAttributeMapperPlugin,
+        CartItemHandlerInterface $cartItemHandler
+    ) {
+        $this->cartVariantAttributeMapperPlugin = $cartVariantAttributeMapperPlugin;
+        $this->cartItemHandler = $cartItemHandler;
+
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param array $itemAttributes
+     *
+     * @return array
+     */
+    public function getItemsAttributes(QuoteTransfer $quoteTransfer, array $itemAttributes = null)
+    {
+        //use plugin here
+        $itemAttributesBySku = $this->cartVariantAttributeMapperPlugin
+            ->buildMap($quoteTransfer->getItems());
+
+        return $this->cartItemHandler
+            ->narrowDownOptions($quoteTransfer->getItems(), $itemAttributesBySku, $itemAttributes);
+    }
+
+    /**
+     * @param string $sku
+     * @param int $quantity
+     * @param array $selectedAttributes
+     * @param \ArrayObject $items
+     * @param null $groupKey
+     * @param array $optionValueIds
+     * @return bool
+     */
+    public function tryToReplaceItem($sku, $quantity, $selectedAttributes, \ArrayObject $items, $groupKey = null, $optionValueIds = [])
+    {
+
+        $storageProductTransfer = $this->cartItemHandler->getProductStorageTransfer($sku, $selectedAttributes, $items);
+        // we have a concrete product
+        if ($storageProductTransfer->getIsVariant() === true) {
+            $this->cartItemHandler->replaceCartItem($sku, $storageProductTransfer, $quantity, $groupKey, $optionValueIds);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param $sku
+     * @param array $selectedAttributes
+     * @return array
+     */
+    public function formatUpdateActionResponse($sku, array $selectedAttributes)
+    {
+        return [
+            StorageProductTransfer::SELECTED_ATTRIBUTES => [$sku => $this->arrayRemoveEmpty($selectedAttributes)],
+        ];
+    }
+
+    /**
+     * Removes empty nodes from array
+     *
+     * @param array $haystack
+     *
+     * @return array
+     */
+    protected function arrayRemoveEmpty(array $haystack)
+    {
+        foreach ($haystack as $key => $value) {
+            if (is_array($value)) {
+                $haystack[$key] = $this->arrayRemoveEmpty($haystack[$key]);
+            }
+
+            if (empty($haystack[$key])) {
+                unset($haystack[$key]);
+            }
+        }
+
+        return $haystack;
+    }
+
+}

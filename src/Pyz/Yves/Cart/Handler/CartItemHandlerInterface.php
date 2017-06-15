@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Cart\Handler;
 
+use ArrayObject;
 use Generated\Shared\Transfer\StorageProductTransfer;
 
 interface CartItemHandlerInterface
@@ -15,10 +16,11 @@ interface CartItemHandlerInterface
     /**
      * @param string $sku
      * @param array $selectedAttributes
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
+
+     * @return StorageProductTransfer
      */
-    public function getProductStorageTransfer($sku, array $selectedAttributes);
+    public function getProductStorageTransfer($sku, array $selectedAttributes, ArrayObject $items);
 
     /**
      * @param string $currentItemSku
@@ -38,20 +40,12 @@ interface CartItemHandlerInterface
     );
 
     /**
-     * Removes empty nodes from array
-     *
-     * @param array $haystack
-     *
-     * @return array
-     */
-    public function arrayRemoveEmpty(array $haystack);
-
-    /**
+     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
      * @param array $itemAttributesBySku
      * @param array $itemAttributes
      *
      * @return array
      */
-    public function narrowDownOptions(array $itemAttributesBySku, array $itemAttributes = null);
+    public function narrowDownOptions(ArrayObject $items, array $itemAttributesBySku, array $itemAttributes = null);
 
 }

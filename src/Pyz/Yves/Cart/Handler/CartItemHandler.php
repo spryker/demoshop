@@ -7,11 +7,12 @@
 
 namespace Pyz\Yves\Cart\Handler;
 
+use ArrayObject;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Product\ProductClientInterface;
-use Spryker\Shared\Cart\CartConstants;
+use Spryker\Shared\CartVariant\CartVariantConstants;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
@@ -23,7 +24,7 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     protected $cartOperationHandler;
 
     /**
-     * @var \Spryker\Client\Cart\CartClientInterface
+     * @var \Spryker\Client\Cart\CartClient
      */
     protected $cartClient;
 
@@ -63,14 +64,13 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     /**
      * @param string $sku
      * @param array $selectedAttributes
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
+
+     * @return StorageProductTransfer
      */
-    public function getProductStorageTransfer($sku, array $selectedAttributes)
+    public function getProductStorageTransfer($sku, array $selectedAttributes, ArrayObject $items)
     {
-        //find out if we have a concrete product
-        $quoteTransfer = $this->getQuoteTransfer();
-        return $this->mapSelectedAttributesToStorageProduct($sku, $selectedAttributes, $quoteTransfer);
+        return $this->mapSelectedAttributesToStorageProduct($sku, $selectedAttributes, $items);
     }
 
     /**
@@ -93,19 +93,20 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
         $this->cartOperationHandler->add($newItemSku, $quantity, $optionValueIds);
         $this->setFlashMessagesFromLastZedRequest($this->cartClient);
 
-        $this->removeItemFromCart($currentItemSku, $groupKey);
+        if (count($this->cartClient->getZedStub()->getErrorMessages()) === 0) {
+            $this->cartOperationHandler->remove($currentItemSku, $groupKey);
+        }
     }
 
     /**
      * @param string $sku
      * @param array $selectedAttributes
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *  @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
-    public function mapSelectedAttributesToStorageProduct($sku, array $selectedAttributes, $quoteTransfer)
+    public function mapSelectedAttributesToStorageProduct($sku, array $selectedAttributes, ArrayObject $items)
     {
-        $items = $quoteTransfer->getItems();
 
         foreach ($items as $item) {
             if ($item->getSku() === $sku) {
@@ -131,31 +132,13 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @return \Spryker\Client\Cart\CartClientInterface
-     */
-    protected function getCartClient()
-    {
-        return $this->cartClient;
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
-    protected function getQuoteTransfer()
-    {
-        return $this->cartClient->getQuote();
-    }
-
-    /**
      * @param string $sku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \ArrayObject|\Generated\Shared\Transfer\ItemTransfer[] $items
      *
      * @return \Generated\Shared\Transfer\ItemTransfer
      */
-    public function findItemInCartBySku($sku, $quoteTransfer)
+    protected function findItemInCartBySku($sku, \ArrayObject $items)
     {
-        $items = $quoteTransfer->getItems();
-
         foreach ($items as $item) {
             if ($item->getSku() === $sku) {
                 return $item;
@@ -164,46 +147,17 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     }
 
     /**
-     * Removes empty nodes from array
-     *
-     * @param array $haystack
-     *
-     * @return array
-     */
-    public function arrayRemoveEmpty(array $haystack)
-    {
-        foreach ($haystack as $key => $value) {
-            if (is_array($value)) {
-                $haystack[$key] = $this->arrayRemoveEmpty($haystack[$key]);
-            }
-
-            if (empty($haystack[$key])) {
-                unset($haystack[$key]);
-            }
-        }
-
-        return $haystack;
-    }
-
-    /**
-     * @param string $sku
-     * @param string $groupKey
-     *
-     * @return void
-     */
-    protected function removeItemFromCart($sku, $groupKey)
-    {
-        $this->cartOperationHandler->remove($sku, $groupKey);
-    }
-
-    /**
+     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
      * @param array $itemAttributesBySku
      * @param array $itemAttributes
      *
      * @return array
      */
-    public function narrowDownOptions(array $itemAttributesBySku, array $itemAttributes = null)
-    {
+    public function narrowDownOptions(
+        ArrayObject $items,
+        array $itemAttributesBySku,
+        array $itemAttributes = null
+    ) {
         $sku = '';
         $availableAttributes = [];
 
@@ -211,11 +165,11 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
             foreach ($itemAttributes as $sku => $attributes) {
                 foreach ($attributes as $key => $attribute) {
                     unset($itemAttributesBySku[$sku][$key]);
-                    $itemAttributesBySku[$sku][$key][$attribute][CartConstants::SELECTED] = true;
-                    $itemAttributesBySku[$sku][$key][$attribute][CartConstants::AVAILABLE] = true;
+                    $itemAttributesBySku[$sku][$key][$attribute][CartVariantConstants::SELECTED] = true;
+                    $itemAttributesBySku[$sku][$key][$attribute][CartVariantConstants::AVAILABLE] = true;
                 }
 
-                $storageProductTransfer = $this->getProductStorageTransfer($sku, $itemAttributes[$sku]);
+                $storageProductTransfer = $this->getProductStorageTransfer($sku, $itemAttributes[$sku], $items);
                 $availableAttributes = $storageProductTransfer->getAvailableAttributes();
                 continue;
             }

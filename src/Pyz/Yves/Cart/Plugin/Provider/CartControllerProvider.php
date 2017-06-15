@@ -38,7 +38,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         $controller = $this->createController('/{cart}', self::ROUTE_CART, 'Cart', 'Cart');
         $controller->assert('cart', $allowedLocalesPattern . 'cart|cart');
         $controller->value('cart', 'cart')
-            ->convert('itemAttributes', [$this, 'getAvailableAttributesFromRequest']);
+            ->convert('itemAttributes', [$this, 'getSelectedAttributesFromRequest']);
 
         $this->createController('/{cart}/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
@@ -112,21 +112,6 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         }
 
         return $request->query->get('selectedAttributes', []);
-    }
-
-    /**
-     * @param mixed $unusedParameter
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return int
-     */
-    public function getAvailableAttributesFromRequest($unusedParameter, Request $request)
-    {
-        if ($request->isMethod('POST')) {
-            return $request->request->get('availableAttributes', []);
-        }
-
-        return $request->query->get('availableAttributes', []);
     }
 
     /**

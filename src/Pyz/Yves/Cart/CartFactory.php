@@ -12,13 +12,14 @@ use Pyz\Yves\Cart\Handler\CartItemHandler;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
 use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
+use Pyz\Yves\Cart\Plugin\Provider\AttributeVariantsProvider;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Yves\Cart\CartFactory as SprykerCartFactory;
+use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 
-class CartFactory extends SprykerCartFactory
+class CartFactory extends AbstractFactory
 {
 
     /**
@@ -138,6 +139,14 @@ class CartFactory extends SprykerCartFactory
     }
 
     /**
+     * @return \Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginInterface
+     */
+    public function getCartVariantAttributeMapperPlugin()
+    {
+        return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_CART_VARIANT);
+    }
+
+    /**
      * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
      */
     protected function createAttributeVariantMapper()
@@ -152,5 +161,26 @@ class CartFactory extends SprykerCartFactory
     {
         return new StorageProductMapper($this->createAttributeVariantMapper());
     }
+
+    /**
+     * @return \Pyz\Yves\Cart\Plugin\Provider\AttributeVariantsProvider
+     */
+    public function createCartItemsAttributeProvider()
+    {
+        return new AttributeVariantsProvider(
+            $this->getCartVariantAttributeMapperPlugin(),
+            $this->createCartItemHandler()
+        );
+    }
+
+    /**
+     * @return \Spryker\Client\Product\ProductClientInterface $productClient
+     */
+    protected function getProductClient()
+    {
+       return $this->getProvidedDependency(CartDependencyProvider::CLIENT_PRODUCT);
+    }
+
+
 
 }
