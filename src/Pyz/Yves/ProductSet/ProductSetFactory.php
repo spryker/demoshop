@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\ProductSet;
 
-use Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapper;
 use Pyz\Yves\ProductSet\ResourceCreator\ProductSetResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -20,18 +19,10 @@ class ProductSetFactory extends AbstractFactory
     public function createProductSetResourceCreator()
     {
         return new ProductSetResourceCreator(
+            $this->getProductSetClient(),
             $this->getProductClient(),
-            $this->createProductSetStorageMapper(),
             $this->getStorageProductMapperPlugin()
         );
-    }
-
-    /**
-     * @return \Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapperInterface
-     */
-    protected function createProductSetStorageMapper()
-    {
-        return new ProductSetStorageMapper();
     }
 
     /**

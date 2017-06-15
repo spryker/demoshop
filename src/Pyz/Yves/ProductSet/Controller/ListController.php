@@ -18,6 +18,7 @@ class ListController extends AbstractController
 
     const PARAM_LIMIT = 'limit';
     const PARAM_OFFSET = 'offset';
+    const DEFAULT_LIMIT = 100;
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -26,7 +27,7 @@ class ListController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $limit = $request->query->getInt(static::PARAM_LIMIT);
+        $limit = $request->query->getInt(static::PARAM_LIMIT, self::DEFAULT_LIMIT);
         $offset = $request->query->get(static::PARAM_OFFSET);
 
         $searchResults = $this->getFactory()

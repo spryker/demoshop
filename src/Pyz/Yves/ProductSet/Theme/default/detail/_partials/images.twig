@@ -2,10 +2,10 @@
     <div class="row show-for-large">
         <div class="small-12 columns">
             <div class="__image-viewer-inline">
-                {% for image in productSet.imageSets.default %}
-                    <div data-viewer-id="{{ image.external_url_large }}" {% if loop.first %}data-viewer-default{% endif %}>
+                {% for image in productSet.images %}
+                    <div data-viewer-id="{{ image.externalUrlLarge }}" {% if loop.first %}data-viewer-default{% endif %}>
                         <span class="thumbnail __preview-image __preview-image--large">
-                            <img src="{{ image.external_url_large }}">
+                            <img src="{{ image.externalUrlLarge }}">
                         </span>
                     </div>
                 {% endfor %}
@@ -15,10 +15,10 @@
     <div class="row">
         <div class="small-12 columns">
             <div class="row">
-                {% for image in productSet.imageSets.default %}
-                    <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.external_url_large }}" target="_blank" data-viewer-show="{{ image.external_url_large }}">
+                {% for image in productSet.images %}
+                    <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.externalUrlLarge }}" target="_blank" data-viewer-show="{{ image.externalUrlLarge }}">
                         <span class="thumbnail __preview-image __preview-image--small __no-margin-bottom">
-                            <img src="{{ image.external_url_large }}">
+                            <img src="{{ image.externalUrlLarge }}">
                         </span>
                     </a>
                 {% endfor %}

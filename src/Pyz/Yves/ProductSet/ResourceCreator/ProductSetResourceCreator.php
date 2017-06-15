@@ -11,9 +11,9 @@ use Generated\Shared\Transfer\ProductSetStorageTransfer;
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface;
 use Pyz\Yves\ProductSet\Controller\DetailController;
-use Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapperInterface;
 use Silex\Application;
 use Spryker\Client\Product\ProductClientInterface;
+use Spryker\Client\ProductSet\ProductSetClientInterface;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
@@ -21,9 +21,9 @@ class ProductSetResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var \Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapperInterface
+     * @var \Spryker\Client\ProductSet\ProductSetClientInterface
      */
-    protected $productSetStorageMapper;
+    protected $productSetClient;
 
     /**
      * @var \Spryker\Client\Product\ProductClientInterface
@@ -36,16 +36,16 @@ class ProductSetResourceCreator extends AbstractResourceCreator
     protected $storageProductMapperPlugin;
 
     /**
+     * @param \Spryker\Client\ProductSet\ProductSetClientInterface $productSetClient
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
-     * @param \Pyz\Yves\ProductSet\Mapper\ProductSetStorageMapperInterface $productSetStorageMapper
      * @param \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface $storageProductMapperPlugin
      */
     public function __construct(
+        ProductSetClientInterface $productSetClient,
         ProductClientInterface $productClient,
-        ProductSetStorageMapperInterface $productSetStorageMapper,
         StorageProductMapperPluginInterface $storageProductMapperPlugin
     ) {
-        $this->productSetStorageMapper = $productSetStorageMapper;
+        $this->productSetClient = $productSetClient;
         $this->productClient = $productClient;
         $this->storageProductMapperPlugin = $storageProductMapperPlugin;
     }
@@ -70,7 +70,7 @@ class ProductSetResourceCreator extends AbstractResourceCreator
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
         $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
 
-        $productSetStorageTransfer = $this->productSetStorageMapper->mapDataToTransfer($productSetData);
+        $productSetStorageTransfer = $this->productSetClient->mapProductSetStorageDataToTransfer($productSetData);
         $storageProductTransfers = $this->mapStorageProducts($application, $productSetStorageTransfer);
 
         return [

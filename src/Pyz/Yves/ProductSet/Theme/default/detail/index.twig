@@ -21,10 +21,10 @@
     <div class="row hide-for-xlarge">
         <div class="small-12 columns">
             <div class="__image-viewer-block">
-                {% for image in productSet.imageSets.default %}
-                    <div data-viewer-id="{{ image.external_url_large }}" data-viewer-reset>
+                {% for image in productSet.images %}
+                    <div data-viewer-id="{{ image.externalUrlLarge }}" data-viewer-reset>
                         <a class="close-button">&times;</a>
-                        <img class="thumbnail" src="{{ image.external_url_large }}">
+                        <img class="thumbnail" src="{{ image.externalUrlLarge }}">
                     </div>
                 {% endfor %}
             </div>
