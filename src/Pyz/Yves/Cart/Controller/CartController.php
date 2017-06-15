@@ -41,7 +41,6 @@ class CartController extends AbstractController
         $itemAttributesBySku = $this->getFactory()
             ->createCartItemsAttributeProvider()->getItemsAttributes($quoteTransfer, $selectedAttributes);
 
-
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
@@ -111,7 +110,15 @@ class CartController extends AbstractController
     {
         $quoteTransfer = $this->getClient()->getQuote();
 
-        if ($this->getFactory()->createCartItemsAttributeProvider()->tryToReplaceItem($sku, $quantity, $selectedAttributes, $quoteTransfer->getItems(), $groupKey, $optionValueIds)) {
+        $isItemReplacedInCart = $this->getFactory()->createCartItemsAttributeProvider()
+            ->tryToReplaceItem($sku,
+                $quantity,
+                $selectedAttributes,
+                $quoteTransfer->getItems(),
+                $groupKey,
+                $optionValueIds);
+
+        if ($isItemReplacedInCart) {
             return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
         }
 

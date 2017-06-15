@@ -16,9 +16,9 @@ interface CartItemHandlerInterface
     /**
      * @param string $sku
      * @param array $selectedAttributes
-     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
+     * @param \ArrayObject|\Generated\Shared\Transfer\StorageProductTransfer[] $items
 
-     * @return StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function getProductStorageTransfer($sku, array $selectedAttributes, ArrayObject $items);
 
@@ -40,9 +40,9 @@ interface CartItemHandlerInterface
     );
 
     /**
-     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
+     * @param \ArrayObject|\Generated\Shared\Transfer\StorageProductTransfer[] $items
      * @param array $itemAttributesBySku
-     * @param array $itemAttributes
+     * @param array|null $itemAttributes
      *
      * @return array
      */

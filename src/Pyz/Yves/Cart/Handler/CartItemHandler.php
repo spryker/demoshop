@@ -64,9 +64,9 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     /**
      * @param string $sku
      * @param array $selectedAttributes
-     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
+     * @param \ArrayObject|\Generated\Shared\Transfer\StorageProductTransfer[] $items
 
-     * @return StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function getProductStorageTransfer($sku, array $selectedAttributes, ArrayObject $items)
     {
@@ -101,13 +101,12 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     /**
      * @param string $sku
      * @param array $selectedAttributes
-     *  @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
+     * @param \ArrayObject|\Generated\Shared\Transfer\StorageProductTransfer[] $items
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function mapSelectedAttributesToStorageProduct($sku, array $selectedAttributes, ArrayObject $items)
     {
-
         foreach ($items as $item) {
             if ($item->getSku() === $sku) {
                 return $this->getStorageProductForSelectedAttributes($selectedAttributes, $item);
@@ -137,7 +136,7 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
      *
      * @return \Generated\Shared\Transfer\ItemTransfer
      */
-    protected function findItemInCartBySku($sku, \ArrayObject $items)
+    protected function findItemInCartBySku($sku, ArrayObject $items)
     {
         foreach ($items as $item) {
             if ($item->getSku() === $sku) {
@@ -147,9 +146,9 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     }
 
     /**
-     * @param ArrayObject| \Generated\Shared\Transfer\StorageProductTransfer[] $items
+     * @param \ArrayObject|\Generated\Shared\Transfer\StorageProductTransfer[] $items
      * @param array $itemAttributesBySku
-     * @param array $itemAttributes
+     * @param array|null $itemAttributes
      *
      * @return array
      */

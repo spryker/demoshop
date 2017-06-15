@@ -178,9 +178,7 @@ class CartFactory extends AbstractFactory
      */
     protected function getProductClient()
     {
-       return $this->getProvidedDependency(CartDependencyProvider::CLIENT_PRODUCT);
+        return $this->getProvidedDependency(CartDependencyProvider::CLIENT_PRODUCT);
     }
-
-
 
 }
