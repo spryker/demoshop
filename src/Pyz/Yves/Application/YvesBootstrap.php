@@ -14,6 +14,7 @@ use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\LanguageServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
+use Pyz\Yves\Calculation\Plugin\Provider\CalculationControllerProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartServiceProvider;
 use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
@@ -163,6 +164,7 @@ class YvesBootstrap
             new HeartbeatControllerProvider($isSsl),
             new NewsletterControllerProvider($isSsl),
             new CatalogControllerProvider($isSsl),
+            new CalculationControllerProvider($isSsl),
         ];
     }
 

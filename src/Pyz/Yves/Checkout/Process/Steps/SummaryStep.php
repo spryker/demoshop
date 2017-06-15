@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
@@ -17,11 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
-    /**
-     * @var \Spryker\Client\Calculation\CalculationClient
-     */
-    protected $calculationClient;
 
     /**
      * @var \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
@@ -34,14 +28,12 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     protected $cartClient;
 
     /**
-     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface $productBundleGrouper
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
-        CalculationClientInterface $calculationClient,
         ProductBundleGrouperInterface $productBundleGrouper,
         CartClientInterface $cartClient,
         $stepRoute,
@@ -49,7 +41,6 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
-        $this->calculationClient = $calculationClient;
         $this->productBundleGrouper = $productBundleGrouper;
         $this->cartClient = $cartClient;
     }
@@ -74,7 +65,7 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     {
         $this->markCheckoutConfirmed($request, $quoteTransfer);
 
-        return $this->calculationClient->recalculate($quoteTransfer);
+        return $quoteTransfer;
     }
 
     /**
