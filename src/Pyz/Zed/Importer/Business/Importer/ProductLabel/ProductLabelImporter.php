@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Importer\Business\Importer\ProductLabel;
 
 use ArrayObject;
-use DateTime;
 use Generated\Shared\Transfer\ProductLabelLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\ProductLabelTransfer;
 use Orm\Zed\ProductLabel\Persistence\SpyProductLabelQuery;
@@ -85,9 +84,12 @@ class ProductLabelImporter extends AbstractImporter
         $productLabelTransfer->setFrontEndReference($data[static::FIELD_FRONT_END_REFERENCE]);
         $productLabelTransfer->setLocalizedAttributesCollection($this->getLocalizedAttributesTransferCollection($data));
 
-        if ($data[static::FIELD_VALID_FROM] && $data[static::FIELD_VALID_TO]) {
-            $productLabelTransfer->setValidFrom(new DateTime($data[static::FIELD_VALID_FROM]));
-            $productLabelTransfer->setValidTo(new DateTime($data[static::FIELD_VALID_TO]));
+        if ($data[static::FIELD_VALID_FROM]) {
+            $productLabelTransfer->setValidFrom($data[static::FIELD_VALID_FROM]);
+        }
+
+        if ($data[static::FIELD_VALID_TO]) {
+            $productLabelTransfer->setValidTo($data[static::FIELD_VALID_TO]);
         }
 
         $this->productLabelFacade->createLabel($productLabelTransfer);
