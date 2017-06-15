@@ -56,7 +56,9 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
         $cmsBlockTransfer = $this->createBlockTransfer($blockName);
         $cmsBlockData = $this->getClient()->findBlockByName($cmsBlockTransfer, $this->localeName);
 
-        $isActive = $this->hasBlock($cmsBlockData) && $this->checkAdditionLimits($cmsBlockData, $blockRelations);
+        $isActive = $this->validateBlock($cmsBlockData);
+        $isActive &= $this->validateDates($cmsBlockData);
+        $isActive &= $this->validateAdditionLimits($cmsBlockData, $blockRelations);
 
         if ($isActive) {
             return $twig->render($cmsBlockData['template'], [
@@ -85,9 +87,29 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
      *
      * @return bool
      */
-    protected function hasBlock($cmsBlockData)
+    protected function validateBlock($cmsBlockData)
     {
         return !($cmsBlockData === null);
+    }
+
+    /**
+     * @param array $cmsBlockData
+     *
+     * @return bool
+     */
+    protected function validateDates(array $cmsBlockData)
+    {
+        if (isset($cmsBlockData['valid_from']) && isset($cmsBlockData['valid_to'])) {
+            $dateToCompare = new \DateTime();
+            $validFrom = new \DateTime($cmsBlockData['valid_from']);
+            $validTo = new \DateTime($cmsBlockData['valid_to']);
+
+            if ($dateToCompare < $validFrom || $dateToCompare > $validTo) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -96,7 +118,7 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
      *
      * @return bool
      */
-    protected function checkAdditionLimits(array $cmsBlockData, array $blockRelations)
+    protected function validateAdditionLimits(array $cmsBlockData, array $blockRelations)
     {
         foreach ($blockRelations as $relationKey => $relationValue) {
             if (!isset($cmsBlockData[$relationKey])) {
