@@ -38,7 +38,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         $controller = $this->createController('/{cart}', self::ROUTE_CART, 'Cart', 'Cart');
         $controller->assert('cart', $allowedLocalesPattern . 'cart|cart');
         $controller->value('cart', 'cart')
-            ->convert('itemAttributes', [$this, 'getSelectedAttributesFromRequest']);
+            ->convert('selectedAttributes', [$this, 'getSelectedAttributesFromRequest']);
 
         $this->createController('/{cart}/add/{sku}', self::ROUTE_CART_ADD, 'Cart', 'Cart', 'add')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
