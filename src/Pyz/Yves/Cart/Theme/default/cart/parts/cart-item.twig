@@ -69,6 +69,7 @@
                                 {% for attributeName, attributeOptions in itemAttributes %}
 
                                     <div data-component="cart-item">
+
                                         {% if attributeOptions|length > 1 %}
                                             <p class="small-12 medium-8 large-12 columns">
                                                 {{ ('product.attribute.' ~ attributeName) | trans }}:
@@ -87,12 +88,16 @@
                                             </select>
                                             <input name="selectedAttributes[{{ attributeName }}]" type="hidden" >
                                         {% else %}
+                                            <p class="small-12 medium-8 large-12 columns">
+                                                {{ ('product.attribute.' ~ attributeName) | trans }}: <a href="{{ url("cart") }}">{{ 'reset' | trans }}</a>
+                                            </p>
                                             {% for option, properties in attributeOptions %}
-                                                <p class="small-12 medium-8 large-12 columns">
-                                                    <label>{{ attributeName }}: {{ option }} </label> <a href="{{ url("cart") }}">{{ 'reset' | trans }}</a>
-                                                </p>
+                                            <select class="js-cart-item-select" name="selectedAttributes[{{ attributeName }}]">
+                                                <option value="{{ option }}" selected>
+                                                    {{ option }}
+                                                </option>
+                                            </select>
 
-                                                <input name="selectedAttributes[{{ attributeName }}]" type="hidden" value="{{ option }}">
                                             {% endfor %}
                                         {% endif %}
                                     </div>
