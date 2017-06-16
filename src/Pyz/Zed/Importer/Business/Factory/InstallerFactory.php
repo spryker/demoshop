@@ -23,6 +23,7 @@ use Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductGroup\ProductGroupInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductLabel\ProductLabelInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller;
@@ -34,6 +35,8 @@ use Pyz\Zed\Importer\ImporterConfig;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
 
 /**
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ *
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
  */
 class InstallerFactory extends AbstractFactory
@@ -374,6 +377,18 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface
+     */
+    public function createProductLabelInstaller()
+    {
+        return new ProductLabelInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterProductLabelCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     public function getImporterTaxCollection()
@@ -562,6 +577,16 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_NAVIGATION_NODE => $this->createImporterFactory()->createNavigationNodeImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    protected function getImporterProductLabelCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_LABELS => $this->createImporterFactory()->createProductLabelImporter(),
         ];
     }
 
