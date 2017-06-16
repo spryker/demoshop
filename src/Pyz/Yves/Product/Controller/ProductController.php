@@ -26,11 +26,13 @@ class ProductController extends AbstractController
     {
         $categories = $storageProductTransfer->getCategories();
 
-        $productOptionGroupsTransfer = $this->getFactory()
+        $productOptionGroupsTransfer = $this
+            ->getFactory()
             ->getProductOptionClient()
             ->getProductOptions($storageProductTransfer->getIdProductAbstract(), $this->getLocale());
 
-        $storageAvailabilityTransfer = $this->getFactory()
+        $storageAvailabilityTransfer = $this
+            ->getFactory()
             ->getAvailabilityClient()
             ->getProductAvailabilityByIdProductAbstract($storageProductTransfer->getIdProductAbstract());
 
