@@ -111,12 +111,14 @@ class CartController extends AbstractController
         $quoteTransfer = $this->getClient()->getQuote();
 
         $isItemReplacedInCart = $this->getFactory()->createCartItemsAttributeProvider()
-            ->tryToReplaceItem($sku,
+            ->tryToReplaceItem(
+                $sku,
                 $quantity,
                 $selectedAttributes,
                 $quoteTransfer->getItems(),
                 $groupKey,
-                $optionValueIds);
+                $optionValueIds
+            );
 
         if ($isItemReplacedInCart) {
             return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);

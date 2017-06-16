@@ -31,41 +31,22 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
         return [
             StorageAvailabilityTransfer::IS_ABSTRACT_PRODUCT_AVAILABLE => $this->isProductAbstractAvailable($concreteProductsAvailability),
             StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $concreteProductsAvailability,
-            StorageAvailabilityTransfer::CONCRETE_PRODUCTS_AVAILABILITY => $this->getConcreteProductsStock(
-                $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
-            ),
         ];
     }
 
     /**
-     * @param int $idAvailabilityAbstract
+     * @param int $idAvailabilityAbstact
      *
      * @return array
      */
-    protected function getConcreteProductsAvailability($idAvailabilityAbstract)
+    protected function getConcreteProductsAvailability($idAvailabilityAbstact)
     {
-        $productConcreteAvailability = $this->getConcreteProductStock($idAvailabilityAbstract);
+        $productConcreteAvailability = SpyAvailabilityQuery::create()
+            ->findByFkAvailabilityAbstract($idAvailabilityAbstact);
 
         $concreteProductStock = [];
         foreach ($productConcreteAvailability as $availabilityEntity) {
             $concreteProductStock[$availabilityEntity->getSku()] = $this->isProductConcreteAvailable($availabilityEntity);
-        }
-
-        return $concreteProductStock;
-    }
-
-    /**
-     * @param int $idAvailabilityAbstract
-     *
-     * @return array
-     */
-    protected function getConcreteProductsStock($idAvailabilityAbstract)
-    {
-        $productConcreteAvailability = $this->getConcreteProductStock($idAvailabilityAbstract);
-
-        $concreteProductStock = [];
-        foreach ($productConcreteAvailability as $availabilityEntity) {
-            $concreteProductStock[$availabilityEntity->getSku()] = $availabilityEntity->getQuantity();
         }
 
         return $concreteProductStock;
@@ -115,18 +96,6 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     protected function isProductConcreteAvailable(SpyAvailability $availabilityEntity)
     {
         return $availabilityEntity->getQuantity() > 0 || $availabilityEntity->getIsNeverOutOfStock();
-    }
-
-    /**
-     * @param string $idAvailabilityAbstact
-     *
-     * @return \Orm\Zed\Availability\Persistence\SpyAvailability[]|\Propel\Runtime\Collection\ObjectCollection
-     */
-    protected function getConcreteProductStock($idAvailabilityAbstact)
-    {
-        $productConcreteAvailability = SpyAvailabilityQuery::create()
-            ->findByFkAvailabilityAbstract($idAvailabilityAbstact);
-        return $productConcreteAvailability;
     }
 
 }

@@ -1,6 +1,6 @@
 <div class="callout cart-item">
     <div class="row">
-        
+
         <div class="small-12 large-4 columns cart-item__section">
             <div class="row">
                 <div class="small-12 medium-4 large-12 columns">
@@ -8,30 +8,33 @@
                 </div>
                 <div class="small-12 medium-8 large-12 columns">
                     <ul class="no-bullet">
-                        <li class="lead">{{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong></li>
-                        <li class="__secondary"><small>{{ 'cart.item.sku' | trans }} {{cartItem.sku}}</small></li>
+                        <li class="lead">{{ cartItem.name }} - <strong>{{ cartItem.unitGrossPrice | money }}</strong>
+                        </li>
+                        <li class="__secondary">
+                            <small>{{ 'cart.item.sku' | trans }} {{ cartItem.sku }}</small>
+                        </li>
                         {% set imageSet = cartItem.imageSets | first %}
-                            {% if imageSet is not empty  %}
-                                {% set productImage = imageSet.productImages | first %}
-                                {% if productImage is not empty  %}
-                                    <li>
-                                        <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}" />
-                                    </li>
-                                {% endif %}
+                        {% if imageSet is not empty %}
+                            {% set productImage = imageSet.productImages | first %}
+                            {% if productImage is not empty %}
+                                <li>
+                                    <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}"/>
+                                </li>
                             {% endif %}
+                        {% endif %}
                         <li>
-                            <a href="/cart/remove/{{cartItem.sku}}/{{cartItem.groupKey}}">
-                                &times; <small>remove</small>
+                            <a href="/cart/remove/{{ cartItem.sku }}/{{ cartItem.groupKey }}">
+                                &times;<small>remove</small>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-    
+
         <div class="small-12 large-8 columns">
             <div class="row">
-    
+
                 {% if bundleItems is defined %}
                     <div class="small-12 large-6 columns cart-item__section">
                         <div class="row">
@@ -51,55 +54,61 @@
 
                     {% set itemAttributes = attribute(attributes, cartItem.sku) %}
 
+                    {% if itemAttributes|length > 0 %}
+
                     <form method="POST" action="{{ path('cart/update', {'sku': cartItem.sku }) }}">
 
-                        <input type="hidden" value="{{cartItem.groupKey}}" name="groupKey">
+                        <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
 
                         <div class="small-12 large-6 columns cart-item__section">
                             <div class="row">
                                 <div class="small-12 medium-4 large-12 columns">
-                                    <strong class="cart-item__section-title">Product variants</strong>
+                                    <strong class="cart-item__section-title">{{ 'product.variants' | trans }}</strong>
                                 </div>
+
                                 {% for attributeName, attributeOptions in itemAttributes %}
 
-                                        <div  data-component="cart-item">
-                                            {% if attributeOptions|length > 1 %}
-                                                <p class="small-12 medium-8 large-12 columns">
-                                                    {{ attributeName }}:
-                                                </p>
-                                                <select class="js-cart-item-select">
+                                    <div data-component="cart-item">
+                                        {% if attributeOptions|length > 1 %}
+                                            <p class="small-12 medium-8 large-12 columns">
+                                                {{ ('product.attribute.' ~ attributeName) | trans }}:
+                                            </p>
+                                            <select class="js-cart-item-select">
 
-                                                    <option  value="">
-                                                        {{ 'Please select' }}
-                                                    </option>
-                                                    {% for option, properties in attributeOptions %}
-                                                        <option  value="{{ option }}" {% if attribute(properties,'selected') %}selected{% endif %} {% if not attribute(properties,'available') %}disabled{% endif %}>
-                                                            {{ option }}
-                                                        </option>
-                                                    {% endfor %}
-                                                </select>
-                                                <input name="selectedAttributes[{{ attributeName }}]" type="hidden">
-                                            {% else %}
+                                                <option value="">
+                                                    {{ 'product.attribute._none' | trans | trans }}
+                                                </option>
                                                 {% for option, properties in attributeOptions %}
-                                                    <p class="small-12 medium-8 large-12 columns">
-                                                        <label>{{ attributeName }}: {{ option }} </label> <a href="{{ url("cart") }}">reset</a>
-                                                    </p>
-
-                                                    <input name="selectedAttributes[{{ attributeName }}]" type="hidden" value="{{ option }}">
+                                                    <option value="{{ option }}"
+                                                            {% if attribute(properties,'selected') %}selected{% endif %} {% if not attribute(properties,'available') %}disabled{% endif %}>
+                                                        {{ option }}
+                                                    </option>
                                                 {% endfor %}
+                                            </select>
+                                            <input name="selectedAttributes[{{ attributeName }}]" type="hidden">
+                                        {% else %}
+                                            {% for option, properties in attributeOptions %}
+                                                <p class="small-12 medium-8 large-12 columns">
+                                                    <label>{{ attributeName }}: {{ option }} </label> <a href="{{ url("cart") }}">{{ 'reset' | trans }}</a>
+                                                </p>
 
-                                            {% endif %}
-                                        </div>
+                                                <input name="selectedAttributes[{{ attributeName }}]" type="hidden"
+                                                       value="{{ option }}">
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
                                 {% endfor %}
                             </div>
                         </div>
 
                         {% if cartItem.productOptions|length > 0 %}
                             {% for productOption in cartItem.productOptions %}
-                                <input name="product-option[{{ productOption.groupName }}]" type="hidden" value="{{ productOption.idProductOptionValue }}">
+                                <input name="product-option[{{ productOption.groupName }}]" type="hidden"
+                                       value="{{ productOption.idProductOptionValue }}">
                             {% endfor %}
                         {% endif %}
                     </form>
+                        {% endif %}
                 {% endif %}
 
                 {% if cartItem.productOptions|length > 0 %}
@@ -110,17 +119,18 @@
                             </div>
                             <div class="small-12 medium-8 large-12 columns">
 
-                                    <ul class="no-bullet">
-                                        {% for productOption in cartItem.productOptions %}
-                                            <li> + {{ productOption.value | trans }} <strong>{{ productOption.unitGrossPrice | money }}</strong> </li>
-                                        {% endfor %}
-                                    </ul>
+                                <ul class="no-bullet">
+                                    {% for productOption in cartItem.productOptions %}
+                                        <li> + {{ productOption.value | trans }}
+                                            <strong>{{ productOption.unitGrossPrice | money }}</strong></li>
+                                    {% endfor %}
+                                </ul>
 
                             </div>
                         </div>
                     </div>
                 {% endif %}
-    
+
                 <div class="small-12 large-6 columns cart-item__section">
                     <div class="row">
                         <div class="small-12 medium-4 large-12 columns">
@@ -129,17 +139,17 @@
                         <div class="small-12 medium-8 large-12 columns">
                             <form method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
                                 <div class="input-group">
-                                    <input class="input-group-field" type="number" value="{{cartItem.quantity}}" name="quantity">
+                                    <input class="input-group-field" type="number" value="{{ cartItem.quantity }}" name="quantity">
                                     <div class="input-group-button">
                                         <button type="submit" class="button expanded __no-margin-bottom"><i class="fa fa-refresh"></i></button>
                                     </div>
                                 </div>
-                                <input type="hidden" value="{{cartItem.groupKey}}" name="groupKey">
+                                <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
                             </form>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="small-12 large-6 columns cart-item__section">
                     <div class="row">
                         <div class="small-12 medium-4 large-12 columns">
@@ -150,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
