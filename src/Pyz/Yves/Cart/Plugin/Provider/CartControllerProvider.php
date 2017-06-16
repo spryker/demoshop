@@ -68,6 +68,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->convert('groupKey', [$this, 'getGroupKeyFromRequest'])
             ->convert('selectedAttributes', [$this, 'getSelectedAttributesFromRequest'])
+            ->convert('preselectedAttributes', [$this, 'getPreSelectedAttributesFromRequest'])
             ->convert('optionValueIds', [$this, 'getProductOptionsFromRequest'])
             ->method('POST');
 
@@ -112,6 +113,21 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         }
 
         return $request->query->get('selectedAttributes', []);
+    }
+
+    /**
+     * @param mixed $unusedParameter
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return int
+     */
+    public function getPreSelectedAttributesFromRequest($unusedParameter, Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            return $request->request->get('preselectedAttributes', []);
+        }
+
+        return $request->query->get('preselectedAttributes', []);
     }
 
     /**

@@ -101,20 +101,22 @@ class CartController extends AbstractController
      * @param string $sku
      * @param int $quantity
      * @param array $selectedAttributes
+     * @param array $preselectedAttributes
      * @param string|null $groupKey
      * @param array $optionValueIds
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function updateAction($sku, $quantity, $selectedAttributes, $groupKey = null, $optionValueIds = [])
+    public function updateAction($sku, $quantity, $selectedAttributes, $preselectedAttributes,  $groupKey = null, $optionValueIds = [])
     {
+
         $quoteTransfer = $this->getClient()->getQuote();
 
         $isItemReplacedInCart = $this->getFactory()->createCartItemsAttributeProvider()
             ->tryToReplaceItem(
                 $sku,
                 $quantity,
-                $selectedAttributes,
+                array_replace($selectedAttributes, $preselectedAttributes),
                 $quoteTransfer->getItems(),
                 $groupKey,
                 $optionValueIds

@@ -73,27 +73,26 @@
                                             <p class="small-12 medium-8 large-12 columns">
                                                 {{ ('product.attribute.' ~ attributeName) | trans }}:
                                             </p>
-                                            <select class="js-cart-item-select">
+                                            <select class="js-cart-item-select" name="preselectedAttributes[{{ attributeName }}]">
 
                                                 <option value="">
                                                     {{ 'product.attribute._none' | trans | trans }}
                                                 </option>
                                                 {% for option, properties in attributeOptions %}
                                                     <option value="{{ option }}"
-                                                            {% if attribute(properties,'selected') %}selected{% endif %} {% if not attribute(properties,'available') %}disabled{% endif %}>
+                                                            {% if attribute(properties,'selected') %}  selected{% endif %} {% if not attribute(properties,'available') %}disabled{% endif %}>
                                                         {{ option }}
                                                     </option>
                                                 {% endfor %}
                                             </select>
-                                            <input name="selectedAttributes[{{ attributeName }}]" type="hidden">
+                                            <input name="selectedAttributes[{{ attributeName }}]" type="hidden" >
                                         {% else %}
                                             {% for option, properties in attributeOptions %}
                                                 <p class="small-12 medium-8 large-12 columns">
                                                     <label>{{ attributeName }}: {{ option }} </label> <a href="{{ url("cart") }}">{{ 'reset' | trans }}</a>
                                                 </p>
 
-                                                <input name="selectedAttributes[{{ attributeName }}]" type="hidden"
-                                                       value="{{ option }}">
+                                                <input name="selectedAttributes[{{ attributeName }}]" type="hidden" value="{{ option }}">
                                             {% endfor %}
                                         {% endif %}
                                     </div>
