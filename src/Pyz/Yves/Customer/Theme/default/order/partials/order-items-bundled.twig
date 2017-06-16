@@ -6,13 +6,13 @@
         {{ orderItem.bundleProduct.name }}
     </td>
     <td class="text-right">
-        {{ orderItem.bundleProduct.unitItemTotal | money }}
+        {{ orderItem.bundleProduct.unitPrice | money }}
     </td>
     <td class="text-right">
         {{ orderItem.bundleProduct.quantity }}
     </td>
     <td class="text-right">
-        {{ orderItem.bundleProduct.sumItemTotal | money }}
+        {{ orderItem.bundleProduct.unitPriceToPayAggregation | money }}
     </td>
 </tr>
 
