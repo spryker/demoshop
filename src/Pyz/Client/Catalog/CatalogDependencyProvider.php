@@ -25,6 +25,7 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\PaginatedResultFo
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SpellingSuggestionResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionByTypeResultFormatterPlugin;
+use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\IsActiveQueryExpanderPlugin;
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
@@ -94,6 +95,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new LocalizedQueryExpanderPlugin(),
             new CompletionQueryExpanderPlugin(),
             new SuggestionByTypeQueryExpanderPlugin(),
+            new IsActiveQueryExpanderPlugin(),
         ];
     }
 

@@ -97,7 +97,8 @@ class ProductDataPageMapBuilder
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
-            ->setIsFeatured($productData['is_featured'] == 'true');
+            ->setIsFeatured($productData['is_featured'] == 'true')
+            ->setIsActive($this->isProductAbstractActive($productData['product_status_aggregation']));
 
         $attributes = $this->getProductAttributes($productData);
         $price = $this->getPriceBySku($productData['abstract_sku']);
@@ -135,6 +136,23 @@ class ProductDataPageMapBuilder
             ->mapDynamicProductAttributes($pageMapBuilder, $pageMapTransfer, $attributes);
 
         return $pageMapTransfer;
+    }
+
+    /**
+     * @param string $productStatusAggregation
+     *
+     * @return bool
+     */
+    protected function isProductAbstractActive($productStatusAggregation)
+    {
+        $statusList = explode(',', $productStatusAggregation);
+
+        foreach ($statusList as $flag) {
+            if (trim($flag) === 'true') {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
