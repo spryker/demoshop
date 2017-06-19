@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6073b38af611ec97a7a889262a2a9bc8d3584a68"
+                "reference": "0ca703622e6623932ed314a9189c80ffb9e855da"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1620,6 +1620,7 @@
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
                 "spryker/product": "*",
+                "spryker/product-attribute-gui": "*",
                 "spryker/product-bundle": "*",
                 "spryker/product-cart-connector": "*",
                 "spryker/product-category": "*",
@@ -1689,7 +1690,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-16 09:13:11"
+            "time": "2017-06-19 09:49:30"
         },
         {
             "name": "swiftmailer/swiftmailer",
