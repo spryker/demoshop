@@ -107,9 +107,8 @@ class CartController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function updateAction($sku, $quantity, $selectedAttributes, $preselectedAttributes,  $groupKey = null, $optionValueIds = [])
+    public function updateAction($sku, $quantity, $selectedAttributes, $preselectedAttributes, $groupKey = null, $optionValueIds = [])
     {
-
         $quoteTransfer = $this->getClient()->getQuote();
 
         $isItemReplacedInCart = $this->getFactory()->createCartItemsAttributeProvider()
