@@ -1,0 +1,57 @@
+<div class="callout">
+    <form method="GET" data-component="product-variants">
+        <h5>{{ 'product.set.detail.set-contents' | trans }}</h5>
+
+        {% for storageProduct in storageProducts %}
+            <div class="row">
+                <div class="small-5 columns">
+                    <a href="{{ storageProduct.url }}" class="thumbnail __preview-image __no-margin-bottom">
+                        <img src="{{ storageProduct.images.0.externalUrlSmall }}">
+                    </a>
+                </div>
+                <div class="small-7 columns">
+                    <p>
+                        <a href="{{ storageProduct.url }}"><strong>{{ storageProduct.name }}</strong></a><br>
+                        {{ storageProduct.price | money }}
+                    </p>
+
+                    {% include '@ProductSet/detail/_partials/variants.twig' with {product: storageProduct}%}
+
+                    <a href="{{ path('cart/add', {sku: storageProduct.sku}) }}"
+                       class="button expanded success __no-margin-bottom {{ (not storageProduct.isVariant or not storageProduct.available) ? 'disabled' : '' }}"
+                       data-component="disable-on-click"
+                    >
+                        <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                    </a>
+
+                    {% if not storageProduct.available %}
+                        <p>
+                            <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+            {% if not loop.last %}
+                <hr />
+            {% endif %}
+        {% endfor %}
+    </form>
+</div>
+
+<form method="POST" action="{{ path('cart/add-items') }}">
+    {% set isDisabled = false %}
+
+    {% for storageProduct in storageProducts %}
+        {% if storageProduct.isVariant %}
+            {% if storageProduct.available %}
+                <input type="hidden" name="items[{{ loop.index }}][sku]" value="{{ storageProduct.sku }}" />
+                <input type="hidden" name="items[{{ loop.index }}][quantity]" value="1" />
+            {% endif %}
+        {% else %}
+            {% set isDisabled = true %}
+        {% endif %}
+    {% endfor %}
+    <button type="submit" class="button expanded success margin" data-component="disable-on-click" {% if isDisabled %}disabled{% endif %}>
+        <i class="fa fa-cart-plus"></i>{{ 'product.set.detail.add-all-to-cart' | trans }}
+    </button>
+</form>

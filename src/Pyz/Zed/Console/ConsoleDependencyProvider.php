@@ -37,6 +37,7 @@ use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckCondi
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
+use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelValidityConsole;
 use Spryker\Zed\ProductRelation\Communication\Console\ProductRelationUpdaterConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
@@ -94,6 +95,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new QueueTaskConsole(),
             new QueueWorkerConsole(),
             new ProductRelationUpdaterConsole(),
+            new ProductLabelValidityConsole(),
 
             // Setup commands
             new RunnerConsole(),

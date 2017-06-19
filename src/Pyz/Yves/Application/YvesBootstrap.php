@@ -28,6 +28,7 @@ use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
+use Pyz\Yves\ProductSet\Plugin\Provider\ProductSetControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
@@ -51,6 +52,7 @@ use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
+use Spryker\Yves\ProductLabel\Plugin\Provider\ProductLabelTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
@@ -100,7 +102,6 @@ class YvesBootstrap
         $this->application->register(new ExceptionServiceProvider());
         $this->application->register(new NewRelicServiceProvider());
         $this->application->register(new EventJournalServiceProvider());
-
         $this->application->register(new CookieServiceProvider());
         $this->application->register(new UrlGeneratorServiceProvider());
         $this->application->register(new ServiceControllerServiceProvider());
@@ -123,6 +124,7 @@ class YvesBootstrap
         $this->application->register(new ProductRelationTwigServiceProvider());
         $this->application->register(new NavigationTwigServiceProvider());
         $this->application->register(new ProductGroupTwigServiceProvider());
+        $this->application->register(new ProductLabelTwigServiceProvider());
     }
 
     /**
@@ -165,6 +167,7 @@ class YvesBootstrap
             new NewsletterControllerProvider($isSsl),
             new CatalogControllerProvider($isSsl),
             new CalculationControllerProvider($isSsl),
+            new ProductSetControllerProvider($isSsl),
         ];
     }
 

@@ -677,6 +677,16 @@ product.attribute.license,License,en_US
 product.attribute.license,Lizenz,de_DE
 product.product_options,"Product Options",en_US
 product.product_options,"Produktoptionen",de_DE
+product.sets,"Product Sets",en_US
+product.sets,"Produktsets",de_DE
+product.sets.no-results,"No results.",en_US
+product.sets.no-results,"Keine Ergebnisse.",de_DE
+product.set.detail.add-all-to-cart,"Add all to Cart",en_US
+product.set.detail.add-all-to-cart,"Alle Artikel in den Warenkorb",de_DE
+product.set.detail.set-contents,"Products in this set",en_US
+product.set.detail.set-contents,"Produkte in diesem Set",de_DE
+product.view,"View",en_US
+product.view,"Ansehen",de_DE
 wishlist.title,"Wishlist",en_US
 wishlist.title,"Wunschliste",de_DE
 wishlist.wishlist,"Wishlist",en_US

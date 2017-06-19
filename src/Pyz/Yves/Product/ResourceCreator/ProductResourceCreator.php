@@ -8,9 +8,7 @@
 namespace Pyz\Yves\Product\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
-use Pyz\Yves\Product\Mapper\StorageImageMapperInterface;
-use Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface;
-use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
+use Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface;
 use Silex\Application;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Yves\Kernel\BundleControllerAction;
@@ -20,33 +18,16 @@ class ProductResourceCreator extends AbstractResourceCreator
 {
 
     /**
-     * @var \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
+     * @var \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
-    protected $storageProductMapper;
+    protected $storageProductMapperPlugin;
 
     /**
-     * @var \Pyz\Yves\Product\Mapper\StorageImageMapperInterface
+     * @param \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface $storageProductMapperPlugin
      */
-    protected $storageImageMapper;
-
-    /**
-     * @var \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface
-     */
-    protected $storageProductCategoryMapper;
-
-    /**
-     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
-     * @param \Pyz\Yves\Product\Mapper\StorageImageMapperInterface $storageImageMapper
-     * @param \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface $storageProductCategoryMapper
-     */
-    public function __construct(
-        StorageProductMapperInterface $storageProductMapper,
-        StorageImageMapperInterface $storageImageMapper,
-        StorageProductCategoryMapperInterface $storageProductCategoryMapper
-    ) {
-        $this->storageProductMapper = $storageProductMapper;
-        $this->storageImageMapper = $storageImageMapper;
-        $this->storageProductCategoryMapper = $storageProductCategoryMapper;
+    public function __construct(StorageProductMapperPluginInterface $storageProductMapperPlugin)
+    {
+        $this->storageProductMapperPlugin = $storageProductMapperPlugin;
     }
 
     /**
@@ -67,12 +48,12 @@ class ProductResourceCreator extends AbstractResourceCreator
     {
         $bundleControllerAction = new BundleControllerAction('Product', 'Product', 'detail');
         $routeResolver = new BundleControllerActionRouteNameResolver($bundleControllerAction);
-
         $service = $this->createServiceForController($application, $bundleControllerAction, $routeResolver);
 
-        $storageProductTransfer = $this->storageProductMapper->mapStorageProduct($data, $this->getSelectedAttributes($application));
-        $storageProductTransfer = $this->storageImageMapper->mapProductImages($storageProductTransfer);
-        $storageProductTransfer = $this->storageProductCategoryMapper->mapProductCategories($storageProductTransfer, $data);
+        $storageProductTransfer = $this->storageProductMapperPlugin->mapStorageProduct(
+            $data,
+            $this->getSelectedAttributes($application)
+        );
 
         return [
             '_controller' => $service,
@@ -98,7 +79,7 @@ class ProductResourceCreator extends AbstractResourceCreator
      */
     protected function getSelectedAttributes(Application $application)
     {
-        return $this->getRequest($application)->query->get('attribute', []);
+        return array_filter($this->getRequest($application)->query->get('attribute', []));
     }
 
 }
