@@ -9,7 +9,7 @@ namespace Pyz\Yves\Cart\Handler;
 
 use ArrayObject;
 use Generated\Shared\Transfer\StorageProductTransfer;
-use Pyz\Yves\Product\Mapper\StorageProductMapper;
+use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Product\ProductClientInterface;
 use Spryker\Shared\CartVariant\CartVariantConstants;
@@ -19,12 +19,12 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
 {
 
     /**
-     * @var \Pyz\Yves\Cart\Handler\CartOperationHandler
+     * @var \Pyz\Yves\Cart\Handler\CartOperationInterface
      */
     protected $cartOperationHandler;
 
     /**
-     * @var \Spryker\Client\Cart\CartClient
+     * @var \Spryker\Client\Cart\CartClientInterface
      */
     protected $cartClient;
 
@@ -34,22 +34,22 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     protected $productClient;
 
     /**
-     * @var \Pyz\Yves\Product\Mapper\StorageProductMapper
+     * @var \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
      */
     protected $productMapper;
 
     /**
-     * @param \Pyz\Yves\Cart\Handler\CartOperationHandler $cartOperationHandler
+     * @param \Pyz\Yves\Cart\Handler\CartOperationInterface $cartOperationHandler
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
-     * @param \Pyz\Yves\Product\Mapper\StorageProductMapper $productMapper
+     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $productMapper
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
-        CartOperationHandler $cartOperationHandler,
+        CartOperationInterface $cartOperationHandler,
         CartClientInterface $cartClient,
         ProductClientInterface $productClient,
-        StorageProductMapper $productMapper,
+        StorageProductMapperInterface $productMapper,
         FlashMessengerInterface $flashMessenger
     ) {
 
@@ -148,41 +148,82 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     /**
      * @param \ArrayObject|\Generated\Shared\Transfer\StorageProductTransfer[] $items
      * @param array $itemAttributesBySku
-     * @param array|null $itemAttributes
+     * @param array|null $selectedAttributes
      *
      * @return array
      */
     public function narrowDownOptions(
         ArrayObject $items,
         array $itemAttributesBySku,
-        array $itemAttributes = null
+        array $selectedAttributes = null
     ) {
-        $sku = '';
-        $availableAttributes = [];
 
-        if ($itemAttributes) {
-            foreach ($itemAttributes as $sku => $attributes) {
-                foreach ($attributes as $key => $attribute) {
-                    unset($itemAttributesBySku[$sku][$key]);
-                    $itemAttributesBySku[$sku][$key][$attribute][CartVariantConstants::SELECTED] = true;
-                    $itemAttributesBySku[$sku][$key][$attribute][CartVariantConstants::AVAILABLE] = true;
-                }
+        if (count($selectedAttributes) === 0) {
+            return $itemAttributesBySku;
+        }
 
-                $storageProductTransfer = $this->getProductStorageTransfer($sku, $itemAttributes[$sku], $items);
-                $availableAttributes = $storageProductTransfer->getAvailableAttributes();
-                continue;
-            }
+        foreach ($selectedAttributes as $sku => $attributes) {
 
-            foreach ($itemAttributesBySku[$sku] as $key => $attributes) {
-                foreach ($attributes as $attribute => $options) {
-                    if (array_key_exists($key, $availableAttributes)) {
-                        if (in_array($attribute, $availableAttributes[$key]) === false) {
-                            unset($itemAttributesBySku[$sku][$key][$attribute]);
-                        }
+            $itemAttributesBySku = $this->setSelectedAttributesAsSelected($itemAttributesBySku, $attributes, $sku);
+
+            $availableAttributes = $this->getAvailableAttributesForItem($items, $selectedAttributes, $sku);
+
+            $itemAttributesBySku = $this->removeAttributesThatAreNotAvailableForItem($itemAttributesBySku, $sku, $availableAttributes);
+        }
+
+        return $itemAttributesBySku;
+    }
+
+    /**
+     * @param array $itemAttributesBySku
+     * @param array $attributes
+     * @param string $sku
+     *
+     * @return array
+     */
+    protected function setSelectedAttributesAsSelected(array $itemAttributesBySku, array $attributes, $sku)
+    {
+        foreach ($attributes as $key => $attribute) {
+            unset($itemAttributesBySku[$sku][$key]);
+            $itemAttributesBySku[$sku][$key][$attribute][CartVariantConstants::SELECTED] = true;
+            $itemAttributesBySku[$sku][$key][$attribute][CartVariantConstants::AVAILABLE] = true;
+        }
+        return $itemAttributesBySku;
+    }
+
+    /**
+     * @param \ArrayObject $items
+     * @param array $itemAttributes
+     * @param string $sku
+     *
+     * @return array
+     */
+    protected function getAvailableAttributesForItem(ArrayObject $items, array $itemAttributes, $sku)
+    {
+        $storageProductTransfer = $this->getProductStorageTransfer($sku, $itemAttributes[$sku], $items);
+        $availableAttributes = $storageProductTransfer->getAvailableAttributes();
+        return $availableAttributes;
+    }
+
+    /**
+     * @param array $itemAttributesBySku
+     * @param string $sku
+     * @param array $availableAttributes
+     *
+     * @return array
+     */
+    protected function removeAttributesThatAreNotAvailableForItem(array $itemAttributesBySku, $sku, array $availableAttributes)
+    {
+        foreach ($itemAttributesBySku[$sku] as $key => $attributes) {
+            foreach ($attributes as $attributeName => $options) {
+                if (array_key_exists($key, $availableAttributes)) {
+                    if (in_array($attributeName, $availableAttributes[$key]) === false) {
+                        unset($itemAttributesBySku[$sku][$key][$attributeName]);
                     }
                 }
             }
         }
+
         return $itemAttributesBySku;
     }
 

@@ -71,7 +71,6 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
             return $pimplePlugin->getApplication();
         };
 
-        //provide plugin from the new bundle CartVariantAttributeMapperPlugin
         $container[self::PLUGIN_CART_VARIANT] = function () {
             return new CartVariantAttributeMapperPlugin();
         };

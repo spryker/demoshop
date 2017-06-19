@@ -49,7 +49,6 @@ class AttributeVariantsProvider
      */
     public function getItemsAttributes(QuoteTransfer $quoteTransfer, array $itemAttributes = null)
     {
-        //use plugin here
         $itemAttributesBySku = $this->cartVariantAttributeMapperPlugin
             ->buildMap($quoteTransfer->getItems());
 
@@ -70,7 +69,7 @@ class AttributeVariantsProvider
     public function tryToReplaceItem($sku, $quantity, $selectedAttributes, ArrayObject $items, $groupKey = null, $optionValueIds = [])
     {
         $storageProductTransfer = $this->cartItemHandler->getProductStorageTransfer($sku, $selectedAttributes, $items);
-        // we have a concrete product
+
         if ($storageProductTransfer->getIsVariant() === true) {
             $this->cartItemHandler->replaceCartItem($sku, $storageProductTransfer, $quantity, $groupKey, $optionValueIds);
             return true;

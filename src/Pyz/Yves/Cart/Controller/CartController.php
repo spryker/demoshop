@@ -22,7 +22,7 @@ class CartController extends AbstractController
      *
      * @return array
      */
-    public function indexAction($selectedAttributes = null)
+    public function indexAction(array $selectedAttributes = null)
     {
         $quoteTransfer = $this->getClient()
             ->getQuote();
@@ -57,7 +57,7 @@ class CartController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function addAction($sku, $quantity, $optionValueIds = [])
+    public function addAction($sku, $quantity, array $optionValueIds = [])
     {
         $cartOperationHandler = $this->getCartOperationHandler();
         $cartOperationHandler->add($sku, $quantity, $optionValueIds);
@@ -107,7 +107,7 @@ class CartController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function updateAction($sku, $quantity, $selectedAttributes, $preselectedAttributes, $groupKey = null, $optionValueIds = [])
+    public function updateAction($sku, $quantity, array $selectedAttributes, array $preselectedAttributes, $groupKey = null, array $optionValueIds = [])
     {
         $quoteTransfer = $this->getClient()->getQuote();
 

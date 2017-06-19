@@ -42,10 +42,10 @@ interface CartItemHandlerInterface
     /**
      * @param \ArrayObject|\Generated\Shared\Transfer\StorageProductTransfer[] $items
      * @param array $itemAttributesBySku
-     * @param array|null $itemAttributes
+     * @param array|null $selectedAttributes
      *
      * @return array
      */
-    public function narrowDownOptions(ArrayObject $items, array $itemAttributesBySku, array $itemAttributes = null);
+    public function narrowDownOptions(ArrayObject $items, array $itemAttributesBySku, array $selectedAttributes = null);
 
 }
