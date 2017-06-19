@@ -1,0 +1,9 @@
+{% if product.superAttributes|length > 0 %}
+    <p>
+        {% for attributeName,attributes in product.superAttributes %}
+            {% include '@Product/product/partials/variant.twig' with {
+                attributeFieldName: 'attribute[' ~ product.idProductAbstract ~ '][' ~ attributeName ~ ']'
+            } %}
+        {% endfor %}
+    </p>
+{% endif %}

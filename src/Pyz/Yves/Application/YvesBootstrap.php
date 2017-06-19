@@ -28,6 +28,7 @@ use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
+use Pyz\Yves\ProductSet\Plugin\Provider\ProductSetControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
 use Silex\Provider\FormServiceProvider;
@@ -101,7 +102,6 @@ class YvesBootstrap
         $this->application->register(new ExceptionServiceProvider());
         $this->application->register(new NewRelicServiceProvider());
         $this->application->register(new EventJournalServiceProvider());
-
         $this->application->register(new CookieServiceProvider());
         $this->application->register(new UrlGeneratorServiceProvider());
         $this->application->register(new ServiceControllerServiceProvider());
@@ -167,6 +167,7 @@ class YvesBootstrap
             new NewsletterControllerProvider($isSsl),
             new CatalogControllerProvider($isSsl),
             new CalculationControllerProvider($isSsl),
+            new ProductSetControllerProvider($isSsl),
         ];
     }
 

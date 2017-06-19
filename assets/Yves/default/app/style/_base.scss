@@ -36,3 +36,7 @@ i {
 .__success {
     color: map-get($foundation-palette, success);
 }
+
+a.disabled {
+    pointer-events: none;
+}

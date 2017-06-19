@@ -30,6 +30,7 @@ use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductRelation\ProductRelationImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSet\ProductSetImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
 use Pyz\Zed\Importer\Business\Importer\Tax\TaxImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
@@ -335,6 +336,17 @@ class ImporterFactory extends AbstractFactory
         return new ProductGroupImporter(
             $this->getLocaleFacade(),
             $this->getProductGroupFacade()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductSet\ProductSetImporter
+     */
+    public function createProductSetImporter()
+    {
+        return new ProductSetImporter(
+            $this->getLocaleFacade(),
+            $this->getProductSetFacade()
         );
     }
 
