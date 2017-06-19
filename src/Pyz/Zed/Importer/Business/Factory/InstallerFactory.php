@@ -37,6 +37,7 @@ use Pyz\Zed\Importer\ImporterDependencyProvider;
 
 /**
  * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  *
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
  */
