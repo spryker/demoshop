@@ -111,6 +111,7 @@
                                        value="{{ productOption.idProductOptionValue }}">
                             {% endfor %}
                         {% endif %}
+                        <input type="hidden" value="{{ cartItem.quantity }}" name="quantity">
                     </form>
                         {% endif %}
                 {% endif %}
