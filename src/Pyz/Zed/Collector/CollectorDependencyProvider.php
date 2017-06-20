@@ -28,8 +28,10 @@ use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Shared\ProductGroup\ProductGroupConfig;
+use Spryker\Shared\ProductLabel\ProductLabelConstants;
 use Spryker\Shared\ProductRelation\ProductRelationConstants;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
+use Spryker\Shared\ProductSet\ProductSetConfig;
 use Spryker\Zed\CmsCollector\Communication\Plugin\CmsVersionPageCollectorSearchPlugin;
 use Spryker\Zed\CmsCollector\Communication\Plugin\CmsVersionPageCollectorStoragePlugin;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
@@ -38,9 +40,13 @@ use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NavigationCollector\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
 use Spryker\Zed\ProductGroupCollector\Communication\Plugin\ProductAbstractGroupsCollectorStoragePlugin;
 use Spryker\Zed\ProductGroupCollector\Communication\Plugin\ProductGroupCollectorStoragePlugin;
+use Spryker\Zed\ProductLabelCollector\Communication\Plugin\ProductLabelDictionaryCollectorStoragePlugin;
+use Spryker\Zed\ProductLabelCollector\Communication\Plugin\ProductLabelProductAbstractRelationCollectorStoragePlugin;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 use Spryker\Zed\ProductRelationCollector\Communication\Plugin\ProductRelationCollectorPlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
+use Spryker\Zed\ProductSetCollector\Communication\Plugin\ProductSetCollectorSearchPlugin;
+use Spryker\Zed\ProductSetCollector\Communication\Plugin\ProductSetCollectorStoragePlugin;
 use Spryker\Zed\Url\UrlConfig;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
@@ -59,6 +65,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const FACADE_SEARCH = 'search facade';
     const FACADE_PRODUCT_SEARCH = 'product search facade';
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
+    const FACADE_PRODUCT_IMAGE = 'FACADE_PRODUCT_IMAGE';
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
 
     const QUERY_CONTAINER_PRICE = 'price query container';
@@ -106,6 +113,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->product()->facade();
         };
 
+        $container[static::FACADE_PRODUCT_IMAGE] = function (Container $container) {
+            return $container->getLocator()->productImage()->facade();
+        };
+
         $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {
             return $container->getLocator()->productImage()->queryContainer();
         };
@@ -115,6 +126,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT => new ProductCollectorSearchPlugin(),
                 CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE => new CategoryNodeCollectorSearchPlugin(),
                 CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorSearchPlugin(),
+                ProductSetConfig::RESOURCE_TYPE_PRODUCT_SET => new ProductSetCollectorSearchPlugin(),
             ];
         };
 
@@ -137,6 +149,9 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 ProductRelationConstants::RESOURCE_TYPE_PRODUCT_RELATION => new ProductRelationCollectorPlugin(),
                 ProductGroupConfig::RESOURCE_TYPE_PRODUCT_GROUP => new ProductGroupCollectorStoragePlugin(),
                 ProductGroupConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_GROUPS => new ProductAbstractGroupsCollectorStoragePlugin(),
+                ProductLabelConstants::RESOURCE_TYPE_PRODUCT_LABEL_DICTIONARY => new ProductLabelDictionaryCollectorStoragePlugin(),
+                ProductLabelConstants::RESOURCE_TYPE_PRODUCT_ABSTRACT_PRODUCT_LABEL_RELATIONS => new ProductLabelProductAbstractRelationCollectorStoragePlugin(),
+                ProductSetConfig::RESOURCE_TYPE_PRODUCT_SET => new ProductSetCollectorStoragePlugin(),
             ];
         };
 

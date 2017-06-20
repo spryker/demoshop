@@ -43,11 +43,11 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
     }
 
     /**
-     * @param \Spryker\Zed\Kernel\Container $containter
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Cart\Dependency\CartPreCheckPluginInterface[]
      */
-    protected function getCartPreCheckPlugins(Container $containter)
+    protected function getCartPreCheckPlugins(Container $container)
     {
         return [
             new CartBundleAvailabilityPreCheckPlugin(),

@@ -12,9 +12,10 @@ use Pyz\Client\Customer\CustomerClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
+use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
+class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterface, StepWithExternalRedirectInterface
 {
 
     /**
@@ -28,21 +29,34 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     protected $customerClient;
 
     /**
+     * @var string
+     */
+    protected $logoutRoute;
+
+    /**
+     * @var string
+     */
+    protected $externalRedirect;
+
+    /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface $customerStepHandler
      * @param string $stepRoute
      * @param string $escapeRoute
+     * @param string $logoutRoute
      */
     public function __construct(
         CustomerClientInterface $customerClient,
         StepHandlerPluginInterface $customerStepHandler,
         $stepRoute,
-        $escapeRoute
+        $escapeRoute,
+        $logoutRoute
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->customerClient = $customerClient;
         $this->customerStepHandler = $customerStepHandler;
+        $this->logoutRoute = $logoutRoute;
     }
 
     /**
@@ -92,6 +106,17 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
         if ($this->isGuestCustomerSelected($quoteTransfer) && $this->isCustomerLoggedIn()) {
             // override guest user with logged in user
             return false;
+        }
+
+        $customerTransfer = $this->customerClient->getCustomer();
+
+        if ($customerTransfer) {
+            $customerTransfer = $this->customerClient->findCustomerById($customerTransfer);
+
+            if (!$customerTransfer) {
+                $this->externalRedirect = $this->logoutRoute;
+                return false;
+            }
         }
 
         return true;
@@ -151,6 +176,16 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     public function isBreadcrumbItemHidden(AbstractTransfer $quoteTransfer)
     {
         return $this->isCustomerLoggedIn();
+    }
+
+    /**
+     * Return external redirect url, when redirect occurs not within same application. Used after execute.
+     *
+     * @return string
+     */
+    public function getExternalRedirectUrl()
+    {
+        return $this->externalRedirect;
     }
 
 }

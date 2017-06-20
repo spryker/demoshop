@@ -9,8 +9,10 @@ namespace Pyz\Yves\Product;
 
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Pyz\Yves\Product\Mapper\StorageImageMapper;
+use Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapper;
 use Pyz\Yves\Product\Mapper\StorageProductCategoryMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
+use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -25,17 +27,13 @@ class ProductFactory extends AbstractFactory
      */
     public function createProductResourceCreator()
     {
-        return new ProductResourceCreator(
-            $this->createStorageProductMapper(),
-            $this->createStorageImageMapper(),
-            $this->createStorageProductCategoryMapper()
-        );
+        return new ProductResourceCreator($this->createStorageProductMapperPlugin());
     }
 
     /**
      * @return \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
      */
-    protected function createStorageProductMapper()
+    public function createStorageProductMapper()
     {
         return new StorageProductMapper($this->createAttributeVariantMapper());
     }
@@ -43,7 +41,7 @@ class ProductFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
      */
-    protected function createAttributeVariantMapper()
+    public function createAttributeVariantMapper()
     {
         return new AttributeVariantMapper($this->getClient());
     }
@@ -51,7 +49,7 @@ class ProductFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Product\Mapper\StorageImageMapperInterface
      */
-    protected function createStorageImageMapper()
+    public function createStorageImageMapper()
     {
         return new StorageImageMapper();
     }
@@ -59,9 +57,17 @@ class ProductFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Product\Mapper\StorageProductCategoryMapperInterface
      */
-    protected function createStorageProductCategoryMapper()
+    public function createStorageProductCategoryMapper()
     {
         return new StorageProductCategoryMapper();
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Mapper\StorageProductAvailabilityMapperInterface
+     */
+    public function createStorageProductAvailabilityMapper()
+    {
+        return new StorageProductAvailabilityMapper($this->getAvailabilityClient());
     }
 
     /**
@@ -86,6 +92,14 @@ class ProductFactory extends AbstractFactory
     public function getProductGroupClient()
     {
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_GROUP);
+    }
+
+    /**
+     * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
+     */
+    protected function createStorageProductMapperPlugin()
+    {
+        return new StorageProductMapperPlugin();
     }
 
 }

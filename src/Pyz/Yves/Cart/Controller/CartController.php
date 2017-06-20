@@ -7,8 +7,10 @@
 
 namespace Pyz\Yves\Cart\Controller;
 
+use Generated\Shared\Transfer\ItemTransfer;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Spryker\Yves\Kernel\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Spryker\Client\Cart\CartClientInterface getClient()
@@ -16,6 +18,8 @@ use Spryker\Yves\Kernel\Controller\AbstractController;
  */
 class CartController extends AbstractController
 {
+
+    const PARAM_ITEMS = 'items';
 
     /**
      * @param array|null $selectedAttributes
@@ -98,6 +102,23 @@ class CartController extends AbstractController
     }
 
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function addItemsAction(Request $request)
+    {
+        $items = (array)$request->request->get(self::PARAM_ITEMS);
+        $itemTransfers = $this->mapItems($items);
+
+        $cartOperationHandler = $this->getCartOperationHandler();
+        $cartOperationHandler->addItems($itemTransfers);
+        $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
+
+        return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+    }
+
+    /**
      * @param string $sku
      * @param int $quantity
      * @param array $selectedAttributes
@@ -138,6 +159,24 @@ class CartController extends AbstractController
     protected function getCartOperationHandler()
     {
         return $this->getFactory()->createProductBundleCartOperationHandler();
+    }
+
+    /**
+     * @param array $items
+     *
+     * @return \Generated\Shared\Transfer\ItemTransfer[]
+     */
+    protected function mapItems(array $items)
+    {
+        $itemTransfers = [];
+
+        foreach ($items as $item) {
+            $itemTransfer = new ItemTransfer();
+            $itemTransfer->fromArray($item, true);
+            $itemTransfers[] = $itemTransfer;
+        }
+
+        return $itemTransfers;
     }
 
 }

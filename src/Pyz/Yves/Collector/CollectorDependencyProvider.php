@@ -10,6 +10,7 @@ namespace Pyz\Yves\Collector;
 use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
 use Pyz\Yves\Cms\Plugin\PageResourceCreator;
 use Pyz\Yves\Product\Plugin\ProductResourceCreator;
+use Pyz\Yves\ProductSet\Plugin\ProductSetResourceCreatorPlugin;
 use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
@@ -33,6 +34,7 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_PAGE_RESOURCE_CREATOR = 'page resource creator plugin';
     const PLUGIN_PRODUCT_RESOURCE_CREATOR = 'page product creator plugin';
     const PLUGIN_REDIRECT_RESOURCE_CREATOR = 'redirect resource creator plugin';
+    const PLUGIN_PRODUCT_SET_RESOURCE_CREATOR = 'PLUGIN_PRODUCT_SET_RESOURCE_CREATOR';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -100,6 +102,12 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
             $productResourceCreatorPlugin = new ProductResourceCreator();
 
             return $productResourceCreatorPlugin->createProductResourceCreator();
+        };
+
+        $container[self::PLUGIN_PRODUCT_SET_RESOURCE_CREATOR] = function () {
+            $productResourceCreatorPlugin = new ProductSetResourceCreatorPlugin();
+
+            return $productResourceCreatorPlugin->createProductSetResourceCreator();
         };
 
         return $container;

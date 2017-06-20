@@ -24,6 +24,7 @@ class CollectorFactory extends AbstractFactory
             $this->createCategoryResourceCreator(),
             $this->createRedirectResourceCreator(),
             $this->createPageResourceCreator(),
+            $this->createProductSetResourceCreator(),
         ];
     }
 
@@ -91,6 +92,14 @@ class CollectorFactory extends AbstractFactory
     protected function createPageResourceCreator()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_RESOURCE_CREATOR);
+    }
+
+    /**
+     * @return \Pyz\Yves\ProductSet\ResourceCreator\ProductSetResourceCreator
+     */
+    protected function createProductSetResourceCreator()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_SET_RESOURCE_CREATOR);
     }
 
 }
