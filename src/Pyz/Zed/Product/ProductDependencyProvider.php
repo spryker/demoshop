@@ -13,6 +13,8 @@ use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractR
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
+use Spryker\Zed\Product\Communication\Plugin\ProductSuperAttributeMetadataSaverPlugin;
+use Spryker\Zed\Product\Communication\Plugin\Sales\ProductSuperAttributeMetadataHydratorPlugin;
 use Spryker\Zed\Product\ProductDependencyProvider as SprykerProductDependencyProvider;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterUpdatePlugin;
@@ -163,6 +165,30 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new PriceProductConcreteAfterUpdatePlugin(),
             new ProductSearchProductConcreteAfterUpdatePlugin(),
             new ProductBundleProductConcreteAfterUpdatePlugin(),
+        ];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Product\Dependency\Plugin\ProductMetadataSaverInterface[]
+     */
+    protected function getMetadataSaverPlugins(Container $container)
+    {
+        return [
+            new ProductSuperAttributeMetadataSaverPlugin(),
+        ];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return
+     */
+    protected function getMetadataHydratorPlugins(Container $container)
+    {
+        return [
+            new ProductSuperAttributeMetadataHydratorPlugin(),
         ];
     }
 
