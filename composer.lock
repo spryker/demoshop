@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
+    "content-hash": "2aba920fae50dd0000f258d34808d681",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-1198",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e273e93a077ab745c0790828c432dc94bf433e9c"
+                "reference": "5a869b20ff126acf9c9e6683bf3d302b4253047f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1561,6 +1561,7 @@
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
+                "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
@@ -1624,20 +1625,13 @@
                 "spryker/product-cart-connector": "*",
                 "spryker/product-category": "*",
                 "spryker/product-discount-connector": "*",
-                "spryker/product-group": "*",
-                "spryker/product-group-collector": "*",
                 "spryker/product-image": "*",
-                "spryker/product-label": "*",
-                "spryker/product-label-collector": "*",
-                "spryker/product-label-gui": "*",
+                "spryker/product-image-cart-connector": "*",
                 "spryker/product-management": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
                 "spryker/product-search": "*",
-                "spryker/product-set": "*",
-                "spryker/product-set-collector": "*",
-                "spryker/product-set-gui": "*",
                 "spryker/propel": "*",
                 "spryker/propel-orm": "*",
                 "spryker/queue": "*",
@@ -1697,7 +1691,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-19 07:48:49"
+            "time": "2017-06-19 14:20:45"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6408,7 +6402,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-02 10:23:39"
+            "time": "2017-06-02T10:23:39+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6455,7 +6449,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-05-19 15:56:04"
+            "time": "2017-05-19T15:56:04+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
