@@ -36,6 +36,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 GROUP_CONCAT(DISTINCT spy_product_abstract.is_featured)         AS is_featured,
                 MIN(spy_product_image_set.id_product_image_set)                 AS id_image_set,
                 GROUP_CONCAT(spy_product.is_active)                             AS product_status_aggregation,
+                GROUP_CONCAT(spy_product_search.is_searchable)                  AS product_searchable_status_aggregation,
                 spy_touch.id_touch                                              AS %s,
                 spy_touch.item_id                                               AS %s,
                 spy_touch_search.id_touch_search                                AS %s

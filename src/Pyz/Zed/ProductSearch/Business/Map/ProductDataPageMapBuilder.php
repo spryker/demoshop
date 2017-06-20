@@ -93,12 +93,17 @@ class ProductDataPageMapBuilder
      */
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
     {
+        $isActive = $this->isProductAbstractActive(
+            $productData['product_status_aggregation'],
+            $productData['product_searchable_status_aggregation']
+        );
+
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
             ->setIsFeatured($productData['is_featured'] == 'true')
-            ->setIsActive($this->isProductAbstractActive($productData['product_status_aggregation']));
+            ->setIsActive($isActive);
 
         $attributes = $this->getProductAttributes($productData);
         $price = $this->getPriceBySku($productData['abstract_sku']);
@@ -140,19 +145,27 @@ class ProductDataPageMapBuilder
 
     /**
      * @param string $productStatusAggregation
+     * @param string $productSearchableStatusAggregation
      *
      * @return bool
      */
-    protected function isProductAbstractActive($productStatusAggregation)
+    protected function isProductAbstractActive($productStatusAggregation, $productSearchableStatusAggregation)
     {
         $statusList = explode(',', $productStatusAggregation);
-
         foreach ($statusList as $flag) {
-            if (trim($flag) === 'true') {
-                return true;
+            if (trim($flag) === 'false') {
+                return false;
             }
         }
-        return false;
+
+        $statusList = explode(',', $productSearchableStatusAggregation);
+        foreach ($statusList as $flag) {
+            if (trim($flag) === 'true') {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
