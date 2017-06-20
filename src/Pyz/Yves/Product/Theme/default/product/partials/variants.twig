@@ -1,49 +1,11 @@
 {% if product.superAttributes|length > 0 %}
     <p>
-    <form method="GET">
+    <form method="GET" data-component="product-variants">
         <h5>{{ 'product.variants' | trans }}</h5>
         {% for attributeName,attributes in product.superAttributes %}
-            <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}: </strong>
-
-                {% if product.selectedAttributes[attributeName] is defined and product.selectedAttributes[attributeName] %}
-                    {{ product.selectedAttributes[attributeName] }}
-
-                    {% set attributesAfterReset = {} %}
-                    {% for selectedKey, selectedValue in product.selectedAttributes %}
-                        {% if selectedKey != attributeName and selectedValue %}
-                            {% set attributesAfterReset = attributesAfterReset|merge({ (selectedKey) : (selectedValue)})  %}
-                        {% endif %}
-                    {% endfor %}
-
-                    {% set attributesAfterReset = {"attribute" : attributesAfterReset} %}
-                    <a href="?{{ attributesAfterReset | url_encode  }}">
-                        {{ 'reset' | trans }}
-                    </a>
-
-                    <input name="attribute[{{ attributeName }}]" value="{{ product.selectedAttributes[attributeName] }}" type="hidden" />
-                {% else %}
-
-                    {% if attributeName in product.availableAttributes|keys %}
-                        {% set attributes = product.availableAttributes[attributeName] %}
-                    {% endif %}
-
-                    {% if product.availableAttributes[attributeName] is not defined and product.selectedAttributes|length > 0 %}
-                        {{ 'product.attribute.not_available' | trans }}
-                    {% else %}
-                        <select name="attribute[{{ attributeName }}]" onchange="this.form.submit()">
-                            <option value="0">{{ 'product.attribute._none' | trans | trans }}</option>
-
-                            {% for attribute in attributes %}
-                                <option value="{{ attribute }}">
-                                    {{ attribute }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    {% endif %}
-
-                {% endif %}
-
-            </label>
+            {% include '@Product/product/partials/variant.twig' with {
+                attributeFieldName: 'attribute[' ~ attributeName ~ ']'
+            } %}
         {% endfor %}
     </form>
     </p>

@@ -13,7 +13,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use PHPUnit_Framework_TestCase;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
-use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
@@ -34,22 +33,9 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
     /**
      * @return void
      */
-    public function testExecuteShouldTriggerQuoteRecalculation()
-    {
-        $calculationClientMock = $this->createCalculationClientMock();
-        $calculationClientMock->expects($this->once())->method('recalculate')->willReturnArgument(0);
-
-        $summaryStep = $this->createSummaryStep($calculationClientMock);
-        $summaryStep->execute($this->createRequest(), new QuoteTransfer());
-    }
-
-    /**
-     * @return void
-     */
     public function testPostConditionShouldReturnWhenQuoteReadyForSummaryDisplay()
     {
-        $calculationClientMock = $this->createCalculationClientMock();
-        $summaryStep = $this->createSummaryStep($calculationClientMock);
+        $summaryStep = $this->createSummaryStep();
 
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setBillingAddress(new AddressTransfer());
@@ -68,24 +54,20 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
      */
     public function testRequireInputShouldBeTrue()
     {
-        $calculationClientMock = $this->createCalculationClientMock();
-        $summaryStep = $this->createSummaryStep($calculationClientMock);
+        $summaryStep = $this->createSummaryStep();
 
         $this->assertTrue($summaryStep->requireInput(new QuoteTransfer()));
     }
 
     /**
-     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClientMock
-     *
      * @return \Pyz\Yves\Checkout\Process\Steps\SummaryStep
      */
-    protected function createSummaryStep(CalculationClientInterface $calculationClientMock)
+    protected function createSummaryStep()
     {
         $productBundleGroupeMock = $this->createProductBundleGrouperMock();
         $cartClientMock = $this->createCartClientMock();
 
         return new SummaryStep(
-            $calculationClientMock,
             $productBundleGroupeMock,
             $cartClientMock,
             'shipment',
@@ -115,14 +97,6 @@ class SummaryStepTest extends PHPUnit_Framework_TestCase
     protected function createRequest()
     {
         return Request::createFromGlobals();
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
-     */
-    protected function createCalculationClientMock()
-    {
-        return $this->getMockBuilder(CalculationClientInterface::class)->getMock();
     }
 
     /**

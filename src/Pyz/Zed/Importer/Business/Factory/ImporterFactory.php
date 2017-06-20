@@ -24,11 +24,13 @@ use Pyz\Zed\Importer\Business\Importer\Product\ProductPriceImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductStockImporter;
 use Pyz\Zed\Importer\Business\Importer\Product\ProductTaxImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductGroup\ProductGroupImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductLabel\ProductLabelImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductManagement\ProductManagementAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductOption\ProductOptionImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductRelation\ProductRelationImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeImporter;
 use Pyz\Zed\Importer\Business\Importer\ProductSearch\ProductSearchAttributeMapImporter;
+use Pyz\Zed\Importer\Business\Importer\ProductSet\ProductSetImporter;
 use Pyz\Zed\Importer\Business\Importer\Shipment\ShipmentImporter;
 use Pyz\Zed\Importer\Business\Importer\Tax\TaxImporter;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
@@ -338,6 +340,17 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ProductSet\ProductSetImporter
+     */
+    public function createProductSetImporter()
+    {
+        return new ProductSetImporter(
+            $this->getLocaleFacade(),
+            $this->getProductSetFacade()
+        );
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Importer\ProductRelation\ProductRelationImporter
      */
     public function createProductRelationImporter()
@@ -375,6 +388,18 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $navigationImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface
+     */
+    public function createProductLabelImporter()
+    {
+        return new ProductLabelImporter(
+            $this->getLocaleFacade(),
+            $this->getProductLabelFacade(),
+            $this->getProductFacade()
+        );
     }
 
     /**

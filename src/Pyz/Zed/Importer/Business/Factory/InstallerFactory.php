@@ -23,17 +23,22 @@ use Pyz\Zed\Importer\Business\Installer\Product\ProductConcreteInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductPriceInstaller;
 use Pyz\Zed\Importer\Business\Installer\Product\ProductStockInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductGroup\ProductGroupInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductLabel\ProductLabelInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductManagement\ProductManagementAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductOption\ProductOptionInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductRelation\ProductRelationInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeInstaller;
 use Pyz\Zed\Importer\Business\Installer\ProductSearch\ProductSearchAttributeMapInstaller;
+use Pyz\Zed\Importer\Business\Installer\ProductSet\ProductSetInstaller;
 use Pyz\Zed\Importer\Business\Installer\Shipment\ShipmentInstaller;
 use Pyz\Zed\Importer\Business\Installer\Tax\TaxInstaller;
 use Pyz\Zed\Importer\ImporterConfig;
 use Pyz\Zed\Importer\ImporterDependencyProvider;
 
 /**
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
+ *
  * @method \Pyz\Zed\Importer\ImporterConfig getConfig()
  */
 class InstallerFactory extends AbstractFactory
@@ -264,12 +269,34 @@ class InstallerFactory extends AbstractFactory
     }
 
     /**
+     * @return \Pyz\Zed\Importer\Business\Installer\ProductSet\ProductSetInstaller
+     */
+    public function createProductSetInstaller()
+    {
+        return new ProductSetInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterProductSetCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+    }
+
+    /**
      * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
      */
     public function getImporterProductGroupCollection()
     {
         return [
             ImporterConfig::RESOURCE_PRODUCT_GROUPS => $this->createImporterFactory()->createProductGroupImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface[]
+     */
+    public function getImporterProductSetCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_SETS => $this->createImporterFactory()->createProductSetImporter(),
         ];
     }
 
@@ -371,6 +398,18 @@ class InstallerFactory extends AbstractFactory
         );
 
         return $navigationNodeInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\InstallerInterface
+     */
+    public function createProductLabelInstaller()
+    {
+        return new ProductLabelInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterProductLabelCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
     }
 
     /**
@@ -562,6 +601,16 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_NAVIGATION_NODE => $this->createImporterFactory()->createNavigationNodeImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    protected function getImporterProductLabelCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_PRODUCT_LABELS => $this->createImporterFactory()->createProductLabelImporter(),
         ];
     }
 

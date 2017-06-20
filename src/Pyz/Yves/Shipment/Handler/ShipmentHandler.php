@@ -10,6 +10,7 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Spryker\Client\Shipment\ShipmentClientInterface;
+use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -42,7 +43,7 @@ class ShipmentHandler
         $shipmentMethodTransfer = $this->getShipmentMethodById($quoteTransfer);
         $shipmentTransfer->setMethod($shipmentMethodTransfer);
 
-        $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($shipmentMethodTransfer);
+        $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($shipmentMethodTransfer, $quoteTransfer->getPriceMode());
         $this->replaceShipmentExpenseInQuote($quoteTransfer, $shipmentExpenseTransfer);
 
         return $quoteTransfer;
@@ -79,18 +80,38 @@ class ShipmentHandler
 
     /**
      * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
+     * @param string $priceMode
      *
      * @return \Generated\Shared\Transfer\ExpenseTransfer
      */
-    protected function createShippingExpenseTransfer(ShipmentMethodTransfer $shipmentMethodTransfer)
+    protected function createShippingExpenseTransfer(ShipmentMethodTransfer $shipmentMethodTransfer, $priceMode)
     {
         $shipmentExpenseTransfer = $this->createExpenseTransfer();
         $shipmentExpenseTransfer->fromArray($shipmentMethodTransfer->toArray(), true);
         $shipmentExpenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
-        $shipmentExpenseTransfer->setUnitGrossPrice($shipmentMethodTransfer->getDefaultPrice());
+        $this->setPrice($shipmentExpenseTransfer, $shipmentMethodTransfer->getDefaultPrice(), $priceMode);
         $shipmentExpenseTransfer->setQuantity(1);
 
         return $shipmentExpenseTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ExpenseTransfer $shipmentExpenseTransfer
+     * @param int $price
+     * @param string $priceMode
+     *
+     * @return void
+     */
+    protected function setPrice(ExpenseTransfer $shipmentExpenseTransfer, $price, $priceMode)
+    {
+        if ($priceMode === PriceMode::PRICE_MODE_NET) {
+            $shipmentExpenseTransfer->setUnitGrossPrice(0);
+            $shipmentExpenseTransfer->setUnitNetPrice($price);
+            return;
+        }
+
+        $shipmentExpenseTransfer->setUnitNetPrice(0);
+        $shipmentExpenseTransfer->setUnitGrossPrice($price);
     }
 
     /**

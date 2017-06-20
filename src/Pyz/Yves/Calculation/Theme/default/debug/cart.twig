@@ -1,0 +1,184 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block content %}
+
+<style>
+    th {
+        cursor: help;
+    }
+</style>
+
+<div class="row">
+
+    <div class="small-12 columns">
+     <h3>Calculated values from current cart QuoteTransfer</h3>
+    </div>
+
+    <div class="small-12 columns">
+      <strong>{{ quote.priceMode }}</strong>
+    </div>
+
+    <hr />
+
+    <div class="small-12 columns">
+        <strong>Items + product options</strong>
+    </div>
+
+    <div style="font-size:11px;" class="small-12 columns">
+      *Mouse over table header to get detailed description on how value is calculated.
+    </div>
+
+    <div class="small-12 columns">
+
+    <table style="width: 100%; font-size:10px;" class="hover">
+        <tr>
+            <th>sku</th>
+            <th title="Amount of items in cart">quantity</th>
+            <th title="Single item price, generic price value, if net tax mode net price, if gross tax mode gross price">unit price</th>
+            <th title="Sum of items (unitPrice * quantity) price , generic price value, if net tax mode net price, if gross tax mode gross price">sum price</th>
+            <th title="Single item net price, may be empty if shop is in gross tax mode">unit net price</th>
+            <th title="Sum of items (unitNetPrice * quantity) price, may be empty if shop is in gross tax mode">sum net price</th>
+            <th title="Single item gross price, may be empty if shop is in net mode">unit gross price</th>
+            <th title="Sum of items (unitGrossPrice * quantity), may be empty if shop is in net mode">sum gross price</th>
+            <th title="Sum of item product options (ProductOptions[].sumPrice * ProductOption[].quantity)">sum product option aggregation</th>
+            <th>sum expense price aggregation</th>
+            <th title="Item total amount before discounts with additions (item.sumPrice + item.productOptions[].sumPrice)">sum subtotal aggregation</th>
+            <th title="Sum of item discount, without additions (item.calculatedDiscounts[].sumGrossAmount)">sum discount amount aggregation</th>
+            <th title="Sum of all discounts (item.calculatedDiscounts[].sumGrossAmount + (item.productOptions[].calculatedDiscounts[].sumGrossAmount)) ">sum discount amount full aggregation</th>
+            <th title="Item tax rate (item.taxRate)">tax rate</th>
+            <th title="Calculated sum of item taxAmount (item.taxAmount) after discounts">sum tax amount</th>
+            <th title="Item total tax amount with additions after discounts (item.taxAmount + item.productOptions[].taxAmount)">tax amount full aggregation</th>
+
+            <th title="Average tax rate for item including additions, this is used when recalculating tax amount after cancellation. ((unitPriceAggregation/unitPriceToPayAggregationNetPrice - 1) * 100)">tax rate average aggregation</th>
+            <th title="Final price customer have to pay for given item, after discounts">sum price to pay aggregation</th>
+            <th title="Total canceled amount for given item, this is used when order is placed and refund requested.">canceled amount</th>
+            <th title="The amount is still refundable for given item single unit">unit refundable amount</th>
+        </tr>
+    {% for item in quote.items %}
+        <tr>
+            <td><strong>{{ item.sku }}</strong></td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.unitPrice | default(0) | money }} </td>
+            <td>{{ item.sumPrice | default(0) | money  }} </td>
+            <td>{{ item.unitNetPrice | default(0) | money }} </td>
+            <td>{{ item.sumNetPrice | default(0) | money  }} </td>
+            <td>{{ item.unitGrossPrice | default(0) | money  }} </td>
+            <td>{{ item.sumGrossPrice | default(0) | money  }} </td>
+            <td>{{ item.sumProductOptionPriceAggregation | default(0) | money  }} </td>
+            <td>{{ item.sumExpensePriceAggregation | default(0) | money  }} </td>
+            <td>{{ item.sumSubtotalAggregation | default(0) | money   }} </td>
+            <td>{{ item.sumDiscountAmountAggregation | default(0) | money  }} </td>
+            <td>{{ item.sumDiscountAmountFullAggregation | default(0) | money   }} </td>
+            <td>{{ item.taxRate | default(0) }}% </td>
+            <td>{{ item.sumTaxAmount  | default(0) | money }} </td>
+            <td>{{ item.sumTaxAmountFullAggregation | default(0) | money   }} </td>
+            <td>{{ item.taxRateAverageAggregation | default(0)   }}% </td>
+            <td>{{ item.sumPriceToPayAggregation | default(0) | money  }} </td>
+            <td>{{ item.canceledAmount | default(0) | money }} </td>
+            <td>{{ item.refundableAmount | default(0) | money }} </td>
+        </tr>
+        {% for option in item.productOptions %}
+            <tr>
+                <td>+{{ option.sku }}</td>
+                <td>{{ option.quantity }}</td>
+                <td>{{ option.unitPrice | default(0) | money }} </td>
+                <td>{{ option.sumPrice | default(0) | money  }} </td>
+                <td>{{ option.unitNetPrice | default(0) | money }} </td>
+                <td>{{ option.sumNetPrice | default(0) | money  }} </td>
+                <td>{{ option.unitGrossPrice | default(0) | money  }} </td>
+                <td>{{ option.sumGrossPrice | default(0) | money  }} </td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>{{ option.sumDiscountAmountAggregation | default(0) | money  }}</td>
+                <td>-</td>
+                <td>{{ option.taxRate | default(0) }}% </td>
+                <td>{{ option.sumTaxAmount  | default(0) | money }} </td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+    </table>
+    </div>
+
+
+
+    <div class="small-12 columns">
+
+        <h6>Expenses</h6>
+
+        <table style=" font-size:10px;" class="hover">
+            <tr>
+                <th>name</th>
+                <th title="Single expense price, generic price value, if net tax mode net price, if gross tax mode gross price">unit price</th>
+                <th title="Sum of expense (unitPrice * quantity) price , generic price value, if net tax mode net price, if gross tax mode gross price">sum price</th>
+                <th title="Single expense net price, may be empty if shop is in gross tax mode">unit net price</th>
+                <th title="Sum of expense (unitNetPrice * quantity) price, may be empty if shop is in gross tax mode">sum net price</th>
+                <th title="Single expense gross price, may be empty if shop is in net mode">unit gross price</th>
+                <th title="Sum of expense (unitGrossPrice * quantity), may be empty if shop is in net mode">sum gross price</th>
+                <th title="Expense total discount amount">sum discount amount aggregation</th>
+                <th title="Tax rate assigned to expense">tax rate</th>
+                <th title="Expense tax amount after discounts">sum tax amount</th>
+                <th title="Total price to pay customer have to pay, after discounts">sum price to pay aggregation</th>
+                <th title="Total canceled amount for given item, this is used when order is placed and refund requested.">canceled amount</th>
+                <th title="The amount is still refundable for given item single unit">unit refundable amount</th>
+
+            {% for expense in quote.expenses %}
+                <tr>
+                    <td>{{ expense.name }}</td>
+                    <td>{{ expense.unitPrice | default(0) | money }} </td>
+                    <td>{{ expense.sumPrice | default(0) | money  }} </td>
+                    <td>{{ expense.unitNetPrice | default(0) | money }} </td>
+                    <td>{{ expense.sumNetPrice | default(0) | money  }} </td>
+                    <td>{{ expense.unitGrossPrice | default(0) | money  }} </td>
+                    <td>{{ expense.sumGrossPrice | default(0) | money  }} </td>
+                    <td>{{ expense.dumDiscountAmountAggregation | default(0) | money  }} </td>
+                    <td>{{ expense.taxRate | default(0) }}% </td>
+                    <td>{{ expense.sumTaxAmount  | default(0) | money }} </td>
+                    <td>{{ expense.dumPriceToPayAggregation | default(0) | money  }} </td>
+                    <td>{{ expense.canceledAmount | default(0) | money }} </td>
+                    <td>{{ expense.refundableAmount | default(0) | money }} </td>
+            {% endfor %}
+        </table>
+    </div>
+
+    <hr />
+    <hr />
+
+    <div class="small-12 columns">
+
+        <table style="width: 30%; font-size:10px;" class="float-right" class="hover">
+            <tr>
+                <td>Subtotal:</td>
+                <td>{{ quote.totals.subtotal | default(0) | money }}</td>
+            </tr>
+            <tr>
+                <td>Order expense total:</td>
+                <td>{{ quote.totals.expenseTotal | default(0) | money }}</td>
+            </tr>
+            <tr>
+                <td>Discount total:</td>
+                <td>{{ quote.totals.discountTotal | default(0) | money }}</td>
+            </tr>
+            <tr>
+                <td>Refundable total:</td>
+                <td>{{ quote.totals.refundTotal | default(0) | money }}</td>
+            </tr>
+            <tr>
+                <td>Grand total:</td>
+                <td>{{ quote.totals.grandTotal | default(0) | money }}</td>
+            </tr>
+            <tr>
+                <td>Tax total:</td>
+                <td>{{ quote.totals.taxTotal.amount | default(0) | money }}</td>
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+{% endblock %}

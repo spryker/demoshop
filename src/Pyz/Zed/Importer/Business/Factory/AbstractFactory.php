@@ -200,4 +200,20 @@ abstract class AbstractFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_GROUP);
     }
 
+    /**
+     * @return \Spryker\Zed\ProductLabel\Business\ProductLabelFacadeInterface
+     */
+    protected function getProductLabelFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_LABEL);
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductSet\Business\ProductSetFacadeInterface
+     */
+    protected function getProductSetFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_SET);
+    }
+
 }

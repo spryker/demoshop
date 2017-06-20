@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9638a0410bc977ad197ec53e1e63170",
+    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-1378-attributes-translation-performance",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0ca703622e6623932ed314a9189c80ffb9e855da"
+                "reference": "e273e93a077ab745c0790828c432dc94bf433e9c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1620,17 +1620,24 @@
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
                 "spryker/product": "*",
-                "spryker/product-attribute-gui": "*",
                 "spryker/product-bundle": "*",
                 "spryker/product-cart-connector": "*",
                 "spryker/product-category": "*",
                 "spryker/product-discount-connector": "*",
+                "spryker/product-group": "*",
+                "spryker/product-group-collector": "*",
                 "spryker/product-image": "*",
+                "spryker/product-label": "*",
+                "spryker/product-label-collector": "*",
+                "spryker/product-label-gui": "*",
                 "spryker/product-management": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
                 "spryker/product-search": "*",
+                "spryker/product-set": "*",
+                "spryker/product-set-collector": "*",
+                "spryker/product-set-gui": "*",
                 "spryker/propel": "*",
                 "spryker/propel-orm": "*",
                 "spryker/queue": "*",
@@ -1690,7 +1697,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-19 09:49:30"
+            "time": "2017-06-19 07:48:49"
         },
         {
             "name": "swiftmailer/swiftmailer",
