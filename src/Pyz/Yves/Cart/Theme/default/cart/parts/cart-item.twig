@@ -1,14 +1,12 @@
 <div class="callout cart-item">
     <div class="row">
         {# Product Image #}
-        {% set imageSet = cartItem.imageSets | first %}
-        {% if imageSet is not empty %}
-            {% set productImage = imageSet.productImages | first %}
-            {% if productImage is not empty %}
-                <div class="shrink columns">
-                    <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}"/>
-                </div>
-            {% endif %}
+
+        {% set productImage = cartItem.images | first %}
+        {% if productImage is not empty %}
+            <div class="shrink columns">
+                <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}"/>
+            </div>
         {% endif %}
 
         <div class="small-8 large-expand columns">
