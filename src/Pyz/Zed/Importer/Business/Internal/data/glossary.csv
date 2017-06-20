@@ -947,7 +947,9 @@ dummyPaymentInvoice.invoice,Pay with invoice:,en_US
 dummyPaymentInvoice.invoice,Auf Rechnung bezahlen:,de_DE
 dummyPaymentInvoice.date_of_birth,Date of Birth,en_US
 dummyPaymentInvoice.date_of_birth,Geburtsdatum,de_DE
+cart.item.item_price,"Item price",en_US
+cart.item.item_price,"Stückpreis",de_DE
 cart.item.item_total,"Item total",en_US
-cart.item.item_total,"Item total",de_DE
+cart.item.item_total,"Artikel Gesamt",de_DE
 cart.shipping,"Shipping",en_US
 cart.shipping,"Versand",de_DE
