@@ -9,7 +9,7 @@ namespace Pyz\Yves\Cart\Handler;
 
 use ArrayObject;
 use Generated\Shared\Transfer\StorageProductTransfer;
-use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
+use Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Product\ProductClientInterface;
 use Spryker\Shared\CartVariant\CartVariantConstants;
@@ -42,14 +42,14 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
      * @param \Pyz\Yves\Cart\Handler\CartOperationInterface $cartOperationHandler
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
-     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $productMapper
+     * @param \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface $productMapper
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
         CartOperationInterface $cartOperationHandler,
         CartClientInterface $cartClient,
         ProductClientInterface $productClient,
-        StorageProductMapperInterface $productMapper,
+        StorageProductMapperPluginInterface $productMapper,
         FlashMessengerInterface $flashMessenger
     ) {
 

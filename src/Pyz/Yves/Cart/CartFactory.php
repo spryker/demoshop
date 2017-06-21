@@ -14,7 +14,6 @@ use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Pyz\Yves\Cart\Plugin\Provider\AttributeVariantsProvider;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
-use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
@@ -76,7 +75,7 @@ class CartFactory extends AbstractFactory
             $this->createCartOperationHandler(),
             $this->getCartClient(),
             $this->getProductClient(),
-            $this->createStorageProductMapper(),
+            $this->getStorageProductMapperPlugin(),
             $this->getFlashMessenger()
         );
     }
@@ -155,11 +154,11 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Product\Mapper\StorageProductMapper
+     * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
-    protected function createStorageProductMapper()
+    protected function getStorageProductMapperPlugin()
     {
-        return new StorageProductMapper($this->createAttributeVariantMapper());
+        return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_STORAGE_PRODUCT_MAPPER);
     }
 
     /**

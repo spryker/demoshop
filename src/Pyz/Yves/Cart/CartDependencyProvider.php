@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Checkout\Plugin\CheckoutBreadcrumbPlugin;
+use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPlugin;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
@@ -22,6 +23,7 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_CHECKOUT_BREADCRUMB = 'PLUGIN_CHECKOUT_BREADCRUMB';
     const PLUGIN_CART_VARIANT = 'PLUGIN_CART_VARIANT';
     const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+    const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -77,6 +79,10 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::PLUGIN_CHECKOUT_BREADCRUMB] = function () {
             return new CheckoutBreadcrumbPlugin();
+        };
+
+        $container[self::PLUGIN_STORAGE_PRODUCT_MAPPER] = function () {
+            return new StorageProductMapperPlugin();
         };
 
         return $container;
