@@ -17,6 +17,8 @@ use Twig_SimpleFunction;
 class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
 {
 
+    const OPTION_NAME = 'name';
+
     /**
      * @var string
      */
@@ -46,40 +48,83 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
     /**
      * @param \Twig_Environment $twig
      * @param array $context
-     * @param string $blockName
-     * @param array $blockRelations
+     * @param array $blockOptions
      *
      * @return string
      */
-    public function renderCmsBlock(Twig_Environment $twig, array $context, $blockName, array $blockRelations = [])
+    public function renderCmsBlock(Twig_Environment $twig, array $context, array $blockOptions = [])
     {
-        $cmsBlockTransfer = $this->createBlockTransfer($blockName);
-        $cmsBlockData = $this->getClient()->findBlockByName($cmsBlockTransfer, $this->localeName);
+        $blocks = $this->getBlockDataByOptions($blockOptions);
+        $rendered = '';
 
-        $isActive = $this->validateBlock($cmsBlockData);
-        $isActive &= $this->validateDates($cmsBlockData);
-        $isActive &= $this->validateAdditionLimits($cmsBlockData, $blockRelations);
+        foreach ($blocks as $blockData) {
+            $isActive = $this->validateBlock($blockData);
+            $isActive &= $this->validateDates($blockData);
 
-        if ($isActive) {
-            return $twig->render($cmsBlockData['template'], [
-                'placeholders' => $cmsBlockData['placeholders'],
-            ]);
+            if ($isActive) {
+                $rendered .= $twig->render($blockData['template'], [
+                    'placeholders' => $blockData['placeholders'],
+                ]);
+            }
         }
 
-        return '';
+        return $rendered;
     }
 
     /**
-     * @param string $blockName
+     * @param array $blockOptions
      *
+     * @return array
+     */
+    protected function getBlockDataByOptions(array &$blockOptions)
+    {
+        $blockNameKey = $this->extractBlockNameKey($blockOptions);
+        $availableBlockNames = $this->getClient()->findBlockNamesByOptions($blockOptions, $this->localeName);
+        $availableBlockNames = $this->filterAvailableBlockNames($blockNameKey, $availableBlockNames);
+
+        return $this->getClient()->findBlocksByNames($availableBlockNames, $this->localeName);
+    }
+
+    /**
+     * @param $blockNameKey
+     * @param array $availableBlockNames
+     *
+     * @return array
+     */
+    protected function filterAvailableBlockNames($blockNameKey, array $availableBlockNames)
+    {
+        if ($blockNameKey) {
+            if (!$availableBlockNames || in_array($blockNameKey, $availableBlockNames)) {
+                $availableBlockNames = [$blockNameKey];
+            } else {
+                $availableBlockNames = [];
+            }
+        }
+
+        return $availableBlockNames;
+    }
+
+    /**
      * @return \Generated\Shared\Transfer\CmsBlockTransfer
      */
-    protected function createBlockTransfer($blockName)
+    protected function createBlockTransfer()
     {
         $cmsBlockTransfer = new CmsBlockTransfer();
-        $cmsBlockTransfer->setName($blockName);
 
         return $cmsBlockTransfer;
+    }
+
+    /**
+     * @param array $blockOptions
+     *
+     * @return string
+     */
+    protected function extractBlockNameKey(array &$blockOptions)
+    {
+        $blockName = isset($blockOptions[static::OPTION_NAME]) ? $blockOptions[static::OPTION_NAME] : null;
+        unset($blockOptions[static::OPTION_NAME]);
+
+        return $this->getClient()->generateBlockNameKey($blockName, $this->localeName);
     }
 
     /**
@@ -110,27 +155,6 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
         }
 
         return true;
-    }
-
-    /**
-     * @param array $cmsBlockData
-     * @param array $blockRelations
-     *
-     * @return bool
-     */
-    protected function validateAdditionLimits(array $cmsBlockData, array $blockRelations)
-    {
-        foreach ($blockRelations as $relationKey => $relationValue) {
-            if (!isset($cmsBlockData[$relationKey])) {
-                return true;
-            }
-
-            if (is_array($cmsBlockData[$relationKey]) && in_array($relationValue, $cmsBlockData[$relationKey])) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
 }
