@@ -15,6 +15,7 @@ use Spryker\Zed\Product\Communication\Plugin\Sales\ItemMetadataHydratorPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleIdHydratorPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderHydratePlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionOrderHydratePlugin;
+use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionSortHydratePlugin;
 use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentOrderHydratePlugin;
 
@@ -29,6 +30,7 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
         return [
             new ProductOptionOrderHydratePlugin(),
             new DiscountOrderHydratePlugin(),
+            new ProductOptionSortHydratePlugin(),
             new ProductBundleOrderHydratePlugin(),
             new ShipmentOrderHydratePlugin(),
             new PaymentOrderHydratePlugin(),
