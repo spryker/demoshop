@@ -1539,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5a869b20ff126acf9c9e6683bf3d302b4253047f"
+                "reference": "158bf4a8baa2651e9f72773be547a691242a83de"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1625,13 +1625,21 @@
                 "spryker/product-cart-connector": "*",
                 "spryker/product-category": "*",
                 "spryker/product-discount-connector": "*",
+                "spryker/product-group": "*",
+                "spryker/product-group-collector": "*",
                 "spryker/product-image": "*",
                 "spryker/product-image-cart-connector": "*",
+                "spryker/product-label": "*",
+                "spryker/product-label-collector": "*",
+                "spryker/product-label-gui": "*",
                 "spryker/product-management": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
                 "spryker/product-search": "*",
+                "spryker/product-set": "*",
+                "spryker/product-set-collector": "*",
+                "spryker/product-set-gui": "*",
                 "spryker/propel": "*",
                 "spryker/propel-orm": "*",
                 "spryker/queue": "*",
@@ -1691,7 +1699,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-19 14:20:45"
+            "time": "2017-06-20 15:03:53"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6402,7 +6410,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-02T10:23:39+00:00"
+            "time": "2017-06-02 10:23:39"
         },
         {
             "name": "spryker/code-sniffer",
