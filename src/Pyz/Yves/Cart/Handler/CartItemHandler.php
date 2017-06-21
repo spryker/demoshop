@@ -206,6 +206,8 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     }
 
     /**
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     *
      * @param array $itemAttributesBySku
      * @param string $sku
      * @param array $availableAttributes
