@@ -27,6 +27,8 @@ cart.discounts,Rabatte,de_DE
 cart.discounts,Discounts,en_US
 cart.item_quantity,Anzahl,de_DE
 cart.item_quantity,Quantity,en_US
+cart.item_attributes_needed, Please select other attributes,en_US
+cart.item_attributes_needed, Bitte wählen Sie mindestens ein anderes Attribut ,de_DE
 cart.voucher.redeem,"Code einlösen",de_DE
 cart.voucher.redeem,"Redeem code",en_US
 cart.price.subtotal,"Zwischensumme",de_DE

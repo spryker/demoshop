@@ -28,6 +28,7 @@ class CartController extends AbstractController
      */
     public function indexAction(array $selectedAttributes = null)
     {
+
         $quoteTransfer = $this->getClient()
             ->getQuote();
 
@@ -146,6 +147,7 @@ class CartController extends AbstractController
             return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
         }
 
+        $this->addInfoMessage('cart.item_attributes_needed');
         return $this->redirectResponseInternal(
             CartControllerProvider::ROUTE_CART,
             $this->getFactory()
