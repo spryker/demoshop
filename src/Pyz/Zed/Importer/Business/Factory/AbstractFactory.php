@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Importer\Business\Factory;
 
 use Pyz\Zed\Importer\ImporterDependencyProvider;
+use Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
@@ -198,6 +199,22 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     protected function getProductGroupFacade()
     {
         return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_GROUP);
+    }
+
+    /**
+     * @return CmsBlockFacadeInterface
+     */
+    protected function getCmsBlockFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_CMS_BLOCK);
+    }
+
+    /**
+     * @return \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface
+     */
+    protected function getCmsBlockQueryContainer()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_CMS_BLOCK);
     }
 
 }
