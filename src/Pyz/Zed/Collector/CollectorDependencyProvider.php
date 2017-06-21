@@ -26,12 +26,16 @@ use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\CmsBlock\CmsBlockConstants;
+use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConstants;
+use Spryker\Shared\CmsBlockProductConnector\CmsBlockProductConnectorConstants;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Shared\ProductGroup\ProductGroupConfig;
 use Spryker\Shared\ProductRelation\ProductRelationConstants;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
+use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CmsBlockCategoryConnectorCollectorPlugin;
 use Spryker\Zed\CmsBlockCollector\Communication\Plugin\CmsBlockCollectorStoragePlugin;
+use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductConnectorCollectorPlugin;
 use Spryker\Zed\CmsCollector\Communication\Plugin\CmsVersionPageCollectorSearchPlugin;
 use Spryker\Zed\CmsCollector\Communication\Plugin\CmsVersionPageCollectorStoragePlugin;
 use Spryker\Zed\Collector\CollectorDependencyProvider as SprykerCollectorDependencyProvider;
@@ -132,6 +136,8 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 TranslationManager::TOUCH_TRANSLATION => new TranslationCollectorStoragePlugin(),
                 CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorStoragePlugin(),
                 CmsBlockConstants::RESOURCE_TYPE_CMS_BLOCK => new CmsBlockCollectorStoragePlugin(),
+                CmsBlockCategoryConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR => new CmsBlockCategoryConnectorCollectorPlugin(),
+                CmsBlockProductConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_PRODUCT_CONNECTOR => new CmsBlockProductConnectorCollectorPlugin(),
                 UrlConfig::RESOURCE_TYPE_REDIRECT => new RedirectCollectorStoragePlugin(),
                 UrlConfig::RESOURCE_TYPE_URL => new UrlCollectorStoragePlugin(),
                 ProductSearchConfig::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
