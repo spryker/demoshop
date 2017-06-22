@@ -4,12 +4,12 @@
 
         {% set productImage = cartItem.images | first %}
         {% if productImage is not empty %}
-            <div class="shrink columns">
+            <div class="cart-item__image-container small-3 large-2 columns">
                 <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}"/>
             </div>
         {% endif %}
 
-        <div class="small-8 large-expand columns">
+        <div class="small-9 large-expand columns">
             <ul class="no-bullet">
                 {# General data #}
                 <li class="lead">{{ cartItem.name }}</li>

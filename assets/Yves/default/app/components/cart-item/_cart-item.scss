@@ -1,10 +1,13 @@
 .cart-item {
     padding-bottom: 0;
 
+    &__image-container {
+        padding: 0 0.5rem;
+        text-align: center;
+    }
+
     &__image {
-        max-width: 80px;
-        max-height: 80px;
-        margin: 0.5rem 0;
+
     }
 
     &__section:last-child {
@@ -31,3 +34,4 @@
         }
     }
 }
+
