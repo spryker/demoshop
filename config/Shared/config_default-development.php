@@ -27,7 +27,7 @@ use Spryker\Shared\ZedRequest\ZedRequestConstants;
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
 // ---------- General environment
-$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;

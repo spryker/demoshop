@@ -13,7 +13,6 @@ use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
-use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -25,7 +24,7 @@ use Spryker\Shared\ZedRequest\ZedRequestConstants;
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
 // ---------- General
-$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 
 // ---------- Yves host
 $config[ApplicationConstants::HOST_YVES] = 'www.de.spryker.test';
@@ -186,11 +185,3 @@ $config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
 $config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
 $config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
 $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
-
-// ---------- Ratepay
-$config[RatepayConstants::PROFILE_ID] = '';
-$config[RatepayConstants::SECURITY_CODE] = '';
-$config[RatepayConstants::SNIPPET_ID] = 'ratepay';
-$config[RatepayConstants::SHOP_ID] = '';
-$config[RatepayConstants::SYSTEM_ID] = 'Spryker ' . $config[ApplicationConstants::HOST_YVES];
-$config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_0';

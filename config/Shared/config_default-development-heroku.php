@@ -20,7 +20,7 @@ use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
 // ---------- General
-$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
+$config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = false;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = false;
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
