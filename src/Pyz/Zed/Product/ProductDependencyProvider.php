@@ -27,6 +27,7 @@ use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as I
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
+use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionGroupIdHydratorPlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteReadPlugin;
@@ -193,6 +194,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ProductSuperAttributeMetadataHydratorPlugin(),
             new ProductIdHydratorPlugin(),
             new ProductBundleIdHydratorPlugin(),
+            new ProductOptionGroupIdHydratorPlugin(),
         ];
     }
 
