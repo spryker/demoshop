@@ -28,7 +28,6 @@ class CartController extends AbstractController
      */
     public function indexAction(array $selectedAttributes = null)
     {
-
         $quoteTransfer = $this->getClient()
             ->getQuote();
 
