@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
 
 namespace Pyz\Yves\CmsBlock\Plugin;
 
-use Silex\Application;
+use DateTime;
 use Generated\Shared\Transfer\CmsBlockTransfer;
-use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
+use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Twig_Environment;
 use Twig_SimpleFunction;
@@ -86,7 +90,7 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
     }
 
     /**
-     * @param $blockNameKey
+     * @param string $blockNameKey
      * @param array $availableBlockNames
      *
      * @return array
@@ -145,9 +149,9 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
     protected function validateDates(array $cmsBlockData)
     {
         if (isset($cmsBlockData['valid_from']) && isset($cmsBlockData['valid_to'])) {
-            $dateToCompare = new \DateTime();
-            $validFrom = new \DateTime($cmsBlockData['valid_from']);
-            $validTo = new \DateTime($cmsBlockData['valid_to']);
+            $dateToCompare = new DateTime();
+            $validFrom = new DateTime($cmsBlockData['valid_from']);
+            $validTo = new DateTime($cmsBlockData['valid_to']);
 
             if ($dateToCompare < $validFrom || $dateToCompare > $validTo) {
                 return false;

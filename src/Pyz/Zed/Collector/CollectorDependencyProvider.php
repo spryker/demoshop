@@ -10,7 +10,6 @@ namespace Pyz\Zed\Collector;
 use Pyz\Zed\Category\Communication\Plugin\CategoryNodeDataPageMapPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\AttributeMapCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\AvailabilityCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\BlockCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorSearchPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\CategoryNodeCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\NavigationCollectorStoragePlugin;

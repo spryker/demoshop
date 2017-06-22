@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Importer\Business\Installer\Cms;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
-use Spryker\Service\UtilDataReader\Model\BatchIterator\XmlBatchIterator;
 
 class CmsBlockInstaller extends AbstractInstaller
 {

@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Importer\Business\Factory;
 
 use Pyz\Zed\Importer\ImporterDependencyProvider;
-use Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
@@ -202,7 +201,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return CmsBlockFacadeInterface
+     * @return \Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface
      */
     protected function getCmsBlockFacade()
     {

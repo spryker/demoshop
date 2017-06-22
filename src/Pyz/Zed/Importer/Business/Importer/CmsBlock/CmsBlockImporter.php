@@ -7,17 +7,11 @@
 
 namespace Pyz\Zed\Importer\Business\Importer\CmsBlock;
 
-
 use Generated\Shared\Transfer\CmsBlockGlossaryPlaceholderTransfer;
 use Generated\Shared\Transfer\CmsBlockGlossaryPlaceholderTranslationTransfer;
 use Generated\Shared\Transfer\CmsBlockGlossaryTransfer;
-use Generated\Shared\Transfer\CmsBlockTemplateTransfer;
 use Generated\Shared\Transfer\CmsBlockTransfer;
-use Generated\Shared\Transfer\LocaleTransfer;
-use Orm\Zed\Cms\Persistence\SpyCmsBlock;
 use Orm\Zed\Cms\Persistence\SpyCmsBlockQuery;
-use Orm\Zed\CmsBlock\Persistence\SpyCmsBlockTemplate;
-use Orm\Zed\CmsBlock\Persistence\SpyCmsBlockTemplateQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface;
 use Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface;
@@ -40,12 +34,12 @@ class CmsBlockImporter extends AbstractImporter
     const FIELD_PLACEHOLDER_DESCRIPTION_EN = 'placeholder.description.en_US';
 
     /**
-     * @var CmsBlockFacadeInterface
+     * @var \Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface
      */
     protected $cmsBlockFacade;
 
     /**
-     * @var CmsBlockQueryContainerInterface
+     * @var \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface
      */
     protected $cmsBlockQueryContainer;
 
@@ -54,7 +48,7 @@ class CmsBlockImporter extends AbstractImporter
      */
     protected $placeholdersToImport = [
         'title',
-        'description'
+        'description',
     ];
 
     /**
@@ -62,12 +56,12 @@ class CmsBlockImporter extends AbstractImporter
      */
     protected $placeholderLocalesToImport = [
         'de_DE' => null,
-        'en_US' => null
+        'en_US' => null,
     ];
 
     /**
-     * @param LocaleFacadeInterface $localeFacade
-     * @param CmsBlockFacadeInterface $cmsBlockFacade
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface $cmsBlockFacade
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
@@ -145,12 +139,12 @@ class CmsBlockImporter extends AbstractImporter
             $placeholder->setTemplateName($data[static::FIELD_TEMPLATE_NAME]);
             $placeholder->setPlaceholder($placeholderName);
 
-            /** @var LocaleTransfer $locale */
+            /** @var \Generated\Shared\Transfer\LocaleTransfer $locale */
             foreach ($this->placeholderLocalesToImport as $locale) {
                 $translation = new CmsBlockGlossaryPlaceholderTranslationTransfer();
                 $translation->setFkLocale($locale->getIdLocale());
                 $translation->setLocaleName($locale->getLocaleName());
-                $translation->setTranslation($data[static::FIELD_PREFIX_PLACEHOLDER . '.' .$placeholderName . '.' . $locale->getLocaleName()]);
+                $translation->setTranslation($data[static::FIELD_PREFIX_PLACEHOLDER . '.' . $placeholderName . '.' . $locale->getLocaleName()]);
                 $placeholder->addTranslation($translation);
             }
 
@@ -160,11 +154,10 @@ class CmsBlockImporter extends AbstractImporter
         $this->cmsBlockFacade->saveGlossary($glossary);
     }
 
-
     /**
      * @param array $data
      *
-     * @return CmsBlockTemplateTransfer
+     * @return \Generated\Shared\Transfer\CmsBlockTemplateTransfer
      */
     protected function createCmsBlockTemplate(array $data)
     {
@@ -176,4 +169,5 @@ class CmsBlockImporter extends AbstractImporter
 
         return $cmsBlockTemplateTransfer;
     }
+
 }
