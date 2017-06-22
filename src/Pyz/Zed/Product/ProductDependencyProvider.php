@@ -14,6 +14,7 @@ use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteA
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
 use Spryker\Zed\Product\Communication\Plugin\ProductSuperAttributeMetadataSaverPlugin;
+use Spryker\Zed\Product\Communication\Plugin\Sales\ProductIdHydratorPlugin;
 use Spryker\Zed\Product\Communication\Plugin\Sales\ProductSuperAttributeMetadataHydratorPlugin;
 use Spryker\Zed\Product\ProductDependencyProvider as SprykerProductDependencyProvider;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterCreatePlugin;
@@ -189,6 +190,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     {
         return [
             new ProductSuperAttributeMetadataHydratorPlugin(),
+            new ProductIdHydratorPlugin(),
         ];
     }
 
