@@ -9,6 +9,7 @@ namespace Pyz\Shared\Application\Business\Routing;
 
 use Pimple;
 use Psr\Log\LoggerInterface;
+use Spryker\Service\UtilText\Model\Url\Url;
 use Symfony\Component\Routing\CompiledRoute;
 use Symfony\Component\Routing\Generator\UrlGenerator as SymfonyUrlGenerator;
 use Symfony\Component\Routing\RequestContext;
@@ -72,21 +73,47 @@ class UrlGenerator extends SymfonyUrlGenerator
             return $url;
         }
 
-        $baseHost = '/';
+        $baseUrl = '/';
         if ($referenceType === self::ABSOLUTE_URL) {
-            $baseHost = $this->context->getScheme() . '://' . $this->context->getHost() . '/';
+            $baseUrl = $this->generateBaseUrl();
         }
 
-        if ($name !== self::HOME && $baseHost === $url) {
+        if ($name !== self::HOME && $baseUrl === $url) {
             $firstPathVariable = current($compiledRoute->getPathVariables());
             $url .= $route->getDefault($firstPathVariable);
         }
 
         if (!$this->isWebProfilerUrl($url)) {
-            $url = $this->setLocalePath($url, $baseHost, $route);
+            $url = $this->setLocalePath($url, $baseUrl, $route);
         }
 
         return $url;
+    }
+
+    /**
+     * @return string
+     */
+    protected function generateBaseUrl()
+    {
+        $urlBuilder = new Url([
+            Url::SCHEME => $this->context->getScheme(),
+            Url::HOST => $this->context->getHost(),
+            Url::PORT => $this->getPortFromContext(),
+        ]);
+
+        return $urlBuilder->build();
+    }
+
+    /**
+     * @return int
+     */
+    protected function getPortFromContext()
+    {
+        if ($this->context->getScheme() === 'https') {
+            return $this->context->getHttpsPort();
+        }
+
+        return $this->context->getHttpPort();
     }
 
     /**
