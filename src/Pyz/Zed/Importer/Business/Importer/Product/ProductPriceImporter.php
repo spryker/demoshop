@@ -129,8 +129,6 @@ class ProductPriceImporter extends AbstractImporter
     /**
      * @param string $priceType
      *
-     * @throws \Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException
-     *
      * @return string
      */
     protected function getPriceTypeEntity($priceType)
