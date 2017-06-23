@@ -10,6 +10,8 @@ namespace Pyz\Zed\ProductSearch\Business\Map;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
+use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Shared\ProductSearch\ProductSearchConfig;
 use Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface;
@@ -25,6 +27,8 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
  */
 class ProductDataPageMapBuilder
 {
+
+    const RESULT_FIELD_PRODUCT_ORDER = 'product_order';
 
     /**
      * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
@@ -194,8 +198,12 @@ class ProductDataPageMapBuilder
      *
      * @return void
      */
-    protected function setCategories(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData, LocaleTransfer $localeTransfer)
-    {
+    protected function setCategories(
+        PageMapBuilderInterface $pageMapBuilder,
+        PageMapTransfer $pageMapTransfer,
+        array $productData,
+        LocaleTransfer $localeTransfer
+    ) {
         $directParentCategories = array_map('intval', explode(',', $productData['category_node_ids']));
 
         $allParentCategories = [];
@@ -210,7 +218,20 @@ class ProductDataPageMapBuilder
 
         $pageMapBuilder->addCategory($pageMapTransfer, $allParentCategories, $directParentCategories);
 
-        $this->setCategoryFullTextSearch($pageMapBuilder, $pageMapTransfer, $allParentCategories, $directParentCategories, $localeTransfer);
+        $this->setCategoryFullTextSearch(
+            $pageMapBuilder,
+            $pageMapTransfer,
+            $allParentCategories,
+            $directParentCategories,
+            $localeTransfer
+        );
+        $this->setCategorySorting(
+            $pageMapBuilder,
+            $pageMapTransfer,
+            $allParentCategories,
+            $productData['id_product_abstract'],
+            $localeTransfer
+        );
     }
 
     /**
@@ -320,6 +341,76 @@ class ProductDataPageMapBuilder
         foreach ($categoryAttributes as $categoryAttributeEntity) {
             static::$categoryName[$categoryAttributeEntity->getFkCategory()] = $categoryAttributeEntity->getName();
         }
+    }
+
+    /**
+     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
+     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
+     * @param int[] $directParentCategories
+     * @param int $idProductAbstract
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     *
+     * @return void
+     */
+    protected function setCategorySorting(
+        PageMapBuilderInterface $pageMapBuilder,
+        PageMapTransfer $pageMapTransfer,
+        array $directParentCategories,
+        $idProductAbstract,
+        LocaleTransfer $localeTransfer
+    ) {
+        $categoryNodeEntities = $this->findCategoryNodeEntitiesWithProductOrderPosition(
+            $directParentCategories,
+            $idProductAbstract,
+            $localeTransfer
+        );
+
+        foreach ($categoryNodeEntities as $categoryNodeEntity) {
+            $idCategoryNode = $categoryNodeEntity->getIdCategoryNode();
+            $productOrder = (int)$categoryNodeEntity->getVirtualColumn(static::RESULT_FIELD_PRODUCT_ORDER);
+            $pageMapBuilder->addIntegerSort(
+                $pageMapTransfer,
+                "category:{$idCategoryNode}",
+                $productOrder ?: PHP_INT_MAX
+            );
+
+            $idsParentCategoryNode = $this->getAllParentCategories($idCategoryNode, $localeTransfer);
+            foreach ($idsParentCategoryNode as $idParentCategoryNode) {
+                $pageMapBuilder->addIntegerSort(
+                    $pageMapTransfer,
+                    "category:{$idParentCategoryNode}",
+                    $productOrder ?: PHP_INT_MAX
+                );
+            }
+        }
+    }
+
+    /**
+     * @param int[] $directParentCategories
+     * @param int $idProductAbstract
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     *
+     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode[]
+     */
+    protected function findCategoryNodeEntitiesWithProductOrderPosition(
+        array $directParentCategories,
+        $idProductAbstract,
+        LocaleTransfer $localeTransfer
+    ) {
+        return $this
+            ->categoryQueryContainer
+            ->queryCategoryNode($localeTransfer->getIdLocale())
+                ->useCategoryQuery()
+                    ->useSpyProductCategoryQuery()
+                    ->filterByFkProductAbstract($idProductAbstract)
+                    ->withColumn(
+                        SpyProductCategoryTableMap::COL_PRODUCT_ORDER,
+                        static::RESULT_FIELD_PRODUCT_ORDER
+                    )
+                    ->endUse()
+                ->endUse()
+            ->filterByIdCategoryNode($directParentCategories, Criteria::IN)
+            ->find();
     }
 
     /**
