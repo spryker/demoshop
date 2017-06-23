@@ -26,6 +26,7 @@ use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
+use Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
 /**
@@ -73,6 +74,11 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected $productImageQueryContainer;
 
     /**
+     * @var \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface
+     */
+    protected $productImageFacade;
+
+    /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
     private $productFacade;
@@ -89,6 +95,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface $productImageFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
@@ -96,7 +103,8 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
         ProductImageQueryContainerInterface $productImageQueryContainer,
         ProductFacadeInterface $productFacade,
-        PriceFacadeInterface $priceFacade
+        PriceFacadeInterface $priceFacade,
+        ProductImageFacadeInterface $productImageFacade
     ) {
         parent::__construct($utilDataReaderService);
 
@@ -106,6 +114,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         $this->priceFacade = $priceFacade;
         $this->categoryCacheCollection = new Collection([]);
         $this->productFacade = $productFacade;
+        $this->productImageFacade = $productImageFacade;
     }
 
     /**
@@ -116,6 +125,8 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
+        $attributes = $this->getAbstractAttributes($collectItemData);
+
         return [
             StorageProductTransfer::ID_PRODUCT_ABSTRACT => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             StorageProductTransfer::ATTRIBUTES => $this->getAbstractAttributes($collectItemData),
@@ -132,7 +143,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
-            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes(),
+            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes($attributes),
         ];
     }
 
@@ -337,19 +348,19 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function generateProductAbstractImageSets($idProductAbstract)
     {
-        $imageSets = $this->productImageQueryContainer
-            ->queryImageSetByProductAbstractId($idProductAbstract)
-            ->find();
+        $imageSetTransfers = $this->productImageFacade->getCombinedAbstractImageSets(
+            $idProductAbstract,
+            $this->locale->getIdLocale()
+        );
 
         $result = [];
-        foreach ($imageSets as $imageSetEntity) {
-            $result[$imageSetEntity->getName()] = [];
-            foreach ($imageSetEntity->getSpyProductImageSetToProductImages() as $productsToImageEntity) {
-                $imageEntity = $productsToImageEntity->getSpyProductImage();
-                $result[$imageSetEntity->getName()][] = [
-                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $imageEntity->getIdProductImage(),
-                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $imageEntity->getExternalUrlLarge(),
-                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $imageEntity->getExternalUrlSmall(),
+
+        foreach ($imageSetTransfers as $imageSetTransfer) {
+            foreach ($imageSetTransfer->getProductImages() as $productImageTransfer) {
+                $result[$imageSetTransfer->getName()][] = [
+                    StorageProductImageTransfer::ID_PRODUCT_IMAGE => $productImageTransfer->getIdProductImage(),
+                    StorageProductImageTransfer::EXTERNAL_URL_LARGE => $productImageTransfer->getExternalUrlLarge(),
+                    StorageProductImageTransfer::EXTERNAL_URL_SMALL => $productImageTransfer->getExternalUrlSmall(),
                 ];
             }
         }
@@ -358,23 +369,37 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     }
 
     /**
+     * @param array $attributes
+     *
      * @return array
      */
-    protected function getVariantSuperAttributes()
+    protected function getVariantSuperAttributes(array $attributes)
     {
-        if ($this->superAttributes) {
-            return $this->superAttributes;
+        if (!$this->superAttributes) {
+            $superAttributes = SpyProductAttributeKeyQuery::create()
+                ->filterByIsSuper(true)
+                ->find();
+
+            foreach ($superAttributes as $attribute) {
+                $this->superAttributes[$attribute->getKey()] = true;
+            }
         }
 
-        $superAttributes = SpyProductAttributeKeyQuery::create()
-            ->filterByIsSuper(true)
-            ->find();
+        return $this->filterVariantSuperAttributes($attributes);
+    }
 
-        foreach ($superAttributes as $attribute) {
-            $this->superAttributes[] = $attribute->getKey();
-        }
+    /**
+     * @param array $attributes
+     *
+     * @return array
+     */
+    protected function filterVariantSuperAttributes(array $attributes)
+    {
+        $variantSuperAttributes = array_filter($attributes, function ($key) {
+            return isset($this->superAttributes[$key]);
+        }, ARRAY_FILTER_USE_KEY);
 
-        return $this->superAttributes;
+        return array_keys($variantSuperAttributes);
     }
 
 }

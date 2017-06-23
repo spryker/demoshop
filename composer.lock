@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bd2ce780d11c41c4c415b3a5ec56cce",
+    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1201-cms-block-improvements",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "dda1586c7bdeddf5905af33bfee10507a927790e"
+                "reference": "26b4339c13dce9d693d608e309e7da777fdfc96e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1561,6 +1561,7 @@
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
+                "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
@@ -1627,6 +1628,7 @@
                 "spryker/product-group": "*",
                 "spryker/product-group-collector": "*",
                 "spryker/product-image": "*",
+                "spryker/product-image-cart-connector": "*",
                 "spryker/product-label": "*",
                 "spryker/product-label-collector": "*",
                 "spryker/product-label-gui": "*",
@@ -1697,7 +1699,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-22 12:21:49"
+            "time": "2017-06-22 16:25:38"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6455,7 +6457,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-06-10 19:45:38"
+            "time": "2017-06-10T19:45:38+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

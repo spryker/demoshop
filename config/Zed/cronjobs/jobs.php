@@ -114,3 +114,13 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 */
+
+/* ProductLabel */
+$jobs[] = [
+    'name' => 'check-product-label-validity',
+    'command' => '$PHP_BIN vendor/bin/console product-label:validity',
+    'schedule' => '0 6 * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];

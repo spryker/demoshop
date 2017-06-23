@@ -20,6 +20,7 @@ use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentSaverPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Checkout\ProductBundleAvailabilityCheckoutPreConditionPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderSaverPlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionOrderSaverPlugin;
+use Spryker\Zed\Sales\Communication\Plugin\SalesOrderExpanderPlugin;
 use Spryker\Zed\Sales\Communication\Plugin\SalesOrderSaverPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 
@@ -69,6 +70,18 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             new OmsPostSaveHookPlugin(),
             new PaymentPostCheckPlugin(),
+        ];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPreSaveHookInterface[]
+     */
+    protected function getCheckoutPreSaveHooks(Container $container)
+    {
+        return [
+            new SalesOrderExpanderPlugin()
         ];
     }
 

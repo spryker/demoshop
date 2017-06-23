@@ -56,6 +56,17 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
     }
 
     /**
+     * @param \Generated\Shared\Transfer\ItemTransfer[] $itemTransfers
+     *
+     * @return void
+     */
+    public function addItems(array $itemTransfers)
+    {
+        $quoteTransfer = $this->cartClient->addItems($itemTransfers);
+        $this->cartClient->storeQuote($quoteTransfer);
+    }
+
+    /**
      * @param string $sku
      * @param string|null $groupKey
      *
