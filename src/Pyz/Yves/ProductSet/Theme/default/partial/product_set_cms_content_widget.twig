@@ -1,0 +1,19 @@
+{% if productSetList is defined %}
+
+    {% for productSet in productSetList %}
+
+        <h3>{{ productSet.productSet.name }}</h3>
+
+        {% include '@ProductSet/partial/product_set_block.twig' with {
+            'productSet' : productSet.productSet,
+            'storageProducts' : productSet.storageProducts
+        } %}
+
+    {% endfor %}
+
+{% else %}
+
+    <h3>{{ productSet.name }}</h3>
+
+    {% include '@ProductSet/partial/product_set_block.twig' %}
+{% endif %}

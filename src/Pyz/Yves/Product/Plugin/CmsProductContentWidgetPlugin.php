@@ -1,0 +1,142 @@
+<?php
+
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
+namespace Pyz\Yves\Product\Plugin;
+
+use Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface;
+use Spryker\Shared\CmsCollector\CmsCollectorConstants;
+use Spryker\Yves\Cms\Dependency\CmsContentWidgetPluginInterface;
+use Spryker\Yves\Kernel\AbstractPlugin;
+use Twig_Environment;
+
+/**
+ * @method \Spryker\Client\Product\ProductClientInterface getClient()
+ * @method \Pyz\Yves\Product\ProductFactory getFactory()
+ */
+class CmsProductContentWidgetPlugin extends AbstractPlugin implements CmsContentWidgetPluginInterface
+{
+
+    /**
+     * @var \Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface
+     */
+    protected $widgetConfiguration;
+
+    /**
+     * @param \Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface $widgetConfiguration
+     */
+    public function __construct(CmsContentWidgetConfigurationProviderInterface $widgetConfiguration)
+    {
+        $this->widgetConfiguration = $widgetConfiguration;
+    }
+
+    /**
+     * @return \Callable
+     */
+    public function getContentWidgetFunction()
+    {
+        return function (Twig_Environment $twig, array $context, $productAbstractSkuList, $templateIdentifier = null) {
+            return $twig->render(
+                $this->resolveTemplatePath($templateIdentifier),
+                $this->getContent($context, $productAbstractSkuList)
+            );
+        };
+    }
+
+    /**
+     * @param null|string $templateIdentifier
+     *
+     * @return string
+     */
+    protected function resolveTemplatePath($templateIdentifier = null)
+    {
+        if (!$templateIdentifier) {
+            $templateIdentifier = CmsContentWidgetConfigurationProviderInterface::DEFAULT_TEMPLATE_IDENTIFIER;
+        }
+
+        return $this->widgetConfiguration->getAvailableTemplates()[$templateIdentifier];
+    }
+
+    /**
+     * @param array $context
+     * @param array|string $productAbstractSkuList
+     *
+     * @return array
+     */
+    protected function getContent(array $context, $productAbstractSkuList)
+    {
+        $cmsContent = $this->getCmsContent($context);
+
+        $skuMap = $this->getProductAbstractSkuMap($cmsContent);
+        if (is_array($productAbstractSkuList)) {
+            return [
+                'products' => $this->collectProductAbstractList($productAbstractSkuList, $skuMap),
+            ];
+        }
+
+        $productAbstractSku = $productAbstractSkuList;
+        if (!isset($skuMap[$productAbstractSku])) {
+            return [];
+        }
+
+        return [
+            'product' => $this->getProductAbstractByIsProductAbstract($skuMap[$productAbstractSku]),
+        ];
+    }
+
+    /**
+     * @param array $context
+     *
+     * @return array
+     */
+    protected function getCmsContent(array $context)
+    {
+        return $context['cmsContent'];
+    }
+
+    /**
+     * @param array $cmsContent
+     *
+     * @return array
+     */
+    protected function getProductAbstractSkuMap(array $cmsContent)
+    {
+        return $cmsContent[CmsCollectorConstants::CMS_CONTENT_WIDGET_PARAMETER_MAP][$this->widgetConfiguration->getFunctionName()];
+    }
+
+    /**
+     * @param array $concreteProductSkuList
+     * @param array $skuToProductAbstractIdMap
+     *
+     * @return array
+     */
+    protected function collectProductAbstractList(array $concreteProductSkuList, array $skuToProductAbstractIdMap)
+    {
+        $products = [];
+        foreach ($concreteProductSkuList as $sku) {
+            if (!isset($skuToProductAbstractIdMap[$sku])) {
+                continue;
+            }
+            $products[] = $this->getProductAbstractByIsProductAbstract($skuToProductAbstractIdMap[$sku]);
+        }
+        return $products;
+    }
+
+    /**
+     * @param int $idProductAbstract
+     *
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     */
+    protected function getProductAbstractByIsProductAbstract($idProductAbstract)
+    {
+        $productData = $this->getClient()->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract);
+
+        return $this->getFactory()
+            ->createStorageProductMapperPlugin()
+            ->mapStorageProduct($productData, []);
+    }
+
+}

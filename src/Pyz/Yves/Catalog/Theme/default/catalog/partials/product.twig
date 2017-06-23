@@ -4,7 +4,9 @@
     </a>
     {% if idProductAbstract is defined %}
         {{ spyProductLabels(idProductAbstract, '@Catalog/catalog/partials/product-labels.twig') }}
-        {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+        {% block productGroups %}
+            {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+        {% endblock %}
     {% endif %}
     <p>
         <strong>{{ name }}</strong><br>
