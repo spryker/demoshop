@@ -15,6 +15,7 @@ use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\CompletionQueryExpa
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\FacetQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\LocalizedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\PaginatedQueryExpanderPlugin;
+use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedCategoryQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SpellingSuggestionQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\StoreQueryExpanderPlugin;
@@ -64,6 +65,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new StoreQueryExpanderPlugin(),
             new LocalizedQueryExpanderPlugin(),
             new FacetQueryExpanderPlugin(),
+            new SortedCategoryQueryExpanderPlugin(),
             new SortedQueryExpanderPlugin(),
             new PaginatedQueryExpanderPlugin(),
             new SpellingSuggestionQueryExpanderPlugin(),

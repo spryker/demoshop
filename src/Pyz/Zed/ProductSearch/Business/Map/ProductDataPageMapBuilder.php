@@ -368,10 +368,11 @@ class ProductDataPageMapBuilder
         foreach ($categoryNodeEntities as $categoryNodeEntity) {
             $idCategoryNode = $categoryNodeEntity->getIdCategoryNode();
             $productOrder = (int)$categoryNodeEntity->getVirtualColumn(static::RESULT_FIELD_PRODUCT_ORDER);
+            $maxProductOrder = (pow(2, 31) - 1);
             $pageMapBuilder->addIntegerSort(
                 $pageMapTransfer,
                 "category:{$idCategoryNode}",
-                $productOrder ?: PHP_INT_MAX
+                $productOrder ?: $maxProductOrder
             );
 
             $idsParentCategoryNode = $this->getAllParentCategories($idCategoryNode, $localeTransfer);
@@ -379,7 +380,7 @@ class ProductDataPageMapBuilder
                 $pageMapBuilder->addIntegerSort(
                     $pageMapTransfer,
                     "category:{$idParentCategoryNode}",
-                    $productOrder ?: PHP_INT_MAX
+                    $productOrder ?: $maxProductOrder
                 );
             }
         }
