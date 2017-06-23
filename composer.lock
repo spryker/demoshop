@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
+    "content-hash": "2bd2ce780d11c41c4c415b3a5ec56cce",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1201-cms-block-improvements",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "26b4339c13dce9d693d608e309e7da777fdfc96e"
+                "reference": "6e46db31b80bd4b94f5c756a4e1b2a429d654db8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1567,6 +1567,11 @@
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
                 "spryker/cms": "*",
+                "spryker/cms-block": "*",
+                "spryker/cms-block-category-connector": "*",
+                "spryker/cms-block-collector": "*",
+                "spryker/cms-block-gui": "*",
+                "spryker/cms-block-product-connector": "*",
                 "spryker/cms-collector": "*",
                 "spryker/cms-gui": "*",
                 "spryker/cms-user-connector": "*",
@@ -1699,7 +1704,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-22 16:25:38"
+            "time": "2017-06-23 14:05:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5331,16 +5336,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.20",
+            "version": "5.7.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b"
+                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
-                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3b91adfb64264ddec5a2dee9851f354aa66327db",
+                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db",
                 "shasum": ""
             },
             "require": {
@@ -5409,7 +5414,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-05-22T07:42:55+00:00"
+            "time": "2017-06-21T08:11:54+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6457,7 +6462,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-06-10T19:45:38+00:00"
+            "time": "2017-06-10 19:45:38"
         },
         {
             "name": "squizlabs/php_codesniffer",
