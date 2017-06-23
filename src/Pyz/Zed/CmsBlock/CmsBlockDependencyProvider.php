@@ -14,12 +14,17 @@ use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductAbs
 class CmsBlockDependencyProvider extends CmsBlockCmsBlockDependencyProvider
 {
 
+    /**
+     * @return array
+     */
     protected function getCmsBlockUpdatePlugins()
     {
-        return [
+        $plugins = parent::getCmsBlockUpdatePlugins();
+
+        return array_merge($plugins, [
             new CmsBlockCategoryConnectorUpdatePlugin(),
             new CmsBlockProductAbstractUpdatePlugin(),
-        ];
+        ]);
     }
 
 }

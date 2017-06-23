@@ -62,6 +62,7 @@ class CmsBlockImporter extends AbstractImporter
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface $cmsBlockFacade
+     * @param \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface $cmsBlockQueryContainer
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
