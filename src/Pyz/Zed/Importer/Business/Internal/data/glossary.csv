@@ -27,6 +27,8 @@ cart.discounts,Rabatte,de_DE
 cart.discounts,Discounts,en_US
 cart.item_quantity,Anzahl,de_DE
 cart.item_quantity,Quantity,en_US
+cart.item_attributes_needed, Please select more attributes,en_US
+cart.item_attributes_needed, Bitte wählen Sie mindestens ein anderes Attribut ,de_DE
 cart.voucher.redeem,"Code einlösen",de_DE
 cart.voucher.redeem,"Redeem code",en_US
 cart.price.subtotal,"Zwischensumme",de_DE
@@ -794,13 +796,13 @@ product.attribute.themes,Themen,de_DE
 product.attribute.usb_port,USB port,en_US
 product.attribute.usb_port,USB-Port,de_DE
 cart.pre.check.availability.failed, "The availability of product sku is stock at the moment.",en_US
-cart.pre.check.availability.failed, "Zurzeit haben wir nur stock von diesem Produkt zur Verfügung.",de_DE
+cart.pre.check.availability.failed, "Zurzeit haben wir von sku nur stock Stück auf Lager.",de_DE
 product.detail.out_of_stock, "This product is currently not available.",en_US
 product.detail.out_of_stock, "Das Produkt ist zur Zeit nicht verfügbar.",de_DE
 product.groups,Product Groups,en_US
 product.groups,Produktgruppen,de_DE
 cart.pre.check.availability.failed.empty, "Currently this product is not available. ",en_US
-cart.pre.check.availability.failed.empty, "Zurzeit diesem Produkt ist nicht Verfügbar.",de_DE
+cart.pre.check.availability.failed.empty, "Das Produkt ist zurzeit nicht verfügbar.",de_DE
 mail.sender.name,"Spryker demoshop",en_US
 mail.sender.name,"Spryker demoshop",de_DE
 mail.sender.email,"demoshop@spryker.com",en_US
@@ -947,7 +949,9 @@ dummyPaymentInvoice.invoice,Pay with invoice:,en_US
 dummyPaymentInvoice.invoice,Auf Rechnung bezahlen:,de_DE
 dummyPaymentInvoice.date_of_birth,Date of Birth,en_US
 dummyPaymentInvoice.date_of_birth,Geburtsdatum,de_DE
+cart.item.item_price,"Item price",en_US
+cart.item.item_price,"Stückpreis",de_DE
 cart.item.item_total,"Item total",en_US
-cart.item.item_total,"Item total",de_DE
+cart.item.item_total,"Artikel Gesamt",de_DE
 cart.shipping,"Shipping",en_US
 cart.shipping,"Versand",de_DE
