@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5562bd4e1bb0e0e7c0f823c195d6a1b9",
+    "content-hash": "03f89e381c255c60fe023e6aa5062396",
     "packages": [
         {
             "name": "behat/gherkin",
@@ -4083,6 +4083,70 @@
                 "source": "https://github.com/spryker/Cart/tree/4.0.1"
             },
             "time": "2017-06-20T08:47:05+00:00"
+        },
+        {
+            "name": "spryker/cart-variant",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/CartVariant.git",
+                "reference": "4b13bbfd7fc17440e0245502136748fa073277d1",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CartVariant/zipball/4b13bbfd7fc17440e0245502136748fa073277d1",
+                "reference": "4b13bbfd7fc17440e0245502136748fa073277d1",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/availability": "^5.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product": "^5.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/",
+                    "ClientUnit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CartVariant bundle",
+            "support": {
+                "source": "https://github.com/spryker/CartVariant/tree/0.1.0"
+            },
+            "time": "2017-06-22T15:48:19+00:00"
         },
         {
             "name": "spryker/catalog",
@@ -8850,6 +8914,74 @@
                 "source": "https://github.com/spryker/ProductImage/tree/master"
             },
             "time": "2017-06-19T07:00:05+00:00"
+        },
+        {
+            "name": "spryker/product-image-cart-connector",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductImageCartConnector.git",
+                "reference": "3eb01ef03e1fa602f1674eadfb8c4b00df0ee752",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductImageCartConnector/zipball/3eb01ef03e1fa602f1674eadfb8c4b00df0ee752",
+                "reference": "3eb01ef03e1fa602f1674eadfb8c4b00df0ee752",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/product-image": "^3.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/propel-orm": "*",
+                "spryker/silex": "*",
+                "spryker/tax": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/cart": "If you want to use Cart plugins you need to install spryker/cart."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductImageCartConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductImageCartConnector/tree/0.1.0"
+            },
+            "time": "2017-06-22T15:48:19+00:00"
         },
         {
             "name": "spryker/product-label",
