@@ -45,6 +45,8 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
     }
 
     /**
+     * {@inheritdoc}
+     *
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return array|\Spryker\Zed\Cms\Dependency\Plugin\CmsContentWidgetParameterMapperPluginInterface[]

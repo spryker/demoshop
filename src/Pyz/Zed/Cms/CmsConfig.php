@@ -24,6 +24,8 @@ class CmsConfig extends SprykerCmsConfig
     }
 
     /**
+     * {@inheritdoc}
+     *
      * @return array|\Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface[]
      */
     public function getCmsContentWidgetConfigurationProviders()
