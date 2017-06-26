@@ -7,6 +7,7 @@
 
 namespace Pyz\Client\Catalog;
 
+use Pyz\Client\Catalog\Plugin\Config\CatalogSearchConfigBuilder;
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin;
 use Spryker\Client\Catalog\CatalogDependencyProvider as SprykerCatalogDependencyProvider;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
@@ -65,8 +66,8 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new StoreQueryExpanderPlugin(),
             new LocalizedQueryExpanderPlugin(),
             new FacetQueryExpanderPlugin(),
-            new SortedCategoryQueryExpanderPlugin(),
             new SortedQueryExpanderPlugin(),
+            new SortedCategoryQueryExpanderPlugin(CatalogSearchConfigBuilder::CATEGORY_FACET_PARAM_NAME),
             new PaginatedQueryExpanderPlugin(),
             new SpellingSuggestionQueryExpanderPlugin(),
         ];
