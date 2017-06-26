@@ -258,21 +258,4 @@ class ProductDataPageMapBuilder
         $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return array
-     */
-    protected function findPricesBySku($sku)
-    {
-        $priceProductTransfers = $this->priceFacade->findPricesBySku($sku);
-
-        $prices = [];
-        foreach ($priceProductTransfers as $priceProductTransfer) {
-            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
-        }
-
-        return $prices;
-    }
-
 }
