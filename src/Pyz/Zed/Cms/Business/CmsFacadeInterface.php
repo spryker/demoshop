@@ -23,11 +23,4 @@ interface CmsFacadeInterface extends SprykerCmsFacadeInterface
      */
     public function createPageUrlWithLocale($pageTransfer, $url, LocaleTransfer $localeTransfer);
 
-    /**
-     * @param \Generated\Shared\Transfer\CmsBlockTransfer $cmsBlockTransfer
-     *
-     * @return \Generated\Shared\Transfer\CmsBlockTransfer
-     */
-    public function saveBlockAndTouch(CmsBlockTransfer $cmsBlockTransfer);
-
 }

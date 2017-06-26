@@ -29,14 +29,4 @@ class CmsFacade extends SprykerCmsFacade implements CmsFacadeInterface
         return $this->getFactory()->createPageManager()->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CmsBlockTransfer $cmsBlockTransfer
-     *
-     * @return \Generated\Shared\Transfer\CmsBlockTransfer
-     */
-    public function saveBlockAndTouch(CmsBlockTransfer $cmsBlockTransfer)
-    {
-        return $this->getFactory()->createBlockManager()->saveBlockAndTouch($cmsBlockTransfer);
-    }
-
 }

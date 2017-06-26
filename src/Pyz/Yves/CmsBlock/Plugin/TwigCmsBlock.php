@@ -148,12 +148,20 @@ class TwigCmsBlock extends AbstractPlugin implements TwigFunctionPluginInterface
      */
     protected function validateDates(array $cmsBlockData)
     {
-        if (isset($cmsBlockData['valid_from']) && isset($cmsBlockData['valid_to'])) {
-            $dateToCompare = new DateTime();
+        $dateToCompare = new DateTime();
+
+        if (isset($cmsBlockData['valid_from'])) {
             $validFrom = new DateTime($cmsBlockData['valid_from']);
+
+            if ($dateToCompare < $validFrom) {
+                return false;
+            }
+        }
+
+        if (isset($cmsBlockData['valid_to'])) {
             $validTo = new DateTime($cmsBlockData['valid_to']);
 
-            if ($dateToCompare < $validFrom || $dateToCompare > $validTo) {
+            if ($dateToCompare > $validTo) {
                 return false;
             }
         }
