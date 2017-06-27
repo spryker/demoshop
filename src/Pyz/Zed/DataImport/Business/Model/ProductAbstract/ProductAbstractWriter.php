@@ -12,10 +12,6 @@ use Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributesQuery;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
-use Orm\Zed\ProductImage\Persistence\SpyProductImage;
-use Orm\Zed\ProductImage\Persistence\SpyProductImageSetQuery;
-use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImage;
-use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Shared\Product\ProductConfig;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
@@ -46,9 +42,6 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     const KEY_TAX_SET_NAME = 'tax_set_name';
     const KEY_CATEGORY_KEY = 'category_key';
     const KEY_CATEGORY_KEYS = 'categoryKeys';
-    const KEY_IMAGE_SET_NAME = 'image_set_name';
-    const KEY_IMAGE_BIG = 'image_big';
-    const KEY_IMAGE_SMALL = 'image_small';
     const KEY_LOCALES = 'locales';
 
     /**
@@ -88,7 +81,6 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
 
         $this->importProductAbstractLocalizedAttributes($dataSet, $productAbstractEntity);
         $this->importProductCategories($dataSet, $productAbstractEntity);
-        $this->importProductAbstractImages($dataSet, $productAbstractEntity);
         $this->importProductUrls($productAbstractEntity);
 
         $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstractEntity->getIdProductAbstract());
@@ -210,49 +202,6 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
         };
 
         return array_map($callback, $categoryKeys);
-    }
-
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
-     *
-     * @return void
-     */
-    protected function importProductAbstractImages(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
-    {
-        $imageSetName = (isset($dataSet[static::KEY_IMAGE_SET_NAME])) ? $dataSet[static::KEY_IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
-
-        foreach ($dataSet[static::KEY_LOCALES] as $localeName => $idLocale) {
-            $productImageSetEntity = SpyProductImageSetQuery::create()
-                ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
-                ->filterByFkLocale($idLocale)
-                ->filterByName($imageSetName)
-                ->findOneOrCreate();
-
-            $productImageSetToProductImageEntityCollection = SpyProductImageSetToProductImageQuery::create()
-                ->filterByFkProductImageSet($productImageSetEntity->getIdProductImageSet())
-                ->find();
-
-            if ($productImageSetToProductImageEntityCollection->count() > 0) {
-                foreach ($productImageSetToProductImageEntityCollection as $productImageSetToProductImageEntity) {
-                    $productImageEntity = $productImageSetToProductImageEntity->getSpyProductImage();
-                    $productImageSetToProductImageEntity->delete();
-                    $productImageEntity->delete();
-                }
-            }
-
-            $productImageEntity = new SpyProductImage();
-            $productImageEntity
-                ->setExternalUrlLarge($dataSet[static::KEY_IMAGE_BIG])
-                ->setExternalUrlSmall($dataSet[static::KEY_IMAGE_SMALL]);
-
-            $productImageSetToProductImageEntity = new SpyProductImageSetToProductImage();
-            $productImageSetToProductImageEntity
-                ->setSpyProductImage($productImageEntity)
-                ->setSpyProductImageSet($productImageSetEntity)
-                ->setSortOrder(0)
-                ->save();
-        }
     }
 
     /**

@@ -57,7 +57,7 @@ class ProductGroupWriter extends TouchAwareStep implements DataImportStepInterfa
 
         $this->addMainTouchable(ProductGroupConfig::RESOURCE_TYPE_PRODUCT_GROUP, $productGroupEntity->getIdProductGroup());
 
-        $idProductAbstract = $this->productRepository->getIdAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
+        $idProductAbstract = $this->productRepository->getIdProductAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
 
         $productAbstractGroup = SpyProductAbstractGroupQuery::create()
             ->filterByFkProductAbstract($idProductAbstract)

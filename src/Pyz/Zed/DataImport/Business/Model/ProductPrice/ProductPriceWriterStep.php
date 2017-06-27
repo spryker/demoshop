@@ -58,7 +58,7 @@ class ProductPriceWriterStep implements DataImportStepInterface
         }
 
         if (!empty($dataSet[static::KEY_ABSTRACT_SKU])) {
-            $idProductAbstract = $this->productRepository->getIdAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
+            $idProductAbstract = $this->productRepository->getIdProductAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
             $query->filterByFkProductAbstract($idProductAbstract);
         }
         if (!empty($dataSet[static::KEY_CONCRETE_SKU])) {

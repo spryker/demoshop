@@ -13,7 +13,7 @@ use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException;
 
-class ProductRepository
+class ProductRepository implements ProductRepositoryInterface
 {
 
     const ID_PRODUCT = 'idProduct';
@@ -58,7 +58,7 @@ class ProductRepository
      *
      * @return int
      */
-    public function getIdAbstractByAbstractSku($sku)
+    public function getIdProductAbstractByAbstractSku($sku)
     {
         if (!isset(static::$resolved[$sku])) {
             $this->resolveProductByAbstractSku($sku);

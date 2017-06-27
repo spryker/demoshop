@@ -7,8 +7,6 @@
 
 namespace Pyz\Zed\Event;
 
-use Spryker\Zed\DataImport\Communication\Plugin\DataImportConsoleDebugEventSubscriberPlugin;
-use Spryker\Zed\DataImport\Communication\Plugin\DataImportConsoleTimerEventSubscriberPlugin;
 use Spryker\Zed\Event\EventDependencyProvider as SprykerEventDependencyProvider;
 
 class EventDependencyProvider extends SprykerEventDependencyProvider

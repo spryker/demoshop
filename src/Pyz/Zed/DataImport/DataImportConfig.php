@@ -29,6 +29,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_RELATION = 'product-relation';
     const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
     const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
+    const IMPORT_TYPE_PRODUCT_IMAGE = 'product-image';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP = 'product-search-attribute-map';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE = 'product-search-attribute';
     const IMPORT_TYPE_CMS_TEMPLATE = 'cms-template';
@@ -204,6 +205,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductOptionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_option.csv', static::IMPORT_TYPE_PRODUCT_OPTION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductImageDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_image.csv', static::IMPORT_TYPE_PRODUCT_IMAGE);
     }
 
     /**

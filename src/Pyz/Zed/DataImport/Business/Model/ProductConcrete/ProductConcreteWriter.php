@@ -11,10 +11,6 @@ use Orm\Zed\Product\Persistence\SpyProduct;
 use Orm\Zed\Product\Persistence\SpyProductLocalizedAttributesQuery;
 use Orm\Zed\Product\Persistence\SpyProductQuery;
 use Orm\Zed\ProductBundle\Persistence\SpyProductBundleQuery;
-use Orm\Zed\ProductImage\Persistence\SpyProductImage;
-use Orm\Zed\ProductImage\Persistence\SpyProductImageSetQuery;
-use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImage;
-use Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImageQuery;
 use Orm\Zed\ProductSearch\Persistence\SpyProductSearchQuery;
 use Pyz\Shared\Product\ProductConfig;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
@@ -32,9 +28,6 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
     const KEY_LOCALIZED_ATTRIBUTES = 'localizedAttributes';
     const KEY_NAME = 'name';
     const KEY_DESCRIPTION = 'description';
-    const KEY_IMAGE_SET_NAME = 'image_set_name';
-    const KEY_IMAGE_BIG = 'image_big';
-    const KEY_IMAGE_SMALL = 'image_small';
     const KEY_LOCALES = 'locales';
     const KEY_CONCRETE_SKU = 'concrete_sku';
     const KEY_IS_ACTIVE = 'is_active';
@@ -72,7 +65,6 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
         $this->productRepository->addProductConcrete($productEntity, $dataSet[static::KEY_ABSTRACT_SKU]);
 
         $this->importProductLocalizedAttributes($dataSet, $productEntity);
-        $this->importProductImages($dataSet, $productEntity);
         $this->importBundles($dataSet, $productEntity);
 
         $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_CONCRETE, $productEntity->getIdProduct());
@@ -89,7 +81,7 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
             ->filterBySku($dataSet[static::KEY_CONCRETE_SKU])
             ->findOneOrCreate();
 
-        $idAbstract = $this->productRepository->getIdAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
+        $idAbstract = $this->productRepository->getIdProductAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
 
         $productEntity
             ->setIsActive(isset($dataSet[static::KEY_IS_ACTIVE]) ? $dataSet[static::KEY_IS_ACTIVE] : true)
@@ -129,49 +121,6 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
 
             $productSearchEntity
                 ->setIsSearchable($localizedAttributes[static::KEY_IS_SEARCHABLE])
-                ->save();
-        }
-    }
-
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     * @param \Orm\Zed\Product\Persistence\SpyProduct $productEntity
-     *
-     * @return void
-     */
-    protected function importProductImages(DataSetInterface $dataSet, SpyProduct $productEntity)
-    {
-        $imageSetName = (isset($dataSet[static::KEY_IMAGE_SET_NAME])) ? $dataSet[static::KEY_IMAGE_SET_NAME] : ProductConfig::DEFAULT_IMAGE_SET_NAME;
-
-        foreach ($dataSet[static::KEY_LOCALES] as $localeName => $idLocale) {
-            $productImageSetEntity = SpyProductImageSetQuery::create()
-                ->filterByFkProduct($productEntity->getIdProduct())
-                ->filterByFkLocale($idLocale)
-                ->filterByName($imageSetName)
-                ->findOneOrCreate();
-
-            $productImageSetToProductImageEntityCollection = SpyProductImageSetToProductImageQuery::create()
-                ->filterByFkProductImageSet($productImageSetEntity->getIdProductImageSet())
-                ->find();
-
-            if ($productImageSetToProductImageEntityCollection->count() > 0) {
-                foreach ($productImageSetToProductImageEntityCollection as $productImageSetToProductImageEntity) {
-                    $productImageEntity = $productImageSetToProductImageEntity->getSpyProductImage();
-                    $productImageSetToProductImageEntity->delete();
-                    $productImageEntity->delete();
-                }
-            }
-
-            $productImageEntity = new SpyProductImage();
-            $productImageEntity
-                ->setExternalUrlLarge($dataSet[static::KEY_IMAGE_BIG])
-                ->setExternalUrlSmall($dataSet[static::KEY_IMAGE_SMALL]);
-
-            $productImageSetToProductImageEntity = new SpyProductImageSetToProductImage();
-            $productImageSetToProductImageEntity
-                ->setSpyProductImage($productImageEntity)
-                ->setSpyProductImageSet($productImageSetEntity)
-                ->setSortOrder(0)
                 ->save();
         }
     }
