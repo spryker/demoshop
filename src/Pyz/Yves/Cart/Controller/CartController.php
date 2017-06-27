@@ -22,9 +22,11 @@ class CartController extends AbstractController
     const PARAM_ITEMS = 'items';
 
     /**
+     * @param array|null $selectedAttributes
+     *
      * @return array
      */
-    public function indexAction()
+    public function indexAction(array $selectedAttributes = null)
     {
         $quoteTransfer = $this->getClient()
             ->getQuote();
@@ -40,9 +42,13 @@ class CartController extends AbstractController
             ->getCheckoutBreadcrumbPlugin()
             ->generateStepBreadcrumbs($quoteTransfer);
 
+        $itemAttributesBySku = $this->getFactory()
+            ->createCartItemsAttributeProvider()->getItemsAttributes($quoteTransfer, $selectedAttributes);
+
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
+            'attributes' => $itemAttributesBySku,
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
         ]);
@@ -55,7 +61,7 @@ class CartController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function addAction($sku, $quantity, $optionValueIds = [])
+    public function addAction($sku, $quantity, array $optionValueIds = [])
     {
         $cartOperationHandler = $this->getCartOperationHandler();
         $cartOperationHandler->add($sku, $quantity, $optionValueIds);
@@ -110,6 +116,42 @@ class CartController extends AbstractController
         $cartOperationHandler->setFlashMessagesFromLastZedRequest($this->getClient());
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+    }
+
+    /**
+     * @param string $sku
+     * @param int $quantity
+     * @param array $selectedAttributes
+     * @param array $preselectedAttributes
+     * @param string|null $groupKey
+     * @param array $optionValueIds
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function updateAction($sku, $quantity, array $selectedAttributes, array $preselectedAttributes, $groupKey = null, array $optionValueIds = [])
+    {
+        $quoteTransfer = $this->getClient()->getQuote();
+
+        $isItemReplacedInCart = $this->getFactory()->createCartItemsAttributeProvider()
+            ->tryToReplaceItem(
+                $sku,
+                $quantity,
+                array_replace($selectedAttributes, $preselectedAttributes),
+                $quoteTransfer->getItems(),
+                $groupKey,
+                $optionValueIds
+            );
+
+        if ($isItemReplacedInCart) {
+            return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
+        }
+
+        $this->addInfoMessage('cart.item_attributes_needed');
+        return $this->redirectResponseInternal(
+            CartControllerProvider::ROUTE_CART,
+            $this->getFactory()
+                ->createCartItemsAttributeProvider()->formatUpdateActionResponse($sku, $selectedAttributes)
+        );
     }
 
     /**
