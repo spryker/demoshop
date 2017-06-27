@@ -6,12 +6,16 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "575370919291eb9fe6fbe09165bbbc7a",
 =======
     "content-hash": "52673e8cfc1682c7e23fa6c1f750af5b",
 >>>>>>> core-1251 Added Glossary Import with new DataImport bundle
 =======
     "content-hash": "7fe3178f4775165f76c11b64a66f460b",
+>>>>>>> core-1251 update spryker/spryker
+=======
+    "content-hash": "52673e8cfc1682c7e23fa6c1f750af5b",
 >>>>>>> core-1251 update spryker/spryker
     "packages": [
         {
@@ -1656,10 +1660,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1251-data-importer",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1681,6 +1686,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
 =======
@@ -1692,6 +1699,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -1711,6 +1720,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
 =======
@@ -1722,6 +1733,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -1741,6 +1754,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "93c1d5f3b441a94e25208bd2e632c34aaf4567aa"
 =======
@@ -1752,6 +1767,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -1771,6 +1788,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "29e126fcd24752ce3a2a7a87379eb4fb0d839052"
 =======
@@ -1786,6 +1805,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "c9f3229553119c2f832714296869b399893827e6"
 =======
@@ -1797,6 +1818,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -2322,6 +2345,11 @@
 =======
                 "reference": "26b4339c13dce9d693d608e309e7da777fdfc96e"
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "bdf5b1b012b4792b98e5262135a0dd7247fae5a7"
+>>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
@@ -2539,6 +2567,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
 =======
 =======
@@ -2549,6 +2578,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -2568,6 +2599,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-12 15:07:34"
 =======
@@ -2579,6 +2612,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -2598,6 +2633,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-11 12:31:33"
 =======
@@ -2609,6 +2646,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -2628,6 +2667,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-03 09:27:02"
 =======
@@ -2639,6 +2680,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -2658,6 +2701,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-29 10:28:24"
 =======
@@ -2669,6 +2714,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 fixed availability
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -3193,6 +3240,11 @@
 =======
 =======
             "time": "2017-06-22 16:25:38"
+>>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-06-27 14:56:55"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
@@ -9004,13 +9056,18 @@
             "description": "CodeGenerator bundle",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-06-28T10:19:12+00:00"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-28 10:19:12"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
@@ -9026,6 +9083,11 @@
 =======
 =======
             "time": "2017-06-02T10:23:39+00:00"
+>>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-06-02 10:23:39"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
@@ -9124,8 +9186,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-17 14:09:59"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -9137,6 +9202,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-27T13:05:34+00:00"
 =======
@@ -9144,9 +9211,13 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-10 19:45:38"
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/spryker
 =======
@@ -9179,6 +9250,11 @@
 =======
 =======
             "time": "2017-06-10T19:45:38+00:00"
+>>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-06-10 19:45:38"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
