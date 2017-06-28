@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-bugfix/core-1475-order-of-directory-patterns-for-path-cache-is-wrong",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
