@@ -7,8 +7,10 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
+use Pyz\Zed\ProductSearch\Business\Map\Expander\PriceExpander;
+use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductCategoryExpander;
+use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductImageExpander;
 use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductLabelExpander;
-use Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder;
 use Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder;
 use Pyz\Zed\ProductSearch\ProductSearchDependencyProvider;
 use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
@@ -21,13 +23,9 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      */
     public function createProductDataPageMapBuilder()
     {
-        // TODO: clean up dependencies to expanders after Thomas' PR is merged
         return new ProductDataPageMapBuilder(
             $this->getProductSearchFacade(),
             $this->getProductFacade(),
-            $this->getPriceFacade(),
-            $this->getProductImageQueryContainer(),
-            $this->createProductCategoryPartialPageMapBuilder(),
             $this->createProductPageMapExpanders()
         );
     }
@@ -65,17 +63,6 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder
-     */
-    protected function createProductCategoryPartialPageMapBuilder()
-    {
-        return new ProductCategoryPartialPageMapBuilder(
-            $this->getCategoryQueryContainer(),
-            $this->getProductCategoryQueryContainer()
-        );
-    }
-
-    /**
      * @return \Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected function getCategoryQueryContainer()
@@ -91,15 +78,48 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
         return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
     }
 
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface[]
+     */
     protected function createProductPageMapExpanders()
     {
         return [
+            $this->createPriceExpander(),
+            $this->createProductImageExpander(),
+            $this->createProductCategoryExpander(),
             $this->createProductLabelExpander(),
         ];
     }
 
     /**
-     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductLabelExpander
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface
+     */
+    protected function createPriceExpander()
+    {
+        return new PriceExpander($this->getPriceFacade());
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface
+     */
+    protected function createProductImageExpander()
+    {
+        return new ProductImageExpander($this->getProductImageQueryContainer());
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface
+     */
+    protected function createProductCategoryExpander()
+    {
+        return new ProductCategoryExpander(
+            $this->getCategoryQueryContainer(),
+            $this->getProductCategoryQueryContainer()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface
      */
     protected function createProductLabelExpander()
     {

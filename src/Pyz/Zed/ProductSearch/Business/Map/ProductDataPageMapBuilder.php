@@ -11,40 +11,21 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Pyz\Shared\ProductSearch\ProductSearchConfig;
-use Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder;
 use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
-use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 /**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
  */
 class ProductDataPageMapBuilder
 {
 
     /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
-     */
-    protected $priceFacade;
-
-    /**
      * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
     protected $productSearchFacade;
-
-    /**
-     * @var \Generated\Shared\Transfer\ProductSearchAttributeMapTransfer[]
-     */
-    protected $attributeMap;
-
-    /**
-     * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
-     */
-    protected $productImageQueryContainer;
 
     /**
      * @var \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface
@@ -57,31 +38,17 @@ class ProductDataPageMapBuilder
     protected $productPageMapExpanders;
 
     /**
-     * @var \Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder
-     */
-    protected $productCategoryPageMapBuilder;
-
-    /**
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      * @param \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface $productFacade
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
-     * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
-     * @param \Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder $productCategoryPageMapBuilder
      * @param \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface[] $productPageMapExpanders
      */
     public function __construct(
         ProductSearchFacadeInterface $productSearchFacade,
         ProductSearchToProductInterface $productFacade,
-        PriceFacadeInterface $priceFacade,
-        ProductImageQueryContainerInterface $productImageQueryContainer,
-        ProductCategoryPartialPageMapBuilder $productCategoryPageMapBuilder,
         array $productPageMapExpanders = []
     ) {
-        $this->priceFacade = $priceFacade;
         $this->productSearchFacade = $productSearchFacade;
-        $this->productImageQueryContainer = $productImageQueryContainer;
         $this->productFacade = $productFacade;
-        $this->productCategoryPageMapBuilder = $productCategoryPageMapBuilder;
         $this->productPageMapExpanders = $productPageMapExpanders;
     }
 
@@ -101,7 +68,6 @@ class ProductDataPageMapBuilder
             ->setIsFeatured($productData['is_featured'] == 'true');
 
         $attributes = $this->getProductAttributes($productData);
-        $price = $this->getPriceBySku($productData['abstract_sku']);
 
         /*
          * Here you can hard code which product data will be used for which search functionality
@@ -110,9 +76,7 @@ class ProductDataPageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'id_product_abstract', $productData['id_product_abstract'])
             ->addSearchResultData($pageMapTransfer, 'abstract_sku', $productData['abstract_sku'])
             ->addSearchResultData($pageMapTransfer, 'abstract_name', $productData['abstract_name'])
-            ->addSearchResultData($pageMapTransfer, 'price', $price)
             ->addSearchResultData($pageMapTransfer, 'url', $this->getProductUrl($productData))
-            ->addSearchResultData($pageMapTransfer, 'images', $this->generateImages($productData['id_image_set']))
             ->addSearchResultData($pageMapTransfer, 'type', ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_name'])
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_sku'])
@@ -122,15 +86,9 @@ class ProductDataPageMapBuilder
             ->addFullText($pageMapTransfer, $productData['concrete_descriptions'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
-            ->addStringSort($pageMapTransfer, 'name', $productData['abstract_name'])
-            ->addIntegerSort($pageMapTransfer, 'price', $price)
-            ->addIntegerFacet($pageMapTransfer, 'price', $price);
+            ->addStringSort($pageMapTransfer, 'name', $productData['abstract_name']);
 
         $this->expandProductPageMap($pageMapTransfer, $pageMapBuilder, $productData, $localeTransfer);
-
-        $this
-            ->productCategoryPageMapBuilder
-            ->buildPart($pageMapBuilder, $pageMapTransfer, $productData, $localeTransfer);
 
         $this->setPricesByType($pageMapBuilder, $pageMapTransfer, $productData);
 
@@ -140,6 +98,23 @@ class ProductDataPageMapBuilder
         $pageMapTransfer = $this
             ->productSearchFacade
             ->mapDynamicProductAttributes($pageMapBuilder, $pageMapTransfer, $attributes);
+
+        return $pageMapTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
+     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
+     * @param array $productData
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     *
+     * @return \Generated\Shared\Transfer\PageMapTransfer
+     */
+    protected function expandProductPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
+    {
+        foreach ($this->productPageMapExpanders as $productPageMapExpander) {
+            $pageMapTransfer = $productPageMapExpander->expandProductPageMap($pageMapTransfer, $pageMapBuilder, $productData, $localeTransfer);
+        }
 
         return $pageMapTransfer;
     }
@@ -172,16 +147,6 @@ class ProductDataPageMapBuilder
     }
 
     /**
-     * @param string $sku
-     *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceFacade->getPriceBySku($sku);
-    }
-
-    /**
      * @param array $productData
      *
      * @return string
@@ -191,32 +156,6 @@ class ProductDataPageMapBuilder
         $productUrls = explode(',', $productData['product_urls']);
 
         return $productUrls[0];
-    }
-
-    /**
-     * @param int $idImageSet
-     *
-     * @return array
-     */
-    protected function generateImages($idImageSet)
-    {
-        if ($idImageSet === null) {
-            return [];
-        }
-
-        $imagesCollection = $this->productImageQueryContainer
-            ->queryImagesByIdProductImageSet($idImageSet)
-            ->find();
-
-        $result = [];
-
-        foreach ($imagesCollection as $image) {
-            $imageArray = $image->getSpyProductImage()->toArray();
-            $imageArray += $image->toArray();
-            $result[] = $imageArray;
-        }
-
-        return $result;
     }
 
     /**
@@ -241,23 +180,6 @@ class ProductDataPageMapBuilder
         }, $result);
 
         return $result;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
-     * @param array $productData
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PageMapTransfer
-     */
-    protected function expandProductPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
-    {
-        foreach ($this->productPageMapExpanders as $productPageMapExpander) {
-            $pageMapTransfer = $productPageMapExpander->expandProductPageMap($pageMapTransfer, $pageMapBuilder, $productData, $localeTransfer);
-        }
-
-        return $pageMapTransfer;
     }
 
     /**

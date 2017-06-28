@@ -26,7 +26,7 @@
                         priceValue: product.price,
                         originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null),
                         imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
-                        productLabels: {{ spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig') }}
+                        productLabels: spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig')
                     } %}
                 </div>
             {% endfor %}
