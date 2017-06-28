@@ -2,8 +2,10 @@
     <a href="{{ detailsUrl }}" class="thumbnail __preview-image">
         <img src="{{ imageUrl }}">
     </a>
+    {% if productLabels is defined %}
+        {{ productLabels | raw }}
+    {% endif %}
     {% if idProductAbstract is defined %}
-        {{ spyProductLabels(idProductAbstract, '@Catalog/catalog/partials/product-labels.twig') }}
         {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
     {% endif %}
     <p>

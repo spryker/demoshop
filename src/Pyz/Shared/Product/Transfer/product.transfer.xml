@@ -31,6 +31,7 @@
         <property name="categories" type="StorageProductCategory[]" singular="category" />
         <property name="imageSets" type="array" singular="imageSet" />
         <property name="images" type="StorageProductImage[]" singular="image" />
+        <property name="idProductLabels" type="array" singular="idProductLabel" />
         <property name="colorCode" type="string" />
     </transfer>
 

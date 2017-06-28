@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
+use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductLabelExpander;
 use Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder;
 use Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder;
 use Pyz\Zed\ProductSearch\ProductSearchDependencyProvider;
@@ -20,12 +21,14 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      */
     public function createProductDataPageMapBuilder()
     {
+        // TODO: clean up dependencies to expanders after Thomas' PR is merged
         return new ProductDataPageMapBuilder(
             $this->getProductSearchFacade(),
             $this->getProductFacade(),
             $this->getPriceFacade(),
             $this->getProductImageQueryContainer(),
-            $this->createProductCategoryPartialPageMapBuilder()
+            $this->createProductCategoryPartialPageMapBuilder(),
+            $this->createProductPageMapExpanders()
         );
     }
 
@@ -86,6 +89,29 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function getProductCategoryQueryContainer()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
+    }
+
+    protected function createProductPageMapExpanders()
+    {
+        return [
+            $this->createProductLabelExpander(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductLabelExpander
+     */
+    protected function createProductLabelExpander()
+    {
+        return new ProductLabelExpander($this->getProductLabelFacade());
+    }
+
+    /**
+     * @return \Spryker\Zed\ProductLabel\Business\ProductLabelFacadeInterface
+     */
+    protected function getProductLabelFacade()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRODUCT_LABEL);
     }
 
 }

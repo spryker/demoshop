@@ -15,7 +15,8 @@
                             priceValue: relation.price,
                             originalPrice: (relation.prices.ORIGINAL is defined ? relation.prices.ORIGINAL : null),
                             product: relation,
-                            imageUrl: (relation.imageSets|length ? relation.imageSets.default[0].externalUrlSmall : '')
+                            imageUrl: (relation.imageSets|length ? relation.imageSets.default[0].externalUrlSmall : ''),
+                            productLabels: spyProductAbstractLabels(relation.idProductAbstract, '@Catalog/catalog/partials/product-labels.twig')
                         } %}
 
                     {% endfor %}
