@@ -32,7 +32,7 @@ use Pyz\Zed\DataImport\Business\Model\Product\AttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Pyz\Zed\DataImport\Business\Model\ProductAbstract\AddProductAbstractSkusStep;
-use Pyz\Zed\DataImport\Business\Model\ProductAbstract\ProductAbstractWriter;
+use Pyz\Zed\DataImport\Business\Model\ProductAbstract\ProductAbstractWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\ProductAttributeKeyWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductConcreteWriter;
@@ -59,6 +59,7 @@ use Spryker\Zed\Discount\DiscountConfig;
 
 /**
  * @method \Pyz\Zed\DataImport\DataImportConfig getConfig()
+ * @SuppressWarnings(PHPMD)
  */
 class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 {
@@ -511,24 +512,24 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getProductAbstractDataImporterConfiguration());
 
-        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(ProductAbstractWriter::BULK_SIZE);
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(ProductAbstractWriterStep::BULK_SIZE);
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
             ->addStep($this->createAddCategoryKeysStep())
-            ->addStep($this->createTaxSetNameToIdTaxSetStep(ProductAbstractWriter::KEY_TAX_SET_NAME))
+            ->addStep($this->createTaxSetNameToIdTaxSetStep(ProductAbstractWriterStep::KEY_TAX_SET_NAME))
             ->addStep($this->createAttributesExtractorStep())
             ->addStep($this->createProductLocalizedAttributesExtractorStep([
-                ProductAbstractWriter::KEY_NAME,
-                ProductAbstractWriter::KEY_URL,
-                ProductAbstractWriter::KEY_DESCRIPTION,
-                ProductAbstractWriter::KEY_META_TITLE,
-                ProductAbstractWriter::KEY_META_DESCRIPTION,
-                ProductAbstractWriter::KEY_META_KEYWORDS,
+                ProductAbstractWriterStep::KEY_NAME,
+                ProductAbstractWriterStep::KEY_URL,
+                ProductAbstractWriterStep::KEY_DESCRIPTION,
+                ProductAbstractWriterStep::KEY_META_TITLE,
+                ProductAbstractWriterStep::KEY_META_DESCRIPTION,
+                ProductAbstractWriterStep::KEY_META_KEYWORDS,
             ]))
-            ->addStep(new ProductAbstractWriter(
+            ->addStep(new ProductAbstractWriterStep(
                 $this->createProductRepository(),
                 $this->getTouchFacade(),
-                ProductAbstractWriter::BULK_SIZE
+                ProductAbstractWriterStep::BULK_SIZE
             ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);

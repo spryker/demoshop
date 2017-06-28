@@ -16,7 +16,6 @@ use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Shared\Product\ProductConfig;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
-use Spryker\Service\UtilText\UtilTextServiceInterface;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
@@ -24,7 +23,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
-class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInterface
+/**
+ * @SuppressWarnings(PHPMD)
+ */
+class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
     const BULK_SIZE = 100;

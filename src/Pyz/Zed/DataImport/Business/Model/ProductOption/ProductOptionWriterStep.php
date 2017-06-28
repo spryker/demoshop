@@ -24,6 +24,9 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\Glossary\GlossaryConfig;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
@@ -51,7 +54,7 @@ class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepIn
             ->findOneOrCreate();
 
         $productOptionGroupEntity
-            ->setActive($this->getIsActive($dataSet, $productOptionGroupEntity))
+            ->setActive($this->isActive($dataSet, $productOptionGroupEntity))
             ->setFkTaxSet($dataSet[TaxSetNameToIdTaxSetStep::KEY_TARGET])
             ->save();
 
@@ -96,7 +99,7 @@ class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepIn
      *
      * @return bool
      */
-    protected function getIsActive(DataSetInterface $dataSet, SpyProductOptionGroup $productOptionGroupEntity)
+    protected function isActive(DataSetInterface $dataSet, SpyProductOptionGroup $productOptionGroupEntity)
     {
         if (isset($dataSet[self::KEY_IS_ACTIVE])) {
             return isset($dataSet[self::KEY_IS_ACTIVE]);

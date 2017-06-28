@@ -25,6 +25,9 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
