@@ -35,6 +35,7 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     const KEY_ID_TAX_SET = 'idTaxSet';
     const KEY_ATTRIBUTES = 'attributes';
     const KEY_NAME = 'name';
+    const KEY_URL = 'url';
     const KEY_DESCRIPTION = 'description';
     const KEY_META_TITLE = 'meta_title';
     const KEY_META_DESCRIPTION = 'meta_description';
@@ -50,22 +51,15 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     protected $productRepository;
 
     /**
-     * @var \Spryker\Service\UtilText\UtilTextServiceInterface
-     */
-    protected $utilTextService;
-
-    /**
      * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
-     * @param \Spryker\Service\UtilText\UtilTextServiceInterface $utilTextService
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
      * @param int|null $bulkSize
      */
-    public function __construct(ProductRepository $productRepository, UtilTextServiceInterface $utilTextService, DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    public function __construct(ProductRepository $productRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
     {
         parent::__construct($touchFacade, $bulkSize);
 
         $this->productRepository = $productRepository;
-        $this->utilTextService = $utilTextService;
     }
 
     /**
@@ -81,7 +75,7 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
 
         $this->importProductAbstractLocalizedAttributes($dataSet, $productAbstractEntity);
         $this->importProductCategories($dataSet, $productAbstractEntity);
-        $this->importProductUrls($productAbstractEntity);
+        $this->importProductUrls($dataSet, $productAbstractEntity);
 
         $this->addMainTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productAbstractEntity->getIdProductAbstract());
         $this->addSubTouchable(ProductConfig::RESOURCE_TYPE_ATTRIBUTE_MAP, $productAbstractEntity->getIdProductAbstract());
@@ -104,7 +98,9 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
             ->setFkTaxSet($dataSet[static::KEY_ID_TAX_SET])
             ->setAttributes(json_encode($dataSet[static::KEY_ATTRIBUTES]));
 
-        $productAbstractEntity->save();
+        if ($productAbstractEntity->isNew() || $productAbstractEntity->isModified()) {
+            $productAbstractEntity->save();
+        }
 
         return $productAbstractEntity;
     }
@@ -131,7 +127,9 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
                 ->setMetaKeywords($localizedAttributes[static::KEY_META_KEYWORDS])
                 ->setAttributes(json_encode($localizedAttributes[static::KEY_ATTRIBUTES]));
 
-            $productAbstractLocalizedAttributesEntity->save();
+            if ($productAbstractLocalizedAttributesEntity->isNew() || $productAbstractLocalizedAttributesEntity->isModified()) {
+                $productAbstractLocalizedAttributesEntity->save();
+            }
         }
     }
 
@@ -205,27 +203,27 @@ class ProductAbstractWriter extends TouchAwareStep implements DataImportStepInte
     }
 
     /**
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
      *
      * @return void
      */
-    protected function importProductUrls(SpyProductAbstract $productAbstractEntity)
+    protected function importProductUrls(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
     {
-        foreach ($productAbstractEntity->getSpyProductAbstractLocalizedAttributess() as $spyProductAbstractLocalizedAttributes) {
-            $productName = $this->utilTextService->generateSlug($spyProductAbstractLocalizedAttributes->getName());
-            $localeName = $spyProductAbstractLocalizedAttributes->getLocale()->getLocaleName();
-            $url = '/' . mb_substr($localeName, 0, 2) . '/' . $productName . '-' . $productAbstractEntity->getIdProductAbstract();
-
+        foreach ($dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
             $urlEntity = SpyUrlQuery::create()
-                ->filterByFkLocale($spyProductAbstractLocalizedAttributes->getFkLocale())
-                ->filterByFkResourceProductAbstract($spyProductAbstractLocalizedAttributes->getFkProductAbstract())
+                ->filterByFkLocale($idLocale)
+                ->filterByFkResourceProductAbstract($productAbstractEntity->getIdProductAbstract())
                 ->findOneOrCreate();
 
             $urlEntity
-                ->setUrl($url)
-                ->save();
+                ->setUrl($localizedAttributes[static::KEY_URL]);
 
-            $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
+            if ($urlEntity->isNew() || $urlEntity->isModified()) {
+                $urlEntity->save();
+                $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
+            }
+
         }
     }
 

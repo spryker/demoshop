@@ -519,6 +519,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addStep($this->createAttributesExtractorStep())
             ->addStep($this->createProductLocalizedAttributesExtractorStep([
                 ProductAbstractWriter::KEY_NAME,
+                ProductAbstractWriter::KEY_URL,
                 ProductAbstractWriter::KEY_DESCRIPTION,
                 ProductAbstractWriter::KEY_META_TITLE,
                 ProductAbstractWriter::KEY_META_DESCRIPTION,
@@ -526,7 +527,6 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ]))
             ->addStep(new ProductAbstractWriter(
                 $this->createProductRepository(),
-                $this->getUtilTextService(),
                 $this->getTouchFacade(),
                 ProductAbstractWriter::BULK_SIZE
             ));
@@ -534,14 +534,6 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
-    }
-
-    /**
-     * @return \Spryker\Service\UtilText\UtilTextServiceInterface
-     */
-    protected function getUtilTextService()
-    {
-        return $this->getProvidedDependency(DataImportDependencyProvider::SERVICE_UTIL_TEXT);
     }
 
     /**
