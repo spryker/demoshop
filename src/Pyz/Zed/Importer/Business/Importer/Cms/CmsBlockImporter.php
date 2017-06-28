@@ -98,13 +98,14 @@ class CmsBlockImporter extends AbstractImporter
     }
 
     /**
+     * @deprecated
+     *
      * @param array $data
      *
      * @return void
      */
     protected function importOne(array $data)
     {
-        return;
     }
 
     /**

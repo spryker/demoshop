@@ -24,7 +24,7 @@ use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
 use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Cms\CmsConstants;
-use Spryker\Shared\CmsBlock\CmsBlockConstants;
+use Spryker\Shared\CmsBlock\CmsBlockConfig;
 use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConstants;
 use Spryker\Shared\CmsBlockProductConnector\CmsBlockProductConnectorConstants;
 use Spryker\Shared\Navigation\NavigationConfig;
@@ -146,7 +146,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 NavigationConfig::RESOURCE_TYPE_NAVIGATION_MENU => new NavigationMenuCollectorStoragePlugin(),
                 TranslationManager::TOUCH_TRANSLATION => new TranslationCollectorStoragePlugin(),
                 CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorStoragePlugin(),
-                CmsBlockConstants::RESOURCE_TYPE_CMS_BLOCK => new CmsBlockCollectorStoragePlugin(),
+                CmsBlockConfig::RESOURCE_TYPE_CMS_BLOCK => new CmsBlockCollectorStoragePlugin(),
                 CmsBlockCategoryConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR => new CmsBlockCategoryConnectorCollectorPlugin(),
                 CmsBlockProductConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_PRODUCT_CONNECTOR => new CmsBlockProductConnectorCollectorPlugin(),
                 UrlConfig::RESOURCE_TYPE_REDIRECT => new RedirectCollectorStoragePlugin(),
