@@ -9,13 +9,11 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Partial;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Collection\ObjectCollection;
 use Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer;
-use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedCategoryQueryExpanderPlugin;
 use Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
+use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedCategoryQueryExpanderPlugin;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 class ProductCategoryPartialPageMapBuilder
@@ -245,7 +243,8 @@ class ProductCategoryPartialPageMapBuilder
      *
      * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategory[]|\Propel\Runtime\Collection\ObjectCollection
      */
-    protected function findNodeEntitiesWithProductOrderPosition(array $directParentCategories, $idProductAbstract) {
+    protected function findNodeEntitiesWithProductOrderPosition(array $directParentCategories, $idProductAbstract)
+    {
         return $this
             ->productCategoryQueryContainer
             ->queryProductCategoryMappingsByIdAbstractProductAndIdsCategoryNode(
