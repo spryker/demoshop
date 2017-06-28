@@ -9346,11 +9346,11 @@
         },
         {
             "name": "spryker/product-option-cart-connector",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductOptionCartConnector.git",
-                "reference": "197696a53ffce27956806478126fa02e54d718e0",
+                "reference": "3f6ff80172e7d40133dc71d9b1d90a0641db0f89",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9360,8 +9360,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductOptionCartConnector/zipball/197696a53ffce27956806478126fa02e54d718e0",
-                "reference": "197696a53ffce27956806478126fa02e54d718e0",
+                "url": "https://api.github.com/repos/spryker/ProductOptionCartConnector/zipball/3f6ff80172e7d40133dc71d9b1d90a0641db0f89",
+                "reference": "3f6ff80172e7d40133dc71d9b1d90a0641db0f89",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9407,10 +9407,7 @@
                 "proprietary"
             ],
             "description": "ProductOptionCartConnector bundle",
-            "support": {
-                "source": "https://github.com/spryker/ProductOptionCartConnector/tree/master"
-            },
-            "time": "2017-06-15T10:24:23+00:00"
+            "time": "2017-06-27T08:29:22+00:00"
         },
         {
             "name": "spryker/product-relation",
@@ -10989,11 +10986,11 @@
         },
         {
             "name": "spryker/state-machine",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/StateMachine.git",
-                "reference": "ea8abb365d6848a595ce204766bed116c610b582",
+                "reference": "257f0097bb796095700787a34dca7e2d8eea0b13",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11003,8 +11000,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/ea8abb365d6848a595ce204766bed116c610b582",
-                "reference": "ea8abb365d6848a595ce204766bed116c610b582",
+                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/257f0097bb796095700787a34dca7e2d8eea0b13",
+                "reference": "257f0097bb796095700787a34dca7e2d8eea0b13",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11049,10 +11046,7 @@
                 "proprietary"
             ],
             "description": "StateMachine bundle",
-            "support": {
-                "source": "https://github.com/spryker/StateMachine/tree/2.0.1"
-            },
-            "time": "2017-04-06T13:52:45+00:00"
+            "time": "2017-06-26T14:53:05+00:00"
         },
         {
             "name": "spryker/step-engine",
