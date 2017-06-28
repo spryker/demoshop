@@ -18,6 +18,7 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     const FACADE_PRICE = 'price facade';
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
     const QUERY_CONTAINER_CATEGORY = 'category query container';
+    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -42,6 +43,10 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
 
         $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->queryContainer();
+        };
+
+        $container[static::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->productCategory()->queryContainer();
         };
 
         return $container;

@@ -29,6 +29,7 @@ class ProductCategoryImporter extends AbstractImporter
     const PRODUCT_ID = 'product_id';
     const VARIANT_ID = 'variant_id';
     const CATEGORY_KEY = 'category_key';
+    const CATEGORY_PRODUCT_ORDER = 'category_product_order';
     const RESULT_CATEGORY_ID = 'result_category_id';
     const RESULT_NODE_ID = 'result_node_id';
 
@@ -128,7 +129,9 @@ class ProductCategoryImporter extends AbstractImporter
         }
 
         $categoryKeys = explode(',', $product[self::CATEGORY_KEY]);
-        foreach ($categoryKeys as $categoryKey) {
+        $categoryProductOrderPositions = explode(',', $product[static::CATEGORY_PRODUCT_ORDER]);
+
+        foreach ($categoryKeys as $index => $categoryKey) {
             $idNodeAndCategory = $this->getIdNodeAndCategory($categoryKey);
             if (empty($idNodeAndCategory)) {
                 throw new LogicException(sprintf(
@@ -138,9 +141,15 @@ class ProductCategoryImporter extends AbstractImporter
                 ));
             }
 
+            $productOrder = null;
+            if (isset($categoryProductOrderPositions[$index])) {
+                $productOrder = (int)$categoryProductOrderPositions[$index];
+            }
+
             $this->createProductCategoryMapping(
                 $idProductAbstract,
-                $idNodeAndCategory[self::RESULT_CATEGORY_ID]
+                $idNodeAndCategory[self::RESULT_CATEGORY_ID],
+                $productOrder
             );
 
             $this->touchCategoryNodeActive($idNodeAndCategory[self::RESULT_NODE_ID]);
@@ -258,15 +267,20 @@ class ProductCategoryImporter extends AbstractImporter
     /**
      * @param int $idProductAbstract
      * @param int $idCategory
+     * @param int|null $productOrder
      *
      * @return void
      */
-    protected function createProductCategoryMapping($idProductAbstract, $idCategory)
+    protected function createProductCategoryMapping($idProductAbstract, $idCategory, $productOrder)
     {
         $mappingEntity = new SpyProductCategory();
         $mappingEntity
             ->setFkProductAbstract($idProductAbstract)
             ->setFkCategory($idCategory);
+
+        if ($productOrder !== null) {
+            $mappingEntity->setProductOrder($productOrder);
+        }
 
         $mappingEntity->save();
     }
