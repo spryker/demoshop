@@ -26,8 +26,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 class ProductDataPageMapBuilder
 {
 
-    const RESULT_FIELD_PRODUCT_ORDER = 'product_order';
-
     /**
      * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
      */

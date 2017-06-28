@@ -13,7 +13,9 @@ use Orm\Zed\ProductCategory\Persistence\Map\SpyProductCategoryTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Collection\ObjectCollection;
 use Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface;
+use Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedCategoryQueryExpanderPlugin;
+use Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 class ProductCategoryPartialPageMapBuilder
@@ -37,11 +39,20 @@ class ProductCategoryPartialPageMapBuilder
     protected $categoryQueryContainer;
 
     /**
-     * @param \Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @var \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
-    public function __construct(CategoryQueryContainerInterface $categoryQueryContainer)
-    {
+    protected $productCategoryQueryContainer;
+
+    /**
+     * @param \Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+     */
+    public function __construct(
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        ProductCategoryQueryContainerInterface $productCategoryQueryContainer
+    ) {
         $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->productCategoryQueryContainer = $productCategoryQueryContainer;
     }
 
     /**
@@ -186,7 +197,8 @@ class ProductCategoryPartialPageMapBuilder
     {
         static::$categoryName = [];
 
-        $categoryAttributes = $this->categoryQueryContainer
+        $categoryAttributes = $this
+            ->categoryQueryContainer
             ->queryCategoryAttributesByLocale($localeTransfer)
             ->useCategoryQuery()
                 ->filterByIsSearchable(true)
@@ -214,16 +226,15 @@ class ProductCategoryPartialPageMapBuilder
         $idProductAbstract,
         LocaleTransfer $localeTransfer
     ) {
-        $categoryNodeEntities = $this->findNodeEntitiesWithProductOrderPosition(
+        $productCategoryEntities = $this->findNodeEntitiesWithProductOrderPosition(
             $directParentCategories,
-            $idProductAbstract,
-            $localeTransfer
+            $idProductAbstract
         );
 
         $this->setSortingForDirectParents(
             $pageMapBuilder,
             $pageMapTransfer,
-            $categoryNodeEntities,
+            $productCategoryEntities,
             $localeTransfer
         );
     }
@@ -231,35 +242,23 @@ class ProductCategoryPartialPageMapBuilder
     /**
      * @param int[] $directParentCategories
      * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategory[]|\Propel\Runtime\Collection\ObjectCollection
      */
-    protected function findNodeEntitiesWithProductOrderPosition(
-        array $directParentCategories,
-        $idProductAbstract,
-        LocaleTransfer $localeTransfer
-    ) {
+    protected function findNodeEntitiesWithProductOrderPosition(array $directParentCategories, $idProductAbstract) {
         return $this
-            ->categoryQueryContainer
-            ->queryCategoryNode($localeTransfer->getIdLocale())
-            ->useCategoryQuery()
-                ->useSpyProductCategoryQuery()
-                    ->filterByFkProductAbstract($idProductAbstract)
-                    ->withColumn(
-                        SpyProductCategoryTableMap::COL_PRODUCT_ORDER,
-                        static::RESULT_FIELD_PRODUCT_ORDER
-                    )
-                ->endUse()
-            ->endUse()
-            ->filterByIdCategoryNode($directParentCategories, Criteria::IN)
+            ->productCategoryQueryContainer
+            ->queryProductCategoryMappingsByIdAbstractProductAndIdsCategoryNode(
+                $idProductAbstract,
+                $directParentCategories
+            )
             ->find();
     }
 
     /**
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
-     * @param \Orm\Zed\Category\Persistence\SpyCategoryNode[]|\Propel\Runtime\Collection\ObjectCollection $categoryNodeEntities
+     * @param \Orm\Zed\ProductCategory\Persistence\SpyProductCategory[]|\Propel\Runtime\Collection\ObjectCollection $productCategoryEntities
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return void
@@ -267,12 +266,14 @@ class ProductCategoryPartialPageMapBuilder
     protected function setSortingForDirectParents(
         PageMapBuilderInterface $pageMapBuilder,
         PageMapTransfer $pageMapTransfer,
-        ObjectCollection $categoryNodeEntities,
+        ObjectCollection $productCategoryEntities,
         LocaleTransfer $localeTransfer
     ) {
-        foreach ($categoryNodeEntities as $categoryNodeEntity) {
-            $idCategoryNode = $categoryNodeEntity->getIdCategoryNode();
-            $productOrder = (int)$categoryNodeEntity->getVirtualColumn(static::RESULT_FIELD_PRODUCT_ORDER);
+        foreach ($productCategoryEntities as $productCategoryEntity) {
+            $idCategoryNode = $productCategoryEntity->getVirtualColumn(
+                ProductCategoryQueryContainer::VIRT_COLUMN_ID_CATEGORY_NODE
+            );
+            $productOrder = (int)$productCategoryEntity->getProductOrder();
 
             if (!$productOrder) {
                 continue;

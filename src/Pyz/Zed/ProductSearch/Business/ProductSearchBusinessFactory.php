@@ -67,7 +67,8 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function createProductCategoryPartialPageMapBuilder()
     {
         return new ProductCategoryPartialPageMapBuilder(
-            $this->getCategoryQueryContainer()
+            $this->getCategoryQueryContainer(),
+            $this->getProductCategoryQueryContainer()
         );
     }
 
@@ -77,6 +78,14 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function getCategoryQueryContainer()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_CATEGORY);
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
+     */
+    protected function getProductCategoryQueryContainer()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
     }
 
 }
