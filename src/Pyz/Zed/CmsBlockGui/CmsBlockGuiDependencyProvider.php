@@ -8,8 +8,10 @@
 namespace Pyz\Zed\CmsBlockGui;
 
 use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CmsBlockCategoryFormPlugin;
+use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CmsBlockCategoryListViewPlugin;
 use Spryker\Zed\CmsBlockGui\CmsBlockGuiDependencyProvider as CmsBlockGuiCmsBlockGuiDependencyProvider;
 use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductAbstractFormPlugin;
+use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductAbstractListViewPlugin;
 
 class CmsBlockGuiDependencyProvider extends CmsBlockGuiCmsBlockGuiDependencyProvider
 {
@@ -26,6 +28,17 @@ class CmsBlockGuiDependencyProvider extends CmsBlockGuiCmsBlockGuiDependencyProv
         ]);
 
         return $plugins;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getCmsBlockViewPlugins()
+    {
+        return array_merge(parent::getCmsBlockViewPlugins(), [
+            new CmsBlockCategoryListViewPlugin(),
+            new CmsBlockProductAbstractListViewPlugin(),
+        ]);
     }
 
 }

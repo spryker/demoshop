@@ -12,7 +12,6 @@ use Pyz\Zed\Collector\Business\Search\CategoryNodeCollector as SearchCategoryNod
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\AttributeMapCollector;
 use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
-use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector as StorageCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;

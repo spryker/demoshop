@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Cms\Business;
 
-use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Cms\Business\CmsFacadeInterface as SprykerCmsFacadeInterface;
 
