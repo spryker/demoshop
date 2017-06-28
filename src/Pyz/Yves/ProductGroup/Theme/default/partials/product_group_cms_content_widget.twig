@@ -5,9 +5,9 @@
     } %}
 {% endif %}
 
-{% if product is defined and product.available %}
+{% if product is defined %}
 
-    {% include "@catalog/catalog/partials/product-without-groups.twig" with {
+    {% include "@catalog/catalog/partials/product.twig" with {
         idProductAbstract: product.idProductAbstract,
         detailsUrl: product.url,
         name: product.name,

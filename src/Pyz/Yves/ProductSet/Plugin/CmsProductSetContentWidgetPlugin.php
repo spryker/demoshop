@@ -70,25 +70,16 @@ class CmsProductSetContentWidgetPlugin extends AbstractPlugin implements CmsCont
      */
     protected function getContent(array $context, $productSetKeys)
     {
-        $cmsData = $this->getCmsContent($context);
+        $cmsContent = $this->getCmsContent($context);
 
-        $productSetKeyMap = $this->getProductSetKeyMap($cmsData);
+        $productSetKeyMap = $this->getProductSetKeyMap($cmsContent);
 
-        if (!is_array($productSetKeys)) {
-
-            $setKey = $productSetKeys;
-            if (!isset($productSetKeyMap[$setKey])) {
-                return [];
-            }
-
-            $productSet = $this->getProductSetStorageTransfer($productSetKeyMap[$setKey]);
-            return [
-                'productSet' => $productSet,
-                'storageProducts' => $this->mapStorageProducts($context, $productSet),
-            ];
+        if (is_array($productSetKeys) && count($productSetKeys) > 1) {
+            return $this->getProductSetList($context, $productSetKeys, $productSetKeyMap);
         }
 
-        return $this->getProductSetList($context, $productSetKeys, $productSetKeyMap);
+        $productSetKey = $this->extractProductSetKey($productSetKeys);
+        return $this->getSingleProductSet($context, $productSetKeyMap, $productSetKey);
     }
 
     /**
@@ -162,43 +153,68 @@ class CmsProductSetContentWidgetPlugin extends AbstractPlugin implements CmsCont
      *
      * @return array
      */
-    protected function getProductSetList(
-        array $context,
-        array $productSetKeys,
-        array $productSetKeyToIdMap
-    ) {
-
+    protected function getProductSetList(array $context, array $productSetKeys, array $productSetKeyToIdMap)
+    {
         $productSets = [];
-        $productSetKeyList = $productSetKeys;
-        $setNumber = 0;
-        foreach ($productSetKeyList as $setKey) {
-            if (!isset($productSetKeyToIdMap[$setKey])) {
+        foreach ($productSetKeys as $setKey) {
+            $productSet = $this->getSingleProductSet($context, $productSetKeyToIdMap, $setKey);
+            if (!isset($productSet['productSet'])) {
                 continue;
             }
 
-            $idProductSet = $productSetKeyToIdMap[$setKey];
-            $productSetStorageTransfer = $this->getProductSetStorageTransfer($idProductSet);
-
-            $productSets[$setNumber]['productSet'] = $productSetStorageTransfer;
-            $productSets[$setNumber]['storageProducts'] = $this->mapStorageProducts(
-                $context,
-                $productSetStorageTransfer
-            );
-
-            $setNumber++;
-
+            $productSets[] = $productSet;
         }
-        return ['productSetList' => $productSets];
+        return [
+            'productSetList' => $productSets,
+        ];
     }
 
     /**
      * @param int $idProductSet
      *
-     * @return \Generated\Shared\Transfer\ProductSetStorageTransfer
+     * @return \Generated\Shared\Transfer\ProductSetStorageTransfer|null
      */
     protected function getProductSetStorageTransfer($idProductSet)
     {
-        return $this->getClient()->getProductSetByIdProductSet($idProductSet);
+        return $this->getClient()->findProductSetByIdProductSet($idProductSet);
+    }
+
+    /**
+     * @param array $context
+     * @param array $productSetKeyMap
+     * @param string $setKey
+     *
+     * @return array
+     */
+    protected function getSingleProductSet(array $context, array $productSetKeyMap, $setKey)
+    {
+        if (!isset($productSetKeyMap[$setKey])) {
+            return [];
+        }
+
+        $productSet = $this->getProductSetStorageTransfer($productSetKeyMap[$setKey]);
+        if (!$productSet || !$productSet->getIsActive()) {
+            return [];
+        }
+
+        return [
+            'productSet' => $productSet,
+            'storageProducts' => $this->mapStorageProducts($context, $productSet),
+        ];
+    }
+
+    /**
+     * @param array|string $productSetKeys
+     *
+     * @return string
+     */
+    protected function extractProductSetKey($productSetKeys)
+    {
+        if (is_array($productSetKeys)) {
+            return array_shift($productSetKeys);
+        }
+
+        return $productSetKeys;
     }
 
 }

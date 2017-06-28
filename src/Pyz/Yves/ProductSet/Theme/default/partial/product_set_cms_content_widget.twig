@@ -10,8 +10,9 @@
         } %}
 
     {% endfor %}
+{% endif %}
 
-{% else %}
+{% if productSet is defined %}
 
     <h3>{{ productSet.name }}</h3>
 

@@ -72,9 +72,16 @@ class CmsProductContentWidgetPlugin extends AbstractPlugin implements CmsContent
 
         $skuMap = $this->getProductAbstractSkuMap($cmsContent);
         if (is_array($productAbstractSkuList)) {
-            return [
-                'products' => $this->collectProductAbstractList($productAbstractSkuList, $skuMap),
-            ];
+
+            $products = $this->collectProductAbstractList($productAbstractSkuList, $skuMap);
+            $numberOfCollectedProducts = count($products);
+            if ($numberOfCollectedProducts > 1) {
+                return ['products' => $products];
+            }
+            if ($numberOfCollectedProducts === 1) {
+                return ['product' => array_shift($products)];
+            }
+            return [];
         }
 
         $productAbstractSku = $productAbstractSkuList;
@@ -82,9 +89,12 @@ class CmsProductContentWidgetPlugin extends AbstractPlugin implements CmsContent
             return [];
         }
 
-        return [
-            'product' => $this->getProductAbstractByIsProductAbstract($skuMap[$productAbstractSku]),
-        ];
+        $storageProductTransfer = $this->findProductAbstractByIdProductAbstract($skuMap[$productAbstractSku]);
+        if (!$storageProductTransfer) {
+            return [];
+        }
+
+        return ['product' => $storageProductTransfer];
     }
 
     /**
@@ -120,7 +130,13 @@ class CmsProductContentWidgetPlugin extends AbstractPlugin implements CmsContent
             if (!isset($skuToProductAbstractIdMap[$sku])) {
                 continue;
             }
-            $products[] = $this->getProductAbstractByIsProductAbstract($skuToProductAbstractIdMap[$sku]);
+
+            $productStorageTransfer = $this->findProductAbstractByIdProductAbstract($skuToProductAbstractIdMap[$sku]);
+            if (!$productStorageTransfer || !$productStorageTransfer->getAvailable()) {
+                continue;
+            }
+
+            $products[] = $productStorageTransfer;
         }
         return $products;
     }
@@ -128,11 +144,15 @@ class CmsProductContentWidgetPlugin extends AbstractPlugin implements CmsContent
     /**
      * @param int $idProductAbstract
      *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     * @return \Generated\Shared\Transfer\StorageProductTransfer|null
      */
-    protected function getProductAbstractByIsProductAbstract($idProductAbstract)
+    protected function findProductAbstractByIdProductAbstract($idProductAbstract)
     {
         $productData = $this->getClient()->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract);
+
+        if (!$productData) {
+            return null;
+        }
 
         return $this->getFactory()
             ->createStorageProductMapperPlugin()
