@@ -18,6 +18,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CART_ADD = 'cart/add';
     const ROUTE_CART_REMOVE = 'cart/remove';
     const ROUTE_CART_CHANGE = 'cart/change';
+    const ROUTE_CART_UPDATE = 'cart/update';
     const ROUTE_CART_CHANGE_QUANTITY = 'cart/change/quantity';
     const ROUTE_CART_ADD_ITEMS = 'cart/add-items';
 
@@ -37,7 +38,8 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
         $controller = $this->createController('/{cart}', self::ROUTE_CART, 'Cart', 'Cart');
         $controller->assert('cart', $allowedLocalesPattern . 'cart|cart');
-        $controller->value('cart', 'cart');
+        $controller->value('cart', 'cart')
+            ->convert('selectedAttributes', [$this, 'getSelectedAttributesFromRequest']);
 
         $this->createPostController('/{cart}/add-items', self::ROUTE_CART_ADD_ITEMS, 'Cart', 'Cart', 'addItems')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
@@ -62,6 +64,17 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->assert('sku', self::SKU_PATTERN)
             ->convert('quantity', [$this, 'getQuantityFromRequest'])
             ->convert('groupKey', [$this, 'getGroupKeyFromRequest'])
+            ->method('POST');
+
+        $this->createController('/{cart}/update/{sku}', self::ROUTE_CART_UPDATE, 'Cart', 'Cart', 'update')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart')
+            ->assert('sku', self::SKU_PATTERN)
+            ->convert('quantity', [$this, 'getQuantityFromRequest'])
+            ->convert('groupKey', [$this, 'getGroupKeyFromRequest'])
+            ->convert('selectedAttributes', [$this, 'getSelectedAttributesFromRequest'])
+            ->convert('preselectedAttributes', [$this, 'getPreSelectedAttributesFromRequest'])
+            ->convert('optionValueIds', [$this, 'getProductOptionsFromRequest'])
             ->method('POST');
 
         $this->createController('/{cart}/voucher/add', self::ROUTE_CART_VOUCHER_ADD, 'Cart', 'Voucher', 'add')
@@ -90,6 +103,36 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         }
 
         return $request->query->getInt('quantity', 1);
+    }
+
+    /**
+     * @param mixed $unusedParameter
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return int
+     */
+    public function getSelectedAttributesFromRequest($unusedParameter, Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            return $request->request->get('selectedAttributes', []);
+        }
+
+        return $request->query->get('selectedAttributes', []);
+    }
+
+    /**
+     * @param mixed $unusedParameter
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return int
+     */
+    public function getPreSelectedAttributesFromRequest($unusedParameter, Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            return $request->request->get('preselectedAttributes', []);
+        }
+
+        return $request->query->get('preselectedAttributes', []);
     }
 
     /**
