@@ -9,11 +9,11 @@ namespace Pyz\Yves\Twig;
 
 use Pyz\Yves\Catalog\Plugin\TwigCatalogActiveSearchFilterFunctions;
 use Pyz\Yves\Cms\Plugin\TwigCms;
-use Pyz\Yves\CmsBlock\Plugin\TwigCmsBlock;
-use Pyz\Yves\CmsBlock\Plugin\TwigCmsBlockPlaceholder;
 use Pyz\Yves\Customer\Plugin\TwigCustomer;
 use Pyz\Yves\Twig\Plugin\TwigAsset;
 use Pyz\Yves\Twig\Plugin\TwigNative;
+use Spryker\Yves\CmsBlock\Twig\Plugin\TwigCmsBlock;
+use Spryker\Yves\CmsBlock\Twig\Plugin\TwigCmsBlockPlaceholder;
 
 class TwigSettings
 {

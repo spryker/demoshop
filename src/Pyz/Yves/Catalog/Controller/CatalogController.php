@@ -37,6 +37,7 @@ class CatalogController extends AbstractController
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
         $metaAttributes = [
+            'idCategory' => $parameters['category'],
             'category' => $categoryNode,
             'page_title' => $pageTitle,
             'page_description' => $categoryNode['meta_description'],

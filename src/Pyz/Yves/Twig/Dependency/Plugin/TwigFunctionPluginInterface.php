@@ -8,15 +8,9 @@
 namespace Pyz\Yves\Twig\Dependency\Plugin;
 
 use Silex\Application;
+use Spryker\Yves\Twig\Plugin\TwigFunctionPluginInterface as SprykerTwigFunctionPluginInterface;
 
-interface TwigFunctionPluginInterface
+interface TwigFunctionPluginInterface extends SprykerTwigFunctionPluginInterface
 {
-
-    /**
-     * @param \Silex\Application $application
-     *
-     * @return \Twig_SimpleFunction[]
-     */
-    public function getFunctions(Application $application);
 
 }
