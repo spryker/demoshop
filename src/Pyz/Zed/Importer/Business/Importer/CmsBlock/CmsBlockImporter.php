@@ -121,7 +121,7 @@ class CmsBlockImporter extends AbstractImporter
 
         $this->cmsBlockFacade->createCmsBlock($cmsBlockTransfer);
 
-        foreach ($this->placeholderLocalesToImport as $localeName => $value) {
+        foreach (array_keys($this->placeholderLocalesToImport) as $localeName) {
             $locale = $this->localeFacade->getLocale($localeName);
 
             if (!$locale) {
