@@ -7307,11 +7307,11 @@
         },
         {
             "name": "spryker/navigation-gui",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationGui.git",
-                "reference": "af61671bf8a3e00da9e75ba5c6c6cf4cc216d63c",
+                "reference": "014638fd32d5e68ad2d2a2183501fc7db4642f3e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7321,8 +7321,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/af61671bf8a3e00da9e75ba5c6c6cf4cc216d63c",
-                "reference": "af61671bf8a3e00da9e75ba5c6c6cf4cc216d63c",
+                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/014638fd32d5e68ad2d2a2183501fc7db4642f3e",
+                "reference": "014638fd32d5e68ad2d2a2183501fc7db4642f3e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7370,7 +7370,10 @@
                 "proprietary"
             ],
             "description": "NavigationGui bundle",
-            "time": "2017-05-12T13:20:02+00:00"
+            "support": {
+                "source": "https://github.com/spryker/NavigationGui/tree/master"
+            },
+            "time": "2017-06-15T14:51:49+00:00"
         },
         {
             "name": "spryker/new-relic",
@@ -10535,11 +10538,11 @@
         },
         {
             "name": "spryker/search",
-            "version": "6.0.1",
+            "version": "6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Search.git",
-                "reference": "fd5a255d5e904ee5cabe7e5fbe87dccdea23242a",
+                "reference": "86359efde7f649c4f0addc93a6e9a84b8a3adfc5",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10549,8 +10552,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Search/zipball/fd5a255d5e904ee5cabe7e5fbe87dccdea23242a",
-                "reference": "fd5a255d5e904ee5cabe7e5fbe87dccdea23242a",
+                "url": "https://api.github.com/repos/spryker/Search/zipball/86359efde7f649c4f0addc93a6e9a84b8a3adfc5",
+                "reference": "86359efde7f649c4f0addc93a6e9a84b8a3adfc5",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10600,10 +10603,7 @@
                 "proprietary"
             ],
             "description": "Search bundle",
-            "support": {
-                "source": "https://github.com/spryker/Search/tree/master"
-            },
-            "time": "2017-02-28T09:23:50+00:00"
+            "time": "2017-06-23T08:55:28+00:00"
         },
         {
             "name": "spryker/sequence-number",
@@ -15996,16 +15996,16 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea"
+                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
-                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
+                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
                 "shasum": ""
             },
             "require": {
@@ -16035,7 +16035,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-02T10:23:39+00:00"
+            "time": "2017-06-28T10:19:12+00:00"
         },
         {
             "name": "spryker/code-sniffer",
