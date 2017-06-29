@@ -72,7 +72,7 @@ class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
     }
 
     /**
-     * @param $priceField
+     * @param string $priceField
      *
      * @return \Elastica\Query\BoolQuery
      */
@@ -90,7 +90,7 @@ class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
     }
 
     /**
-     * @param $priceField
+     * @param string $priceField
      *
      * @return \Elastica\Query\Term
      */
