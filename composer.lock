@@ -1647,6 +1647,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
@@ -1673,6 +1674,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
 =======
@@ -1700,6 +1703,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
 =======
@@ -1727,6 +1732,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
 =======
@@ -1754,6 +1761,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ea82a49283255b6cc85bd3f4d9bae555d8aee89b"
 =======
@@ -1781,6 +1790,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "93c1d5f3b441a94e25208bd2e632c34aaf4567aa"
 =======
@@ -1808,6 +1819,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "e7f2398737cfc544be8e3fb40563bdcfae0caff5"
 =======
@@ -2506,12 +2519,33 @@
                 "reference": "320cc505c6cd14dd04f99abfaba668d46ac5ee9a"
 >>>>>>> core-1251 update spryker/srpyker
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "428762b5e45bb080f6d0b8789490a11529bd5485"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2700,6 +2734,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
 =======
 =======
@@ -2726,6 +2761,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-18 10:17:22"
 =======
@@ -2753,6 +2790,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-12 15:07:34"
 =======
@@ -2780,6 +2819,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-11 16:21:14"
 =======
@@ -2807,6 +2848,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-11 12:31:33"
 =======
@@ -2834,6 +2877,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-03 12:18:51"
 =======
@@ -2861,6 +2906,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-03 09:27:02"
 =======
@@ -3559,12 +3606,33 @@
             "time": "2017-06-29 11:18:02"
 >>>>>>> core-1251 update spryker/srpyker
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-06-29 13:05:07"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9085,39 +9153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
                 "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
-=======
-                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/b33c464eb25d115e10f6e206d9e8bb777d1cf658",
-                "reference": "b33c464eb25d115e10f6e206d9e8bb777d1cf658",
->>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
-=======
-                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
-                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
->>>>>>> core-1251 update spryker/spryker
-=======
-                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
-                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
->>>>>>> core-1251 update spryker/srpyker
                 "shasum": ""
             },
             "require": {
@@ -9151,6 +9192,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-06-28T10:19:12+00:00"
 =======
 =======
@@ -9159,6 +9201,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-28 10:19:12"
 =======
@@ -9197,7 +9241,13 @@
             "time": "2017-06-28 10:19:12"
 >>>>>>> core-1251 update spryker/srpyker
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+=======
+=======
+            "time": "2017-06-28 10:19:12"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "spryker/code-sniffer",
@@ -9205,6 +9255,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -9271,14 +9322,19 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 =======
+=======
+>>>>>>> core-1251 update spryker/spryker
                 "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b26a5262069333b5734e52c0bf0acf3a7860b6ea",
                 "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea",
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -9318,6 +9374,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-17 14:09:59"
 =======
 =======
@@ -9330,6 +9387,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 update spryker/srpyker
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-06-27 13:05:34"
 =======
@@ -9414,7 +9473,13 @@
             "time": "2017-06-27 13:05:34"
 >>>>>>> core-1251 update spryker/srpyker
 >>>>>>> core-1251 update spryker/srpyker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/srpyker
+=======
+=======
+            "time": "2017-06-27 13:05:34"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "squizlabs/php_codesniffer",
