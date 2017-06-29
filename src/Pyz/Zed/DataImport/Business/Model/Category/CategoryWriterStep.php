@@ -16,6 +16,7 @@ use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository;
+use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepositoryInterface;
 use Pyz\Zed\DataImport\Business\Model\Locale\AddLocalesStep;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Spryker\Zed\Category\CategoryConfig;
@@ -41,15 +42,15 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
     const KEY_PARENT_CATEGORY_KEY = 'parent_category_key';
 
     /**
-     * @var \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository
+     * @var \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepositoryInterface
      */
     protected $categoryRepository;
 
     /**
-     * @param \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository $categoryRepository
+     * @param \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepositoryInterface $categoryRepository
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
      */
-    public function __construct(CategoryRepository $categoryRepository, DataImportToTouchInterface $touchFacade)
+    public function __construct(CategoryRepositoryInterface $categoryRepository, DataImportToTouchInterface $touchFacade)
     {
         parent::__construct($touchFacade, static::BULK_SIZE);
 

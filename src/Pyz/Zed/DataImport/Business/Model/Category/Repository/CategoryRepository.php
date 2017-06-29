@@ -14,11 +14,13 @@ use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\DataImport\Business\Exception\CategoryByKeyNotFoundException;
 
-class CategoryRepository
+class CategoryRepository implements CategoryRepositoryInterface
 {
 
+    const ID_CATEGORY_NODE = 'id_category_node';
     const ID_LOCALE = 'idLocale';
     const URL = 'url';
+    const ID_CATEGORY = 'id_category';
 
     /**
      * @var \ArrayObject
@@ -93,7 +95,30 @@ class CategoryRepository
             ));
         }
 
-        return $this->categoryKeys[$categoryKey];
+        return $this->categoryKeys[$categoryKey][static::ID_CATEGORY_NODE];
+    }
+
+    /**
+     * @param string $categoryKey
+     *
+     * @throws \Pyz\Zed\DataImport\Business\Exception\CategoryByKeyNotFoundException
+     *
+     * @return int
+     */
+    public function getIdCategoryByCategoryKey($categoryKey)
+    {
+        if ($this->categoryKeys->count() === 0) {
+            $this->loadCategoryKeys();
+        }
+
+        if (!$this->categoryKeys->offsetExists($categoryKey)) {
+            throw new CategoryByKeyNotFoundException(sprintf(
+                'Category by key "%s" not found. Maybe you have a typo in the category key.',
+                $categoryKey
+            ));
+        }
+
+        return $this->categoryKeys[$categoryKey][static::ID_CATEGORY];
     }
 
     /**
@@ -106,7 +131,10 @@ class CategoryRepository
             ->find();
 
         foreach ($categoryNodeEntityCollection as $categoryNodeEntity) {
-            $this->categoryKeys[$categoryNodeEntity->getCategory()->getCategoryKey()] = $categoryNodeEntity->getIdCategoryNode();
+            $this->categoryKeys[$categoryNodeEntity->getCategory()->getCategoryKey()] = [
+                static::ID_CATEGORY_NODE => $categoryNodeEntity->getIdCategoryNode(),
+                static::ID_CATEGORY => $categoryNodeEntity->getCategory()->getIdCategory(),
+            ];
         }
     }
 

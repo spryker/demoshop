@@ -221,11 +221,19 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCmsBlockDataImporterConfiguration());
 
-        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(CmsPageWriterStep::BULK_SIZE);
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(CmsBlockWriterStep::BULK_SIZE);
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
-            ->addStep($this->createPlaceholderExtractorStep())
-            ->addStep(new CmsBlockWriterStep($this->getTouchFacade(), CmsPageWriterStep::BULK_SIZE));
+            ->addStep($this->createLocalizedAttributesExtractorStep([
+                CmsBlockWriterStep::KEY_PLACEHOLDER_TITLE,
+                CmsBlockWriterStep::KEY_PLACEHOLDER_DESCRIPTION,
+            ]))
+            ->addStep(new CmsBlockWriterStep(
+                $this->createCategoryRepository(),
+                $this->createProductRepository(),
+                $this->getTouchFacade(),
+                CmsBlockWriterStep::BULK_SIZE
+            ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
