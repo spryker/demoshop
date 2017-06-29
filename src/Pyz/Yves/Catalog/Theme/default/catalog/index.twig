@@ -11,4 +11,8 @@
 
 {% block content %}
     {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.getPathInfo()} %}
+
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory}) }}
+    </div>
 {% endblock %}

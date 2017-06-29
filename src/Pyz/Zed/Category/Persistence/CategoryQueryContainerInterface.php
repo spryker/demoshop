@@ -8,8 +8,9 @@
 namespace Pyz\Zed\Category\Persistence;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface as SprykerCategoryQueryContainerInterface;
 
-interface CategoryQueryContainerInterface
+interface CategoryQueryContainerInterface extends SprykerCategoryQueryContainerInterface
 {
 
     /**

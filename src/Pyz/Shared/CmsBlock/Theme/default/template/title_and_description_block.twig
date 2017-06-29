@@ -1,0 +1,11 @@
+{% block content %}
+    <!-- CMS_BLOCK_PLACEHOLDER : "title" -->
+    <!-- CMS_BLOCK_PLACEHOLDER : "description" -->
+    <div class="small-12 columns">
+        <div class="callout">
+            <h1>{{ spyCmsBlockPlaceholder('title') | raw }}</h1>
+            <div class="row">{{ spyCmsBlockPlaceholder('description') | raw }}</div>
+        </div>
+    </div>
+{% endblock %}
+

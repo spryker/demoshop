@@ -103,12 +103,14 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
+        $attributes = $this->getConcreteAttributes($collectItemData);
+
         return [
             StorageProductTransfer::ID_PRODUCT_CONCRETE => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             StorageProductTransfer::ID_PRODUCT_ABSTRACT => $collectItemData[self::ID_PRODUCT_ABSTRACT],
             StorageProductTransfer::NAME => $collectItemData[self::NAME],
             StorageProductTransfer::DESCRIPTION => $this->getDescription($collectItemData),
-            StorageProductTransfer::ATTRIBUTES => $this->getConcreteAttributes($collectItemData),
+            StorageProductTransfer::ATTRIBUTES => $attributes,
             StorageProductTransfer::SKU => $collectItemData[self::SKU],
             StorageProductTransfer::QUANTITY => $collectItemData[self::QUANTITY],
             StorageProductTransfer::IMAGE_SETS => $this->generateProductConcreteImageSets(
@@ -120,7 +122,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
             StorageProductTransfer::URL => $collectItemData[self::URL],
-            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes(),
+            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes($attributes),
         ];
     }
 
@@ -210,43 +212,37 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     }
 
     /**
+     * @param array $attributes
+     *
      * @return array
      */
-    protected function getSuperAttributes()
+    protected function getVariantSuperAttributes(array $attributes)
     {
-        if ($this->superAttributes) {
-            return $this->superAttributes;
+        if (!$this->superAttributes) {
+            $superAttributes = SpyProductAttributeKeyQuery::create()
+                ->filterByIsSuper(true)
+                ->find();
+
+            foreach ($superAttributes as $attribute) {
+                $this->superAttributes[$attribute->getKey()] = true;
+            }
         }
 
-        $superAttributes = SpyProductAttributeKeyQuery::create()
-            ->filterByIsSuper(true)
-            ->find();
-
-        foreach ($superAttributes as $attribute) {
-            $this->superAttributes[] = $attribute->getKey();
-        }
-
-        return $this->superAttributes;
+        return $this->filterVariantSuperAttributes($attributes);
     }
 
     /**
+     * @param array $attributes
+     *
      * @return array
      */
-    protected function getVariantSuperAttributes()
+    protected function filterVariantSuperAttributes(array $attributes)
     {
-        if ($this->superAttributes) {
-            return $this->superAttributes;
-        }
+        $variantSuperAttributes = array_filter($attributes, function ($key) {
+            return isset($this->superAttributes[$key]);
+        }, ARRAY_FILTER_USE_KEY);
 
-        $superAttributes = SpyProductAttributeKeyQuery::create()
-            ->filterByIsSuper(true)
-            ->find();
-
-        foreach ($superAttributes as $attribute) {
-            $this->superAttributes[] = $attribute->getKey();
-        }
-
-        return $this->superAttributes;
+        return array_keys($variantSuperAttributes);
     }
 
 }
