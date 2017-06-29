@@ -27,6 +27,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_ATTRIBUTE_KEY = 'product-attribute-key';
     const IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE = 'product-management-attribute';
     const IMPORT_TYPE_PRODUCT_RELATION = 'product-relation';
+    const IMPORT_TYPE_PRODUCT_LABEL = 'product-label';
     const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
     const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
     const IMPORT_TYPE_PRODUCT_IMAGE = 'product-image';
@@ -173,6 +174,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductRelationDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_relation.csv', static::IMPORT_TYPE_PRODUCT_RELATION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductLabelDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_label.csv', static::IMPORT_TYPE_PRODUCT_LABEL);
     }
 
     /**

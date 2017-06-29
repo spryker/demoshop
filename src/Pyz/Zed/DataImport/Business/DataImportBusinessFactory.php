@@ -38,6 +38,7 @@ use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\ProductAttributeKeyWri
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductConcreteWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductGroup\ProductGroupWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductImage\ProductImageWriterStep;
+use Pyz\Zed\DataImport\Business\Model\ProductLabel\ProductLabelWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute\ProductManagementAttributeWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute\ProductManagementLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductOption\ProductOptionWriterStep;
@@ -91,6 +92,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createProductGroupImporter())
             ->addDataImporter($this->createProductPriceImporter())
             ->addDataImporter($this->createProductRelationImporter())
+            ->addDataImporter($this->createProductLabelImporter())
             ->addDataImporter($this->createProductSearchAttributeMapImporter())
             ->addDataImporter($this->createProductSearchAttributeImporter())
             ->addDataImporter($this->createShipmentImporter())
@@ -645,6 +647,25 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
         $dataImporter->addAfterImportHook($this->createProductRelationAfterImportHook());
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createProductLabelImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getProductLabelDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep($this->createAddProductAbstractSkusStep())
+            ->addStep($this->createAddLocalesStep())
+            ->addStep($this->createLocalizedAttributesExtractorStep(['name']))
+            ->addStep(new ProductLabelWriter());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
     }
