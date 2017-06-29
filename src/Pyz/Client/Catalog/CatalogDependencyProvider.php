@@ -99,6 +99,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new CompletionQueryExpanderPlugin(),
             new SuggestionByTypeQueryExpanderPlugin(),
             new IsActiveQueryExpanderPlugin(),
+            new \Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\IsActiveInDateRangeQueryExpanderPlugin(),
         ];
     }
 
