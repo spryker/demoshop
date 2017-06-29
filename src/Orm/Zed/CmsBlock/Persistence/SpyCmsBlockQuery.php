@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\Cms\Persistence;
+namespace Orm\Zed\CmsBlock\Persistence;
 
-use Spryker\Zed\Cms\Persistence\Propel\AbstractSpyCmsBlockQuery as BaseSpyCmsBlockQuery;
+use Spryker\Zed\CmsBlock\Persistence\Propel\AbstractSpyCmsBlockQuery as BaseSpyCmsBlockQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_cms_block' table.
@@ -12,7 +12,9 @@ use Spryker\Zed\Cms\Persistence\Propel\AbstractSpyCmsBlockQuery as BaseSpyCmsBlo
  * You should add additional methods to this class to meet the
  * application requirements.  This class will only be generated as
  * long as it does not already exist in the output directory.
+ *
  */
 class SpyCmsBlockQuery extends BaseSpyCmsBlockQuery
 {
+
 }

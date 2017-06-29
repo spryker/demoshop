@@ -216,4 +216,20 @@ abstract class AbstractFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_SET);
     }
 
+    /**
+     * @return \Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface
+     */
+    protected function getCmsBlockFacade()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_CMS_BLOCK);
+    }
+
+    /**
+     * @return \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface
+     */
+    protected function getCmsBlockQueryContainer()
+    {
+        return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_CMS_BLOCK);
+    }
+
 }

@@ -12,7 +12,6 @@ use Pyz\Zed\Collector\Business\Search\CategoryNodeCollector as SearchCategoryNod
 use Pyz\Zed\Collector\Business\Search\ProductCollector as SearchProductCollector;
 use Pyz\Zed\Collector\Business\Storage\AttributeMapCollector;
 use Pyz\Zed\Collector\Business\Storage\AvailabilityCollector;
-use Pyz\Zed\Collector\Business\Storage\BlockCollector;
 use Pyz\Zed\Collector\Business\Storage\CategoryNodeCollector as StorageCategoryNodeCollector;
 use Pyz\Zed\Collector\Business\Storage\NavigationCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductAbstractCollector as StorageProductCollector;
@@ -25,7 +24,6 @@ use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
-use Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery as StorageBlockCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\TranslationCollectorQuery as StorageTranslationCollectorPropelQuery;
 use Spryker\Shared\SqlCriteriaBuilder\CriteriaBuilder\CriteriaBuilderDependencyContainer;
@@ -222,26 +220,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Business\Storage\BlockCollector
-     */
-    public function createStorageBlockCollector()
-    {
-        $storageBlockCollector = new BlockCollector(
-            $this->getUtilDataReaderService()
-        );
-
-        $storageBlockCollector->setTouchQueryContainer(
-            $this->getTouchQueryContainer()
-        );
-        $storageBlockCollector->setQueryBuilder(
-            $this->createStorageBlockCollectorPropelQuery()
-        );
-        $storageBlockCollector->setConfig($this->getConfig());
-
-        return $storageBlockCollector;
-    }
-
-    /**
      * @return \Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector
      */
     public function createStorageProductConcreteCollector()
@@ -396,16 +374,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createProductOptionCollectorPropelQuery()
     {
         return new ProductOptionCollectorQuery(
-            $this->getUtilDataReaderService()
-        );
-    }
-
-    /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Propel\BlockCollectorQuery
-     */
-    public function createStorageBlockCollectorPropelQuery()
-    {
-        return new StorageBlockCollectorPropelQuery(
             $this->getUtilDataReaderService()
         );
     }
