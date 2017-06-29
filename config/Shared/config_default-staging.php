@@ -7,10 +7,8 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 
-$config[ApplicationConstants::CLOUD_ENABLED] = true;
-$config[ApplicationConstants::CLOUD_OBJECT_STORAGE_ENABLED] = true;
-$config[ApplicationConstants::CLOUD_CDN_ENABLED] = true;
+// ---------- General
+$config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
 
-$config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
-$config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
+// ---------- Auto-loader
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = true;

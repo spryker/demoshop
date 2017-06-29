@@ -147,7 +147,6 @@ class StepFactory extends SprykerStepFactory
     protected function createSummaryStep()
     {
         return new SummaryStep(
-            $this->getCalculationClient(),
             $this->createProductBundleGrouper(),
             $this->getCartClient(),
             CheckoutControllerProvider::CHECKOUT_SUMMARY,

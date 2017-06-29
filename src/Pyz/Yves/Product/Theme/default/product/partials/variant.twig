@@ -1,0 +1,31 @@
+{% block variant %}
+    <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}: </strong>
+
+        {% if product.selectedAttributes[attributeName] is defined and product.selectedAttributes[attributeName] %}
+            {{ product.selectedAttributes[attributeName] }}
+
+            <a class="js-reset-variant-attribute">{{ 'reset' | trans }}</a>
+
+            <input name="{{ attributeFieldName }}" value="{{ product.selectedAttributes[attributeName] }}" type="hidden" class="js-variant-attribute-field" />
+        {% else %}
+
+            {% if attributeName in product.availableAttributes|keys %}
+                {% set attributes = product.availableAttributes[attributeName] %}
+            {% endif %}
+
+            {% if product.availableAttributes[attributeName] is not defined and product.selectedAttributes|length > 0 %}
+                {{ 'product.attribute.not_available' | trans }}
+            {% else %}
+                <select name="{{ attributeFieldName }}" onchange="this.form.submit()">
+                    <option value="">{{ 'product.attribute._none' | trans }}</option>
+
+                    {% for attribute in attributes %}
+                        <option value="{{ attribute }}">
+                            {{ attribute }}
+                        </option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+        {% endif %}
+    </label>
+{% endblock %}

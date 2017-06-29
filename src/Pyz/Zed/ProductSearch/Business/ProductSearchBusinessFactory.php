@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\ProductSearch\Business;
 
+use Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder;
 use Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder;
 use Pyz\Zed\ProductSearch\ProductSearchDependencyProvider;
 use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
@@ -24,7 +25,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
             $this->getProductFacade(),
             $this->getPriceFacade(),
             $this->getProductImageQueryContainer(),
-            $this->getCategoryQueryContainer()
+            $this->createProductCategoryPartialPageMapBuilder()
         );
     }
 
@@ -61,11 +62,30 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Partial\ProductCategoryPartialPageMapBuilder
+     */
+    protected function createProductCategoryPartialPageMapBuilder()
+    {
+        return new ProductCategoryPartialPageMapBuilder(
+            $this->getCategoryQueryContainer(),
+            $this->getProductCategoryQueryContainer()
+        );
+    }
+
+    /**
      * @return \Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface
      */
     protected function getCategoryQueryContainer()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_CATEGORY);
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
+     */
+    protected function getProductCategoryQueryContainer()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::QUERY_CONTAINER_PRODUCT_CATEGORY);
     }
 
 }

@@ -14,7 +14,9 @@ use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartBundleAvailabilityPr
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartItemWithBundleGroupKeyExpanderPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartPostSaveUpdateBundlesPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\ExpandBundleItemsPlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\ExpandBundleItemsWithImagesPlugin;
 use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
+use Spryker\Zed\ProductImageCartConnector\Communication\Plugin\ProductImageCartPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOptionQuantityPlugin;
@@ -34,18 +36,20 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemPricePlugin(),
             new CartItemProductOptionPlugin(),
             new ExpandBundleItemsPlugin(),
+            new ExpandBundleItemsWithImagesPlugin(),
             new SkuGroupKeyPlugin(),
             new CartItemGroupKeyOptionPlugin(),
             new CartItemWithBundleGroupKeyExpanderPlugin(),
+            new ProductImageCartPlugin(),
         ];
     }
 
     /**
-     * @param \Spryker\Zed\Kernel\Container $containter
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Cart\Dependency\CartPreCheckPluginInterface[]
      */
-    protected function getCartPreCheckPlugins(Container $containter)
+    protected function getCartPreCheckPlugins(Container $container)
     {
         return [
             new CartBundleAvailabilityPreCheckPlugin(),

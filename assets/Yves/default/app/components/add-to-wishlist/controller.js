@@ -40,7 +40,6 @@ module.exports = {
                 wishlistCollection: response
             });
 
-            // TODO: ask Alessandro why do I need to set a timeout here to be able to find the options in the new content.
             setTimeout(function(){
                 that.autoSelectWishlistOption()
             }, 0);

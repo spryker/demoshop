@@ -51,6 +51,8 @@
                                 </div>
                             {% endfor %}
                         </div>
+                        {{ spyProductLabels(product.getIdProductAbstract(), '@Product/product/partials/product-labels.twig') }}
+
                     </div>
                 </div>
                 <div class="row">
@@ -58,7 +60,7 @@
                         <div class="row">
                             {% for image in product.images %}
                                 <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.externalUrlLarge }}" target="_blank" data-viewer-show="{{ image.externalUrlLarge }}">
-                                    <span class="thumbnail __preview-image __preview-image--small">
+                                    <span class="thumbnail __preview-image __preview-image--small __no-margin-bottom">
                                         <img src="{{ image.externalUrlLarge }}">
                                     </span>
                                 </a>
@@ -84,18 +86,10 @@
 
             {{ spyProductGroupItems(product.idProductAbstract, '@Product/product/partials/product-group.twig') }}
 
-            {% set available = false %}
-
-            {% if availability.concreteProductAvailableItems[product.sku] is defined %}
-                {% if availability.concreteProductAvailableItems[product.sku] %}
-                    {% set available = true %}
-                {% endif %}
-            {% endif %}
-
             <form method="POST" action="/cart/add/{{ product.sku }}">
                 {% include '@Product/product/partials/product-options.twig' %}
                 <div>
-                    <button type="submit" class="button expanded success" {{ (not product.isVariant or not available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                    <button type="submit" class="button expanded success" {{ (not product.isVariant or not product.available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
                         <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
                     </button>
 
@@ -103,7 +97,7 @@
                 </div>
             </form>
 
-            {% if not available and product.isVariant %}
+            {% if not product.available %}
                 <p>
                     <strong>{{ "product.detail.out_of_stock" | trans }}</strong>
                 </p>
@@ -135,4 +129,7 @@
 
     {{ product_relation("related-products", {idProductAbstract : product.idProductAbstract}, 'Similar products', '@ProductRelation/partial/product_relation_carousel.twig') }}
 
+    <div class="row">
+        {{ spyCmsBlock({product_abstract: product.idProductAbstract}) }}
+    </div>
 {% endblock %}

@@ -132,6 +132,7 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
             ->select([
                 SpyProductTableMap::COL_ID_PRODUCT,
                 SpyProductTableMap::COL_ATTRIBUTES,
+                SpyProductTableMap::COL_SKU,
             ])
             ->withColumn(SpyProductLocalizedAttributesTableMap::COL_ATTRIBUTES, 'localized_attributes')
             ->useSpyProductLocalizedAttributesQuery()
@@ -238,11 +239,13 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
      */
     protected function filterConcreteProductIds(array $concreteProducts)
     {
-        $concreteProductIds = array_map(function ($product) {
-            return $product[SpyProductTableMap::COL_ID_PRODUCT];
-        }, $concreteProducts);
+        $concreteProductIds = [];
 
-        sort($concreteProductIds);
+        foreach ($concreteProducts as $product) {
+            $concreteProductIds[$product[SpyProductTableMap::COL_SKU]] = $product[SpyProductTableMap::COL_ID_PRODUCT];
+        }
+
+        asort($concreteProductIds);
 
         return $concreteProductIds;
     }
