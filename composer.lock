@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bd2ce780d11c41c4c415b3a5ec56cce",
+    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1535,11 +1535,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1201-cms-block-improvements",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "13563098b00e22b2e2997f5a1798bfc44cd7b6e6"
+                "reference": "094b35934fa9184529ba398ca38c268cd60b9731"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1567,11 +1567,6 @@
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
                 "spryker/cms": "*",
-                "spryker/cms-block": "*",
-                "spryker/cms-block-category-connector": "*",
-                "spryker/cms-block-collector": "*",
-                "spryker/cms-block-gui": "*",
-                "spryker/cms-block-product-connector": "*",
                 "spryker/cms-collector": "*",
                 "spryker/cms-gui": "*",
                 "spryker/cms-user-connector": "*",
@@ -1704,7 +1699,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-28 16:49:58"
+            "time": "2017-06-28 11:41:05"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5336,16 +5331,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.21",
+            "version": "5.7.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db"
+                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3b91adfb64264ddec5a2dee9851f354aa66327db",
-                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
+                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
                 "shasum": ""
             },
             "require": {
@@ -5414,7 +5409,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-21T08:11:54+00:00"
+            "time": "2017-05-22T07:42:55+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6380,12 +6375,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a"
+                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
-                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
+                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
                 "shasum": ""
             },
             "require": {
@@ -6415,7 +6410,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-28 10:19:12"
+            "time": "2017-06-02 10:23:39"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6423,12 +6418,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea"
+                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b26a5262069333b5734e52c0bf0acf3a7860b6ea",
-                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
+                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
                 "shasum": ""
             },
             "require": {
@@ -6462,7 +6457,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-06-27 13:05:34"
+            "time": "2017-06-10T19:45:38+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
