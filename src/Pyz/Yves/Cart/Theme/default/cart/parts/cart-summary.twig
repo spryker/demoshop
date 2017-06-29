@@ -1,15 +1,15 @@
 <div class="callout">
     <h5 class="subheader float-right">{{ app['cart.quantity'] }} {{ 'item' | trans }}</h5>
     <h5>{{ 'cart.your-order' | trans }}</h5>
-    
+
     <ul class="no-bullet">
         <li>{{ 'cart.price.subtotal' | trans }} <span class="float-right">{{ cart.totals.subtotal | money }}</span></li>
-        
+
         <li><hr/></li>
-        
+
         {% include '@cart/cart/parts/cart-discounts.twig' %}
 
-        {% if cart.shipment is defined and cart.shipment.method is defined %}
+        {% if cart.shipment is not null and cart.shipment.method is not null %}
 
             <li><strong>{{ 'cart.shipping' | trans }}</strong></li>
 
@@ -20,12 +20,12 @@
 
             <li><hr/></li>
         {% endif %}
-        
+
         <li>{{ 'cart.price.grand.total' | trans }} <strong class="float-right">{{ cart.totals.grandTotal | money }}</strong></li>
-        
+
         <li>{{ 'cart.total.tax_total' | trans }} <span class="float-right">{{ cart.totals.taxTotal.amount | money }}</span></li>
     </ul>
-    
+
     {% if cart.items | length %}
         <p class="__padding-top">
             <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
