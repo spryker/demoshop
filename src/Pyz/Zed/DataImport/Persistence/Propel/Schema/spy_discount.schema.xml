@@ -3,6 +3,10 @@
 
     <table name="spy_discount" phpName="SpyDiscount">
         <column name="discount_key" type="VARCHAR" size="32" required="false"/>
+
+        <index>
+            <index-column name="discount_key" />
+        </index>
     </table>
 
 </database>

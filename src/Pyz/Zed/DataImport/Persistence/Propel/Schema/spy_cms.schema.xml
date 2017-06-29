@@ -3,6 +3,10 @@
 
     <table name="spy_cms_page" phpName="SpyCmsPage">
         <column name="page_key" type="VARCHAR" size="32" required="false"/>
+
+        <index>
+            <index-column name="page_key" />
+        </index>
     </table>
 
 </database>

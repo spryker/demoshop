@@ -3,6 +3,10 @@
 
     <table name="spy_product_group" idMethod="native" allowPkInsert="true">
         <column name="product_group_key" type="VARCHAR" size="32" required="false" />
+
+        <index>
+            <index-column name="product_group_key" />
+        </index>
     </table>
 
 </database>
