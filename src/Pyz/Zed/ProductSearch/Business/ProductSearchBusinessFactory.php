@@ -26,7 +26,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
         return new ProductDataPageMapBuilder(
             $this->getProductSearchFacade(),
             $this->getProductFacade(),
-            $this->createProductPageMapExpanders()
+            $this->getProductPageMapExpanders()
         );
     }
 
@@ -81,7 +81,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     /**
      * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface[]
      */
-    protected function createProductPageMapExpanders()
+    protected function getProductPageMapExpanders()
     {
         return [
             $this->createPriceExpander(),
