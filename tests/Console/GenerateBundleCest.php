@@ -15,7 +15,7 @@ class GenerateBundleCest
      */
     public function generateZedBundle(ConsoleTester $i)
     {
-        $i->runSprykerCommand('code:generate:bundle:zed Acme -vvv');
+        $i->runSprykerCommand('code:generate:module:zed Acme -vvv');
         $i->seeInShellOutput('Generated: Pyz/Zed/Acme/AcmeConfig.php');
         $i->seeInShellOutput('Generated: ZedBundleCodeGenerator');
         $bundleDir = codecept_data_dir() . Console::SANDBOX_DIR . 'src/Pyz/Zed/Acme';
