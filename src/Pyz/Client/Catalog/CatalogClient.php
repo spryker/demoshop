@@ -26,35 +26,31 @@ class CatalogClient extends SprykerCatalogClient implements CatalogClientInterfa
      */
     public function getFeaturedProducts($limit)
     {
-        $searchQuery = $this->createFeaturedProductsQuery($limit);
+        $searchQuery = $this->getFactory()->createFeaturedProductsQueryPlugin($limit);
+        $resultFormatters = $this->getFactory()->getFeaturedProductsResultFormatters();
 
-        $resultFormatters = $this
-            ->getFactory()
-            ->createFeaturedProductsResultFormatters();
-
-        return $this
-            ->getFactory()
+        return $this->getFactory()
             ->getSearchClient()
             ->search($searchQuery, $resultFormatters);
     }
 
     /**
-     * @param int $limit
+     * {@inheritdoc}
      *
-     * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
+     * @api
+     *
+     * @param array $requestParameters
+     *
+     * @return array
      */
-    protected function createFeaturedProductsQuery($limit)
+    public function saleSearch(array $requestParameters = [])
     {
-        $searchQuery = $this
-            ->getFactory()
-            ->createFeaturedProductsQueryPlugin($limit);
+        $searchQuery = $this->getFactory()->createSaleSearchQueryPlugin($requestParameters);
+        $resultFormatters = $this->getFactory()->getSaleSearchResultFormatterPlugins();
 
-        $searchQuery = $this
-            ->getFactory()
+        return $this->getFactory()
             ->getSearchClient()
-            ->expandQuery($searchQuery, $this->getFactory()->getFeaturedProductsQueryExpanderPlugins());
-
-        return $searchQuery;
+            ->search($searchQuery, $resultFormatters, $requestParameters);
     }
 
 }

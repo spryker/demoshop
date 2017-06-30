@@ -11,7 +11,6 @@ use Everon\Component\Collection\Collection;
 use Exception;
 use Orm\Zed\Price\Persistence\SpyPriceProduct;
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
-use Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Price\Persistence\PriceQueryContainerInterface;
@@ -130,8 +129,6 @@ class ProductPriceImporter extends AbstractImporter
     /**
      * @param string $priceType
      *
-     * @throws \Pyz\Zed\Importer\Business\Exception\PriceTypeNotFoundException
-     *
      * @return string
      */
     protected function getPriceTypeEntity($priceType)
@@ -144,10 +141,10 @@ class ProductPriceImporter extends AbstractImporter
 
         $priceTypeEntity = $this->priceQueryContainer
             ->queryPriceType($priceType)
-            ->findOne();
+            ->findOneOrCreate();
 
-        if (!$priceTypeEntity) {
-            throw new PriceTypeNotFoundException($priceType);
+        if (!$priceTypeEntity->getIdPriceType()) {
+            $priceTypeEntity->save();
         }
 
         $this->cachePriceType->set($priceType, $priceTypeEntity);
