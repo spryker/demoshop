@@ -3538,7 +3538,7 @@
             "version": "3.2.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Application.git",
+                "url": "https://github.com/spryker/Application.git",
                 "reference": "f0381a23b4a096339bd731dcf21047b2b68377dc",
                 "mirrors": [
                     {
@@ -3613,7 +3613,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Assertion.git",
+                "url": "https://github.com/spryker/Assertion.git",
                 "reference": "bd42cb51f8dc432a859e0ae396d9bf6b1924bcdf",
                 "mirrors": [
                     {
@@ -4354,7 +4354,7 @@
             "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CartVariant.git",
+                "url": "https://github.com/spryker/CartVariant.git",
                 "reference": "4b13bbfd7fc17440e0245502136748fa073277d1",
                 "mirrors": [
                     {
@@ -4890,7 +4890,7 @@
             "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CmsBlockCategoryConnector.git",
+                "url": "https://github.com/spryker/CmsBlockCategoryConnector.git",
                 "reference": "974c3ca75210ba41ba5d86b80209bc86469200b7",
                 "mirrors": [
                     {
@@ -5293,7 +5293,7 @@
             "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CmsUserConnector.git",
+                "url": "https://github.com/spryker/CmsUserConnector.git",
                 "reference": "5d124aa6ddb7d492b5a9d1dc97e72f944c5c63f5",
                 "mirrors": [
                     {
@@ -5354,7 +5354,7 @@
             "version": "5.1.3",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Collector.git",
+                "url": "https://github.com/spryker/Collector.git",
                 "reference": "2ee1f8cc8d25b11f6ea2f207539d0d7f9174f54c",
                 "mirrors": [
                     {
@@ -6685,7 +6685,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/FileSystem.git",
+                "url": "https://github.com/spryker/FileSystem.git",
                 "reference": "d1c57a1100116a073b31ca818a67106d746a1957",
                 "mirrors": [
                     {
@@ -6740,7 +6740,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Flysystem.git",
+                "url": "https://github.com/spryker/Flysystem.git",
                 "reference": "c864b5741d939232b8d9f50949111aa84ceb699e",
                 "mirrors": [
                     {
@@ -6805,7 +6805,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/FlysystemAws3v3FileSystem.git",
+                "url": "https://github.com/spryker/FlysystemAws3v3FileSystem.git",
                 "reference": "0d07ec06fd83e25687449714453997e7bdcb6345",
                 "mirrors": [
                     {
@@ -6925,7 +6925,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/FlysystemLocalFileSystem.git",
+                "url": "https://github.com/spryker/FlysystemLocalFileSystem.git",
                 "reference": "3a7ce384a84383a864785dbd769fd10b4318e083",
                 "mirrors": [
                     {
@@ -8593,7 +8593,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/OmsDiscountConnector.git",
+                "url": "https://github.com/spryker/OmsDiscountConnector.git",
                 "reference": "ba78a0d023ed39d2ec7cd0c4e27c1d27c6c932ff",
                 "mirrors": [
                     {
@@ -9807,7 +9807,7 @@
             "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductImageCartConnector.git",
+                "url": "https://github.com/spryker/ProductImageCartConnector.git",
                 "reference": "3eb01ef03e1fa602f1674eadfb8c4b00df0ee752",
                 "mirrors": [
                     {
@@ -9875,7 +9875,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductLabel.git",
+                "url": "https://github.com/spryker/ProductLabel.git",
                 "reference": "c262b0ae7a6a6639bdea03cf8c8d39d7b3014a64",
                 "mirrors": [
                     {
@@ -10453,7 +10453,7 @@
             "version": "5.0.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductSearch.git",
+                "url": "https://github.com/spryker/ProductSearch.git",
                 "reference": "6add7be38b164a2fa5a33683e050d49b3c194f07",
                 "mirrors": [
                     {
@@ -10528,7 +10528,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductSet.git",
+                "url": "https://github.com/spryker/ProductSet.git",
                 "reference": "2a2e25fd1f6d53085a19830c804a9987bed5d54c",
                 "mirrors": [
                     {
@@ -11134,7 +11134,7 @@
             "version": "5.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Refund.git",
+                "url": "https://github.com/spryker/Refund.git",
                 "reference": "4118f0bc11bc4cc4d038ce5bcb35811fcef34626",
                 "mirrors": [
                     {
@@ -12351,7 +12351,7 @@
             "version": "4.0.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/TaxProductConnector.git",
+                "url": "https://github.com/spryker/TaxProductConnector.git",
                 "reference": "e83105335334231889dc2cd31fa781eb6f372bfc",
                 "mirrors": [
                     {
@@ -12684,7 +12684,7 @@
             "version": "3.1.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Url.git",
+                "url": "https://github.com/spryker/Url.git",
                 "reference": "4b45aa5bf886f8cabe667ff81c9e1e0d6210fcf4",
                 "mirrors": [
                     {
