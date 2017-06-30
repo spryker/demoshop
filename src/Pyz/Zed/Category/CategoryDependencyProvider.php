@@ -7,8 +7,6 @@
 namespace Pyz\Zed\Category;
 
 use Spryker\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
-use Spryker\Zed\Cms\Communication\Plugin\ReadCmsBlockCategoryRelationPlugin;
-use Spryker\Zed\Cms\Communication\Plugin\RemoveCmsBlockCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\ReadProductCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\RemoveProductCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\UpdateProductCategoryRelationPlugin;
@@ -24,7 +22,6 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
         $deletePlugins = array_merge(
             [
                 new RemoveProductCategoryRelationPlugin(),
-                new RemoveCmsBlockCategoryRelationPlugin(),
             ],
             parent::getRelationDeletePluginStack()
         );
@@ -53,7 +50,6 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
         $readPlugins = array_merge(
             [
                 new ReadProductCategoryRelationPlugin(),
-                new ReadCmsBlockCategoryRelationPlugin(),
             ],
             parent::getRelationReadPluginStack()
         );

@@ -28,6 +28,8 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     const VALID_ITEMS_PER_PAGE_OPTIONS = [12, 24, 36];
     const SIZE_UNLIMITED = 0;
 
+    const CATEGORY_FACET_PARAM_NAME = 'category';
+
     /**
      * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
      *
@@ -79,7 +81,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     {
         $categoryFacet = (new FacetConfigTransfer())
             ->setName('category')
-            ->setParameterName('category')
+            ->setParameterName(static::CATEGORY_FACET_PARAM_NAME)
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
             ->setType(SearchConfig::FACET_TYPE_CATEGORY)
             ->setSize(self::SIZE_UNLIMITED);

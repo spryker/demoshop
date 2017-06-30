@@ -10,8 +10,8 @@ namespace Pyz\Zed\Importer\Business\Factory;
 use Pyz\Zed\Importer\Business\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter;
 use Pyz\Zed\Importer\Business\Importer\Category\CategoryRootImporter;
-use Pyz\Zed\Importer\Business\Importer\Cms\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
+use Pyz\Zed\Importer\Business\Importer\CmsBlock\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
 use Pyz\Zed\Importer\Business\Importer\Navigation\NavigationImporter;
@@ -251,14 +251,14 @@ class ImporterFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Zed\Importer\Business\Importer\Cms\CmsBlockImporter
+     * @return \Pyz\Zed\Importer\Business\Importer\CmsBlock\CmsBlockImporter
      */
     public function createCmsBlockImporter()
     {
         $cmsBlockImporter = new CmsBlockImporter(
             $this->getLocaleFacade(),
-            $this->getCmsFacade(),
-            $this->getCmsQueryContainer()
+            $this->getCmsBlockFacade(),
+            $this->getCmsBlockQueryContainer()
         );
 
         return $cmsBlockImporter;

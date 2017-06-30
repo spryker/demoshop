@@ -12,12 +12,14 @@ use Generated\Shared\Transfer\CmsPageLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\CmsTemplateTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageTransfer;
-use Orm\Zed\Cms\Persistence\SpyCmsBlockQuery;
 use Pyz\Zed\Cms\Business\CmsFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Cms\Persistence\CmsQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
+/**
+ * @deprecated Use CMS Block Module
+ */
 class CmsBlockImporter extends AbstractImporter
 {
 
@@ -92,39 +94,18 @@ class CmsBlockImporter extends AbstractImporter
      */
     public function isImported()
     {
-        $query = SpyCmsBlockQuery::create();
-
-        return $query->count() > 0;
+        return true;
     }
 
     /**
+     * @deprecated
+     *
      * @param array $data
      *
      * @return void
      */
     protected function importOne(array $data)
     {
-        $block = $this->format($data);
-
-        $blockName = $block[self::BLOCK_NAME];
-        $blockExists = $this->cmsQueryContainer
-            ->queryBlockByNameAndTypeValue($blockName, self::BLOCK_DEMO_TYPE, self::BLOCK_DEMO_VALUE)
-            ->count() > 0;
-
-        if ($blockExists) {
-            return;
-        }
-
-        $templateTransfer = $this->findOrCreateTemplate($block[self::TEMPLATE]);
-        $pageTransfer = $this->createPage($templateTransfer, $block);
-
-        foreach ($this->localeFacade->getLocaleCollection() as $locale => $localeTransfer) {
-            $this->createPlaceholder($block[self::LOCALES][$locale][self::PLACEHOLDERS], $pageTransfer, $localeTransfer);
-        }
-
-        $cmsBlockTransfer = $this->buildCmsBlockTransfer($blockName, $pageTransfer);
-        $this->cmsFacade->saveBlockAndTouch($cmsBlockTransfer);
-        $this->cmsFacade->touchPageActive($pageTransfer);
     }
 
     /**

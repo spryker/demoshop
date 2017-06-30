@@ -3,31 +3,31 @@ storage_capacity,text,yes,no,"16 GB, 32 GB, 64 GB, 128 GB",Storage Capacity ,Spe
 series,text,yes,no,"Jade Plus, Jade Z, Jade S, Ace Plus, Ace 3, Ace 2",Series,Serie,,
 width,text,yes,no,"4.2 cm, 3.6 cm, 4 cm",Width,Breite,,
 white_balance,text,no,,"auto, manual",White balance,Weißabgleich,"Auto, Manual","Auto, Manuell"
-weight,text,yes,,"63.5 g, 118 g, 125 g, 132 g, 141 g, 152 g, 155 g, 168 g, 18 g, 20 g, 389 g, 45 g, 46 g, 50 g, 58 g, 63.5 g, 73.5 g, 88 g",Weight,Gewicht,,
-waterproof_up_to,text,yes,,"1.5 m, 1 m, 40 m, 50 m, 1 m",Waterproof up to,Wasserdicht bis zu,,
+weight,text,yes,,"63.5 g, 118 g, 125 g, 132 g, 141 g, 152 g, 155 g, 168 g, 18 g, 20 g, 389 g, 45 g, 46 g, 50 g, 58 g, 63.5 g, 73.5 g, 88 g",Weight,Gewicht,,
+waterproof_up_to,text,yes,,"1.5 m, 1 m, 40 m, 50 m, 1 m",Waterproof up to,Wasserdicht bis zu,,
 waterproof,text,no,yes,"yes, no",Waterproof,Wasserdicht,"Yes, No","Ja, Nein"
 voice_recording,text,no,yes,"yes, no",Voice recording,Stimmenaufzeichnung,"Yes, No","Ja, Nein"
-video_recording_modes,text,yes,no,"1080p, 720p",Video recording modes,Video-Aufnahmemodi,,
+video_recording_modes,text,yes,no,"1080p, 720p",Video recording modes,Video-Aufnahmemodi,,
 usb_version,number,yes,no,2,USB version,USB Version,,
 usb_port,text,no,yes,"yes, no",USB port,USB-Anschluss,"Yes, No","Ja, Nein"
 touchscreen,text,no,yes,"yes, no",Touchscreen,Touchscreen,"Yes, No","Ja, Nein"
-touch_technology,text,yes,yes,"multi-touch, single touch",Touch Technology,Touch Technologie,"Multi-touch, Single-touch","Multi-touch, Single-touch"
+touch_technology,text,yes,yes,"multi-touch, single touch",Touch Technology,Touch Technologie,"Multi-touch, Single-touch","Multi-touch, Single-touch"
 total_megapixels,text,yes,no,"2.37 MP, 5 MP, 16.8 MP, 8 MP, 3.28 MP, 14 MP, 14.6 MP, 16.1 MP",Total Megapixels,Megapixel Gesamt,,
-thermal_design_power,text,yes,no,"65 W, 4.5 W, 15 W",Thermal Design Power (TDP),Thermal Design Power (TDP),,
+thermal_design_power,text,yes,no,"65 W, 4.5 W, 15 W",Thermal Design Power (TDP),Thermal Design Power (TDP),,
 themes,text,yes,yes,wallpapers,Themes,Themen,Wallpapers,Wallpapers
-tcase,text,yes,no,"72 °, 66 °, 65 °",Tcase,Tcase,,
-system_bus_rate,text,yes,yes,"5 GT/s, 8 GT/s, 4 GT/s",System bus rate,Sysrtem-Bus,,
+tcase,text,yes,no,"72 °, 66 ° , 65 °",Tcase,Tcase,,
+system_bus_rate,text,yes,yes,"5 GT/s, 8 GT/s, 4 GT/s",System bus rate,Sysrtem-Bus,,
 storage_media,text,yes,yes,"SSD, Flash",Storage media,Speichermedium,,
-stepping,text,yes,yes,"C0, R0, D1, R2",Stepping,Stepping,,
+stepping,text,yes,yes,"C0, R0, D1, R2",Stepping,Stepping,,
 sim_card_type,text,yes,no,NanoSIM,SIM card type,SIM Kartentyp,,
-shape,text,yes,no,"square, round",Shape,Form,"square, round","viereckig, rund"
-sensor_type,text,yes,no,"CMOS, CCD",Sensor type,Sensor Typ,,
-self_timer,text,yes,no,"2.10 s, 10 s",Self-timer,Selbstauslöser,,
+shape,text,yes,no,"square, round",Shape,Form,"square, round","viereckig, rund"
+sensor_type,text,yes,no,"CMOS, CCD",Sensor type,Sensor Typ,,
+self_timer,text,yes,no,"2.10 s, 10 s",Self-timer,Selbstauslöser,,
 scenario_design_power,text,yes,no,4.5 W,Scenario Design Power,Scenario Design Power,,
 recording_time,text,yes,no,65 min,Recording Time,Aufnahmezeit,,
 rear_camera_resolution,text,yes,no,5 MP,Rear camera resolution,Rückkamera Auflösung,,
 rear_camera,text,no,no,"yes, no",Rear camera,Rückkamera,"Yes, No","Ja, Nein"
-protection_feature,text,yes,no,"Water resistent, Waterproof",Protection feature,Schutzfunktion,"Water resistent, Waterproof","Wasserfest, Wasserdicht"
+protection_feature,text,yes,no,"Water resistent, Waterproof",Protection feature,Schutzfunktion,"Water resistent, Waterproof","Wasserfest, Wasserdicht"
 product_type,text,yes,no,"Hybrid(2-in-1), Chromebook, Ultrabook",Product type,Produkt Typ,"Hybrid(2-in-1), Chromebook, Ultrabook","Hybrid(2-in-1), Chromebook, Ultrabook"
 processor_threads,text,yes,no,"2, 4, 8, 12, 16, no",Processor Threads,Prozessor Threads,"2, 4, 8, 12, 16, no","2, 4, 8, 12, 16, nein"
 processor_socket,text,yes,no,BGA1168,Processor Socket,Prozessorsockel,,
@@ -55,15 +55,15 @@ light_exposure_modes,text,yes,no,manual,Light exposure modes,Belichtungstyp,manu
 iso_sensitivity,number,yes,no,3200,ISO sensitivity,ISO Sensibilität,,
 internal_storage_capacity,text,yes,no,"1526 MB, 8 GB, 16 GB, 32 GB, 64 GB, 2.1 GB, 2.7 GB",Internal storage capacity,Interne Speicherkapazität,,
 internal_ram,text,yes,no,"1 GB, 1.5 GB, 1536 MB, 2 GB, 2048 MB, 29 MB, 2GB, 3 GB, 4 GB, 512 MB, 512 MB, 70 MB, 8 GB",Internal RAM,RAM-Speicher,,
-intel_smart_cache,text,no,no,"yes, no",Intel Smart Cache,Intel Smart Cache,"yes, no","ja, nein"
+intel_smart_cache,text,no,no,"yes, no",Intel Smart Cache,Intel Smart Cache,"Yes, No","Ja, Nein"
 image_processor,text,yes,no,BIONZ,Image processor,Bild Prozessor,,
 headphone_connectivity,text,yes,no,3.5 mm,Headphone connectivity,Headphone Verbindung,,
-hdmi,text,no,no,"yes, no",HDMI,HDMI,"yes, no","ja, nein"
+hdmi,text,no,no,"yes, no",HDMI,HDMI,"Yes, No","Ja, Nein"
 hd_type,text,yes,no,"Full HD, 4K Ultra HD, HD ready",HD type,HD Typ,,
 graphics_adapter,text,yes,no,HD Graphics,Graphics adapter,Graphik Adapter,,
-gps_satellite,text,no,no,"yes, no",GPS (satellite),GPS,"yes, no","ja, nein"
-full_hd,text,no,no,"yes, no",Full HD,Full HD,"yes, no","ja, nein"
-fsb_parity,text,no,no,"yes, no",FSB Parity,FSB Gleichwertigkeit,"yes, no","ja, nein"
+gps_satellite,text,no,no,"yes, no",GPS (satellite),GPS,"Yes, No","Ja, Nein"
+full_hd,text,no,no,"yes, no",Full HD,Full HD,"Yes, No","Ja, Nein"
+fsb_parity,text,no,no,"yes, no",FSB Parity,FSB Gleichwertigkeit,"Yes, No","Ja, Nein"
 front_camera_resolution,text,yes,no,2 MP,Front camera resolution,Frontkamera Auflösung,,
 form_factor,text,yes,no,"Clamshell, Bar, Slate",Form factor,Formfaktor,"Clamshell, Bar, Slate","Klappengehäuse, Balken, Schiefer"
 focus_adjustment,text,yes,no,"Auto, Auto/Manual",Focus adjustment,Fokus Anpassung,"Auto, Auto/Manual","Auto, Auto/Manuell"
@@ -71,10 +71,10 @@ focus,text,yes,no,TTL,Focus,Fokus ,,
 flash_type,text,yes,no,LED,Flash type,Flash-Typ,,
 flash_range_tele,text,yes,no,1.3-1.5 m,Flash range (tele),Blitzreichweiter (Tele),,
 flash_memory,text,yes,no,4 GB,Flash memory,Flash-Speicher,,
-fingerprint_reader,text,no,no,"yes, no",Fingerprint reader,Fingerabdruckscanner,"yes, no","ja, nein"
+fingerprint_reader,text,no,no,"yes, no",Fingerprint reader,Fingerabdruckscanner,"Yes, No","Ja, Nein"
 filter_size,text,yes,no,"3.7 cm, 5.5 cm",Filter size,Filtergröße,,
 field_of_view,text,yes,no,1,Field of view,Sichtfeld,,
-face_detection,text,no,no,"yes, no",Face detection,Gesichtserkennung,"yes, no","ja, nein"
+face_detection,text,no,no,"yes, no",Face detection,Gesichtserkennung,"Yes, No","Ja, Nein"
 effective_megapixels,text,yes,no,10.3 MP,Effective megapixels,Effektive Megapixel,,
 display_type,text,yes,no,"SAMOLED, OLED, LCD, IPS, TFT",Display type,Display Typ,,
 display_technology,text,yes,no,"IPS, TFT",Display technology,Display Technologie,,
@@ -85,7 +85,7 @@ cpu_configuration,number,yes,no,1,CPU configuration,CPU Konfiguration,,
 control_type,text,yes,no,touch,Control type,Kontrolltyp,touch,Berührung
 compatible_memory_cards,number,yes,no,SD,Compatible memory,Kompatible Speicherkarte,,
 combined_zoom,text,yes,no,32 x,Combined zoom,Combined zoom,,
-color,text,yes,yes,"white, black, grey, silver, blue, yellow, purple, pink, platinum, copper, orange, gold, navy, green, red, brown",Color,Farbe,"white, black, grey, silver, blue, yellow, purple, pink, platinum, copper, orange, gold, navy, green, red, brown","weiß, schwarz, silber, blau, gelb, lila, pink, platin, kupfer, orange, marineblau, grün, rot, braun"
+color,text,yes,yes,"white, black, grey, silver, blue, yellow, purple, pink, platinum, copper, orange, gold, navy, green, red, brown",Color,Farbe,"White, Black, Grey, Silver, Blue, Yellow, Purple, Pink, Platinum, Copper, Orange, Gold, Navy, Green, Red, Brown","Weiß, Schwarz, Grau, Silber, Blau, Gelb, Lila, Pink, Platin, Kupfer, Orange, Gold, Marineblau, Grün, Rot, Braun"
 clock_mode,text,yes,no,12h,Clock mode,Batterielebensdauer,,
 chassis_type,text,yes,no,Tower,Chassis type,Produkt Typ,Tower,PC
 camera_type,text,yes,no,Compact camera,Camera type,Kamera Typ,,
@@ -97,14 +97,14 @@ Lenovo, Ricoh, Toshiba",Brand,Marke,,
 bluetooth_version,text,yes,no,"3, 4, 4.0 LE, 41",Blootooth version,Bluetooth Version,,
 battery_type,text,yes,no,"Built-in, NP-BX1, 72h, 120h, 168h, ",Battery type,Batterie Typ,,
 battery_life,text,yes,no,"72h, 120h, 168h",Battery life,Batterlaufzeit,,
-backlight,text,no,no,"yes, no",Backlight,Brustgurt,"yes, no","ja, nein"
-auto_focus,text,no,no,"yes, no",Auto focus,Auto Fokus,"yes, no","ja, nein"
+backlight,text,no,no,"yes, no",Backlight,Brustgurt,"Yes, No","Ja, Nein"
+auto_focus,text,no,no,"yes, no",Auto focus,Auto Fokus,"Yes, No","Ja, Nein"
 audio_system,text,yes,no,Stereo,Audio system,Audio System,,
 aspect_ratio,number,yes,no,"16:09, 16:10",Aspect ratio,Seitenverhältnis,,
-alarm_clock,text,no,no,"yes, no",Alarm clock,Wecker,"yes, no","ja, nein"
+alarm_clock,text,no,no,"yes, no",Alarm clock,Wecker,"Yes, No","Ja, Nein"
 4g_standards,text,yes,no,LTE,4G standards,4G-Standards,,
-4g,text,no,no,"yes, no",4G,4G,"yes, no ","ja, nein"
+4g,text,no,no,"yes, no",4G,4G,"Yes, No","Ja, Nein"
 os_system,number,yes,no,5.1,OS system,OS System,,
-wi_fi,text,no,no,"yes, no",Wi-Fi,WLAN,"yes, no","ja, nein"
+wi_fi,text,no,no,"yes, no",Wi-Fi,WLAN,"Yes, No","Ja, Nein"
 total_storage_capacity,text,yes,no,"128 GB, 256 GB, 500 GB, 512 GB",Total storage capacity,Speichergröße insgesamt,,
-bundled_product,text,no,no,"yes, no",Bundled Product,Bündelprodukt,"yes, no","ja, nein"
+bundled_product,text,no,no,"yes, no",Bundled Product,Bündelprodukt,"Yes, No","Ja, Nein"
