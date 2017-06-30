@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\Flysystem;
 
-use Spryker\Service\Flysystem\FlysystemDependencyProvider as SprykerFlysystemDependencyProviderProvider;
+use Spryker\Service\Flysystem\FlysystemDependencyProvider as SprykerFlysystemDependencyProvider;
 use Spryker\Service\FlysystemFtpFileSystem\Plugin\Flysystem\FtpFilesystemBuilderPlugin;
 use Spryker\Service\FlysystemLocalFileSystem\Plugin\Flysystem\LocalFilesystemBuilderPlugin;
 use Spryker\Zed\Kernel\Container;
 
-class FlysystemDependencyProvider extends SprykerFlysystemDependencyProviderProvider
+class FlysystemDependencyProvider extends SprykerFlysystemDependencyProvider
 {
 
     /**
