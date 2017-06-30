@@ -135,4 +135,7 @@
 
     {{ product_relation("related-products", {idProductAbstract : product.idProductAbstract}, 'Similar products', '@ProductRelation/partial/product_relation_carousel.twig') }}
 
+    <div class="row">
+        {{ spyCmsBlock({product_abstract: product.idProductAbstract}) }}
+    </div>
 {% endblock %}

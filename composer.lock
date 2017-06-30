@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "99abcde32b7e4be59a72e799536c2d95",
+    "content-hash": "575370919291eb9fe6fbe09165bbbc7a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -639,6 +639,89 @@
                 "write"
             ],
             "time": "2017-02-23T08:25:03+00:00"
+        },
+        {
+            "name": "league/flysystem",
+            "version": "1.0.40",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "3828f0b24e2c1918bb362d57a53205d6dc8fde61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3828f0b24e2c1918bb362d57a53205d6dc8fde61",
+                "reference": "3828f0b24e2c1918bb362d57a53205d6dc8fde61",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
+            },
+            "require-dev": {
+                "ext-fileinfo": "*",
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "^2.2",
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-fileinfo": "Required for MimeType",
+                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
+                "league/flysystem-copy": "Allows you to use Copy.com storage",
+                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
+                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
+                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
+                "spatie/flysystem-dropbox": "Allows you to use Dropbox storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Filesystem abstraction: Many filesystems, one API.",
+            "keywords": [
+                "Cloud Files",
+                "WebDAV",
+                "abstraction",
+                "aws",
+                "cloud",
+                "copy.com",
+                "dropbox",
+                "file systems",
+                "files",
+                "filesystem",
+                "filesystems",
+                "ftp",
+                "rackspace",
+                "remote",
+                "s3",
+                "sftp",
+                "storage"
+            ],
+            "time": "2017-04-28T10:15:08+00:00"
         },
         {
             "name": "mandrill/mandrill",
@@ -1535,11 +1618,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1421-on-sale-products",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "cbadaf94b2e465978ca046ced929afc70e7d7819"
+                "reference": "c2da880d862e32bcf712500796a760322a0f7ea3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1567,6 +1650,11 @@
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
                 "spryker/cms": "*",
+                "spryker/cms-block": "*",
+                "spryker/cms-block-category-connector": "*",
+                "spryker/cms-block-collector": "*",
+                "spryker/cms-block-gui": "*",
+                "spryker/cms-block-product-connector": "*",
                 "spryker/cms-collector": "*",
                 "spryker/cms-gui": "*",
                 "spryker/cms-user-connector": "*",
@@ -1589,6 +1677,11 @@
                 "spryker/elastica": "*",
                 "spryker/error-handler": "*",
                 "spryker/event-journal": "*",
+                "spryker/file-system": "*",
+                "spryker/flysystem": "*",
+                "spryker/flysystem-aws3v3-filesystem": "*",
+                "spryker/flysystem-ftp-filesystem": "*",
+                "spryker/flysystem-local-filesystem": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
@@ -1699,7 +1792,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-28 12:33:02"
+            "time": "2017-06-30 12:01:02"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5331,16 +5424,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.20",
+            "version": "5.7.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b"
+                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
-                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3b91adfb64264ddec5a2dee9851f354aa66327db",
+                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db",
                 "shasum": ""
             },
             "require": {
@@ -5409,7 +5502,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-05-22T07:42:55+00:00"
+            "time": "2017-06-21T08:11:54+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6375,12 +6468,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea"
+                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
-                "reference": "0fe1d1638ee627b71ebfac7f383eabbc0c9c56ea",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
+                "reference": "2f4b900d4906786aad6f87aa92f8f8f4081dd61a",
                 "shasum": ""
             },
             "require": {
@@ -6410,7 +6503,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-02 10:23:39"
+            "time": "2017-06-28 10:19:12"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6418,12 +6511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e"
+                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
-                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b26a5262069333b5734e52c0bf0acf3a7860b6ea",
+                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea",
                 "shasum": ""
             },
             "require": {
@@ -6457,7 +6550,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-06-10T19:45:38+00:00"
+            "time": "2017-06-27 13:05:34"
         },
         {
             "name": "squizlabs/php_codesniffer",
