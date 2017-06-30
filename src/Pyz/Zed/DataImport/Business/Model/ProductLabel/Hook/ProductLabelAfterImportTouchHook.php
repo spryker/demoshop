@@ -10,7 +10,6 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductLabel\Hook;
 use Spryker\Shared\ProductLabel\ProductLabelConstants;
 use Spryker\Zed\DataImport\Business\Model\DataImporterAfterImportInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
-use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
 class ProductLabelAfterImportTouchHook implements DataImporterAfterImportInterface
 {
