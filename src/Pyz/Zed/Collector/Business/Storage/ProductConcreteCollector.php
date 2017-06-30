@@ -118,6 +118,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
                 $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
             ),
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
+            StorageProductTransfer::PRICES => $this->getPrices($collectItemData[self::SKU]),
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
@@ -186,6 +187,23 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     protected function getPriceBySku($sku)
     {
         return $this->priceFacade->getPriceBySku($sku);
+    }
+
+    /**
+     * @param string $sku
+     *
+     * @return array
+     */
+    protected function getPrices($sku)
+    {
+        $priceProductTransfers = $this->priceFacade->findPricesBySku($sku);
+
+        $prices = [];
+        foreach ($priceProductTransfers as $priceProductTransfer) {
+            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
+        }
+
+        return $prices;
     }
 
     /**

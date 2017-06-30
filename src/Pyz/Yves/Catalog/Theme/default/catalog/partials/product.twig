@@ -8,7 +8,11 @@
     {% endif %}
     <p>
         <strong>{{ name }}</strong><br>
-        {{ priceValue | money }}
+        {% if originalPrice is defined and originalPrice %}
+            <span class="catalog-price__price-original">{{ originalPrice | money }}</span> <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
+        {% else %}
+            {{ priceValue | money }}
+        {% endif %}
     </p>
     <a class="button expanded" href="{{ detailsUrl }}">{{ 'product.view' | trans }} &raquo;</a>
 </div>

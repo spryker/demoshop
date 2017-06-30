@@ -15,6 +15,7 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
 
     const ROUTE_SEARCH = 'search';
     const ROUTE_SUGGESTION = 'search/suggestion';
+    const ROUTE_SALE = 'sale';
 
     /**
      * @param \Silex\Application $app
@@ -32,6 +33,10 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/{search}/suggestion', self::ROUTE_SUGGESTION, 'Catalog', 'Suggestion', 'index')
             ->assert('search', $allowedLocalesPattern . 'search|search')
             ->value('search', 'search');
+
+        $this->createController('/{sale}', self::ROUTE_SALE, 'Catalog', 'Sale', 'index')
+            ->assert('sale', $allowedLocalesPattern . 'outlet|outlet')
+            ->value('sale', 'outlet');
     }
 
 }

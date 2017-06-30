@@ -26,6 +26,7 @@ MAIN_NAVIGATION,24,22,external_url,Spryker Documentation,http://spryker.github.i
 MAIN_NAVIGATION,25,18,category,Product Bundles,/en/product-bundles,,Product Bundles,/de/product-bundles,
 MAIN_NAVIGATION,40,18,link,Product Sets,/en/product-sets,,Product Sets,/de/product-sets,
 MAIN_NAVIGATION,26,18,category,Variant Showcase,/en/variant-showcase,,Variant Showcase,/de/variant-showcase,
+MAIN_NAVIGATION,41,,link,Sale %,/en/outlet,sale__red,Sale %,/de/outlet,
 FOOTER_NAVIGATION,27,,cms_page,Imprint,/en/imprint,,Impressum,/de/impressum,
 FOOTER_NAVIGATION,28,,cms_page,GTC,/en/gtc,,AGB,/de/agb,
 FOOTER_NAVIGATION,29,,cms_page,Data privacy,/en/privacy,,Datenschutz,/de/datenschutz,

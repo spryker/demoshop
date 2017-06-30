@@ -15,6 +15,8 @@
         <property name="name" type="string" />
         <property name="sku" type="string" />
         <property name="url" type="string" />
+        <property name="price" type="int" />
+        <property name="prices" type="array" singular="price" />
         <property name="available" type="bool" />
         <property name="description" type="string" />
         <property name="quantity" type="int" />
