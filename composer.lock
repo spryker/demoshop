@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c2da880d862e32bcf712500796a760322a0f7ea3"
+                "reference": "23f838fe1a0ac83d555b22c3e53a40c8efc7c8a6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1792,7 +1792,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-06-30 12:01:02"
+            "time": "2017-06-30 14:05:21"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7079,16 +7079,16 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.5",
+            "version": "1.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d"
+                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/8dcfd392135a5bd938c3c83ea71419501ad9855d",
-                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/6e8203e40a32a9c770bcb62fe37e68b948da6dca",
+                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca",
                 "shasum": ""
             },
             "require": {
@@ -7115,7 +7115,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-04-21T14:50:31+00:00"
+            "time": "2017-06-30T11:53:12+00:00"
         },
         {
             "name": "webmozart/assert",
