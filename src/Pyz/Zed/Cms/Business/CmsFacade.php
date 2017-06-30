@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\Cms\Business;
 
-use Generated\Shared\Transfer\CmsBlockTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Spryker\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
 
@@ -27,16 +26,6 @@ class CmsFacade extends SprykerCmsFacade implements CmsFacadeInterface
     public function createPageUrlWithLocale($pageTransfer, $url, LocaleTransfer $localeTransfer)
     {
         return $this->getFactory()->createPageManager()->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\CmsBlockTransfer $cmsBlockTransfer
-     *
-     * @return \Generated\Shared\Transfer\CmsBlockTransfer
-     */
-    public function saveBlockAndTouch(CmsBlockTransfer $cmsBlockTransfer)
-    {
-        return $this->getFactory()->createBlockManager()->saveBlockAndTouch($cmsBlockTransfer);
     }
 
 }
