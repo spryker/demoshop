@@ -37,6 +37,7 @@ use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\ProductAttributeKeyWri
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductConcreteWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductGroup\ProductGroupWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductImage\ProductImageWriterStep;
+use Pyz\Zed\DataImport\Business\Model\ProductLabel\Hook\ProductLabelAfterImportTouchHook;
 use Pyz\Zed\DataImport\Business\Model\ProductLabel\ProductLabelWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute\ProductManagementAttributeWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute\ProductManagementLocalizedAttributesExtractorStep;
@@ -72,31 +73,31 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporterCollection = $this->createDataImporterCollection();
         $dataImporterCollection
             ->addDataImporter($this->createCategoryImporter())
-//            ->addDataImporter($this->createGlossaryImporter())
-//            ->addDataImporter($this->createDiscountImporter())
-//            ->addDataImporter($this->createDiscountVoucherImporter())
-//            ->addDataImporter($this->createTaxImporter())
-//            ->addDataImporter($this->createStockImporter())
-//            ->addDataImporter($this->createPriceTypeImporter())
-//            ->addDataImporter($this->createProductAttributeKeyImporter())
-//            ->addDataImporter($this->createProductManagementAttributeImporter())
-//            ->addDataImporter($this->createProductAbstractImporter())
-//            ->addDataImporter($this->createProductConcreteImporter())
-//            ->addDataImporter($this->createProductImageImporter())
-//            ->addDataImporter($this->createProductStockImporter())
-//            ->addDataImporter($this->createProductOptionImporter())
-//            ->addDataImporter($this->createProductGroupImporter())
-//            ->addDataImporter($this->createProductPriceImporter())
-//            ->addDataImporter($this->createProductRelationImporter())
-//            ->addDataImporter($this->createProductLabelImporter())
-//            ->addDataImporter($this->createProductSearchAttributeMapImporter())
-//            ->addDataImporter($this->createProductSearchAttributeImporter())
-//            ->addDataImporter($this->createShipmentImporter())
-//            ->addDataImporter($this->createNavigationImporter())
-//            ->addDataImporter($this->createNavigationNodeImporter())
-//            ->addDataImporter($this->createCmsTemplateImporter())
-//            ->addDataImporter($this->createCmsPageImporter())
-//            ->addDataImporter($this->createCmsBlockImporter())
+            ->addDataImporter($this->createGlossaryImporter())
+            ->addDataImporter($this->createDiscountImporter())
+            ->addDataImporter($this->createDiscountVoucherImporter())
+            ->addDataImporter($this->createTaxImporter())
+            ->addDataImporter($this->createStockImporter())
+            ->addDataImporter($this->createPriceTypeImporter())
+            ->addDataImporter($this->createProductAttributeKeyImporter())
+            ->addDataImporter($this->createProductManagementAttributeImporter())
+            ->addDataImporter($this->createProductAbstractImporter())
+            ->addDataImporter($this->createProductConcreteImporter())
+            ->addDataImporter($this->createProductImageImporter())
+            ->addDataImporter($this->createProductStockImporter())
+            ->addDataImporter($this->createProductOptionImporter())
+            ->addDataImporter($this->createProductGroupImporter())
+            ->addDataImporter($this->createProductPriceImporter())
+            ->addDataImporter($this->createProductRelationImporter())
+            ->addDataImporter($this->createProductLabelImporter())
+            ->addDataImporter($this->createProductSearchAttributeMapImporter())
+            ->addDataImporter($this->createProductSearchAttributeImporter())
+            ->addDataImporter($this->createShipmentImporter())
+            ->addDataImporter($this->createNavigationImporter())
+            ->addDataImporter($this->createNavigationNodeImporter())
+            ->addDataImporter($this->createCmsTemplateImporter())
+            ->addDataImporter($this->createCmsPageImporter())
+            ->addDataImporter($this->createCmsBlockImporter())
         ;
 
         return $dataImporterCollection;
@@ -126,7 +127,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCategoryDataImporterConfiguration());
 
-        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(CategoryWriterStep::BULK_SIZE);
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
             ->addStep($this->createLocalizedAttributesExtractorStep([
@@ -660,11 +661,26 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addStep($this->createAddProductAbstractSkusStep())
             ->addStep($this->createAddLocalesStep())
             ->addStep($this->createLocalizedAttributesExtractorStep(['name']))
-            ->addStep(new ProductLabelWriter());
+            ->addStep(new ProductLabelWriter(
+                $this->getTouchFacade(),
+                ProductLabelWriter::BULK_SIZE
+            ));
 
-        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+        $dataImporter
+            ->addDataSetStepBroker($dataSetStepBroker)
+            ->addAfterImportHook($this->createProductLabelAfterImportTouchHook());
 
         return $dataImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\DataImport\Business\Model\ProductLabel\Hook\ProductLabelAfterImportTouchHook
+     */
+    protected function createProductLabelAfterImportTouchHook()
+    {
+        return new ProductLabelAfterImportTouchHook(
+            $this->getTouchFacade()
+        );
     }
 
     /**

@@ -63,13 +63,11 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $categoryEntity = $this->createCategory($dataSet);
-        $this->addAttributes($categoryEntity, $dataSet);
-        $this->addNode($categoryEntity, $dataSet);
+        $categoryEntity = $this->findOrCreateCategory($dataSet);
+        $this->findOrCreateAttributes($categoryEntity, $dataSet);
+        $categoryNodeEntity = $this->findOrCreateNode($categoryEntity, $dataSet);
 
-        $categoryEntity->save();
-
-        $this->categoryRepository->addCategory($categoryEntity);
+        $this->categoryRepository->addCategory($categoryEntity, $categoryNodeEntity);
     }
 
     /**
@@ -77,15 +75,17 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      *
      * @return \Orm\Zed\Category\Persistence\SpyCategory
      */
-    protected function createCategory(DataSetInterface $dataSet)
+    protected function findOrCreateCategory(DataSetInterface $dataSet)
     {
         $categoryEntity = SpyCategoryQuery::create()
-            ->filterByCategoryKey($dataSet[self::KEY_CATEGORY_KEY])
+            ->filterByCategoryKey($dataSet[static::KEY_CATEGORY_KEY])
             ->findOneOrCreate();
 
         $categoryEntity->fromArray($dataSet->getArrayCopy());
 
-        $categoryEntity->save();
+        if ($categoryEntity->isNew() || $categoryEntity->isModified()) {
+            $categoryEntity->save();
+        }
 
         return $categoryEntity;
     }
@@ -96,7 +96,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      *
      * @return void
      */
-    protected function addAttributes(SpyCategory $categoryEntity, DataSetInterface $dataSet)
+    protected function findOrCreateAttributes(SpyCategory $categoryEntity, DataSetInterface $dataSet)
     {
         $localizedAttributeCollection = $dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES];
         foreach ($localizedAttributeCollection as $idLocale => $localizedAttributes) {
@@ -106,7 +106,10 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
                 ->findOneOrCreate();
 
             $categoryAttributeEntity->fromArray($localizedAttributes);
-            $categoryAttributeEntity->save();
+
+            if ($categoryAttributeEntity->isNew() || $categoryAttributeEntity->isModified()) {
+                $categoryAttributeEntity->save();
+            }
         }
     }
 
@@ -114,21 +117,24 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      * @param \Orm\Zed\Category\Persistence\SpyCategory $categoryEntity
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
-     * @return void
+     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode
      */
-    protected function addNode(SpyCategory $categoryEntity, DataSetInterface $dataSet)
+    protected function findOrCreateNode(SpyCategory $categoryEntity, DataSetInterface $dataSet)
     {
         $categoryNodeEntity = SpyCategoryNodeQuery::create()
             ->filterByCategory($categoryEntity)
             ->findOneOrCreate();
 
-        if (!empty($dataSet[self::KEY_PARENT_CATEGORY_KEY])) {
-            $idParentCategoryNode = $this->categoryRepository->getIdCategoryNodeByCategoryKey($dataSet[self::KEY_PARENT_CATEGORY_KEY]);
+        if (!empty($dataSet[static::KEY_PARENT_CATEGORY_KEY])) {
+            $idParentCategoryNode = $this->categoryRepository->getIdCategoryNodeByCategoryKey($dataSet[static::KEY_PARENT_CATEGORY_KEY]);
             $categoryNodeEntity->setFkParentCategoryNode($idParentCategoryNode);
         }
 
         $categoryNodeEntity->fromArray($dataSet->getArrayCopy());
-        $categoryNodeEntity->save();
+
+        if ($categoryNodeEntity->isNew() || $categoryNodeEntity->isModified()) {
+            $categoryNodeEntity->save();
+        }
 
         $this->addToClosureTable($categoryNodeEntity);
 
@@ -164,11 +170,15 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
                 ->findOneOrCreate();
 
             $urlEntity
-                ->setUrl($url)
-                ->save();
+                ->setUrl($url);
 
-            $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
+            if ($urlEntity->isNew() || $urlEntity->isModified()) {
+                $urlEntity->save();
+                $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
+            }
         }
+
+        return $categoryNodeEntity;
     }
 
     /**
@@ -208,8 +218,11 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
                     ->findOneOrCreate();
 
                 $newCategoryClosureTableEntity
-                    ->setDepth($categoryClosureEntity->getDepth() + 1)
-                    ->save();
+                    ->setDepth($categoryClosureEntity->getDepth() + 1);
+
+                if ($newCategoryClosureTableEntity->isNew() || $newCategoryClosureTableEntity->isModified()) {
+                    $newCategoryClosureTableEntity->save();
+                }
             }
         }
 
@@ -219,8 +232,11 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
             ->findOneOrCreate();
 
         $categoryClosureTableEntity
-            ->setDepth(0)
-            ->save();
+            ->setDepth(0);
+
+        if ($categoryClosureTableEntity->isNew() || $categoryClosureTableEntity->isModified()) {
+            $categoryClosureTableEntity->save();
+        }
     }
 
 }

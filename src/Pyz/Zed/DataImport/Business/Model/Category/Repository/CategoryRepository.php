@@ -9,7 +9,8 @@ namespace Pyz\Zed\DataImport\Business\Model\Category\Repository;
 
 use ArrayObject;
 use Orm\Zed\Category\Persistence\SpyCategory;
-use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryNode;
+use Orm\Zed\Category\Persistence\SpyCategoryQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\DataImport\Business\Exception\CategoryByKeyNotFoundException;
@@ -54,12 +55,16 @@ class CategoryRepository implements CategoryRepositoryInterface
 
     /**
      * @param \Orm\Zed\Category\Persistence\SpyCategory $categoryEntity
+     * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $categoryNodeEntity
      *
      * @return void
      */
-    public function addCategory(SpyCategory $categoryEntity)
+    public function addCategory(SpyCategory $categoryEntity, SpyCategoryNode $categoryNodeEntity)
     {
-        $this->categoryKeys[$categoryEntity->getCategoryKey()] = $categoryEntity->getIdCategory();
+        $this->categoryKeys[$categoryEntity->getCategoryKey()] = [
+            static::ID_CATEGORY => $categoryEntity->getIdCategory(),
+            static::ID_CATEGORY_NODE => $categoryNodeEntity->getIdCategoryNode(),
+        ];
 
         $urls = [];
         $categoryNodeEntityCollection = $categoryEntity->getNodes();
@@ -126,14 +131,14 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     private function loadCategoryKeys()
     {
-        $categoryNodeEntityCollection = SpyCategoryNodeQuery::create()
-            ->joinWithCategory()
+        $categoryEntityCollection = SpyCategoryQuery::create()
+            ->joinWithNode()
             ->find();
 
-        foreach ($categoryNodeEntityCollection as $categoryNodeEntity) {
-            $this->categoryKeys[$categoryNodeEntity->getCategory()->getCategoryKey()] = [
-                static::ID_CATEGORY_NODE => $categoryNodeEntity->getIdCategoryNode(),
-                static::ID_CATEGORY => $categoryNodeEntity->getCategory()->getIdCategory(),
+        foreach ($categoryEntityCollection as $categoryEntity) {
+            $this->categoryKeys[$categoryEntity->getCategoryKey()] = [
+                static::ID_CATEGORY => $categoryEntity->getIdCategory(),
+                static::ID_CATEGORY_NODE => $categoryEntity->getNodes()->getFirst()->getIdCategoryNode(),
             ];
         }
     }

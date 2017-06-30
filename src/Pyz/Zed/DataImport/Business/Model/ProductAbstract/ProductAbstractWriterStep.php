@@ -16,6 +16,7 @@ use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Shared\Product\ProductConfig;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
+use Spryker\Zed\DataImport\Business\Exception\DataImportException;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
@@ -45,6 +46,7 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
     const KEY_TAX_SET_NAME = 'tax_set_name';
     const KEY_CATEGORY_KEY = 'category_key';
     const KEY_CATEGORY_KEYS = 'categoryKeys';
+    const KEY_CATEGORY_PRODUCT_ORDER = 'category_product_order';
     const KEY_LOCALES = 'locales';
 
     /**
@@ -139,40 +141,16 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
      *
-     * @return void
-     */
-    protected function importProductCategories(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
-    {
-        $this->deleteAssignedCategories($productAbstractEntity);
-        $this->reAssignCategories($dataSet, $productAbstractEntity);
-    }
-
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
-     *
-     * @return void
-     */
-    protected function deleteAssignedCategories(SpyProductAbstract $productAbstractEntity)
-    {
-        SpyProductCategoryQuery::create()
-            ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
-            ->find()
-            ->delete();
-    }
-
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     * @param \Orm\Zed\Product\Persistence\SpyProductAbstract $productAbstractEntity
-     *
      * @throws \Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException
      *
      * @return void
      */
-    protected function reAssignCategories(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
+    protected function importProductCategories(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
     {
         $categoryKeys = $this->getCategoryKeys($dataSet[static::KEY_CATEGORY_KEY]);
+        $categoryProductOrder = $this->getCategoryProductOrder($dataSet[static::KEY_CATEGORY_PRODUCT_ORDER]);
 
-        foreach ($categoryKeys as $categoryKey) {
+        foreach ($categoryKeys as $index => $categoryKey) {
             if (!isset($dataSet[static::KEY_CATEGORY_KEYS][$categoryKey])) {
                 throw new DataKeyNotFoundInDataSetException(sprintf(
                     'The category with key "%s" was not found in categoryKeys. Maybe there is a typo. Given Categories: "%s"',
@@ -180,12 +158,22 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
                     implode(array_values($dataSet[static::KEY_CATEGORY_KEYS]))
                 ));
             }
+            $productOrder = null;
+            if (count($categoryProductOrder) > 0 && isset($categoryProductOrder[$index])) {
+                $productOrder = $categoryProductOrder[$index];
+            }
 
-            $productCategoryEntity = new SpyProductCategory();
+            $productCategoryEntity = SpyProductCategoryQuery::create()
+                ->filterByFkProductAbstract($productAbstractEntity->getIdProductAbstract())
+                ->filterByFkCategory($dataSet[static::KEY_CATEGORY_KEYS][$categoryKey])
+                ->findOneOrCreate();
+
             $productCategoryEntity
-                ->setFkProductAbstract($productAbstractEntity->getIdProductAbstract())
-                ->setFkCategory($dataSet[static::KEY_CATEGORY_KEYS][$categoryKey])
-                ->save();
+                ->setProductOrder($productOrder);
+
+            if ($productCategoryEntity->isNew() || $productCategoryEntity->isModified()) {
+                $productCategoryEntity->save();
+            }
         }
     }
 
@@ -202,6 +190,21 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
         };
 
         return array_map($callback, $categoryKeys);
+    }
+
+    /**
+     * @param string $categoryProductOrder
+     *
+     * @return array
+     */
+    protected function getCategoryProductOrder($categoryProductOrder)
+    {
+        $categoryProductOrder = explode(',', $categoryProductOrder);
+        $callback = function ($value) {
+            return trim($value);
+        };
+
+        return array_map($callback, $categoryProductOrder);
     }
 
     /**

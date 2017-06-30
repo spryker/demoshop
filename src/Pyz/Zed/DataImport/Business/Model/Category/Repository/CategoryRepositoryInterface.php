@@ -8,6 +8,7 @@
 namespace Pyz\Zed\DataImport\Business\Model\Category\Repository;
 
 use Orm\Zed\Category\Persistence\SpyCategory;
+use Orm\Zed\Category\Persistence\SpyCategoryNode;
 
 interface CategoryRepositoryInterface
 {
@@ -21,10 +22,11 @@ interface CategoryRepositoryInterface
 
     /**
      * @param \Orm\Zed\Category\Persistence\SpyCategory $categoryEntity
+     * @param \Orm\Zed\Category\Persistence\SpyCategoryNode $categoryNodeEntity
      *
      * @return void
      */
-    public function addCategory(SpyCategory $categoryEntity);
+    public function addCategory(SpyCategory $categoryEntity, SpyCategoryNode $categoryNodeEntity);
 
     /**
      * @param string $categoryKey
