@@ -11,6 +11,8 @@ use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
+use Spryker\Shared\FileSystem\FileSystemConstants;
+use Spryker\Shared\Flysystem\FlysystemConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -403,3 +405,6 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
         'log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/',
     ],
 ];
+
+$config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
+$config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];

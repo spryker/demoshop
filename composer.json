@@ -158,7 +158,8 @@
     "spryker/zed-navigation": "^1.0.0",
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5"
+    "swiftmailer/swiftmailer": "^5.4.5",
+    "league/flysystem": "^1.0"
   },
   "require-dev": {
     "codeception/c3": "^2.0.12",
