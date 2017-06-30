@@ -65,6 +65,11 @@
     "spryker/error-handler": "^2.0.0",
     "spryker/event": "^1.0.0",
     "spryker/event-journal": "^3.0.0",
+    "spryker/file-system": "^1.0.0",
+    "spryker/flysystem": "^1.0.0",
+    "spryker/flysystem-aws3v3-file-system": "^1.0.0",
+    "spryker/flysystem-ftp-file-system": "^1.0.0",
+    "spryker/flysystem-local-file-system": "^1.0.0",
     "spryker/glossary": "^3.0.0",
     "spryker/graph": "^3.0.0",
     "spryker/graphviz": "^2.0.0",
@@ -158,8 +163,7 @@
     "spryker/zed-navigation": "^1.0.0",
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5",
-    "league/flysystem": "^1.0"
+    "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
     "codeception/c3": "^2.0.12",
@@ -206,6 +210,7 @@
     "preferred-install": "dist",
     "use-include-path": true,
     "sort-packages": true,
+    "github-protocols": ["https"],
     "process-timeout": 600
   },
   "repositories": [
