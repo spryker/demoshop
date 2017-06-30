@@ -90,8 +90,6 @@ class ProductDataPageMapBuilder
 
         $this->expandProductPageMap($pageMapTransfer, $pageMapBuilder, $productData, $localeTransfer);
 
-        $this->setPricesByType($pageMapBuilder, $pageMapTransfer, $productData);
-
         /*
          * We'll then extend this with dynamically configured product attributes from database
          */
@@ -180,31 +178,6 @@ class ProductDataPageMapBuilder
         }, $result);
 
         return $result;
-    }
-
-    /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
-     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
-     * @param array $productData
-     *
-     * @return void
-     */
-    protected function setPricesByType(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData)
-    {
-        $priceProductTransfers = $this->priceFacade->findPricesBySku($productData['abstract_sku']);
-
-        $prices = [];
-        foreach ($priceProductTransfers as $priceProductTransfer) {
-            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
-
-            $pageMapBuilder->addIntegerFacet(
-                $pageMapTransfer,
-                sprintf('price.%s', $priceProductTransfer->getPriceTypeName()),
-                $priceProductTransfer->getPrice()
-            );
-        }
-
-        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
     }
 
 }

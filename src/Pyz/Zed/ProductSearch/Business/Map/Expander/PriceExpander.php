@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Copyright © 2017-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
@@ -45,6 +45,8 @@ class PriceExpander implements ProductPageMapExpanderInterface
             ->addIntegerSort($pageMapTransfer, 'price', $price)
             ->addIntegerFacet($pageMapTransfer, 'price', $price);
 
+        $this->setPricesByType($pageMapBuilder, $pageMapTransfer, $productData);
+
         return $pageMapTransfer;
     }
 
@@ -56,6 +58,31 @@ class PriceExpander implements ProductPageMapExpanderInterface
     protected function getPriceBySku($sku)
     {
         return $this->priceFacade->getPriceBySku($sku);
+    }
+
+    /**
+     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
+     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
+     * @param array $productData
+     *
+     * @return void
+     */
+    protected function setPricesByType(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData)
+    {
+        $priceProductTransfers = $this->priceFacade->findPricesBySku($productData['abstract_sku']);
+
+        $prices = [];
+        foreach ($priceProductTransfers as $priceProductTransfer) {
+            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
+
+            $pageMapBuilder->addIntegerFacet(
+                $pageMapTransfer,
+                sprintf('price.%s', $priceProductTransfer->getPriceTypeName()),
+                $priceProductTransfer->getPrice()
+            );
+        }
+
+        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
     }
 
 }
