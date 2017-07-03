@@ -1638,6 +1638,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
@@ -1670,6 +1671,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
 =======
@@ -1703,6 +1706,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
 =======
@@ -1736,6 +1741,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
 =======
@@ -1769,6 +1776,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "ea82a49283255b6cc85bd3f4d9bae555d8aee89b"
 =======
@@ -2588,10 +2597,25 @@
                 "reference": "77cbf147e96df4b61b8e7d909ba00f00f407ef19"
 >>>>>>> core-1251 code style
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+=======
+=======
+=======
+=======
+=======
+                "reference": "60da6d45fbd692191804f1abc421ed2f8904e751"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2783,6 +2807,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
 =======
 =======
@@ -2815,6 +2840,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-18 10:17:22"
 =======
@@ -2848,6 +2875,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-12 15:07:34"
 =======
@@ -2881,6 +2910,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-11 16:21:14"
 =======
@@ -2914,6 +2945,8 @@
 >>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 =======
 >>>>>>> core-1251 code style
+=======
+>>>>>>> core-1251 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-11 12:31:33"
 =======
@@ -3733,10 +3766,25 @@
             "time": "2017-07-03 11:48:27"
 >>>>>>> core-1251 code style
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+<<<<<<< HEAD
 >>>>>>> core-1251 code style
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-07-03 14:11:01"
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
