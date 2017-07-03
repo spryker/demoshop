@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e7f2398737cfc544be8e3fb40563bdcfae0caff5"
+                "reference": "f77cc8ff4cc5829269eb1848552a24eaae6ec218"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1724,6 +1724,7 @@
                 "spryker/product-image-cart-connector": "*",
                 "spryker/product-label": "*",
                 "spryker/product-label-collector": "*",
+                "spryker/product-label-discount-connector": "*",
                 "spryker/product-label-gui": "*",
                 "spryker/product-management": "*",
                 "spryker/product-option": "*",
@@ -1792,7 +1793,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-03 09:27:02"
+            "time": "2017-07-03 11:44:34"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6503,7 +6504,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-28 10:19:12"
+            "time": "2017-06-28T10:19:12+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6550,7 +6551,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-06-27 13:05:34"
+            "time": "2017-06-27T13:05:34+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
