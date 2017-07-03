@@ -5,10 +5,15 @@
     {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: category} only %}
 {% endblock %}
 
+{{ spyCmsBlock({category: idCategory, position: 'top'}) }}
 {% block title %}
     <h3>{{ category.name }}</h3>
 {% endblock %}
 
 {% block content %}
-    {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.getPathInfo()} %}
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory, position: 'middle'}) }}
+    </div>
 {% endblock %}
+
+{{ spyCmsBlock({category: idCategory, position: 'bottom'}) }}

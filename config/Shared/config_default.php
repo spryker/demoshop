@@ -36,6 +36,9 @@ use Spryker\Shared\ZedRequest\ZedRequestConstants;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
+use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Zed\Category\CategoryConfig;
+use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
@@ -408,3 +411,9 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
 
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
+
+$config[CategoryConstants::TEMPLATE_LIST] = [
+    CategoryConfig::CATEGORY_TEMPLATE_DEFAULT,
+    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_CATEGORY_CMS_BLOCK,
+    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_CMS_BLOCK,
+];

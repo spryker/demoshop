@@ -8,6 +8,8 @@
 namespace Pyz\Yves\Catalog;
 
 use Pyz\Yves\Catalog\ActiveSearchFilter\UrlGenerator;
+use Spryker\Client\Category\CategoryClientInterface;
+use Spryker\Client\Locale\LocaleClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CatalogFactory extends AbstractFactory
@@ -19,6 +21,22 @@ class CatalogFactory extends AbstractFactory
     public function createActiveSearchFilterUrlGenerator()
     {
         return new UrlGenerator($this->getSearchClient());
+    }
+
+    /**
+     * @return CategoryClientInterface
+     */
+    public function createCategoryClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATEGORY);
+    }
+
+    /**
+     * @return LocaleClientInterface
+     */
+    public function createLocaleClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_LOCALE);
     }
 
     /**

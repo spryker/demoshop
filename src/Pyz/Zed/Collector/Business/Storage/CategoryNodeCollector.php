@@ -82,6 +82,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
             'node_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'name' => $collectItemData['name'],
             'url' => $collectItemData['url'],
+            'template_path' => $collectItemData['template_path'],
             'image' => $collectItemData['category_image_name'],
             'children' => $collectItemData['children'],
             'parents' => $collectItemData['parents'],
