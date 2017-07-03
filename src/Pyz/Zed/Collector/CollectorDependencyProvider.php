@@ -33,6 +33,7 @@ use Spryker\Shared\ProductLabel\ProductLabelConstants;
 use Spryker\Shared\ProductRelation\ProductRelationConstants;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Shared\ProductSet\ProductSetConfig;
+use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CmsBlockCategoryConnectorCollectorPlugin;
 use Spryker\Zed\CmsBlockCollector\Communication\Plugin\CmsBlockCollectorStoragePlugin;
 use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductConnectorCollectorPlugin;

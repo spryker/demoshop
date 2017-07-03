@@ -25,8 +25,6 @@ use Pyz\Zed\DataImport\Business\Model\Locale\Repository\LocaleRepository;
 use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationKeyToIdNavigationStep;
 use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationWriterStep;
 use Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeWriterStep;
-use Pyz\Zed\DataImport\Business\Model\Price\PriceTypeToIdPriceTypeStep;
-use Pyz\Zed\DataImport\Business\Model\Price\PriceTypeWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Product\AttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
