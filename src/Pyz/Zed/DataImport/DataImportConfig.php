@@ -19,7 +19,6 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_GLOSSARY = 'glossary';
     const IMPORT_TYPE_NAVIGATION = 'navigation';
     const IMPORT_TYPE_NAVIGATION_NODE = 'navigation-node';
-    const IMPORT_TYPE_PRICE_TYPE = 'price-type';
     const IMPORT_TYPE_PRODUCT_PRICE = 'product-price';
     const IMPORT_TYPE_PRODUCT_STOCK = 'product-stock';
     const IMPORT_TYPE_PRODUCT_ABSTRACT = 'product-abstract';
@@ -28,6 +27,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE = 'product-management-attribute';
     const IMPORT_TYPE_PRODUCT_RELATION = 'product-relation';
     const IMPORT_TYPE_PRODUCT_LABEL = 'product-label';
+    const IMPORT_TYPE_PRODUCT_SET = 'product-set';
     const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
     const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
     const IMPORT_TYPE_PRODUCT_IMAGE = 'product-image';
@@ -86,14 +86,6 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductPriceDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_price.csv', static::IMPORT_TYPE_PRODUCT_PRICE);
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
-     */
-    public function getPriceTypeDataImporterConfiguration()
-    {
-        return $this->buildImporterConfiguration('price_type.csv', static::IMPORT_TYPE_PRICE_TYPE);
     }
 
     /**
@@ -182,6 +174,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductLabelDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_label.csv', static::IMPORT_TYPE_PRODUCT_LABEL);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductSetDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_set.csv', static::IMPORT_TYPE_PRODUCT_SET);
     }
 
     /**

@@ -4,19 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "575370919291eb9fe6fbe09165bbbc7a",
-=======
-    "content-hash": "52673e8cfc1682c7e23fa6c1f750af5b",
->>>>>>> core-1251 Added Glossary Import with new DataImport bundle
-=======
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
->>>>>>> core-1251 update spryker/spryker
-=======
-    "content-hash": "52673e8cfc1682c7e23fa6c1f750af5b",
->>>>>>> core-1251 update spryker/spryker
+    "content-hash": "95c44b53188ffcb4e2ac280efbdc7352",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1648,6 +1636,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
@@ -1676,6 +1665,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
                 "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
 =======
@@ -1705,6 +1696,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
                 "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
 =======
@@ -1734,6 +1727,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
                 "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
 =======
@@ -1763,6 +1758,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
                 "reference": "ea82a49283255b6cc85bd3f4d9bae555d8aee89b"
 =======
@@ -1792,6 +1789,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
                 "reference": "93c1d5f3b441a94e25208bd2e632c34aaf4567aa"
 =======
@@ -2541,11 +2540,29 @@
                 "reference": "428762b5e45bb080f6d0b8789490a11529bd5485"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "561cb4db90b46526b89f8b8bc1061bf99d140a18"
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2735,6 +2752,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
 =======
 =======
@@ -2763,6 +2781,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
             "time": "2017-07-18 10:17:22"
 =======
@@ -2792,6 +2812,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
             "time": "2017-07-12 15:07:34"
 =======
@@ -2821,6 +2843,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
             "time": "2017-07-11 16:21:14"
 =======
@@ -2850,6 +2874,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
             "time": "2017-07-11 12:31:33"
 =======
@@ -2879,6 +2905,8 @@
 >>>>>>> core-1251 update spryker/srpyker
 =======
 >>>>>>> core-1251 update spryker/spryker
+=======
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
 <<<<<<< HEAD
             "time": "2017-07-03 12:18:51"
 =======
@@ -3628,11 +3656,29 @@
             "time": "2017-06-29 13:05:07"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-1251 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-07-03 09:43:35"
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9193,6 +9239,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-06-28T10:19:12+00:00"
 =======
 =======
@@ -9248,6 +9295,9 @@
             "time": "2017-06-28 10:19:12"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
+=======
+            "time": "2017-06-28 10:19:12"
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
         },
         {
             "name": "spryker/code-sniffer",
@@ -9375,6 +9425,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-17 14:09:59"
 =======
 =======
@@ -9480,6 +9531,9 @@
             "time": "2017-06-27 13:05:34"
 >>>>>>> core-1251 update spryker/spryker
 >>>>>>> core-1251 update spryker/spryker
+=======
+            "time": "2017-06-27 13:05:34"
+>>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
         },
         {
             "name": "squizlabs/php_codesniffer",

@@ -8,7 +8,7 @@
 namespace Pyz\Zed\DataImport\Business\Model\ProductPrice;
 
 use Orm\Zed\Price\Persistence\SpyPriceProductQuery;
-use Pyz\Zed\DataImport\Business\Model\Price\PriceTypeToIdPriceTypeStep;
+use Orm\Zed\Price\Persistence\SpyPriceTypeQuery;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -22,6 +22,7 @@ class ProductPriceWriterStep implements DataImportStepInterface
     const KEY_ABSTRACT_SKU = 'abstract_sku';
     const KEY_CONCRETE_SKU = 'concrete_sku';
     const KEY_PRICE = 'price';
+    const KEY_PRICE_TYPE = 'price_type';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
@@ -45,8 +46,16 @@ class ProductPriceWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
+        $priceTypeEntity = SpyPriceTypeQuery::create()
+            ->filterByName($dataSet[static::KEY_PRICE_TYPE])
+            ->findOneOrCreate();
+
+        if ($priceTypeEntity->isNew() || $priceTypeEntity->isModified()) {
+            $priceTypeEntity->save();
+        }
+
         $query = SpyPriceProductQuery::create();
-        $query->filterByFkPriceType($dataSet[PriceTypeToIdPriceTypeStep::KEY_TARGET]);
+        $query->filterByFkPriceType($priceTypeEntity->getIdPriceType());
 
         if (empty($dataSet[static::KEY_ABSTRACT_SKU]) && empty($dataSet[static::KEY_CONCRETE_SKU])) {
             throw new DataKeyNotFoundInDataSetException(sprintf(
@@ -60,13 +69,13 @@ class ProductPriceWriterStep implements DataImportStepInterface
         if (!empty($dataSet[static::KEY_ABSTRACT_SKU])) {
             $idProductAbstract = $this->productRepository->getIdProductAbstractByAbstractSku($dataSet[static::KEY_ABSTRACT_SKU]);
             $query->filterByFkProductAbstract($idProductAbstract);
-        }
-        if (!empty($dataSet[static::KEY_CONCRETE_SKU])) {
+        } else {
             $idProduct = $this->productRepository->getIdProductByConcreteSku($dataSet[static::KEY_CONCRETE_SKU]);
             $query->filterByFkProduct($idProduct);
         }
 
         $productPrice = $query->findOneOrCreate();
+
         $productPrice->setPrice((int)$dataSet[static::KEY_PRICE]);
         $productPrice->save();
     }

@@ -51,11 +51,7 @@ class ProductManagementLocalizedAttributesExtractorStep implements DataImportSte
      */
     private function toArray($data)
     {
-        $callback = function ($value) {
-            return trim($value);
-        };
-
-        return array_map($callback, explode(',', $data));
+        return array_map('trim', explode(',', $data));
     }
 
 }

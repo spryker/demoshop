@@ -185,11 +185,8 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
     protected function getCategoryKeys($categoryKeys)
     {
         $categoryKeys = explode(',', $categoryKeys);
-        $callback = function ($value) {
-            return trim($value);
-        };
 
-        return array_map($callback, $categoryKeys);
+        return array_map('trim', $categoryKeys);
     }
 
     /**
@@ -200,11 +197,8 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
     protected function getCategoryProductOrder($categoryProductOrder)
     {
         $categoryProductOrder = explode(',', $categoryProductOrder);
-        $callback = function ($value) {
-            return trim($value);
-        };
 
-        return array_map($callback, $categoryProductOrder);
+        return array_map('trim', $categoryProductOrder);
     }
 
     /**

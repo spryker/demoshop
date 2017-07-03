@@ -19,9 +19,10 @@ class GlossaryWriterStep extends TouchAwareStep implements DataImportStepInterfa
 
     const BULK_SIZE = 100;
 
-    const DATA_SET_KEY_KEY = 'key';
-    const DATA_SET_KEY_TRANSLATION = 'translation';
-    const DATA_SET_KEY_ID_LOCALE = 'idLocale';
+    const KEY_KEY = 'key';
+    const KEY_TRANSLATION = 'translation';
+    const KEY_ID_LOCALE = 'idLocale';
+    const KEY_LOCALE = 'locale';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -31,18 +32,18 @@ class GlossaryWriterStep extends TouchAwareStep implements DataImportStepInterfa
     public function execute(DataSetInterface $dataSet)
     {
         $glossaryKeyEntity = SpyGlossaryKeyQuery::create()
-            ->filterByKey($dataSet[static::DATA_SET_KEY_KEY])
+            ->filterByKey($dataSet[static::KEY_KEY])
             ->findOneOrCreate();
 
         $glossaryKeyEntity->save();
 
         $glossaryTranslationEntity = SpyGlossaryTranslationQuery::create()
             ->filterByGlossaryKey($glossaryKeyEntity)
-            ->filterByFkLocale($dataSet[static::DATA_SET_KEY_ID_LOCALE])
+            ->filterByFkLocale($dataSet[static::KEY_ID_LOCALE])
             ->findOneOrCreate();
 
         $glossaryTranslationEntity
-            ->setValue($dataSet[static::DATA_SET_KEY_TRANSLATION])
+            ->setValue($dataSet[static::KEY_TRANSLATION])
             ->save();
 
         $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
