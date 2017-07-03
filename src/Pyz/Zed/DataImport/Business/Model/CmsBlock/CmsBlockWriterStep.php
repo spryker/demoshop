@@ -29,6 +29,9 @@ use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
