@@ -14,6 +14,8 @@ use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearch
 use Spryker\Client\Kernel\Container;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\CompletionQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\FacetQueryExpanderPlugin;
+use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\IsActiveInDateRangeQueryExpanderPlugin;
+use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\IsActiveQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\LocalizedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\PaginatedQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedCategoryQueryExpanderPlugin;
@@ -27,7 +29,6 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\PaginatedResultFo
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SpellingSuggestionResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionByTypeResultFormatterPlugin;
-use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\IsActiveQueryExpanderPlugin;
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
@@ -99,7 +100,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new CompletionQueryExpanderPlugin(),
             new SuggestionByTypeQueryExpanderPlugin(),
             new IsActiveQueryExpanderPlugin(),
-            new \Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\IsActiveInDateRangeQueryExpanderPlugin(),
+            new IsActiveInDateRangeQueryExpanderPlugin(),
         ];
     }
 

@@ -146,18 +146,12 @@ class ProductDataPageMapBuilder
      */
     protected function isProductAbstractActive($productStatusAggregation, $productSearchableStatusAggregation)
     {
-        $statusList = explode(',', $productStatusAggregation);
-        foreach ($statusList as $flag) {
-            if (trim($flag) === 'false') {
-                return false;
-            }
+        if (strpos($productSearchableStatusAggregation, 'true') === false) {
+            return false;
         }
 
-        $statusList = explode(',', $productSearchableStatusAggregation);
-        foreach ($statusList as $flag) {
-            if (trim($flag) === 'true') {
-                return false;
-            }
+        if (strpos($productStatusAggregation, 'true') === false) {
+            return false;
         }
 
         return true;
