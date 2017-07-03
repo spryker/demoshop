@@ -7,9 +7,9 @@
 
 namespace Pyz\Yves\Product\Plugin;
 
-use Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface;
-use Spryker\Shared\CmsCollector\CmsCollectorConstants;
-use Spryker\Yves\Cms\Dependency\CmsContentWidgetPluginInterface;
+use Spryker\Shared\CmsContentWidget\CmsContentWidgetConstants;
+use Spryker\Shared\CmsContentWidget\Dependency\CmsContentWidgetConfigurationProviderInterface;
+use Spryker\Yves\CmsContentWidget\Dependency\CmsContentWidgetPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Twig_Environment;
 
@@ -21,12 +21,12 @@ class CmsProductContentWidgetPlugin extends AbstractPlugin implements CmsContent
 {
 
     /**
-     * @var \Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface
+     * @var \Spryker\Shared\CmsContentWidget\Dependency\CmsContentWidgetConfigurationProviderInterface
      */
     protected $widgetConfiguration;
 
     /**
-     * @param \Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface $widgetConfiguration
+     * @param \Spryker\Shared\CmsContentWidget\Dependency\CmsContentWidgetConfigurationProviderInterface $widgetConfiguration
      */
     public function __construct(CmsContentWidgetConfigurationProviderInterface $widgetConfiguration)
     {
@@ -114,7 +114,7 @@ class CmsProductContentWidgetPlugin extends AbstractPlugin implements CmsContent
      */
     protected function getProductAbstractSkuMap(array $cmsContent)
     {
-        return $cmsContent[CmsCollectorConstants::CMS_CONTENT_WIDGET_PARAMETER_MAP][$this->widgetConfiguration->getFunctionName()];
+        return $cmsContent[CmsContentWidgetConstants::CMS_CONTENT_WIDGET_PARAMETER_MAP][$this->widgetConfiguration->getFunctionName()];
     }
 
     /**

@@ -44,7 +44,7 @@ class CmsController extends AbstractController
         }
 
         $meta['placeholders'] = $this->getFactory()
-            ->createTwigContentRenderer()
+            ->getCmsTwigRendererPlugin()
             ->render($meta['placeholders'], ['cmsContent' => $meta]);
 
         return $this->renderView($meta['template'], [

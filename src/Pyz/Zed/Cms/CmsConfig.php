@@ -7,9 +7,6 @@
 
 namespace Pyz\Zed\Cms;
 
-use Spryker\Shared\CmsProductConnector\ContentWidgetConfigurationProvider\CmsProductContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductGroupConnector\ContentWidgetConfigurationProvider\CmsProductGroupContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductSetConnector\ContentWidgetConfigurationProvider\CmsProductSetContentWidgetConfigurationProvider;
 use Spryker\Zed\Cms\CmsConfig as SprykerCmsConfig;
 
 class CmsConfig extends SprykerCmsConfig
@@ -21,20 +18,6 @@ class CmsConfig extends SprykerCmsConfig
     public function appendPrefixToCmsPageUrl()
     {
         return true;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return array|\Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface[]
-     */
-    public function getCmsContentWidgetConfigurationProviders()
-    {
-        return [
-            CmsProductContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductContentWidgetConfigurationProvider(),
-            CmsProductSetContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSetContentWidgetConfigurationProvider(),
-            CmsProductGroupContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductGroupContentWidgetConfigurationProvider(),
-        ];
     }
 
 }

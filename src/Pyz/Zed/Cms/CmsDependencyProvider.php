@@ -7,12 +7,7 @@
 
 namespace Pyz\Zed\Cms;
 
-use Spryker\Shared\CmsProductConnector\ContentWidgetConfigurationProvider\CmsProductContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductGroupConnector\ContentWidgetConfigurationProvider\CmsProductGroupContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductSetConnector\ContentWidgetConfigurationProvider\CmsProductSetContentWidgetConfigurationProvider;
 use Spryker\Zed\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
-use Spryker\Zed\CmsProductConnector\Communication\Plugin\Cms\CmsProductSkuMapperPlugin;
-use Spryker\Zed\CmsProductSetConnector\Communication\Plugin\Cms\CmsProductSetKeyMapperPlugin;
 use Spryker\Zed\CmsUserConnector\Communication\Plugin\UserCmsVersionPostSavePlugin;
 use Spryker\Zed\CmsUserConnector\Communication\Plugin\UserCmsVersionTransferExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
@@ -41,22 +36,6 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
     {
         return [
             new UserCmsVersionTransferExpanderPlugin()
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return array|\Spryker\Zed\Cms\Dependency\Plugin\CmsContentWidgetParameterMapperPluginInterface[]
-     */
-    protected function getCmsContentWidgetParameterMapperPlugins(Container $container)
-    {
-        return [
-            CmsProductContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSkuMapperPlugin(),
-            CmsProductSetContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSetKeyMapperPlugin(),
-            CmsProductGroupContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSkuMapperPlugin(),
         ];
     }
 

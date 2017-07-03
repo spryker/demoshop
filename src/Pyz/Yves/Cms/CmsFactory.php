@@ -8,9 +8,9 @@
 namespace Pyz\Yves\Cms;
 
 use Pyz\Yves\Cms\ResourceCreator\PageResourceCreator;
-use Spryker\Yves\Cms\CmsFactory as SprykerCmsFactory;
+use Spryker\Yves\Kernel\AbstractFactory;
 
-class CmsFactory extends SprykerCmsFactory
+class CmsFactory extends AbstractFactory
 {
 
     /**
@@ -19,6 +19,14 @@ class CmsFactory extends SprykerCmsFactory
     public function createPageResourceCreator()
     {
         return new PageResourceCreator();
+    }
+
+    /**
+     * @return \Spryker\Yves\CmsContentWidget\Plugin\CmsTwigContentRendererPluginInterface
+     */
+    public function getCmsTwigRendererPlugin()
+    {
+        return $this->getProvidedDependency(CmsDependencyProvider::CMS_TWIG_CONTENT_RENDERER_PLUGIN);
     }
 
 }

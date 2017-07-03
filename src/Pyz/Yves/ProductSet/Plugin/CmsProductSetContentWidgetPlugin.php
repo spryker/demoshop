@@ -9,9 +9,9 @@ namespace Pyz\Yves\ProductSet\Plugin;
 
 use Generated\Shared\Transfer\ProductSetStorageTransfer;
 use Pyz\Yves\ProductSet\Controller\DetailController;
-use Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface;
-use Spryker\Shared\CmsCollector\CmsCollectorConstants;
-use Spryker\Yves\Cms\Dependency\CmsContentWidgetPluginInterface;
+use Spryker\Shared\CmsContentWidget\CmsContentWidgetConstants;
+use Spryker\Shared\CmsContentWidget\Dependency\CmsContentWidgetConfigurationProviderInterface;
+use Spryker\Yves\CmsContentWidget\Dependency\CmsContentWidgetPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Twig_Environment;
 
@@ -23,12 +23,12 @@ class CmsProductSetContentWidgetPlugin extends AbstractPlugin implements CmsCont
 {
 
     /**
-     * @var \Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface
+     * @var \Spryker\Shared\CmsContentWidget\Dependency\CmsContentWidgetConfigurationProviderInterface
      */
     protected $widgetConfiguration;
 
     /**
-     * @param \Spryker\Shared\Cms\CmsContentWidget\CmsContentWidgetConfigurationProviderInterface $widgetConfiguration
+     * @param \Spryker\Shared\CmsContentWidget\Dependency\CmsContentWidgetConfigurationProviderInterface $widgetConfiguration
      */
     public function __construct(CmsContentWidgetConfigurationProviderInterface $widgetConfiguration)
     {
@@ -143,7 +143,7 @@ class CmsProductSetContentWidgetPlugin extends AbstractPlugin implements CmsCont
      */
     protected function getProductSetKeyMap(array $cmsPageData)
     {
-        return $cmsPageData[CmsCollectorConstants::CMS_CONTENT_WIDGET_PARAMETER_MAP][$this->widgetConfiguration->getFunctionName()];
+        return $cmsPageData[CmsContentWidgetConstants::CMS_CONTENT_WIDGET_PARAMETER_MAP][$this->widgetConfiguration->getFunctionName()];
     }
 
     /**

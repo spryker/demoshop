@@ -7,34 +7,27 @@
 
 namespace Pyz\Yves\Cms;
 
-use Pyz\Yves\Product\Plugin\CmsProductContentWidgetPlugin;
-use Pyz\Yves\ProductSet\Plugin\CmsProductSetContentWidgetPlugin;
-use Spryker\Shared\CmsProductConnector\ContentWidgetConfigurationProvider\CmsProductContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductGroupConnector\ContentWidgetConfigurationProvider\CmsProductGroupContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductSetConnector\ContentWidgetConfigurationProvider\CmsProductSetContentWidgetConfigurationProvider;
-use Spryker\Yves\Cms\CmsDependencyProvider as SprykerCmsDependencyProvider;
+use Spryker\Yves\CmsContentWidget\Plugin\CmsTwigContentRendererPlugin;
+use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Yves\Kernel\Container;
 
-class CmsDependencyProvider extends SprykerCmsDependencyProvider
+class CmsDependencyProvider extends AbstractBundleDependencyProvider
 {
 
+    const CMS_TWIG_CONTENT_RENDERER_PLUGIN = 'cms twig content renderer plugin';
+
     /**
-     * {@inheritdoc}
+     * @param \Spryker\Yves\Kernel\Container $container
      *
-     * @return array|\Spryker\Yves\Cms\Dependency\CmsContentWidgetPluginInterface[]
+     * @return \Spryker\Yves\Kernel\Container
      */
-    public function getCmsContentWidgetPlugins()
+    public function provideDependencies(Container $container)
     {
-         return [
-             CmsProductContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductContentWidgetPlugin(
-                 new CmsProductContentWidgetConfigurationProvider()
-             ),
-             CmsProductSetContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSetContentWidgetPlugin(
-                 new CmsProductSetContentWidgetConfigurationProvider()
-             ),
-             CmsProductGroupContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductContentWidgetPlugin(
-                 new CmsProductGroupContentWidgetConfigurationProvider()
-             ),
-         ];
+        $container[static::CMS_TWIG_CONTENT_RENDERER_PLUGIN] = function (Container $container) {
+            return new CmsTwigContentRendererPlugin();
+        };
+
+        return $container;
     }
 
 }
