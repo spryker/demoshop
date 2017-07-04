@@ -7,11 +7,11 @@
 
 namespace Pyz\Yves\CmsContentWidget;
 
-use Pyz\Yves\Product\Plugin\CmsProductContentWidgetPlugin;
-use Pyz\Yves\ProductSet\Plugin\CmsProductSetContentWidgetPlugin;
-use Spryker\Shared\CmsProductConnector\ContentWidgetConfigurationProvider\CmsProductContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductGroupConnector\ContentWidgetConfigurationProvider\CmsProductGroupContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsProductSetConnector\ContentWidgetConfigurationProvider\CmsProductSetContentWidgetConfigurationProvider;
+use Pyz\Yves\CmsContentWidgetProductConnector\Plugin\CmsProductContentWidgetPlugin;
+use Pyz\Yves\CmsContentWidgetProductSetConnector\Plugin\CmsProductSetContentWidgetPlugin;
+use Spryker\Shared\CmsContentWidgetProductConnector\ContentWidgetConfigurationProvider\CmsProductContentWidgetConfigurationProvider;
+use Spryker\Shared\CmsContentWidgetProductGroupConnector\ContentWidgetConfigurationProvider\CmsProductGroupContentWidgetConfigurationProvider;
+use Spryker\Shared\CmsContentWidgetProductSetConnector\ContentWidgetConfigurationProvider\CmsProductSetContentWidgetConfigurationProvider;
 use Spryker\Yves\CmsContentWidget\CmsContentWidgetDependencyProvider as SprykerCmsContentWidgetDependencyProvider;
 
 class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependencyProvider
@@ -20,7 +20,7 @@ class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependen
     /**
      * {@inheritdoc}
      *
-     * @return array|\Spryker\Yves\CmsContentWidget\Dependency\CmsContentWidgetPluginInterface[]
+     * @return \Spryker\Yves\CmsContentWidget\Dependency\CmsContentWidgetPluginInterface[]
      */
     public function getCmsContentWidgetPlugins()
     {

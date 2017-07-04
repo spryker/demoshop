@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b7c320fce35c3c4da6c6603aeebb3d4a5eabe3e8"
+                "reference": "38b1e7f2d7eda5a310075d89d3316bfcf6bd2370"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1657,10 +1657,10 @@
                 "spryker/cms-block-product-connector": "*",
                 "spryker/cms-collector": "*",
                 "spryker/cms-content-widget": "*",
+                "spryker/cms-content-widget-product-connector": "*",
+                "spryker/cms-content-widget-product-group-connector": "*",
+                "spryker/cms-content-widget-product-set-connector": "*",
                 "spryker/cms-gui": "*",
-                "spryker/cms-product-connector": "*",
-                "spryker/cms-product-group-connector": "*",
-                "spryker/cms-product-set-connector": "*",
                 "spryker/cms-user-connector": "*",
                 "spryker/collector": "*",
                 "spryker/collector-search-connector": "*",
@@ -1796,7 +1796,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-03 14:02:49"
+            "time": "2017-07-04 11:48:49"
         },
         {
             "name": "swiftmailer/swiftmailer",
