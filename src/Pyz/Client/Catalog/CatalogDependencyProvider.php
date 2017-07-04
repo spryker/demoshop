@@ -33,6 +33,8 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
     const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
     const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
+    const SALE_SEARCH_QUERY_EXPANDER_PLUGINS = 'SALE_SEARCH_QUERY_EXPANDER_PLUGINS';
+    const SALE_SEARCH_RESULT_FORMATTER_PLUGINS = 'SALE_SEARCH_RESULT_FORMATTER_PLUGINS';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -45,6 +47,8 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
         $container = $this->provideFeatureProductsResultFormatterPlugins($container);
         $container = $this->provideFeatureProductsQueryExpanderPlugins($container);
+        $container = $this->provideSaleSearchQueryExpanderPlugins($container);
+        $container = $this->provideSaleSearchResultFormatterPlugins($container);
 
         return $container;
     }
@@ -138,6 +142,45 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             return [
                 new StoreQueryExpanderPlugin(),
                 new LocalizedQueryExpanderPlugin(),
+            ];
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function provideSaleSearchQueryExpanderPlugins(Container $container)
+    {
+        $container[self::SALE_SEARCH_QUERY_EXPANDER_PLUGINS] = function () {
+            return [
+                new StoreQueryExpanderPlugin(),
+                new LocalizedQueryExpanderPlugin(),
+                new FacetQueryExpanderPlugin(),
+                new SortedQueryExpanderPlugin(),
+                new PaginatedQueryExpanderPlugin(),
+            ];
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function provideSaleSearchResultFormatterPlugins(Container$container)
+    {
+        $container[self::SALE_SEARCH_RESULT_FORMATTER_PLUGINS] = function () {
+            return [
+                new FacetResultFormatterPlugin(),
+                new SortedResultFormatterPlugin(),
+                new PaginatedResultFormatterPlugin(),
+                new RawCatalogSearchResultFormatterPlugin(),
             ];
         };
 

@@ -15,3 +15,21 @@
     }
 }
 
+.sale {
+    &__red a {
+        color: $alert-color;
+        font-weight: bold;
+    }
+}
+
+.catalog-price {
+    &__price-original {
+        text-decoration: line-through;
+        color: $dark-gray;
+    }
+
+    &__price-reduced {
+        color: $alert-color;
+        font-weight: bold;
+    }
+}

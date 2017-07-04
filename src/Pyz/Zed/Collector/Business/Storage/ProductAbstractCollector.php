@@ -135,6 +135,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::URL => $collectItemData[self::URL],
             StorageProductTransfer::COLOR_CODE => $collectItemData[self::COLOR_CODE],
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
+            StorageProductTransfer::PRICES => $this->getPrices($collectItemData[self::SKU]),
             StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
             StorageProductTransfer::IMAGE_SETS => $this->generateProductAbstractImageSets(
                 $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
@@ -187,6 +188,23 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected function getPriceBySku($sku)
     {
         return $this->priceFacade->getPriceBySku($sku);
+    }
+
+    /**
+     * @param string $sku
+     *
+     * @return array
+     */
+    protected function getPrices($sku)
+    {
+        $priceProductTransfers = $this->priceFacade->findPricesBySku($sku);
+
+        $prices = [];
+        foreach ($priceProductTransfers as $priceProductTransfer) {
+            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
+        }
+
+        return $prices;
     }
 
     /**
