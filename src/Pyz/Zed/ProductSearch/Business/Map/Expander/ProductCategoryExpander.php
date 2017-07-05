@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\ProductSearch\Business\Map\Partial;
+namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
@@ -16,7 +16,7 @@ use Pyz\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SortedCategoryQueryExpanderPlugin;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
-class ProductCategoryPartialPageMapBuilder
+class ProductCategoryExpander implements ProductPageMapExpanderInterface
 {
 
     const RESULT_FIELD_PRODUCT_ORDER = 'product_order';
@@ -54,19 +54,15 @@ class ProductCategoryPartialPageMapBuilder
     }
 
     /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
+     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $productData
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\PageMapTransfer
      */
-    public function buildPart(
-        PageMapBuilderInterface $pageMapBuilder,
-        PageMapTransfer $pageMapTransfer,
-        array $productData,
-        LocaleTransfer $localeTransfer
-    ) {
+    public function expandProductPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
+    {
         $directParentCategories = array_map('intval', explode(',', $productData['category_node_ids']));
 
         $allParentCategories = [];
@@ -96,6 +92,8 @@ class ProductCategoryPartialPageMapBuilder
             $productData['id_product_abstract'],
             $localeTransfer
         );
+
+        return $pageMapTransfer;
     }
 
     /**
@@ -268,15 +266,13 @@ class ProductCategoryPartialPageMapBuilder
         ObjectCollection $productCategoryEntities,
         LocaleTransfer $localeTransfer
     ) {
+        $maxProductOrder = (pow(2, 31) - 1);
+
         foreach ($productCategoryEntities as $productCategoryEntity) {
             $idCategoryNode = $productCategoryEntity->getVirtualColumn(
                 ProductCategoryQueryContainer::VIRT_COLUMN_ID_CATEGORY_NODE
             );
-            $productOrder = (int)$productCategoryEntity->getProductOrder();
-
-            if (!$productOrder) {
-                continue;
-            }
+            $productOrder = (int)$productCategoryEntity->getProductOrder() ?: $maxProductOrder;
 
             $pageMapBuilder->addIntegerSort(
                 $pageMapTransfer,

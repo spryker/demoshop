@@ -52,3 +52,10 @@ $product-label-tag-size: 40px;
         color: $white;
     }
 }
+
+.carousel {
+    .product-label-tag {
+        top: $product-label-sizing;
+        left: $product-label-sizing;
+    }
+}
