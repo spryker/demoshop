@@ -50,28 +50,26 @@ class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportS
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $query = SpyProductSearchAttributeQuery::create();
-        $productSearchAttributeEntity = $query
+        $productSearchAttributeEntity = SpyProductSearchAttributeQuery::create()
             ->filterByFkProductAttributeKey($dataSet[AddProductAttributeKeysStep::KEY_TARGET][$dataSet['key']])
-            ->filterByFilterType($dataSet['filter_type'])
             ->findOneOrCreate();
 
         $productSearchAttributeEntity
             ->setPosition($dataSet['position'])
+            ->setFilterType($dataSet['filter_type'])
             ->setSynced((isset($dataSet['synced'])) ? $dataSet['synced'] : true)
             ->save();
 
         $translationKey = $this->glossaryKeyBuilder->buildGlossaryKey($dataSet['key']);
-        $query = SpyGlossaryKeyQuery::create();
-        $glossaryKeyEntity = $query
+
+        $glossaryKeyEntity = SpyGlossaryKeyQuery::create()
             ->filterByKey($translationKey)
             ->findOneOrCreate();
 
         $glossaryKeyEntity->save();
 
         foreach ($dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttribute) {
-            $query = SpyGlossaryTranslationQuery::create();
-            $glossaryTranslationEntity = $query
+            $glossaryTranslationEntity = SpyGlossaryTranslationQuery::create()
                 ->filterByFkLocale($idLocale)
                 ->filterByFkGlossaryKey($glossaryKeyEntity->getIdGlossaryKey())
                 ->findOneOrCreate();
