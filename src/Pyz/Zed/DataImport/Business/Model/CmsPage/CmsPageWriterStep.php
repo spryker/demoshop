@@ -49,6 +49,7 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
     const KEY_META_DESCRIPTION = 'meta_description';
     const KEY_META_KEYWORDS = 'meta_keywords';
     const KEY_URL = 'url';
+    const KEY_PUBLISH = 'publish';
 
     /**
      * @var \Spryker\Zed\Cms\Business\Version\Mapper\VersionDataMapperInterface
@@ -73,8 +74,6 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $needsNewVersion = false;
-
         $templateEntity = SpyCmsTemplateQuery::create()
             ->findOneByTemplateName($dataSet[static::KEY_TEMPLATE_NAME]);
 
@@ -89,7 +88,6 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
 
         if ($cmsPageEntity->isNew() || $cmsPageEntity->isModified()) {
             $cmsPageEntity->save();
-            $needsNewVersion = true;
         }
 
         foreach ($dataSet[LocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $attributes) {
@@ -102,7 +100,6 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
 
             if ($localizedAttributesEntity->isNew() || $localizedAttributesEntity->isModified()) {
                 $localizedAttributesEntity->save();
-                $needsNewVersion = true;
             }
 
             $urlEntity = SpyUrlQuery::create()
@@ -115,7 +112,6 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
 
             if ($urlEntity->isNew() || $urlEntity->isModified()) {
                 $urlEntity->save();
-                $needsNewVersion = true;
             }
 
             $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
@@ -146,7 +142,6 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
 
                 if ($glossaryTranslationEntity->isNew() || $glossaryTranslationEntity->isModified()) {
                     $glossaryTranslationEntity->save();
-                    $needsNewVersion = true;
                 }
 
                 $pageKeyMappingEntity = SpyCmsGlossaryKeyMappingQuery::create()
@@ -159,14 +154,13 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
 
                 if ($pageKeyMappingEntity->isNew() || $pageKeyMappingEntity->isModified()) {
                     $pageKeyMappingEntity->save();
-                    $needsNewVersion = true;
                 }
 
                 $this->addSubTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
             }
         }
 
-        if ($needsNewVersion) {
+        if ((int)$dataSet[static::KEY_PUBLISH] === 1) {
             $this->publishWithVersion($cmsPageEntity);
         }
     }
