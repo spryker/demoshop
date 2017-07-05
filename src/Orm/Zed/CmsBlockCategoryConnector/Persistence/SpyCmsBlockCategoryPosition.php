@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\CmsBlockCategoryConnector\Persistence;
 
-use Orm\Zed\CmsBlockCategoryConnector\Persistence\Base\SpyCmsBlockCategoryPosition as BaseSpyCmsBlockCategoryPosition;
+use Spryker\Zed\CmsBlockCategoryConnector\Persistence\Propel\AbstractSpyCmsBlockCategoryPosition as BaseSpyCmsBlockCategoryPosition;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_cms_block_category_position' table.

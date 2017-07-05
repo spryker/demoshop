@@ -39,6 +39,7 @@ use Spryker\Zed\Propel\PropelConfig;
 use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
+use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConstants;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
@@ -413,7 +414,13 @@ $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
 
 $config[CategoryConstants::TEMPLATE_LIST] = [
-    CategoryConfig::CATEGORY_TEMPLATE_DEFAULT,
-    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_CATEGORY_CMS_BLOCK,
-    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_CMS_BLOCK,
+    CategoryConfig::CATEGORY_TEMPLATE_DEFAULT => '',
+    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_ONLY_CMS_BLOCK => '@Catalog/catalog/cms-block.twig',
+    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_WITH_CMS_BLOCK => '@Catalog/catalog/catalog-cms-block.twig'
+];
+
+$config[CmsBlockCategoryConnectorConstants::CMS_BLOCK_CATEGORY_POSITION_LIST] = [
+    CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_TOP,
+    CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_MIDDLE,
+    CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_BOTTOM
 ];

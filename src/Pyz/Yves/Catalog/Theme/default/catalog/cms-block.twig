@@ -5,15 +5,21 @@
     {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: category} only %}
 {% endblock %}
 
-{{ spyCmsBlock({category: idCategory, position: 'top'}) }}
 {% block title %}
     <h3>{{ category.name }}</h3>
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory, category_position: 'top'}) }}
+    </div>
 {% endblock %}
 
 {% block content %}
     <div class="row">
-        {{ spyCmsBlock({category: idCategory, position: 'middle'}) }}
+        {{ spyCmsBlock({category: idCategory, category_position: 'middle'}) }}
     </div>
 {% endblock %}
 
-{{ spyCmsBlock({category: idCategory, position: 'bottom'}) }}
+{% block footer %}
+    <div class="row columns">
+        {{ spyCmsBlock({category: idCategory, category_position: 'bottom'}) }}
+    </div>
+{% endblock %}
