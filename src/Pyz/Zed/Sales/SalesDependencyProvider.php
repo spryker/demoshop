@@ -11,7 +11,7 @@ use Spryker\Zed\Customer\Communication\Plugin\Sales\CustomerOrderHydratePlugin;
 use Spryker\Zed\Discount\Communication\Plugin\Sales\DiscountOrderHydratePlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Sales\PaymentOrderHydratePlugin;
 use Spryker\Zed\Product\Communication\Plugin\Sales\ProductIdHydratorPlugin;
-use Spryker\Zed\Product\Communication\Plugin\Sales\ProductMetadataHydratorPlugin;
+use Spryker\Zed\Product\Communication\Plugin\Sales\ItemMetadataHydratorPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleIdHydratorPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderHydratePlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionGroupIdHydratorPlugin;
@@ -36,7 +36,7 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new ShipmentOrderHydratePlugin(),
             new PaymentOrderHydratePlugin(),
             new CustomerOrderHydratePlugin(),
-            new ProductMetadataHydratorPlugin(),
+            new ItemMetadataHydratorPlugin(),
             new ProductIdHydratorPlugin(),
             new ProductBundleIdHydratorPlugin(),
             new ProductOptionGroupIdHydratorPlugin(),
