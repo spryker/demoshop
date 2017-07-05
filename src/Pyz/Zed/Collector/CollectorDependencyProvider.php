@@ -26,7 +26,6 @@ use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\CmsBlock\CmsBlockConfig;
 use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
-use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConstants;
 use Spryker\Shared\CmsBlockProductConnector\CmsBlockProductConnectorConstants;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Shared\Product\ProductConfig;

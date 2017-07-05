@@ -4,7 +4,9 @@ use Monolog\Logger;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
+use Spryker\Shared\Category\CategoryConstants;
 use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
@@ -33,13 +35,11 @@ use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
+use Spryker\Zed\Category\CategoryConfig;
+use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
-use Spryker\Shared\Category\CategoryConstants;
-use Spryker\Zed\Category\CategoryConfig;
-use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
-use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConstants;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
@@ -416,11 +416,11 @@ $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::F
 $config[CategoryConstants::TEMPLATE_LIST] = [
     CategoryConfig::CATEGORY_TEMPLATE_DEFAULT => '',
     CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_ONLY_CMS_BLOCK => '@Catalog/catalog/cms-block.twig',
-    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_WITH_CMS_BLOCK => '@Catalog/catalog/catalog-cms-block.twig'
+    CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_WITH_CMS_BLOCK => '@Catalog/catalog/catalog-cms-block.twig',
 ];
 
 $config[CmsBlockCategoryConnectorConstants::CMS_BLOCK_CATEGORY_POSITION_LIST] = [
     CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_TOP,
     CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_MIDDLE,
-    CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_BOTTOM
+    CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_BOTTOM,
 ];

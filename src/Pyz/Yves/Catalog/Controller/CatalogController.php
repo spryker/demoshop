@@ -103,4 +103,5 @@ class CatalogController extends AbstractController
 
         return $this->viewResponse($result);
     }
+
 }

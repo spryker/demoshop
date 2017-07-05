@@ -35,7 +35,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
     /**
      * @param \Spryker\Yves\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Yves\Kernel\Container
      */
     protected function provideSearchClient(Container $container)
     {
@@ -47,9 +47,9 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Yves\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Yves\Kernel\Container
      */
     protected function addCategoryClient(Container $container)
     {
@@ -60,10 +60,10 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-
     /**
-     * @param Container $container
-     * @return Container;
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
      */
     protected function addLocaleClient(Container $container)
     {
