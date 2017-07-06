@@ -7,13 +7,12 @@
 
 namespace Pyz\Zed\Flysystem;
 
-use Spryker\Service\Flysystem\FlysystemDependencyProvider as SprykerFlysystemDependencyProviderProvider;
-use Spryker\Service\FlysystemAws3v3FileSystem\Plugin\Flysystem\Aws3v3FilesystemBuilderPlugin;
+use Spryker\Service\Flysystem\FlysystemDependencyProvider as SprykerFlysystemDependencyProvider;
 use Spryker\Service\FlysystemFtpFileSystem\Plugin\Flysystem\FtpFilesystemBuilderPlugin;
 use Spryker\Service\FlysystemLocalFileSystem\Plugin\Flysystem\LocalFilesystemBuilderPlugin;
 use Spryker\Zed\Kernel\Container;
 
-class FlysystemDependencyProviderProvider extends SprykerFlysystemDependencyProviderProvider
+class FlysystemDependencyProvider extends SprykerFlysystemDependencyProvider
 {
 
     /**
@@ -25,7 +24,6 @@ class FlysystemDependencyProviderProvider extends SprykerFlysystemDependencyProv
     {
         $container[self::PLUGIN_COLLECTION_FILESYSTEM_BUILDER] = function (Container $container) {
             return [
-                new Aws3v3FilesystemBuilderPlugin(),
                 new FtpFilesystemBuilderPlugin(),
                 new LocalFilesystemBuilderPlugin(),
             ];
