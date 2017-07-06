@@ -65,6 +65,7 @@ class SuccessStep extends AbstractBaseStep
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
+        return $quoteTransfer;
         $this->customerClient->markCustomerAsDirty();
         $this->cartClient->clearQuote();
 
