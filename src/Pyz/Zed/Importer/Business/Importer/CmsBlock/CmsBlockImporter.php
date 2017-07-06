@@ -15,6 +15,9 @@ use Orm\Zed\CmsBlock\Persistence\SpyCmsBlockQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface;
 use Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface;
+use Spryker\Zed\CmsBlockCategoryConnector\Business\CmsBlockCategoryConnectorFacadeInterface;
+use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
+use Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class CmsBlockImporter extends AbstractImporter
@@ -44,6 +47,16 @@ class CmsBlockImporter extends AbstractImporter
     protected $cmsBlockQueryContainer;
 
     /**
+     * @var CmsBlockCategoryConnectorFacadeInterface
+     */
+    protected $cmsBlockCategoryConnectorFacade;
+
+    /**
+     * @var CmsBlockCategoryConnectorQueryContainerInterface
+     */
+    protected $cmsBlockCategoryQueryContainer;
+
+    /**
      * @var array
      */
     protected $placeholdersToImport = [
@@ -60,19 +73,31 @@ class CmsBlockImporter extends AbstractImporter
     ];
 
     /**
+     * @var int|null
+     */
+    protected $defaultCategoryPositionId = null;
+
+    /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface $cmsBlockFacade
      * @param \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface $cmsBlockQueryContainer
+     * @param CmsBlockCategoryConnectorFacadeInterface $cmsBlockCategoryConnectorFacade
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
         CmsBlockFacadeInterface $cmsBlockFacade,
-        CmsBlockQueryContainerInterface $cmsBlockQueryContainer
+        CmsBlockQueryContainerInterface $cmsBlockQueryContainer,
+        CmsBlockCategoryConnectorFacadeInterface $cmsBlockCategoryConnectorFacade,
+        CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer
     ) {
         parent::__construct($localeFacade);
 
+        $cmsBlockCategoryConnectorFacade->syncCmsBlockCategoryPosition();
+
         $this->cmsBlockFacade = $cmsBlockFacade;
         $this->cmsBlockQueryContainer = $cmsBlockQueryContainer;
+        $this->cmsBlockCategoryConnectorFacade = $cmsBlockCategoryConnectorFacade;
+        $this->cmsBlockCategoryQueryContainer = $cmsBlockCategoryConnectorQueryContainer;
     }
 
     /**
@@ -113,7 +138,9 @@ class CmsBlockImporter extends AbstractImporter
 
         $categories = explode(',', $data[static::FIELD_CATEGORIES]);
         $categories = array_filter($categories);
-        $cmsBlockTransfer->setIdCategories($categories);
+        $cmsBlockTransfer->setIdCategories([
+            $this->getDefaultCategoryPositionId() => $categories
+        ]);
 
         $products = explode(',', $data[static::FIELD_PRODUCTS]);
         $products = array_filter($products);
@@ -169,6 +196,22 @@ class CmsBlockImporter extends AbstractImporter
         }
 
         return $cmsBlockTemplateTransfer;
+    }
+
+    /**
+     * @return int
+     */
+    protected function getDefaultCategoryPositionId()
+    {
+        if ($this->defaultCategoryPositionId === null) {
+            $spyCmsBlockCategoryPosition = $this->cmsBlockCategoryQueryContainer
+                ->queryCmsBlockCategoryPositionByName(CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_TOP)
+                ->findOne();
+
+            $this->defaultCategoryPositionId = $spyCmsBlockCategoryPosition->getIdCmsBlockCategoryPosition();
+        }
+
+        return $this->defaultCategoryPositionId;
     }
 
 }

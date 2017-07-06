@@ -258,7 +258,9 @@ class ImporterFactory extends AbstractFactory
         $cmsBlockImporter = new CmsBlockImporter(
             $this->getLocaleFacade(),
             $this->getCmsBlockFacade(),
-            $this->getCmsBlockQueryContainer()
+            $this->getCmsBlockQueryContainer(),
+            $this->getCmsBlockCategoryConnectorFacade(),
+            $this->getCmsBlockCategoryConnectorQueryContainer()
         );
 
         return $cmsBlockImporter;
