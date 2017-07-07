@@ -8,8 +8,6 @@
 namespace Pyz\Zed\Importer\Business\Factory;
 
 use Pyz\Zed\Importer\ImporterDependencyProvider;
-use Spryker\Zed\CmsBlockCategoryConnector\Business\CmsBlockCategoryConnectorFacadeInterface;
-use Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
@@ -227,7 +225,7 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return CmsBlockCategoryConnectorFacadeInterface
+     * @return \Spryker\Zed\CmsBlockCategoryConnector\Business\CmsBlockCategoryConnectorFacadeInterface
      */
     protected function getCmsBlockCategoryConnectorFacade()
     {
@@ -243,10 +241,11 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return CmsBlockCategoryConnectorQueryContainerInterface
+     * @return \Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface
      */
     protected function getCmsBlockCategoryConnectorQueryContainer()
     {
         return $this->getProvidedDependency(ImporterDependencyProvider::QUERY_CONTAINER_CMS_BLOCK_CATEGORY_CONNECTOR);
     }
+
 }
