@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\Sales\Persistence;
+namespace Orm\Zed\Payment\Persistence;
 
-use Spryker\Zed\Sales\Persistence\Propel\AbstractSpySalesPayment as BaseSpySalesPayment;
+use Spryker\Zed\Payment\Persistence\Propel\AbstractSpySalesPayment as BaseSpySalesPayment;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_payment' table.

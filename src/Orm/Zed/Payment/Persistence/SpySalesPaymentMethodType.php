@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\Sales\Persistence;
+namespace Orm\Zed\Payment\Persistence;
 
-use Spryker\Zed\Sales\Persistence\Propel\AbstractSpySalesPaymentMethodType as BaseSpySalesPaymentMethodType;
+use Spryker\Zed\Payment\Persistence\Propel\AbstractSpySalesPaymentMethodType as BaseSpySalesPaymentMethodType;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_payment_method_type' table.
