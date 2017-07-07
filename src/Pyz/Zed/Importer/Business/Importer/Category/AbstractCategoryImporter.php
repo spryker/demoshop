@@ -10,8 +10,10 @@ namespace Pyz\Zed\Importer\Business\Importer\Category;
 use Generated\Shared\Transfer\CategoryLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
+use Orm\Zed\Category\Persistence\SpyCategoryTemplateQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 abstract class AbstractCategoryImporter extends AbstractImporter
@@ -24,6 +26,11 @@ abstract class AbstractCategoryImporter extends AbstractImporter
      * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
      */
     protected $categoryFacade;
+
+    /**
+     * @var int|null
+     */
+    protected $defaultTemplateId = null;
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -48,6 +55,7 @@ abstract class AbstractCategoryImporter extends AbstractImporter
         $categoryTransfer->setIsActive(true);
         $categoryTransfer->setIsClickable(true);
         $categoryTransfer->setIsInMenu(true);
+        $categoryTransfer->setFkCategoryTemplate($this->getDefaultTemplateId());
 
         foreach ($this->localeFacade->getLocaleCollection() as $localeName => $localeTransfer) {
             $nameKey = 'name.' . $localeName;
@@ -70,6 +78,22 @@ abstract class AbstractCategoryImporter extends AbstractImporter
         $categoryTransfer->setParentCategoryNode($parentCategoryNodeTransfer);
 
         return $categoryTransfer;
+    }
+
+    /**
+     * @return int|null
+     */
+    protected function getDefaultTemplateId()
+    {
+        if ($this->defaultTemplateId === null) {
+            $categoryTemplate = SpyCategoryTemplateQuery::create()
+                ->filterByName(CategoryConfig::CATEGORY_TEMPLATE_DEFAULT)
+                ->findOne();
+
+            $this->defaultTemplateId = $categoryTemplate->getIdCategoryTemplate();
+        }
+
+        return $this->defaultTemplateId;
     }
 
 }

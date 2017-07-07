@@ -9,18 +9,11 @@ namespace Pyz\Zed\Importer\Business\Importer\Category;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
-use Orm\Zed\Category\Persistence\SpyCategoryTemplateQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class CategoryImporter extends AbstractCategoryImporter
 {
-
-    /**
-     * @var int|null
-     */
-    protected $defaultTemplateId = null;
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -84,7 +77,6 @@ class CategoryImporter extends AbstractCategoryImporter
         $categoryNodeTransfer->setNodeOrder($data[self::ORDER]);
         $categoryTransfer->setCategoryNode($categoryNodeTransfer);
         $categoryTransfer->setIsSearchable(true);
-        $categoryTransfer->setFkCategoryTemplate($this->getDefaultTemplateId());
 
         return $categoryTransfer;
     }
@@ -99,22 +91,6 @@ class CategoryImporter extends AbstractCategoryImporter
     protected function importCategory(CategoryTransfer $categoryTransfer)
     {
         $this->categoryFacade->create($categoryTransfer);
-    }
-
-    /**
-     * @return int|null
-     */
-    protected function getDefaultTemplateId()
-    {
-        if ($this->defaultTemplateId === null) {
-            $categoryTemplate = SpyCategoryTemplateQuery::create()
-                ->filterByName(CategoryConfig::CATEGORY_TEMPLATE_DEFAULT)
-                ->findOne();
-
-            $this->defaultTemplateId = $categoryTemplate->getIdCategoryTemplate();
-        }
-
-        return $this->defaultTemplateId;
     }
 
 }
