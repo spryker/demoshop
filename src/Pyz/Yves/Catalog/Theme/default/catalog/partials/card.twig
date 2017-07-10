@@ -1,0 +1,36 @@
+
+{% set name = name | default('') %}
+{% set url = url | default('') %}
+{% set imageUrl = imageUrl | default('') %}
+{% set class = class | default('') %}
+
+{% set labels = labels | default(null) %}
+{% set abstractId = abstractId | default(null) %}
+{% set originalPrice = originalPrice | default(null) %}
+{% set priceValue = priceValue | default(null) %}
+
+<div class="{{ class }} card js-product-container">
+    <div class="card__container callout">
+        <a href="{{ url }}" class="thumbnail __preview-image">
+            <img src="{{ imageUrl }}">
+        </a>
+        {% if labels %}
+            {{ labels | raw }}
+        {% endif %}
+        {% if abstractId %}
+            {{ spyProductGroupItems(abstractId, '@ProductGroup/partials/product-group-items.twig') }}
+        {% endif %}
+        <p>
+            <strong>{{ name }}</strong><br>
+            {% if originalPrice %}
+                <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
+                <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
+            {% else %}
+                {{ priceValue | money }}
+            {% endif %}
+        </p>
+        <div class="card__action">
+            <a class="button expanded" href="{{ url }}">{{ 'product.view' | trans }} &raquo;</a>
+        </div>
+    </div>
+</div>
