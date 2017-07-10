@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\ProductManagement\Persistence;
+namespace Orm\Zed\ProductAttribute\Persistence;
 
-use Spryker\Zed\ProductManagement\Persistence\Propel\AbstractSpyProductAttribute as BaseSpyProductAttribute;
+use Orm\Zed\ProductAttribute\Persistence\Base\SpyProductManagementAttribute as BaseSpyProductManagementAttribute;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_management_attribute' table.
@@ -14,7 +14,7 @@ use Spryker\Zed\ProductManagement\Persistence\Propel\AbstractSpyProductAttribute
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductManagementAttribute extends BaseSpyProductAttribute
+class SpyProductManagementAttribute extends BaseSpyProductManagementAttribute
 {
 
 }
