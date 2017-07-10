@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\FacetConfigTransfer;
 use Generated\Shared\Transfer\PaginationConfigTransfer;
 use Generated\Shared\Transfer\SortConfigTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
+use Spryker\Client\ProductLabel\Plugin\ProductLabelFacetValueTransformerPlugin;
 use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
@@ -39,7 +40,8 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     {
         $this
             ->addCategoryFacet($facetConfigBuilder)
-            ->addPriceFacet($facetConfigBuilder);
+            ->addPriceFacet($facetConfigBuilder)
+            ->addProductLabelFacet($facetConfigBuilder);
     }
 
     /**
@@ -105,6 +107,26 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setType(SearchConfig::FACET_TYPE_PRICE_RANGE);
 
         $facetConfigBuilder->addFacet($priceFacet);
+
+        return $this;
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
+     *
+     * @return $this
+     */
+    protected function addProductLabelFacet(FacetConfigBuilderInterface $facetConfigBuilder)
+    {
+        $productLabelFacet = (new FacetConfigTransfer())
+            ->setName('label')
+            ->setParameterName('label')
+            ->setFieldName(PageIndexMap::STRING_FACET)
+            ->setType(SearchConfig::FACET_TYPE_ENUMERATION)
+            ->setIsMultiValued(true)
+            ->setValueTransformer(ProductLabelFacetValueTransformerPlugin::class);
+
+        $facetConfigBuilder->addFacet($productLabelFacet);
 
         return $this;
     }

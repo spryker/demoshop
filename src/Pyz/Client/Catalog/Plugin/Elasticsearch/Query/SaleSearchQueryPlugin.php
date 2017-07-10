@@ -43,6 +43,8 @@ class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
      */
     protected function createSearchQuery()
     {
+        // TODO: change this to similar as new products query (consider having a generic label filtered base query)
+        // TODO: consider to have a generic query expander for labels instead?
         $priceQuery = $this->createPriceQuery('price.DEFAULT');
         $originalPriceQuery = $this->createPriceQuery('price.ORIGINAL');
 
