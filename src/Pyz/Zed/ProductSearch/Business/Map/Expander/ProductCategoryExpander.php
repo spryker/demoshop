@@ -266,15 +266,13 @@ class ProductCategoryExpander implements ProductPageMapExpanderInterface
         ObjectCollection $productCategoryEntities,
         LocaleTransfer $localeTransfer
     ) {
+        $maxProductOrder = (pow(2, 31) - 1);
+
         foreach ($productCategoryEntities as $productCategoryEntity) {
             $idCategoryNode = $productCategoryEntity->getVirtualColumn(
                 ProductCategoryQueryContainer::VIRT_COLUMN_ID_CATEGORY_NODE
             );
-            $productOrder = (int)$productCategoryEntity->getProductOrder();
-
-            if (!$productOrder) {
-                continue;
-            }
+            $productOrder = (int)$productCategoryEntity->getProductOrder() ?: $maxProductOrder;
 
             $pageMapBuilder->addIntegerSort(
                 $pageMapTransfer,
