@@ -893,6 +893,8 @@ cart.item.option.description,"Product options:",en_US
 cart.item.option.description,"Produktoptionen:",de_DE
 cart.item.sku,"SKU",en_US
 cart.item.sku,"SKU",de_DE
+cart.item.no_image,"Image not available",en_US
+cart.item.no_image,"Bild nicht verfügbar",de_DE
 checkout.summary.item.option.description,"Product options:",en_US
 checkout.summary.item.option.description,"Produktoptionen:",de_DE
 invoice.order.address.billing,"Billing address",en_US
