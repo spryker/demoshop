@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\LocalizedProductManagementAttributeKeyTransfer;
 use Generated\Shared\Transfer\ProductManagementAttributeTransfer;
 use Generated\Shared\Transfer\ProductManagementAttributeValueTransfer;
 use Generated\Shared\Transfer\ProductManagementAttributeValueTranslationTransfer;
-use Orm\Zed\ProductManagement\Persistence\Base\SpyProductManagementAttributeQuery;
+use Orm\Zed\ProductAttribute\Persistence\SpyProductManagementAttributeQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\ProductManagement\Business\ProductManagementFacadeInterface;
