@@ -1,7 +1,7 @@
 .card {
     display: flex;
     flex-grow: 1;
-    
+
     &__container {
         width: 100%;
         padding-bottom: 4rem;
@@ -13,5 +13,10 @@
         left: 1rem;
         right: 1rem;
         margin: auto;
+    }
+
+    &.slick-slide {
+        display: flex;
+        height: auto;
     }
 }

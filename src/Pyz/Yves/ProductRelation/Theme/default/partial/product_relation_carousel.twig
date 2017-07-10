@@ -8,15 +8,15 @@
                     <div class="carousel" data-component="carousel">
                     {% for relation in productRelations %}
 
-                        {% include "@catalog/catalog/partials/product.twig" with {
-                            idProductAbstract: relation.idProductAbstract,
-                            detailsUrl: relation.url,
+                        {% include "@catalog/catalog/partials/card.twig" with {
+                            class: 'columns',
+                            abstractId: relation.idProductAbstract,
+                            url: relation.url,
                             name:relation.name,
                             priceValue: relation.price,
                             originalPrice: (relation.prices.ORIGINAL is defined ? relation.prices.ORIGINAL : null),
-                            product: relation,
                             imageUrl: (relation.imageSets|length ? relation.imageSets.default[0].externalUrlSmall : ''),
-                            productLabels: spyProductAbstractLabels(relation.idProductAbstract, '@Catalog/catalog/partials/product-labels.twig')
+                            labels: spyProductAbstractLabels(relation.idProductAbstract, '@Catalog/catalog/partials/product-labels.twig')
                         } %}
 
                     {% endfor %}
