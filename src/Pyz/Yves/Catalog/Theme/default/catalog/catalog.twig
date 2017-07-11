@@ -1,4 +1,4 @@
-<form method="GET">
+<form method="GET" data-component="catalog-filter-form">
     <div class="row">
 
         {% include '@Catalog/catalog/partials/spelling-suggestion.twig' %}
@@ -25,17 +25,16 @@
 
             <div class="row">
                 {% for product in products %}
-                    <div class="small-12 medium-6 large-6 xlarge-4 columns">
-                        {% include "@catalog/catalog/partials/product.twig" with {
-                            idProductAbstract: product.id_product_abstract,
-                            detailsUrl: product.url,
-                            name: product.abstract_name,
-                            priceValue: product.price,
-                            originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null),
-                            imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
-                            productLabels: spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig')
-                        } %}
-                    </div>
+                    {% include "@catalog/catalog/partials/product.twig" with {
+                        class: 'small-12 medium-6 large-6 xlarge-4 columns',
+                        idProductAbstract: product.id_product_abstract,
+                        detailsUrl: product.url,
+                        name: product.abstract_name,
+                        priceValue: product.price,
+                        originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null),
+                        imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
+                        productLabels: spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig')
+                    } %}
                 {% endfor %}
             </div>
 
