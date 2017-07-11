@@ -1,3 +1,0 @@
-template_name,template_path
-static full page,@Cms/template/static_full_page.twig
-static_block,@Cms/template/static_block.twig
