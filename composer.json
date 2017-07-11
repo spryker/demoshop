@@ -97,7 +97,7 @@
     "spryker/nopayment": "^3.0.0",
     "spryker/oms": "^7.0.0",
     "spryker/oms-discount-connector": "^3.0.0",
-    "spryker/payment": "^3.0.0",
+    "spryker/payment": "^4.0.0",
     "spryker/payolution": "^4.0.0",
     "spryker/payone": "^4.0.0",
     "spryker/pimple": "^2.0.0",
