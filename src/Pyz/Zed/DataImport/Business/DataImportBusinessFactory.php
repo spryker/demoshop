@@ -188,7 +188,10 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(CmsPageWriterStep::BULK_SIZE);
         $dataSetStepBroker
             ->addStep($this->createAddLocalesStep())
-            ->addStep($this->createPlaceholderExtractorStep())
+            ->addStep($this->createPlaceholderExtractorStep([
+                CmsPageWriterStep::KEY_PLACEHOLDER_TITLE,
+                CmsPageWriterStep::KEY_PLACEHOLDER_CONTENT,
+            ]))
             ->addStep($this->createLocalizedAttributesExtractorStep([
                 CmsPageWriterStep::KEY_URL,
                 CmsPageWriterStep::KEY_NAME,
@@ -230,11 +233,13 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     }
 
     /**
+     * @param array|null $defaultPlaceholder
+     *
      * @return \Pyz\Zed\DataImport\Business\Model\CmsPage\PlaceholderExtractorStep
      */
-    protected function createPlaceholderExtractorStep()
+    protected function createPlaceholderExtractorStep(array $defaultPlaceholder = [])
     {
-        return new PlaceholderExtractorStep();
+        return new PlaceholderExtractorStep($defaultPlaceholder);
     }
 
     /**

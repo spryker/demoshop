@@ -41,9 +41,12 @@ class ProductSearchAttributeMapWriter implements DataImportStepInterface
             ));
         }
 
+        $fkProductAttributeKey = $dataSet[AddProductAttributeKeysStep::KEY_TARGET][$dataSet[static::KEY_ATTRIBUTE_KEY]];
+        $targetKey = $dataSet[static::KEY_TARGET_FIELD];
+
         $productSearchAttributeMapEntity = SpyProductSearchAttributeMapQuery::create()
-            ->filterByFkProductAttributeKey($dataSet[AddProductAttributeKeysStep::KEY_TARGET][$dataSet[static::KEY_ATTRIBUTE_KEY]])
-            ->filterByTargetField($dataSet[static::KEY_TARGET_FIELD])
+            ->filterByFkProductAttributeKey($fkProductAttributeKey)
+            ->filterByTargetField($targetKey)
             ->findOneOrCreate();
 
         $productSearchAttributeMapEntity->setSynced((isset($dataSet[static::KEY_SYNCED])) ? $dataSet[static::KEY_SYNCED] : true);

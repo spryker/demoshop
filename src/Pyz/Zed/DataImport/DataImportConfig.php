@@ -9,7 +9,6 @@ namespace Pyz\Zed\DataImport;
 
 use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Generated\Shared\Transfer\DataImporterReaderConfigurationTransfer;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\DataImport\DataImportConfig as SprykerDataImportConfig;
 
 class DataImportConfig extends SprykerDataImportConfig
@@ -181,7 +180,7 @@ class DataImportConfig extends SprykerDataImportConfig
      */
     public function getProductSetDataImporterConfiguration()
     {
-        return $this->buildImporterConfiguration('product_set.csv', static::IMPORT_TYPE_PRODUCT_SET);
+        return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_set.csv', static::IMPORT_TYPE_PRODUCT_SET);
     }
 
     /**
@@ -281,14 +280,6 @@ class DataImportConfig extends SprykerDataImportConfig
             ->setReaderConfiguration($dataImportReaderConfigurationTransfer);
 
         return $dataImporterConfigurationTransfer;
-    }
-
-    /**
-     * @return array
-     */
-    public function getAvailableLocales()
-    {
-        return Store::getInstance()->getLocales();
     }
 
 }

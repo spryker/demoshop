@@ -17,6 +17,19 @@ class PlaceholderExtractorStep implements DataImportStepInterface
     const KEY_PLACEHOLDER = 'placeholder';
 
     /**
+     * @var array
+     */
+    protected $placeholderNames;
+
+    /**
+     * @param array $attributeNames
+     */
+    public function __construct(array $attributeNames)
+    {
+        $this->placeholderNames = $attributeNames;
+    }
+
+    /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
      * @return void
@@ -27,13 +40,9 @@ class PlaceholderExtractorStep implements DataImportStepInterface
         foreach ($dataSet[AddLocalesStep::KEY_LOCALES] as $localeName => $idLocale) {
             $placeholder = [];
 
-            foreach ($dataSet as $key => $value) {
-                if (!preg_match('/^placeholder_name.(\d+)$/', $key, $match)) {
-                    continue;
-                }
-
-                $placeholderValueKey = 'placeholder_value.' . $match[1] . '.' . $localeName;
-                $placeholder[$value] = $dataSet[$placeholderValueKey];
+            foreach ($this->placeholderNames as $placeholderName) {
+                $key = str_replace('placeholder.', '', $placeholderName);
+                $placeholder[$key] = $dataSet[$placeholderName . '.' . $localeName];
             }
 
             $localizedPlaceholder[$idLocale] = $placeholder;

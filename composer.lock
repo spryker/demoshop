@@ -1640,6 +1640,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
@@ -1676,6 +1677,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 review changes
+=======
+>>>>>>> core-1251 update DataImporter
 <<<<<<< HEAD
                 "reference": "7ad85dc2ffbb937471e2268ff6249020327041ff"
 =======
@@ -1713,6 +1716,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 review changes
+=======
+>>>>>>> core-1251 update DataImporter
 <<<<<<< HEAD
                 "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
 =======
@@ -1750,6 +1755,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 review changes
+=======
+>>>>>>> core-1251 update DataImporter
 <<<<<<< HEAD
                 "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
 =======
@@ -2632,9 +2639,21 @@
 =======
                 "reference": "53e1345cb24cacb8bdb8d03cc1210e28790df7e5"
 >>>>>>> core-1251 review changes
+<<<<<<< HEAD
 >>>>>>> core-1251 review changes
+<<<<<<< HEAD
 >>>>>>> core-1251 review changes
+<<<<<<< HEAD
 >>>>>>> core-1251 review changes
+=======
+=======
+=======
+=======
+                "reference": "3c22eb5b49308b16ba4bfc4a487065eb393b69f7"
+>>>>>>> core-1251 update DataImporter
+>>>>>>> core-1251 update DataImporter
+>>>>>>> core-1251 update DataImporter
+>>>>>>> core-1251 update DataImporter
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2828,6 +2847,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-20 14:15:45"
 =======
 =======
@@ -2864,6 +2884,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 review changes
+=======
+>>>>>>> core-1251 update DataImporter
 <<<<<<< HEAD
             "time": "2017-07-18 10:17:22"
 =======
@@ -2901,6 +2923,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 review changes
+=======
+>>>>>>> core-1251 update DataImporter
 <<<<<<< HEAD
             "time": "2017-07-12 15:07:34"
 =======
@@ -2938,6 +2962,8 @@
 >>>>>>> core-1251 update spryker/spryker
 =======
 >>>>>>> core-1251 review changes
+=======
+>>>>>>> core-1251 update DataImporter
 <<<<<<< HEAD
             "time": "2017-07-11 16:21:14"
 =======
@@ -3820,9 +3846,21 @@
 =======
             "time": "2017-07-11 13:22:00"
 >>>>>>> core-1251 review changes
+<<<<<<< HEAD
 >>>>>>> core-1251 review changes
+<<<<<<< HEAD
 >>>>>>> core-1251 review changes
+<<<<<<< HEAD
 >>>>>>> core-1251 review changes
+=======
+=======
+=======
+=======
+            "time": "2017-07-11 15:15:32"
+>>>>>>> core-1251 update DataImporter
+>>>>>>> core-1251 update DataImporter
+>>>>>>> core-1251 update DataImporter
+>>>>>>> core-1251 update DataImporter
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9089,6 +9127,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-06-28T10:19:12+00:00"
 =======
 =======
@@ -9150,6 +9189,9 @@
 =======
             "time": "2017-06-28T10:19:12+00:00"
 >>>>>>> core-1251 review changes
+=======
+            "time": "2017-06-28 10:19:12"
+>>>>>>> core-1251 update DataImporter
         },
         {
             "name": "spryker/code-sniffer",
@@ -9279,6 +9321,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-17 14:09:59"
 =======
 =======
@@ -9390,6 +9433,9 @@
 =======
             "time": "2017-06-27T13:05:34+00:00"
 >>>>>>> core-1251 review changes
+=======
+            "time": "2017-06-27 13:05:34"
+>>>>>>> core-1251 update DataImporter
         },
         {
             "name": "squizlabs/php_codesniffer",

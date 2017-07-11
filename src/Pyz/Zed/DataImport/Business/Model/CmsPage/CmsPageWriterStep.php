@@ -51,6 +51,9 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
     const KEY_URL = 'url';
     const KEY_PUBLISH = 'publish';
 
+    const KEY_PLACEHOLDER_TITLE = 'placeholder.title';
+    const KEY_PLACEHOLDER_CONTENT = 'placeholder.content';
+
     /**
      * @var \Spryker\Zed\Cms\Business\Version\Mapper\VersionDataMapperInterface
      */
