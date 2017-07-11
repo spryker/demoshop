@@ -6,7 +6,7 @@
         </div>
         <div class="small-8 large-5 xlarge-4 columns">
             <label>
-                <select name="sort" class="__no-margin-bottom">
+                <select name="sort" class="__no-margin-bottom" data-default-value="">
                     <option value="">{{ 'catalog.sort.relevance' | trans }}</option>
                     {% for sortParamName in sort.sortParamNames %}
                         <option value="{{ sortParamName }}" {% if sortParamName == sort.currentSortParam %}selected{% endif %}>{{ ('catalog.sort.' ~ sortParamName) | trans }}</option>
