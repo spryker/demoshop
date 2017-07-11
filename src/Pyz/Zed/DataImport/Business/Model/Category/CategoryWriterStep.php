@@ -25,9 +25,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
-/**
- * @SuppressWarnings(PHPMD)
- */
 class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
@@ -158,10 +155,10 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
                 $urlPathParts[] = $categoryAttributesEntity->getName();
             }
 
-            $callback = function ($value) {
+            $convertCallback = function ($value) {
                 return mb_strtolower(str_replace(' ', '-', $value));
             };
-            $urlPathParts = array_map($callback, $urlPathParts);
+            $urlPathParts = array_map($convertCallback, $urlPathParts);
             $url = '/' . implode('/', $urlPathParts);
 
             $urlEntity = SpyUrlQuery::create()
@@ -205,7 +202,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
      *
      * @return void
      */
-    private function addToClosureTable(SpyCategoryNode $categoryNodeEntity)
+    protected function addToClosureTable(SpyCategoryNode $categoryNodeEntity)
     {
         if ($categoryNodeEntity->getFkParentCategoryNode() !== null) {
             $categoryClosureEntityCollection = SpyCategoryClosureTableQuery::create()

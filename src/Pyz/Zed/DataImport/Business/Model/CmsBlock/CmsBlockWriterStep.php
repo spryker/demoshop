@@ -144,20 +144,21 @@ class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterfa
      */
     protected function findOrCreateCmsBlockToCategoryRelation(DataSetInterface $dataSet, SpyCmsBlock $cmsBlockEntity)
     {
-        if (!empty($dataSet[static::KEY_CATEGORIES])) {
-            $categoryKeys = explode(',', $dataSet[static::KEY_CATEGORIES]);
-            foreach ($categoryKeys as $categoryKey) {
-                $idCategory = $this->categoryRepository->getIdCategoryByCategoryKey(trim($categoryKey));
-                $cmsBlockCategoryConnectorEntity = SpyCmsBlockCategoryConnectorQuery::create()
-                    ->filterByFkCmsBlock($cmsBlockEntity->getIdCmsBlock())
-                    ->filterByFkCategory($idCategory)
-                    ->findOneOrCreate();
+        if (empty($dataSet[static::KEY_CATEGORIES])) {
+            return;
+        }
+        $categoryKeys = explode(',', $dataSet[static::KEY_CATEGORIES]);
+        foreach ($categoryKeys as $categoryKey) {
+            $idCategory = $this->categoryRepository->getIdCategoryByCategoryKey(trim($categoryKey));
+            $cmsBlockCategoryConnectorEntity = SpyCmsBlockCategoryConnectorQuery::create()
+                ->filterByFkCmsBlock($cmsBlockEntity->getIdCmsBlock())
+                ->filterByFkCategory($idCategory)
+                ->findOneOrCreate();
 
-                if ($cmsBlockCategoryConnectorEntity->isNew() || $cmsBlockCategoryConnectorEntity->isModified()) {
-                    $cmsBlockCategoryConnectorEntity->save();
+            if ($cmsBlockCategoryConnectorEntity->isNew() || $cmsBlockCategoryConnectorEntity->isModified()) {
+                $cmsBlockCategoryConnectorEntity->save();
 
-                    $this->addSubTouchable(CmsBlockCategoryConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR, $idCategory);
-                }
+                $this->addSubTouchable(CmsBlockCategoryConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR, $idCategory);
             }
         }
     }
@@ -170,20 +171,22 @@ class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterfa
      */
     protected function findOrCreateCmsBlockToProductRelation(DataSetInterface $dataSet, SpyCmsBlock $cmsBlockEntity)
     {
-        if (!empty($dataSet[static::KEY_PRODUCTS])) {
-            $productAbstractSkus = explode(',', $dataSet[static::KEY_PRODUCTS]);
-            foreach ($productAbstractSkus as $productAbstractSku) {
-                $idProductAbstract = $this->productRepository->getIdProductAbstractByAbstractSku(trim($productAbstractSku));
-                $cmsBlockProductConnectorEntity = SpyCmsBlockProductConnectorQuery::create()
-                    ->filterByFkCmsBlock($cmsBlockEntity->getIdCmsBlock())
-                    ->filterByFkProductAbstract($idProductAbstract)
-                    ->findOneOrCreate();
+        if (empty($dataSet[static::KEY_PRODUCTS])) {
+            return;
+        }
 
-                if ($cmsBlockProductConnectorEntity->isNew() || $cmsBlockProductConnectorEntity->isModified()) {
-                    $cmsBlockProductConnectorEntity->save();
+        $productAbstractSkus = explode(',', $dataSet[static::KEY_PRODUCTS]);
+        foreach ($productAbstractSkus as $productAbstractSku) {
+            $idProductAbstract = $this->productRepository->getIdProductAbstractByAbstractSku(trim($productAbstractSku));
+            $cmsBlockProductConnectorEntity = SpyCmsBlockProductConnectorQuery::create()
+                ->filterByFkCmsBlock($cmsBlockEntity->getIdCmsBlock())
+                ->filterByFkProductAbstract($idProductAbstract)
+                ->findOneOrCreate();
 
-                    $this->addSubTouchable(CmsBlockProductConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_PRODUCT_CONNECTOR, $idProductAbstract);
-                }
+            if ($cmsBlockProductConnectorEntity->isNew() || $cmsBlockProductConnectorEntity->isModified()) {
+                $cmsBlockProductConnectorEntity->save();
+
+                $this->addSubTouchable(CmsBlockProductConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_PRODUCT_CONNECTOR, $idProductAbstract);
             }
         }
     }

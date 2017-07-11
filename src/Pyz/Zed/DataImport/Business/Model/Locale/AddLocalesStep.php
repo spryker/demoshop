@@ -9,6 +9,7 @@ namespace Pyz\Zed\DataImport\Business\Model\Locale;
 
 use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
@@ -28,11 +29,11 @@ class AddLocalesStep implements DataImportStepInterface
     protected $availableLocales;
 
     /**
-     * @param array $availableLocales
+     * @param \Spryker\Shared\Kernel\Store $store
      */
-    public function __construct(array $availableLocales)
+    public function __construct(Store $store)
     {
-        $this->availableLocales = $availableLocales;
+        $this->availableLocales = $store->getLocales();
     }
 
     /**

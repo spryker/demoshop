@@ -57,7 +57,6 @@ class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportS
         $productSearchAttributeEntity
             ->setPosition($dataSet['position'])
             ->setFilterType($dataSet['filter_type'])
-            ->setSynced((isset($dataSet['synced'])) ? $dataSet['synced'] : true)
             ->save();
 
         $translationKey = $this->glossaryKeyBuilder->buildGlossaryKey($dataSet['key']);

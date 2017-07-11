@@ -10,7 +10,7 @@ namespace Pyz\Zed\DataImport\Business\Model\Country\Repository;
 use ArrayObject;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
 
-class CountryRepository
+class CountryRepository implements CountryRepositoryInterface
 {
 
     /**

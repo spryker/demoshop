@@ -430,7 +430,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository
+     * @return \Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepositoryInterface
      */
     protected function createCountryRepository()
     {
@@ -788,7 +788,15 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
      */
     protected function createAddLocalesStep()
     {
-        return new AddLocalesStep($this->getConfig()->getAvailableLocales());
+        return new AddLocalesStep($this->getStore());
+    }
+
+    /**
+     * @return \Spryker\Shared\Kernel\Store
+     */
+    protected function getStore()
+    {
+        return $this->getProvidedDependency(DataImportDependencyProvider::STORE);
     }
 
     /**

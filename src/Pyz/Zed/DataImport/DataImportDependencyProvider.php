@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\DataImport;
 
+use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\DataImport\DataImportDependencyProvider as SprykerDataImportDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
@@ -18,6 +19,7 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
     const FACADE_PRODUCT_BUNDLE = 'product bundle facade';
     const FACADE_PRODUCT_RELATION = 'product relation facade';
     const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const STORE = 'store';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -33,6 +35,7 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $this->addProductBundleFacade($container);
         $this->addProductRelationFacade($container);
         $this->addProductSearchFacade($container);
+        $this->addStore($container);
 
         return $container;
     }
@@ -94,6 +97,18 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
     {
         $container[static::FACADE_PRODUCT_RELATION] = function (Container $container) {
             return $container->getLocator()->productRelation()->facade();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    private function addStore(Container $container)
+    {
+        $container[static::STORE] = function (Container $container) {
+            return Store::getInstance();
         };
     }
 

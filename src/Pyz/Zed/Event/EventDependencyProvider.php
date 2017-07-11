@@ -26,8 +26,6 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
     public function getEventSubscriberCollection()
     {
         $eventSubscriberCollection = parent::getEventSubscriberCollection();
-//        $eventSubscriberCollection->add(new DataImportConsoleDebugEventSubscriberPlugin());
-//        $eventSubscriberCollection->add(new DataImportConsoleTimerEventSubscriberPlugin());
 
         return $eventSubscriberCollection;
     }

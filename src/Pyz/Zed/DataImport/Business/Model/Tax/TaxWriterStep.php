@@ -14,7 +14,6 @@ use Orm\Zed\Tax\Persistence\SpyTaxSet;
 use Orm\Zed\Tax\Persistence\SpyTaxSetQuery;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTaxQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
@@ -29,7 +28,7 @@ class TaxWriterStep implements DataImportStepInterface
     const KEY_TAX_SET_NAME = 'tax_set_name';
 
     /**
-     * @var \Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository
+     * @var \Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepositoryInterface
      */
     protected $countryRepository;
 
@@ -42,9 +41,9 @@ class TaxWriterStep implements DataImportStepInterface
     ];
 
     /**
-     * @param \Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository $countryRepository
+     * @param \Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepositoryInterface $countryRepository
      */
-    public function __construct(CountryRepository $countryRepository)
+    public function __construct(CountryRepositoryInterface $countryRepository)
     {
         $this->countryRepository = $countryRepository;
     }
