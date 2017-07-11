@@ -7,10 +7,11 @@
 
 namespace Pyz\Yves\Cart\Controller;
 
-use Pyz\Yves\Application\Controller\AbstractController;
 use Generated\Shared\Transfer\ItemTransfer;
+use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
+
 /**
  * @method \Spryker\Client\Cart\CartClientInterface getClient()
  * @method \Pyz\Yves\Cart\CartFactory getFactory()
