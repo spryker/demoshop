@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bcd9bfc51cab342e96584a3715b7f977",
+    "content-hash": "60962d0cbc41f64c618fd11f9337165b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1015,16 +1015,16 @@
         },
         {
             "name": "league/csv",
-            "version": "8.2.1",
+            "version": "8.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4"
+                "reference": "fa8bc05f64eb6c66b96edfaf60648f022ecb5f55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/43fd8b022815a0758d85e925dd92a43fe0d41bb4",
-                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/fa8bc05f64eb6c66b96edfaf60648f022ecb5f55",
+                "reference": "fa8bc05f64eb6c66b96edfaf60648f022ecb5f55",
                 "shasum": ""
             },
             "require": {
@@ -1068,7 +1068,7 @@
                 "read",
                 "write"
             ],
-            "time": "2017-02-23T08:25:03+00:00"
+            "time": "2017-07-12T07:18:20+00:00"
         },
         {
             "name": "league/flysystem",
@@ -4748,11 +4748,11 @@
         },
         {
             "name": "spryker/cms",
-            "version": "6.0.3",
+            "version": "6.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/Cms.git",
-                "reference": "1d2c4deb3dcae02f15924e874c72116aedf68707",
+                "reference": "cebca9202c41c2251b8ceca3a323677b8d9ab9a5",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4762,8 +4762,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Cms/zipball/1d2c4deb3dcae02f15924e874c72116aedf68707",
-                "reference": "1d2c4deb3dcae02f15924e874c72116aedf68707",
+                "url": "https://api.github.com/repos/spryker/Cms/zipball/cebca9202c41c2251b8ceca3a323677b8d9ab9a5",
+                "reference": "cebca9202c41c2251b8ceca3a323677b8d9ab9a5",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4794,7 +4794,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/cms-block": "If you want to have separate content blocks on your pages"
+                "spryker/cms-block": "If you want to have separate content blocks on your pages."
             },
             "type": "library",
             "extra": {
@@ -4818,18 +4818,15 @@
                 "proprietary"
             ],
             "description": "Cms module",
-            "support": {
-                "source": "https://github.com/spryker/Cms/tree/master"
-            },
-            "time": "2017-07-10T14:11:54+00:00"
+            "time": "2017-07-12T08:51:23+00:00"
         },
         {
             "name": "spryker/cms-block",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/CmsBlock.git",
-                "reference": "499b1c9636b320646167b1625205ef2505f7250a",
+                "reference": "151c6bf6ac33d73ec1be625d7e0a7b4ea7891728",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4839,8 +4836,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlock/zipball/499b1c9636b320646167b1625205ef2505f7250a",
-                "reference": "499b1c9636b320646167b1625205ef2505f7250a",
+                "url": "https://api.github.com/repos/spryker/CmsBlock/zipball/151c6bf6ac33d73ec1be625d7e0a7b4ea7891728",
+                "reference": "151c6bf6ac33d73ec1be625d7e0a7b4ea7891728",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4891,9 +4888,9 @@
             ],
             "description": "CmsBlock module",
             "support": {
-                "source": "https://github.com/spryker/CmsBlock/tree/1.0.2"
+                "source": "https://github.com/spryker/CmsBlock/tree/master"
             },
-            "time": "2017-07-10T10:51:10+00:00"
+            "time": "2017-07-11T10:00:41+00:00"
         },
         {
             "name": "spryker/cms-block-category-connector",
@@ -4968,11 +4965,11 @@
         },
         {
             "name": "spryker/cms-block-collector",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/CmsBlockCollector.git",
-                "reference": "89b8987edd6a2c0dd76b4d04134ff569f6d7580f",
+                "reference": "fcbc846f165c367af5f9f3a6a236f9e79eefedc8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4982,8 +4979,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockCollector/zipball/89b8987edd6a2c0dd76b4d04134ff569f6d7580f",
-                "reference": "89b8987edd6a2c0dd76b4d04134ff569f6d7580f",
+                "url": "https://api.github.com/repos/spryker/CmsBlockCollector/zipball/fcbc846f165c367af5f9f3a6a236f9e79eefedc8",
+                "reference": "fcbc846f165c367af5f9f3a6a236f9e79eefedc8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5027,16 +5024,19 @@
             "license": [
                 "proprietary"
             ],
-            "description": "CMS Block Collector module",
-            "time": "2017-06-28T14:52:06+00:00"
+            "description": "CmsBlockCollector module",
+            "support": {
+                "source": "https://github.com/spryker/CmsBlockCollector/tree/master"
+            },
+            "time": "2017-07-11T10:00:41+00:00"
         },
         {
             "name": "spryker/cms-block-gui",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/CmsBlockGui.git",
-                "reference": "c5eab5a4dd88d56c848dcf8a8e2190b8e91c1f77",
+                "reference": "d3211174dd253dbdf8a1de4684dd8d05a985bbb1",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5046,8 +5046,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockGui/zipball/c5eab5a4dd88d56c848dcf8a8e2190b8e91c1f77",
-                "reference": "c5eab5a4dd88d56c848dcf8a8e2190b8e91c1f77",
+                "url": "https://api.github.com/repos/spryker/CmsBlockGui/zipball/d3211174dd253dbdf8a1de4684dd8d05a985bbb1",
+                "reference": "d3211174dd253dbdf8a1de4684dd8d05a985bbb1",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5063,6 +5063,7 @@
                 "spryker/locale": "^3.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/symfony": "^3.0.0",
+                "spryker/twig": "^3.0.0",
                 "spryker/util-text": "^1.1.0"
             },
             "require-dev": {
@@ -5092,9 +5093,9 @@
             ],
             "description": "CmsBlockGui module",
             "support": {
-                "source": "https://github.com/spryker/CmsBlockGui/tree/1.0.2"
+                "source": "https://github.com/spryker/CmsBlockGui/tree/master"
             },
-            "time": "2017-07-10T14:52:52+00:00"
+            "time": "2017-07-11T10:00:41+00:00"
         },
         {
             "name": "spryker/cms-block-product-connector",
@@ -5168,11 +5169,11 @@
         },
         {
             "name": "spryker/cms-collector",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/CmsCollector.git",
-                "reference": "f578a3abef5f0b74f39b11078b498d0b63580f63",
+                "reference": "95864b9fab7ed23a124385edf47b9b68628e74d2",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5182,8 +5183,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsCollector/zipball/f578a3abef5f0b74f39b11078b498d0b63580f63",
-                "reference": "f578a3abef5f0b74f39b11078b498d0b63580f63",
+                "url": "https://api.github.com/repos/spryker/CmsCollector/zipball/95864b9fab7ed23a124385edf47b9b68628e74d2",
+                "reference": "95864b9fab7ed23a124385edf47b9b68628e74d2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5234,15 +5235,15 @@
             "support": {
                 "source": "https://github.com/spryker/CmsCollector/tree/master"
             },
-            "time": "2017-07-10T16:06:45+00:00"
+            "time": "2017-07-11T10:00:41+00:00"
         },
         {
-            "name": "spryker/cms-gui",
-            "version": "4.0.1",
+            "name": "spryker/cms-content-widget",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CmsGui.git",
-                "reference": "bc2da86889803a282985b94d32af8de9abfc8c1a",
+                "url": "git@github.com:spryker/CmsContentWidget.git",
+                "reference": "be5db5e5c6c87b5f927b8a87dbaca31b63cdfb95",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5252,8 +5253,280 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/bc2da86889803a282985b94d32af8de9abfc8c1a",
-                "reference": "bc2da86889803a282985b94d32af8de9abfc8c1a",
+                "url": "https://api.github.com/repos/spryker/CmsContentWidget/zipball/be5db5e5c6c87b5f927b8a87dbaca31b63cdfb95",
+                "reference": "be5db5e5c6c87b5f927b8a87dbaca31b63cdfb95",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/glossary": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/log": "^3.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/twig": "^3.0.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/propel-orm": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/cms-block-collector": "If you want to expand CMS block collector with content widget mapping, provides plugin.",
+                "spryker/cms-block-gui": "If you want to use content widgets with CMS blocks.",
+                "spryker/cms-collector": "If you want to expand cms pages collector with content widget mapping, provides plugin.",
+                "spryker/cms-gui": "If you want to use content widgets with CMS pages.",
+                "spryker/silex": "Needed to get Twig environment for content widget service provider."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CmsContentWidget module",
+            "support": {
+                "source": "https://github.com/spryker/CmsContentWidget/tree/master"
+            },
+            "time": "2017-07-12T12:26:30+00:00"
+        },
+        {
+            "name": "spryker/cms-content-widget-product-connector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/CmsContentWidgetProductConnector.git",
+                "reference": "0b45bbda12359522c925b250bde13bd9bb48f874",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CmsContentWidgetProductConnector/zipball/0b45bbda12359522c925b250bde13bd9bb48f874",
+                "reference": "0b45bbda12359522c925b250bde13bd9bb48f874",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/cms-content-widget": "^1.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/propel-orm": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/twig": "Required by Yves Twig function."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CmsContentWidgetProductConnector module",
+            "support": {
+                "source": "https://github.com/spryker/CmsContentWidgetProductConnector/tree/master"
+            },
+            "time": "2017-07-12T08:55:54+00:00"
+        },
+        {
+            "name": "spryker/cms-content-widget-product-group-connector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/CmsContentWidgetProductGroupConnector.git",
+                "reference": "7016123ac7906a40b84ba28a12d463eb9962397f",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CmsContentWidgetProductGroupConnector/zipball/7016123ac7906a40b84ba28a12d463eb9962397f",
+                "reference": "7016123ac7906a40b84ba28a12d463eb9962397f",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/cms-content-widget": "^1.0.0",
+                "spryker/kernel": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CmsContentWidgetProductGroupConnector module",
+            "support": {
+                "source": "https://github.com/spryker/CmsContentWidgetProductGroupConnector/tree/master"
+            },
+            "time": "2017-07-11T09:55:44+00:00"
+        },
+        {
+            "name": "spryker/cms-content-widget-product-set-connector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/CmsContentWidgetProductSetConnector.git",
+                "reference": "7f1c04f8242842ba1cf92a009e80a27e584d2319",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CmsContentWidgetProductSetConnector/zipball/7f1c04f8242842ba1cf92a009e80a27e584d2319",
+                "reference": "7f1c04f8242842ba1cf92a009e80a27e584d2319",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/cms-content-widget": "^1.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/product-set": "^1.0.0",
+                "spryker/propel-orm": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/twig": "Required by Yves Twig function."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CmsContentWidgetProductSetConnector module",
+            "support": {
+                "source": "https://github.com/spryker/CmsContentWidgetProductSetConnector/tree/master"
+            },
+            "time": "2017-07-12T08:55:54+00:00"
+        },
+        {
+            "name": "spryker/cms-gui",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/CmsGui.git",
+                "reference": "c965d10e01475474fa06dc019c6cb6bfb2c8e43b",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/c965d10e01475474fa06dc019c6cb6bfb2c8e43b",
+                "reference": "c965d10e01475474fa06dc019c6cb6bfb2c8e43b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5270,6 +5543,7 @@
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
                 "spryker/symfony": "^3.0.0",
+                "spryker/twig": "^3.0.0",
                 "spryker/url": "^3.0.0",
                 "spryker/util-encoding": "^2.0.0",
                 "spryker/util-text": "^1.1.0"
@@ -5302,10 +5576,7 @@
                 "proprietary"
             ],
             "description": "CmsGui module",
-            "support": {
-                "source": "https://github.com/spryker/CmsGui/tree/master"
-            },
-            "time": "2017-07-10T14:11:54+00:00"
+            "time": "2017-07-11T10:00:41+00:00"
         },
         {
             "name": "spryker/cms-user-connector",
@@ -6259,11 +6530,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "4.2.1",
+            "version": "4.2.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/Discount.git",
-                "reference": "ed3cabc2d3003b575e70c99b52d06939fe6c4098",
+                "reference": "74389c57ed3948a1c2ae890026ad9a364ded4c89",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6273,8 +6544,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/ed3cabc2d3003b575e70c99b52d06939fe6c4098",
-                "reference": "ed3cabc2d3003b575e70c99b52d06939fe6c4098",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/74389c57ed3948a1c2ae890026ad9a364ded4c89",
+                "reference": "74389c57ed3948a1c2ae890026ad9a364ded4c89",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6302,7 +6573,7 @@
                 "spryker/transfer": "*"
             },
             "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
+                "spryker/checkout": "If you want to use Checkout plugins."
             },
             "type": "library",
             "extra": {
@@ -6331,10 +6602,7 @@
                 "proprietary"
             ],
             "description": "Discount module",
-            "support": {
-                "source": "https://github.com/spryker/Discount/tree/4.2.1"
-            },
-            "time": "2017-07-05T09:38:57+00:00"
+            "time": "2017-07-12T12:10:44+00:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -8416,11 +8684,11 @@
         },
         {
             "name": "spryker/newsletter",
-            "version": "4.1.3",
+            "version": "4.1.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/Newsletter.git",
-                "reference": "b1c8fb507d9b0ec0c815d4c469f64bc22fa9fa4d",
+                "reference": "56663467dcd50fc7efa4b37c62857801d54a7c4b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8430,8 +8698,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Newsletter/zipball/b1c8fb507d9b0ec0c815d4c469f64bc22fa9fa4d",
-                "reference": "b1c8fb507d9b0ec0c815d4c469f64bc22fa9fa4d",
+                "url": "https://api.github.com/repos/spryker/Newsletter/zipball/56663467dcd50fc7efa4b37c62857801d54a7c4b",
+                "reference": "56663467dcd50fc7efa4b37c62857801d54a7c4b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8456,7 +8724,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/installer": "If you want to use Installer plugins you need to install spryker/installer."
+                "spryker/installer": "If you want to use Installer plugins."
             },
             "type": "library",
             "extra": {
@@ -8480,10 +8748,7 @@
                 "proprietary"
             ],
             "description": "Newsletter module",
-            "support": {
-                "source": "https://github.com/spryker/Newsletter/tree/master"
-            },
-            "time": "2017-07-04T10:56:13+00:00"
+            "time": "2017-07-12T12:26:08+00:00"
         },
         {
             "name": "spryker/nopayment",
@@ -10620,11 +10885,11 @@
         },
         {
             "name": "spryker/product-set",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/ProductSet.git",
-                "reference": "2a2e25fd1f6d53085a19830c804a9987bed5d54c",
+                "reference": "c5a61a7445c8a197e1267bc77e37e744d80645c3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10634,8 +10899,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductSet/zipball/2a2e25fd1f6d53085a19830c804a9987bed5d54c",
-                "reference": "2a2e25fd1f6d53085a19830c804a9987bed5d54c",
+                "url": "https://api.github.com/repos/spryker/ProductSet/zipball/c5a61a7445c8a197e1267bc77e37e744d80645c3",
+                "reference": "c5a61a7445c8a197e1267bc77e37e744d80645c3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10651,6 +10916,7 @@
                 "spryker/product-image": "^3.3.0",
                 "spryker/propel-orm": "^1.1.0",
                 "spryker/search": "^6.0.0",
+                "spryker/storage": "^3.0.0",
                 "spryker/touch": "^3.0.0",
                 "spryker/url": "^3.0.0"
             },
@@ -10660,7 +10926,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/elastica": "If you want to use ProductSetCollectorClient with the provided search functionalities, you need to install spryker/silex."
+                "spryker/elastica": "If you want to use ProductSetCollectorClient with the provided search functionalities."
             },
             "type": "library",
             "extra": {
@@ -10683,8 +10949,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "ProductSet bundle",
-            "time": "2017-06-16T12:38:45+00:00"
+            "description": "ProductSet module",
+            "support": {
+                "source": "https://github.com/spryker/ProductSet/tree/master"
+            },
+            "time": "2017-07-12T08:51:23+00:00"
         },
         {
             "name": "spryker/product-set-collector",
@@ -12092,11 +12361,11 @@
         },
         {
             "name": "spryker/stock",
-            "version": "4.0.3",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/Stock.git",
-                "reference": "10fa76d297dbcae3f6672e1c4ed7862cdc65a165",
+                "reference": "577189c874f637e15d5ec8e5ad43af61101620c3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12106,8 +12375,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Stock/zipball/10fa76d297dbcae3f6672e1c4ed7862cdc65a165",
-                "reference": "10fa76d297dbcae3f6672e1c4ed7862cdc65a165",
+                "url": "https://api.github.com/repos/spryker/Stock/zipball/577189c874f637e15d5ec8e5ad43af61101620c3",
+                "reference": "577189c874f637e15d5ec8e5ad43af61101620c3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12154,7 +12423,7 @@
                 "proprietary"
             ],
             "description": "Stock module",
-            "time": "2017-07-11T13:40:01+00:00"
+            "time": "2017-07-12T14:54:21+00:00"
         },
         {
             "name": "spryker/stock-sales-connector",
