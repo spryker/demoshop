@@ -24,7 +24,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_LOCALE = 'FACADE_LOCALE';
     const FACADE_GLOSSARY = 'FACADE_GLOSSARY';
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
-    const FACADE_PRODUCT_MANAGEMENT = 'FACADE_PRODUCT_MANAGEMENT';
+    const FACADE_PRODUCT_ATTRIBUTE = 'FACADE_PRODUCT_ATTRIBUTE';
     const FACADE_PRODUCT_SEARCH = 'FACADE_PRODUCT_SEARCH';
     const FACADE_TOUCH = 'FACADE_TOUCH';
     const FACADE_STOCK = 'FACADE_STOCK';
@@ -63,6 +63,7 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addLocaleFacade($container);
         $container = $this->addGlossaryFacade($container);
         $container = $this->addProductFacade($container);
+        $container = $this->addProductAttributeFacade($container);
         $container = $this->addProductManagementFacade($container);
         $container = $this->addTouchFacade($container);
         $container = $this->addStockFacade($container);
@@ -181,10 +182,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    protected function addProductManagementFacade(Container $container)
+    protected function addProductAttributeFacade(Container $container)
     {
-        $container[static::FACADE_PRODUCT_MANAGEMENT] = function (Container $container) {
-            return $container->getLocator()->productManagement()->facade();
+        $container[static::FACADE_PRODUCT_ATTRIBUTE] = function (Container $container) {
+            return $container->getLocator()->productAttribute()->facade();
         };
 
         return $container;

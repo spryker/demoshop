@@ -176,7 +176,7 @@ class ImporterFactory extends AbstractFactory
     public function createProductManagementAttributeImporter()
     {
         $productManagementAttributeImporter = new ProductManagementAttributeImporter(
-            $this->getProductManagementFacade(),
+            $this->getProductAttributeFacade(),
             $this->getLocaleFacade()
         );
 

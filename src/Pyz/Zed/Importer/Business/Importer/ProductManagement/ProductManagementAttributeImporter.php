@@ -14,15 +14,15 @@ use Generated\Shared\Transfer\ProductManagementAttributeValueTranslationTransfer
 use Orm\Zed\ProductAttribute\Persistence\SpyProductManagementAttributeQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
-use Spryker\Zed\ProductManagement\Business\ProductManagementFacadeInterface;
+use Spryker\Zed\ProductAttribute\Business\ProductAttributeFacadeInterface;
 
 class ProductManagementAttributeImporter extends AbstractImporter
 {
 
     /**
-     * @var \Spryker\Zed\ProductManagement\Business\ProductManagementFacadeInterface
+     * @var \Spryker\Zed\ProductAttribute\Business\ProductAttributeFacadeInterface
      */
-    protected $productManagementFacade;
+    protected $productAttributeFacade;
 
     /**
      * @var array
@@ -30,14 +30,14 @@ class ProductManagementAttributeImporter extends AbstractImporter
     protected $availableLocales;
 
     /**
-     * @param \Spryker\Zed\ProductManagement\Business\ProductManagementFacadeInterface $productManagementFacade
+     * @param \Spryker\Zed\ProductAttribute\Business\ProductAttributeFacadeInterface $productManagementFacade
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      */
-    public function __construct(ProductManagementFacadeInterface $productManagementFacade, LocaleFacadeInterface $localeFacade)
+    public function __construct(ProductAttributeFacadeInterface $productManagementFacade, LocaleFacadeInterface $localeFacade)
     {
         parent::__construct($localeFacade);
 
-        $this->productManagementFacade = $productManagementFacade;
+        $this->productAttributeFacade = $productManagementFacade;
     }
 
     /**
@@ -71,8 +71,8 @@ class ProductManagementAttributeImporter extends AbstractImporter
 
         $productManagementAttributeTransfer = $this->createAttributeTransfer($data);
 
-        $this->productManagementFacade->createProductManagementAttribute($productManagementAttributeTransfer);
-        $this->productManagementFacade->translateProductManagementAttribute($productManagementAttributeTransfer);
+        $this->productAttributeFacade->createProductManagementAttribute($productManagementAttributeTransfer);
+        $this->productAttributeFacade->translateProductManagementAttribute($productManagementAttributeTransfer);
     }
 
     /**

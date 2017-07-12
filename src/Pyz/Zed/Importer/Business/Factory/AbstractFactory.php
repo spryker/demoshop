@@ -81,11 +81,11 @@ abstract class AbstractFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\ProductMANAGEMENT\Business\ProductManagementFacadeInterface
+     * @return \Spryker\Zed\ProductAttribute\Business\ProductAttributeFacadeInterface
      */
-    protected function getProductManagementFacade()
+    protected function getProductAttributeFacade()
     {
-        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_MANAGEMENT);
+        return $this->getProvidedDependency(ImporterDependencyProvider::FACADE_PRODUCT_ATTRIBUTE);
     }
 
     /**
