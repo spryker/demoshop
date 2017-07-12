@@ -585,16 +585,16 @@
         },
         {
             "name": "league/csv",
-            "version": "8.2.1",
+            "version": "8.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4"
+                "reference": "fa8bc05f64eb6c66b96edfaf60648f022ecb5f55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/43fd8b022815a0758d85e925dd92a43fe0d41bb4",
-                "reference": "43fd8b022815a0758d85e925dd92a43fe0d41bb4",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/fa8bc05f64eb6c66b96edfaf60648f022ecb5f55",
+                "reference": "fa8bc05f64eb6c66b96edfaf60648f022ecb5f55",
                 "shasum": ""
             },
             "require": {
@@ -638,7 +638,7 @@
                 "read",
                 "write"
             ],
-            "time": "2017-02-23T08:25:03+00:00"
+            "time": "2017-07-12T07:18:20+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "70adc06a0aba3eda6dd723f5802b849b3fcd30f3"
+                "reference": "cf6180e50b079dbc50d1257287c9bf491ab9dfb1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1797,7 +1797,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-12 08:25:21"
+            "time": "2017-07-12 08:55:54"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4464,16 +4464,16 @@
         },
         {
             "name": "codeception/codeception",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "67cd520b4f20cdfc3a52d1a0022924125822a8e6"
+                "reference": "b5391497f9a3c9d0a9c02ae39b53441e413e35a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/67cd520b4f20cdfc3a52d1a0022924125822a8e6",
-                "reference": "67cd520b4f20cdfc3a52d1a0022924125822a8e6",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/b5391497f9a3c9d0a9c02ae39b53441e413e35a8",
+                "reference": "b5391497f9a3c9d0a9c02ae39b53441e413e35a8",
                 "shasum": ""
             },
             "require": {
@@ -4510,6 +4510,7 @@
                 "php-amqplib/php-amqplib": "~2.4",
                 "predis/predis": "^1.0",
                 "squizlabs/php_codesniffer": "~2.0",
+                "symfony/process": ">=2.7 <4.0",
                 "vlucas/phpdotenv": "^2.4.0"
             },
             "suggest": {
@@ -4554,7 +4555,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-06-02T00:22:30+00:00"
+            "time": "2017-07-10T19:45:09+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -6358,16 +6359,16 @@
         },
         {
             "name": "sllh/composer-versions-check",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Soullivaneuh/composer-versions-check.git",
-                "reference": "4810ab669723609a74bbf6c515d1aac2bd6562d3"
+                "reference": "f6fe100dd71a9fa0d3c922612b445fb179e19127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/4810ab669723609a74bbf6c515d1aac2bd6562d3",
-                "reference": "4810ab669723609a74bbf6c515d1aac2bd6562d3",
+                "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/f6fe100dd71a9fa0d3c922612b445fb179e19127",
+                "reference": "f6fe100dd71a9fa0d3c922612b445fb179e19127",
                 "shasum": ""
             },
             "require": {
@@ -6408,7 +6409,7 @@
                 "update",
                 "versions"
             ],
-            "time": "2016-04-29T17:38:05+00:00"
+            "time": "2017-06-16T09:29:23+00:00"
         },
         {
             "name": "spryker/architecture-sniffer",
@@ -7087,16 +7088,16 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.5",
+            "version": "1.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d"
+                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/8dcfd392135a5bd938c3c83ea71419501ad9855d",
-                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/6e8203e40a32a9c770bcb62fe37e68b948da6dca",
+                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca",
                 "shasum": ""
             },
             "require": {
@@ -7123,7 +7124,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-04-21T14:50:31+00:00"
+            "time": "2017-06-30T11:53:12+00:00"
         },
         {
             "name": "webmozart/assert",
