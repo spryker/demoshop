@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0e92ca04a24b10cda9fef671db0c831c4bcb7d96"
+                "reference": "70adc06a0aba3eda6dd723f5802b849b3fcd30f3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1656,6 +1656,10 @@
                 "spryker/cms-block-gui": "*",
                 "spryker/cms-block-product-connector": "*",
                 "spryker/cms-collector": "*",
+                "spryker/cms-content-widget": "*",
+                "spryker/cms-content-widget-product-connector": "*",
+                "spryker/cms-content-widget-product-group-connector": "*",
+                "spryker/cms-content-widget-product-set-connector": "*",
                 "spryker/cms-gui": "*",
                 "spryker/cms-user-connector": "*",
                 "spryker/collector": "*",
@@ -1793,7 +1797,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-11 16:21:14"
+            "time": "2017-07-12 08:25:21"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6354,16 +6358,16 @@
         },
         {
             "name": "sllh/composer-versions-check",
-            "version": "v2.0.3",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Soullivaneuh/composer-versions-check.git",
-                "reference": "f6fe100dd71a9fa0d3c922612b445fb179e19127"
+                "reference": "4810ab669723609a74bbf6c515d1aac2bd6562d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/f6fe100dd71a9fa0d3c922612b445fb179e19127",
-                "reference": "f6fe100dd71a9fa0d3c922612b445fb179e19127",
+                "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/4810ab669723609a74bbf6c515d1aac2bd6562d3",
+                "reference": "4810ab669723609a74bbf6c515d1aac2bd6562d3",
                 "shasum": ""
             },
             "require": {
@@ -6404,7 +6408,7 @@
                 "update",
                 "versions"
             ],
-            "time": "2017-06-16T09:29:23+00:00"
+            "time": "2016-04-29T17:38:05+00:00"
         },
         {
             "name": "spryker/architecture-sniffer",
@@ -7083,16 +7087,16 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.6",
+            "version": "1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca"
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/6e8203e40a32a9c770bcb62fe37e68b948da6dca",
-                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/8dcfd392135a5bd938c3c83ea71419501ad9855d",
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d",
                 "shasum": ""
             },
             "require": {
@@ -7119,7 +7123,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-06-30T11:53:12+00:00"
+            "time": "2017-04-21T14:50:31+00:00"
         },
         {
             "name": "webmozart/assert",
