@@ -61,11 +61,17 @@ class ProductDataPageMapBuilder
      */
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
     {
+        $isActive = $this->isProductAbstractActive(
+            $productData['product_status_aggregation'],
+            $productData['product_searchable_status_aggregation']
+        );
+
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
-            ->setIsFeatured($productData['is_featured'] == 'true');
+            ->setIsFeatured($productData['is_featured'] == 'true')
+            ->setIsActive($isActive);
 
         $attributes = $this->getProductAttributes($productData);
 
@@ -115,6 +121,25 @@ class ProductDataPageMapBuilder
         }
 
         return $pageMapTransfer;
+    }
+
+    /**
+     * @param string $productStatusAggregation
+     * @param string $productSearchableStatusAggregation
+     *
+     * @return bool
+     */
+    protected function isProductAbstractActive($productStatusAggregation, $productSearchableStatusAggregation)
+    {
+        if (strpos($productSearchableStatusAggregation, 'true') === false) {
+            return false;
+        }
+
+        if (strpos($productStatusAggregation, 'true') === false) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

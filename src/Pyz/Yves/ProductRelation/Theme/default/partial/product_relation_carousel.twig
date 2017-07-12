@@ -9,12 +9,12 @@
                     {% for relation in productRelations %}
 
                         {% include "@catalog/catalog/partials/product.twig" with {
+                            class: 'columns',
                             idProductAbstract: relation.idProductAbstract,
                             detailsUrl: relation.url,
                             name:relation.name,
                             priceValue: relation.price,
                             originalPrice: (relation.prices.ORIGINAL is defined ? relation.prices.ORIGINAL : null),
-                            product: relation,
                             imageUrl: (relation.imageSets|length ? relation.imageSets.default[0].externalUrlSmall : ''),
                             productLabels: spyProductAbstractLabels(relation.idProductAbstract, '@Catalog/catalog/partials/product-labels.twig')
                         } %}
