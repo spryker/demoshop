@@ -21,4 +21,12 @@ class CmsFactory extends AbstractFactory
         return new PageResourceCreator();
     }
 
+    /**
+     * @return \Spryker\Yves\CmsContentWidget\Plugin\CmsTwigContentRendererPluginInterface
+     */
+    public function getCmsTwigRendererPlugin()
+    {
+        return $this->getProvidedDependency(CmsDependencyProvider::CMS_TWIG_CONTENT_RENDERER_PLUGIN);
+    }
+
 }

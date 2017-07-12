@@ -19,7 +19,9 @@
             {{ productLabels | raw }}
         {% endif %}
         {% if idProductAbstract %}
-            {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+            {% block productGroups %}
+                {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+            {% endblock %}
         {% endif %}
         <p>
             <strong>{{ name }}</strong><br>

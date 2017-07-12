@@ -1,5 +1,5 @@
-<div class="callout">
-    <form method="GET" data-component="product-variants">
+<div class="callout" id="product-set">
+    <form method="GET" data-component="product-variants" action="#product-set">
         <h5>{{ 'product.set.detail.set-contents' | trans }}</h5>
 
         {% for storageProduct in storageProducts %}
@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="small-7 columns">
-                    <p>
+                    <p id="test">
                         <a href="{{ storageProduct.url }}"><strong>{{ storageProduct.name }}</strong></a><br>
                         {{ storageProduct.price | money }}
                     </p>
