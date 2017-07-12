@@ -16,6 +16,11 @@ class NavigationCollector extends CategoryNodeCollector
 {
 
     /**
+     * @var array
+     */
+    protected $allChunkCollectedSets = [];
+
+    /**
      * @param array $collectedSet
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
      * @param \Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet $touchUpdaterSet
@@ -27,16 +32,17 @@ class NavigationCollector extends CategoryNodeCollector
         $setToExport = [];
         $formattedCategoryNodes = [];
         $touchKey = $this->generateTouchKey($locale, []);
+        $this->allChunkCollectedSets = array_merge($this->allChunkCollectedSets, $collectedSet);
 
-        foreach ($collectedSet as $collectedItemData) {
+        foreach ($this->allChunkCollectedSets as $collectedItemData) {
             $parentId = $collectedItemData['fk_parent_category_node'];
 
             if ($parentId !== null) {
                 continue;
             }
 
-            $collectedItemData['children'] = $this->getChildren($collectedItemData, $collectedSet);
-            $collectedItemData['parents'] = $this->getParents($collectedItemData, $collectedSet);
+            $collectedItemData['children'] = $this->getChildren($collectedItemData, $this->allChunkCollectedSets);
+            $collectedItemData['parents'] = $this->getParents($collectedItemData, $this->allChunkCollectedSets);
 
             $formattedCategoryNodes[] = $this->collectItem($touchKey, $collectedItemData);
 

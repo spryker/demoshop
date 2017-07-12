@@ -98,9 +98,9 @@ function cleanupYvesFrontendPublicAssets {
     labelText "Frontend: cleaning up Yves old built assets"
 
     if [[ -d "./public/Yves/assets" ]]; then
-        echo "removing ./public/Yves/assets folder..."
-        rm -fR ./public/Yves/assets
-        writeErrorMessage "Could not delete Yves/assets folder"
+        echo "removing ./public/Yves/assets folder content..."
+        rm -fR ./public/Yves/assets/*
+        writeErrorMessage "Could not delete Yves/assets folder content"
     fi
 
     echo "done"
@@ -110,9 +110,9 @@ function cleanupZedFrontendPublicAssets {
     labelText "Frontend: cleaning up Zed old built assets"
 
     if [[ -d "./public/Zed/assets" ]]; then
-        echo "removing ./public/Zed/assets folder..."
-        rm -fR ./public/Zed/assets
-        writeErrorMessage "Could not delete Zed/assets folder"
+        echo "removing ./public/Zed/assets folder content..."
+        rm -fR ./public/Zed/assets/*
+        writeErrorMessage "Could not delete Zed/assets folder content"
     fi
 
     echo "done"

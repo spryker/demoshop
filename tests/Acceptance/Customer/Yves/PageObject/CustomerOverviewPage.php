@@ -15,6 +15,7 @@ class CustomerOverviewPage extends Customer
     const BOX_HEADLINE_ORDERS = 'Last orders';
     const BOX_HEADLINE_PROFILE = 'Profile';
     const BOX_HEADLINE_NEWSLETTER = 'Newsletter';
+    const NEWSLETTER_SUBSCRIBED = 'Newsletter subscribed';
     const BOX_HEADLINE_BILLING_ADDRESS = 'Default Billing Address';
     const BOX_HEADLINE_SHIPPING_ADDRESS = 'Default Shipping Address';
 

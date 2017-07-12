@@ -97,7 +97,7 @@ class ProductFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
-    protected function createStorageProductMapperPlugin()
+    public function createStorageProductMapperPlugin()
     {
         return new StorageProductMapperPlugin();
     }
