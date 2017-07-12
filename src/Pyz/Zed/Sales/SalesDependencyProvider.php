@@ -29,15 +29,15 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
     protected function getOrderHydrationPlugins()
     {
         return [
+            new ProductIdHydratorPlugin(),
             new ProductOptionOrderHydratePlugin(),
-            new DiscountOrderHydratePlugin(),
             new ProductOptionSortHydratePlugin(),
             new ProductBundleOrderHydratePlugin(),
+            new DiscountOrderHydratePlugin(),
             new ShipmentOrderHydratePlugin(),
             new PaymentOrderHydratePlugin(),
             new CustomerOrderHydratePlugin(),
             new ItemMetadataHydratorPlugin(),
-            new ProductIdHydratorPlugin(),
             new ProductBundleIdHydratorPlugin(),
             new ProductOptionGroupIdHydratorPlugin(),
         ];
