@@ -8,18 +8,18 @@
 {% block title %}
     <h3>{{ category.name }}</h3>
     <div class="row">
-        {{ spyCmsBlock({category: idCategory, category_position: 'top'}) }}
+        {{ spyCmsBlock({category: idCategory, position: 'top'}) }}
     </div>
 {% endblock %}
 
 {% block content %}
     <div class="row">
-        {{ spyCmsBlock({category: idCategory, category_position: 'middle'}) }}
+        {{ spyCmsBlock({category: idCategory, position: 'middle'}) }}
     </div>
 {% endblock %}
 
 {% block footer %}
     <div class="row columns">
-        {{ spyCmsBlock({category: idCategory, category_position: 'bottom'}) }}
+        {{ spyCmsBlock({category: idCategory, position: 'bottom'}) }}
     </div>
 {% endblock %}
