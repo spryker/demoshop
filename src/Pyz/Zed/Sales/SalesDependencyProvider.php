@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Sales;
 
 use Spryker\Zed\Discount\Communication\Plugin\Sales\DiscountOrderHydratePlugin;
+use Spryker\Zed\Payment\Communication\Plugin\Sales\PaymentOrderHydratePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderHydratePlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\Sales\ProductOptionOrderHydratePlugin;
 use Spryker\Zed\Sales\SalesDependencyProvider as SprykerSalesDependencyProvider;
@@ -26,6 +27,7 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new DiscountOrderHydratePlugin(),
             new ProductBundleOrderHydratePlugin(),
             new ShipmentOrderHydratePlugin(),
+            new PaymentOrderHydratePlugin(),
         ];
     }
 

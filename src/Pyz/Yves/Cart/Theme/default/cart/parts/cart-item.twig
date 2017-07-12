@@ -7,6 +7,10 @@
             <div class="cart-item__image-container small-3 large-2 columns">
                 <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}"/>
             </div>
+        {% else %}
+            <div class="small-3 large-2 columns text-center">
+                <small>{{ 'cart.item.no_image' | trans }}</small>
+            </div>
         {% endif %}
 
         <div class="small-9 large-expand columns">
