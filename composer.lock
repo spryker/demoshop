@@ -1641,6 +1641,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
@@ -2654,6 +2655,9 @@
 >>>>>>> core-1251 update DataImporter
 >>>>>>> core-1251 update DataImporter
 >>>>>>> core-1251 update DataImporter
+=======
+                "reference": "7fc89d3675cf21edf1d7165dac70d0797c4d0b8f"
+>>>>>>> core-1251 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2778,7 +2782,6 @@
                 "spryker/refund": "*",
                 "spryker/sales": "*",
                 "spryker/sales-aggregator": "*",
-                "spryker/sales-product-connector": "*",
                 "spryker/sales-split": "*",
                 "spryker/search": "*",
                 "spryker/sequence-number": "*",
@@ -2829,6 +2832,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3861,6 +3865,9 @@
 >>>>>>> core-1251 update DataImporter
 >>>>>>> core-1251 update DataImporter
 >>>>>>> core-1251 update DataImporter
+=======
+            "time": "2017-07-13 07:53:28"
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4096,43 +4103,7 @@
         },
         {
             "name": "symfony/debug",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.22",
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/debug.git",
-                "reference": "8470d7701177a88edeb0cec59b44d50ef4477e9b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/8470d7701177a88edeb0cec59b44d50ef4477e9b",
-                "reference": "8470d7701177a88edeb0cec59b44d50ef4477e9b",
-=======
-            "version": "v2.8.21",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-            "version": "v2.8.22",
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -4249,45 +4220,7 @@
         },
         {
             "name": "symfony/filesystem",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.22",
-=======
-            "version": "v2.8.21",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "version": "v2.8.22",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v2.8.22",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -4336,43 +4269,7 @@
         },
         {
             "name": "symfony/finder",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.22",
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/finder.git",
-                "reference": "4f4e84811004e065a3bb5ceeb1d9aa592630f9ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/4f4e84811004e065a3bb5ceeb1d9aa592630f9ad",
-                "reference": "4f4e84811004e065a3bb5ceeb1d9aa592630f9ad",
-=======
-            "version": "v2.8.21",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-            "version": "v2.8.22",
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -4504,61 +4401,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/9ff3a0b3756ace2e3da7dded37e920ee776faa4e",
                 "reference": "9ff3a0b3756ace2e3da7dded37e920ee776faa4e",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2b592ca5fe2ad7ee8a92d409d2b830277ad58231",
-                "reference": "2b592ca5fe2ad7ee8a92d409d2b830277ad58231",
-=======
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
-                "reference": "de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
-=======
-            "time": "2017-05-29T18:50:29+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-            "time": "2017-06-06T02:49:00+00:00"
-        },
-        {
-            "name": "symfony/http-foundation",
-            "version": "v2.8.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "de8d8e83b9ec898e14ef8db84cee5919753b2ae5"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/03bf5ded5a4b54473e7551df5cfab854f7434ed4",
-                "reference": "03bf5ded5a4b54473e7551df5cfab854f7434ed4",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
-                "reference": "de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
-                "reference": "de8d8e83b9ec898e14ef8db84cee5919753b2ae5",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2b592ca5fe2ad7ee8a92d409d2b830277ad58231",
-                "reference": "2b592ca5fe2ad7ee8a92d409d2b830277ad58231",
->>>>>>> core-1251 review changes
                 "shasum": ""
             },
             "require": {
@@ -4600,28 +4444,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-07-17T14:02:19+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-20T23:27:56+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-01T20:52:29+00:00"
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-=======
-            "time": "2017-06-20T23:27:56+00:00"
->>>>>>> core-1251 review changes
         },
         {
             "name": "symfony/http-kernel",
@@ -4633,61 +4456,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/fadab94a5a9fb8e4d59884782b20b35274ff4876",
                 "reference": "fadab94a5a9fb8e4d59884782b20b35274ff4876",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/658cf693cb1fcb6f357a3e4e01656920ac60f19d",
-                "reference": "658cf693cb1fcb6f357a3e4e01656920ac60f19d",
-=======
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
-                "reference": "03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
-=======
-            "time": "2017-05-19T11:49:58+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-            "time": "2017-06-01T20:52:29+00:00"
-        },
-        {
-            "name": "symfony/http-kernel",
-            "version": "v2.8.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/ae9dd4cfde4a3efa94475863fc330825715fe549",
-                "reference": "ae9dd4cfde4a3efa94475863fc330825715fe549",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
-                "reference": "03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
-                "reference": "03ca9421948142df8b9d3ffaeb3bfe8ddee02ca4",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/658cf693cb1fcb6f357a3e4e01656920ac60f19d",
-                "reference": "658cf693cb1fcb6f357a3e4e01656920ac60f19d",
->>>>>>> core-1251 review changes
                 "shasum": ""
             },
             "require": {
@@ -4757,28 +4527,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-07-17T18:00:03+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-07-05T08:52:59+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-07T20:12:31+00:00"
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-=======
-            "time": "2017-07-05T08:52:59+00:00"
->>>>>>> core-1251 review changes
         },
         {
             "name": "symfony/intl",
@@ -4858,46 +4607,7 @@
         },
         {
             "name": "symfony/options-resolver",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-            "version": "v2.8.22",
-=======
-            "time": "2017-05-27T17:24:13+00:00"
-        },
-        {
-            "name": "symfony/options-resolver",
-            "version": "v2.8.21",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-            "time": "2017-06-01T20:52:29+00:00"
-        },
-        {
-            "name": "symfony/options-resolver",
-            "version": "v2.8.22",
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -5349,44 +5059,7 @@
         },
         {
             "name": "symfony/process",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-            "version": "v2.8.22",
-<<<<<<< HEAD
-=======
-            "time": "2016-11-14T01:06:16+00:00"
-        },
-        {
-            "name": "symfony/process",
-            "version": "v2.8.21",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "time": "2017-06-09T08:25:21+00:00"
-        },
-        {
-            "name": "symfony/process",
-            "version": "v2.8.22",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -5435,30 +5108,7 @@
         },
         {
             "name": "symfony/property-access",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
->>>>>>> core-1251 update spryker/spryker
-            "version": "v2.8.22",
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -5601,58 +5251,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/security/zipball/261fbfa5ba41d1fc8812fee0fbad1e47a9bc4313",
                 "reference": "261fbfa5ba41d1fc8812fee0fbad1e47a9bc4313",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/security/zipball/8a62532e77044067d8120195e268fb2afb2ab262",
-                "reference": "8a62532e77044067d8120195e268fb2afb2ab262",
-=======
-                "url": "https://api.github.com/repos/symfony/security/zipball/c7080e57698b343646cdf7908eaca05df95e3949",
-                "reference": "c7080e57698b343646cdf7908eaca05df95e3949",
-<<<<<<< HEAD
-=======
-            "time": "2017-04-12T14:07:15+00:00"
-=======
-            "time": "2017-06-01T20:52:29+00:00"
->>>>>>> core-1251 update spryker/spryker
-        },
-        {
-            "name": "symfony/security",
-            "version": "v2.8.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security.git",
-                "reference": "c7080e57698b343646cdf7908eaca05df95e3949"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/security/zipball/4d015dac686c9f58da3e87ec7fe2271c900c9a8f",
-                "reference": "4d015dac686c9f58da3e87ec7fe2271c900c9a8f",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/security/zipball/c7080e57698b343646cdf7908eaca05df95e3949",
-                "reference": "c7080e57698b343646cdf7908eaca05df95e3949",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/symfony/security/zipball/8a62532e77044067d8120195e268fb2afb2ab262",
-                "reference": "8a62532e77044067d8120195e268fb2afb2ab262",
->>>>>>> core-1251 review changes
                 "shasum": ""
             },
             "require": {
@@ -5719,45 +5319,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-07-17T14:02:19+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-07-03T08:04:30+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-01T20:52:29+00:00"
-=======
-            "time": "2017-05-15T11:59:37+00:00"
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "time": "2017-06-01T20:52:29+00:00"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-06-01T20:52:29+00:00"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "time": "2017-07-03T08:04:30+00:00"
->>>>>>> core-1251 review changes
         },
         {
             "name": "symfony/security-acl",
@@ -5822,28 +5384,7 @@
         },
         {
             "name": "symfony/serializer",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.22",
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -5975,70 +5516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-<<<<<<< HEAD
                 "reference": "788060db7bf10fc5b42ba27ecb60ec63fcdc852f"
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/788060db7bf10fc5b42ba27ecb60ec63fcdc852f",
                 "reference": "788060db7bf10fc5b42ba27ecb60ec63fcdc852f",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/7a2abb5e30d97fbe22c825420ba982fedaf6d39c",
-                "reference": "7a2abb5e30d97fbe22c825420ba982fedaf6d39c",
-=======
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/2e4aaf7a49d851732543d6308c117b8bd3a061c1",
-                "reference": "2e4aaf7a49d851732543d6308c117b8bd3a061c1",
-=======
-            "time": "2017-04-12T14:07:15+00:00"
-=======
-            "time": "2017-06-01T20:52:29+00:00"
->>>>>>> core-1251 update spryker/spryker
-        },
-        {
-            "name": "symfony/twig-bridge",
-            "version": "v2.8.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "2e4aaf7a49d851732543d6308c117b8bd3a061c1"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/362aa855b5819355811b58f8b5f15679196a181e",
-                "reference": "362aa855b5819355811b58f8b5f15679196a181e",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/2e4aaf7a49d851732543d6308c117b8bd3a061c1",
-                "reference": "2e4aaf7a49d851732543d6308c117b8bd3a061c1",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/2e4aaf7a49d851732543d6308c117b8bd3a061c1",
-                "reference": "2e4aaf7a49d851732543d6308c117b8bd3a061c1",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-                "reference": "7a2abb5e30d97fbe22c825420ba982fedaf6d39c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/7a2abb5e30d97fbe22c825420ba982fedaf6d39c",
-                "reference": "7a2abb5e30d97fbe22c825420ba982fedaf6d39c",
->>>>>>> core-1251 review changes
                 "shasum": ""
             },
             "require": {
@@ -6109,28 +5592,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-07-17T14:02:19+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-23T05:57:41+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-06T02:49:00+00:00"
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-=======
-            "time": "2017-06-23T05:57:41+00:00"
->>>>>>> core-1251 review changes
         },
         {
             "name": "symfony/validator",
@@ -9120,78 +8582,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-06-28T10:19:12+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/srpyker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
             "time": "2017-06-28 10:19:12"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/srpyker
-<<<<<<< HEAD
-            "time": "2017-06-28T10:19:12+00:00"
-=======
-            "time": "2017-04-24 20:17:25"
->>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
-<<<<<<< HEAD
->>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
-<<<<<<< HEAD
->>>>>>> core-1251 added hooks for CategoryImporter and ProductRelationImporter
-=======
-=======
-=======
-            "time": "2017-06-02T10:23:39+00:00"
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-06-02 10:23:39"
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/spryker
-=======
-=======
-=======
-            "time": "2017-06-28 10:19:12"
->>>>>>> core-1251 update spryker/srpyker
->>>>>>> core-1251 update spryker/srpyker
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/srpyker
-=======
-=======
-            "time": "2017-06-28 10:19:12"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "time": "2017-06-28 10:19:12"
->>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
-=======
-            "time": "2017-06-28T10:19:12+00:00"
->>>>>>> core-1251 review changes
-=======
-            "time": "2017-06-28 10:19:12"
->>>>>>> core-1251 update DataImporter
         },
         {
             "name": "spryker/code-sniffer",
@@ -9199,86 +8590,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b",
                 "reference": "664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/srpyker
-<<<<<<< HEAD
-                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b26a5262069333b5734e52c0bf0acf3a7860b6ea",
-                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
-                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
-=======
-                "reference": "0cda0285021733517ce35417de1f2b3cf0dd17bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0cda0285021733517ce35417de1f2b3cf0dd17bc",
-                "reference": "0cda0285021733517ce35417de1f2b3cf0dd17bc",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
-                "reference": "8cbd81bbb2ddae2c825afcfeeedb44ded2ee343e",
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/spryker
-=======
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b26a5262069333b5734e52c0bf0acf3a7860b6ea",
-                "reference": "b26a5262069333b5734e52c0bf0acf3a7860b6ea",
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/srpyker
->>>>>>> core-1251 update spryker/srpyker
-=======
->>>>>>> core-1251 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -9312,130 +8629,7 @@
                 "phpcs",
                 "standards"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-07-17 14:09:59"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/srpyker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-27 13:05:34"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/srpyker
-<<<<<<< HEAD
-            "time": "2017-06-27T13:05:34+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-10 19:45:38"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-10T19:45:38+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-05-19 15:56:04"
-=======
-            "time": "2017-05-12T09:59:47+00:00"
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-05-19 15:56:04"
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-06-10T19:45:38+00:00"
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-06-10 19:45:38"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-06-10 19:45:38"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/spryker
-=======
-=======
-=======
-            "time": "2017-06-27 13:05:34"
->>>>>>> core-1251 update spryker/srpyker
->>>>>>> core-1251 update spryker/srpyker
-<<<<<<< HEAD
->>>>>>> core-1251 update spryker/srpyker
-=======
-=======
-            "time": "2017-06-27 13:05:34"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "time": "2017-06-27 13:05:34"
->>>>>>> core-1251 added missing ProductSet and ProductLabel Importer, updated import files
-=======
-            "time": "2017-06-27T13:05:34+00:00"
->>>>>>> core-1251 review changes
-=======
-            "time": "2017-06-27 13:05:34"
->>>>>>> core-1251 update DataImporter
+            "time": "2017-07-17T14:09:59+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -9562,45 +8756,7 @@
         },
         {
             "name": "symfony/browser-kit",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.5",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.4",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.2",
-=======
-            "version": "v3.3.0",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "version": "v3.3.2",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v3.3.2",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "version": "v3.3.4",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -9657,45 +8813,7 @@
         },
         {
             "name": "symfony/css-selector",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.5",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.4",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.2",
-=======
-            "version": "v3.3.0",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "version": "v3.3.2",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v3.3.2",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "version": "v3.3.4",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -9808,45 +8926,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.5",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.4",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.2",
-=======
-            "version": "v3.3.0",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "version": "v3.3.2",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v3.3.2",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "version": "v3.3.4",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -9902,45 +8982,7 @@
         },
         {
             "name": "symfony/stopwatch",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.25",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.24",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.22",
-=======
-            "version": "v2.8.21",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "version": "v2.8.22",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v2.8.22",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "version": "v2.8.24",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -9989,28 +9031,7 @@
         },
         {
             "name": "symfony/var-dumper",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.5",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.4",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v3.3.2",
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-=======
-            "version": "v3.3.4",
->>>>>>> core-1251 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -10018,57 +9039,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/var-dumper/zipball/0f32b62d21991700250fed5109b092949007c5b3",
                 "reference": "0f32b62d21991700250fed5109b092949007c5b3",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/9ee920bba1d2ce877496dcafca7cbffff4dbe08a",
-                "reference": "9ee920bba1d2ce877496dcafca7cbffff4dbe08a",
-=======
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/347c4247a3e40018810b476fcd5dec36d46d08dc",
-                "reference": "347c4247a3e40018810b476fcd5dec36d46d08dc",
-=======
-            "version": "v3.3.0",
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-            "version": "v3.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "347c4247a3e40018810b476fcd5dec36d46d08dc"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/568ce40d88b14f6b42aa48f50572cc4427be9757",
-                "reference": "568ce40d88b14f6b42aa48f50572cc4427be9757",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/347c4247a3e40018810b476fcd5dec36d46d08dc",
-                "reference": "347c4247a3e40018810b476fcd5dec36d46d08dc",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/347c4247a3e40018810b476fcd5dec36d46d08dc",
-                "reference": "347c4247a3e40018810b476fcd5dec36d46d08dc",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/9ee920bba1d2ce877496dcafca7cbffff4dbe08a",
-                "reference": "9ee920bba1d2ce877496dcafca7cbffff4dbe08a",
->>>>>>> core-1251 review changes
                 "shasum": ""
             },
             "require": {
@@ -10123,28 +9095,7 @@
                 "debug",
                 "dump"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-07-10T14:18:27+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-07-05T13:02:37+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-02T09:10:29+00:00"
->>>>>>> core-1251 update composer
->>>>>>> core-1251 update composer
-=======
-            "time": "2017-07-05T13:02:37+00:00"
->>>>>>> core-1251 review changes
         },
         {
             "name": "symfony/web-profiler-bundle",
@@ -10156,61 +9107,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/f7024dcaf577f7a07e02abc63937b68e7dcac5dd",
                 "reference": "f7024dcaf577f7a07e02abc63937b68e7dcac5dd",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/aafd081320be71cf7d26cb477fbbe52d4cb0ad8f",
-                "reference": "aafd081320be71cf7d26cb477fbbe52d4cb0ad8f",
-=======
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/54aa5d69b22644cfc6b2d99ee04c37169e445ade",
-                "reference": "54aa5d69b22644cfc6b2d99ee04c37169e445ade",
-=======
-            "time": "2017-05-22T17:32:12+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-            "time": "2017-06-02T09:10:29+00:00"
-        },
-        {
-            "name": "symfony/web-profiler-bundle",
-            "version": "v2.8.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "54aa5d69b22644cfc6b2d99ee04c37169e445ade"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/1821bc46078487c0bc9b69390efda498c1ec78a1",
-                "reference": "1821bc46078487c0bc9b69390efda498c1ec78a1",
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/54aa5d69b22644cfc6b2d99ee04c37169e445ade",
-                "reference": "54aa5d69b22644cfc6b2d99ee04c37169e445ade",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/54aa5d69b22644cfc6b2d99ee04c37169e445ade",
-                "reference": "54aa5d69b22644cfc6b2d99ee04c37169e445ade",
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/aafd081320be71cf7d26cb477fbbe52d4cb0ad8f",
-                "reference": "aafd081320be71cf7d26cb477fbbe52d4cb0ad8f",
->>>>>>> core-1251 review changes
                 "shasum": ""
             },
             "require": {
@@ -10256,45 +9154,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-07-11T06:54:57+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-07-03T08:04:30+00:00"
-=======
-=======
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-06-02T07:47:27+00:00"
-=======
-            "time": "2017-05-18T09:06:54+00:00"
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-<<<<<<< HEAD
->>>>>>> core-1251 update composer
-=======
-=======
-=======
-            "time": "2017-06-02T07:47:27+00:00"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-06-02T07:47:27+00:00"
->>>>>>> core-1251 update spryker/spryker
->>>>>>> core-1251 update spryker/spryker
-=======
-            "time": "2017-07-03T08:04:30+00:00"
->>>>>>> core-1251 review changes
         },
         {
             "name": "theseer/fdomdocument",
