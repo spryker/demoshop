@@ -64,7 +64,6 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addGlossaryFacade($container);
         $container = $this->addProductFacade($container);
         $container = $this->addProductAttributeFacade($container);
-        $container = $this->addProductManagementFacade($container);
         $container = $this->addTouchFacade($container);
         $container = $this->addStockFacade($container);
         $container = $this->addTaxFacade($container);
