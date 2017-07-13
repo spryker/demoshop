@@ -13,7 +13,7 @@
             {% endif %}
 
             <li>
-                <button class="button hollow" style="border:hidden" onclick="this.form.action='{{ categoryUrl }}'" {% if quantity == 0 %}disabled="disabled"{% endif %}>
+                <button class="link" onclick="this.form.action='{{ categoryUrl }}'" {% if quantity == 0 %}disabled="disabled"{% endif %}>
                     {{ categoryNode.name }}
                     {% if quantity is defined %}
                         ({{ quantity }})
