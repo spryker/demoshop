@@ -39,7 +39,7 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
             ->value('sale', 'outlet')
             ->assert('categoryPath', '\/.+')
             ->value('categoryPath', null)
-            ->convert('categoryPath', function($categoryPath) use ($allowedLocalesPattern) {
+            ->convert('categoryPath', function ($categoryPath) use ($allowedLocalesPattern) {
                 return preg_replace('#^\/' . $allowedLocalesPattern . '#', '/', $categoryPath);
             });
     }
