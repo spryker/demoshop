@@ -34,9 +34,14 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
             ->assert('search', $allowedLocalesPattern . 'search|search')
             ->value('search', 'search');
 
-        $this->createController('/{sale}', self::ROUTE_SALE, 'Catalog', 'Sale', 'index')
+        $this->createController('/{sale}{categoryPath}', self::ROUTE_SALE, 'Catalog', 'Sale', 'index')
             ->assert('sale', $allowedLocalesPattern . 'outlet|outlet')
-            ->value('sale', 'outlet');
+            ->value('sale', 'outlet')
+            ->assert('categoryPath', '\/.+')
+            ->value('categoryPath', null)
+            ->convert('categoryPath', function($categoryPath) use ($allowedLocalesPattern) {
+                return preg_replace('#^\/' . $allowedLocalesPattern . '#', '/', $categoryPath);
+            });
     }
 
 }

@@ -6,19 +6,24 @@
                 {% set quantity = filterValue.docCount %}
             {% endfor %}
 
-            {% if quantity > 0 %}
-                <li>
-                    <a href="{{ categoryNode.url }}">
-                        {{ categoryNode.name }}
-                        {% if quantity is defined %}
-                            ({{ quantity }})
-                        {% endif %}
-                    </a>
-                    {% if categoryNode.children is defined and categoryNode.children is not empty %}
-                        {% include "@catalog/catalog/partials/filters/category.twig" with {'categories': categoryNode.children, 'nested': true} %}
-                    {% endif %}
-                </li>
+            {% if filterPath is defined %}
+                {% set categoryUrl = url(filterPath, {categoryPath: (categoryNode.url)}) %}
+            {% else %}
+                {% set categoryUrl = categoryNode.url | replace({"'": "\\'", '"':'\\"'}) %}
             {% endif %}
+
+            <li>
+                <button class="button hollow" style="border:hidden" onclick="this.form.action='{{ categoryUrl }}'" {% if quantity == 0 %}disabled="disabled"{% endif %}>
+                    {{ categoryNode.name }}
+                    {% if quantity is defined %}
+                        ({{ quantity }})
+                    {% endif %}
+                </button>
+                {% if categoryNode.children is defined and categoryNode.children is not empty %}
+                    {% include "@catalog/catalog/partials/filters/category.twig" with {'categories': categoryNode.children, 'nested': true} %}
+                {% endif %}
+            </li>
+
         {% endfor %}
     </ul>
 {% endif %}
