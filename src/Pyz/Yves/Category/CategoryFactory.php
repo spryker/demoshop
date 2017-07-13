@@ -29,4 +29,20 @@ class CategoryFactory extends AbstractFactory
         return $this->getProvidedDependency(CategoryDependencyProvider::CLIENT_CATEGORY_EXPORTER);
     }
 
+    /**
+     * @return \Spryker\Shared\Kernel\Store
+     */
+    public function getStore()
+    {
+        return $this->getProvidedDependency(CategoryDependencyProvider::STORE);
+    }
+
+    /**
+     * @return \Spryker\Yves\Kernel\Application
+     */
+    public function getApplication()
+    {
+        return $this->getProvidedDependency(CategoryDependencyProvider::APPLICATION);
+    }
+
 }

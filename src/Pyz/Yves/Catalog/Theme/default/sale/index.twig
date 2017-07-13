@@ -2,9 +2,9 @@
 
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
-    <li><a href="{{ url('sale') }}">{{ 'SALE %' | trans }}</a></li>
+    <li><a href="{{ url(filterPath) }}">{{ 'SALE %' | trans }}</a></li>
     {% if category %}
-        {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: category, filterPath: 'sale'} only %}
+        {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: category, filterPath: filterPath} only %}
     {% endif %}
 {% endblock %}
 
