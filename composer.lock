@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "575370919291eb9fe6fbe09165bbbc7a",
+    "content-hash": "30d2f02c6839c5bc9472ae0dd516273a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1618,11 +1618,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-739-fix-storage-client-cache",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ad01f3eb2c1188db7a189d8d99cb8a2418cb88ee"
+                "reference": "e9df720d7ad31e5d62875a7e733e79f563a349fb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1797,7 +1797,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-12 15:07:34"
+            "time": "2017-07-12 14:33:27"
         },
         {
             "name": "swiftmailer/swiftmailer",
