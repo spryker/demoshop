@@ -1574,7 +1574,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "a252f3d0e3dac79cc6ccc621f4c7d85761583823"
+                "reference": "8315b6d650378462f0310730f3940776487e04df"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -1614,7 +1614,7 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-04-28 14:56:33"
+            "time": "2017-07-14 09:20:08"
         },
         {
             "name": "spryker/spryker",
