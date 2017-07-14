@@ -304,7 +304,8 @@ class ImporterFactory extends AbstractFactory
             $this->getLocaleFacade(),
             $this->getCmsBlockCategoryConnectorQueryContainer(),
             $this->getCmsBlockQueryContainer(),
-            $this->getCategoryQueryContainer()
+            $this->getCategoryQueryContainer(),
+            $this->getTouchFacade()
         );
 
         return $cmsBlockCategoryConnectorImporter;

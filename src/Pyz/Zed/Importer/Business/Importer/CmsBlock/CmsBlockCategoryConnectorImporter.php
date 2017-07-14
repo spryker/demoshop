@@ -9,10 +9,12 @@ namespace Pyz\Zed\Importer\Business\Importer\CmsBlock;
 
 use Orm\Zed\CmsBlockCategoryConnector\Persistence\SpyCmsBlockCategoryConnector;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
+use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface;
 use Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
+use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
 class CmsBlockCategoryConnectorImporter extends AbstractImporter
 {
@@ -38,6 +40,11 @@ class CmsBlockCategoryConnectorImporter extends AbstractImporter
     protected $categoryQueryContainer;
 
     /**
+     * @var TouchFacadeInterface
+     */
+    protected $touchFacade;
+
+    /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer
      * @param \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface $cmsBlockQueryContainer
@@ -47,11 +54,13 @@ class CmsBlockCategoryConnectorImporter extends AbstractImporter
         LocaleFacadeInterface $localeFacade,
         CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer,
         CmsBlockQueryContainerInterface $cmsBlockQueryContainer,
-        CategoryQueryContainerInterface $categoryQueryContainer
+        CategoryQueryContainerInterface $categoryQueryContainer,
+        TouchFacadeInterface $touchFacade
     ) {
         $this->cmsBlockCategoryConnectorQueryContainer = $cmsBlockCategoryConnectorQueryContainer;
         $this->cmsBlockQueryContainer = $cmsBlockQueryContainer;
         $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->touchFacade = $touchFacade;
         parent::__construct($localeFacade);
     }
 
@@ -106,6 +115,11 @@ class CmsBlockCategoryConnectorImporter extends AbstractImporter
         $spyCmsBlockCategoryConnector->setFkCategoryTemplate($spyCategoryTemplate->getIdCategoryTemplate());
         $spyCmsBlockCategoryConnector->setFkCmsBlockCategoryPosition($spyCmsBlockCategoryPosition->getIdCmsBlockCategoryPosition());
         $spyCmsBlockCategoryConnector->save();
+
+        $this->touchFacade->touchActive(
+            CmsBlockCategoryConnectorConfig::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR,
+                $spyCategory->getIdCategory()
+        );
     }
 
 }
