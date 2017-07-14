@@ -12,8 +12,6 @@ use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
 use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
 use Spryker\Shared\Config\Environment;
 use Spryker\Zed\Cache\Communication\Console\EmptyAllCachesConsole;
-use Spryker\Zed\Category\Communication\Console\CategoryTemplateImporter;
-use Spryker\Zed\CmsBlockCategoryConnector\Communication\Console\CmsBlockCategoryPosition;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleClientCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleCodeGeneratorConsole;
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleServiceCodeGeneratorConsole;
@@ -104,8 +102,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new QueueWorkerConsole(),
             new ProductRelationUpdaterConsole(),
             new ProductLabelValidityConsole(),
-            new CmsBlockCategoryPosition(),
-            new CategoryTemplateImporter(),
 
             // Setup commands
             new RunnerConsole(),

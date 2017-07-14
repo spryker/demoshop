@@ -23,11 +23,16 @@ class CmsBlockCategoryPositionImporter extends AbstractImporter
      */
     protected $cmsBlockCategoryConnectorQueryContainer;
 
+    /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer
+     */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
         CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer
     ) {
         $this->cmsBlockCategoryConnectorQueryContainer = $cmsBlockCategoryConnectorQueryContainer;
+
         parent::__construct($localeFacade);
     }
 

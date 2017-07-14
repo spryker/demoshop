@@ -40,7 +40,7 @@ class CmsBlockCategoryConnectorImporter extends AbstractImporter
     protected $categoryQueryContainer;
 
     /**
-     * @var TouchFacadeInterface
+     * @var \Spryker\Zed\Touch\Business\TouchFacadeInterface
      */
     protected $touchFacade;
 
@@ -49,6 +49,7 @@ class CmsBlockCategoryConnectorImporter extends AbstractImporter
      * @param \Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer
      * @param \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface $cmsBlockQueryContainer
      * @param \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Spryker\Zed\Touch\Business\TouchFacadeInterface $touchFacade
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
@@ -118,7 +119,7 @@ class CmsBlockCategoryConnectorImporter extends AbstractImporter
 
         $this->touchFacade->touchActive(
             CmsBlockCategoryConnectorConfig::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR,
-                $spyCategory->getIdCategory()
+            $spyCategory->getIdCategory()
         );
     }
 
