@@ -34,6 +34,7 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
     protected function getInstallerCollection()
     {
         return [
+            ImporterConfig::RESOURCE_CATEGORY_TEMPLATE => $this->createInstallerFactory()->createCategoryTemplateInstaller(),
             ImporterConfig::RESOURCE_GLOSSARY => $this->createInstallerFactory()->createGlossaryInstaller(),
             ImporterConfig::RESOURCE_CATEGORY_ROOT => $this->createInstallerFactory()->createCategoryRootInstaller(),
             ImporterConfig::RESOURCE_CATEGORY => $this->createInstallerFactory()->createCategoryInstaller(),
@@ -47,8 +48,10 @@ class ImporterBusinessFactory extends SprykerInstallerBusinessFactory
             ImporterConfig::RESOURCE_PRODUCT_STOCK => $this->createInstallerFactory()->createProductStockInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE => $this->createInstallerFactory()->createProductSearchAttributeInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_SEARCH_ATTRIBUTE_MAP => $this->createInstallerFactory()->createProductSearchAttributeMapInstaller(),
-            ImporterConfig::RESOURCE_CMS_PAGE => $this->createInstallerFactory()->createCmsPageInstaller(),
+            ImporterConfig::RESOURCE_CMS_BLOCK_CATEGORY_POSITION => $this->createInstallerFactory()->createCmsBlockCategoryPositionInstaller(),
             ImporterConfig::RESOURCE_CMS_BLOCK => $this->createInstallerFactory()->createCmsBlockInstaller(),
+            ImporterConfig::RESOURCE_CMS_BLOCK_CATEGORY_CONNECTOR => $this->createInstallerFactory()->createCmsBlockCategoryConnectorInstaller(),
+            ImporterConfig::RESOURCE_CMS_PAGE => $this->createInstallerFactory()->createCmsPageInstaller(),
             ImporterConfig::RESOURCE_SHIPMENT => $this->createInstallerFactory()->createShipmentInstaller(),
             ImporterConfig::RESOURCE_DISCOUNT => $this->createInstallerFactory()->createDiscountInstaller(),
             ImporterConfig::RESOURCE_PRODUCT_OPTIONS => $this->createInstallerFactory()->createProductOptionsInstaller(),

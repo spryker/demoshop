@@ -53,7 +53,7 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
         $readPlugins = array_merge(
             [
                 new ReadProductCategoryRelationPlugin(),
-                new ReadCmsBlockCategoryRelationsPlugin()
+                new ReadCmsBlockCategoryRelationsPlugin(),
             ],
             parent::getRelationReadPluginStack()
         );

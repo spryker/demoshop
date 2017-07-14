@@ -11,14 +11,11 @@ use Generated\Shared\Transfer\CmsBlockGlossaryPlaceholderTransfer;
 use Generated\Shared\Transfer\CmsBlockGlossaryPlaceholderTranslationTransfer;
 use Generated\Shared\Transfer\CmsBlockGlossaryTransfer;
 use Generated\Shared\Transfer\CmsBlockTransfer;
-use Orm\Zed\Category\Persistence\SpyCategoryQuery;
-use Orm\Zed\Category\Persistence\SpyCategoryTemplateQuery;
 use Orm\Zed\CmsBlock\Persistence\SpyCmsBlockQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface;
 use Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface;
 use Spryker\Zed\CmsBlockCategoryConnector\Business\CmsBlockCategoryConnectorFacadeInterface;
-use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
 use Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
@@ -29,7 +26,6 @@ class CmsBlockImporter extends AbstractImporter
     const FIELD_TEMPLATE_NAME = 'template_name';
     const FIELD_TEMPLATE_PATH = 'template_path';
     const FIELD_ACTIVE = 'active';
-    const FIELD_CATEGORIES = 'categories';
     const FIELD_PRODUCTS = 'products';
 
     const FIELD_PREFIX_PLACEHOLDER = 'placeholder';
@@ -73,16 +69,6 @@ class CmsBlockImporter extends AbstractImporter
         'de_DE' => null,
         'en_US' => null,
     ];
-
-    /**
-     * @var int|null
-     */
-    protected $defaultCategoryPositionId = null;
-
-    /**
-     * @var int|null
-     */
-    protected $defaultCategoryCmsBlockTemplateId = null;
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -144,11 +130,6 @@ class CmsBlockImporter extends AbstractImporter
         $cmsBlockTransfer->setFkTemplate($cmsBlockTemplateTransfer->getIdCmsBlockTemplate());
         $cmsBlockTransfer->setIsActive((bool)$data[static::FIELD_ACTIVE]);
 
-        $categories = explode(',', $data[static::FIELD_CATEGORIES]);
-        $categories = array_filter($categories);
-        $cmsBlockTransfer->setIdCategories([$this->getDefaultCategoryPositionId() => $categories]);
-        $this->updateCategoryTemplate($categories, $this->getDefaultCategoryCmsBlockTemplateId());
-
         $products = explode(',', $data[static::FIELD_PRODUCTS]);
         $products = array_filter($products);
         $cmsBlockTransfer->setIdProductAbstracts($products);
@@ -203,55 +184,6 @@ class CmsBlockImporter extends AbstractImporter
         }
 
         return $cmsBlockTemplateTransfer;
-    }
-
-    /**
-     * @return int
-     */
-    protected function getDefaultCategoryPositionId()
-    {
-        if ($this->defaultCategoryPositionId === null) {
-            $spyCmsBlockCategoryPosition = $this->cmsBlockCategoryQueryContainer
-                ->queryCmsBlockCategoryPositionByName(CmsBlockCategoryConnectorConfig::CMS_BLOCK_CATEGORY_POSITION_TOP)
-                ->findOne();
-
-            $this->defaultCategoryPositionId = $spyCmsBlockCategoryPosition->getIdCmsBlockCategoryPosition();
-        }
-
-        return $this->defaultCategoryPositionId;
-    }
-
-    /**
-     * @return int|null
-     */
-    protected function getDefaultCategoryCmsBlockTemplateId()
-    {
-        if ($this->defaultCategoryCmsBlockTemplateId === null) {
-            $categoryTemplate = SpyCategoryTemplateQuery::create()
-                ->filterByName(CmsBlockCategoryConnectorConfig::CATEGORY_TEMPLATE_WITH_CMS_BLOCK)
-                ->findOne();
-
-            $this->defaultCategoryCmsBlockTemplateId = $categoryTemplate->getIdCategoryTemplate();
-        }
-
-        return $this->defaultCategoryCmsBlockTemplateId;
-    }
-
-    /**
-     * @param array $idCategories
-     * @param int $idCategoryTemplate
-     *
-     * @return void
-     */
-    protected function updateCategoryTemplate(array $idCategories, $idCategoryTemplate)
-    {
-        $query = SpyCategoryQuery::create()
-            ->filterByIdCategory_In($idCategories);
-
-        foreach ($query->find() as $spyCategory) {
-            $spyCategory->setFkCategoryTemplate($idCategoryTemplate);
-            $spyCategory->save();
-        }
     }
 
 }

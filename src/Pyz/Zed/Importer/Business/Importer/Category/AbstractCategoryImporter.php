@@ -13,7 +13,6 @@ use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryTemplateQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 abstract class AbstractCategoryImporter extends AbstractImporter
@@ -21,16 +20,12 @@ abstract class AbstractCategoryImporter extends AbstractImporter
 
     const CATEGORY_KEY = 'category_key';
     const ORDER = 'order';
+    const CATEGORY_TEMPLATE_NAME = 'template_name';
 
     /**
      * @var \Pyz\Zed\Category\Business\CategoryFacadeInterface
      */
     protected $categoryFacade;
-
-    /**
-     * @var int|null
-     */
-    protected $defaultTemplateId = null;
 
     /**
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
@@ -55,7 +50,7 @@ abstract class AbstractCategoryImporter extends AbstractImporter
         $categoryTransfer->setIsActive(true);
         $categoryTransfer->setIsClickable(true);
         $categoryTransfer->setIsInMenu(true);
-        $categoryTransfer->setFkCategoryTemplate($this->getDefaultTemplateId());
+        $categoryTransfer->setFkCategoryTemplate($this->getTemplateId($data[static::CATEGORY_TEMPLATE_NAME]));
 
         foreach ($this->localeFacade->getLocaleCollection() as $localeName => $localeTransfer) {
             $nameKey = 'name.' . $localeName;
@@ -81,19 +76,17 @@ abstract class AbstractCategoryImporter extends AbstractImporter
     }
 
     /**
+     * @param string $categoryTemplateName
+     *
      * @return int|null
      */
-    protected function getDefaultTemplateId()
+    protected function getTemplateId($categoryTemplateName)
     {
-        if ($this->defaultTemplateId === null) {
-            $categoryTemplate = SpyCategoryTemplateQuery::create()
-                ->filterByName(CategoryConfig::CATEGORY_TEMPLATE_DEFAULT)
-                ->findOne();
+        $categoryTemplate = SpyCategoryTemplateQuery::create()
+            ->filterByName($categoryTemplateName)
+            ->findOne();
 
-            $this->defaultTemplateId = $categoryTemplate->getIdCategoryTemplate();
-        }
-
-        return $this->defaultTemplateId;
+        return $categoryTemplate->getIdCategoryTemplate();
     }
 
 }

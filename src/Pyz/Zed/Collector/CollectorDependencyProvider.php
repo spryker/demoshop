@@ -35,7 +35,6 @@ use Spryker\Shared\ProductRelation\ProductRelationConstants;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Shared\ProductSet\ProductSetConfig;
 use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CmsBlockCategoryConnectorCollectorPlugin;
-use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CmsBlockCategoryPositionCollectorPlugin;
 use Spryker\Zed\CmsBlockCollector\Communication\Plugin\CmsBlockCollectorStoragePlugin;
 use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductConnectorCollectorPlugin;
 use Spryker\Zed\CmsCollector\Communication\Plugin\CmsVersionPageCollectorSearchPlugin;

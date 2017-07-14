@@ -10,7 +10,10 @@ namespace Pyz\Zed\Importer\Business\Factory;
 use Pyz\Zed\Importer\Business\Importer\Category\CategoryHierarchyImporter;
 use Pyz\Zed\Importer\Business\Importer\Category\CategoryImporter;
 use Pyz\Zed\Importer\Business\Importer\Category\CategoryRootImporter;
+use Pyz\Zed\Importer\Business\Importer\Category\CategoryTemplateImporter;
 use Pyz\Zed\Importer\Business\Importer\Cms\CmsPageImporter;
+use Pyz\Zed\Importer\Business\Importer\CmsBlock\CmsBlockCategoryConnectorImporter;
+use Pyz\Zed\Importer\Business\Importer\CmsBlock\CmsBlockCategoryPositionImporter;
 use Pyz\Zed\Importer\Business\Importer\CmsBlock\CmsBlockImporter;
 use Pyz\Zed\Importer\Business\Importer\Discount\DiscountImporter;
 use Pyz\Zed\Importer\Business\Importer\Glossary\TranslationImporter;
@@ -264,6 +267,47 @@ class ImporterFactory extends AbstractFactory
         );
 
         return $cmsBlockImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\CmsBlock\CmsBlockCategoryPositionImporter
+     */
+    public function createCmsBlockCategoryPositionImporter()
+    {
+        $cmsBlockCategoryPositionImporter = new CmsBlockCategoryPositionImporter(
+            $this->getLocaleFacade(),
+            $this->getCmsBlockCategoryConnectorQueryContainer()
+        );
+
+        return $cmsBlockCategoryPositionImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\Category\CategoryTemplateImporter
+     */
+    public function createCategoryTemplateImporter()
+    {
+        $categoryTemplateImporter = new CategoryTemplateImporter(
+            $this->getLocaleFacade(),
+            $this->getCategoryQueryContainer()
+        );
+
+        return $categoryTemplateImporter;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\CmsBlock\CmsBlockCategoryConnectorImporter
+     */
+    public function createCmsBlockCategoryConnectorImporter()
+    {
+        $cmsBlockCategoryConnectorImporter = new CmsBlockCategoryConnectorImporter(
+            $this->getLocaleFacade(),
+            $this->getCmsBlockCategoryConnectorQueryContainer(),
+            $this->getCmsBlockQueryContainer(),
+            $this->getCategoryQueryContainer()
+        );
+
+        return $cmsBlockCategoryConnectorImporter;
     }
 
     /**

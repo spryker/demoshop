@@ -11,8 +11,11 @@ use Pyz\Zed\Importer\Business\Installer\Category\CategoryCatalogInstaller;
 
 use Pyz\Zed\Importer\Business\Installer\Category\CategoryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Category\CategoryRootInstaller;
+use Pyz\Zed\Importer\Business\Installer\Category\CategoryTemplateInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsBlockInstaller;
 use Pyz\Zed\Importer\Business\Installer\Cms\CmsPageInstaller;
+use Pyz\Zed\Importer\Business\Installer\CmsBlock\CmsBlockCategoryConnectorInstaller;
+use Pyz\Zed\Importer\Business\Installer\CmsBlock\CmsBlockCategoryPositionInstaller;
 use Pyz\Zed\Importer\Business\Installer\Discount\DiscountInstaller;
 use Pyz\Zed\Importer\Business\Installer\Glossary\GlossaryInstaller;
 use Pyz\Zed\Importer\Business\Installer\Navigation\NavigationInstaller;
@@ -204,6 +207,48 @@ class InstallerFactory extends AbstractFactory
         );
 
         return $cmsBlockInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\CmsBlock\CmsBlockCategoryPositionInstaller
+     */
+    public function createCmsBlockCategoryPositionInstaller()
+    {
+        $cmsBlockCategoryPositionInstaller = new CmsBlockCategoryPositionInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterCmsBlockCategoryPositionCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $cmsBlockCategoryPositionInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\Category\CategoryTemplateInstaller
+     */
+    public function createCategoryTemplateInstaller()
+    {
+        $categoryTemplateInstaller = new CategoryTemplateInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterCategoryTemplateCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $categoryTemplateInstaller;
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Installer\CmsBlock\CmsBlockCategoryConnectorInstaller
+     */
+    public function createCmsBlockCategoryConnectorInstaller()
+    {
+        $installer = new CmsBlockCategoryConnectorInstaller(
+            $this->getUtilDataReaderService(),
+            $this->getImporterCmsBlockCategoryConnectorCollection(),
+            $this->getConfig()->getImportDataDirectory()
+        );
+
+        return $installer;
     }
 
     /**
@@ -561,6 +606,36 @@ class InstallerFactory extends AbstractFactory
     {
         return [
             ImporterConfig::RESOURCE_CMS_BLOCK => $this->createImporterFactory()->createCmsBlockImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getImporterCmsBlockCategoryPositionCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_CMS_BLOCK_CATEGORY_POSITION => $this->createImporterFactory()->createCmsBlockCategoryPositionImporter(),
+        ];
+    }
+
+    /**
+     * @return \Pyz\Zed\Importer\Business\Importer\ImporterInterface[]
+     */
+    public function getImporterCategoryTemplateCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_CATEGORY_TEMPLATE => $this->createImporterFactory()->createCategoryTemplateImporter(),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getImporterCmsBlockCategoryConnectorCollection()
+    {
+        return [
+            ImporterConfig::RESOURCE_CMS_BLOCK_CATEGORY_CONNECTOR => $this->createImporterFactory()->createCmsBlockCategoryConnectorImporter(),
         ];
     }
 
