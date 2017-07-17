@@ -17,12 +17,12 @@ use Spryker\Zed\Oms\Communication\Plugin\Checkout\OmsPostSaveHookPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentPostCheckPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentPreCheckPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentSaverPlugin;
-use Spryker\Zed\SalesProductConnector\Communication\Plugin\ItemMetadataSaverPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Checkout\ProductBundleAvailabilityCheckoutPreConditionPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderSaverPlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionOrderSaverPlugin;
 use Spryker\Zed\Sales\Communication\Plugin\SalesOrderExpanderPlugin;
 use Spryker\Zed\Sales\Communication\Plugin\SalesOrderSaverPlugin;
+use Spryker\Zed\SalesProductConnector\Communication\Plugin\ItemMetadataSaverPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
