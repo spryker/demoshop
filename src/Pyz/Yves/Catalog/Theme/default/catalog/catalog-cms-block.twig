@@ -14,7 +14,7 @@
         {{ spyCmsBlock({category: idCategory, position: 'top'}) }}
     </div>
 
-    {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.getPathInfo()} %}
+    {% include "@catalog/catalog/partials/catalog-with-cms-block.twig" with {paginationPath: app.request.getPathInfo()} %}
 
 {% endblock %}
 

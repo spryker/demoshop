@@ -64,6 +64,7 @@ class CatalogController extends AbstractController
             ->catalogSearch($searchString, $request->query->all());
 
         $searchResults['searchString'] = $searchString;
+        $searchResults['idCategory'] = null;
 
         return $this->viewResponse($searchResults);
     }
