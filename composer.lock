@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "68dad213746316dfcdee4b84148b6b5e5a31cc13"
+                "reference": "32e58ea3b1c6afeb46220afb31d14c9750c5aaee"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1747,6 +1747,7 @@
                 "spryker/refund": "*",
                 "spryker/sales": "*",
                 "spryker/sales-aggregator": "*",
+                "spryker/sales-product-connector": "*",
                 "spryker/sales-split": "*",
                 "spryker/search": "*",
                 "spryker/sequence-number": "*",
@@ -1797,7 +1798,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-17 12:33:06"
+            "time": "2017-07-17 13:10:22"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6559,7 +6560,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-07-17T11:07:15+00:00"
+            "time": "2017-07-17 11:07:15"
         },
         {
             "name": "squizlabs/php_codesniffer",
