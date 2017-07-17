@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\CmsBlockCategoryConnector;
 
-use \Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig as SprykerCmsBlockCategoryConnectorConfig;
+use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig as SprykerCmsBlockCategoryConnectorConfig;
 
 class CmsBlockCategoryConnectorConfig extends SprykerCmsBlockCategoryConnectorConfig
 {
