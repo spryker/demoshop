@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\ProductManagement;
 
-use \Spryker\Zed\ProductManagement\ProductManagementDependencyProvider as SprykerProductManagementDependencyProvider;
 use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductAbstractBlockListViewPlugin;
+use Spryker\Zed\ProductManagement\ProductManagementDependencyProvider as SprykerProductManagementDependencyProvider;
 
 class ProductManagementDependencyProvider extends SprykerProductManagementDependencyProvider
 {
