@@ -7,7 +7,7 @@
 
 namespace Acceptance\Oms\Tester;
 
-use \ZedAcceptanceTester;
+use ZedAcceptanceTester;
 
 class OmsTester extends ZedAcceptanceTester
 {

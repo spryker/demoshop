@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Calculation\Controller;
 
-use \Spryker\Shared\Config\Environment;
+use Spryker\Shared\Config\Environment;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
