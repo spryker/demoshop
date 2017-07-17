@@ -45,4 +45,12 @@ class CatalogFactory extends AbstractFactory
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_SEARCH);
     }
 
+    /**
+     * @return \Pyz\Yves\Category\Plugin\CategoryReaderPlugin
+     */
+    public function getCategoryReaderPlugin()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGIN_CATEGORY_READER);
+    }
+
 }

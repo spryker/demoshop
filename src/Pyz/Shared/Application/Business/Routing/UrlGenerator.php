@@ -45,17 +45,37 @@ class UrlGenerator extends SymfonyUrlGenerator
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
+        $route = $this->routes->get($name);
+        $compiledRoute = $route->compile();
+        $parameters = $this->convertParameters($parameters, $route);
+
         $url = parent::generate($name, $parameters, $referenceType);
 
         list($url, $queryParams) = $this->stripQueryParams($url);
-
-        $route = $this->routes->get($name);
-        $compiledRoute = $route->compile();
 
         $url = $this->setVariablePath($name, $url, $compiledRoute, $route, $referenceType);
         $url = $this->appendQueryParams($url, $queryParams);
 
         return $url;
+    }
+
+    /**
+     * @param array $parameters
+     * @param \Symfony\Component\Routing\Route $route
+     *
+     * @return array
+     */
+    protected function convertParameters(array $parameters, Route $route)
+    {
+        $converters = $route->getOption('_converters');
+        foreach ($parameters as $name => $value) {
+            if (!isset($converters[$name]) || !isset($parameters[$name])) {
+                continue;
+            }
+
+            $parameters[$name] = $converters[$name]($value, $this->app['request']);
+        }
+        return $parameters;
     }
 
     /**
