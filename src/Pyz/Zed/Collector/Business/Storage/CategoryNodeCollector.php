@@ -8,7 +8,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
 use Spryker\Zed\Collector\CollectorConfig;
@@ -138,7 +138,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
      */
     protected function collectResourceType()
     {
-        return CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE;
+        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
 }

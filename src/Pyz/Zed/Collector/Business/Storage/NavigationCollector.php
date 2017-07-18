@@ -8,7 +8,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
 use Spryker\Zed\Collector\CollectorConfig;
 
@@ -108,7 +108,7 @@ class NavigationCollector extends CategoryNodeCollector
      */
     protected function collectResourceType()
     {
-        return CategoryConstants::RESOURCE_TYPE_NAVIGATION;
+        return CategoryConfig::RESOURCE_TYPE_NAVIGATION;
     }
 
     /**
