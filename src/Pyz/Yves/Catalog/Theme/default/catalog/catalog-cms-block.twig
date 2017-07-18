@@ -10,5 +10,14 @@
 {% endblock %}
 
 {% block content %}
-    {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.getPathInfo()} %}
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory, position: 'top'}) }}
+    </div>
+
+    {% include "@catalog/catalog/partials/catalog-with-cms-block.twig" with {paginationPath: app.request.getPathInfo()} %}
+
+{% endblock %}
+
+{% block footer %}
+    {{ spyCmsBlock({category: idCategory, position: 'bottom'}) }}
 {% endblock %}

@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
@@ -113,7 +113,7 @@ class CategoryRootImporter extends AbstractCategoryImporter
         }
 
         $this->touchFacade->touchActive(
-            CategoryConstants::RESOURCE_TYPE_NAVIGATION,
+            CategoryConfig::RESOURCE_TYPE_NAVIGATION,
             $rootNodeTransfer->getIdCategoryNode()
         );
     }

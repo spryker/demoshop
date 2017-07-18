@@ -1,6 +1,14 @@
+{% set filterPath = filterPath | default(null) %}
+
+{% if filterPath %}
+    {% set categoryUrl = url(filterPath, {categoryPath: (categoryNode.url)}) %}
+{% else %}
+    {% set categoryUrl = categoryNode.url %}
+{% endif %}
+
 {% if categoryNode.parents is not empty %}
-    {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: categoryNode.parents|first} only %}
+    {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: categoryNode.parents|first, filterPath: filterPath} only %}
     <li>
-        <a href="{{ categoryNode.url }}">{{ categoryNode.name }}</a>
+        <a href="{{ categoryUrl }}">{{ categoryNode.name }}</a>
     </li>
 {% endif %}

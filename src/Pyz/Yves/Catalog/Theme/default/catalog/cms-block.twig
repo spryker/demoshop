@@ -7,8 +7,17 @@
 
 {% block title %}
     <h3>{{ category.name }}</h3>
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory, position: 'top'}) }}
+    </div>
 {% endblock %}
 
 {% block content %}
-    {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.getPathInfo()} %}
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory, position: 'middle'}) }}
+    </div>
+{% endblock %}
+
+{% block footer %}
+        {{ spyCmsBlock({category: idCategory, position: 'bottom'}) }}
 {% endblock %}

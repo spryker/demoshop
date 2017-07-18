@@ -13,6 +13,7 @@ use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusi
 
 /**
  * @method \Spryker\Zed\Category\Persistence\CategoryQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\Category\CategoryConfig getConfig()
  */
 class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
 {

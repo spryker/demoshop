@@ -9,7 +9,7 @@ namespace Pyz\Zed\Collector\Business\Search;
 
 use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;
@@ -49,7 +49,7 @@ class CategoryNodeCollector extends AbstractSearchPdoCollector
      */
     protected function collectResourceType()
     {
-        return CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE;
+        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
     /**
