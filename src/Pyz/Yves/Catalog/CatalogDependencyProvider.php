@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Catalog;
 
-use Pyz\Yves\Category\Plugin\CategoryReaderPlugin;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 
@@ -27,7 +26,6 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
     public function provideDependencies(Container $container)
     {
         $container = parent::provideDependencies($container);
-        $container = $this->provideCategoryReaderPlugin($container);
         $container = $this->provideSearchClient($container);
         $container = $this->addCategoryClient($container);
         $container = $this->addLocaleClient($container);
@@ -72,20 +70,6 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[static::CLIENT_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->client();
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
-    protected function provideCategoryReaderPlugin(Container $container)
-    {
-        $container[static::PLUGIN_CATEGORY_READER] = function (Container $container) {
-            return new CategoryReaderPlugin();
         };
 
         return $container;

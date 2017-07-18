@@ -5,29 +5,18 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Client\Catalog;
+namespace Pyz\Client\ProductSale;
 
-use Spryker\Client\Catalog\CatalogClientInterface as SprykerCatalogClientInterface;
-
-interface CatalogClientInterface extends SprykerCatalogClientInterface
+/**
+ * @method \Pyz\Client\ProductSale\ProductSaleFactory getFactory()
+ */
+interface ProductSaleClientInterface
 {
 
     /**
      * Specification:
-     * - Returns a list of featured products.
-     *
-     * @api
-     *
-     * @param int $limit
-     *
-     * @return mixed
-     */
-    public function getFeaturedProducts($limit);
-
-    /**
-     * Specification:
      * - A query based on the request parameters will be executed.
-     * - The result contains only products which created_at date is no older than the provided days.
+     * - The result contains only products with both DEFAULT and ORIGINAL prices.
      * - The query will also create facet aggregations, pagination and sorting based on the request parameters
      * - The result is a formatted associative array where the used result formatters' name are the keys and their results are the values
      *
@@ -35,8 +24,8 @@ interface CatalogClientInterface extends SprykerCatalogClientInterface
      *
      * @param array $requestParameters
      *
-     * @return mixed
+     * @return array
      */
-    public function getNewProducts(array $requestParameters = []);
+    public function saleSearch(array $requestParameters);
 
 }

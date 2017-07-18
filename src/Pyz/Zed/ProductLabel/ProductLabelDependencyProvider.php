@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\ProductLabel;
 
+use Pyz\Zed\ProductSale\Communication\Plugin\ProductSaleLabelUpdaterPlugin;
 use Spryker\Zed\ProductLabel\ProductLabelDependencyProvider as SprykerProductLabelDependencyProvider;
 use Spryker\Zed\ProductNew\Communication\Plugin\ProductNewLabelUpdaterPlugin;
 
@@ -20,6 +21,7 @@ class ProductLabelDependencyProvider extends SprykerProductLabelDependencyProvid
     {
         return [
             new ProductNewLabelUpdaterPlugin(),
+            new ProductSaleLabelUpdaterPlugin(),
         ];
     }
 

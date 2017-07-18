@@ -35,10 +35,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
     const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
     const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
-    const SALE_SEARCH_QUERY_EXPANDER_PLUGINS = 'SALE_SEARCH_QUERY_EXPANDER_PLUGINS';
-    const SALE_SEARCH_RESULT_FORMATTER_PLUGINS = 'SALE_SEARCH_RESULT_FORMATTER_PLUGINS';
-    const NEW_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'NEW_PRODUCTS_QUERY_EXPANDER_PLUGINS';
-    const NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -51,10 +47,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
         $container = $this->provideFeatureProductsResultFormatterPlugins($container);
         $container = $this->provideFeatureProductsQueryExpanderPlugins($container);
-        $container = $this->provideSaleSearchQueryExpanderPlugins($container);
-        $container = $this->provideSaleSearchResultFormatterPlugins($container);
-        $container = $this->provideNewProductsQueryExpanderPlugins($container);
-        $container = $this->provideNewProductsResultFormatterPlugins($container);
 
         return $container;
     }
@@ -151,79 +143,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
                 new StoreQueryExpanderPlugin(),
                 new LocalizedQueryExpanderPlugin(),
             ];
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
-    protected function provideSaleSearchQueryExpanderPlugins(Container $container)
-    {
-        $container[self::SALE_SEARCH_QUERY_EXPANDER_PLUGINS] = function () {
-            return [
-                new StoreQueryExpanderPlugin(),
-                new LocalizedQueryExpanderPlugin(),
-                new FacetQueryExpanderPlugin(),
-                new SortedQueryExpanderPlugin(),
-                new PaginatedQueryExpanderPlugin(),
-            ];
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
-    protected function provideSaleSearchResultFormatterPlugins(Container$container)
-    {
-        $container[self::SALE_SEARCH_RESULT_FORMATTER_PLUGINS] = function () {
-            return [
-                new FacetResultFormatterPlugin(),
-                new SortedResultFormatterPlugin(),
-                new PaginatedResultFormatterPlugin(),
-                new RawCatalogSearchResultFormatterPlugin(),
-            ];
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
-    protected function provideNewProductsQueryExpanderPlugins(Container $container)
-    {
-        $container[self::NEW_PRODUCTS_QUERY_EXPANDER_PLUGINS] = function () {
-            return [
-                new StoreQueryExpanderPlugin(),
-                new LocalizedQueryExpanderPlugin(),
-                new FacetQueryExpanderPlugin(),
-                new SortedQueryExpanderPlugin(),
-                new PaginatedQueryExpanderPlugin(),
-            ];
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
-    protected function provideNewProductsResultFormatterPlugins(Container$container)
-    {
-        $container[self::NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function () {
-            return $this->createCatalogSearchResultFormatterPlugins();
         };
 
         return $container;

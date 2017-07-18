@@ -15,8 +15,6 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
 
     const ROUTE_SEARCH = 'search';
     const ROUTE_SUGGESTION = 'search/suggestion';
-    const ROUTE_SALE = 'sale';
-    const ROUTE_NEW_PRODUCTS = 'new-products';
 
     /**
      * @param \Silex\Application $app
@@ -34,19 +32,6 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/{search}/suggestion', self::ROUTE_SUGGESTION, 'Catalog', 'Suggestion', 'index')
             ->assert('search', $allowedLocalesPattern . 'search|search')
             ->value('search', 'search');
-
-        $this->createController('/{sale}{categoryPath}', self::ROUTE_SALE, 'Catalog', 'Sale', 'index')
-            ->assert('sale', $allowedLocalesPattern . 'outlet|outlet')
-            ->value('sale', 'outlet')
-            ->assert('categoryPath', '\/.+')
-            ->value('categoryPath', null)
-            ->convert('categoryPath', function ($categoryPath) use ($allowedLocalesPattern) {
-                return preg_replace('#^\/' . $allowedLocalesPattern . '#', '/', $categoryPath);
-            });
-
-        $this->createController('/{newProducts}', self::ROUTE_NEW_PRODUCTS, 'Catalog', 'NewProducts2', 'index')
-            ->assert('newProducts', $allowedLocalesPattern . 'new|new')
-            ->value('newProducts', 'new');
     }
 
 }

@@ -41,25 +41,6 @@ class CatalogClient extends SprykerCatalogClient implements CatalogClientInterfa
      *
      * @param array $requestParameters
      *
-     * @return array
-     */
-    public function saleSearch(array $requestParameters = [])
-    {
-        $searchQuery = $this->getFactory()->createSaleSearchQueryPlugin($requestParameters);
-        $resultFormatters = $this->getFactory()->getSaleSearchResultFormatterPlugins();
-
-        return $this->getFactory()
-            ->getSearchClient()
-            ->search($searchQuery, $resultFormatters, $requestParameters);
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @api
-     *
-     * @param array $requestParameters
-     *
      * @return mixed
      */
     public function getNewProducts(array $requestParameters = [])

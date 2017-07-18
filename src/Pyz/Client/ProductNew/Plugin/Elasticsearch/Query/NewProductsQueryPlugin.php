@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Client\Catalog\Plugin\Elasticsearch\Query;
+namespace Pyz\Client\ProductNew\Plugin\Elasticsearch\Query;
 
 use Elastica\Query;
 use Elastica\Query\AbstractQuery;
@@ -13,9 +13,13 @@ use Elastica\Query\BoolQuery;
 use Elastica\Query\Nested;
 use Elastica\Query\Term;
 use Generated\Shared\Search\PageIndexMap;
+use Pyz\Client\Catalog\Plugin\Config\CatalogSearchConfigBuilder;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 
+/**
+ * @method \Pyz\Client\ProductNew\ProductNewFactory getFactory()
+ */
 class NewProductsQueryPlugin extends AbstractPlugin implements QueryInterface
 {
 
@@ -42,10 +46,10 @@ class NewProductsQueryPlugin extends AbstractPlugin implements QueryInterface
      */
     protected function createSearchQuery()
     {
-        $newProductFilter = $this->newProductFilter();
+        $newProductsFilter = $this->createNewProductsFilter();
 
         $boolQuery = new BoolQuery();
-        $boolQuery->addFilter($newProductFilter);
+        $boolQuery->addFilter($newProductsFilter);
 
         return $this->createQuery($boolQuery);
     }
@@ -53,25 +57,35 @@ class NewProductsQueryPlugin extends AbstractPlugin implements QueryInterface
     /**
      * @return \Elastica\Query\Nested
      */
-    protected function newProductFilter()
+    protected function createNewProductsFilter()
     {
-        $newProductsFilter = $this->createNewProductsFilter();
+        $newProductsQuery = $this->createNewProductsQuery();
 
-        $newProductsQuery = new Nested();
-        $newProductsQuery
-            ->setQuery($newProductsFilter)
+        $newProductsFilter = new Nested();
+        $newProductsFilter
+            ->setQuery($newProductsQuery)
             ->setPath(PageIndexMap::STRING_FACET);
 
-        return $newProductsQuery;
+        return $newProductsFilter;
     }
 
     /**
      * @return \Elastica\Query\BoolQuery
      */
-    protected function createNewProductsFilter()
+    protected function createNewProductsQuery()
     {
-        $stringFacetFieldFilter = $this->createStringFacetFieldFilter('label'); // TODO: this has to come from config
-        $stringFacetValueFilter = $this->createStringFacetValueFilter(2); // TODO: this has to come from dictionary
+        $localeName = $this->getFactory()
+            ->getCurrentLocale();
+        $labelName = $this->getFactory()
+            ->createProductNewConfig()
+            ->getLabelNewName();
+
+        $storageProductLabelTransfer = $this->getFactory()
+            ->getProductLabelClient()
+            ->findLabelByName($labelName, $localeName);
+
+        $stringFacetFieldFilter = $this->createStringFacetFieldFilter(CatalogSearchConfigBuilder::LABEL_FACET_NAME);
+        $stringFacetValueFilter = $this->createStringFacetValueFilter($storageProductLabelTransfer->getIdProductLabel());
 
         $newProductsBoolQuery = new BoolQuery();
         $newProductsBoolQuery

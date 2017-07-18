@@ -30,6 +30,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     const SIZE_UNLIMITED = 0;
 
     const CATEGORY_FACET_PARAM_NAME = 'category';
+    const LABEL_FACET_NAME = 'label';
 
     /**
      * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
@@ -119,8 +120,8 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     protected function addProductLabelFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
         $productLabelFacet = (new FacetConfigTransfer())
-            ->setName('label')
-            ->setParameterName('label')
+            ->setName(static::LABEL_FACET_NAME)
+            ->setParameterName(static::LABEL_FACET_NAME)
             ->setFieldName(PageIndexMap::STRING_FACET)
             ->setType(SearchConfig::FACET_TYPE_ENUMERATION)
             ->setIsMultiValued(true)
