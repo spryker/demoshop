@@ -15,6 +15,8 @@ use Orm\Zed\CmsBlock\Persistence\SpyCmsBlockQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
 use Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface;
 use Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface;
+use Spryker\Zed\CmsBlockCategoryConnector\Business\CmsBlockCategoryConnectorFacadeInterface;
+use Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class CmsBlockImporter extends AbstractImporter
@@ -24,7 +26,6 @@ class CmsBlockImporter extends AbstractImporter
     const FIELD_TEMPLATE_NAME = 'template_name';
     const FIELD_TEMPLATE_PATH = 'template_path';
     const FIELD_ACTIVE = 'active';
-    const FIELD_CATEGORIES = 'categories';
     const FIELD_PRODUCTS = 'products';
 
     const FIELD_PREFIX_PLACEHOLDER = 'placeholder';
@@ -42,6 +43,16 @@ class CmsBlockImporter extends AbstractImporter
      * @var \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface
      */
     protected $cmsBlockQueryContainer;
+
+    /**
+     * @var \Spryker\Zed\CmsBlockCategoryConnector\Business\CmsBlockCategoryConnectorFacadeInterface
+     */
+    protected $cmsBlockCategoryConnectorFacade;
+
+    /**
+     * @var \Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface
+     */
+    protected $cmsBlockCategoryQueryContainer;
 
     /**
      * @var array
@@ -63,16 +74,24 @@ class CmsBlockImporter extends AbstractImporter
      * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
      * @param \Spryker\Zed\CmsBlock\Business\CmsBlockFacadeInterface $cmsBlockFacade
      * @param \Spryker\Zed\CmsBlock\Persistence\CmsBlockQueryContainerInterface $cmsBlockQueryContainer
+     * @param \Spryker\Zed\CmsBlockCategoryConnector\Business\CmsBlockCategoryConnectorFacadeInterface $cmsBlockCategoryConnectorFacade
+     * @param \Spryker\Zed\CmsBlockCategoryConnector\Persistence\CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer
      */
     public function __construct(
         LocaleFacadeInterface $localeFacade,
         CmsBlockFacadeInterface $cmsBlockFacade,
-        CmsBlockQueryContainerInterface $cmsBlockQueryContainer
+        CmsBlockQueryContainerInterface $cmsBlockQueryContainer,
+        CmsBlockCategoryConnectorFacadeInterface $cmsBlockCategoryConnectorFacade,
+        CmsBlockCategoryConnectorQueryContainerInterface $cmsBlockCategoryConnectorQueryContainer
     ) {
         parent::__construct($localeFacade);
 
+        $cmsBlockCategoryConnectorFacade->syncCmsBlockCategoryPosition();
+
         $this->cmsBlockFacade = $cmsBlockFacade;
         $this->cmsBlockQueryContainer = $cmsBlockQueryContainer;
+        $this->cmsBlockCategoryConnectorFacade = $cmsBlockCategoryConnectorFacade;
+        $this->cmsBlockCategoryQueryContainer = $cmsBlockCategoryConnectorQueryContainer;
     }
 
     /**
@@ -110,10 +129,6 @@ class CmsBlockImporter extends AbstractImporter
         $cmsBlockTransfer->setName($data[static::FIELD_BLOCK_NAME]);
         $cmsBlockTransfer->setFkTemplate($cmsBlockTemplateTransfer->getIdCmsBlockTemplate());
         $cmsBlockTransfer->setIsActive((bool)$data[static::FIELD_ACTIVE]);
-
-        $categories = explode(',', $data[static::FIELD_CATEGORIES]);
-        $categories = array_filter($categories);
-        $cmsBlockTransfer->setIdCategories($categories);
 
         $products = explode(',', $data[static::FIELD_PRODUCTS]);
         $products = array_filter($products);
