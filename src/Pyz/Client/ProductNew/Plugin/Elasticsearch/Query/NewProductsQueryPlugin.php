@@ -75,6 +75,7 @@ class NewProductsQueryPlugin extends AbstractPlugin implements QueryInterface
     protected function createNewProductsQuery()
     {
         $localeName = $this->getFactory()
+            ->getStore()
             ->getCurrentLocale();
         $labelName = $this->getFactory()
             ->createProductNewConfig()

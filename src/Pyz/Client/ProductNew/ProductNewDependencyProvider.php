@@ -21,6 +21,7 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\FacetResultFormat
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\PaginatedResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultFormatterPlugin;
 use Spryker\Client\Search\SearchClient;
+use Spryker\Shared\Kernel\Store;
 
 class ProductNewDependencyProvider extends AbstractDependencyProvider
 {
@@ -30,6 +31,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
     const NEW_PRODUCTS_QUERY_PLUGIN = 'NEW_PRODUCTS_QUERY_PLUGIN';
     const NEW_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'NEW_PRODUCTS_QUERY_EXPANDER_PLUGINS';
     const NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS';
+    const STORE = 'STORE';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -43,6 +45,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
         $container = $this->addNewProductsQueryPlugin($container);
         $container = $this->addNewProductsQueryExpanderPlugins($container);
         $container = $this->addNewProductsResultFormatterPlugins($container);
+        $container = $this->addStore($container);
 
         return $container;
     }
@@ -123,6 +126,20 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
                 new PaginatedResultFormatterPlugin(),
                 new RawCatalogSearchResultFormatterPlugin(),
             ];
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function addStore(Container$container)
+    {
+        $container[self::STORE] = function () {
+            return Store::getInstance();
         };
 
         return $container;

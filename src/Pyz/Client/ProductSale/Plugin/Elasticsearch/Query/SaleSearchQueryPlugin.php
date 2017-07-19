@@ -75,6 +75,7 @@ class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
     protected function createSaleProductsQuery()
     {
         $localeName = $this->getFactory()
+            ->getStore()
             ->getCurrentLocale();
         $labelName = $this->getFactory()
             ->createProductSaleConfig()

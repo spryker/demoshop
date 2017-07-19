@@ -7,9 +7,7 @@
 
 namespace Pyz\Client\ProductNew;
 
-use Pyz\Client\ProductNew\Plugin\Elasticsearch\Query\NewProductsQueryPlugin;
 use Spryker\Client\Kernel\AbstractFactory;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\ProductNew\ProductNewConfig;
 
 class ProductNewFactory extends AbstractFactory
@@ -40,11 +38,11 @@ class ProductNewFactory extends AbstractFactory
     }
 
     /**
-     * @return string
+     * @return \Spryker\Shared\Kernel\Store
      */
-    public function getCurrentLocale()
+    public function getStore()
     {
-        return Store::getInstance()->getCurrentLocale();
+        return $this->getProvidedDependency(ProductNewDependencyProvider::STORE);
     }
 
     /**

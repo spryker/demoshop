@@ -39,11 +39,11 @@ class ProductSaleFactory extends AbstractFactory
     }
 
     /**
-     * @return string
+     * @return \Spryker\Shared\Kernel\Store
      */
-    public function getCurrentLocale()
+    public function getStore()
     {
-        return Store::getInstance()->getCurrentLocale();
+        return $this->getProvidedDependency(ProductSaleDependencyProvider::STORE);
     }
 
     /**
