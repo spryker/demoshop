@@ -7,6 +7,7 @@ use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\DataImport\DataImportConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
@@ -408,3 +409,6 @@ $config[EventJournalConstants::WRITER_OPTIONS] = [
 
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
+
+// ---------- DataImport
+$config[DataImportConstants::IMPORT_FILE_ROOT_PATH] = APPLICATION_ROOT_DIR . '/data/import';

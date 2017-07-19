@@ -1642,6 +1642,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
@@ -2658,6 +2659,9 @@
 =======
                 "reference": "7fc89d3675cf21edf1d7165dac70d0797c4d0b8f"
 >>>>>>> core-1251 update spryker/spryker
+=======
+                "reference": "e8ae9a4473acfc6570dc704752f870e1e9ac43be"
+>>>>>>> core-1251 Added new DataImporter and update DataImport for CmsBlock changes
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2782,6 +2786,7 @@
                 "spryker/refund": "*",
                 "spryker/sales": "*",
                 "spryker/sales-aggregator": "*",
+                "spryker/sales-product-connector": "*",
                 "spryker/sales-split": "*",
                 "spryker/search": "*",
                 "spryker/sequence-number": "*",
@@ -2832,6 +2837,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3868,6 +3874,9 @@
 =======
             "time": "2017-07-13 07:53:28"
 >>>>>>> core-1251 update spryker/spryker
+=======
+            "time": "2017-07-19 05:40:51"
+>>>>>>> core-1251 Added new DataImporter and update DataImport for CmsBlock changes
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8629,7 +8638,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-07-17T14:09:59+00:00"
+            "time": "2017-07-17 14:09:59"
         },
         {
             "name": "squizlabs/php_codesniffer",

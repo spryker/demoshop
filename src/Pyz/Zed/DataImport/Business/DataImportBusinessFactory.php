@@ -10,7 +10,10 @@ namespace Pyz\Zed\DataImport\Business;
 use Pyz\Zed\DataImport\Business\Model\Category\AddCategoryKeysStep;
 use Pyz\Zed\DataImport\Business\Model\Category\CategoryWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepository;
+use Pyz\Zed\DataImport\Business\Model\CategoryTemplate\CategoryTemplateWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsBlock\CmsBlockWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CmsBlockCategory\CmsBlockCategoryWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CmsBlockCategoryPosition\CmsBlockCategoryPositionWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\CmsPageWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\PlaceholderExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\CmsTemplate\CmsTemplateWriterStep;
@@ -72,6 +75,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         $dataImporterCollection = $this->createDataImporterCollection();
         $dataImporterCollection
+            ->addDataImporter($this->createCategoryTemplateImporter())
             ->addDataImporter($this->createCategoryImporter())
             ->addDataImporter($this->createGlossaryImporter())
             ->addDataImporter($this->createDiscountImporter())
@@ -97,7 +101,9 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createNavigationNodeImporter())
             ->addDataImporter($this->createCmsTemplateImporter())
             ->addDataImporter($this->createCmsPageImporter())
-            ->addDataImporter($this->createCmsBlockImporter());
+            ->addDataImporter($this->createCmsBlockImporter())
+            ->addDataImporter($this->createCmsBlockCategoryPositionImporter())
+            ->addDataImporter($this->createCmsBlockCategoryImporter());
 
         return $dataImporterCollection;
     }
@@ -115,6 +121,23 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addStep(new GlossaryWriterStep($this->getTouchFacade(), GlossaryWriterStep::BULK_SIZE));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
+     */
+    protected function createCategoryTemplateImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCategoryTemplateDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep(new CategoryTemplateWriterStep());
+
+        $dataImporter
+            ->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
     }
@@ -226,6 +249,38 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
                 $this->getTouchFacade(),
                 CmsBlockWriterStep::BULK_SIZE
             ));
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createCmsBlockCategoryPositionImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCmsBlockCategoryPositionDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep(new CmsBlockCategoryPositionWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createCmsBlockCategoryImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCmsBlockCategoryDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep(new CmsBlockCategoryWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 

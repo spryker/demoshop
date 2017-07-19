@@ -14,6 +14,7 @@ use Spryker\Zed\DataImport\DataImportConfig as SprykerDataImportConfig;
 class DataImportConfig extends SprykerDataImportConfig
 {
 
+    const IMPORT_TYPE_CATEGORY_TEMPLATE = 'category-template';
     const IMPORT_TYPE_CATEGORY = 'category';
     const IMPORT_TYPE_GLOSSARY = 'glossary';
     const IMPORT_TYPE_NAVIGATION = 'navigation';
@@ -35,25 +36,13 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_CMS_TEMPLATE = 'cms-template';
     const IMPORT_TYPE_CMS_PAGE = 'cms-page';
     const IMPORT_TYPE_CMS_BLOCK = 'cms-block';
+    const IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION = 'cms-block-category-position';
+    const IMPORT_TYPE_CMS_BLOCK_CATEGORY = 'cms-block-category';
     const IMPORT_TYPE_DISCOUNT = 'discount';
     const IMPORT_TYPE_DISCOUNT_VOUCHER = 'discount-voucher';
     const IMPORT_TYPE_SHIPMENT = 'shipment';
     const IMPORT_TYPE_STOCK = 'stock';
     const IMPORT_TYPE_TAX = 'tax';
-
-    /**
-     * @return string
-     */
-    protected function getDataImportRootPath()
-    {
-        $pathParts = [
-            APPLICATION_ROOT_DIR,
-            'data',
-            'import',
-        ];
-
-        return implode(DIRECTORY_SEPARATOR, $pathParts) . DIRECTORY_SEPARATOR;
-    }
 
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
@@ -69,6 +58,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getCategoryDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'category.csv', static::IMPORT_TYPE_CATEGORY);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCategoryTemplateDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('category_template.csv', static::IMPORT_TYPE_CATEGORY_TEMPLATE);
     }
 
     /**
@@ -245,6 +242,22 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getCmsBlockDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('cms_block.csv', static::IMPORT_TYPE_CMS_BLOCK);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCmsBlockCategoryPositionDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('block_category_position.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCmsBlockCategoryDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('block_category.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY);
     }
 
     /**

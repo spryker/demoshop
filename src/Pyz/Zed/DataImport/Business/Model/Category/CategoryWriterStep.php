@@ -14,6 +14,7 @@ use Orm\Zed\Category\Persistence\SpyCategoryClosureTableQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryNode;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Orm\Zed\Category\Persistence\SpyCategoryQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryTemplateQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
 use Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepositoryInterface;
 use Pyz\Zed\DataImport\Business\Model\Locale\AddLocalesStep;
@@ -36,6 +37,7 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
     const KEY_META_KEYWORDS = 'meta_keywords';
     const KEY_CATEGORY_KEY = 'category_key';
     const KEY_PARENT_CATEGORY_KEY = 'parent_category_key';
+    const KEY_TEMPLATE_NAME = 'template_name';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepositoryInterface
@@ -79,6 +81,11 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
             ->findOneOrCreate();
 
         $categoryEntity->fromArray($dataSet->getArrayCopy());
+
+        if (!empty($dataSet[static::KEY_TEMPLATE_NAME])) {
+            $categoryTemplateEntity = SpyCategoryTemplateQuery::create()->findOneByName($dataSet[static::KEY_TEMPLATE_NAME]);
+            $categoryEntity->setFkCategoryTemplate($categoryTemplateEntity->getIdCategoryTemplate());
+        }
 
         if ($categoryEntity->isNew() || $categoryEntity->isModified()) {
             $categoryEntity->save();
