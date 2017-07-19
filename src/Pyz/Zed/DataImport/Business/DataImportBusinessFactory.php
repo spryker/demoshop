@@ -280,7 +280,9 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker
-            ->addStep(new CmsBlockCategoryWriterStep());
+            ->addStep(new CmsBlockCategoryWriterStep(
+                $this->getTouchFacade()
+            ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 

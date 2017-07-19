@@ -12,10 +12,12 @@ use Orm\Zed\Category\Persistence\SpyCategoryTemplateQuery;
 use Orm\Zed\CmsBlock\Persistence\SpyCmsBlockQuery;
 use Orm\Zed\CmsBlockCategoryConnector\Persistence\SpyCmsBlockCategoryConnectorQuery;
 use Orm\Zed\CmsBlockCategoryConnector\Persistence\SpyCmsBlockCategoryPositionQuery;
+use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
+use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class CmsBlockCategoryWriterStep implements DataImportStepInterface
+class CmsBlockCategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
 
     const KEY_BLOCK_NAME = 'block_name';
@@ -44,6 +46,11 @@ class CmsBlockCategoryWriterStep implements DataImportStepInterface
 
         if ($cmsBlockCategoryConnectorEntity->isNew() || $cmsBlockCategoryConnectorEntity->isModified()) {
             $cmsBlockCategoryConnectorEntity->save();
+
+            $this->addMainTouchable(
+                CmsBlockCategoryConnectorConfig::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR,
+                $cmsBlockCategoryConnectorEntity->getFkCategory()
+            );
         }
     }
 
