@@ -15,7 +15,7 @@ use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 /**
- * @SuppressWarnings(PHPMD)
+ * @SuppressWarnings(PHPMD.ElseExpression)
  */
 class ProductPriceWriterStep implements DataImportStepInterface
 {

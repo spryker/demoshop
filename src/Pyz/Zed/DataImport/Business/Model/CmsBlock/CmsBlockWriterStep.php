@@ -30,7 +30,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 /**
- * @SuppressWarnings(PHPMD)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {

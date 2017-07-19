@@ -33,7 +33,9 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
 /**
- * @SuppressWarnings(PHPMD)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+ * @SuppressWarnings(PHPMD.NPathComplexity)
  */
 class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterface
 {

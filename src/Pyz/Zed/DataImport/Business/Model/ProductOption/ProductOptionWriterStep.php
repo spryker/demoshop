@@ -25,7 +25,7 @@ use Spryker\Zed\Glossary\GlossaryConfig;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 /**
- * @SuppressWarnings(PHPMD)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepInterface
 {

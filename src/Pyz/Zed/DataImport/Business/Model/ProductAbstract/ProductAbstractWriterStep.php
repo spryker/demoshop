@@ -23,7 +23,6 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
 /**
- * @SuppressWarnings(PHPMD)
  */
 class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStepInterface
 {

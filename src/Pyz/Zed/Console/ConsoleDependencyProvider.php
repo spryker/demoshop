@@ -69,6 +69,9 @@ use Spryker\Zed\Twig\Communication\Console\CacheWarmerConsole;
 use Spryker\Zed\ZedNavigation\Communication\Console\BuildNavigationConsole;
 use Stecman\Component\Symfony\Console\BashCompletion\CompletionCommand;
 
+/**
+ * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+ */
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
 
