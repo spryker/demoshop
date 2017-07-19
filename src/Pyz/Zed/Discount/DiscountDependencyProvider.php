@@ -34,7 +34,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
             new ProductLabelDecisionRulePlugin(),
             new ShipmentCarrierDecisionRulePlugin(),
             new ShipmentMethodDecisionRulePlugin(),
-            new ShipmentPriceDecisionRulePlugin()
+            new ShipmentPriceDecisionRulePlugin(),
         ]);
     }
 
@@ -48,7 +48,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
             new ProductLabelCollectorPlugin(),
             new ItemByShipmentCarrierPlugin(),
             new ItemByShipmentMethodPlugin(),
-            new ItemByShipmentPricePlugin()
+            new ItemByShipmentPricePlugin(),
         ]);
     }
 
