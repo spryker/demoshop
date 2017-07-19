@@ -13,8 +13,10 @@ use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductA
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\Collector\ProductLabelCollectorPlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\DecisionRule\ProductLabelDecisionRulePlugin;
-use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\CarrierDecisionRulePlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\ShipmentCarrierDecisionRulePlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\ShipmentMethodDecisionRulePlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentCarrierPlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentMethodPlugin;
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
@@ -28,7 +30,8 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
             new ProductAttributeDecisionRulePlugin(),
             new CustomerGroupDecisionRulePlugin(),
             new ProductLabelDecisionRulePlugin(),
-            new CarrierDecisionRulePlugin()
+            new ShipmentCarrierDecisionRulePlugin(),
+            new ShipmentMethodDecisionRulePlugin()
         ]);
     }
 
@@ -40,7 +43,8 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
         return array_merge(parent::getCollectorPlugins(), [
             new ProductAttributeCollectorPlugin(),
             new ProductLabelCollectorPlugin(),
-            new ItemByShipmentCarrierPlugin()
+            new ItemByShipmentCarrierPlugin(),
+            new ItemByShipmentMethodPlugin()
         ]);
     }
 
