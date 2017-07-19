@@ -8,6 +8,7 @@
 namespace Pyz\Zed\DataImport\Business\Model\CmsBlockCategory;
 
 use Orm\Zed\Category\Persistence\SpyCategoryQuery;
+use Orm\Zed\Category\Persistence\SpyCategoryTemplateQuery;
 use Orm\Zed\CmsBlock\Persistence\SpyCmsBlockQuery;
 use Orm\Zed\CmsBlockCategoryConnector\Persistence\SpyCmsBlockCategoryConnectorQuery;
 use Orm\Zed\CmsBlockCategoryConnector\Persistence\SpyCmsBlockCategoryPositionQuery;
@@ -20,7 +21,7 @@ class CmsBlockCategoryWriterStep implements DataImportStepInterface
     const KEY_BLOCK_NAME = 'block_name';
     const KEY_CATEGORY_KEY = 'category_key';
     const KEY_CATEGORY_TEMPLATE_NAME = 'template_name';
-    const KEY_CMS_BLOCK_CATEGORY_POSITION_NAME = 'block_category_position_name';
+    const KEY_CMS_BLOCK_CATEGORY_POSITION_NAME = 'cms_block_category_position_name';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -31,12 +32,13 @@ class CmsBlockCategoryWriterStep implements DataImportStepInterface
     {
         $cmsBlockEntity = SpyCmsBlockQuery::create()->findOneByName($dataSet[static::KEY_BLOCK_NAME]);
         $categoryEntity = SpyCategoryQuery::create()->findOneByCategoryKey($dataSet[static::KEY_CATEGORY_KEY]);
+        $categoryTemplateEntity = SpyCategoryTemplateQuery::create()->findOneByName($dataSet[static::KEY_CATEGORY_TEMPLATE_NAME]);
         $cmsBlockCategoryPositionEntity = SpyCmsBlockCategoryPositionQuery::create()->findOneByName($dataSet[static::KEY_CMS_BLOCK_CATEGORY_POSITION_NAME]);
 
         $cmsBlockCategoryConnectorEntity = SpyCmsBlockCategoryConnectorQuery::create()
             ->filterByFkCmsBlock($cmsBlockEntity->getIdCmsBlock())
             ->filterByFkCategory($categoryEntity->getIdCategory())
-            ->filterByFkCategoryTemplate($categoryEntity->getFkCategoryTemplate())
+            ->filterByFkCategoryTemplate($categoryTemplateEntity->getIdCategoryTemplate())
             ->filterByFkCmsBlockCategoryPosition($cmsBlockCategoryPositionEntity->getIdCmsBlockCategoryPosition())
             ->findOneOrCreate();
 

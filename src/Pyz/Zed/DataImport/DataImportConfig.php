@@ -249,7 +249,7 @@ class DataImportConfig extends SprykerDataImportConfig
      */
     public function getCmsBlockCategoryPositionDataImporterConfiguration()
     {
-        return $this->buildImporterConfiguration('block_category_position.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION);
+        return $this->buildImporterConfiguration('cms_block_category_position.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION);
     }
 
     /**
@@ -257,7 +257,7 @@ class DataImportConfig extends SprykerDataImportConfig
      */
     public function getCmsBlockCategoryDataImporterConfiguration()
     {
-        return $this->buildImporterConfiguration('block_category.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY);
+        return $this->buildImporterConfiguration('cms_block_category.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY);
     }
 
     /**

@@ -1,4 +1,4 @@
-block_name,category_key,template_name,block_category_position_name
+block_name,category_key,template_name,cms_block_category_position_name
 CMS block for category Notebooks,notebooks,CMS Block,top
 Category CMS page showcase for Top position,tablets,Catalog + CMS Block,top
 Category CMS page showcase for Middle position,tablets,Catalog + CMS Block,middle
