@@ -7,7 +7,6 @@
 
 namespace Pyz\Client\ProductSale;
 
-use Pyz\Client\ProductSale\Plugin\Elasticsearch\Query\SaleSearchQueryPlugin;
 use Pyz\Shared\ProductSale\ProductSaleConfig;
 use Spryker\Client\Kernel\AbstractFactory;
 use Spryker\Shared\Kernel\Store;
@@ -20,9 +19,9 @@ class ProductSaleFactory extends AbstractFactory
      *
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
      */
-    public function createSaleSearchQueryPlugin(array $requestParameters = [])
+    public function getSaleSearchQueryPlugin(array $requestParameters = [])
     {
-        $saleQueryPlugin = new SaleSearchQueryPlugin();
+        $saleQueryPlugin = $this->getProvidedDependency(ProductSaleDependencyProvider::SALE_SEARCH_QUERY_PLUGIN);
 
         return $this->getSearchClient()->expandQuery(
             $saleQueryPlugin,

@@ -7,6 +7,7 @@
 
 namespace Pyz\Client\ProductNew;
 
+use Pyz\Client\ProductNew\Plugin\Elasticsearch\Query\NewProductsQueryPlugin;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 use Spryker\Client\Kernel\AbstractDependencyProvider;
 use Spryker\Client\Kernel\Container;
@@ -26,6 +27,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
 
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const CLIENT_PRODUCT_LABEL = 'CLIENT_PRODUCT_LABEL';
+    const NEW_PRODUCTS_QUERY_PLUGIN = 'NEW_PRODUCTS_QUERY_PLUGIN';
     const NEW_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'NEW_PRODUCTS_QUERY_EXPANDER_PLUGINS';
     const NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS';
 
@@ -38,6 +40,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
     {
         $container = $this->addSearchClient($container);
         $container = $this->addProductLabelClient($container);
+        $container = $this->addNewProductsQueryPlugin($container);
         $container = $this->addNewProductsQueryExpanderPlugins($container);
         $container = $this->addNewProductsResultFormatterPlugins($container);
 
@@ -67,6 +70,20 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
     {
         $container[self::CLIENT_PRODUCT_LABEL] = function () {
             return new ProductLabelClient();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function addNewProductsQueryPlugin(Container $container)
+    {
+        $container[self::NEW_PRODUCTS_QUERY_PLUGIN] = function () {
+            return new NewProductsQueryPlugin();
         };
 
         return $container;

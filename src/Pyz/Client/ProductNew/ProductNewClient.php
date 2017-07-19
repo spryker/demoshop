@@ -26,7 +26,7 @@ class ProductNewClient extends AbstractClient implements ProductNewClientInterfa
      */
     public function findNewProducts(array $requestParameters = [])
     {
-        $searchQuery = $this->getFactory()->createNewProductsQueryPlugin($requestParameters);
+        $searchQuery = $this->getFactory()->getNewProductsQueryPlugin($requestParameters);
         $resultFormatters = $this->getFactory()->getNewProductsSearchResultFormatterPlugins();
 
         return $this->getFactory()

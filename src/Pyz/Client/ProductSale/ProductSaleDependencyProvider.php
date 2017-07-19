@@ -7,6 +7,7 @@
 
 namespace Pyz\Client\ProductSale;
 
+use Pyz\Client\ProductSale\Plugin\Elasticsearch\Query\SaleSearchQueryPlugin;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 use Spryker\Client\Kernel\AbstractDependencyProvider;
 use Spryker\Client\Kernel\Container;
@@ -26,6 +27,7 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
 
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const CLIENT_PRODUCT_LABEL = 'CLIENT_PRODUCT_LABEL';
+    const SALE_SEARCH_QUERY_PLUGIN = 'SALE_SEARCH_QUERY_PLUGIN';
     const SALE_SEARCH_QUERY_EXPANDER_PLUGINS = 'SALE_SEARCH_QUERY_EXPANDER_PLUGINS';
     const SALE_SEARCH_RESULT_FORMATTER_PLUGINS = 'SALE_SEARCH_RESULT_FORMATTER_PLUGINS';
 
@@ -38,8 +40,9 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
     {
         $container = $this->addSearchClient($container);
         $container = $this->addProductLabelClient($container);
-        $container = $this->provideSaleSearchQueryExpanderPlugins($container);
-        $container = $this->provideSaleSearchResultFormatterPlugins($container);
+        $container = $this->addSaleSearchQueryPlugin($container);
+        $container = $this->addSaleSearchQueryExpanderPlugins($container);
+        $container = $this->addSaleSearchResultFormatterPlugins($container);
 
         return $container;
     }
@@ -77,7 +80,21 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function provideSaleSearchQueryExpanderPlugins(Container $container)
+    protected function addSaleSearchQueryPlugin(Container $container)
+    {
+        $container[self::SALE_SEARCH_QUERY_PLUGIN] = function () {
+            return new SaleSearchQueryPlugin();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function addSaleSearchQueryExpanderPlugins(Container $container)
     {
         $container[self::SALE_SEARCH_QUERY_EXPANDER_PLUGINS] = function () {
             return [
@@ -97,7 +114,7 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function provideSaleSearchResultFormatterPlugins(Container$container)
+    protected function addSaleSearchResultFormatterPlugins(Container$container)
     {
         $container[self::SALE_SEARCH_RESULT_FORMATTER_PLUGINS] = function () {
             return [

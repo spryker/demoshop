@@ -119,7 +119,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addProductLabelFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
-        $productLabelFacet = (new FacetConfigTransfer())
+        $productLabelFacetTransfer = (new FacetConfigTransfer())
             ->setName(static::LABEL_FACET_NAME)
             ->setParameterName(static::LABEL_FACET_NAME)
             ->setFieldName(PageIndexMap::STRING_FACET)
@@ -127,7 +127,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setIsMultiValued(true)
             ->setValueTransformer(ProductLabelFacetValueTransformerPlugin::class);
 
-        $facetConfigBuilder->addFacet($productLabelFacet);
+        $facetConfigBuilder->addFacet($productLabelFacetTransfer);
 
         return $this;
     }

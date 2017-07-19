@@ -26,7 +26,7 @@ class ProductSaleClient extends AbstractClient implements ProductSaleClientInter
      */
     public function saleSearch(array $requestParameters = [])
     {
-        $searchQuery = $this->getFactory()->createSaleSearchQueryPlugin($requestParameters);
+        $searchQuery = $this->getFactory()->getSaleSearchQueryPlugin($requestParameters);
         $resultFormatters = $this->getFactory()->getSaleSearchResultFormatterPlugins();
 
         return $this->getFactory()

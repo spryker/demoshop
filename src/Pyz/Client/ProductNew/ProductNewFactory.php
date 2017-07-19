@@ -20,9 +20,9 @@ class ProductNewFactory extends AbstractFactory
      *
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
      */
-    public function createNewProductsQueryPlugin(array $requestParameters = [])
+    public function getNewProductsQueryPlugin(array $requestParameters = [])
     {
-        $newProductsQueryPlugin = new NewProductsQueryPlugin();
+        $newProductsQueryPlugin = $this->getProvidedDependency(ProductNewDependencyProvider::NEW_PRODUCTS_QUERY_PLUGIN);
 
         return $this->getSearchClient()->expandQuery(
             $newProductsQueryPlugin,

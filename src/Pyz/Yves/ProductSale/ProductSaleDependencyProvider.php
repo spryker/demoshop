@@ -24,8 +24,8 @@ class ProductSaleDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideDependencies(Container $container)
     {
-        $this->addSearchClient($container);
-        $this->addCategoryReaderPlugin($container);
+        $container = $this->addSearchClient($container);
+        $container = $this->addCategoryReaderPlugin($container);
 
         return $container;
     }
@@ -33,25 +33,29 @@ class ProductSaleDependencyProvider extends AbstractBundleDependencyProvider
     /**
      * @param \Spryker\Yves\Kernel\Container $container
      *
-     * @return void
+     * @return \Spryker\Yves\Kernel\Container
      */
     protected function addSearchClient(Container $container)
     {
         $container[self::CLIENT_SEARCH] = function (Container $container) {
             return $container->getLocator()->search()->client();
         };
+
+        return $container;
     }
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
      *
-     * @return void
+     * @return \Spryker\Yves\Kernel\Container
      */
     protected function addCategoryReaderPlugin(Container $container)
     {
         $container[self::PLUGIN_CATEGORY_READER] = function (Container $container) {
             return new CategoryReaderPlugin();
         };
+
+        return $container;
     }
 
 }
