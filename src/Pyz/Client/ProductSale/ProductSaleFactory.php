@@ -9,7 +9,6 @@ namespace Pyz\Client\ProductSale;
 
 use Pyz\Shared\ProductSale\ProductSaleConfig;
 use Spryker\Client\Kernel\AbstractFactory;
-use Spryker\Shared\Kernel\Store;
 
 class ProductSaleFactory extends AbstractFactory
 {
