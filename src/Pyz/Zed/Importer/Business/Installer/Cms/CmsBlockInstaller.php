@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Importer\Business\Installer\Cms;
 
 use Pyz\Zed\Importer\Business\Installer\AbstractInstaller;
-use Spryker\Service\UtilDataReader\Model\BatchIterator\XmlBatchIterator;
 
 class CmsBlockInstaller extends AbstractInstaller
 {
@@ -18,15 +17,15 @@ class CmsBlockInstaller extends AbstractInstaller
      */
     protected function buildBatchIterator()
     {
-        return new XmlBatchIterator($this->getXmlDataFilename(), 'block');
+        return $this->utilDataReaderService->getCsvBatchIterator($this->getCsvDataFilename());
     }
 
     /**
      * @return string
      */
-    protected function getXmlDataFilename()
+    protected function getCsvDataFilename()
     {
-        return $this->dataDirectory . '/cms_blocks.xml';
+        return $this->dataDirectory . 'cms_blocks.csv';
     }
 
     /**

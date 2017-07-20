@@ -1,14 +1,39 @@
-<div class="callout js-product-container">
-    <a href="{{ detailsUrl }}" class="thumbnail __preview-image">
-        <img src="{{ imageUrl }}">
-    </a>
-    {% if idProductAbstract is defined %}
-        {{ spyProductLabels(idProductAbstract, '@Catalog/catalog/partials/product-labels.twig') }}
-        {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
-    {% endif %}
-    <p>
-        <strong>{{ name }}</strong><br>
-        {{ priceValue | money }}
-    </p>
-    <a class="button expanded" href="{{ detailsUrl }}">{{ 'product.view' | trans }} &raquo;</a>
+{# mandatory #}
+{% set name = name %}
+{% set detailsUrl = detailsUrl %}
+{% set priceValue = priceValue %}
+
+{# optional #}
+{% set class = class | default('') %}
+{% set imageUrl = imageUrl | default('') %}
+{% set productLabels = productLabels | default(null) %}
+{% set idProductAbstract = idProductAbstract | default(null) %}
+{% set originalPrice = originalPrice | default(null) %}
+
+<div class="{{ class }} product js-product-container">
+    <div class="product__container callout">
+        <a href="{{ detailsUrl }}" class="thumbnail __preview-image">
+            <img src="{{ imageUrl }}">
+        </a>
+        {% if productLabels %}
+            {{ productLabels | raw }}
+        {% endif %}
+        {% if idProductAbstract %}
+            {% block productGroups %}
+                {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+            {% endblock %}
+        {% endif %}
+        <p>
+            <strong>{{ name }}</strong><br>
+            {% if originalPrice %}
+                <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
+                <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
+            {% else %}
+                {{ priceValue | money }}
+            {% endif %}
+        </p>
+        <div class="product__action">
+            <a class="button expanded" href="{{ detailsUrl }}">{{ 'product.view' | trans }} &raquo;</a>
+        </div>
+    </div>
 </div>

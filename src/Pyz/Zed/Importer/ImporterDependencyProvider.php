@@ -38,6 +38,8 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const FACADE_PRODUCT_GROUP = 'FACADE_PRODUCT_GROUP';
     const FACADE_PRODUCT_LABEL = 'FACADE_PRODUCT_LABEL';
     const FACADE_PRODUCT_SET = 'FACADE_PRODUCT_SET';
+    const FACADE_CMS_BLOCK = 'FACADE_CMS_BLOCK';
+    const FACADE_CMS_BLOCK_CATEGORY_CONNECTOR = 'FACADE_CMS_BLOCK_CATEGORY_CONNECTOR';
 
     const QUERY_CONTAINER_CMS = 'QUERY_CONTAINER_CMS';
     const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
@@ -45,6 +47,8 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     const QUERY_CONTAINER_PRICE = 'QUERY_CONTAINER_PRICE';
     const QUERY_CONTAINER_SHIPMENT = 'QUERY_CONTAINER_SHIPMENT';
     const QUERY_CONTAINER_TAX = 'QUERY_CONTAINER_TAX';
+    const QUERY_CONTAINER_CMS_BLOCK = 'QUERY_CONTAINER_CMS_BLOCK';
+    const QUERY_CONTAINER_CMS_BLOCK_CATEGORY_CONNECTOR = 'QUERY_CONTAINER_CMS_BLOCK_CATEGORY_CONNECTOR';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -74,6 +78,10 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addProductGroupFacade($container);
         $container = $this->addProductLabelFacade($container);
         $container = $this->addProductSetFacade($container);
+        $container = $this->addCmsBlockFacade($container);
+        $container = $this->addCmsBlockQueryContainer($container);
+        $container = $this->addCmsBlockCategoryConnectorFacade($container);
+        $container = $this->addCmsBlockCategoryConnectorQueryContainer($container);
 
         $container = $this->addCmsQueryContainer($container);
         $container = $this->addProductQueryContainer($container);
@@ -461,6 +469,62 @@ class ImporterDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[static::SERVICE_UTIL_ENCODING] = function (Container $container) {
             return $container->getLocator()->utilEncoding()->service();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addCmsBlockFacade(Container $container)
+    {
+        $container[static::FACADE_CMS_BLOCK] = function (Container $container) {
+            return $container->getLocator()->cmsBlock()->facade();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addCmsBlockQueryContainer(Container $container)
+    {
+        $container[static::QUERY_CONTAINER_CMS_BLOCK] = function (Container $container) {
+            return $container->getLocator()->cmsBlock()->queryContainer();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addCmsBlockCategoryConnectorFacade(Container $container)
+    {
+        $container[static::FACADE_CMS_BLOCK_CATEGORY_CONNECTOR] = function (Container $container) {
+            return $container->getLocator()->cmsBlockCategoryConnector()->facade();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addCmsBlockCategoryConnectorQueryContainer(Container $container)
+    {
+        $container[static::QUERY_CONTAINER_CMS_BLOCK_CATEGORY_CONNECTOR] = function (Container $container) {
+            return $container->getLocator()->cmsBlockCategoryConnector()->queryContainer();
         };
 
         return $container;

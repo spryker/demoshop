@@ -22,7 +22,7 @@ class CatalogController extends AbstractController
      * @param array $categoryNode
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array
+     * @return array|\Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(array $categoryNode, Request $request)
     {
@@ -37,6 +37,7 @@ class CatalogController extends AbstractController
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
         $metaAttributes = [
+            'idCategory' => $parameters['category'],
             'category' => $categoryNode,
             'page_title' => $pageTitle,
             'page_description' => $categoryNode['meta_description'],
@@ -46,7 +47,7 @@ class CatalogController extends AbstractController
 
         $searchResults = array_merge($searchResults, $metaAttributes);
 
-        return $this->viewResponse($searchResults);
+        return $this->envelopeResult($searchResults, $categoryNode['node_id']);
     }
 
     /**
@@ -63,8 +64,45 @@ class CatalogController extends AbstractController
             ->catalogSearch($searchString, $request->query->all());
 
         $searchResults['searchString'] = $searchString;
+        $searchResults['idCategory'] = null;
 
         return $this->viewResponse($searchResults);
+    }
+
+    /**
+     * @param int $idCategoryNode
+     *
+     * @return string|null
+     */
+    protected function getCategoryNodeTemplate($idCategoryNode)
+    {
+        $localeName = $this->getFactory()
+            ->createLocaleClient()
+            ->getCurrentLocale();
+
+        return $this->getFactory()
+            ->createCategoryClient()
+            ->getTemplatePathByNodeId($idCategoryNode, $localeName);
+    }
+
+    /**
+     * @param array $result
+     * @param int $idCategoryNode
+     *
+     * @return array|\Symfony\Component\HttpFoundation\Response
+     */
+    protected function envelopeResult($result, $idCategoryNode)
+    {
+        $templatePath = $this->getCategoryNodeTemplate($idCategoryNode);
+
+        if ($templatePath) {
+            return $this->renderView(
+                $templatePath,
+                $this->viewResponse($result)
+            );
+        }
+
+        return $this->viewResponse($result);
     }
 
 }

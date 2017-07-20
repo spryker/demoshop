@@ -51,7 +51,7 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        {{ spyProductLabels(product.getIdProductAbstract(), '@Product/product/partials/product-labels.twig') }}
+                        {{ spyProductAbstractLabels(product.getIdProductAbstract(), '@Product/product/partials/product-labels.twig') }}
 
                     </div>
                 </div>
@@ -76,7 +76,13 @@
             <div class="callout">
                 {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
                 <p>
-                    <span class="stat">{{ product.price | money }}</span>
+
+                    {% if product.prices.ORIGINAL is defined %}
+                        <span class="stat catalog-price__price-reduced">{{ product.price | money }}</span> <span class="catalog-price__price-original">{{ product.prices.ORIGINAL | money }}</span>
+                    {% else %}
+                        <span class="stat">{{ product.price | money }}</span>
+                    {% endif %}
+
                     <br/>
                     <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
                 </p>
@@ -129,4 +135,7 @@
 
     {{ product_relation("related-products", {idProductAbstract : product.idProductAbstract}, 'Similar products', '@ProductRelation/partial/product_relation_carousel.twig') }}
 
+    <div class="row">
+        {{ spyCmsBlock({product_abstract: product.idProductAbstract}) }}
+    </div>
 {% endblock %}

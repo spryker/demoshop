@@ -12,6 +12,9 @@ use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * @method \Pyz\Yves\Cms\CmsFactory getFactory()
+ */
 class CmsController extends AbstractController
 {
 
@@ -39,6 +42,10 @@ class CmsController extends AbstractController
         if (!$loader->exists($meta['template'])) {
             throw new NotFoundHttpException('The Cms Page template is not found');
         }
+
+        $meta['placeholders'] = $this->getFactory()
+            ->getCmsTwigRendererPlugin()
+            ->render($meta['placeholders'], ['cmsContent' => $meta]);
 
         return $this->renderView($meta['template'], [
             'placeholders' => $meta['placeholders'],

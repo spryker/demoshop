@@ -44,7 +44,7 @@ class ProductSetFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\Product\ProductClientInterface
      */
-    protected function getProductClient()
+    public function getProductClient()
     {
         return $this->getProvidedDependency(ProductSetDependencyProvider::CLIENT_PRODUCT);
     }
@@ -52,7 +52,7 @@ class ProductSetFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
-    protected function getStorageProductMapperPlugin()
+    public function getStorageProductMapperPlugin()
     {
         return $this->getProvidedDependency(ProductSetDependencyProvider::PLUGIN_STORAGE_PRODUCT_MAPPER);
     }

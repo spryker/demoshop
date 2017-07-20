@@ -25,7 +25,8 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
         n.id_category_node,
         n.fk_parent_category_node,
         n.fk_category,
-        n.node_order
+        n.node_order,
+        c.fk_category_template
       FROM spy_category_node n
         INNER JOIN spy_category c ON c.id_category = n.fk_category AND c.is_active = TRUE
       WHERE n.is_root = TRUE
@@ -36,7 +37,8 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
         n.id_category_node,
         n.fk_parent_category_node,
         n.fk_category,
-        n.node_order
+        n.node_order,
+        c.fk_category_template
       FROM tree
         INNER JOIN spy_category_node n ON n.fk_parent_category_node = tree.id_category_node
         INNER JOIN spy_category c ON c.id_category = n.fk_category AND c.is_active = TRUE
@@ -52,9 +54,11 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
     ca.meta_description,
     ca.meta_keywords,
     ca.category_image_name,
+    ct.template_path,
     \'\' AS "children",
     \'\' AS "parents"
   FROM tree
+    INNER JOIN spy_category_template ct ON ct.id_category_template = tree.fk_category_template
     INNER JOIN spy_url u ON (u.fk_resource_categorynode = tree.id_category_node AND u.fk_locale = :fk_locale_1)
     INNER JOIN spy_category_attribute ca ON (ca.fk_category = tree.fk_category AND ca.fk_locale = :fk_locale_2)
     INNER JOIN spy_touch t ON (

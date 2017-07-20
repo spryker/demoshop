@@ -26,7 +26,6 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
-use Pyz\Yves\NewRelic\Plugin\Provider\NewRelicServiceProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\ProductSet\Plugin\Provider\ProductSetControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
@@ -47,10 +46,12 @@ use Spryker\Shared\Config\Config;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
+use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
+use Spryker\Yves\NewRelic\Plugin\ServiceProvider\NewRelicRequestTransactionServiceProvider;
 use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
 use Spryker\Yves\ProductLabel\Plugin\Provider\ProductLabelTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
@@ -100,7 +101,7 @@ class YvesBootstrap
         $this->application->register(new CustomerSecurityServiceProvider());
         $this->application->register(new YvesSecurityServiceProvider());
         $this->application->register(new ExceptionServiceProvider());
-        $this->application->register(new NewRelicServiceProvider());
+        $this->application->register(new NewRelicRequestTransactionServiceProvider());
         $this->application->register(new EventJournalServiceProvider());
         $this->application->register(new CookieServiceProvider());
         $this->application->register(new UrlGeneratorServiceProvider());
@@ -125,6 +126,7 @@ class YvesBootstrap
         $this->application->register(new NavigationTwigServiceProvider());
         $this->application->register(new ProductGroupTwigServiceProvider());
         $this->application->register(new ProductLabelTwigServiceProvider());
+        $this->application->register(new CmsContentWidgetServiceProvider());
     }
 
     /**
