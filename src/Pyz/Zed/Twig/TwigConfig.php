@@ -34,12 +34,11 @@ class TwigConfig extends SprykerTwigConfig
      */
     public function getZedDirectoryPathPatterns()
     {
-        $directories = [
-            'src/*/Zed/*/Presentation',
-            'vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Presentation',
-        ];
-
-        $directories = array_merge($directories, glob('vendor/*/*/src/*/Zed/*/Presentation'));
+        $directories = glob('vendor/spryker/spryker/Bundles/*/src/*/Zed/*/Presentation');
+        $directories = array_merge(
+            $directories,
+            parent::getZedDirectoryPathPatterns()
+        );
 
         return $directories;
     }
@@ -51,10 +50,11 @@ class TwigConfig extends SprykerTwigConfig
      */
     public function getYvesDirectoryPathPatterns()
     {
-        $directories = parent::getYvesDirectoryPathPatterns();
-
-        $directories = array_merge($directories, glob('vendor/spryker/spryker/Bundles/*/src/*/Yves/*/Theme'));
-        $directories = array_merge($directories, glob('vendor/*/*/src/*/Yves/*/Theme'));
+        $directories = glob('vendor/spryker/spryker/Bundles/*/src/*/Yves/*/Theme');
+        $directories = array_merge(
+            $directories,
+            parent::getYvesDirectoryPathPatterns()
+        );
 
         return $directories;
     }
