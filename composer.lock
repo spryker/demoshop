@@ -1644,6 +1644,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
 =======
 =======
@@ -2666,6 +2667,9 @@
 =======
                 "reference": "a59a49a9002ac2c4192b5fa118b563533e16e293"
 >>>>>>> core-1251 code style, removed root path config from config_default
+=======
+                "reference": "6d8132c1d6ad0d6e073440578b6af5b86c78cf96"
+>>>>>>> core-1251 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2841,6 +2845,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3885,6 +3890,9 @@
 =======
             "time": "2017-07-19 08:00:46"
 >>>>>>> core-1251 code style, removed root path config from config_default
+=======
+            "time": "2017-07-20 08:31:18"
+>>>>>>> core-1251 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
