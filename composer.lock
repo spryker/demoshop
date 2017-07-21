@@ -6514,7 +6514,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-28T10:19:12+00:00"
+            "time": "2017-06-28 10:19:12"
         },
         {
             "name": "spryker/code-sniffer",

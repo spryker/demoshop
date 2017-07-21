@@ -126,10 +126,12 @@
       "./deploy/heroku/run.sh"
     ],
     "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GithubHooks\\Composer\\Scripts\\HookInstaller::installHooks"
     ],
     "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GithubHooks\\Composer\\Scripts\\HookInstaller::installHooks"
     ]
   }
 }
