@@ -15,7 +15,6 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 
     const CLIENT_LOCALE = 'CLIENT_LOCALE';
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
-    const PLUGIN_CATEGORY_READER = 'PLUGIN_CATEGORY_READER';
     const CLIENT_CATEGORY = 'CLIENT_CATEGORY';
 
     /**
@@ -25,8 +24,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideDependencies(Container $container)
     {
-        $container = parent::provideDependencies($container);
-        $container = $this->provideSearchClient($container);
+        $container = $this->addSearchClient($container);
         $container = $this->addCategoryClient($container);
         $container = $this->addLocaleClient($container);
 
@@ -38,7 +36,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
      *
      * @return \Spryker\Yves\Kernel\Container
      */
-    protected function provideSearchClient(Container $container)
+    protected function addSearchClient(Container $container)
     {
         $container[self::CLIENT_SEARCH] = function (Container $container) {
             return $container->getLocator()->search()->client();

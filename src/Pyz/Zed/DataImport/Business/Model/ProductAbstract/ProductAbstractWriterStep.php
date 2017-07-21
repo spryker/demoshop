@@ -45,6 +45,8 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
     const KEY_CATEGORY_KEYS = 'categoryKeys';
     const KEY_CATEGORY_PRODUCT_ORDER = 'category_product_order';
     const KEY_LOCALES = 'locales';
+    const KEY_NEW_FROM = 'new_from';
+    const KEY_NEW_TO = 'new_to';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
@@ -97,7 +99,9 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
             ->setIsFeatured($dataSet[static::KEY_IS_FEATURED])
             ->setColorCode($dataSet[static::KEY_COLOR_CODE])
             ->setFkTaxSet($dataSet[static::KEY_ID_TAX_SET])
-            ->setAttributes(json_encode($dataSet[static::KEY_ATTRIBUTES]));
+            ->setAttributes(json_encode($dataSet[static::KEY_ATTRIBUTES]))
+            ->setNewFrom($dataSet[static::KEY_NEW_FROM])
+            ->setNewTo($dataSet[static::KEY_NEW_TO]);
 
         if ($productAbstractEntity->isNew() || $productAbstractEntity->isModified()) {
             $productAbstractEntity->save();
