@@ -1,0 +1,6 @@
+key,filter_type,position,key.en_US,key.de_DE
+color,multi-select,1,Color,Farbe
+storage_capacity,multi-select,2,Storage Capacity,Speichergröße
+brand,single-select,3,Brand,Marke
+touchscreen,single-select,4,Touchscreen,Touchscreen
+weight,multi-select,5,Weight,Gewicht

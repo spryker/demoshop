@@ -55,9 +55,9 @@ function backupTestingEnvData {
     $CONSOLE propel:diff $VERBOSITY
     $CONSOLE propel:migrate $VERBOSITY
 
-    labelText "Importing Demo data"
-    $CONSOLE import:demo-data $VERBOSITY
-    writeErrorMessage "DemoData import failed"
+    labelText "Importing Data"
+    $CONSOLE data:import $VERBOSITY
+    writeErrorMessage "Importing Data failed"
 
     backupDatabaseForTests
 
