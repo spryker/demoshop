@@ -8,8 +8,6 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\DataImport\DataImportConfig;
-use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
-
 use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
 use Spryker\Shared\Config\Environment;
 use Spryker\Zed\Cache\Communication\Console\EmptyAllCachesConsole;
