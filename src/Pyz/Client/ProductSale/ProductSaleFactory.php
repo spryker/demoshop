@@ -7,7 +7,6 @@
 
 namespace Pyz\Client\ProductSale;
 
-use Pyz\Shared\ProductSale\ProductSaleConfig;
 use Spryker\Client\Kernel\AbstractFactory;
 
 class ProductSaleFactory extends AbstractFactory
@@ -46,11 +45,11 @@ class ProductSaleFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Shared\ProductSale\ProductSaleConfig
+     * @return \Spryker\Client\Kernel\AbstractBundleConfig|\Pyz\Client\ProductSale\ProductSaleConfig
      */
-    public function createProductSaleConfig()
+    public function getConfig()
     {
-        return new ProductSaleConfig();
+        return parent::getConfig();
     }
 
     /**

@@ -78,7 +78,7 @@ class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
             ->getStore()
             ->getCurrentLocale();
         $labelName = $this->getFactory()
-            ->createProductSaleConfig()
+            ->getConfig()
             ->getLabelSaleName();
 
         $storageProductLabelTransfer = $this->getFactory()

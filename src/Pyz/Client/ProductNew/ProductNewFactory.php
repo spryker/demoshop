@@ -8,7 +8,6 @@
 namespace Pyz\Client\ProductNew;
 
 use Spryker\Client\Kernel\AbstractFactory;
-use Spryker\Shared\ProductNew\ProductNewConfig;
 
 class ProductNewFactory extends AbstractFactory
 {
@@ -46,11 +45,11 @@ class ProductNewFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Shared\ProductNew\ProductNewConfig
+     * @return \Spryker\Client\Kernel\AbstractBundleConfig|\Pyz\Client\ProductNew\ProductNewConfig
      */
-    public function createProductNewConfig()
+    public function getConfig()
     {
-        return new ProductNewConfig();
+        return parent::getConfig();
     }
 
     /**

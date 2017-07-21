@@ -7,12 +7,12 @@
 
 namespace Pyz\Zed\ProductSale\Business;
 
-use Pyz\Shared\ProductSale\ProductSaleConfig;
 use Pyz\Zed\ProductSale\Business\Label\ProductAbstractRelationReader;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
  * @method \Pyz\Zed\ProductSale\Persistence\ProductSaleQueryContainer getQueryContainer()
+ * @method \Pyz\Shared\ProductSale\ProductSaleConfig getConfig()
  */
 class ProductSaleBusinessFactory extends AbstractBusinessFactory
 {
@@ -22,15 +22,7 @@ class ProductSaleBusinessFactory extends AbstractBusinessFactory
      */
     public function createProductAbstractRelationReader()
     {
-        return new ProductAbstractRelationReader($this->getQueryContainer(), $this->createProductSaleConfig());
-    }
-
-    /**
-     * @return \Pyz\Shared\ProductSale\ProductSaleConfig
-     */
-    protected function createProductSaleConfig()
-    {
-        return new ProductSaleConfig();
+        return new ProductAbstractRelationReader($this->getQueryContainer(), $this->getConfig());
     }
 
 }
