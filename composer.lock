@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0ad6bfb7b53fd7be7680bea4771579d9c312dda3"
+                "reference": "310793f4ffdcc959391e556684991b16169e7bc8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1798,7 +1798,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-20 14:15:45"
+            "time": "2017-07-21 08:30:52"
         },
         {
             "name": "swiftmailer/swiftmailer",
