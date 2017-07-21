@@ -103,7 +103,6 @@ class DiscountWriterStep implements DataImportStepInterface
             $shipmentMethodName = empty($shipmentCarrierNameMatches[1][0]) ? $shipmentName : trim($shipmentCarrierNameMatches[1][0]);
             $shipmentCarrierName = empty($shipmentCarrierNameMatches[2][0]) ? '' : trim($shipmentCarrierNameMatches[2][0]);
 
-
             $spyShipmentMethod = SpyShipmentMethodQuery::create()
                 ->filterByName($shipmentMethodName)
                 ->useShipmentCarrierQuery()
@@ -118,7 +117,7 @@ class DiscountWriterStep implements DataImportStepInterface
     }
 
     /**
-     * @param $queryString
+     * @param string $queryString
      *
      * @return string
      */
