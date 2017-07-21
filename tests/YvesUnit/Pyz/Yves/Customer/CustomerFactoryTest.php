@@ -28,7 +28,7 @@ class CustomerFactoryTest extends PHPUnit_Framework_TestCase
     {
         $customerFactory = new CustomerFactory();
 
-        $this->assertInstanceOf(NewsletterClientInterface::class, $customerFactory->createNewsletterClient());
+        $this->assertInstanceOf(NewsletterClientInterface::class, $customerFactory->getNewsletterClient());
     }
 
 }

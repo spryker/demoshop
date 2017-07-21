@@ -32,7 +32,7 @@ class CartController extends AbstractController
             ->getQuote();
 
         $voucherForm = $this->getFactory()
-            ->createVoucherForm();
+            ->getVoucherForm();
 
         $cartItems = $this->getFactory()
             ->createProductBundleGrouper()

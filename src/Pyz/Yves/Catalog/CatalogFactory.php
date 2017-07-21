@@ -24,7 +24,7 @@ class CatalogFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\Category\CategoryClientInterface
      */
-    public function createCategoryClient()
+    public function getCategoryClient()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATEGORY);
     }
@@ -32,7 +32,7 @@ class CatalogFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\Locale\LocaleClientInterface
      */
-    public function createLocaleClient()
+    public function getLocaleClient()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_LOCALE);
     }

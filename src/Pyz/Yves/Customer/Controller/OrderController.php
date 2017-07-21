@@ -33,7 +33,7 @@ class OrderController extends AbstractCustomerController
         $orderListTransfer = $this->createOrderListTransfer($request);
 
         $orderListTransfer = $this->getFactory()
-            ->createSalesClient()
+            ->getSalesClient()
             ->getOrders($orderListTransfer);
 
         $orderList = $orderListTransfer->getOrders();
@@ -118,7 +118,7 @@ class OrderController extends AbstractCustomerController
             ->setFkCustomer($customerTransfer->getIdCustomer());
 
         $orderTransfer = $this->getFactory()
-            ->createSalesClient()
+            ->getSalesClient()
             ->getOrderDetails($orderTransfer);
 
         $bundleItemGrouper = $this->getFactory()->createProductBundleGroupper();

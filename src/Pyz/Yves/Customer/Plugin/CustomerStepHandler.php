@@ -28,7 +28,7 @@ class CustomerStepHandler extends AbstractPlugin implements StepHandlerPluginInt
     {
         $this->authenticationHandlerPlugins = $this
             ->getFactory()
-            ->createCustomerAuthenticationHandlerPlugins();
+            ->getCustomerAuthenticationHandlerPlugins();
     }
 
     /**

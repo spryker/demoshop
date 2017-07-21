@@ -24,7 +24,7 @@ class RegistrationCheckoutAuthenticationHandlerPlugin extends AbstractPlugin imp
     public function addToQuote(QuoteTransfer $quoteTransfer)
     {
         $customerResponseTransfer = $this->getFactory()
-            ->createAuthenticationHandler()
+            ->getAuthenticationHandler()
             ->registerCustomer($quoteTransfer->getCustomer());
 
         $quoteTransfer->setCustomer(null);
@@ -54,7 +54,7 @@ class RegistrationCheckoutAuthenticationHandlerPlugin extends AbstractPlugin imp
      */
     protected function getMessenger()
     {
-        return $this->getFactory()->createMessenger();
+        return $this->getFactory()->getMessenger();
     }
 
     /**
