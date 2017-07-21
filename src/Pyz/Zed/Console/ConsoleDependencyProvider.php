@@ -89,7 +89,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorSearchExportConsole(),
             new TouchCleanUpConsole(),
             new EmptyAllCachesConsole(),
-            new DemoDataImportConsole(),
             new UpdaterConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
