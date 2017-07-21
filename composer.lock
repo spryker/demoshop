@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb3603ccbd4c79ff4888e52356cbf186",
+    "content-hash": "575370919291eb9fe6fbe09165bbbc7a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1618,11 +1618,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1306-shipment-discount",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "921e7f386877db70fe1564d6143e114152d2447b"
+                "reference": "4a8cf77046edf30a82220860caa4afdf37dba562"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1798,7 +1798,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-21 11:12:33"
+            "time": "2017-07-21 10:35:01"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6418,7 +6418,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "cc4862a52cfdb7cddf1f499eddd8d0f90138d872"
+                "reference": "bdd90da93652917f3f00f90710bb68997fcc4f7f"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6470,7 +6470,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-07-21 09:35:44"
+            "time": "2017-07-21 09:10:19"
         },
         {
             "name": "spryker/code-generator",
@@ -6513,7 +6513,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-28 10:19:12"
+            "time": "2017-06-28T10:19:12+00:00"
         },
         {
             "name": "spryker/code-sniffer",

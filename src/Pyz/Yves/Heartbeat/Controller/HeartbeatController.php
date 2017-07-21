@@ -7,7 +7,8 @@
 
 namespace Pyz\Yves\Heartbeat\Controller;
 
-use Spryker\Yves\Kernel\Controller\AbstractController;
+use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -20,6 +21,7 @@ class HeartbeatController extends AbstractController
     const SYSTEM_DOWN = 'DOWN';
     const SYSTEM_STATUS = 'status';
     const STATUS_REPORT = 'report';
+    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
      * @return \Symfony\Component\HttpFoundation\JsonResponse

@@ -8,7 +8,8 @@
 namespace Pyz\Yves\Catalog\Controller;
 
 use Generated\Shared\Search\PageIndexMap;
-use Spryker\Yves\Kernel\Controller\AbstractController;
+use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -17,6 +18,8 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CatalogController extends AbstractController
 {
+
+    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
     /**
      * @param array $categoryNode

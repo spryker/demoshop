@@ -97,13 +97,13 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createProductSetImporter())
             ->addDataImporter($this->createProductSearchAttributeMapImporter())
             ->addDataImporter($this->createProductSearchAttributeImporter())
-            ->addDataImporter($this->createNavigationImporter())
-            ->addDataImporter($this->createNavigationNodeImporter())
             ->addDataImporter($this->createCmsTemplateImporter())
             ->addDataImporter($this->createCmsPageImporter())
             ->addDataImporter($this->createCmsBlockImporter())
             ->addDataImporter($this->createCmsBlockCategoryPositionImporter())
-            ->addDataImporter($this->createCmsBlockCategoryImporter());
+            ->addDataImporter($this->createCmsBlockCategoryImporter())
+            ->addDataImporter($this->createNavigationImporter())
+            ->addDataImporter($this->createNavigationNodeImporter());
 
         return $dataImporterCollection;
     }

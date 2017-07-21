@@ -8,7 +8,7 @@
 namespace Pyz\Yves\ProductSet\Controller;
 
 use Generated\Shared\Transfer\ProductSetStorageTransfer;
-use Spryker\Yves\Kernel\Controller\AbstractController;
+use Pyz\Yves\Application\Controller\AbstractController;
 
 /**
  * @method \Pyz\Yves\ProductSet\ProductSetFactory getFactory()
