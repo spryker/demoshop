@@ -8,8 +8,8 @@
 namespace Pyz\Yves\Cart\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
+use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
-use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

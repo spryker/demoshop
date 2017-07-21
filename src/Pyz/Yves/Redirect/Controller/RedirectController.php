@@ -7,10 +7,13 @@
 
 namespace Pyz\Yves\Redirect\Controller;
 
-use Spryker\Yves\Kernel\Controller\AbstractController;
+use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Shared\Storage\StorageConstants;
 
 class RedirectController extends AbstractController
 {
+
+    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
      * @param array $meta
