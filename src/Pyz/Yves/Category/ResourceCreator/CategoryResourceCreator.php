@@ -9,7 +9,7 @@ namespace Pyz\Yves\Category\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Silex\Application;
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
@@ -21,7 +21,7 @@ class CategoryResourceCreator extends AbstractResourceCreator
      */
     public function getType()
     {
-        return CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE;
+        return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
     }
 
     /**

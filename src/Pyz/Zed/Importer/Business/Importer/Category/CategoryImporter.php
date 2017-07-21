@@ -9,9 +9,22 @@ namespace Pyz\Zed\Importer\Business\Importer\Category;
 
 use Generated\Shared\Transfer\CategoryTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
+use Pyz\Zed\Category\Business\CategoryFacadeInterface;
+use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 
 class CategoryImporter extends AbstractCategoryImporter
 {
+
+    /**
+     * @param \Spryker\Zed\Locale\Business\LocaleFacadeInterface $localeFacade
+     * @param \Pyz\Zed\Category\Business\CategoryFacadeInterface $categoryFacade
+     */
+    public function __construct(LocaleFacadeInterface $localeFacade, CategoryFacadeInterface $categoryFacade)
+    {
+        $categoryFacade->syncCategoryTemplate();
+
+        parent::__construct($localeFacade, $categoryFacade);
+    }
 
     /**
      * @return string

@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Catalog\Controller;
 
+use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,15 +19,30 @@ class SaleController extends AbstractController
 {
 
     /**
+     * @param string $categoryPath
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return array
      */
-    public function indexAction(Request $request)
+    public function indexAction($categoryPath, Request $request)
     {
+        $parameters = $request->query->all();
+
+        $categoryNode = [];
+        if ($categoryPath) {
+            $categoryNode = $this->getFactory()
+                ->getCategoryReaderPlugin()
+                ->findCategoryNodeByPath($categoryPath);
+
+            $parameters['category'] = $categoryNode['node_id'];
+        }
+
         $searchResults = $this
             ->getClient()
-            ->saleSearch($request->query->all());
+            ->saleSearch($parameters);
+
+        $searchResults['category'] = $categoryNode;
+        $searchResults['filterPath'] = CatalogControllerProvider::ROUTE_SALE;
 
         return $this->viewResponse($searchResults);
     }

@@ -12,7 +12,7 @@ use LogicException;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategory;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Pyz\Zed\Importer\Business\Importer\AbstractImporter;
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
@@ -293,7 +293,7 @@ class ProductCategoryImporter extends AbstractImporter
     protected function touchCategoryNodeActive($idCategoryNode)
     {
         $this->touchFacade->touchActive(
-            CategoryConstants::RESOURCE_TYPE_CATEGORY_NODE,
+            CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE,
             $idCategoryNode
         );
     }
