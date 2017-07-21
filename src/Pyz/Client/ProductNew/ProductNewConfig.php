@@ -7,8 +7,18 @@
 
 namespace Pyz\Client\ProductNew;
 
+use Spryker\Client\Kernel\AbstractBundleConfig;
 use Spryker\Shared\ProductNew\ProductNewConfig as SprykerSharedProductNewConfig;
 
-class ProductNewConfig extends SprykerSharedProductNewConfig
+class ProductNewConfig extends AbstractBundleConfig
 {
+
+    /**
+     * @return string
+     */
+    public function getLabelNewName()
+    {
+        return SprykerSharedProductNewConfig::DEFAULT_LABEL_NAME;
+    }
+
 }

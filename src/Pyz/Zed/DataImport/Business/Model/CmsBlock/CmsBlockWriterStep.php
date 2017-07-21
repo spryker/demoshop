@@ -21,7 +21,7 @@ use Pyz\Zed\DataImport\Business\Model\DataImportStep\LocalizedAttributesExtracto
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface;
 use Pyz\Zed\Glossary\GlossaryConfig;
 use Spryker\Shared\CmsBlock\CmsBlockConfig;
-use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConstants;
+use Spryker\Shared\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig;
 use Spryker\Shared\CmsBlockProductConnector\CmsBlockProductConnectorConstants;
 use Spryker\Zed\CmsBlock\Business\Model\CmsBlockGlossaryKeyGenerator;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -158,7 +158,7 @@ class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterfa
             if ($cmsBlockCategoryConnectorEntity->isNew() || $cmsBlockCategoryConnectorEntity->isModified()) {
                 $cmsBlockCategoryConnectorEntity->save();
 
-                $this->addSubTouchable(CmsBlockCategoryConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR, $idCategory);
+                $this->addSubTouchable(CmsBlockCategoryConnectorConfig::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR, $idCategory);
             }
         }
     }

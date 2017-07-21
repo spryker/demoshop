@@ -7,19 +7,10 @@
 
 namespace Pyz\Shared\ProductSale;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
-
-class ProductSaleConfig extends AbstractBundleConfig
+interface ProductSaleConfig
 {
 
     const PRICE_TYPE_ORIGINAL = 'ORIGINAL';
-
-    /**
-     * @return string
-     */
-    public function getLabelSaleName()
-    {
-        return 'SALE';
-    }
+    const DEFAULT_LABEL_NAME = 'SALE';
 
 }

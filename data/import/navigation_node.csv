@@ -28,7 +28,7 @@ MAIN_NAVIGATION,node_key_25,node_key_18,category,Product Bundles,/en/product-bun
 MAIN_NAVIGATION,node_key_40,node_key_18,link,Product Sets,/en/product-sets,,Product Sets,/de/product-sets,
 MAIN_NAVIGATION,node_key_26,node_key_18,category,Variant Showcase,/en/variant-showcase,,Variant Showcase,/de/variant-showcase,
 MAIN_NAVIGATION,node_key_41,,link,Sale %,/en/outlet,sale__red,Sale %,/de/outlet,sale__red
-MAIN_NAVIGATION,node_key_43,,link,New,/en/new,,Neu,/de/neu,
+MAIN_NAVIGATION,node_key_43,,link,New,/en/new,,Neu,/de/new,
 FOOTER_NAVIGATION,node_key_27,,cms_page,Imprint,/en/imprint,,Impressum,/de/impressum,
 FOOTER_NAVIGATION,node_key_28,,cms_page,GTC,/en/gtc,,AGB,/de/agb,
 FOOTER_NAVIGATION,node_key_29,,cms_page,Data privacy,/en/privacy,,Datenschutz,/de/datenschutz,

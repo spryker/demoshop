@@ -12,7 +12,7 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
  * @method \Pyz\Zed\ProductSale\Persistence\ProductSaleQueryContainer getQueryContainer()
- * @method \Pyz\Shared\ProductSale\ProductSaleConfig getConfig()
+ * @method \Pyz\Zed\ProductSale\ProductSaleConfig getConfig()
  */
 class ProductSaleBusinessFactory extends AbstractBusinessFactory
 {

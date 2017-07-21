@@ -9,9 +9,9 @@ namespace Pyz\Zed\ProductSale\Business\Label;
 
 use Generated\Shared\Transfer\ProductLabelProductAbstractRelationsTransfer;
 use Orm\Zed\ProductLabel\Persistence\SpyProductLabel;
-use Pyz\Shared\ProductSale\ProductSaleConfig;
 use Pyz\Zed\ProductSale\Business\Exception\ProductLabelSaleNotFoundException;
 use Pyz\Zed\ProductSale\Persistence\ProductSaleQueryContainerInterface;
+use Pyz\Zed\ProductSale\ProductSaleConfig;
 
 class ProductAbstractRelationReader implements ProductAbstractRelationReaderInterface
 {
@@ -22,13 +22,13 @@ class ProductAbstractRelationReader implements ProductAbstractRelationReaderInte
     protected $productSaleQueryContainer;
 
     /**
-     * @var \Pyz\Shared\ProductSale\ProductSaleConfig
+     * @var \Pyz\Zed\ProductSale\ProductSaleConfig
      */
     protected $productSaleConfig;
 
     /**
      * @param \Pyz\Zed\ProductSale\Persistence\ProductSaleQueryContainerInterface $productSaleQueryContainer
-     * @param \Pyz\Shared\ProductSale\ProductSaleConfig $productSaleConfig
+     * @param \Pyz\Zed\ProductSale\ProductSaleConfig $productSaleConfig
      */
     public function __construct(ProductSaleQueryContainerInterface $productSaleQueryContainer, ProductSaleConfig $productSaleConfig)
     {

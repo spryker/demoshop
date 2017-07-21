@@ -8,7 +8,17 @@
 namespace Pyz\Zed\ProductSale;
 
 use Pyz\Shared\ProductSale\ProductSaleConfig as SharedProductSaleConfig;
+use Spryker\Zed\Kernel\AbstractBundleConfig;
 
-class ProductSaleConfig extends SharedProductSaleConfig
+class ProductSaleConfig extends AbstractBundleConfig
 {
+
+    /**
+     * @return string
+     */
+    public function getLabelSaleName()
+    {
+        return SharedProductSaleConfig::DEFAULT_LABEL_NAME;
+    }
+
 }
