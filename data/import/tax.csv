@@ -1,0 +1,83 @@
+tax_set_name,country_name,tax_rate_name,tax_rate_percent
+Entertainment Electronics,Austria,Austria Standard,20
+Entertainment Electronics,Belgium,Belgium Standard,21
+Entertainment Electronics,Bulgaria,Bulgaria Standard,20
+Entertainment Electronics,Czech Republic,Czech Republic Standard,21
+Entertainment Electronics,Denmark,Denmark Standard,25
+Entertainment Electronics,France,France Standard,20
+Entertainment Electronics,Germany,Germany Standard,19
+Entertainment Electronics,Hungary,Hungary Standard,27
+Entertainment Electronics,Italy,Italy Standard,22
+Entertainment Electronics,Luxembourg,Luxembourg Standard,17
+Entertainment Electronics,Netherlands,Netherlands Standard,21
+Entertainment Electronics,Poland,Poland Standard,23
+Entertainment Electronics,Romania,Romania Standard,20
+Entertainment Electronics,Slovakia,Slovakia Standard,20
+Entertainment Electronics,Slovenia,Slovenia Standard,22
+Smart Electronics,Austria,Austria Standard,20
+Smart Electronics,Belgium,Belgium Standard,21
+Smart Electronics,Bulgaria,Bulgaria Standard,20
+Smart Electronics,Czech Republic,Czech Republic Standard,21
+Smart Electronics,Denmark,Denmark Standard,25
+Smart Electronics,France,France Standard,20
+Smart Electronics,Germany,Germany Reduced,7
+Smart Electronics,Hungary,Hungary Standard,27
+Smart Electronics,Italy,Italy Reduced1,4
+Smart Electronics,Luxembourg,Luxembourg Standard,17
+Smart Electronics,Netherlands,Netherlands Standard,21
+Smart Electronics,Poland,Poland Standard,23
+Smart Electronics,Romania,Romania Standard,20
+Smart Electronics,Slovakia,Slovakia Standard,20
+Smart Electronics,Slovenia,Slovenia Standard,22
+Communication Electronics,Austria,Austria Standard,20
+Communication Electronics,Belgium,Belgium Standard,21
+Communication Electronics,Bulgaria,Bulgaria Standard,20
+Communication Electronics,Czech Republic,Czech Republic Standard,21
+Communication Electronics,Denmark,Denmark Standard,25
+Communication Electronics,France,France Standard,20
+Communication Electronics,Germany,Germany Standard,19
+Communication Electronics,Hungary,Hungary Standard,27
+Communication Electronics,Italy,Italy Standard,22
+Communication Electronics,Luxembourg,Luxembourg Reduced1,3
+Communication Electronics,Netherlands,Netherlands Standard,21
+Communication Electronics,Poland,Poland Reduced1,5
+Communication Electronics,Romania,Romania Standard,20
+Communication Electronics,Slovakia,Slovakia Standard,20
+Communication Electronics,Slovenia,Slovenia Standard,22
+Shipment Taxes,Austria,Austria Standard,20
+Shipment Taxes,Belgium,Belgium Standard,21
+Shipment Taxes,Bulgaria,Bulgaria Standard,20
+Shipment Taxes,Czech Republic,Czech Republic Standard,21
+Shipment Taxes,Denmark,Denmark Standard,25
+Shipment Taxes,France,France Standard,20
+Shipment Taxes,Germany,Germany Standard,19
+Shipment Taxes,Hungary,Hungary Standard,27
+Shipment Taxes,Italy,Italy Standard,22
+Shipment Taxes,Luxembourg,Luxembourg Standard,17
+Shipment Taxes,Netherlands,Netherlands Standard,21
+Shipment Taxes,Poland,Poland Standard,23
+Shipment Taxes,Romania,Romania Standard,20
+Shipment Taxes,Slovakia,Slovakia Standard,20
+Shipment Taxes,Slovenia,Slovenia Standard,22
+Tax Exempt,,Tax Exempt,0
+,Austria,Austria Reduced1,13
+,Austria,Austria Reduced2,10
+,Belgium,Belgium Reduced1,12
+,Belgium,Belgium Reduced2,6
+,Bulgaria,Bulgaria Reduced,9
+,Czech Republic,Czech Republic Reduced1,10
+,Czech Republic,Czech Republic Reduced2,15
+,France,France Reduced1,2.1
+,France,France Reduced2,5.5
+,France,France Reduced3,10
+,Hungary,Hungary Reduced1,5
+,Hungary,Hungary Reduced2,18
+,Italy,Italy Reduced2,10
+,Luxembourg,Luxembourg Reduced2,8
+,Luxembourg,Luxembourg Reduced3,14
+,Netherlands,Netherlands Reduced1,6
+,Poland,Poland Reduced2,8
+,Romania,Romania Reduced1,5
+,Romania,Romania Reduced2,9
+,Slovakia,Slovakia Reduced1,10
+,Slovenia,Slovenia Reduced1,9.5

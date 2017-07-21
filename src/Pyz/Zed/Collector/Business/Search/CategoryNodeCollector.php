@@ -8,8 +8,7 @@
 namespace Pyz\Zed\Collector\Business\Search;
 
 use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
-
-use Spryker\Shared\Category\CategoryConfig;
+use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;

@@ -114,9 +114,9 @@ function installZed {
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
-    labelText "Importing Demo data"
-    $CONSOLE import:demo-data $VERBOSITY
-    writeErrorMessage "DemoData import failed"
+    labelText "Importing Data"
+    $CONSOLE data:import $VERBOSITY
+    writeErrorMessage "Importing Data failed"
 
     labelText "Setting up data stores"
 

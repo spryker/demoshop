@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\CategoryTransfer;
 use Generated\Shared\Transfer\NodeTransfer;
 use Orm\Zed\Category\Persistence\SpyCategoryNodeQuery;
 use Pyz\Zed\Category\Business\CategoryFacadeInterface;
-use Spryker\Shared\Category\CategoryConfig;
+use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\Locale\Business\LocaleFacadeInterface;
 use Spryker\Zed\Touch\Business\TouchFacadeInterface;
 
