@@ -25,7 +25,7 @@ class StorageRouter extends AbstractRouter
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
-        $urlMatcher = $this->getFactory()->createUrlMatcher();
+        $urlMatcher = $this->getFactory()->getUrlMatcher();
         if ($urlMatcher->matchUrl($name, $this->getApplication()['locale'])) {
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
@@ -67,8 +67,7 @@ class StorageRouter extends AbstractRouter
         if ($pathinfo !== '/') {
             $urlMatcher = $this
                 ->getFactory()
-                ->createUrlMatcher();
-
+                ->getUrlMatcher();
             $urlDetails = $urlMatcher->matchUrl($pathinfo, $this->getApplication()['locale']);
 
             if ($urlDetails === false) {
@@ -78,7 +77,7 @@ class StorageRouter extends AbstractRouter
             if ($urlDetails) {
                 $resourceCreators = $this
                     ->getFactory()
-                    ->createResourceCreators();
+                    ->getResourceCreators();
                 foreach ($resourceCreators as $resourceCreator) {
                     if ($urlDetails['type'] === $resourceCreator->getType()) {
                         return $resourceCreator->createResource($this->getApplication(), $urlDetails['data']);
@@ -106,7 +105,7 @@ class StorageRouter extends AbstractRouter
      */
     protected function getApplication()
     {
-        return $this->getFactory()->createApplication();
+        return $this->getFactory()->getApplication();
     }
 
 }

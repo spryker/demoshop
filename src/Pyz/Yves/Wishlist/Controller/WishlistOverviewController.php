@@ -30,7 +30,7 @@ class WishlistOverviewController extends AbstractController
     public function indexAction(Request $request)
     {
         $wishlistForm = $this->getFactory()
-            ->createWishlistForm()
+            ->getWishlistForm()
             ->handleRequest($request);
 
         if ($wishlistForm->isValid()) {
@@ -63,7 +63,7 @@ class WishlistOverviewController extends AbstractController
     {
         $wishlistFormDataProvider = $this->getFactory()->createWishlistFormDataProvider();
         $wishlistForm = $this->getFactory()
-            ->createWishlistForm($wishlistFormDataProvider->getData($wishlistName))
+            ->getWishlistForm($wishlistFormDataProvider->getData($wishlistName))
             ->handleRequest($request);
 
         if ($wishlistForm->isValid()) {
@@ -122,7 +122,7 @@ class WishlistOverviewController extends AbstractController
     protected function getIdCustomer()
     {
         return $this->getFactory()
-            ->createCustomerClient()
+            ->getCustomerClient()
             ->getCustomer()
             ->getIdCustomer();
     }

@@ -15,7 +15,7 @@ class EventJournalFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\EventJournal\EventJournalClientInterface
      */
-    public function createEventJournalClient()
+    public function getEventJournalClient()
     {
         return $this->getProvidedDependency(EventJournalDependencyProvider::CLIENT_EVENT_JOURNAL);
     }
