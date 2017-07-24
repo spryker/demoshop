@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3494a89bbc194df8c51bdf79f4c13e5f09f27795"
+                "reference": "334f522ec6432ef06677d53544f99626bbe7406b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1798,7 +1798,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-24 12:59:20"
+            "time": "2017-07-24 14:43:50"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4560,32 +4560,32 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3,<8.0-DEV"
+                "php": "^7.1"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
                 "ext-pdo": "*",
                 "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
+                "phpunit/phpunit": "^6.2.3",
+                "squizlabs/php_codesniffer": "^3.0.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -4610,7 +4610,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2017-07-22T11:58:36+00:00"
         },
         {
             "name": "facebook/webdriver",
@@ -6418,7 +6418,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "bdd90da93652917f3f00f90710bb68997fcc4f7f"
+                "reference": "610dff88c340af0578fd8cd1f2e0e0dd73ff24be"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6470,7 +6470,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-07-21 09:10:19"
+            "time": "2017-07-24T13:49:41+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6521,12 +6521,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b"
+                "reference": "bb9279f0552b903623c284a7cb93f893f17aab09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b",
-                "reference": "664f95d66a3cc4c260eb659ef1b7e62da9bd7c0b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bb9279f0552b903623c284a7cb93f893f17aab09",
+                "reference": "bb9279f0552b903623c284a7cb93f893f17aab09",
                 "shasum": ""
             },
             "require": {
@@ -6560,7 +6560,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-07-17 14:09:59"
+            "time": "2017-07-24 08:32:11"
         },
         {
             "name": "squizlabs/php_codesniffer",
