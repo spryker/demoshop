@@ -52,11 +52,11 @@ class AddressController extends AbstractCustomerController
 
         $dataProvider = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createAddressFormDataProvider();
         $addressForm = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
 
@@ -90,11 +90,11 @@ class AddressController extends AbstractCustomerController
     {
         $dataProvider = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createAddressFormDataProvider();
         $addressForm = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
 

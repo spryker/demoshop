@@ -32,7 +32,7 @@ class RegisterController extends AbstractCustomerController
 
         $registerForm = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createRegisterForm()
             ->handleRequest($request);
 
@@ -50,7 +50,7 @@ class RegisterController extends AbstractCustomerController
 
         $loginForm = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createLoginForm();
 
         return $this->viewResponse([
@@ -72,7 +72,7 @@ class RegisterController extends AbstractCustomerController
 
         $customerResponseTransfer = $this
             ->getFactory()
-            ->createAuthenticationHandler()
+            ->getAuthenticationHandler()
             ->registerCustomer($customerTransfer);
 
         return $customerResponseTransfer;

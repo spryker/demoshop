@@ -80,11 +80,11 @@ class CatalogController extends AbstractController
     protected function getCategoryNodeTemplate($idCategoryNode)
     {
         $localeName = $this->getFactory()
-            ->createLocaleClient()
+            ->getLocaleClient()
             ->getCurrentLocale();
 
         return $this->getFactory()
-            ->createCategoryClient()
+            ->getCategoryClient()
             ->getTemplatePathByNodeId($idCategoryNode, $localeName);
     }
 
