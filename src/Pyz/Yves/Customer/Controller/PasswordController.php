@@ -29,7 +29,7 @@ class PasswordController extends AbstractCustomerController
     {
         $form = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createForgottenPasswordForm()
             ->handleRequest($request);
 
@@ -59,7 +59,7 @@ class PasswordController extends AbstractCustomerController
     {
         $form = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createFormRestorePassword()
             ->setData([
                 RestorePasswordForm::FIELD_RESTORE_PASSWORD_KEY => $request->query->get('token'),

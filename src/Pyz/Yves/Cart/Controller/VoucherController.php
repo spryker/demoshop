@@ -26,7 +26,7 @@ class VoucherController extends AbstractController
     public function addAction(Request $request)
     {
         $form = $this->getFactory()
-            ->createVoucherForm()
+            ->getVoucherForm()
             ->handleRequest($request);
 
         if ($form->isValid()) {

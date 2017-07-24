@@ -51,7 +51,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->setProtocolCheck();
 
         $this->addTwigExtension($this->application, [
-            $this->getFactory()->createTwigYvesExtension(),
+            $this->getFactory()->getTwigYvesExtension(),
             $this->getFactory()->createDateFormatterTwigExtension(),
         ]);
 

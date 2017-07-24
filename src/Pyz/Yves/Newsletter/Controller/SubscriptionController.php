@@ -31,7 +31,7 @@ class SubscriptionController extends AbstractController
 
         $subscriptionForm = $this
             ->getFactory()
-            ->createNewsletterSubscriptionForm();
+            ->getNewsletterSubscriptionForm();
 
         $parentRequest = $this->getApplication()['request_stack']->getParentRequest();
 
@@ -52,7 +52,7 @@ class SubscriptionController extends AbstractController
             if ($subscriptionResponse->getIsSuccess()) {
                 $subscriptionForm = $this
                     ->getFactory()
-                    ->createNewsletterSubscriptionForm();
+                    ->getNewsletterSubscriptionForm();
                 $success = 'newsletter.subscription.success';
             }
 
