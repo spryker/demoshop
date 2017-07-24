@@ -118,6 +118,10 @@ function installZed {
     $CONSOLE data:import $VERBOSITY
     writeErrorMessage "Importing Data failed"
 
+    labelText "Updating product label relations"
+    $CONSOLE product-label:relations:update $VERBOSITY
+    writeErrorMessage "Updating product label relations failed"
+
     labelText "Setting up data stores"
 
     $CONSOLE collector:search:export $VERBOSITY
