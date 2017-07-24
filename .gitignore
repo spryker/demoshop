@@ -34,7 +34,8 @@ config/accumulated-config.json
 /vendor/
 FOSS.md
 
-/data
+/data/*
+!/data/import/
 
 # grunt stuff
 .grunt

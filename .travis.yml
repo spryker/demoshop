@@ -9,7 +9,7 @@ env:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
 
-
+dist: precise
 
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
