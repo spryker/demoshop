@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "334f522ec6432ef06677d53544f99626bbe7406b"
+                "reference": "31e8a3a51cf01400ddfdde7372391b35efc0c392"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1731,6 +1731,7 @@
                 "spryker/product-label-discount-connector": "*",
                 "spryker/product-label-gui": "*",
                 "spryker/product-management": "*",
+                "spryker/product-new": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
@@ -1798,7 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-24 14:43:50"
+            "time": "2017-07-24 15:57:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6470,7 +6471,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-07-24T13:49:41+00:00"
+            "time": "2017-07-24 13:49:41"
         },
         {
             "name": "spryker/code-generator",
