@@ -955,3 +955,9 @@ cart.item.item_total,Item total,en_US
 cart.item.item_total,Artikel Gesamt,de_DE
 cart.shipping,Shipping,en_US
 cart.shipping,Versand,de_DE
+catalog.sale,SALE %,en_US
+catalog.sale,SALE %,de_DE
+catalog.new,New,en_US
+catalog.new,Neu,de_DE
+product.filter.label,Product Labels,en_US
+product.filter.label,Product Labels,de_DE

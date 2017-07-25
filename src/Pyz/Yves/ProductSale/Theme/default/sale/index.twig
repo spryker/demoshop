@@ -1,0 +1,23 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    <li><a href="{{ url(filterPath) }}">{{ 'catalog.sale' | trans }}</a></li>
+    {% if category %}
+        {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: category, filterPath: filterPath} only %}
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    <h3>
+        {% if category %}
+            {{ category.name }}
+        {% else %}
+            {{ 'catalog.sale' | trans }}
+        {% endif %}
+    </h3>
+{% endblock %}
+
+{% block content %}
+    {% include "@catalog/catalog/catalog.twig" with {paginationPath: app.request.attributes.get('_route')} %}
+{% endblock %}

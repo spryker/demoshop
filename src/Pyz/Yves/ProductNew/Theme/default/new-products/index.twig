@@ -2,7 +2,7 @@
 
 {% block breadcrumbItems %}
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
-    <li><a href="{{ url(filterPath) }}">{{ 'SALE %' | trans }}</a></li>
+    <li><a href="{{ url(filterPath) }}">{{ 'catalog.new' | trans }}</a></li>
     {% if category %}
         {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: category, filterPath: filterPath} only %}
     {% endif %}
@@ -13,7 +13,7 @@
         {% if category %}
             {{ category.name }}
         {% else %}
-            {{ 'SALE %' | trans }}
+            {{ 'catalog.new' | trans }}
         {% endif %}
     </h3>
 {% endblock %}

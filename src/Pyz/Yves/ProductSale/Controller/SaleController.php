@@ -5,15 +5,15 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\Catalog\Controller;
+namespace Pyz\Yves\ProductSale\Controller;
 
-use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
+use Pyz\Yves\ProductSale\Plugin\Provider\ProductSaleControllerProvider;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method \Pyz\Yves\Catalog\CatalogFactory getFactory()
- * @method \Pyz\Client\Catalog\CatalogClientInterface getClient()
+ * @method \Pyz\Yves\ProductSale\ProductSaleFactory getFactory()
+ * @method \Pyz\Client\ProductSale\ProductSaleClientInterface getClient()
  */
 class SaleController extends AbstractController
 {
@@ -42,7 +42,7 @@ class SaleController extends AbstractController
             ->saleSearch($parameters);
 
         $searchResults['category'] = $categoryNode;
-        $searchResults['filterPath'] = CatalogControllerProvider::ROUTE_SALE;
+        $searchResults['filterPath'] = ProductSaleControllerProvider::ROUTE_SALE;
 
         return $this->viewResponse($searchResults);
     }

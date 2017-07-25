@@ -98,6 +98,12 @@ function configureCodeception {
     writeErrorMessage "Test configuration failed"
 }
 
+function runLabelRelationUpdate() {
+    labelText "Updating product label relations"
+    $CONSOLE product-label:relations:update $VERBOSITY
+    writeErrorMessage "Updating product label relations failed"
+}
+
 function runCollectors() {
    labelText "Run collectors."
    $CONSOLE setup:search $VERBOSITY
@@ -127,6 +133,7 @@ do
          "--full" | "-f" )
             resetDataStores
             backupTestingEnvData
+            runLabelRelationUpdate
             runCollectors
             configureCodeception
             generateTwigCacheFiles

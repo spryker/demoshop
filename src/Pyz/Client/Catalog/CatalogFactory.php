@@ -8,7 +8,6 @@
 namespace Pyz\Client\Catalog;
 
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\FeaturedProductsQueryPlugin;
-use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\SaleSearchQueryPlugin;
 use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
 
 class CatalogFactory extends SprykerCatalogFactory
@@ -43,38 +42,6 @@ class CatalogFactory extends SprykerCatalogFactory
     public function getFeaturedProductsResultFormatters()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS);
-    }
-
-    /**
-     * @param array $requestParameters
-     *
-     * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
-     */
-    public function createSaleSearchQueryPlugin(array $requestParameters = [])
-    {
-        $saleQueryPlugin = new SaleSearchQueryPlugin();
-
-        return $this->getSearchClient()->expandQuery(
-            $saleQueryPlugin,
-            $this->getSaleSearchQueryExpanderPlugins(),
-            $requestParameters
-        );
-    }
-
-    /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface[]
-     */
-    protected function getSaleSearchQueryExpanderPlugins()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::SALE_SEARCH_QUERY_EXPANDER_PLUGINS);
-    }
-
-    /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\ResultFormatterPluginInterface[]
-     */
-    public function getSaleSearchResultFormatterPlugins()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::SALE_SEARCH_RESULT_FORMATTER_PLUGINS);
     }
 
 }
