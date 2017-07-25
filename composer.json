@@ -125,6 +125,7 @@
     "spryker/product-label-discount-connector": "^1.0.0",
     "spryker/product-label-gui": "^1.0.0",
     "spryker/product-management": "^0.7.0",
+    "spryker/product-new": "^1.0.0",
     "spryker/product-option": "^5.0.0",
     "spryker/product-option-cart-connector": "^4.0.0",
     "spryker/product-relation": "^1.0.0",
