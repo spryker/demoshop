@@ -35,17 +35,17 @@ $config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = true;
 $config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
-$config[PropelConstants::ZED_DB_USERNAME] = 'development';
-$config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
+$config[PropelConstants::ZED_DB_USERNAME] = 'root';
+$config[PropelConstants::ZED_DB_PASSWORD] = '';
 $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
 $config[PropelConstants::ZED_DB_PORT] = 5432;
-$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
+$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_MYSQL];
 $config[PropelQueryBuilderConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
 
 // ---------- Redis
 $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
-$config[StorageConstants::STORAGE_REDIS_PORT] = '10009';
+$config[StorageConstants::STORAGE_REDIS_PORT] = '6379';
 $config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
 
