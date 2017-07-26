@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0372c5f36e31f121cfb3da3ef883fc7",
+    "content-hash": "8ca5d3f0d5ba4a58a9c79ea00b5897ca",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1618,11 +1618,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1597-redis-empty-password",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ba37af66661cfc40bfe20880e16d872866067e43"
+                "reference": "c7b7777365b3204080d51a6382e8b6426ccaeb98"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1799,7 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-25 13:23:25"
+            "time": "2017-07-26 11:38:02"
         },
         {
             "name": "swiftmailer/swiftmailer",
