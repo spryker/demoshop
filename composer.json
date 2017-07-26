@@ -14,7 +14,7 @@
     "monolog/monolog": "~1.21.0",
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
-    "predis/predis": "1.0.4",
+    "predis/predis": "1.1.1",
     "propel/propel": "2.0.0-alpha7",
     "psr/log": "~1.0.0",
     "ruflin/elastica": "~3.2.0",
