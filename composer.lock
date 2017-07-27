@@ -7001,10 +7001,14 @@
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d457e0cd5dbe5908768158fc48f7a2503fa2b2d3"
 =======
                 "reference": "d536c93fa6af5ead362b2e0dfb03cce62c9344f1"
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
+=======
+                "reference": "d457e0cd5dbe5908768158fc48f7a2503fa2b2d3"
+>>>>>>> core-1590 update spryker/git-hook
             },
             "require": {
                 "php": ">=5.4.16",
@@ -7057,10 +7061,14 @@
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-26T14:27:57+00:00"
 =======
             "time": "2017-07-26 08:52:08"
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
+=======
+            "time": "2017-07-26T14:27:57+00:00"
+>>>>>>> core-1590 update spryker/git-hook
         },
         {
             "name": "spryker/code-generator",
@@ -7158,7 +7166,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "12eda7c79290ae9cba236eeb2a8682583fbaef4a"
+                "reference": "2154ca1050978fe7ea2a13a2078d30f058a17198"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -7172,7 +7180,10 @@
             "autoload": {
                 "psr-0": {
                     "GitHook": "src"
-                }
+                },
+                "files": [
+                    "php-stan-autoload-shim.php"
+                ]
             },
             "license": [
                 "MIT"
@@ -7194,7 +7205,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-26 12:25:51"
+            "time": "2017-07-27T08:26:18+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

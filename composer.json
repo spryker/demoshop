@@ -93,10 +93,7 @@
       "Acceptance": "tests"
     },
     "files": [
-      "vendor/spryker/spryker/autoload.php",
-      "tests/_support/_generated/AcceptanceTesterActions.php",
-      "tests/_support/AcceptanceTester.php",
-      "tests/_support/ZedAcceptanceTester.php"
+      "vendor/spryker/spryker/autoload.php"
     ]
   },
   "minimum-stability": "dev",
