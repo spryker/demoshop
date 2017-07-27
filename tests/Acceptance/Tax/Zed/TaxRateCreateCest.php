@@ -30,7 +30,7 @@ class TaxRateCreateCest
      */
     public function testCreateValidTaxRateShouldShowSuccessMessage(TaxRateTester $i)
     {
-        $i->wantTo('Create valid tax rate');
+        $i->wantTo('Create valid tax rate.');
         $i->expect('Tax rate is successfully created');
 
         $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
