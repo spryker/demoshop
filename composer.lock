@@ -1627,8 +1627,11 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "619ed2e719fa71c5af9511e1386bcae6684b41c6"
 =======
@@ -1638,7 +1641,13 @@
                 "reference": "c976707f70a41f1c9d7ea174b1daf7d05f7fce6d"
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
+<<<<<<< HEAD
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
+=======
+=======
+                "reference": "86287ad2c912a1d89446091d591428cc97695685"
+>>>>>>> core-1590 update spryker/spryker
+>>>>>>> core-1590 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1816,8 +1825,11 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-31 14:54:04"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-07-31 13:25:45"
 =======
@@ -1827,7 +1839,13 @@
             "time": "2017-07-25 14:20:04"
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
+<<<<<<< HEAD
 >>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
+=======
+=======
+            "time": "2017-07-27 07:32:29"
+>>>>>>> core-1590 update spryker/spryker
+>>>>>>> core-1590 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7176,7 +7194,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-26T12:06:21+00:00"
+            "time": "2017-07-26 12:25:51"
         },
         {
             "name": "squizlabs/php_codesniffer",
