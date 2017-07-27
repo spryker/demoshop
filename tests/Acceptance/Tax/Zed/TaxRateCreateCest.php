@@ -62,13 +62,13 @@ class TaxRateCreateCest
      *
      * @return void
      */
-    public function testBackToListOfTaskRatesShouldOpenTaxRateListPageWithoutSaving(TaxRateTester $i)
+    public function testBackToListOfTaxRatesShouldOpenTaxRateListPageWithoutSaving(TaxRateTester $i)
     {
         $i->wantTo('Create valid tax rate and back to list of tax rates');
         $i->expect('List of tax rates is opened, tax rate is not created');
 
         $i->createTaxRateWithoutSaving(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
-        $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TASK_RATES_BUTTON);
+        $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TAX_RATES_BUTTON);
 
         $i->dontSee(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION);
 
