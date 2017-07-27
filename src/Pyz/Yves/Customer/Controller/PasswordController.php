@@ -10,6 +10,8 @@ namespace Pyz\Yves\Customer\Controller;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Form\RestorePasswordForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\Config;
 use Spryker\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -36,6 +38,10 @@ class PasswordController extends AbstractCustomerController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
+            $customerTransfer->setRestorePasswordLink(
+                Config::get(ApplicationConstants::BASE_URL_YVES) .
+                $this->getApplication()->path('password/restore', ['token' => 'token-placeholder'])
+            );
 
             $customerResponseTransfer = $this->sendPasswordRestoreMail($customerTransfer);
             $this->processResponseErrors($customerResponseTransfer);
