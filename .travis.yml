@@ -64,7 +64,7 @@ sudo: required
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer install --no-interaction
+  - composer install --no-interaction --ignore-platform-reqs
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
