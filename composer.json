@@ -79,7 +79,8 @@
     "spryker/code-sniffer": "dev-master",
     "spryker/git-hook": "dev-master",
     "stecman/symfony-console-completion": "^0.7.0",
-    "fzaninotto/faker": "^1.6"
+    "fzaninotto/faker": "^1.6",
+    "phpstan/phpstan": "^0.8.0"
   },
   "autoload": {
     "psr-0": {

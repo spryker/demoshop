@@ -4,7 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "b396ef8d3215f65b54fb630017f431ff",
+=======
+<<<<<<< HEAD
+    "content-hash": "8be0b050be97992702df9e33db0daa21",
+=======
+    "content-hash": "162a28c19aa3811c0413d3d1ba214942",
+>>>>>>> Make php stan work with spryker
+>>>>>>> Make php stan work with spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1625,7 +1633,19 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "fd8f6d7bc2701ccbd882cc3d0f0ed5da99eb546e"
+=======
+<<<<<<< HEAD
+                "reference": "e3046338b4b6708bd4d7967b81de4f9167b94744"
+=======
+<<<<<<< HEAD
+                "reference": "056413ef0cd3bc3976bad5d0859d42b18ae1cffe"
+=======
+                "reference": "35ce99866ccbbda1acd7fcef078c535a0fda6780"
+>>>>>>> Make php stan work with spryker
+>>>>>>> Make php stan work with spryker
+>>>>>>> Make php stan work with spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1801,7 +1821,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-08-04 14:52:38"
+=======
+<<<<<<< HEAD
+            "time": "2017-08-04 12:52:23"
+=======
+<<<<<<< HEAD
+            "time": "2017-08-04 10:29:00"
+=======
+            "time": "2017-07-26 15:41:01"
+>>>>>>> Make php stan work with spryker
+>>>>>>> Make php stan work with spryker
+>>>>>>> Make php stan work with spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4777,6 +4809,7 @@
         },
         {
             "name": "nikic/php-parser",
+<<<<<<< HEAD
             "version": "v3.1.0",
             "source": {
                 "type": "git",
@@ -4787,6 +4820,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4d4896e553f2094e657fe493506dc37c509d4e2b",
                 "reference": "4d4896e553f2094e657fe493506dc37c509d4e2b",
+=======
+            "version": "v3.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0808939f81c1347a3c8a82a5925385a08074b0f1",
+                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1",
+>>>>>>> Make php stan work with spryker
                 "shasum": ""
             },
             "require": {
@@ -4824,7 +4869,11 @@
                 "parser",
                 "php"
             ],
+<<<<<<< HEAD
             "time": "2017-07-28T14:45:09+00:00"
+=======
+            "time": "2017-06-28T20:53:48+00:00"
+>>>>>>> Make php stan work with spryker
         },
         {
             "name": "pdepend/pdepend",
@@ -6596,7 +6645,11 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
+<<<<<<< HEAD
             "time": "2017-08-02 10:03:12"
+=======
+            "time": "2017-07-24T13:49:41+00:00"
+>>>>>>> Make php stan work with spryker
         },
         {
             "name": "spryker/code-generator",
@@ -6638,8 +6691,13 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "description": "CodeGenerator module",
             "time": "2017-08-02 15:45:37"
+=======
+            "description": "CodeGenerator bundle",
+            "time": "2017-06-28 10:19:12"
+>>>>>>> Make php stan work with spryker
         },
         {
             "name": "spryker/code-sniffer",
