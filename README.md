@@ -8,3 +8,9 @@ In order to install Spryker Demoshop on your machine, you can follow the instruc
 If you encounter any issues during or after installation, you can first check our Troubleshooting article:
 
 * [Troubleshooting - spryker.github.io/getting-started/installation/troubleshooting/](https://spryker.github.io/getting-started/installation/troubleshooting/)
+
+To run [Codeception](http://codeception.com) tests, reset the environment and run `codecept`.  
+
+    ./setup_test --full
+    codecept run 
+
