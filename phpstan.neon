@@ -2,5 +2,6 @@ parameters:
   excludes_analyse:
     - %rootDir%/../../../vendor/spryker/spryker/Bundles/Development/tests/Unit/Spryker/Zed/Development/Business/DependencyTree/DependencyFinder/Fixtures/*
     - %rootDir%/../../../vendor/spryker/spryker/Bundles/Event/src/Spryker/Zed/Event/Business/Dispatcher/*
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/*/tests/*
 
   bootstrap: %rootDir%/../../../phpstan-bootstrap.php

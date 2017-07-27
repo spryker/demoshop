@@ -5,14 +5,23 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "b396ef8d3215f65b54fb630017f431ff",
 =======
+=======
+>>>>>>> Run phpstan on travis
 <<<<<<< HEAD
     "content-hash": "8be0b050be97992702df9e33db0daa21",
 =======
     "content-hash": "162a28c19aa3811c0413d3d1ba214942",
 >>>>>>> Make php stan work with spryker
+<<<<<<< HEAD
 >>>>>>> Make php stan work with spryker
+=======
+=======
+    "content-hash": "34938ef815222aa197dffec8e13c13a2",
+>>>>>>> Run phpstan on travis
+>>>>>>> Run phpstan on travis
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1629,23 +1638,37 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/php-stan",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "fd8f6d7bc2701ccbd882cc3d0f0ed5da99eb546e"
 =======
+=======
+>>>>>>> Run phpstan on travis
 <<<<<<< HEAD
                 "reference": "e3046338b4b6708bd4d7967b81de4f9167b94744"
 =======
+=======
+>>>>>>> Run phpstan on travis
 <<<<<<< HEAD
                 "reference": "056413ef0cd3bc3976bad5d0859d42b18ae1cffe"
 =======
                 "reference": "35ce99866ccbbda1acd7fcef078c535a0fda6780"
 >>>>>>> Make php stan work with spryker
+<<<<<<< HEAD
 >>>>>>> Make php stan work with spryker
+<<<<<<< HEAD
 >>>>>>> Make php stan work with spryker
+=======
+=======
+=======
+                "reference": "7b96ea8444c9799fbe837b20a62663025cbc4614"
+>>>>>>> Run phpstan on travis
+>>>>>>> Run phpstan on travis
+>>>>>>> Run phpstan on travis
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1822,18 +1845,32 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-04 14:52:38"
 =======
+=======
+>>>>>>> Run phpstan on travis
 <<<<<<< HEAD
             "time": "2017-08-04 12:52:23"
 =======
+=======
+>>>>>>> Run phpstan on travis
 <<<<<<< HEAD
             "time": "2017-08-04 10:29:00"
 =======
             "time": "2017-07-26 15:41:01"
 >>>>>>> Make php stan work with spryker
+<<<<<<< HEAD
 >>>>>>> Make php stan work with spryker
+<<<<<<< HEAD
 >>>>>>> Make php stan work with spryker
+=======
+=======
+=======
+            "time": "2017-07-27 13:35:54"
+>>>>>>> Run phpstan on travis
+>>>>>>> Run phpstan on travis
+>>>>>>> Run phpstan on travis
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6593,7 +6630,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
+<<<<<<< HEAD
                 "reference": "d3218c5f8a70a845096d8fe2ece354e5aad470f3"
+=======
+                "reference": "d457e0cd5dbe5908768158fc48f7a2503fa2b2d3"
+>>>>>>> Run phpstan on travis
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6646,10 +6687,14 @@
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 10:03:12"
 =======
             "time": "2017-07-24T13:49:41+00:00"
 >>>>>>> Make php stan work with spryker
+=======
+            "time": "2017-07-26 14:27:57"
+>>>>>>> Run phpstan on travis
         },
         {
             "name": "spryker/code-generator",
