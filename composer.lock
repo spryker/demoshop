@@ -1628,8 +1628,11 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 =======
 >>>>>>> core-1590 update spryker/spryker
 <<<<<<< HEAD
@@ -1646,6 +1649,11 @@
 =======
 =======
                 "reference": "86287ad2c912a1d89446091d591428cc97695685"
+>>>>>>> core-1590 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "7bdaf52e520fb5e762414a0cbbd8c733c9642f2c"
 >>>>>>> core-1590 update spryker/spryker
 >>>>>>> core-1590 update spryker/spryker
             },
@@ -1826,8 +1834,11 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-31 14:54:04"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 =======
 >>>>>>> core-1590 update spryker/spryker
 <<<<<<< HEAD
@@ -1844,6 +1855,11 @@
 =======
 =======
             "time": "2017-07-27 07:32:29"
+>>>>>>> core-1590 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-07-27 09:56:33"
 >>>>>>> core-1590 update spryker/spryker
 >>>>>>> core-1590 update spryker/spryker
         },
@@ -7062,6 +7078,7 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-26T14:27:57+00:00"
 =======
             "time": "2017-07-26 08:52:08"
@@ -7069,6 +7086,9 @@
 =======
             "time": "2017-07-26T14:27:57+00:00"
 >>>>>>> core-1590 update spryker/git-hook
+=======
+            "time": "2017-07-26 14:27:57"
+>>>>>>> core-1590 update spryker/spryker
         },
         {
             "name": "spryker/code-generator",
@@ -7205,7 +7225,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-27T08:26:18+00:00"
+            "time": "2017-07-27 08:26:18"
         },
         {
             "name": "squizlabs/php_codesniffer",
