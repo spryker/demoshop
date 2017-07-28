@@ -1,6 +1,13 @@
+#config:
+#  phpstan:
+#    level: 7
+#    bootstrap: .phpstan/bootstrap.php
+#    config: .phpstan/config.neon
+
 includedFileCommands:
   - GitHook\Command\FileCommand\PreCommit\CodeStyleCheckCommand
   - GitHook\Command\FileCommand\PreCommit\CodeStyleFixCommand
   - GitHook\Command\FileCommand\PreCommit\PhpMdCheckCommand
+  - GitHook\Command\FileCommand\PreCommit\PhpStanCheckCommand
   - GitHook\Command\FileCommand\PreCommit\ArchitectureCheckCommand
 
