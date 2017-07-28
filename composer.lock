@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e52160d4986692e60a5d75509b298a98",
+    "content-hash": "2bd2f26dbe10e34a01190428d75f2b7e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -768,16 +768,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "2bd76fb0ba281bd90150a747bb7a8415c7e241f3"
+                "reference": "c0e65a874ab8c9c9a239ac3b062cce70b35b1f27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/2bd76fb0ba281bd90150a747bb7a8415c7e241f3",
-                "reference": "2bd76fb0ba281bd90150a747bb7a8415c7e241f3",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/c0e65a874ab8c9c9a239ac3b062cce70b35b1f27",
+                "reference": "c0e65a874ab8c9c9a239ac3b062cce70b35b1f27",
                 "shasum": ""
             },
             "require": {
@@ -842,7 +842,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-04-26T12:54:44+00:00"
+            "time": "2017-07-25T21:00:56+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1618,11 +1618,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1501-restore-password-email",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ba37af66661cfc40bfe20880e16d872866067e43"
+                "reference": "2e4911f1ef2869cd1fae81480dca60b0a7e6f89e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1799,7 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-25 13:23:25"
+            "time": "2017-07-28 10:03:44"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6419,7 +6419,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "610dff88c340af0578fd8cd1f2e0e0dd73ff24be"
+                "reference": "d457e0cd5dbe5908768158fc48f7a2503fa2b2d3"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6471,7 +6471,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-07-24 13:49:41"
+            "time": "2017-07-26 14:27:57"
         },
         {
             "name": "spryker/code-generator",
@@ -6514,7 +6514,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-28T10:19:12+00:00"
+            "time": "2017-06-28 10:19:12"
         },
         {
             "name": "spryker/code-sniffer",

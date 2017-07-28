@@ -815,8 +815,8 @@ mail.customer.restore_password.subject,Neues Passwort für Ihren Spryker Shop Ac
 mail.customer.restore_password.subject,New password for your Spryker Shop account,en_US
 mail.customer.restore_password.text,"Es wurde ein neues Passwort für Ihren Spryker Shop Account angefordert. Wenn Sie nicht um um eine Neueinrichtung des Passworts gebeten haben, ignorieren Sie bitte diese Email. Klicken Sie auf den folgedenen Link, um Ihr Passwort zu ändern:",de_DE
 mail.customer.restore_password.text,"Somebody has requested a new password for your Spryker Shop account. If it's not you, just ignore this email. If it's you, please follow the link bellow:",en_US
-mail.customer.restore_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
-mail.customer.restore_password_confirmation.subject,Your password was changed successfully!,en_US
+mail.customer.reset_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
+mail.customer.reset_password_confirmation.subject,Your password was changed successfully!,en_US
 mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich geändert!,de_DE
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
