@@ -39,8 +39,7 @@ class PasswordController extends AbstractCustomerController
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
             $customerTransfer->setRestorePasswordLink(
-                Config::get(ApplicationConstants::BASE_URL_YVES) .
-                $this->getApplication()->path('password/restore', ['token' => 'token-placeholder'])
+                $this->getApplication()->url('password/restore', ['token' => 'token-placeholder'])
             );
 
             $customerResponseTransfer = $this->sendPasswordRestoreMail($customerTransfer);
