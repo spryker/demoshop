@@ -58,6 +58,7 @@ use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
+use Pyz\Yves\HelloWorld\Provider\Plugin\HelloWorldControllerProvider;
 
 class YvesBootstrap
 {
@@ -170,6 +171,7 @@ class YvesBootstrap
             new CatalogControllerProvider($isSsl),
             new CalculationControllerProvider($isSsl),
             new ProductSetControllerProvider($isSsl),
+            new HelloWorldControllerProvider($isSsl),
         ];
     }
 

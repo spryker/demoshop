@@ -1,0 +1,16 @@
+{% extends "@application/layout/layout.twig" %}
+{% block content %}
+{{ hello }}
+
+    <transfer name="Pagination">
+        <property name="page" type="int" />
+        <property name="maxPerPage" type="int" />
+        <property name="nbResults" type="int" />
+        <property name="previousPage" type="int" />
+        <property name="nextPage" type="int" />
+        <property name="firstIndex" type="int" />
+        <property name="lastIndex" type="int" />
+        <property name="firstPage" type="int" />
+        <property name="lastPage" type="int" />
+    </transfer>
+{% endblock %}

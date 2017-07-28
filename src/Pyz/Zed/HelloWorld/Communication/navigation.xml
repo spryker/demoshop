@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <hello>
+        <label>Hello</label>
+        <title>Hello World</title>
+        <bundle>helloWorld</bundle>
+        <icon>fa-files-o</icon>
+        <pages>
+            <page>
+                <label>Hello</label>
+                <title>Hello World</title>
+                <bundle>helloWorld</bundle>
+                <controller>index</controller>
+                <action>index</action>
+                <icon>fa-file-o</icon>
+            </page>
+        </pages>
+    </hello>
+</config>
