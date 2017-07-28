@@ -1644,15 +1644,20 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "fd8f6d7bc2701ccbd882cc3d0f0ed5da99eb546e"
 =======
 =======
 >>>>>>> Run phpstan on travis
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "e3046338b4b6708bd4d7967b81de4f9167b94744"
 =======
 =======
 >>>>>>> Run phpstan on travis
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
                 "reference": "056413ef0cd3bc3976bad5d0859d42b18ae1cffe"
 =======
@@ -1667,8 +1672,17 @@
 =======
                 "reference": "7b96ea8444c9799fbe837b20a62663025cbc4614"
 >>>>>>> Run phpstan on travis
+<<<<<<< HEAD
 >>>>>>> Run phpstan on travis
+<<<<<<< HEAD
 >>>>>>> Run phpstan on travis
+=======
+=======
+=======
+                "reference": "5b6812ea63d996cd7752d82fa6ff0685cad9a25c"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1846,15 +1860,20 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-04 14:52:38"
 =======
 =======
 >>>>>>> Run phpstan on travis
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-08-04 12:52:23"
 =======
 =======
 >>>>>>> Run phpstan on travis
+=======
+>>>>>>> update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-08-04 10:29:00"
 =======
@@ -1869,8 +1888,17 @@
 =======
             "time": "2017-07-27 13:35:54"
 >>>>>>> Run phpstan on travis
+<<<<<<< HEAD
 >>>>>>> Run phpstan on travis
+<<<<<<< HEAD
 >>>>>>> Run phpstan on travis
+=======
+=======
+=======
+            "time": "2017-07-28 05:21:55"
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
+>>>>>>> update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
