@@ -32,7 +32,7 @@ $config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_U
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
 // ---------- Zed host
-$config[ApplicationConstants::HOST_ZED] = 'zed.de.demoshop.local';
+$config[ApplicationConstants::HOST_ZED] = 'spryker.zed.local';
 $config[ApplicationConstants::PORT_ZED] = '';
 $config[ApplicationConstants::PORT_SSL_ZED] = '';
 $config[ApplicationConstants::BASE_URL_ZED] = sprintf(
