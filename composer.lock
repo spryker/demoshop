@@ -6743,7 +6743,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "2a9aba83bfcb50b3d1c482eacc602532d942b6a6"
+                "reference": "f8eaed36c2369a8497f4cb695a650f62a9197b6f"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6794,7 +6794,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-28T12:36:56+00:00"
+            "time": "2017-07-28T13:01:11+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
