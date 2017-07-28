@@ -1630,8 +1630,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 =======
 >>>>>>> core-1590 update spryker/spryker
 =======
@@ -1662,6 +1665,11 @@
 =======
 =======
                 "reference": "29ee4c9eed0d0cdf116495ecd14f3b775152ff96"
+>>>>>>> core-1590 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "84a7fa39e1a5ca34bf84b0ad96993175822342cf"
 >>>>>>> core-1590 update spryker/spryker
 >>>>>>> core-1590 update spryker/spryker
             },
@@ -1844,8 +1852,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-31 14:54:04"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 =======
 >>>>>>> core-1590 update spryker/spryker
 =======
@@ -1876,6 +1887,11 @@
 =======
 =======
             "time": "2017-07-27 10:54:43"
+>>>>>>> core-1590 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-07-28 07:33:17"
 >>>>>>> core-1590 update spryker/spryker
 >>>>>>> core-1590 update spryker/spryker
         },
@@ -7242,7 +7258,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-28T04:40:37+00:00"
+            "time": "2017-07-28 04:40:37"
         },
         {
             "name": "squizlabs/php_codesniffer",
