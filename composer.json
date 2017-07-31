@@ -83,15 +83,23 @@
   },
   "autoload": {
     "psr-0": {
-      "": "src",
-      "Unit": "tests",
-      "YvesUnit": "tests",
-      "Functional": "tests",
-      "Acceptance": "tests"
+      "": "src"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
     ]
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "PyzTest": "tests"
+    },
+    "psr-4": {
+      "PyzTest\\Shared\\Testify\\Helper\\": "tests/PyzTest/Shared/Testify/_support/Helper",
+      "PyzTest\\Yves\\Customer\\Helper\\": "tests/PyzTest/Yves/Customer/_support/Helper",
+      "PyzTest\\Yves\\Customer\\PageObject\\": "tests/PyzTest/Yves/Customer/_support/PageObject",
+      "PyzTest\\Yves\\Product\\PageObject\\": "tests/PyzTest/Yves/Product/_support/PageObject",
+      "PyzTest\\Zed\\Console\\Helper\\": "tests/PyzTest/Zed/Console/_support/Helper"
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

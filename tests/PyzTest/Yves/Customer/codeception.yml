@@ -1,0 +1,45 @@
+namespace: PyzTest\Yves\Customer
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Acceptance:
+        path: Acceptance
+        class_name: CustomerAcceptanceTester
+        modules:
+            enabled:
+              - \PyzTest\Shared\Testify\Helper\Environment
+              - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
+              - \PyzTest\Yves\Customer\Helper\CustomerHelper
+              - \Config\Module\ConfigInit
+              - \Propel\Module\PropelInstall
+              - WebDriver:
+                  url: ''
+                  browser: chrome
+                  window_size: 1920x1080
+                  host: 0.0.0.0
+                  restart: false
+              - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
+              - \SprykerTest\Shared\Application\Helper\YvesHelper
+
+
+    Customer:
+        path: Customer
+        class_name: CustomerCustomerTester
+        modules:
+            enabled:
+                - Asserts
+                - \SprykerTest\Shared\Testify\Helper\Environment
+                - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
+                    projectNamespaces: ['Pyz']
+
+                - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper

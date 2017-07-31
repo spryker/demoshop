@@ -1,0 +1,32 @@
+namespace: PyzTest\Zed\CmsGui
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Acceptance:
+        path: Acceptance
+        class_name: CmsGuiAcceptanceTester
+        modules:
+            enabled:
+              - \PyzTest\Shared\Testify\Helper\Environment
+              - \Config\Module\ConfigInit
+              - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
+                  projectNamespaces: ['Pyz']
+
+              - \Propel\Module\PropelInstall
+              - WebDriver:
+                  url: ''
+                  browser: chrome
+                  window_size: 1920x1080
+                  host: 0.0.0.0
+                  restart: false
+              - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper

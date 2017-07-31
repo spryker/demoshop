@@ -1,0 +1,35 @@
+namespace: PyzTest\Zed\Availability
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Presentation:
+        path: Presentation
+        class_name: AvailabilityPresentationTester
+        modules:
+            enabled:
+              - Asserts
+              - \PyzTest\Shared\Testify\Helper\Environment
+              - \Config\Module\ConfigInit
+              - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
+                  projectNamespaces: ['Pyz']
+
+              - \Propel\Module\PropelInstall
+              - WebDriver:
+                  url: ''
+                  browser: chrome
+                  window_size: 1920x1080
+                  host: 0.0.0.0
+                  restart: false
+              - \SprykerTest\Shared\Discount\Helper\DiscountDataHelper
+              - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
+              - \SprykerTest\Shared\Application\Helper\ZedHelper

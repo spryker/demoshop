@@ -1,6 +1,8 @@
 actor: Tester
 
 include:
+  - tests/PyzTest/Yves/*
+  - tests/PyzTest/Zed/*
   - vendor/spryker/spryker/Bundles/*
 
 paths:

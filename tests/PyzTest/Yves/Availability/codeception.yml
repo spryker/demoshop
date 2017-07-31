@@ -1,0 +1,30 @@
+namespace: PyzTest\Yves\Availability
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Acceptance:
+        path: Acceptance
+        class_name: AvailabilityAcceptanceTester
+        modules:
+            enabled:
+              - \PyzTest\Shared\Testify\Helper\Environment
+              - \Config\Module\ConfigInit
+              - \Propel\Module\PropelInstall
+              - WebDriver:
+                  url: ''
+                  browser: chrome
+                  window_size: 1920x1080
+                  host: 0.0.0.0
+                  restart: false
+              - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
+              - \SprykerTest\Shared\Application\Helper\YvesHelper
