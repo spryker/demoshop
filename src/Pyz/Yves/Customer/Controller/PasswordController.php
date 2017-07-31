@@ -10,8 +10,6 @@ namespace Pyz\Yves\Customer\Controller;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Customer\Form\RestorePasswordForm;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Config\Config;
 use Spryker\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\Request;
 
