@@ -1637,8 +1637,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 =======
 >>>>>>> core-1590 update spryker/spryker
 =======
@@ -1690,6 +1693,11 @@
 =======
 =======
                 "reference": "5a90a875b77839884ec1f461e57494b68eb553bd"
+>>>>>>> core-1590 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "ae4bc4e3da4a774e6ea78ab7e83adda924642193"
 >>>>>>> core-1590 update spryker/spryker
 >>>>>>> core-1590 update spryker/spryker
             },
@@ -1875,8 +1883,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-31 14:54:04"
 =======
+=======
+>>>>>>> core-1590 update spryker/spryker
 =======
 >>>>>>> core-1590 update spryker/spryker
 =======
@@ -1928,6 +1939,11 @@
 =======
 =======
             "time": "2017-07-31 07:50:22"
+>>>>>>> core-1590 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-07-31 09:12:33"
 >>>>>>> core-1590 update spryker/spryker
 >>>>>>> core-1590 update spryker/spryker
         },
