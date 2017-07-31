@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bd2f26dbe10e34a01190428d75f2b7e",
+    "content-hash": "e52160d4986692e60a5d75509b298a98",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1618,11 +1618,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-1501-restore-password-email",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c682c6ddc9a03f8aaf9889be2b195dc1c8bd520a"
+                "reference": "619ed2e719fa71c5af9511e1386bcae6684b41c6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1799,7 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-07-28 13:10:52"
+            "time": "2017-07-31 13:25:45"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6471,7 +6471,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-07-26 14:27:57"
+            "time": "2017-07-26T14:27:57+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6514,7 +6514,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-06-28 10:19:12"
+            "time": "2017-06-28T10:19:12+00:00"
         },
         {
             "name": "spryker/code-sniffer",
