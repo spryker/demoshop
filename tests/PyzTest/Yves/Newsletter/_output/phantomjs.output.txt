@@ -1,0 +1,175 @@
+[INFO  - 2017-08-03T08:56:57.616Z] GhostDriver - Main - running on port 4444
+[INFO  - 2017-08-03T08:56:58.661Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-08-03T08:56:58.661Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.customHeaders:  - {}
+[INFO  - 2017-08-03T08:56:58.661Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-08-03T08:56:58.661Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: b52b1020-7829-11e7-bbc9-5d179790b294
+[ERROR - 2017-08-03T08:56:59.585Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:56:59.585Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:01.503Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:01.503Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:02.728Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:02.728Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:04.099Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:04.099Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:05.291Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:05.291Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:06.837Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:06.837Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:07.959Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:07.959Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:10.851Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:10.851Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:13.864Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:13.864Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:14.938Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:14.938Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:18.528Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:18.528Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:19.802Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:19.802Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:22.761Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:22.761Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:25.867Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:25.867Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:31.909Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:31.909Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:32.873Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:32.873Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:34.697Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - msg: SyntaxError: Invalid character: '`'
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-08-03T08:57:34.697Z] Session [b52b1020-7829-11e7-bbc9-5d179790b294] - page.onError - stack:
+  eval (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  (anonymous function) (http://www-test.de.project.local/assets/default/js/vendor.js:158)
+  __webpack_require__ (http://www-test.de.project.local/assets/default/js/vendor.js:20)
+  (anonymous function) (:9)
+
+  phantomjs://platform/console++.js:263 in error

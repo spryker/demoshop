@@ -1,0 +1,467 @@
+<!DOCTYPE html><html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pyz | Zed | Devtest</title>
+
+            <link rel="stylesheet" href="/assets/css/spryker-zed-gui-commons.css">
+    
+</head>
+<body>
+
+<div id="wrapper">
+
+                        <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul tabindex="0" class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+
+                    <a href="/" class="zed-logo"></a>
+
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="/auth/logout">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    SP
+                </div>
+            </li>
+                    <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="nav-label">Sales</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/refund/table">
+            <i class="fa fa-user-secret"></i>
+            <span class="nav-label">Refunds</span>
+        </a>
+        </li>
+    <li class="item"><a href="/sales">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Orders</span>
+        </a>
+        </li>
+    <li class="item"><a href="/sales/matrix">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Order Matrix</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-users"></i>
+                <span class="nav-label">Customers</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/customer-group">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Customer Groups</span>
+        </a>
+        </li>
+    <li class="item"><a href="/customer">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Customers</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/category/root" data-hotkey="c">
+            <i class="fa fa-sitemap"></i>
+            <span class="nav-label">Category</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-files-o"></i>
+                <span class="nav-label">Content Management</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/cms-block-gui/list-block">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Blocks</span>
+        </a>
+        </li>
+    <li class="item"><a href="/cms-gui/list-page">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Pages</span>
+        </a>
+        </li>
+    <li class="item"><a href="/cms/redirect">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Redirects</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/glossary">
+            <i class="fa fa-globe"></i>
+            <span class="nav-label">Glossary</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-database"></i>
+                <span class="nav-label">Products</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/availability-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Availability</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-label-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Labels</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-management">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Products</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-management/attribute">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Attributes</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-option/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Options</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-relation/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Relations</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-set-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Sets</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-search"></i>
+                <span class="nav-label">Search and Filters</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/product-search/search-preferences">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Search Preferences</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-search/filter-preferences">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Filter Preferences</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/discount/index/list">
+            <i class="fa fa-credit-card"></i>
+            <span class="nav-label">Discount</span>
+        </a>
+        </li>
+    <li class="item"><a href="/navigation-gui">
+            <i class="fa fa-list"></i>
+            <span class="nav-label">Navigation</span>
+        </a>
+        </li>
+            <li class=" active">
+            <a href="javascript:void(0)">
+                <i class="fa fa-fax"></i>
+                <span class="nav-label">Taxes</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                <li class="item active"><a href="/tax/rate/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Tax Rates</span>
+        </a>
+        </li>
+    <li class="item"><a href="/tax/set/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Tax Sets</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/shipment">
+            <i class="fa fa-truck"></i>
+            <span class="nav-label">Shipment</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-angle-double-right"></i>
+                <span class="nav-label">Payment</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/ratepay/profile">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">RatePAY Profile</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-users"></i>
+                <span class="nav-label">Users Control</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/acl/role">
+            <i class="fa fa-user-secret"></i>
+            <span class="nav-label">Roles</span>
+        </a>
+        </li>
+    <li class="item"><a href="/acl/group">
+            <i class="fa fa-users"></i>
+            <span class="nav-label">Groups</span>
+        </a>
+        </li>
+    <li class="item"><a href="/user">
+            <i class="fa fa-user"></i>
+            <span class="nav-label">User</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-wrench"></i>
+                <span class="nav-label">Maintenance</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/api">
+            <i class="fa fa-object-group"></i>
+            <span class="nav-label">Api</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/dependency">
+            <i class="fa fa-archive"></i>
+            <span class="nav-label">Dependencies</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/dependency/stability">
+            <i class="fa fa-globe"></i>
+            <span class="nav-label">Stability</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/architecture">
+            <i class="fa fa-code"></i>
+            <span class="nav-label">Architecture Sniffer</span>
+        </a>
+        </li>
+    <li class="item"><a href="/maintenance">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">System Info</span>
+        </a>
+        </li>
+    <li class="item"><a href="/maintenance/php-info">
+            <i class="fa fa-heartbeat"></i>
+            <span class="nav-label">PHP Info</span>
+        </a>
+        </li>
+    <li class="item"><a href="/oms">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">OMS</span>
+        </a>
+        </li>
+    <li class="item"><a href="/queue">
+            <i class="fa fa-cogs"></i>
+            <span class="nav-label">Queue Processes</span>
+        </a>
+        </li>
+    <li class="item"><a href="/search/maintenance">
+            <i class="fa fa-search"></i>
+            <span class="nav-label">Search</span>
+        </a>
+        </li>
+    <li class="item"><a href="/zed-request/transfer/repeat">
+            <i class="fa fa-repeat"></i>
+            <span class="nav-label">Transfer repeat</span>
+        </a>
+        </li>
+    <li class="item"><a href="/state-machine/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">State machine</span>
+        </a>
+        </li>
+    <li class="item"><a href="/storage/maintenance">
+            <i class="fa fa-hdd-o"></i>
+            <span class="nav-label">Storage</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        </ul>
+    </div>
+</nav>
+            
+    <div id="page-wrapper" class="gray-bg" style="min-height: 1080px;">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i></a>
+                                    </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Welcome <strong>Admin Spryker</strong> <em>[devtest]</em></span>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Settings <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/edit/password-reset">Reset password</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/auth/logout">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-xs-12 col-md-6">
+                <h2>Edit tax rate</h2>
+                                <ol class="breadcrumb">
+                    <li>
+                        <a href="/">Dashboard</a>
+                    </li>
+                                        <li>
+                                                                                    <a href="#" title="Taxes">Taxes</a>
+                                                                        </li>
+                                        <li>
+                                                                                    <a href="/tax/rate/list" title="Tax Rates">Tax Rates</a>
+                                                                        </li>
+                                        <li>
+                                                    <strong>Edit Tax Rate</strong>
+                                            </li>
+                                    </ol>
+                            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="title-action">
+                        <a class="btn btn-sm btn-outline btn-remove" href="/tax/rate/delete?id-tax-rate=42"><i class="fa fa-trash"></i> Delete</a>
+    <a class="btn btn-sm btn-outline btn-back" href="/tax/rate/list"><i class="fa fa-angle-double-left"></i> List of tax rates</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+
+            <div class="flash-messages">
+            <div class="alert alert-success">Tax rate successfully created.</div>
+            </div>
+
+            
+    <div class="row ">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Edit tax rate</h5>                <div class="pull-right">
+                                    </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="ibox-content">
+
+                            <form name="tax_rate" method="post">
+
+                <div class="form-group">        
+                
+    <label class="control-label required" for="tax_rate_name">Name</label>
+<input type="text" id="tax_rate_name" name="tax_rate[name]" required="required" class="form-control" value="Acceptance Standard"></div>
+                <div class="form-group">        
+                
+    <label class="control-label required" for="tax_rate_fkCountry">Country</label>
+<select id="tax_rate_fkCountry" name="tax_rate[fkCountry]" class="form-control"><option value="0">No country</option><option value="1">Ascension Island</option><option value="2">Andorra</option><option value="3">United Arab Emirates</option><option value="4">Afghanistan</option><option value="5">Antigua and Barbuda</option><option value="6">Anguilla</option><option value="7">Albania</option><option value="8">Armenia</option><option value="9">Netherlands Antilles</option><option value="10">Angola</option><option value="11">Antarctica</option><option value="12">Argentina</option><option value="13">American Samoa</option><option value="14">Austria</option><option value="15">Australia</option><option value="16">Aruba</option><option value="17">Åland Islands</option><option value="18">Azerbaijan</option><option value="19">Bosnia and Herzegovina</option><option value="20">Barbados</option><option value="21">Bangladesh</option><option value="22">Belgium</option><option value="23">Burkina Faso</option><option value="24">Bulgaria</option><option value="25">Bahrain</option><option value="26">Burundi</option><option value="27">Benin</option><option value="28">Saint Barthélemy</option><option value="29">Bermuda</option><option value="30">Brunei</option><option value="31">Bolivia</option><option value="32">Caribbean Netherlands</option><option value="33">Brazil</option><option value="34">Bahamas</option><option value="35">Bhutan</option><option value="36">Bouvet Island</option><option value="37">Botswana</option><option value="38">Belarus</option><option value="39">Belize</option><option value="40">Canada</option><option value="41">Cocos (Keeling) Islands</option><option value="42">Congo - Kinshasa</option><option value="43">Central African Republic</option><option value="44">Congo - Brazzaville</option><option value="45">Switzerland</option><option value="46">Côte d’Ivoire</option><option value="47">Cook Islands</option><option value="48">Chile</option><option value="49">Cameroon</option><option value="50">China</option><option value="51">Colombia</option><option value="52">Clipperton Island</option><option value="53">Costa Rica</option><option value="54">Cuba</option><option value="55">Cape Verde</option><option value="56">Curaçao</option><option value="57">Christmas Island</option><option value="58">Cyprus</option><option value="59">Czech Republic</option><option value="60" selected="selected">Germany</option><option value="61">Diego Garcia</option><option value="62">Djibouti</option><option value="63">Denmark</option><option value="64">Dominica</option><option value="65">Dominican Republic</option><option value="66">Algeria</option><option value="67">Ecuador</option><option value="68">Estonia</option><option value="69">Egypt</option><option value="70">Western Sahara</option><option value="71">Eritrea</option><option value="72">Spain</option><option value="73">Ethiopia</option><option value="74">Finland</option><option value="75">Fiji</option><option value="76">Falkland Islands</option><option value="77">Micronesia</option><option value="78">Faroe Islands</option><option value="79">France</option><option value="80">Gabon</option><option value="81">United Kingdom</option><option value="82">Grenada</option><option value="83">Georgia</option><option value="84">French Guiana</option><option value="85">Guernsey</option><option value="86">Ghana</option><option value="87">Gibraltar</option><option value="88">Greenland</option><option value="89">Gambia</option><option value="90">Guinea</option><option value="91">Guadeloupe</option><option value="92">Equatorial Guinea</option><option value="93">Greece</option><option value="94">South Georgia &amp; South Sandwich Islands</option><option value="95">Guatemala</option><option value="96">Guam</option><option value="97">Guinea-Bissau</option><option value="98">Guyana</option><option value="99">Hong Kong SAR China</option><option value="100">Heard &amp; McDonald Islands</option><option value="101">Honduras</option><option value="102">Croatia</option><option value="103">Haiti</option><option value="104">Hungary</option><option value="105">Indonesia</option><option value="106">Ireland</option><option value="107">Israel</option><option value="108">Isle of Man</option><option value="109">India</option><option value="110">British Indian Ocean Territory</option><option value="111">Iraq</option><option value="112">Iran</option><option value="113">Iceland</option><option value="114">Italy</option><option value="115">Jersey</option><option value="116">Jamaica</option><option value="117">Jordan</option><option value="118">Japan</option><option value="119">Kenya</option><option value="120">Kyrgyzstan</option><option value="121">Cambodia</option><option value="122">Kiribati</option><option value="123">Comoros</option><option value="124">Saint Kitts and Nevis</option><option value="125">North Korea</option><option value="126">South Korea</option><option value="127">Kuwait</option><option value="128">Cayman Islands</option><option value="129">Kazakhstan</option><option value="130">Laos</option><option value="131">Lebanon</option><option value="132">Saint Lucia</option><option value="133">Liechtenstein</option><option value="134">Sri Lanka</option><option value="135">Liberia</option><option value="136">Lesotho</option><option value="137">Lithuania</option><option value="138">Luxembourg</option><option value="139">Latvia</option><option value="140">Libya</option><option value="141">Morocco</option><option value="142">Monaco</option><option value="143">Moldova</option><option value="144">Montenegro</option><option value="145">Saint Martin</option><option value="146">Madagascar</option><option value="147">Marshall Islands</option><option value="148">Macedonia</option><option value="149">Mali</option><option value="150">Myanmar (Burma)</option><option value="151">Mongolia</option><option value="152">Macau SAR China</option><option value="153">Northern Mariana Islands</option><option value="154">Martinique</option><option value="155">Mauritania</option><option value="156">Montserrat</option><option value="157">Malta</option><option value="158">Mauritius</option><option value="159">Maldives</option><option value="160">Malawi</option><option value="161">Mexico</option><option value="162">Malaysia</option><option value="163">Mozambique</option><option value="164">Namibia</option><option value="165">New Caledonia</option><option value="166">Niger</option><option value="167">Norfolk Island</option><option value="168">Nigeria</option><option value="169">Nicaragua</option><option value="170">Netherlands</option><option value="171">Norway</option><option value="172">Nepal</option><option value="173">Nauru</option><option value="174">Niue</option><option value="175">New Zealand</option><option value="176">Oman</option><option value="177">Panama</option><option value="178">Peru</option><option value="179">French Polynesia</option><option value="180">Papua New Guinea</option><option value="181">Philippines</option><option value="182">Pakistan</option><option value="183">Poland</option><option value="184">Saint Pierre and Miquelon</option><option value="185">Pitcairn Islands</option><option value="186">Puerto Rico</option><option value="187">Palestinian Territories</option><option value="188">Portugal</option><option value="189">Palau</option><option value="190">Paraguay</option><option value="191">Qatar</option><option value="192">Réunion</option><option value="193">Romania</option><option value="194">Serbia</option><option value="195">Russia</option><option value="196">Rwanda</option><option value="197">Saudi Arabia</option><option value="198">Solomon Islands</option><option value="199">Seychelles</option><option value="200">Sudan</option><option value="201">Sweden</option><option value="202">Singapore</option><option value="203">Saint Helena</option><option value="204">Slovenia</option><option value="205">Svalbard and Jan Mayen</option><option value="206">Slovakia</option><option value="207">Sierra Leone</option><option value="208">San Marino</option><option value="209">Senegal</option><option value="210">Somalia</option><option value="211">Suriname</option><option value="212">South Sudan</option><option value="213">São Tomé and Príncipe</option><option value="214">El Salvador</option><option value="215">Sint Maarten</option><option value="216">Syria</option><option value="217">Swaziland</option><option value="218">Tristan da Cunha</option><option value="219">Turks and Caicos Islands</option><option value="220">Chad</option><option value="221">French Southern Territories</option><option value="222">Togo</option><option value="223">Thailand</option><option value="224">Tajikistan</option><option value="225">Tokelau</option><option value="226">Timor-Leste</option><option value="227">Turkmenistan</option><option value="228">Tunisia</option><option value="229">Tonga</option><option value="230">Turkey</option><option value="231">Trinidad and Tobago</option><option value="232">Tuvalu</option><option value="233">Taiwan</option><option value="234">Tanzania</option><option value="235">Ukraine</option><option value="236">Uganda</option><option value="237">U.S. Outlying Islands</option><option value="238">United States</option><option value="239">Uruguay</option><option value="240">Uzbekistan</option><option value="241">Vatican City</option><option value="242">St. Vincent &amp; Grenadines</option><option value="243">Venezuela</option><option value="244">British Virgin Islands</option><option value="245">U.S. Virgin Islands</option><option value="246">Vietnam</option><option value="247">Vanuatu</option><option value="248">Wallis and Futuna</option><option value="249">Samoa</option><option value="250">Kosovo</option><option value="251">Yemen</option><option value="252">Mayotte</option><option value="253">South Africa</option><option value="254">Zambia</option><option value="255">Zimbabwe</option></select></div>
+
+                <div class="form-group ">
+                            
+                
+    <label class="control-label required" for="tax_rate_rate">Percentage</label>
+
+                    <div class="input-group">
+                        <div class="input-group-addon">%</div>
+                        <input type="text" id="tax_rate_rate" name="tax_rate[rate]" required="required" class="form-control" value="5,00">
+                    </div>
+                    
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Save">
+            <input type="hidden" id="tax_rate__token" name="tax_rate[_token]" value="CjecwvuNHG3Nz5qgok-LRgFM03di625W9cbjT5sowng">
+    </form>
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        <div class="footer">
+            <div>
+                <strong>Copyright</strong> Spryker GmbH © 2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+    <script src="/assets/js/spryker-zed-gui-commons.js"></script>
+
+
+
+<div id="modal-alert" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content alert" id="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="modal-title"></h4>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div></body></html>

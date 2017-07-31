@@ -1,0 +1,671 @@
+<!DOCTYPE html><html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pyz | Zed | Devtest</title>
+
+            <link rel="stylesheet" href="/assets/css/spryker-zed-gui-commons.css">
+    
+</head>
+<body class=" pace-running pace-running"><div class="pace pace-active"><div class="pace-progress" data-progress-text="0%" data-progress="00" style="-webkit-transform: translate3d(0%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+<div id="wrapper">
+
+                        <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul tabindex="0" class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+
+                    <a href="/" class="zed-logo"></a>
+
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="/auth/logout">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    SP
+                </div>
+            </li>
+                    <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="nav-label">Sales</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/refund/table">
+            <i class="fa fa-user-secret"></i>
+            <span class="nav-label">Refunds</span>
+        </a>
+        </li>
+    <li class="item"><a href="/sales">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Orders</span>
+        </a>
+        </li>
+    <li class="item"><a href="/sales/matrix">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Order Matrix</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-users"></i>
+                <span class="nav-label">Customers</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/customer-group">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Customer Groups</span>
+        </a>
+        </li>
+    <li class="item"><a href="/customer">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Customers</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/category/root" data-hotkey="c">
+            <i class="fa fa-sitemap"></i>
+            <span class="nav-label">Category</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-files-o"></i>
+                <span class="nav-label">Content Management</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/cms-block-gui/list-block">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Blocks</span>
+        </a>
+        </li>
+    <li class="item"><a href="/cms-gui/list-page">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Pages</span>
+        </a>
+        </li>
+    <li class="item"><a href="/cms/redirect">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Redirects</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/glossary">
+            <i class="fa fa-globe"></i>
+            <span class="nav-label">Glossary</span>
+        </a>
+        </li>
+            <li class=" active">
+            <a href="javascript:void(0)">
+                <i class="fa fa-database"></i>
+                <span class="nav-label">Products</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                <li class="item active"><a href="/availability-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Availability</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-label-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Labels</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-management">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Products</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-management/attribute">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Attributes</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-option/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Options</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-relation/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Relations</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-set-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Sets</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-search"></i>
+                <span class="nav-label">Search and Filters</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/product-search/search-preferences">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Search Preferences</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-search/filter-preferences">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Filter Preferences</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/discount/index/list">
+            <i class="fa fa-credit-card"></i>
+            <span class="nav-label">Discount</span>
+        </a>
+        </li>
+    <li class="item"><a href="/navigation-gui">
+            <i class="fa fa-list"></i>
+            <span class="nav-label">Navigation</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-fax"></i>
+                <span class="nav-label">Taxes</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/tax/rate/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Tax Rates</span>
+        </a>
+        </li>
+    <li class="item"><a href="/tax/set/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Tax Sets</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/shipment">
+            <i class="fa fa-truck"></i>
+            <span class="nav-label">Shipment</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-angle-double-right"></i>
+                <span class="nav-label">Payment</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/ratepay/profile">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">RatePAY Profile</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-users"></i>
+                <span class="nav-label">Users Control</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/acl/role">
+            <i class="fa fa-user-secret"></i>
+            <span class="nav-label">Roles</span>
+        </a>
+        </li>
+    <li class="item"><a href="/acl/group">
+            <i class="fa fa-users"></i>
+            <span class="nav-label">Groups</span>
+        </a>
+        </li>
+    <li class="item"><a href="/user">
+            <i class="fa fa-user"></i>
+            <span class="nav-label">User</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-wrench"></i>
+                <span class="nav-label">Maintenance</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/api">
+            <i class="fa fa-object-group"></i>
+            <span class="nav-label">Api</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/dependency">
+            <i class="fa fa-archive"></i>
+            <span class="nav-label">Dependencies</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/dependency/stability">
+            <i class="fa fa-globe"></i>
+            <span class="nav-label">Stability</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/architecture">
+            <i class="fa fa-code"></i>
+            <span class="nav-label">Architecture Sniffer</span>
+        </a>
+        </li>
+    <li class="item"><a href="/maintenance">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">System Info</span>
+        </a>
+        </li>
+    <li class="item"><a href="/maintenance/php-info">
+            <i class="fa fa-heartbeat"></i>
+            <span class="nav-label">PHP Info</span>
+        </a>
+        </li>
+    <li class="item"><a href="/oms">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">OMS</span>
+        </a>
+        </li>
+    <li class="item"><a href="/queue">
+            <i class="fa fa-cogs"></i>
+            <span class="nav-label">Queue Processes</span>
+        </a>
+        </li>
+    <li class="item"><a href="/search/maintenance">
+            <i class="fa fa-search"></i>
+            <span class="nav-label">Search</span>
+        </a>
+        </li>
+    <li class="item"><a href="/zed-request/transfer/repeat">
+            <i class="fa fa-repeat"></i>
+            <span class="nav-label">Transfer repeat</span>
+        </a>
+        </li>
+    <li class="item"><a href="/state-machine/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">State machine</span>
+        </a>
+        </li>
+    <li class="item"><a href="/storage/maintenance">
+            <i class="fa fa-hdd-o"></i>
+            <span class="nav-label">Storage</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        </ul>
+    </div>
+</nav>
+            
+    <div id="page-wrapper" class="gray-bg" style="min-height: 1103px;">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i></a>
+                                    </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Welcome <strong>Admin Spryker</strong> <em>[devtest]</em></span>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Settings <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/edit/password-reset">Reset password</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/auth/logout">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-xs-12 col-md-6">
+                <h2>Product Availability</h2>
+                                <ol class="breadcrumb">
+                    <li>
+                        <a href="/">Dashboard</a>
+                    </li>
+                                        <li>
+                                                                                    <a href="#" title="Products">Products</a>
+                                                                        </li>
+                                        <li>
+                                                                                    <a href="/availability-gui" title="Availability">Availability</a>
+                                                                        </li>
+                                        <li>
+                                                    <strong>Product Availability</strong>
+                                            </li>
+                                    </ol>
+                            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="title-action">
+                        <a class="btn btn-sm btn-outline btn-back" href="/availability-gui"><i class="fa fa-angle-double-left"></i> List of product availability</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+
+            <div class="flash-messages">
+            </div>
+
+            
+    <div class="row ">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Abstract product availability</h5>                <div class="pull-right">
+                                    </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="ibox-content">
+
+                            <div class="row">
+                <div class="col-lg-2">
+                    <p><b>SKU</b></p><p> 118</p>
+                </div>
+                <div class="col-lg-2">
+                    <p><b>Name:</b></p><p> Fujitsu ESPRIMO E420</p>
+                </div>
+                <div class="col-lg-2">
+                    <p><b>Availability:</b></p><p>
+                                                    <span class="label label-info"> Available</span>
+                                            </p>
+                </div>
+                <div class="col-lg-2">
+                    <p><b>Current Stock:</b></p><p> 10</p>
+                </div>
+                <div class="col-lg-2">
+                    <p><b>Reserved Products:</b></p><p> 2</p>
+                </div>
+                <div class="col-lg-2">
+                    <p>
+                        <b>Is never out of stock:</b>
+                    </p>
+                    <p>
+                        No
+                    </p>
+                </div>
+            </div>
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row ">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Variant availability</h5>                <div class="pull-right">
+                                    </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="ibox-content">
+
+                                <div id="availability-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="availability-table_length"><label>Show <select name="availability-table_length" aria-controls="availability-table" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="availability-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="availability-table"></label></div></div></div><div class="row"><div class="col-sm-12"><div class="dataTables_scroll"><div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: auto;"><div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 100%;"><table class="table table-striped table-bordered table-hover gui-table-data dataTable" data-ajax="/availability-gui/index/availability-table?id-product=118" data-processing="true" data-server-side="true" data-state-save="true" data-page-length="10" data-order="[    [&quot;0&quot;, &quot;desc&quot;]
+    ]" data-columns="[
+    {
+        &quot;className&quot;: &quot;column-concreteSku&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteName&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteAvailability&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-stockQuantity&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-reservationQuantity&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-Is bundle product&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteNeverOutOfStockSet&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-Actions&quot;
+            }
+    ]" data-column-defs="[{&quot;targets&quot;: &quot;_all&quot;, &quot;orderable&quot;: false }]" role="grid" aria-describedby="availability-table_info" style="margin-left: 0px;"><thead>
+    <tr role="row"><th id="concreteSku" class="column-concreteSku sorting" tabindex="0" aria-controls="availability-table" rowspan="1" colspan="1" style="width: 121px;" aria-label="
+            SKU
+        : activate to sort column ascending">
+            SKU
+        </th><th id="concreteName" class="column-concreteName sorting" tabindex="0" aria-controls="availability-table" rowspan="1" colspan="1" style="width: 196px;" aria-label="
+            Name
+        : activate to sort column ascending">
+            Name
+        </th><th id="concreteAvailability" class="column-concreteAvailability sorting_disabled" rowspan="1" colspan="1" style="width: 127px;" aria-label="
+            Availability
+        ">
+            Availability
+        </th><th id="stockQuantity" class="column-stockQuantity sorting" tabindex="0" aria-controls="availability-table" rowspan="1" colspan="1" style="width: 169px;" aria-label="
+            Current Stock
+        : activate to sort column ascending">
+            Current Stock
+        </th><th id="reservationQuantity" class="column-reservationQuantity sorting" tabindex="0" aria-controls="availability-table" rowspan="1" colspan="1" style="width: 218px;" aria-label="
+            Reserved Products
+        : activate to sort column ascending">
+            Reserved Products
+        </th><th id="Is bundle product" class="column-Is bundle product sorting_disabled" rowspan="1" colspan="1" style="width: 193px;" aria-label="
+            Is bundle product
+        ">
+            Is bundle product
+        </th><th id="concreteNeverOutOfStockSet" class="column-concreteNeverOutOfStockSet sorting_disabled" rowspan="1" colspan="1" style="width: 221px;" aria-label="
+            Is never out of stock
+        ">
+            Is never out of stock
+        </th><th id="Actions" class="column-Actions sorting_disabled" rowspan="1" colspan="1" style="width: 140px;" aria-label="
+            Actions
+        ">
+            Actions
+        </th></tr>
+</thead></table></div></div><div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: auto;"><table class="table table-striped table-bordered table-hover gui-table-data dataTable" data-ajax="/availability-gui/index/availability-table?id-product=118" id="availability-table" data-processing="true" data-server-side="true" data-state-save="true" data-page-length="10" data-order="[    [&quot;0&quot;, &quot;desc&quot;]
+    ]" data-columns="[
+    {
+        &quot;className&quot;: &quot;column-concreteSku&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteName&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteAvailability&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-stockQuantity&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-reservationQuantity&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-Is bundle product&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteNeverOutOfStockSet&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-Actions&quot;
+            }
+    ]" data-column-defs="[{&quot;targets&quot;: &quot;_all&quot;, &quot;orderable&quot;: false }]" role="grid" aria-describedby="availability-table_info"><thead>
+    <tr role="row" style="height: 0px;"><th id="concreteSku" class="column-concreteSku sorting" aria-controls="availability-table" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 121px;" aria-label="
+            SKU
+        : activate to sort column ascending"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            SKU
+        </div></th><th id="concreteName" class="column-concreteName sorting" aria-controls="availability-table" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 196px;" aria-label="
+            Name
+        : activate to sort column ascending"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Name
+        </div></th><th id="concreteAvailability" class="column-concreteAvailability sorting_disabled" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 127px;" aria-label="
+            Availability
+        "><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Availability
+        </div></th><th id="stockQuantity" class="column-stockQuantity sorting" aria-controls="availability-table" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 169px;" aria-label="
+            Current Stock
+        : activate to sort column ascending"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Current Stock
+        </div></th><th id="reservationQuantity" class="column-reservationQuantity sorting" aria-controls="availability-table" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 218px;" aria-label="
+            Reserved Products
+        : activate to sort column ascending"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Reserved Products
+        </div></th><th id="Is bundle product" class="column-Is bundle product sorting_disabled" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 193px;" aria-label="
+            Is bundle product
+        "><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Is bundle product
+        </div></th><th id="concreteNeverOutOfStockSet" class="column-concreteNeverOutOfStockSet sorting_disabled" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 221px;" aria-label="
+            Is never out of stock
+        "><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Is never out of stock
+        </div></th><th id="Actions" class="column-Actions sorting_disabled" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 140px;" aria-label="
+            Actions
+        "><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Actions
+        </div></th></tr>
+</thead><tfoot><tr style="height: 0px;"></tr>
+</tfoot>
+    
+    
+<tbody><tr role="row" class="odd"><td class=" column-concreteSku">118_29804739</td><td class=" column-concreteName">Fujitsu ESPRIMO E420</td><td class=" column-concreteAvailability">8</td><td class=" column-stockQuantity">10</td><td class=" column-reservationQuantity">2</td><td class=" column-Is bundle product">No</td><td class=" column-concreteNeverOutOfStockSet">No</td><td class=" column-Actions"><a href="/availability-gui/index/edit?id-product=149&amp;sku=118_29804739&amp;id-abstract=118" class="btn btn-xs btn-outline  btn-edit"><i class="fa fa-pencil-square-o"></i> Edit Stock</a></td></tr></tbody></table></div><div class="dataTables_scrollFoot" style="overflow: hidden; border: 0px; width: auto;"><div class="dataTables_scrollFootInner"><table class="table table-striped table-bordered table-hover gui-table-data dataTable" data-ajax="/availability-gui/index/availability-table?id-product=118" data-processing="true" data-server-side="true" data-state-save="true" data-page-length="10" data-order="[    [&quot;0&quot;, &quot;desc&quot;]
+    ]" data-columns="[
+    {
+        &quot;className&quot;: &quot;column-concreteSku&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteName&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteAvailability&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-stockQuantity&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-reservationQuantity&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-Is bundle product&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-concreteNeverOutOfStockSet&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-Actions&quot;
+            }
+    ]" data-column-defs="[{&quot;targets&quot;: &quot;_all&quot;, &quot;orderable&quot;: false }]" role="grid" aria-describedby="availability-table_info" style="margin-left: 0px;"><tfoot><tr></tr>
+</tfoot></table></div></div></div><div id="availability-table_processing" class="dataTables_processing panel panel-default" style="display: block;">Processing...</div></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="availability-table_info" role="status" aria-live="polite"></div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="availability-table_paginate"></div></div></div></div>
+
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div id="bundled-products" style="display:none;">
+        <div class="row ">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Bundled products</h5>                <div class="pull-right">
+                                    </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="ibox-content">
+
+                                <div class="row">
+                    <div id="table-bundled-products_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"><div id="table-bundled-products_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="table-bundled-products"></label></div></div></div><div class="row"><div class="col-sm-12"><div class="dataTables_scroll"><div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;"><div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 100px; padding-right: 0px;"><table class="table table-striped table-bordered table-hover gui-table-data no-footer dataTable" data-paging="false" role="grid" aria-describedby="table-bundled-products_info" style="margin-left: 0px; width: 100px;"><thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="SKU: activate to sort column descending" style="width: 0px;" aria-sort="ascending">SKU</th><th class="sorting" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 0px;">Name</th><th class="sorting" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Availability: activate to sort column ascending" style="width: 0px;">Availability</th><th class="sorting" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Current Stock: activate to sort column ascending" style="width: 0px;">Current Stock</th><th class="sorting" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Reserved Products: activate to sort column ascending" style="width: 0px;">Reserved Products</th><th class="sorting" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Quantity in Bundle: activate to sort column ascending" style="width: 0px;">Quantity in Bundle</th><th class="sorting" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Is never out of stock: activate to sort column ascending" style="width: 0px;">Is never out of stock</th><th class="sorting" tabindex="0" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 0px;">Actions</th></tr>
+                        </thead></table></div></div><div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;"><table class="table table-striped table-bordered table-hover gui-table-data no-footer dataTable" id="table-bundled-products" data-paging="false" role="grid" aria-describedby="table-bundled-products_info"><thead>
+                        <tr role="row" style="height: 0px;"><th class="sorting_asc sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SKU: activate to sort column descending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">SKU</div></th><th class="sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Name</div></th><th class="sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Availability: activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Availability</div></th><th class="sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Current Stock: activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Current Stock</div></th><th class="sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Reserved Products: activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Reserved Products</div></th><th class="sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Quantity in Bundle: activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Quantity in Bundle</div></th><th class="sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Is never out of stock: activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Is never out of stock</div></th><th class="sorting" aria-controls="table-bundled-products" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Actions</div></th></tr>
+                        </thead>
+                        
+                        <tbody>
+                        <tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">No data available in table</td></tr></tbody>
+                    </table></div></div></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="table-bundled-products_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div></div><div class="col-sm-7"></div></div></div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+        </div>
+        <div class="footer">
+            <div>
+                <strong>Copyright</strong> Spryker GmbH © 2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+        <script src="/assets/js/spryker-zed-gui-commons.js"></script>
+
+    <script src="/assets/js/spryker-zed-availability-gui-main.js"></script>
+
+
+
+<div id="modal-alert" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content alert" id="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="modal-title"></h4>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div></body></html>

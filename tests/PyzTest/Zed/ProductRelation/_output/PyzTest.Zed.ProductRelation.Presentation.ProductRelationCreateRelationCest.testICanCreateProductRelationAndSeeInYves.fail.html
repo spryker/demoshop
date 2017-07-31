@@ -1,0 +1,639 @@
+<!DOCTYPE html><html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Product Relations</title>
+
+                <link rel="stylesheet" href="/assets/css/spryker-zed-gui-commons.css">
+    
+    <link rel="stylesheet" href="/assets/css/spryker-zed-product-relation.css">
+
+</head>
+<body class="pace-running pace-done pace-done pace-done"><div class="pace  pace-inactive pace-inactive pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="-webkit-transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+<div id="wrapper">
+
+                        <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul tabindex="0" class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+
+                    <a href="/" class="zed-logo"></a>
+
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="/auth/logout">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    SP
+                </div>
+            </li>
+                    <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="nav-label">Sales</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/refund/table">
+            <i class="fa fa-user-secret"></i>
+            <span class="nav-label">Refunds</span>
+        </a>
+        </li>
+    <li class="item"><a href="/sales">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Orders</span>
+        </a>
+        </li>
+    <li class="item"><a href="/sales/matrix">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Order Matrix</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-users"></i>
+                <span class="nav-label">Customers</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/customer-group">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Customer Groups</span>
+        </a>
+        </li>
+    <li class="item"><a href="/customer">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Customers</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/category/root" data-hotkey="c">
+            <i class="fa fa-sitemap"></i>
+            <span class="nav-label">Category</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-files-o"></i>
+                <span class="nav-label">Content Management</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/cms-block-gui/list-block">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Blocks</span>
+        </a>
+        </li>
+    <li class="item"><a href="/cms-gui/list-page">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Pages</span>
+        </a>
+        </li>
+    <li class="item"><a href="/cms/redirect">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Redirects</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/glossary">
+            <i class="fa fa-globe"></i>
+            <span class="nav-label">Glossary</span>
+        </a>
+        </li>
+            <li class=" active">
+            <a href="javascript:void(0)">
+                <i class="fa fa-database"></i>
+                <span class="nav-label">Products</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                <li class="item"><a href="/availability-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Availability</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-label-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Labels</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-management">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Products</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-management/attribute">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Attributes</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-option/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Options</span>
+        </a>
+        </li>
+    <li class="item active"><a href="/product-relation/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Relations</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-set-gui">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Product Sets</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-search"></i>
+                <span class="nav-label">Search and Filters</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/product-search/search-preferences">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Search Preferences</span>
+        </a>
+        </li>
+    <li class="item"><a href="/product-search/filter-preferences">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Filter Preferences</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/discount/index/list">
+            <i class="fa fa-credit-card"></i>
+            <span class="nav-label">Discount</span>
+        </a>
+        </li>
+    <li class="item"><a href="/navigation-gui">
+            <i class="fa fa-list"></i>
+            <span class="nav-label">Navigation</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-fax"></i>
+                <span class="nav-label">Taxes</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/tax/rate/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Tax Rates</span>
+        </a>
+        </li>
+    <li class="item"><a href="/tax/set/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">Tax Sets</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    <li class="item"><a href="/shipment">
+            <i class="fa fa-truck"></i>
+            <span class="nav-label">Shipment</span>
+        </a>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-angle-double-right"></i>
+                <span class="nav-label">Payment</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/ratepay/profile">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">RatePAY Profile</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-users"></i>
+                <span class="nav-label">Users Control</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/acl/role">
+            <i class="fa fa-user-secret"></i>
+            <span class="nav-label">Roles</span>
+        </a>
+        </li>
+    <li class="item"><a href="/acl/group">
+            <i class="fa fa-users"></i>
+            <span class="nav-label">Groups</span>
+        </a>
+        </li>
+    <li class="item"><a href="/user">
+            <i class="fa fa-user"></i>
+            <span class="nav-label">User</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+            <li class="">
+            <a href="javascript:void(0)">
+                <i class="fa fa-wrench"></i>
+                <span class="nav-label">Maintenance</span>
+                <span class="fa arrow"></span>
+            </a>
+
+            <ul class="nav nav-second-level collapse" aria-expanded="false">
+                <li class="item"><a href="/api">
+            <i class="fa fa-object-group"></i>
+            <span class="nav-label">Api</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/dependency">
+            <i class="fa fa-archive"></i>
+            <span class="nav-label">Dependencies</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/dependency/stability">
+            <i class="fa fa-globe"></i>
+            <span class="nav-label">Stability</span>
+        </a>
+        </li>
+    <li class="item"><a href="/development/architecture">
+            <i class="fa fa-code"></i>
+            <span class="nav-label">Architecture Sniffer</span>
+        </a>
+        </li>
+    <li class="item"><a href="/maintenance">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">System Info</span>
+        </a>
+        </li>
+    <li class="item"><a href="/maintenance/php-info">
+            <i class="fa fa-heartbeat"></i>
+            <span class="nav-label">PHP Info</span>
+        </a>
+        </li>
+    <li class="item"><a href="/oms">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">OMS</span>
+        </a>
+        </li>
+    <li class="item"><a href="/queue">
+            <i class="fa fa-cogs"></i>
+            <span class="nav-label">Queue Processes</span>
+        </a>
+        </li>
+    <li class="item"><a href="/search/maintenance">
+            <i class="fa fa-search"></i>
+            <span class="nav-label">Search</span>
+        </a>
+        </li>
+    <li class="item"><a href="/zed-request/transfer/repeat">
+            <i class="fa fa-repeat"></i>
+            <span class="nav-label">Transfer repeat</span>
+        </a>
+        </li>
+    <li class="item"><a href="/state-machine/list">
+            <i class="fa fa-angle-double-right"></i>
+            <span class="nav-label">State machine</span>
+        </a>
+        </li>
+    <li class="item"><a href="/storage/maintenance">
+            <i class="fa fa-hdd-o"></i>
+            <span class="nav-label">Storage</span>
+        </a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        </ul>
+    </div>
+</nav>
+            
+    <div id="page-wrapper" class="gray-bg" style="min-height: 1103px;">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i></a>
+                                    </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Welcome <strong>Admin Spryker</strong> <em>[devtest]</em></span>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Settings <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/edit/password-reset">Reset password</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/auth/logout">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-xs-12 col-md-6">
+                <h2>Edit Product Relations</h2>
+                                <ol class="breadcrumb">
+                    <li>
+                        <a href="/">Dashboard</a>
+                    </li>
+                                        <li>
+                                                                                    <a href="#" title="Products">Products</a>
+                                                                        </li>
+                                        <li>
+                                                                                    <a href="/product-relation/list" title="Product Relations">Product Relations</a>
+                                                                        </li>
+                                        <li>
+                                                    <strong>Edit Product Relation</strong>
+                                            </li>
+                                    </ol>
+                            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="title-action">
+                    
+            <a class="btn btn-sm btn-outline btn-remove" id="deactivate-relation" href="/product-relation/edit/deactivate?id-product-relation=144&amp;redirect-url=%2Fproduct-relation%2Fedit%2Findex%3Fid-product-relation%3D144"><i class="fa fa-trash"></i> Deactivate</a>
+
+
+    <a class="btn btn-sm btn-outline btn-back" href="/product-relation/list/index"><i class="fa fa-angle-double-left"></i> List Product relations</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+
+            <div class="flash-messages">
+            <div class="alert alert-success">Relation successfully activated.</div>
+            </div>
+
+                <form name="product_relation" method="post" id="form-product-relation">
+
+
+
+
+<div class="tabs-container" data-is-navigable="true" data-auto-errors="true">
+    <ul class="nav nav-tabs">
+                    <li class="active" data-tab-content-id="tab-content-relation-type">
+                <a href="#tab-content-relation-type" data-toggle="tab">Relation type</a>
+            </li>
+                    <li class="" data-tab-content-id="tab-content-assign-products">
+                <a href="#tab-content-assign-products" data-toggle="tab">Assign products</a>
+            </li>
+            </ul>
+
+    <div class="tab-content">
+                    <div id="tab-content-relation-type" class="tab-pane active">
+                <div class="panel-body">
+                    
+<div class="form-group"><div class="checkbox">                                                            <label class="required"><input type="checkbox" id="product_relation_isRebuildScheduled" name="product_relation[isRebuildScheduled]" required="required" value="1"> Update regularly: When you have this selected, this product relation will be updated automatically on regular basis according to the relation's conditions.</label>
+    </div></div>
+<div class="form-group">        
+                
+    <label class="control-label required" for="product_relation_productRelationType">Relation type</label>
+<select id="product_relation_productRelationType" name="product_relation[productRelationType]" class="form-control"><option value="related-products" selected="selected">related-products</option><option value="up-selling">up-selling</option></select></div>
+
+<h4>Selected product</h4>
+
+
+<div style="display:none">
+      <input type="text" id="product_relation_fkProductAbstract" name="product_relation[fkProductAbstract]" required="required" class="form-control" value="214">
+</div>
+
+<div class="">
+      
+</div>
+
+<div class="ibox-content product-box" id="selected-product" style="">
+    <div class="product-desc">
+        <img height="100" id="product-img" src="http://images.icecat.biz/img/norm/medium/26935356-6244.jpg"> <br>
+        <small class="text-muted" id="product-category">Product Bundles</small>
+        <span class="product-name">Samsung Bundle</span>
+
+        <div class="small m-t-xs" id="product-description">This is a unique product bundle featuring various Samsung products.</div>
+    </div>
+</div>
+
+
+<input type="hidden" id="product_relation_idProductRelation" name="product_relation[idProductRelation]" value="144">
+
+                </div>
+            </div>
+                    <div id="tab-content-assign-products" class="tab-pane ">
+                <div class="panel-body">
+                    
+<h4>Assign related products</h4>
+
+<div id="builder" class="query-builder"><dl id="builder_group_0" class="rules-group-container">   <dt class="rules-group-header">     <div class="btn-group pull-right group-actions">       <button type="button" class="btn btn-xs btn-success" data-add="rule">         <i class="glyphicon glyphicon-plus"></i> Add rule       </button>                <button type="button" class="btn btn-xs btn-success" data-add="group">           <i class="glyphicon glyphicon-plus-sign"></i> Add group         </button>                   </div>     <div class="btn-group group-conditions">                <label class="btn btn-xs btn-primary active disabled">           <input type="radio" name="builder_group_0_cond" value="AND" disabled=""> AND         </label>                <label class="btn btn-xs btn-primary disabled">           <input type="radio" name="builder_group_0_cond" value="OR" disabled=""> OR         </label>            </div>            <div class="error-container"><i class="glyphicon glyphicon-warning-sign"></i></div>        </dt>   <dd class="rules-group-body">     <ul class="rules-list"><li id="builder_rule_0" class="rule-container">   <div class="rule-header">     <div class="btn-group pull-right rule-actions">       <button type="button" class="btn btn-xs btn-danger remove-rule" data-delete="rule">         <i class="glyphicon glyphicon-remove"></i> Delete       </button>     </div>   </div>        <div class="error-container"><i class="glyphicon glyphicon-warning-sign"></i></div>      <div class="rule-filter-container"><select class="form-control" name="builder_rule_0_filter">        <option value="-1">------</option>                <option value="product_sku">sku</option>             <option value="product_name">name</option>             <option value="product_created_at">created at</option>             <option value="product_category_name">category</option>                               <optgroup label="-- Attributes">                 <option value="product.json.storage_capacity">storage_capacity</option>             <option value="product.json.series">series</option>             <option value="product.json.width">width</option>             <option value="product.json.white_balance">white_balance</option>             <option value="product.json.weight">weight</option>             <option value="product.json.waterproof_up_to">waterproof_up_to</option>             <option value="product.json.waterproof">waterproof</option>             <option value="product.json.voice_recording">voice_recording</option>             <option value="product.json.video_recording_modes">video_recording_modes</option>             <option value="product.json.usb_version">usb_version</option>             <option value="product.json.usb_port">usb_port</option>             <option value="product.json.touchscreen">touchscreen</option>             <option value="product.json.touch_technology">touch_technology</option>             <option value="product.json.total_megapixels">total_megapixels</option>             <option value="product.json.thermal_design_power">thermal_design_power</option>             <option value="product.json.themes">themes</option>             <option value="product.json.tcase">tcase</option>             <option value="product.json.system_bus_rate">system_bus_rate</option>             <option value="product.json.storage_media">storage_media</option>             <option value="product.json.stepping">stepping</option>             <option value="product.json.sim_card_type">sim_card_type</option>             <option value="product.json.shape">shape</option>             <option value="product.json.sensor_type">sensor_type</option>             <option value="product.json.self_timer">self_timer</option>             <option value="product.json.scenario_design_power">scenario_design_power</option>             <option value="product.json.recording_time">recording_time</option>             <option value="product.json.rear_camera_resolution">rear_camera_resolution</option>             <option value="product.json.rear_camera">rear_camera</option>             <option value="product.json.protection_feature">protection_feature</option>             <option value="product.json.product_type">product_type</option>             <option value="product.json.processor_threads">processor_threads</option>             <option value="product.json.processor_socket">processor_socket</option>             <option value="product.json.processor_operating_models">processor_operating_models</option>             <option value="product.json.processor_model">processor_model</option>             <option value="product.json.processor_frequency">processor_frequency</option>             <option value="product.json.processor_cores">processor_cores</option>             <option value="product.json.processor_codename">processor_codename</option>             <option value="product.json.processor_cache">processor_cache</option>             <option value="product.json.processor_cache_type">processor_cache_type</option>             <option value="product.json.processor_boost_frequency">processor_boost_frequency</option>             <option value="product.json.photo_effects">photo_effects</option>             <option value="product.json.pci_express_slots_version">pci_express_slots_version</option>             <option value="product.json.pci_express_configurations">pci_express_configurations</option>             <option value="product.json.os_version">os_version</option>             <option value="product.json.os_installed">os_installed</option>             <option value="product.json.optical_zoom">optical_zoom</option>             <option value="product.json.optical_sensor_size">optical_sensor_size</option>             <option value="product.json.mhl_version">mhl_version</option>             <option value="product.json.memory_slots">memory_slots</option>             <option value="product.json.megapixel">megapixel</option>             <option value="product.json.max_memory_card_size">max_memory_card_size</option>             <option value="product.json.internal_memory">internal_memory</option>             <option value="product.json.light_exposure_modes">light_exposure_modes</option>             <option value="product.json.iso_sensitivity">iso_sensitivity</option>             <option value="product.json.internal_storage_capacity">internal_storage_capacity</option>             <option value="product.json.internal_ram">internal_ram</option>             <option value="product.json.intel_smart_cache">intel_smart_cache</option>             <option value="product.json.image_processor">image_processor</option>             <option value="product.json.headphone_connectivity">headphone_connectivity</option>             <option value="product.json.hdmi">hdmi</option>             <option value="product.json.hd_type">hd_type</option>             <option value="product.json.graphics_adapter">graphics_adapter</option>             <option value="product.json.gps_satellite">gps_satellite</option>             <option value="product.json.full_hd">full_hd</option>             <option value="product.json.fsb_parity">fsb_parity</option>             <option value="product.json.front_camera_resolution">front_camera_resolution</option>             <option value="product.json.form_factor">form_factor</option>             <option value="product.json.focus_adjustment">focus_adjustment</option>             <option value="product.json.focus">focus</option>             <option value="product.json.flash_type">flash_type</option>             <option value="product.json.flash_range_tele">flash_range_tele</option>             <option value="product.json.flash_memory">flash_memory</option>             <option value="product.json.fingerprint_reader">fingerprint_reader</option>             <option value="product.json.filter_size">filter_size</option>             <option value="product.json.field_of_view">field_of_view</option>             <option value="product.json.face_detection">face_detection</option>             <option value="product.json.effective_megapixels">effective_megapixels</option>             <option value="product.json.display_type">display_type</option>             <option value="product.json.display_technology">display_technology</option>             <option value="product.json.display_diagonal">display_diagonal</option>             <option value="product.json.display">display</option>             <option value="product.json.digital_zoom">digital_zoom</option>             <option value="product.json.cpu_configuration">cpu_configuration</option>             <option value="product.json.control_type">control_type</option>             <option value="product.json.compatible_memory_cards">compatible_memory_cards</option>             <option value="product.json.combined_zoom">combined_zoom</option>             <option value="product.json.color">color</option>             <option value="product.json.clock_mode">clock_mode</option>             <option value="product.json.chassis_type">chassis_type</option>             <option value="product.json.camera_type">camera_type</option>             <option value="product.json.camcorder_type">camcorder_type</option>             <option value="product.json.camcorder_media_type">camcorder_media_type</option>             <option value="product.json.bus_type">bus_type</option>             <option value="product.json.brand">brand</option>             <option value="product.json.bluetooth_version">bluetooth_version</option>             <option value="product.json.battery_type">battery_type</option>             <option value="product.json.battery_life">battery_life</option>             <option value="product.json.backlight">backlight</option>             <option value="product.json.auto_focus">auto_focus</option>             <option value="product.json.audio_system">audio_system</option>             <option value="product.json.aspect_ratio">aspect_ratio</option>             <option value="product.json.alarm_clock">alarm_clock</option>             <option value="product.json.4g_standards">4g_standards</option>             <option value="product.json.4g">4g</option>             <option value="product.json.os_system">os_system</option>             <option value="product.json.wi_fi">wi_fi</option>             <option value="product.json.total_storage_capacity">total_storage_capacity</option>             <option value="product.json.bundled_product">bundled_product</option>      </optgroup> </select></div>   <div class="rule-operator-container"><select class="form-control" name="builder_rule_0_operator">             <option value="equal">equal</option>             <option value="greater">greater</option>             <option value="greater_or_equal">greater or equal</option>             <option value="less">less</option>             <option value="less_or_equal">less or equal</option>             <option value="in">is in</option>       </select></div>   <div class="rule-value-container"><input class="form-control" type="text" name="builder_rule_0_value_0"></div> </li></ul>   </dd> </dl></div>
+
+<div>
+    <div id="queryBuilderImport" style="display: none">
+        <input type="hidden" id="product_relation_querySet" name="product_relation[querySet]" value="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;condition&quot;:null,&quot;rules&quot;:{},&quot;id&quot;:&quot;product_sku&quot;,&quot;field&quot;:&quot;product_sku&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;123&quot;}],&quot;id&quot;:null,&quot;field&quot;:null,&quot;type&quot;:null,&quot;input&quot;:null,&quot;operator&quot;:null,&quot;value&quot;:null}">
+    </div>
+</div>
+
+<hr>
+
+<div id="rule-query-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="rule-query-table_length"><label>Show <select name="rule-query-table_length" aria-controls="rule-query-table" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="rule-query-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="rule-query-table"></label></div></div></div><div class="row"><div class="col-sm-12"><div class="dataTables_scroll"><div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;"><div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 100px; padding-right: 0px;"><table class="table table-striped table-bordered table-hover gui-table-data dataTable" data-ajax="/product-relation/edit/rule-query-table?data={&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;condition&quot;:null,&quot;rules&quot;:{},&quot;id&quot;:&quot;product_sku&quot;,&quot;field&quot;:&quot;product_sku&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;123&quot;}],&quot;id&quot;:null,&quot;field&quot;:null,&quot;type&quot;:null,&quot;input&quot;:null,&quot;operator&quot;:null,&quot;value&quot;:null}" data-processing="true" data-server-side="true" data-state-save="true" data-page-length="10" data-order="[    [&quot;0&quot;, &quot;asc&quot;]
+    ]" data-columns="[
+    {
+        &quot;className&quot;: &quot;column-spy_product_abstract.id_product_abstract&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-spy_product_abstract.sku&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-spy_product_abstract_localized_attributes.name&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-category_name&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-status&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-action&quot;
+            }
+    ]" data-column-defs="[{&quot;targets&quot;: &quot;_all&quot;, &quot;orderable&quot;: false }]" role="grid" style="margin-left: 0px; width: 100px;"><thead>
+    <tr role="row"><th id="spy_product_abstract.id_product_abstract" class="column-spy_product_abstract.id_product_abstract sorting_asc" tabindex="0" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-label="
+            ID
+        : activate to sort column descending" style="width: 0px;" aria-sort="ascending">
+            ID
+        </th><th id="spy_product_abstract.sku" class="column-spy_product_abstract.sku sorting" tabindex="0" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-label="
+            SKU
+        : activate to sort column ascending" style="width: 0px;">
+            SKU
+        </th><th id="spy_product_abstract_localized_attributes.name" class="column-spy_product_abstract_localized_attributes.name sorting" tabindex="0" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-label="
+            Name
+        : activate to sort column ascending" style="width: 0px;">
+            Name
+        </th><th id="category_name" class="column-category_name sorting" tabindex="0" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-label="
+            Categories
+        : activate to sort column ascending" style="width: 0px;">
+            Categories
+        </th><th id="status" class="column-status sorting_disabled" rowspan="1" colspan="1" aria-label="
+            Status
+        " style="width: 0px;">
+            Status
+        </th><th id="action" class="column-action sorting_disabled" rowspan="1" colspan="1" aria-label="
+            
+        " style="width: 0px;">
+            
+        </th></tr>
+</thead></table></div></div><div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;"><table class="table table-striped table-bordered table-hover gui-table-data dataTable" data-ajax="/product-relation/edit/rule-query-table?data={&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;condition&quot;:null,&quot;rules&quot;:{},&quot;id&quot;:&quot;product_sku&quot;,&quot;field&quot;:&quot;product_sku&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;123&quot;}],&quot;id&quot;:null,&quot;field&quot;:null,&quot;type&quot;:null,&quot;input&quot;:null,&quot;operator&quot;:null,&quot;value&quot;:null}" id="rule-query-table" data-processing="true" data-server-side="true" data-state-save="true" data-page-length="10" data-order="[    [&quot;0&quot;, &quot;asc&quot;]
+    ]" data-columns="[
+    {
+        &quot;className&quot;: &quot;column-spy_product_abstract.id_product_abstract&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-spy_product_abstract.sku&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-spy_product_abstract_localized_attributes.name&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-category_name&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-status&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-action&quot;
+            }
+    ]" data-column-defs="[{&quot;targets&quot;: &quot;_all&quot;, &quot;orderable&quot;: false }]" role="grid" aria-describedby="rule-query-table_info"><thead>
+    <tr role="row" style="height: 0px;"><th id="spy_product_abstract.id_product_abstract" class="column-spy_product_abstract.id_product_abstract sorting_asc" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+            ID
+        : activate to sort column descending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            ID
+        </div></th><th id="spy_product_abstract.sku" class="column-spy_product_abstract.sku sorting" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-label="
+            SKU
+        : activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            SKU
+        </div></th><th id="spy_product_abstract_localized_attributes.name" class="column-spy_product_abstract_localized_attributes.name sorting" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-label="
+            Name
+        : activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Name
+        </div></th><th id="category_name" class="column-category_name sorting" aria-controls="rule-query-table" rowspan="1" colspan="1" aria-label="
+            Categories
+        : activate to sort column ascending" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Categories
+        </div></th><th id="status" class="column-status sorting_disabled" rowspan="1" colspan="1" aria-label="
+            Status
+        " style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            Status
+        </div></th><th id="action" class="column-action sorting_disabled" rowspan="1" colspan="1" aria-label="
+            
+        " style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">
+            
+        </div></th></tr>
+</thead><tfoot><tr style="height: 0px;"></tr>
+</tfoot>
+    
+    
+<tbody><tr role="row" class="odd"><td class="column-spy_product_abstract.id_product_abstract sorting_1">123</td><td class=" column-spy_product_abstract.sku">123</td><td class=" column-spy_product_abstract_localized_attributes.name">HP EliteDesk 800 G2</td><td class=" column-category_name">Pc's/Workstations,Variant Showcase</td><td class=" column-status"><span class="label label-info">Active</span></td><td class=" column-action"><a href="/product-management/view?id-product-abstract=123" class="btn btn-xs btn-outline  btn-view" target="_blank"><i class="fa fa-caret-right"></i> View</a> <a href="www-test.de.project.local/en/hp-elitedesk-800-g2-123" class="btn btn-xs btn-outline  btn-view" target="_blank"><i class="fa fa-caret-right"></i> View in Shop</a></td></tr></tbody></table></div><div class="dataTables_scrollFoot" style="overflow: hidden; border: 0px; width: 100%;"><div class="dataTables_scrollFootInner" style="width: 100px; padding-right: 0px;"><table class="table table-striped table-bordered table-hover gui-table-data dataTable" data-ajax="/product-relation/edit/rule-query-table?data={&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;condition&quot;:null,&quot;rules&quot;:{},&quot;id&quot;:&quot;product_sku&quot;,&quot;field&quot;:&quot;product_sku&quot;,&quot;type&quot;:&quot;string&quot;,&quot;input&quot;:&quot;text&quot;,&quot;operator&quot;:&quot;equal&quot;,&quot;value&quot;:&quot;123&quot;}],&quot;id&quot;:null,&quot;field&quot;:null,&quot;type&quot;:null,&quot;input&quot;:null,&quot;operator&quot;:null,&quot;value&quot;:null}" data-processing="true" data-server-side="true" data-state-save="true" data-page-length="10" data-order="[    [&quot;0&quot;, &quot;asc&quot;]
+    ]" data-columns="[
+    {
+        &quot;className&quot;: &quot;column-spy_product_abstract.id_product_abstract&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-spy_product_abstract.sku&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-spy_product_abstract_localized_attributes.name&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-category_name&quot;
+        , &quot;orderable&quot;: true    }
+    ,    {
+        &quot;className&quot;: &quot;column-status&quot;
+            }
+    ,    {
+        &quot;className&quot;: &quot;column-action&quot;
+            }
+    ]" data-column-defs="[{&quot;targets&quot;: &quot;_all&quot;, &quot;orderable&quot;: false }]" role="grid" style="margin-left: 0px; width: 100px;"><tfoot><tr></tr>
+</tfoot></table></div></div></div><div id="rule-query-table_processing" class="dataTables_processing panel panel-default" style="display: none;">Processing...</div></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="rule-query-table_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="rule-query-table_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="rule-query-table_previous"><a href="#" aria-controls="rule-query-table" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="rule-query-table" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="rule-query-table_next"><a href="#" aria-controls="rule-query-table" data-dt-idx="2" tabindex="0">Next</a></li></ul></div></div></div></div>
+
+
+                </div>
+            </div>
+            </div>
+
+            <div class="tabs-footer">
+                            <input type="submit" id="submit-relation" class="btn btn-create" value="Save">
+            
+                            <span class="tabs-navigation pull-right">
+                    <a href="#" class="btn btn-tab-previous btn-outline btn-view hidden"><i class="fa fa-chevron-left"></i> Previous</a>
+                    <a href="#" class="btn btn-tab-next btn-outline btn-view">Next <i class="fa fa-chevron-right"></i></a>
+                </span>
+                    </div>
+    </div>
+
+
+<input type="hidden" id="product_relation__token" name="product_relation[_token]" value="eD9wbeSEQ1cuY4KcNIrmKZanHOUodpfW5yrazKnRRY4">
+    </form>
+
+        </div>
+        <div class="footer">
+            <div>
+                <strong>Copyright</strong> Spryker GmbH © 2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+        <script src="/assets/js/spryker-zed-gui-commons.js"></script>
+
+    <script src="/assets/js/spryker-zed-product-relation.js"></script>
+
+
+
+<div id="modal-alert" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content alert" id="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="modal-title"></h4>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div></body></html>
