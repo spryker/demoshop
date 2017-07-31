@@ -13,7 +13,7 @@ coverage:
 
 suites:
     Communication:
-        path: .
+        path: Communication
         class_name: AssetsCommunicationTester
         modules:
             enabled:

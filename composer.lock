@@ -1630,6 +1630,7 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
 =======
 <<<<<<< HEAD
@@ -1638,6 +1639,9 @@
                 "reference": "748c80fbff5469c8ccfef397609054be13cf3570"
 >>>>>>> core-1652 update spryker/spryker
 >>>>>>> core-1652 update spryker/spryker
+=======
+                "reference": "4fce9039def8a88a90181c2ece09e9ad54352e85"
+>>>>>>> core-1652 update codeception configs
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1815,6 +1819,7 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 08:43:24"
 =======
 <<<<<<< HEAD
@@ -1823,6 +1828,9 @@
             "time": "2017-07-31 07:20:40"
 >>>>>>> core-1652 update spryker/spryker
 >>>>>>> core-1652 update spryker/spryker
+=======
+            "time": "2017-07-31 13:05:55"
+>>>>>>> core-1652 update codeception configs
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6652,8 +6660,13 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "description": "CodeGenerator module",
             "time": "2017-08-02T15:45:37+00:00"
+=======
+            "description": "CodeGenerator bundle",
+            "time": "2017-06-28 10:19:12"
+>>>>>>> core-1652 update codeception configs
         },
         {
             "name": "spryker/code-sniffer",
@@ -6708,7 +6721,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "9d82700557e1b94128193b9d6e579c7e52ac63a2"
+                "reference": "2cc8ca4b76469ff0bbbf91100212f4bdf7b45c0a"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6759,7 +6772,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-30T19:53:34+00:00"
+            "time": "2017-07-31 09:27:06"
         },
         {
             "name": "squizlabs/php_codesniffer",
