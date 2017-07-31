@@ -36,6 +36,9 @@ class PasswordController extends AbstractCustomerController
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
+            $customerTransfer->setRestorePasswordLink(
+                $this->getApplication()->url('password/restore', ['token' => 'token-placeholder'])
+            );
 
             $customerResponseTransfer = $this->sendPasswordRestoreMail($customerTransfer);
             $this->processResponseErrors($customerResponseTransfer);

@@ -140,7 +140,7 @@
     "spryker/queue": "^0.3.0",
     "spryker/quote": "^1.0.0",
     "spryker/rabbit-mq": "^0.1.0",
-    "spryker/redis": "2.0.0",
+    "spryker/redis": "^2.0.0",
     "spryker/refund": "^5.0.0",
     "spryker/sales": "^7.0.0",
     "spryker/sales-product-connector": "^1.0.0",

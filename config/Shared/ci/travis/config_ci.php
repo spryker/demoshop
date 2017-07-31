@@ -79,7 +79,7 @@ $config[TestifyConstants::BOOTSTRAP_CLASS_ZED] = ZedBootstrap::class;
 $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
 $config[StorageConstants::STORAGE_REDIS_PORT] = '6379';
-$config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
+$config[StorageConstants::STORAGE_REDIS_PASSWORD] = false;
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 3;
 
 // ---------- Propel
