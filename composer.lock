@@ -1638,6 +1638,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
 =======
 =======
@@ -1699,6 +1700,9 @@
 =======
                 "reference": "ae4bc4e3da4a774e6ea78ab7e83adda924642193"
 >>>>>>> core-1590 update spryker/spryker
+>>>>>>> core-1590 update spryker/spryker
+=======
+                "reference": "c6ca43fbdf693df5f15f7fe4c0b41eadf693910f"
 >>>>>>> core-1590 update spryker/spryker
             },
             "require": {
@@ -1884,6 +1888,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-07-31 14:54:04"
 =======
 =======
@@ -1945,6 +1950,9 @@
 =======
             "time": "2017-07-31 09:12:33"
 >>>>>>> core-1590 update spryker/spryker
+>>>>>>> core-1590 update spryker/spryker
+=======
+            "time": "2017-07-31 14:47:11"
 >>>>>>> core-1590 update spryker/spryker
         },
         {
@@ -6565,15 +6573,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "d457e0cd5dbe5908768158fc48f7a2503fa2b2d3"
-=======
-                "reference": "d536c93fa6af5ead362b2e0dfb03cce62c9344f1"
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
-=======
-                "reference": "d457e0cd5dbe5908768158fc48f7a2503fa2b2d3"
->>>>>>> core-1590 update spryker/git-hook
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6625,19 +6625,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-07-26T14:27:57+00:00"
-=======
-            "time": "2017-07-26 08:52:08"
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
-=======
-            "time": "2017-07-26T14:27:57+00:00"
->>>>>>> core-1590 update spryker/git-hook
-=======
             "time": "2017-07-26 14:27:57"
->>>>>>> core-1590 update spryker/spryker
         },
         {
             "name": "spryker/code-generator",
