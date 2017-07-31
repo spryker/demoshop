@@ -1635,10 +1635,13 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
 =======
 =======
 >>>>>>> update spryker/git-hook
+=======
+>>>>>>> update githook config, ignore platform reqs in travis
 <<<<<<< HEAD
                 "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
 =======
@@ -1650,7 +1653,13 @@
 =======
                 "reference": "883ee882714333200afd44ee07347c0136bf2356"
 >>>>>>> update spryker/git-hook
+<<<<<<< HEAD
 >>>>>>> update spryker/git-hook
+=======
+=======
+                "reference": "1c1a9fc18e8633e9851c3935828c7f0e4c28d310"
+>>>>>>> update githook config, ignore platform reqs in travis
+>>>>>>> update githook config, ignore platform reqs in travis
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1829,10 +1838,13 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 08:43:24"
 =======
 =======
 >>>>>>> update spryker/git-hook
+=======
+>>>>>>> update githook config, ignore platform reqs in travis
 <<<<<<< HEAD
             "time": "2017-07-31 14:54:04"
 =======
@@ -1844,7 +1856,13 @@
 =======
             "time": "2017-07-28 12:30:45"
 >>>>>>> update spryker/git-hook
+<<<<<<< HEAD
 >>>>>>> update spryker/git-hook
+=======
+=======
+            "time": "2017-07-31 14:16:47"
+>>>>>>> update githook config, ignore platform reqs in travis
+>>>>>>> update githook config, ignore platform reqs in travis
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4820,16 +4838,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.0.6",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1"
+                "reference": "4d4896e553f2094e657fe493506dc37c509d4e2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0808939f81c1347a3c8a82a5925385a08074b0f1",
-                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4d4896e553f2094e657fe493506dc37c509d4e2b",
+                "reference": "4d4896e553f2094e657fe493506dc37c509d4e2b",
                 "shasum": ""
             },
             "require": {
@@ -4867,7 +4885,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-06-28T20:53:48+00:00"
+            "time": "2017-07-28T14:45:09+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -6743,7 +6761,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "f8eaed36c2369a8497f4cb695a650f62a9197b6f"
+                "reference": "2cc8ca4b76469ff0bbbf91100212f4bdf7b45c0a"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6794,7 +6812,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-28T13:01:11+00:00"
+            "time": "2017-07-31T09:27:06+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

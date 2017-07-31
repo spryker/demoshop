@@ -11,3 +11,5 @@ includedFileCommands:
   - GitHook\Command\FileCommand\PreCommit\PhpStanCheckCommand
   - GitHook\Command\FileCommand\PreCommit\ArchitectureCheckCommand
 
+includedRepositoryCommands:
+  - GitHook\Command\RepositoryCommand\PreCommit\GitAddCommand
