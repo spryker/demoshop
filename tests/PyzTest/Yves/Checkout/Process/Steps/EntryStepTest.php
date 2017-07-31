@@ -7,8 +7,8 @@
 
 namespace PyzTest\Yves\Checkout\Process\Steps;
 
-use Generated\Shared\Transfer\QuoteTransfer;
 use Codeception\Test\Unit;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Checkout\Process\Steps\EntryStep;
 use Symfony\Component\HttpFoundation\Request;

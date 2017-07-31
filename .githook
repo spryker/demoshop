@@ -9,3 +9,5 @@ includedFileCommands:
 #  - GitHook\Command\FileCommand\PreCommit\PhpMdCheckCommand
 #  - GitHook\Command\FileCommand\PreCommit\ArchitectureCheckCommand
 
+includedRepositoryCommands:
+  - GitHook\Command\RepositoryCommand\PreCommit\GitAddCommand

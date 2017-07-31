@@ -13,7 +13,8 @@ use PyzTest\Yves\Customer\PageObject\CustomerAddressPage;
 
 /**
  * Auto-generated group annotations
- * @group Acceptance
+ * @group PyzTest
+ * @group Yves
  * @group Customer
  * @group Yves
  * @group CustomerAddressCest

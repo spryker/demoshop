@@ -16,7 +16,8 @@ use PyzTest\Yves\Customer\PageObject\CustomerProfilePage;
 
 /**
  * Auto-generated group annotations
- * @group Acceptance
+ * @group PyzTest
+ * @group Yves
  * @group Customer
  * @group Yves
  * @group CustomerOverviewCest

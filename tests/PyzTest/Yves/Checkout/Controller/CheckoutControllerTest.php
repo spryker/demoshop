@@ -28,7 +28,6 @@ use Spryker\Client\ZedRequest\Client\HttpClient;
 use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
-use Spryker\Yves\Kernel\Plugin\Pimple;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;

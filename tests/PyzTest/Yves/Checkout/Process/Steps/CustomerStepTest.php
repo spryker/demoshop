@@ -7,9 +7,9 @@
 
 namespace PyzTest\Yves\Checkout\Process\Steps;
 
+use Codeception\Test\Unit;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Codeception\Test\Unit;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\CustomerStep;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;

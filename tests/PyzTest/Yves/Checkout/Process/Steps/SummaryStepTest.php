@@ -7,11 +7,11 @@
 
 namespace PyzTest\Yves\Checkout\Process\Steps;
 
+use Codeception\Test\Unit;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Codeception\Test\Unit;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;

@@ -2,7 +2,6 @@
 
 namespace PyzTest\Zed\Console\Console;
 
-use ConsoleTester;
 use PyzTest\Zed\Console\ConsoleConsoleTester;
 
 /**

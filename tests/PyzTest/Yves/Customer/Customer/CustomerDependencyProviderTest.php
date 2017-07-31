@@ -23,6 +23,7 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
  * @group PyzTest
  * @group Yves
  * @group Customer
+ * @group Customer
  * @group CustomerDependencyProviderTest
  * Add your own group annotations below this line
  */

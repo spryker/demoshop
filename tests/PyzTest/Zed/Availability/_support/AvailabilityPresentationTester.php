@@ -1,6 +1,8 @@
 <?php
 namespace PyzTest\Zed\Availability;
 
+use Codeception\Actor;
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -15,12 +17,14 @@ namespace PyzTest\Zed\Availability;
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
-class AvailabilityPresentationTester extends \Codeception\Actor
+ */
+class AvailabilityPresentationTester extends Actor
 {
+
     use _generated\AvailabilityPresentationTesterActions;
 
    /**
     * Define custom actions here
     */
+
 }

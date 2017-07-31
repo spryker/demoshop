@@ -7,7 +7,6 @@
 
 namespace PyzTest\Zed\Console\Console;
 
-use Acceptance\Console\Tester\ConsoleTester;
 use PHPUnit_Framework_Assert;
 use PyzTest\Zed\Console\ConsoleConsoleTester;
 

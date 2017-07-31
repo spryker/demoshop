@@ -16,6 +16,7 @@ use Pyz\Yves\Customer\CustomerFactory;
  * @group PyzTest
  * @group Yves
  * @group Customer
+ * @group Customer
  * @group CustomerFactoryTest
  * Add your own group annotations below this line
  */

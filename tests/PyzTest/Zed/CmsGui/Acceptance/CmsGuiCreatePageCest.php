@@ -6,11 +6,10 @@
 
 namespace PyzTest\Zed\CmsGui;
 
-use ZedAcceptanceTester;
-
 /**
  * Auto-generated group annotations
- * @group Acceptance
+ * @group PyzTest
+ * @group Zed
  * @group CmsGui
  * @group CmsGuiCreatePageCest
  * Add your own group annotations below this line

@@ -7,9 +7,9 @@
 
 namespace PyzTest\Yves\Checkout\Process\Steps;
 
+use Codeception\Test\Unit;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Codeception\Test\Unit;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;

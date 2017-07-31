@@ -7,10 +7,10 @@
 
 namespace PyzTest\Yves\Checkout\Process\Steps;
 
+use Codeception\Test\Unit;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Codeception\Test\Unit;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Spryker\Client\Calculation\CalculationClientInterface;

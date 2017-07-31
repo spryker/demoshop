@@ -1,6 +1,8 @@
 <?php
 namespace PyzTest\Yves\Customer;
 
+use Codeception\Actor;
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -15,12 +17,14 @@ namespace PyzTest\Yves\Customer;
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
-class CustomerCustomerTester extends \Codeception\Actor
+ */
+class CustomerCustomerTester extends Actor
 {
+
     use _generated\CustomerCustomerTesterActions;
 
    /**
     * Define custom actions here
     */
+
 }

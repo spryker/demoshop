@@ -11,7 +11,8 @@ use Acceptance\CmsGui\Tester\CmsPageListTester;
 
 /**
  * Auto-generated group annotations
- * @group Acceptance
+ * @group PyzTest
+ * @group Zed
  * @group CmsGui
  * @group CmsGuiPageListCest
  * Add your own group annotations below this line
