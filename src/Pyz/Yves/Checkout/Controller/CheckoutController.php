@@ -8,6 +8,8 @@
 namespace Pyz\Yves\Checkout\Controller;
 
 use Pyz\Yves\Application\Controller\AbstractController;
+use Pyz\Yves\Checkout\Form\Voucher\VoucherForm;
+use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -135,6 +137,29 @@ class CheckoutController extends AbstractController
     public function errorAction()
     {
         return [];
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function addVoucherAction(Request $request)
+    {
+        $form = $this->getFactory()
+            ->createCheckoutFormFactory()
+            ->createVoucherForm()
+            ->handleRequest($request);
+
+        if ($form->isValid()) {
+            $voucherCode = $form->get(VoucherForm::FIELD_VOUCHER_DISCOUNTS)->getData();
+
+            $this->getFactory()
+                ->createVoucherHandler()
+                ->add($voucherCode);
+        }
+
+        return $this->redirectResponseInternal(CheckoutControllerProvider::CHECKOUT_SUMMARY);
     }
 
     /**

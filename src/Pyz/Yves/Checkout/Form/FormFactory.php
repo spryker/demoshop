@@ -11,6 +11,7 @@ use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
+use Pyz\Yves\Checkout\Form\Voucher\VoucherForm;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
 use Pyz\Yves\Customer\Form\CustomerCheckoutForm;
 use Pyz\Yves\Customer\Form\DataProvider\CheckoutAddressFormDataProvider;
@@ -105,6 +106,15 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    public function createVoucherForm()
+    {
+        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
+            ->create($this->createVoucherFormType());
+    }
+
+    /**
      * @return \Symfony\Component\Form\FormTypeInterface[]
      */
     protected function createCustomerFormTypes()
@@ -151,7 +161,16 @@ class FormFactory extends SprykerFormFactory
     {
         return [
             $this->createSummaryForm(),
+            $this->createVoucherFormType(),
         ];
+    }
+
+    /**
+     * @return VoucherForm
+     */
+    protected function createVoucherFormType()
+    {
+        return new VoucherForm();
     }
 
     /**

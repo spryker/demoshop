@@ -7,8 +7,11 @@
 
 namespace Pyz\Yves\Checkout;
 
+use Pyz\Yves\Checkout\Handler\VoucherHandler;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Process\StepFactory;
+use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CheckoutFactory extends AbstractFactory
@@ -41,6 +44,18 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
+     * @return VoucherHandler
+     */
+    public function createVoucherHandler()
+    {
+        return new VoucherHandler(
+            $this->getCalculationClient(),
+            $this->getCartClient(),
+            $this->getFlashMessenger()
+        );
+    }
+
+    /**
      * @return \Symfony\Component\Routing\Generator\UrlGeneratorInterface
      */
     protected function getUrlGenerator()
@@ -54,6 +69,30 @@ class CheckoutFactory extends AbstractFactory
     protected function getApplication()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_APPLICATION);
+    }
+
+    /**
+     * @return CalculationClientInterface
+     */
+    protected function getCalculationClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CALCULATION);
+    }
+
+    /**
+     * @return CartClientInterface
+     */
+    protected function getCartClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
+    }
+
+    /**
+     * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
+     */
+    protected function getFlashMessenger()
+    {
+        return $this->getApplication()['flash_messenger'];
     }
 
 }
