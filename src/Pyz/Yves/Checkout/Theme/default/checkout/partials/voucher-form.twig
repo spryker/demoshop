@@ -5,7 +5,7 @@
             <h5>{{ voucherForm.voucherDiscounts.vars.label | trans }}</h5>
             <div class="input-group">
                 {% do voucherForm.voucherDiscounts.setRendered %}
-                <input name="{{ voucherForm.voucherDiscounts.vars.name }}" class="input-group-field" value="">
+                <input name="{{ voucherForm.voucherDiscounts.vars.full_name }}" class="input-group-field" value="">
                 <div class="input-group-button">
                     <button class="button expanded info" type="submit"><i class="fa fa-gift"></i>{{ 'cart.voucher.redeem' | trans }}</button>
                 </div>
