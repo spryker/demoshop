@@ -8,8 +8,6 @@
 namespace Pyz\Zed\Console;
 
 use Pyz\Zed\DataImport\DataImportConfig;
-use Pyz\Zed\Importer\Communication\Console\DemoDataImportConsole;
-
 use Pyz\Zed\Updater\Communication\Console\UpdaterConsole;
 use Spryker\Shared\Config\Environment;
 use Spryker\Zed\Cache\Communication\Console\EmptyAllCachesConsole;
@@ -44,6 +42,7 @@ use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckCondi
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
+use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelRelationUpdaterConsole;
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelValidityConsole;
 use Spryker\Zed\ProductRelation\Communication\Console\ProductRelationUpdaterConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
@@ -89,7 +88,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new CollectorSearchExportConsole(),
             new TouchCleanUpConsole(),
             new EmptyAllCachesConsole(),
-            new DemoDataImportConsole(),
             new UpdaterConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
@@ -107,6 +105,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new QueueWorkerConsole(),
             new ProductRelationUpdaterConsole(),
             new ProductLabelValidityConsole(),
+            new ProductLabelRelationUpdaterConsole(),
             new DataImportConsole(),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_CATEGORY_TEMPLATE),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_CATEGORY),

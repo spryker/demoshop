@@ -95,7 +95,7 @@ class CartFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\Kernel\Application
      */
-    protected function createApplication()
+    protected function getApplication()
     {
         return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_APPLICATION);
     }
@@ -105,7 +105,7 @@ class CartFactory extends AbstractFactory
      */
     protected function getFlashMessenger()
     {
-        return $this->createApplication()['flash_messenger'];
+        return $this->getApplication()['flash_messenger'];
     }
 
     /**
@@ -113,13 +113,13 @@ class CartFactory extends AbstractFactory
      */
     protected function getLocale()
     {
-        return $this->createApplication()['locale'];
+        return $this->getApplication()['locale'];
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createVoucherForm()
+    public function getVoucherForm()
     {
         return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
             ->create($this->createVoucherFormType());

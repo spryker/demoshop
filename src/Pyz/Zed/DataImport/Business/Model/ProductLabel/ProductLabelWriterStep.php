@@ -27,6 +27,7 @@ class ProductLabelWriterStep extends TouchAwareStep implements DataImportStepInt
     const KEY_NAME = 'name';
     const KEY_IS_ACTIVE = 'is_active';
     const KEY_IS_EXCLUSIVE = 'is_exclusive';
+    const KEY_IS_DYNAMIC = 'is_dynamic';
     const KEY_FRONT_END_REFERENCE = 'front_end_reference';
 
     const KEY_VALID_FROM = 'valid_from';
@@ -62,6 +63,7 @@ class ProductLabelWriterStep extends TouchAwareStep implements DataImportStepInt
         $productLabelEntity
             ->setIsActive($dataSet[static::KEY_IS_ACTIVE])
             ->setIsExclusive($dataSet[static::KEY_IS_EXCLUSIVE])
+            ->setIsDynamic($dataSet[static::KEY_IS_DYNAMIC])
             ->setFrontEndReference($dataSet[static::KEY_FRONT_END_REFERENCE]);
 
         if ($dataSet[static::KEY_VALID_FROM]) {
@@ -129,6 +131,10 @@ class ProductLabelWriterStep extends TouchAwareStep implements DataImportStepInt
      */
     protected function findOrCreateProductLabelToProductAbstractRelations(DataSetInterface $dataSet, SpyProductLabel $productLabelEntity)
     {
+        if (!$dataSet[static::KEY_PRODUCT_ABSTRACT_SKUS]) {
+            return;
+        }
+
         $productAbstractSkus = explode(',', $dataSet[static::KEY_PRODUCT_ABSTRACT_SKUS]);
 
         if (!count($productAbstractSkus)) {

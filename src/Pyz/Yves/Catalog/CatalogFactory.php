@@ -24,7 +24,7 @@ class CatalogFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\Category\CategoryClientInterface
      */
-    public function createCategoryClient()
+    public function getCategoryClient()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATEGORY);
     }
@@ -32,7 +32,7 @@ class CatalogFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\Locale\LocaleClientInterface
      */
-    public function createLocaleClient()
+    public function getLocaleClient()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_LOCALE);
     }
@@ -43,14 +43,6 @@ class CatalogFactory extends AbstractFactory
     protected function getSearchClient()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_SEARCH);
-    }
-
-    /**
-     * @return \Pyz\Yves\Category\Plugin\CategoryReaderPlugin
-     */
-    public function getCategoryReaderPlugin()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::PLUGIN_CATEGORY_READER);
     }
 
 }

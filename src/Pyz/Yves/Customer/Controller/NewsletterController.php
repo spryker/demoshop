@@ -35,7 +35,7 @@ class NewsletterController extends AbstractCustomerController
 
         $newsletterForm = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createNewsletterSubscriptionForm()
             ->handleRequest($request);
 
@@ -81,7 +81,7 @@ class NewsletterController extends AbstractCustomerController
     protected function processSubscription(CustomerTransfer $customerTransfer)
     {
         $subscriptionResult = $this->getFactory()
-            ->createNewsletterClient()
+            ->getNewsletterClient()
             ->subscribeForEditorialNewsletter($customerTransfer);
 
         if ($subscriptionResult->getIsSuccess()) {
@@ -101,7 +101,7 @@ class NewsletterController extends AbstractCustomerController
     protected function processUnsubscription(CustomerTransfer $customerTransfer)
     {
         $this->getFactory()
-            ->createNewsletterClient()
+            ->getNewsletterClient()
             ->unsubscribeFromAllNewsletters($customerTransfer);
 
         $this->addSuccessMessage(self::MESSAGE_UNSUBSCRIPTION_SUCCESS);
@@ -115,7 +115,7 @@ class NewsletterController extends AbstractCustomerController
     protected function getFormData(CustomerTransfer $customerTransfer)
     {
         $subscriptionResultTransfer = $this->getFactory()
-            ->createNewsletterClient()
+            ->getNewsletterClient()
             ->checkEditorialNewsletterSubscription($customerTransfer);
 
         return [

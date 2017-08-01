@@ -29,13 +29,16 @@ class PasswordController extends AbstractCustomerController
     {
         $form = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createForgottenPasswordForm()
             ->handleRequest($request);
 
         if ($form->isValid()) {
             $customerTransfer = new CustomerTransfer();
             $customerTransfer->fromArray($form->getData());
+            $customerTransfer->setRestorePasswordLink(
+                $this->getApplication()->url('password/restore', ['token' => 'token-placeholder'])
+            );
 
             $customerResponseTransfer = $this->sendPasswordRestoreMail($customerTransfer);
             $this->processResponseErrors($customerResponseTransfer);
@@ -59,7 +62,7 @@ class PasswordController extends AbstractCustomerController
     {
         $form = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createFormRestorePassword()
             ->setData([
                 RestorePasswordForm::FIELD_RESTORE_PASSWORD_KEY => $request->query->get('token'),

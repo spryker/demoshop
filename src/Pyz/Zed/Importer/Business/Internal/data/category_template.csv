@@ -1,4 +1,0 @@
-template_name,template_path
-Catalog (default),@Catalog/catalog/index.twig
-Catalog + CMS Block,@Catalog/catalog/catalog-cms-block.twig
-CMS Block,@Catalog/catalog/cms-block.twig

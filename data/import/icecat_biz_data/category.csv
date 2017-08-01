@@ -3,8 +3,8 @@ demoshop,,Demoshop,Demoshop,Demoshop,Demoshop,Deutsche Version des Demoshop,Engl
 cameras-and-camcorder,demoshop,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,1,1,1,1,0,1,90,Catalog (default)
 camcorders,cameras-and-camcorder,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,1,1,1,1,0,1,90,Catalog (default)
 digital-cameras,cameras-and-camcorder,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,1,1,1,1,0,1,100,Catalog (default)
-computer,demoshop,Computer,Computer,Computer,Computer,Computer,Computer,Computer,Computer,1,1,1,1,0,1,100,Catalog (default)
-notebooks,computer,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,1,1,1,1,0,1,100,CMS Block
+computer,demoshop,Computer,Computer,Computer,Computer,Computer,Computer,Computer,Computer,1,1,1,1,0,1,100,CMS Block
+notebooks,computer,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,Notebooks,1,1,1,1,0,1,100,Catalog + CMS Block
 pcs-and-workstations,computer,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,Pc's/Workstations,1,1,1,1,0,1,90,Catalog (default)
 tablets,computer,Tablets,Tablets,Tablets,Tablets,Tablets,Tablets,Tablets,Tablets,1,1,1,1,0,1,80,Catalog + CMS Block
 smart-wearables,demoshop,Intelligente tragbare Geräte,Smart Wearables,Intelligente tragbare Geräte,Smart Wearables,Intelligente tragbare Geräte,Smart Wearables,Intelligente tragbare Geräte,Smart Wearables,1,1,1,1,0,1,70,Catalog (default)

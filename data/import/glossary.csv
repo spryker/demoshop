@@ -409,6 +409,12 @@ customer.authorization.success,Registration Successful,en_US
 customer.authorization.success,Registrierung erfolgreich,de_DE
 customer.profile.change.success,Profile was successfully saved,en_US
 customer.profile.change.success,Profil wurde erfolgreich gespeichert,de_DE
+customer.password.restore,Set a new password,en_US
+customer.password.restore,Neues Passwort erstellen,de_DE
+customer.password.changed,Your password was changed successfully,en_US
+customer.password.changed,Ihr Passwort wurde erfolgreich geändert,de_DE
+customer.token.invalid,Token is invalid,en_US
+customer.token.invalid,Token ist ungültig,de_DE
 customer.password.invalid_password,Current password is wrong,en_US
 customer.password.invalid_password,Aktuelles Passwort ist falsch,de_DE
 customer.password.invalid,Password is invalid,en_US
@@ -811,12 +817,12 @@ mail.customer.registration.subject,Vielen Dank für Ihre Anmeldung bei Spryker S
 mail.customer.registration.subject,Thank you for signing up with Spryker Shop!,en_US
 mail.customer.registration.text,Vielen Dank für Ihre Anmeldung bei Spryker Shop!,de_DE
 mail.customer.registration.text,Thank you for signing up with Spryker Shop!,en_US
-mail.customer.restore_password.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
-mail.customer.restore_password.subject,Your password was changed successfully!,en_US
-mail.customer.restore_password.text,Ihr Passwort wurde erfolgreich geändert!,de_DE
-mail.customer.restore_password.text,Your password was changed successfully!,en_US
-mail.customer.restore_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
-mail.customer.restore_password_confirmation.subject,Your password was changed successfully!,en_US
+mail.customer.restore_password.subject,Neues Passwort für Ihren Spryker Shop Account,de_DE
+mail.customer.restore_password.subject,New password for your Spryker Shop account,en_US
+mail.customer.restore_password.text,"Es wurde ein neues Passwort für Ihren Spryker Shop Account angefordert. Wenn Sie nicht um um eine Neueinrichtung des Passworts gebeten haben, ignorieren Sie bitte diese Email. Klicken Sie auf den folgedenen Link, um Ihr Passwort zu ändern:",de_DE
+mail.customer.restore_password.text,"Somebody has requested a new password for your Spryker Shop account. If it's not you, just ignore this email. If it's you, please follow the link bellow:",en_US
+mail.customer.reset_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
+mail.customer.reset_password_confirmation.subject,Your password was changed successfully!,en_US
 mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich geändert!,de_DE
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
@@ -955,3 +961,9 @@ cart.item.item_total,Item total,en_US
 cart.item.item_total,Artikel Gesamt,de_DE
 cart.shipping,Shipping,en_US
 cart.shipping,Versand,de_DE
+catalog.sale,SALE %,en_US
+catalog.sale,SALE %,de_DE
+catalog.new,New,en_US
+catalog.new,Neu,de_DE
+product.filter.label,Product Labels,en_US
+product.filter.label,Product Labels,de_DE

@@ -34,7 +34,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function createCustomerFormCollection()
     {
-        return $this->createFormCollection($this->createCustomerFormTypes());
+        return $this->createFormCollection($this->getCustomerFormTypes());
     }
 
     /**
@@ -42,7 +42,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function createAddressFormCollection()
     {
-        return $this->createFormCollection($this->createAddressFormTypes(), $this->createAddressFormDataProvider());
+        return $this->createFormCollection($this->getAddressFormTypes(), $this->createAddressFormDataProvider());
     }
 
     /**
@@ -52,17 +52,25 @@ class FormFactory extends SprykerFormFactory
      */
     public function createShipmentFormCollection()
     {
-        return $this->createFormCollection($this->createShipmentFormTypes(), $this->getShipmentFormDataProviderPlugin());
+        return $this->createFormCollection($this->getShipmentFormTypes(), $this->getShipmentFormDataProviderPlugin());
     }
 
     /**
      * @return \Symfony\Component\Form\FormTypeInterface[]
      */
-    protected function createShipmentFormTypes()
+    protected function getShipmentFormTypes()
     {
         return [
-            new ShipmentForm(),
+            $this->createShipmentForm(),
         ];
+    }
+
+    /**
+     * @return \Pyz\Yves\Shipment\Form\ShipmentForm
+     */
+    protected function createShipmentForm()
+    {
+        return new ShipmentForm();
     }
 
     /**
@@ -117,7 +125,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @return \Symfony\Component\Form\FormTypeInterface[]
      */
-    protected function createCustomerFormTypes()
+    protected function getCustomerFormTypes()
     {
         return [
             $this->createLoginForm(),
@@ -139,11 +147,19 @@ class FormFactory extends SprykerFormFactory
     /**
      * @return \Symfony\Component\Form\FormTypeInterface[]
      */
-    protected function createAddressFormTypes()
+    protected function getAddressFormTypes()
     {
         return [
-            new CheckoutAddressCollectionForm(),
+            $this->createCheckoutAddressCollectionForm(),
         ];
+    }
+
+    /**
+     * @return \Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm
+     */
+    protected function createCheckoutAddressCollectionForm()
+    {
+        return new CheckoutAddressCollectionForm();
     }
 
     /**

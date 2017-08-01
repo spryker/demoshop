@@ -46,7 +46,7 @@ $config[PropelQueryBuilderConstants::ZED_DB_ENGINE] = $config[PropelConstants::Z
 $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
 $config[StorageConstants::STORAGE_REDIS_PORT] = '10009';
-$config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
+$config[StorageConstants::STORAGE_REDIS_PASSWORD] = false;
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
 
 // ---------- RabbitMQ
@@ -99,16 +99,14 @@ $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
 $config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/%s/cache/Yves/twig/.pathCache',
+    '%s/data/%s/cache/Yves/twig/.pathCache',
     APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION_ENV
+    $CURRENT_STORE
 );
 $config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/%s/cache/Zed/twig/.pathCache',
+    '%s/data/%s/cache/Zed/twig/.pathCache',
     APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION_ENV
+    $CURRENT_STORE
 );
 
 // ---------- Navigation
