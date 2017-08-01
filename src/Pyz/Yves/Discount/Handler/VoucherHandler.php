@@ -4,7 +4,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\Checkout\Handler;
+namespace Pyz\Yves\Discount\Handler;
 
 use ArrayObject;
 use Generated\Shared\Transfer\DiscountTransfer;
@@ -13,7 +13,7 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
-class VoucherHandler extends BaseHandler
+class VoucherHandler extends BaseHandler implements VoucherHandlerInterface
 {
 
     /**
