@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "8be0b050be97992702df9e33db0daa21",
 =======
 <<<<<<< HEAD
@@ -13,6 +14,9 @@
     "content-hash": "15af6c6a5bbdb153d0467168d0f36a88",
 >>>>>>> Added spryker/git-hook
 >>>>>>> Added spryker/git-hook
+=======
+    "content-hash": "395e14db89b2bf472a6b0706c9a1659f",
+>>>>>>> update travis
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1636,6 +1640,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
 =======
 =======
@@ -1660,6 +1665,9 @@
                 "reference": "1c1a9fc18e8633e9851c3935828c7f0e4c28d310"
 >>>>>>> update githook config, ignore platform reqs in travis
 >>>>>>> update githook config, ignore platform reqs in travis
+=======
+                "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
+>>>>>>> update travis
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1839,6 +1847,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 08:43:24"
 =======
 =======
@@ -1863,6 +1872,9 @@
             "time": "2017-07-31 14:16:47"
 >>>>>>> update githook config, ignore platform reqs in travis
 >>>>>>> update githook config, ignore platform reqs in travis
+=======
+            "time": "2017-07-31 14:54:04"
+>>>>>>> update travis
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6658,6 +6670,7 @@
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 10:03:12"
 =======
 <<<<<<< HEAD
@@ -6666,6 +6679,9 @@
             "time": "2017-07-26 14:27:57"
 >>>>>>> Added spryker/git-hook
 >>>>>>> Added spryker/git-hook
+=======
+            "time": "2017-07-26 14:27:57"
+>>>>>>> update travis
         },
         {
             "name": "spryker/code-generator",
