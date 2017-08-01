@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "43468f1da9897cb6f97cdaed37592eacc461bbb9"
+                "reference": "05fab94cb594d95bb71a8aece0817b098be8583b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1799,7 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-01 10:40:45"
+            "time": "2017-08-01 13:26:29"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6745,7 +6745,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.3.5",
+            "version": "v3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -6858,7 +6858,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.3.5",
+            "version": "v3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
