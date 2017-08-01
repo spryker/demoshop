@@ -21,7 +21,6 @@ class Environment extends Module
 
         defined('APPLICATION_ENV') || define('APPLICATION_ENV', 'devtest');
         defined('APPLICATION_STORE') || define('APPLICATION_STORE', (isset($_SERVER['APPLICATION_STORE'])) ? $_SERVER['APPLICATION_STORE'] : 'DE');
-        defined('APPLICATION') || define('APPLICATION', 'ZED');
 
         defined('APPLICATION_ROOT_DIR') || define('APPLICATION_ROOT_DIR', $rootDir);
         defined('APPLICATION_SOURCE_DIR') || define('APPLICATION_SOURCE_DIR', APPLICATION_ROOT_DIR . '/src');
