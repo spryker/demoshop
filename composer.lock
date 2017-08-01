@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "05fab94cb594d95bb71a8aece0817b098be8583b"
+                "reference": "b84f9cff48d90b6bdb79baec9bc0f039332eef7a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1799,7 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-01 13:26:29"
+            "time": "2017-08-01 15:19:50"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6419,7 +6419,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "d457e0cd5dbe5908768158fc48f7a2503fa2b2d3"
+                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6471,7 +6471,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-07-26 14:27:57"
+            "time": "2017-08-01T14:03:04+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6522,12 +6522,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "bb9279f0552b903623c284a7cb93f893f17aab09"
+                "reference": "cc97efb08f7c065f6954e0baba6a1b1440749b4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bb9279f0552b903623c284a7cb93f893f17aab09",
-                "reference": "bb9279f0552b903623c284a7cb93f893f17aab09",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/cc97efb08f7c065f6954e0baba6a1b1440749b4d",
+                "reference": "cc97efb08f7c065f6954e0baba6a1b1440749b4d",
                 "shasum": ""
             },
             "require": {
@@ -6561,7 +6561,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-07-24 08:32:11"
+            "time": "2017-08-01T14:54:31+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
