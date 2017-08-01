@@ -95,6 +95,7 @@
     },
     "psr-4": {
       "PyzTest\\Shared\\Testify\\Helper\\": "tests/PyzTest/Shared/Testify/_support/Helper",
+      "PyzTest\\ZEd\\CmsGui\\PageObject\\": "tests/PyzTest/Zed/CmsGui/_support/PageObject",
       "PyzTest\\Yves\\Customer\\Helper\\": "tests/PyzTest/Yves/Customer/_support/Helper",
       "PyzTest\\Yves\\Customer\\PageObject\\": "tests/PyzTest/Yves/Customer/_support/PageObject",
       "PyzTest\\Yves\\Product\\PageObject\\": "tests/PyzTest/Yves/Product/_support/PageObject",

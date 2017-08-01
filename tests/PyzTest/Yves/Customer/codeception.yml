@@ -26,7 +26,7 @@ suites:
                   url: ''
                   browser: chrome
                   window_size: 1920x1080
-                  host: 10.10.0.1
+                  host: 0.0.0.0
                   restart: false
               - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
               - \SprykerTest\Shared\Application\Helper\YvesHelper

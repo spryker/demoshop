@@ -6,6 +6,8 @@
 
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
+use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
+use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
@@ -74,3 +76,6 @@ $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_MODE => '',
 ];
+
+// ---------- ErrorHandler
+$config[ErrorHandlerConstants::ERROR_RENDERER] = WebExceptionErrorRenderer::class;

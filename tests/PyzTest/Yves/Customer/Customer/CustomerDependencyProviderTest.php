@@ -16,6 +16,7 @@ use Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface;
 use Spryker\Client\Sales\SalesClientInterface;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Kernel\Plugin\Pimple;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 /**
@@ -35,6 +36,9 @@ class CustomerDependencyProviderTest extends Unit
      */
     public function testProvideDependencies()
     {
+        $pimple = new Pimple();
+        $pimple->setApplication(new Application());
+
         $customerDependencyProvider = new CustomerDependencyProvider();
         $container = new Container();
 
