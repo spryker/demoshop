@@ -166,7 +166,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return VoucherForm
+     * @return \Pyz\Yves\Checkout\Form\Voucher\VoucherForm
      */
     protected function createVoucherFormType()
     {

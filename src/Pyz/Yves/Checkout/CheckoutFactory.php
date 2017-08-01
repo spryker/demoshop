@@ -7,11 +7,9 @@
 
 namespace Pyz\Yves\Checkout;
 
-use Pyz\Yves\Checkout\Handler\VoucherHandler;
 use Pyz\Yves\Checkout\Form\FormFactory;
+use Pyz\Yves\Checkout\Handler\VoucherHandler;
 use Pyz\Yves\Checkout\Process\StepFactory;
-use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CheckoutFactory extends AbstractFactory
@@ -44,7 +42,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return VoucherHandler
+     * @return \Pyz\Yves\Checkout\Handler\VoucherHandler
      */
     public function createVoucherHandler()
     {
@@ -72,7 +70,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CalculationClientInterface
+     * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
     protected function getCalculationClient()
     {
@@ -80,7 +78,7 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return CartClientInterface
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     protected function getCartClient()
     {
