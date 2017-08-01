@@ -59,9 +59,10 @@ class VoucherHandler extends BaseHandler
 
         if (!$this->isVoucherCodeApplied($quoteTransfer, $voucherCode)) {
             $this->flashMessenger->addErrorMessage('cart.voucher.apply.failed');
+        } else {
+            $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
         }
 
-        $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
         $this->cartClient->storeQuote($quoteTransfer);
     }
 
