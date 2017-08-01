@@ -6,13 +6,6 @@
 
 namespace Pyz\Yves\Discount\Handler;
 
-use ArrayObject;
-use Generated\Shared\Transfer\DiscountTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
-use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
-
 interface VoucherHandlerInterface
 {
 
@@ -34,4 +27,5 @@ interface VoucherHandlerInterface
      * @return void
      */
     public function clear();
+
 }

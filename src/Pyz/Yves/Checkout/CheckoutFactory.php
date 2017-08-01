@@ -8,8 +8,8 @@
 namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Checkout\Form\FormFactory;
-use Pyz\Yves\Discount\Handler\VoucherHandler;
 use Pyz\Yves\Checkout\Process\StepFactory;
+use Pyz\Yves\Discount\Handler\VoucherHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CheckoutFactory extends AbstractFactory
