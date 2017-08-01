@@ -18,6 +18,7 @@ suites:
         modules:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
+              - \SprykerTest\Shared\Application\Helper\ZedHelper
               - \Config\Module\ConfigInit
               - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
                   projectNamespaces: ['Pyz']

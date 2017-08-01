@@ -4,16 +4,17 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace PyzTest\Zed\CmsGui;
+namespace PyzTest\Zed\CmsGui\Acceptance;
 
-use Acceptance\CmsGui\PageObject\CmsListPage;
-use Acceptance\CmsGui\Tester\CmsPageListTester;
+use PyzTest\Zed\CmsGui\CmsGuiAcceptanceTester;
+use PyzTest\Zed\CmsGui\PageObject\CmsListPage;
 
 /**
  * Auto-generated group annotations
  * @group PyzTest
  * @group Zed
  * @group CmsGui
+ * @group Acceptance
  * @group CmsGuiPageListCest
  * Add your own group annotations below this line
  */
@@ -21,11 +22,11 @@ class CmsGuiPageListCest
 {
 
     /**
-     * @param \Acceptance\CmsGui\Tester\CmsPageListTester $i
+     * @param \PyzTest\Zed\CmsGui\CmsGuiAcceptanceTester $i
      *
      * @return void
      */
-    public function testICanOpenCmsPageList(CmsPageListTester $i)
+    public function testICanOpenCmsPageList(CmsGuiAcceptanceTester $i)
     {
         $i->amLoggedInUser();
         $i->amOnPage(CmsListPage::URL);

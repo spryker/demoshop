@@ -88,7 +88,6 @@ class CheckoutControllerTest extends Unit
      */
     protected function setUp()
     {
-        $this->markTestSkipped('Move this to function controller tests');
         $this->skipIfCi();
         $this->controller = new CheckoutController();
 
@@ -111,6 +110,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testIndexAction()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $checkoutController = new CheckoutController();
 
         $this->setQuoteForCustomer();
@@ -128,6 +128,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testCustomerActionShouldRenderRegisterAndLoginForms()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $request = Request::createFromGlobals();
         $request->attributes->set('_route', CheckoutControllerProvider::CHECKOUT_CUSTOMER);
 
@@ -143,6 +144,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testCustomerAction()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->setQuoteForCustomer();
 
         $customerData = $this->getFormData(self::CUSTOMER_URL, self::CUSTOMER_ACTION, self::CUSTOMER_ROUTE, self::GUEST_FORM);
@@ -170,6 +172,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testAddressActionShouldRenderAddressForms()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->setQuoteForAddress();
 
         $request = Request::createFromGlobals();
@@ -186,6 +189,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testAddressAction()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->setQuoteForAddress();
 
         $addressesData = $this->getFormData(self::ADDRESS_URL, self::ADDRESS_ACTION, self::ADDRESS_ROUTE, self::ADDRESS_FORM);
@@ -219,6 +223,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testShipmentActionShouldRenderShipmentForms()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->setQuoteForShipment();
 
         $request = Request::createFromGlobals();
@@ -235,6 +240,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testShipmentAction()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->setQuoteForShipment();
 
         $shipmentData = $this->getFormData(self::SHIPMENT_URL, self::SHIPMENT_ACTION, self::SHIPMENT_ROUTE, self::SHIPMENT_FORM);
@@ -257,6 +263,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testPaymentActionShouldRenderPaymentForms()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->allowMoreThenOneRequestToZed();
 
         $this->setQuoteForPayment();
@@ -277,6 +284,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testPaymentAction()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->allowMoreThenOneRequestToZed();
 
         $this->setQuoteForPayment();
@@ -323,6 +331,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testSummaryAction()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->allowMoreThenOneRequestToZed();
 
         $this->setQuoteForSummary();
@@ -346,6 +355,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testPlaceOrder()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->markTestIncomplete('Request data missing');
         $this->setQuoteForSummary();
 

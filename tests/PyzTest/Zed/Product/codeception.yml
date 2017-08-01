@@ -13,12 +13,12 @@ coverage:
 
 suites:
     Business:
-        path: .
+        path: Business
         class_name: ProductBusinessTester
         modules:
             enabled:
                 - Asserts
-                - \SprykerTest\Shared\Testify\Helper\Environment
+                - \PyzTest\Shared\Testify\Helper\Environment
                 - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
                     projectNamespaces: ['Pyz']
 
