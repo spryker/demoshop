@@ -39,6 +39,7 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
+
 addons:
   postgresql: 9.4
 
@@ -64,7 +65,7 @@ sudo: required
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer install --no-interaction --ignore-platform-reqs
+  - composer install --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:

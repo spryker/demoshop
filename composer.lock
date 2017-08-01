@@ -4,15 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "d0372c5f36e31f121cfb3da3ef883fc7",
-=======
-    "content-hash": "3154059244acecade2b2c08f21b90905",
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
-=======
-    "content-hash": "71debd689f80a747426ee414bbf7779c",
->>>>>>> core-1590 removed spryker/git-hook
+    "content-hash": "3be50bc000cf68ddf0189a18385d3ab1",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1630,80 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
-=======
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "619ed2e719fa71c5af9511e1386bcae6684b41c6"
-=======
-<<<<<<< HEAD
-                "reference": "ba37af66661cfc40bfe20880e16d872866067e43"
-=======
-                "reference": "c976707f70a41f1c9d7ea174b1daf7d05f7fce6d"
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
-<<<<<<< HEAD
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
-=======
-=======
-                "reference": "86287ad2c912a1d89446091d591428cc97695685"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "7bdaf52e520fb5e762414a0cbbd8c733c9642f2c"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "29ee4c9eed0d0cdf116495ecd14f3b775152ff96"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "84a7fa39e1a5ca34bf84b0ad96993175822342cf"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "be5ad3ad25de8a5d4afff42933628963cedfc3f8"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "5a90a875b77839884ec1f461e57494b68eb553bd"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "ae4bc4e3da4a774e6ea78ab7e83adda924642193"
->>>>>>> core-1590 update spryker/spryker
->>>>>>> core-1590 update spryker/spryker
-=======
-                "reference": "c6ca43fbdf693df5f15f7fe4c0b41eadf693910f"
->>>>>>> core-1590 update spryker/spryker
+                "reference": "eaef4c042b3b47a1482eae1c92bd0939ee92d1b0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1880,80 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-07-31 14:54:04"
-=======
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-=======
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-07-31 13:25:45"
-=======
-<<<<<<< HEAD
-            "time": "2017-07-25 13:23:25"
-=======
-            "time": "2017-07-25 14:20:04"
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
-<<<<<<< HEAD
->>>>>>> core-1590 fixed method name in Tax tests, added spryker/git-hook
-=======
-=======
-            "time": "2017-07-27 07:32:29"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-07-27 09:56:33"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-07-27 10:54:43"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-07-28 07:33:17"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-07-28 12:50:31"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-07-31 07:50:22"
->>>>>>> core-1590 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-07-31 09:12:33"
->>>>>>> core-1590 update spryker/spryker
->>>>>>> core-1590 update spryker/spryker
-=======
-            "time": "2017-07-31 14:47:11"
->>>>>>> core-1590 update spryker/spryker
+            "time": "2017-08-01 04:30:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
