@@ -15,6 +15,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
+    "spryker-eco/payone": "dev-bugfix/pre-release-fixes",
     "spryker/acl": "^3.0.0",
     "spryker/api": "^0.1.0",
     "spryker/api-query-builder": "^0.1.0",
@@ -104,7 +105,6 @@
     "spryker/oms-discount-connector": "^3.0.0",
     "spryker/payment": "^4.0.0",
     "spryker/payolution": "^4.0.0",
-    "spryker/payone": "^4.0.0",
     "spryker/pimple": "^2.0.0",
     "spryker/price": "^4.0.0",
     "spryker/price-cart-connector": "^3.0.0",
@@ -225,6 +225,10 @@
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/spryker-eco/payone.git"
     },
     {
       "type": "git",

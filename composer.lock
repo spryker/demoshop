@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2d6fc91b0b85b898490a55aeec4a3cb",
+    "content-hash": "863037b511d5968e5302c71ed99b159e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3329,6 +3329,60 @@
             "time": "2017-04-30T16:26:54+00:00"
         },
         {
+            "name": "spryker-eco/payone",
+            "version": "dev-bugfix/pre-release-fixes",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-eco/payone.git",
+                "reference": "d5487d7d942dd792ebc8a53f80a119192c6608c0"
+            },
+            "require": {
+                "spryker/config": "^3.0.0",
+                "spryker/guzzle": "^2.1.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/oms": "^6.0.0 || ^7.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/refund": "^4.0.0 || ^5.0.0",
+                "spryker/sales": "^5.0.0 || ^6.0.0 || ^7.0.0",
+                "spryker/symfony": "^3.0.0"
+            },
+            "replace": {
+                "spryker/payone": "*"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SprykerEco": "src/",
+                    "Function": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Payone module",
+            "time": "2017-08-02 11:17:10"
+        },
+        {
             "name": "spryker/acl",
             "version": "3.0.1",
             "source": {
@@ -3531,6 +3585,9 @@
                 "proprietary"
             ],
             "description": "ApiQueryBuilder bundle",
+            "support": {
+                "source": "https://github.com/spryker/ApiQueryBuilder/tree/master"
+            },
             "time": "2017-05-17T15:39:19+00:00"
         },
         {
@@ -3616,7 +3673,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Assertion.git",
+                "url": "git@github.com:spryker/Assertion.git",
                 "reference": "bd42cb51f8dc432a859e0ae396d9bf6b1924bcdf",
                 "mirrors": [
                     {
@@ -3670,7 +3727,7 @@
             ],
             "description": "Assertion bundle",
             "support": {
-                "source": "https://github.com/spryker/Assertion/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Assertion/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -3740,9 +3797,6 @@
                 "proprietary"
             ],
             "description": "Auth bundle",
-            "support": {
-                "source": "https://github.com/spryker/Auth/tree/beta/core-714-big-core-cleanup"
-            },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
@@ -3804,7 +3858,7 @@
             ],
             "description": "AuthMailConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/AuthMailConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/AuthMailConnector/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -3813,7 +3867,7 @@
             "version": "5.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Availability.git",
+                "url": "git@github.com:spryker/Availability.git",
                 "reference": "fb2b349c4ce3abeacec67b67e3bbb0f59cd1072f",
                 "mirrors": [
                     {
@@ -3877,6 +3931,9 @@
                 "proprietary"
             ],
             "description": "Availability bundle",
+            "support": {
+                "source": "https://github.com/spryker/Availability/tree/master"
+            },
             "time": "2017-06-15T10:05:40+00:00"
         },
         {
@@ -3884,7 +3941,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/AvailabilityCartConnector.git",
+                "url": "https://github.com/spryker/AvailabilityCartConnector.git",
                 "reference": "15eb4ee944eed044ddc978962b3dcbb5e9767f92",
                 "mirrors": [
                     {
@@ -3937,9 +3994,6 @@
                 "proprietary"
             ],
             "description": "AvailabilityCartConnector bundle",
-            "support": {
-                "source": "https://github.com/spryker/AvailabilityCartConnector/tree/beta/core-714-big-core-cleanup"
-            },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
@@ -4005,7 +4059,7 @@
             ],
             "description": "Availability DataFeed bundle",
             "support": {
-                "source": "https://github.com/spryker/AvailabilityDataFeed/tree/master"
+                "source": "https://github.com/spryker/AvailabilityDataFeed/tree/0.1.1"
             },
             "time": "2017-04-13T12:53:00+00:00"
         },
@@ -4086,7 +4140,7 @@
             "version": "0.5.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Braintree.git",
+                "url": "git@github.com:spryker/Braintree.git",
                 "reference": "5b67912bd7e334e7422b8ac4509448ef31b74fa0",
                 "mirrors": [
                     {
@@ -4283,9 +4337,6 @@
                 "proprietary"
             ],
             "description": "Calculation bundle",
-            "support": {
-                "source": "https://github.com/spryker/Calculation/tree/master"
-            },
             "time": "2017-06-14T10:16:31+00:00"
         },
         {
@@ -4482,7 +4533,7 @@
             ],
             "description": "Catalog bundle",
             "support": {
-                "source": "https://github.com/spryker/Catalog/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Catalog/tree/5.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -4691,7 +4742,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Checkout.git",
+                "url": "git@github.com:spryker/Checkout.git",
                 "reference": "02b66f92b50656aa55b7dc926c05a5e174013801",
                 "mirrors": [
                     {
@@ -4757,9 +4808,6 @@
                 "proprietary"
             ],
             "description": "Checkout bundle",
-            "support": {
-                "source": "https://github.com/spryker/Checkout/tree/beta/calculation"
-            },
             "time": "2017-06-07T15:57:20+00:00"
         },
         {
@@ -5258,6 +5306,9 @@
                 "proprietary"
             ],
             "description": "CmsCollector module",
+            "support": {
+                "source": "https://github.com/spryker/CmsCollector/tree/master"
+            },
             "time": "2017-07-20T14:28:53+00:00"
         },
         {
@@ -5537,7 +5588,7 @@
             "version": "4.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsGui.git",
+                "url": "git@github.com:spryker/CmsGui.git",
                 "reference": "6261f8bf5b0af8921eac061695e37dc99622db5a",
                 "mirrors": [
                     {
@@ -5663,6 +5714,9 @@
                 "proprietary"
             ],
             "description": "CmsUserConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/CmsUserConnector/tree/master"
+            },
             "time": "2017-06-29T10:18:58+00:00"
         },
         {
@@ -5670,7 +5724,7 @@
             "version": "5.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Collector.git",
+                "url": "git@github.com:spryker/Collector.git",
                 "reference": "243a3f0a261bedfaec33231133085b7ca4666406",
                 "mirrors": [
                     {
@@ -5743,7 +5797,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CollectorSearchConnector.git",
+                "url": "git@github.com:spryker/CollectorSearchConnector.git",
                 "reference": "5827b2ded3e2287c4d34eb59b20d2d446882dc94",
                 "mirrors": [
                     {
@@ -5789,9 +5843,6 @@
                 "proprietary"
             ],
             "description": "CollectorSearchConnector bundle",
-            "support": {
-                "source": "https://github.com/spryker/CollectorSearchConnector/tree/beta/core-714-big-core-cleanup"
-            },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
@@ -5799,7 +5850,7 @@
             "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CollectorStorageConnector.git",
+                "url": "git@github.com:spryker/CollectorStorageConnector.git",
                 "reference": "0f3638c9d062938c745d6d9ff773240efb6612eb",
                 "mirrors": [
                     {
@@ -5912,7 +5963,7 @@
             ],
             "description": "Config bundle",
             "support": {
-                "source": "https://github.com/spryker/Config/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Config/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -5984,6 +6035,9 @@
                 "proprietary"
             ],
             "description": "Console module",
+            "support": {
+                "source": "https://github.com/spryker/Console/tree/master"
+            },
             "time": "2017-07-14T13:56:48+00:00"
         },
         {
@@ -5991,7 +6045,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Country.git",
+                "url": "git@github.com:spryker/Country.git",
                 "reference": "399818004acd675b29e60c0832f498463466ca5c",
                 "mirrors": [
                     {
@@ -6049,7 +6103,7 @@
             ],
             "description": "Country bundle",
             "support": {
-                "source": "https://github.com/spryker/Country/tree/master"
+                "source": "https://github.com/spryker/Country/tree/3.1.0"
             },
             "time": "2017-03-10T16:32:01+00:00"
         },
@@ -6058,7 +6112,7 @@
             "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Csv.git",
+                "url": "git@github.com:spryker/Csv.git",
                 "reference": "1afdab6557f98949cae0a06b87b01cc3e0fa18a1",
                 "mirrors": [
                     {
@@ -6482,7 +6536,7 @@
             ],
             "description": "CustomerGroupDiscountConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/CustomerGroupDiscountConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/CustomerGroupDiscountConnector/tree/2.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -6544,6 +6598,9 @@
                 "proprietary"
             ],
             "description": "DataImport module",
+            "support": {
+                "source": "https://github.com/spryker/DataImport/tree/master"
+            },
             "time": "2017-07-21T12:58:10+00:00"
         },
         {
@@ -6551,7 +6608,7 @@
             "version": "3.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Development.git",
+                "url": "git@github.com:spryker/Development.git",
                 "reference": "c32b768dbaae1018859f6612808a29a4ced7592a",
                 "mirrors": [
                     {
@@ -6617,7 +6674,7 @@
             "version": "4.4.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Discount.git",
+                "url": "https://github.com/spryker/Discount.git",
                 "reference": "d67dad2c2b5b1e7b191f8287a7dd453e777e942f",
                 "mirrors": [
                     {
@@ -6750,6 +6807,9 @@
                 "proprietary"
             ],
             "description": "DiscountCalculationConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/DiscountCalculationConnector/tree/beta/calculation"
+            },
             "time": "2017-05-17T13:56:41+00:00"
         },
         {
@@ -6757,7 +6817,7 @@
             "version": "2.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/DummyPayment.git",
+                "url": "git@github.com:spryker/DummyPayment.git",
                 "reference": "aa11848e1e419894f5bbf4567a810344490aa5dd",
                 "mirrors": [
                     {
@@ -6832,7 +6892,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Elastica.git",
+                "url": "https://github.com/spryker/Elastica.git",
                 "reference": "c9a28ec4b5a640259827f4ab76d4517b6ccf8992",
                 "mirrors": [
                     {
@@ -6868,7 +6928,7 @@
             ],
             "description": "elastica bundle",
             "support": {
-                "source": "https://github.com/spryker/Elastica/tree/master"
+                "source": "https://github.com/spryker/Elastica/tree/3.0.0"
             },
             "time": "2016-06-14T11:55:42+00:00"
         },
@@ -6943,7 +7003,7 @@
             "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Event.git",
+                "url": "git@github.com:spryker/Event.git",
                 "reference": "4654c53add28ee7ff78e30675055629c9ff2799f",
                 "mirrors": [
                     {
@@ -7001,7 +7061,7 @@
             ],
             "description": "Event bundle",
             "support": {
-                "source": "https://github.com/spryker/Event/tree/master"
+                "source": "https://github.com/spryker/Event/tree/1.0.1"
             },
             "time": "2017-04-04T12:30:05+00:00"
         },
@@ -7010,7 +7070,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/EventJournal.git",
+                "url": "git@github.com:spryker/EventJournal.git",
                 "reference": "1d6f3adc99a688752c20f3b6722e4f52fc75af32",
                 "mirrors": [
                     {
@@ -7065,7 +7125,7 @@
             ],
             "description": "EventJournal bundle",
             "support": {
-                "source": "https://github.com/spryker/EventJournal/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/EventJournal/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -7122,6 +7182,9 @@
                 "proprietary"
             ],
             "description": "FileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FileSystem/tree/master"
+            },
             "time": "2017-06-30T12:01:02+00:00"
         },
         {
@@ -7187,6 +7250,9 @@
                 "proprietary"
             ],
             "description": "Flysystem module",
+            "support": {
+                "source": "https://github.com/spryker/Flysystem/tree/master"
+            },
             "time": "2017-06-30T12:01:02+00:00"
         },
         {
@@ -7247,6 +7313,9 @@
                 "proprietary"
             ],
             "description": "FlysystemAws3v3FileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FlysystemAws3v3FileSystem/tree/master"
+            },
             "time": "2017-06-30T09:17:07+00:00"
         },
         {
@@ -7307,6 +7376,9 @@
                 "proprietary"
             ],
             "description": "FlysystemFtpFileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FlysystemFtpFileSystem/tree/master"
+            },
             "time": "2017-06-29T15:15:50+00:00"
         },
         {
@@ -7367,6 +7439,9 @@
                 "proprietary"
             ],
             "description": "FlysystemLocalFileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FlysystemLocalFileSystem/tree/master"
+            },
             "time": "2017-06-29T15:15:50+00:00"
         },
         {
@@ -7502,7 +7577,7 @@
             ],
             "description": "Graph bundle",
             "support": {
-                "source": "https://github.com/spryker/Graph/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Graph/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -7547,7 +7622,7 @@
             ],
             "description": "graphviz bundle",
             "support": {
-                "source": "https://github.com/spryker/Graphviz/tree/master"
+                "source": "https://github.com/spryker/Graphviz/tree/2.0.0"
             },
             "time": "2016-04-01T13:06:05+00:00"
         },
@@ -7659,7 +7734,7 @@
             ],
             "description": "Guzzle bundle",
             "support": {
-                "source": "https://github.com/spryker/Guzzle/tree/master"
+                "source": "https://github.com/spryker/Guzzle/tree/2.1.0"
             },
             "time": "2016-08-19T08:27:58+00:00"
         },
@@ -7684,7 +7759,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7735,7 +7810,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Installer.git",
+                "url": "git@github.com:spryker/Installer.git",
                 "reference": "5033978a4097fd57855b6fac1dfb16a3a1a14cb4",
                 "mirrors": [
                     {
@@ -7777,7 +7852,7 @@
             ],
             "description": "Installer bundle",
             "support": {
-                "source": "https://github.com/spryker/Installer/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Installer/tree/4.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -7786,7 +7861,7 @@
             "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Invoice.git",
+                "url": "git@github.com:spryker/Invoice.git",
                 "reference": "d472459b08520dbeb45ce7ea0f54079fbae16b2d",
                 "mirrors": [
                     {
@@ -7834,7 +7909,7 @@
             ],
             "description": "Invoice bundle",
             "support": {
-                "source": "https://github.com/spryker/Invoice/tree/master"
+                "source": "https://github.com/spryker/Invoice/tree/2.0.1"
             },
             "time": "2017-02-22T11:53:10+00:00"
         },
@@ -7902,6 +7977,9 @@
                 "proprietary"
             ],
             "description": "Kernel module",
+            "support": {
+                "source": "https://github.com/spryker/Kernel/tree/master"
+            },
             "time": "2017-06-29T14:19:06+00:00"
         },
         {
@@ -7909,7 +7987,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/KeyBuilder.git",
+                "url": "git@github.com:spryker/KeyBuilder.git",
                 "reference": "2e990117a9bc887b882a1727945cbf79fef58581",
                 "mirrors": [
                     {
@@ -7959,7 +8037,7 @@
             ],
             "description": "KeyBuilder bundle",
             "support": {
-                "source": "https://github.com/spryker/KeyBuilder/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/KeyBuilder/tree/1.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -7968,7 +8046,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Locale.git",
+                "url": "git@github.com:spryker/Locale.git",
                 "reference": "069b0f291ebd59ddaaa0338acbc83406f9acb75b",
                 "mirrors": [
                     {
@@ -8024,7 +8102,10 @@
                 "proprietary"
             ],
             "description": "Locale bundle",
-            "time": "2017-06-07T19:43:51+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Locale/tree/master"
+            },
+            "time": "2017-06-16T09:45:17+00:00"
         },
         {
             "name": "spryker/log",
@@ -8086,7 +8167,7 @@
             ],
             "description": "Log bundle",
             "support": {
-                "source": "https://github.com/spryker/Log/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Log/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -8154,9 +8235,6 @@
                 "proprietary"
             ],
             "description": "Mail bundle",
-            "support": {
-                "source": "https://github.com/spryker/Mail/tree/4.0.1"
-            },
             "time": "2017-05-22T08:59:37+00:00"
         },
         {
@@ -8217,7 +8295,7 @@
             ],
             "description": "Maintenance bundle",
             "support": {
-                "source": "https://github.com/spryker/Maintenance/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Maintenance/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -8262,7 +8340,7 @@
             ],
             "description": "mandrill bundle",
             "support": {
-                "source": "https://github.com/spryker/Mandrill/tree/master"
+                "source": "https://github.com/spryker/Mandrill/tree/2.0.0"
             },
             "time": "2016-04-01T13:06:05+00:00"
         },
@@ -8271,7 +8349,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Messenger.git",
+                "url": "git@github.com:spryker/Messenger.git",
                 "reference": "884c992ce1c42d294b08fbe9944a2448676c485d",
                 "mirrors": [
                     {
@@ -8324,9 +8402,6 @@
                 "proprietary"
             ],
             "description": "Messenger bundle",
-            "support": {
-                "source": "https://github.com/spryker/Messenger/tree/beta/core-714-big-core-cleanup"
-            },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
@@ -8408,7 +8483,7 @@
             "version": "2.0.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Monolog.git",
+                "url": "https://github.com/spryker/Monolog.git",
                 "reference": "ef2d9bffc03b3a408907722d1191a256170da4b4",
                 "mirrors": [
                     {
@@ -8444,7 +8519,7 @@
             ],
             "description": "Monolog bundle",
             "support": {
-                "source": "https://github.com/spryker/Monolog/tree/master"
+                "source": "https://github.com/spryker/Monolog/tree/2.0.2"
             },
             "time": "2016-09-01T09:24:33+00:00"
         },
@@ -8583,7 +8658,7 @@
             ],
             "description": "NavigationCollector bundle",
             "support": {
-                "source": "https://github.com/spryker/NavigationCollector/tree/master"
+                "source": "https://github.com/spryker/NavigationCollector/tree/1.0.0"
             },
             "time": "2017-03-23T10:43:39+00:00"
         },
@@ -8592,7 +8667,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/NavigationGui.git",
+                "url": "git@github.com:spryker/NavigationGui.git",
                 "reference": "fa878b30c170afdea44b0b98e9089f007be443b1",
                 "mirrors": [
                     {
@@ -8652,6 +8727,9 @@
                 "proprietary"
             ],
             "description": "NavigationGui module",
+            "support": {
+                "source": "https://github.com/spryker/NavigationGui/tree/master"
+            },
             "time": "2017-07-24T14:43:50+00:00"
         },
         {
@@ -8659,7 +8737,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/NewRelic.git",
+                "url": "git@github.com:spryker/NewRelic.git",
                 "reference": "44c183572d620b190791a174f52d010d2a166a34",
                 "mirrors": [
                     {
@@ -8771,7 +8849,7 @@
             ],
             "description": "NewRelicApi bundle",
             "support": {
-                "source": "https://github.com/spryker/NewRelicApi/tree/master"
+                "source": "https://github.com/spryker/NewRelicApi/tree/1.0.0"
             },
             "time": "2017-02-22T11:52:23+00:00"
         },
@@ -8780,7 +8858,7 @@
             "version": "4.1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Newsletter.git",
+                "url": "git@github.com:spryker/Newsletter.git",
                 "reference": "56663467dcd50fc7efa4b37c62857801d54a7c4b",
                 "mirrors": [
                     {
@@ -8991,7 +9069,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/OmsDiscountConnector.git",
+                "url": "git@github.com:spryker/OmsDiscountConnector.git",
                 "reference": "ba78a0d023ed39d2ec7cd0c4e27c1d27c6c932ff",
                 "mirrors": [
                     {
@@ -9046,7 +9124,7 @@
             ],
             "description": "OmsDiscountConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/OmsDiscountConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/OmsDiscountConnector/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -9111,6 +9189,9 @@
                 "proprietary"
             ],
             "description": "Payment module",
+            "support": {
+                "source": "https://github.com/spryker/Payment/tree/4.0.0"
+            },
             "time": "2017-07-11T16:21:14+00:00"
         },
         {
@@ -9197,84 +9278,11 @@
             "time": "2017-07-14T15:04:01+00:00"
         },
         {
-            "name": "spryker/payone",
-            "version": "4.0.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/Payone.git",
-                "reference": "79d2d705fdfc51cb2d00b7451f5786c3c581cfb0",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payone/zipball/79d2d705fdfc51cb2d00b7451f5786c3c581cfb0",
-                "reference": "79d2d705fdfc51cb2d00b7451f5786c3c581cfb0",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "spryker/config": "^3.0.0",
-                "spryker/guzzle": "^2.1.0",
-                "spryker/kernel": "^3.0.0",
-                "spryker/oms": "^6.0.0 || ^7.0.0",
-                "spryker/propel-orm": "^1.0.0",
-                "spryker/refund": "^4.0.0 || ^5.0.0",
-                "spryker/sales": "^5.0.0 || ^6.0.0 || ^7.0.0",
-                "spryker/symfony": "^3.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/propel": "*",
-                "spryker/silex": "*",
-                "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/",
-                    "Function": "tests/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Payone module",
-            "support": {
-                "source": "https://github.com/spryker/Payone/tree/master"
-            },
-            "time": "2017-07-14T15:04:01+00:00"
-        },
-        {
             "name": "spryker/pimple",
             "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Pimple.git",
+                "url": "git@github.com:spryker/Pimple.git",
                 "reference": "9c393a76377026cd382661c161acd2df8f814bbd",
                 "mirrors": [
                     {
@@ -9310,7 +9318,7 @@
             ],
             "description": "pimple bundle",
             "support": {
-                "source": "https://github.com/spryker/Pimple/tree/master"
+                "source": "https://github.com/spryker/Pimple/tree/2.0.0"
             },
             "time": "2016-04-01T13:06:05+00:00"
         },
@@ -9319,7 +9327,7 @@
             "version": "4.2.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Price.git",
+                "url": "https://github.com/spryker/Price.git",
                 "reference": "8faa0d99c369c324ff5756bb6f01d222dad306b3",
                 "mirrors": [
                     {
@@ -9379,6 +9387,9 @@
                 "proprietary"
             ],
             "description": "Price module",
+            "support": {
+                "source": "https://github.com/spryker/Price/tree/4.2.0"
+            },
             "time": "2017-06-30T14:05:21+00:00"
         },
         {
@@ -9441,6 +9452,9 @@
                 "proprietary"
             ],
             "description": "PriceCartConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/PriceCartConnector/tree/beta/calculation"
+            },
             "time": "2017-06-12T07:10:18+00:00"
         },
         {
@@ -9503,7 +9517,7 @@
             ],
             "description": "Price DataFeed bundle",
             "support": {
-                "source": "https://github.com/spryker/PriceDataFeed/tree/master"
+                "source": "https://github.com/spryker/PriceDataFeed/tree/0.1.1"
             },
             "time": "2017-04-13T12:53:00+00:00"
         },
@@ -9578,6 +9592,9 @@
                 "proprietary"
             ],
             "description": "Product bundle",
+            "support": {
+                "source": "https://github.com/spryker/Product/tree/master"
+            },
             "time": "2017-06-19T14:53:23+00:00"
         },
         {
@@ -9713,6 +9730,9 @@
                 "proprietary"
             ],
             "description": "ProductApi bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductApi/tree/beta/core-990-product-api"
+            },
             "time": "2017-05-17T10:44:26+00:00"
         },
         {
@@ -9788,9 +9808,6 @@
                 "proprietary"
             ],
             "description": "ProductBundle module",
-            "support": {
-                "source": "https://github.com/spryker/ProductBundle/tree/master"
-            },
             "time": "2017-07-17T12:53:33+00:00"
         },
         {
@@ -9867,7 +9884,7 @@
             "version": "4.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductCategory.git",
+                "url": "git@github.com:spryker/ProductCategory.git",
                 "reference": "1769f11dc47a147b0661c0a0b78685231d3a5c02",
                 "mirrors": [
                     {
@@ -9997,9 +10014,6 @@
                 "proprietary"
             ],
             "description": "ProductDiscountConnector module",
-            "support": {
-                "source": "https://github.com/spryker/ProductDiscountConnector/tree/master"
-            },
             "time": "2017-07-12T15:07:34+00:00"
         },
         {
@@ -10134,9 +10148,6 @@
                 "proprietary"
             ],
             "description": "ProductGroupCollector bundle",
-            "support": {
-                "source": "https://github.com/spryker/ProductGroupCollector/tree/master"
-            },
             "time": "2017-05-03T10:48:19+00:00"
         },
         {
@@ -10144,7 +10155,7 @@
             "version": "3.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductImage.git",
+                "url": "git@github.com:spryker/ProductImage.git",
                 "reference": "5a7be3a8348a9892d63d80c683705bb51530e2c9",
                 "mirrors": [
                     {
@@ -10199,10 +10210,7 @@
                 "proprietary"
             ],
             "description": "ProductImage bundle",
-            "support": {
-                "source": "https://github.com/spryker/ProductImage/tree/master"
-            },
-            "time": "2017-06-19T07:00:05+00:00"
+            "time": "2017-06-14T15:41:52+00:00"
         },
         {
             "name": "spryker/product-image-cart-connector",
@@ -10341,7 +10349,10 @@
                 "proprietary"
             ],
             "description": "ProductLabel module",
-            "time": "2017-07-20T13:51:52+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabel/tree/master"
+            },
+            "time": "2017-07-24T07:40:09+00:00"
         },
         {
             "name": "spryker/product-label-collector",
@@ -10405,7 +10416,10 @@
                 "proprietary"
             ],
             "description": "ProductLabelCollector module",
-            "time": "2017-07-18T08:30:47+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabelCollector/tree/master"
+            },
+            "time": "2017-07-24T07:40:06+00:00"
         },
         {
             "name": "spryker/product-label-discount-connector",
@@ -10531,7 +10545,10 @@
                 "proprietary"
             ],
             "description": "ProductLabelGui module",
-            "time": "2017-07-18T14:42:43+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabelGui/tree/master"
+            },
+            "time": "2017-07-24T07:40:07+00:00"
         },
         {
             "name": "spryker/product-management",
@@ -10822,6 +10839,9 @@
                 "proprietary"
             ],
             "description": "ProductOptionCartConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductOptionCartConnector/tree/4.1.1"
+            },
             "time": "2017-06-27T08:29:22+00:00"
         },
         {
@@ -10829,7 +10849,7 @@
             "version": "1.0.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductRelation.git",
+                "url": "git@github.com:spryker/ProductRelation.git",
                 "reference": "36dcd6a1400571bb7d60309a2f681f2b84efffe2",
                 "mirrors": [
                     {
@@ -10915,7 +10935,7 @@
             "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductRelationCollector.git",
+                "url": "https://github.com/spryker/ProductRelationCollector.git",
                 "reference": "672e1a05c24203eeafd2863b1a5d29fc52787eee",
                 "mirrors": [
                     {
@@ -10976,6 +10996,9 @@
                 "proprietary"
             ],
             "description": "ProductRelationCollector module",
+            "support": {
+                "source": "https://github.com/spryker/ProductRelationCollector/tree/master"
+            },
             "time": "2017-06-30T14:05:21+00:00"
         },
         {
@@ -11189,7 +11212,10 @@
                 "proprietary"
             ],
             "description": "ProductSetCollector bundle",
-            "time": "2017-06-15T15:31:14+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductSetCollector/tree/master"
+            },
+            "time": "2017-06-19T07:00:14+00:00"
         },
         {
             "name": "spryker/product-set-gui",
@@ -11258,6 +11284,9 @@
                 "proprietary"
             ],
             "description": "ProductSet bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductSetGui/tree/master"
+            },
             "time": "2017-06-19T07:44:47+00:00"
         },
         {
@@ -11387,6 +11416,9 @@
                 "proprietary"
             ],
             "description": "PropelOrm bundle",
+            "support": {
+                "source": "https://github.com/spryker/PropelOrm/tree/1.2.1"
+            },
             "time": "2017-05-04T19:14:52+00:00"
         },
         {
@@ -11454,6 +11486,9 @@
                 "proprietary"
             ],
             "description": "PropelQueryBuilder bundle",
+            "support": {
+                "source": "https://github.com/spryker/PropelQueryBuilder/tree/beta/core-990-product-api"
+            },
             "time": "2017-05-16T08:31:15+00:00"
         },
         {
@@ -11461,7 +11496,7 @@
             "version": "0.3.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Queue.git",
+                "url": "https://github.com/spryker/Queue.git",
                 "reference": "1e181b09edd095839c16ca6a295c4dc8e6bc1cda",
                 "mirrors": [
                     {
@@ -11505,7 +11540,7 @@
             ],
             "description": "Generic queue bundle for Spryker",
             "support": {
-                "source": "https://github.com/spryker/Queue/tree/master"
+                "source": "https://github.com/spryker/Queue/tree/0.3.0"
             },
             "time": "2017-03-21T14:00:45+00:00"
         },
@@ -11514,7 +11549,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Quote.git",
+                "url": "git@github.com:spryker/Quote.git",
                 "reference": "0e2944397d0c243839b0d6404c2f00caabbcdc90",
                 "mirrors": [
                     {
@@ -11566,7 +11601,7 @@
             ],
             "description": "Quote bundle",
             "support": {
-                "source": "https://github.com/spryker/Quote/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Quote/tree/1.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -11668,7 +11703,7 @@
             "version": "5.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Refund.git",
+                "url": "git@github.com:spryker/Refund.git",
                 "reference": "e6c89d591aa6f80cd764a0925387796c2806c1f5",
                 "mirrors": [
                     {
@@ -11895,6 +11930,9 @@
                 "proprietary"
             ],
             "description": "SalesProductConnector module",
+            "support": {
+                "source": "https://github.com/spryker/SalesProductConnector/tree/master"
+            },
             "time": "2017-07-17T13:08:27+00:00"
         },
         {
@@ -12038,7 +12076,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SequenceNumber.git",
+                "url": "git@github.com:spryker/SequenceNumber.git",
                 "reference": "16ae39143e3c039af7cc2f920a26d5da55270b93",
                 "mirrors": [
                     {
@@ -12090,9 +12128,6 @@
                 "proprietary"
             ],
             "description": "SequenceNumber bundle",
-            "support": {
-                "source": "https://github.com/spryker/SequenceNumber/tree/beta/core-714-big-core-cleanup"
-            },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
@@ -12165,7 +12200,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Setup.git",
+                "url": "git@github.com:spryker/Setup.git",
                 "reference": "cc82199451f5e3edabe6ce1cd1bebf983ab01add",
                 "mirrors": [
                     {
@@ -12249,7 +12284,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12315,7 +12350,7 @@
             "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Silex.git",
+                "url": "https://github.com/spryker/Silex.git",
                 "reference": "74f923cb4691ff23bd1daa73052fc8ef99cf6bd9",
                 "mirrors": [
                     {
@@ -12354,9 +12389,6 @@
                 "proprietary"
             ],
             "description": "Silex bundle",
-            "support": {
-                "source": "https://github.com/spryker/Silex/tree/master"
-            },
             "time": "2016-12-09T13:45:20+00:00"
         },
         {
@@ -12408,7 +12440,7 @@
             ],
             "description": "sql criteria builder bundle",
             "support": {
-                "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/master"
+                "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/1.0.0"
             },
             "time": "2016-04-01T13:06:05+00:00"
         },
@@ -12417,7 +12449,7 @@
             "version": "2.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/StateMachine.git",
+                "url": "git@github.com:spryker/StateMachine.git",
                 "reference": "33b20185c139d3f17f352f3d6bb724e0fc8fa1c5",
                 "mirrors": [
                     {
@@ -12484,7 +12516,7 @@
             "version": "3.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/StepEngine.git",
+                "url": "git@github.com:spryker/StepEngine.git",
                 "reference": "01a8c0f06a0a5c02455711e1ab1c5332e7ad85f6",
                 "mirrors": [
                     {
@@ -12540,7 +12572,10 @@
                 "proprietary"
             ],
             "description": "StepEngine module",
-            "time": "2017-07-12T14:59:26+00:00"
+            "support": {
+                "source": "https://github.com/spryker/StepEngine/tree/master"
+            },
+            "time": "2017-07-24T12:51:22+00:00"
         },
         {
             "name": "spryker/stock",
@@ -12606,7 +12641,10 @@
                 "proprietary"
             ],
             "description": "Stock module",
-            "time": "2017-07-12T14:54:21+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Stock/tree/4.0.4"
+            },
+            "time": "2017-07-12T15:01:13+00:00"
         },
         {
             "name": "spryker/stock-sales-connector",
@@ -12665,7 +12703,7 @@
             ],
             "description": "StockSalesConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/StockSalesConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/StockSalesConnector/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -12674,7 +12712,7 @@
             "version": "3.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Storage.git",
+                "url": "git@github.com:spryker/Storage.git",
                 "reference": "8ed42c88b68dcbc811d685195f854cd0f421205d",
                 "mirrors": [
                     {
@@ -12737,7 +12775,7 @@
             ],
             "description": "Storage module",
             "support": {
-                "source": "https://github.com/spryker/Storage/tree/3.1.1"
+                "source": "https://github.com/spryker/Storage/tree/master"
             },
             "time": "2017-07-31T14:54:04+00:00"
         },
@@ -12746,7 +12784,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Symfony.git",
+                "url": "git@github.com:spryker/Symfony.git",
                 "reference": "9936122f00e8302ba5d550944ee5f6d93f2899a7",
                 "mirrors": [
                     {
@@ -12814,7 +12852,7 @@
             ],
             "description": "Symfony bundle",
             "support": {
-                "source": "https://github.com/spryker/Symfony/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Symfony/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -12954,6 +12992,9 @@
                 "proprietary"
             ],
             "description": "TaxProductConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/TaxProductConnector/tree/master"
+            },
             "time": "2017-06-15T10:05:40+00:00"
         },
         {
@@ -13091,14 +13132,17 @@
                 "proprietary"
             ],
             "description": "Touch bundle",
-            "time": "2017-06-13T14:47:26+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Touch/tree/master"
+            },
+            "time": "2017-06-19T07:00:02+00:00"
         },
         {
             "name": "spryker/transfer",
             "version": "3.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Transfer.git",
+                "url": "git@github.com:spryker/Transfer.git",
                 "reference": "bda2df39d793a0030a93ca619335204e03179e7e",
                 "mirrors": [
                     {
@@ -13164,7 +13208,7 @@
             "version": "3.2.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Twig.git",
+                "url": "https://github.com/spryker/Twig.git",
                 "reference": "66bca30f092faa5e72a7b96e28224230070628b1",
                 "mirrors": [
                     {
@@ -13224,9 +13268,6 @@
                 "proprietary"
             ],
             "description": "Twig module",
-            "support": {
-                "source": "https://github.com/spryker/Twig/tree/master"
-            },
             "time": "2017-07-20T14:15:45+00:00"
         },
         {
@@ -13424,7 +13465,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/UtilDateTime.git",
+                "url": "https://github.com/spryker/UtilDateTime.git",
                 "reference": "1f9064d637158576b57675317aac12b783e6a0a5",
                 "mirrors": [
                     {
@@ -13467,10 +13508,7 @@
                 "proprietary"
             ],
             "description": "UtilDateTime bundle",
-            "support": {
-                "source": "https://github.com/spryker/UtilDateTime/tree/master"
-            },
-            "time": "2017-02-22T11:44:30+00:00"
+            "time": "2017-01-11T11:08:12+00:00"
         },
         {
             "name": "spryker/util-encoding",
@@ -13570,10 +13608,7 @@
                 "proprietary"
             ],
             "description": "UtilNetwork bundle",
-            "support": {
-                "source": "https://github.com/spryker/UtilNetwork/tree/master"
-            },
-            "time": "2017-02-22T11:58:40+00:00"
+            "time": "2017-02-13T15:35:16+00:00"
         },
         {
             "name": "spryker/util-sanitize",
@@ -13624,7 +13659,7 @@
             ],
             "description": "UtilSanitize bundle",
             "support": {
-                "source": "https://github.com/spryker/UtilSanitize/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/UtilSanitize/tree/2.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -13633,7 +13668,7 @@
             "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/UtilText.git",
+                "url": "git@github.com:spryker/UtilText.git",
                 "reference": "0fa9472d7339bea40f9f1f3ef60068b6a3b765fe",
                 "mirrors": [
                     {
@@ -13676,6 +13711,9 @@
                 "proprietary"
             ],
             "description": "UtilText bundle",
+            "support": {
+                "source": "https://github.com/spryker/UtilText/tree/1.2.0"
+            },
             "time": "2017-06-09T10:39:37+00:00"
         },
         {
@@ -13683,7 +13721,7 @@
             "version": "4.1.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Wishlist.git",
+                "url": "https://github.com/spryker/Wishlist.git",
                 "reference": "a3edbada202bdcdf1c5dd2fa5e05e68de3ce703f",
                 "mirrors": [
                     {
@@ -13886,7 +13924,7 @@
             "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Zend.git",
+                "url": "git@github.com:spryker/Zend.git",
                 "reference": "86272edb4cc935780bfa320ad48814c3dcd0940d",
                 "mirrors": [
                     {
@@ -13927,7 +13965,7 @@
             ],
             "description": "Zend bundle",
             "support": {
-                "source": "https://github.com/spryker/Zend/tree/master"
+                "source": "https://github.com/spryker/Zend/tree/2.0.1"
             },
             "time": "2016-12-09T13:45:20+00:00"
         },
@@ -17366,7 +17404,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -17837,7 +17875,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "spryker-eco/payone": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
