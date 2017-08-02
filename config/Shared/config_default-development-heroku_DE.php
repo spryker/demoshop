@@ -7,12 +7,12 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
+use SprykerEco\Shared\Payone\PayoneConstants;
 
 // ---------- Yves host
 $ENV_PROTOCOL_YVES = getenv('YVES_HOST_PROTOCOL'); //'http://'

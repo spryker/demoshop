@@ -7,7 +7,6 @@
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Kernel\KernelConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
@@ -16,6 +15,7 @@ use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Testify\TestifyConstants;
 use Spryker\Shared\Twig\TwigConstants;
+use SprykerEco\Shared\Payone\PayoneConstants;
 
 // ---------- General
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';

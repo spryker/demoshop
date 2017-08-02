@@ -3,11 +3,11 @@
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Mail\MailConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
+use SprykerEco\Shared\Payone\PayoneConstants;
 
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
