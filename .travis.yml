@@ -93,12 +93,12 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x Presentation -vvv ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g Presentation ; fi
 
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff:style ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 1 ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
 
 notifications:
   email: false
