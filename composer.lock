@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb3603ccbd4c79ff4888e52356cbf186",
+    "content-hash": "f85b4c1adb675a906beea44c7508a5ce",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1175,20 +1175,20 @@
         },
         {
             "name": "predis/predis",
-            "version": "v1.0.4",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "9ead747663bb1b1ae017dfa0d152aca87792b42f"
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/9ead747663bb1b1ae017dfa0d152aca87792b42f",
-                "reference": "9ead747663bb1b1ae017dfa0d152aca87792b42f",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.8"
@@ -1221,7 +1221,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-05-30T15:25:52+00:00"
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "propel/propel",
@@ -1622,7 +1622,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "90cb6fbe5c0f889e0dfdeb97d2a42a2cdd9d5b5d"
+                "reference": "a2637b451840d03a6ec3b1953d27349ad7da12c3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1799,7 +1799,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-01 14:59:57"
+            "time": "2017-08-02 08:28:16"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6419,7 +6419,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18"
+                "reference": "29d13a32cc1a6adb83ff499db44dbebe1b924e30"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6471,7 +6471,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-08-01 14:03:04"
+            "time": "2017-08-02T08:19:24+00:00"
         },
         {
             "name": "spryker/code-generator",
