@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Payone\Persistence;
 
-use Spryker\Zed\Payone\Persistence\Propel\AbstractSpyPaymentPayoneTransactionStatusLogQuery as BaseSpyPaymentPayoneTransactionStatusLogQuery;
+use Orm\Zed\Payone\Persistence\Base\SpyPaymentPayoneTransactionStatusLogQuery as BaseSpyPaymentPayoneTransactionStatusLogQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_payment_payone_transaction_status_log' table.
@@ -12,7 +12,9 @@ use Spryker\Zed\Payone\Persistence\Propel\AbstractSpyPaymentPayoneTransactionSta
  * You should add additional methods to this class to meet the
  * application requirements.  This class will only be generated as
  * long as it does not already exist in the output directory.
+ *
  */
 class SpyPaymentPayoneTransactionStatusLogQuery extends BaseSpyPaymentPayoneTransactionStatusLogQuery
 {
+
 }
