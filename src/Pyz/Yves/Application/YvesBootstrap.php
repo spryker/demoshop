@@ -60,6 +60,7 @@ use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
+use SprykerEco\Yves\Payone\Plugin\Provider\PayoneControllerProvider;
 
 class YvesBootstrap
 {
@@ -174,6 +175,7 @@ class YvesBootstrap
             new ProductSetControllerProvider($isSsl),
             new ProductSaleControllerProvider($isSsl),
             new ProductNewControllerProvider($isSsl),
+            new PayoneControllerProvider($isSsl)
         ];
     }
 
