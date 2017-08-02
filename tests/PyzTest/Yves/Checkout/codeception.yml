@@ -18,6 +18,6 @@ suites:
         modules:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
-              - \Config\Module\ConfigInit
+              - \SprykerTest\Shared\Config\Helper\ConfigInit
               - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
               - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper

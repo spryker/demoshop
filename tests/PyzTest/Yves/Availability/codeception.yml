@@ -18,8 +18,8 @@ suites:
         modules:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
-              - \Config\Module\ConfigInit
-              - \Propel\Module\PropelInstall
+              - \SprykerTest\Shared\Config\Helper\ConfigInit
+              - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper
               - WebDriver:
                   url: ''
                   browser: chrome

@@ -19,11 +19,11 @@ suites:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
               - \SprykerTest\Shared\Application\Helper\ZedHelper
-              - \Config\Module\ConfigInit
+              - \SprykerTest\Shared\Config\Helper\ConfigInit
               - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
                   projectNamespaces: ['Pyz']
 
-              - \Propel\Module\PropelInstall
+              - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper
               - WebDriver:
                   url: ''
                   browser: chrome

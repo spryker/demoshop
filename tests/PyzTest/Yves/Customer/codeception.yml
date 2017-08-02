@@ -20,8 +20,8 @@ suites:
               - \PyzTest\Shared\Testify\Helper\Environment
               - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
               - \PyzTest\Yves\Customer\Helper\CustomerHelper
-              - \Config\Module\ConfigInit
-              - \Propel\Module\PropelInstall
+              - \SprykerTest\Shared\Config\Helper\ConfigInit
+              - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper
               - WebDriver:
                   url: ''
                   browser: chrome
