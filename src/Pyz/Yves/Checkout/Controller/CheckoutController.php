@@ -148,7 +148,7 @@ class CheckoutController extends AbstractController
     {
         $form = $this->getFactory()
             ->createCheckoutFormFactory()
-            ->createVoucherForm()
+            ->getVoucherForm()
             ->handleRequest($request);
 
         if ($form->isValid()) {

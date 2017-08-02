@@ -116,7 +116,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createVoucherForm()
+    public function getVoucherForm()
     {
         return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
             ->create($this->createVoucherFormType());
