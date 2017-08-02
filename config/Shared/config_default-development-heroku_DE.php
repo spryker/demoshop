@@ -71,20 +71,6 @@ $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $config[ApplicationConstant
 // ---------- Jenkins
 $config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 
-// ---------- Payone
-$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL] = sprintf(
-    '%s/checkout/success/',
-    $config[ApplicationConstants::BASE_URL_YVES]
-);
-$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_ERROR_URL] = sprintf(
-    '%s/checkout/index/',
-    $config[ApplicationConstants::BASE_URL_YVES]
-);
-$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_BACK_URL] = sprintf(
-    '%s/checkout/regular-redirect-payment-cancellation/',
-    $config[ApplicationConstants::BASE_URL_YVES]
-);
-
 // ---------- Elasticsearch
 $ELASTICA_INDEX_NAME = 'de_search';
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
