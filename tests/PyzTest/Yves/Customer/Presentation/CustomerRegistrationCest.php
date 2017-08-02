@@ -7,7 +7,7 @@
 
 namespace PyzTest\Yves\Customer\Yves;
 
-use PyzTest\Yves\Customer\CustomerAcceptanceTester;
+use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerOverviewPage;
 use PyzTest\Yves\Customer\PageObject\CustomerRegistrationPage;
 
@@ -24,22 +24,22 @@ class CustomerRegistrationCest
 {
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanOpenRegistrationPage(CustomerAcceptanceTester $i)
+    public function testICanOpenRegistrationPage(CustomerPresentationTester $i)
     {
         $i->amOnPage(CustomerRegistrationPage::URL);
         $i->see(CustomerRegistrationPage::TITLE_CREATE_ACCOUNT, 'h4');
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanRegisterWithValidData(CustomerAcceptanceTester $i)
+    public function testICanRegisterWithValidData(CustomerPresentationTester $i)
     {
         $i->amOnPage(CustomerRegistrationPage::URL);
         $i->fillOutRegistrationForm();

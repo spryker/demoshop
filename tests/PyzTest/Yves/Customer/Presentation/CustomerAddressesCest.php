@@ -7,7 +7,7 @@
 
 namespace PyzTest\Yves\Customer\Yves;
 
-use PyzTest\Yves\Customer\CustomerAcceptanceTester;
+use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerAddressesPage;
 use PyzTest\Yves\Customer\PageObject\CustomerAddressPage;
 
@@ -24,11 +24,11 @@ class CustomerAddressesCest
 {
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanOpenAddAddressPage(CustomerAcceptanceTester $i)
+    public function testICanOpenAddAddressPage(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerAddressesPage::URL);

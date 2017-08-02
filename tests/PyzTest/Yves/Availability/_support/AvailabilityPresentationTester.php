@@ -4,7 +4,6 @@ namespace PyzTest\Yves\Availability;
 
 use Codeception\Actor;
 use Codeception\Scenario;
-use PyzTest\Yves\Checkout\CheckoutAcceptanceTester;
 
 /**
  * Inherited Methods
@@ -21,10 +20,10 @@ use PyzTest\Yves\Checkout\CheckoutAcceptanceTester;
  *
  * @SuppressWarnings(PHPMD)
  */
-class AvailabilityAcceptanceTester extends Actor
+class AvailabilityPresentationTester extends Actor
 {
 
-    use _generated\AvailabilityAcceptanceTesterActions;
+    use _generated\AvailabilityPresentationTesterActions;
 
     const FUJITSU_PRODUCT_PAGE = '/en/fujitsu-esprimo-e420-118';
     const FUJITSU2_PRODUCT_PAGE = 'en/fujitsu-esprimo-e920-119';
@@ -46,8 +45,7 @@ class AvailabilityAcceptanceTester extends Actor
      */
     public function processCheckout()
     {
-        $checkoutTester = new CheckoutAcceptanceTester($this->getScenario());
-        $checkoutTester->processAllCheckoutSteps();
+        $this->processAllCheckoutSteps();
     }
 
 }

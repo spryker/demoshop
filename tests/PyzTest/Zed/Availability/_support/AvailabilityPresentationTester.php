@@ -1,7 +1,9 @@
 <?php
+
 namespace PyzTest\Zed\Availability;
 
 use Codeception\Actor;
+use Codeception\Scenario;
 
 /**
  * Inherited Methods
@@ -23,8 +25,15 @@ class AvailabilityPresentationTester extends Actor
 
     use _generated\AvailabilityPresentationTesterActions;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * @param \Codeception\Scenario $scenario
+     */
+    public function __construct(Scenario $scenario)
+    {
+        parent::__construct($scenario);
+
+        $this->amZed();
+        $this->amLoggedInUser();
+    }
 
 }

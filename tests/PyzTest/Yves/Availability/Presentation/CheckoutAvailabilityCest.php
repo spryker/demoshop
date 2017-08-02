@@ -1,15 +1,15 @@
 <?php
 /**
  * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * Use of this software requires Presentation of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace PyzTest\Yves\Availability\Acceptance;
+namespace PyzTest\Yves\Availability\Presentation;
 
-use PyzTest\Yves\Availability\AvailabilityAcceptanceTester;
+use PyzTest\Yves\Availability\AvailabilityPresentationTester;
 use PyzTest\Yves\Cart\PageObject\CartListPage;
 use PyzTest\Yves\Product\PageObject\ProductDetailPage;
-use PyzTest\Zed\Availability\AvailabilityPresentationTester;
+use PyzTest\Zed\Availability\AvailabilityPresentationTester as ZedAvailabilityPresentationTester;
 use PyzTest\Zed\Availability\PageObject\AvailabilityViewPage;
 use PyzTest\Zed\Sales\PageObject\OrderDetailPage;
 use PyzTest\Zed\Sales\PageObject\OrderListPage;
@@ -19,7 +19,7 @@ use PyzTest\Zed\Sales\PageObject\OrderListPage;
  * @group PyzTest
  * @group Yves
  * @group Availability
- * @group Acceptance
+ * @group Presentation
  * @group CheckoutAvailabilityCest
  * Add your own group annotations below this line
  */
@@ -27,16 +27,16 @@ class CheckoutAvailabilityCest
 {
 
     /**
-     * @param \PyzTest\Yves\Availability\AvailabilityAcceptanceTester $i
+     * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
      *
      * @return void
      */
-    public function testCheckoutItemWithAvailability(AvailabilityAcceptanceTester $i)
+    public function testCheckoutItemWithAvailability(AvailabilityPresentationTester $i)
     {
         $i->wantTo('Checkout item with stock');
         $i->expectTo('Availability changed during SM processing.');
 
-        $i->amOnPage(AvailabilityAcceptanceTester::FUJITSU_PRODUCT_PAGE);
+        $i->amOnPage(AvailabilityPresentationTester::FUJITSU_PRODUCT_PAGE);
 
         $i->click(ProductDetailPage::ADD_TO_CART_XPATH);
 
@@ -45,11 +45,9 @@ class CheckoutAvailabilityCest
 
         $i->processCheckout();
 
-        $zedTester = $i->haveFriend('zedTester', AvailabilityPresentationTester::class);
+        $zedTester = $i->haveFriend('zedTester', ZedAvailabilityPresentationTester::class);
 
-        $zedTester->does(function (AvailabilityPresentationTester $i) {
-            $i->amLoggedInUser();
-
+        $zedTester->does(function (ZedAvailabilityPresentationTester $i) {
             $idProductFujitsu = 118;
 
             $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));

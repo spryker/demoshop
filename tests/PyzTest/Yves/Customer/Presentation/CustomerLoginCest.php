@@ -7,7 +7,7 @@
 
 namespace PyzTest\Yves\Customer\Yves;
 
-use PyzTest\Yves\Customer\CustomerAcceptanceTester;
+use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerLoginPage;
 use PyzTest\Yves\Customer\PageObject\CustomerOverviewPage;
 use PyzTest\Yves\Customer\PageObject\CustomerPasswordForgottenPage;
@@ -25,22 +25,22 @@ class CustomerLoginCest
 {
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanOpenLoginPage(CustomerAcceptanceTester $i)
+    public function testICanOpenLoginPage(CustomerPresentationTester $i)
     {
         $i->amOnPage(CustomerLoginPage::URL);
         $i->see(CustomerLoginPage::TITLE_LOGIN, 'h4');
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanOpenForgotPasswordPage(CustomerAcceptanceTester $i)
+    public function testICanOpenForgotPasswordPage(CustomerPresentationTester $i)
     {
         $i->amOnPage(CustomerLoginPage::URL);
         $i->click(CustomerLoginPage::FORGOT_PASSWORD_LINK);
@@ -48,11 +48,11 @@ class CustomerLoginCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanLoginWithValidData(CustomerAcceptanceTester $i)
+    public function testICanLoginWithValidData(CustomerPresentationTester $i)
     {
         $i->amOnPage(CustomerLoginPage::URL);
         $i->haveRegisteredCustomer(CustomerLoginPage::NEW_CUSTOMER_EMAIL);

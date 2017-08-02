@@ -21,10 +21,10 @@ use PyzTest\Yves\Customer\PageObject\CustomerRegistrationPage;
  *
  * @SuppressWarnings(PHPMD)
  */
-class CustomerAcceptanceTester extends Actor
+class CustomerPresentationTester extends Actor
 {
 
-    use _generated\CustomerAcceptanceTesterActions;
+    use _generated\CustomerPresentationTesterActions;
 
     /**
      * @param \Codeception\Scenario $scenario

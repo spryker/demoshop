@@ -1,12 +1,28 @@
-actor: Tester
+namespace: PyzTest
 
 include:
-  - tests/PyzTest/Yves/*
-  - tests/PyzTest/Zed/*
-  - vendor/spryker/spryker/Bundles/*
+#  - tests/PyzTest/Yves/Application
+#  - tests/PyzTest/Yves/Assets
+  - tests/PyzTest/Yves/Availability
+#  - tests/PyzTest/Yves/Cart
+#  - tests/PyzTest/Yves/Checkout
+#  - tests/PyzTest/Yves/Customer
+#  - tests/PyzTest/Yves/Newsletter
+#  - tests/PyzTest/Yves/Product
+#  - tests/PyzTest/Zed/Availability
+#  - tests/PyzTest/Zed/Calculation
+#  - tests/PyzTest/Zed/CmsGui
+#  - tests/PyzTest/Zed/Console
+#  - tests/PyzTest/Zed/NavigationGui
+#  - tests/PyzTest/Zed/Product
+#  - tests/PyzTest/Zed/ProductOption
+#  - tests/PyzTest/Zed/ProductRelation
+#  - tests/PyzTest/Zed/Sales
+#  - tests/PyzTest/Zed/Tax
+#  - tests/PyzTest/Zed/Touch
+#  - vendor/spryker/spryker/Bundles/*/*
 
 paths:
-    tests: tests
     log: tests/_output
     data: tests/_data
     support: tests/_support
@@ -30,4 +46,4 @@ extensions:
         - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\Phantoman:
-            suites: ['Acceptance', 'Presentation']
+            suites: ['Presentation']

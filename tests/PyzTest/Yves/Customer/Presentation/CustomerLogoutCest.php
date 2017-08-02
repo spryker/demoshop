@@ -7,7 +7,7 @@
 
 namespace PyzTest\Yves\Customer\Yves;
 
-use PyzTest\Yves\Customer\CustomerAcceptanceTester;
+use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerLoginPage;
 use PyzTest\Yves\Customer\PageObject\CustomerLogoutPage;
 use PyzTest\Yves\Customer\PageObject\CustomerOverviewPage;
@@ -25,11 +25,11 @@ class CustomerLogoutCest
 {
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanLogoutWhenLoggedIn(CustomerAcceptanceTester $i)
+    public function testICanLogoutWhenLoggedIn(CustomerPresentationTester $i)
     {
         $i->amOnPage(CustomerLoginPage::URL);
         $i->haveRegisteredCustomer(CustomerLoginPage::NEW_CUSTOMER_EMAIL);

@@ -7,7 +7,7 @@
 
 namespace PyzTest\Yves\Customer\Yves;
 
-use PyzTest\Yves\Customer\CustomerAcceptanceTester;
+use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerProfilePage;
 
 /**
@@ -23,11 +23,11 @@ class CustomerProfileCest
 {
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanUpdateProfileData(CustomerAcceptanceTester $i)
+    public function testICanUpdateProfileData(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerProfilePage::URL);
@@ -43,11 +43,11 @@ class CustomerProfileCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanUpdateEmail(CustomerAcceptanceTester $i)
+    public function testICanUpdateEmail(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerProfilePage::URL);
@@ -59,11 +59,11 @@ class CustomerProfileCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanNotUpdateEmailToAnAlreadyUsedOne(CustomerAcceptanceTester $i)
+    public function testICanNotUpdateEmailToAnAlreadyUsedOne(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->haveRegisteredCustomer(CustomerProfilePage::REGISTERED_CUSTOMER_EMAIL);
@@ -76,11 +76,11 @@ class CustomerProfileCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanChangePassword(CustomerAcceptanceTester $i)
+    public function testICanChangePassword(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerProfilePage::URL);
@@ -101,11 +101,11 @@ class CustomerProfileCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanNotChangePasswordWhenNewPasswordsNotMatch(CustomerAcceptanceTester $i)
+    public function testICanNotChangePasswordWhenNewPasswordsNotMatch(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerProfilePage::URL);

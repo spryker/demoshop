@@ -8,7 +8,7 @@
 namespace PyzTest\Yves\Customer\Yves;
 
 use Codeception\Util\Stub;
-use PyzTest\Yves\Customer\CustomerAcceptanceTester;
+use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerNewsletterPage;
 use Spryker\Zed\Newsletter\Dependency\Facade\NewsletterToMailInterface;
 use Spryker\Zed\Newsletter\NewsletterDependencyProvider;
@@ -26,11 +26,11 @@ class CustomerNewsletterCest
 {
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanSubscribeNewsletter(CustomerAcceptanceTester $i)
+    public function testICanSubscribeNewsletter(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerNewsletterPage::URL);
@@ -43,11 +43,11 @@ class CustomerNewsletterCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanUnSubscribeNewsletter(CustomerAcceptanceTester $i)
+    public function testICanUnSubscribeNewsletter(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
 

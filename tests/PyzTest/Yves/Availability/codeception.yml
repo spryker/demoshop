@@ -12,13 +12,14 @@ coverage:
     whitelist: { include: ['../../../../src/*'] }
 
 suites:
-    Acceptance:
-        path: Acceptance
-        class_name: AvailabilityAcceptanceTester
+    Presentation:
+        path: Presentation
+        class_name: AvailabilityPresentationTester
         modules:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
               - \SprykerTest\Shared\Config\Helper\ConfigInit
+              - \PyzTest\Yves\Checkout\Helper\CheckoutHelper
               - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper
               - WebDriver:
                   url: ''
@@ -28,3 +29,4 @@ suites:
                   restart: false
               - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
               - \SprykerTest\Shared\Application\Helper\YvesHelper
+              - \SprykerTest\Shared\Application\Helper\ZedHelper

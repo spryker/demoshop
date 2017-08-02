@@ -314,6 +314,7 @@ class CheckoutControllerTest extends Unit
      */
     public function testSummaryActionShouldRenderSummaryPage()
     {
+        $this->markTestSkipped('Move this to function controller tests');
         $this->setQuoteForSummary();
 
         $request = Request::createFromGlobals();

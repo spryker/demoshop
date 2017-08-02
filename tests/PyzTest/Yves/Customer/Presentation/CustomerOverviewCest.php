@@ -7,7 +7,7 @@
 
 namespace PyzTest\Yves\Customer\Yves;
 
-use PyzTest\Yves\Customer\CustomerAcceptanceTester;
+use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerAddressesPage;
 use PyzTest\Yves\Customer\PageObject\CustomerNewsletterPage;
 use PyzTest\Yves\Customer\PageObject\CustomerOrdersPage;
@@ -27,11 +27,11 @@ class CustomerOverviewCest
 {
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanOpenOverviewPage(CustomerAcceptanceTester $i)
+    public function testICanOpenOverviewPage(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerOverviewPage::URL);
@@ -44,11 +44,11 @@ class CustomerOverviewCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testCustomerWithoutAddressShouldSeeAddAddressInfoText(CustomerAcceptanceTester $i)
+    public function testCustomerWithoutAddressShouldSeeAddAddressInfoText(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerOverviewPage::URL);
@@ -58,11 +58,11 @@ class CustomerOverviewCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testCustomerWithAddressShouldNotSeeAddressInfoText(CustomerAcceptanceTester $i)
+    public function testCustomerWithAddressShouldNotSeeAddressInfoText(CustomerPresentationTester $i)
     {
         $i->haveRegisteredCustomer(CustomerOverviewPage::NEW_CUSTOMER_EMAIL);
         $i->addAddressToCustomer(CustomerOverviewPage::NEW_CUSTOMER_EMAIL, CustomerAddressesPage::ADDRESS_A);
@@ -76,11 +76,11 @@ class CustomerOverviewCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanGoFromOverviewToProfilePage(CustomerAcceptanceTester $i)
+    public function testICanGoFromOverviewToProfilePage(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerOverviewPage::URL);
@@ -89,11 +89,11 @@ class CustomerOverviewCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanGoFromOverviewToAddressesPage(CustomerAcceptanceTester $i)
+    public function testICanGoFromOverviewToAddressesPage(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerOverviewPage::URL);
@@ -102,11 +102,11 @@ class CustomerOverviewCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanGoFromOverviewToOrdersPage(CustomerAcceptanceTester $i)
+    public function testICanGoFromOverviewToOrdersPage(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerOverviewPage::URL);
@@ -115,11 +115,11 @@ class CustomerOverviewCest
     }
 
     /**
-     * @param \PyzTest\Yves\Customer\CustomerAcceptanceTester $i
+     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
      * @return void
      */
-    public function testICanGoFromOverviewToNewsletterPage(CustomerAcceptanceTester $i)
+    public function testICanGoFromOverviewToNewsletterPage(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
         $i->amOnPage(CustomerOverviewPage::URL);

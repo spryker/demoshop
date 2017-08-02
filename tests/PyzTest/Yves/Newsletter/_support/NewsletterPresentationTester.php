@@ -22,10 +22,10 @@ use Orm\Zed\Newsletter\Persistence\SpyNewsletterTypeQuery;
  *
  * @SuppressWarnings(PHPMD)
  */
-class NewsletterAcceptanceTester extends Actor
+class NewsletterPresentationTester extends Actor
 {
 
-    use _generated\NewsletterAcceptanceTesterActions;
+    use _generated\NewsletterPresentationTesterActions;
 
     /**
      * @param \Codeception\Scenario $scenario

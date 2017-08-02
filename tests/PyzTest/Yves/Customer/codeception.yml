@@ -12,9 +12,9 @@ coverage:
     whitelist: { include: ['../../../../src/*'] }
 
 suites:
-    Acceptance:
-        path: Acceptance
-        class_name: CustomerAcceptanceTester
+    Presentation:
+        path: Presentation
+        class_name: CustomerPresentationTester
         modules:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
