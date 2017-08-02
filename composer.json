@@ -115,8 +115,8 @@
       "url": "git@github.com:spryker/rabbit-mq.git"
     },
     {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
+      "type": "git",
+      "url": "git@github.com:spryker/code-generator.git"
     }
   ],
   "scripts": {
