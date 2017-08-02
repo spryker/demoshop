@@ -111,7 +111,7 @@ $config[PayoneConstants::PAYONE] = [
 ];
 
 $config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL] = sprintf(
-    '%s/checkout/success',
+    '%s/checkout/success/',
     $config[ApplicationConstants::BASE_URL_YVES]
 );
 $config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_ERROR_URL] = sprintf(
