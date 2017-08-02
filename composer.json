@@ -233,6 +233,10 @@
     {
       "type": "git",
       "url": "https://github.com/spryker/rabbit-mq.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/spryker/code-generator.git"
     }
   ],
   "scripts": {
