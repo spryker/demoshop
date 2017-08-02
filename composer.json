@@ -188,7 +188,7 @@
     "php-mock/php-mock": "^1.0",
     "phpunit/phpunit": "^5.0",
     "doctrine/instantiator": "~1.0.5",
-    "spryker/architecture-sniffer": "^0.3.0",
+    "spryker/architecture-sniffer": "^0.4.0",
     "spryker/code-generator": "^0.3.0",
     "spryker/code-sniffer": "*",
     "stecman/symfony-console-completion": "^0.7.0",
