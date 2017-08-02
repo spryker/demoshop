@@ -1632,6 +1632,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
 =======
 <<<<<<< HEAD
@@ -1646,6 +1647,9 @@
 =======
                 "reference": "6e4add1172d0442b00e5f306698bc41b1c2a7e01"
 >>>>>>> core-1652 update EnvironmentHelper
+=======
+                "reference": "edcf73318e582f7667575ebbbe1fccca5c203ebc"
+>>>>>>> core-1652 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1825,6 +1829,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 08:43:24"
 =======
 <<<<<<< HEAD
@@ -1839,6 +1844,9 @@
 =======
             "time": "2017-08-01 04:40:03"
 >>>>>>> core-1652 update EnvironmentHelper
+=======
+            "time": "2017-08-02 12:28:59"
+>>>>>>> core-1652 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
