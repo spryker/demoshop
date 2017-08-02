@@ -18,6 +18,7 @@ use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 use SprykerEco\Shared\Payone\PayoneConstants;
+use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 
 // ---------- General
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
@@ -92,12 +93,17 @@ $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 // ---------- Payone
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConstants::PAYONE_CREDENTIALS_KEY => '',
-    PayoneConstants::PAYONE_CREDENTIALS_MID => '',
-    PayoneConstants::PAYONE_CREDENTIALS_AID => '',
-    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '',
+    PayoneConstants::PAYONE_CREDENTIALS_KEY => 's6RUCzClrUaHQcDH',
+    PayoneConstants::PAYONE_CREDENTIALS_MID => '32481',
+    PayoneConstants::PAYONE_CREDENTIALS_AID => '32893',
+    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2024080',
     PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
-    PayoneConstants::PAYONE_MODE => '',
+    PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => '',
+    PayoneConstants::PAYONE_REDIRECT_ERROR_URL => '',
+    PayoneConstants::PAYONE_REDIRECT_BACK_URL => '',
+    PayoneConstants::PAYONE_MODE => 'test',
+    PayoneConstants::PAYONE_EMPTY_SEQUENCE_NUMBER => 0,
+    PayoneConstants::ROUTE_CART => CartControllerProvider::ROUTE_CART
 ];
 
 // ---------- Navigation
