@@ -19,6 +19,10 @@ use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 use SprykerEco\Shared\Payone\PayoneConstants;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
+use Spryker\Shared\Oms\OmsConstants;
+use Spryker\Zed\Oms\OmsConfig;
+use Spryker\Shared\Sales\SalesConstants;
+use SprykerEco\Zed\Payone\PayoneConfig;
 
 // ---------- General
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
@@ -105,6 +109,84 @@ $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_EMPTY_SEQUENCE_NUMBER => 0,
     PayoneConstants::ROUTE_CART => CartControllerProvider::ROUTE_CART
 ];
+
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL] = sprintf(
+    '%s/checkout/success',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_ERROR_URL] = sprintf(
+    '%s/checkout/index/',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_BACK_URL] = sprintf(
+    '%s/checkout/regular-redirect-payment-cancellation/',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_EXPRESS_CHECKOUT_SUCCESS_URL] = sprintf(
+    '%s/payone/expresscheckout/success',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_EXPRESS_CHECKOUT_FAILURE_URL] = sprintf(
+    '%s/payone/expresscheckout/error',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_EXPRESS_CHECKOUT_BACK_URL] = sprintf(
+    '%s/payone/expresscheckout/back',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+
+$config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
+    'Checkout' => [
+        'Payone'
+    ]
+];
+
+$config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
+    'Payment' => [
+        'Payone'
+    ],
+    'Oms' => [
+        'Payone'
+    ]
+];
+
+$config[OmsConstants::PROCESS_LOCATION] = [
+    OmsConfig::DEFAULT_PROCESS_LOCATION,
+    APPLICATION_VENDOR_DIR . '/spryker-eco/payone/config/Zed/Oms',
+];
+
+$config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
+    PayoneConfig::PAYMENT_METHOD_CREDIT_CARD => 'PayoneCreditCard',
+    PayoneConfig::PAYMENT_METHOD_E_WALLET => 'PayoneEWallet',
+    PayoneConfig::PAYMENT_METHOD_DIRECT_DEBIT => 'PayoneDirectDebit',
+    PayoneConfig::PAYMENT_METHOD_EPS_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
+    PayoneConfig::PAYMENT_METHOD_INSTANT_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
+    PayoneConfig::PAYMENT_METHOD_GIROPAY_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
+    PayoneConfig::PAYMENT_METHOD_IDEAL_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
+    PayoneConfig::PAYMENT_METHOD_POSTFINANCE_CARD_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
+    PayoneConfig::PAYMENT_METHOD_POSTFINANCE_EFINANCE_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
+    PayoneConfig::PAYMENT_METHOD_PRZELEWY24_ONLINE_TRANSFER => 'PayoneOnlineTransfer',
+    PayoneConfig::PAYMENT_METHOD_PRE_PAYMENT => 'PayonePrePayment',
+    PayoneConfig::PAYMENT_METHOD_INVOICE => 'PayoneInvoice',
+    PayoneConfig::PAYMENT_METHOD_PAYPAL_EXPRESS_CHECKOUT => 'PayonePaypalExpressCheckout'
+];
+
+$config[OmsConstants::ACTIVE_PROCESSES] = [
+    'PayoneCreditCard',
+    'PayoneEWallet',
+    'PayoneDirectDebit',
+    'PayoneOnlineTransfer',
+    'PayonePrePayment',
+    'PayoneInvoice',
+    'PayonePaypalExpressCheckout'
+];
+
+$config[\Spryker\Shared\SequenceNumber\SequenceNumberConstants::ENVIRONMENT_PREFIX]
+    = $config[SalesConstants::ENVIRONMENT_PREFIX]
+    = 'HEROKU';
 
 // ---------- Navigation
 $config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
