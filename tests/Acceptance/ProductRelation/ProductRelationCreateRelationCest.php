@@ -53,7 +53,7 @@ class ProductRelationCreateRelationCest
 
         $yvesTester->does(function (YvesAcceptanceTester $i) {
 
-            $i->amOnPage('/en/samsung-bundle-213');
+            $i->amOnPage('/en/samsung-bundle-214');
 
             $i->canSee('Similar products');
             $i->canSee('HP EliteDesk 800 G2');

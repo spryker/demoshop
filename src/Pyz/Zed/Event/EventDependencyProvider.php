@@ -25,7 +25,9 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
      */
     public function getEventSubscriberCollection()
     {
-        return parent::getEventSubscriberCollection();
+        $eventSubscriberCollection = parent::getEventSubscriberCollection();
+
+        return $eventSubscriberCollection;
     }
 
 }

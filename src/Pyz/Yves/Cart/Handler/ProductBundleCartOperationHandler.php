@@ -62,6 +62,16 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
     }
 
     /**
+     * @param \Generated\Shared\Transfer\ItemTransfer[] $itemTransfers
+     *
+     * @return void
+     */
+    public function addItems(array $itemTransfers)
+    {
+        $this->cartOperationHandler->addItems($itemTransfers);
+    }
+
+    /**
      * @param string $sku
      * @param string|null $groupKey
      *

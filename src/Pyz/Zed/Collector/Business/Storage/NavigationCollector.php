@@ -8,12 +8,17 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
-use Spryker\Shared\Category\CategoryConstants;
+use Spryker\Zed\Category\CategoryConfig;
 use Spryker\Zed\Collector\Business\Exporter\Writer\Storage\TouchUpdaterSet;
 use Spryker\Zed\Collector\CollectorConfig;
 
 class NavigationCollector extends CategoryNodeCollector
 {
+
+    /**
+     * @var array
+     */
+    protected $allChunkCollectedSets = [];
 
     /**
      * @param array $collectedSet
@@ -27,16 +32,17 @@ class NavigationCollector extends CategoryNodeCollector
         $setToExport = [];
         $formattedCategoryNodes = [];
         $touchKey = $this->generateTouchKey($locale, []);
+        $this->allChunkCollectedSets = array_merge($this->allChunkCollectedSets, $collectedSet);
 
-        foreach ($collectedSet as $collectedItemData) {
+        foreach ($this->allChunkCollectedSets as $collectedItemData) {
             $parentId = $collectedItemData['fk_parent_category_node'];
 
             if ($parentId !== null) {
                 continue;
             }
 
-            $collectedItemData['children'] = $this->getChildren($collectedItemData, $collectedSet);
-            $collectedItemData['parents'] = $this->getParents($collectedItemData, $collectedSet);
+            $collectedItemData['children'] = $this->getChildren($collectedItemData, $this->allChunkCollectedSets);
+            $collectedItemData['parents'] = $this->getParents($collectedItemData, $this->allChunkCollectedSets);
 
             $formattedCategoryNodes[] = $this->collectItem($touchKey, $collectedItemData);
 
@@ -49,6 +55,38 @@ class NavigationCollector extends CategoryNodeCollector
         $setToExport[$touchKey] = current($formattedCategoryNodes)['children'];
 
         return $setToExport;
+    }
+
+    /**
+     * @param string $touchKey
+     * @param array $collectItemData
+     *
+     * @return array
+     */
+    protected function collectItem($touchKey, array $collectItemData)
+    {
+        return $this->formatCategoryNode($collectItemData);
+    }
+
+    /**
+     * @param array $collectItemData
+     *
+     * @return array
+     */
+    protected function formatCategoryNode(array $collectItemData)
+    {
+        return [
+            'node_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            'name' => $collectItemData['name'],
+            'url' => $collectItemData['url'],
+            'image' => $collectItemData['category_image_name'],
+            'children' => $collectItemData['children'],
+            'parents' => $collectItemData['parents'],
+            'order' => $collectItemData['node_order'],
+            'meta_title' => $collectItemData['meta_title'],
+            'meta_description' => $collectItemData['meta_description'],
+            'meta_keywords' => $collectItemData['meta_keywords'],
+        ];
     }
 
     /**
@@ -70,7 +108,7 @@ class NavigationCollector extends CategoryNodeCollector
      */
     protected function collectResourceType()
     {
-        return CategoryConstants::RESOURCE_TYPE_NAVIGATION;
+        return CategoryConfig::RESOURCE_TYPE_NAVIGATION;
     }
 
     /**

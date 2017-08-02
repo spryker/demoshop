@@ -27,11 +27,11 @@ class AuthController extends AbstractCustomerController
 
         $loginForm = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createLoginForm();
         $registerForm = $this
             ->getFactory()
-            ->getCustomerFormFactory()
+            ->createCustomerFormFactory()
             ->createRegisterForm();
 
         return [

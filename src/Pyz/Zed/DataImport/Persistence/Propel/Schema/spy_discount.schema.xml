@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" namespace="Orm\Zed\Discount\Persistence" package="src.Orm.Zed.Discount.Persistence" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd">
+
+    <table name="spy_discount" phpName="SpyDiscount">
+        <column name="discount_key" type="VARCHAR" size="32" required="false"/>
+
+        <index>
+            <index-column name="discount_key" />
+        </index>
+    </table>
+
+</database>

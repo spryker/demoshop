@@ -125,6 +125,8 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
+        $attributes = $this->getAbstractAttributes($collectItemData);
+
         return [
             StorageProductTransfer::ID_PRODUCT_ABSTRACT => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             StorageProductTransfer::ATTRIBUTES => $this->getAbstractAttributes($collectItemData),
@@ -133,6 +135,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::URL => $collectItemData[self::URL],
             StorageProductTransfer::COLOR_CODE => $collectItemData[self::COLOR_CODE],
             StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
+            StorageProductTransfer::PRICES => $this->getPrices($collectItemData[self::SKU]),
             StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
             StorageProductTransfer::IMAGE_SETS => $this->generateProductAbstractImageSets(
                 $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
@@ -141,7 +144,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
             StorageProductTransfer::META_DESCRIPTION => $collectItemData[self::META_DESCRIPTION],
-            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes(),
+            StorageProductTransfer::SUPER_ATTRIBUTES_DEFINITION => $this->getVariantSuperAttributes($attributes),
         ];
     }
 
@@ -185,6 +188,23 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected function getPriceBySku($sku)
     {
         return $this->priceFacade->getPriceBySku($sku);
+    }
+
+    /**
+     * @param string $sku
+     *
+     * @return array
+     */
+    protected function getPrices($sku)
+    {
+        $priceProductTransfers = $this->priceFacade->findPricesBySku($sku);
+
+        $prices = [];
+        foreach ($priceProductTransfers as $priceProductTransfer) {
+            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
+        }
+
+        return $prices;
     }
 
     /**
@@ -367,23 +387,37 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     }
 
     /**
+     * @param array $attributes
+     *
      * @return array
      */
-    protected function getVariantSuperAttributes()
+    protected function getVariantSuperAttributes(array $attributes)
     {
-        if ($this->superAttributes) {
-            return $this->superAttributes;
+        if (!$this->superAttributes) {
+            $superAttributes = SpyProductAttributeKeyQuery::create()
+                ->filterByIsSuper(true)
+                ->find();
+
+            foreach ($superAttributes as $attribute) {
+                $this->superAttributes[$attribute->getKey()] = true;
+            }
         }
 
-        $superAttributes = SpyProductAttributeKeyQuery::create()
-            ->filterByIsSuper(true)
-            ->find();
+        return $this->filterVariantSuperAttributes($attributes);
+    }
 
-        foreach ($superAttributes as $attribute) {
-            $this->superAttributes[] = $attribute->getKey();
-        }
+    /**
+     * @param array $attributes
+     *
+     * @return array
+     */
+    protected function filterVariantSuperAttributes(array $attributes)
+    {
+        $variantSuperAttributes = array_filter($attributes, function ($key) {
+            return isset($this->superAttributes[$key]);
+        }, ARRAY_FILTER_USE_KEY);
 
-        return $this->superAttributes;
+        return array_keys($variantSuperAttributes);
     }
 
 }

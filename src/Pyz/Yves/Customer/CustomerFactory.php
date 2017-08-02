@@ -25,7 +25,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Customer\Form\FormFactory
      */
-    public function getCustomerFormFactory()
+    public function createCustomerFormFactory()
     {
         return new FormFactory();
     }
@@ -99,7 +99,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Pyz\Client\Newsletter\NewsletterClientInterface
      */
-    public function createNewsletterClient()
+    public function getNewsletterClient()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_NEWSLETTER);
     }
@@ -107,7 +107,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\Sales\SalesClientInterface
      */
-    public function createSalesClient()
+    public function getSalesClient()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_SALES);
     }
@@ -115,7 +115,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Customer\Plugin\AuthenticationHandler
      */
-    public function createAuthenticationHandler()
+    public function getAuthenticationHandler()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_AUTHENTICATION_HANDLER);
     }
@@ -131,7 +131,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Spryker\Shared\Kernel\Communication\Application
      */
-    public function createApplication()
+    public function getApplication()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_APPLICATION);
     }
@@ -141,25 +141,25 @@ class CustomerFactory extends AbstractFactory
      */
     protected function getFlashMessenger()
     {
-        return $this->createApplication()['flash_messenger'];
+        return $this->getApplication()['flash_messenger'];
     }
 
     /**
      * @return \Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface[]
      */
-    public function createCustomerAuthenticationHandlerPlugins()
+    public function getCustomerAuthenticationHandlerPlugins()
     {
         return [
-            $this->createLoginCheckoutAuthenticationHandlerPlugin(),
-            $this->createGuestCheckoutAuthenticationHandlerPlugin(),
-            $this->createRegistrationAuthenticationHandlerPlugin(),
+            $this->getLoginCheckoutAuthenticationHandlerPlugin(),
+            $this->getGuestCheckoutAuthenticationHandlerPlugin(),
+            $this->getRegistrationAuthenticationHandlerPlugin(),
         ];
     }
 
     /**
      * @return \Pyz\Yves\Customer\Plugin\LoginCheckoutAuthenticationHandlerPlugin
      */
-    public function createLoginCheckoutAuthenticationHandlerPlugin()
+    public function getLoginCheckoutAuthenticationHandlerPlugin()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_LOGIN_AUTHENTICATION_HANDLER);
     }
@@ -167,7 +167,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Customer\Plugin\GuestCheckoutAuthenticationHandlerPlugin
      */
-    public function createGuestCheckoutAuthenticationHandlerPlugin()
+    public function getGuestCheckoutAuthenticationHandlerPlugin()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_GUEST_AUTHENTICATION_HANDLER);
     }
@@ -175,7 +175,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Customer\Plugin\RegistrationCheckoutAuthenticationHandlerPlugin
      */
-    public function createRegistrationAuthenticationHandlerPlugin()
+    public function getRegistrationAuthenticationHandlerPlugin()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER);
     }
@@ -183,7 +183,7 @@ class CustomerFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
-    public function createMessenger()
+    public function getMessenger()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::FLASH_MESSENGER);
     }

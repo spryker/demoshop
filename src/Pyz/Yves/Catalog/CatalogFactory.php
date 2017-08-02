@@ -22,6 +22,22 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
+     * @return \Spryker\Client\Category\CategoryClientInterface
+     */
+    public function getCategoryClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CATEGORY);
+    }
+
+    /**
+     * @return \Spryker\Client\Locale\LocaleClientInterface
+     */
+    public function getLocaleClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_LOCALE);
+    }
+
+    /**
      * @return \Spryker\Client\Search\SearchClientInterface
      */
     protected function getSearchClient()

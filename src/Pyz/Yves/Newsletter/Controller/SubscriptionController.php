@@ -8,8 +8,8 @@
 namespace Pyz\Yves\Newsletter\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Newsletter\Form\NewsletterSubscriptionForm;
-use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -31,7 +31,7 @@ class SubscriptionController extends AbstractController
 
         $subscriptionForm = $this
             ->getFactory()
-            ->createNewsletterSubscriptionForm();
+            ->getNewsletterSubscriptionForm();
 
         $parentRequest = $this->getApplication()['request_stack']->getParentRequest();
 
@@ -52,7 +52,7 @@ class SubscriptionController extends AbstractController
             if ($subscriptionResponse->getIsSuccess()) {
                 $subscriptionForm = $this
                     ->getFactory()
-                    ->createNewsletterSubscriptionForm();
+                    ->getNewsletterSubscriptionForm();
                 $success = 'newsletter.subscription.success';
             }
 

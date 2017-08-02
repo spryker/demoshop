@@ -8,7 +8,8 @@
 namespace Pyz\Yves\Product\Controller;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
-use Spryker\Yves\Kernel\Controller\AbstractController;
+use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Shared\Storage\StorageConstants;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
@@ -16,6 +17,8 @@ use Spryker\Yves\Kernel\Controller\AbstractController;
  */
 class ProductController extends AbstractController
 {
+
+    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
@@ -26,19 +29,15 @@ class ProductController extends AbstractController
     {
         $categories = $storageProductTransfer->getCategories();
 
-        $productOptionGroupsTransfer = $this->getFactory()
+        $productOptionGroupsTransfer = $this
+            ->getFactory()
             ->getProductOptionClient()
             ->getProductOptions($storageProductTransfer->getIdProductAbstract(), $this->getLocale());
-
-        $storageAvailabilityTransfer = $this->getFactory()
-            ->getAvailabilityClient()
-            ->getProductAvailabilityByIdProductAbstract($storageProductTransfer->getIdProductAbstract());
 
         $productData = [
             'product' => $storageProductTransfer,
             'productCategories' => $categories,
             'category' => count($categories) ? end($categories) : null,
-            'availability' => $storageAvailabilityTransfer,
             'page_keywords' => $storageProductTransfer->getMetaKeywords(),
             'page_description' => $storageProductTransfer->getMetaDescription(),
             'productOptionGroups' => $productOptionGroupsTransfer,

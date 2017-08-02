@@ -18,15 +18,16 @@
 
         {% if products is defined %}
             {% for product in products %}
-                <div class="small-12 medium-6 large-4 columns">
-                    {% include "@catalog/catalog/partials/product.twig" with {
-                        idProductAbstract: product.id_product_abstract,
-                        detailsUrl: product.url,
-                        name: product.abstract_name,
-                        priceValue: product.price,
-                        imageUrl: (product.images|length ? product.images.0.external_url_small : '')
-                    } %}
-                </div>
+                {% include "@catalog/catalog/partials/product.twig" with {
+                    class: 'small-12 medium-6 large-4 columns',
+                    idProductAbstract: product.id_product_abstract,
+                    detailsUrl: product.url,
+                    name: product.abstract_name,
+                    priceValue: product.price,
+                    originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null),
+                    imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
+                    productLabels: spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig')
+                } %}
             {% endfor %}
         {% endif %}
 
@@ -37,5 +38,6 @@
                 <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
             </div>
         </div>
+        {{ spyCmsBlock({name: 'Teaser for home page'}) }}
     </div>
 {% endblock %}

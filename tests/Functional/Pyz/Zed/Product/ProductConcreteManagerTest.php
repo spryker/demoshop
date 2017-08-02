@@ -163,7 +163,6 @@ class ProductConcreteManagerTest extends ProductTestAbstract
 
         foreach ($stockCollection as $stock) {
             $this->assertInstanceOf(StockProductTransfer::class, $stock);
-            $this->assertEquals(self::PRICE, $stock->getPrice());
         }
     }
 

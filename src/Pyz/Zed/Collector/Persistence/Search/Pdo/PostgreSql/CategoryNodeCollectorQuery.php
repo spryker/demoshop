@@ -12,6 +12,9 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
 {
 
+    const COL_IS_ACTIVE = 'is_active';
+    const COL_IS_SEARCHABLE = 'is_searchable';
+
     /**
      * @return void
      */
@@ -20,6 +23,8 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
         $sql = '
             SELECT 
                 spy_category.id_category,
+                spy_category.is_searchable as ' . static::COL_IS_SEARCHABLE . ',
+                spy_category.is_active as ' . static::COL_IS_ACTIVE . ',
                 spy_category_node.id_category_node,
                 spy_category_attribute.name,
                 spy_category_attribute.meta_keywords,

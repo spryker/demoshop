@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\ProductGroup\Persistence" package="src.Orm.Zed.ProductGroup.Persistence">
+
+    <table name="spy_product_group" idMethod="native" allowPkInsert="true">
+        <column name="product_group_key" type="VARCHAR" size="32" required="false" />
+
+        <index>
+            <index-column name="product_group_key" />
+        </index>
+    </table>
+
+</database>

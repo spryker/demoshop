@@ -1,0 +1,37 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block page_title %}
+    {% if productSet.metaTitle %}
+        {{ productSet.metaTitle }}
+    {% else %}
+        {{ productSet.name }}
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    <li><a href="{{ url('product-sets') }}">{{ 'product.sets' | trans }}</a></li>
+{% endblock %}
+
+{% block title %}
+    <h3>{{ productSet.name }}</h3>
+{% endblock %}
+
+{% block outside %}
+    <div class="row hide-for-xlarge">
+        <div class="small-12 columns">
+            <div class="__image-viewer-block">
+                {% for image in productSet.images %}
+                    <div data-viewer-id="{{ image.externalUrlLarge }}" data-viewer-reset>
+                        <a class="close-button">&times;</a>
+                        <img class="thumbnail" src="{{ image.externalUrlLarge }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% include '@ProductSet/partial/product_set_block.twig' %}
+{% endblock %}

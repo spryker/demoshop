@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\FacetConfigTransfer;
 use Generated\Shared\Transfer\PaginationConfigTransfer;
 use Generated\Shared\Transfer\SortConfigTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
+use Spryker\Client\ProductLabel\Plugin\ProductLabelFacetValueTransformerPlugin;
 use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
@@ -28,6 +29,9 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     const VALID_ITEMS_PER_PAGE_OPTIONS = [12, 24, 36];
     const SIZE_UNLIMITED = 0;
 
+    const CATEGORY_FACET_PARAM_NAME = 'category';
+    const LABEL_FACET_NAME = 'label';
+
     /**
      * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
      *
@@ -37,7 +41,8 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     {
         $this
             ->addCategoryFacet($facetConfigBuilder)
-            ->addPriceFacet($facetConfigBuilder);
+            ->addPriceFacet($facetConfigBuilder)
+            ->addProductLabelFacet($facetConfigBuilder);
     }
 
     /**
@@ -79,7 +84,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     {
         $categoryFacet = (new FacetConfigTransfer())
             ->setName('category')
-            ->setParameterName('category')
+            ->setParameterName(static::CATEGORY_FACET_PARAM_NAME)
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
             ->setType(SearchConfig::FACET_TYPE_CATEGORY)
             ->setSize(self::SIZE_UNLIMITED);
@@ -103,6 +108,26 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setType(SearchConfig::FACET_TYPE_PRICE_RANGE);
 
         $facetConfigBuilder->addFacet($priceFacet);
+
+        return $this;
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
+     *
+     * @return $this
+     */
+    protected function addProductLabelFacet(FacetConfigBuilderInterface $facetConfigBuilder)
+    {
+        $productLabelFacetTransfer = (new FacetConfigTransfer())
+            ->setName(static::LABEL_FACET_NAME)
+            ->setParameterName(static::LABEL_FACET_NAME)
+            ->setFieldName(PageIndexMap::STRING_FACET)
+            ->setType(SearchConfig::FACET_TYPE_ENUMERATION)
+            ->setIsMultiValued(true)
+            ->setValueTransformer(ProductLabelFacetValueTransformerPlugin::class);
+
+        $facetConfigBuilder->addFacet($productLabelFacetTransfer);
 
         return $this;
     }

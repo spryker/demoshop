@@ -7,8 +7,8 @@
 namespace Pyz\Zed\Category;
 
 use Spryker\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
-use Spryker\Zed\Cms\Communication\Plugin\ReadCmsBlockCategoryRelationPlugin;
-use Spryker\Zed\Cms\Communication\Plugin\RemoveCmsBlockCategoryRelationPlugin;
+use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CategoryFormPlugin;
+use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\ReadCmsBlockCategoryRelationsPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\ReadProductCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\RemoveProductCategoryRelationPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\UpdateProductCategoryRelationPlugin;
@@ -24,7 +24,6 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
         $deletePlugins = array_merge(
             [
                 new RemoveProductCategoryRelationPlugin(),
-                new RemoveCmsBlockCategoryRelationPlugin(),
             ],
             parent::getRelationDeletePluginStack()
         );
@@ -40,6 +39,7 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
         return array_merge(
             [
                 new UpdateProductCategoryRelationPlugin(),
+                new CategoryFormPlugin(),
             ],
             parent::getRelationUpdatePluginStack()
         );
@@ -53,12 +53,22 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
         $readPlugins = array_merge(
             [
                 new ReadProductCategoryRelationPlugin(),
-                new ReadCmsBlockCategoryRelationPlugin(),
+                new ReadCmsBlockCategoryRelationsPlugin(),
             ],
             parent::getRelationReadPluginStack()
         );
 
         return $readPlugins;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getCategoryFormPlugins()
+    {
+        return array_merge(parent::getCategoryFormPlugins(), [
+            new CategoryFormPlugin()
+        ]);
     }
 
 }

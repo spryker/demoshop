@@ -9,7 +9,7 @@ env:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
 
-
+dist: precise
 
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
@@ -39,6 +39,7 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
+
 addons:
   postgresql: 9.4
 
