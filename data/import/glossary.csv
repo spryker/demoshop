@@ -967,3 +967,5 @@ catalog.new,New,en_US
 catalog.new,Neu,de_DE
 product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
+customer.order.canceledTotal,Canceled amount,en_US
+customer.order.canceledTotal,Stornobetrag,de_DE 
