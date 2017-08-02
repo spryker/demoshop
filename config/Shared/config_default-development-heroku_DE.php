@@ -89,3 +89,17 @@ $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     \Spryker\Shared\EventJournal\Model\Writer\File::class => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
 ];
+
+// ---------- Payone
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL] = sprintf(
+    '%s/checkout/success',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_ERROR_URL] = sprintf(
+    '%s/checkout/index',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
+$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_BACK_URL] = sprintf(
+    '%s/checkout/regular-redirect-payment-cancellation',
+    $config[ApplicationConstants::BASE_URL_YVES]
+);
