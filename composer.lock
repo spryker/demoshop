@@ -1654,9 +1654,9 @@
             "require": {
                 "everon/criteria-builder": "^1.1.0",
                 "fzaninotto/faker": "^1.6",
-                "moneyphp/money": "~3.0.0",
-                "paragonie/random_compat": "~1.2.1",
-                "phpdocumentor/graphviz": "~1.0.4"
+                "moneyphp/money": "^3.0.0",
+                "paragonie/random_compat": "^2.0.10",
+                "phpdocumentor/graphviz": "^1.0.4"
             },
             "replace": {
                 "spryker/acl": "*",

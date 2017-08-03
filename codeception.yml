@@ -3,7 +3,8 @@ namespace: PyzTest
 include:
 #  - tests/PyzTest/Yves/Application
 #  - tests/PyzTest/Yves/Assets
-  - tests/PyzTest/Yves/Availability
+#  - tests/PyzTest/Yves/Availability
+
 #  - tests/PyzTest/Yves/Cart
 #  - tests/PyzTest/Yves/Checkout
 #  - tests/PyzTest/Yves/Customer
@@ -20,7 +21,7 @@ include:
 #  - tests/PyzTest/Zed/Sales
 #  - tests/PyzTest/Zed/Tax
 #  - tests/PyzTest/Zed/Touch
-#  - vendor/spryker/spryker/Bundles/*/*
+  - vendor/spryker/spryker/Bundles/*/*
 
 paths:
     log: tests/_output
