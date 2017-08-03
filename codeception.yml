@@ -3,7 +3,7 @@ actor: Tester
 
 include:
   - tests/PyzTest/*/*
-#  - vendor/spryker/spryker/Bundles/*/*
+  - vendor/spryker/spryker/Bundles/*/*
 
 paths:
     tests: tests
