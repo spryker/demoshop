@@ -3,22 +3,7 @@ actor: Tester
 
 include:
   - tests/PyzTest/*/*
-#  - tests/PyzTest/Yves/Application
-#  - tests/PyzTest/Yves/Assets
-#  - tests/PyzTest/Yves/Availability
-#  - tests/PyzTest/Yves/Checkout
-#  - tests/PyzTest/Yves/Customer
-#  - tests/PyzTest/Yves/Newsletter
-#  - tests/PyzTest/Zed/Calculation
-#  - tests/PyzTest/Zed/CmsGui
-#  - tests/PyzTest/Zed/Console
-#  - tests/PyzTest/Zed/NavigationGui
-#  - tests/PyzTest/Zed/Product
-#  - tests/PyzTest/Zed/ProductOption
-#  - tests/PyzTest/Zed/ProductRelation
-#  - tests/PyzTest/Zed/Tax
-#  - tests/PyzTest/Zed/Touch
-#  - vendor/spryker/spryker/Bundles/*/*
+  - vendor/spryker/spryker/Bundles/*/*
 
 paths:
     tests: tests
