@@ -7,8 +7,8 @@
 
 namespace PyzTest\Yves\Newsletter\Yves;
 
+use Generated\Shared\DataBuilder\CustomerBuilder;
 use PyzTest\Yves\Application\PageObject\Homepage;
-use PyzTest\Yves\Customer\PageObject\Customer;
 use PyzTest\Yves\Customer\PageObject\CustomerNewsletterPage;
 use PyzTest\Yves\Customer\PageObject\CustomerOverviewPage;
 use PyzTest\Yves\Newsletter\NewsletterPresentationTester;
@@ -38,7 +38,9 @@ class NewsletterSubscriptionCest
 
         $i->amOnPage(Homepage::URL);
 
-        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, NewsletterSubscriptionHomePage::NEW_EMAIL);
+        $customerTransfer = $this->buildCustomerTransfer();
+
+        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, $customerTransfer->getEmail());
         $i->click(NewsletterSubscriptionHomePage::FORM_SUBMIT);
 
         $i->see(NewsletterSubscriptionHomePage::SUCCESS_MESSAGE);
@@ -56,9 +58,11 @@ class NewsletterSubscriptionCest
 
         $i->amOnPage(Homepage::URL);
 
-        $i->haveAnAlreadySubscribedEmail(NewsletterSubscriptionHomePage::EXISTING_EMAIL);
+        $customerTransfer = $this->buildCustomerTransfer();
 
-        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, NewsletterSubscriptionHomePage::EXISTING_EMAIL);
+        $i->haveAnAlreadySubscribedEmail($customerTransfer->getEmail());
+
+        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, $customerTransfer->getEmail());
         $i->click(NewsletterSubscriptionHomePage::FORM_SUBMIT);
 
         $i->see(NewsletterSubscriptionHomePage::ERROR_MESSAGE);
@@ -76,10 +80,12 @@ class NewsletterSubscriptionCest
 
         $i->amOnPage(Homepage::URL);
 
-        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, Customer::NEW_CUSTOMER_EMAIL);
+        $customerTransfer = $this->buildCustomerTransfer();
+
+        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, $customerTransfer->getEmail());
         $i->click(NewsletterSubscriptionHomePage::FORM_SUBMIT);
 
-        $i->amLoggedInCustomer(Customer::NEW_CUSTOMER_EMAIL);
+        $i->amLoggedInCustomer($customerTransfer->toArray());
 
         $i->amOnPage(CustomerOverviewPage::URL);
         $i->see(CustomerOverviewPage::NEWSLETTER_SUBSCRIBED);
@@ -97,10 +103,12 @@ class NewsletterSubscriptionCest
 
         $i->amOnPage(Homepage::URL);
 
-        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, Customer::NEW_CUSTOMER_EMAIL);
+        $customerTransfer = $this->buildCustomerTransfer();
+
+        $i->fillField(NewsletterSubscriptionHomePage::FORM_SELECTOR, $customerTransfer->getEmail());
         $i->click(NewsletterSubscriptionHomePage::FORM_SUBMIT);
 
-        $i->amLoggedInCustomer(Customer::NEW_CUSTOMER_EMAIL);
+        $i->amLoggedInCustomer($customerTransfer->toArray());
 
         $i->amOnPage(CustomerOverviewPage::URL);
         $i->see(CustomerOverviewPage::NEWSLETTER_SUBSCRIBED);
@@ -112,6 +120,16 @@ class NewsletterSubscriptionCest
         $i->waitForText(CustomerNewsletterPage::SUCCESS_MESSAGE_UN_SUBSCRIBED);
 
         $i->dontSeeCheckboxIsChecked(['name' => CustomerNewsletterPage::FORM_FIELD_SELECTOR_NEWSLETTER_SUBSCRIPTION]);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\CustomerTransfer|\Spryker\Shared\Kernel\Transfer\AbstractTransfer
+     */
+    protected function buildCustomerTransfer()
+    {
+        $customerTransfer = (new CustomerBuilder())->build();
+
+        return $customerTransfer;
     }
 
 }

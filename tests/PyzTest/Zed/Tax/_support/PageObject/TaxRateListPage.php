@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Tax\Zed\PageObject;
+namespace PyzTest\Zed\Tax\PageObject;
 
 class TaxRateListPage
 {
 
-    const URL = 'tax/rate/list';
+    const URL = '/tax/rate/list';
 
     const SELECTOR_DATA_TABLE = '.dataTables_wrapper';
 

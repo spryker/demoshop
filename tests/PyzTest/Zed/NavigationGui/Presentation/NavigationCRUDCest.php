@@ -5,19 +5,21 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Acceptance\NavigationGui;
+namespace PyzTest\Zed\NavigationGui\Presentation;
 
-use Acceptance\NavigationGui\PageObject\NavigationCreatePage;
-use Acceptance\NavigationGui\PageObject\NavigationDeletePage;
-use Acceptance\NavigationGui\PageObject\NavigationPage;
-use Acceptance\NavigationGui\PageObject\NavigationStatusTogglePage;
-use Acceptance\NavigationGui\PageObject\NavigationUpdatePage;
-use Acceptance\NavigationGui\Tester\NavigationCRUDTester;
+use PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationCreatePage;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationDeletePage;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationPage;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationStatusTogglePage;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationUpdatePage;
 
 /**
  * Auto-generated group annotations
- * @group Acceptance
+ * @group PyzTest
+ * @group Zed
  * @group NavigationGui
+ * @group Presentation
  * @group NavigationCRUDCest
  * Add your own group annotations below this line
  */
@@ -25,11 +27,11 @@ class NavigationCRUDCest
 {
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationCRUDTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testICanCreateReadUpdateAndDeleteNavigation(NavigationCRUDTester $i)
+    public function testICanCreateReadUpdateAndDeleteNavigation(NavigationGuiPresentationTester $i)
     {
         $i->amLoggedInUser();
         $i->amOnPage(NavigationCreatePage::URL);
@@ -46,11 +48,11 @@ class NavigationCRUDCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationCRUDTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return int
      */
-    protected function create(NavigationCRUDTester $i)
+    protected function create(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Create navigation.');
         $i->expect('Navigation is persisted in Zed.');
@@ -66,11 +68,11 @@ class NavigationCRUDCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationCRUDTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    protected function read(NavigationCRUDTester $i)
+    protected function read(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('See navigation list.');
         $i->expect('Navigation table is shown and not empty');
@@ -79,12 +81,12 @@ class NavigationCRUDCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationCRUDTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      * @param int $idNavigation
      *
      * @return void
      */
-    protected function update(NavigationCRUDTester $i, $idNavigation)
+    protected function update(NavigationGuiPresentationTester $i, $idNavigation)
     {
         $i->wantTo('Update existing navigation.');
         $i->expect('Navigation is persisted in Zed');
@@ -98,11 +100,11 @@ class NavigationCRUDCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationCRUDTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    protected function activate(NavigationCRUDTester $i)
+    protected function activate(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Activate navigation.');
         $i->expect('New navigation status persisted in Zed.');
@@ -115,11 +117,11 @@ class NavigationCRUDCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationCRUDTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    protected function delete(NavigationCRUDTester $i)
+    protected function delete(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Delete navigation.');
         $i->expect('Navigation is removed from Zed.');

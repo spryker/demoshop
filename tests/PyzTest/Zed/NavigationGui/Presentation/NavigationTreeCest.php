@@ -5,22 +5,24 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Acceptance\NavigationGui;
+namespace PyzTest\Zed\NavigationGui\Presentation;
 
-use Acceptance\NavigationGui\PageObject\NavigationNodeCreatePage;
-use Acceptance\NavigationGui\PageObject\NavigationNodeUpdatePage;
-use Acceptance\NavigationGui\PageObject\NavigationPage;
-use Acceptance\NavigationGui\Tester\NavigationTreeTester;
 use Generated\Shared\Transfer\NavigationNodeLocalizedAttributesTransfer;
 use Generated\Shared\Transfer\NavigationNodeTransfer;
 use Generated\Shared\Transfer\NavigationTransfer;
 use Generated\Shared\Transfer\NavigationTreeNodeTransfer;
 use Generated\Shared\Transfer\NavigationTreeTransfer;
+use PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationNodeCreatePage;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationNodeUpdatePage;
+use PyzTest\Zed\NavigationGui\PageObject\NavigationPage;
 
 /**
  * Auto-generated group annotations
- * @group Acceptance
+ * @group PyzTest
+ * @group Zed
  * @group NavigationGui
+ * @group Presentation
  * @group NavigationTreeCest
  * Add your own group annotations below this line
  */
@@ -28,11 +30,11 @@ class NavigationTreeCest
 {
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationTreeTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testSeeEmptyNavigationTree(NavigationTreeTester $i)
+    public function testSeeEmptyNavigationTree(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('See navigation tree.');
         $i->expect('Empty navigation tree displayed.');
@@ -50,11 +52,11 @@ class NavigationTreeCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationTreeTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testCreateChildNodeWithoutType(NavigationTreeTester $i)
+    public function testCreateChildNodeWithoutType(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Create child node without type.');
         $i->expect('Navigation should have a root node persisted.');
@@ -79,11 +81,11 @@ class NavigationTreeCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationTreeTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testCreateChildNodeWithExternalUrlType(NavigationTreeTester $i)
+    public function testCreateChildNodeWithExternalUrlType(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Create external URL child node.');
         $i->expect('Navigation should have a root node persisted.');
@@ -113,11 +115,11 @@ class NavigationTreeCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationTreeTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testUpdateNodeToCategoryType(NavigationTreeTester $i)
+    public function testUpdateNodeToCategoryType(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Update child node to category type.');
         $i->expect('Node changes should persist in Zed.');
@@ -152,11 +154,11 @@ class NavigationTreeCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationTreeTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testCreateChildNodeWithCmsPageType(NavigationTreeTester $i)
+    public function testCreateChildNodeWithCmsPageType(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Create CMS page child node.');
         $i->expect('Navigation should have a new child node persisted.');
@@ -193,11 +195,11 @@ class NavigationTreeCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationTreeTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testChangeNavigationTreeStructure(NavigationTreeTester $i)
+    public function testChangeNavigationTreeStructure(NavigationGuiPresentationTester $i)
     {
         $i->wantTo('Change tree structure and save.');
         $i->expect('Updated navigation tree structure should have persisted.');
@@ -250,11 +252,11 @@ class NavigationTreeCest
     }
 
     /**
-     * @param \Acceptance\NavigationGui\Tester\NavigationTreeTester $i
+     * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
      */
-    public function testDeleteNavigationNode(NavigationTreeTester $i)
+    public function testDeleteNavigationNode(NavigationGuiPresentationTester $i)
     {
         /**
          * Test skipped because popup confirmation is not working as expected under phantomjs.

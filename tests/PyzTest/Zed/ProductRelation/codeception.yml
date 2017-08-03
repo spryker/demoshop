@@ -33,3 +33,5 @@ suites:
               - \SprykerTest\Shared\Discount\Helper\DiscountDataHelper
               - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
               - \SprykerTest\Shared\Application\Helper\ZedHelper
+              - \SprykerTest\Shared\Application\Helper\YvesHelper
+              - \SprykerTest\Shared\Application\Helper\SetupHelper

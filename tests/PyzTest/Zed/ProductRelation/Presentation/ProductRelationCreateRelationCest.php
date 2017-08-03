@@ -4,17 +4,18 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Acceptance\ProductRelation;
+namespace PyzTest\Zed\ProductRelation\Presentation;
 
-use Acceptance\ProductRelation\PageObject\ProductRelationCreatePage;
-use Acceptance\ProductRelation\Tester\ProductRelationCreateRelationTester;
+use PyzTest\Zed\ProductRelation\PageObject\ProductRelationCreatePage;
+use PyzTest\Zed\ProductRelation\ProductRelationPresentationTester;
 use Spryker\Shared\ProductRelation\ProductRelationTypes;
-use YvesAcceptanceTester;
 
 /**
  * Auto-generated group annotations
- * @group Acceptance
+ * @group PyzTest
+ * @group Zed
  * @group ProductRelation
+ * @group Presentation
  * @group ProductRelationCreateRelationCest
  * Add your own group annotations below this line
  */
@@ -22,11 +23,11 @@ class ProductRelationCreateRelationCest
 {
 
     /**
-     * @param \Acceptance\ProductRelation\Tester\ProductRelationCreateRelationTester $i
+     * @param \PyzTest\Zed\ProductRelation\ProductRelationPresentationTester $i
      *
      * @return void
      */
-    public function testICanCreateProductRelationAndSeeInYves(ProductRelationCreateRelationTester $i)
+    public function testICanCreateProductRelationAndSeeInYves(ProductRelationPresentationTester $i)
     {
         $i->wantTo('I want to create up selling relation');
         $i->expect('relation is persisted, exported to yves and carousel component is visible');
@@ -51,16 +52,10 @@ class ProductRelationCreateRelationCest
 
         $i->runCollectors();
 
-        $yvesTester = $i->haveFriend('yvesTester', YvesAcceptanceTester::class);
-
-        $yvesTester->does(function (YvesAcceptanceTester $i) {
-
-            $i->amOnPage('/en/samsung-bundle-214');
-
-            $i->canSee('Similar products');
-            $i->canSee('HP EliteDesk 800 G2');
-
-        });
+        $i->amYves();
+        $i->amOnPage('/en/samsung-bundle-214');
+        $i->canSee('Similar products');
+        $i->canSee('HP EliteDesk 800 G2');
     }
 
 }

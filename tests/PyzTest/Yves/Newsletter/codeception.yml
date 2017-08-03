@@ -19,14 +19,15 @@ suites:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
               - \SprykerTest\Shared\Config\Helper\ConfigInit
+              - \SprykerTest\Shared\Testify\Helper\LocatorHelper
               - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
+              - \SprykerTest\Shared\Application\Helper\YvesHelper
               - \PyzTest\Yves\Customer\Helper\CustomerHelper
-              - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper
               - WebDriver:
                   url: ''
                   browser: chrome
                   window_size: 1920x1080
                   host: 0.0.0.0
                   restart: false
+              - \SprykerTest\Shared\Testify\Helper\DependencyHelper
               - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
-              - \SprykerTest\Shared\Application\Helper\YvesHelper

@@ -24,12 +24,14 @@ suites:
                   projectNamespaces: ['Pyz']
 
               - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper
+              - \SprykerTest\Shared\Application\Helper\SetupHelper
               - WebDriver:
                   url: ''
                   browser: chrome
                   window_size: 1920x1080
                   host: 0.0.0.0
                   restart: false
+              - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
               - \SprykerTest\Shared\Discount\Helper\DiscountDataHelper
               - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
               - \SprykerTest\Shared\Application\Helper\ZedHelper

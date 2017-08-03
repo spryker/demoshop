@@ -12,13 +12,14 @@ coverage:
     whitelist: { include: ['../../../../src/*'] }
 
 suites:
-    Acceptance:
-        path: Acceptance
-        class_name: CmsGuiAcceptanceTester
+    Presentation:
+        path: Presentation
+        class_name: CmsGuiPresentationTester
         modules:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
               - \SprykerTest\Shared\Application\Helper\ZedHelper
+              - \SprykerTest\Shared\Application\Helper\SetupHelper
               - \SprykerTest\Shared\Config\Helper\ConfigInit
               - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
                   projectNamespaces: ['Pyz']

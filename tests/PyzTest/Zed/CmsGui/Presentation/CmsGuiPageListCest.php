@@ -6,7 +6,7 @@
 
 namespace PyzTest\Zed\CmsGui\Acceptance;
 
-use PyzTest\Zed\CmsGui\CmsGuiAcceptanceTester;
+use PyzTest\Zed\CmsGui\CmsGuiPresentationTester;
 use PyzTest\Zed\CmsGui\PageObject\CmsListPage;
 
 /**
@@ -22,11 +22,11 @@ class CmsGuiPageListCest
 {
 
     /**
-     * @param \PyzTest\Zed\CmsGui\CmsGuiAcceptanceTester $i
+     * @param \PyzTest\Zed\CmsGui\CmsGuiPresentationTester $i
      *
      * @return void
      */
-    public function testICanOpenCmsPageList(CmsGuiAcceptanceTester $i)
+    public function testICanOpenCmsPageList(CmsGuiPresentationTester $i)
     {
         $i->amLoggedInUser();
         $i->amOnPage(CmsListPage::URL);

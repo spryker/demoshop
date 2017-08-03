@@ -10,6 +10,7 @@ namespace PyzTest\Yves\Customer\Helper;
 use Codeception\Module;
 use Codeception\TestInterface;
 use Codeception\Util\Stub;
+use Generated\Shared\DataBuilder\CustomerBuilder;
 use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
 use Generated\Shared\Transfer\NewsletterTypeTransfer;
@@ -121,24 +122,25 @@ class CustomerHelper extends Module
     }
 
     /**
-     * @param string $email
+     * @param array $seed
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
-    public function haveRegisteredCustomer($email)
+    public function haveRegisteredCustomer(array $seed)
     {
-        $customerEntity = $this->loadCustomerByEmail($email);
-        if ($customerEntity) {
-            return;
-        }
-
         $this->setupSession();
 
-        $customerTransfer = Customer::getCustomerData($email);
+        $customerBuilder = new CustomerBuilder($seed);
+        $customerTransfer = $customerBuilder->build();
+        $password = $customerTransfer->getPassword();
 
         $mailMock = new CustomerToMailBridge($this->getMailMock());
         $this->setDependency(CustomerDependencyProvider::FACADE_MAIL, $mailMock);
         $this->getFacade()->registerCustomer($customerTransfer);
+
+        $customerTransfer->setPassword($password);
+
+        return $customerTransfer;
     }
 
     /**
@@ -213,23 +215,24 @@ class CustomerHelper extends Module
     }
 
     /**
-     * @param string $email
+     * @param array $seed
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
-    public function amLoggedInCustomer($email = Customer::NEW_CUSTOMER_EMAIL)
+    public function amLoggedInCustomer(array $seed)
     {
-        $this->haveRegisteredCustomer($email);
-        $customerTransfer = Customer::getCustomerData($email);
+        $customerTransfer = $this->haveRegisteredCustomer($seed);
 
-        $i = $this->getWebDriver();
-        $i->amOnPage(CustomerLoginPage::URL);
-        $i->submitForm(['name' => 'loginForm'], [
+        $tester = $this->getWebDriver();
+        $tester->amOnPage(CustomerLoginPage::URL);
+        $tester->submitForm(['name' => 'loginForm'], [
             CustomerLoginPage::FORM_FIELD_SELECTOR_EMAIL => $customerTransfer->getEmail(),
             CustomerLoginPage::FORM_FIELD_SELECTOR_PASSWORD => $customerTransfer->getPassword(),
         ]);
 
-        $i->wait(2);
+        $tester->wait(2);
+
+        return $customerTransfer;
     }
 
     /**

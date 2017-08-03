@@ -5,17 +5,18 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Acceptance\Tax\Zed;
+namespace PyzTest\Zed\Tax\Presentation;
 
-use Acceptance\Tax\Zed\PageObject\TaxRateCreatePage;
-use Acceptance\Tax\Zed\PageObject\TaxRateListPage;
-use Acceptance\Tax\Zed\Tester\TaxRateTester;
+use PyzTest\Zed\Tax\PageObject\TaxRateCreatePage;
+use PyzTest\Zed\Tax\PageObject\TaxRateListPage;
+use PyzTest\Zed\Tax\TaxPresentationTester;
 
 /**
  * Auto-generated group annotations
- * @group Acceptance
- * @group Tax
+ * @group PyzTest
  * @group Zed
+ * @group Tax
+ * @group Presentation
  * @group TaxRateCreateCest
  * Add your own group annotations below this line
  */
@@ -23,14 +24,11 @@ class TaxRateCreateCest
 {
 
     /**
-     * @group Overview
-     * @group Smoke
-     *
-     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
+     * @param \PyzTest\Zed\Tax\TaxPresentationTester $i
      *
      * @return void
      */
-    public function testCreateValidTaxRateShouldShowSuccessMessage(TaxRateTester $i)
+    public function testCreateValidTaxRateShouldShowSuccessMessage(TaxPresentationTester $i)
     {
         $i->wantTo('Create valid tax rate.');
         $i->expect('Tax rate is successfully created');
@@ -42,13 +40,11 @@ class TaxRateCreateCest
     }
 
     /**
-     * @group Overview
-     *
-     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
+     * @param \PyzTest\Zed\Tax\TaxPresentationTester $i
      *
      * @return void
      */
-    public function testCreateInvalidTaxRateShouldShowErrorMessages(TaxRateTester $i)
+    public function testCreateInvalidTaxRateShouldShowErrorMessages(TaxPresentationTester $i)
     {
         $i->wantTo('Create invalid tax rate');
         $i->expect('Error messages are displayed. Tax rate is not created');
@@ -58,13 +54,11 @@ class TaxRateCreateCest
     }
 
     /**
-     * @group Overview
-     *
-     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
+     * @param \PyzTest\Zed\Tax\TaxPresentationTester $i
      *
      * @return void
      */
-    public function testBackToListOfTaxRatesShouldOpenTaxRateListPageWithoutSaving(TaxRateTester $i)
+    public function testBackToListOfTaxRatesShouldOpenTaxRateListPageWithoutSaving(TaxPresentationTester $i)
     {
         $i->wantTo('Create valid tax rate and back to list of tax rates');
         $i->expect('List of tax rates is opened, tax rate is not created');
@@ -80,13 +74,11 @@ class TaxRateCreateCest
     }
 
     /**
-     * @group Overview
-     *
-     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
+     * @param \PyzTest\Zed\Tax\TaxPresentationTester $i
      *
      * @return void
      */
-    public function testCreateTaxRateWhichAlreadyExistsShouldShowErrorMessage(TaxRateTester $i)
+    public function testCreateTaxRateWhichAlreadyExistsShouldShowErrorMessage(TaxPresentationTester $i)
     {
         $i->wantTo('Create tax rate which already exists');
         $i->expect('Error message is displayed on attempt to create one and the same Tax Rate');
@@ -100,13 +92,11 @@ class TaxRateCreateCest
     }
 
     /**
-     * @group Overview
-     *
-     * @param \Acceptance\Tax\Zed\Tester\TaxRateTester $i
+     * @param \PyzTest\Zed\Tax\TaxPresentationTester $i
      *
      * @return void
      */
-    public function testCreateAlreadyExistedTaxRateShouldShowErrorMessage(TaxRateTester $i)
+    public function testCreateAlreadyExistedTaxRateShouldShowErrorMessage(TaxPresentationTester $i)
     {
         $i->wantTo('Create tax rate which already exists');
         $i->expect('Error message is displayed on attempt to create one and the same Tax Rate');
