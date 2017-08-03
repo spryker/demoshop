@@ -17,6 +17,7 @@ suites:
         class_name: AvailabilityPresentationTester
         modules:
             enabled:
+              - Asserts
               - \PyzTest\Shared\Testify\Helper\Environment
               - \SprykerTest\Shared\Config\Helper\ConfigInit
               - \PyzTest\Yves\Checkout\Helper\CheckoutHelper

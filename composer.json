@@ -93,18 +93,9 @@
     "psr-0": {
       "PyzTest": "tests"
     },
-    "psr-4": {
-      "PyzTest\\Shared\\Testify\\Helper\\": "tests/PyzTest/Shared/Testify/_support/Helper",
-      "PyzTest\\Yves\\Application\\PageObject\\": "tests/PyzTest/Yves/Application/_support/PageObject",
-      "PyzTest\\Yves\\Cart\\PageObject\\": "tests/PyzTest/Yves/Cart/_support/PageObject",
-      "PyzTest\\Yves\\Checkout\\Helper\\": "tests/PyzTest/Yves/Checkout/_support/Helper",
-      "PyzTest\\Yves\\Customer\\PageObject\\": "tests/PyzTest/Yves/Customer/_support/PageObject",
-      "PyzTest\\Yves\\Customer\\Helper\\": "tests/PyzTest/Yves/Customer/_support/Helper",
-      "PyzTest\\Yves\\Product\\PageObject\\": "tests/PyzTest/Yves/Product/_support/PageObject",
-      "PyzTest\\Zed\\Availability\\PageObject\\": "tests/PyzTest/Zed/Availability/_support/PageObject",
-      "PyzTest\\Zed\\CmsGui\\PageObject\\": "tests/PyzTest/Zed/CmsGui/_support/PageObject",
-      "PyzTest\\Zed\\Console\\Helper\\": "tests/PyzTest/Zed/Console/_support/Helper"
-    }
+    "files": [
+      "test-autoload.php"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
