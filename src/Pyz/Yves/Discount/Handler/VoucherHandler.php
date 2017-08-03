@@ -56,14 +56,25 @@ class VoucherHandler extends BaseHandler implements VoucherHandlerInterface
         $quoteTransfer->addVoucherDiscount($voucherDiscount);
 
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
-
-        if (!$this->isVoucherCodeApplied($quoteTransfer, $voucherCode)) {
-            $this->flashMessenger->addErrorMessage('cart.voucher.apply.failed');
-        } else {
-            $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
-        }
+        $this->addFlashMessages($quoteTransfer, $voucherCode);
 
         $this->cartClient->storeQuote($quoteTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $voucherCode
+     *
+     * @return void
+     */
+    protected function addFlashMessages($quoteTransfer, $voucherCode)
+    {
+        if ($this->isVoucherCodeApplied($quoteTransfer, $voucherCode)) {
+            $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
+            return;
+        }
+
+        $this->flashMessenger->addErrorMessage('cart.voucher.apply.failed');
     }
 
     /**
