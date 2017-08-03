@@ -75,7 +75,7 @@ class ProductManagerStub
         $this->productQueryContainer->getConnection()->beginTransaction();
 
         $productAbstractEntity = $this->createProductAbstractEntity($sku);
-        $attributeEntity = $this->createLocalizedAttributeEntity($name, $productAbstractEntity->getIdProductAbstract());
+        $this->createLocalizedAttributeEntity($name, $productAbstractEntity->getIdProductAbstract());
 
         $this->productQueryContainer->getConnection()->commit();
 

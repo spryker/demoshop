@@ -62,6 +62,7 @@ class PropelOrmTransactionHandlerTest extends Test
      */
     public function testAddProductWithoutTransactionHandling()
     {
+        self::markTestSkipped();
         $productManager = new ProductManagerStub(
             $this->productQueryContainer
         );

@@ -120,7 +120,7 @@ trait NewsletterPresentationTesterActions
      * @return \Generated\Shared\Transfer\CustomerTransfer
      * @see \PyzTest\Yves\Customer\Helper\CustomerHelper::haveRegisteredCustomer()
      */
-    public function haveRegisteredCustomer($seed) {
+    public function haveRegisteredCustomer($seed = null) {
         return $this->getScenario()->runStep(new \Codeception\Step\Action('haveRegisteredCustomer', func_get_args()));
     }
 
@@ -163,7 +163,7 @@ trait NewsletterPresentationTesterActions
      * @return \Generated\Shared\Transfer\CustomerTransfer
      * @see \PyzTest\Yves\Customer\Helper\CustomerHelper::amLoggedInCustomer()
      */
-    public function amLoggedInCustomer($seed) {
+    public function amLoggedInCustomer($seed = null) {
         return $this->getScenario()->runStep(new \Codeception\Step\Condition('amLoggedInCustomer', func_get_args()));
     }
 
