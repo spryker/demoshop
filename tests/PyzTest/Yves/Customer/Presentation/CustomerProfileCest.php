@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace PyzTest\Yves\Customer\Yves;
+namespace PyzTest\Yves\Customer\Presentation;
 
 use PyzTest\Yves\Customer\CustomerPresentationTester;
 use PyzTest\Yves\Customer\PageObject\CustomerProfilePage;
@@ -15,7 +15,7 @@ use PyzTest\Yves\Customer\PageObject\CustomerProfilePage;
  * @group PyzTest
  * @group Yves
  * @group Customer
- * @group Yves
+ * @group Presentation
  * @group CustomerProfileCest
  * Add your own group annotations below this line
  */

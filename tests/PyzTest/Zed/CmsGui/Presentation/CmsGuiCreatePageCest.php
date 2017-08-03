@@ -4,8 +4,9 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace PyzTest\Zed\CmsGui;
+namespace PyzTest\Zed\CmsGui\Presentation;
 
+use PyzTest\Zed\CmsGui\CmsGuiPresentationTester;
 use PyzTest\Zed\CmsGui\PageObject\CmsCreateGlossaryPage;
 use PyzTest\Zed\CmsGui\PageObject\CmsCreatePage;
 use PyzTest\Zed\CmsGui\PageObject\CmsEditPage;
@@ -15,6 +16,7 @@ use PyzTest\Zed\CmsGui\PageObject\CmsEditPage;
  * @group PyzTest
  * @group Zed
  * @group CmsGui
+ * @group Presentation
  * @group CmsGuiCreatePageCest
  * Add your own group annotations below this line
  */

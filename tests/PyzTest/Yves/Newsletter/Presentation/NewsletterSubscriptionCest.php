@@ -5,7 +5,7 @@
  * Use of this software requires Presentation of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace PyzTest\Yves\Newsletter\Yves;
+namespace PyzTest\Yves\Newsletter\Presentation;
 
 use Generated\Shared\DataBuilder\CustomerBuilder;
 use PyzTest\Yves\Application\PageObject\Homepage;
@@ -19,7 +19,7 @@ use PyzTest\Yves\Newsletter\PageObject\NewsletterSubscriptionHomePage;
  * @group PyzTest
  * @group Yves
  * @group Newsletter
- * @group Yves
+ * @group Presentation
  * @group NewsletterSubscriptionCest
  * Add your own group annotations below this line
  */

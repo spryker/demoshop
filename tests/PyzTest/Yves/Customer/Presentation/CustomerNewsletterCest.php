@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace PyzTest\Yves\Customer\Yves;
+namespace PyzTest\Yves\Customer\Presentation;
 
 use Codeception\Util\Stub;
 use PyzTest\Yves\Customer\CustomerPresentationTester;
@@ -18,7 +18,7 @@ use Spryker\Zed\Newsletter\NewsletterDependencyProvider;
  * @group PyzTest
  * @group Yves
  * @group Customer
- * @group Yves
+ * @group Presentation
  * @group CustomerNewsletterCest
  * Add your own group annotations below this line
  */
