@@ -114,9 +114,13 @@ function installZed {
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
-    labelText "Importing Demo data"
-    $CONSOLE import:demo-data $VERBOSITY
-    writeErrorMessage "DemoData import failed"
+    labelText "Importing Data"
+    $CONSOLE data:import $VERBOSITY
+    writeErrorMessage "Importing Data failed"
+
+    labelText "Updating product label relations"
+    $CONSOLE product-label:relations:update $VERBOSITY
+    writeErrorMessage "Updating product label relations failed"
 
     labelText "Setting up data stores"
 
@@ -132,9 +136,29 @@ function installZed {
     labelText "Setting up IDE autocompletion"
     $CONSOLE dev:ide:generate-auto-completion $VERBOSITY
 
+    removeLogFiles
+
     setupZedFrontend
 
     labelText "Zed setup completed successfully"
+}
+
+function removeLogFiles {
+    if [[ -d "./data/DE/logs" ]]; then
+        labelText "Clear logs"
+        sudo service filebeat stop || true
+        /bin/bash -c 'rm -rf ./data/DE/logs/*'
+        sudo service filebeat start || true
+        writeErrorMessage "Could not remove logs directory"
+    fi
+}
+
+function removeCacheFiles {
+    if [[ -d "./data/DE/cache" ]]; then
+        labelText "Clear cache"
+        /bin/bash -c 'rm -rf ./data/DE/cache/*'
+        writeErrorMessage "Could not remove cache directory"
+    fi
 }
 
 function installYves {
@@ -246,18 +270,8 @@ function dumpAutoload {
 }
 
 function resetYves {
-    if [[ -d "./data/DE/logs" ]]; then
-        labelText "Clear logs"
-        rm -rf "./data/DE/logs"
-        mkdir "./data/DE/logs"
-        writeErrorMessage "Could not remove logs directory"
-    fi
-
-    if [[ -d "./data/DE/cache" ]]; then
-        labelText "Clear cache"
-        rm -rf "./data/DE/cache"
-        writeErrorMessage "Could not remove cache directory"
-    fi
+    removeLogFiles
+    removeCacheFiles
 
     cleanupProjectFrontendDeps
     cleanupYvesFrontendPublicAssets

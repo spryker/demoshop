@@ -23,7 +23,7 @@ class TwigFactory extends SprykerTwigFactory
     private $settings;
 
     /**
-     * @param \Spryker\Yves\Kernel\Application
+     * @param \Spryker\Yves\Kernel\Application $application
      *
      * @return \Pyz\Yves\Twig\Model\YvesExtension
      */
@@ -38,10 +38,18 @@ class TwigFactory extends SprykerTwigFactory
     protected function getSettings()
     {
         if (!isset($this->settings)) {
-            $this->settings = new TwigSettings();
+            $this->settings = $this->createTwigSettings();
         }
 
         return $this->settings;
+    }
+
+    /**
+     * @return \Pyz\Yves\Twig\TwigSettings
+     */
+    protected function createTwigSettings()
+    {
+        return new TwigSettings();
     }
 
     /**

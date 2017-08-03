@@ -11,25 +11,16 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Pyz\Shared\ProductSearch\ProductSearchConfig;
-use Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface;
 use Spryker\Shared\Kernel\Store;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
-use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 /**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
  */
 class ProductDataPageMapBuilder
 {
-
-    /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
-     */
-    protected $priceFacade;
 
     /**
      * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
@@ -37,51 +28,28 @@ class ProductDataPageMapBuilder
     protected $productSearchFacade;
 
     /**
-     * @var \Generated\Shared\Transfer\ProductSearchAttributeMapTransfer[]
-     */
-    protected $attributeMap;
-
-    /**
-     * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
-     */
-    protected $productImageQueryContainer;
-
-    /**
-     * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
-     */
-    protected $categoryQueryContainer;
-
-    /**
      * @var \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface
      */
     protected $productFacade;
 
     /**
-     * @var array
+     * @var array|\Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface[]
      */
-    protected static $categoryTree;
-
-    protected static $categoryName;
+    protected $productPageMapExpanders;
 
     /**
      * @param \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface $productSearchFacade
      * @param \Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface $productFacade
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
-     * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
-     * @param \Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface $categoryQueryContainer
+     * @param \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface[] $productPageMapExpanders
      */
     public function __construct(
         ProductSearchFacadeInterface $productSearchFacade,
         ProductSearchToProductInterface $productFacade,
-        PriceFacadeInterface $priceFacade,
-        ProductImageQueryContainerInterface $productImageQueryContainer,
-        CategoryQueryContainerInterface $categoryQueryContainer
+        array $productPageMapExpanders = []
     ) {
-        $this->priceFacade = $priceFacade;
         $this->productSearchFacade = $productSearchFacade;
-        $this->productImageQueryContainer = $productImageQueryContainer;
         $this->productFacade = $productFacade;
-        $this->categoryQueryContainer = $categoryQueryContainer;
+        $this->productPageMapExpanders = $productPageMapExpanders;
     }
 
     /**
@@ -93,14 +61,19 @@ class ProductDataPageMapBuilder
      */
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
     {
+        $isActive = $this->isProductAbstractActive(
+            $productData['product_status_aggregation'],
+            $productData['product_searchable_status_aggregation']
+        );
+
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
-            ->setIsFeatured($productData['is_featured'] == 'true');
+            ->setIsFeatured($productData['is_featured'] == 'true')
+            ->setIsActive($isActive);
 
         $attributes = $this->getProductAttributes($productData);
-        $price = $this->getPriceBySku($productData['abstract_sku']);
 
         /*
          * Here you can hard code which product data will be used for which search functionality
@@ -109,9 +82,7 @@ class ProductDataPageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'id_product_abstract', $productData['id_product_abstract'])
             ->addSearchResultData($pageMapTransfer, 'abstract_sku', $productData['abstract_sku'])
             ->addSearchResultData($pageMapTransfer, 'abstract_name', $productData['abstract_name'])
-            ->addSearchResultData($pageMapTransfer, 'price', $price)
             ->addSearchResultData($pageMapTransfer, 'url', $this->getProductUrl($productData))
-            ->addSearchResultData($pageMapTransfer, 'images', $this->generateImages($productData['id_image_set']))
             ->addSearchResultData($pageMapTransfer, 'type', ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_name'])
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_sku'])
@@ -121,11 +92,9 @@ class ProductDataPageMapBuilder
             ->addFullText($pageMapTransfer, $productData['concrete_descriptions'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])
             ->addCompletionTerms($pageMapTransfer, $productData['abstract_name'])
-            ->addStringSort($pageMapTransfer, 'name', $productData['abstract_name'])
-            ->addIntegerSort($pageMapTransfer, 'price', $price)
-            ->addIntegerFacet($pageMapTransfer, 'price', $price);
+            ->addStringSort($pageMapTransfer, 'name', $productData['abstract_name']);
 
-        $this->setCategories($pageMapBuilder, $pageMapTransfer, $productData, $localeTransfer);
+        $this->expandProductPageMap($pageMapTransfer, $pageMapBuilder, $productData, $localeTransfer);
 
         /*
          * We'll then extend this with dynamically configured product attributes from database
@@ -135,6 +104,42 @@ class ProductDataPageMapBuilder
             ->mapDynamicProductAttributes($pageMapBuilder, $pageMapTransfer, $attributes);
 
         return $pageMapTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
+     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
+     * @param array $productData
+     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
+     *
+     * @return \Generated\Shared\Transfer\PageMapTransfer
+     */
+    protected function expandProductPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
+    {
+        foreach ($this->productPageMapExpanders as $productPageMapExpander) {
+            $pageMapTransfer = $productPageMapExpander->expandProductPageMap($pageMapTransfer, $pageMapBuilder, $productData, $localeTransfer);
+        }
+
+        return $pageMapTransfer;
+    }
+
+    /**
+     * @param string $productStatusAggregation
+     * @param string $productSearchableStatusAggregation
+     *
+     * @return bool
+     */
+    protected function isProductAbstractActive($productStatusAggregation, $productSearchableStatusAggregation)
+    {
+        if (strpos($productSearchableStatusAggregation, 'true') === false) {
+            return false;
+        }
+
+        if (strpos($productStatusAggregation, 'true') === false) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -165,16 +170,6 @@ class ProductDataPageMapBuilder
     }
 
     /**
-     * @param string $sku
-     *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceFacade->getPriceBySku($sku);
-    }
-
-    /**
      * @param array $productData
      *
      * @return string
@@ -184,168 +179,6 @@ class ProductDataPageMapBuilder
         $productUrls = explode(',', $productData['product_urls']);
 
         return $productUrls[0];
-    }
-
-    /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
-     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
-     * @param array $productData
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
-    protected function setCategories(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData, LocaleTransfer $localeTransfer)
-    {
-        $directParentCategories = array_map('intval', explode(',', $productData['category_node_ids']));
-
-        $allParentCategories = [];
-        foreach ($directParentCategories as $idCategory) {
-            $allParentCategories = array_merge(
-                $allParentCategories,
-                $this->getAllParentCategories($idCategory, $localeTransfer)
-            );
-        }
-
-        $allParentCategories = array_values(array_unique($allParentCategories));
-
-        $pageMapBuilder->addCategory($pageMapTransfer, $allParentCategories, $directParentCategories);
-
-        $this->setCategoryFullTextSearch($pageMapBuilder, $pageMapTransfer, $allParentCategories, $directParentCategories, $localeTransfer);
-    }
-
-    /**
-     * @param int $idCategoryNode
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return array
-     */
-    protected function getAllParentCategories($idCategoryNode, LocaleTransfer $localeTransfer)
-    {
-        if (static::$categoryTree === null) {
-            $this->loadCategoryTree($localeTransfer);
-        }
-
-        return static::$categoryTree[$idCategoryNode];
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
-    protected function loadCategoryTree(LocaleTransfer $localeTransfer)
-    {
-        static::$categoryTree = [];
-
-        $categoryNodes = $this->categoryQueryContainer
-            ->queryCategoryNode($localeTransfer->getIdLocale())
-            ->find();
-
-        foreach ($categoryNodes as $categoryNodeEntity) {
-            $pathData = $this->categoryQueryContainer
-                ->queryPath($categoryNodeEntity->getIdCategoryNode(), $localeTransfer->getIdLocale(), false)
-                ->find();
-
-            static::$categoryTree[$categoryNodeEntity->getIdCategoryNode()] = [];
-
-            foreach ($pathData as $path) {
-                $idCategory = (int)$path['id_category_node'];
-                if (!in_array($idCategory, static::$categoryTree[$categoryNodeEntity->getIdCategoryNode()])) {
-                    static::$categoryTree[$categoryNodeEntity->getIdCategoryNode()][] = $idCategory;
-                }
-            }
-        }
-    }
-
-    /**
-     * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
-     * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
-     * @param array $allParentCategories
-     * @param array $directParentCategories
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
-    protected function setCategoryFullTextSearch(
-        PageMapBuilderInterface $pageMapBuilder,
-        PageMapTransfer $pageMapTransfer,
-        array $allParentCategories,
-        array $directParentCategories,
-        LocaleTransfer $localeTransfer
-    ) {
-        foreach ($directParentCategories as $idCategory) {
-            $pageMapBuilder->addFullTextBoosted($pageMapTransfer, $this->getCategoryName($idCategory, $localeTransfer));
-        }
-
-        foreach ($allParentCategories as $idCategory) {
-            if (in_array($idCategory, $directParentCategories)) {
-                continue;
-            }
-
-            $pageMapBuilder->addFullText($pageMapTransfer, $this->getCategoryName($idCategory, $localeTransfer));
-        }
-    }
-
-    /**
-     * @param int $idCategory
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return string
-     */
-    protected function getCategoryName($idCategory, LocaleTransfer $localeTransfer)
-    {
-        if (static::$categoryName === null) {
-            $this->loadCategoryNames($localeTransfer);
-        }
-
-        return isset(static::$categoryName[$idCategory]) ? static::$categoryName[$idCategory] : null;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
-    protected function loadCategoryNames(LocaleTransfer $localeTransfer)
-    {
-        static::$categoryName = [];
-
-        $categoryAttributes = $this->categoryQueryContainer
-            ->queryCategoryAttributesByLocale($localeTransfer)
-            ->useCategoryQuery()
-                ->filterByIsSearchable(true)
-            ->endUse()
-            ->find();
-
-        foreach ($categoryAttributes as $categoryAttributeEntity) {
-            static::$categoryName[$categoryAttributeEntity->getFkCategory()] = $categoryAttributeEntity->getName();
-        }
-    }
-
-    /**
-     * @param int $idImageSet
-     *
-     * @return array
-     */
-    protected function generateImages($idImageSet)
-    {
-        if ($idImageSet === null) {
-            return [];
-        }
-
-        $imagesCollection = $this->productImageQueryContainer
-            ->queryImagesByIdProductImageSet($idImageSet)
-            ->find();
-
-        $result = [];
-
-        foreach ($imagesCollection as $image) {
-            $imageArray = $image->getSpyProductImage()->toArray();
-            $imageArray += $image->toArray();
-            $result[] = $imageArray;
-        }
-
-        return $result;
     }
 
     /**

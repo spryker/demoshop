@@ -21,6 +21,22 @@ i {
     color: $white;
 }
 
+.link {
+    color: map-get($foundation-palette, primary);
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &:disabled,
+    &:disabled:hover {
+        color: $medium-gray;
+        text-decoration: none;
+        cursor: default;
+    }
+}
+
 .__padding-top {
     padding-top: $global-padding;
 }
@@ -35,4 +51,8 @@ i {
 
 .__success {
     color: map-get($foundation-palette, success);
+}
+
+a.disabled {
+    pointer-events: none;
 }

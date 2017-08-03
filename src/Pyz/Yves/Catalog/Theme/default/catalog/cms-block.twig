@@ -1,0 +1,23 @@
+{% extends "@application/layout/layout.twig" %}
+
+{% block breadcrumbItems %}
+    <li><a href="/">{{ 'global.home' | trans }}</a></li>
+    {% include '@catalog/catalog/partials/category-breadcrumb.twig' with {categoryNode: category} only %}
+{% endblock %}
+
+{% block title %}
+    <h3>{{ category.name }}</h3>
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory, position: 'top'}) }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {{ spyCmsBlock({category: idCategory, position: 'middle'}) }}
+    </div>
+{% endblock %}
+
+{% block footer %}
+        {{ spyCmsBlock({category: idCategory, position: 'bottom'}) }}
+{% endblock %}

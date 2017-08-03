@@ -38,7 +38,7 @@ class EventJournalServiceProvider extends AbstractServiceProvider
 
     public function __construct()
     {
-        $this->eventJournal = $this->getFactory()->createEventJournalClient();
+        $this->eventJournal = $this->getFactory()->getEventJournalClient();
     }
 
     /**

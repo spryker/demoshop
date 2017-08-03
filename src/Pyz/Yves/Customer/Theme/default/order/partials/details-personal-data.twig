@@ -27,10 +27,12 @@
 
     <div class="small-12 large-6 columns">
         <div class="callout">
-            <div class="small-12 medium-6 columns">
-                <h5>{{ 'customer.order.shipment_method' | trans }}</h5>
-                <p>{{ order.shipmentMethod.name }}</p>
-            </div>
+            <h5>{{ 'customer.order.shipment_method' | trans }}</h5>
+            <p>
+                {% for shipmentMethod in order.shipmentMethods %}
+                    {{ shipmentMethod.name }} <br />
+                {% endfor %}
+            </p>
         </div>
     </div>
 </div>

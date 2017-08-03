@@ -20,6 +20,13 @@ interface CartOperationInterface
     public function add($sku, $quantity, $optionValueUsageIds = []);
 
     /**
+     * @param \Generated\Shared\Transfer\ItemTransfer[] $itemTransfers
+     *
+     * @return void
+     */
+    public function addItems(array $itemTransfers);
+
+    /**
      * @param string $sku
      * @param string|null $groupKey
      *

@@ -48,7 +48,7 @@ class SalesConfig extends SprykerSalesConfig
     public function getSalesDetailExternalBlocksUrls()
     {
         $projectExternalBlocks = [
-            'totals' => '/sales-aggregator/sales/list',
+            'payments' => '/payment/sales/list',
             'shipment' => '/shipment/sales/list',
             'discount' => '/discount/sales/list',
             'refund' => '/refund/sales/list',

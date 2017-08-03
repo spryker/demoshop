@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
-use Spryker\Client\Calculation\CalculationClientInterface;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface;
@@ -16,11 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
-    /**
-     * @var \Spryker\Client\Calculation\CalculationClient
-     */
-    protected $calculationClient;
 
     /**
      * @var \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
@@ -33,14 +28,12 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     protected $cartClient;
 
     /**
-     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouperInterface $productBundleGrouper
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
-        CalculationClientInterface $calculationClient,
         ProductBundleGrouperInterface $productBundleGrouper,
         CartClientInterface $cartClient,
         $stepRoute,
@@ -48,7 +41,6 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
-        $this->calculationClient = $calculationClient;
         $this->productBundleGrouper = $productBundleGrouper;
         $this->cartClient = $cartClient;
     }
@@ -71,7 +63,9 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        return $this->calculationClient->recalculate($quoteTransfer);
+        $this->markCheckoutConfirmed($request, $quoteTransfer);
+
+        return $quoteTransfer;
     }
 
     /**
@@ -134,6 +128,19 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     public function isBreadcrumbItemHidden(AbstractTransfer $dataTransfer)
     {
         return !$this->requireInput($dataTransfer);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return void
+     */
+    protected function markCheckoutConfirmed(Request $request, QuoteTransfer $quoteTransfer)
+    {
+        if ($request->isMethod('POST')) {
+            $quoteTransfer->setCheckoutConfirmed(true);
+        }
     }
 
 }

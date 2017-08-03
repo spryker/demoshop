@@ -113,26 +113,26 @@ class CustomerStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface|null $authHandlerMock
      * @param \PHPUnit_Framework_MockObject_MockObject|\Pyz\Client\Customer\CustomerClientInterface|null $customerClientMock
+     * @param \PHPUnit_Framework_MockObject_MockObject|\Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface|null $authHandlerMock
      *
      * @return \Pyz\Yves\Checkout\Process\Steps\CustomerStep
      */
     protected function createCustomerStep($customerClientMock = null, $authHandlerMock = null)
     {
-        if ($authHandlerMock === null) {
-            $authHandlerMock = $this->createAuthHandlerMock();
-        }
-
         if ($customerClientMock === null) {
             $customerClientMock = $this->createCustomerClientMock();
+        }
+        if ($authHandlerMock === null) {
+            $authHandlerMock = $this->createAuthHandlerMock();
         }
 
         return new CustomerStep(
             $customerClientMock,
             $authHandlerMock,
             'customer_step',
-            'escape_route'
+            'escape_route',
+            '/logout'
         );
     }
 

@@ -25,6 +25,7 @@ use ReflectionProperty;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\Session\SessionClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
+use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
 use Spryker\Yves\Kernel\Plugin\Pimple;
@@ -362,6 +363,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
     private function setQuoteForCustomer()
     {
         $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -376,6 +378,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
     private function setQuoteForAddress()
     {
         $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -394,6 +397,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
     private function setQuoteForShipment()
     {
         $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -427,6 +431,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
     private function setQuoteForPayment()
     {
         $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -472,6 +477,7 @@ class CheckoutControllerTest extends PHPUnit_Framework_TestCase
     private function setQuoteForSummary()
     {
         $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);

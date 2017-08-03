@@ -16,7 +16,7 @@ class PageResourceCreator extends AbstractPlugin
 {
 
     /**
-     * @return \Pyz\Yves\Cms\Plugin\PageResourceCreator
+     * @return \Pyz\Yves\Cms\ResourceCreator\PageResourceCreator
      */
     public function createPageResourceCreator()
     {

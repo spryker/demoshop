@@ -20,23 +20,28 @@ class CatalogFactory extends SprykerCatalogFactory
      */
     public function createFeaturedProductsQueryPlugin($limit)
     {
-        return new FeaturedProductsQueryPlugin($limit);
-    }
+        $featuredProductsQueryPlugin = new FeaturedProductsQueryPlugin($limit);
 
-    /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\ResultFormatterPluginInterface[]
-     */
-    public function createFeaturedProductsResultFormatters()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS);
+        return $this->getSearchClient()->expandQuery(
+            $featuredProductsQueryPlugin,
+            $this->getFeaturedProductsQueryExpanderPlugins()
+        );
     }
 
     /**
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface[]
      */
-    public function getFeaturedProductsQueryExpanderPlugins()
+    protected function getFeaturedProductsQueryExpanderPlugins()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS);
+    }
+
+    /**
+     * @return \Spryker\Client\Search\Dependency\Plugin\ResultFormatterPluginInterface[]
+     */
+    public function getFeaturedProductsResultFormatters()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS);
     }
 
 }

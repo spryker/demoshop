@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+
+            {% for productSet in productSets %}
+                <div class="small-12 medium-6 large-6 xlarge-4 columns">
+                    {% include "@ProductSet/list/_partials/product-set.twig" with {
+                        url: productSet.url,
+                        name: productSet.name,
+                        imageUrl: (productSet.images|length ? productSet.images.0.externalUrlSmall : '')
+                    } %}
+                </div>
+            {% else %}
+                <div class="small-12 columns">
+                    <div class="callout warning">
+                        {{ 'product.sets.no-results' | trans }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

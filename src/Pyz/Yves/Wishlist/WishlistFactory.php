@@ -26,7 +26,7 @@ class WishlistFactory extends AbstractFactory
     /**
      * @return \Pyz\Client\Customer\CustomerClientInterface
      */
-    public function createCustomerClient()
+    public function getCustomerClient()
     {
         return $this->getProvidedDependency(WishlistDependencyProvider::CLIENT_CUSTOMER);
     }
@@ -37,7 +37,7 @@ class WishlistFactory extends AbstractFactory
      *
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createWishlistForm(WishlistTransfer $data = null, array $options = [])
+    public function getWishlistForm(WishlistTransfer $data = null, array $options = [])
     {
         return $this->getFormFactory()->create($this->createWishlistFormType(), $data, $options);
     }
@@ -49,7 +49,7 @@ class WishlistFactory extends AbstractFactory
     {
         return new WishlistFormDataProvider(
             $this->getClient(),
-            $this->createCustomerClient()
+            $this->getCustomerClient()
         );
     }
 
@@ -59,7 +59,7 @@ class WishlistFactory extends AbstractFactory
      *
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createAddAllAvailableProductsToCartForm(array $data, array $options = [])
+    public function getAddAllAvailableProductsToCartForm(array $data, array $options = [])
     {
         return $this->getFormFactory()->create($this->createAddAllAvailableProductsToCartFormType(), $data, $options);
     }
@@ -109,7 +109,7 @@ class WishlistFactory extends AbstractFactory
      */
     public function createMoveToCartHandler()
     {
-        return new MoveToCartHandler($this->getClient(), $this->createCustomerClient(), $this->createAvailabilityReader());
+        return new MoveToCartHandler($this->getClient(), $this->getCustomerClient(), $this->createAvailabilityReader());
     }
 
     /**

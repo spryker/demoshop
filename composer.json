@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-bugfix/dependencies",
+    "spryker/spryker": "dev-master",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
@@ -14,7 +14,7 @@
     "monolog/monolog": "^1.21.0",
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
-    "predis/predis": "1.0.4",
+    "predis/predis": "^1.1.1",
     "propel/propel": "2.0.0-alpha7",
     "psr/log": "^1.0.0",
     "ruflin/elastica": "^3.2.0",
@@ -54,7 +54,8 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "spryker/rabbit-mq": "dev-master"
+    "spryker/rabbit-mq": "dev-master",
+    "league/flysystem": "^1.0"
   },
   "require-dev": {
     "codeception/codeception": "^2.2.10",
@@ -71,6 +72,8 @@
     "sllh/composer-versions-check": "^2.0.2",
     "jakoch/phantomjs-installer": "^2.1.0",
     "php-mock/php-mock": "^1.0",
+    "phpunit/phpunit": "^5.0",
+    "doctrine/instantiator": "~1.0.5",
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
@@ -109,8 +112,8 @@
       "url": "git@github.com:spryker/rabbit-mq.git"
     },
     {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
+      "type": "git",
+      "url": "git@github.com:spryker/code-generator.git"
     }
   ],
   "scripts": {

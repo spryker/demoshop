@@ -21,6 +21,8 @@ class CollectorConfig extends SprykerCollectorConfig
 {
 
     /**
+     * @param string $dbEngineName
+     *
      * @return array
      */
     public function getStoragePdoQueryAdapterClassNames($dbEngineName)
@@ -43,6 +45,8 @@ class CollectorConfig extends SprykerCollectorConfig
     }
 
     /**
+     * @param string $dbEngineName
+     *
      * @return array
      */
     public function getSearchPdoQueryAdapterClassNames($dbEngineName)

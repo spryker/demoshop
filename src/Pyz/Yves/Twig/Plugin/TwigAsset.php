@@ -72,10 +72,10 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
     protected function getMediaUrlBuilder(Application $application)
     {
         $isDomainSecured = $this->isDomainSecured($application);
-        $host = Config::get(ApplicationConstants::HOST_STATIC_MEDIA);
+        $host = Config::get(ApplicationConstants::BASE_URL_STATIC_MEDIA);
 
         if ($isDomainSecured) {
-            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_MEDIA);
+            $host = Config::get(ApplicationConstants::BASE_URL_SSL_STATIC_MEDIA);
         }
 
         return $this->getFactory()->createMediaUrlBuilder($host);
@@ -89,10 +89,10 @@ class TwigAsset extends AbstractPlugin implements TwigFunctionPluginInterface
     protected function getAssetUrlBuilder(Application $application)
     {
         $isDomainSecured = $this->isDomainSecured($application);
-        $host = Config::get(ApplicationConstants::HOST_STATIC_ASSETS);
+        $host = Config::get(ApplicationConstants::BASE_URL_STATIC_ASSETS);
 
         if ($isDomainSecured) {
-            $host = Config::get(ApplicationConstants::HOST_SSL_STATIC_ASSETS);
+            $host = Config::get(ApplicationConstants::BASE_URL_SSL_STATIC_ASSETS);
         }
 
         return $this->getFactory()->createAssetUrlBuilder($host);
