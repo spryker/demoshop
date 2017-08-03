@@ -977,16 +977,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.3",
+            "version": "v2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "0b441c047be7a1e829fb106687284b0f8cf77db7"
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/0b441c047be7a1e829fb106687284b0f8cf77db7",
-                "reference": "0b441c047be7a1e829fb106687284b0f8cf77db7",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
                 "shasum": ""
             },
             "require": {
@@ -1021,7 +1021,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18T15:55:46+00:00"
+            "time": "2017-03-13T16:27:32+00:00"
         },
         {
             "name": "php-amqplib/php-amqplib",
@@ -1633,6 +1633,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
 =======
 <<<<<<< HEAD
@@ -1649,6 +1650,9 @@
 >>>>>>> core-1652 update EnvironmentHelper
 =======
                 "reference": "edcf73318e582f7667575ebbbe1fccca5c203ebc"
+>>>>>>> core-1652 update spryker/spryker
+=======
+                "reference": "74a77f5681b2acbb488d64affffa433b7a2d01eb"
 >>>>>>> core-1652 update spryker/spryker
             },
             "require": {
@@ -1830,6 +1834,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 08:43:24"
 =======
 <<<<<<< HEAD
@@ -1846,6 +1851,9 @@
 >>>>>>> core-1652 update EnvironmentHelper
 =======
             "time": "2017-08-02 12:28:59"
+>>>>>>> core-1652 update spryker/spryker
+=======
+            "time": "2017-08-03 06:16:53"
 >>>>>>> core-1652 update spryker/spryker
         },
         {
@@ -6648,8 +6656,19 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
+<<<<<<< HEAD
                 "url": "git@github.com:spryker/code-generator.git",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
+=======
+                "url": "https://github.com/spryker/code-generator.git",
+                "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/469e2eb7841bb26c5c77e955c61574dcb24851a6",
+                "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6",
+                "shasum": ""
+>>>>>>> core-1652 update spryker/spryker
             },
             "require": {
                 "php": ">=5.6.0",
@@ -6677,12 +6696,17 @@
                 "MIT"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "description": "CodeGenerator module",
             "time": "2017-08-02T15:45:37+00:00"
 =======
             "description": "CodeGenerator bundle",
             "time": "2017-06-28 10:19:12"
 >>>>>>> core-1652 update codeception configs
+=======
+            "description": "CodeGenerator module",
+            "time": "2017-08-02 15:45:37"
+>>>>>>> core-1652 update spryker/spryker
         },
         {
             "name": "spryker/code-sniffer",
