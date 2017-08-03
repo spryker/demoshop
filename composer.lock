@@ -1634,6 +1634,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
 =======
 <<<<<<< HEAD
@@ -1653,6 +1654,9 @@
 >>>>>>> core-1652 update spryker/spryker
 =======
                 "reference": "74a77f5681b2acbb488d64affffa433b7a2d01eb"
+>>>>>>> core-1652 update spryker/spryker
+=======
+                "reference": "68c27f4e49295b64553db4b7b9a5cddb7fc3821d"
 >>>>>>> core-1652 update spryker/spryker
             },
             "require": {
@@ -1835,6 +1839,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-08-02 08:43:24"
 =======
 <<<<<<< HEAD
@@ -1854,6 +1859,9 @@
 >>>>>>> core-1652 update spryker/spryker
 =======
             "time": "2017-08-03 06:16:53"
+>>>>>>> core-1652 update spryker/spryker
+=======
+            "time": "2017-08-03 10:14:59"
 >>>>>>> core-1652 update spryker/spryker
         },
         {
