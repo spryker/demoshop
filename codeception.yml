@@ -6,8 +6,8 @@ include:
 #  - tests/PyzTest/Yves/Availability
 #
 #  - tests/PyzTest/Yves/Cart
-#  - tests/PyzTest/Yves/Checkout
-  - tests/PyzTest/Yves/Customer
+  - tests/PyzTest/Yves/Checkout
+#  - tests/PyzTest/Yves/Customer
 #  - tests/PyzTest/Yves/Newsletter
 #  - tests/PyzTest/Zed/Calculation
 #  - tests/PyzTest/Zed/CmsGui

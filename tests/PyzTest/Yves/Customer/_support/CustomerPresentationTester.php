@@ -37,16 +37,17 @@ class CustomerPresentationTester extends Actor
     }
 
     /**
+     * @param string $email
+     * @param string $password
+     *
      * @return void
      */
-    public function submitLoginForm()
+    public function submitLoginForm($email, $password)
     {
         $i = $this;
-        $customerTransfer = CustomerLoginPage::getCustomerData(CustomerLoginPage::NEW_CUSTOMER_EMAIL);
-
         $i->submitForm(['name' => 'loginForm'], [
-            CustomerLoginPage::FORM_FIELD_SELECTOR_EMAIL => $customerTransfer->getEmail(),
-            CustomerLoginPage::FORM_FIELD_SELECTOR_PASSWORD => $customerTransfer->getPassword(),
+            CustomerLoginPage::FORM_FIELD_SELECTOR_EMAIL => $email,
+            CustomerLoginPage::FORM_FIELD_SELECTOR_PASSWORD => $password,
         ]);
     }
 

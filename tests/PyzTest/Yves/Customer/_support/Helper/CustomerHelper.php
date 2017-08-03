@@ -126,7 +126,7 @@ class CustomerHelper extends Module
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
      */
-    public function haveRegisteredCustomer(array $seed)
+    public function haveRegisteredCustomer(array $seed = [])
     {
         $this->setupSession();
 
@@ -219,7 +219,7 @@ class CustomerHelper extends Module
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
      */
-    public function amLoggedInCustomer(array $seed)
+    public function amLoggedInCustomer(array $seed = [])
     {
         $customerTransfer = $this->haveRegisteredCustomer($seed);
 

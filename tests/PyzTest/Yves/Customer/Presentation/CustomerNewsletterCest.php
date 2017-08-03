@@ -49,11 +49,11 @@ class CustomerNewsletterCest
      */
     public function testICanUnSubscribeNewsletter(CustomerPresentationTester $i)
     {
-        $i->amLoggedInCustomer();
+        $customerTransfer = $i->amLoggedInCustomer();
 
         $i->setDependency(NewsletterDependencyProvider::FACADE_MAIL, Stub::makeEmpty(NewsletterToMailInterface::class));
 
-        $i->addNewsletterSubscription(CustomerNewsletterPage::NEW_CUSTOMER_EMAIL);
+        $i->addNewsletterSubscription($customerTransfer->getEmail());
         $i->amOnPage(CustomerNewsletterPage::URL);
         $i->click(['name' => CustomerNewsletterPage::FORM_FIELD_SELECTOR_NEWSLETTER_SUBSCRIPTION]);
         $i->click(CustomerNewsletterPage::BUTTON_SUBMIT);

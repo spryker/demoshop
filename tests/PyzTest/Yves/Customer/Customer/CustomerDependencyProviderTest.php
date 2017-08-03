@@ -17,7 +17,6 @@ use Spryker\Client\Sales\SalesClientInterface;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
-use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 /**
  * Auto-generated group annotations
@@ -52,7 +51,6 @@ class CustomerDependencyProviderTest extends Unit
         $this->assertInstanceOf(AuthenticationHandler::class, $container[CustomerDependencyProvider::PLUGIN_AUTHENTICATION_HANDLER]);
         $this->assertInstanceOf(CheckoutAuthenticationHandlerPluginInterface::class, $container[CustomerDependencyProvider::PLUGIN_LOGIN_AUTHENTICATION_HANDLER]);
         $this->assertInstanceOf(CheckoutAuthenticationHandlerPluginInterface::class, $container[CustomerDependencyProvider::PLUGIN_GUEST_AUTHENTICATION_HANDLER]);
-        $this->assertInstanceOf(FlashMessengerInterface::class, $container[CustomerDependencyProvider::FLASH_MESSENGER]);
     }
 
 }

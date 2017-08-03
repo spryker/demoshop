@@ -19,6 +19,9 @@ suites:
             enabled:
               - \PyzTest\Shared\Testify\Helper\Environment
               - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
+              - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
+                  projectNamespaces: ['Pyz']
+              - \SprykerTest\Shared\Testify\Helper\DependencyHelper
               - \PyzTest\Yves\Customer\Helper\CustomerHelper
               - \SprykerTest\Shared\Config\Helper\ConfigInit
               - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper

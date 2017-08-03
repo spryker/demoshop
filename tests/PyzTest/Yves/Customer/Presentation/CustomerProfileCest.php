@@ -66,7 +66,7 @@ class CustomerProfileCest
     public function testICanNotUpdateEmailToAnAlreadyUsedOne(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
-        $i->haveRegisteredCustomer(CustomerProfilePage::REGISTERED_CUSTOMER_EMAIL);
+        $i->haveRegisteredCustomer(['email' => CustomerProfilePage::REGISTERED_CUSTOMER_EMAIL]);
         $i->amOnPage(CustomerProfilePage::URL);
 
         $i->fillField(CustomerProfilePage::FORM_FIELD_SELECTOR_EMAIL, CustomerProfilePage::REGISTERED_CUSTOMER_EMAIL);
@@ -82,10 +82,9 @@ class CustomerProfileCest
      */
     public function testICanChangePassword(CustomerPresentationTester $i)
     {
-        $i->amLoggedInCustomer();
+        $customerTransfer = $i->amLoggedInCustomer();
         $i->amOnPage(CustomerProfilePage::URL);
 
-        $customerTransfer = CustomerProfilePage::getCustomerData(CustomerProfilePage::REGISTERED_CUSTOMER_EMAIL);
         $oldPassword = $customerTransfer->getPassword();
         $newPassword = strrev($oldPassword);
 

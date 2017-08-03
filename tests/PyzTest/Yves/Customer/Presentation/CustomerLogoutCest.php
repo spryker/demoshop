@@ -32,8 +32,8 @@ class CustomerLogoutCest
     public function testICanLogoutWhenLoggedIn(CustomerPresentationTester $i)
     {
         $i->amOnPage(CustomerLoginPage::URL);
-        $i->haveRegisteredCustomer(CustomerLoginPage::NEW_CUSTOMER_EMAIL);
-        $i->submitLoginForm();
+        $customerTransfer = $i->haveRegisteredCustomer();
+        $i->submitLoginForm($customerTransfer->getEmail(), $customerTransfer->getPassword());
         $i->seeCurrentUrlEquals(CustomerOverviewPage::URL);
 
         $i->amOnPage(CustomerLogoutPage::URL);

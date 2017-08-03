@@ -62,24 +62,6 @@ class CustomerOverviewCest
      *
      * @return void
      */
-    public function testCustomerWithAddressShouldNotSeeAddressInfoText(CustomerPresentationTester $i)
-    {
-        $i->haveRegisteredCustomer(CustomerOverviewPage::NEW_CUSTOMER_EMAIL);
-        $i->addAddressToCustomer(CustomerOverviewPage::NEW_CUSTOMER_EMAIL, CustomerAddressesPage::ADDRESS_A);
-
-        $i->amLoggedInCustomer();
-
-        $i->amOnPage(CustomerOverviewPage::URL);
-
-        $i->dontSee(CustomerOverviewPage::INFO_TEXT_ADD_SHIPPING_ADDRESS);
-        $i->dontSee(CustomerOverviewPage::INFO_TEXT_ADD_BILLING_ADDRESS);
-    }
-
-    /**
-     * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
-     *
-     * @return void
-     */
     public function testICanGoFromOverviewToProfilePage(CustomerPresentationTester $i)
     {
         $i->amLoggedInCustomer();
