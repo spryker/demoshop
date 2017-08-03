@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "8be0b050be97992702df9e33db0daa21",
-=======
-    "content-hash": "18db493ddb5e5949fe5794b17032832e",
->>>>>>> core-1652 update spryker/spryker
+    "content-hash": "dc73bd25c47541261ccb2104d03581f6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1629,35 +1625,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
-=======
-<<<<<<< HEAD
-                "reference": "1c1a9fc18e8633e9851c3935828c7f0e4c28d310"
-=======
-                "reference": "748c80fbff5469c8ccfef397609054be13cf3570"
->>>>>>> core-1652 update spryker/spryker
->>>>>>> core-1652 update spryker/spryker
-=======
-                "reference": "4fce9039def8a88a90181c2ece09e9ad54352e85"
->>>>>>> core-1652 update codeception configs
-=======
-                "reference": "6e4add1172d0442b00e5f306698bc41b1c2a7e01"
->>>>>>> core-1652 update EnvironmentHelper
-=======
-                "reference": "edcf73318e582f7667575ebbbe1fccca5c203ebc"
->>>>>>> core-1652 update spryker/spryker
-=======
-                "reference": "74a77f5681b2acbb488d64affffa433b7a2d01eb"
->>>>>>> core-1652 update spryker/spryker
-=======
                 "reference": "68c27f4e49295b64553db4b7b9a5cddb7fc3821d"
->>>>>>> core-1652 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1834,35 +1802,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-08-02 08:43:24"
-=======
-<<<<<<< HEAD
-            "time": "2017-07-31 14:16:47"
-=======
-            "time": "2017-07-31 07:20:40"
->>>>>>> core-1652 update spryker/spryker
->>>>>>> core-1652 update spryker/spryker
-=======
-            "time": "2017-07-31 13:05:55"
->>>>>>> core-1652 update codeception configs
-=======
-            "time": "2017-08-01 04:40:03"
->>>>>>> core-1652 update EnvironmentHelper
-=======
-            "time": "2017-08-02 12:28:59"
->>>>>>> core-1652 update spryker/spryker
-=======
-            "time": "2017-08-03 06:16:53"
->>>>>>> core-1652 update spryker/spryker
-=======
             "time": "2017-08-03 10:14:59"
->>>>>>> core-1652 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6664,10 +6604,6 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-<<<<<<< HEAD
-                "url": "git@github.com:spryker/code-generator.git",
-                "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
-=======
                 "url": "https://github.com/spryker/code-generator.git",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
             },
@@ -6676,7 +6612,6 @@
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/469e2eb7841bb26c5c77e955c61574dcb24851a6",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6",
                 "shasum": ""
->>>>>>> core-1652 update spryker/spryker
             },
             "require": {
                 "php": ">=5.6.0",
@@ -6700,21 +6635,12 @@
                     "Unit": "tests/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "description": "CodeGenerator module",
-            "time": "2017-08-02T15:45:37+00:00"
-=======
-            "description": "CodeGenerator bundle",
-            "time": "2017-06-28 10:19:12"
->>>>>>> core-1652 update codeception configs
-=======
             "description": "CodeGenerator module",
             "time": "2017-08-02 15:45:37"
->>>>>>> core-1652 update spryker/spryker
         },
         {
             "name": "spryker/code-sniffer",
