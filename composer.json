@@ -177,9 +177,9 @@
     "pdepend/pdepend": "^2.2.4",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "~2.4.3",
-    "sebastian/phpcpd": "~2.0.2",
-    "sensiolabs/security-checker": "~3.0.2",
-    "silex/web-profiler": "~1.0.8",
+    "sebastian/phpcpd": "^2.0.2",
+    "sensiolabs/security-checker": "^3.0.2",
+    "silex/web-profiler": "^1.0.8",
     "symfony/web-profiler-bundle": "*",
     "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
@@ -211,6 +211,14 @@
     "psr-0": {
       "Acceptance\\Auth\\": "vendor/spryker/auth/tests/"
     }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "PyzTest": "tests"
+    },
+    "files": [
+      "test-autoload.php"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -246,10 +254,14 @@
       "./deploy/heroku/run.sh"
     ],
     "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ],
     "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ]
   }
 }
