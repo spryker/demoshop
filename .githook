@@ -1,8 +1,8 @@
 config:
   phpstan:
-    level: 7
+    level: 0
   architecture:
-    priority: 1
+    priority: 2
 
 preCommitFileCommands:
   - GitHook\Command\FileCommand\PreCommit\CodeStyleCheckCommand
@@ -10,7 +10,7 @@ preCommitFileCommands:
   - GitHook\Command\FileCommand\PreCommit\PhpMdCheckCommand
   - GitHook\Command\FileCommand\PreCommit\PhpStanCheckCommand
   - GitHook\Command\FileCommand\PreCommit\ArchitectureCheckCommand
-#  - GitHook\Command\FileCommand\PreCommit\DependencyViolationCheckCommand
+  - GitHook\Command\FileCommand\PreCommit\DependencyViolationCheckCommand
 
 preCommitRepositoryCommands:
   - GitHook\Command\RepositoryCommand\PreCommit\GitAddCommand
