@@ -97,10 +97,10 @@ $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = false;
 // ---------- Payone
 $config[PayoneConstants::PAYONE] = [
     PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConstants::PAYONE_CREDENTIALS_KEY => 's6RUCzClrUaHQcDH',
+    PayoneConstants::PAYONE_CREDENTIALS_KEY => '2z4le6DIGprGmwV6',
     PayoneConstants::PAYONE_CREDENTIALS_MID => '32481',
     PayoneConstants::PAYONE_CREDENTIALS_AID => '32893',
-    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '2024080',
+    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '3251',
     PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
     PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => '',
     PayoneConstants::PAYONE_REDIRECT_ERROR_URL => '',
