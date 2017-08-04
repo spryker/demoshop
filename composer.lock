@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "867c92073cb9b7cefabca26b7f1204ad",
+    "content-hash": "88401d23b1e5c4b544c6e3db3a734b7e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3349,7 +3349,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3420,7 +3420,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3486,7 +3486,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3632,7 +3632,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3695,7 +3695,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3750,7 +3750,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/AuthMailConnector.git",
+                "url": "git@github.com:spryker/AuthMailConnector.git",
                 "reference": "2300ca403314500e99411ccf41b312327532ed8d",
                 "mirrors": [
                     {
@@ -3766,7 +3766,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3813,7 +3813,7 @@
             "version": "5.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Availability.git",
+                "url": "git@github.com:spryker/Availability.git",
                 "reference": "fb2b349c4ce3abeacec67b67e3bbb0f59cd1072f",
                 "mirrors": [
                     {
@@ -3829,7 +3829,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3884,7 +3884,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/AvailabilityCartConnector.git",
+                "url": "https://github.com/spryker/AvailabilityCartConnector.git",
                 "reference": "15eb4ee944eed044ddc978962b3dcbb5e9767f92",
                 "mirrors": [
                     {
@@ -3900,7 +3900,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3947,7 +3947,7 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/AvailabilityDataFeed.git",
+                "url": "git@github.com:spryker/AvailabilityDataFeed.git",
                 "reference": "7c6ce4a2699ce92f245ca3a780979963473c3aef",
                 "mirrors": [
                     {
@@ -3963,7 +3963,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4102,7 +4102,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4189,7 +4189,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4228,7 +4228,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Calculation.git",
+                "url": "https://github.com/spryker/Calculation.git",
                 "reference": "caf841a1a7409c0e7ef96e3067d846cd3043c18b",
                 "mirrors": [
                     {
@@ -4244,7 +4244,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4309,7 +4309,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4379,7 +4379,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4443,7 +4443,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4569,7 +4569,7 @@
             "version": "0.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CategoryDataFeed.git",
+                "url": "git@github.com:spryker/CategoryDataFeed.git",
                 "reference": "1685a9b5086f9634ea4afcbaa016171a21231e43",
                 "mirrors": [
                     {
@@ -4585,7 +4585,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4634,7 +4634,7 @@
             "version": "3.0.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CategoryExporter.git",
+                "url": "https://github.com/spryker/CategoryExporter.git",
                 "reference": "e79fed31708944b5a9afa327f810813387b56110",
                 "mirrors": [
                     {
@@ -4650,7 +4650,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4707,7 +4707,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5007,7 +5007,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5141,7 +5141,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5214,7 +5214,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5281,7 +5281,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5355,7 +5355,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5422,7 +5422,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5485,7 +5485,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5553,7 +5553,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5625,7 +5625,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5743,7 +5743,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CollectorSearchConnector.git",
+                "url": "https://github.com/spryker/CollectorSearchConnector.git",
                 "reference": "5827b2ded3e2287c4d34eb59b20d2d446882dc94",
                 "mirrors": [
                     {
@@ -5759,7 +5759,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5815,7 +5815,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5871,7 +5871,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5921,7 +5921,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Console.git",
+                "url": "https://github.com/spryker/Console.git",
                 "reference": "090e157139cdc4bd657d91d12218c099c944e2ef",
                 "mirrors": [
                     {
@@ -5937,7 +5937,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6007,7 +6007,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6074,7 +6074,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6123,7 +6123,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6198,7 +6198,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6271,7 +6271,7 @@
             "version": "0.1.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/CustomerApi.git",
+                "url": "https://github.com/spryker/CustomerApi.git",
                 "reference": "cbe411a13a5c774a03ef9d11ef2c162b6a37e6ce",
                 "mirrors": [
                     {
@@ -6287,7 +6287,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6422,7 +6422,7 @@
             "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CustomerGroupDiscountConnector.git",
+                "url": "git@github.com:spryker/CustomerGroupDiscountConnector.git",
                 "reference": "a74596fec34584c8a1d30dedf069b93f5d1d064d",
                 "mirrors": [
                     {
@@ -6438,7 +6438,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6507,7 +6507,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6696,7 +6696,7 @@
             "version": "5.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/DiscountCalculationConnector.git",
+                "url": "git@github.com:spryker/DiscountCalculationConnector.git",
                 "reference": "62bf6d891a5595907cd0eeaed2bdf26a29775acf",
                 "mirrors": [
                     {
@@ -6712,7 +6712,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6773,7 +6773,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6848,7 +6848,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6893,7 +6893,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6959,7 +6959,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7026,7 +7026,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7090,7 +7090,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7145,7 +7145,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7210,7 +7210,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7270,7 +7270,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7330,7 +7330,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7390,7 +7390,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7465,7 +7465,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7527,7 +7527,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7572,7 +7572,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7639,7 +7639,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7751,7 +7751,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7786,7 +7786,7 @@
             "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Invoice.git",
+                "url": "https://github.com/spryker/Invoice.git",
                 "reference": "d472459b08520dbeb45ce7ea0f54079fbae16b2d",
                 "mirrors": [
                     {
@@ -7802,7 +7802,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7859,7 +7859,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7912,7 +7912,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/KeyBuilder.git",
+                "url": "git@github.com:spryker/KeyBuilder.git",
                 "reference": "2e990117a9bc887b882a1727945cbf79fef58581",
                 "mirrors": [
                     {
@@ -7928,7 +7928,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7987,7 +7987,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8050,7 +8050,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8114,7 +8114,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8183,7 +8183,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8245,7 +8245,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8290,7 +8290,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8427,7 +8427,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8472,7 +8472,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8543,7 +8543,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8611,7 +8611,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8678,7 +8678,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8748,7 +8748,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8799,7 +8799,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8851,7 +8851,7 @@
             "version": "3.0.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Nopayment.git",
+                "url": "https://github.com/spryker/Nopayment.git",
                 "reference": "383da1cfe931d6c2f2468493c16de1fec1fc84d9",
                 "mirrors": [
                     {
@@ -8867,7 +8867,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9010,7 +9010,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9058,7 +9058,7 @@
             "version": "4.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Payment.git",
+                "url": "https://github.com/spryker/Payment.git",
                 "reference": "fd75bde75110d62c4f26c78a4df7dba60daf3e50",
                 "mirrors": [
                     {
@@ -9074,7 +9074,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9137,7 +9137,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9200,79 +9200,6 @@
             "time": "2017-07-14T15:04:01+00:00"
         },
         {
-            "name": "spryker/payone",
-            "version": "4.0.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/Payone.git",
-                "reference": "79d2d705fdfc51cb2d00b7451f5786c3c581cfb0",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payone/zipball/79d2d705fdfc51cb2d00b7451f5786c3c581cfb0",
-                "reference": "79d2d705fdfc51cb2d00b7451f5786c3c581cfb0",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "spryker/config": "^3.0.0",
-                "spryker/guzzle": "^2.1.0",
-                "spryker/kernel": "^3.0.0",
-                "spryker/oms": "^6.0.0 || ^7.0.0",
-                "spryker/propel-orm": "^1.0.0",
-                "spryker/refund": "^4.0.0 || ^5.0.0",
-                "spryker/sales": "^5.0.0 || ^6.0.0 || ^7.0.0",
-                "spryker/symfony": "^3.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/propel": "*",
-                "spryker/silex": "*",
-                "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/",
-                    "Function": "tests/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Payone module",
-            "support": {
-                "source": "https://github.com/spryker/Payone/tree/master"
-            },
-            "time": "2017-07-14T15:04:01+00:00"
-        },
-        {
             "name": "spryker/pimple",
             "version": "2.0.0",
             "source": {
@@ -9293,7 +9220,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9322,7 +9249,7 @@
             "version": "4.2.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/Price.git",
+                "url": "https://github.com/spryker/Price.git",
                 "reference": "8faa0d99c369c324ff5756bb6f01d222dad306b3",
                 "mirrors": [
                     {
@@ -9338,7 +9265,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9405,7 +9332,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9467,7 +9394,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9531,7 +9458,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9604,7 +9531,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9651,7 +9578,7 @@
             "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductApi.git",
+                "url": "git@github.com:spryker/ProductApi.git",
                 "reference": "d040943166ae1e82bdd798e510e79b0779ca73c2",
                 "mirrors": [
                     {
@@ -9667,7 +9594,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9723,7 +9650,7 @@
             "version": "3.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductBundle.git",
+                "url": "git@github.com:spryker/ProductBundle.git",
                 "reference": "006c2dfc0ec85f9e21da4f3818fd78d9ad0f26e7",
                 "mirrors": [
                     {
@@ -9739,7 +9666,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9817,7 +9744,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9886,7 +9813,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9943,7 +9870,7 @@
             "version": "3.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductDiscountConnector.git",
+                "url": "git@github.com:spryker/ProductDiscountConnector.git",
                 "reference": "6a1afb3951221eca654f0865b2638e632f4e12cf",
                 "mirrors": [
                     {
@@ -9959,7 +9886,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10026,7 +9953,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10096,7 +10023,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10163,7 +10090,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10228,7 +10155,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10296,7 +10223,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10367,7 +10294,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10431,7 +10358,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10493,7 +10420,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10637,7 +10564,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10767,7 +10694,7 @@
             "version": "4.1.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductOptionCartConnector.git",
+                "url": "https://github.com/spryker/ProductOptionCartConnector.git",
                 "reference": "3f6ff80172e7d40133dc71d9b1d90a0641db0f89",
                 "mirrors": [
                     {
@@ -10783,7 +10710,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10848,7 +10775,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10934,7 +10861,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11002,7 +10929,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11077,7 +11004,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11149,7 +11076,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11215,7 +11142,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11284,7 +11211,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11360,7 +11287,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11413,7 +11340,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11464,7 +11391,7 @@
             "version": "0.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Queue.git",
+                "url": "git@github.com:spryker/Queue.git",
                 "reference": "1e181b09edd095839c16ca6a295c4dc8e6bc1cda",
                 "mirrors": [
                     {
@@ -11480,7 +11407,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11533,7 +11460,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11642,7 +11569,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11687,7 +11614,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11761,7 +11688,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11850,7 +11777,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11921,7 +11848,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12041,7 +11968,7 @@
             "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/SequenceNumber.git",
+                "url": "https://github.com/spryker/SequenceNumber.git",
                 "reference": "16ae39143e3c039af7cc2f920a26d5da55270b93",
                 "mirrors": [
                     {
@@ -12057,7 +11984,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12119,7 +12046,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12184,7 +12111,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12252,7 +12179,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12334,7 +12261,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12406,7 +12333,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12455,7 +12382,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12559,7 +12486,7 @@
             "version": "3.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/StepEngine.git",
+                "url": "https://github.com/spryker/StepEngine.git",
                 "reference": "01a8c0f06a0a5c02455711e1ab1c5332e7ad85f6",
                 "mirrors": [
                     {
@@ -12575,7 +12502,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12638,7 +12565,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12704,7 +12631,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12765,7 +12692,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12837,7 +12764,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12986,7 +12913,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13126,7 +13053,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13189,7 +13116,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13255,7 +13182,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13325,7 +13252,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13462,7 +13389,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13499,7 +13426,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/UtilDateTime.git",
+                "url": "https://github.com/spryker/UtilDateTime.git",
                 "reference": "1f9064d637158576b57675317aac12b783e6a0a5",
                 "mirrors": [
                     {
@@ -13515,7 +13442,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13568,7 +13495,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13618,7 +13545,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13671,7 +13598,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13724,7 +13651,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13774,7 +13701,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -13977,7 +13904,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
