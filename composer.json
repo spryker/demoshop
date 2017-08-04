@@ -77,19 +77,24 @@
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
+    "spryker/git-hook": "dev-master",
     "stecman/symfony-console-completion": "^0.7.0",
     "fzaninotto/faker": "^1.6"
   },
   "autoload": {
     "psr-0": {
-      "": "src",
-      "Unit": "tests",
-      "YvesUnit": "tests",
-      "Functional": "tests",
-      "Acceptance": "tests"
+      "": "src"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "PyzTest": "tests"
+    },
+    "files": [
+      "test-autoload.php"
     ]
   },
   "minimum-stability": "dev",
@@ -109,6 +114,10 @@
     },
     {
       "type": "git",
+      "url": "git@github.com:spryker/git-hook.git"
+    },
+    {
+      "type": "git",
       "url": "git@github.com:spryker/rabbit-mq.git"
     },
     {
@@ -123,10 +132,14 @@
       "./deploy/heroku/run.sh"
     ],
     "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ],
     "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ]
   }
 }
