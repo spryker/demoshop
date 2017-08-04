@@ -10,7 +10,6 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Ratepay\RatepayConstants;
@@ -42,7 +41,6 @@ $config[ApplicationConstants::BASE_URL_SSL_YVES] = sprintf(
     $config[ApplicationConstants::PORT_SSL_YVES]
 );
 $config[ProductManagementConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
-$config[PayoneConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[PayolutionConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[NewsletterConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
@@ -142,29 +140,6 @@ $config[SetupConstants::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shared/dat
 
 // ---------- Email
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED] . ':1080';
-
-// ---------- Payone
-$config[PayoneConstants::PAYONE] = [
-    PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConstants::PAYONE_CREDENTIALS_KEY => getenv('PAYONE_CREDENTIALS_KEY'),
-    PayoneConstants::PAYONE_CREDENTIALS_MID => getenv('PAYONE_CREDENTIALS_MID'),
-    PayoneConstants::PAYONE_CREDENTIALS_AID => getenv('PAYONE_CREDENTIALS_AID'),
-    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => getenv('PAYONE_CREDENTIALS_PORTAL_ID'),
-    PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
-    PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => sprintf(
-        '%s/checkout/success/',
-        $config[ApplicationConstants::BASE_URL_YVES]
-    ),
-    PayoneConstants::PAYONE_REDIRECT_ERROR_URL => sprintf(
-        '/checkout/index/',
-        $config[ApplicationConstants::BASE_URL_YVES]
-    ),
-    PayoneConstants::PAYONE_REDIRECT_BACK_URL => sprintf(
-        '/checkout/regular-redirect-payment-cancellation/',
-        $config[ApplicationConstants::BASE_URL_YVES]
-    ),
-    PayoneConstants::PAYONE_MODE => '',
-];
 
 // ---------- Payolution
 $config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
