@@ -209,12 +209,8 @@
       "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module"
     },
     "psr-0": {
+      "PyzTest": "tests",
       "Acceptance\\Auth\\": "vendor/spryker/auth/tests/"
-    }
-  },
-  "autoload-dev": {
-    "psr-0": {
-      "PyzTest": "tests"
     },
     "files": [
       "test-autoload.php"
