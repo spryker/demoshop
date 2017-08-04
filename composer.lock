@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "606387ffb01d48a19e2a5b31b7401d78",
+    "content-hash": "8be0b050be97992702df9e33db0daa21",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1621,11 +1621,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1652-refactor-old-tests-to-use-the-new-tests-architecture",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e3f3c98eb92d46cf79b8522c7f38aef88b9bbdc8"
+                "reference": "056413ef0cd3bc3976bad5d0859d42b18ae1cffe"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1802,7 +1802,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-04 08:09:19"
+            "time": "2017-08-04 10:29:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
