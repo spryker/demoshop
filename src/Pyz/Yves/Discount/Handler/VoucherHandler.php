@@ -4,7 +4,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\Cart\Handler;
+namespace Pyz\Yves\Discount\Handler;
 
 use ArrayObject;
 use Generated\Shared\Transfer\DiscountTransfer;
@@ -13,7 +13,7 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
-class CartVoucherHandler extends BaseHandler
+class VoucherHandler extends BaseHandler implements VoucherHandlerInterface
 {
 
     /**
@@ -56,13 +56,25 @@ class CartVoucherHandler extends BaseHandler
         $quoteTransfer->addVoucherDiscount($voucherDiscount);
 
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
+        $this->addFlashMessages($quoteTransfer, $voucherCode);
 
-        if (!$this->isVoucherCodeApplied($quoteTransfer, $voucherCode)) {
-            $this->flashMessenger->addErrorMessage('cart.voucher.apply.failed');
+        $this->cartClient->storeQuote($quoteTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $voucherCode
+     *
+     * @return void
+     */
+    protected function addFlashMessages($quoteTransfer, $voucherCode)
+    {
+        if ($this->isVoucherCodeApplied($quoteTransfer, $voucherCode)) {
+            $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
+            return;
         }
 
-        $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
-        $this->cartClient->storeQuote($quoteTransfer);
+        $this->flashMessenger->addErrorMessage('cart.voucher.apply.failed');
     }
 
     /**

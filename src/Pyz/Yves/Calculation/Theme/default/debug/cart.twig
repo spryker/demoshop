@@ -136,7 +136,7 @@
                     <td>{{ expense.sumNetPrice | default(0) | money  }} </td>
                     <td>{{ expense.unitGrossPrice | default(0) | money  }} </td>
                     <td>{{ expense.sumGrossPrice | default(0) | money  }} </td>
-                    <td>{{ expense.dumDiscountAmountAggregation | default(0) | money  }} </td>
+                    <td>{{ expense.sumDiscountAmountAggregation | default(0) | money  }} </td>
                     <td>{{ expense.taxRate | default(0) }}% </td>
                     <td>{{ expense.sumTaxAmount  | default(0) | money }} </td>
                     <td>{{ expense.dumPriceToPayAggregation | default(0) | money  }} </td>
