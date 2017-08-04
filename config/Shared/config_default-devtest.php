@@ -7,7 +7,6 @@
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Kernel\KernelConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
@@ -69,8 +68,3 @@ $config[TwigConstants::YVES_TWIG_OPTIONS] = [
 // ---------- Jenkins
 $config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
-
-// ---------- Payone
-$config[PayoneConstants::PAYONE] = [
-    PayoneConstants::PAYONE_MODE => '',
-];
