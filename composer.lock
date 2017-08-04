@@ -1625,7 +1625,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e3046338b4b6708bd4d7967b81de4f9167b94744"
+                "reference": "67863b8d9bea75235e7ac4e3936a81b4eeb53c2a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1716,7 +1716,6 @@
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
                 "spryker/payolution": "*",
-                "spryker/payone": "*",
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
@@ -1802,7 +1801,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-04 12:52:23"
+            "time": "2017-08-04 13:12:51"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6695,7 +6694,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "e19cf222ceedafde6d97cfedc06043540961894b"
+                "reference": "46faabe4178d1b8ef980f55c74c60ecf38b5b89f"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6746,7 +6745,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-08-04T12:08:24+00:00"
+            "time": "2017-08-04T13:05:40+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
