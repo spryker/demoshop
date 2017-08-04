@@ -1,1 +1,0 @@
-[INFO  - 2017-08-03T13:56:18.713Z] GhostDriver - Main - running on port 4444

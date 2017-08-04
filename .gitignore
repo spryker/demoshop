@@ -65,8 +65,8 @@ npm-debug.log
 /tests/_support/_generated/*
 !/tests/_support/_generated/.gitkeep
 
-/tests/PyzTest/*/*/_output
-/tests/PyzTest/*/*/_support/_generated
+/tests/PyzTest/*/*/_output/*
+/tests/PyzTest/*/*/_support/_generated/*
 
 # propel classes
 /src/Propel/Base/*
