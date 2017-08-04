@@ -1625,60 +1625,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "fd8f6d7bc2701ccbd882cc3d0f0ed5da99eb546e"
-=======
-=======
->>>>>>> Run phpstan on travis
-=======
->>>>>>> update spryker/spryker
-=======
->>>>>>> fixed phpstan errors
-<<<<<<< HEAD
-                "reference": "e3046338b4b6708bd4d7967b81de4f9167b94744"
-=======
-=======
->>>>>>> Run phpstan on travis
-=======
->>>>>>> update spryker/spryker
-<<<<<<< HEAD
-                "reference": "056413ef0cd3bc3976bad5d0859d42b18ae1cffe"
-=======
-                "reference": "35ce99866ccbbda1acd7fcef078c535a0fda6780"
->>>>>>> Make php stan work with spryker
-<<<<<<< HEAD
->>>>>>> Make php stan work with spryker
-<<<<<<< HEAD
->>>>>>> Make php stan work with spryker
-=======
-=======
-=======
-                "reference": "7b96ea8444c9799fbe837b20a62663025cbc4614"
->>>>>>> Run phpstan on travis
-<<<<<<< HEAD
->>>>>>> Run phpstan on travis
-<<<<<<< HEAD
->>>>>>> Run phpstan on travis
-=======
-=======
-=======
-                "reference": "5b6812ea63d996cd7752d82fa6ff0685cad9a25c"
->>>>>>> update spryker/spryker
->>>>>>> update spryker/spryker
-<<<<<<< HEAD
->>>>>>> update spryker/spryker
-=======
-=======
-                "reference": "5e2afd4f9b24b2ccddcdfdc641096cb27e528cb1"
->>>>>>> fixed phpstan errors
->>>>>>> fixed phpstan errors
-=======
-                "reference": "67863b8d9bea75235e7ac4e3936a81b4eeb53c2a"
->>>>>>> update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1854,60 +1801,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-08-04 14:52:38"
-=======
-=======
->>>>>>> Run phpstan on travis
-=======
->>>>>>> update spryker/spryker
-=======
->>>>>>> fixed phpstan errors
-<<<<<<< HEAD
-            "time": "2017-08-04 12:52:23"
-=======
-=======
->>>>>>> Run phpstan on travis
-=======
->>>>>>> update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-08-04 10:29:00"
-=======
-            "time": "2017-07-26 15:41:01"
->>>>>>> Make php stan work with spryker
-<<<<<<< HEAD
->>>>>>> Make php stan work with spryker
-<<<<<<< HEAD
->>>>>>> Make php stan work with spryker
-=======
-=======
-=======
-            "time": "2017-07-27 13:35:54"
->>>>>>> Run phpstan on travis
-<<<<<<< HEAD
->>>>>>> Run phpstan on travis
-<<<<<<< HEAD
->>>>>>> Run phpstan on travis
-=======
-=======
-=======
-            "time": "2017-07-28 05:21:55"
->>>>>>> update spryker/spryker
->>>>>>> update spryker/spryker
-<<<<<<< HEAD
->>>>>>> update spryker/spryker
-=======
-=======
-            "time": "2017-08-04 12:24:46"
->>>>>>> fixed phpstan errors
->>>>>>> fixed phpstan errors
-=======
-            "time": "2017-08-04 13:12:51"
->>>>>>> update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6851,11 +6745,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-<<<<<<< HEAD
             "time": "2017-08-04 13:05:40"
-=======
-            "time": "2017-08-04T13:05:40+00:00"
->>>>>>> update spryker/spryker
         },
         {
             "name": "squizlabs/php_codesniffer",
