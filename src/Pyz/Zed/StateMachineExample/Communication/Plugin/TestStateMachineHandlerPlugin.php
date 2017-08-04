@@ -85,7 +85,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
 
         throw new InvalidArgumentException(
             sprintf(
-                'Initial state not found for process "s%".',
+                'Initial state not found for process "%s".',
                 $processName
             )
         );
