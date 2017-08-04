@@ -4,19 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "8be0b050be97992702df9e33db0daa21",
-=======
-<<<<<<< HEAD
-    "content-hash": "d0372c5f36e31f121cfb3da3ef883fc7",
-=======
-    "content-hash": "15af6c6a5bbdb153d0467168d0f36a88",
->>>>>>> Added spryker/git-hook
->>>>>>> Added spryker/git-hook
-=======
-    "content-hash": "395e14db89b2bf472a6b0706c9a1659f",
->>>>>>> update travis
+    "content-hash": "b396ef8d3215f65b54fb630017f431ff",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -985,16 +973,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.3",
+            "version": "v2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "0b441c047be7a1e829fb106687284b0f8cf77db7"
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/0b441c047be7a1e829fb106687284b0f8cf77db7",
-                "reference": "0b441c047be7a1e829fb106687284b0f8cf77db7",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
                 "shasum": ""
             },
             "require": {
@@ -1029,7 +1017,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18T15:55:46+00:00"
+            "time": "2017-03-13T16:27:32+00:00"
         },
         {
             "name": "php-amqplib/php-amqplib",
@@ -1637,44 +1625,14 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "1b9c1b6c0839e023bcccb6bd551e8649c6e2aca5"
-=======
-=======
->>>>>>> update spryker/git-hook
-=======
->>>>>>> update githook config, ignore platform reqs in travis
-<<<<<<< HEAD
-                "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
-=======
-                "reference": "35ce99866ccbbda1acd7fcef078c535a0fda6780"
->>>>>>> Added spryker/git-hook
-<<<<<<< HEAD
->>>>>>> Added spryker/git-hook
-=======
-=======
-                "reference": "883ee882714333200afd44ee07347c0136bf2356"
->>>>>>> update spryker/git-hook
-<<<<<<< HEAD
->>>>>>> update spryker/git-hook
-=======
-=======
-                "reference": "1c1a9fc18e8633e9851c3935828c7f0e4c28d310"
->>>>>>> update githook config, ignore platform reqs in travis
->>>>>>> update githook config, ignore platform reqs in travis
-=======
-                "reference": "09d51d4afc54bfca66a160c648cc4a862af696c2"
->>>>>>> update travis
+                "reference": "01f02442d09f417e8fbded497fcce8bb32c8ff0b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
                 "fzaninotto/faker": "^1.6",
-                "moneyphp/money": "~3.0.0",
-                "paragonie/random_compat": "~1.2.1",
-                "phpdocumentor/graphviz": "~1.0.4"
+                "moneyphp/money": "^3.0.0",
+                "paragonie/random_compat": "^2.0.10",
+                "phpdocumentor/graphviz": "^1.0.4"
             },
             "replace": {
                 "spryker/acl": "*",
@@ -1844,37 +1802,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-08-02 08:43:24"
-=======
-=======
->>>>>>> update spryker/git-hook
-=======
->>>>>>> update githook config, ignore platform reqs in travis
-<<<<<<< HEAD
-            "time": "2017-07-31 14:54:04"
-=======
-            "time": "2017-07-26 15:41:01"
->>>>>>> Added spryker/git-hook
-<<<<<<< HEAD
->>>>>>> Added spryker/git-hook
-=======
-=======
-            "time": "2017-07-28 12:30:45"
->>>>>>> update spryker/git-hook
-<<<<<<< HEAD
->>>>>>> update spryker/git-hook
-=======
-=======
-            "time": "2017-07-31 14:16:47"
->>>>>>> update githook config, ignore platform reqs in travis
->>>>>>> update githook config, ignore platform reqs in travis
-=======
-            "time": "2017-07-31 14:54:04"
->>>>>>> update travis
+            "time": "2017-08-02 16:31:17"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5584,29 +5512,29 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.11",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7"
+                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e03f8f67534427a787e21a385a67ec3ca6978ea7",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
+                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": ">=5.3.3"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "^6.2.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -5629,7 +5557,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27T10:12:30+00:00"
+            "time": "2017-08-03T14:17:41+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -6669,19 +6597,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-08-02 10:03:12"
-=======
-<<<<<<< HEAD
-            "time": "2017-07-26T14:27:57+00:00"
-=======
-            "time": "2017-07-26 14:27:57"
->>>>>>> Added spryker/git-hook
->>>>>>> Added spryker/git-hook
-=======
-            "time": "2017-07-26 14:27:57"
->>>>>>> update travis
         },
         {
             "name": "spryker/code-generator",
@@ -6690,6 +6606,12 @@
                 "type": "git",
                 "url": "git@github.com:spryker/code-generator.git",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/469e2eb7841bb26c5c77e955c61574dcb24851a6",
+                "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
@@ -6713,16 +6635,12 @@
                     "Unit": "tests/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-<<<<<<< HEAD
             "description": "CodeGenerator module",
-            "time": "2017-08-02T15:45:37+00:00"
-=======
-            "description": "CodeGenerator bundle",
-            "time": "2017-06-28 10:19:12"
->>>>>>> Added spryker/git-hook
+            "time": "2017-08-02 15:45:37"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6777,7 +6695,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "2cc8ca4b76469ff0bbbf91100212f4bdf7b45c0a"
+                "reference": "ee5ea2c9a3389bda6ee14062e4b296394be19aae"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6828,7 +6746,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-07-31T09:27:06+00:00"
+            "time": "2017-08-04 06:19:26"
         },
         {
             "name": "squizlabs/php_codesniffer",
