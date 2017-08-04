@@ -7,7 +7,6 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
@@ -30,7 +29,6 @@ $config[PropelConstants::ZED_DB_ENGINE]
 $yvesHost = 'www.de.project.local';
 $config[ApplicationConstants::HOST_YVES]
     = $config[ProductManagementConstants::HOST_YVES]
-    = $config[PayoneConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
     = $config[CustomerConstants::HOST_YVES] = 'http://' . $yvesHost;
