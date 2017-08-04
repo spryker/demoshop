@@ -83,14 +83,18 @@
   },
   "autoload": {
     "psr-0": {
-      "": "src",
-      "Unit": "tests",
-      "YvesUnit": "tests",
-      "Functional": "tests",
-      "Acceptance": "tests"
+      "": "src"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "PyzTest": "tests"
+    },
+    "files": [
+      "test-autoload.php"
     ]
   },
   "minimum-stability": "dev",

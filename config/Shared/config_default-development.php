@@ -13,7 +13,6 @@ use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
@@ -76,20 +75,6 @@ $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data
 // ---------- Zed request
 $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = true;
-
-// ---------- Payone
-$config[PayoneConstants::PAYONE] = [
-    PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConstants::PAYONE_CREDENTIALS_KEY => '',
-    PayoneConstants::PAYONE_CREDENTIALS_MID => '',
-    PayoneConstants::PAYONE_CREDENTIALS_AID => '',
-    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '',
-    PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
-    PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => '',
-    PayoneConstants::PAYONE_REDIRECT_ERROR_URL => '',
-    PayoneConstants::PAYONE_REDIRECT_BACK_URL => '',
-    PayoneConstants::PAYONE_MODE => '',
-];
 
 // ---------- Twig
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [

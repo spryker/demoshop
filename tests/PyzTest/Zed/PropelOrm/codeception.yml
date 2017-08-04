@@ -1,0 +1,23 @@
+namespace: PyzTest\Zed\PropelOrm
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Business:
+        path: Business
+        class_name: PropelOrmBusinessTester
+        modules:
+            enabled:
+                - Asserts
+                - \SprykerTest\Shared\Testify\Helper\Environment
+                - \SprykerTest\Shared\Testify\Helper\ConfigHelper
+                - \SprykerTest\Shared\Propel\Helper\ConnectionHelper

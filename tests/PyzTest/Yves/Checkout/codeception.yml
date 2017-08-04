@@ -1,0 +1,23 @@
+namespace: PyzTest\Yves\Checkout
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Business:
+        path: .
+        class_name: CheckoutBusinessTester
+        modules:
+            enabled:
+              - \PyzTest\Shared\Testify\Helper\Environment
+              - \SprykerTest\Shared\Config\Helper\ConfigInit
+              - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
+              - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
