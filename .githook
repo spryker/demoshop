@@ -1,8 +1,8 @@
-#config:
-#  phpstan:
-#    level: 7
-#    bootstrap: .phpstan/bootstrap.php
-#    config: .phpstan/config.neon
+config:
+  phpstan:
+    level: 7
+  architecture:
+    priority: 5
 
 includedFileCommands:
   - GitHook\Command\FileCommand\PreCommit\CodeStyleCheckCommand
