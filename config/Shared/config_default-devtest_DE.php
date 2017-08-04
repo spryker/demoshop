@@ -55,6 +55,7 @@ $config[ZedRequestConstants::BASE_URL_SSL_ZED_API] = $config[ApplicationConstant
 $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [
     $config[ApplicationConstants::HOST_YVES],
     $config[ApplicationConstants::HOST_ZED],
+    'localhost',
 ];
 
 // ---------- Propel

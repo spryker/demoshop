@@ -1,0 +1,24 @@
+namespace: PyzTest\Zed\Console
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Console:
+        path: Console
+        class_name: ConsoleConsoleTester
+        modules:
+            enabled:
+                - Asserts
+                - Cli
+                - Filesystem
+                - \PyzTest\Shared\Testify\Helper\Environment
+                - \PyzTest\Zed\Console\Helper\ConsoleHelper

@@ -1,0 +1,33 @@
+namespace: PyzTest\Yves\Newsletter
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Presentation:
+        path: Presentation
+        class_name: NewsletterPresentationTester
+        modules:
+            enabled:
+              - \PyzTest\Shared\Testify\Helper\Environment
+              - \SprykerTest\Shared\Config\Helper\ConfigInit
+              - \SprykerTest\Shared\Testify\Helper\LocatorHelper
+              - \SprykerTest\Shared\Propel\Helper\ConnectionHelper
+              - \SprykerTest\Shared\Application\Helper\YvesHelper
+              - \PyzTest\Yves\Customer\Helper\CustomerHelper
+              - WebDriver:
+                  url: ''
+                  browser: chrome
+                  window_size: 1920x1080
+                  host: 0.0.0.0
+                  restart: false
+              - \SprykerTest\Shared\Testify\Helper\DependencyHelper
+              - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper

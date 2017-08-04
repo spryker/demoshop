@@ -1,7 +1,9 @@
+namespace: PyzTest
 actor: Tester
 
 include:
-  - vendor/spryker/spryker/Bundles/*
+  - tests/PyzTest/*/*
+  - vendor/spryker/spryker/Bundles/*/*
 
 paths:
     tests: tests
@@ -28,4 +30,4 @@ extensions:
         - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\Phantoman:
-            suites: ['Acceptance', 'Presentation']
+            suites: ['Presentation']
