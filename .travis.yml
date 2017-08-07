@@ -23,10 +23,12 @@ matrix:
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
+          - PHPSTAN=1
      - php: "7.1.2"
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
+          - PHPSTAN=1
      - php: "5.6"
        env:
           - TEST_GROUP=acceptance
@@ -35,10 +37,12 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=cron
+          - PHPSTAN=1
      - php: "7.1.2"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
+          - PHPSTAN=1
 
 addons:
   postgresql: 9.4
@@ -65,8 +69,9 @@ sudo: required
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - if [[ $TRAVIS_PHP_VERSION == 5.6 ]] ; then composer install --no-interaction --ignore-platform-reqs ; fi
-  - if [[ $TRAVIS_PHP_VERSION != 5.6 ]] ; then composer install --no-interaction ; fi
+  - composer remove --dev spryker/git-hook phpstan/phpstan
+  - composer install --no-interaction
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan; fi
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
@@ -100,6 +105,9 @@ script:
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then vendor/bin/console dev:ide:generate-auto-completion ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=2048M vendor/bin/phpstan analyze -c phpstan.neon vendor/spryker/spryker/Bundles/ -l 1 ; fi
 
 notifications:
   email: false

@@ -1,0 +1,8 @@
+build:
+    dependencies:
+        before:
+            - 'composer remove --dev spryker/git-hook phpstan/phpstan'
+
+    tests:
+        override:
+            - true # disable test execution on scrutinizer

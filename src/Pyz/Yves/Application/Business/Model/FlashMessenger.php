@@ -12,6 +12,6 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessenger as SprykerFlashMessenge
 /**
  * @deprecated Use Spryker\Yves\Messenger\FlashMessenger\FlashMessenger instead
  */
-class FlashMessenger extends SprykerFlashMessenger implements FlashMessengerInterface
+class FlashMessenger extends SprykerFlashMessenger
 {
 }
