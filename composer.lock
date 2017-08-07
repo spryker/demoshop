@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "22eb3dbf2bc1feb45c530b0950679028",
+    "content-hash": "3e09ada8a3c323d47dfa5cc38d6405ad",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1621,11 +1621,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/php-stan",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0351cc55a7f4c7d456b20082cb929afea77b91ea"
+                "reference": "d88c5190c9d50090e6e83f450a21396180477552"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1801,7 +1801,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-07 06:12:23"
+            "time": "2017-08-07 14:39:39"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6519,7 +6519,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6688,7 +6688,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "46faabe4178d1b8ef980f55c74c60ecf38b5b89f"
+                "reference": "aabf61f28d09a96249a729e306ab3f3665177b4b"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6739,7 +6739,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-08-04 13:05:40"
+            "time": "2017-08-07T14:40:07+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

@@ -366,8 +366,6 @@ $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
 
 $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
-$config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/application.log';
-
 // Due to some deprecation notices we silence all deprecations for the time being
 $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
 
