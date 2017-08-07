@@ -1,0 +1,4 @@
+build:
+    dependencies:
+        before:
+            - 'composer global remove --dev spryker/git-hook phpstan/phpstan'
