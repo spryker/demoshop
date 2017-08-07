@@ -65,6 +65,7 @@ sudo: required
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
+  - composer remove --dev spryker/git-hook
   - composer self-update && composer --version
   - composer install --no-interaction
   - if [[ $TRAVIS_PHP_VERSION >= 7.0 && $PHPSTAN=1 ]] ; then composer require --dev; fi
