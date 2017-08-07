@@ -68,7 +68,7 @@ install:
   - composer remove --dev spryker/git-hook
   - composer self-update && composer --version
   - composer install --no-interaction
-  - if [[ $TRAVIS_PHP_VERSION >= 7.0 && $PHPSTAN=1 ]] ; then composer require --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION >= 7.0 && $PHPSTAN==1 ]] ; then composer require --dev phpstan/phpstan; fi
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
