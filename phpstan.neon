@@ -23,4 +23,10 @@ parameters:
     - %rootDir%/../../../src/Generated/*
     - %rootDir%/../../../src/Orm/*
 
+  ignoreErrors:
+    - '#Return typehint of method Spryker\Yves\Kernel\Container::getLocator() has invalid type Generated\Client\Ide\AutoCompletion.#'
+    - '#Return typehint of method Spryker\Service\Kernel\Container::getLocator() has invalid type Generated\Service\Ide\AutoCompletion.#'
+    - '#Return typehint of method Spryker\Client\Kernel\Container::getLocator() has invalid type Generated\Client\Ide\AutoCompletion.#'
+    - '#Return typehint of method Spryker\Zed\Kernel\Container::getLocator() has invalid type Generated\Zed\Ide\AutoCompletion.#'
+
   bootstrap: %rootDir%/../../../phpstan-bootstrap.php

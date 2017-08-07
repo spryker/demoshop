@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "59203201009bf82c6349177ff3c13640",
+    "content-hash": "9e9011e3f0192005879ddfe84fe9d500",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -771,16 +771,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.6",
+            "version": "v3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "c0e65a874ab8c9c9a239ac3b062cce70b35b1f27"
+                "reference": "52d80135bd820f0486d14e03789ebcb45323b2d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/c0e65a874ab8c9c9a239ac3b062cce70b35b1f27",
-                "reference": "c0e65a874ab8c9c9a239ac3b062cce70b35b1f27",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/52d80135bd820f0486d14e03789ebcb45323b2d5",
+                "reference": "52d80135bd820f0486d14e03789ebcb45323b2d5",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +845,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-07-25T21:00:56+00:00"
+            "time": "2017-08-04T16:41:06+00:00"
         },
         {
             "name": "monolog/monolog",
