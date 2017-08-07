@@ -65,7 +65,8 @@ sudo: required
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer install --no-interaction
+  - if [[ $TRAVIS_PHP_VERSION == 5.6 ]] ; then composer install --no-interaction --ignore-platform-reqs ; fi
+  - if [[ $TRAVIS_PHP_VERSION != 5.6 ]] ; then composer install --no-interaction ; fi
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
