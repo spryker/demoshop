@@ -28,6 +28,7 @@ use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\ProductNew\Plugin\Provider\ProductNewControllerProvider;
+use Pyz\Yves\ProductReview\Plugin\Provider\ProductReviewControllerProvider;
 use Pyz\Yves\ProductSale\Plugin\Provider\ProductSaleControllerProvider;
 use Pyz\Yves\ProductSet\Plugin\Provider\ProductSetControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
@@ -174,6 +175,7 @@ class YvesBootstrap
             new ProductSetControllerProvider($isSsl),
             new ProductSaleControllerProvider($isSsl),
             new ProductNewControllerProvider($isSsl),
+            new ProductReviewControllerProvider($isSsl),
         ];
     }
 
