@@ -1,6 +1,7 @@
 config:
   phpstan:
-    level: 0
+    level: 1
+    config: phpstan.neon
   architecture:
     priority: 2
 

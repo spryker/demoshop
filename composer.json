@@ -54,7 +54,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "spryker/rabbit-mq": "dev-master",
+    "spryker/rabbit-mq": "dev-feature/php-stan",
     "league/flysystem": "^1.0"
   },
   "require-dev": {
