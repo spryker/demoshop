@@ -28,7 +28,7 @@ abstract class AbstractResourceCreator implements ResourceCreatorInterface
         BundleControllerActionInterface $bundleControllerAction,
         BundleControllerActionRouteNameResolver $routeNameResolver
     ) {
-        $controllerResolver = new ControllerResolver($bundleControllerAction);
+        $controllerResolver = new ControllerResolver();
         $service = (new ControllerServiceBuilder())->createServiceForController(
             $application,
             $bundleControllerAction,

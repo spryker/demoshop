@@ -192,7 +192,9 @@
     "spryker/code-generator": "^0.3.0",
     "spryker/code-sniffer": "*",
     "stecman/symfony-console-completion": "^0.7.0",
-    "fzaninotto/faker": "^1.6"
+    "fzaninotto/faker": "^1.6",
+    "nette/php-generator": "^2.6.1",
+    "phpunit/php-token-stream": "^1.4.11"
   },
   "autoload": {
     "psr-0": {
