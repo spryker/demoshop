@@ -252,14 +252,10 @@
       "./deploy/heroku/run.sh"
     ],
     "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS",
-      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
-      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
+      "PhantomInstaller\\Installer::installPhantomJS"
     ],
     "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS",
-      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
-      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
+      "PhantomInstaller\\Installer::installPhantomJS"
     ]
   }
 }
