@@ -1,4 +1,8 @@
+namespace: PyzTest
 actor: Tester
+
+include:
+  - tests/PyzTest/*/*
 
 paths:
     tests: tests
@@ -25,4 +29,4 @@ extensions:
         - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\Phantoman:
-            suites: ['Acceptance', 'Presentation']
+            suites: ['Presentation']

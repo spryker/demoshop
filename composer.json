@@ -55,7 +55,6 @@
     "spryker/config": "^3.0.0",
     "spryker/console": "^3.0.0",
     "spryker/country": "^3.0.0",
-    "spryker/csv": "^2.0.0",
     "spryker/currency": "^2.0.0",
     "spryker/customer": "^6.0.0",
     "spryker/customer-api": "^0.1.0",
@@ -104,7 +103,6 @@
     "spryker/oms-discount-connector": "^3.0.0",
     "spryker/payment": "^4.0.0",
     "spryker/payolution": "^4.0.0",
-    "spryker/payone": "^4.0.0",
     "spryker/pimple": "^2.0.0",
     "spryker/price": "^4.0.0",
     "spryker/price-cart-connector": "^3.0.0",
@@ -150,6 +148,7 @@
     "spryker/session": "^3.0.0",
     "spryker/setup": "^4.0.0",
     "spryker/shipment": "^5.0.0",
+    "spryker/shipment-discount-connector": "^1.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
     "spryker/state-machine": "^2.0.0",
@@ -177,9 +176,9 @@
     "pdepend/pdepend": "^2.2.4",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "~2.4.3",
-    "sebastian/phpcpd": "~2.0.2",
-    "sensiolabs/security-checker": "~3.0.2",
-    "silex/web-profiler": "~1.0.8",
+    "sebastian/phpcpd": "^2.0.2",
+    "sensiolabs/security-checker": "^3.0.2",
+    "silex/web-profiler": "^1.0.8",
     "symfony/web-profiler-bundle": "*",
     "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
@@ -192,7 +191,9 @@
     "spryker/code-generator": "^0.3.0",
     "spryker/code-sniffer": "*",
     "stecman/symfony-console-completion": "^0.7.0",
-    "fzaninotto/faker": "^1.6"
+    "fzaninotto/faker": "^1.6",
+    "nette/php-generator": "^2.6.1",
+    "phpunit/php-token-stream": "^1.4.11"
   },
   "autoload": {
     "psr-0": {
@@ -209,8 +210,12 @@
       "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module"
     },
     "psr-0": {
+      "PyzTest": "tests",
       "Acceptance\\Auth\\": "vendor/spryker/auth/tests/"
-    }
+    },
+    "files": [
+      "test-autoload.php"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

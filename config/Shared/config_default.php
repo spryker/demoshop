@@ -288,9 +288,10 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[LogConstants::LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/application.log',
+    '%s/data/%s/logs/%s/application.log',
     APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
+    $CURRENT_STORE,
+    APPLICATION
 );
 
 // ---------- Auto-loader

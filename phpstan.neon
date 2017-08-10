@@ -1,0 +1,26 @@
+parameters:
+  excludes_analyse:
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Development/tests/Unit/Spryker/Zed/Development/Business/DependencyTree/DependencyFinder/Fixtures/*
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Event/src/Spryker/Zed/Event/Business/Dispatcher/*
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Setup/src/Spryker/Zed/Setup/Communication/Console/*
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Session/src/Spryker/Shared/Session/Business/Handler/SessionHandlerCouchbase.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Ratepay/src/Spryker/Zed/Ratepay/Dependency/Facade/RatepayToSalesAggregatorBridge.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Price/src/Spryker/Zed/Price/Communication/Plugin/ServiceProvider/PriceServiceProvider.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/NewRelicApi/src/Spryker/Shared/NewRelicApi/NewRelicApi.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Auth/src/Spryker/Zed/Auth/Dependency/Plugin/AuthPasswordResetSenderInterface.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/AuthMailConnector/src/Spryker/Zed/AuthMailConnector/Communication/Plugin/AuthPasswordResetMailSenderPlugin.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/AuthMailConnector/src/Spryker/Zed/AuthMailConnector/Dependency/Facade/AuthMailConnectorToMailBridge.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/AuthMailConnector/src/Spryker/Zed/AuthMailConnector/Dependency/Facade/AuthMailConnectorToMailInterface.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Braintree/src/Spryker/Zed/Braintree/Communication/Controller/GatewayController.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Payolution/src/Spryker/Zed/Payolution/Dependency/Facade/PayolutionToMailBridge.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Payolution/src/Spryker/Zed/Payolution/Dependency/Facade/PayolutionToMailInterface.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Ratepay/src/Spryker/Zed/Ratepay/Business/Api/Mapper/MapperFactory.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Storage/src/Spryker/Client/Storage/StorageClient.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/ZedRequest/src/Spryker/Shared/ZedRequest/Provider/AbstractZedClientProvider.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/FlysystemAws3v3FileSystem/src/Spryker/Service/FlysystemAws3v3FileSystem/Model/Builder/Adapter/Aws3v3AdapterBuilder.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/Gui/src/Spryker/Zed/Gui/Communication/Table/AbstractTable.php
+    - %rootDir%/../../../vendor/spryker/spryker/Bundles/*/tests/*
+    - %rootDir%/../../../src/Generated/*
+    - %rootDir%/../../../src/Orm/*
+
+  bootstrap: %rootDir%/../../../phpstan-bootstrap.php
