@@ -1,5 +1,9 @@
 <?php
 
+use Zend\Filter\FilterChain;
+use Zend\Filter\StringToLower;
+use Zend\Filter\Word\CamelCaseToDash;
+
 $autoloader = function ($className) {
 
     $className = ltrim($className, '\\');
@@ -22,7 +26,12 @@ $autoloader = function ($className) {
     }
 
     if ($classNameParts[0] === 'SprykerTest') {
-        $bundle = $classNameParts[2];
+        $filter = new FilterChain();
+        $filter->attach(new CamelCaseToDash());
+        $filter->attach(new StringToLower());
+
+        $bundle = $filter->filter($classNameParts[2]);
+
         $rest = array_slice($classNameParts, 3);
         $className = implode(DIRECTORY_SEPARATOR, $rest) . '.php';
         $filePathPartsSupport = [
