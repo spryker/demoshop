@@ -57,8 +57,6 @@ $autoloader = function ($className) {
         }
     }
 
-
-
     return false;
 };
 
