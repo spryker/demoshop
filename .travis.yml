@@ -23,7 +23,7 @@ matrix:
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
-     - php: "7.1.2"
+     - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
@@ -35,7 +35,7 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=cron
-     - php: "7.1.2"
+     - php: "7.1"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
