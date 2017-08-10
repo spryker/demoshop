@@ -133,16 +133,13 @@ class CustomerHelper extends Module
 
         $customerBuilder = new CustomerBuilder($seed);
         $customerTransfer = $customerBuilder->build();
-        $customerTransfer->setPassword('hundase123');
         $password = $customerTransfer->getPassword();
 
         $mailMock = new CustomerToMailBridge($this->getMailMock());
         $this->setDependency(CustomerDependencyProvider::FACADE_MAIL, $mailMock);
         $this->getFacade()->registerCustomer($customerTransfer);
 
-
         $customerTransfer->setPassword($password);
-        codecept_debug($customerTransfer->getPassword());
 
         return $customerTransfer;
     }
