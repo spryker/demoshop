@@ -21,6 +21,24 @@ $autoloader = function ($className) {
         ];
     }
 
+    if ($classNameParts[0] === 'SprykerTest') {
+        $bundle = $classNameParts[2];
+        $rest = array_slice($classNameParts, 3);
+        $className = implode(DIRECTORY_SEPARATOR, $rest) . '.php';
+        $filePathPartsSupport = [
+            __DIR__,
+            'vendor',
+            'spryker',
+            $bundle,
+            'tests',
+            'SprykerTest',
+            $classNameParts[1],
+            $classNameParts[2],
+            '_support',
+            $className,
+        ];
+    }
+
     if (isset($filePathPartsSupport)) {
         $filePath = implode(DIRECTORY_SEPARATOR, $filePathPartsSupport);
         if (file_exists($filePath)) {
@@ -29,6 +47,8 @@ $autoloader = function ($className) {
             return true;
         }
     }
+
+
 
     return false;
 };

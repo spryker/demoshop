@@ -20,6 +20,7 @@ use Orm\Zed\Customer\Persistence\SpyCustomerAddress;
 use Orm\Zed\Customer\Persistence\SpyCustomerQuery;
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use PyzTest\Yves\Customer\PageObject\Customer;
+use PyzTest\Yves\Customer\PageObject\CustomerAddressesPage;
 use PyzTest\Yves\Customer\PageObject\CustomerLoginPage;
 use Spryker\Client\Session\SessionClient;
 use Spryker\Zed\Customer\CustomerDependencyProvider;
@@ -132,13 +133,16 @@ class CustomerHelper extends Module
 
         $customerBuilder = new CustomerBuilder($seed);
         $customerTransfer = $customerBuilder->build();
+        $customerTransfer->setPassword('hundase123');
         $password = $customerTransfer->getPassword();
 
         $mailMock = new CustomerToMailBridge($this->getMailMock());
         $this->setDependency(CustomerDependencyProvider::FACADE_MAIL, $mailMock);
         $this->getFacade()->registerCustomer($customerTransfer);
 
+
         $customerTransfer->setPassword($password);
+        codecept_debug($customerTransfer->getPassword());
 
         return $customerTransfer;
     }
@@ -225,6 +229,7 @@ class CustomerHelper extends Module
 
         $tester = $this->getWebDriver();
         $tester->amOnPage(CustomerLoginPage::URL);
+
         $tester->submitForm(['name' => 'loginForm'], [
             CustomerLoginPage::FORM_FIELD_SELECTOR_EMAIL => $customerTransfer->getEmail(),
             CustomerLoginPage::FORM_FIELD_SELECTOR_PASSWORD => $customerTransfer->getPassword(),
