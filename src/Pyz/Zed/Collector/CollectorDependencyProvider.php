@@ -31,6 +31,7 @@ use Spryker\Shared\Product\ProductConfig;
 use Spryker\Shared\ProductGroup\ProductGroupConfig;
 use Spryker\Shared\ProductLabel\ProductLabelConstants;
 use Spryker\Shared\ProductRelation\ProductRelationConstants;
+use Spryker\Shared\ProductReview\ProductReviewConfig;
 use Spryker\Shared\ProductSearch\ProductSearchConfig;
 use Spryker\Shared\ProductSet\ProductSetConfig;
 use Spryker\Zed\Category\CategoryConfig;
@@ -49,6 +50,7 @@ use Spryker\Zed\ProductLabelCollector\Communication\Plugin\ProductLabelDictionar
 use Spryker\Zed\ProductLabelCollector\Communication\Plugin\ProductLabelProductAbstractRelationCollectorStoragePlugin;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 use Spryker\Zed\ProductRelationCollector\Communication\Plugin\ProductRelationCollectorPlugin;
+use Spryker\Zed\ProductReviewCollector\Communication\Plugin\ProductReviewCollectorSearchPlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionCollectorPlugin;
 use Spryker\Zed\ProductSetCollector\Communication\Plugin\ProductSetCollectorSearchPlugin;
 use Spryker\Zed\ProductSetCollector\Communication\Plugin\ProductSetCollectorStoragePlugin;
@@ -132,6 +134,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE => new CategoryNodeCollectorSearchPlugin(),
                 CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorSearchPlugin(),
                 ProductSetConfig::RESOURCE_TYPE_PRODUCT_SET => new ProductSetCollectorSearchPlugin(),
+                ProductReviewConfig::RESOURCE_TYPE_PRODUCT_REVIEW => new ProductReviewCollectorSearchPlugin(),
             ];
         };
 
