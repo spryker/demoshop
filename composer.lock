@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e09ada8a3c323d47dfa5cc38d6405ad",
+    "content-hash": "6aee1cfc65feba0cefb90adec174b907",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1625,7 +1625,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c79b386c97d3a3671c78dfd39d83d4e5fb3a151e"
+                "reference": "976a0bf3205e3d1cd3df0ee4af0a7472ab992ca8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1801,7 +1801,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-10 16:00:40"
+            "time": "2017-08-11 12:46:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2327,31 +2327,29 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.8.26",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "9ff3a0b3756ace2e3da7dded37e920ee776faa4e"
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/9ff3a0b3756ace2e3da7dded37e920ee776faa4e",
-                "reference": "9ff3a0b3756ace2e3da7dded37e920ee776faa4e",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/polyfill-mbstring": "~1.1",
-                "symfony/polyfill-php54": "~1.0",
-                "symfony/polyfill-php55": "~1.0"
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.4|~3.0.0"
+                "symfony/expression-language": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -2378,49 +2376,48 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-17T14:02:19+00:00"
+            "time": "2016-07-17T13:54:30+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v2.8.26",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "d2622ed75979d6325149695aa5c81ece2de49277"
+                "reference": "d97ba4425e36e79c794e7d14ff36f00f081b37b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/d2622ed75979d6325149695aa5c81ece2de49277",
-                "reference": "d2622ed75979d6325149695aa5c81ece2de49277",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/d97ba4425e36e79c794e7d14ff36f00f081b37b3",
+                "reference": "d97ba4425e36e79c794e7d14ff36f00f081b37b3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": ">=5.5.9",
                 "psr/log": "~1.0",
-                "symfony/debug": "^2.6.2",
-                "symfony/event-dispatcher": "^2.6.7|~3.0.0",
-                "symfony/http-foundation": "~2.7.20|~2.8.13|~3.1.6"
+                "symfony/debug": "~2.8|~3.0",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8.8|~3.0.8|~3.1.2|~3.2"
             },
             "conflict": {
-                "symfony/config": "<2.7",
-                "twig/twig": "<1.34|<2.4,>=2"
+                "symfony/config": "<2.8"
             },
             "require-dev": {
-                "symfony/browser-kit": "~2.3|~3.0.0",
-                "symfony/class-loader": "~2.1|~3.0.0",
-                "symfony/config": "~2.8",
-                "symfony/console": "~2.3|~3.0.0",
-                "symfony/css-selector": "^2.0.5|~3.0.0",
-                "symfony/dependency-injection": "~2.8|~3.0.0",
-                "symfony/dom-crawler": "^2.0.5|~3.0.0",
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/finder": "^2.0.5|~3.0.0",
-                "symfony/process": "^2.0.5|~3.0.0",
-                "symfony/routing": "~2.8|~3.0.0",
-                "symfony/stopwatch": "~2.3|~3.0.0",
-                "symfony/templating": "~2.2|~3.0.0",
-                "symfony/translation": "^2.0.5|~3.0.0",
-                "symfony/var-dumper": "~2.6|~3.0.0"
+                "symfony/browser-kit": "~2.8|~3.0",
+                "symfony/class-loader": "~2.8|~3.0",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/console": "~2.8|~3.0",
+                "symfony/css-selector": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/dom-crawler": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/process": "~2.8|~3.0",
+                "symfony/routing": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0",
+                "symfony/templating": "~2.8|~3.0",
+                "symfony/translation": "~2.8|~3.0",
+                "symfony/var-dumper": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/browser-kit": "",
@@ -2434,7 +2431,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -2461,7 +2458,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-01T09:05:02+00:00"
+            "time": "2016-07-30T09:10:37+00:00"
         },
         {
             "name": "symfony/intl",
@@ -4056,23 +4053,23 @@
         },
         {
             "name": "codeception/codeception",
-            "version": "2.3.4",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "b5391497f9a3c9d0a9c02ae39b53441e413e35a8"
+                "reference": "e807cd458eb9f7ae7464f33ad835a2f54aa73194"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/b5391497f9a3c9d0a9c02ae39b53441e413e35a8",
-                "reference": "b5391497f9a3c9d0a9c02ae39b53441e413e35a8",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/e807cd458eb9f7ae7464f33ad835a2f54aa73194",
+                "reference": "e807cd458eb9f7ae7464f33ad835a2f54aa73194",
                 "shasum": ""
             },
             "require": {
                 "behat/gherkin": "~4.4.0",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "facebook/webdriver": ">=1.0.1 <2.0",
+                "facebook/webdriver": ">=1.1.3 <2.0",
                 "guzzlehttp/guzzle": ">=4.1.4 <7.0",
                 "guzzlehttp/psr7": "~1.0",
                 "php": ">=5.4.0 <8.0",
@@ -4147,7 +4144,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-07-10T19:45:09+00:00"
+            "time": "2017-08-10T20:28:02+00:00"
         },
         {
             "name": "doctrine/instantiator",
