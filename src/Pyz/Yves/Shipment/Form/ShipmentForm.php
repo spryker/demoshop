@@ -82,7 +82,7 @@ class ShipmentForm extends AbstractType
             'constraints' => [
                 new NotBlank(),
             ],
-            'label' => true,
+            'label' => false,
         ]);
 
         return $this;
