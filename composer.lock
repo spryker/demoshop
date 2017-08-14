@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.32.6",
+            "version": "3.32.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "db5bd8d617012d4afb3e5e1f3e8f4b9899242b62"
+                "reference": "9e2ad0ee0a1269190e411b7409e9b64361626e0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/db5bd8d617012d4afb3e5e1f3e8f4b9899242b62",
-                "reference": "db5bd8d617012d4afb3e5e1f3e8f4b9899242b62",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9e2ad0ee0a1269190e411b7409e9b64361626e0a",
+                "reference": "9e2ad0ee0a1269190e411b7409e9b64361626e0a",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-08-10T20:29:21+00:00"
+            "time": "2017-08-11T21:16:28+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -11398,14 +11398,8 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "8315b6d650378462f0310730f3940776487e04df",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://github.com/spryker/rabbit-mq.git",
+                "reference": "8315b6d650378462f0310730f3940776487e04df"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -17044,8 +17038,14 @@
             "version": "0.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/code-generator.git",
-                "reference": "36275f0ca30c780eca148c0fb62af5ed0abb635d"
+                "url": "git@github.com:spryker/code-generator.git",
+                "reference": "36275f0ca30c780eca148c0fb62af5ed0abb635d",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.6.0",
