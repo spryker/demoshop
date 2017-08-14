@@ -309,6 +309,8 @@ global.create.account,Account erstellen,de_DE
 global.create.account,Create Account,en_US
 global.cart,Warenkorb,de_DE
 global.cart,Cart,en_US
+global.no_image_available,Kein Bild verfügbar,de_DE
+global.no_image_available,No image available,en_US
 error.404,Error 404,de_DE
 error.404,Error 404,en_US
 homepage.carousel.previous,Vorherige,de_DE
