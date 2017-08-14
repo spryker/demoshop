@@ -94,6 +94,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new AddressStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CALCULATION),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
