@@ -65,7 +65,6 @@ sudo: required
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer remove --dev spryker/git-hook phpstan/phpstan
   - composer install --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
