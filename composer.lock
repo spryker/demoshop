@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e09ada8a3c323d47dfa5cc38d6405ad",
+    "content-hash": "b8d5bf208c57814b1a3cd31728151ead",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1617,15 +1617,15 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-07-14 09:20:08"
+            "time": "2017-07-14T09:20:08+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1807-shipment-carriers-listing",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c79b386c97d3a3671c78dfd39d83d4e5fb3a151e"
+                "reference": "514fae441d406a97184904228e09034fac081754"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1801,7 +1801,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-10 16:00:40"
+            "time": "2017-08-14T09:39:58+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6590,7 +6590,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-08-02 10:03:12"
+            "time": "2017-08-02T10:03:12+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6633,7 +6633,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2017-08-02 15:45:37"
+            "time": "2017-08-02T15:45:37+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6680,7 +6680,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-01 14:54:31"
+            "time": "2017-08-01T14:54:31+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -6739,7 +6739,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-08-09 04:45:13"
+            "time": "2017-08-09T04:45:13+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
