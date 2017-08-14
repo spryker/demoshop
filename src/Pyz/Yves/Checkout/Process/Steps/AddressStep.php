@@ -10,6 +10,7 @@ namespace Pyz\Yves\Checkout\Process\Steps;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
+use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,17 +24,25 @@ class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     protected $customerClient;
 
     /**
+     * @var \Spryker\Client\Calculation\CalculationClient
+     */
+    protected $calculationClient;
+
+    /**
      * @param \Pyz\Client\Customer\CustomerClientInterface $customerClient
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param string $stepRoute
      * @param string $escapeRoute
      */
     public function __construct(
         CustomerClientInterface $customerClient,
+        CalculationClientInterface $calculationClient,
         $stepRoute,
         $escapeRoute
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
+        $this->calculationClient = $calculationClient;
         $this->customerClient = $customerClient;
     }
 
@@ -87,7 +96,7 @@ class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
         $quoteTransfer->getShippingAddress()->setIsDefaultShipping(true);
         $quoteTransfer->getBillingAddress()->setIsDefaultBilling(true);
 
-        return $quoteTransfer;
+        return $this->calculationClient->recalculate($quoteTransfer);
     }
 
     /**
