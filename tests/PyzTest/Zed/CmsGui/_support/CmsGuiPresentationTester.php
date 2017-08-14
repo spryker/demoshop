@@ -48,6 +48,16 @@ class CmsGuiPresentationTester extends Actor
     }
 
     /**
+     * @return $this
+     */
+    public function setIsSearchable()
+    {
+        $this->checkOption('//*[@id="cms_page_isSearchable"]');
+
+        return $this;
+    }
+
+    /**
      * @param string $date
      *
      * @return $this
@@ -93,7 +103,7 @@ class CmsGuiPresentationTester extends Actor
      */
     public function expandLocalizedUrlPane()
     {
-        $this->click('//*[@id="tab-content-general"]/div/div[5]/div[1]/a');
+        $this->click('//*[@id="tab-content-general"]/div/div[6]/div[1]/a');
 
         return $this;
     }
