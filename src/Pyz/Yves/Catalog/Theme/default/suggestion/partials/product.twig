@@ -2,7 +2,9 @@
 
 <a class="row suggestions-panel__product js-product js-navigable" href="{{ product.url }}">
     <span class="columns">
-        <img class="thumbnail" src="{{ image.external_url_small }}">
+        {% if image %}
+            <img class="thumbnail" src="{{ image.external_url_small }}">
+        {% endif %}
     </span>
 
     <span class="small-9 columns">

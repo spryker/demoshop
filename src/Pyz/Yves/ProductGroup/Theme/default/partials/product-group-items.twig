@@ -3,7 +3,9 @@
         <div data-component="product-group">
             <ul class="product-group">
                 {% for productGroupItem in productGroupItems %}
-                    <li data-product-group-item-preview="{{ productGroupItem.imageSets.default[0].externalUrlSmall }}">
+                    {% set imageUrl = productGroupItem.imageSets.default is defined ? productGroupItem.imageSets.default|first : null %}
+
+                    <li data-product-group-item-preview="{{ imageUrl ? imageUrl.externalUrlSmall : '' }}">
                         <a href="{{ productGroupItem.url }}" {% if productGroupItem.colorCode %}style="background-color: {{ productGroupItem.colorCode }};"{% endif %}></a>
                     </li>
                 {% endfor %}
