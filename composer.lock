@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "31e76bbec953d6ef173649cff5fb67de",
+    "content-hash": "6aee1cfc65feba0cefb90adec174b907",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1621,11 +1621,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-1743-send-set-password-link",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "eaafd15106ce6a4c4d12e846e3d46bc235e5e673"
+                "reference": "812390c7ab99713d7326561fc55cccfbcc44444b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1801,7 +1801,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-14 09:56:32"
+            "time": "2017-08-14 12:31:52"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6691,6 +6691,12 @@
                 "url": "git@github.com:spryker/code-generator.git",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/469e2eb7841bb26c5c77e955c61574dcb24851a6",
+                "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6",
+                "shasum": ""
+            },
             "require": {
                 "php": ">=5.6.0",
                 "zendframework/zend-filter": "*"
@@ -6713,6 +6719,7 @@
                     "Unit": "tests/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6823,7 +6830,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-08-09T04:45:13+00:00"
+            "time": "2017-08-09 04:45:13"
         },
         {
             "name": "squizlabs/php_codesniffer",
