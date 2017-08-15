@@ -43,63 +43,29 @@ class IndexController extends AbstractController
         $customer = $this->getFactory()->getCustomerClient()->getCustomer();
         $hasCustomer = $customer !== null;
 
-        $form = $this->getForm($idProductAbstract);
-        $form->handleRequest($parentRequest);
-        $isFormEmpty = $this->isFormEmpty($form);
-        $isReviewPosted = $this->processForm($form, $customer);
+        $productReviewFormHelper = $this->getFactory()->createProductReviewFormHelper();
+        $productReviewForm = $this->getFactory()->createProductReviewForm($idProductAbstract);
+        $productReviewForm->handleRequest($parentRequest);
+        $isFormEmpty = $productReviewFormHelper->isEmpty($productReviewForm);
+        $isReviewPosted = $productReviewFormHelper->process($productReviewForm, $customer);
 
         $productReviewSearchRequestTransfer = new ProductReviewSearchRequestTransfer();
         $productReviewSearchRequestTransfer->setIdProductAbstract($idProductAbstract);
         $productReviewSearchRequestTransfer->setRequestParams($parentRequest->query->all());
-
-        $productReviews = $this->getClient()->findProductReviews($productReviewSearchRequestTransfer, $parentRequest->query->all());
+        // TODO: max page size should be injectable
+        $productReviews = $this->getClient()->findProductReviews($productReviewSearchRequestTransfer);
 
         return [
             'hideForm' => $isFormEmpty || $isReviewPosted,
             'showAddReviewButton' => $isFormEmpty && !$isReviewPosted,
             'showSuccessMessage' => $isReviewPosted,
             'hasCustomer' => $hasCustomer,
-            'form' => $form->createView(),
+            'form' => $productReviewForm->createView(),
             'reviews' => $productReviews['productReviews'],
             'pagination' => $productReviews['pagination'],
-            'summary' => $this->getProductReviewSummaryTransfer($idProductAbstract),
+            'ratingAggregation' => $productReviews['ratingAggregation'],
             'productAbstract' => $this->getFactory()->getProductClient()->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract),
         ];
-    }
-
-    /**
-     * @param $idProductAbstract
-     *
-     * @return FormInterface
-     */
-    protected function getForm($idProductAbstract)
-    {
-        $submitFormDataProvider = $this->getFactory()->createSubmitFormDataProvider();
-        $form = $this->getFactory()
-            ->createSubmitForm(
-                $submitFormDataProvider->getData($idProductAbstract),
-                $submitFormDataProvider->getOptions()
-            );
-
-        return $form;
-    }
-
-    protected function processForm(FormInterface $form, CustomerTransfer $customer = null)
-    {
-        $customerReference = $customer === null ? null : $customer->getCustomerReference();
-
-        if ($customerReference === null) {
-            // TODO: message needs localization
-            $form->addError(new FormError('product_review.submit.customer_required'));
-        }
-
-        if ($form->isValid()) {
-            $this->getFactory()->getProductReviewClient()->submitCustomerReview($form->getData()->setCustomerReference($customerReference)->setFkLocale(46));
-
-            return true;
-        }
-
-        return false;
     }
 
     /**
@@ -109,49 +75,4 @@ class IndexController extends AbstractController
     {
         return $this->getApplication()['request_stack']->getParentRequest();
     }
-
-    /**
-     * @param FormInterface $form
-     *
-     * @return bool
-     */
-    protected function isFormEmpty(FormInterface $form)
-    {
-        /** @var ProductReviewTransfer $productReviewTransfer */
-        $productReviewTransfer = $form->getData();
-        if (!empty($productReviewTransfer->getSummary())) {
-            return false;
-        }
-
-        if (!empty($productReviewTransfer->getDescription())) {
-            return false;
-        }
-
-        if (!empty($productReviewTransfer->getNickname())) {
-            return false;
-        }
-
-        if (!empty($productReviewTransfer->getRating())) {
-            return false;
-        }
-
-        return true;
-    }
-
-
-    protected function getProductReviewSummaryTransfer($fkProductAbstract)
-    {
-        $summary = new ProductReviewSummaryTransfer();
-        $summary->setAverageRating(3.6);
-        $summary->setMaximumRating(5);
-        $summary->setTotalReview(15);
-        $summary->addReviewMap((new ProductReviewSummaryReviewMapElementTransfer())->setRating(5)->setReviewCount(2));
-        $summary->addReviewMap((new ProductReviewSummaryReviewMapElementTransfer())->setRating(4)->setReviewCount(4));
-        $summary->addReviewMap((new ProductReviewSummaryReviewMapElementTransfer())->setRating(3)->setReviewCount(1));
-        $summary->addReviewMap((new ProductReviewSummaryReviewMapElementTransfer())->setRating(2)->setReviewCount(3));
-        $summary->addReviewMap((new ProductReviewSummaryReviewMapElementTransfer())->setRating(1)->setReviewCount(5));
-
-        return $summary;
-    }
 }
-

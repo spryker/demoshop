@@ -7,8 +7,10 @@
 
 namespace Pyz\Yves\ProductReview;
 
-use Pyz\Yves\ProductReview\Form\DataProvider\SubmitFormDataProvider;
-use Pyz\Yves\ProductReview\Form\SubmitForm;
+use Pyz\Yves\ProductReview\Form\DataProvider\ProductReviewFormDataProvider;
+use Pyz\Yves\ProductReview\Form\Helper\ProductReviewFormHelper;
+use Pyz\Yves\ProductReview\Form\Helper\ProductReviewFormHelperInterface;
+use Pyz\Yves\ProductReview\Form\ProductReviewForm;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
 
@@ -34,7 +36,7 @@ class ProductReviewFactory extends AbstractFactory
     /**
      * @return \Spryker\Client\ProductReview\ProductReviewClientInterface
      */
-    public function getProductReviewClient()
+    protected function getProductReviewClient()
     {
         return $this->getProvidedDependency(ProductReviewDependencyProvider::CLIENT_PRODUCT_REVIEW);
     }
@@ -48,22 +50,36 @@ class ProductReviewFactory extends AbstractFactory
     }
 
     /**
-     * @param mixed $data
-     * @param array $options
+     * @param int $idProductAbstract
      *
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createSubmitForm($data = null, array $options = [])
+    public function createProductReviewForm($idProductAbstract)
     {
-        return $this->getFormFactory()->create(new SubmitForm(), $data, $options);
+        $dataProvier = $this->createProductReviewFormDataProvider();
+        $form = $this->getFormFactory()->create(
+            new ProductReviewForm(),
+            $dataProvier->getData($idProductAbstract),
+            $dataProvier->getOptions()
+        );
+
+        return $form;
     }
 
     /**
-     * @return \Pyz\Yves\ProductReview\Form\DataProvider\SubmitFormDataProvider
+     * @return \Pyz\Yves\ProductReview\Form\DataProvider\ProductReviewFormDataProvider
      */
-    public function createSubmitFormDataProvider()
+    protected function createProductReviewFormDataProvider()
     {
-        return new SubmitFormDataProvider();
+        return new ProductReviewFormDataProvider();
+    }
+
+    /**
+     * @return ProductReviewFormHelperInterface
+     */
+    public function createProductReviewFormHelper()
+    {
+        return new ProductReviewFormHelper($this->getProductReviewClient());
     }
 
 }

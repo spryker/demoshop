@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
-class SubmitForm extends AbstractType
+class ProductReviewForm extends AbstractType
 {
 
     const FIELD_RATING = ProductReviewTransfer::RATING;
@@ -32,7 +32,7 @@ class SubmitForm extends AbstractType
      */
     public function getName()
     {
-        return 'submitForm';
+        return 'productReviewForm';
     }
 
     /**
@@ -83,9 +83,9 @@ class SubmitForm extends AbstractType
      * Returns a sequence between predefined minimum and maximum as an array with a leading "unselected" element
      * - keys match values
      *
-     * @see SubmitForm::UNSELECTED_RATING
-     * @see SubmitForm::MINIMUM_RATING
-     * @see SubmitForm::MAXIMUM_RATING
+     * @see ProductReviewForm::UNSELECTED_RATING
+     * @see ProductReviewForm::MINIMUM_RATING
+     * @see ProductReviewForm::MAXIMUM_RATING
      *
      * Example
      *  [-1 => 'none', 1 => 1, 2 => 2]

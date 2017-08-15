@@ -9,7 +9,7 @@ namespace Pyz\Yves\ProductReview\Form\DataProvider;
 
 use Generated\Shared\Transfer\ProductReviewTransfer;
 
-class SubmitFormDataProvider
+class ProductReviewFormDataProvider
 {
 
     /**
