@@ -1,0 +1,36 @@
+<p>
+    {% set roundedAverageRating = summary.averageRating | round(0, 'floor') %}
+    {% include '@ProductReview/index/partials/read-only-rating.twig' with {'rating': roundedAverageRating } %}
+
+    <span>
+        {{ summary.averageRating }}
+        {{ 'product_review.summary.out_of' | trans }}
+        {{ summary.maximumRating }}
+        {{ 'product_review.summary.stars' | trans }}
+        (
+            {{- summary.totalReview }}
+            {% transchoice summary.totalReview %}
+            product_review.summary.review|product_review.summary.reviews
+            {% endtranschoice -%}
+        )
+    </span>
+</p>
+
+<p>
+    {% for reviewMapElement in summary.reviewMap %}
+        <div>
+            <div class="review-map-column review-map-rating-column">
+                {{ reviewMapElement.rating }}
+                {% transchoice reviewMapElement.rating %}
+                    product_review.summary.star|product_review.summary.stars
+                {% endtranschoice %}
+            </div>
+            <div class="review-map-column">
+                <progress class="rating-map" max="100" value="{{ (reviewMapElement.reviewCount / summary.totalReview ) * 100 }}"></progress>
+            </div>
+            <div class="review-map-column">
+                {{ reviewMapElement.reviewCount }}
+            </div>
+        </div>
+    {% endfor %}
+</p>

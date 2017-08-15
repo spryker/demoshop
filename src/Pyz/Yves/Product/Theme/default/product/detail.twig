@@ -133,6 +133,12 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="small-12 columns">
+            {{ render(path('product-review/index', {idProductAbstract: product.idProductAbstract})) }}
+        </div>
+    </div>
+
     {{ product_relation("related-products", {idProductAbstract : product.idProductAbstract}, 'Similar products', '@ProductRelation/partial/product_relation_carousel.twig') }}
 
     <div class="row">

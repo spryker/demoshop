@@ -1,0 +1,34 @@
+{% if reviews | length == 0 %}
+    <p>{{ 'product_review.no_reviews' | trans }}</p>
+{% endif %}
+{% for productReviewTransfer in reviews %}
+    <p>
+        <h4>{{ productReviewTransfer.summary | e('html') }}</h4>
+
+        <div class="row">
+            <div class="columns small-2">
+                {% include '@ProductReview/index/partials/read-only-rating.twig' with {'rating': productReviewTransfer.rating } %}
+            </div>
+            <div class="columns small-2">
+                <small>{{ 'page.product.by' | trans }}</small> {{ productReviewTransfer.nickname | e('html')}}
+            </div>
+            <div class="columns small-8">
+                <small>{{ 'product_review.on' | trans }}</small> {{ productReviewTransfer.createdAt }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 columns">{{ productReviewTransfer.description | e('html')}}</div>
+        </div>
+    </p>
+{% endfor %}
+
+<div class="callout text-center">
+    {% include '@Application/layout/partials/pagination.twig' with {
+    parameters: app.request.query.all(),
+    currentPage: pagination.currentPage,
+    paginationPath: app.request.getPathInfo(),
+    maxPage: pagination.maxPage,
+    showAlwaysFirstAndLast: true
+    } %}
+</div>

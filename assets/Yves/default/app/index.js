@@ -29,6 +29,7 @@ $(function(){
         require('./components/disable-on-click'),
         require('./components/product-variants'),
         require('./components/cart-item'),
-        require('./components/catalog-filter-form')
+        require('./components/catalog-filter-form'),
+        require('./components/product-review')
     ]);
 });

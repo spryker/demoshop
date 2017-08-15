@@ -1,0 +1,32 @@
+{{ form_errors(form) }}
+{{ form_widget(form.fkProductAbstract) }}
+<div>
+    <label>
+        {{ form.rating.vars.label | trans }}*
+    </label>
+    <div class="js-jquery-bar-rating-stars">
+        {{ form_widget(form.rating) }}
+    </div>
+    {{ form_errors(form.rating) }}
+</div>
+<div>
+    <label>
+        {{ form.summary.vars.label | trans }}*
+       {{ form_widget(form.summary, { 'attr': {'placeholder': form.summary.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(form.summary) }}
+</div>
+<div>
+    <label>
+        {{ form.description.vars.label | trans }}*
+        {{ form_widget(form.description, { 'attr': {'placeholder': form.description.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(form.description) }}
+</div>
+<div>
+    <label>
+        {{ form.nickname.vars.label | trans }}*
+        {{ form_widget(form.nickname, { 'attr': {'placeholder': form.nickname.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(form.nickname) }}
+</div>

@@ -1,0 +1,46 @@
+<div data-component="product-review">
+
+    <div class="callout js-product-review-submit-form {% if hideForm %}hide{% endif %}">
+        <div>
+            <h5>
+                {{ productAbstract.name }}
+                {% if productAbstract.attributes.brand is defined %}
+                    <small>{{ 'page.product.by' | trans }}</small>
+                    {{ productAbstract.attributes.brand }}
+                {% endif %}
+            </h5>
+        </div>
+        {{ form_start(form) }}
+        {% include '@product-review/index/partials/submit-form.twig' %}
+        <button type="submit" class="button expanded info">{{ 'forms.submit-btn' | trans }}</button>
+        {{ form_end(form) }}
+    </div>
+
+    <div class="callout">
+        {% if showSuccessMessage %}
+            <div class="__message">
+                <div class="callout success">{{ 'product_review.submit.success' | trans }}</div>
+            </div>
+        {% endif %}
+
+        {% if showAddReviewButton %}
+            {% if hasCustomer %}
+                <button class="button info float-right js-button-add-a-review ">{{ 'product_review.submit.add_a_review' | trans }}</button>
+            {% else %}
+                <a class="button info float-right" href="{{ path('login') }}">{{ 'product_review.submit.add_a_review' | trans }}</a>
+            {% endif %}
+        {% endif %}
+
+        <div>
+            <h3>{{ 'product_review.product_ratings' | trans }}</h3>
+
+            {% include '@ProductReview/index/partials/summary.twig' with {'summary': summary} %}
+        </div>
+        <div>
+            <h3>{{ 'product_review.product_reviews' | trans }}</h3>
+
+            {% include '@ProductReview/index/partials/reviews.twig' with {'reviews': reviews, 'pagination': pagination} %}
+        </div>
+    </div>
+
+</div>

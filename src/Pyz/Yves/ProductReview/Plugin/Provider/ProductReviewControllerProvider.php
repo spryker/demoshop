@@ -13,7 +13,7 @@ use Silex\Application;
 class ProductReviewControllerProvider extends AbstractYvesControllerProvider
 {
 
-    const ROUTE_PRODUCT_REVIEW_SUBMIT = 'product-review/submit';
+    const ROUTE_PRODUCT_REVIEW_INDEX = 'product-review/index';
 
     /**
      * @param \Silex\Application $app
@@ -24,9 +24,10 @@ class ProductReviewControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createController('/{productReview}/submit', self::ROUTE_PRODUCT_REVIEW_SUBMIT, 'ProductReview', 'Submit', 'index')
+        $this->createController('/{productReview}/{idProductAbstract}', static::ROUTE_PRODUCT_REVIEW_INDEX, 'ProductReview', 'Index', 'index')
             ->assert('productReview', $allowedLocalesPattern . 'product-review|product-review')
-            ->value('productReview', 'product-review');
+            ->value('productReview', 'product-review')
+            ->assert('idProductAbstract',  '[1-9][0-9]*');
     }
 
 }
