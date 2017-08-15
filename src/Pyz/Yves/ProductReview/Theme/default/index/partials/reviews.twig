@@ -1,7 +1,7 @@
-{% if reviews | length == 0 %}
+{% if productReviews | length == 0 %}
     <p>{{ 'product_review.no_reviews' | trans }}</p>
 {% endif %}
-{% for productReviewTransfer in reviews %}
+{% for productReviewTransfer in productReviews %}
     <p>
         <h4>{{ productReviewTransfer.summary | e('html') }}</h4>
 

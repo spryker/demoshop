@@ -7,20 +7,13 @@
 
 namespace Pyz\Yves\ProductReview\Controller;
 
-use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ProductReviewSearchRequestTransfer;
-use Generated\Shared\Transfer\ProductReviewSummaryReviewMapElementTransfer;
-use Generated\Shared\Transfer\ProductReviewSummaryTransfer;
-use Generated\Shared\Transfer\ProductReviewTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
-use Spryker\Client\ProductReview\ProductReviewClientInterface;
 use Spryker\Shared\Storage\StorageConstants;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @method ProductReviewClientInterface getClient()
+ * @method \Spryker\Client\ProductReview\ProductReviewClientInterface getClient()
  * @method \Pyz\Yves\ProductReview\ProductReviewFactory getFactory()
  */
 class IndexController extends AbstractController
@@ -61,7 +54,7 @@ class IndexController extends AbstractController
             'showSuccessMessage' => $isReviewPosted,
             'hasCustomer' => $hasCustomer,
             'form' => $productReviewForm->createView(),
-            'reviews' => $productReviews['productReviews'],
+            'productReviews' => $productReviews['productReviews'],
             'pagination' => $productReviews['pagination'],
             'ratingAggregation' => $productReviews['ratingAggregation'],
             'productAbstract' => $this->getFactory()->getProductClient()->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract),
@@ -69,10 +62,11 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @return Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     protected function getParentRequest()
     {
         return $this->getApplication()['request_stack']->getParentRequest();
     }
+
 }

@@ -9,12 +9,12 @@ var $ = require('jquery');
 require('jquery-bar-rating');
 
 const RATING_THEME = 'css-stars';
+const IGNORED_RATING_VALUE = -1;
 
 const ADD_REVIEW_BUTTON_SELECTOR = '.js-button-add-a-review';
 const SUBMIT_FORM_SELECTOR = '.js-product-review-submit-form';
 const EDITABLE_RATING_BAR_SELECTOR = '.js-jquery-bar-rating-stars select';
 const READ_ONLY_RATING_BAR_SELECTOR = '.js-jquery-bar-rating-stars-read-only select';
-const IGNORED_RATING_VALUE = -1;
 
 module.exports = {
     name: 'product-review',
