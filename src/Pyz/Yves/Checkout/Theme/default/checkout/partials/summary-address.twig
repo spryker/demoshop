@@ -3,8 +3,9 @@
     {% if address.company != '' %}
         {{ address.company }}<br />
     {% endif %}
+    {% set country = 'countries.iso.' ~ address.iso2code %}
     {{ address.address1 }} {{ address.address2 }},
-    {{ address.zipCode }} {{ address.city }}<br/>
+    {{ address.zipCode }} {{ address.city }}, {{ country | trans }} <br/>
     {% if address.phone != '' %}
         {{ address.phone }}<br />
     {% endif %}
