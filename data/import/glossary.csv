@@ -313,9 +313,9 @@ global.no_image_available,Kein Bild verfügbar,de_DE
 global.no_image_available,No image available,en_US
 error.404,Error 404,de_DE
 error.404,Error 404,en_US
-homepage.carousel.previous,Vorherige,de_DE
+homepage.carousel.previous,Zurück,de_DE
 homepage.carousel.previous,Previous,en_US
-homepage.carousel.next,Nächste,de_DE
+homepage.carousel.next,Vore,de_DE
 homepage.carousel.next,Next,en_US
 customer.signup,New customer?,en_US
 customer.signup,Neuer Kunde?,de_DE
@@ -411,16 +411,16 @@ customer.authorization.success,Registration Successful,en_US
 customer.authorization.success,Registrierung erfolgreich,de_DE
 customer.profile.change.success,Profile was successfully saved,en_US
 customer.profile.change.success,Profil wurde erfolgreich gespeichert,de_DE
+customer.password.invalid_password,Current password is wrong,en_US
+customer.password.invalid_password,Aktuelles Passwort ist falsch,de_DE
+customer.password.invalid,Password is invalid,en_US
+customer.password.invalid,Passwort ist ungültig,de_DE
 customer.password.restore,Set a new password,en_US
 customer.password.restore,Neues Passwort erstellen,de_DE
 customer.password.changed,Your password was changed successfully,en_US
 customer.password.changed,Ihr Passwort wurde erfolgreich geändert,de_DE
 customer.token.invalid,Token is invalid,en_US
 customer.token.invalid,Token ist ungültig,de_DE
-customer.password.invalid_password,Current password is wrong,en_US
-customer.password.invalid_password,Aktuelles Passwort ist falsch,de_DE
-customer.password.invalid,Password is invalid,en_US
-customer.password.invalid,Passwort ist ungültig,de_DE
 customer.forgotten-password.description,Enter the e-mail address associated with your account.,en_US
 customer.forgotten-password.description,"Geben Sie die E-Mail-Adresse an, welche mit Ihrem Konto verknüpft ist.",de_DE
 customer.forgotten_password.email,Email Address,en_US
@@ -768,9 +768,9 @@ customer.account.wishlist.deleted,Wuschliste erfolgreich gelöscht.,de_DE
 newsletter.subscribe,Subscribe for newsletter,en_US
 newsletter.subscribe,In den Newsletter eintragen,de_DE
 pagination.previous,Previous,en_US
-pagination.previous,Vorherig,de_DE
+pagination.previous,Zurück,de_DE
 pagination.next,Next,en_US
-pagination.next,Nächst,de_DE
+pagination.next,Vor,de_DE
 product.attribute.iso_en,ISO,en_US
 product.attribute.iso_en,ISO,de_DE
 product.attribute.waterproof_up_to,Waterproof up to,en_US
@@ -821,10 +821,10 @@ mail.customer.registration.text,Vielen Dank für Ihre Anmeldung bei Spryker Shop
 mail.customer.registration.text,Thank you for signing up with Spryker Shop!,en_US
 mail.customer.restore_password.subject,Neues Passwort für Ihren Spryker Shop Account,de_DE
 mail.customer.restore_password.subject,New password for your Spryker Shop account,en_US
-mail.customer.restore_password.text,"Es wurde ein neues Passwort für Ihren Spryker Shop Account angefordert. Wenn Sie nicht um um eine Neueinrichtung des Passworts gebeten haben, ignorieren Sie bitte diese Email. Klicken Sie auf den folgedenen Link, um Ihr Passwort zu ändern:",de_DE
-mail.customer.restore_password.text,"Somebody has requested a new password for your Spryker Shop account. If it's not you, just ignore this email. If it's you, please follow the link bellow:",en_US
-mail.customer.reset_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
-mail.customer.reset_password_confirmation.subject,Your password was changed successfully!,en_US
+mail.customer.restore_password.text,"""Es wurde ein neues Passwort für Ihren Spryker Shop Account angefordert. Wenn Sie nicht um um eine Neueinrichtung des Passworts gebeten haben, ignorieren Sie bitte diese Email. Klicken Sie auf den folgedenen Link, um Ihr Passwort zu ändern:""",de_DE
+mail.customer.restore_password.text,"""Somebody has requested a new password for your Spryker Shop account. If it's not you, just ignore this email. If it's you, please follow the link bellow:""",en_US
+mail.customer.restore_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
+mail.customer.restore_password_confirmation.subject,Your password was changed successfully!,en_US
 mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich geändert!,de_DE
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
@@ -963,11 +963,3 @@ cart.item.item_total,Item total,en_US
 cart.item.item_total,Artikel Gesamt,de_DE
 cart.shipping,Shipping,en_US
 cart.shipping,Versand,de_DE
-catalog.sale,SALE %,en_US
-catalog.sale,SALE %,de_DE
-catalog.new,New,en_US
-catalog.new,Neu,de_DE
-product.filter.label,Product Labels,en_US
-product.filter.label,Product Labels,de_DE
-customer.order.canceledTotal,Canceled amount,en_US
-customer.order.canceledTotal,Stornobetrag,de_DE
