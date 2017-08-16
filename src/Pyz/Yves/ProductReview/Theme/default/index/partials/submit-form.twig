@@ -4,7 +4,7 @@
     <label>
         {{ form.rating.vars.label | trans }}*
     </label>
-    <div class="js-jquery-bar-rating-stars">
+    <div data-component="product-review-editable-rating">
         {{ form_widget(form.rating) }}
     </div>
     {{ form_errors(form.rating) }}

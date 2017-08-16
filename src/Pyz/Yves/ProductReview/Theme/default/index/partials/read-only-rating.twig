@@ -1,5 +1,6 @@
-<div class="js-jquery-bar-rating-stars-read-only">
-    <select data-current-rating="{{ rating }}">
+<div data-component="product-review-read-only-rating">
+    <select data-current-rating="{{ rating }}" disabled>
+        <option value="-1">{{ 'product_review.no_reviews' | trans }}</option>
         {% for i in 1..5 %}
             <option value="{{ i }}" >{{ i }}</option>
         {% endfor %}

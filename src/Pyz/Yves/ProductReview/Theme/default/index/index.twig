@@ -1,4 +1,4 @@
-<div data-component="product-review">
+<div data-component="product-review-summary">
 
     <div class="callout js-product-review-submit-form {% if hideForm %}hide{% endif %}">
         <div>
@@ -12,7 +12,7 @@
         </div>
         {{ form_start(form) }}
         {% include '@product-review/index/partials/submit-form.twig' %}
-        <button type="submit" class="button expanded info">{{ 'forms.submit-btn' | trans }}</button>
+        <button class="button expanded info">{{ 'forms.submit-btn' | trans }}</button>
         {{ form_end(form) }}
     </div>
 
@@ -25,7 +25,7 @@
 
         {% if showAddReviewButton %}
             {% if hasCustomer %}
-                <button class="button info float-right js-button-add-a-review ">{{ 'product_review.submit.add_a_review' | trans }}</button>
+                <button class="button info float-right js-button-add-review ">{{ 'product_review.submit.add_a_review' | trans }}</button>
             {% else %}
                 <a class="button info float-right" href="{{ path('login') }}">{{ 'product_review.submit.add_a_review' | trans }}</a>
             {% endif %}

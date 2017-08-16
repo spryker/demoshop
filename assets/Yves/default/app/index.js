@@ -30,6 +30,8 @@ $(function(){
         require('./components/product-variants'),
         require('./components/cart-item'),
         require('./components/catalog-filter-form'),
-        require('./components/product-review')
+        require('./components/product-review/editable-rating'),
+        require('./components/product-review/read-only-rating'),
+        require('./components/product-review/summary')
     ]);
 });
