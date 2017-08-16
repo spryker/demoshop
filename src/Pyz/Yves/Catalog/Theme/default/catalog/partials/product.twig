@@ -20,9 +20,18 @@
             {{ productLabels | raw }}
         {% endif %}
         {% if idProductAbstract %}
-            {% block productGroups %}
-                {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
-            {% endblock %}
+            <div class="row">
+                <div class="small-6 columns">
+                    {% block productGroups %}
+                        {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+                    {% endblock %}
+                </div>
+                <div class="small-6 columns">
+                    {% block productReview %}
+                        {{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}
+                    {% endblock %}
+                </div>
+            </div>
         {% endif %}
         <p class="__no-margin-bottom">
             <strong>{{ name  }}</strong>

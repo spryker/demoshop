@@ -53,6 +53,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     public function buildSortConfig(SortConfigBuilderInterface $sortConfigBuilder)
     {
         $this
+            ->addDescendingRatingSort($sortConfigBuilder)
             ->addAscendingNameSort($sortConfigBuilder)
             ->addDescendingNameSort($sortConfigBuilder)
             ->addAscendingPriceSort($sortConfigBuilder)
@@ -143,6 +144,24 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setName('name')
             ->setParameterName('name_asc')
             ->setFieldName(PageIndexMap::STRING_SORT);
+
+        $sortConfigBuilder->addSort($ascendingNameSortConfig);
+
+        return $this;
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface $sortConfigBuilder
+     *
+     * @return $this
+     */
+    protected function addDescendingRatingSort(SortConfigBuilderInterface $sortConfigBuilder)
+    {
+        $ascendingNameSortConfig = (new SortConfigTransfer())
+            ->setName('rating')
+            ->setParameterName('rating')
+            ->setFieldName(PageIndexMap::INTEGER_SORT)
+            ->setIsDescending(true);
 
         $sortConfigBuilder->addSort($ascendingNameSortConfig);
 

@@ -87,6 +87,8 @@
                     <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
                 </p>
 
+                {{ spyProductAbstractReview(product.idProductAbstract, '@Product/product/partials/product-rating.twig') }}
+
                 {% include '@Product/product/partials/variants.twig' %}
             </div>
 

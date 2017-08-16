@@ -9,12 +9,11 @@ namespace Pyz\Yves\ProductReview;
 
 use Pyz\Yves\ProductReview\Form\DataProvider\ProductReviewFormDataProvider;
 use Pyz\Yves\ProductReview\Form\Helper\ProductReviewFormHelper;
-use Pyz\Yves\ProductReview\Form\Helper\ProductReviewFormHelperInterface;
 use Pyz\Yves\ProductReview\Form\ProductReviewForm;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\ProductReview\ProductReviewFactory as SprykerProductReviewFactory;
 
-class ProductReviewFactory extends AbstractFactory
+class ProductReviewFactory extends SprykerProductReviewFactory
 {
 
     /**
@@ -75,7 +74,7 @@ class ProductReviewFactory extends AbstractFactory
     }
 
     /**
-     * @return ProductReviewFormHelperInterface
+     * @return \Pyz\Yves\ProductReview\Form\Helper\ProductReviewFormHelperInterface
      */
     public function createProductReviewFormHelper()
     {

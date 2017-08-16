@@ -71,6 +71,7 @@ class ProductReviewWriterStep extends TouchAwareStep implements DataImportStepIn
                 $this->addMainTouchable(ProductReviewConfig::RESOURCE_TYPE_PRODUCT_REVIEW, $productReviewEntity->getIdProductReview());
             }
 
+            $this->addSubTouchable(ProductReviewConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_REVIEW, $productReviewEntity->getFkProductAbstract());
             $this->addSubTouchable(ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT, $productReviewEntity->getFkProductAbstract());
         }
     }

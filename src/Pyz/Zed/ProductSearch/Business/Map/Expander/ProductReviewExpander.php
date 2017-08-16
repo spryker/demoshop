@@ -36,8 +36,9 @@ class ProductReviewExpander implements ProductPageMapExpanderInterface
 
         $pageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'rating', $rating)
+            ->addSearchResultData($pageMapTransfer, 'review_count', $productData['review_count'])
             ->addIntegerFacet($pageMapTransfer, 'rating', $rating)
-            ->addIntegerSort($pageMapTransfer, 'rating', $rating);
+            ->addIntegerSort($pageMapTransfer, 'rating', $rating * 10);
 
         return $pageMapTransfer;
     }
@@ -49,7 +50,7 @@ class ProductReviewExpander implements ProductPageMapExpanderInterface
      */
     protected function getRating(array $productData)
     {
-        return round($productData['average_rating']);
+        return round($productData['average_rating'], 1);
     }
 
 }

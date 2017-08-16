@@ -163,6 +163,8 @@ catalog.filter.show,Filter einblenden,de_DE
 catalog.filter.show,insert filter,en_US
 catalog.filter.hide,Filter ausblenden,de_DE
 catalog.filter.hide,hide filter,en_US
+catalog.filter.rating,Product Ratings,en_US
+catalog.filter.rating,Produktbewertungen,de_DE
 catalog.itemsFound,Artikel gefunden,de_DE
 catalog.itemsFound,Items found,en_US
 catalog.loading,Loading,de_DE
@@ -183,6 +185,8 @@ catalog.sort.price_asc,Nach Preis aufsteigend sortieren,de_DE
 catalog.sort.price_asc,Sort by price ascending,en_US
 catalog.sort.price_desc,Nach Preis absteigend sortieren,de_DE
 catalog.sort.price_desc,Sort by price descending,en_US
+catalog.sort.rating,Sort by product ratings,en_US
+caralot.sort.rating,Nach Produktbewertungen sortieren,de_DE
 catalog.filter.activeFilters,Aktive Filter,de_DE
 catalog.filter.activeFilters,Active filters,en_US
 catalog.filter.resetAllFilters,Alle Filter zurücksetzen,de_DE
