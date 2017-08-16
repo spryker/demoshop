@@ -22,7 +22,7 @@ module.exports = {
         },
 
         displayReadOnlyRatingBar: function() {
-            var currentRating = this.$root.find(READ_ONLY_RATING_BAR_SELECTOR).data('current-rating');
+            var currentRating = this.formatRating(this.$root.find(READ_ONLY_RATING_BAR_SELECTOR).data('current-rating'));
 
             this.$root.find(READ_ONLY_RATING_BAR_SELECTOR).barrating({
                 theme: RATING_THEME,
@@ -33,6 +33,39 @@ module.exports = {
                 allowEmpty:true,
                 emptyValue: IGNORED_RATING_VALUE
             });
+        },
+
+        /**
+         * Returns the nearest "half" or "whole" number for the provided input
+         * - returns the input if it is the "IGNORED_RATING_VALUE"
+         *
+         * Example:
+         *   2   =>  2
+         *   2.1 =>  2
+         *   2.2 =>  2
+         *   2.3 =>  2.5
+         *   2.4 =>  2.5
+         *   2.5 =>  2.5
+         *   2.6 =>  2.5
+         *   2.7 =>  2.5
+         *   2.8 =>  3
+         *   2.9 =>  3
+         *  -1   => -1
+         *
+         * @param {number} rating
+         *
+         * @returns {number}
+         */
+        formatRating: function(rating) {
+            rating = parseFloat(rating);
+
+            if (rating === IGNORED_RATING_VALUE) {
+                return rating;
+            }
+
+            rating = Math.round(rating * 2) / 2;
+
+            return rating;
         }
     }
 };

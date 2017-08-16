@@ -9,6 +9,7 @@ namespace Pyz\Yves\ProductReview\Controller;
 
 use Generated\Shared\Transfer\ProductReviewSearchRequestTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
+use Pyz\Yves\ProductReview\Form\ProductReviewForm;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -56,9 +57,38 @@ class IndexController extends AbstractController
             'form' => $productReviewForm->createView(),
             'productReviews' => $productReviews['productReviews'],
             'pagination' => $productReviews['pagination'],
-            'ratingAggregation' => $productReviews['ratingAggregation'],
+            'ratingAggregation' => $this->formatRatingAggregation($productReviews['ratingAggregation']),
             'productAbstract' => $this->getFactory()->getProductClient()->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract),
         ];
+    }
+
+    protected function formatRatingAggregation(array $ratingAggregation)
+    {
+        $totalReview = 0;
+        $totalRating = 0;
+
+        $result = [
+            'ratingAggregation' => [],
+            'averageRating' => 0,
+            'totalReview' => 0,
+            'maximumRating' => ProductReviewForm::MAXIMUM_RATING,
+        ];
+
+        for ($rating = ProductReviewForm::MINIMUM_RATING; $rating <= ProductReviewForm::MAXIMUM_RATING; $rating++) {
+            $reviewCount = array_key_exists($rating, $ratingAggregation) ? $ratingAggregation[$rating] : 0;
+            $totalRating += $reviewCount * $rating;
+            $totalReview += $reviewCount;
+        }
+
+        for ($rating = ProductReviewForm::MINIMUM_RATING; $rating <= ProductReviewForm::MAXIMUM_RATING; $rating++) {
+            $reviewCount = array_key_exists($rating, $ratingAggregation) ? $ratingAggregation[$rating] : 0;
+            $result['ratingAggregation'][$rating]['count'] = $reviewCount;
+            $result['ratingAggregation'][$rating]['percentage'] = $totalReview === 0 ? 0 : round(($reviewCount / $totalReview) * 100);
+        }
+        $result['totalReview'] = $totalReview;
+        $result['averageRating'] = $totalReview === 0 ? 0 : round($totalRating / $totalReview, 1);;
+
+        return $result;
     }
 
     /**

@@ -1,5 +1,5 @@
 {% block content %}
     {% if productAbstractReviewTransfer %}
-        {{ dump(productAbstractReviewTransfer.modifiedToArray()) }}
+        {% include '@ProductReview/index/partials/read-only-rating.twig' with {'rating': productAbstractReviewTransfer.averageRating } %}
     {% endif %}
 {% endblock %}

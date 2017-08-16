@@ -36,11 +36,13 @@
 
             {% include '@ProductReview/index/partials/summary.twig' with {'ratingAggregation': ratingAggregation} %}
         </div>
-        <div>
-            <h3>{{ 'product_review.product_reviews' | trans }}</h3>
+        {% if ratingAggregation.averageRating > 0 %}
+            <div>
+                <h3>{{ 'product_review.product_reviews' | trans }}</h3>
 
-            {% include '@ProductReview/index/partials/reviews.twig' with {'productReviews': productReviews, 'pagination': pagination} %}
-        </div>
+                {% include '@ProductReview/index/partials/reviews.twig' with {'productReviews': productReviews, 'pagination': pagination} %}
+            </div>
+        {% endif %}
     </div>
 
 </div>

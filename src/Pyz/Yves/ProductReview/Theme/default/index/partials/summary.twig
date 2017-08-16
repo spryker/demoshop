@@ -1,33 +1,26 @@
 <p>
-    {% set totalReviewCount = 0 %}
-    {% set totalRating = 0 %}
-    {% for rating in 1..5 %}
-        {% set reviewCount = ratingAggregation[rating] | default(0) %}
-        {% set totalReviewCount = totalReviewCount + reviewCount %}
-        {% set totalRating = totalRating + reviewCount * rating %}
-    {% endfor %}
+    {% include '@ProductReview/index/partials/read-only-rating.twig' with {'rating': ratingAggregation.averageRating } %}
 
-    {% set averageRating = (totalRating / totalReviewCount) | round(2)%}
-    {% set roundedAverageRating = averageRating | round(0, 'floor') %}
-    {% include '@ProductReview/index/partials/read-only-rating.twig' with {'rating': roundedAverageRating } %}
-
-    <span>
-        {{ averageRating }}
-        {{ 'product_review.summary.out_of' | trans }}
-        5
-        {{ 'product_review.summary.stars' | trans }}
-        (
-            {{- totalReviewCount }}
-            {% transchoice totalReviewCount %}
-            product_review.summary.review|product_review.summary.reviews
-            {% endtranschoice -%}
-        )
-    </span>
+    {% if ratingAggregation.averageRating > 0 %}
+        <span>
+            {{ ratingAggregation.averageRating }}
+            {{ 'product_review.summary.out_of' | trans }}
+            {{ ratingAggregation.maximumRating }}
+            {{ 'product_review.summary.stars' | trans }}
+            (
+                {{- ratingAggregation.totalReview }}
+                {% transchoice ratingAggregation.totalReview %}
+                product_review.summary.review|product_review.summary.reviews
+                {% endtranschoice -%}
+            )
+        </span>
+    {% else %}
+        <span>{{ 'product_review.no_reviews' | trans }}</span>
+    {% endif %}
 </p>
 
 <p>
-    {% for rating in 1..5 %}
-        {% set reviewCount = ratingAggregation[rating] | default(0) %}
+    {% for rating,ratingDetails in ratingAggregation.ratingAggregation %}
         <div>
             <div class="review-map-column review-map-rating-column">
                 {{ rating }}
@@ -36,10 +29,10 @@
                 {% endtranschoice %}
             </div>
             <div class="review-map-column">
-                <progress class="rating-map" max="100" value="{{ (reviewCount / totalReviewCount ) * 100 }}"></progress>
+                <progress class="rating-map" max="100" value="{{ ratingDetails.percentage }}"></progress>
             </div>
             <div class="review-map-column">
-                {{ reviewCount }}
+                {{ ratingDetails.count }}
             </div>
         </div>
     {% endfor %}

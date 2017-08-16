@@ -9,7 +9,6 @@
 {% set productLabels = productLabels | default(null) %}
 {% set idProductAbstract = idProductAbstract | default(null) %}
 {% set originalPrice = originalPrice | default(null) %}
-{% set rating = rating | default(-1) %}
 
 <div class="{{ class }} product js-product-container">
     <div class="product__container callout">
@@ -20,23 +19,18 @@
             {{ productLabels | raw }}
         {% endif %}
         {% if idProductAbstract %}
-            <div class="row">
-                <div class="small-6 columns">
-                    {% block productGroups %}
-                        {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
-                    {% endblock %}
-                </div>
-                <div class="small-6 columns">
-                    {% block productReview %}
-                        {{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}
-                    {% endblock %}
-                </div>
-            </div>
+            {% block productGroups %}
+                {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+            {% endblock %}
         {% endif %}
         <p class="__no-margin-bottom">
             <strong>{{ name  }}</strong>
         </p>
-        {% include '@ProductReview/index/partials/read-only-rating.twig' with {'rating': rating } %}
+        {% if idProductAbstract %}
+            {% block productReview %}
+                {{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}
+            {% endblock %}
+        {% endif %}
         <p>
             {% if originalPrice %}
                 <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
