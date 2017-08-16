@@ -116,14 +116,6 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/git-hook.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/rabbit-mq.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/code-generator.git"
     }
   ],
   "scripts": {
