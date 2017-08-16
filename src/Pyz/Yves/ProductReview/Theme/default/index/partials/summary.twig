@@ -1,15 +1,15 @@
 <p>
-    {% include '@ProductReview/index/partials/read-only-rating.twig' with {'rating': ratingAggregation.averageRating } %}
+    {% include '@ProductReview/partials/read-only-rating.twig' with {'rating': summary.averageRating } %}
 
-    {% if ratingAggregation.averageRating > 0 %}
+    {% if summary.totalReview > 0 %}
         <span>
-            {{ ratingAggregation.averageRating }}
+            {{ summary.averageRating }}
             {{ 'product_review.summary.out_of' | trans }}
-            {{ ratingAggregation.maximumRating }}
+            {{ summary.maximumRating }}
             {{ 'product_review.summary.stars' | trans }}
             (
-                {{- ratingAggregation.totalReview }}
-                {% transchoice ratingAggregation.totalReview %}
+                {{- summary.totalReview }}
+                {% transchoice summary.totalReview %}
                 product_review.summary.review|product_review.summary.reviews
                 {% endtranschoice -%}
             )
@@ -20,7 +20,7 @@
 </p>
 
 <p>
-    {% for rating,ratingDetails in ratingAggregation.ratingAggregation %}
+    {% for rating,ratingReview in summary.ratingAggregation %}
         <div>
             <div class="review-map-column review-map-rating-column">
                 {{ rating }}
@@ -29,10 +29,10 @@
                 {% endtranschoice %}
             </div>
             <div class="review-map-column">
-                <progress class="rating-map" max="100" value="{{ ratingDetails.percentage }}"></progress>
+                <progress class="rating-map" max="{{ summary.totalReview }}" value="{{ ratingReview }}"></progress>
             </div>
             <div class="review-map-column">
-                {{ ratingDetails.count }}
+                {{ ratingReview }}
             </div>
         </div>
     {% endfor %}

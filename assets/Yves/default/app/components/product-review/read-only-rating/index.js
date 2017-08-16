@@ -37,7 +37,7 @@ module.exports = {
 
         /**
          * Returns the nearest "half" or "whole" number for the provided input
-         * - returns the input if it is the "IGNORED_RATING_VALUE"
+         * - returns the provided input if it is the "IGNORED_RATING_VALUE"
          *
          * Example:
          *   2   =>  2

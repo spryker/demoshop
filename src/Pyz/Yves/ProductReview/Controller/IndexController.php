@@ -7,10 +7,12 @@
 
 namespace Pyz\Yves\ProductReview\Controller;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\ProductReviewSearchRequestTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
-use Pyz\Yves\ProductReview\Form\ProductReviewForm;
 use Spryker\Shared\Storage\StorageConstants;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -32,21 +34,18 @@ class IndexController extends AbstractController
     {
         $parentRequest = $this->getParentRequest();
         $idProductAbstract = $request->attributes->get('idProductAbstract');
-        $page = (int)$parentRequest->query->get('page', 1);
 
         $customer = $this->getFactory()->getCustomerClient()->getCustomer();
         $hasCustomer = $customer !== null;
 
-        $productReviewFormHelper = $this->getFactory()->createProductReviewFormHelper();
         $productReviewForm = $this->getFactory()->createProductReviewForm($idProductAbstract);
         $productReviewForm->handleRequest($parentRequest);
-        $isFormEmpty = $productReviewFormHelper->isEmpty($productReviewForm);
-        $isReviewPosted = $productReviewFormHelper->process($productReviewForm, $customer);
+        $isFormEmpty = !$productReviewForm->isSubmitted();
+        $isReviewPosted = $this->processProductReviewForm($productReviewForm, $customer);
 
         $productReviewSearchRequestTransfer = new ProductReviewSearchRequestTransfer();
         $productReviewSearchRequestTransfer->setIdProductAbstract($idProductAbstract);
         $productReviewSearchRequestTransfer->setRequestParams($parentRequest->query->all());
-        // TODO: max page size should be injectable
         $productReviews = $this->getClient()->findProductReviews($productReviewSearchRequestTransfer);
 
         return [
@@ -57,38 +56,41 @@ class IndexController extends AbstractController
             'form' => $productReviewForm->createView(),
             'productReviews' => $productReviews['productReviews'],
             'pagination' => $productReviews['pagination'],
-            'ratingAggregation' => $this->formatRatingAggregation($productReviews['ratingAggregation']),
+            'summary' => $this->getFactory()->createProductReviewSummaryFormatter()->execute($productReviews['ratingAggregation']),
             'productAbstract' => $this->getFactory()->getProductClient()->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract),
         ];
     }
 
-    protected function formatRatingAggregation(array $ratingAggregation)
+    /**
+     * @param FormInterface $form
+     * @param CustomerTransfer|null $customer
+     *
+     * @return bool Returns true if the review was posted
+     */
+    public function processProductReviewForm(FormInterface $form, CustomerTransfer $customer = null)
     {
-        $totalReview = 0;
-        $totalRating = 0;
-
-        $result = [
-            'ratingAggregation' => [],
-            'averageRating' => 0,
-            'totalReview' => 0,
-            'maximumRating' => ProductReviewForm::MAXIMUM_RATING,
-        ];
-
-        for ($rating = ProductReviewForm::MINIMUM_RATING; $rating <= ProductReviewForm::MAXIMUM_RATING; $rating++) {
-            $reviewCount = array_key_exists($rating, $ratingAggregation) ? $ratingAggregation[$rating] : 0;
-            $totalRating += $reviewCount * $rating;
-            $totalReview += $reviewCount;
+        if (!$form->isSubmitted()) {
+            return false;
         }
 
-        for ($rating = ProductReviewForm::MINIMUM_RATING; $rating <= ProductReviewForm::MAXIMUM_RATING; $rating++) {
-            $reviewCount = array_key_exists($rating, $ratingAggregation) ? $ratingAggregation[$rating] : 0;
-            $result['ratingAggregation'][$rating]['count'] = $reviewCount;
-            $result['ratingAggregation'][$rating]['percentage'] = $totalReview === 0 ? 0 : round(($reviewCount / $totalReview) * 100);
-        }
-        $result['totalReview'] = $totalReview;
-        $result['averageRating'] = $totalReview === 0 ? 0 : round($totalRating / $totalReview, 1);;
+        $customerReference = $customer === null ? null : $customer->getCustomerReference();
 
-        return $result;
+        if ($customerReference === null) {
+            $form->addError(new FormError('Only customers can use this feature. Please log in.'));
+        }
+
+        if ($form->isValid()) {
+            // TODO: Replace static locale id with dynamic
+            $this->getFactory()->getProductReviewClient()->submitCustomerReview(
+                $form->getData()
+                    ->setCustomerReference($customerReference)
+                    ->setFkLocale(66)
+            );
+
+            return true;
+        }
+
+        return false;
     }
 
     /**

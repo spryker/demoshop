@@ -26,8 +26,7 @@ module.exports = {
                 theme: RATING_THEME,
                 deselectable: true,
                 allowEmpty:true,
-                emptyValue: IGNORED_RATING_VALUE,
-                initialRating: IGNORED_RATING_VALUE
+                emptyValue: IGNORED_RATING_VALUE
             });
         }
     }

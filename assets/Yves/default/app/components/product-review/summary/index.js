@@ -8,7 +8,7 @@
 var $ = require('jquery');
 
 const ADD_REVIEW_BUTTON_SELECTOR = '.js-button-add-review';
-const SUBMIT_FORM_SELECTOR = '.js-product-review-submit-form';
+const PRODUCT_REVIEW_FORM_SELECTOR = '.js-form-product-review';
 
 module.exports = {
     name: 'product-review-summary',
@@ -20,11 +20,11 @@ module.exports = {
         },
 
         bindAddReviewButton: function() {
-            let $root = this.$root;
+            var $root = this.$root;
 
             this.$root.find(ADD_REVIEW_BUTTON_SELECTOR).on('click', function() {
                 $(this).hide();
-                $root.find(SUBMIT_FORM_SELECTOR).removeClass('hide');
+                $root.find(PRODUCT_REVIEW_FORM_SELECTOR).removeClass('hide');
             });
         }
     }

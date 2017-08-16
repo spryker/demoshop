@@ -1,6 +1,6 @@
 <div data-component="product-review-summary">
 
-    <div class="callout js-product-review-submit-form {% if hideForm %}hide{% endif %}">
+    <div class="callout js-form-product-review {% if hideForm %}hide{% endif %}">
         <div>
             <h5>
                 {{ productAbstract.name }}
@@ -11,7 +11,7 @@
             </h5>
         </div>
         {{ form_start(form) }}
-        {% include '@product-review/index/partials/submit-form.twig' %}
+        {% include '@product-review/index/partials/product-review-form.twig' %}
         <button class="button expanded info">{{ 'forms.submit-btn' | trans }}</button>
         {{ form_end(form) }}
     </div>
@@ -34,9 +34,10 @@
         <div>
             <h3>{{ 'product_review.product_ratings' | trans }}</h3>
 
-            {% include '@ProductReview/index/partials/summary.twig' with {'ratingAggregation': ratingAggregation} %}
+            {% include '@ProductReview/index/partials/summary.twig' with {'summary': summary} %}
         </div>
-        {% if ratingAggregation.averageRating > 0 %}
+
+        {% if summary.totalReview > 0 %}
             <div>
                 <h3>{{ 'product_review.product_reviews' | trans }}</h3>
 

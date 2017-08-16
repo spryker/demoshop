@@ -7,6 +7,8 @@
 
 namespace Pyz\Yves\ProductReview;
 
+use Pyz\Yves\ProductReview\Controller\Formatter\ProductReviewSummaryFormatter;
+use Pyz\Yves\ProductReview\Controller\Formatter\ProductReviewSummaryFormatterInterface;
 use Pyz\Yves\ProductReview\Form\DataProvider\ProductReviewFormDataProvider;
 use Pyz\Yves\ProductReview\Form\Helper\ProductReviewFormHelper;
 use Pyz\Yves\ProductReview\Form\ProductReviewForm;
@@ -35,7 +37,7 @@ class ProductReviewFactory extends SprykerProductReviewFactory
     /**
      * @return \Spryker\Client\ProductReview\ProductReviewClientInterface
      */
-    protected function getProductReviewClient()
+    public function getProductReviewClient()
     {
         return $this->getProvidedDependency(ProductReviewDependencyProvider::CLIENT_PRODUCT_REVIEW);
     }
@@ -66,19 +68,19 @@ class ProductReviewFactory extends SprykerProductReviewFactory
     }
 
     /**
+     * @return ProductReviewSummaryFormatterInterface
+     */
+    public function createProductReviewSummaryFormatter()
+    {
+        return new ProductReviewSummaryFormatter();
+    }
+
+    /**
      * @return \Pyz\Yves\ProductReview\Form\DataProvider\ProductReviewFormDataProvider
      */
     protected function createProductReviewFormDataProvider()
     {
         return new ProductReviewFormDataProvider();
-    }
-
-    /**
-     * @return \Pyz\Yves\ProductReview\Form\Helper\ProductReviewFormHelperInterface
-     */
-    public function createProductReviewFormHelper()
-    {
-        return new ProductReviewFormHelper($this->getProductReviewClient());
     }
 
 }
