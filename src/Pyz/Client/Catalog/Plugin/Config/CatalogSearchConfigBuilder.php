@@ -31,6 +31,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
 
     const CATEGORY_FACET_PARAM_NAME = 'category';
     const LABEL_FACET_NAME = 'label';
+    const RATING_FACET_NAME = 'rating';
 
     /**
      * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
@@ -42,7 +43,8 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
         $this
             ->addCategoryFacet($facetConfigBuilder)
             ->addPriceFacet($facetConfigBuilder)
-            ->addProductLabelFacet($facetConfigBuilder);
+            ->addProductLabelFacet($facetConfigBuilder)
+            ->addProductRatingFacet($facetConfigBuilder);
     }
 
     /**
@@ -127,6 +129,24 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setType(SearchConfig::FACET_TYPE_ENUMERATION)
             ->setIsMultiValued(true)
             ->setValueTransformer(ProductLabelFacetValueTransformerPlugin::class);
+
+        $facetConfigBuilder->addFacet($productLabelFacetTransfer);
+
+        return $this;
+    }
+
+    /**
+     * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder
+     *
+     * @return $this
+     */
+    protected function addProductRatingFacet(FacetConfigBuilderInterface $facetConfigBuilder)
+    {
+        $productLabelFacetTransfer = (new FacetConfigTransfer())
+            ->setName(static::RATING_FACET_NAME)
+            ->setParameterName(static::RATING_FACET_NAME)
+            ->setFieldName(PageIndexMap::INTEGER_FACET)
+            ->setType(SearchConfig::FACET_TYPE_RANGE);
 
         $facetConfigBuilder->addFacet($productLabelFacetTransfer);
 

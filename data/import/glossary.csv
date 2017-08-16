@@ -163,8 +163,10 @@ catalog.filter.show,Filter einblenden,de_DE
 catalog.filter.show,insert filter,en_US
 catalog.filter.hide,Filter ausblenden,de_DE
 catalog.filter.hide,hide filter,en_US
-catalog.filter.rating,Product Ratings,en_US
-catalog.filter.rating,Produktbewertungen,de_DE
+catalog.filter.rating_up,& Up,en_US
+catalog.filter.rating_up,& mehr,de_DE
+catalog.filter.active_rating_up,Stars & Up,en_US
+catalog.filter.active_rating_up,Sterne & mehr,de_DE
 catalog.itemsFound,Artikel gefunden,de_DE
 catalog.itemsFound,Items found,en_US
 catalog.loading,Loading,de_DE
@@ -195,6 +197,8 @@ product.filter.category,Kategorien,de_DE
 product.filter.category,Categories,en_US
 product.filter.price,Preisspanne,de_DE
 product.filter.price,Price range,en_US
+product.filter.rating,Product Ratings,en_US
+product.filter.rating,Produktbewertungen,de_DE
 shipment.dhl,DHL,de_DE
 shipment.dhl,DHL,en_US
 shipment.dhl.paket.name,Paket,de_DE
@@ -997,7 +1001,5 @@ product_review.submit.description,Description,en_US
 product_review.submit.description,Rezension,de_DE
 product_review.submit.nickname,Name,en_US
 product_review.submit.nickname,Name,de_DE
-product_review.submit.customer_required,Only customers can use this feature. Please log in.,en_US
-product_review.submit.customer_required,Nur Kunden können diese Funktion nutzen. Bitte anmelden.,de_DE
 product_review.submit.success,Thank you for your review. We are processing it. It will be live in the shop soon.,en_US
 product_review.submit.success,Vielen Dank für Ihre Bewertung. Wir verarbeiten es. Es wird bald im Laden.,de_DE
