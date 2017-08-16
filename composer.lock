@@ -4170,11 +4170,11 @@
         },
         {
             "name": "spryker/calculation",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Calculation.git",
-                "reference": "caf841a1a7409c0e7ef96e3067d846cd3043c18b",
+                "reference": "da985c3c8e93e65e0a4fd2cbe283ea14a84c7303",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4184,8 +4184,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Calculation/zipball/caf841a1a7409c0e7ef96e3067d846cd3043c18b",
-                "reference": "caf841a1a7409c0e7ef96e3067d846cd3043c18b",
+                "url": "https://api.github.com/repos/spryker/Calculation/zipball/da985c3c8e93e65e0a4fd2cbe283ea14a84c7303",
+                "reference": "da985c3c8e93e65e0a4fd2cbe283ea14a84c7303",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4204,7 +4204,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
+                "spryker/checkout": "If you want to use Checkout plugins."
             },
             "type": "library",
             "extra": {
@@ -4227,11 +4227,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Calculation bundle",
+            "description": "Calculation module",
             "support": {
-                "source": "https://github.com/spryker/Calculation/tree/master"
+                "source": "https://github.com/spryker/Calculation/tree/4.1.0"
             },
-            "time": "2017-06-14T10:16:31+00:00"
+            "time": "2017-08-16T10:41:33+00:00"
         },
         {
             "name": "spryker/cart",
@@ -16340,12 +16340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "94354ea5ecd9d642339b41eff414080d1e2938a6"
+                "reference": "41c9fc2608adbc3905338c60829d6e4dd3b739bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/94354ea5ecd9d642339b41eff414080d1e2938a6",
-                "reference": "94354ea5ecd9d642339b41eff414080d1e2938a6",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/41c9fc2608adbc3905338c60829d6e4dd3b739bf",
+                "reference": "41c9fc2608adbc3905338c60829d6e4dd3b739bf",
                 "shasum": ""
             },
             "require": {
@@ -17052,7 +17052,7 @@
             "version": "0.3.3",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/code-generator.git",
+                "url": "https://github.com/spryker/code-generator.git",
                 "reference": "36275f0ca30c780eca148c0fb62af5ed0abb635d",
                 "mirrors": [
                     {
