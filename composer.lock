@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "931126c8d67ba51353131295da30b4c5",
+    "content-hash": "3d641a50f9350999de94a6ee80b19bc6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -6773,7 +6773,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-16T12:37:39+00:00"
+            "time": "2017-08-16 12:37:39"
         },
         {
             "name": "spryker/git-hook",
