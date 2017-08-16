@@ -8,7 +8,7 @@
 var $ = require('jquery');
 require('jquery-bar-rating');
 
-const RATING_THEME = 'css-stars';
+const RATING_THEME = 'fontawesome-stars-o';
 const IGNORED_RATING_VALUE = -1;
 
 const ADD_REVIEW_BUTTON_SELECTOR = '.js-button-add-a-review';
@@ -38,10 +38,17 @@ module.exports = {
         },
 
         displayReadOnlyRatingBars: function() {
-            this.$root.find(READ_ONLY_RATING_BAR_SELECTOR).barrating({
+            var currentRating = $(READ_ONLY_RATING_BAR_SELECTOR).data('current-rating');
+
+
+
+            $(READ_ONLY_RATING_BAR_SELECTOR).barrating({
                 theme: RATING_THEME,
+                showSelectedRating: false,
+                initialRating: currentRating,
                 readonly: true
             });
+
         },
 
         bindAddReviewButton: function() {

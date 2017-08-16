@@ -3,9 +3,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-@import '~jquery-bar-rating/dist/themes/css-stars.css';
+@import '~jquery-bar-rating/dist/themes/fontawesome-stars-o.css';
 
-.br-theme-css-stars .br-widget {
+.br-theme-fontawesome-stars-o .br-widget {
   a.br-selected:after {
     color: map-get($foundation-palette, primary);
   }
@@ -15,6 +15,10 @@
   }
 
   a.br-active:after {
+    color: map-get($foundation-palette, primary);
+  }
+
+  a.br-fractional:after {
     color: map-get($foundation-palette, primary);
   }
 }

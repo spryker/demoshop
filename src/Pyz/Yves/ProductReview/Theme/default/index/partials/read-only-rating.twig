@@ -1,7 +1,7 @@
 <div class="js-jquery-bar-rating-stars-read-only">
-    <select>
+    <select data-current-rating="{{ rating }}">
         {% for i in 1..5 %}
-            <option value="{{ i }}" {% if i == rating %} selected="selected" {% endif %}>{{ i }}</option>
+            <option value="{{ i }}" >{{ i }}</option>
         {% endfor %}
     </select>
 </div>
