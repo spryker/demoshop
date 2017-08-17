@@ -24,7 +24,7 @@ class ProductReviewSummaryFormatter implements ProductReviewSummaryFormatterInte
             $ratingAggregation[$rating] = array_key_exists($rating, $ratingAggregation) ? $ratingAggregation[$rating] : 0;
         }
 
-        ksort($ratingAggregation);
+        krsort($ratingAggregation);
 
         $totalReview = 0;
         $totalRating = 0;

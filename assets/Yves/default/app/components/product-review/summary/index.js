@@ -20,11 +20,13 @@ module.exports = {
         },
 
         bindAddReviewButton: function() {
-            var $root = this.$root;
+            if (!$(PRODUCT_REVIEW_FORM_SELECTOR).hasClass('hide')) {
+                this.$root.find(ADD_REVIEW_BUTTON_SELECTOR).hide();
+            }
 
             this.$root.find(ADD_REVIEW_BUTTON_SELECTOR).on('click', function() {
                 $(this).hide();
-                $root.find(PRODUCT_REVIEW_FORM_SELECTOR).removeClass('hide');
+                $(PRODUCT_REVIEW_FORM_SELECTOR).removeClass('hide');
             });
         }
     }

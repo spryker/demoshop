@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\ProductReview\Form\DataProvider;
 
-use Generated\Shared\Transfer\ProductReviewTransfer;
+use Generated\Shared\Transfer\ProductReviewRequestTransfer;
 
 class ProductReviewFormDataProvider
 {
@@ -15,12 +15,12 @@ class ProductReviewFormDataProvider
     /**
      * @param int $idProductAbstract
      *
-     * @return \Generated\Shared\Transfer\ProductReviewTransfer
+     * @return \Generated\Shared\Transfer\ProductReviewRequestTransfer
      */
     public function getData($idProductAbstract)
     {
-        $productReviewTransfer = new ProductReviewTransfer();
-        $productReviewTransfer->setFkProductAbstract($idProductAbstract);
+        $productReviewTransfer = new ProductReviewRequestTransfer();
+        $productReviewTransfer->setIdProductAbstract($idProductAbstract);
 
         return $productReviewTransfer;
     }
@@ -31,7 +31,7 @@ class ProductReviewFormDataProvider
     public function getOptions()
     {
         return [
-            'data_class' => ProductReviewTransfer::class,
+            'data_class' => ProductReviewRequestTransfer::class,
         ];
     }
 

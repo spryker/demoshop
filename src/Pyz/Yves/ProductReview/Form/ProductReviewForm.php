@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\ProductReview\Form;
 
-use Generated\Shared\Transfer\ProductReviewTransfer;
+use Generated\Shared\Transfer\ProductReviewRequestTransfer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
@@ -17,11 +17,11 @@ use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 class ProductReviewForm extends AbstractType
 {
 
-    const FIELD_RATING = ProductReviewTransfer::RATING;
-    const FIELD_SUMMARY = ProductReviewTransfer::SUMMARY;
-    const FIELD_DESCRIPTION = ProductReviewTransfer::DESCRIPTION;
-    const FIELD_NICKNAME = ProductReviewTransfer::NICKNAME;
-    const FIELD_PRODUCT = ProductReviewTransfer::FK_PRODUCT_ABSTRACT;
+    const FIELD_RATING = ProductReviewRequestTransfer::RATING;
+    const FIELD_SUMMARY = ProductReviewRequestTransfer::SUMMARY;
+    const FIELD_DESCRIPTION = ProductReviewRequestTransfer::DESCRIPTION;
+    const FIELD_NICKNAME = ProductReviewRequestTransfer::NICKNAME;
+    const FIELD_PRODUCT = ProductReviewRequestTransfer::ID_PRODUCT_ABSTRACT;
 
     const UNSELECTED_RATING = -1;
     const MINIMUM_RATING = 1;

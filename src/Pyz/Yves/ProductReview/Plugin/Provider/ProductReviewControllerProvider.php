@@ -14,6 +14,9 @@ class ProductReviewControllerProvider extends AbstractYvesControllerProvider
 {
 
     const ROUTE_PRODUCT_REVIEW_INDEX = 'product-review/index';
+    const ROUTE_PRODUCT_REVIEW_SUBMIT = 'product-review/submit';
+
+    const ID_ABSTRAC_PRODCUT_REGEX = '[1-9][0-9]*';
 
     /**
      * @param \Silex\Application $app
@@ -24,10 +27,15 @@ class ProductReviewControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createController('/{productReview}/{idProductAbstract}', static::ROUTE_PRODUCT_REVIEW_INDEX, 'ProductReview', 'Index', 'index')
+        $this->createController('/{productReview}/index/{idProductAbstract}', static::ROUTE_PRODUCT_REVIEW_INDEX, 'ProductReview', 'Index', 'index')
             ->assert('productReview', $allowedLocalesPattern . 'product-review|product-review')
             ->value('productReview', 'product-review')
-            ->assert('idProductAbstract',  '[1-9][0-9]*');
+            ->assert('idProductAbstract',  static::ID_ABSTRAC_PRODCUT_REGEX);
+
+        $this->createController('/{productReview}/submit/{idProductAbstract}', static::ROUTE_PRODUCT_REVIEW_SUBMIT, 'ProductReview', 'Submit', 'index')
+            ->assert('productReview', $allowedLocalesPattern . 'product-review|product-review')
+            ->value('productReview', 'product-review')
+            ->assert('idProductAbstract',  static::ID_ABSTRAC_PRODCUT_REGEX);
     }
 
 }

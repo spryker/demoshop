@@ -137,6 +137,7 @@
 
     <div class="row">
         <div class="small-12 columns">
+            {{ render(path('product-review/submit', {idProductAbstract: product.idProductAbstract})) }}
             {{ render(path('product-review/index', {idProductAbstract: product.idProductAbstract})) }}
         </div>
     </div>
