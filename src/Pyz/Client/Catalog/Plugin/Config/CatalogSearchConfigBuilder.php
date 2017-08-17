@@ -11,6 +11,7 @@ use Generated\Shared\Search\PageIndexMap;
 use Generated\Shared\Transfer\FacetConfigTransfer;
 use Generated\Shared\Transfer\PaginationConfigTransfer;
 use Generated\Shared\Transfer\SortConfigTransfer;
+use Pyz\Client\ProductReview\Plugin\ProductRatingValueTransformer;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\ProductLabel\Plugin\ProductLabelFacetValueTransformerPlugin;
 use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
@@ -146,7 +147,8 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setName(static::RATING_FACET_NAME)
             ->setParameterName(static::RATING_FACET_NAME)
             ->setFieldName(PageIndexMap::INTEGER_FACET)
-            ->setType(SearchConfig::FACET_TYPE_RANGE);
+            ->setType(SearchConfig::FACET_TYPE_RANGE)
+            ->setValueTransformer(ProductRatingValueTransformer::class);
 
         $facetConfigBuilder->addFacet($productLabelFacetTransfer);
 
