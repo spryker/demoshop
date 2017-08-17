@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d641a50f9350999de94a6ee80b19bc6",
+    "content-hash": "ea74f9b7e9bb18045ad587a1dc5a8a5c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1619,15 +1619,15 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-07-14 09:20:08"
+            "time": "2017-07-14T09:20:08+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-903-product-reviews",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e2de1661e1bc554f8ce171525548ccbcd0770ef2"
+                "reference": "f9c853d614cf54ed52937611e36f45fdd82feeee"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1739,6 +1739,11 @@
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
+                "spryker/product-relation": "*",
+                "spryker/product-relation-collector": "*",
+                "spryker/product-review": "*",
+                "spryker/product-review-collector": "*",
+                "spryker/product-review-gui": "*",
                 "spryker/product-search": "*",
                 "spryker/product-set": "*",
                 "spryker/product-set-collector": "*",
@@ -1803,7 +1808,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-16 12:29:26"
+            "time": "2017-08-17T10:24:39+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6683,14 +6688,14 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-08-02 10:03:12"
+            "time": "2017-08-02T10:03:12+00:00"
         },
         {
             "name": "spryker/code-generator",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/code-generator.git",
+                "url": "git@github.com:spryker/code-generator.git",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
             },
             "dist": {
@@ -6726,7 +6731,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2017-08-02 15:45:37"
+            "time": "2017-08-02T15:45:37+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -6773,7 +6778,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-16 12:37:39"
+            "time": "2017-08-16T12:37:39+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -6832,7 +6837,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-08-09 04:45:13"
+            "time": "2017-08-09T04:45:13+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
