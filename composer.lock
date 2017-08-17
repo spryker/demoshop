@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0549159d8b5d67143675eee6404d7390",
+    "content-hash": "312e26671d8b011a9809205108a927d9",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1791,7 +1791,7 @@
             "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ApiQueryBuilder.git",
+                "url": "https://github.com/spryker/ApiQueryBuilder.git",
                 "reference": "03ee7dd5f5535d3691348fad7fa739026ff5ff8f",
                 "mirrors": [
                     {
@@ -3165,7 +3165,7 @@
             "version": "1.2.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsBlock.git",
+                "url": "git@github.com:spryker/CmsBlock.git",
                 "reference": "bcc1d4409efe7a8880b4ec70dc39eec4f7eb11a4",
                 "mirrors": [
                     {
@@ -3237,7 +3237,7 @@
             "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsBlockCategoryConnector.git",
+                "url": "git@github.com:spryker/CmsBlockCategoryConnector.git",
                 "reference": "e45cf06f4408f8941c14d53d8d25411abebe220c",
                 "mirrors": [
                     {
@@ -3312,7 +3312,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsBlockCollector.git",
+                "url": "git@github.com:spryker/CmsBlockCollector.git",
                 "reference": "fcbc846f165c367af5f9f3a6a236f9e79eefedc8",
                 "mirrors": [
                     {
@@ -3379,7 +3379,7 @@
             "version": "1.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsBlockGui.git",
+                "url": "git@github.com:spryker/CmsBlockGui.git",
                 "reference": "3959cc6104959f2a3057ff3cc19ec9e26e00a8c1",
                 "mirrors": [
                     {
@@ -3443,7 +3443,7 @@
             "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsBlockProductConnector.git",
+                "url": "git@github.com:spryker/CmsBlockProductConnector.git",
                 "reference": "08b59396cdc82ce1ba93de38de92d3f892e2a0db",
                 "mirrors": [
                     {
@@ -3583,7 +3583,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsContentWidget.git",
+                "url": "git@github.com:spryker/CmsContentWidget.git",
                 "reference": "be5db5e5c6c87b5f927b8a87dbaca31b63cdfb95",
                 "mirrors": [
                     {
@@ -3657,7 +3657,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsContentWidgetProductConnector.git",
+                "url": "git@github.com:spryker/CmsContentWidgetProductConnector.git",
                 "reference": "0b45bbda12359522c925b250bde13bd9bb48f874",
                 "mirrors": [
                     {
@@ -3724,7 +3724,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsContentWidgetProductGroupConnector.git",
+                "url": "git@github.com:spryker/CmsContentWidgetProductGroupConnector.git",
                 "reference": "7016123ac7906a40b84ba28a12d463eb9962397f",
                 "mirrors": [
                     {
@@ -3787,7 +3787,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CmsContentWidgetProductSetConnector.git",
+                "url": "git@github.com:spryker/CmsContentWidgetProductSetConnector.git",
                 "reference": "7f1c04f8242842ba1cf92a009e80a27e584d2319",
                 "mirrors": [
                     {
@@ -4813,72 +4813,6 @@
             "time": "2017-07-21T12:58:10+00:00"
         },
         {
-            "name": "spryker/development",
-            "version": "3.2.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/Development.git",
-                "reference": "16a35ebb8c7baef6054cc141ccd74d26cce014e2",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/16a35ebb8c7baef6054cc141ccd74d26cce014e2",
-                "reference": "16a35ebb8c7baef6054cc141ccd74d26cce014e2",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "spryker/config": "^3.0.0",
-                "spryker/graph": "^3.0.0",
-                "spryker/kernel": "^3.0.0",
-                "spryker/symfony": "^3.0.0",
-                "spryker/twig": "^3.0.0",
-                "spryker/zend": "^2.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/",
-                    "Function": "tests/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/",
-                    "Functional": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Development module",
-            "support": {
-                "source": "https://github.com/spryker/Development/tree/master"
-            },
-            "time": "2017-08-08T10:00:46+00:00"
-        },
-        {
             "name": "spryker/discount",
             "version": "4.4.3",
             "source": {
@@ -5395,7 +5329,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Flysystem.git",
+                "url": "git@github.com:spryker/Flysystem.git",
                 "reference": "c864b5741d939232b8d9f50949111aa84ceb699e",
                 "mirrors": [
                     {
@@ -5520,7 +5454,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/FlysystemFtpFileSystem.git",
+                "url": "git@github.com:spryker/FlysystemFtpFileSystem.git",
                 "reference": "433b247123d37a1a859908f67767d31186cb9723",
                 "mirrors": [
                     {
@@ -5580,7 +5514,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/FlysystemLocalFileSystem.git",
+                "url": "git@github.com:spryker/FlysystemLocalFileSystem.git",
                 "reference": "3a7ce384a84383a864785dbd769fd10b4318e083",
                 "mirrors": [
                     {
@@ -7646,7 +7580,7 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/PriceDataFeed.git",
+                "url": "https://github.com/spryker/PriceDataFeed.git",
                 "reference": "22850329e48651890db1a3b7580301921456541e",
                 "mirrors": [
                     {
@@ -7783,7 +7717,7 @@
             "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductAbstractDataFeed.git",
+                "url": "https://github.com/spryker/ProductAbstractDataFeed.git",
                 "reference": "00bc6c3e597ed0ce6092930592ff7379c6a0eb0e",
                 "mirrors": [
                     {
@@ -8205,7 +8139,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductGroup.git",
+                "url": "https://github.com/spryker/ProductGroup.git",
                 "reference": "71df9d00d1f60660b19d642e2b903441b3345e79",
                 "mirrors": [
                     {
@@ -8610,7 +8544,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductLabelDiscountConnector.git",
+                "url": "git@github.com:spryker/ProductLabelDiscountConnector.git",
                 "reference": "4f93c2058fe190b3ca6ef7cbe0c3f5612f16dd54",
                 "mirrors": [
                     {
@@ -8672,7 +8606,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/ProductLabelGui.git",
+                "url": "https://github.com/spryker/ProductLabelGui.git",
                 "reference": "b4efbea22a4f02e137272d1cd8daa4747d1f8ece",
                 "mirrors": [
                     {
@@ -8816,7 +8750,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductNew.git",
+                "url": "git@github.com:spryker/ProductNew.git",
                 "reference": "db6e6cbdb2378e9d1fafc6d0887d0d32dfa11baa",
                 "mirrors": [
                     {
@@ -9777,7 +9711,7 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/rabbit-mq.git",
+                "url": "git@github.com:spryker/rabbit-mq.git",
                 "reference": "8315b6d650378462f0310730f3940776487e04df",
                 "mirrors": [
                     {
@@ -10039,7 +9973,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SalesProductConnector.git",
+                "url": "git@github.com:spryker/SalesProductConnector.git",
                 "reference": "1cc7c9b65dc6f9b1f80a7a7983201fe838fdd370",
                 "mirrors": [
                     {
@@ -10523,7 +10457,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ShipmentDiscountConnector.git",
+                "url": "git@github.com:spryker/ShipmentDiscountConnector.git",
                 "reference": "ce4193e9fb942fd330321cb3edb6158c4f5645fa",
                 "mirrors": [
                     {
@@ -16750,11 +16684,77 @@
             "time": "2017-08-01T14:54:31+00:00"
         },
         {
+            "name": "spryker/development",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/Development.git",
+                "reference": "16a35ebb8c7baef6054cc141ccd74d26cce014e2",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/16a35ebb8c7baef6054cc141ccd74d26cce014e2",
+                "reference": "16a35ebb8c7baef6054cc141ccd74d26cce014e2",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/config": "^3.0.0",
+                "spryker/graph": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/twig": "^3.0.0",
+                "spryker/zend": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/",
+                    "Function": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Unit": "tests/",
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Development module",
+            "support": {
+                "source": "https://github.com/spryker/Development/tree/master"
+            },
+            "time": "2017-08-08T10:00:46+00:00"
+        },
+        {
             "name": "spryker/testify",
             "version": "3.2.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Testify.git",
+                "url": "git@github.com:spryker/Testify.git",
                 "reference": "cfc1c46c1a66e05d1ed207c94eec2a7fb792525e",
                 "mirrors": [
                     {
