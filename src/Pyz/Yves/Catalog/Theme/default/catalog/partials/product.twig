@@ -9,6 +9,7 @@
 {% set productLabels = productLabels | default(null) %}
 {% set idProductAbstract = idProductAbstract | default(null) %}
 {% set originalPrice = originalPrice | default(null) %}
+{% set averageRating = averageRating | default(null) %}
 
 <div class="{{ class }} product js-product-container">
     <div class="product__container callout">
@@ -26,11 +27,15 @@
         <p class="__no-margin-bottom">
             <strong>{{ name  }}</strong>
         </p>
-        {% if idProductAbstract %}
+
+        {% if averageRating %}
+            {% include '@ProductReview/partials/read-only-rating.twig' with {'rating': averageRating } %}
+        {% elseif idProductAbstract %}
             {% block productReview %}
                 {{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}
             {% endblock %}
         {% endif %}
+
         <p>
             {% if originalPrice %}
                 <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
