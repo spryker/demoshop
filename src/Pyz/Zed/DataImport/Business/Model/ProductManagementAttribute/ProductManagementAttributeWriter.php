@@ -9,9 +9,9 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute;
 
 use Orm\Zed\Glossary\Persistence\SpyGlossaryKeyQuery;
 use Orm\Zed\Glossary\Persistence\SpyGlossaryTranslationQuery;
-use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeQuery;
-use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueQuery;
-use Orm\Zed\ProductManagement\Persistence\SpyProductManagementAttributeValueTranslation;
+use Orm\Zed\ProductAttribute\Persistence\SpyProductManagementAttributeQuery;
+use Orm\Zed\ProductAttribute\Persistence\SpyProductManagementAttributeValueQuery;
+use Orm\Zed\ProductAttribute\Persistence\SpyProductManagementAttributeValueTranslation;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Pyz\Zed\Glossary\GlossaryConfig;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
