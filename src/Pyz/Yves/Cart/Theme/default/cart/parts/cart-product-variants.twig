@@ -1,0 +1,53 @@
+{% set itemAttributes = attribute(attributes, cartItem.sku) %}
+
+{% if itemAttributes|length > 0 %}
+    {# Product Variants #}
+    <li><strong>{{ 'product.variants' | trans }}:</strong></li>
+    <li>
+        <form method="POST" action="{{ path('cart/update', {'sku': cartItem.sku }) }}">
+            {% for attributeName, attributeOptions in itemAttributes %}
+                <div class="row">
+                    <div class="small-12  columns" data-component="cart-item">
+                        {% if attributeOptions|length > 1 %}
+                            <label>{{ ('product.attribute.' ~ attributeName) | trans }}:
+
+                                <select class="js-cart-item-select" name="preselectedAttributes[{{ attributeName }}]">
+                                    <option value="">
+                                        {{ 'product.attribute._none' | trans }}
+                                    </option>
+                                    {% for option, properties in attributeOptions %}
+                                        <option value="{{ option }}"
+                                                {% if attribute(properties,'selected') %}  selected{% endif %} {% if not attribute(properties,'available') %}disabled{% endif %}>
+                                            {{ option }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                            <input name="selectedAttributes[{{ attributeName }}]" type="hidden">
+                        {% else %}
+                            <label>
+                                {{ ('product.attribute.' ~ attributeName) | trans }}: <a href="{{ url("cart") }}">{{ 'reset' | trans }}</a>
+                                {% for option, properties in attributeOptions %}
+                                    <select class="js-cart-item-select" name="selectedAttributes[{{ attributeName }}]">
+                                        <option value="{{ option }}" selected>
+                                            {{ option }}
+                                        </option>
+                                    </select>
+                                {% endfor %}
+                            </label>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
+            <input type="hidden" value="{{ cartItem.quantity }}" name="quantity">
+
+            {% if cartItem.productOptions|length > 0 %}
+                {% for productOption in cartItem.productOptions %}
+                    <input name="product-option[{{ productOption.groupName }}]" type="hidden" value="{{ productOption.idProductOptionValue }}">
+                {% endfor %}
+            {% endif %}
+        </form>
+    </li>
+{% endif %}

@@ -1,0 +1,20 @@
+<form method="POST" action="{{ '/cart/add/' ~ cartItem.sku }}">
+    <li>
+        <label>
+            <strong>{{ 'cart.item_quantity' | trans }}</strong>
+            <span class="input-group __no-margin-bottom">
+                <select name="quantity">
+                 {#{% for i in range(1, cartItem.maxQuantity) %}
+                     <option value="{{ i }}">{{ i }}</option>
+                 {% endfor %}#}
+                </select>
+        </label>
+        <input type="hidden" value="{{ cartItem.sku }}" name="groupKey">
+        <input type="hidden" value="1" name="isPromo">
+    </li>
+    <li>
+        <button type="submit" class="button expanded success {{ ( cartItem.isVariant) ? '' : 'disabled' }}  __no-margin-bottom">
+            {{ "Add to cart" }}
+        </button>
+    </li>
+</form>

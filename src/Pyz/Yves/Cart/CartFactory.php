@@ -54,7 +54,7 @@ class CartFactory extends AbstractFactory
      */
     public function createCartOperationHandler()
     {
-        return new CartOperationHandler($this->getCartClient(), $this->getLocale(), $this->getFlashMessenger());
+        return new CartOperationHandler($this->getCartClient(), $this->getLocale(), $this->getFlashMessenger(), $this->getRequest());
     }
 
     /**
@@ -114,6 +114,14 @@ class CartFactory extends AbstractFactory
     protected function getLocale()
     {
         return $this->getApplication()['locale'];
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Request
+     */
+    protected function getRequest()
+    {
+        return $this->getApplication()['request'];
     }
 
     /**

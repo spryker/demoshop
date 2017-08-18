@@ -1,0 +1,8 @@
+<form method="GET">
+    {% for attributeName,attributes in cartItem.superAttributes %}
+        {% include '@Product/product/partials/variant.twig' with {
+        attributeFieldName: 'attributes[' ~ cartItem.idProductAbstract ~ '][' ~ attributeName ~ ']',
+        product: cartItem
+        } %}
+    {% endfor %}
+</form>

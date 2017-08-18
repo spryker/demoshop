@@ -10,6 +10,8 @@ namespace Pyz\Yves\Cart\Controller;
 use Generated\Shared\Transfer\ItemTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
+use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
+use Spryker\Client\Product\ProductClient;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -43,7 +45,24 @@ class CartController extends AbstractController
             ->generateStepBreadcrumbs($quoteTransfer);
 
         $itemAttributesBySku = $this->getFactory()
-            ->createCartItemsAttributeProvider()->getItemsAttributes($quoteTransfer, $selectedAttributes);
+            ->createCartItemsAttributeProvider()
+            ->getItemsAttributes($quoteTransfer, $selectedAttributes);
+
+        $storageMapperPlugin = new StorageProductMapperPlugin();
+        $productClient = new ProductClient();
+        $storageProducts = [];
+        foreach ($quoteTransfer->getPromotionItems() as $itemTransfer) {
+            $abstractSku = $itemTransfer->getAbstractSku();
+            $idProductAbstract = $itemTransfer->getIdProductAbstract();
+
+            $data = $productClient->getProductAbstractFromStorageByIdForCurrentLocale($idProductAbstract);
+            $selectedAttributes = array_filter($this->getApplication()['request']->query->get('attributes', []));
+
+            $selectedAttributes = isset($selectedAttributes[$abstractSku]) ? $selectedAttributes[$abstractSku] : [];
+
+            $storageProductTransfer = $storageMapperPlugin->mapStorageProduct($data, $selectedAttributes);
+            $storageProducts[$itemTransfer->getAbstractSku()] = $storageProductTransfer;
+        }
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
@@ -51,6 +70,7 @@ class CartController extends AbstractController
             'attributes' => $itemAttributesBySku,
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
+            'storageProducts' => $storageProducts,
         ]);
     }
 

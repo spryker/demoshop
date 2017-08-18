@@ -9,6 +9,12 @@ namespace Pyz\Zed\Discount;
 
 use Spryker\Zed\CustomerGroupDiscountConnector\Communication\Plugin\DecisionRule\CustomerGroupDecisionRulePlugin;
 use Spryker\Zed\Discount\DiscountDependencyProvider as SprykerDiscountDependencyProvider;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountFilterPromotionDiscountsPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormExpanderPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCollectorStrategyPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionConfigurationExpanderPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostSavePlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostUpdatePlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductAttributeCollectorPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\Collector\ProductLabelCollectorPlugin;
@@ -50,6 +56,68 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
             new ItemByShipmentMethodPlugin(),
             new ItemByShipmentPricePlugin(),
         ]);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDiscountableItemFilterPlugins()
+    {
+        return [
+            new DiscountFilterPromotionDiscountsPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\CollectorStrategyPluginInterface[]
+     */
+    protected function getCollectorStrategyPlugins()
+    {
+        return [
+            new DiscountPromotionCollectorStrategyPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountPostSavePluginInterface[]
+     */
+    protected function getDiscountPostSavePlugins()
+    {
+        return [
+            new DiscountPromotionPostSavePlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountPostUpdatePluginInterface[]
+     */
+    protected function getDiscountPostUpdatePlugins()
+    {
+        return [
+            new DiscountPromotionPostUpdatePlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountConfigurationExpanderPluginInterface[]
+     */
+    protected function getDiscountConfigurationExpanderPlugins()
+    {
+        return [
+            new DiscountPromotionConfigurationExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * This plugin allows to expand DiscountConfigurationTransfer when using
+     *
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountCalculationFormExpanderPluginInterface[]
+     */
+    protected function getDiscountFormExpanderPlugins()
+    {
+        return [
+            new DiscountPromotionCalculationFormExpanderPlugin(),
+        ];
     }
 
 }
