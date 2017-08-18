@@ -20,7 +20,6 @@ class IndexController extends AbstractController
 {
 
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
-    const REVIEW_PER_PAGE = 3;
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request

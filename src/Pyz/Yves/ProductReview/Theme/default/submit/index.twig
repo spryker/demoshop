@@ -17,7 +17,7 @@
         </h5>
     </div>
     {{ form_start(form, {'action': '#product-review-submit'}) }}
-    {% include '@product-review/submit/partials/product-review-form.twig' with {'form': form} only %}
-    <button class="button expanded info">{{ 'forms.submit-btn' | trans }}</button>
+        {% include '@product-review/submit/partials/product-review-form.twig' with {'form': form} only %}
+        <button class="button expanded info">{{ 'forms.submit-btn' | trans }}</button>
     {{ form_end(form) }}
 </div>

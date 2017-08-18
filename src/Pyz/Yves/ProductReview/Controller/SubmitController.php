@@ -9,11 +9,9 @@ namespace Pyz\Yves\ProductReview\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
-use Pyz\Yves\ProductReview\Plugin\Provider\ProductReviewControllerProvider;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -26,9 +24,9 @@ class SubmitController extends AbstractController
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return array|RedirectResponse
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction(Request $request)
     {
@@ -36,8 +34,9 @@ class SubmitController extends AbstractController
         $idProductAbstract = $request->attributes->get('idProductAbstract');
 
         $customer = $this->getFactory()->getCustomerClient()->getCustomer();
-        $productReviewForm = $this->getFactory()->createProductReviewForm($idProductAbstract);
-        $productReviewForm->handleRequest($parentRequest);
+        $productReviewForm = $this->getFactory()
+            ->createProductReviewForm($idProductAbstract)
+            ->handleRequest($parentRequest);
         $isFormEmpty = !$productReviewForm->isSubmitted();
         $isReviewPosted = $this->processProductReviewForm($productReviewForm, $customer);
 
@@ -55,7 +54,7 @@ class SubmitController extends AbstractController
      *
      * @return bool Returns true if the review was posted
      */
-    public function processProductReviewForm(FormInterface $form, CustomerTransfer $customer = null)
+    protected function processProductReviewForm(FormInterface $form, CustomerTransfer $customer = null)
     {
         if (!$form->isSubmitted()) {
             return false;

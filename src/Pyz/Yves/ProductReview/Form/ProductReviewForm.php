@@ -9,6 +9,10 @@ namespace Pyz\Yves\ProductReview\Form;
 
 use Generated\Shared\Transfer\ProductReviewRequestTransfer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\Length;
@@ -62,7 +66,7 @@ class ProductReviewForm extends AbstractType
     {
         $builder->add(
             static::FIELD_RATING,
-            'choice',
+            ChoiceType::class,
             [
                 'choices' => $this->getRatingFieldChoices(),
                 'label' => 'product_review.submit.rating',
@@ -110,7 +114,7 @@ class ProductReviewForm extends AbstractType
     {
         $builder->add(
             static::FIELD_SUMMARY,
-            'text',
+            TextType::class,
             [
                 'label' => 'product_review.submit.summary',
                 'required' => true,
@@ -132,7 +136,7 @@ class ProductReviewForm extends AbstractType
     {
         $builder->add(
             static::FIELD_DESCRIPTION,
-            'textarea',
+            TextareaType::class,
             [
                 'label' => 'product_review.submit.description',
                 'attr' => [
@@ -157,7 +161,7 @@ class ProductReviewForm extends AbstractType
     {
         $builder->add(
             static::FIELD_NICKNAME,
-            'text',
+            TextType::class,
             [
                 'label' => 'product_review.submit.nickname',
                 'required' => true,
@@ -179,9 +183,9 @@ class ProductReviewForm extends AbstractType
     {
         $builder->add(
             static::FIELD_PRODUCT,
-            'hidden',
+            HiddenType::class,
             [
-                'required' => true
+                'required' => true,
             ]
         );
 
