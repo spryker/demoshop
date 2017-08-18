@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "312e26671d8b011a9809205108a927d9",
+    "content-hash": "fb3815920c9a4c800f621e4c2982dcab",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1791,7 +1791,7 @@
             "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ApiQueryBuilder.git",
+                "url": "git@github.com:spryker/ApiQueryBuilder.git",
                 "reference": "03ee7dd5f5535d3691348fad7fa739026ff5ff8f",
                 "mirrors": [
                     {
@@ -2684,7 +2684,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CartVariant.git",
+                "url": "git@github.com:spryker/CartVariant.git",
                 "reference": "daf6ef9ec0d536c879f188335a8e8d16412c89a6",
                 "mirrors": [
                     {
@@ -4757,7 +4757,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/DataImport.git",
+                "url": "git@github.com:spryker/DataImport.git",
                 "reference": "33eaed05ac0d474bf405921e249df7d10e9eef7d",
                 "mirrors": [
                     {
@@ -5274,7 +5274,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/FileSystem.git",
+                "url": "git@github.com:spryker/FileSystem.git",
                 "reference": "d1c57a1100116a073b31ca818a67106d746a1957",
                 "mirrors": [
                     {
@@ -5394,7 +5394,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/FlysystemAws3v3FileSystem.git",
+                "url": "git@github.com:spryker/FlysystemAws3v3FileSystem.git",
                 "reference": "0d07ec06fd83e25687449714453997e7bdcb6345",
                 "mirrors": [
                     {
@@ -7580,7 +7580,7 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/PriceDataFeed.git",
+                "url": "git@github.com:spryker/PriceDataFeed.git",
                 "reference": "22850329e48651890db1a3b7580301921456541e",
                 "mirrors": [
                     {
@@ -7717,7 +7717,7 @@
             "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductAbstractDataFeed.git",
+                "url": "git@github.com:spryker/ProductAbstractDataFeed.git",
                 "reference": "00bc6c3e597ed0ce6092930592ff7379c6a0eb0e",
                 "mirrors": [
                     {
@@ -8139,7 +8139,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductGroup.git",
+                "url": "git@github.com:spryker/ProductGroup.git",
                 "reference": "71df9d00d1f60660b19d642e2b903441b3345e79",
                 "mirrors": [
                     {
@@ -8341,7 +8341,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductImageCartConnector.git",
+                "url": "git@github.com:spryker/ProductImageCartConnector.git",
                 "reference": "02a5f7aba00999072d4d2a69d0df9531779e240e",
                 "mirrors": [
                     {
@@ -8409,7 +8409,7 @@
             "version": "2.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductLabel.git",
+                "url": "git@github.com:spryker/ProductLabel.git",
                 "reference": "8a075b0795637c6ffb703144ae22566034018bbe",
                 "mirrors": [
                     {
@@ -8480,7 +8480,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductLabelCollector.git",
+                "url": "git@github.com:spryker/ProductLabelCollector.git",
                 "reference": "6c625dbca7263e83cd6aa0c24678f96084e319d9",
                 "mirrors": [
                     {
@@ -8606,7 +8606,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductLabelGui.git",
+                "url": "git@github.com:spryker/ProductLabelGui.git",
                 "reference": "b4efbea22a4f02e137272d1cd8daa4747d1f8ece",
                 "mirrors": [
                     {
@@ -9190,7 +9190,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductSet.git",
+                "url": "git@github.com:spryker/ProductSet.git",
                 "reference": "c5a61a7445c8a197e1267bc77e37e744d80645c3",
                 "mirrors": [
                     {
@@ -9262,7 +9262,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductSetCollector.git",
+                "url": "git@github.com:spryker/ProductSetCollector.git",
                 "reference": "ef041428ccdc0ce696bd38c725dbf32ce6f820b8",
                 "mirrors": [
                     {
@@ -9328,7 +9328,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductSetGui.git",
+                "url": "git@github.com:spryker/ProductSetGui.git",
                 "reference": "106279845d8c9bc45fa1133240efe2f6273c406a",
                 "mirrors": [
                     {
@@ -16599,7 +16599,7 @@
             "version": "0.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/code-generator.git",
+                "url": "git@github.com:spryker/code-generator.git",
                 "reference": "36275f0ca30c780eca148c0fb62af5ed0abb635d",
                 "mirrors": [
                     {
@@ -16638,24 +16638,24 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.9.5",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "cc97efb08f7c065f6954e0baba6a1b1440749b4d"
+                "reference": "d952b05f9093e0e57db9c99ecf36d115fc579665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/cc97efb08f7c065f6954e0baba6a1b1440749b4d",
-                "reference": "cc97efb08f7c065f6954e0baba6a1b1440749b4d",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/d952b05f9093e0e57db9c99ecf36d115fc579665",
+                "reference": "d952b05f9093e0e57db9c99ecf36d115fc579665",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
-                "squizlabs/php_codesniffer": "~2.5"
+                "squizlabs/php_codesniffer": "^3.0@dev"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5.2"
+                "phpunit/phpunit": "<5.0"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -16681,7 +16681,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-01T14:54:31+00:00"
+            "time": "2017-08-18T13:08:46+00:00"
         },
         {
             "name": "spryker/development",
@@ -16828,63 +16828,36 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.9.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "dcbed1074f8244661eecddfc2a675430d8d33f62"
+                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/dcbed1074f8244661eecddfc2a675430d8d33f62",
-                "reference": "dcbed1074f8244661eecddfc2a675430d8d33f62",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/c7594a88ae75401e8f8d0bd4deb8431b39045c51",
+                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
-                "php": ">=5.1.2"
+                "php": ">=5.4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
             },
             "bin": [
-                "scripts/phpcs",
-                "scripts/phpcbf"
+                "bin/phpcs",
+                "bin/phpcbf"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "3.x-dev"
                 }
-            },
-            "autoload": {
-                "classmap": [
-                    "CodeSniffer.php",
-                    "CodeSniffer/CLI.php",
-                    "CodeSniffer/Exception.php",
-                    "CodeSniffer/File.php",
-                    "CodeSniffer/Fixer.php",
-                    "CodeSniffer/Report.php",
-                    "CodeSniffer/Reporting.php",
-                    "CodeSniffer/Sniff.php",
-                    "CodeSniffer/Tokens.php",
-                    "CodeSniffer/Reports/",
-                    "CodeSniffer/Tokenizers/",
-                    "CodeSniffer/DocGenerators/",
-                    "CodeSniffer/Standards/AbstractPatternSniff.php",
-                    "CodeSniffer/Standards/AbstractScopeSniff.php",
-                    "CodeSniffer/Standards/AbstractVariableSniff.php",
-                    "CodeSniffer/Standards/IncorrectPatternException.php",
-                    "CodeSniffer/Standards/Generic/Sniffs/",
-                    "CodeSniffer/Standards/MySource/Sniffs/",
-                    "CodeSniffer/Standards/PEAR/Sniffs/",
-                    "CodeSniffer/Standards/PSR1/Sniffs/",
-                    "CodeSniffer/Standards/PSR2/Sniffs/",
-                    "CodeSniffer/Standards/Squiz/Sniffs/",
-                    "CodeSniffer/Standards/Zend/Sniffs/"
-                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -16902,7 +16875,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-05-22T02:43:20+00:00"
+            "time": "2017-07-18T01:12:32+00:00"
         },
         {
             "name": "stecman/symfony-console-completion",
