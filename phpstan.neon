@@ -1,6 +1,4 @@
 parameters:
-  ignoreErrors:
-    - '#Class PHP_CodeSniffer\\Config not found#'
   excludes_analyse:
     - %rootDir%/../../../vendor/spryker/spryker/Bundles/Development/tests/Unit/Spryker/Zed/Development/Business/DependencyTree/DependencyFinder/Fixtures/*
     - %rootDir%/../../../vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/DependencyTree/DependencyFinder/ExternalDependency.php
