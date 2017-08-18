@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\Navigation\Persistence" package="src.Orm.Zed.Navigation.Persistence">
+
+    <table name="spy_navigation_node" idMethod="native">
+        <column name="node_key" type="VARCHAR" size="32" required="false"/>
+
+        <index>
+            <index-column name="node_key" />
+        </index>
+    </table>
+
+</database>

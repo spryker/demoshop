@@ -10,9 +10,9 @@ namespace Pyz\Yves\Cart;
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartItemHandler;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
-use Pyz\Yves\Cart\Handler\CartVoucherHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Pyz\Yves\Cart\Plugin\Provider\AttributeVariantsProvider;
+use Pyz\Yves\Discount\Handler\VoucherHandler;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -38,11 +38,15 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Cart\Handler\CartVoucherHandler
+     * @return \Pyz\Yves\Discount\Handler\VoucherHandlerInterface
      */
     public function createCartVoucherHandler()
     {
-        return new CartVoucherHandler($this->getCalculationClient(), $this->getCartClient(), $this->getFlashMessenger());
+        return new VoucherHandler(
+            $this->getCalculationClient(),
+            $this->getCartClient(),
+            $this->getFlashMessenger()
+        );
     }
 
     /**
@@ -91,7 +95,7 @@ class CartFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\Kernel\Application
      */
-    protected function createApplication()
+    protected function getApplication()
     {
         return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_APPLICATION);
     }
@@ -101,7 +105,7 @@ class CartFactory extends AbstractFactory
      */
     protected function getFlashMessenger()
     {
-        return $this->createApplication()['flash_messenger'];
+        return $this->getApplication()['flash_messenger'];
     }
 
     /**
@@ -109,13 +113,13 @@ class CartFactory extends AbstractFactory
      */
     protected function getLocale()
     {
-        return $this->createApplication()['locale'];
+        return $this->getApplication()['locale'];
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createVoucherForm()
+    public function getVoucherForm()
     {
         return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
             ->create($this->createVoucherFormType());

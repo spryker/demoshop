@@ -373,9 +373,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createProductOptionCollectorPropelQuery()
     {
-        return new ProductOptionCollectorQuery(
-            $this->getUtilDataReaderService()
-        );
+        return new ProductOptionCollectorQuery();
     }
 
     /**

@@ -1,0 +1,6 @@
+name,price,carrier,taxSetName
+Standard,490,Spryker Dummy Shipment,Shipment Taxes
+Express,590,Spryker Dummy Shipment,Shipment Taxes
+Air Standard,500,Spryker Drone Shipment,Shipment Taxes
+Air Sonic,1000,Spryker Drone Shipment,Shipment Taxes
+Air Light,1500,Spryker Drone Shipment,Shipment Taxes

@@ -13,6 +13,12 @@ use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductA
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\Collector\ProductLabelCollectorPlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\DecisionRule\ProductLabelDecisionRulePlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\ShipmentCarrierDecisionRulePlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\ShipmentMethodDecisionRulePlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\ShipmentPriceDecisionRulePlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentCarrierPlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentMethodPlugin;
+use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentPricePlugin;
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
@@ -22,13 +28,14 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
      */
     protected function getDecisionRulePlugins()
     {
-        $decisionRulePlugins = parent::getDecisionRulePlugins();
-
-        $decisionRulePlugins[] = new ProductAttributeDecisionRulePlugin();
-        $decisionRulePlugins[] = new CustomerGroupDecisionRulePlugin();
-        $decisionRulePlugins[] = new ProductLabelDecisionRulePlugin();
-
-        return $decisionRulePlugins;
+        return array_merge(parent::getDecisionRulePlugins(), [
+            new ProductAttributeDecisionRulePlugin(),
+            new CustomerGroupDecisionRulePlugin(),
+            new ProductLabelDecisionRulePlugin(),
+            new ShipmentCarrierDecisionRulePlugin(),
+            new ShipmentMethodDecisionRulePlugin(),
+            new ShipmentPriceDecisionRulePlugin(),
+        ]);
     }
 
     /**
@@ -36,11 +43,13 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
      */
     protected function getCollectorPlugins()
     {
-        $collectorPlugins = parent::getCollectorPlugins();
-        $collectorPlugins[] = new ProductAttributeCollectorPlugin();
-        $collectorPlugins[] = new ProductLabelCollectorPlugin();
-
-        return $collectorPlugins;
+        return array_merge(parent::getCollectorPlugins(), [
+            new ProductAttributeCollectorPlugin(),
+            new ProductLabelCollectorPlugin(),
+            new ItemByShipmentCarrierPlugin(),
+            new ItemByShipmentMethodPlugin(),
+            new ItemByShipmentPricePlugin(),
+        ]);
     }
 
 }

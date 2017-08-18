@@ -55,9 +55,9 @@ function backupTestingEnvData {
     $CONSOLE propel:diff $VERBOSITY
     $CONSOLE propel:migrate $VERBOSITY
 
-    labelText "Importing Demo data"
-    $CONSOLE import:demo-data $VERBOSITY
-    writeErrorMessage "DemoData import failed"
+    labelText "Importing Data"
+    $CONSOLE data:import $VERBOSITY
+    writeErrorMessage "Importing Data failed"
 
     backupDatabaseForTests
 
@@ -98,6 +98,12 @@ function configureCodeception {
     writeErrorMessage "Test configuration failed"
 }
 
+function runLabelRelationUpdate() {
+    labelText "Updating product label relations"
+    $CONSOLE product-label:relations:update $VERBOSITY
+    writeErrorMessage "Updating product label relations failed"
+}
+
 function runCollectors() {
 
 
@@ -129,6 +135,7 @@ do
          "--full" | "-f" )
             resetDataStores
             backupTestingEnvData
+            runLabelRelationUpdate
             runCollectors
             configureCodeception
             generateTwigCacheFiles

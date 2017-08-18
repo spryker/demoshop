@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\Cms\Persistence" package="src.Orm.Zed.Cms.Persistence">
+
+    <table name="spy_cms_page" phpName="SpyCmsPage">
+        <column name="page_key" type="VARCHAR" size="32" required="false"/>
+
+        <index>
+            <index-column name="page_key" />
+        </index>
+    </table>
+
+</database>

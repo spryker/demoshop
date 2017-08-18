@@ -186,6 +186,9 @@ $ELASTICA_DOCUMENT_TYPE = 'page';
 $config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$ELASTICA_PARAMETER__EXTRA = [];
+$config[ApplicationConstants::ELASTICA_PARAMETER__EXTRA] = $ELASTICA_PARAMETER__EXTRA;
+$config[SearchConstants::ELASTICA_PARAMETER__EXTRA] = $ELASTICA_PARAMETER__EXTRA;
 
 // ---------- Page search
 $config[SearchConstants::FULL_TEXT_BOOSTED_BOOSTING_VALUE] = 3;
@@ -285,9 +288,10 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[LogConstants::LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/application.log',
+    '%s/data/%s/logs/%s/application.log',
     APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
+    $CURRENT_STORE,
+    APPLICATION
 );
 
 // ---------- Auto-loader

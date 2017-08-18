@@ -21,6 +21,25 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
+/* ProductLabel */
+$jobs[] = [
+    'name' => 'check-product-label-validity',
+    'command' => '$PHP_BIN vendor/bin/console product-label:validity',
+    'schedule' => '0 6 * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+$jobs[] = [
+    'name' => 'update-product-label-relations',
+    'command' => '$PHP_BIN vendor/bin/console product-label:relations:update -vvv',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+/* Collectors */
 $jobs[] = [
     'name' => 'export-kv',
     'command' => '$PHP_BIN vendor/bin/console collector:storage:export',
@@ -114,13 +133,3 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 */
-
-/* ProductLabel */
-$jobs[] = [
-    'name' => 'check-product-label-validity',
-    'command' => '$PHP_BIN vendor/bin/console product-label:validity',
-    'schedule' => '0 6 * * *',
-    'enable' => true,
-    'run_on_non_production' => true,
-    'stores' => $allStores,
-];

@@ -1,0 +1,38 @@
+namespace: PyzTest\Zed\Tax
+
+paths:
+    tests: .
+    data: _data
+    support: _support
+    log: _output
+
+coverage:
+    enabled: true
+    remote: false
+    whitelist: { include: ['../../../../src/*'] }
+
+suites:
+    Presentation:
+        path: Presentation
+        class_name: TaxPresentationTester
+        modules:
+            enabled:
+              - Asserts
+              - \PyzTest\Shared\Testify\Helper\Environment
+              - \SprykerTest\Shared\Config\Helper\ConfigInit
+              - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
+                  projectNamespaces: ['Pyz']
+
+              - \SprykerTest\Shared\Propel\Helper\PropelInstallHelper
+              - WebDriver:
+                  url: ''
+                  browser: chrome
+                  window_size: 1920x1080
+                  host: 0.0.0.0
+                  restart: false
+              - SprykerTest\Shared\Propel\Helper\ConnectionHelper
+              - \SprykerTest\Shared\Discount\Helper\DiscountDataHelper
+              - \SprykerTest\Shared\Testify\Helper\DataCleanupHelper
+              - \SprykerTest\Shared\Application\Helper\ZedHelper
+              - \SprykerTest\Shared\Application\Helper\YvesHelper
+              - \SprykerTest\Shared\Application\Helper\SetupHelper

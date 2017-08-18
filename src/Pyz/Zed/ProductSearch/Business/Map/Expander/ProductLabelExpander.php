@@ -42,7 +42,13 @@ class ProductLabelExpander implements ProductPageMapExpanderInterface
         array $productData,
         LocaleTransfer $localeTransfer
     ) {
-        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'id_product_labels', $this->getProductLabels($productData['id_product_abstract']));
+        $productLabels = $this->getProductLabels($productData['id_product_abstract']);
+
+        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'id_product_labels', $productLabels);
+
+        foreach ($productLabels as $idProductLabel) {
+            $pageMapBuilder->addStringFacet($pageMapTransfer, 'label', $idProductLabel);
+        }
 
         return $pageMapTransfer;
     }

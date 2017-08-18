@@ -80,7 +80,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new CustomerStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
-            $this->createCustomerStepHandler(),
+            $this->getCustomerStepHandler(),
             CheckoutControllerProvider::CHECKOUT_CUSTOMER,
             ApplicationControllerProvider::ROUTE_HOME,
             $this->getApplication()->path(CustomerControllerProvider::ROUTE_LOGOUT)
@@ -94,6 +94,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new AddressStep(
             $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER),
+            $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CALCULATION),
             CheckoutControllerProvider::CHECKOUT_ADDRESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -106,7 +107,7 @@ class StepFactory extends SprykerStepFactory
     {
         return new ShipmentStep(
             $this->getCalculationClient(),
-            $this->createShipmentPlugins(),
+            $this->getShipmentPlugins(),
             CheckoutControllerProvider::CHECKOUT_SHIPMENT,
             ApplicationControllerProvider::ROUTE_HOME
         );
@@ -123,7 +124,7 @@ class StepFactory extends SprykerStepFactory
     /**
      * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
-    public function createShipmentPlugins()
+    public function getShipmentPlugins()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_HANDLER);
     }
@@ -186,7 +187,7 @@ class StepFactory extends SprykerStepFactory
     /**
      * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
-    protected function createCustomerStepHandler()
+    protected function getCustomerStepHandler()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_CUSTOMER_STEP_HANDLER);
     }

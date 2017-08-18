@@ -22,6 +22,7 @@ use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderSaver
 use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionOrderSaverPlugin;
 use Spryker\Zed\Sales\Communication\Plugin\SalesOrderExpanderPlugin;
 use Spryker\Zed\Sales\Communication\Plugin\SalesOrderSaverPlugin;
+use Spryker\Zed\SalesProductConnector\Communication\Plugin\ItemMetadataSaverPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
@@ -53,6 +54,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new OrderCustomerSavePlugin(),
             new SalesOrderSaverPlugin(),
             new ProductOptionOrderSaverPlugin(),
+            new ItemMetadataSaverPlugin(),
             new OrderShipmentSavePlugin(),
             new DiscountOrderSavePlugin(),
             new ProductBundleOrderSaverPlugin(),

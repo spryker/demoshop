@@ -9,7 +9,7 @@ env:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
 
-
+dist: precise
 
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
@@ -23,10 +23,12 @@ matrix:
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
-     - php: "7.1.2"
+          - PHPSTAN=1
+     - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
+          - PHPSTAN=1
      - php: "5.6"
        env:
           - TEST_GROUP=acceptance
@@ -35,10 +37,13 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=cron
-     - php: "7.1.2"
+          - PHPSTAN=1
+     - php: "7.1"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
+          - PHPSTAN=1
+
 addons:
   postgresql: 9.4
 
@@ -64,7 +69,9 @@ sudo: required
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
+  - composer remove --dev spryker/git-hook phpstan/phpstan
   - composer install --no-interaction
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan; fi
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
@@ -92,12 +99,14 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x Presentation -vvv ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g Presentation ; fi
 
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff:style ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 1 ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then vendor/bin/console dev:ide:generate-auto-completion ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=2048M vendor/bin/phpstan analyze -c phpstan.neon vendor/spryker/spryker/Bundles/ -l 1 ; fi
 
 notifications:
   email: false

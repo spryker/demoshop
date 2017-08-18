@@ -13,7 +13,6 @@ use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
-use Spryker\Shared\Payone\PayoneConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
@@ -46,7 +45,7 @@ $config[PropelQueryBuilderConstants::ZED_DB_ENGINE] = $config[PropelConstants::Z
 $config[StorageConstants::STORAGE_REDIS_PROTOCOL] = 'tcp';
 $config[StorageConstants::STORAGE_REDIS_HOST] = '127.0.0.1';
 $config[StorageConstants::STORAGE_REDIS_PORT] = '10009';
-$config[StorageConstants::STORAGE_REDIS_PASSWORD] = '';
+$config[StorageConstants::STORAGE_REDIS_PASSWORD] = false;
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
 
 // ---------- RabbitMQ
@@ -76,20 +75,7 @@ $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data
 // ---------- Zed request
 $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = true;
-
-// ---------- Payone
-$config[PayoneConstants::PAYONE] = [
-    PayoneConstants::PAYONE_CREDENTIALS_ENCODING => 'UTF-8',
-    PayoneConstants::PAYONE_CREDENTIALS_KEY => '',
-    PayoneConstants::PAYONE_CREDENTIALS_MID => '',
-    PayoneConstants::PAYONE_CREDENTIALS_AID => '',
-    PayoneConstants::PAYONE_CREDENTIALS_PORTAL_ID => '',
-    PayoneConstants::PAYONE_PAYMENT_GATEWAY_URL => 'https://api.pay1.de/post-gateway/',
-    PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL => '',
-    PayoneConstants::PAYONE_REDIRECT_ERROR_URL => '',
-    PayoneConstants::PAYONE_REDIRECT_BACK_URL => '',
-    PayoneConstants::PAYONE_MODE => '',
-];
+$config[ZedRequestConstants::YVES_REQUEST_REPEAT_DATA_PATH] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/yves-requests';
 
 // ---------- Twig
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
@@ -99,16 +85,14 @@ $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
 ];
 $config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/%s/cache/Yves/twig/.pathCache',
+    '%s/data/%s/cache/Yves/twig/.pathCache',
     APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION_ENV
+    $CURRENT_STORE
 );
 $config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/%s/cache/Zed/twig/.pathCache',
+    '%s/data/%s/cache/Zed/twig/.pathCache',
     APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION_ENV
+    $CURRENT_STORE
 );
 
 // ---------- Navigation

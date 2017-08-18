@@ -27,6 +27,8 @@ use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
+use Pyz\Yves\ProductNew\Plugin\Provider\ProductNewControllerProvider;
+use Pyz\Yves\ProductSale\Plugin\Provider\ProductSaleControllerProvider;
 use Pyz\Yves\ProductSet\Plugin\Provider\ProductSetControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
 use Pyz\Yves\Wishlist\Plugin\Provider\WishlistControllerProvider;
@@ -56,7 +58,7 @@ use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
 use Spryker\Yves\ProductLabel\Plugin\Provider\ProductLabelTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
-use Spryker\Yves\Storage\Plugin\Provider\StorageRequestCacheServiceProvider;
+use Spryker\Yves\Storage\Plugin\Provider\StorageCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
 
 class YvesBootstrap
@@ -91,7 +93,7 @@ class YvesBootstrap
      */
     protected function registerServiceProviders()
     {
-        $this->application->register(new StorageRequestCacheServiceProvider());
+        $this->application->register(new StorageCacheServiceProvider());
         $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
@@ -170,6 +172,8 @@ class YvesBootstrap
             new CatalogControllerProvider($isSsl),
             new CalculationControllerProvider($isSsl),
             new ProductSetControllerProvider($isSsl),
+            new ProductSaleControllerProvider($isSsl),
+            new ProductNewControllerProvider($isSsl),
         ];
     }
 

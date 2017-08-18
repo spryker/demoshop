@@ -68,8 +68,8 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                   ON (spy_touch_search.fk_touch = spy_touch.id_touch AND
                       spy_touch_search.fk_locale = spy_locale.id_locale)
                 LEFT JOIN spy_product_image_set 
-                  ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract AND
-                      spy_product_image_set.fk_locale = spy_locale.id_locale)
+                  ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract AND (
+                  spy_product_image_set.fk_locale = spy_locale.id_locale OR spy_product_image_set.fk_locale IS NULL))
             WHERE
                 spy_touch.item_event = :spy_touch_item_event
                 AND spy_touch.touched >= :spy_touch_touched

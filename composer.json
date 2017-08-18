@@ -6,17 +6,17 @@
     "spryker/spryker": "dev-bugfix/core-1378-attributes-translation-performance",
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
-    "guzzlehttp/guzzle": "~6.2.1",
+    "guzzlehttp/guzzle": "^6.2.1",
     "league/csv": "^8.1.0",
     "filp/whoops": "^2.1",
     "mandrill/mandrill": "~1.0.55",
-    "monolog/monolog": "~1.21.0",
+    "monolog/monolog": "^1.21.0",
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
-    "predis/predis": "1.0.4",
+    "predis/predis": "^1.1.1",
     "propel/propel": "2.0.0-alpha7",
-    "psr/log": "~1.0.0",
-    "ruflin/elastica": "~3.2.0",
+    "psr/log": "^1.0.0",
+    "ruflin/elastica": "^3.2.0",
     "silex/silex": "^1.3.5",
     "symfony-cmf/routing": "^1.3.0",
     "symfony/console": "^3.0.0",
@@ -24,8 +24,7 @@
     "symfony/filesystem": "^2.6.13",
     "symfony/finder": "^2.6.13",
     "symfony/form": "^2.7.0",
-    "symfony/http-foundation": "^2.8.0",
-    "symfony/http-kernel": "^2.6.13",
+    "symfony/http-kernel": "^2.6.13 || ^3.0.0",
     "symfony/intl": "^2.8.8",
     "symfony/options-resolver": "^2.6.13",
     "symfony/process": "^2.6.13",
@@ -39,12 +38,9 @@
     "symfony/yaml": "^2.6.13",
     "swiftmailer/swiftmailer": "^5.4.5",
     "twig/twig": "^1.20.0",
-    "zendframework/zend-code": "^2.6.2",
-    "zendframework/zend-config": "^2.5.1",
-    "zendframework/zend-eventmanager": "^2.6.2",
+    "zendframework/zend-config": "^3.1.0",
     "zendframework/zend-filter": "^2.5.1",
-    "zendframework/zend-http": "^2.5.3",
-    "zendframework/zend-servicemanager": "^2.7.4",
+    "zendframework/zend-servicemanager": "^3.3",
     "ext-bcmath": "*",
     "ext-curl": "*",
     "ext-gd": "*",
@@ -65,9 +61,9 @@
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
-    "sebastian/phpcpd": "~2.0.2",
-    "sensiolabs/security-checker": "~3.0.2",
-    "silex/web-profiler": "~1.0.8",
+    "sebastian/phpcpd": "^2.0.2",
+    "sensiolabs/security-checker": "^3.0.2",
+    "silex/web-profiler": "^1.0.8",
     "symfony/web-profiler-bundle": "*",
     "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
@@ -75,22 +71,31 @@
     "jakoch/phantomjs-installer": "^2.1.0",
     "php-mock/php-mock": "^1.0",
     "phpunit/phpunit": "^5.0",
+    "doctrine/instantiator": "~1.0.5",
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
+    "spryker/git-hook": "dev-master",
     "stecman/symfony-console-completion": "^0.7.0",
-    "fzaninotto/faker": "^1.6"
+    "fzaninotto/faker": "^1.6",
+    "nette/php-generator": "^2.6.1",
+    "phpunit/php-token-stream": "^1.4.11",
+    "squizlabs/php_codesniffer": "^3.0"
   },
   "autoload": {
     "psr-0": {
-      "": "src",
-      "Unit": "tests",
-      "YvesUnit": "tests",
-      "Functional": "tests",
-      "Acceptance": "tests"
+      "": "src"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "PyzTest": "tests"
+    },
+    "files": [
+      "test-autoload.php"
     ]
   },
   "minimum-stability": "dev",
@@ -110,11 +115,7 @@
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/rabbit-mq.git"
-    },
-    {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
+      "url": "git@github.com:spryker/git-hook.git"
     }
   ],
   "scripts": {
@@ -124,10 +125,14 @@
       "./deploy/heroku/run.sh"
     ],
     "post-install-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ],
     "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
+      "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ]
   }
 }

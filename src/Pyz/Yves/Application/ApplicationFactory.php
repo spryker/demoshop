@@ -36,7 +36,7 @@ class ApplicationFactory extends SprykerApplicationFactory
      */
     protected function createSubRequestExceptionHandler()
     {
-        $application = $this->createApplication();
+        $application = $this->getApplication();
 
         return new SubRequestExceptionHandler($application);
     }
@@ -44,7 +44,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     /**
      * @return \Spryker\Yves\Kernel\Application
      */
-    protected function createApplication()
+    protected function getApplication()
     {
         return $this->getProvidedDependency(ApplicationDependencyProvider::PLUGIN_APPLICATION);
     }
@@ -60,7 +60,7 @@ class ApplicationFactory extends SprykerApplicationFactory
     /**
      * @return \Twig_Extension
      */
-    public function createTwigYvesExtension()
+    public function getTwigYvesExtension()
     {
         return $this->getProvidedDependency(ApplicationDependencyProvider::PLUGIN_TWIG);
     }
