@@ -49,8 +49,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
                 )
                 LEFT JOIN spy_touch_search ON spy_touch.id_touch = spy_touch_search.fk_touch AND spy_touch_search.fk_locale = :fk_locale_2
             WHERE
-                spy_category.is_searchable = TRUE
-                AND spy_category_attribute.fk_locale = :fk_locale_3
+                spy_category_attribute.fk_locale = :fk_locale_3
         ';
 
         $this->criteriaBuilder
