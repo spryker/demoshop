@@ -25,14 +25,10 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     const CLIENT_CART = 'CLIENT_CART';
     const STORE = 'STORE';
 
-    const PLUGIN_APPLICATION = 'PLUGIN_APPLICATION';
     const PLUGIN_CUSTOMER_STEP_HANDLER = 'PLUGIN_CUSTOMER_STEP_HANDLER';
     const PLUGIN_SHIPMENT_STEP_HANDLER = 'PLUGIN_SHIPMENT_STEP_HANDLER';
     const PLUGIN_SHIPMENT_HANDLER = 'PLUGIN_SHIPMENT_HANDLER';
     const PLUGIN_SHIPMENT_FORM_DATA_PROVIDER = 'PLUGIN_SHIPMENT_FORM_DATA_PROVIDER';
-
-    const PAYMENT_METHOD_HANDLER = 'PAYMENT_METHOD_HANDLER';
-    const PAYMENT_SUB_FORMS = 'PAYMENT_SUB_FORMS';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -55,7 +51,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
      */
     protected function provideClients(Container $container)
     {
-        parent::provideClients($container);
+        $container = parent::provideClients($container);
 
         $container[self::CLIENT_CALCULATION] = function (Container $container) {
             return $container->getLocator()->calculation()->client();
@@ -83,7 +79,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
      */
     protected function providePlugins(Container $container)
     {
-        parent::providePlugins($container);
+        $container = parent::providePlugins($container);
 
         $container[self::PLUGIN_CUSTOMER_STEP_HANDLER] = function () {
             return new CustomerStepHandler();
