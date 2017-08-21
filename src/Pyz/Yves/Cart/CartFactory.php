@@ -192,4 +192,12 @@ class CartFactory extends AbstractFactory
         return $this->getProvidedDependency(CartDependencyProvider::CLIENT_PRODUCT);
     }
 
+    /**
+     * @return \Spryker\Yves\DiscountPromotion\Dependency\PromotionProductMapperPluginInterface
+     */
+    public function getProductPromotionMapperPlugin()
+    {
+        return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_PROMOTION_PRODUCT_MAPPER);
+    }
+
 }

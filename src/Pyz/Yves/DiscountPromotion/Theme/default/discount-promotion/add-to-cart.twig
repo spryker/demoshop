@@ -4,9 +4,9 @@
             <strong>{{ 'cart.item_quantity' | trans }}</strong>
             <span class="input-group __no-margin-bottom">
                 <select name="quantity">
-                 {#{% for i in range(1, cartItem.maxQuantity) %}
+                 {% for i in range(1, cartItem.maxQuantity) %}
                      <option value="{{ i }}">{{ i }}</option>
-                 {% endfor %}#}
+                 {% endfor %}
                 </select>
         </label>
         <input type="hidden" value="{{ cartItem.sku }}" name="groupKey">

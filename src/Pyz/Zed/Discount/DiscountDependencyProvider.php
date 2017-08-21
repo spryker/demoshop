@@ -111,7 +111,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     /**
      * This plugin allows to expand DiscountConfigurationTransfer when using
      *
-     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountCalculationFormExpanderPluginInterface[]
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\Form\DiscountFormExpanderPluginInterface[]
      */
     protected function getDiscountFormExpanderPlugins()
     {
