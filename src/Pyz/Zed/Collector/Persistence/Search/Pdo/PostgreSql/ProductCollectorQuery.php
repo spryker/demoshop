@@ -74,7 +74,6 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 spy_touch.item_event = :spy_touch_item_event
                 AND spy_touch.touched >= :spy_touch_touched
                 AND spy_touch.item_type = :spy_touch_item_type
-                AND spy_product_search.is_searchable = TRUE
                 AND spy_locale.is_active = TRUE
                 AND spy_locale.id_locale = :id_locale
         ';
