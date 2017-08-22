@@ -9,7 +9,7 @@ namespace Pyz\Zed\Category\Business\Map;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\CategoryNodeCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Search\Pdo\MySql\CategoryNodeCollectorQuery;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 

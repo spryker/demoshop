@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SETUP='spryker'
+DATABASE_ENGINE='MySQL'
 DATABASE_NAME='DE_development_zed'
 DATABASE_USER='development'
 DATABASE_PASSWORD='mate20mg'

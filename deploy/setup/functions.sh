@@ -37,11 +37,13 @@ function generateTwigCacheFiles {
 }
 
 function createDevelopmentDatabase {
-    # postgres
-    sudo createdb ${DATABASE_NAME}
+    if [ ${DATABASE_ENGINE} == 'PostgreSQL' ]; then
+        sudo createdb ${DATABASE_NAME}
+    fi
 
-    # mysql
-    # mysql -u root -e "CREATE DATABASE DE_development_zed;"
+    if [ ${DATABASE_ENGINE} == 'MySQL' ]; then
+        mysql -u root -e "CREATE DATABASE DE_development_zed;"
+    fi
 }
 
 function dumpDevelopmentDatabase {
@@ -212,33 +214,32 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    if [ `sudo -u postgres psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
+    if [ ${DATABASE_ENGINE} == 'PostgreSQL' ]; then
+        if [ `sudo -u postgres psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
 
-        PG_CTL_CLUSTER=`which pg_ctlcluster`
-        DROP_DB=`which dropdb`
+            PG_CTL_CLUSTER=`which pg_ctlcluster`
+            DROP_DB=`which dropdb`
 
-        if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
-            labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
-            sudo pg_ctlcluster 9.4 main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
-            writeErrorMessage "Deleting DB command failed"
+            if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
+                labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
+                sudo pg_ctlcluster 9.4 main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
+                writeErrorMessage "Deleting DB command failed"
+            fi
+
+            MIGRATION_DIRECTORY=./src/Orm/Propel/DE/Migration_pgsql
+            if [ -d $MIGRATION_DIRECTORY ] && [ $(ls -A $MIGRATION_DIRECTORY) ]; then
+                labelText "Removing propel migration files for core development"
+                rm "$MIGRATION_DIRECTORY"/*
+                writeErrorMessage "Removing propel migration files command failed"
+            else
+                labelText "Migration directory does not exist or is empty"
+            fi
+
         fi
-
-        MIGRATION_DIRECTORY=./src/Orm/Propel/DE/Migration_pgsql
-        if [ -d $MIGRATION_DIRECTORY ] && [ $(ls -A $MIGRATION_DIRECTORY) ]; then
-            labelText "Removing propel migration files for core development"
-            rm "$MIGRATION_DIRECTORY"/*
-            writeErrorMessage "Removing propel migration files command failed"
-        else
-            labelText "Migration directory does not exist or is empty"
-        fi
-
+    elif [ ${DATABASE_ENGINE} == 'MySQL' ]; then
+        labelText "Drop MySQL database: ${DATABASE_NAME}"
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "DROP DATABASE IF EXISTS ${DATABASE_NAME};"
     fi
-
-    # MYSQL=`which mysql`
-    # if [[ -f $MYSQL ]]; then
-    #    labelText "Drop MySQL database: ${1}"
-    #    mysql -u root -e "DROP DATABASE IF EXISTS ${1};"
-    # fi
 
 }
 
