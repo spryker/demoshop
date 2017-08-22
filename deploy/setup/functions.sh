@@ -37,12 +37,10 @@ function generateTwigCacheFiles {
 }
 
 function createDevelopmentDatabase {
-    if [ ${DATABASE_ENGINE} == 'PostgreSQL' ]; then
-        sudo createdb ${DATABASE_NAME}
-    fi
-
-    if [ ${DATABASE_ENGINE} == 'MySQL' ]; then
+    if [[ $DATABASE_ENGINE == "mysql" ]] || [[ ${DATABASE_DEFAULT_ENGINE} == "mysql" ]]; then
         mysql -u root -e "CREATE DATABASE DE_development_zed;"
+    else
+        sudo createdb ${DATABASE_NAME}
     fi
 }
 
@@ -56,7 +54,11 @@ function dumpDevelopmentDatabase {
           DATABASE_BACKUP_PATH=$1
     fi
 
-    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
+    if [[ $DATABASE_ENGINE == "mysql" ]] || [[ ${DATABASE_DEFAULT_ENGINE} == "mysql" ]]; then
+        mysqldump -i -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${DATABASE_NAME} > ${DATABASE_BACKUP_PATH}
+    else
+        pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
+    fi
 }
 
 function restoreDevelopmentDatabase {
@@ -81,10 +83,16 @@ function dropAndRestoreDatabase {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
-    sudo pg_ctlcluster 9.4 main restart --force
-    sudo dropdb $DATABASE_NAME
-    sudo createdb $DATABASE_NAME
-    pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
+    if [[ $DATABASE_ENGINE == "mysql" ]] || [[ ${DATABASE_DEFAULT_ENGINE} == "mysql" ]]; then
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "DROP DATABASE IF EXISTS ${DATABASE_NAME};"
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "CREATE DATABASE ${DATABASE_NAME};"
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${DATABASE_NAME} < ${DATABASE_BACKUP_PATH}
+    else
+        sudo pg_ctlcluster 9.4 main restart --force
+        sudo dropdb $DATABASE_NAME
+        sudo createdb $DATABASE_NAME
+        pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
+    fi
 }
 
 function installDemoshop {
@@ -214,14 +222,17 @@ function resetDevelopmentState {
 }
 
 function dropDevelopmentDatabase {
-    if [ ${DATABASE_ENGINE} == 'PostgreSQL' ]; then
+    if [[ $DATABASE_ENGINE == "mysql" ]] || [[ ${DATABASE_DEFAULT_ENGINE} == "mysql" ]]; then
+        labelText "Drop MySQL database: ${DATABASE_NAME}"
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "DROP DATABASE IF EXISTS ${DATABASE_NAME};"
+    else
         if [ `sudo -u postgres psql -l | grep ${DATABASE_NAME} | wc -l` -ne 0 ]; then
-
             PG_CTL_CLUSTER=`which pg_ctlcluster`
             DROP_DB=`which dropdb`
 
             if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
                 labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
+                labelText "Drop PostgresSQL database: ${DATABASE_NAME}"
                 sudo pg_ctlcluster 9.4 main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
                 writeErrorMessage "Deleting DB command failed"
             fi
@@ -234,11 +245,7 @@ function dropDevelopmentDatabase {
             else
                 labelText "Migration directory does not exist or is empty"
             fi
-
         fi
-    elif [ ${DATABASE_ENGINE} == 'MySQL' ]; then
-        labelText "Drop MySQL database: ${DATABASE_NAME}"
-        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "DROP DATABASE IF EXISTS ${DATABASE_NAME};"
     fi
 
 }

@@ -39,7 +39,12 @@ SELECT
       un.fk_category,
       un.node_order
   FROM spy_category_node un
-         INNER JOIN spy_category c ON c.id_category = un.fk_category AND c.is_active = TRUE
+     INNER JOIN spy_category c ON c.id_category = un.fk_category AND c.is_active = TRUE
+     INNER JOIN spy_touch t ON (
+          un.id_category_node = t.item_id
+          AND t.item_event = :spy_touch_item_event
+          AND t.touched >= :spy_touch_touched
+          AND t.item_type = :spy_touch_item_type)
   WHERE un.is_root = TRUE
     
   UNION
