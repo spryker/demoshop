@@ -37,7 +37,7 @@ class IndexController extends AbstractController
         $productReviewSearchRequestTransfer = new ProductReviewSearchRequestTransfer();
         $productReviewSearchRequestTransfer->setIdProductAbstract($idProductAbstract);
         $productReviewSearchRequestTransfer->setRequestParams($parentRequest->query->all());
-        $productReviews = $this->getClient()->findProductReviews($productReviewSearchRequestTransfer);
+        $productReviews = $this->getClient()->findProductReviewsInSearch($productReviewSearchRequestTransfer);
 
         return [
             'hasCustomer' => $hasCustomer,

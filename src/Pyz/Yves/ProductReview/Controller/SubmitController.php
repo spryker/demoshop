@@ -9,6 +9,7 @@ namespace Pyz\Yves\ProductReview\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Shared\ProductReview\Exception\RatingOutOfRangeException;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
@@ -66,7 +67,11 @@ class SubmitController extends AbstractController
             $form->addError(new FormError('Only customers can use this feature. Please log in.'));
         }
 
-        if ($form->isValid()) {
+        if (!$form->isValid()) {
+            return false;
+        }
+
+        try {
             $this->getFactory()->getProductReviewClient()->submitCustomerReview(
                 $this->getProductReviewFormData($form)
                     ->setCustomerReference($customerReference)
@@ -74,9 +79,11 @@ class SubmitController extends AbstractController
             );
 
             return true;
-        }
+        } catch (RatingOutOfRangeException $exception) {
+            $form->addError(new FormError($exception->getMessage()));
 
-        return false;
+            return false;
+        }
     }
 
     /**

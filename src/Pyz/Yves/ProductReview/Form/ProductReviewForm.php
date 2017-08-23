@@ -8,6 +8,7 @@
 namespace Pyz\Yves\ProductReview\Form;
 
 use Generated\Shared\Transfer\ProductReviewRequestTransfer;
+use Spryker\Shared\ProductReview\ProductReviewConfig;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -29,7 +30,7 @@ class ProductReviewForm extends AbstractType
 
     const UNSELECTED_RATING = -1;
     const MINIMUM_RATING = 1;
-    const MAXIMUM_RATING = 5;
+    const MAXIMUM_RATING = ProductReviewConfig::MAXIMUM_RATING;
 
     /**
      * @return string

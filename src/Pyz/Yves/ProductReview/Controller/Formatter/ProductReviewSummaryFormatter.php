@@ -86,7 +86,7 @@ class ProductReviewSummaryFormatter implements ProductReviewSummaryFormatterInte
      */
     protected function sortRatings(array $ratingAggregation)
     {
-        ksort($ratingAggregation);
+        krsort($ratingAggregation);
 
         return $ratingAggregation;
     }
