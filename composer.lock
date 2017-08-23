@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8d5bf208c57814b1a3cd31728151ead",
+    "content-hash": "803b8588784518a7f13683bf230f2c09",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -354,7 +354,7 @@
             ],
             "authors": [
                 {
-                    "name": "Fran??ois Zaninotto"
+                    "name": "François Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
@@ -836,7 +836,7 @@
                     "email": "f.bosch@genkgo.nl"
                 },
                 {
-                    "name": "M??rk S??gi-Kaz??r",
+                    "name": "Márk Sági-Kazár",
                     "email": "mark.sagi-kazar@gmail.com"
                 }
             ],
@@ -1077,7 +1077,7 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Ra??l Araya",
+                    "name": "Raúl Araya",
                     "email": "nubeiro@gmail.com",
                     "role": "Maintainer"
                 }
@@ -4289,7 +4289,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jens-Andr?? Koch",
+                    "name": "Jens-André Koch",
                     "email": "jakoch@web.de"
                 }
             ],
@@ -4739,7 +4739,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "autoload",
@@ -5262,7 +5262,7 @@
                     "role": "Contributors"
                 },
                 {
-                    "name": "Marc W??rth",
+                    "name": "Marc Würth",
                     "email": "ravage@bluewin.ch",
                     "homepage": "https://github.com/ravage84",
                     "role": "Project Maintainer"
@@ -6690,7 +6690,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/code-generator.git",
+                "url": "git@github.com:spryker/code-generator.git",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
             },
             "dist": {
@@ -6773,7 +6773,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-16 12:37:39"
+            "time": "2017-08-16T12:37:39+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -7024,7 +7024,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-Fran??ois Simon",
+                    "name": "Jean-François Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
