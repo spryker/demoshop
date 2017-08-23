@@ -247,7 +247,8 @@
       "PhantomInstaller\\Installer::installPhantomJS"
     ],
     "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS"
+      "PhantomInstaller\\Installer::installPhantomJS",
+      "Install\\ComposerAdjuster::assertDemoshopGitUrls"
     ]
   }
 }
