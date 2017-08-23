@@ -87,7 +87,7 @@ class ProductDataPageMapBuilder
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_name'])
             ->addFullTextBoosted($pageMapTransfer, $productData['abstract_sku'])
             ->addFullText($pageMapTransfer, $productData['concrete_names'])
-            ->addFullText($pageMapTransfer, $productData['concrete_skus'])
+            ->addFullText($pageMapTransfer, explode(',', $productData['concrete_skus']))
             ->addFullText($pageMapTransfer, $productData['abstract_description'])
             ->addFullText($pageMapTransfer, $productData['concrete_descriptions'])
             ->addSuggestionTerms($pageMapTransfer, $productData['abstract_name'])

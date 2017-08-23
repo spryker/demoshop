@@ -14,6 +14,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\Customer\CustomerClientInterface;
 use Pyz\Yves\Checkout\Process\Steps\AddressStep;
+use Spryker\Client\Calculation\CalculationClientInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -187,14 +188,26 @@ class AddressStepTest extends Unit
             $customerClientMock = $this->createCustomerClientMock();
         }
 
+        $calculationClientMock = $this->createCalculationClientMock();
+
         $addressStepMock = $this->getMockBuilder(AddressStep::class)
             ->setMethods(['getDataClass'])
-            ->setConstructorArgs([$customerClientMock, 'address_step', 'escape_route'])
+            ->setConstructorArgs([$customerClientMock, $calculationClientMock, 'address_step', 'escape_route'])
             ->getMock();
 
         $addressStepMock->method('getDataClass')->willReturn(new QuoteTransfer());
 
         return $addressStepMock;
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Spryker\Client\Calculation\CalculationClientInterface
+     */
+    protected function createCalculationClientMock()
+    {
+        $calculationMock = $this->getMockBuilder(CalculationClientInterface::class)->getMock();
+
+        return $calculationMock;
     }
 
     /**
