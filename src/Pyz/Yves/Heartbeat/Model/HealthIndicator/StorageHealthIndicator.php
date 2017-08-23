@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
+use Exception;
 use Spryker\Client\Storage\StorageClientInterface;
 use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
@@ -44,7 +45,7 @@ class StorageHealthIndicator extends AbstractHealthIndicator implements HealthIn
     {
         try {
             $this->storageClient->get(self::KEY_HEARTBEAT);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_READ_FROM_STORAGE);
             $this->addFailure($e->getMessage());
         }
