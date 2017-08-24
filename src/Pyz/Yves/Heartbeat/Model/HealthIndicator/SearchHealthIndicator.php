@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
+use Exception;
 use Spryker\Client\Search\SearchClientInterface;
 use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
@@ -43,7 +44,7 @@ class SearchHealthIndicator extends AbstractHealthIndicator implements HealthInd
     {
         try {
             $this->searchClient->checkConnection();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH);
             $this->addFailure($e->getMessage());
         }
