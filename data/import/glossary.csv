@@ -765,6 +765,8 @@ customer.account.wishlist.updated,Wishlist updated successfully,en_US
 customer.account.wishlist.updated,Wunschliste erfolgreich aktualisiert.,de_DE
 customer.account.wishlist.deleted,Wishlist deleted successfully.,en_US
 customer.account.wishlist.deleted,Wuschliste erfolgreich gelöscht.,de_DE
+customer.account.wishlist.item.not_added,Failed to add product to wishlist.,en_US
+customer.account.wishlist.item.not_added,Hinzufügen zur Wunschlist fehlgeschlagen.,de_DE
 newsletter.subscribe,Subscribe for newsletter,en_US
 newsletter.subscribe,In den Newsletter eintragen,de_DE
 pagination.previous,Previous,en_US
