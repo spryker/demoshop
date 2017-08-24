@@ -7,7 +7,7 @@
 
 namespace Pyz\Yves\ProductReview;
 
-use Pyz\Yves\ProductReview\Controller\Formatter\ProductReviewSummaryFormatter;
+use Pyz\Yves\ProductReview\Controller\Calculator\ProductReviewSummaryCalculator;
 use Pyz\Yves\ProductReview\Form\DataProvider\ProductReviewFormDataProvider;
 use Pyz\Yves\ProductReview\Form\ProductReviewForm;
 use Spryker\Shared\Application\ApplicationConstants;
@@ -66,19 +66,11 @@ class ProductReviewFactory extends SprykerProductReviewFactory
     }
 
     /**
-     * @return \Spryker\Shared\ProductReview\ProductReviewConfig
+     * @return \Pyz\Yves\ProductReview\Controller\Calculator\ProductReviewSummaryCalculatorInterface
      */
-    protected function getSharedProductReviewConfig()
+    public function createProductReviewSummaryCalculator()
     {
-        return $this->getProvidedDependency(ProductReviewDependencyProvider::CONFIG_PRODUCT_REVIEW_SHARED);
-    }
-
-    /**
-     * @return \Pyz\Yves\ProductReview\Controller\Formatter\ProductReviewSummaryFormatterInterface
-     */
-    public function createProductReviewSummaryFormatter()
-    {
-        return new ProductReviewSummaryFormatter($this->getProductReviewClient());
+        return new ProductReviewSummaryCalculator($this->getProductReviewClient());
     }
 
     /**

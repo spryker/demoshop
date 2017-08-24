@@ -20,11 +20,11 @@ class ProductRatingValueTransformer implements FacetSearchResultValueTransformer
     public function transformForDisplay($rangeValues)
     {
         if (isset($rangeValues['min'])) {
-            $rangeValues['min'] = round($rangeValues['min'] / 100);
+            $rangeValues['min'] = $this->normalizeRatingForDisplay($rangeValues['min']);
         }
 
         if (isset($rangeValues['max'])) {
-            $rangeValues['max'] = round($rangeValues['max'] / 100);
+            $rangeValues['max'] = $this->normalizeRatingForDisplay($rangeValues['max']);
         }
 
         return $rangeValues;
@@ -38,14 +38,60 @@ class ProductRatingValueTransformer implements FacetSearchResultValueTransformer
     public function transformFromDisplay($rangeValues)
     {
         if (isset($rangeValues['min'])) {
-            $rangeValues['min'] = ($rangeValues['min'] * 100) - 25;
+            $rangeValues['min'] =
+                $this->adjustLowerThreshold(
+                    $this->normalizeRatingForFilter($rangeValues['min'])
+                );
         }
 
         if (isset($rangeValues['max'])) {
-            $rangeValues['max'] = ($rangeValues['max'] * 100) + 25;
+            $rangeValues['max'] =
+                $this->adjustUpperThreshold(
+                    $this->normalizeRatingForFilter($rangeValues['max'])
+                );
         }
 
         return $rangeValues;
+    }
+
+    /**
+     * @param int $filteredRating
+     *
+     * @return int
+     */
+    protected function normalizeRatingForDisplay($filteredRating)
+    {
+        return round($filteredRating / 100);
+    }
+
+    /**
+     * @param int $displayedRating
+     *
+     * @return int
+     */
+    protected function normalizeRatingForFilter($displayedRating)
+    {
+        return $displayedRating * 100;
+    }
+
+    /**
+     * @param int $filteredRating
+     *
+     * @return int
+     */
+    protected function adjustLowerThreshold($filteredRating)
+    {
+        return $filteredRating - 25;
+    }
+
+    /**
+     * @param int $filteredRating
+     *
+     * @return int
+     */
+    protected function adjustUpperThreshold($filteredRating)
+    {
+        return $filteredRating + 25;
     }
 
 }

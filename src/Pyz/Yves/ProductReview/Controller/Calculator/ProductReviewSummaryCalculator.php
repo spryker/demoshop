@@ -5,13 +5,13 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\ProductReview\Controller\Formatter;
+namespace Pyz\Yves\ProductReview\Controller\Calculator;
 
 use Generated\Shared\Transfer\ProductReviewSummaryTransfer;
 use Pyz\Yves\ProductReview\Form\ProductReviewForm;
 use Spryker\Client\ProductReview\ProductReviewClientInterface;
 
-class ProductReviewSummaryFormatter implements ProductReviewSummaryFormatterInterface
+class ProductReviewSummaryCalculator implements ProductReviewSummaryCalculatorInterface
 {
 
     const MINIMUM_RATING = ProductReviewForm::MINIMUM_RATING;

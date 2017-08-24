@@ -724,23 +724,15 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getProductReviewDataImporterConfiguration());
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
-        $dataSetStepBroker->addStep($this->createProductReviewWriterStep());
+        $dataSetStepBroker->addStep(new ProductReviewWriterStep(
+            $this->createProductRepository(),
+            $this->createLocaleRepository(),
+            $this->getTouchFacade()
+        ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
-    }
-
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
-    protected function createProductReviewWriterStep()
-    {
-        return new ProductReviewWriterStep(
-            $this->createProductRepository(),
-            $this->createLocaleRepository(),
-            $this->getTouchFacade()
-        );
     }
 
     /**

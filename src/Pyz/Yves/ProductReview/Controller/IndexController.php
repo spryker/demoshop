@@ -43,7 +43,7 @@ class IndexController extends AbstractController
             'hasCustomer' => $hasCustomer,
             'productReviews' => $productReviews['productReviews'],
             'pagination' => $productReviews['pagination'],
-            'summary' => $this->getFactory()->createProductReviewSummaryFormatter()->execute($productReviews['ratingAggregation']),
+            'summary' => $this->getFactory()->createProductReviewSummaryCalculator()->execute($productReviews['ratingAggregation']),
         ];
     }
 

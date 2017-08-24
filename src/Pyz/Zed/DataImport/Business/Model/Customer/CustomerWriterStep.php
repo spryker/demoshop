@@ -55,7 +55,8 @@ class CustomerWriterStep implements DataImportStepInterface
     {
         if (!preg_match('/(\d+)$/', preg_quote($dataSet[self::COL_CUSTOMER_REFERENCE], '/'), $matches)) {
             throw new InvalidDataException(sprintf(
-                'Invalid customer reference: "%s". Value expected to end with a number.'
+                'Invalid customer reference: "%s". Value expected to end with a number.',
+                preg_quote($dataSet[self::COL_CUSTOMER_REFERENCE], '/')
             ));
         }
 
