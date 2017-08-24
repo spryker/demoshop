@@ -8,7 +8,7 @@
 namespace Pyz\Yves\ProductReview\Form;
 
 use Generated\Shared\Transfer\ProductReviewRequestTransfer;
-use Spryker\Shared\ProductReview\ProductReviewConfig;
+use Spryker\Client\ProductReview\ProductReviewClientInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -30,7 +30,19 @@ class ProductReviewForm extends AbstractType
 
     const UNSELECTED_RATING = -1;
     const MINIMUM_RATING = 1;
-    const MAXIMUM_RATING = ProductReviewConfig::MAXIMUM_RATING;
+
+    /**
+     * @var \Spryker\Client\ProductReview\ProductReviewClientInterface
+     */
+    protected $productReviewClient;
+
+    /**
+     * @param \Spryker\Client\ProductReview\ProductReviewClientInterface $productReviewClient
+     */
+    public function __construct(ProductReviewClientInterface $productReviewClient)
+    {
+        $this->productReviewClient = $productReviewClient;
+    }
 
     /**
      * @return string
@@ -76,7 +88,7 @@ class ProductReviewForm extends AbstractType
                 'multiple' => false,
                 'constraints' => [
                     new GreaterThanOrEqual(['value' => static::MINIMUM_RATING]),
-                    new LessThanOrEqual(['value' => static::MAXIMUM_RATING]),
+                    new LessThanOrEqual(['value' => $this->productReviewClient->getMaximumRating()]),
                 ],
             ]
         );
@@ -90,7 +102,7 @@ class ProductReviewForm extends AbstractType
      *
      * @see ProductReviewForm::UNSELECTED_RATING
      * @see ProductReviewForm::MINIMUM_RATING
-     * @see ProductReviewForm::MAXIMUM_RATING
+     * @see ProductReviewClientInterface::getMaximumRating()
      *
      * Example
      *  [-1 => 'none', 1 => 1, 2 => 2]
@@ -100,7 +112,7 @@ class ProductReviewForm extends AbstractType
     protected function getRatingFieldChoices()
     {
         $unselectedChoice = [static::UNSELECTED_RATING => 'product_review.submit.rating.none'];
-        $choices = range(static::MINIMUM_RATING, static::MAXIMUM_RATING);
+        $choices = range(static::MINIMUM_RATING, $this->productReviewClient->getMaximumRating());
         $choices = $unselectedChoice + array_combine($choices, $choices);
 
         return $choices;

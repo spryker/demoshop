@@ -9,13 +9,26 @@ namespace Pyz\Yves\ProductReview\Controller\Formatter;
 
 use Generated\Shared\Transfer\ProductReviewSummaryTransfer;
 use Pyz\Yves\ProductReview\Form\ProductReviewForm;
+use Spryker\Client\ProductReview\ProductReviewClientInterface;
 
 class ProductReviewSummaryFormatter implements ProductReviewSummaryFormatterInterface
 {
 
     const MINIMUM_RATING = ProductReviewForm::MINIMUM_RATING;
-    const MAXIMUM_RATING = ProductReviewForm::MAXIMUM_RATING;
     const RATING_PRECISION = 1;
+
+    /**
+     * @var \Spryker\Client\ProductReview\ProductReviewClientInterface
+     */
+    protected $productReviewClient;
+
+    /**
+     * @param \Spryker\Client\ProductReview\ProductReviewClientInterface $productReviewClient
+     */
+    public function __construct(ProductReviewClientInterface $productReviewClient)
+    {
+        $this->productReviewClient = $productReviewClient;
+    }
 
     /**
      * @param array $ratingAggregation
@@ -28,7 +41,7 @@ class ProductReviewSummaryFormatter implements ProductReviewSummaryFormatterInte
 
         $summary = (new ProductReviewSummaryTransfer())
             ->setRatingAggregation($this->formatRatingAggregation($ratingAggregation))
-            ->setMaximumRating($this->getMaximumRating())
+            ->setMaximumRating($this->productReviewClient->getMaximumRating())
             ->setAverageRating($this->getAverageRating($ratingAggregation, $totalReview))
             ->setTotalReview($totalReview);
 
@@ -72,7 +85,9 @@ class ProductReviewSummaryFormatter implements ProductReviewSummaryFormatterInte
      */
     protected function fillRatings(array $ratingAggregation)
     {
-        for ($rating = static::MINIMUM_RATING; $rating <= static::MAXIMUM_RATING; $rating++) {
+        $maximumRating = $this->productReviewClient->getMaximumRating();
+
+        for ($rating = static::MINIMUM_RATING; $rating <= $maximumRating; $rating++) {
             $ratingAggregation[$rating] = array_key_exists($rating, $ratingAggregation) ? $ratingAggregation[$rating] : 0;
         }
 
@@ -121,14 +136,6 @@ class ProductReviewSummaryFormatter implements ProductReviewSummaryFormatterInte
         }
 
         return $totalRating;
-    }
-
-    /**
-     * @return int
-     */
-    protected function getMaximumRating()
-    {
-        return static::MAXIMUM_RATING;
     }
 
 }

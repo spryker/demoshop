@@ -1,5 +1,5 @@
 {% set filterValue = app.request.query.has(filter.config.parameterName) ? filter.activeMin : '' %}
-{% set maximumRating = maximumRating | default(constant('Spryker\\Shared\\ProductReview\\ProductReviewConfig::MAXIMUM_RATING')) %}
+{% set maximumRating = maximumRating | default(spyProductAbstractReviewMaximumRating()) %}
 
 <div class="row" data-component="catalog-rating-filter">
     <div class="small-12 columns">
