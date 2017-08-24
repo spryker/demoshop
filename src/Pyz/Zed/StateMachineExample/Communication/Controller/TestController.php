@@ -47,9 +47,9 @@ class TestController extends AbstractController
     }
 
     /**
-     * @param array|\Generated\Shared\Transfer\StateMachineItemTransfer[] $stateMachineItems
+     * @param \Generated\Shared\Transfer\StateMachineItemTransfer[] $stateMachineItems
      *
-     * @return array|\Generated\Shared\Transfer\StateMachineItemTransfer[]
+     * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */
     protected function createStateMachineLookupTable(array $stateMachineItems)
     {
