@@ -14,7 +14,7 @@ use Orm\Zed\ProductAttribute\Persistence\SpyProductManagementAttributeValueQuery
 use Orm\Zed\ProductAttribute\Persistence\SpyProductManagementAttributeValueTranslation;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Pyz\Zed\Glossary\GlossaryConfig;
-use Spryker\Shared\ProductManagement\ProductManagementConstants;
+use Spryker\Shared\ProductAttribute\ProductAttributeConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -52,7 +52,7 @@ class ProductManagementAttributeWriter extends TouchAwareStep implements DataImp
             $productManagementAttributeValueEntity->delete();
         }
 
-        $glossaryKey = ProductManagementConstants::PRODUCT_MANAGEMENT_ATTRIBUTE_GLOSSARY_PREFIX . $dataSet['key'];
+        $glossaryKey = ProductAttributeConfig::PRODUCT_ATTRIBUTE_GLOSSARY_PREFIX . $dataSet['key'];
         $glossaryKeyEntity = SpyGlossaryKeyQuery::create()
             ->filterByKey($glossaryKey)
             ->findOneOrCreate();
