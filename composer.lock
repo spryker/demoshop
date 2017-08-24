@@ -6631,7 +6631,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "d3218c5f8a70a845096d8fe2ece354e5aad470f3"
+                "reference": "2f4ce943dbb699e489fb499cb08246ac71403213"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6683,7 +6683,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-08-02T10:03:12+00:00"
+            "time": "2017-08-22T14:34:32+00:00"
         },
         {
             "name": "spryker/code-generator",
