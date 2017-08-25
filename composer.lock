@@ -6690,7 +6690,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/code-generator.git",
+                "url": "https://github.com/spryker/code-generator.git",
                 "reference": "469e2eb7841bb26c5c77e955c61574dcb24851a6"
             },
             "dist": {

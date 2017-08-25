@@ -13,7 +13,7 @@
                 <ul class="no-bullet">
                     {% for name, choices in paymentForm.paymentSelection.vars.choices %}
 
-                        <h4>{{ 'checkout.payment.provider.' ~ name | trans }}</h4>
+                        <h4>{{ ('checkout.payment.provider.' ~ name) | trans }}</h4>
 
                         {% for key, choice in choices %}
                             <li>  &nbsp;
