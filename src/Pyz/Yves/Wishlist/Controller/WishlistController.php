@@ -95,7 +95,10 @@ class WishlistController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
 
-        $this->getClient()->addItem($wishlistItemTransfer);
+        $wishlistItemTransfer = $this->getClient()->addItem($wishlistItemTransfer);
+        if (!$wishlistItemTransfer->getIdWishlistItem()) {
+            $this->addErrorMessage('customer.account.wishlist.item.not_added');
+        }
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
             'wishlistName' => $wishlistItemTransfer->getWishlistName(),

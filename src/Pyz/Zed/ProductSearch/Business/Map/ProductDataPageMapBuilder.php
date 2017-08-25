@@ -22,6 +22,8 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 class ProductDataPageMapBuilder
 {
 
+    const BOOLEAN_FLAG_PRODUCT_ACTIVE = 't';
+
     /**
      * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
@@ -61,17 +63,14 @@ class ProductDataPageMapBuilder
      */
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
     {
-        $isActive = $this->isProductAbstractActive(
-            $productData['product_status_aggregation'],
-            $productData['product_searchable_status_aggregation']
-        );
+        $productData = $this->filterInactiveConcreteProducts($productData);
 
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
             ->setIsFeatured($productData['is_featured'] == 'true')
-            ->setIsActive($isActive);
+            ->setIsActive(!empty($productData['concrete_skus']));
 
         $attributes = $this->getProductAttributes($productData);
 
@@ -121,25 +120,6 @@ class ProductDataPageMapBuilder
         }
 
         return $pageMapTransfer;
-    }
-
-    /**
-     * @param string $productStatusAggregation
-     * @param string $productSearchableStatusAggregation
-     *
-     * @return bool
-     */
-    protected function isProductAbstractActive($productStatusAggregation, $productSearchableStatusAggregation)
-    {
-        if (strpos($productSearchableStatusAggregation, 'true') === false) {
-            return false;
-        }
-
-        if (strpos($productStatusAggregation, 'true') === false) {
-            return false;
-        }
-
-        return true;
     }
 
     /**
@@ -203,6 +183,104 @@ class ProductDataPageMapBuilder
         }, $result);
 
         return $result;
+    }
+
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function filterInactiveConcreteProducts(array $productData)
+    {
+        $searchableProducts = $this->getSearchableProductSkus($productData);
+        $productData = $this->filterActiveConcreteSkus($productData, $searchableProducts);
+
+        $fieldWithConcreteData = [
+            'concrete_attributes',
+            'concrete_localized_attributes',
+            'concrete_names',
+        ];
+
+        foreach ($fieldWithConcreteData as $field) {
+            $productData[$field] = $this->filterInactiveConcreteData($productData[$field], $searchableProducts);
+        }
+        return $productData;
+    }
+
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function getSearchableProductSkus(array $productData)
+    {
+        $activeProducts = $this->getActiveProducts($productData);
+
+        $productSearchableList = explode(',', $productData['product_searchable_status_aggregation']);
+        $searchableProducts = [];
+        foreach ($productSearchableList as $productSearchableStatus) {
+            list($concreteSku, $status) = explode(':', $productSearchableStatus);
+
+            if ($status === static::BOOLEAN_FLAG_PRODUCT_ACTIVE && isset($activeProducts[$concreteSku])) {
+                $searchableProducts[$concreteSku] = true;
+            }
+        }
+        return $searchableProducts;
+    }
+
+    /**
+     * @param array $productData
+     * @param array $searchableProducts
+     *
+     * @return mixed
+     */
+    protected function filterActiveConcreteSkus(array $productData, array $searchableProducts)
+    {
+        $skuList = array_intersect_key($searchableProducts, array_flip(explode(',', $productData['concrete_skus'])));
+
+        $productData['concrete_skus'] = implode(',', array_keys($skuList));
+
+        return $productData;
+    }
+
+    /**
+     * @param string $data
+     * @param array $activeProducts
+     *
+     * @return string
+     */
+    protected function filterInactiveConcreteData($data, array $activeProducts)
+    {
+        $rows = explode(',', $data);
+        $activeConcreteData = [];
+        foreach ($rows as $col) {
+            list($sku, $entry) = explode(':', $col);
+
+            if (isset($activeProducts[$sku])) {
+                $activeConcreteData[] = $entry;
+            }
+        }
+
+        return implode(',', $activeConcreteData);
+    }
+
+    /**
+     * @param array $productData
+     *
+     * @return array
+     */
+    protected function getActiveProducts(array $productData)
+    {
+        $productStatusList = explode(',', $productData['product_status_aggregation']);
+        $activeProducts = [];
+        foreach ($productStatusList as $productStatus) {
+            list($abstractSku, $status) = explode(':', $productStatus);
+
+            if ($status === static::BOOLEAN_FLAG_PRODUCT_ACTIVE) {
+                $activeProducts[$abstractSku] = true;
+            }
+        }
+        return $activeProducts;
     }
 
 }

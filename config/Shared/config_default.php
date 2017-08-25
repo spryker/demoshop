@@ -357,7 +357,7 @@ $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
 $config[EventConstants::LOGGER_ACTIVE] = false;
 
 // ---------- Customer
-$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|de)?/customer|^(/en|de)?/wishlist)';
+$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|/de)?/customer|^(/en|/de)?/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 // ---------- Price
