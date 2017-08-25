@@ -22,6 +22,8 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 class ProductDataPageMapBuilder
 {
 
+    const BOOLEAN_FLAG_PRODUCT_ACTIVE = 't';
+
     /**
      * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
@@ -219,7 +221,7 @@ class ProductDataPageMapBuilder
         foreach ($productSearchableList as $productSearchableStatus) {
             list($concreteSku, $status) = explode(':', $productSearchableStatus);
 
-            if ($status === 't' && isset($activeProducts[$concreteSku])) {
+            if ($status === static::BOOLEAN_FLAG_PRODUCT_ACTIVE && isset($activeProducts[$concreteSku])) {
                 $searchableProducts[$concreteSku] = true;
             }
         }
@@ -274,7 +276,7 @@ class ProductDataPageMapBuilder
         foreach ($productStatusList as $productStatus) {
             list($abstractSku, $status) = explode(':', $productStatus);
 
-            if ($status === 't') {
+            if ($status === static::BOOLEAN_FLAG_PRODUCT_ACTIVE) {
                 $activeProducts[$abstractSku] = true;
             }
         }
