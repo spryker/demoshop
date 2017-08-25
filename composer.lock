@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d641a50f9350999de94a6ee80b19bc6",
+    "content-hash": "14ec1e2e20c4205b59b9171782a59b72",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1844-clear-payment-when-cart-modified",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0cc9611ab3b09fb6bb1c26b9f0fbe8f904af88df"
+                "reference": "8025eb876597c8f01c767dededf48572be062925"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1717,6 +1717,7 @@
                 "spryker/oms": "*",
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
+                "spryker/payment-cart-connector": "*",
                 "spryker/payolution": "*",
                 "spryker/pimple": "*",
                 "spryker/price": "*",
@@ -1803,7 +1804,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-24T16:46:58+00:00"
+            "time": "2017-08-25T12:27:25+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
