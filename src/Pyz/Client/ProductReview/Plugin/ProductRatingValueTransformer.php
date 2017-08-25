@@ -61,7 +61,7 @@ class ProductRatingValueTransformer implements FacetSearchResultValueTransformer
      */
     protected function normalizeRatingForDisplay($filteredRating)
     {
-        return round($filteredRating / 100);
+        return (int)round($filteredRating / 100);
     }
 
     /**

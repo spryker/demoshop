@@ -115,7 +115,7 @@ class ProductReviewSummaryCalculator implements ProductReviewSummaryCalculatorIn
     {
         $totalReview = 0;
 
-        foreach ($ratingAggregation as $rating => $reviewCount) {
+        foreach ($ratingAggregation as $reviewCount) {
             $totalReview += $reviewCount;
         }
 
