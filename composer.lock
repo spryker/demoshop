@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.34.2",
+            "version": "3.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "eee45c7189f6fe0b70aac86495718ccfdc067495"
+                "reference": "e9691180888d2679b24cbad1f805e48aadd1a346"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/eee45c7189f6fe0b70aac86495718ccfdc067495",
-                "reference": "eee45c7189f6fe0b70aac86495718ccfdc067495",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e9691180888d2679b24cbad1f805e48aadd1a346",
+                "reference": "e9691180888d2679b24cbad1f805e48aadd1a346",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-08-24T18:09:26+00:00"
+            "time": "2017-08-25T23:24:46+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -434,7 +434,7 @@
             ],
             "authors": [
                 {
-                    "name": "FranÃ§ois Zaninotto"
+                    "name": "François Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
@@ -903,7 +903,7 @@
                     "email": "f.bosch@genkgo.nl"
                 },
                 {
-                    "name": "MÃ¡rk SÃ¡gi-KazÃ¡r",
+                    "name": "Márk Sági-Kazár",
                     "email": "mark.sagi-kazar@gmail.com"
                 }
             ],
@@ -1153,7 +1153,7 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "RaÃºl Araya",
+                    "name": "Raúl Araya",
                     "email": "nubeiro@gmail.com",
                     "role": "Maintainer"
                 }
@@ -2681,11 +2681,11 @@
         },
         {
             "name": "spryker/cart-variant",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CartVariant.git",
-                "reference": "daf6ef9ec0d536c879f188335a8e8d16412c89a6",
+                "reference": "5ba32810699c576489a02b36f2efa93fb49c75fa",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2695,8 +2695,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CartVariant/zipball/daf6ef9ec0d536c879f188335a8e8d16412c89a6",
-                "reference": "daf6ef9ec0d536c879f188335a8e8d16412c89a6",
+                "url": "https://api.github.com/repos/spryker/CartVariant/zipball/5ba32810699c576489a02b36f2efa93fb49c75fa",
+                "reference": "5ba32810699c576489a02b36f2efa93fb49c75fa",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2741,7 +2741,7 @@
             "support": {
                 "source": "https://github.com/spryker/CartVariant/tree/master"
             },
-            "time": "2017-06-29T12:15:48+00:00"
+            "time": "2017-08-23T14:25:58+00:00"
         },
         {
             "name": "spryker/catalog",
@@ -2809,11 +2809,11 @@
         },
         {
             "name": "spryker/category",
-            "version": "4.0.3",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Category.git",
-                "reference": "94c37c267170ab7118dae19a1ece98b746350007",
+                "reference": "d2d897e48af6619a35f964d19fe7fd0e260724e6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2823,8 +2823,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Category/zipball/94c37c267170ab7118dae19a1ece98b746350007",
-                "reference": "94c37c267170ab7118dae19a1ece98b746350007",
+                "url": "https://api.github.com/repos/spryker/Category/zipball/d2d897e48af6619a35f964d19fe7fd0e260724e6",
+                "reference": "d2d897e48af6619a35f964d19fe7fd0e260724e6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2881,9 +2881,9 @@
             ],
             "description": "Category module",
             "support": {
-                "source": "https://github.com/spryker/Category/tree/4.0.3"
+                "source": "https://github.com/spryker/Category/tree/master"
             },
-            "time": "2017-08-14T12:49:32+00:00"
+            "time": "2017-08-24T16:17:46+00:00"
         },
         {
             "name": "spryker/category-data-feed",
@@ -3234,11 +3234,11 @@
         },
         {
             "name": "spryker/cms-block-category-connector",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsBlockCategoryConnector.git",
-                "reference": "e45cf06f4408f8941c14d53d8d25411abebe220c",
+                "reference": "37f678970742c4ba7eee68271c03eeebb8d1673c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3248,8 +3248,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockCategoryConnector/zipball/e45cf06f4408f8941c14d53d8d25411abebe220c",
-                "reference": "e45cf06f4408f8941c14d53d8d25411abebe220c",
+                "url": "https://api.github.com/repos/spryker/CmsBlockCategoryConnector/zipball/37f678970742c4ba7eee68271c03eeebb8d1673c",
+                "reference": "37f678970742c4ba7eee68271c03eeebb8d1673c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3303,9 +3303,9 @@
             ],
             "description": "CmsBlockCategoryConnector module",
             "support": {
-                "source": "https://github.com/spryker/CmsBlockCategoryConnector/tree/2.0.1"
+                "source": "https://github.com/spryker/CmsBlockCategoryConnector/tree/master"
             },
-            "time": "2017-07-28T08:49:25+00:00"
+            "time": "2017-08-24T16:17:46+00:00"
         },
         {
             "name": "spryker/cms-block-collector",
@@ -8664,11 +8664,11 @@
         },
         {
             "name": "spryker/product-management",
-            "version": "0.7.7",
+            "version": "0.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductManagement.git",
-                "reference": "6225fe6418b8edc7797d5533b8c746c4c782bb0c",
+                "reference": "aaf43c84011d00b2da3f4b7bdb51465c6e71aed7",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8678,8 +8678,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/6225fe6418b8edc7797d5533b8c746c4c782bb0c",
-                "reference": "6225fe6418b8edc7797d5533b8c746c4c782bb0c",
+                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/aaf43c84011d00b2da3f4b7bdb51465c6e71aed7",
+                "reference": "aaf43c84011d00b2da3f4b7bdb51465c6e71aed7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8738,9 +8738,9 @@
             ],
             "description": "ProductManagement module",
             "support": {
-                "source": "https://github.com/spryker/ProductManagement/tree/0.7.7"
+                "source": "https://github.com/spryker/ProductManagement/tree/0.7.8"
             },
-            "time": "2017-08-15T16:49:16+00:00"
+            "time": "2017-08-28T15:28:12+00:00"
         },
         {
             "name": "spryker/product-new",
@@ -14639,7 +14639,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jens-AndrÃ© Koch",
+                    "name": "Jens-André Koch",
                     "email": "jakoch@web.de"
                 }
             ],
@@ -15161,7 +15161,7 @@
                     "role": "Contributors"
                 },
                 {
-                    "name": "Marc WÃ¼rth",
+                    "name": "Marc Würth",
                     "email": "ravage@bluewin.ch",
                     "homepage": "https://github.com/ravage84",
                     "role": "Project Maintainer"
@@ -16745,11 +16745,11 @@
         },
         {
             "name": "spryker/testify",
-            "version": "3.2.10",
+            "version": "3.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Testify.git",
-                "reference": "cfc1c46c1a66e05d1ed207c94eec2a7fb792525e",
+                "reference": "8a833216c5f54b91091db23650f0c2e9e029197d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -16759,8 +16759,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Testify/zipball/cfc1c46c1a66e05d1ed207c94eec2a7fb792525e",
-                "reference": "cfc1c46c1a66e05d1ed207c94eec2a7fb792525e",
+                "url": "https://api.github.com/repos/spryker/Testify/zipball/8a833216c5f54b91091db23650f0c2e9e029197d",
+                "reference": "8a833216c5f54b91091db23650f0c2e9e029197d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -16816,9 +16816,9 @@
             ],
             "description": "Testify module",
             "support": {
-                "source": "https://github.com/spryker/Testify/tree/3.2.10"
+                "source": "https://github.com/spryker/Testify/tree/master"
             },
-            "time": "2017-08-15T08:41:44+00:00"
+            "time": "2017-08-24T15:08:18+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -17010,7 +17010,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-FranÃ§ois Simon",
+                    "name": "Jean-François Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
