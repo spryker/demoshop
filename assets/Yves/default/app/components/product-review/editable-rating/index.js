@@ -8,9 +8,9 @@
 var $ = require('jquery');
 require('jquery-bar-rating');
 
-const RATING_THEME = 'fontawesome-stars-o';
-const IGNORED_RATING_VALUE = -1;
-const EDITABLE_RATING_BAR_SELECTOR = 'select';
+var RATING_THEME = 'fontawesome-stars-o';
+var IGNORED_RATING_VALUE = -1;
+var EDITABLE_RATING_BAR_SELECTOR = 'select';
 
 module.exports = {
     name: 'product-review-editable-rating',

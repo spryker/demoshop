@@ -7,8 +7,8 @@
 
 var $ = require('jquery');
 
-const ADD_REVIEW_BUTTON_SELECTOR = '.js-button-add-review';
-const PRODUCT_REVIEW_FORM_SELECTOR = '.js-form-product-review';
+var ADD_REVIEW_BUTTON_SELECTOR = '.js-button-add-review';
+var PRODUCT_REVIEW_FORM_SELECTOR = '.js-form-product-review';
 
 module.exports = {
     name: 'product-review-summary',
