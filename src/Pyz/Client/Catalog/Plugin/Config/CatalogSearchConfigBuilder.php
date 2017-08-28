@@ -143,14 +143,14 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addProductRatingFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
-        $productLabelFacetTransfer = (new FacetConfigTransfer())
+        $productRatingFacetTransfer = (new FacetConfigTransfer())
             ->setName(static::RATING_FACET_NAME)
             ->setParameterName(static::RATING_FACET_NAME)
             ->setFieldName(PageIndexMap::INTEGER_FACET)
             ->setType(SearchConfig::FACET_TYPE_RANGE)
             ->setValueTransformer(ProductRatingValueTransformer::class);
 
-        $facetConfigBuilder->addFacet($productLabelFacetTransfer);
+        $facetConfigBuilder->addFacet($productRatingFacetTransfer);
 
         return $this;
     }
@@ -179,13 +179,13 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addDescendingRatingSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
-        $ascendingNameSortConfig = (new SortConfigTransfer())
-            ->setName('rating')
-            ->setParameterName('rating')
+        $descendingRatingSortConfig = (new SortConfigTransfer())
+            ->setName(static::RATING_FACET_NAME)
+            ->setParameterName(static::RATING_FACET_NAME)
             ->setFieldName(PageIndexMap::INTEGER_SORT)
             ->setIsDescending(true);
 
-        $sortConfigBuilder->addSort($ascendingNameSortConfig);
+        $sortConfigBuilder->addSort($descendingRatingSortConfig);
 
         return $this;
     }
