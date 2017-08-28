@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a18a17b4255bdc4ee37164ca1e13ba082078ab7e"
+                "reference": "6c9b379379d9250d67e74874b795401bf7b7f340"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1803,7 +1803,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-25T08:57:44+00:00"
+            "time": "2017-08-28T08:35:55+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5344,16 +5344,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.8.3",
+            "version": "0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ccc046ca473dcdb5ce9225cc05d7808f2e327f40"
+                "reference": "7745ab983ff05e0c4ca2c94e26c113ab734db3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ccc046ca473dcdb5ce9225cc05d7808f2e327f40",
-                "reference": "ccc046ca473dcdb5ce9225cc05d7808f2e327f40",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7745ab983ff05e0c4ca2c94e26c113ab734db3ce",
+                "reference": "7745ab983ff05e0c4ca2c94e26c113ab734db3ce",
                 "shasum": ""
             },
             "require": {
@@ -5394,7 +5394,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2017-08-15T18:51:04+00:00"
+            "time": "2017-08-25T08:18:24+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
