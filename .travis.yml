@@ -29,7 +29,6 @@ matrix:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
           - DB=mysql
-          - PHPSTAN=1
      - php: "5.6"
        env:
           - TEST_GROUP=acceptance
