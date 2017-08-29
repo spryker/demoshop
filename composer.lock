@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "803b8588784518a7f13683bf230f2c09",
+    "content-hash": "3d641a50f9350999de94a6ee80b19bc6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-1807-shipment-carriers-listing",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "eda11135a6e3d4a5f673111f6b5198a5efd812dd"
+                "reference": "439aef6729198b22ef769dd4db700db0d974df00"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1803,7 +1803,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-23T07:21:54+00:00"
+            "time": "2017-08-29T09:26:41+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5344,16 +5344,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.8.3",
+            "version": "0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ccc046ca473dcdb5ce9225cc05d7808f2e327f40"
+                "reference": "7745ab983ff05e0c4ca2c94e26c113ab734db3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ccc046ca473dcdb5ce9225cc05d7808f2e327f40",
-                "reference": "ccc046ca473dcdb5ce9225cc05d7808f2e327f40",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7745ab983ff05e0c4ca2c94e26c113ab734db3ce",
+                "reference": "7745ab983ff05e0c4ca2c94e26c113ab734db3ce",
                 "shasum": ""
             },
             "require": {
@@ -5394,7 +5394,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2017-08-15T18:51:04+00:00"
+            "time": "2017-08-25T08:18:24+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -6631,7 +6631,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/architecture-sniffer.git",
-                "reference": "d3218c5f8a70a845096d8fe2ece354e5aad470f3"
+                "reference": "2f4ce943dbb699e489fb499cb08246ac71403213"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6683,7 +6683,7 @@
             "support": {
                 "source": "https://github.com/spryker/architecture-sniffer"
             },
-            "time": "2017-08-02T10:03:12+00:00"
+            "time": "2017-08-22T14:34:32+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6734,12 +6734,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "cace33774259596d0e1f2267afb5b906bcae71b9"
+                "reference": "d361f4f2b7f58e122527421601f296ab322a5f67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/cace33774259596d0e1f2267afb5b906bcae71b9",
-                "reference": "cace33774259596d0e1f2267afb5b906bcae71b9",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/d361f4f2b7f58e122527421601f296ab322a5f67",
+                "reference": "d361f4f2b7f58e122527421601f296ab322a5f67",
                 "shasum": ""
             },
             "require": {
@@ -6749,6 +6749,9 @@
             "require-dev": {
                 "phpunit/phpunit": "<5.0"
             },
+            "bin": [
+                "bin/tokenize"
+            ],
             "type": "phpcodesniffer-standard",
             "autoload": {
                 "psr-4": {
@@ -6773,7 +6776,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-16T12:37:39+00:00"
+            "time": "2017-08-24T12:41:29+00:00"
         },
         {
             "name": "spryker/git-hook",

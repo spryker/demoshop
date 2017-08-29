@@ -12,6 +12,7 @@ use Exception;
 use PyzTest\Zed\PropelOrm\Stub\ProductManagerStub;
 use Spryker\Zed\Product\Business\ProductFacade;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
+use Throwable;
 
 /**
  * Auto-generated group annotations
@@ -91,9 +92,9 @@ class PropelOrmTransactionHandlerTest extends Test
 
         try {
             $productManager->addProductWithoutTransactionHandlingShouldThrowException(static::TEST_SKU, static::TEST_NAME);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
 
         }
 
