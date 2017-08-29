@@ -973,3 +973,7 @@ product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
 customer.order.canceledTotal,Canceled amount,en_US
 customer.order.canceledTotal,Stornobetrag,de_DE
+product-cart.validation.error.abstract-product-exists,"Product abstract not found",en_US
+product-cart.validation.error.abstract-product-exists,"Product abstract nicht gefunden",de_DE
+product-cart.validation.error.concrete-product-exists,"Product concrete not found",en_US
+product-cart.validation.error.concrete-product-exists,"Product concrete nicht gefunden",de_DE
