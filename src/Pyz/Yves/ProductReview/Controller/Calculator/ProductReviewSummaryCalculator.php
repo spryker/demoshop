@@ -57,7 +57,7 @@ class ProductReviewSummaryCalculator implements ProductReviewSummaryCalculatorIn
     protected function getAverageRating(array $ratingAggregation, $totalReview)
     {
         if ($totalReview === 0) {
-            return 0;
+            return 0.0;
         }
 
         $totalRating = $this->getTotalRating($ratingAggregation);

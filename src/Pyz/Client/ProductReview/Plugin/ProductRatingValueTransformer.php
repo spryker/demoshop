@@ -12,6 +12,9 @@ use Spryker\Client\Search\Dependency\Plugin\FacetSearchResultValueTransformerPlu
 class ProductRatingValueTransformer implements FacetSearchResultValueTransformerPluginInterface
 {
 
+    const CONVERSION_PRECISION = 100;
+    const RATING_VALUE_TOLERANCE = 25;
+
     /**
      * @param array $rangeValues
      *
@@ -61,7 +64,7 @@ class ProductRatingValueTransformer implements FacetSearchResultValueTransformer
      */
     protected function normalizeRatingForDisplay($filteredRating)
     {
-        return (int)round($filteredRating / 100);
+        return (int)round($filteredRating / static::CONVERSION_PRECISION);
     }
 
     /**
@@ -71,7 +74,7 @@ class ProductRatingValueTransformer implements FacetSearchResultValueTransformer
      */
     protected function normalizeRatingForFilter($displayedRating)
     {
-        return $displayedRating * 100;
+        return $displayedRating * static::CONVERSION_PRECISION;
     }
 
     /**
@@ -81,7 +84,7 @@ class ProductRatingValueTransformer implements FacetSearchResultValueTransformer
      */
     protected function adjustLowerThreshold($filteredRating)
     {
-        return $filteredRating - 25;
+        return $filteredRating - static::RATING_VALUE_TOLERANCE;
     }
 
     /**
@@ -91,7 +94,7 @@ class ProductRatingValueTransformer implements FacetSearchResultValueTransformer
      */
     protected function adjustUpperThreshold($filteredRating)
     {
-        return $filteredRating + 25;
+        return $filteredRating + static::RATING_VALUE_TOLERANCE;
     }
 
 }
