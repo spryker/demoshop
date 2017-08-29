@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.35.0",
+            "version": "3.35.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e9691180888d2679b24cbad1f805e48aadd1a346"
+                "reference": "b4391177bda332c226afcde73a12068547834535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e9691180888d2679b24cbad1f805e48aadd1a346",
-                "reference": "e9691180888d2679b24cbad1f805e48aadd1a346",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b4391177bda332c226afcde73a12068547834535",
+                "reference": "b4391177bda332c226afcde73a12068547834535",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-08-25T23:24:46+00:00"
+            "time": "2017-08-29T15:23:50+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -9705,14 +9705,26 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "8315b6d650378462f0310730f3940776487e04df",
+                "reference": "d9d5ac08623b6810307168c0b904804d8b86ae69",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/d9d5ac08623b6810307168c0b904804d8b86ae69",
+                "reference": "d9d5ac08623b6810307168c0b904804d8b86ae69",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9724,14 +9736,15 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "RabbitMq\\": "src"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "RabbitMq\\Test\\": "tests"
+                    "Spryker\\Test\\": "tests"
                 }
             },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
@@ -9755,7 +9768,7 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-07-14T09:20:08+00:00"
+            "time": "2017-08-29T14:34:18+00:00"
         },
         {
             "name": "spryker/redis",
