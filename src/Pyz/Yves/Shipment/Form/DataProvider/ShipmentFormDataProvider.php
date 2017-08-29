@@ -99,7 +99,10 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 
         $shipmentMethodsTransfer = $this->getAvailableShipmentMethods($quoteTransfer);
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodTransfer) {
-            $shipmentMethods[$shipmentMethodTransfer->getIdShipmentMethod()] = $this->getShipmentDescription(
+            if (!isset($shipmentMethods[$shipmentMethodTransfer->getCarrierName()])) {
+                $shipmentMethods[$shipmentMethodTransfer->getCarrierName()] = [];
+            }
+            $shipmentMethods[$shipmentMethodTransfer->getCarrierName()][$shipmentMethodTransfer->getIdShipmentMethod()] = $this->getShipmentDescription(
                 $shipmentMethodTransfer
             );
         }
