@@ -354,7 +354,7 @@
             ],
             "authors": [
                 {
-                    "name": "François Zaninotto"
+                    "name": "Fran??ois Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
@@ -836,7 +836,7 @@
                     "email": "f.bosch@genkgo.nl"
                 },
                 {
-                    "name": "Márk Sági-Kazár",
+                    "name": "M??rk S??gi-Kaz??r",
                     "email": "mark.sagi-kazar@gmail.com"
                 }
             ],
@@ -1077,7 +1077,7 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Raúl Araya",
+                    "name": "Ra??l Araya",
                     "email": "nubeiro@gmail.com",
                     "role": "Maintainer"
                 }
@@ -4290,7 +4290,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jens-André Koch",
+                    "name": "Jens-Andr?? Koch",
                     "email": "jakoch@web.de"
                 }
             ],
@@ -4740,7 +4740,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "description": "???? Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "autoload",
@@ -5263,7 +5263,7 @@
                     "role": "Contributors"
                 },
                 {
-                    "name": "Marc Würth",
+                    "name": "Marc W??rth",
                     "email": "ravage@bluewin.ch",
                     "homepage": "https://github.com/ravage84",
                     "role": "Project Maintainer"
@@ -5345,16 +5345,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.8.3",
+            "version": "0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ccc046ca473dcdb5ce9225cc05d7808f2e327f40"
+                "reference": "7745ab983ff05e0c4ca2c94e26c113ab734db3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ccc046ca473dcdb5ce9225cc05d7808f2e327f40",
-                "reference": "ccc046ca473dcdb5ce9225cc05d7808f2e327f40",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7745ab983ff05e0c4ca2c94e26c113ab734db3ce",
+                "reference": "7745ab983ff05e0c4ca2c94e26c113ab734db3ce",
                 "shasum": ""
             },
             "require": {
@@ -5395,7 +5395,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2017-08-15T18:51:04+00:00"
+            "time": "2017-08-25T08:18:24+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -7028,7 +7028,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-François Simon",
+                    "name": "Jean-Fran??ois Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
