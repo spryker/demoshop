@@ -25,6 +25,8 @@ use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\Ship
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentCarrierPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentMethodPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentPricePlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormDataExpanderPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionViewBlockProviderPlugin;
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
@@ -109,8 +111,6 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     }
 
     /**
-     * This plugin allows to expand DiscountConfigurationTransfer when using
-     *
      * @return \Spryker\Zed\Discount\Dependency\Plugin\Form\DiscountFormExpanderPluginInterface[]
      */
     protected function getDiscountFormExpanderPlugins()
@@ -120,4 +120,23 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
         ];
     }
 
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\Form\DiscountFormDataProviderExpanderPluginInterface[]
+     */
+    protected function getDiscountFormDataProviderExpanderPlugins()
+    {
+        return [
+            new DiscountPromotionCalculationFormDataExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountViewBlockProviderPluginInterface[]
+     */
+    protected function getDiscountViewTemplateProviderPlugins()
+    {
+        return [
+            new DiscountPromotionViewBlockProviderPlugin(),
+        ];
+    }
 }

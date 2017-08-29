@@ -1,8 +1,8 @@
 {% if cart.promotionItems|length > 0 %}
     <div class="small-12 columns">
         <h1> {{ 'cart.promotion.items' | trans }}</h1>
-        {% for promotionItem in promotionProducts %}
-            {% include '@cart/cart/parts/cart-item.twig' with { cartItem: promotionItem, promotionItem: true } %}
+        {% for promotionStorageProduct in promotionStorageProducts %}
+            {% include '@DiscountPromotion/discount-promotion/item.twig' %}
         {% endfor %}
     </div>
 {% endif %}

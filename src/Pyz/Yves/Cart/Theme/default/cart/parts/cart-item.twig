@@ -1,17 +1,7 @@
 <div class="callout cart-item">
     <div class="row">
-        {# Product Image #}
 
-        {% set productImage = cartItem.images | first %}
-        {% if productImage is not empty %}
-            <div class="cart-item__image-container small-3 large-2 columns">
-                <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}"/>
-            </div>
-        {% else %}
-            <div class="small-3 large-2 columns text-center">
-                <small>{{ 'global.no_image_available' | trans }}</small>
-            </div>
-        {% endif %}
+        {% include '@Cart/cart/parts/cart-images.twig' %}
 
         <div class="small-9 large-expand columns">
             <ul class="no-bullet">
@@ -32,31 +22,13 @@
                         </ul>
                     </li>
                 {% else %}
-                  {% if promotionItem is defined %}
-                      {% include '@DiscountPromotion/discount-promotion/product-variants.twig' %}
-                  {% else %}
                       {% include '@Cart/cart/parts/cart-product-variants.twig' %}
-                  {% endif %}
                 {% endif %}
             </ul>
         </div>
 
-        {# Prices and Product Options #}
-        {% if promotionItem is defined %}
-            {% include '@DiscountPromotion/discount-promotion/item-prices.twig' %}
-        {% else %}
-            {% include '@Cart/cart/parts/cart-item-prices.twig' %}
-        {% endif %}
+        {% include '@Cart/cart/parts/cart-item-prices.twig' %}
 
-        {# Quantity #}
-        <div class="small-4 medium-3 large-2 columns">
-            <ul class="no-bullet">
-                {% if promotionItem is defined %}
-                    {% include '@DiscountPromotion/discount-promotion/add-to-cart.twig' %}
-                {% else %}
-                    {% include '@Cart/cart/parts/cart-add-to-cart.twig' %}
-                {% endif %}
-            </ul>
-        </div>
+        {% include '@Cart/cart/parts/cart-add-to-cart.twig' %}
     </div>
 </div>

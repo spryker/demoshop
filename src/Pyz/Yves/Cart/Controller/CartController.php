@@ -46,7 +46,7 @@ class CartController extends AbstractController
             ->createCartItemsAttributeProvider()
             ->getItemsAttributes($quoteTransfer, $selectedAttributes);
 
-        $promotionProducts = $this->getFactory()
+        $promotionStorageProducts = $this->getFactory()
             ->getProductPromotionMapperPlugin()
             ->mapPromotionItemsFromProductStorage(
                 $quoteTransfer,
@@ -59,7 +59,7 @@ class CartController extends AbstractController
             'attributes' => $itemAttributesBySku,
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
-            'promotionProducts' => $promotionProducts,
+            'promotionStorageProducts' => $promotionStorageProducts,
         ]);
     }
 

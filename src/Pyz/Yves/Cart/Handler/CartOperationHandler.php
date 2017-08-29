@@ -60,7 +60,7 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
         $itemTransfer->setQuantity($quantity);
-        $itemTransfer->setIsPromotion((bool)$this->request->request->get('isPromo'));
+        $itemTransfer->setIdDiscountPromotion($this->getIdDiscountPromotion());
 
         $this->addProductOptions($optionValueUsageIds, $itemTransfer);
 
@@ -148,4 +148,11 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
         }
     }
 
+    /**
+     * @return int
+     */
+    protected function getIdDiscountPromotion()
+    {
+        return (int)$this->request->request->get('idDiscountPromotion');
+    }
 }

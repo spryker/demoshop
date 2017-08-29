@@ -1,31 +1,34 @@
-<li>
-    <form method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
-        <label>
-            <strong>{{ 'cart.item_quantity' | trans }}</strong>
-            <span class="input-group __no-margin-bottom">
+<div class="small-4 medium-3 large-2 columns">
+    <ul class="no-bullet">
+        <li>
+            <form method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
+                <label>
+                    <strong>{{ 'cart.item_quantity' | trans }}</strong>
+                    <span class="input-group __no-margin-bottom">
 
-                 {% if not cartItem.maxQuantity or cartItem.maxQuantity < 0 %}
-                     <input class="input-group-field" type="number" value="{{ cartItem.quantity }}" name="quantity">
-                 {% else %}
-                     <select name="quantity">
-                        {% for i in range(1, cartItem.maxQuantity) %}
-                            <option {{ (i == cartItem.quantity) ? 'selected' : '' }} value="{{ i }}">{{ i }}</option>
-                        {% endfor %}
-                     </select>
-                 {% endif %}
+                         {% if not cartItem.maxQuantity or cartItem.maxQuantity < 0 %}
+                             <input class="input-group-field" type="number" value="{{ cartItem.quantity }}" name="quantity">
+                         {% else %}
+                             <select name="quantity">
+                                {% for i in range(1, cartItem.maxQuantity) %}
+                                    <option {{ (i == cartItem.quantity) ? 'selected' : '' }} value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                             </select>
+                         {% endif %}
 
-                <span class="input-group-button">
-                                    <button type="submit" class="button expanded __no-margin-bottom"><i
-                                                class="fa fa-refresh"></i></button>
-                </span>
+                        <span class="input-group-button">
+                            <button type="submit" class="button expanded __no-margin-bottom"><i class="fa fa-refresh"></i></button>
+                        </span>
 
-             </span>
-        </label>
-        <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
-    </form>
-</li>
-<li>
-    <a href="/cart/remove/{{ cartItem.sku }}/{{ cartItem.groupKey }}">&times;
-        <small>{{ 'remove' | trans }}</small>
-    </a>
-</li>
+                     </span>
+                </label>
+                <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
+            </form>
+        </li>
+        <li>
+            <a href="/cart/remove/{{ cartItem.sku }}/{{ cartItem.groupKey }}">&times;
+                <small>{{ 'remove' | trans }}</small>
+            </a>
+        </li>
+    </ul>
+</div>
