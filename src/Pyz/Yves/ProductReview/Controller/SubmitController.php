@@ -9,7 +9,6 @@ namespace Pyz\Yves\ProductReview\Controller;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
-use Spryker\Shared\ProductReview\Exception\RatingOutOfRangeException;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
@@ -41,6 +40,10 @@ class SubmitController extends AbstractController
         $isFormEmpty = !$productReviewForm->isSubmitted();
         $isReviewPosted = $this->processProductReviewForm($productReviewForm, $customer);
 
+        if ($isReviewPosted) {
+            $productReviewForm = $this->getFactory()->createProductReviewForm($idProductAbstract);
+        }
+
         return [
             'hideForm' => $isFormEmpty || $isReviewPosted,
             'form' => $productReviewForm->createView(),
@@ -71,19 +74,19 @@ class SubmitController extends AbstractController
             return false;
         }
 
-        try {
-            $this->getFactory()->getProductReviewClient()->submitCustomerReview(
+        $productReviewResponseTransfer = $this->getFactory()->getProductReviewClient()->submitCustomerReview(
                 $this->getProductReviewFormData($form)
                     ->setCustomerReference($customerReference)
                     ->setLocaleName($this->getLocale())
-            );
+        );
 
+        if ($productReviewResponseTransfer->getIsSuccess()) {
             return true;
-        } catch (RatingOutOfRangeException $exception) {
-            $form->addError(new FormError($exception->getMessage()));
-
-            return false;
         }
+
+        $form->addError(new FormError($productReviewResponseTransfer->getErrors()[0]->getMessage()));
+
+        return false;
     }
 
     /**
