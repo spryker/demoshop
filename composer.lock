@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb3815920c9a4c800f621e4c2982dcab",
+    "content-hash": "b291243fe6abd9b62dd3697fb44be968",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1650,12 +1650,12 @@
             "time": "2017-04-30T16:26:54+00:00"
         },
         {
-            "name": "spryker/acl",
-            "version": "3.0.1",
+            "name": "spryker-eco/payone",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Acl.git",
-                "reference": "c20fcdbcc7e9860cf6ffcc2511f6c7458d1aee56",
+                "url": "git@github.com:spryker-eco/payone.git",
+                "reference": "298f3235301e04c1d141da621352cc33fb62cf55",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -1665,12 +1665,85 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Acl/zipball/c20fcdbcc7e9860cf6ffcc2511f6c7458d1aee56",
-                "reference": "c20fcdbcc7e9860cf6ffcc2511f6c7458d1aee56",
+                "url": "https://api.github.com/repos/spryker-eco/payone/zipball/298f3235301e04c1d141da621352cc33fb62cf55",
+                "reference": "298f3235301e04c1d141da621352cc33fb62cf55",
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/config": "^3.0.0",
+                "spryker/guzzle": "^2.1.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/oms": "^6.0.0 || ^7.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/refund": "^4.0.0 || ^5.0.0",
+                "spryker/sales": "^5.0.0 || ^6.0.0 || ^7.0.0",
+                "spryker/symfony": "^3.0.0"
+            },
+            "replace": {
+                "spryker/payone": "*"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SprykerEco": "src/",
+                    "Function": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Payone module",
+            "time": "2017-08-09T16:49:06+00:00"
+        },
+        {
+            "name": "spryker/acl",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/Acl.git",
+                "reference": "9ff2b9651da0dea9d544fcbe315345b29e02e76f",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Acl/zipball/9ff2b9651da0dea9d544fcbe315345b29e02e76f",
+                "reference": "9ff2b9651da0dea9d544fcbe315345b29e02e76f",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -1716,9 +1789,9 @@
             ],
             "description": "Acl module",
             "support": {
-                "source": "https://github.com/spryker/Acl/tree/master"
+                "source": "https://github.com/spryker/Acl/tree/3.0.2"
             },
-            "time": "2017-08-01T04:28:10+00:00"
+            "time": "2017-08-29T09:44:02+00:00"
         },
         {
             "name": "spryker/api",
@@ -1741,7 +1814,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -1784,6 +1857,9 @@
                 "proprietary"
             ],
             "description": "Api module",
+            "support": {
+                "source": "https://github.com/spryker/Api/tree/0.1.2"
+            },
             "time": "2017-07-13T16:43:49+00:00"
         },
         {
@@ -1807,7 +1883,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -1852,6 +1928,9 @@
                 "proprietary"
             ],
             "description": "ApiQueryBuilder bundle",
+            "support": {
+                "source": "https://github.com/spryker/ApiQueryBuilder/tree/master"
+            },
             "time": "2017-05-17T15:39:19+00:00"
         },
         {
@@ -1875,7 +1954,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -1953,7 +2032,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -1991,7 +2070,7 @@
             ],
             "description": "Assertion bundle",
             "support": {
-                "source": "https://github.com/spryker/Assertion/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Assertion/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -2016,7 +2095,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2062,7 +2141,7 @@
             ],
             "description": "Auth bundle",
             "support": {
-                "source": "https://github.com/spryker/Auth/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Auth/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -2087,7 +2166,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2125,7 +2204,7 @@
             ],
             "description": "AuthMailConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/AuthMailConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/AuthMailConnector/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -2150,7 +2229,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2198,6 +2277,9 @@
                 "proprietary"
             ],
             "description": "Availability bundle",
+            "support": {
+                "source": "https://github.com/spryker/Availability/tree/master"
+            },
             "time": "2017-06-15T10:05:40+00:00"
         },
         {
@@ -2221,7 +2303,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2259,7 +2341,7 @@
             ],
             "description": "AvailabilityCartConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/AvailabilityCartConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/AvailabilityCartConnector/tree/4.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -2284,7 +2366,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2326,7 +2408,7 @@
             ],
             "description": "Availability DataFeed bundle",
             "support": {
-                "source": "https://github.com/spryker/AvailabilityDataFeed/tree/master"
+                "source": "https://github.com/spryker/AvailabilityDataFeed/tree/0.1.1"
             },
             "time": "2017-04-13T12:53:00+00:00"
         },
@@ -2351,7 +2433,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2398,7 +2480,7 @@
             ],
             "description": "AvailabilityGui module",
             "support": {
-                "source": "https://github.com/spryker/AvailabilityGui/tree/master"
+                "source": "https://github.com/spryker/AvailabilityGui/tree/2.0.3"
             },
             "time": "2017-08-01T04:28:05+00:00"
         },
@@ -2423,7 +2505,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2510,7 +2592,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2565,7 +2647,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2630,7 +2712,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2700,7 +2782,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2764,7 +2846,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2803,7 +2885,7 @@
             ],
             "description": "Catalog bundle",
             "support": {
-                "source": "https://github.com/spryker/Catalog/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Catalog/tree/5.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -2828,7 +2910,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2906,7 +2988,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -2971,7 +3053,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3028,7 +3110,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3104,7 +3186,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3181,7 +3263,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3253,7 +3335,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3328,7 +3410,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3395,7 +3477,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3436,6 +3518,9 @@
                 "proprietary"
             ],
             "description": "CmsBlockGui module",
+            "support": {
+                "source": "https://github.com/spryker/CmsBlockGui/tree/1.1.2"
+            },
             "time": "2017-08-11T10:16:55+00:00"
         },
         {
@@ -3459,7 +3544,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3532,7 +3617,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3576,6 +3661,9 @@
                 "proprietary"
             ],
             "description": "CmsCollector module",
+            "support": {
+                "source": "https://github.com/spryker/CmsCollector/tree/master"
+            },
             "time": "2017-07-20T14:28:53+00:00"
         },
         {
@@ -3599,7 +3687,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3673,7 +3761,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3740,7 +3828,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3803,7 +3891,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3871,7 +3959,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3917,6 +4005,9 @@
                 "proprietary"
             ],
             "description": "CmsGui module",
+            "support": {
+                "source": "https://github.com/spryker/CmsGui/tree/4.2.4"
+            },
             "time": "2017-08-14T09:39:18+00:00"
         },
         {
@@ -3940,7 +4031,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -3978,6 +4069,9 @@
                 "proprietary"
             ],
             "description": "CmsUserConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/CmsUserConnector/tree/master"
+            },
             "time": "2017-06-29T10:18:58+00:00"
         },
         {
@@ -4001,7 +4095,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4074,7 +4168,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4105,7 +4199,7 @@
             ],
             "description": "CollectorSearchConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/CollectorSearchConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/CollectorSearchConnector/tree/1.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -4130,7 +4224,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4186,7 +4280,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4252,7 +4346,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4299,6 +4393,9 @@
                 "proprietary"
             ],
             "description": "Console module",
+            "support": {
+                "source": "https://github.com/spryker/Console/tree/master"
+            },
             "time": "2017-07-14T13:56:48+00:00"
         },
         {
@@ -4322,7 +4419,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4364,7 +4461,7 @@
             ],
             "description": "Country bundle",
             "support": {
-                "source": "https://github.com/spryker/Country/tree/master"
+                "source": "https://github.com/spryker/Country/tree/3.1.0"
             },
             "time": "2017-03-10T16:32:01+00:00"
         },
@@ -4389,7 +4486,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4464,7 +4561,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4553,7 +4650,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4628,7 +4725,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4704,7 +4801,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4773,7 +4870,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4810,6 +4907,9 @@
                 "proprietary"
             ],
             "description": "DataImport module",
+            "support": {
+                "source": "https://github.com/spryker/DataImport/tree/master"
+            },
             "time": "2017-07-21T12:58:10+00:00"
         },
         {
@@ -4833,7 +4933,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4912,7 +5012,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -4950,6 +5050,9 @@
                 "proprietary"
             ],
             "description": "DiscountCalculationConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/DiscountCalculationConnector/tree/beta/calculation"
+            },
             "time": "2017-05-17T13:56:41+00:00"
         },
         {
@@ -4973,7 +5076,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5023,7 +5126,7 @@
             ],
             "description": "DummyPayment module",
             "support": {
-                "source": "https://github.com/spryker/DummyPayment/tree/2.1.0"
+                "source": "https://github.com/spryker/DummyPayment/tree/master"
             },
             "time": "2017-08-28T16:44:00+00:00"
         },
@@ -5048,7 +5151,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5068,7 +5171,7 @@
             ],
             "description": "elastica bundle",
             "support": {
-                "source": "https://github.com/spryker/Elastica/tree/master"
+                "source": "https://github.com/spryker/Elastica/tree/3.0.0"
             },
             "time": "2016-06-14T11:55:42+00:00"
         },
@@ -5093,7 +5196,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5159,7 +5262,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5201,7 +5304,7 @@
             ],
             "description": "Event bundle",
             "support": {
-                "source": "https://github.com/spryker/Event/tree/master"
+                "source": "https://github.com/spryker/Event/tree/1.0.1"
             },
             "time": "2017-04-04T12:30:05+00:00"
         },
@@ -5226,7 +5329,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5265,7 +5368,7 @@
             ],
             "description": "EventJournal bundle",
             "support": {
-                "source": "https://github.com/spryker/EventJournal/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/EventJournal/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -5290,7 +5393,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5322,6 +5425,9 @@
                 "proprietary"
             ],
             "description": "FileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FileSystem/tree/master"
+            },
             "time": "2017-06-30T12:01:02+00:00"
         },
         {
@@ -5345,7 +5451,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5387,6 +5493,9 @@
                 "proprietary"
             ],
             "description": "Flysystem module",
+            "support": {
+                "source": "https://github.com/spryker/Flysystem/tree/master"
+            },
             "time": "2017-06-30T12:01:02+00:00"
         },
         {
@@ -5410,7 +5519,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5447,6 +5556,9 @@
                 "proprietary"
             ],
             "description": "FlysystemAws3v3FileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FlysystemAws3v3FileSystem/tree/master"
+            },
             "time": "2017-06-30T09:17:07+00:00"
         },
         {
@@ -5470,7 +5582,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5507,6 +5619,9 @@
                 "proprietary"
             ],
             "description": "FlysystemFtpFileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FlysystemFtpFileSystem/tree/master"
+            },
             "time": "2017-06-29T15:15:50+00:00"
         },
         {
@@ -5530,7 +5645,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5567,6 +5682,9 @@
                 "proprietary"
             ],
             "description": "FlysystemLocalFileSystem module",
+            "support": {
+                "source": "https://github.com/spryker/FlysystemLocalFileSystem/tree/master"
+            },
             "time": "2017-06-29T15:15:50+00:00"
         },
         {
@@ -5590,7 +5708,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5665,7 +5783,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5702,7 +5820,7 @@
             ],
             "description": "Graph bundle",
             "support": {
-                "source": "https://github.com/spryker/Graph/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Graph/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -5727,7 +5845,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5747,7 +5865,7 @@
             ],
             "description": "Graphviz module",
             "support": {
-                "source": "https://github.com/spryker/Graphviz/tree/master"
+                "source": "https://github.com/spryker/Graphviz/tree/2.0.1"
             },
             "time": "2017-08-02T16:31:17+00:00"
         },
@@ -5772,7 +5890,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5839,7 +5957,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5859,7 +5977,7 @@
             ],
             "description": "Guzzle bundle",
             "support": {
-                "source": "https://github.com/spryker/Guzzle/tree/master"
+                "source": "https://github.com/spryker/Guzzle/tree/2.1.0"
             },
             "time": "2016-08-19T08:27:58+00:00"
         },
@@ -5884,7 +6002,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5951,7 +6069,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -5977,7 +6095,7 @@
             ],
             "description": "Installer bundle",
             "support": {
-                "source": "https://github.com/spryker/Installer/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Installer/tree/4.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -6002,7 +6120,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6034,7 +6152,7 @@
             ],
             "description": "Invoice bundle",
             "support": {
-                "source": "https://github.com/spryker/Invoice/tree/master"
+                "source": "https://github.com/spryker/Invoice/tree/2.0.1"
             },
             "time": "2017-02-22T11:53:10+00:00"
         },
@@ -6059,7 +6177,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6103,7 +6221,7 @@
             ],
             "description": "Kernel module",
             "support": {
-                "source": "https://github.com/spryker/Kernel/tree/master"
+                "source": "https://github.com/spryker/Kernel/tree/3.5.1"
             },
             "time": "2017-08-03T05:18:01+00:00"
         },
@@ -6128,7 +6246,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6162,7 +6280,7 @@
             ],
             "description": "KeyBuilder bundle",
             "support": {
-                "source": "https://github.com/spryker/KeyBuilder/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/KeyBuilder/tree/1.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -6187,7 +6305,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6227,7 +6345,10 @@
                 "proprietary"
             ],
             "description": "Locale bundle",
-            "time": "2017-06-07T19:43:51+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Locale/tree/master"
+            },
+            "time": "2017-06-16T09:45:17+00:00"
         },
         {
             "name": "spryker/log",
@@ -6250,7 +6371,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6289,7 +6410,7 @@
             ],
             "description": "Log bundle",
             "support": {
-                "source": "https://github.com/spryker/Log/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Log/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -6314,7 +6435,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6383,7 +6504,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6420,7 +6541,7 @@
             ],
             "description": "Maintenance bundle",
             "support": {
-                "source": "https://github.com/spryker/Maintenance/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Maintenance/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -6445,7 +6566,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6465,7 +6586,7 @@
             ],
             "description": "mandrill bundle",
             "support": {
-                "source": "https://github.com/spryker/Mandrill/tree/master"
+                "source": "https://github.com/spryker/Mandrill/tree/2.0.0"
             },
             "time": "2016-04-01T13:06:05+00:00"
         },
@@ -6490,7 +6611,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6528,7 +6649,7 @@
             ],
             "description": "Messenger bundle",
             "support": {
-                "source": "https://github.com/spryker/Messenger/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Messenger/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -6553,7 +6674,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6627,7 +6748,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6672,7 +6793,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6743,7 +6864,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6786,7 +6907,7 @@
             ],
             "description": "NavigationCollector bundle",
             "support": {
-                "source": "https://github.com/spryker/NavigationCollector/tree/master"
+                "source": "https://github.com/spryker/NavigationCollector/tree/1.0.0"
             },
             "time": "2017-03-23T10:43:39+00:00"
         },
@@ -6811,7 +6932,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6855,6 +6976,9 @@
                 "proprietary"
             ],
             "description": "NavigationGui module",
+            "support": {
+                "source": "https://github.com/spryker/NavigationGui/tree/master"
+            },
             "time": "2017-07-24T14:43:50+00:00"
         },
         {
@@ -6878,7 +7002,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6948,7 +7072,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -6974,7 +7098,7 @@
             ],
             "description": "NewRelicApi bundle",
             "support": {
-                "source": "https://github.com/spryker/NewRelicApi/tree/master"
+                "source": "https://github.com/spryker/NewRelicApi/tree/1.0.0"
             },
             "time": "2017-02-22T11:52:23+00:00"
         },
@@ -6999,7 +7123,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7044,6 +7168,9 @@
                 "proprietary"
             ],
             "description": "Newsletter module",
+            "support": {
+                "source": "https://github.com/spryker/Newsletter/tree/4.1.4"
+            },
             "time": "2017-07-12T12:26:08+00:00"
         },
         {
@@ -7067,7 +7194,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7131,7 +7258,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7184,6 +7311,9 @@
                 "proprietary"
             ],
             "description": "Oms module",
+            "support": {
+                "source": "https://github.com/spryker/Oms/tree/master"
+            },
             "time": "2017-08-24T13:26:33+00:00"
         },
         {
@@ -7207,7 +7337,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7246,7 +7376,7 @@
             ],
             "description": "OmsDiscountConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/OmsDiscountConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/OmsDiscountConnector/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -7271,7 +7401,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7311,6 +7441,9 @@
                 "proprietary"
             ],
             "description": "Payment module",
+            "support": {
+                "source": "https://github.com/spryker/Payment/tree/4.0.0"
+            },
             "time": "2017-07-11T16:21:14+00:00"
         },
         {
@@ -7334,7 +7467,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7417,7 +7550,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7437,7 +7570,7 @@
             ],
             "description": "pimple bundle",
             "support": {
-                "source": "https://github.com/spryker/Pimple/tree/master"
+                "source": "https://github.com/spryker/Pimple/tree/2.0.0"
             },
             "time": "2016-04-01T13:06:05+00:00"
         },
@@ -7462,7 +7595,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7531,7 +7664,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7570,6 +7703,9 @@
                 "proprietary"
             ],
             "description": "PriceCartConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/PriceCartConnector/tree/beta/calculation"
+            },
             "time": "2017-06-12T07:10:18+00:00"
         },
         {
@@ -7593,7 +7729,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7632,7 +7768,7 @@
             ],
             "description": "Price DataFeed bundle",
             "support": {
-                "source": "https://github.com/spryker/PriceDataFeed/tree/master"
+                "source": "https://github.com/spryker/PriceDataFeed/tree/0.1.1"
             },
             "time": "2017-04-13T12:53:00+00:00"
         },
@@ -7657,7 +7793,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7707,6 +7843,9 @@
                 "proprietary"
             ],
             "description": "Product bundle",
+            "support": {
+                "source": "https://github.com/spryker/Product/tree/master"
+            },
             "time": "2017-06-19T14:53:23+00:00"
         },
         {
@@ -7730,7 +7869,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7770,6 +7909,9 @@
                 "proprietary"
             ],
             "description": "ProductAbstractDataFeed bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductAbstractDataFeed/tree/0.2.0"
+            },
             "time": "2017-05-12T12:33:31+00:00"
         },
         {
@@ -7793,7 +7935,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7842,6 +7984,9 @@
                 "proprietary"
             ],
             "description": "ProductApi bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductApi/tree/beta/core-990-product-api"
+            },
             "time": "2017-05-17T10:44:26+00:00"
         },
         {
@@ -7865,7 +8010,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -7943,7 +8088,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8012,7 +8157,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8060,7 +8205,7 @@
             ],
             "description": "ProductCategory module",
             "support": {
-                "source": "https://github.com/spryker/ProductCategory/tree/master"
+                "source": "https://github.com/spryker/ProductCategory/tree/4.3.0"
             },
             "time": "2017-08-15T14:16:14+00:00"
         },
@@ -8085,7 +8230,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8152,7 +8297,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8222,7 +8367,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8289,7 +8434,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8354,7 +8499,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8422,7 +8567,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8470,7 +8615,10 @@
                 "proprietary"
             ],
             "description": "ProductLabel module",
-            "time": "2017-07-20T13:51:52+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabel/tree/master"
+            },
+            "time": "2017-07-24T07:40:09+00:00"
         },
         {
             "name": "spryker/product-label-collector",
@@ -8493,7 +8641,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8534,7 +8682,10 @@
                 "proprietary"
             ],
             "description": "ProductLabelCollector module",
-            "time": "2017-07-18T08:30:47+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabelCollector/tree/master"
+            },
+            "time": "2017-07-24T07:40:06+00:00"
         },
         {
             "name": "spryker/product-label-discount-connector",
@@ -8557,7 +8708,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8619,7 +8770,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8660,7 +8811,10 @@
                 "proprietary"
             ],
             "description": "ProductLabelGui module",
-            "time": "2017-07-18T14:42:43+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabelGui/tree/master"
+            },
+            "time": "2017-07-24T07:40:07+00:00"
         },
         {
             "name": "spryker/product-management",
@@ -8683,7 +8837,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8763,7 +8917,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8827,7 +8981,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8909,7 +9063,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -8951,6 +9105,9 @@
                 "proprietary"
             ],
             "description": "ProductOptionCartConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/ProductOptionCartConnector/tree/4.1.1"
+            },
             "time": "2017-06-27T08:29:22+00:00"
         },
         {
@@ -8974,7 +9131,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9060,7 +9217,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9105,6 +9262,9 @@
                 "proprietary"
             ],
             "description": "ProductRelationCollector module",
+            "support": {
+                "source": "https://github.com/spryker/ProductRelationCollector/tree/1.2.0"
+            },
             "time": "2017-06-30T14:05:21+00:00"
         },
         {
@@ -9128,7 +9288,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9178,7 +9338,7 @@
             ],
             "description": "ProductSearch module",
             "support": {
-                "source": "https://github.com/spryker/ProductSearch/tree/master"
+                "source": "https://github.com/spryker/ProductSearch/tree/5.1.1"
             },
             "time": "2017-08-01T04:28:10+00:00"
         },
@@ -9203,7 +9363,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9275,7 +9435,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9318,7 +9478,10 @@
                 "proprietary"
             ],
             "description": "ProductSetCollector bundle",
-            "time": "2017-06-15T15:31:14+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductSetCollector/tree/master"
+            },
+            "time": "2017-06-19T07:00:14+00:00"
         },
         {
             "name": "spryker/product-set-gui",
@@ -9341,7 +9504,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9414,7 +9577,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9490,7 +9653,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9520,6 +9683,9 @@
                 "proprietary"
             ],
             "description": "PropelOrm bundle",
+            "support": {
+                "source": "https://github.com/spryker/PropelOrm/tree/1.2.1"
+            },
             "time": "2017-05-04T19:14:52+00:00"
         },
         {
@@ -9543,7 +9709,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9587,6 +9753,9 @@
                 "proprietary"
             ],
             "description": "PropelQueryBuilder bundle",
+            "support": {
+                "source": "https://github.com/spryker/PropelQueryBuilder/tree/beta/core-990-product-api"
+            },
             "time": "2017-05-16T08:31:15+00:00"
         },
         {
@@ -9610,7 +9779,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9638,7 +9807,7 @@
             ],
             "description": "Generic queue bundle for Spryker",
             "support": {
-                "source": "https://github.com/spryker/Queue/tree/master"
+                "source": "https://github.com/spryker/Queue/tree/0.3.0"
             },
             "time": "2017-03-21T14:00:45+00:00"
         },
@@ -9663,7 +9832,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9699,17 +9868,17 @@
             ],
             "description": "Quote bundle",
             "support": {
-                "source": "https://github.com/spryker/Quote/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Quote/tree/1.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "0.1.2",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "d9d5ac08623b6810307168c0b904804d8b86ae69",
+                "reference": "8315b6d650378462f0310730f3940776487e04df",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9719,12 +9888,12 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/d9d5ac08623b6810307168c0b904804d8b86ae69",
-                "reference": "d9d5ac08623b6810307168c0b904804d8b86ae69",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/8315b6d650378462f0310730f3940776487e04df",
+                "reference": "8315b6d650378462f0310730f3940776487e04df",
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9736,12 +9905,12 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Spryker\\": "src/Spryker/"
+                    "RabbitMq\\": "src"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Spryker\\Test\\": "tests"
+                    "RabbitMq\\Test\\": "tests"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -9768,7 +9937,7 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-08-29T14:34:18+00:00"
+            "time": "2017-07-14T09:20:08+00:00"
         },
         {
             "name": "spryker/redis",
@@ -9791,7 +9960,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9836,7 +10005,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9910,7 +10079,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -9973,6 +10142,9 @@
                 "proprietary"
             ],
             "description": "Sales module",
+            "support": {
+                "source": "https://github.com/spryker/Sales/tree/7.1.3"
+            },
             "time": "2017-08-24T13:45:52+00:00"
         },
         {
@@ -9996,7 +10168,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10044,6 +10216,9 @@
                 "proprietary"
             ],
             "description": "SalesProductConnector module",
+            "support": {
+                "source": "https://github.com/spryker/SalesProductConnector/tree/master"
+            },
             "time": "2017-07-17T13:08:27+00:00"
         },
         {
@@ -10067,7 +10242,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10131,7 +10306,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10203,7 +10378,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10240,7 +10415,7 @@
             ],
             "description": "SequenceNumber bundle",
             "support": {
-                "source": "https://github.com/spryker/SequenceNumber/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/SequenceNumber/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -10265,7 +10440,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10305,7 +10480,7 @@
             ],
             "description": "Session bundle",
             "support": {
-                "source": "https://github.com/spryker/Session/tree/3.2.0"
+                "source": "https://github.com/spryker/Session/tree/master"
             },
             "time": "2017-05-31T14:03:42+00:00"
         },
@@ -10330,7 +10505,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10398,7 +10573,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10455,7 +10630,7 @@
             ],
             "description": "Shipment module",
             "support": {
-                "source": "https://github.com/spryker/Shipment/tree/5.1.1"
+                "source": "https://github.com/spryker/Shipment/tree/master"
             },
             "time": "2017-08-15T12:10:23+00:00"
         },
@@ -10480,7 +10655,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10526,9 +10701,6 @@
                 "proprietary"
             ],
             "description": "Shipment discount module",
-            "support": {
-                "source": "https://github.com/spryker/ShipmentDiscountConnector/tree/master"
-            },
             "time": "2017-08-03T13:46:55+00:00"
         },
         {
@@ -10552,7 +10724,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10576,7 +10748,7 @@
             ],
             "description": "Silex bundle",
             "support": {
-                "source": "https://github.com/spryker/Silex/tree/master"
+                "source": "https://github.com/spryker/Silex/tree/2.0.1"
             },
             "time": "2016-12-09T13:45:20+00:00"
         },
@@ -10601,7 +10773,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10629,7 +10801,7 @@
             ],
             "description": "sql criteria builder bundle",
             "support": {
-                "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/master"
+                "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/1.0.0"
             },
             "time": "2016-04-01T13:06:05+00:00"
         },
@@ -10654,7 +10826,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10721,7 +10893,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10787,7 +10959,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10830,7 +11002,10 @@
                 "proprietary"
             ],
             "description": "Stock module",
-            "time": "2017-07-12T14:54:21+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Stock/tree/4.0.4"
+            },
+            "time": "2017-07-12T15:01:13+00:00"
         },
         {
             "name": "spryker/stock-sales-connector",
@@ -10853,7 +11028,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10889,7 +11064,7 @@
             ],
             "description": "StockSalesConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/StockSalesConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/StockSalesConnector/tree/3.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -10914,7 +11089,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -10986,7 +11161,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11036,6 +11211,9 @@
                 "proprietary"
             ],
             "description": "Symfony module",
+            "support": {
+                "source": "https://github.com/spryker/Symfony/tree/master"
+            },
             "time": "2017-08-10T12:21:41+00:00"
         },
         {
@@ -11059,7 +11237,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11131,7 +11309,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11174,6 +11352,9 @@
                 "proprietary"
             ],
             "description": "TaxProductConnector bundle",
+            "support": {
+                "source": "https://github.com/spryker/TaxProductConnector/tree/master"
+            },
             "time": "2017-06-15T10:05:40+00:00"
         },
         {
@@ -11197,7 +11378,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11237,7 +11418,10 @@
                 "proprietary"
             ],
             "description": "Touch bundle",
-            "time": "2017-06-13T14:47:26+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Touch/tree/master"
+            },
+            "time": "2017-06-19T07:00:02+00:00"
         },
         {
             "name": "spryker/transfer",
@@ -11260,7 +11444,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11326,7 +11510,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11396,7 +11580,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11462,7 +11646,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11533,7 +11717,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11586,7 +11770,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11619,6 +11803,9 @@
                 "proprietary"
             ],
             "description": "UtilDateTime module",
+            "support": {
+                "source": "https://github.com/spryker/UtilDateTime/tree/master"
+            },
             "time": "2017-08-14T16:28:34+00:00"
         },
         {
@@ -11642,7 +11829,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11669,6 +11856,9 @@
                 "proprietary"
             ],
             "description": "UtilEncoding bundle",
+            "support": {
+                "source": "https://github.com/spryker/UtilEncoding/tree/beta/core-990-product-api"
+            },
             "time": "2017-05-15T17:57:24+00:00"
         },
         {
@@ -11692,7 +11882,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11720,7 +11910,7 @@
             ],
             "description": "UtilNetwork bundle",
             "support": {
-                "source": "https://github.com/spryker/UtilNetwork/tree/master"
+                "source": "https://github.com/spryker/UtilNetwork/tree/1.1.0"
             },
             "time": "2017-02-22T11:58:40+00:00"
         },
@@ -11745,7 +11935,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11773,7 +11963,7 @@
             ],
             "description": "UtilSanitize bundle",
             "support": {
-                "source": "https://github.com/spryker/UtilSanitize/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/UtilSanitize/tree/2.0.0"
             },
             "time": "2017-02-22T12:08:46+00:00"
         },
@@ -11798,7 +11988,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11825,6 +12015,9 @@
                 "proprietary"
             ],
             "description": "UtilText bundle",
+            "support": {
+                "source": "https://github.com/spryker/UtilText/tree/1.2.0"
+            },
             "time": "2017-06-09T10:39:37+00:00"
         },
         {
@@ -11848,7 +12041,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11916,7 +12109,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -11983,7 +12176,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -12052,7 +12245,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -14665,7 +14858,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2017-08-16T08:44:29+00:00"
+            "time": "2017-08-16T08:57:05+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -16547,7 +16740,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -16566,7 +16759,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18"
+                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/bcd993e532dfe7846da03790cb9f5844ebd20c18",
+                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.4.16",
@@ -16587,6 +16798,7 @@
                     "ArchitectureSniffer\\Test\\": "tests"
                 }
             },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
@@ -16616,7 +16828,8 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/spryker/architecture-sniffer"
+                "source": "https://github.com/spryker/architecture-sniffer",
+                "issues": "https://github.com/spryker/architecture-sniffer/issues"
             },
             "time": "2017-08-01T14:03:04+00:00"
         },
@@ -16630,6 +16843,18 @@
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/36275f0ca30c780eca148c0fb62af5ed0abb635d",
+                "reference": "36275f0ca30c780eca148c0fb62af5ed0abb635d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -16656,6 +16881,7 @@
                     "Unit": "tests/"
                 }
             },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "MIT"
             ],
@@ -16730,7 +16956,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -16796,7 +17022,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
