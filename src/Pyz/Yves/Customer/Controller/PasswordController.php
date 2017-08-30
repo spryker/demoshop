@@ -57,6 +57,11 @@ class PasswordController extends AbstractCustomerController
      */
     public function restorePasswordAction(Request $request)
     {
+        if ($this->isLoggedInCustomer()) {
+            $this->addErrorMessage('customer.reset.password.error.already.loggedIn');
+            return $this->redirectResponseInternal('home');
+        }
+
         $form = $this
             ->getFactory()
             ->createCustomerFormFactory()

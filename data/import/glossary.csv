@@ -223,6 +223,8 @@ customer.email,E-Mail Adresse,de_DE
 customer.email,E-Mail,en_US
 customer.phone,Telefonnummer,de_DE
 customer.phone,Telephone number,en_US
+customer.reset.password.error.already.loggedIn,"Kunde bereits eingeloggt. Bitte logge dich aus, um dein Kundenpasswort zurückzusetzen.",de_DE
+customer.reset.password.error.already.loggedIn,"Customer already loggedIn, Please logout to reset customer password.",en_US
 payment.prepay,Vorkasse,de_DE
 payment.prepay,Prepayment,en_US
 payment.paypal,PayPal,de_DE
