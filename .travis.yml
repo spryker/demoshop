@@ -23,7 +23,6 @@ matrix:
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
-          - PHPSTAN=1
      - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
@@ -37,12 +36,10 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=cron
-          - PHPSTAN=1
      - php: "7.1"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
-          - PHPSTAN=1
 
 addons:
   postgresql: 9.4

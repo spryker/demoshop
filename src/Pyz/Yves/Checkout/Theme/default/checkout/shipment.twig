@@ -12,13 +12,19 @@
 
             <div class="callout">
                 <ul class="no-bullet">
-                    {% for method in shipmentForm.idShipmentMethod %}
-                        <li>
-                            <label>
-                                {{ form_widget(method, {'attr': {'class': '__toggler'}}) }}
-                                {{ method.vars.label | raw }}
-                            </label>
-                        </li>
+
+                      {% for name, choices in shipmentForm.idShipmentMethod.vars.choices %}
+
+                          <h4>{{ name }}</h4>
+
+                          {% for key, choice in choices %}
+                            <li>
+                                <label>
+                                   &nbsp; {{ form_widget(shipmentForm.idShipmentMethod[key], {'attr': {'class': '__toggler'}}) }}
+                                    {{ shipmentForm.idShipmentMethod[key].vars.label | raw }}
+                                </label>
+                            </li>
+                          {% endfor %}
                     {% endfor %}
                 </ul>
             </div>
