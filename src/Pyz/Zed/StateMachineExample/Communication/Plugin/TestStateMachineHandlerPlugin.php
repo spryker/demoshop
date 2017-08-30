@@ -24,7 +24,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     /**
      * List of command plugins for this state machine for all processes.
      *
-     * @return array|\Spryker\Zed\StateMachine\Dependency\Plugin\CommandPluginInterface[]
+     * @return \Spryker\Zed\StateMachine\Dependency\Plugin\CommandPluginInterface[]
      */
     public function getCommandPlugins()
     {
@@ -36,7 +36,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     /**
      * List of condition plugins for this state machine for all processes.
      *
-     * @return array|\Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface[]
+     * @return \Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface[]
      */
     public function getConditionPlugins()
     {
@@ -85,7 +85,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
 
         throw new InvalidArgumentException(
             sprintf(
-                'Initial state not found for process "s%".',
+                'Initial state not found for process "%s".',
                 $processName
             )
         );

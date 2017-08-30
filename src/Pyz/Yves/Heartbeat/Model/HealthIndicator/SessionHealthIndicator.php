@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Heartbeat\Model\HealthIndicator;
 
+use Exception;
 use Spryker\Client\Session\SessionClientInterface;
 use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
@@ -46,7 +47,7 @@ class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIn
     {
         try {
             $this->sessionClient->set(self::KEY_HEARTBEAT, 'ok');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_WRITE_SESSION);
             $this->addFailure($e->getMessage());
         }
@@ -59,7 +60,7 @@ class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIn
     {
         try {
             $this->sessionClient->get(self::KEY_HEARTBEAT);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->addFailure(self::FAILURE_MESSAGE_UNABLE_TO_READ_SESSION);
             $this->addFailure($e->getMessage());
         }

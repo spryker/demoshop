@@ -16,7 +16,7 @@ class CmsBlockCollectorDependencyProvider extends SprykerCmsBlockCollectorDepend
     /**
      * Stack of plugins which run during data collection for each item.
      *
-     * @return array|\Spryker\Zed\CmsBlockCollector\Dependency\Plugin\CmsBlockCollectorDataExpanderPluginInterface[]
+     * @return \Spryker\Zed\CmsBlockCollector\Dependency\Plugin\CmsBlockCollectorDataExpanderPluginInterface[]
      */
     protected function getCollectorDataExpanderPlugins()
     {

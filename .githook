@@ -1,0 +1,17 @@
+config:
+  phpstan:
+    level: 1
+    config: phpstan.neon
+  architecture:
+    priority: 2
+
+preCommitFileCommands:
+  - GitHook\Command\FileCommand\PreCommit\CodeStyleFixCommand
+  - GitHook\Command\FileCommand\PreCommit\CodeStyleCheckCommand
+  - GitHook\Command\FileCommand\PreCommit\PhpMdCheckCommand
+  - GitHook\Command\FileCommand\PreCommit\PhpStanCheckCommand
+  - GitHook\Command\FileCommand\PreCommit\ArchitectureCheckCommand
+  - GitHook\Command\FileCommand\PreCommit\DependencyViolationCheckCommand
+
+preCommitRepositoryCommands:
+  - GitHook\Command\RepositoryCommand\PreCommit\GitAddCommand

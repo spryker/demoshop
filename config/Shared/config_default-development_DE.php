@@ -15,20 +15,6 @@ $config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 // ---------- Email
 $config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[ApplicationConstants::HOST_ZED]);
 
-// ---------- Payone
-$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_SUCCESS_URL] = sprintf(
-    '%s/checkout/success/',
-    $config[ApplicationConstants::BASE_URL_YVES]
-);
-$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_ERROR_URL] = sprintf(
-    '%s/checkout/index/',
-    $config[ApplicationConstants::BASE_URL_YVES]
-);
-$config[PayoneConstants::PAYONE][PayoneConstants::PAYONE_REDIRECT_BACK_URL] = sprintf(
-    '%s/checkout/regular-redirect-payment-cancellation/',
-    $config[ApplicationConstants::BASE_URL_YVES]
-);
-
 // ---------- Elasticsearch
 $ELASTICA_INDEX_NAME = 'de_search';
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;

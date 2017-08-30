@@ -63,10 +63,11 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
 
     /**
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
+     * @param int|null $bulkSize
      */
-    public function __construct(DataImportToTouchInterface $touchFacade)
+    public function __construct(DataImportToTouchInterface $touchFacade, $bulkSize = null)
     {
-        parent::__construct($touchFacade);
+        parent::__construct($touchFacade, $bulkSize);
 
         $utilEncodingBridge = new CmsToUtilEncodingBridge(new UtilEncodingService());
         $this->versionDataMapper = new VersionDataMapper($utilEncodingBridge);

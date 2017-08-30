@@ -5,5 +5,10 @@
     {% endfor %}
 
     {{ 'customer.order.discount.total' | trans }}: -{{ order.totals.discountTotal | money }}<br/>
+
+    {% if order.totals.canceledTotal %}
+        {{ 'customer.order.canceledTotal' | trans }}: -{{ order.totals.canceledTotal | money }}<br/>
+    {% endif %}
+
     <strong>{{ 'customer.order.grandTotal' | trans }}: {{ order.totals.grandTotal | money }}</strong>
 </div>

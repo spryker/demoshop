@@ -10,6 +10,8 @@ namespace Pyz\Zed\DataImport\Business\Model\Discount;
 use DateTime;
 use Orm\Zed\Discount\Persistence\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPoolQuery;
+use Orm\Zed\Shipment\Persistence\SpyShipmentCarrierQuery;
+use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
 use Spryker\Shared\Discount\DiscountConstants;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -42,6 +44,9 @@ class DiscountWriterStep implements DataImportStepInterface
             ->filterByDiscountKey($dataSet[static::KEY_DISCOUNT_KEY])
             ->findOneOrCreate();
 
+        $dataSet[static::KEY_DECISION_RULE_QUERY_STRING] = $this->processQueryString($dataSet[static::KEY_DECISION_RULE_QUERY_STRING]);
+        $dataSet[static::KEY_COLLECTOR_QUERY_STRING] = $this->processQueryString($dataSet[static::KEY_COLLECTOR_QUERY_STRING]);
+
         if ($dataSet[static::KEY_DISCOUNT_TYPE] === DiscountConstants::TYPE_VOUCHER) {
             $discountVoucherPoolEntity = SpyDiscountVoucherPoolQuery::create()
                 ->filterByName($dataSet[static::KEY_DISPLAY_NAME])
@@ -65,6 +70,107 @@ class DiscountWriterStep implements DataImportStepInterface
             ->setDecisionRuleQueryString($dataSet[static::KEY_DECISION_RULE_QUERY_STRING])
             ->setCollectorQueryString($dataSet[static::KEY_COLLECTOR_QUERY_STRING])
             ->save();
+    }
+
+    /**
+     * @param string $queryString
+     *
+     * @return string
+     */
+    protected function processQueryString($queryString)
+    {
+        $queryString = $this->convertShipmentCarrierNameToId($queryString);
+        $queryString = $this->convertShipmentMethodNameToId($queryString);
+
+        return $queryString;
+    }
+
+    /**
+     * @param string $queryString
+     *
+     * @return string
+     */
+    protected function convertShipmentMethodNameToId($queryString)
+    {
+        $shipmentConditionValues = $this->extractConditionValuesWithShipmentCarrierMethodNames($queryString);
+
+        foreach ($shipmentConditionValues as $shipmentConditionValue) {
+            $shipmentMethodEntity = $this->findShipmentMethodByConditionValue($shipmentConditionValue);
+            $queryString = str_replace($shipmentConditionValue, $shipmentMethodEntity->getIdShipmentMethod(), $queryString);
+        }
+
+        return $queryString;
+    }
+
+    /**
+     * @param string $queryString
+     *
+     * @return string
+     */
+    protected function convertShipmentCarrierNameToId($queryString)
+    {
+        $shipmentCarrierNames = $this->extractConditionValueWithShipmentCarrierNames($queryString);
+
+        foreach ($shipmentCarrierNames as $shipmentCarrierName) {
+            $spyShipmentCarrier = SpyShipmentCarrierQuery::create()
+                ->filterByName($shipmentCarrierName)
+                ->findOne();
+
+            $queryString = str_replace('"' . $shipmentCarrierName . '"', '"' . $spyShipmentCarrier->getIdShipmentCarrier() . '"', $queryString);
+        }
+
+        return $queryString;
+    }
+
+    /**
+     * @param string $queryString
+     *
+     * @return string[]
+     */
+    protected function extractConditionValuesWithShipmentCarrierMethodNames($queryString)
+    {
+        $shipmentMethodNames = [];
+        preg_match_all('/shipment-method = "([\w \(\)]*)"/', $queryString, $shipmentMethodNames);
+        $shipmentMethodNames = $shipmentMethodNames[1];
+
+        return $shipmentMethodNames;
+    }
+
+    /**
+     * @param string $queryString
+     *
+     * @return string[]
+     */
+    protected function extractConditionValueWithShipmentCarrierNames($queryString)
+    {
+        $shipmentCarrierNames = [];
+        preg_match_all('/shipment-carrier = "([\w \(\)]*)"/', $queryString, $shipmentCarrierNames);
+        $shipmentCarrierNames = $shipmentCarrierNames[1];
+
+        return $shipmentCarrierNames;
+    }
+
+    /**
+     * @param string $conditionValue
+     *
+     * @return \Orm\Zed\Shipment\Persistence\SpyShipmentMethod
+     */
+    protected function findShipmentMethodByConditionValue($conditionValue)
+    {
+        $shipmentCarrierNameMatches = [];
+        preg_match_all('/([\w ]+)\(([\w ]+)\)/', $conditionValue, $shipmentCarrierNameMatches);
+
+        $shipmentMethodName = empty($shipmentCarrierNameMatches[1][0]) ? $conditionValue : trim($shipmentCarrierNameMatches[1][0]);
+        $shipmentCarrierName = empty($shipmentCarrierNameMatches[2][0]) ? '' : trim($shipmentCarrierNameMatches[2][0]);
+
+        $spyShipmentMethod = SpyShipmentMethodQuery::create()
+            ->filterByName($shipmentMethodName)
+            ->useShipmentCarrierQuery()
+            ->filterByName($shipmentCarrierName)
+            ->endUse()
+            ->findOne();
+
+        return $spyShipmentMethod;
     }
 
 }

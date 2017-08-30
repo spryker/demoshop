@@ -10,7 +10,6 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
-use Spryker\Yves\Kernel\Locator;
 
 /**
  * @method \Pyz\Yves\Application\ApplicationFactory getFactory()
@@ -50,14 +49,6 @@ abstract class AbstractServiceProvider extends AbstractPlugin implements Service
                 return array_merge($variables, $globalTemplateVariables);
             })
         );
-    }
-
-    /**
-     * @return \Generated\Client\Ide\AutoCompletion
-     */
-    protected function getLocator()
-    {
-        return Locator::getInstance();
     }
 
 }

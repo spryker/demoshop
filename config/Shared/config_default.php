@@ -288,9 +288,10 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[LogConstants::LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/application.log',
+    '%s/data/%s/logs/%s/application.log',
     APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
+    $CURRENT_STORE,
+    APPLICATION
 );
 
 // ---------- Auto-loader
@@ -356,7 +357,7 @@ $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
 $config[EventConstants::LOGGER_ACTIVE] = false;
 
 // ---------- Customer
-$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|de)?/customer|^(/en|de)?/wishlist)';
+$config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|/de)?/customer|^(/en|/de)?/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
 // ---------- Price
