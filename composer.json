@@ -194,6 +194,7 @@
     "spryker/testify": "^3.0.0",
     "squizlabs/php_codesniffer": "^3.0",
     "stecman/symfony-console-completion": "^0.7.0",
+    "phpdocumentor/reflection-docblock": "^2.0",
     "symfony/var-dumper": "*",
     "symfony/web-profiler-bundle": "*"
   },
