@@ -30,9 +30,9 @@ class DevelopmentConfig extends SprykerDevelopmentConfig
      */
     public function getCodingStandard()
     {
-        $vendorDir = APPLICATION_ROOT_DIR . DIRECTORY_SEPARATOR;
+        $rootDir = APPLICATION_ROOT_DIR . DIRECTORY_SEPARATOR;
 
-        return $vendorDir . 'config/ruleset.xml';
+        return $rootDir . 'config/ruleset.xml';
     }
 
 }
