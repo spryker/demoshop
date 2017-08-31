@@ -15,7 +15,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "spryker-eco/payone": "dev-master",
+    "spryker-eco/payone": "dev-fix/ECO-729-after-merging-with-the-latest-demoshop-checkout-is-broken",
     "spryker/acl": "^3.0.0",
     "spryker/api": "^0.1.0",
     "spryker/api-query-builder": "^0.1.0",

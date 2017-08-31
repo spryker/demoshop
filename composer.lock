@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed4999ccde45488bfc2b59861fd35865",
+    "content-hash": "132ed79423c63ee27db6b1072d527d6c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1651,29 +1651,11 @@
         },
         {
             "name": "spryker-eco/payone",
-            "version": "dev-master",
+            "version": "dev-fix/ECO-729-after-merging-with-the-latest-demoshop-checkout-is-broken",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker-eco/payone.git",
-                "reference": "298f3235301e04c1d141da621352cc33fb62cf55",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker-eco/payone/zipball/298f3235301e04c1d141da621352cc33fb62cf55",
-                "reference": "298f3235301e04c1d141da621352cc33fb62cf55",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://github.com/spryker-eco/payone.git",
+                "reference": "3f86190d0b360cdf3d718d15d440802bb5a852a3"
             },
             "require": {
                 "spryker/config": "^3.0.0",
@@ -1715,12 +1697,11 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Payone module",
-            "time": "2017-08-09 16:49:06"
+            "time": "2017-08-31 12:24:52"
         },
         {
             "name": "spryker/acl",
