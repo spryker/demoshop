@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.35.1",
+            "version": "3.35.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b4391177bda332c226afcde73a12068547834535"
+                "reference": "a2f01d9e9ed93c1e121d2f4450ae0a047fbbb6e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b4391177bda332c226afcde73a12068547834535",
-                "reference": "b4391177bda332c226afcde73a12068547834535",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a2f01d9e9ed93c1e121d2f4450ae0a047fbbb6e8",
+                "reference": "a2f01d9e9ed93c1e121d2f4450ae0a047fbbb6e8",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-08-29T15:23:50+00:00"
+            "time": "2017-08-30T16:17:20+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -8053,11 +8053,11 @@
         },
         {
             "name": "spryker/product-category",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductCategory.git",
-                "reference": "1dadf46e8100eec3761af63760f9957799e93f0c",
+                "reference": "1bdcacc8a62fe482cb7b2dbddec48652bb2e3017",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8067,8 +8067,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductCategory/zipball/1dadf46e8100eec3761af63760f9957799e93f0c",
-                "reference": "1dadf46e8100eec3761af63760f9957799e93f0c",
+                "url": "https://api.github.com/repos/spryker/ProductCategory/zipball/1bdcacc8a62fe482cb7b2dbddec48652bb2e3017",
+                "reference": "1bdcacc8a62fe482cb7b2dbddec48652bb2e3017",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8120,9 +8120,9 @@
             ],
             "description": "ProductCategory module",
             "support": {
-                "source": "https://github.com/spryker/ProductCategory/tree/master"
+                "source": "https://github.com/spryker/ProductCategory/tree/4.3.1"
             },
-            "time": "2017-08-15T14:16:14+00:00"
+            "time": "2017-08-29T13:29:02+00:00"
         },
         {
             "name": "spryker/product-discount-connector",
@@ -9784,7 +9784,7 @@
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -15062,22 +15062,22 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.2.2",
+            "version": "3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157"
+                "reference": "86e24012a3139b42a7b71155cfaa325389f00f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/4aada1f93c72c35e22fb1383b47fee43b8f1d157",
-                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/86e24012a3139b42a7b71155cfaa325389f00f1f",
+                "reference": "86e24012a3139b42a7b71155cfaa325389f00f1f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
+                "php": "^7.0",
                 "phpdocumentor/reflection-common": "^1.0@dev",
-                "phpdocumentor/type-resolver": "^0.3.0",
+                "phpdocumentor/type-resolver": "^0.4.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
@@ -15103,20 +15103,20 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-08-08T06:39:58+00:00"
+            "time": "2017-08-29T19:37:41+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "fb3933512008d8162b3cdf9e18dba9309b7c3773"
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/fb3933512008d8162b3cdf9e18dba9309b7c3773",
-                "reference": "fb3933512008d8162b3cdf9e18dba9309b7c3773",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
                 "shasum": ""
             },
             "require": {
@@ -15150,7 +15150,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-06-03T08:32:36+00:00"
+            "time": "2017-07-14T14:27:02+00:00"
         },
         {
             "name": "phploc/phploc",
@@ -16626,13 +16626,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -16730,25 +16724,28 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.10.0",
+            "version": "0.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "d952b05f9093e0e57db9c99ecf36d115fc579665"
+                "reference": "8b6327133e502d56d6d04f3b1bf908395ce93f27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/d952b05f9093e0e57db9c99ecf36d115fc579665",
-                "reference": "d952b05f9093e0e57db9c99ecf36d115fc579665",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8b6327133e502d56d6d04f3b1bf908395ce93f27",
+                "reference": "8b6327133e502d56d6d04f3b1bf908395ce93f27",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
-                "squizlabs/php_codesniffer": "^3.0@dev"
+                "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "<5.0"
             },
+            "bin": [
+                "bin/tokenize"
+            ],
             "type": "phpcodesniffer-standard",
             "autoload": {
                 "psr-4": {
@@ -16773,7 +16770,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-18T13:08:46+00:00"
+            "time": "2017-08-31T09:36:46+00:00"
         },
         {
             "name": "spryker/development",
