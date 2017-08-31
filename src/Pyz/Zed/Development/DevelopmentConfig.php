@@ -25,4 +25,14 @@ class DevelopmentConfig extends SprykerDevelopmentConfig
         return $globPatterns;
     }
 
+    /**
+     * @return string
+     */
+    public function getCodingStandard()
+    {
+        $rootDir = APPLICATION_ROOT_DIR . DIRECTORY_SEPARATOR;
+
+        return $rootDir . 'config/ruleset.xml';
+    }
+
 }
