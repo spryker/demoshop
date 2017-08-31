@@ -14,6 +14,7 @@ use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
+use Spryker\Yves\Payment\Plugin\PaymentFormFilterPlugin;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
@@ -117,6 +118,16 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         };
 
         return $container;
+    }
+
+    /**
+     * @return \Spryker\Yves\Checkout\Dependency\Plugin\Form\SubFormFilterPluginInterface[]
+     */
+    protected function getPaymentFormFilterPlugins()
+    {
+        return [
+            new PaymentFormFilterPlugin(),
+        ];
     }
 
 }

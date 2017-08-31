@@ -8,8 +8,8 @@
 namespace Pyz\Yves\Checkout\Form;
 
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
-use Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
+use Pyz\Yves\Checkout\Form\Steps\PaymentFormCollectionHandlerProvider;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
 use Pyz\Yves\Checkout\Form\Voucher\VoucherForm;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
@@ -21,6 +21,7 @@ use Pyz\Yves\Customer\Form\RegisterForm;
 use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
+use Spryker\Yves\Checkout\Form\Provider\FilterableSubFormProvider;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Form\FormCollectionHandler;
@@ -82,25 +83,28 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
+     * @return \Spryker\Yves\Checkout\Form\Provider\FilterableSubFormProvider
      */
-    public function createPaymentFormCollection()
+    protected function createPaymentSubFormProvider()
     {
-        $createPaymentSubForms = $this->createPaymentMethodSubForms();
-        $paymentFormType = $this->createPaymentForm($createPaymentSubForms);
-        $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
+        $paymentSubForms = $this->getPaymentMethodSubForms();
+        $paymentMethodFormFilters = $this->getMethodFormFilters();
 
-        return $this->createSubFormCollection($paymentFormType, $subFormDataProvider);
+        return new FilterableSubFormProvider($paymentSubForms, $paymentMethodFormFilters);
     }
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subForms
-     *
-     * @return \Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders
+     * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerProviderInterface
      */
-    protected function createSubFormDataProvider(SubFormPluginCollection $subForms)
+    public function createPaymentFormCollectionProvider()
     {
-        return new SubFormDataProviders($subForms);
+        $subFormProvider = $this->createPaymentSubFormProvider();
+
+        return new PaymentFormCollectionHandlerProvider(
+            $this->createPaymentSubFormProvider(),
+            $this->getFormFactory(),
+            $this->createSubFormDataProvider($subFormProvider)
+        );
     }
 
     /**
