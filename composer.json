@@ -15,7 +15,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "spryker-eco/payone": "^1.0.2",
+    "spryker-eco/payone": "dev-master",
     "spryker/acl": "^3.0.0",
     "spryker/api": "^0.1.0",
     "spryker/api-query-builder": "^0.1.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b291243fe6abd9b62dd3697fb44be968",
+    "content-hash": "ed4999ccde45488bfc2b59861fd35865",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1651,7 +1651,7 @@
         },
         {
             "name": "spryker-eco/payone",
-            "version": "1.0.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker-eco/payone.git",
@@ -1720,7 +1720,7 @@
                 "proprietary"
             ],
             "description": "Payone module",
-            "time": "2017-08-09T16:49:06+00:00"
+            "time": "2017-08-09 16:49:06"
         },
         {
             "name": "spryker/acl",
@@ -16759,25 +16759,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/bcd993e532dfe7846da03790cb9f5844ebd20c18",
                 "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
@@ -17669,7 +17657,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "spryker-eco/payone": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
