@@ -13,7 +13,7 @@ use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountFilterPr
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormExpanderPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCollectorStrategyPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionConfigurationExpanderPlugin;
-use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostSavePlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostCreatePlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostUpdatePlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductAttributeCollectorPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
@@ -81,12 +81,12 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountPostSavePluginInterface[]
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountPostCreatePluginInterface[]
      */
-    protected function getDiscountPostSavePlugins()
+    protected function getDiscountPostCreatePlugins()
     {
         return [
-            new DiscountPromotionPostSavePlugin(),
+            new DiscountPromotionPostCreatePlugin(),
         ];
     }
 
