@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use Spryker\Client\Payment\PaymentClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
@@ -28,12 +29,19 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     protected $flashMessenger;
 
     /**
+     * @var \Spryker\Client\Payment\PaymentClientInterface
+     */
+    private $paymentClient;
+
+    /**
+     * @param \Spryker\Client\Payment\PaymentClientInterface $paymentClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $paymentPlugins
      * @param string $stepRoute
      * @param string $escapeRoute
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
      */
     public function __construct(
+        PaymentClientInterface $paymentClient,
         StepHandlerPluginCollection $paymentPlugins,
         $stepRoute,
         $escapeRoute,
@@ -43,6 +51,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
 
         $this->paymentPlugins = $paymentPlugins;
         $this->flashMessenger = $flashMessenger;
+        $this->paymentClient = $paymentClient;
     }
 
     /**
@@ -88,7 +97,26 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
             return false;
         }
 
-        return true;
+        return $this->isValidPaymentSelection($quoteTransfer);
+    }
+
+    /**
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isValidPaymentSelection(AbstractTransfer $quoteTransfer)
+    {
+        $paymentMethods = $this->paymentClient->getAvailableMethods($quoteTransfer);
+        $payment = $quoteTransfer->getPayment();
+
+        foreach ($paymentMethods->getAvailableMethods() as $paymentInformationTransfer) {
+            if ($paymentInformationTransfer->getMethod() === $payment->getPaymentSelection()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
