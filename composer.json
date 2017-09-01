@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/core-1303-cms-page-preview",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
