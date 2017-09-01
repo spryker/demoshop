@@ -10,6 +10,7 @@ namespace Pyz\Zed\Customer;
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
 use Spryker\Zed\CustomerGroup\Communication\Plugin\CustomerAnonymizer\RemoveCustomerFromGroupPlugin;
+use Spryker\Zed\CustomerUserConnector\Communication\Plugin\CustomerTransferUsernameExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Newsletter\Communication\Plugin\CustomerAnonymizer\CustomerUnsubscribePlugin;
 
@@ -18,6 +19,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 
     const SALES_FACADE = 'sales facade';
     const NEWSLETTER_FACADE = 'newsletter facade';
+    const CUSTOMER_TRANSFER_EXPANDER_PLUGINS = 'CUSTOMER_TRANSFER_EXPANDER_PLUGINS';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -49,6 +51,16 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
                 NewsletterConstants::EDITORIAL_NEWSLETTER
             ]),
             new RemoveCustomerFromGroupPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CustomerUserConnector\Communication\Plugin\CustomerTransferExpanderPluginInterface[]
+     */
+    protected function getCustomerTransferExpanderPlugins()
+    {
+        return [
+            new CustomerTransferUsernameExpanderPlugin(),
         ];
     }
 
