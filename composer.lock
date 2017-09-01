@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9a33327036241e32162c1eabf27c67e",
+    "content-hash": "71ee1e705fcbcb9b3ea42f5ce660c525",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-825-propel-adjust-for-project-only",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5ec07c31d1287a94393b0dee45c602fefe2fc9cb"
+                "reference": "9a33046964027def3815df008c7d4bc1f6efd2ec"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1804,7 +1804,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-08-31T14:43:04+00:00"
+            "time": "2017-09-01T16:35:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6646,7 +6646,7 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6659,12 +6659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "8b6327133e502d56d6d04f3b1bf908395ce93f27"
+                "reference": "9df072410d71d879df5ee58701470cd98fc0d251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8b6327133e502d56d6d04f3b1bf908395ce93f27",
-                "reference": "8b6327133e502d56d6d04f3b1bf908395ce93f27",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9df072410d71d879df5ee58701470cd98fc0d251",
+                "reference": "9df072410d71d879df5ee58701470cd98fc0d251",
                 "shasum": ""
             },
             "require": {
@@ -6701,7 +6701,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-08-31T09:36:46+00:00"
+            "time": "2017-09-01T10:29:06+00:00"
         },
         {
             "name": "spryker/git-hook",
