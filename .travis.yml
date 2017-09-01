@@ -1,7 +1,3 @@
-before_install:
-  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit; fi
-
 language: php
 
 env:
@@ -63,12 +59,15 @@ services:
 
 sudo: required
 
+before_install:
+  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit; fi
+
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer remove --dev spryker/git-hook phpstan/phpstan
-  - composer install --no-interaction
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan; fi
+  - composer remove --dev phpstan/phpstan spryker/git-hook
+  - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan; fi
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
@@ -101,9 +100,9 @@ script:
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
 
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then vendor/bin/console dev:ide:generate-auto-completion ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1 ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then vendor/bin/console dev:ide:generate-auto-completion ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1 ; fi
 
 notifications:
   email: false
