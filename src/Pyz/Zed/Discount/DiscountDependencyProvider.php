@@ -9,12 +9,12 @@ namespace Pyz\Zed\Discount;
 
 use Spryker\Zed\CustomerGroupDiscountConnector\Communication\Plugin\DecisionRule\CustomerGroupDecisionRulePlugin;
 use Spryker\Zed\Discount\DiscountDependencyProvider as SprykerDiscountDependencyProvider;
-use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountFilterPromotionDiscountsPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormDataExpanderPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormExpanderPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCollectorStrategyPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionConfigurationExpanderPlugin;
-use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionFilterPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionFilterApplicableItemsPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionFilterCollectedItemsPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostCreatePlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostUpdatePlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionViewBlockProviderPlugin;
@@ -67,7 +67,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     protected function getDiscountableItemFilterPlugins()
     {
         return [
-            new DiscountFilterPromotionDiscountsPlugin(),
+            new DiscountPromotionFilterCollectedItemsPlugin(),
         ];
     }
 
@@ -147,7 +147,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     protected function getDiscountApplicableFilterPlugins()
     {
         return [
-           new DiscountPromotionFilterPlugin(),
+           new DiscountPromotionFilterApplicableItemsPlugin(),
         ];
     }
 
