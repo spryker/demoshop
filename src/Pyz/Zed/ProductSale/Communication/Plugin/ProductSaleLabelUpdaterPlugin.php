@@ -11,8 +11,7 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\ProductLabel\Dependency\Plugin\ProductLabelRelationUpdaterPluginInterface;
 
 /**
- * @method \Pyz\Zed\ProductSale\Business\ProductSaleFacadeInterface getFacade
- * @method \Pyz\Zed\ProductSale\Business\ProductSaleFacade getFacade()
+ * @method \Pyz\Zed\ProductSale\Business\ProductSaleFacadeInterface getFacade()
  */
 class ProductSaleLabelUpdaterPlugin extends AbstractPlugin implements ProductLabelRelationUpdaterPluginInterface
 {

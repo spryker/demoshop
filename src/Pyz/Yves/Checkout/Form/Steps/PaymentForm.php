@@ -10,6 +10,7 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface;
+use Spryker\Yves\StepEngine\Dependency\Form\SubFormProviderNameInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 use Symfony\Component\Form\AbstractType;
@@ -152,8 +153,18 @@ class PaymentForm extends AbstractType
         $choices = [];
 
         foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
-            $subFormName = $paymentMethodSubForm->getName();
-            $choices[$paymentMethodSubForm->getPropertyPath()] = ucfirst($subFormName);
+            $subFormName = ucfirst($paymentMethodSubForm->getName());
+
+            if (!$paymentMethodSubForm instanceof SubFormProviderNameInterface) {
+                $choices[$paymentMethodSubForm->getPropertyPath()] = $subFormName;
+                continue;
+            }
+
+            if (!isset($choices[$paymentMethodSubForm->getProviderName()])) {
+                $choices[$paymentMethodSubForm->getProviderName()] = [];
+            }
+
+            $choices[$paymentMethodSubForm->getProviderName()][$paymentMethodSubForm->getPropertyPath()] = $subFormName;
         }
 
         return $choices;

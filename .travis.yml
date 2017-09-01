@@ -23,7 +23,6 @@ matrix:
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
-          - PHPSTAN=1
      - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
@@ -37,12 +36,10 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=cron
-          - PHPSTAN=1
      - php: "7.1"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
-          - PHPSTAN=1
 
 addons:
   postgresql: 9.4
@@ -99,11 +96,11 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x Presentation -vvv ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g Presentation ; fi
 
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console code:sniff:style ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
-
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console code:sniff:style ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
+
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then vendor/bin/console dev:ide:generate-auto-completion ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1 ; fi

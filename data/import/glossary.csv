@@ -765,6 +765,8 @@ customer.account.wishlist.updated,Wishlist updated successfully,en_US
 customer.account.wishlist.updated,Wunschliste erfolgreich aktualisiert.,de_DE
 customer.account.wishlist.deleted,Wishlist deleted successfully.,en_US
 customer.account.wishlist.deleted,Wuschliste erfolgreich gelöscht.,de_DE
+customer.account.wishlist.item.not_added,Failed to add product to wishlist.,en_US
+customer.account.wishlist.item.not_added,Hinzufügen zur Wunschliste fehlgeschlagen.,de_DE
 newsletter.subscribe,Subscribe for newsletter,en_US
 newsletter.subscribe,In den Newsletter eintragen,de_DE
 pagination.previous,Previous,en_US
@@ -937,8 +939,8 @@ invoice.company.bank.information,Bank Name<br/>IBAN 1234 5678 9123 4567 89<br />
 invoice.company.bank.information,Bank Name<br/>IBAN 1234 5678 9123 4567 89<br />BIC 12345678<br/>Handelsregister ABC123456<br />Steuernummer 12/345/6789,de_DE
 invoice.company.contact.information,+49 (0)30 2084983 50<br/>hello@spryker.com,en_US
 invoice.company.contact.information,+49 (0)30 2084983 50<br/>hello@spryker.com,de_DE
-DummyPaymentCreditCard,Dummy Payment: Credit Card,en_US
-DummyPaymentCreditCard,Beispiel-Zahlungsart: Kreditkarte,de_DE
+DummyPaymentCreditCard,Credit Card,en_US
+DummyPaymentCreditCard,Kreditkarte,de_DE
 payment.dummy-payment.credit-card,Pay with the following credit card:,en_US
 payment.dummy-payment.credit-card,Mit der folgenden Kreditkarte bezahlen:,de_DE
 dummyPaymentCreditCard.card_type,Card Type,en_US
@@ -951,8 +953,8 @@ dummyPaymentCreditCard.card_expires,Expiry Date,en_US
 dummyPaymentCreditCard.card_expires,Gültig bis,de_DE
 dummyPaymentCreditCard.card_security_code,CVC,en_US
 dummyPaymentCreditCard.card_security_code,CVC,de_DE
-DummyPaymentInvoice,Dummy Payment: Invoice,en_US
-DummyPaymentInvoice,Beispiel-Zahlungsart: Auf Rechnung,de_DE
+DummyPaymentInvoice,Invoice,en_US
+DummyPaymentInvoice,Auf Rechnung,de_DE
 dummyPaymentInvoice.invoice,Pay with invoice:,en_US
 dummyPaymentInvoice.invoice,Auf Rechnung bezahlen:,de_DE
 dummyPaymentInvoice.date_of_birth,Date of Birth,en_US
@@ -971,3 +973,5 @@ product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
 customer.order.canceledTotal,Canceled amount,en_US
 customer.order.canceledTotal,Stornobetrag,de_DE
+checkout.payment.provider.DummyPayment,Dummy Payment,en_US
+checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE

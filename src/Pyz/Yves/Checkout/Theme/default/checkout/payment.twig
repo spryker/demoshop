@@ -11,17 +11,22 @@
 
             <div class="callout">
                 <ul class="no-bullet">
-                    {% for method in paymentForm.paymentSelection %}
-                        <li>
-                            {{ form_widget(method, {'attr': {'class': '__toggler'}}) }}
-                            {{ form_label(method) }}
-                            <div class="__toggler-target">
-                                <div class="row columns">
-                                    {{ checkout.include_subform(paymentForm[method.vars.value]) }}
+                    {% for name, choices in paymentForm.paymentSelection.vars.choices %}
+
+                        <h4>{{ ('checkout.payment.provider.' ~ name) | trans }}</h4>
+
+                        {% for key, choice in choices %}
+                            <li>  &nbsp;
+                                {{ form_widget(paymentForm.paymentSelection[key], {'attr': {'class': '__toggler'}}) }}
+                                {{ form_label(paymentForm.paymentSelection[key]) }}
+                                <div class="__toggler-target">
+                                    <div class="row columns">
+                                        {{ checkout.include_subform(paymentForm[paymentForm.paymentSelection[key].vars.value]) }}
+                                    </div>
                                 </div>
-                                {% if not loop.last %}<hr>{% endif %}
-                            </div>
-                        </li>
+                            </li>
+                        {% endfor %}
+
                     {% endfor %}
                 </ul>
             </div>
