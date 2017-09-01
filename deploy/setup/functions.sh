@@ -88,7 +88,6 @@ function dropAndRestoreDatabase {
 function installDemoshop {
     labelText "Preparing to install Spryker Platform..."
 
-
     updateComposerBinary
 
     if [ "$1" == "-i" ]; then
