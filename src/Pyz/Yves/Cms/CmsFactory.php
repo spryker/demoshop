@@ -29,4 +29,28 @@ class CmsFactory extends AbstractFactory
         return $this->getProvidedDependency(CmsDependencyProvider::CMS_TWIG_CONTENT_RENDERER_PLUGIN);
     }
 
+    /**
+     * @return \Pyz\Client\Customer\CustomerClientInterface
+     */
+    public function getCustomerClient()
+    {
+        return $this->getProvidedDependency(CmsDependencyProvider::CLIENT_CUSTOMER);
+    }
+
+    /**
+     * @return \Spryker\Client\CmsContentWidget\CmsContentWidgetClientInterface
+     */
+    public function getCmsContentWidgetClient()
+    {
+        return $this->getProvidedDependency(CmsDependencyProvider::CLIENT_CMS_CONTENT_WIDGET);
+    }
+
+    /**
+     * @return \Spryker\Shared\Kernel\Store
+     */
+    public function getStore()
+    {
+        return $this->getProvidedDependency(CmsDependencyProvider::STORE);
+    }
+
 }
