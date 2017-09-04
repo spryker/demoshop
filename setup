@@ -38,8 +38,8 @@ do
             errorText "This command is deprecated. Please use --install-zed or -zed instead"
             installZed
             ;;
-        "--install-demo-shop" | "-i" )
-           installDemoshop
+        "--install-demo-shop" | "-i" | "-inc")
+           installDemoshop $arg
            ;;
         "--install-yves" | "-yves" )
            installYves

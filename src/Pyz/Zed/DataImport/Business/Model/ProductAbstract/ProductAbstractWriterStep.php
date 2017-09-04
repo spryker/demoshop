@@ -12,6 +12,7 @@ use Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributesQuery;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery;
 use Orm\Zed\Url\Persistence\SpyUrlQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Shared\Product\ProductConfig;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
@@ -211,13 +212,16 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
     protected function importProductUrls(DataSetInterface $dataSet, SpyProductAbstract $productAbstractEntity)
     {
         foreach ($dataSet[ProductLocalizedAttributesExtractorStep::KEY_LOCALIZED_ATTRIBUTES] as $idLocale => $localizedAttributes) {
+            $abstractProductUrl = $localizedAttributes[static::KEY_URL];
+
+            $this->cleanupRedirectUrls($abstractProductUrl);
+
             $urlEntity = SpyUrlQuery::create()
                 ->filterByFkLocale($idLocale)
                 ->filterByFkResourceProductAbstract($productAbstractEntity->getIdProductAbstract())
                 ->findOneOrCreate();
 
-            $urlEntity
-                ->setUrl($localizedAttributes[static::KEY_URL]);
+            $urlEntity->setUrl($abstractProductUrl);
 
             if ($urlEntity->isNew() || $urlEntity->isModified()) {
                 $urlEntity->save();
@@ -225,6 +229,19 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
             }
 
         }
+    }
+
+    /**
+     * @param string $abstractProductUrl
+     *
+     * @return void
+     */
+    protected function cleanupRedirectUrls($abstractProductUrl)
+    {
+        SpyUrlQuery::create()
+            ->filterByUrl($abstractProductUrl)
+            ->filterByFkResourceRedirect(null, Criteria::ISNOTNULL)
+            ->delete();
     }
 
 }

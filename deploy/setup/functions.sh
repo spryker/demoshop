@@ -89,7 +89,10 @@ function installDemoshop {
     labelText "Preparing to install Spryker Platform..."
 
     updateComposerBinary
-    composerInstall
+
+    if [ "$1" == "-i" ]; then
+         composerInstall
+    fi
 
     installZed
     sleep 1
