@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "bb2052733f25dbc97203046acd7d3a6b18eeab2b"
+                "reference": "6ac956d29f2a7eadfb548fa55df88b0f9df2604a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1804,7 +1804,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-04T08:47:58+00:00"
+            "time": "2017-09-04T15:12:59+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5206,16 +5206,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.7.1",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "15ea9ac619e37009edcda64089e3fa4cc88aa659"
+                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/15ea9ac619e37009edcda64089e3fa4cc88aa659",
-                "reference": "15ea9ac619e37009edcda64089e3fa4cc88aa659",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
+                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
                 "shasum": ""
             },
             "require": {
@@ -5265,7 +5265,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-09-03T09:38:53+00:00"
+            "time": "2017-09-04T11:05:03+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -6659,12 +6659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "9df072410d71d879df5ee58701470cd98fc0d251"
+                "reference": "63685ca985f3d3a6c02253a3ab269e39c2131f40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/9df072410d71d879df5ee58701470cd98fc0d251",
-                "reference": "9df072410d71d879df5ee58701470cd98fc0d251",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/63685ca985f3d3a6c02253a3ab269e39c2131f40",
+                "reference": "63685ca985f3d3a6c02253a3ab269e39c2131f40",
                 "shasum": ""
             },
             "require": {
@@ -6701,7 +6701,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-09-01T10:29:06+00:00"
+            "time": "2017-09-04T13:26:53+00:00"
         },
         {
             "name": "spryker/git-hook",
