@@ -32,11 +32,29 @@ class ComposerAdjuster
             $protocols[$k] = trim(str_replace('"', '', $v));
         }
 
+        static::assertNoHttp();
+
         if ($protocols !== ['https']) {
             return;
         }
 
         static::assertHttps();
+    }
+
+    /**
+     * @return void
+     */
+    protected static function assertNoHttp()
+    {
+        $composerLockFile = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'composer.lock';
+        $composerLock = file_get_contents($composerLockFile);
+
+        $composerLockUpdated = str_replace('http://code.spryker.com/', 'https://code.spryker.com/', $composerLock);
+        if ($composerLockUpdated === $composerLock) {
+            return;
+        }
+
+        file_put_contents($composerLockFile, $composerLockUpdated);
     }
 
     /**
