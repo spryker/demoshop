@@ -13,7 +13,7 @@
                 <small>{{ 'page.product.by' | trans }}</small> {{ productReviewTransfer.nickname | e('html')}}
             </div>
             <div class="columns small-12 medium-8">
-                <small>{{ 'product_review.on' | trans }}</small> {{ productReviewTransfer.createdAt | date}}
+                <small>{{ 'product_review.on' | trans }}</small> {{ productReviewTransfer.createdAt | formatDateTime }}
             </div>
         </div>
 
