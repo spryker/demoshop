@@ -95,11 +95,11 @@ before_script:
   - chmod -R 777 data/
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
-  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
-  - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
-
   - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php; fi
   - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php; fi
+  
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
+  - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
   - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh; fi
   - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/; fi
