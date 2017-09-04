@@ -7,8 +7,13 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use ArrayObject;
+use Generated\Shared\Transfer\PaymentMethodsTransfer;
+use Generated\Shared\Transfer\PaymentTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payment\PaymentClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+use Spryker\Shared\Nopayment\NopaymentConstants;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginWithMessengerInterface;
@@ -55,13 +60,19 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
     public function requireInput(AbstractTransfer $quoteTransfer)
     {
-        return true;
+        $totals = $quoteTransfer->getTotals();
+
+        if (!$totals) {
+            return true;
+        }
+
+        return $totals->getPriceToPay() > 0;
     }
 
     /**
@@ -72,7 +83,11 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
+        $paymentSelection = $this->getPaymentSelectionWithFallback($quoteTransfer);
+
+        if ($paymentSelection === null) {
+            return $quoteTransfer;
+        }
 
         if ($this->paymentPlugins->has($paymentSelection)) {
             $paymentHandler = $this->paymentPlugins->get($paymentSelection);
@@ -86,18 +101,23 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return bool
+     * @return null|string
      */
-    public function postCondition(AbstractTransfer $quoteTransfer)
+    protected function getPaymentSelectionWithFallback(QuoteTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getPayment() === null ||
-            $quoteTransfer->getPayment()->getPaymentProvider() === null) {
-            return false;
+        $payment = $quoteTransfer->getPayment();
+
+        if ($payment) {
+            return $payment->getPaymentSelection();
         }
 
-        return $this->isValidPaymentSelection($quoteTransfer);
+        if ($quoteTransfer->getTotals()->getPriceToPay() === 0) {
+            return NopaymentConstants::PAYMENT_PROVIDER_NAME;
+        }
+
+        return null;
     }
 
     /**
@@ -105,13 +125,80 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      *
      * @return bool
      */
-    protected function isValidPaymentSelection(AbstractTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer)
+    {
+        $totals = $quoteTransfer->getTotals();
+
+        if (!$totals) {
+            return false;
+        }
+
+        if ($totals->getPriceToPay() === 0) {
+            return true;
+        }
+
+        $paymentCollection = $this->getPaymentCollection($quoteTransfer);
+
+        if ($paymentCollection->count() === 0) {
+            return false;
+        }
+
+        return $this->isValidPaymentSelection($paymentCollection, $quoteTransfer);
+    }
+
+    /**
+     * @deprecated To be removed when the single payment property on the quote is removed
+     *
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\PaymentTransfer[]|\ArrayObject
+     */
+    protected function getPaymentCollection(QuoteTransfer $quoteTransfer)
+    {
+        $result = new ArrayObject();
+        foreach ($quoteTransfer->getPayments() as $payment) {
+            $result[] = $payment;
+        }
+
+        $singlePayment = $quoteTransfer->getPayment();
+
+        if ($singlePayment) {
+            $singlePayment->setAmount($quoteTransfer->getTotals()->getPriceToPay());
+            $result[] = $singlePayment;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PaymentTransfer[]|\ArrayObject $paymentCollection
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isValidPaymentSelection(ArrayObject $paymentCollection, AbstractTransfer $quoteTransfer)
     {
         $paymentMethods = $this->paymentClient->getAvailableMethods($quoteTransfer);
-        $payment = $quoteTransfer->getPayment();
 
-        foreach ($paymentMethods->getAvailableMethods() as $paymentInformationTransfer) {
-            if ($paymentInformationTransfer->getMethod() === $payment->getPaymentSelection()) {
+        foreach ($paymentCollection as $candidatePayment) {
+            if (!$this->containsPayment($paymentMethods, $candidatePayment)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PaymentMethodsTransfer $paymentMethodsTransfer
+     * @param \Generated\Shared\Transfer\PaymentTransfer $paymentTransfer
+     *
+     * @return bool
+     */
+    protected function containsPayment(PaymentMethodsTransfer $paymentMethodsTransfer, PaymentTransfer $paymentTransfer)
+    {
+        foreach ($paymentMethodsTransfer->getAvailableMethods() as $paymentInformationTransfer) {
+            if ($paymentInformationTransfer->getMethod() === $paymentTransfer->getPaymentSelection()) {
                 return true;
             }
         }
