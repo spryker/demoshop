@@ -226,7 +226,7 @@
     "preferred-install": "dist",
     "use-include-path": true,
     "sort-packages": true,
-    "github-protocols": ["https"],
+    "github-protocols": ["https", "http"],
     "process-timeout": 600
   },
   "repositories": [
