@@ -10,9 +10,9 @@ namespace Pyz\Yves\Cart;
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartItemHandler;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
+use Pyz\Yves\Cart\Handler\CodeHandler;
 use Pyz\Yves\Cart\Handler\ProductBundleCartOperationHandler;
 use Pyz\Yves\Cart\Plugin\Provider\AttributeVariantsProvider;
-use Pyz\Yves\Discount\Handler\VoucherHandler;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -38,15 +38,24 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Discount\Handler\VoucherHandlerInterface
+     * @return \Pyz\Yves\Cart\Handler\CodeHandler
      */
-    public function createCartVoucherHandler()
+    public function createCartCodeHandler()
     {
-        return new VoucherHandler(
+        return new CodeHandler(
             $this->getCalculationClient(),
             $this->getCartClient(),
-            $this->getFlashMessenger()
+            $this->getFlashMessenger(),
+            $this->getCodeHandlerPlugins()
         );
+    }
+
+    /**
+     * @return \Pyz\Yves\Cart\Plugin\CodeHandlerInterface[]
+     */
+    protected function getCodeHandlerPlugins()
+    {
+        return $this->getProvidedDependency(CartDependencyProvider::CODE_HANDLER_PLUGINS);
     }
 
     /**

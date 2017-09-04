@@ -8,6 +8,8 @@
 namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
+use Pyz\Yves\Discount\Handler\VoucherCodeHandler;
+use Pyz\Yves\GiftCard\Cart\Plugin\GiftCardCodeHandler;
 use Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Spryker\Shared\Kernel\Store;
@@ -31,6 +33,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     const PLUGIN_SHIPMENT_STEP_HANDLER = 'PLUGIN_SHIPMENT_STEP_HANDLER';
     const PLUGIN_SHIPMENT_HANDLER = 'PLUGIN_SHIPMENT_HANDLER';
     const PLUGIN_SHIPMENT_FORM_DATA_PROVIDER = 'PLUGIN_SHIPMENT_FORM_DATA_PROVIDER';
+    const CODE_HANDLER_PLUGINS = 'CODE_HANDLER_PLUGINS';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -106,6 +109,13 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             $pimplePlugin = new Pimple();
 
             return $pimplePlugin->getApplication();
+        };
+
+        $container[self::CODE_HANDLER_PLUGINS] = function () {
+            return [
+                new VoucherCodeHandler(),
+                new GiftCardCodeHandler(),
+            ];
         };
 
         return $container;
