@@ -81,15 +81,6 @@ $config[StorageConstants::STORAGE_REDIS_PORT] = '6379';
 $config[StorageConstants::STORAGE_REDIS_PASSWORD] = false;
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 3;
 
-// ---------- Propel
-$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
-$config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
-$config[PropelConstants::ZED_DB_PASSWORD] = '';
-$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
-$config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[PropelConstants::ZED_DB_PORT] = 5432;
-$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
-
 // ---------- Elasticsearch
 $ELASTICA_INDEX_NAME = 'de_search';
 $ELASTICA_DOCUMENT_TYPE = 'page';
@@ -169,3 +160,6 @@ $config[RatepayConstants::SNIPPET_ID] = 'ratepay';
 $config[RatepayConstants::SHOP_ID] = '';
 $config[RatepayConstants::SYSTEM_ID] = 'Spryker ' . $config[ApplicationConstants::HOST_YVES];
 $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_0';
+
+// ---------- Propel
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
