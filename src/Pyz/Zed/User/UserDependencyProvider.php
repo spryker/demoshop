@@ -8,6 +8,7 @@
 namespace Pyz\Zed\User;
 
 use Spryker\Zed\Acl\Communication\Plugin\GroupPlugin;
+use Spryker\Zed\CustomerUserConnectorGui\Communication\Plugin\UsersTableExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\User\UserDependencyProvider as SprykerUserDependencyProvider;
 
@@ -26,6 +27,16 @@ class UserDependencyProvider extends SprykerUserDependencyProvider
         };
 
         return $container;
+    }
+
+    /**
+     * @return \Spryker\Zed\User\Dependency\Plugin\UsersTableExpanderPluginInterface[]
+     */
+    protected function getUsersTableExtenderPlugins()
+    {
+        return [
+            new UsersTableExpanderPlugin(),
+        ];
     }
 
 }

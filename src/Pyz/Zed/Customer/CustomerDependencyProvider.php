@@ -55,7 +55,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\CustomerUserConnector\Communication\Plugin\CustomerTransferExpanderPluginInterface[]
+     * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerTransferExpanderPluginInterface[]
      */
     protected function getCustomerTransferExpanderPlugins()
     {
