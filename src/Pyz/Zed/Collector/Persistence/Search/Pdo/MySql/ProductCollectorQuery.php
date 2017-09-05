@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql;
+namespace Pyz\Zed\Collector\Persistence\Search\Pdo\MySql;
 
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
@@ -20,7 +20,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
     protected function prepareQuery()
     {
         $sql = '
-            SELECT
+        SELECT
                 MIN(spy_product_abstract.id_product_abstract)                                                 AS id_product_abstract,
                 MIN(spy_product_abstract.attributes)                                                          AS abstract_attributes,
                 MIN(spy_product_abstract_localized_attributes.attributes)                                     AS abstract_localized_attributes,
@@ -28,7 +28,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_localized_attributes.attributes))     AS concrete_localized_attributes,
                 MIN(product_urls.url)                                                                         AS product_urls,
                 MIN(spy_product_abstract_localized_attributes.name)                                           AS abstract_name,
-                MIN("spy_product_abstract_localized_attributes"."description")                                AS abstract_description,
+                MIN(spy_product_abstract_localized_attributes.description)                                    AS abstract_description,
                 GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_localized_attributes.name))  AS concrete_names,
                 GROUP_CONCAT(spy_product_localized_attributes.description)                                    AS concrete_descriptions,
                 MIN(spy_product_abstract.sku)                                                                 AS abstract_sku,
@@ -37,8 +37,8 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)       AS category_node_ids,
                 GROUP_CONCAT(DISTINCT spy_product_abstract.is_featured)         AS is_featured,
                 MIN(spy_product_image_set.id_product_image_set)                 AS id_image_set,
-                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', cast(spy_product.is_active as TEXT))) AS product_status_aggregation,
-                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', cast(spy_product_search.is_searchable as TEXT))) AS product_searchable_status_aggregation,
+                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product.is_active)) AS product_status_aggregation,
+                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_search.is_searchable)) AS product_searchable_status_aggregation,
                 spy_touch.id_touch                                              AS %s,
                 spy_touch.item_id                                               AS %s,
                 spy_touch_search.id_touch_search                                AS %s
@@ -77,8 +77,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 AND spy_touch.touched >= :spy_touch_touched
                 AND spy_touch.item_type = :spy_touch_item_type
                 AND spy_locale.is_active = TRUE
-                AND spy_locale.id_locale = :id_locale
-        ';
+                AND spy_locale.id_locale = :id_locale';
 
         $this->criteriaBuilder
             ->sql($sql)

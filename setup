@@ -9,6 +9,8 @@ if [[ -f deploy/setup/params_local.sh ]] ; then
     . deploy/setup/params_local.sh
 fi
 
+export DATABASE_ENGINE=$2
+
 . deploy/setup/functions.sh
 . deploy/setup/frontend/params.sh
 

@@ -8,6 +8,7 @@ set -o pipefail
 . deploy/setup/frontend/params_test_env.sh
 
 export APPLICATION_ENV='devtest'
+export DATABASE_ENGINE=$2
 
 . deploy/setup/functions.sh
 . deploy/setup/frontend/functions.sh
@@ -72,7 +73,11 @@ function backupDatabaseForTests {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
-    pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
+    if [[ $DATABASE_ENGINE == "mysql" ]] || [[ ${DATABASE_DEFAULT_ENGINE} == "mysql" ]]; then
+        mysqldump -i -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${DATABASE_NAME} > ${DATABASE_BACKUP_PATH}
+    else
+        pg_dump -i -h 127.0.0.1 -U $DATABASE_USER  -F c -b -v -f  $DATABASE_BACKUP_PATH $DATABASE_NAME
+    fi
 }
 
 function dropAndRestoreTestDatabase {
@@ -85,11 +90,16 @@ function dropAndRestoreTestDatabase {
     export PGPASSWORD=$DATABASE_PASSWORD
     export LC_ALL="en_US.UTF-8"
 
-    sudo pg_ctlcluster 9.4 main restart --force
-    sudo -u postgres dropdb $DATABASE_NAME
-    sudo -u postgres createdb $DATABASE_NAME
-    pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
-
+    if [[ $DATABASE_ENGINE == "mysql" ]] || [[ ${DATABASE_DEFAULT_ENGINE} == "mysql" ]]; then
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "DROP DATABASE IF EXISTS ${DATABASE_NAME};"
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "CREATE DATABASE ${DATABASE_NAME};"
+        mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${DATABASE_NAME} < ${DATABASE_BACKUP_PATH}
+    else
+        sudo pg_ctlcluster 9.4 main restart --force
+        sudo -u postgres dropdb $DATABASE_NAME
+        sudo -u postgres createdb $DATABASE_NAME
+        pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
+    fi
 }
 
 function configureCodeception {

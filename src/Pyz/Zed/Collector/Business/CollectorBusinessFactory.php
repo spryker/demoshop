@@ -21,7 +21,6 @@ use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
 use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
-use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\RedirectCollectorQuery as StorageRedirectCollectorPropelQuery;
@@ -366,14 +365,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $queryBuilderClassName = $classList[$name];
 
         return $this->createQueryBuilderByClassName($queryBuilderClassName);
-    }
-
-    /**
-     * @return \Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery
-     */
-    public function createProductOptionCollectorPropelQuery()
-    {
-        return new ProductOptionCollectorQuery();
     }
 
     /**
