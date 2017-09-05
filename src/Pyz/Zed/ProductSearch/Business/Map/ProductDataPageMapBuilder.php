@@ -22,8 +22,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 class ProductDataPageMapBuilder
 {
 
-    const BOOLEAN_FLAG_PRODUCT_ACTIVE = 't';
-
     /**
      * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
@@ -69,7 +67,7 @@ class ProductDataPageMapBuilder
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(ProductSearchConfig::PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE)
-            ->setIsFeatured($productData['is_featured'] == 'true')
+            ->setIsFeatured(filter_var($productData['is_featured'], FILTER_VALIDATE_BOOLEAN))
             ->setIsActive(!empty($productData['concrete_skus']));
 
         $attributes = $this->getProductAttributes($productData);
@@ -78,7 +76,7 @@ class ProductDataPageMapBuilder
          * Here you can hard code which product data will be used for which search functionality
          */
         $pageMapBuilder
-            ->addSearchResultData($pageMapTransfer, 'id_product_abstract', $productData['id_product_abstract'])
+            ->addSearchResultData($pageMapTransfer, 'id_product_abstract', (int)$productData['id_product_abstract'])
             ->addSearchResultData($pageMapTransfer, 'abstract_sku', $productData['abstract_sku'])
             ->addSearchResultData($pageMapTransfer, 'abstract_name', $productData['abstract_name'])
             ->addSearchResultData($pageMapTransfer, 'url', $this->getProductUrl($productData))
@@ -221,7 +219,7 @@ class ProductDataPageMapBuilder
         foreach ($productSearchableList as $productSearchableStatus) {
             list($concreteSku, $status) = explode(':', $productSearchableStatus);
 
-            if ($status === static::BOOLEAN_FLAG_PRODUCT_ACTIVE && isset($activeProducts[$concreteSku])) {
+            if (filter_var($status, FILTER_VALIDATE_BOOLEAN) && isset($activeProducts[$concreteSku])) {
                 $searchableProducts[$concreteSku] = true;
             }
         }
@@ -276,7 +274,7 @@ class ProductDataPageMapBuilder
         foreach ($productStatusList as $productStatus) {
             list($abstractSku, $status) = explode(':', $productStatus);
 
-            if ($status === static::BOOLEAN_FLAG_PRODUCT_ACTIVE) {
+            if (filter_var($status, FILTER_VALIDATE_BOOLEAN)) {
                 $activeProducts[$abstractSku] = true;
             }
         }
