@@ -16692,11 +16692,11 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.2.2",
+            "version": "3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Development.git",
-                "reference": "8283ac3788a39df1ebecbac7f562bbbc15b22318",
+                "reference": "11a6962cceafa148b25d0e34c445963426378452",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -16706,8 +16706,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/8283ac3788a39df1ebecbac7f562bbbc15b22318",
-                "reference": "8283ac3788a39df1ebecbac7f562bbbc15b22318",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/11a6962cceafa148b25d0e34c445963426378452",
+                "reference": "11a6962cceafa148b25d0e34c445963426378452",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -16752,9 +16752,9 @@
             ],
             "description": "Development module",
             "support": {
-                "source": "https://github.com/spryker/Development/tree/3.2.2"
+                "source": "https://github.com/spryker/Development/tree/3.2.3"
             },
-            "time": "2017-08-18T16:57:56+00:00"
+            "time": "2017-09-05T17:14:39+00:00"
         },
         {
             "name": "spryker/testify",
