@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1833213e03d1c6cc5bd5a9d71c79fc4f38b35213"
+                "reference": "0dfd3bb7f263d876846ba2d5b419beb7c21d36cb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1806,7 +1806,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-05T14:49:41+00:00"
+            "time": "2017-09-06T12:49:02+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6648,7 +6648,7 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
