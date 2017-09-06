@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 class CartOperationHandler extends BaseHandler implements CartOperationInterface
 {
 
+    const URL_PARAM_ID_DISCOUNT_PROMOTION = 'idDiscountPromotion';
+
     /**
      * @var \Spryker\Client\Cart\CartClientInterface|\Spryker\Client\Kernel\AbstractClient
      */
@@ -153,6 +155,7 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
      */
     protected function getIdDiscountPromotion()
     {
-        return (int)$this->request->request->get('idDiscountPromotion');
+        return (int)$this->request->request->get(static::URL_PARAM_ID_DISCOUNT_PROMOTION);
     }
+
 }

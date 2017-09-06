@@ -22,11 +22,12 @@ class CartController extends AbstractController
     const PARAM_ITEMS = 'items';
 
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param array|null $selectedAttributes
      *
      * @return array
      */
-    public function indexAction(array $selectedAttributes = null)
+    public function indexAction(Request $request, array $selectedAttributes = null)
     {
         $quoteTransfer = $this->getClient()
             ->getQuote();
@@ -50,7 +51,7 @@ class CartController extends AbstractController
             ->getProductPromotionMapperPlugin()
             ->mapPromotionItemsFromProductStorage(
                 $quoteTransfer,
-                $this->getRequest()
+                $request
             );
 
         return $this->viewResponse([
@@ -187,14 +188,6 @@ class CartController extends AbstractController
         }
 
         return $itemTransfers;
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Request
-     */
-    protected function getRequest()
-    {
-        return $this->getApplication()['request'];
     }
 
 }
