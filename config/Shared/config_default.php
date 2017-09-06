@@ -317,6 +317,7 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     ],
     'Oms' => [
         'DummyPayment',
+        GiftCardConstants::PROVIDER_NAME,
     ],
 ];
 
