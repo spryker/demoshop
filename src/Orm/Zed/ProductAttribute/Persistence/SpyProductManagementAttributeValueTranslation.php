@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\ProductManagement\Persistence;
+namespace Orm\Zed\ProductAttribute\Persistence;
 
-use Spryker\Zed\ProductManagement\Persistence\Propel\AbstractSpyProductManagementAttributeValueTranslation as BaseSpyProductManagementAttributeValueTranslation;
+use Spryker\Zed\ProductAttribute\Persistence\Propel\AbstractSpyProductManagementAttributeValueTranslation as BaseSpyProductManagementAttributeValueTranslation;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_management_attribute_value_translation' table.

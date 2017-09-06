@@ -154,3 +154,6 @@ $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
+
+// ---------- Propel
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
