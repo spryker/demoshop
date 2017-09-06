@@ -7,7 +7,6 @@ env:
 
 dist: precise
 
-#Possible travis events (push, pull_request, cron, or api)
 matrix:
   fast_finish: true
   include:
@@ -20,7 +19,6 @@ matrix:
      - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
-          - PHPSTAN=1
      - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
