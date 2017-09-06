@@ -3234,11 +3234,11 @@
         },
         {
             "name": "spryker/cms-block-category-connector",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsBlockCategoryConnector.git",
-                "reference": "37f678970742c4ba7eee68271c03eeebb8d1673c",
+                "reference": "684b3529e6d28cd7ee391a2ee796dafd74063de8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3248,8 +3248,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockCategoryConnector/zipball/37f678970742c4ba7eee68271c03eeebb8d1673c",
-                "reference": "37f678970742c4ba7eee68271c03eeebb8d1673c",
+                "url": "https://api.github.com/repos/spryker/CmsBlockCategoryConnector/zipball/684b3529e6d28cd7ee391a2ee796dafd74063de8",
+                "reference": "684b3529e6d28cd7ee391a2ee796dafd74063de8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3305,15 +3305,15 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockCategoryConnector/tree/master"
             },
-            "time": "2017-08-24T16:17:46+00:00"
+            "time": "2017-09-04T15:08:53+00:00"
         },
         {
             "name": "spryker/cms-block-collector",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsBlockCollector.git",
-                "reference": "fcbc846f165c367af5f9f3a6a236f9e79eefedc8",
+                "reference": "805253ff1f92eecf4d7bdf43aa15415edecd0f41",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3323,8 +3323,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockCollector/zipball/fcbc846f165c367af5f9f3a6a236f9e79eefedc8",
-                "reference": "fcbc846f165c367af5f9f3a6a236f9e79eefedc8",
+                "url": "https://api.github.com/repos/spryker/CmsBlockCollector/zipball/805253ff1f92eecf4d7bdf43aa15415edecd0f41",
+                "reference": "805253ff1f92eecf4d7bdf43aa15415edecd0f41",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3372,7 +3372,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockCollector/tree/master"
             },
-            "time": "2017-07-11T10:00:41+00:00"
+            "time": "2017-09-04T15:08:53+00:00"
         },
         {
             "name": "spryker/cms-block-gui",
@@ -3982,11 +3982,11 @@
         },
         {
             "name": "spryker/collector",
-            "version": "5.3.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Collector.git",
-                "reference": "9fc1537422fda12054b3f0f0d2e69fa62975a4a8",
+                "reference": "430297c3e43c6d78dda8748a0e3be4a6d13826b3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3996,8 +3996,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Collector/zipball/9fc1537422fda12054b3f0f0d2e69fa62975a4a8",
-                "reference": "9fc1537422fda12054b3f0f0d2e69fa62975a4a8",
+                "url": "https://api.github.com/repos/spryker/Collector/zipball/430297c3e43c6d78dda8748a0e3be4a6d13826b3",
+                "reference": "430297c3e43c6d78dda8748a0e3be4a6d13826b3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4049,9 +4049,9 @@
             ],
             "description": "Collector module",
             "support": {
-                "source": "https://github.com/spryker/Collector/tree/5.3.0"
+                "source": "https://github.com/spryker/Collector/tree/master"
             },
-            "time": "2017-08-10T13:34:30+00:00"
+            "time": "2017-09-04T15:08:54+00:00"
         },
         {
             "name": "spryker/collector-search-connector",
@@ -4303,11 +4303,11 @@
         },
         {
             "name": "spryker/country",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Country.git",
-                "reference": "399818004acd675b29e60c0832f498463466ca5c",
+                "reference": "eda7c361ea1c5cce0bc2c3648a62a79edec0fc16",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4317,8 +4317,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Country/zipball/399818004acd675b29e60c0832f498463466ca5c",
-                "reference": "399818004acd675b29e60c0832f498463466ca5c",
+                "url": "https://api.github.com/repos/spryker/Country/zipball/eda7c361ea1c5cce0bc2c3648a62a79edec0fc16",
+                "reference": "eda7c361ea1c5cce0bc2c3648a62a79edec0fc16",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4340,7 +4340,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/installer": "If you want to use Installer plugins you need to install spryker/installer."
+                "spryker/installer": "If you want to use Installer plugins."
             },
             "type": "library",
             "extra": {
@@ -4362,11 +4362,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Country bundle",
+            "description": "Country module",
             "support": {
-                "source": "https://github.com/spryker/Country/tree/master"
+                "source": "https://github.com/spryker/Country/tree/3.1.1"
             },
-            "time": "2017-03-10T16:32:01+00:00"
+            "time": "2017-09-01T13:58:01+00:00"
         },
         {
             "name": "spryker/currency",
@@ -4817,11 +4817,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "4.4.3",
+            "version": "4.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Discount.git",
-                "reference": "7b8327003e4b341dbab20a8d45da2c8bea24782c",
+                "reference": "2c920a9b6503a39e5dfe97575aa110f4a2146013",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4831,8 +4831,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/7b8327003e4b341dbab20a8d45da2c8bea24782c",
-                "reference": "7b8327003e4b341dbab20a8d45da2c8bea24782c",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/2c920a9b6503a39e5dfe97575aa110f4a2146013",
+                "reference": "2c920a9b6503a39e5dfe97575aa110f4a2146013",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4890,9 +4890,9 @@
             ],
             "description": "Discount module",
             "support": {
-                "source": "https://github.com/spryker/Discount/tree/4.4.3"
+                "source": "https://github.com/spryker/Discount/tree/master"
             },
-            "time": "2017-08-16T09:37:11+00:00"
+            "time": "2017-09-04T15:08:53+00:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -6043,11 +6043,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.5.2",
+            "version": "3.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "f7ceaa62fa6b29ebc21cdc3b3bf8d709f071090d",
+                "reference": "955c626519a8020c25a1dda28aa825a9f985991b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6057,8 +6057,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/f7ceaa62fa6b29ebc21cdc3b3bf8d709f071090d",
-                "reference": "f7ceaa62fa6b29ebc21cdc3b3bf8d709f071090d",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/955c626519a8020c25a1dda28aa825a9f985991b",
+                "reference": "955c626519a8020c25a1dda28aa825a9f985991b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6071,6 +6071,7 @@
                 "everon/collection": "^1.0.0",
                 "php": ">=5.6.0",
                 "spryker/config": "^3.0.0",
+                "spryker/error-handler": "^2.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^3.0.0",
@@ -6106,9 +6107,9 @@
             ],
             "description": "Kernel module",
             "support": {
-                "source": "https://github.com/spryker/Kernel/tree/master"
+                "source": "https://github.com/spryker/Kernel/tree/3.5.4"
             },
-            "time": "2017-09-04T08:33:40+00:00"
+            "time": "2017-09-05T13:01:52+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -6656,11 +6657,11 @@
         },
         {
             "name": "spryker/navigation",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Navigation.git",
-                "reference": "fd47fb755a3cf35c78e0a0d82b8cf5251dfcd829",
+                "reference": "c87bdbfdda2ff343100386b44375f5f5dd04ec67",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6670,8 +6671,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Navigation/zipball/fd47fb755a3cf35c78e0a0d82b8cf5251dfcd829",
-                "reference": "fd47fb755a3cf35c78e0a0d82b8cf5251dfcd829",
+                "url": "https://api.github.com/repos/spryker/Navigation/zipball/c87bdbfdda2ff343100386b44375f5f5dd04ec67",
+                "reference": "c87bdbfdda2ff343100386b44375f5f5dd04ec67",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6693,11 +6694,10 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/propel": "^3.0.0",
-                "spryker/silex": "^2.0.0",
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/silex": "If you want to use the NavigationTwigServiceProvider you need to install spryker/silex."
+                "spryker/silex": "If you want to use the NavigationTwigServiceProvider."
             },
             "type": "library",
             "extra": {
@@ -6719,19 +6719,19 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Navigation bundle",
+            "description": "Navigation module",
             "support": {
-                "source": "https://github.com/spryker/Navigation/tree/1.0.0"
+                "source": "https://github.com/spryker/Navigation/tree/master"
             },
-            "time": "2017-03-23T10:43:39+00:00"
+            "time": "2017-09-04T15:08:54+00:00"
         },
         {
             "name": "spryker/navigation-collector",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationCollector.git",
-                "reference": "bd75c8b6ef7dce2af5ca2558f95f7ea1d4033b42",
+                "reference": "50a7e84948a1a11df1fb1dde92838486282063e9",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6741,8 +6741,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationCollector/zipball/bd75c8b6ef7dce2af5ca2558f95f7ea1d4033b42",
-                "reference": "bd75c8b6ef7dce2af5ca2558f95f7ea1d4033b42",
+                "url": "https://api.github.com/repos/spryker/NavigationCollector/zipball/50a7e84948a1a11df1fb1dde92838486282063e9",
+                "reference": "50a7e84948a1a11df1fb1dde92838486282063e9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6787,11 +6787,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "NavigationCollector bundle",
+            "description": "NavigationCollector module",
             "support": {
                 "source": "https://github.com/spryker/NavigationCollector/tree/master"
             },
-            "time": "2017-03-23T10:43:39+00:00"
+            "time": "2017-09-04T15:08:53+00:00"
         },
         {
             "name": "spryker/navigation-gui",
@@ -8466,11 +8466,11 @@
         },
         {
             "name": "spryker/product-label",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductLabel.git",
-                "reference": "8a075b0795637c6ffb703144ae22566034018bbe",
+                "reference": "46534a7ea3b604783aa220612dba89a7904def90",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8480,8 +8480,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductLabel/zipball/8a075b0795637c6ffb703144ae22566034018bbe",
-                "reference": "8a075b0795637c6ffb703144ae22566034018bbe",
+                "url": "https://api.github.com/repos/spryker/ProductLabel/zipball/46534a7ea3b604783aa220612dba89a7904def90",
+                "reference": "46534a7ea3b604783aa220612dba89a7904def90",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8533,7 +8533,10 @@
                 "proprietary"
             ],
             "description": "ProductLabel module",
-            "time": "2017-07-20T13:51:52+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabel/tree/master"
+            },
+            "time": "2017-09-04T15:08:54+00:00"
         },
         {
             "name": "spryker/product-label-collector",
@@ -9018,11 +9021,11 @@
         },
         {
             "name": "spryker/product-relation",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductRelation.git",
-                "reference": "7f0b8a5ab1c5980873b25dde9553122c07e9cd52",
+                "reference": "8dd44d0ed0ea0a7401c7b46c496bc16b1f155308",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9032,8 +9035,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductRelation/zipball/7f0b8a5ab1c5980873b25dde9553122c07e9cd52",
-                "reference": "7f0b8a5ab1c5980873b25dde9553122c07e9cd52",
+                "url": "https://api.github.com/repos/spryker/ProductRelation/zipball/8dd44d0ed0ea0a7401c7b46c496bc16b1f155308",
+                "reference": "8dd44d0ed0ea0a7401c7b46c496bc16b1f155308",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9100,7 +9103,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductRelation/tree/master"
             },
-            "time": "2017-08-14T14:10:19+00:00"
+            "time": "2017-09-04T15:08:58+00:00"
         },
         {
             "name": "spryker/product-relation-collector",
@@ -9172,11 +9175,11 @@
         },
         {
             "name": "spryker/product-search",
-            "version": "5.1.1",
+            "version": "5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductSearch.git",
-                "reference": "e65218ae7573aaa4453d1fbfb12197aff0c03db4",
+                "reference": "e60e0bbd762deb6e663affe0e66a2fc25271cd39",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9186,8 +9189,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductSearch/zipball/e65218ae7573aaa4453d1fbfb12197aff0c03db4",
-                "reference": "e65218ae7573aaa4453d1fbfb12197aff0c03db4",
+                "url": "https://api.github.com/repos/spryker/ProductSearch/zipball/e60e0bbd762deb6e663affe0e66a2fc25271cd39",
+                "reference": "e60e0bbd762deb6e663affe0e66a2fc25271cd39",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9243,7 +9246,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductSearch/tree/master"
             },
-            "time": "2017-08-01T04:28:10+00:00"
+            "time": "2017-09-04T15:08:58+00:00"
         },
         {
             "name": "spryker/product-set",
@@ -9954,11 +9957,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "7.1.4",
+            "version": "7.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "80cb9666172da5c84c5fea282b650e062b7c4960",
+                "reference": "0175090cd91221df43712cc90f1ebd90971629eb",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9968,8 +9971,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/80cb9666172da5c84c5fea282b650e062b7c4960",
-                "reference": "80cb9666172da5c84c5fea282b650e062b7c4960",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/0175090cd91221df43712cc90f1ebd90971629eb",
+                "reference": "0175090cd91221df43712cc90f1ebd90971629eb",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10039,7 +10042,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2017-09-04T09:58:14+00:00"
+            "time": "2017-09-05T09:07:48+00:00"
         },
         {
             "name": "spryker/sales-product-connector",
@@ -10834,11 +10837,11 @@
         },
         {
             "name": "spryker/stock",
-            "version": "4.0.4",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Stock.git",
-                "reference": "577189c874f637e15d5ec8e5ad43af61101620c3",
+                "reference": "c5d93bd96e6b65da994fae4edfc3a43f0032bb2c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10848,8 +10851,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Stock/zipball/577189c874f637e15d5ec8e5ad43af61101620c3",
-                "reference": "577189c874f637e15d5ec8e5ad43af61101620c3",
+                "url": "https://api.github.com/repos/spryker/Stock/zipball/c5d93bd96e6b65da994fae4edfc3a43f0032bb2c",
+                "reference": "c5d93bd96e6b65da994fae4edfc3a43f0032bb2c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10896,7 +10899,10 @@
                 "proprietary"
             ],
             "description": "Stock module",
-            "time": "2017-07-12T14:54:21+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Stock/tree/master"
+            },
+            "time": "2017-09-04T15:08:53+00:00"
         },
         {
             "name": "spryker/stock-sales-connector",
@@ -11244,11 +11250,11 @@
         },
         {
             "name": "spryker/touch",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Touch.git",
-                "reference": "51fd49e74cce8e85a5383e0c37327fb6b43c6471",
+                "reference": "f2bb0d4e23fc63ed668f3da57698cc3b5e0e67e2",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11258,8 +11264,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Touch/zipball/51fd49e74cce8e85a5383e0c37327fb6b43c6471",
-                "reference": "51fd49e74cce8e85a5383e0c37327fb6b43c6471",
+                "url": "https://api.github.com/repos/spryker/Touch/zipball/f2bb0d4e23fc63ed668f3da57698cc3b5e0e67e2",
+                "reference": "f2bb0d4e23fc63ed668f3da57698cc3b5e0e67e2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11302,8 +11308,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Touch bundle",
-            "time": "2017-06-13T14:47:26+00:00"
+            "description": "Touch module",
+            "support": {
+                "source": "https://github.com/spryker/Touch/tree/master"
+            },
+            "time": "2017-09-04T15:08:54+00:00"
         },
         {
             "name": "spryker/transfer",
@@ -11509,11 +11518,11 @@
         },
         {
             "name": "spryker/user",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/User.git",
-                "reference": "6b4f088b9b87809e06c738d26987d30ee7efa5d2",
+                "reference": "fd5e34103fe3eeab0a72046250070fb7e4dae01c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11523,8 +11532,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/User/zipball/6b4f088b9b87809e06c738d26987d30ee7efa5d2",
-                "reference": "6b4f088b9b87809e06c738d26987d30ee7efa5d2",
+                "url": "https://api.github.com/repos/spryker/User/zipball/fd5e34103fe3eeab0a72046250070fb7e4dae01c",
+                "reference": "fd5e34103fe3eeab0a72046250070fb7e4dae01c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11574,9 +11583,9 @@
             ],
             "description": "User module",
             "support": {
-                "source": "https://github.com/spryker/User/tree/master"
+                "source": "https://github.com/spryker/User/tree/3.0.3"
             },
-            "time": "2017-08-01T04:28:10+00:00"
+            "time": "2017-09-01T13:28:07+00:00"
         },
         {
             "name": "spryker/util-data-reader",
@@ -16683,11 +16692,11 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.2.2",
+            "version": "3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Development.git",
-                "reference": "8283ac3788a39df1ebecbac7f562bbbc15b22318",
+                "reference": "11a6962cceafa148b25d0e34c445963426378452",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -16697,8 +16706,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/8283ac3788a39df1ebecbac7f562bbbc15b22318",
-                "reference": "8283ac3788a39df1ebecbac7f562bbbc15b22318",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/11a6962cceafa148b25d0e34c445963426378452",
+                "reference": "11a6962cceafa148b25d0e34c445963426378452",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -16743,9 +16752,9 @@
             ],
             "description": "Development module",
             "support": {
-                "source": "https://github.com/spryker/Development/tree/3.2.2"
+                "source": "https://github.com/spryker/Development/tree/3.2.3"
             },
-            "time": "2017-08-18T16:57:56+00:00"
+            "time": "2017-09-05T17:14:39+00:00"
         },
         {
             "name": "spryker/testify",

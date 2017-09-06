@@ -80,15 +80,6 @@ $config[StorageConstants::STORAGE_REDIS_PORT] = '6379';
 $config[StorageConstants::STORAGE_REDIS_PASSWORD] = false;
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 3;
 
-// ---------- Propel
-$config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
-$config[PropelConstants::ZED_DB_USERNAME] = 'postgres';
-$config[PropelConstants::ZED_DB_PASSWORD] = '';
-$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
-$config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
-$config[PropelConstants::ZED_DB_PORT] = 5432;
-$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
-
 // ---------- Elasticsearch
 $ELASTICA_INDEX_NAME = 'de_search';
 $ELASTICA_DOCUMENT_TYPE = 'page';
@@ -160,3 +151,6 @@ $config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
 $config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
 $config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
 $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
+
+// ---------- Propel
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';

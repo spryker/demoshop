@@ -5,7 +5,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql;
+namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql;
 
 use Orm\Zed\Url\Persistence\Map\SpyUrlTableMap;
 use ReflectionClass;
