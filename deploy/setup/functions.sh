@@ -236,7 +236,7 @@ function dropDevelopmentDatabase {
                 sudo pg_ctlcluster 9.4 main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
                 writeErrorMessage "Deleting DB command failed"
             fi
-
+        fi
     fi
 
 }
