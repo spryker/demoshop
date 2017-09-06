@@ -110,7 +110,7 @@ class PreviewController extends AbstractController
         }
 
         $metaData = $this->getFactory()
-            ->getCmsContentWidgetClient()
+            ->getCmsCollectorClient()
             ->expandCmsPageCollectorData((new CmsPageCollectorDataTransfer())->setCollectedData($metaData))
             ->getCollectedData();
 

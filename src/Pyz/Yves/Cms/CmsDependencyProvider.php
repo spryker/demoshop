@@ -17,7 +17,7 @@ class CmsDependencyProvider extends AbstractBundleDependencyProvider
 
     const CMS_TWIG_CONTENT_RENDERER_PLUGIN = 'cms twig content renderer plugin';
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
-    const CLIENT_CMS_CONTENT_WIDGET = 'CLIENT_CMS_CONTENT_WIDGET';
+    const CLIENT_CMS_COLLECTOR = 'CLIENT_CMS_COLLECTOR';
     const STORE = 'STORE';
 
     /**
@@ -35,8 +35,8 @@ class CmsDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->customer()->client();
         };
 
-        $container[static::CLIENT_CMS_CONTENT_WIDGET] = function (Container $container) {
-            return $container->getLocator()->cmsContentWidget()->client();
+        $container[static::CLIENT_CMS_COLLECTOR] = function (Container $container) {
+            return $container->getLocator()->cmsCollector()->client();
         };
 
         $container[static::STORE] = function (Container $container) {

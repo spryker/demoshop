@@ -19,7 +19,6 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 
     const SALES_FACADE = 'sales facade';
     const NEWSLETTER_FACADE = 'newsletter facade';
-    const CUSTOMER_TRANSFER_EXPANDER_PLUGINS = 'CUSTOMER_TRANSFER_EXPANDER_PLUGINS';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container

@@ -38,11 +38,11 @@ class CmsFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\CmsContentWidget\CmsContentWidgetClientInterface
+     * @return \Spryker\Client\CmsCollector\CmsCollectorClientInterface
      */
-    public function getCmsContentWidgetClient()
+    public function getCmsCollectorClient()
     {
-        return $this->getProvidedDependency(CmsDependencyProvider::CLIENT_CMS_CONTENT_WIDGET);
+        return $this->getProvidedDependency(CmsDependencyProvider::CLIENT_CMS_COLLECTOR);
     }
 
     /**
