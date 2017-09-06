@@ -42,8 +42,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node without type test')
-                ->setKey('Create child node without type test')
+                ->setName('Create child node without type test 1')
+                ->setKey('Create child node without type test 1')
                 ->setIsActive(true)));
         $i->amOnPage(NavigationPage::URL);
 
@@ -64,8 +64,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node without type test')
-                ->setKey('Create child node without type test')
+                ->setName('Create child node without type test 2')
+                ->setKey('Create child node without type test 2')
                 ->setIsActive(true)));
         $i->amOnPage(NavigationPage::URL);
 
@@ -93,8 +93,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node with external URL type test')
-                ->setKey('Create child node with external URL type test')
+                ->setName('Create child node with external URL type test 3')
+                ->setKey('Create child node with external URL type test 3')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())
@@ -127,8 +127,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Update child node to category type test')
-                ->setKey('Update child node to category type test')
+                ->setName('Update child node to category type test 4')
+                ->setKey('Update child node to category type test 4')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())
@@ -166,8 +166,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node with CMS page type test')
-                ->setKey('Create child node with CMS page type test')
+                ->setName('Create child node with CMS page type test 5')
+                ->setKey('Create child node with CMS page type test 5')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())
@@ -207,8 +207,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node with CMS page type test')
-                ->setKey('Create child node with CMS page type test')
+                ->setName('Create child node with CMS page type test 6')
+                ->setKey('Create child node with CMS page type test 6')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())
