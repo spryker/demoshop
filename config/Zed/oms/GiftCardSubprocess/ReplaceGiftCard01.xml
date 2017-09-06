@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<statemachine
+        xmlns="spryker:oms-01"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
+
+    <process name="ReplaceGiftCard">
+        <states>
+            <state name="gift card replacement pending"/>
+            <state name="gift card replacement completed"/>
+        </states>
+
+        <transitions>
+            <transition happy="true">
+                <source>gift card replacement pending</source>
+                <target>gift card replacement completed</target>
+                <event>replace giftcards</event>
+            </transition>
+
+        </transitions>
+
+        <events>
+            <event name="replace giftcards" onEnter="true" command="GiftCard/ReplaceGiftCards" />
+            <event name="complete giftcard replacement" onEnter="true" />
+            <event name="start giftcard replacement" onEnter="true" />
+        </events>
+    </process>
+</statemachine>
