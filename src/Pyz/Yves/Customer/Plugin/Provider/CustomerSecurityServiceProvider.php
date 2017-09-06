@@ -152,10 +152,10 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
         $prefixLocale = mb_substr($currentLocale, 0, 2);
         $localePath = mb_substr($requestUri, 1, 3);
 
-        if ($prefixLocale . '/' === $localePath) {
-            return $prefixLocale;
+        if ($prefixLocale . '/' !== $localePath) {
+            return null;
         }
-        return null;
+        return $prefixLocale;
     }
 
     /**
