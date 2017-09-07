@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.1",
+            "version": "3.36.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "104d1895fa8c661d0ac5f99567b6831b1436ec90"
+                "reference": "98bff6b24863bb0da970449d18f6745b9270add9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/104d1895fa8c661d0ac5f99567b6831b1436ec90",
-                "reference": "104d1895fa8c661d0ac5f99567b6831b1436ec90",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/98bff6b24863bb0da970449d18f6745b9270add9",
+                "reference": "98bff6b24863bb0da970449d18f6745b9270add9",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-09-05T19:05:30+00:00"
+            "time": "2017-09-06T16:44:34+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -3982,11 +3982,11 @@
         },
         {
             "name": "spryker/collector",
-            "version": "5.3.1",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Collector.git",
-                "reference": "430297c3e43c6d78dda8748a0e3be4a6d13826b3",
+                "reference": "a4a79076397841f78cc414ee42b77218c388c4ae",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3996,8 +3996,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Collector/zipball/430297c3e43c6d78dda8748a0e3be4a6d13826b3",
-                "reference": "430297c3e43c6d78dda8748a0e3be4a6d13826b3",
+                "url": "https://api.github.com/repos/spryker/Collector/zipball/a4a79076397841f78cc414ee42b77218c388c4ae",
+                "reference": "a4a79076397841f78cc414ee42b77218c388c4ae",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4051,7 +4051,7 @@
             "support": {
                 "source": "https://github.com/spryker/Collector/tree/master"
             },
-            "time": "2017-09-04T15:08:54+00:00"
+            "time": "2017-09-05T11:02:43+00:00"
         },
         {
             "name": "spryker/collector-search-connector",
@@ -8666,11 +8666,11 @@
         },
         {
             "name": "spryker/product-label-gui",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductLabelGui.git",
-                "reference": "b4efbea22a4f02e137272d1cd8daa4747d1f8ece",
+                "reference": "11c044bc14985c9159174ef7f09b901e6706643e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8680,8 +8680,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductLabelGui/zipball/b4efbea22a4f02e137272d1cd8daa4747d1f8ece",
-                "reference": "b4efbea22a4f02e137272d1cd8daa4747d1f8ece",
+                "url": "https://api.github.com/repos/spryker/ProductLabelGui/zipball/11c044bc14985c9159174ef7f09b901e6706643e",
+                "reference": "11c044bc14985c9159174ef7f09b901e6706643e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8699,7 +8699,7 @@
                 "spryker/price": "^4.0.0",
                 "spryker/product": "^5.1.0",
                 "spryker/product-label": "^1.0.0 || ^2.0.0",
-                "spryker/product-management": "^0.6.0 || ^0.7.0",
+                "spryker/product-management": "^0.6.0 || ^0.7.0 || ^0.8.0",
                 "spryker/propel-orm": "^1.1.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-text": "^1.1.0"
@@ -8726,7 +8726,10 @@
                 "proprietary"
             ],
             "description": "ProductLabelGui module",
-            "time": "2017-07-18T14:42:43+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabelGui/tree/master"
+            },
+            "time": "2017-09-07T08:39:13+00:00"
         },
         {
             "name": "spryker/product-management",
