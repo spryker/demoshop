@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9a33327036241e32162c1eabf27c67e",
+    "content-hash": "a8a02f147ee7223e56512e39acaed1ea",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -6566,8 +6566,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/architecture-sniffer.git",
+                "url": "https://github.com/spryker/architecture-sniffer.git",
                 "reference": "2f4ce943dbb699e489fb499cb08246ac71403213"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2f4ce943dbb699e489fb499cb08246ac71403213",
+                "reference": "2f4ce943dbb699e489fb499cb08246ac71403213",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6583,22 +6589,10 @@
                     "ArchitectureSniffer\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "ArchitectureSniffer\\Test\\": "tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "src/"
             ],
-            "scripts": {
-                "cs-check": [
-                    "vendor/bin/phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
-                ],
-                "cs-fix": [
-                    "vendor/bin/phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
-                ]
-            },
             "license": [
                 "MIT"
             ],
@@ -6616,9 +6610,6 @@
                 "sniffer",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/spryker/architecture-sniffer"
-            },
             "time": "2017-08-22T14:34:32+00:00"
         },
         {
