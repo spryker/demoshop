@@ -223,6 +223,8 @@ customer.email,E-Mail Adresse,de_DE
 customer.email,E-Mail,en_US
 customer.phone,Telefonnummer,de_DE
 customer.phone,Telephone number,en_US
+customer.reset.password.error.already.loggedIn,"Kunde bereits eingeloggt. Bitte logge dich aus, um dein Kundenpasswort zurückzusetzen.",de_DE
+customer.reset.password.error.already.loggedIn,"Another customer already logged in. Please logout to reset your password.",en_US
 payment.prepay,Vorkasse,de_DE
 payment.prepay,Prepayment,en_US
 payment.paypal,PayPal,de_DE
@@ -973,5 +975,7 @@ product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
 customer.order.canceledTotal,Canceled amount,en_US
 customer.order.canceledTotal,Stornobetrag,de_DE
+cart.promotion.items,Promotional products,en_US
+cart.promotion.items,Werbeprodukte,de_DE
 checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE

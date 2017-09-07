@@ -8,8 +8,10 @@
 namespace Pyz\Zed\DataImport\Business\Model\Discount;
 
 use DateTime;
+use Orm\Zed\Discount\Persistence\SpyDiscount;
 use Orm\Zed\Discount\Persistence\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPoolQuery;
+use Orm\Zed\DiscountPromotion\Persistence\SpyDiscountPromotionQuery;
 use Orm\Zed\Shipment\Persistence\SpyShipmentCarrierQuery;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
 use Spryker\Shared\Discount\DiscountConstants;
@@ -32,6 +34,8 @@ class DiscountWriterStep implements DataImportStepInterface
     const KEY_DISCOUNT_TYPE = 'discount_type';
     const KEY_DECISION_RULE_QUERY_STRING = 'decision_rule_query_string';
     const KEY_COLLECTOR_QUERY_STRING = 'collector_query_string';
+    const KEY_PROMOTION_SKU = 'promotion_sku';
+    const KEY_PROMOTION_QUANTITY = 'promotion_quantity';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -70,6 +74,8 @@ class DiscountWriterStep implements DataImportStepInterface
             ->setDecisionRuleQueryString($dataSet[static::KEY_DECISION_RULE_QUERY_STRING])
             ->setCollectorQueryString($dataSet[static::KEY_COLLECTOR_QUERY_STRING])
             ->save();
+
+        $this->saveDiscountPromotion($dataSet, $discountEntity);
     }
 
     /**
@@ -171,6 +177,27 @@ class DiscountWriterStep implements DataImportStepInterface
             ->findOne();
 
         return $spyShipmentMethod;
+    }
+
+    /**
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
+     * @param \Orm\Zed\Discount\Persistence\SpyDiscount $discountEntity
+     *
+     * @return void
+     */
+    protected function saveDiscountPromotion(DataSetInterface $dataSet, SpyDiscount $discountEntity)
+    {
+        if (!isset($dataSet[static::KEY_PROMOTION_SKU]) || empty($dataSet[static::KEY_PROMOTION_SKU])) {
+            return;
+
+        }
+        $discountPromotion = SpyDiscountPromotionQuery::create()
+            ->filterByFkDiscount($discountEntity->getIdDiscount())
+            ->findOneOrCreate();
+
+        $discountPromotion->setAbstractSku($dataSet[static::KEY_PROMOTION_SKU]);
+        $discountPromotion->setQuantity($dataSet[static::KEY_PROMOTION_QUANTITY]);
+        $discountPromotion->save();
     }
 
 }
