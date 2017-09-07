@@ -11319,11 +11319,11 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "3.3.3",
+            "version": "3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Transfer.git",
-                "reference": "bda2df39d793a0030a93ca619335204e03179e7e",
+                "reference": "7cb387c48dbc79ad9ddf2126c6fb0ac653048f55",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11333,8 +11333,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Transfer/zipball/bda2df39d793a0030a93ca619335204e03179e7e",
-                "reference": "bda2df39d793a0030a93ca619335204e03179e7e",
+                "url": "https://api.github.com/repos/spryker/Transfer/zipball/7cb387c48dbc79ad9ddf2126c6fb0ac653048f55",
+                "reference": "7cb387c48dbc79ad9ddf2126c6fb0ac653048f55",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11379,9 +11379,9 @@
             ],
             "description": "Transfer module",
             "support": {
-                "source": "https://github.com/spryker/Transfer/tree/master"
+                "source": "https://github.com/spryker/Transfer/tree/3.3.4"
             },
-            "time": "2017-07-14T16:02:06+00:00"
+            "time": "2017-09-07T04:18:47+00:00"
         },
         {
             "name": "spryker/twig",
