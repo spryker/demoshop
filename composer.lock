@@ -4820,11 +4820,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "4.4.4",
+            "version": "4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Discount.git",
-                "reference": "2c920a9b6503a39e5dfe97575aa110f4a2146013",
+                "reference": "640fe2c4d61af64e6b349dd4f9bb5c5d71dd3f92",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4834,8 +4834,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/2c920a9b6503a39e5dfe97575aa110f4a2146013",
-                "reference": "2c920a9b6503a39e5dfe97575aa110f4a2146013",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/640fe2c4d61af64e6b349dd4f9bb5c5d71dd3f92",
+                "reference": "640fe2c4d61af64e6b349dd4f9bb5c5d71dd3f92",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4892,10 +4892,7 @@
                 "proprietary"
             ],
             "description": "Discount module",
-            "support": {
-                "source": "https://github.com/spryker/Discount/tree/master"
-            },
-            "time": "2017-09-04T15:08:53+00:00"
+            "time": "2017-09-07T14:24:03+00:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
