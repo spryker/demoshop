@@ -7,9 +7,17 @@
 
 namespace Pyz\Zed\Collector;
 
-use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\CategoryNodeCollectorQuery as SearchCategoryNodeCollectorQuery;
-use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\ProductCollectorQuery as SearchProductCollector;
-use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollectorQuery as StorageCategoryNodeCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Search\Pdo\MySql\CategoryNodeCollectorQuery as MySqlSearchCategoryNodeCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Search\Pdo\MySql\ProductCollectorQuery as MySqlSearchProductCollector;
+use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\CategoryNodeCollectorQuery as PostgreSqlSearchCategoryNodeCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\ProductCollectorQuery as PostgreSqlSearchProductCollector;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql\CategoryNodeCollectorQuery as MySqlStorageCategoryNodeCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql\NavigationCollectorQuery as MySqlNavigationCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql\ProductAbstractCollectorQuery as MySqlProductAbstractCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql\ProductConcreteCollectorQuery as MySqlProductConcreteCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql\ProductOptionCollectorQuery as MySqlProductOptionCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql\UrlCollectorQuery as MySqlUrlCollectorQuery;
+use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\CategoryNodeCollectorQuery as PostgreSqlStorageCategoryNodeCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\NavigationCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductAbstractCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductConcreteCollectorQuery;
@@ -29,14 +37,19 @@ class CollectorConfig extends SprykerCollectorConfig
     {
         $data = [
             'MySql' => [
-
+                'ProductCollectorQuery' => MySqlProductAbstractCollectorQuery::class,
+                'ProductConcreteCollectorQuery' => MySqlProductConcreteCollectorQuery::class,
+                'CategoryNodeCollectorQuery' => MySqlStorageCategoryNodeCollectorQuery::class,
+                'NavigationCollectorQuery' => MySqlNavigationCollectorQuery::class,
+                'UrlCollectorQuery' => MySqlUrlCollectorQuery::class,
+                'ProductOptionCollectorQuery' => MySqlProductOptionCollectorQuery::class,
             ],
             'PostgreSql' => [
-                'CategoryNodeCollectorQuery' => StorageCategoryNodeCollectorQuery::class,
-                'NavigationCollectorQuery' => NavigationCollectorQuery::class,
                 'ProductCollectorQuery' => ProductAbstractCollectorQuery::class,
-                'UrlCollectorQuery' => UrlCollectorQuery::class,
                 'ProductConcreteCollectorQuery' => ProductConcreteCollectorQuery::class,
+                'CategoryNodeCollectorQuery' => PostgreSqlStorageCategoryNodeCollectorQuery::class,
+                'NavigationCollectorQuery' => NavigationCollectorQuery::class,
+                'UrlCollectorQuery' => UrlCollectorQuery::class,
                 'ProductOptionCollectorQuery' => ProductOptionCollectorQuery::class,
             ],
         ];
@@ -53,11 +66,12 @@ class CollectorConfig extends SprykerCollectorConfig
     {
         $data = [
             'MySql' => [
-
+                'ProductCollectorQuery' => MySqlSearchProductCollector::class,
+                'CategoryNodeCollectorQuery' => MySqlSearchCategoryNodeCollectorQuery::class,
             ],
             'PostgreSql' => [
-                'ProductCollectorQuery' => SearchProductCollector::class,
-                'CategoryNodeCollectorQuery' => SearchCategoryNodeCollectorQuery::class,
+                'ProductCollectorQuery' => PostgreSqlSearchProductCollector::class,
+                'CategoryNodeCollectorQuery' => PostgreSqlSearchCategoryNodeCollectorQuery::class,
             ],
         ];
 

@@ -9,7 +9,6 @@ namespace Pyz\Zed\Category\Business\Map;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\CategoryNodeCollectorQuery;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
@@ -30,17 +29,19 @@ class CategoryNodeDataPageMapBuilder
      */
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $categoryData, LocaleTransfer $localeTransfer)
     {
+        $isActive = filter_var($categoryData['is_active'], FILTER_VALIDATE_BOOLEAN);
+        $isSearchable = filter_var($categoryData['is_searchable'], FILTER_VALIDATE_BOOLEAN);
         $pageMapTransfer = (new PageMapTransfer())
             ->setStore(Store::getInstance()->getStoreName())
             ->setLocale($localeTransfer->getLocaleName())
             ->setType(static::TYPE_CATEGORY)
-            ->setIsActive($categoryData[CategoryNodeCollectorQuery::COL_IS_ACTIVE] && $categoryData[CategoryNodeCollectorQuery::COL_IS_SEARCHABLE]);
+            ->setIsActive($isActive && $isSearchable);
 
         /*
          * Here you can hard code which category data will be used for which search functionality
          */
         $pageMapBuilder
-            ->addSearchResultData($pageMapTransfer, 'id_category', $categoryData['id_category'])
+            ->addSearchResultData($pageMapTransfer, 'id_category', (int)$categoryData['id_category'])
             ->addSearchResultData($pageMapTransfer, 'name', $categoryData['name'])
             ->addSearchResultData($pageMapTransfer, 'url', $categoryData['url'])
             ->addSearchResultData($pageMapTransfer, 'type', static::TYPE_CATEGORY)

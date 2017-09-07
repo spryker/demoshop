@@ -1,7 +1,3 @@
-before_install:
-  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit; fi
-
 language: php
 
 env:
@@ -28,6 +24,11 @@ matrix:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
           - PHPSTAN=1
+     - php: "7.1"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+          - DB=mysql
      - php: "5.6"
        env:
           - TEST_GROUP=acceptance
@@ -40,9 +41,15 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
+     - php: "7.1"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=push,cron
+          - DB=mysql
 
 addons:
   postgresql: 9.4
+  mysql: 5.7
 
   apt:
     packages:
@@ -59,16 +66,22 @@ cache:
 
 services:
   - postgresql
+  - mysql
   - redis
 
 sudo: required
 
+before_install:
+  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit; fi
+  - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/*; fi
+  - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh; fi
+
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer remove --dev spryker/git-hook phpstan/phpstan
-  - composer install --no-interaction
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan; fi
+  - composer remove --dev phpstan/phpstan spryker/git-hook
+  - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan; fi
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
@@ -82,8 +95,15 @@ before_script:
   - chmod -R 777 data/
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
+  - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php; fi
+  - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php; fi
+
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
+
+  - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh; fi
+  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/; fi
+  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
@@ -96,14 +116,15 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Acceptance -x Presentation -vvv ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Acceptance -g Presentation ; fi
 
+  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console transfer:validate ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console code:sniff:style ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
 
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then vendor/bin/console dev:ide:generate-auto-completion ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $PHPSTAN == 1 ]] ; then php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1 ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then vendor/bin/console dev:ide:generate-auto-completion ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1 ; fi
 
 notifications:
   email: false

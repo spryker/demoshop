@@ -11,12 +11,13 @@ use Generated\Shared\Transfer\StorageProductOptionGroupTransfer;
 use Generated\Shared\Transfer\StorageProductOptionValueTransfer;
 use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionGroupQuery;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup;
-use Pyz\Zed\Collector\Persistence\Storage\Pdo\PostgreSql\ProductOptionCollectorQuery;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 class ProductOptionCollector extends AbstractStoragePdoCollector
 {
+
+    const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
 
     /**
      * @var array
@@ -39,7 +40,7 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        $idGroups = explode(',', $collectItemData[ProductOptionCollectorQuery::ID_PRODUCT_OPTION_GROUP]);
+        $idGroups = explode(',', $collectItemData[self::ID_PRODUCT_OPTION_GROUP]);
 
         $persistOptionGroups = [];
         foreach ($idGroups as $idGroup) {
