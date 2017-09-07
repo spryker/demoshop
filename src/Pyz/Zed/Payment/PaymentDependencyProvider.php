@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Payment;
 
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
+use Spryker\Zed\Nopayment\Communication\Plugin\Payment\PriceToPayPaymentMethodFilterPlugin;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
 
 class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
@@ -19,6 +20,7 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
     protected function getPaymentMethodFilterPlugins()
     {
         return [
+            new PriceToPayPaymentMethodFilterPlugin(),
             new GiftCardPaymentMethodFilterPlugin(),
         ];
     }

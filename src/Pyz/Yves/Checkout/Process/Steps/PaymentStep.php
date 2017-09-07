@@ -109,12 +109,12 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     {
         $payment = $quoteTransfer->getPayment();
 
-        if ($payment) {
-            return $payment->getPaymentSelection();
-        }
-
         if ($quoteTransfer->getTotals()->getPriceToPay() === 0) {
             return NopaymentConstants::PAYMENT_PROVIDER_NAME;
+        }
+
+        if ($payment) {
+            return $payment->getPaymentSelection();
         }
 
         return null;
@@ -131,10 +131,6 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
 
         if (!$totals) {
             return false;
-        }
-
-        if ($totals->getPriceToPay() === 0) {
-            return true;
         }
 
         $paymentCollection = $this->getPaymentCollection($quoteTransfer);

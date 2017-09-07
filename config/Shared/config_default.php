@@ -321,6 +321,14 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     ],
 ];
 
+$config[NopaymentConstants::NO_PAYMENT_METHODS] = [
+    NopaymentConstants::PAYMENT_PROVIDER_NAME,
+];
+
+$config[NopaymentConstants::WHITELIST_PAYMENT_METHODS] = [
+    GiftCardConstants::PROVIDER_NAME
+];
+
 // ---------- State machine (OMS)
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
