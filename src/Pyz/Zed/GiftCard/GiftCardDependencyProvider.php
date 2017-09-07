@@ -10,6 +10,8 @@ namespace Pyz\Zed\GiftCard;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardIsActiveDecisionRulePlugin;
 use Spryker\Zed\GiftCard\GiftCardDependencyProvider as SprykerGiftCardDependencyProvider;
 use Spryker\Zed\GiftCardBalance\Communication\Plugin\BalanceCheckerApplicabilityPlugin;
+use Spryker\Zed\GiftCardBalance\Communication\Plugin\BalanceTransactionLogPaymentSaverPlugin;
+use Spryker\Zed\GiftCardBalance\Communication\Plugin\GiftCardBalanceValueProviderPlugin;
 
 class GiftCardDependencyProvider extends SprykerGiftCardDependencyProvider
 {
@@ -22,6 +24,24 @@ class GiftCardDependencyProvider extends SprykerGiftCardDependencyProvider
         return [
             new GiftCardIsActiveDecisionRulePlugin(),
             new BalanceCheckerApplicabilityPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\GiftCard\Dependency\Plugin\GiftCardValueProviderPluginInterface
+     */
+    protected function getValueProviderPlugin()
+    {
+        return new GiftCardBalanceValueProviderPlugin();
+    }
+
+    /**
+     * @return \Spryker\Zed\GiftCard\Dependency\Plugin\GiftCardPaymentSaverPluginInterface[]
+     */
+    protected function getPaymentSaverPlugins()
+    {
+        return [
+            new BalanceTransactionLogPaymentSaverPlugin(),
         ];
     }
 
