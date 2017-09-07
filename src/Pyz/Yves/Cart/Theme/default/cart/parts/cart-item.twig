@@ -1,17 +1,7 @@
 <div class="callout cart-item">
     <div class="row">
-        {# Product Image #}
 
-        {% set productImage = cartItem.images | first %}
-        {% if productImage is not empty %}
-            <div class="cart-item__image-container small-3 large-2 columns">
-                <img class="thumbnail cart-item__image" src="{{ productImage.externalUrlLarge }}"/>
-            </div>
-        {% else %}
-            <div class="small-3 large-2 columns text-center">
-                <small>{{ 'global.no_image_available' | trans }}</small>
-            </div>
-        {% endif %}
+        {% include '@Cart/cart/parts/cart-images.twig' %}
 
         <div class="small-9 large-expand columns">
             <ul class="no-bullet">
@@ -32,100 +22,13 @@
                         </ul>
                     </li>
                 {% else %}
-                    {% set itemAttributes = attribute(attributes, cartItem.sku) %}
-                    {% if itemAttributes|length > 0 %}
-
-                        {# Product Variants #}
-                        <li><strong>{{ 'product.variants' | trans }}:</strong></li>
-                        <li>
-                            <form method="POST" action="{{ path('cart/update', {'sku': cartItem.sku }) }}">
-                                {% for attributeName, attributeOptions in itemAttributes %}
-                                    <div class="row">
-                                        <div class="small-12  columns" data-component="cart-item">
-                                            {% if attributeOptions|length > 1 %}
-                                                <label>{{ ('product.attribute.' ~ attributeName) | trans }}:
-
-                                                    <select class="js-cart-item-select" name="preselectedAttributes[{{ attributeName }}]">
-                                                        <option value="">
-                                                            {{ 'product.attribute._none' | trans }}
-                                                        </option>
-                                                        {% for option, properties in attributeOptions %}
-                                                            <option value="{{ option }}"
-                                                                    {% if attribute(properties,'selected') %}  selected{% endif %} {% if not attribute(properties,'available') %}disabled{% endif %}>
-                                                                {{ option }}
-                                                            </option>
-                                                        {% endfor %}
-                                                    </select>
-                                                </label>
-                                                <input name="selectedAttributes[{{ attributeName }}]" type="hidden">
-                                            {% else %}
-                                                <label>
-                                                    {{ ('product.attribute.' ~ attributeName) | trans }}: <a href="{{ url("cart") }}">{{ 'reset' | trans }}</a>
-                                                    {% for option, properties in attributeOptions %}
-                                                        <select class="js-cart-item-select" name="selectedAttributes[{{ attributeName }}]">
-                                                            <option value="{{ option }}" selected>
-                                                                {{ option }}
-                                                            </option>
-                                                        </select>
-                                                    {% endfor %}
-                                                </label>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                {% endfor %}
-
-                                <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
-                                <input type="hidden" value="{{ cartItem.quantity }}" name="quantity">
-
-                                {% if cartItem.productOptions|length > 0 %}
-                                    {% for productOption in cartItem.productOptions %}
-                                        <input name="product-option[{{ productOption.groupName }}]" type="hidden" value="{{ productOption.idProductOptionValue }}">
-                                    {% endfor %}
-                                {% endif %}
-                            </form>
-                        </li>
-                    {% endif %}
+                      {% include '@Cart/cart/parts/cart-product-variants.twig' %}
                 {% endif %}
             </ul>
         </div>
 
-        {# Prices and Product Options #}
-        <div class="small-12 large-4 columns">
-            <ul class="no-bullet">
-                <li>{{ 'cart.item.item_price' | trans }} <span class="float-right">{{ cartItem.unitGrossPrice | money }}</span></li>
-                {% if cartItem.productOptions|length > 0 %}
-                    {% for productOption in cartItem.productOptions %}
-                        <li>+ {{ productOption.value | trans }}
-                            <span class="float-right">{{ productOption.unitGrossPrice | money }}</span>
-                        </li>
-                    {% endfor %}
-                {% endif %}
-                <li><hr/></li>
-                <li><strong>{{ 'cart.item.item_total' | trans }}</strong> <strong class="float-right">{{ cartItem.sumSubtotalAggregation | money }}</strong></li>
-            </ul>
-        </div>
+        {% include '@Cart/cart/parts/cart-item-prices.twig' %}
 
-        {# Quantity #}
-        <div class="small-4 medium-3 large-2 columns">
-            <ul class="no-bullet">
-                <li>
-                    <form method="POST" action="{{ path('cart/change/quantity', {'sku': cartItem.sku }) }}">
-                        <label>
-                            <strong>{{ 'cart.item_quantity' | trans }}</strong>
-                            <span class="input-group __no-margin-bottom">
-                                <input class="input-group-field" type="number" value="{{ cartItem.quantity }}" name="quantity">
-                                <span class="input-group-button">
-                                    <button type="submit" class="button expanded __no-margin-bottom"><i class="fa fa-refresh"></i></button>
-                                </span>
-                            </span>
-                        </label>
-                        <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
-                    </form>
-                </li>
-                <li>
-                    <a href="/cart/remove/{{ cartItem.sku }}/{{ cartItem.groupKey }}">&times; <small>{{ 'remove' | trans }}</small></a>
-                </li>
-            </ul>
-        </div>
+        {% include '@Cart/cart/parts/cart-add-to-cart.twig' %}
     </div>
 </div>

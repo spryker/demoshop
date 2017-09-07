@@ -975,5 +975,7 @@ product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
 customer.order.canceledTotal,Canceled amount,en_US
 customer.order.canceledTotal,Stornobetrag,de_DE
+cart.promotion.items,Promotional products,en_US
+cart.promotion.items,Werbeprodukte,de_DE
 checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE

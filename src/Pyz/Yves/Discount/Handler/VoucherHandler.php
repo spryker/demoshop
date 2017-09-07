@@ -69,6 +69,10 @@ class VoucherHandler extends BaseHandler implements VoucherHandlerInterface
      */
     protected function addFlashMessages($quoteTransfer, $voucherCode)
     {
+        if ($this->isVoucherFromPromotionDiscount($quoteTransfer, $voucherCode)) {
+            return;
+        }
+
         if ($this->isVoucherCodeApplied($quoteTransfer, $voucherCode)) {
             $this->setFlashMessagesFromLastZedRequest($this->calculationClient);
             return;
@@ -144,6 +148,23 @@ class VoucherHandler extends BaseHandler implements VoucherHandlerInterface
                 break;
             }
         }
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $voucherCode
+     *
+     * @return bool
+     */
+    protected function isVoucherFromPromotionDiscount(QuoteTransfer $quoteTransfer, $voucherCode)
+    {
+        foreach ($quoteTransfer->getUsedNotAppliedVoucherCodes() as $voucherCodeUsed) {
+            if ($voucherCodeUsed === $voucherCode) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

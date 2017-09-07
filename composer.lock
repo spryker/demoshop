@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "960f01fbe7a866552862926d99101598ef70be3f"
+                "reference": "1eb28d389f4c257b76d57d62bf5ea8fca712908e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1681,6 +1681,7 @@
                 "spryker/development": "*",
                 "spryker/discount": "*",
                 "spryker/discount-calculation-connector": "*",
+                "spryker/discount-promotion": "*",
                 "spryker/discount-sales-aggregator-connector": "*",
                 "spryker/dummy-payment": "*",
                 "spryker/elastica": "*",
@@ -1806,7 +1807,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-07T09:31:49+00:00"
+            "time": "2017-09-07T14:24:03+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6669,12 +6670,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "63685ca985f3d3a6c02253a3ab269e39c2131f40"
+                "reference": "d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/63685ca985f3d3a6c02253a3ab269e39c2131f40",
-                "reference": "63685ca985f3d3a6c02253a3ab269e39c2131f40",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a",
+                "reference": "d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a",
                 "shasum": ""
             },
             "require": {
@@ -6711,7 +6712,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-09-04T13:26:53+00:00"
+            "time": "2017-09-07T12:58:44+00:00"
         },
         {
             "name": "spryker/git-hook",
