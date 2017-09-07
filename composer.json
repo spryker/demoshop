@@ -63,6 +63,7 @@
     "spryker/data-import": "^1.0.0",
     "spryker/discount": "^4.0.0",
     "spryker/discount-calculation-connector": "^5.0.0",
+    "spryker/discount-promotion": "^1.0.0",
     "spryker/dummy-payment": "^2.0.0",
     "spryker/elastica": "^3.0.0",
     "spryker/error-handler": "^2.0.0",

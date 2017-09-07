@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1569859979cbb4ac1f09be9e383b355d",
+    "content-hash": "1784e700e92e35cc63e491bd82e13a83",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -4954,6 +4954,84 @@
             ],
             "description": "DiscountCalculationConnector bundle",
             "time": "2017-05-17T13:56:41+00:00"
+        },
+        {
+            "name": "spryker/discount-promotion",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/DiscountPromotion.git",
+                "reference": "3c7f974d60c8b0b3be9f629b746fa982198b5857",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/DiscountPromotion/zipball/3c7f974d60c8b0b3be9f629b746fa982198b5857",
+                "reference": "3c7f974d60c8b0b3be9f629b746fa982198b5857",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/availability": "^5.0.0",
+                "spryker/discount": "^4.5.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/symfony": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*",
+                "spryker/transfer": "*"
+            },
+            "suggest": {
+                "spryker/calculation": "Used by plugin to reset promotional items.",
+                "spryker/cart": "Used by plugin to add promotional item identifier to group key."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Shared\\Discount\\": "tests/SprykerTest/Shared/DiscountPromotion/_support/",
+                    "SprykerTest\\Zed\\Discount\\": "tests/SprykerTest/Zed/DiscountPromotion/_support/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
+                },
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "DiscountPromotion module",
+            "support": {
+                "source": "https://github.com/spryker/DiscountPromotion/tree/master"
+            },
+            "time": "2017-09-07T13:02:31+00:00"
         },
         {
             "name": "spryker/dummy-payment",
