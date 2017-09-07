@@ -7,6 +7,7 @@
 namespace Pyz\Zed\CmsGui;
 
 use Spryker\Zed\CmsGui\CmsGuiDependencyProvider as SprykerCmsGuiDependencyProvider;
+use Spryker\Zed\CmsGui\Communication\Plugin\CreateGlossaryExpanderPlugin;
 use Spryker\Zed\CustomerUserConnectorGui\Communication\Plugin\CmsPageTableExpanderPlugin;
 
 class CmsGuiDependencyProvider extends SprykerCmsGuiDependencyProvider
@@ -19,6 +20,16 @@ class CmsGuiDependencyProvider extends SprykerCmsGuiDependencyProvider
     {
         return [
             new CmsPageTableExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CmsGui\Dependency\Plugin\CreateGlossaryExpanderPluginInterface[]
+     */
+    protected function getCreateGlossaryExpanderPlugins()
+    {
+        return [
+            new CreateGlossaryExpanderPlugin(),
         ];
     }
 
