@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9a33327036241e32162c1eabf27c67e",
+    "content-hash": "e8ae97b0bb1b82d4ee1beb339467f3c6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1922-wishlist-restrictions",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "74063896979ad8e66c0fd4fa458e8f6c0e0ca478"
+                "reference": "2235986a975fbe44d25094fe60741c5483a5a1a7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1806,7 +1806,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-07T08:40:27+00:00"
+            "time": "2017-09-07T16:11:30+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6669,12 +6669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "63685ca985f3d3a6c02253a3ab269e39c2131f40"
+                "reference": "d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/63685ca985f3d3a6c02253a3ab269e39c2131f40",
-                "reference": "63685ca985f3d3a6c02253a3ab269e39c2131f40",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a",
+                "reference": "d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a",
                 "shasum": ""
             },
             "require": {
@@ -6711,7 +6711,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-09-04T13:26:53+00:00"
+            "time": "2017-09-07T12:58:44+00:00"
         },
         {
             "name": "spryker/git-hook",
