@@ -6118,11 +6118,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.5.4",
+            "version": "3.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "955c626519a8020c25a1dda28aa825a9f985991b",
+                "reference": "56bafeb9a91b3d3e61f14bd450838df26e71f1dd",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6132,8 +6132,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/955c626519a8020c25a1dda28aa825a9f985991b",
-                "reference": "955c626519a8020c25a1dda28aa825a9f985991b",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/56bafeb9a91b3d3e61f14bd450838df26e71f1dd",
+                "reference": "56bafeb9a91b3d3e61f14bd450838df26e71f1dd",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6182,9 +6182,9 @@
             ],
             "description": "Kernel module",
             "support": {
-                "source": "https://github.com/spryker/Kernel/tree/3.5.4"
+                "source": "https://github.com/spryker/Kernel/tree/3.5.5"
             },
-            "time": "2017-09-05T13:01:52+00:00"
+            "time": "2017-09-08T11:21:05+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -6732,11 +6732,11 @@
         },
         {
             "name": "spryker/navigation",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Navigation.git",
-                "reference": "c87bdbfdda2ff343100386b44375f5f5dd04ec67",
+                "reference": "f1c4f5cff48ffcff1065391e7f2a68c7ae53fb3d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6746,8 +6746,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Navigation/zipball/c87bdbfdda2ff343100386b44375f5f5dd04ec67",
-                "reference": "c87bdbfdda2ff343100386b44375f5f5dd04ec67",
+                "url": "https://api.github.com/repos/spryker/Navigation/zipball/f1c4f5cff48ffcff1065391e7f2a68c7ae53fb3d",
+                "reference": "f1c4f5cff48ffcff1065391e7f2a68c7ae53fb3d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6796,9 +6796,9 @@
             ],
             "description": "Navigation module",
             "support": {
-                "source": "https://github.com/spryker/Navigation/tree/master"
+                "source": "https://github.com/spryker/Navigation/tree/1.0.2"
             },
-            "time": "2017-09-04T15:08:54+00:00"
+            "time": "2017-09-08T10:42:54+00:00"
         },
         {
             "name": "spryker/navigation-collector",
@@ -7190,11 +7190,11 @@
         },
         {
             "name": "spryker/oms",
-            "version": "7.0.3",
+            "version": "7.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Oms.git",
-                "reference": "aabe729d859b9fa3db8de2590d539284c9a33065",
+                "reference": "0ba832ace2d6c598df88281d72b6b55758f604ce",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7204,8 +7204,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Oms/zipball/aabe729d859b9fa3db8de2590d539284c9a33065",
-                "reference": "aabe729d859b9fa3db8de2590d539284c9a33065",
+                "url": "https://api.github.com/repos/spryker/Oms/zipball/0ba832ace2d6c598df88281d72b6b55758f604ce",
+                "reference": "0ba832ace2d6c598df88281d72b6b55758f604ce",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7262,7 +7262,10 @@
                 "proprietary"
             ],
             "description": "Oms module",
-            "time": "2017-08-24T13:26:33+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Oms/tree/master"
+            },
+            "time": "2017-09-01T15:26:28+00:00"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -9670,11 +9673,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "3.0.4",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "7a7f5d4b183679986436e20dad15b56742f7e905",
+                "reference": "d2c428e644fd08449c9d6e6b0d05dd6b9347c43d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9684,8 +9687,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/7a7f5d4b183679986436e20dad15b56742f7e905",
-                "reference": "7a7f5d4b183679986436e20dad15b56742f7e905",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/d2c428e644fd08449c9d6e6b0d05dd6b9347c43d",
+                "reference": "d2c428e644fd08449c9d6e6b0d05dd6b9347c43d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9740,9 +9743,9 @@
             ],
             "description": "Propel module",
             "support": {
-                "source": "https://github.com/spryker/Propel/tree/3.0.4"
+                "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2017-08-14T15:21:25+00:00"
+            "time": "2017-09-04T15:01:38+00:00"
         },
         {
             "name": "spryker/propel-orm",
