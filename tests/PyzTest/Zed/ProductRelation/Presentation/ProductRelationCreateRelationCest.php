@@ -52,6 +52,7 @@ class ProductRelationCreateRelationCest
         $i->activateRelation();
 
         $i->runCollectors();
+        $i->wait(5);
 
         $i->amYves();
         $i->amOnPage('/en/samsung-bundle-214');

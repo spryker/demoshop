@@ -231,6 +231,8 @@ customer.email,E-Mail Adresse,de_DE
 customer.email,E-Mail,en_US
 customer.phone,Telefonnummer,de_DE
 customer.phone,Telephone number,en_US
+customer.reset.password.error.already.loggedIn,"Kunde bereits eingeloggt. Bitte logge dich aus, um dein Kundenpasswort zurückzusetzen.",de_DE
+customer.reset.password.error.already.loggedIn,"Another customer already logged in. Please logout to reset your password.",en_US
 payment.prepay,Vorkasse,de_DE
 payment.prepay,Prepayment,en_US
 payment.paypal,PayPal,de_DE
@@ -1005,5 +1007,11 @@ product_review.submit.nickname,Name,en_US
 product_review.submit.nickname,Name,de_DE
 product_review.submit.success,Thank you for your review. We are processing it. It will be live in the shop soon.,en_US
 product_review.submit.success,Vielen Dank für Ihre Bewertung. Wir verarbeiten es. Es wird bald im Laden.,de_DE
+cart.promotion.items,Promotional products,en_US
+cart.promotion.items,Werbeprodukte,de_DE
 checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE
+product-cart.validation.error.abstract-product-exists,"Product not found",en_US
+product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
+product-cart.validation.error.concrete-product-exists,"Product not found",en_US
+product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
