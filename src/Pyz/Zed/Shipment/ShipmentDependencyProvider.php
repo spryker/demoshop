@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Shipment;
 
+use Spryker\Zed\GiftCard\Communication\Plugin\OnlyGiftCardShipmentMethodFilterPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependencyProvider;
 
@@ -41,6 +42,18 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     protected function getDeliveryTimePlugins(Container $container)
     {
         return [];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Shipment\Dependency\Plugin\ShipmentMethodFilterPluginInterface[]
+     */
+    protected function getMethodFilterPlugins(Container $container)
+    {
+        return [
+            new OnlyGiftCardShipmentMethodFilterPlugin(),
+        ];
     }
 
 }
