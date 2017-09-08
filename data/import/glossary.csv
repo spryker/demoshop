@@ -762,7 +762,7 @@ customer.account.wishlist.item.moved_to_cart,Produkt erfolgreich in den Warenkor
 customer.account.wishlist.item.moved_to_cart.failed,Item was not moved to cart.,en_US
 customer.account.wishlist.item.moved_to_cart.failed,Produkt konnte nicht in den Warenkorb gelegt werden.,de_DE
 customer.account.wishlist.item.moved_all_available_to_cart,Available items moved to cart successfully.,en_US
-customer.account.wishlist.item.moved_all_available_to_cart,failed,Not all items are moved to cart successfully,en_US
+customer.account.wishlist.item.moved_all_available_to_cart.failed,Not all items are moved to cart successfully,en_US
 customer.account.wishlist.item.moved_all_available_to_cart,Verfügbare Produkte wurden erfolgreich in den Warenkorb gelegt.,de_DE
 customer.account.wishlist.item.moved_all_available_to_cart.failed,Nicht alle Artikel konnten erfolgreich in den Warenkorb gelegt werden.,de_DE
 customer.account.wishlist.created,Wishlist created successfully.,en_US
