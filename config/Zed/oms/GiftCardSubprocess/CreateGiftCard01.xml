@@ -4,6 +4,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
 
+    <!-- TODO handle gift card refunds (a general concept is needed though) -->
+
     <process name="CreateGiftCard">
         <states>
             <state name="gift card purchased"/>
@@ -18,6 +20,8 @@
             </transition>
 
         </transitions>
+
+        <!-- TODO add transitions / commands for sending gift card emails -->
 
         <events>
             <event name="check giftcard purchase" onEnter="true"/>

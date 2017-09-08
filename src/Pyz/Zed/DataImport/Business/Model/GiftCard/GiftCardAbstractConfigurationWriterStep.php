@@ -46,6 +46,11 @@ class GiftCardAbstractConfigurationWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
+        //TODO translate product.attribute.value
+        //TODO think about the values of the super-attribute value (maybe call it giftcard-value)
+        //TODO should they be translatable or string-interpolatable (to inject money formatting)?
+        //TODO check if translations for product name, urls etc are correct
+
         $pattern = $dataSet['pattern'];
         $abstractSku = $dataSet['abstract_sku'];
 

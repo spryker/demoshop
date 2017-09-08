@@ -74,6 +74,7 @@ class GiftCardCodeHandler implements CodeHandlerInterface
         foreach ($quoteTransfer->getNotApplicableGiftCardCodes() as $giftCardCode) {
             if ($giftCardCode === $code) {
                 $errorTransfer = new CodeCalculationErrorTransfer();
+                //TODO translate
                 $errorTransfer->setMessage('cart.giftcard.apply.non_applicable');
 
                 $result->addError($errorTransfer);
@@ -104,6 +105,7 @@ class GiftCardCodeHandler implements CodeHandlerInterface
      */
     public function getSuccessMessage(QuoteTransfer $quoteTransfer, $code)
     {
+        //TODO translate
         return 'cart.giftcard.apply.successful';
     }
 
