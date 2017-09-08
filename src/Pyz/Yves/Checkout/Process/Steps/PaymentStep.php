@@ -13,7 +13,7 @@ use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Client\Payment\PaymentClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
-use Spryker\Shared\Nopayment\NopaymentConstants;
+use Spryker\Shared\Nopayment\NopaymentConfig;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginWithMessengerInterface;
@@ -110,7 +110,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
         $payment = $quoteTransfer->getPayment();
 
         if ($quoteTransfer->getTotals()->getPriceToPay() === 0) {
-            return NopaymentConstants::PAYMENT_PROVIDER_NAME;
+            return NopaymentConfig::PAYMENT_PROVIDER_NAME;
         }
 
         if ($payment) {

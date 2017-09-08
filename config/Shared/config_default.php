@@ -18,6 +18,7 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
+use Spryker\Shared\Nopayment\NopaymentConfig;
 use Spryker\Shared\Nopayment\NopaymentConstants;
 use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\Price\PriceConstants;
@@ -305,7 +306,7 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Sha
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
         'DummyPayment',
-        NopaymentConstants::PAYMENT_PROVIDER_NAME,
+        NopaymentConfig::PAYMENT_PROVIDER_NAME,
     ],
 ];
 
@@ -313,7 +314,7 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     'Payment' => [
         'DummyPayment',
         GiftCardConstants::PROVIDER_NAME,
-        NopaymentConstants::PAYMENT_PROVIDER_NAME,
+        NopaymentConfig::PAYMENT_PROVIDER_NAME,
     ],
     'Oms' => [
         'DummyPayment',
@@ -322,7 +323,7 @@ $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
 ];
 
 $config[NopaymentConstants::NO_PAYMENT_METHODS] = [
-    NopaymentConstants::PAYMENT_PROVIDER_NAME,
+    NopaymentConfig::PAYMENT_PROVIDER_NAME,
 ];
 
 $config[NopaymentConstants::WHITELIST_PAYMENT_METHODS] = [
@@ -341,7 +342,7 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
     GiftCardConstants::PROVIDER_NAME => 'DummyPayment01',
-    NopaymentConstants::PAYMENT_PROVIDER_NAME => 'Nopayment01',
+    NopaymentConfig::PAYMENT_PROVIDER_NAME => 'Nopayment01',
 ];
 
 // ---------- NewRelic
