@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1784e700e92e35cc63e491bd82e13a83",
+    "content-hash": "e464ecafcb5ca711c904bbcfad343bf0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.2",
+            "version": "3.36.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "98bff6b24863bb0da970449d18f6745b9270add9"
+                "reference": "7ffaee4359c161339867e565f18f6e3b7e77e44e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/98bff6b24863bb0da970449d18f6745b9270add9",
-                "reference": "98bff6b24863bb0da970449d18f6745b9270add9",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7ffaee4359c161339867e565f18f6e3b7e77e44e",
+                "reference": "7ffaee4359c161339867e565f18f6e3b7e77e44e",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-09-06T16:44:34+00:00"
+            "time": "2017-09-07T22:30:02+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -2611,11 +2611,11 @@
         },
         {
             "name": "spryker/cart",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Cart.git",
-                "reference": "94a7a828fdb9d0e019ab21b5dfc74f16233779db",
+                "reference": "7a91800494597c82044dbaf04e4ff69b34061c8c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2625,8 +2625,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Cart/zipball/94a7a828fdb9d0e019ab21b5dfc74f16233779db",
-                "reference": "94a7a828fdb9d0e019ab21b5dfc74f16233779db",
+                "url": "https://api.github.com/repos/spryker/Cart/zipball/7a91800494597c82044dbaf04e4ff69b34061c8c",
+                "reference": "7a91800494597c82044dbaf04e4ff69b34061c8c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2673,11 +2673,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Cart bundle",
+            "description": "Cart module",
             "support": {
-                "source": "https://github.com/spryker/Cart/tree/4.0.1"
+                "source": "https://github.com/spryker/Cart/tree/master"
             },
-            "time": "2017-06-20T08:47:05+00:00"
+            "time": "2017-09-05T15:08:20+00:00"
         },
         {
             "name": "spryker/cart-variant",
@@ -8196,11 +8196,11 @@
         },
         {
             "name": "spryker/product-cart-connector",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductCartConnector.git",
-                "reference": "f09dd52c9d70e0d7b0bbbd624c20702df4028f68",
+                "reference": "eb9c1af7f53fbb846b5b04ea0288b11988f409b6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8210,8 +8210,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductCartConnector/zipball/f09dd52c9d70e0d7b0bbbd624c20702df4028f68",
-                "reference": "f09dd52c9d70e0d7b0bbbd624c20702df4028f68",
+                "url": "https://api.github.com/repos/spryker/ProductCartConnector/zipball/eb9c1af7f53fbb846b5b04ea0288b11988f409b6",
+                "reference": "eb9c1af7f53fbb846b5b04ea0288b11988f409b6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8234,7 +8234,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/cart": "If you want to use Cart plugins."
+                "spryker/cart": "If you want to use Cart plugins. Must be >= 4.0.2!"
             },
             "type": "library",
             "extra": {
@@ -8261,7 +8261,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductCartConnector/tree/master"
             },
-            "time": "2017-07-13T15:54:58+00:00"
+            "time": "2017-09-08T08:30:27+00:00"
         },
         {
             "name": "spryker/product-category",
