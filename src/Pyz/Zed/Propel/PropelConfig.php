@@ -17,7 +17,10 @@ class PropelConfig extends SprykerPropelConfig
      */
     public function getProjectPropelSchemaPathPatterns()
     {
-        return [APPLICATION_SOURCE_DIR . '/*/Zed/*/Persistence/Propel/Schema/'];
+        return array_merge(
+            [APPLICATION_SOURCE_DIR . '/*/Zed/*/Persistence/Propel/Schema/'],
+            parent::getProjectPropelSchemaPathPatterns()
+        );
     }
 
 }
