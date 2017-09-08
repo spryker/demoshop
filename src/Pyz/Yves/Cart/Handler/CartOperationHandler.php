@@ -10,9 +10,12 @@ use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class CartOperationHandler extends BaseHandler implements CartOperationInterface
 {
+
+    const URL_PARAM_ID_DISCOUNT_PROMOTION = 'idDiscountPromotion';
 
     /**
      * @var \Spryker\Client\Cart\CartClientInterface|\Spryker\Client\Kernel\AbstractClient
@@ -25,15 +28,26 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
     protected $locale;
 
     /**
+     * @var \Symfony\Component\HttpFoundation\Request
+     */
+    protected $request;
+
+    /**
      * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param string $locale
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
+     * @param \Symfony\Component\HttpFoundation\Request $request
      */
-    public function __construct(CartClientInterface $cartClient, $locale, FlashMessengerInterface $flashMessenger)
-    {
+    public function __construct(
+        CartClientInterface $cartClient,
+        $locale,
+        FlashMessengerInterface $flashMessenger,
+        Request $request
+    ) {
         parent::__construct($flashMessenger);
         $this->cartClient = $cartClient;
         $this->locale = $locale;
+        $this->request = $request;
     }
 
     /**
@@ -48,6 +62,7 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
         $itemTransfer->setQuantity($quantity);
+        $itemTransfer->setIdDiscountPromotion($this->getIdDiscountPromotion());
 
         $this->addProductOptions($optionValueUsageIds, $itemTransfer);
 
@@ -133,6 +148,14 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
 
             $itemTransfer->addProductOption($productOptionTransfer);
         }
+    }
+
+    /**
+     * @return int
+     */
+    protected function getIdDiscountPromotion()
+    {
+        return (int)$this->request->request->get(static::URL_PARAM_ID_DISCOUNT_PROMOTION);
     }
 
 }
