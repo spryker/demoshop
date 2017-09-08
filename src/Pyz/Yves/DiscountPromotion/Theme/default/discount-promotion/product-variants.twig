@@ -1,0 +1,8 @@
+<form method="GET" data-component="product-variants">
+    {% for attributeName,attributes in promotionStorageProduct.superAttributes %}
+        {% include '@Product/product/partials/variant.twig' with {
+        attributeFieldName: 'attributes[' ~ promotionStorageProduct.idProductAbstract ~ '][' ~ attributeName ~ ']',
+        product: promotionStorageProduct
+        } %}
+    {% endfor %}
+</form>

@@ -9,6 +9,15 @@ namespace Pyz\Zed\Discount;
 
 use Spryker\Zed\CustomerGroupDiscountConnector\Communication\Plugin\DecisionRule\CustomerGroupDecisionRulePlugin;
 use Spryker\Zed\Discount\DiscountDependencyProvider as SprykerDiscountDependencyProvider;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormDataExpanderPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormExpanderPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCollectorStrategyPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionConfigurationExpanderPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionFilterApplicableItemsPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionFilterCollectedItemsPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostCreatePlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostUpdatePlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionViewBlockProviderPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductAttributeCollectorPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\Collector\ProductLabelCollectorPlugin;
@@ -50,6 +59,96 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
             new ItemByShipmentMethodPlugin(),
             new ItemByShipmentPricePlugin(),
         ]);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDiscountableItemFilterPlugins()
+    {
+        return [
+            new DiscountPromotionFilterCollectedItemsPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\CollectorStrategyPluginInterface[]
+     */
+    protected function getCollectorStrategyPlugins()
+    {
+        return [
+            new DiscountPromotionCollectorStrategyPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountPostCreatePluginInterface[]
+     */
+    protected function getDiscountPostCreatePlugins()
+    {
+        return [
+            new DiscountPromotionPostCreatePlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountPostUpdatePluginInterface[]
+     */
+    protected function getDiscountPostUpdatePlugins()
+    {
+        return [
+            new DiscountPromotionPostUpdatePlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountConfigurationExpanderPluginInterface[]
+     */
+    protected function getDiscountConfigurationExpanderPlugins()
+    {
+        return [
+            new DiscountPromotionConfigurationExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\Form\DiscountFormExpanderPluginInterface[]
+     */
+    protected function getDiscountFormExpanderPlugins()
+    {
+        return [
+            new DiscountPromotionCalculationFormExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\Form\DiscountFormDataProviderExpanderPluginInterface[]
+     */
+    protected function getDiscountFormDataProviderExpanderPlugins()
+    {
+        return [
+            new DiscountPromotionCalculationFormDataExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountViewBlockProviderPluginInterface[]
+     */
+    protected function getDiscountViewTemplateProviderPlugins()
+    {
+        return [
+            new DiscountPromotionViewBlockProviderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountViewBlockProviderPluginInterface[]
+     */
+    protected function getDiscountApplicableFilterPlugins()
+    {
+        return [
+           new DiscountPromotionFilterApplicableItemsPlugin(),
+        ];
     }
 
 }

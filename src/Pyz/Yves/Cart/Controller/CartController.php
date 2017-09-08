@@ -22,11 +22,12 @@ class CartController extends AbstractController
     const PARAM_ITEMS = 'items';
 
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param array|null $selectedAttributes
      *
      * @return array
      */
-    public function indexAction(array $selectedAttributes = null)
+    public function indexAction(Request $request, array $selectedAttributes = null)
     {
         $quoteTransfer = $this->getClient()
             ->getQuote();
@@ -43,7 +44,15 @@ class CartController extends AbstractController
             ->generateStepBreadcrumbs($quoteTransfer);
 
         $itemAttributesBySku = $this->getFactory()
-            ->createCartItemsAttributeProvider()->getItemsAttributes($quoteTransfer, $selectedAttributes);
+            ->createCartItemsAttributeProvider()
+            ->getItemsAttributes($quoteTransfer, $selectedAttributes);
+
+        $promotionStorageProducts = $this->getFactory()
+            ->getProductPromotionMapperPlugin()
+            ->mapPromotionItemsFromProductStorage(
+                $quoteTransfer,
+                $request
+            );
 
         return $this->viewResponse([
             'cart' => $quoteTransfer,
@@ -51,6 +60,7 @@ class CartController extends AbstractController
             'attributes' => $itemAttributesBySku,
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
+            'promotionStorageProducts' => $promotionStorageProducts,
         ]);
     }
 

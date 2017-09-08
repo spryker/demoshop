@@ -467,7 +467,7 @@ class NavigationGuiPresentationTester extends Actor
     public function waitForNavigationTree()
     {
         $this->waitForElement(self::NAVIGATION_TREE_SELECTOR, 5);
-        $this->wait(1);
+        $this->wait(5);
     }
 
     /**
