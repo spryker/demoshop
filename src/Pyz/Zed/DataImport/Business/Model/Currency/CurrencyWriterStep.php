@@ -5,16 +5,16 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\DataImport\Business\Model\Store;
+namespace Pyz\Zed\DataImport\Business\Model\Currency;
 
-use Orm\Zed\Store\Persistence\SpyStoreQuery;
-use Spryker\Shared\Kernel\Store;
+use Orm\Zed\Currency\Persistence\SpyCurrencyQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-class StoreWriterStep implements DataImportStepInterface
+class CurrencyWriterStep implements DataImportStepInterface
 {
 
+    const KEY_ISO_CODE = 'iso_code';
     const KEY_NAME = 'name';
 
     /**
@@ -24,15 +24,12 @@ class StoreWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $store = Store::getInstance();
+        $currencyEntity = SpyCurrencyQuery::create()
+            ->filterByIsoCode($dataSet[static::KEY_ISO_CODE])
+            ->filterByName($dataSet[static::KEY_NAME])
+            ->findOneOrCreate();
 
-        foreach ($store->getAllowedStores() as $store) {
-            $storeEntity = SpyStoreQuery::create()
-                ->filterByName($store)
-                ->findOneOrCreate();
-
-            $storeEntity->save();
-        }
+        $currencyEntity->save();
     }
 
 }
