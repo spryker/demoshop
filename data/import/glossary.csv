@@ -979,3 +979,7 @@ cart.promotion.items,Promotional products,en_US
 cart.promotion.items,Werbeprodukte,de_DE
 checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE
+product-cart.validation.error.abstract-product-exists,"Product not found",en_US
+product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
+product-cart.validation.error.concrete-product-exists,"Product not found",en_US
+product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
