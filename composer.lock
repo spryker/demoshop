@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8a02f147ee7223e56512e39acaed1ea",
+    "content-hash": "e5200f2da11fb8d3dd650cefb6b6b783",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-903-product-reviews",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c898d2250370e792b2fb1b21531cf5248351ae2e"
+                "reference": "b0d2d51da1baac02800125d1ea364f34960c0cf2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1743,6 +1743,11 @@
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
+                "spryker/product-relation": "*",
+                "spryker/product-relation-collector": "*",
+                "spryker/product-review": "*",
+                "spryker/product-review-collector": "*",
+                "spryker/product-review-gui": "*",
                 "spryker/product-search": "*",
                 "spryker/product-set": "*",
                 "spryker/product-set-collector": "*",
@@ -1807,7 +1812,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-08T13:30:13+00:00"
+            "time": "2017-09-08T14:18:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
