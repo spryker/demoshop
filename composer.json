@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-777-gift-cards",
+    "spryker/spryker": "dev-feature/CORE-777-gift-cards",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
