@@ -2131,11 +2131,11 @@
         },
         {
             "name": "spryker/availability",
-            "version": "5.0.2",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Availability.git",
-                "reference": "fb2b349c4ce3abeacec67b67e3bbb0f59cd1072f",
+                "reference": "59385166d0a15368694a0bfd09bfa7a669907faa",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2145,8 +2145,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Availability/zipball/fb2b349c4ce3abeacec67b67e3bbb0f59cd1072f",
-                "reference": "fb2b349c4ce3abeacec67b67e3bbb0f59cd1072f",
+                "url": "https://api.github.com/repos/spryker/Availability/zipball/59385166d0a15368694a0bfd09bfa7a669907faa",
+                "reference": "59385166d0a15368694a0bfd09bfa7a669907faa",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2173,7 +2173,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
+                "spryker/checkout": "If you want to use Checkout plugins."
             },
             "type": "library",
             "extra": {
@@ -2197,8 +2197,8 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Availability bundle",
-            "time": "2017-06-15T10:05:40+00:00"
+            "description": "Availability module",
+            "time": "2017-09-08T09:25:49+00:00"
         },
         {
             "name": "spryker/availability-cart-connector",
@@ -4957,11 +4957,11 @@
         },
         {
             "name": "spryker/discount-promotion",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DiscountPromotion.git",
-                "reference": "3c7f974d60c8b0b3be9f629b746fa982198b5857",
+                "reference": "356a64a725a7d33ee5a0a368f50c34d8360ee5a3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4971,8 +4971,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DiscountPromotion/zipball/3c7f974d60c8b0b3be9f629b746fa982198b5857",
-                "reference": "3c7f974d60c8b0b3be9f629b746fa982198b5857",
+                "url": "https://api.github.com/repos/spryker/DiscountPromotion/zipball/356a64a725a7d33ee5a0a368f50c34d8360ee5a3",
+                "reference": "356a64a725a7d33ee5a0a368f50c34d8360ee5a3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4982,7 +4982,7 @@
                 ]
             },
             "require": {
-                "spryker/availability": "^5.0.0",
+                "spryker/availability": "^5.0.3",
                 "spryker/discount": "^4.5.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
@@ -5028,10 +5028,7 @@
                 "proprietary"
             ],
             "description": "DiscountPromotion module",
-            "support": {
-                "source": "https://github.com/spryker/DiscountPromotion/tree/master"
-            },
-            "time": "2017-09-07T13:02:31+00:00"
+            "time": "2017-09-08T09:49:31+00:00"
         },
         {
             "name": "spryker/dummy-payment",
