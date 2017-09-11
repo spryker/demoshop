@@ -46,6 +46,7 @@ use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\UrlGeneratorServiceProvider;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
@@ -120,6 +121,7 @@ class YvesBootstrap
         $this->application->register(new FlashMessengerServiceProvider());
         $this->application->register(new HeadersSecurityServiceProvider());
         $this->application->register(new WebProfilerServiceProvider());
+        $this->application->register(new ConfigProfilerServiceProvider());
         $this->application->register(new AutoloaderCacheServiceProvider());
         $this->application->register(new YvesHstsServiceProvider());
         $this->application->register(new CartServiceProvider());

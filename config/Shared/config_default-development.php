@@ -6,6 +6,7 @@
 
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
@@ -29,7 +30,9 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
-$config[ApplicationConstants::ENABLE_WEB_PROFILER] = true;
+$config[ApplicationConstants::ENABLE_WEB_PROFILER]
+    = $config[ConfigConstants::ENABLE_WEB_PROFILER]
+    = true;
 
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = true;

@@ -15,6 +15,7 @@ use Silex\Provider\TwigServiceProvider;
 use Spryker\Service\UtilDateTime\ServiceProvider\DateTimeFormatterServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
 use Spryker\Shared\Config\Environment;
+use Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider;
 use Spryker\Shared\ErrorHandler\Plugin\ServiceProvider\WhoopsErrorHandlerServiceProvider;
 use Spryker\Zed\Acl\Communication\Plugin\Bootstrap\AclBootstrapProvider;
 use Spryker\Zed\Api\Communication\Plugin\ApiControllerListenerPlugin;
@@ -112,6 +113,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new TwigMoneyServiceProvider(),
             new SubRequestServiceProvider(),
             new WebProfilerServiceProvider(),
+            new ConfigProfilerServiceProvider(),
             new ZedHstsServiceProvider(),
             new FormFactoryServiceProvider(),
             new TwigCurrencyServiceProvider(),
