@@ -11,6 +11,7 @@ use Pyz\Zed\ProductSearch\Business\Map\Expander\PriceExpander;
 use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductCategoryExpander;
 use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductImageExpander;
 use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductLabelExpander;
+use Pyz\Zed\ProductSearch\Business\Map\Expander\ProductReviewExpander;
 use Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder;
 use Pyz\Zed\ProductSearch\ProductSearchDependencyProvider;
 use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerProductSearchBusinessFactory;
@@ -88,6 +89,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
             $this->createProductImageExpander(),
             $this->createProductCategoryExpander(),
             $this->createProductLabelExpander(),
+            $this->createProductReviewExpander(),
         ];
     }
 
@@ -124,6 +126,14 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function createProductLabelExpander()
     {
         return new ProductLabelExpander($this->getProductLabelFacade());
+    }
+
+    /**
+     * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface
+     */
+    protected function createProductReviewExpander()
+    {
+        return new ProductReviewExpander();
     }
 
     /**

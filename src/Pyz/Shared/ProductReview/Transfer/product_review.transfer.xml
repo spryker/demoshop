@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+
+    <transfer name="ProductReviewSummary">
+        <property name="maximumRating" type="int" />
+        <property name="averageRating" type="int" />
+        <property name="totalReview" type="int" />
+        <property name="ratingAggregation" type="array" />
+    </transfer>
+
+</transfers>
+

@@ -1,0 +1,5 @@
+customer_reference,locale_name,phone,email,salutation,first_name,last_name,company,gender,date_of_birth,password,registered
+DE--1,en_US,,spencor.hopkin@spryker.com,Mr,Spencor,Hopkin,,Male,,$2y$10$BfK63PmaH/mYpHNfVjCIIuDwnMM.q2ZyjzUAjZTXPmAEiXPoqsXdy,
+DE--2,en_US,,maria.williams@spryker.com,Ms,Maria,Williams,,Female,,$2y$10$BfK63PmaH/mYpHNfVjCIIuDwnMM.q2ZyjzUAjZTXPmAEiXPoqsXdy,
+DE--3,de_DE,,maggie.may@spryker.com,Ms,Maggie,May,,Female,,$2y$10$BfK63PmaH/mYpHNfVjCIIuDwnMM.q2ZyjzUAjZTXPmAEiXPoqsXdy,
+DE--4,de_DE,,bill.martin@spryker.com,Mr,Bill,Martin,,Male,,$2y$10$BfK63PmaH/mYpHNfVjCIIuDwnMM.q2ZyjzUAjZTXPmAEiXPoqsXdy,
