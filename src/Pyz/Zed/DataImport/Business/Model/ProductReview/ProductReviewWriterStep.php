@@ -10,7 +10,7 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductReview;
 use Orm\Zed\ProductReview\Persistence\Map\SpyProductReviewTableMap;
 use Orm\Zed\ProductReview\Persistence\SpyProductReviewQuery;
 use Pyz\Zed\DataImport\Business\Model\Locale\Repository\LocaleRepositoryInterface;
-use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
+use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Shared\ProductReview\ProductReviewConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -22,7 +22,7 @@ class ProductReviewWriterStep extends TouchAwareStep implements DataImportStepIn
 {
 
     /**
-     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
+     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface
      */
     protected $productRepository;
 
@@ -32,12 +32,12 @@ class ProductReviewWriterStep extends TouchAwareStep implements DataImportStepIn
     protected $localeRepository;
 
     /**
-     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface $productRepository
      * @param \Pyz\Zed\DataImport\Business\Model\Locale\Repository\LocaleRepositoryInterface $localeRepository
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
      * @param int|null $bulkSize
      */
-    public function __construct(ProductRepository $productRepository, LocaleRepositoryInterface $localeRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
+    public function __construct(ProductRepositoryInterface $productRepository, LocaleRepositoryInterface $localeRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
     {
         parent::__construct($touchFacade, $bulkSize);
 
