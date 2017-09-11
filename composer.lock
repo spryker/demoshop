@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e464ecafcb5ca711c904bbcfad343bf0",
+    "content-hash": "40148661a0fcda323c517613b59fcb8c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3985,11 +3985,11 @@
         },
         {
             "name": "spryker/collector",
-            "version": "5.4.0",
+            "version": "5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Collector.git",
-                "reference": "a4a79076397841f78cc414ee42b77218c388c4ae",
+                "reference": "430c8555c508d97ea31790b8fbd090fcf1ae9d18",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3999,8 +3999,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Collector/zipball/a4a79076397841f78cc414ee42b77218c388c4ae",
-                "reference": "a4a79076397841f78cc414ee42b77218c388c4ae",
+                "url": "https://api.github.com/repos/spryker/Collector/zipball/430c8555c508d97ea31790b8fbd090fcf1ae9d18",
+                "reference": "430c8555c508d97ea31790b8fbd090fcf1ae9d18",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4054,7 +4054,7 @@
             "support": {
                 "source": "https://github.com/spryker/Collector/tree/master"
             },
-            "time": "2017-09-05T11:02:43+00:00"
+            "time": "2017-09-08T12:29:04+00:00"
         },
         {
             "name": "spryker/collector-search-connector",
@@ -5831,11 +5831,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "3.8.0",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "8b17582f4aef77b34c3703c535feb0e7b421b8e9",
+                "reference": "b87477ed62285ff50fb66bfe59d2fd26e63f7bec",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5845,8 +5845,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/8b17582f4aef77b34c3703c535feb0e7b421b8e9",
-                "reference": "8b17582f4aef77b34c3703c535feb0e7b421b8e9",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/b87477ed62285ff50fb66bfe59d2fd26e63f7bec",
+                "reference": "b87477ed62285ff50fb66bfe59d2fd26e63f7bec",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5892,9 +5892,9 @@
             ],
             "description": "Gui module",
             "support": {
-                "source": "https://github.com/spryker/Gui/tree/3.8.0"
+                "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2017-08-09T04:25:04+00:00"
+            "time": "2017-08-24T08:28:11+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -6802,11 +6802,11 @@
         },
         {
             "name": "spryker/navigation-collector",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationCollector.git",
-                "reference": "50a7e84948a1a11df1fb1dde92838486282063e9",
+                "reference": "d9835517a73ad23b221fff38e0b3d7d210a3c9ff",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6816,8 +6816,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationCollector/zipball/50a7e84948a1a11df1fb1dde92838486282063e9",
-                "reference": "50a7e84948a1a11df1fb1dde92838486282063e9",
+                "url": "https://api.github.com/repos/spryker/NavigationCollector/zipball/d9835517a73ad23b221fff38e0b3d7d210a3c9ff",
+                "reference": "d9835517a73ad23b221fff38e0b3d7d210a3c9ff",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6864,9 +6864,9 @@
             ],
             "description": "NavigationCollector module",
             "support": {
-                "source": "https://github.com/spryker/NavigationCollector/tree/master"
+                "source": "https://github.com/spryker/NavigationCollector/tree/1.0.2"
             },
-            "time": "2017-09-04T15:08:53+00:00"
+            "time": "2017-09-11T14:40:18+00:00"
         },
         {
             "name": "spryker/navigation-gui",
@@ -9384,6 +9384,211 @@
             ],
             "description": "ProductRelationCollector module",
             "time": "2017-06-30T14:05:21+00:00"
+        },
+        {
+            "name": "spryker/product-review",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductReview.git",
+                "reference": "5ca55816e4d701fa3b7566422fed7ca8d57fe88d",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductReview/zipball/5ca55816e4d701fa3b7566422fed7ca8d57fe88d",
+                "reference": "5ca55816e4d701fa3b7566422fed7ca8d57fe88d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0",
+                "spryker/key-builder": "^1.0.0",
+                "spryker/locale": "^3.1.0",
+                "spryker/product": "^5.2.0",
+                "spryker/propel-orm": "^1.1.0",
+                "spryker/search": "^6.3.0",
+                "spryker/storage": "^3.0.0",
+                "spryker/touch": "^3.1.0",
+                "spryker/twig": "^3.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/elastica": "Allow sending log messages to an Elastic Search server",
+                "spryker/silex": "If you want to use ServiceProvider."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductReview module",
+            "support": {
+                "source": "https://github.com/spryker/ProductReview/tree/master"
+            },
+            "time": "2017-09-08T15:40:04+00:00"
+        },
+        {
+            "name": "spryker/product-review-collector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductReviewCollector.git",
+                "reference": "aee894816697248546775f0bb3d78141cfe34877",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductReviewCollector/zipball/aee894816697248546775f0bb3d78141cfe34877",
+                "reference": "aee894816697248546775f0bb3d78141cfe34877",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/collector": "^5.5.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product-review": "^1.0.0",
+                "spryker/propel-orm": "^1.1.0",
+                "spryker/search": "^6.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/touch": "^3.0.0",
+                "spryker/util-data-reader": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductReviewCollector module",
+            "support": {
+                "source": "https://github.com/spryker/ProductReviewCollector/tree/1.0.0"
+            },
+            "time": "2017-09-11T14:48:55+00:00"
+        },
+        {
+            "name": "spryker/product-review-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductReviewGui.git",
+                "reference": "e68d9f0163070b4369a6f637997c7c3f740ce70d",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductReviewGui/zipball/e68d9f0163070b4369a6f637997c7c3f740ce70d",
+                "reference": "e68d9f0163070b4369a6f637997c7c3f740ce70d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/customer": "^6.0.0",
+                "spryker/gui": "^3.9.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.1.0",
+                "spryker/product": "^5.0.0",
+                "spryker/product-review": "^1.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-date-time": "^1.0.0",
+                "spryker/util-sanitize": "^2.0.0",
+                "spryker/util-text": "^1.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductReviewGui module",
+            "support": {
+                "source": "https://github.com/spryker/ProductReviewGui/tree/1.0.0"
+            },
+            "time": "2017-09-11T14:48:55+00:00"
         },
         {
             "name": "spryker/product-search",
@@ -17143,7 +17348,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -17200,7 +17405,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -17313,16 +17518,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "d15dfaf71b65bf3affb80900470caf4451a8217e"
+                "reference": "6b511d7329b203a620f09a2288818d27dcc915ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/d15dfaf71b65bf3affb80900470caf4451a8217e",
-                "reference": "d15dfaf71b65bf3affb80900470caf4451a8217e",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/6b511d7329b203a620f09a2288818d27dcc915ae",
+                "reference": "6b511d7329b203a620f09a2288818d27dcc915ae",
                 "shasum": ""
             },
             "require": {
@@ -17365,7 +17570,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-15T13:31:09+00:00"
+            "time": "2017-09-11T15:55:22+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -17418,7 +17623,7 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
