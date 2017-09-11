@@ -1,6 +1,9 @@
 {% set activeFilters = '' %}
 {% for filter in facets %}
-    {% set activeFilters = activeFilters ~ include('@catalog/catalog/partials/active-filters/' ~ filter.config.type ~ '.twig', ignore_missing = true) %}
+    {% set activeFilters = activeFilters ~ include([
+        '@catalog/catalog/partials/active-filters/' ~ filter.config.name ~ '.twig',
+        '@catalog/catalog/partials/active-filters/' ~ filter.config.type ~ '.twig',
+    ], ignore_missing = true) %}
 {% endfor %}
 
 {% if activeFilters|trim is not empty %}
