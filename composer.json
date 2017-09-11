@@ -113,10 +113,6 @@
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/architecture-sniffer.git"
-    },
-    {
-      "type": "git",
       "url": "git@github.com:spryker/git-hook.git"
     }
   ],
