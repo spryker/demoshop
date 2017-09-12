@@ -18,6 +18,7 @@ use Pyz\Zed\DataImport\Business\Model\CmsPage\CmsPageWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\PlaceholderExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\CmsTemplate\CmsTemplateWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository;
+use Pyz\Zed\DataImport\Business\Model\Currency\CurrencyWriterStep;
 use Pyz\Zed\DataImport\Business\Model\DataImportStep\LocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Discount\DiscountWriterStep;
 use Pyz\Zed\DataImport\Business\Model\DiscountVoucher\DiscountVoucherWriterStep;
@@ -54,10 +55,12 @@ use Pyz\Zed\DataImport\Business\Model\ProductSet\ProductSetWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductStock\ProductStockWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Shipment\ShipmentWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Stock\StockWriterStep;
+use Pyz\Zed\DataImport\Business\Model\Store\StoreReader;
 use Pyz\Zed\DataImport\Business\Model\Store\StoreWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Tax\TaxSetNameToIdTaxSetStep;
 use Pyz\Zed\DataImport\Business\Model\Tax\TaxWriterStep;
 use Pyz\Zed\DataImport\DataImportDependencyProvider;
+use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\ProductSearch\Code\KeyBuilder\FilterGlossaryKeyBuilder;
 use Spryker\Zed\DataImport\Business\DataImportBusinessFactory as SprykerDataImportBusinessFactory;
 use Spryker\Zed\Discount\DiscountConfig;
@@ -76,6 +79,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         $dataImporterCollection = $this->createDataImporterCollection();
         $dataImporterCollection
+            ->addDataImporter($this->createStoreImporter())
             ->addDataImporter($this->createCurrencyImporter())
             ->addDataImporter($this->createCategoryTemplateImporter())
             ->addDataImporter($this->createCategoryImporter())
@@ -115,13 +119,14 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
      */
     protected function createCurrencyImporter()
     {
-        /*$dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCurrencyDataImporterConfiguration());
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCurrencyDataImporterConfiguration());
 
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker->addStep(new CurrencyWriterStep());
 
-        $dataImporter->addDataSetStepBroker($dataSetStepBroker);*/
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
-        //return $dataImporter;
+        return $dataImporter;
     }
 
     /**
@@ -129,9 +134,16 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
      */
     protected function createStoreImporter()
     {
-        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCurrencyDataImporterConfiguration());
+        $dataImporter = $this->createDataImporter(
+            $this->getConfig()->getStoreDataImporterConfiguration()->getImportType(),
+            new StoreReader(
+                $this->createDataSet(
+                    Store::getInstance()->getAllowedStores()
+                )
+            )
+        );
 
-        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker = $this->createDataSetStepBroker();
         $dataSetStepBroker->addStep(new StoreWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);

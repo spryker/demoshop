@@ -57,6 +57,14 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
+    public function getStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('', static::IMPORT_TYPE_STORE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
     public function getGlossaryDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('glossary.csv', static::IMPORT_TYPE_GLOSSARY);

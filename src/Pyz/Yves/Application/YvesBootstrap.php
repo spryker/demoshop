@@ -21,6 +21,7 @@ use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
+use Pyz\Yves\Currency\Plugin\CurrencyControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
@@ -49,6 +50,7 @@ use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
 use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
+use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
@@ -129,6 +131,7 @@ class YvesBootstrap
         $this->application->register(new ProductGroupTwigServiceProvider());
         $this->application->register(new ProductLabelTwigServiceProvider());
         $this->application->register(new CmsContentWidgetServiceProvider());
+        $this->application->register(new CurrencySwitcherServiceProvider());
     }
 
     /**
@@ -174,6 +177,7 @@ class YvesBootstrap
             new ProductSetControllerProvider($isSsl),
             new ProductSaleControllerProvider($isSsl),
             new ProductNewControllerProvider($isSsl),
+            new CurrencyControllerProvider($isSsl),
         ];
     }
 

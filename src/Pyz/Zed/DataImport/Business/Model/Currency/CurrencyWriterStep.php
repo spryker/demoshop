@@ -15,6 +15,7 @@ class CurrencyWriterStep implements DataImportStepInterface
 {
 
     const KEY_ISO_CODE = 'iso_code';
+    const KEY_CURRENCY_SYMBOL = 'currency_symbol';
     const KEY_NAME = 'name';
 
     /**
@@ -25,8 +26,9 @@ class CurrencyWriterStep implements DataImportStepInterface
     public function execute(DataSetInterface $dataSet)
     {
         $currencyEntity = SpyCurrencyQuery::create()
-            ->filterByIsoCode($dataSet[static::KEY_ISO_CODE])
+            ->filterByCode($dataSet[static::KEY_ISO_CODE])
             ->filterByName($dataSet[static::KEY_NAME])
+            ->filterBySymbol($dataSet[static::KEY_CURRENCY_SYMBOL])
             ->findOneOrCreate();
 
         $currencyEntity->save();

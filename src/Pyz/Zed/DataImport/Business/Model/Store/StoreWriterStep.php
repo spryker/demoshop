@@ -8,14 +8,11 @@
 namespace Pyz\Zed\DataImport\Business\Model\Store;
 
 use Orm\Zed\Store\Persistence\SpyStoreQuery;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class StoreWriterStep implements DataImportStepInterface
 {
-
-    const KEY_NAME = 'name';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -24,11 +21,9 @@ class StoreWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $store = Store::getInstance();
-
-        foreach ($store->getAllowedStores() as $store) {
+        foreach ($dataSet as $key => $value) {
             $storeEntity = SpyStoreQuery::create()
-                ->filterByName($store)
+                ->filterByName($value)
                 ->findOneOrCreate();
 
             $storeEntity->save();
