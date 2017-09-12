@@ -68,7 +68,6 @@ class RegisterController extends AbstractCustomerController
     {
         $customerTransfer = new CustomerTransfer();
         $customerTransfer->fromArray($customerData, true);
-        $customerTransfer->setSendPasswordToken(true);
 
         $customerResponseTransfer = $this
             ->getFactory()

@@ -94,7 +94,7 @@
 
             {{ spyProductGroupItems(product.idProductAbstract, '@Product/product/partials/product-group.twig') }}
 
-            <form method="POST" action="/cart/add/{{ product.sku }}">
+            <form method="POST" action="{{ path('cart/add', {'sku': product.sku }) }}">
                 {% include '@Product/product/partials/product-options.twig' %}
                 <div>
                     <button type="submit" class="button expanded success js-add-to-cart-button" {{ (not product.isVariant or not product.available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
