@@ -22,13 +22,13 @@
                     {{ orderItem.name }}
                 </td>
                 <td class="text-right">
-                    {{ orderItem.unitPrice | money }}
+                    {{ orderItem.unitPrice | money(true, order.currencyCode) }}
                 </td>
                 <td class="text-right">
                     {{ orderItem.quantity }}
                 </td>
                 <td class="text-right">
-                    {{ orderItem.unitPriceToPayAggregation | money }}
+                    {{ orderItem.unitPriceToPayAggregation | money(true, order.currencyCode) }}
                 </td>
             </tr>
             {% include "@customer/order/partials/order-items-options.twig" %}
