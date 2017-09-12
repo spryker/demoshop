@@ -140,6 +140,8 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
     }
 
     /**
+     * @SuppressWarning(PHPMD.Superglobals)
+     *
      * @param \Silex\Application $app
      *
      * @return string|null
