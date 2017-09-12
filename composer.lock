@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.5",
+            "version": "3.36.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "db5dc59777b663c7640a0cd3063e52b39c50dac2"
+                "reference": "a7cd486139971d66387a4938f5a0a2a95e50d678"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/db5dc59777b663c7640a0cd3063e52b39c50dac2",
-                "reference": "db5dc59777b663c7640a0cd3063e52b39c50dac2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a7cd486139971d66387a4938f5a0a2a95e50d678",
+                "reference": "a7cd486139971d66387a4938f5a0a2a95e50d678",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-09-11T19:34:19+00:00"
+            "time": "2017-09-12T17:09:10+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -6118,11 +6118,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.5.5",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "56bafeb9a91b3d3e61f14bd450838df26e71f1dd",
+                "reference": "ca683633307edcbcbd1085f4a771b0af5bc62e92",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6132,8 +6132,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/56bafeb9a91b3d3e61f14bd450838df26e71f1dd",
-                "reference": "56bafeb9a91b3d3e61f14bd450838df26e71f1dd",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/ca683633307edcbcbd1085f4a771b0af5bc62e92",
+                "reference": "ca683633307edcbcbd1085f4a771b0af5bc62e92",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6156,7 +6156,7 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/console": "^3.0.0",
-                "spryker/testify": "*",
+                "spryker/testify": "^3.3.0",
                 "spryker/transfer": "^3.0.0"
             },
             "type": "library",
@@ -6182,9 +6182,9 @@
             ],
             "description": "Kernel module",
             "support": {
-                "source": "https://github.com/spryker/Kernel/tree/3.5.5"
+                "source": "https://github.com/spryker/Kernel/tree/master"
             },
-            "time": "2017-09-08T11:21:05+00:00"
+            "time": "2017-09-12T16:45:06+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -17172,11 +17172,11 @@
         },
         {
             "name": "spryker/testify",
-            "version": "3.2.11",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Testify.git",
-                "reference": "8a833216c5f54b91091db23650f0c2e9e029197d",
+                "reference": "25ca79094917931f99ae3ba2e90db939758d135b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -17186,8 +17186,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Testify/zipball/8a833216c5f54b91091db23650f0c2e9e029197d",
-                "reference": "8a833216c5f54b91091db23650f0c2e9e029197d",
+                "url": "https://api.github.com/repos/spryker/Testify/zipball/25ca79094917931f99ae3ba2e90db939758d135b",
+                "reference": "25ca79094917931f99ae3ba2e90db939758d135b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -17245,7 +17245,7 @@
             "support": {
                 "source": "https://github.com/spryker/Testify/tree/master"
             },
-            "time": "2017-08-24T15:08:18+00:00"
+            "time": "2017-09-12T15:20:16+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
