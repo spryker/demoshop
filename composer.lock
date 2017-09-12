@@ -6666,12 +6666,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a"
+                "reference": "aec92a8231510ee629745ad8a016a534e1ab70f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a",
-                "reference": "d25934c2f07bc6fbfa75f1762b1b00cc1ac6c97a",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/aec92a8231510ee629745ad8a016a534e1ab70f8",
+                "reference": "aec92a8231510ee629745ad8a016a534e1ab70f8",
                 "shasum": ""
             },
             "require": {
@@ -6708,7 +6708,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-09-07T12:58:44+00:00"
+            "time": "2017-09-12T10:02:43+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -6867,7 +6867,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -6924,7 +6924,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -7037,16 +7037,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "d15dfaf71b65bf3affb80900470caf4451a8217e"
+                "reference": "6b511d7329b203a620f09a2288818d27dcc915ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/d15dfaf71b65bf3affb80900470caf4451a8217e",
-                "reference": "d15dfaf71b65bf3affb80900470caf4451a8217e",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/6b511d7329b203a620f09a2288818d27dcc915ae",
+                "reference": "6b511d7329b203a620f09a2288818d27dcc915ae",
                 "shasum": ""
             },
             "require": {
@@ -7089,7 +7089,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-15T13:31:09+00:00"
+            "time": "2017-09-11T15:55:22+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -7142,7 +7142,7 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
