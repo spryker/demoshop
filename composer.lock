@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.4",
+            "version": "3.36.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "acb08da60a042e17b0cd9e5e111ba895c8a79f2d"
+                "reference": "db5dc59777b663c7640a0cd3063e52b39c50dac2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/acb08da60a042e17b0cd9e5e111ba895c8a79f2d",
-                "reference": "acb08da60a042e17b0cd9e5e111ba895c8a79f2d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/db5dc59777b663c7640a0cd3063e52b39c50dac2",
+                "reference": "db5dc59777b663c7640a0cd3063e52b39c50dac2",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-09-08T19:50:29+00:00"
+            "time": "2017-09-11T19:34:19+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -9878,11 +9878,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "d2c428e644fd08449c9d6e6b0d05dd6b9347c43d",
+                "reference": "c8794c350586cf5ba705d9b203a9abc2b2cca6e0",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9892,8 +9892,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/d2c428e644fd08449c9d6e6b0d05dd6b9347c43d",
-                "reference": "d2c428e644fd08449c9d6e6b0d05dd6b9347c43d",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/c8794c350586cf5ba705d9b203a9abc2b2cca6e0",
+                "reference": "c8794c350586cf5ba705d9b203a9abc2b2cca6e0",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9947,10 +9947,7 @@
                 "proprietary"
             ],
             "description": "Propel module",
-            "support": {
-                "source": "https://github.com/spryker/Propel/tree/master"
-            },
-            "time": "2017-09-04T15:01:38+00:00"
+            "time": "2017-09-12T14:38:43+00:00"
         },
         {
             "name": "spryker/propel-orm",
