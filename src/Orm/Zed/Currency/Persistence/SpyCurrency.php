@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\ProductReview\Persistence;
+namespace Orm\Zed\Currency\Persistence;
 
-use Spryker\Zed\ProductReview\Persistence\Propel\AbstractSpyProductReviewQuery as BaseSpyProductReviewQuery;
+use Spryker\Zed\Currency\Persistence\Propel\AbstractSpyCurrency as BaseSpyCurrency;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'spy_product_review' table.
+ * Skeleton subclass for representing a row from the 'spy_currency' table.
  *
  *
  *
@@ -19,6 +19,6 @@ use Spryker\Zed\ProductReview\Persistence\Propel\AbstractSpyProductReviewQuery a
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductReviewQuery extends BaseSpyProductReviewQuery
+class SpyCurrency extends BaseSpyCurrency
 {
 }

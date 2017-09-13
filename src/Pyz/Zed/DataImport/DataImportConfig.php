@@ -45,6 +45,24 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_SHIPMENT = 'shipment';
     const IMPORT_TYPE_STOCK = 'stock';
     const IMPORT_TYPE_TAX = 'tax';
+    const IMPORT_TYPE_CURRENCY = 'currency';
+    const IMPORT_TYPE_STORE = 'store';
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCurrencyDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('currency.csv', static::IMPORT_TYPE_CURRENCY);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('', static::IMPORT_TYPE_STORE);
+    }
 
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
