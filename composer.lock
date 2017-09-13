@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "dba73339b817cd4323af8f37741ea8055cf7ef06"
+                "reference": "b706e3d936e07a1244fa44a7b66600de06eb51f5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1812,7 +1812,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-13T11:01:11+00:00"
+            "time": "2017-09-13T12:23:04+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6571,7 +6571,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/architecture-sniffer.git",
+                "url": "https://github.com/spryker/architecture-sniffer.git",
                 "reference": "2f4ce943dbb699e489fb499cb08246ac71403213"
             },
             "dist": {
