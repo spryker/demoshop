@@ -21,9 +21,9 @@ class StoreWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        foreach ($dataSet as $key => $value) {
+        foreach ($dataSet as $storeName) {
             $storeEntity = SpyStoreQuery::create()
-                ->filterByName($value)
+                ->filterByName($storeName)
                 ->findOneOrCreate();
 
             $storeEntity->save();

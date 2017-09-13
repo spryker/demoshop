@@ -7,7 +7,7 @@
 
 namespace PyzTest\Zed\PropelOrm\Business;
 
-use Codeception\TestCase\Test;
+use Codeception\Test\Unit;
 use Exception;
 use PyzTest\Zed\PropelOrm\Stub\ProductManagerStub;
 use Spryker\Zed\Product\Business\ProductFacade;
@@ -23,7 +23,7 @@ use Throwable;
  * @group PropelOrmTransactionHandlerTest
  * Add your own group annotations below this line
  */
-class PropelOrmTransactionHandlerTest extends Test
+class PropelOrmTransactionHandlerTest extends Unit
 {
 
     const TEST_SKU = 'foo';

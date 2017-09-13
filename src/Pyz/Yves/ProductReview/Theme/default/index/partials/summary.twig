@@ -1,0 +1,39 @@
+<p>
+    {% include '@ProductReview/partials/read-only-rating.twig' with {'rating': summary.averageRating } %}
+
+    {% if summary.totalReview > 0 %}
+        <span>
+            {{ summary.averageRating }}
+            {{ 'product_review.summary.out_of' | trans }}
+            {{ summary.maximumRating }}
+            {{ 'product_review.summary.stars' | trans }}
+            (
+                {{- summary.totalReview }}
+                {% transchoice summary.totalReview %}
+                    product_review.summary.review|product_review.summary.reviews
+                {% endtranschoice -%}
+            )
+        </span>
+    {% else %}
+        <span>{{ 'product_review.no_reviews' | trans }}</span>
+    {% endif %}
+</p>
+
+<p>
+    {% for rating,ratingReview in summary.ratingAggregation %}
+        <div>
+            <div class="review-map-column review-map-rating-column">
+                {{ rating }}
+                {% transchoice rating %}
+                    product_review.summary.star|product_review.summary.stars
+                {% endtranschoice %}
+            </div>
+            <div class="review-map-column">
+                <progress class="rating-map" max="{{ summary.totalReview }}" value="{{ ratingReview }}"></progress>
+            </div>
+            <div class="review-map-column">
+                {{ ratingReview }}
+            </div>
+        </div>
+    {% endfor %}
+</p>

@@ -54,6 +54,8 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
      */
     protected function setSecurityFirewalls(Application &$app)
     {
+        $selectedLanguage = $this->findSelectedLanguage($app);
+
         $app['security.firewalls'] = [
             self::FIREWALL_SECURED => [
                 'anonymous' => true,
@@ -66,7 +68,8 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
                     'listener_class' => UsernamePasswordFormAuthenticationListener::class,
                 ],
                 'logout' => [
-                    'logout_path' => '/logout',
+                    'logout_path' => $this->buildLogoutPath($selectedLanguage),
+                    'target_url' => $this->buildLogoutTargetUrl($selectedLanguage),
                 ],
                 'users' => $app->share(function () {
                     return $this->getFactory()->createCustomerUserProvider();
@@ -120,6 +123,55 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
                 return $this->getFactory()->createCustomerAuthenticationFailureHandler();
             });
         });
+    }
+
+    /**
+     * @param string $prefixLocale
+     *
+     * @return string
+     */
+    protected function buildLogoutPath($prefixLocale)
+    {
+        $logoutPath = '/logout';
+        if ($prefixLocale) {
+            $logoutPath = '/' . $prefixLocale . $logoutPath;
+        }
+        return $logoutPath;
+    }
+
+    /**
+     * @SuppressWarnings(PHPMD.Superglobals)
+     *
+     * @param \Silex\Application $app
+     *
+     * @return string|null
+     */
+    protected function findSelectedLanguage(Application &$app)
+    {
+        $currentLocale = $app['locale'];
+        $requestUri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+
+        $prefixLocale = mb_substr($currentLocale, 0, 2);
+        $localePath = mb_substr($requestUri, 1, 3);
+
+        if ($prefixLocale . '/' !== $localePath) {
+            return null;
+        }
+        return $prefixLocale;
+    }
+
+    /**
+     * @param string $selectedLanguage
+     *
+     * @return string
+     */
+    protected function buildLogoutTargetUrl($selectedLanguage)
+    {
+        $logoutTarget = '/';
+        if ($selectedLanguage) {
+            $logoutTarget .= $selectedLanguage;
+        }
+        return $logoutTarget;
     }
 
 }
