@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "cdf5384c7b5041d50c8f0933105e210aecbbbdd9"
+                "reference": "fe69f789ed4076cb296418ac0468856c33dc4ca4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1806,7 +1806,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-07T18:47:39+00:00"
+            "time": "2017-09-13T08:20:06+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6654,8 +6654,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/architecture-sniffer.git",
+                "url": "https://github.com/spryker/architecture-sniffer.git",
                 "reference": "2f4ce943dbb699e489fb499cb08246ac71403213"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2f4ce943dbb699e489fb499cb08246ac71403213",
+                "reference": "2f4ce943dbb699e489fb499cb08246ac71403213",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6671,22 +6677,10 @@
                     "ArchitectureSniffer\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "ArchitectureSniffer\\Test\\": "tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "src/"
             ],
-            "scripts": {
-                "cs-check": [
-                    "vendor/bin/phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
-                ],
-                "cs-fix": [
-                    "vendor/bin/phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
-                ]
-            },
             "license": [
                 "MIT"
             ],
@@ -6704,9 +6698,6 @@
                 "sniffer",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/spryker/architecture-sniffer"
-            },
             "time": "2017-08-22T14:34:32+00:00"
         },
         {
