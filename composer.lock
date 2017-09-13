@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "40148661a0fcda323c517613b59fcb8c",
+    "content-hash": "a554be0f8e0f339349f87df314cde572",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2404,11 +2404,11 @@
         },
         {
             "name": "spryker/braintree",
-            "version": "0.5.4",
+            "version": "0.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Braintree.git",
-                "reference": "5b67912bd7e334e7422b8ac4509448ef31b74fa0",
+                "reference": "2ae7f2aaf51373767878bad74af4d5bf84422c41",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2418,8 +2418,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Braintree/zipball/5b67912bd7e334e7422b8ac4509448ef31b74fa0",
-                "reference": "5b67912bd7e334e7422b8ac4509448ef31b74fa0",
+                "url": "https://api.github.com/repos/spryker/Braintree/zipball/2ae7f2aaf51373767878bad74af4d5bf84422c41",
+                "reference": "2ae7f2aaf51373767878bad74af4d5bf84422c41",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2432,7 +2432,7 @@
                 "braintree/braintree_php": "~3.15.0",
                 "spryker/checkout": "^3.0.0",
                 "spryker/config": "^3.0.0",
-                "spryker/currency": "^2.0.0",
+                "spryker/currency": "^2.0.0 || ^3.0.0",
                 "spryker/gui": "^3.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/money": "^2.0.0",
@@ -2484,10 +2484,7 @@
                 "proprietary"
             ],
             "description": "Braintree module",
-            "support": {
-                "source": "https://github.com/spryker/Braintree/tree/master"
-            },
-            "time": "2017-07-14T15:04:01+00:00"
+            "time": "2017-09-13T14:54:17+00:00"
         },
         {
             "name": "spryker/cache",
@@ -4373,11 +4370,11 @@
         },
         {
             "name": "spryker/currency",
-            "version": "2.1.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Currency.git",
-                "reference": "b34f0b4d640bb59889ebc753ec0cd38166304ad5",
+                "reference": "9bd095deccd8e90eee0ee83dc4c726ddb5ee82a0",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4387,8 +4384,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Currency/zipball/b34f0b4d640bb59889ebc753ec0cd38166304ad5",
-                "reference": "b34f0b4d640bb59889ebc753ec0cd38166304ad5",
+                "url": "https://api.github.com/repos/spryker/Currency/zipball/9bd095deccd8e90eee0ee83dc4c726ddb5ee82a0",
+                "reference": "9bd095deccd8e90eee0ee83dc4c726ddb5ee82a0",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4399,20 +4396,21 @@
             },
             "require": {
                 "spryker/kernel": "^3.0.0",
+                "spryker/session": "^3.0.0",
                 "spryker/symfony": "^3.0.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/propel": "*",
                 "spryker/propel-orm": "*",
-                "spryker/silex": "*",
                 "spryker/testify": "*",
                 "spryker/transfer": "*",
                 "spryker/twig": "*"
             },
             "suggest": {
-                "spryker/silex": "If you want to use ServiceProvider you need to install spryker/silex.",
-                "spryker/twig": "If you want to use Currency in Twig you need to install spryker/twig."
+                "spryker/silex": "If you want to use ServiceProvider.",
+                "spryker/twig": "If you want to use currency in Twig.",
+                "spryker/zed-request": "If you want to use Zed request meta data provider plugin which adds currency to each request."
             },
             "type": "library",
             "extra": {
@@ -4440,11 +4438,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Currency bundle",
+            "description": "Currency module",
             "support": {
-                "source": "https://github.com/spryker/Currency/tree/2.1.0"
+                "source": "https://github.com/spryker/Currency/tree/master"
             },
-            "time": "2017-05-23T12:03:05+00:00"
+            "time": "2017-09-13T09:45:21+00:00"
         },
         {
             "name": "spryker/customer",
@@ -6118,11 +6116,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.6.0",
+            "version": "3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "ca683633307edcbcbd1085f4a771b0af5bc62e92",
+                "reference": "5b33e4d2d132558ed4fae5915a079651896244b7",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6132,8 +6130,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/ca683633307edcbcbd1085f4a771b0af5bc62e92",
-                "reference": "ca683633307edcbcbd1085f4a771b0af5bc62e92",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/5b33e4d2d132558ed4fae5915a079651896244b7",
+                "reference": "5b33e4d2d132558ed4fae5915a079651896244b7",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6181,10 +6179,7 @@
                 "proprietary"
             ],
             "description": "Kernel module",
-            "support": {
-                "source": "https://github.com/spryker/Kernel/tree/master"
-            },
-            "time": "2017-09-12T16:45:06+00:00"
+            "time": "2017-09-13T13:16:19+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -6613,11 +6608,11 @@
         },
         {
             "name": "spryker/money",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Money.git",
-                "reference": "caa0e8e6f479a8e46e076290100bed87ed055a59",
+                "reference": "54485a1dc8f1a66ea387a4f343978e4e4687c58f",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6627,8 +6622,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Money/zipball/caa0e8e6f479a8e46e076290100bed87ed055a59",
-                "reference": "caa0e8e6f479a8e46e076290100bed87ed055a59",
+                "url": "https://api.github.com/repos/spryker/Money/zipball/54485a1dc8f1a66ea387a4f343978e4e4687c58f",
+                "reference": "54485a1dc8f1a66ea387a4f343978e4e4687c58f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6639,7 +6634,7 @@
             },
             "require": {
                 "moneyphp/money": "^3.0.0",
-                "spryker/currency": "^2.0.0",
+                "spryker/currency": "^2.0.0 || ^3.0.0",
                 "spryker/kernel": "^3.0.0"
             },
             "require-dev": {
@@ -6680,10 +6675,7 @@
                 "proprietary"
             ],
             "description": "Money module",
-            "support": {
-                "source": "https://github.com/spryker/Money/tree/master"
-            },
-            "time": "2017-08-02T16:31:17+00:00"
+            "time": "2017-09-13T14:54:17+00:00"
         },
         {
             "name": "spryker/monolog",
@@ -8942,11 +8934,11 @@
         },
         {
             "name": "spryker/product-management",
-            "version": "0.8.1",
+            "version": "0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductManagement.git",
-                "reference": "9a016df7386e13314cc56c823c8efd7ba0f2b5b3",
+                "reference": "8e68e31ed931135c5decba8a2613dd8c196e4fea",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8956,8 +8948,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/9a016df7386e13314cc56c823c8efd7ba0f2b5b3",
-                "reference": "9a016df7386e13314cc56c823c8efd7ba0f2b5b3",
+                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/8e68e31ed931135c5decba8a2613dd8c196e4fea",
+                "reference": "8e68e31ed931135c5decba8a2613dd8c196e4fea",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8970,7 +8962,7 @@
                 "everon/collection": "^1.0.0",
                 "spryker/availability": "^5.0.0",
                 "spryker/category": "^3.0.0 || ^4.0.0",
-                "spryker/currency": "^2.1.0",
+                "spryker/currency": "^2.1.0 || ^3.0.0",
                 "spryker/gui": "^3.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
@@ -9018,7 +9010,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductManagement/tree/master"
             },
-            "time": "2017-09-06T15:38:06+00:00"
+            "time": "2017-09-13T14:54:17+00:00"
         },
         {
             "name": "spryker/product-new",
@@ -11455,6 +11447,75 @@
             "time": "2017-08-07T14:08:57+00:00"
         },
         {
+            "name": "spryker/store",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/Store.git",
+                "reference": "cb81e20f2db350712d94133620f842c78a717859",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Store/zipball/cb81e20f2db350712d94133620f842c78a717859",
+                "reference": "cb81e20f2db350712d94133620f842c78a717859",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/propel-orm": "*",
+                "spryker/testify": "*",
+                "spryker/transfer": "*",
+                "spryker/twig": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Spryker": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "Functional": "tests/",
+                    "Unit": "tests/"
+                },
+                "psr-4": {
+                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module",
+                    "Transfer\\Module\\": "vendor/spryker/transfer/tests/_support/Module",
+                    "Config\\Module\\": "vendor/spryker/config/tests/_support/Module"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Store module",
+            "support": {
+                "source": "https://github.com/spryker/Store/tree/master"
+            },
+            "time": "2017-09-12T10:39:35+00:00"
+        },
+        {
             "name": "spryker/symfony",
             "version": "3.1.0",
             "source": {
@@ -11733,11 +11794,11 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "3.3.5",
+            "version": "3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Transfer.git",
-                "reference": "4b8cb32245bb0ee1c15c3908d1e536f802c54566",
+                "reference": "92850d81d8e53f70ecdae6eb84984672866340a8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11747,8 +11808,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Transfer/zipball/4b8cb32245bb0ee1c15c3908d1e536f802c54566",
-                "reference": "4b8cb32245bb0ee1c15c3908d1e536f802c54566",
+                "url": "https://api.github.com/repos/spryker/Transfer/zipball/92850d81d8e53f70ecdae6eb84984672866340a8",
+                "reference": "92850d81d8e53f70ecdae6eb84984672866340a8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11792,10 +11853,7 @@
                 "proprietary"
             ],
             "description": "Transfer module",
-            "support": {
-                "source": "https://github.com/spryker/Transfer/tree/3.3.5"
-            },
-            "time": "2017-09-12T17:17:22+00:00"
+            "time": "2017-09-13T10:22:04+00:00"
         },
         {
             "name": "spryker/twig",
@@ -12456,11 +12514,11 @@
         },
         {
             "name": "spryker/zed-request",
-            "version": "3.1.5",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ZedRequest.git",
-                "reference": "1300535b42c4e1e3677ced6122f65e17588f29b2",
+                "reference": "819d2006e0a7838b48b1c8a4c02f5387be2a69e6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12470,8 +12528,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ZedRequest/zipball/1300535b42c4e1e3677ced6122f65e17588f29b2",
-                "reference": "1300535b42c4e1e3677ced6122f65e17588f29b2",
+                "url": "https://api.github.com/repos/spryker/ZedRequest/zipball/819d2006e0a7838b48b1c8a4c02f5387be2a69e6",
+                "reference": "819d2006e0a7838b48b1c8a4c02f5387be2a69e6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12518,10 +12576,7 @@
                 "proprietary"
             ],
             "description": "ZedRequest module",
-            "support": {
-                "source": "https://github.com/spryker/ZedRequest/tree/master"
-            },
-            "time": "2017-08-09T14:17:35+00:00"
+            "time": "2017-09-13T10:02:56+00:00"
         },
         {
             "name": "spryker/zend",
