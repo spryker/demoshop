@@ -29,6 +29,10 @@ $(function(){
         require('./components/disable-on-click'),
         require('./components/product-variants'),
         require('./components/cart-item'),
-        require('./components/catalog-filter-form')
+        require('./components/catalog-filter-form'),
+        require('./components/catalog-rating-filter'),
+        require('./components/product-review/editable-rating'),
+        require('./components/product-review/read-only-rating'),
+        require('./components/product-review/summary')
     ]);
 });
