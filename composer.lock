@@ -3234,11 +3234,11 @@
         },
         {
             "name": "spryker/cms-block-category-connector",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsBlockCategoryConnector.git",
-                "reference": "684b3529e6d28cd7ee391a2ee796dafd74063de8",
+                "reference": "799f71ab0b6fde033a5bb295dcf7e41a2b388489",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3248,8 +3248,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockCategoryConnector/zipball/684b3529e6d28cd7ee391a2ee796dafd74063de8",
-                "reference": "684b3529e6d28cd7ee391a2ee796dafd74063de8",
+                "url": "https://api.github.com/repos/spryker/CmsBlockCategoryConnector/zipball/799f71ab0b6fde033a5bb295dcf7e41a2b388489",
+                "reference": "799f71ab0b6fde033a5bb295dcf7e41a2b388489",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3305,7 +3305,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockCategoryConnector/tree/master"
             },
-            "time": "2017-09-04T15:08:53+00:00"
+            "time": "2017-09-07T10:47:29+00:00"
         },
         {
             "name": "spryker/cms-block-collector",
@@ -3443,11 +3443,11 @@
         },
         {
             "name": "spryker/cms-block-product-connector",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsBlockProductConnector.git",
-                "reference": "08b59396cdc82ce1ba93de38de92d3f892e2a0db",
+                "reference": "8d68e3b3ee1358800257350400759c25bd210a3b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3457,8 +3457,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockProductConnector/zipball/08b59396cdc82ce1ba93de38de92d3f892e2a0db",
-                "reference": "08b59396cdc82ce1ba93de38de92d3f892e2a0db",
+                "url": "https://api.github.com/repos/spryker/CmsBlockProductConnector/zipball/8d68e3b3ee1358800257350400759c25bd210a3b",
+                "reference": "8d68e3b3ee1358800257350400759c25bd210a3b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3512,7 +3512,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockProductConnector/tree/master"
             },
-            "time": "2017-07-18T11:01:46+00:00"
+            "time": "2017-09-07T10:47:29+00:00"
         },
         {
             "name": "spryker/cms-collector",
@@ -9168,11 +9168,11 @@
         },
         {
             "name": "spryker/product-option-cart-connector",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductOptionCartConnector.git",
-                "reference": "3f6ff80172e7d40133dc71d9b1d90a0641db0f89",
+                "reference": "a6d5007266190caa75c773871687044380c25842",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9182,8 +9182,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductOptionCartConnector/zipball/3f6ff80172e7d40133dc71d9b1d90a0641db0f89",
-                "reference": "3f6ff80172e7d40133dc71d9b1d90a0641db0f89",
+                "url": "https://api.github.com/repos/spryker/ProductOptionCartConnector/zipball/a6d5007266190caa75c773871687044380c25842",
+                "reference": "a6d5007266190caa75c773871687044380c25842",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9205,7 +9205,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/cart": "If you want to use Cart plugins you need to install spryker/cart."
+                "spryker/cart": "If you want to use Cart plugins."
             },
             "type": "library",
             "extra": {
@@ -9228,8 +9228,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "ProductOptionCartConnector bundle",
-            "time": "2017-06-27T08:29:22+00:00"
+            "description": "ProductOptionCartConnector module",
+            "support": {
+                "source": "https://github.com/spryker/ProductOptionCartConnector/tree/master"
+            },
+            "time": "2017-09-12T13:45:36+00:00"
         },
         {
             "name": "spryker/product-relation",
@@ -11730,11 +11733,11 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "3.3.4",
+            "version": "3.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Transfer.git",
-                "reference": "7cb387c48dbc79ad9ddf2126c6fb0ac653048f55",
+                "reference": "4b8cb32245bb0ee1c15c3908d1e536f802c54566",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11744,8 +11747,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Transfer/zipball/7cb387c48dbc79ad9ddf2126c6fb0ac653048f55",
-                "reference": "7cb387c48dbc79ad9ddf2126c6fb0ac653048f55",
+                "url": "https://api.github.com/repos/spryker/Transfer/zipball/4b8cb32245bb0ee1c15c3908d1e536f802c54566",
+                "reference": "4b8cb32245bb0ee1c15c3908d1e536f802c54566",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11790,9 +11793,9 @@
             ],
             "description": "Transfer module",
             "support": {
-                "source": "https://github.com/spryker/Transfer/tree/3.3.4"
+                "source": "https://github.com/spryker/Transfer/tree/3.3.5"
             },
-            "time": "2017-09-07T04:18:47+00:00"
+            "time": "2017-09-12T17:17:22+00:00"
         },
         {
             "name": "spryker/twig",
