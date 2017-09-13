@@ -31,7 +31,7 @@ class PreviewController extends AbstractController
     public function indexAction(Request $request)
     {
         if (!$this->hasPermission()) {
-            $this->addErrorMessage('You need permission to see this page.');
+            $this->addErrorMessage('cms.preview.access_denied');
 
             return [];
         }
