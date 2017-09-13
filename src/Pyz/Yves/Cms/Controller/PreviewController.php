@@ -7,9 +7,10 @@
 
 namespace Pyz\Yves\Cms\Controller;
 
-use Generated\Shared\Transfer\CmsPageCollectorDataTransfer;
+use Generated\Shared\Transfer\CmsPageDataExpandRequestTransfer;
 use Generated\Shared\Transfer\CmsVersionDataRequestTransfer;
 use Generated\Shared\Transfer\CmsVersionDataTransfer;
+use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cms\Plugin\Provider\PreviewControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
@@ -109,10 +110,13 @@ class PreviewController extends AbstractController
                 $cmsGlossaryAttributesTransfer->getTranslations()[$cmsVersionDataLocaleId]->getTranslation();
         }
 
-        $metaData = $this->getFactory()
-            ->getCmsCollectorClient()
-            ->expandCmsPageCollectorData((new CmsPageCollectorDataTransfer())->setCollectedData($metaData))
-            ->getCollectedData();
+        $metaData = $this->getClient()
+            ->expandCmsPageData(
+                (new CmsPageDataExpandRequestTransfer())
+                    ->setLocale(new LocaleTransfer())
+                    ->setCmsPageData($metaData)
+            )
+            ->getCmsPageData();
 
         return $metaData;
     }
