@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "de42ac0ddcba6de8e43291792dda3acb",
+    "content-hash": "a8a02f147ee7223e56512e39acaed1ea",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/config-profiler",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7b8d45fc59823d31cd5ab9933fdee26602c15d00"
+                "reference": "c57639fcf91826f54efdf49f3b382547aaae275d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1775,6 +1775,7 @@
                 "spryker/stock": "*",
                 "spryker/stock-sales-connector": "*",
                 "spryker/storage": "*",
+                "spryker/store": "*",
                 "spryker/symfony": "*",
                 "spryker/tax": "*",
                 "spryker/tax-product-connector": "*",
@@ -1812,7 +1813,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-13T14:05:45+00:00"
+            "time": "2017-09-13T14:54:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6553,7 +6554,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
