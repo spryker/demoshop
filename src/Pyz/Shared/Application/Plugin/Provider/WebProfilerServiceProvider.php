@@ -18,12 +18,12 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
 {
 
     /**
-     * @var \Silex\Provider\WebProfilerServiceProvider
+     * @var \Silex\ServiceProviderInterface|\Silex\Provider\WebProfilerServiceProvider
      */
     protected $silexWebProfiler;
 
     /**
-     * @var \Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
+     * @var \Silex\ServiceProviderInterface|\Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
      */
     protected $configWebProfiler;
 
@@ -66,7 +66,7 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
     }
 
     /**
-     * @return \Silex\Provider\WebProfilerServiceProvider
+     * @return \Silex\ServiceProviderInterface|\Silex\Provider\WebProfilerServiceProvider
      */
     protected function getSilexWebProfiler()
     {
@@ -78,7 +78,7 @@ class WebProfilerServiceProvider implements ServiceProviderInterface, Controller
     }
 
     /**
-     * @return \Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
+     * @return \Silex\ServiceProviderInterface|\Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
      */
     protected function getConfigWebProfiler()
     {
