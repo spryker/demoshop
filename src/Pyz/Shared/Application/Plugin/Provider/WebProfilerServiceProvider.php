@@ -12,6 +12,7 @@ use Silex\Provider\WebProfilerServiceProvider as SilexWebProfilerServiceProvider
 use Silex\ServiceProviderInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProviderInterface, ControllerProviderInterface
@@ -23,6 +24,11 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     protected $silexWebProfiler;
 
     /**
+     * @var \Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
+     */
+    protected $configWebProfiler;
+
+    /**
      * @param \Silex\Application $app
      *
      * @return void
@@ -31,6 +37,7 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     {
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER)) {
             $this->getSilexWebProfiler()->register($app);
+            $this->getConfigWebProfiler()->register($app);
         }
     }
 
@@ -43,6 +50,7 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     {
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER)) {
             $this->getSilexWebProfiler()->boot($app);
+            $this->getConfigWebProfiler()->register($app);
         }
     }
 
@@ -68,6 +76,18 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
         }
 
         return $this->silexWebProfiler;
+    }
+
+    /**
+     * @return \Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
+     */
+    protected function getConfigWebProfiler()
+    {
+        if ($this->configWebProfiler === null) {
+            $this->configWebProfiler = new ConfigProfilerServiceProvider();
+        }
+
+        return $this->configWebProfiler;
     }
 
 }
