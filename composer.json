@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-1755-add-currency-to-orders",
+    "spryker/spryker": "dev-feature/core-1755-discount-currency",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
