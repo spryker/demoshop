@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-bugfix/core-1838-enhance-product-availability-retriaval",
+    "spryker/spryker": "dev-master",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
