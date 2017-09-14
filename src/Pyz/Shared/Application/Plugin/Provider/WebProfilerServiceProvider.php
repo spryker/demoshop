@@ -13,9 +13,8 @@ use Silex\ServiceProviderInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
 use Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider;
-use Spryker\Yves\Kernel\AbstractPlugin;
 
-class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProviderInterface, ControllerProviderInterface
+class WebProfilerServiceProvider implements ServiceProviderInterface, ControllerProviderInterface
 {
 
     /**
