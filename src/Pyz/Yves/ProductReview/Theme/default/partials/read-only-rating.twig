@@ -1,0 +1,14 @@
+{% set prefix = prefix | default('') %}
+{% set suffix = suffix | default('') %}
+{% set maximumRating = maximumRating | default(spyProductAbstractReviewMaximumRating()) %}
+
+<div data-component="product-review-read-only-rating">
+    {{ prefix }}
+    <select data-current-rating="{{ rating }}" disabled>
+        <option value="-1">{{ 'product_review.no_reviews' | trans }}</option>
+        {% for i in 1..maximumRating %}
+            <option value="{{ i }}" >{{ i }}</option>
+        {% endfor %}
+    </select>
+    {{ suffix }}
+</div>

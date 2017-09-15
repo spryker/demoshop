@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace PyzTest\Zed\NavigationGui;
 
 use Codeception\Actor;
@@ -462,7 +467,7 @@ class NavigationGuiPresentationTester extends Actor
     public function waitForNavigationTree()
     {
         $this->waitForElement(self::NAVIGATION_TREE_SELECTOR, 5);
-        $this->wait(1);
+        $this->wait(5);
     }
 
     /**

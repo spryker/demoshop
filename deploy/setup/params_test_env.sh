@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SETUP='spryker'
+DATABASE_DEFAULT_ENGINE='postgresql'
 DATABASE_NAME='DE_devtest_zed'
 DATABASE_USER='devtest'
 DATABASE_PASSWORD='mate20mg'

@@ -8,6 +8,7 @@ namespace Pyz\Zed\Cart;
 
 use Spryker\Zed\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
 use Spryker\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
+use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\CartGroupPromotionItems;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PaymentCartConnector\Communication\Plugin\Cart\RemovePaymentCartPostSavePlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
@@ -17,6 +18,7 @@ use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartPostSaveUpdateBundle
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\ExpandBundleItemsPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\ExpandBundleItemsWithImagesPlugin;
 use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
+use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductExistsCartPreCheckPlugin;
 use Spryker\Zed\ProductImageCartConnector\Communication\Plugin\ProductImageCartPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
@@ -42,6 +44,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemGroupKeyOptionPlugin(),
             new CartItemWithBundleGroupKeyExpanderPlugin(),
             new ProductImageCartPlugin(),
+            new CartGroupPromotionItems(),
         ];
     }
 
@@ -53,6 +56,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
     protected function getCartPreCheckPlugins(Container $container)
     {
         return [
+            new ProductExistsCartPreCheckPlugin(),
             new CartBundleAvailabilityPreCheckPlugin(),
         ];
     }

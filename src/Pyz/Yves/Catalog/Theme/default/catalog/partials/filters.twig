@@ -2,7 +2,10 @@
     {% if filter.values is not defined or filter.values|length > 0 %}
         <div class="callout">
             <h5>{{ ('product.filter.' ~ filter.name) | trans }}</h5>
-            {% include '@catalog/catalog/partials/filters/' ~ filter.config.type ~ '.twig' %}
+            {% include [
+                '@catalog/catalog/partials/filters/' ~ filter.config.name ~ '.twig',
+                '@catalog/catalog/partials/filters/' ~ filter.config.type ~ '.twig',
+            ] %}
         </div>
     {% endif %}
 {% endfor %}

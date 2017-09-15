@@ -81,6 +81,7 @@
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
     "phpunit/php-token-stream": "^1.4.11",
+    "phpdocumentor/reflection-docblock": "^2.0",
     "squizlabs/php_codesniffer": "^3.0"
   },
   "autoload": {
@@ -109,10 +110,6 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/architecture-sniffer.git"
     },
     {
       "type": "git",

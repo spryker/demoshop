@@ -163,6 +163,10 @@ catalog.filter.show,Filter einblenden,de_DE
 catalog.filter.show,insert filter,en_US
 catalog.filter.hide,Filter ausblenden,de_DE
 catalog.filter.hide,hide filter,en_US
+catalog.filter.rating_up,& Up,en_US
+catalog.filter.rating_up,& mehr,de_DE
+catalog.filter.active_rating_up,Stars & Up,en_US
+catalog.filter.active_rating_up,Sterne & mehr,de_DE
 catalog.itemsFound,Artikel gefunden,de_DE
 catalog.itemsFound,Items found,en_US
 catalog.loading,Loading,de_DE
@@ -183,6 +187,8 @@ catalog.sort.price_asc,Nach Preis aufsteigend sortieren,de_DE
 catalog.sort.price_asc,Sort by price ascending,en_US
 catalog.sort.price_desc,Nach Preis absteigend sortieren,de_DE
 catalog.sort.price_desc,Sort by price descending,en_US
+catalog.sort.rating,Sort by product ratings,en_US
+caralot.sort.rating,Nach Produktbewertungen sortieren,de_DE
 catalog.filter.activeFilters,Aktive Filter,de_DE
 catalog.filter.activeFilters,Active filters,en_US
 catalog.filter.resetAllFilters,Alle Filter zurücksetzen,de_DE
@@ -191,6 +197,8 @@ product.filter.category,Kategorien,de_DE
 product.filter.category,Categories,en_US
 product.filter.price,Preisspanne,de_DE
 product.filter.price,Price range,en_US
+product.filter.rating,Product Ratings,en_US
+product.filter.rating,Produktbewertungen,de_DE
 shipment.dhl,DHL,de_DE
 shipment.dhl,DHL,en_US
 shipment.dhl.paket.name,Paket,de_DE
@@ -223,6 +231,8 @@ customer.email,E-Mail Adresse,de_DE
 customer.email,E-Mail,en_US
 customer.phone,Telefonnummer,de_DE
 customer.phone,Telephone number,en_US
+customer.reset.password.error.already.loggedIn,"Kunde bereits eingeloggt. Bitte logge dich aus, um dein Kundenpasswort zurückzusetzen.",de_DE
+customer.reset.password.error.already.loggedIn,"Another customer already logged in. Please logout to reset your password.",en_US
 payment.prepay,Vorkasse,de_DE
 payment.prepay,Prepayment,en_US
 payment.paypal,PayPal,de_DE
@@ -313,9 +323,9 @@ global.no_image_available,Kein Bild verfügbar,de_DE
 global.no_image_available,No image available,en_US
 error.404,Error 404,de_DE
 error.404,Error 404,en_US
-homepage.carousel.previous,Vorherige,de_DE
+homepage.carousel.previous,Zurück,de_DE
 homepage.carousel.previous,Previous,en_US
-homepage.carousel.next,Nächste,de_DE
+homepage.carousel.next,Vore,de_DE
 homepage.carousel.next,Next,en_US
 customer.signup,New customer?,en_US
 customer.signup,Neuer Kunde?,de_DE
@@ -411,16 +421,16 @@ customer.authorization.success,Registration Successful,en_US
 customer.authorization.success,Registrierung erfolgreich,de_DE
 customer.profile.change.success,Profile was successfully saved,en_US
 customer.profile.change.success,Profil wurde erfolgreich gespeichert,de_DE
+customer.password.invalid_password,Current password is wrong,en_US
+customer.password.invalid_password,Aktuelles Passwort ist falsch,de_DE
+customer.password.invalid,Password is invalid,en_US
+customer.password.invalid,Passwort ist ungültig,de_DE
 customer.password.restore,Set a new password,en_US
 customer.password.restore,Neues Passwort erstellen,de_DE
 customer.password.changed,Your password was changed successfully,en_US
 customer.password.changed,Ihr Passwort wurde erfolgreich geändert,de_DE
 customer.token.invalid,Token is invalid,en_US
 customer.token.invalid,Token ist ungültig,de_DE
-customer.password.invalid_password,Current password is wrong,en_US
-customer.password.invalid_password,Aktuelles Passwort ist falsch,de_DE
-customer.password.invalid,Password is invalid,en_US
-customer.password.invalid,Passwort ist ungültig,de_DE
 customer.forgotten-password.description,Enter the e-mail address associated with your account.,en_US
 customer.forgotten-password.description,"Geben Sie die E-Mail-Adresse an, welche mit Ihrem Konto verknüpft ist.",de_DE
 customer.forgotten_password.email,Email Address,en_US
@@ -625,8 +635,8 @@ customer.newsletter.subscribed,Newsletter subscribed,en_US
 customer.newsletter.subscribed,Newsletter abonniert,de_DE
 validator.constraints.password.do_not_match,Passwords don't match,en_US
 validator.constraints.password.do_not_match,Passwörter stimmen nicht überein,de_DE
-discount.successfully.applied,The discount has been successfully applied,en_US
-discount.successfully.applied,Der Rabatt wurde erfolgreich angewendet,de_DE
+discount.successfully.applied,The discount "display_name" has been successfully applied,en_US
+discount.successfully.applied,Der Rabatt "display_name" wurde erfolgreich angewendet,de_DE
 product.unavailable,Product is out of stock,en_US
 product.unavailable,Keine Produkte mehr auf Lager,de_DE
 product.attribute.slug,slug,en_US
@@ -770,9 +780,9 @@ customer.account.wishlist.item.not_added,Hinzufügen zur Wunschliste fehlgeschla
 newsletter.subscribe,Subscribe for newsletter,en_US
 newsletter.subscribe,In den Newsletter eintragen,de_DE
 pagination.previous,Previous,en_US
-pagination.previous,Vorherig,de_DE
+pagination.previous,Zurück,de_DE
 pagination.next,Next,en_US
-pagination.next,Nächst,de_DE
+pagination.next,Vor,de_DE
 product.attribute.iso_en,ISO,en_US
 product.attribute.iso_en,ISO,de_DE
 product.attribute.waterproof_up_to,Waterproof up to,en_US
@@ -823,10 +833,10 @@ mail.customer.registration.text,Vielen Dank für Ihre Anmeldung bei Spryker Shop
 mail.customer.registration.text,Thank you for signing up with Spryker Shop!,en_US
 mail.customer.restore_password.subject,Neues Passwort für Ihren Spryker Shop Account,de_DE
 mail.customer.restore_password.subject,New password for your Spryker Shop account,en_US
-mail.customer.restore_password.text,"Es wurde ein neues Passwort für Ihren Spryker Shop Account angefordert. Wenn Sie nicht um um eine Neueinrichtung des Passworts gebeten haben, ignorieren Sie bitte diese Email. Klicken Sie auf den folgedenen Link, um Ihr Passwort zu ändern:",de_DE
-mail.customer.restore_password.text,"Somebody has requested a new password for your Spryker Shop account. If it's not you, just ignore this email. If it's you, please follow the link bellow:",en_US
-mail.customer.reset_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
-mail.customer.reset_password_confirmation.subject,Your password was changed successfully!,en_US
+mail.customer.restore_password.text,"""Es wurde ein neues Passwort für Ihren Spryker Shop Account angefordert. Wenn Sie nicht um um eine Neueinrichtung des Passworts gebeten haben, ignorieren Sie bitte diese Email. Klicken Sie auf den folgedenen Link, um Ihr Passwort zu ändern:""",de_DE
+mail.customer.restore_password.text,"""Somebody has requested a new password for your Spryker Shop account. If it's not you, just ignore this email. If it's you, please follow the link bellow:""",en_US
+mail.customer.restore_password_confirmation.subject,Ihr Passwort wurde erfolgreich geändert!,de_DE
+mail.customer.restore_password_confirmation.subject,Your password was changed successfully!,en_US
 mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich geändert!,de_DE
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
@@ -965,15 +975,45 @@ cart.item.item_total,Item total,en_US
 cart.item.item_total,Artikel Gesamt,de_DE
 cart.shipping,Shipping,en_US
 cart.shipping,Versand,de_DE
-catalog.sale,SALE %,en_US
-catalog.sale,SALE %,de_DE
-catalog.new,New,en_US
-catalog.new,Neu,de_DE
-product.filter.label,Product Labels,en_US
-product.filter.label,Product Labels,de_DE
-customer.order.canceledTotal,Canceled amount,en_US
-customer.order.canceledTotal,Stornobetrag,de_DE
+product_review.product_ratings,Product Ratings,en_US
+product_review.product_ratings,Product Bewertungen,de_DE
+product_review.product_reviews,Product Reviews,en_US
+product_review.product_reviews,Product Bewertungen,de_DE
+product_review.on,on,en_US
+product_review.on,am,de_DE
+product_review.summary.star,star,en_US
+product_review.summary.star,Stern,de_DE
+product_review.summary.stars,stars,en_US
+product_review.summary.stars,Sterne,de_DE
+product_review.summary.out_of,out of,en_US
+product_review.summary.out_of,von,de_DE
+product_review.summary.review,review,en_US
+product_review.summary.review,Bewertung,de_DE
+product_review.summary.reviews,reviews,en_US
+product_review.summary.reviews,Bewertungen,de_DE
+product_review.no_reviews,No review for this product yet,en_US
+product_review.no_reviews,Dieses Produkt hat noch keine Bewertung,de_DE
+product_review.submit.add_a_review,Add a Review,en_US
+product_review.submit.add_a_review,Bewertung Abgeben,de_DE
+product_review.submit.rating,Rating,en_US
+product_review.submit.rating,Bewertung,de_DE
+product_review.submit.rating.none,No rating was selected,en_US
+product_review.submit.rating.none,Es wurde keine Bewertung ausgewählt,de_DE
+product_review.submit.summary,Summary,en_US
+product_review.submit.summary,Überschrift,de_DE
+product_review.submit.description,Description,en_US
+product_review.submit.description,Rezension,de_DE
+product_review.submit.nickname,Name,en_US
+product_review.submit.nickname,Name,de_DE
+product_review.submit.success,Thank you for your review. We are processing it. It will be live in the shop soon.,en_US
+product_review.submit.success,Vielen Dank für Ihre Bewertung. Wir verarbeiten es. Es wird bald im Laden.,de_DE
+cart.promotion.items,Promotional products,en_US
+cart.promotion.items,Werbeprodukte,de_DE
 checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE
 cms.preview.access_denied,You are not logged in or you do not have permission to access this page.,en_US
 cms.preview.access_denied,Du bist nicht eingeloggt oder hast keine Berechtigung diese Seite zu betreten.,de_DE
+product-cart.validation.error.abstract-product-exists,"Product not found",en_US
+product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
+product-cart.validation.error.concrete-product-exists,"Product not found",en_US
+product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
