@@ -195,6 +195,8 @@ class NavigationTreeCest
     }
 
     /**
+     * @group singleNavigationTest
+     *
      * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
