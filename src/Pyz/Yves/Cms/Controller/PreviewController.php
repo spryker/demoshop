@@ -7,9 +7,7 @@
 
 namespace Pyz\Yves\Cms\Controller;
 
-use Generated\Shared\Transfer\CmsPageDataExpandRequestTransfer;
-use Generated\Shared\Transfer\CmsVersionDataRequestTransfer;
-use Generated\Shared\Transfer\CmsVersionDataTransfer;
+use Generated\Shared\Transfer\FlattenedLocaleCmsPageDataRequestTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cms\Plugin\Provider\PreviewControllerProvider;
@@ -79,46 +77,13 @@ class PreviewController extends AbstractController
      */
     protected function getMetaData($idCmsPage)
     {
-        $cmsVersionDataTransfer = $this->getClient()->getCmsVersionData(
-            (new CmsVersionDataRequestTransfer())->setIdCmsPage($idCmsPage)
+        $localeCmsPageDataRequestTransfer = $this->getClient()->getFlattenedLocaleCmsPageData(
+            (new FlattenedLocaleCmsPageDataRequestTransfer())
+                ->setIdCmsPage($idCmsPage)
+                ->setLocale((new LocaleTransfer())->setLocaleName($this->getLocale()))
         );
 
-        return $this->transformCmsVersionDataToMetaData(
-            $cmsVersionDataTransfer,
-            $this->getCmsVersionDataLocaleIdMap($cmsVersionDataTransfer)[$this->getLocale()]
-        );
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\CmsVersionDataTransfer $cmsVersionDataTransfer
-     * @param int $cmsVersionDataLocaleId
-     *
-     * @return array
-     */
-    protected function transformCmsVersionDataToMetaData(CmsVersionDataTransfer $cmsVersionDataTransfer, $cmsVersionDataLocaleId)
-    {
-        $metaData = [
-            'template' => $cmsVersionDataTransfer->getCmsTemplate()->getTemplatePath(),
-            'placeholders' => [],
-            'meta_title' => $cmsVersionDataTransfer->getCmsPage()->getMetaAttributes()[$cmsVersionDataLocaleId]->getMetaTitle(),
-            'meta_description' => $cmsVersionDataTransfer->getCmsPage()->getMetaAttributes()[$cmsVersionDataLocaleId]->getMetaDescription(),
-            'meta_keywords' => $cmsVersionDataTransfer->getCmsPage()->getMetaAttributes()[$cmsVersionDataLocaleId]->getMetaKeywords(),
-        ];
-
-        foreach ($cmsVersionDataTransfer->getCmsGlossary()->getGlossaryAttributes() as $cmsGlossaryAttributesTransfer) {
-            $metaData['placeholders'][$cmsGlossaryAttributesTransfer->getPlaceholder()] =
-                $cmsGlossaryAttributesTransfer->getTranslations()[$cmsVersionDataLocaleId]->getTranslation();
-        }
-
-        $metaData = $this->getClient()
-            ->expandCmsPageData(
-                (new CmsPageDataExpandRequestTransfer())
-                    ->setLocale(new LocaleTransfer())
-                    ->setCmsPageData($metaData)
-            )
-            ->getCmsPageData();
-
-        return $metaData;
+        return $localeCmsPageDataRequestTransfer->getFlattenedLocaleCmsPageData();
     }
 
     /**
@@ -133,21 +98,6 @@ class PreviewController extends AbstractController
         }
 
         return true;
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\CmsVersionDataTransfer $cmsVersionDataTransfer
-     *
-     * @return array Keys are locale names, values are the relative locale ids in the transfer object
-     */
-    protected function getCmsVersionDataLocaleIdMap(CmsVersionDataTransfer $cmsVersionDataTransfer)
-    {
-        $localeIdMap = [];
-        foreach ($cmsVersionDataTransfer->getCmsPage()->getMetaAttributes() as $localeId => $cmsPageMetaAttributeTransfer) {
-            $localeIdMap[$cmsPageMetaAttributeTransfer->getLocaleName()] = $localeId;
-        }
-
-        return $localeIdMap;
     }
 
     /**
