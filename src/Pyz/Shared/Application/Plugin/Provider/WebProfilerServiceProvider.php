@@ -12,15 +12,20 @@ use Silex\Provider\WebProfilerServiceProvider as SilexWebProfilerServiceProvider
 use Silex\ServiceProviderInterface;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\Config;
-use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider;
 
-class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProviderInterface, ControllerProviderInterface
+class WebProfilerServiceProvider implements ServiceProviderInterface, ControllerProviderInterface
 {
 
     /**
-     * @var \Silex\Provider\WebProfilerServiceProvider
+     * @var \Silex\ServiceProviderInterface|\Silex\Provider\WebProfilerServiceProvider
      */
     protected $silexWebProfiler;
+
+    /**
+     * @var \Silex\ServiceProviderInterface|\Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
+     */
+    protected $configWebProfiler;
 
     /**
      * @param \Silex\Application $app
@@ -31,6 +36,7 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     {
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER)) {
             $this->getSilexWebProfiler()->register($app);
+            $this->getConfigWebProfiler()->register($app);
         }
     }
 
@@ -43,6 +49,7 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     {
         if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER)) {
             $this->getSilexWebProfiler()->boot($app);
+            $this->getConfigWebProfiler()->register($app);
         }
     }
 
@@ -59,7 +66,7 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
     }
 
     /**
-     * @return \Silex\Provider\WebProfilerServiceProvider
+     * @return \Silex\ServiceProviderInterface|\Silex\Provider\WebProfilerServiceProvider
      */
     protected function getSilexWebProfiler()
     {
@@ -68,6 +75,18 @@ class WebProfilerServiceProvider extends AbstractPlugin implements ServiceProvid
         }
 
         return $this->silexWebProfiler;
+    }
+
+    /**
+     * @return \Silex\ServiceProviderInterface|\Spryker\Shared\Config\Plugin\ServiceProvider\ConfigProfilerServiceProvider
+     */
+    protected function getConfigWebProfiler()
+    {
+        if ($this->configWebProfiler === null) {
+            $this->configWebProfiler = new ConfigProfilerServiceProvider();
+        }
+
+        return $this->configWebProfiler;
     }
 
 }
