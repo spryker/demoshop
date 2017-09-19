@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "208f759d3e78ff0832747bae8d6ae7db",
+    "content-hash": "9885aaa6f3a2eb94bcfb780d9981b397",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1755-add-currency-to-orders",
+            "version": "dev-feature/core-1755-discount-currency",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "12ec07dd1d33564c308effc7771a21cc98ba9ca6"
+                "reference": "8ab9ba0b72a4c6f1daf229f55e1b31c0c5f1e530"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1675,6 +1675,7 @@
                 "spryker/country": "*",
                 "spryker/csv": "*",
                 "spryker/currency": "*",
+                "spryker/currency-discount-connector": "*",
                 "spryker/customer": "*",
                 "spryker/customer-group": "*",
                 "spryker/customer-group-discount-connector": "*",
@@ -1813,7 +1814,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-13T15:47:31+00:00"
+            "time": "2017-09-18T14:22:31+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
