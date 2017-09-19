@@ -7,8 +7,6 @@
 
 namespace Pyz\Zed\Discount;
 
-use Spryker\Zed\CurrencyDiscountConnector\Communication\Plugin\Collector\CurrencyCollectorPlugin;
-use Spryker\Zed\CurrencyDiscountConnector\Communication\Plugin\DecisionRule\CurrencyDecisionRulePlugin;
 use Spryker\Zed\CustomerGroupDiscountConnector\Communication\Plugin\DecisionRule\CustomerGroupDecisionRulePlugin;
 use Spryker\Zed\Discount\DiscountDependencyProvider as SprykerDiscountDependencyProvider;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionCalculationFormDataExpanderPlugin;
@@ -40,13 +38,12 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     protected function getDecisionRulePlugins()
     {
         return array_merge(parent::getDecisionRulePlugins(), [
-            new CurrencyDecisionRulePlugin(),
-            new ProductAttributeDecisionRulePlugin(),
-            new CustomerGroupDecisionRulePlugin(),
-            new ProductLabelDecisionRulePlugin(),
             new ShipmentCarrierDecisionRulePlugin(),
             new ShipmentMethodDecisionRulePlugin(),
             new ShipmentPriceDecisionRulePlugin(),
+            new CustomerGroupDecisionRulePlugin(),
+            new ProductLabelDecisionRulePlugin(),
+            new ProductAttributeDecisionRulePlugin(),
         ]);
     }
 
@@ -56,12 +53,11 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     protected function getCollectorPlugins()
     {
         return array_merge(parent::getCollectorPlugins(), [
-            new CurrencyCollectorPlugin(),
-            new ProductAttributeCollectorPlugin(),
             new ProductLabelCollectorPlugin(),
             new ItemByShipmentCarrierPlugin(),
             new ItemByShipmentMethodPlugin(),
             new ItemByShipmentPricePlugin(),
+            new ProductAttributeCollectorPlugin(),
         ]);
     }
 
