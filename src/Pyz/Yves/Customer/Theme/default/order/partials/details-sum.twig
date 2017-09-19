@@ -1,14 +1,14 @@
 <div class="columns text-right">
-    {{ 'customer.order.subTotal' | trans }}: {{ order.totals.subtotal | money(true, order.currencyCode) }}<br/>
+    {{ 'customer.order.subTotal' | trans }}: {{ order.totals.subtotal | money(true, order.currencyIsoCode) }}<br/>
     {% for expense in order.expenses %}
-        {{ 'customer.order.shipment' | trans }} {{ expense.name }}: {{ expense.unitPrice | money(true, order.currencyCode) }}<br/>
+        {{ 'customer.order.shipment' | trans }} {{ expense.name }}: {{ expense.unitPrice | money(true, order.currencyIsoCode) }}<br/>
     {% endfor %}
 
-    {{ 'customer.order.discount.total' | trans }}: -{{ order.totals.discountTotal | money(true, order.currencyCode) }}<br/>
+    {{ 'customer.order.discount.total' | trans }}: -{{ order.totals.discountTotal | money(true, order.currencyIsoCode) }}<br/>
 
     {% if order.totals.canceledTotal %}
-        {{ 'customer.order.canceledTotal' | trans }}: -{{ order.totals.canceledTotal | money(true, order.currencyCode) }}<br/>
+        {{ 'customer.order.canceledTotal' | trans }}: -{{ order.totals.canceledTotal | money(true, order.currencyIsoCode) }}<br/>
     {% endif %}
 
-    <strong>{{ 'customer.order.grandTotal' | trans }}: {{ order.totals.grandTotal | money(true, order.currencyCode) }}</strong>
+    <strong>{{ 'customer.order.grandTotal' | trans }}: {{ order.totals.grandTotal | money(true, order.currencyIsoCode) }}</strong>
 </div>
