@@ -16,6 +16,7 @@ class DataImportConfig extends SprykerDataImportConfig
 
     const IMPORT_TYPE_CATEGORY_TEMPLATE = 'category-template';
     const IMPORT_TYPE_CATEGORY = 'category';
+    const IMPORT_TYPE_CUSTOMER = 'customer';
     const IMPORT_TYPE_GLOSSARY = 'glossary';
     const IMPORT_TYPE_NAVIGATION = 'navigation';
     const IMPORT_TYPE_NAVIGATION_NODE = 'navigation-node';
@@ -26,6 +27,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_ATTRIBUTE_KEY = 'product-attribute-key';
     const IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE = 'product-management-attribute';
     const IMPORT_TYPE_PRODUCT_RELATION = 'product-relation';
+    const IMPORT_TYPE_PRODUCT_REVIEW = 'product-review';
     const IMPORT_TYPE_PRODUCT_LABEL = 'product-label';
     const IMPORT_TYPE_PRODUCT_SET = 'product-set';
     const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
@@ -45,6 +47,24 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_TAX = 'tax';
     const IMPORT_TYPE_ABSTRACT_GIFT_CARD_CONFIGURATION = 'gift-card-abstract-configuration';
     const IMPORT_TYPE_CONCRETE_GIFT_CARD_CONFIGURATION = 'gift-card-concrete-configuration';
+    const IMPORT_TYPE_CURRENCY = 'currency';
+    const IMPORT_TYPE_STORE = 'store';
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCurrencyDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('currency.csv', static::IMPORT_TYPE_CURRENCY);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('', static::IMPORT_TYPE_STORE);
+    }
 
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
@@ -60,6 +80,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getCategoryDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'category.csv', static::IMPORT_TYPE_CATEGORY);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCustomerDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('customer.csv', static::IMPORT_TYPE_CUSTOMER);
     }
 
     /**
@@ -180,6 +208,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductRelationDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_relation.csv', static::IMPORT_TYPE_PRODUCT_RELATION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductReviewDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_review.csv', static::IMPORT_TYPE_PRODUCT_REVIEW);
     }
 
     /**

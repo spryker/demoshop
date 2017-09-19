@@ -21,6 +21,7 @@ use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
+use Pyz\Yves\Currency\Plugin\CurrencyControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\EventJournal\Plugin\Provider\EventJournalServiceProvider;
@@ -28,6 +29,7 @@ use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\ProductNew\Plugin\Provider\ProductNewControllerProvider;
+use Pyz\Yves\ProductReview\Plugin\Provider\ProductReviewControllerProvider;
 use Pyz\Yves\ProductSale\Plugin\Provider\ProductSaleControllerProvider;
 use Pyz\Yves\ProductSet\Plugin\Provider\ProductSetControllerProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
@@ -49,6 +51,7 @@ use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
 use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
+use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
@@ -57,6 +60,7 @@ use Spryker\Yves\NewRelic\Plugin\ServiceProvider\NewRelicRequestTransactionServi
 use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
 use Spryker\Yves\ProductLabel\Plugin\Provider\ProductLabelTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
+use Spryker\Yves\ProductReview\Plugin\Provider\ProductAbstractReviewTwigServiceProvider;
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
@@ -129,6 +133,8 @@ class YvesBootstrap
         $this->application->register(new ProductGroupTwigServiceProvider());
         $this->application->register(new ProductLabelTwigServiceProvider());
         $this->application->register(new CmsContentWidgetServiceProvider());
+        $this->application->register(new CurrencySwitcherServiceProvider());
+        $this->application->register(new ProductAbstractReviewTwigServiceProvider());
     }
 
     /**
@@ -174,6 +180,8 @@ class YvesBootstrap
             new ProductSetControllerProvider($isSsl),
             new ProductSaleControllerProvider($isSsl),
             new ProductNewControllerProvider($isSsl),
+            new CurrencyControllerProvider($isSsl),
+            new ProductReviewControllerProvider($isSsl),
         ];
     }
 

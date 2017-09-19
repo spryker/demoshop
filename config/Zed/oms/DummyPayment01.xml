@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <statemachine
-    xmlns="spryker:oms-01"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
+        xmlns="spryker:oms-01"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
 
     <process name="DummyPayment01" main="true">
         <subprocesses>
@@ -77,6 +77,12 @@
                 <event>stock-update</event>
             </transition>
 
+            <transition>
+                <source>delivered</source>
+                <target>ready for return</target>
+                <event>return</event>
+            </transition>
+
             <transition happy="true">
                 <source>delivered</source>
                 <target>closed</target>
@@ -92,6 +98,7 @@
             <event name="ship" manual="true" command="Oms/SendOrderShipped"/>
             <event name="stock-update" manual="true"/>
             <event name="close" manual="true" timeout="1 hour"/>
+            <event name="return" manual="true" />
         </events>
     </process>
 

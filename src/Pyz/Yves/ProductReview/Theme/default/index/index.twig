@@ -1,0 +1,22 @@
+<a name="product-reviews" href="#"></a>
+<div class="callout" data-component="product-review-summary">
+    {% if hasCustomer %}
+        <button class="button info float-right js-button-add-review ">{{ 'product_review.submit.add_a_review' | trans }}</button>
+    {% else %}
+        <a class="button info float-right" href="{{ path('login') }}">{{ 'product_review.submit.add_a_review' | trans }}</a>
+    {% endif %}
+
+    <div>
+        <h3>{{ 'product_review.product_ratings' | trans }}</h3>
+
+        {% include '@ProductReview/index/partials/summary.twig' with {'summary': summary} %}
+    </div>
+
+    {% if summary.totalReview > 0 %}
+        <div>
+            <h3>{{ 'product_review.product_reviews' | trans }}</h3>
+
+            {% include '@ProductReview/index/partials/reviews.twig' with {'productReviews': productReviews, 'pagination': pagination} %}
+        </div>
+    {% endif %}
+</div>

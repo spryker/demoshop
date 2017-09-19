@@ -1,0 +1,18 @@
+{% set filterValue = app.request.query.has(filter.config.parameterName) ? filter.activeMin : '' %}
+{% set maximumRating = maximumRating | default(spyProductAbstractReviewMaximumRating()) %}
+
+<div class="row" data-component="catalog-rating-filter">
+    <div class="small-12 columns">
+        <ul class="no-bullet">
+            {% for i in (maximumRating-1)..1 %}
+                <li>
+                    <label class="rating-selector {% if filterValue == i %}selected{% endif %}" data-rating-filter="{{ i }}">
+                        {% include '@ProductReview/partials/read-only-rating.twig' with {rating: i, suffix: 'catalog.filter.rating_up' | trans } only %}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <input type="hidden" name="{{ filter.name }}[min]" value="{{ filterValue }}" data-default-value="" class="js-rating-filter-input" />
+    </div>
+</div>
