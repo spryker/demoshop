@@ -38,14 +38,6 @@ class CmsFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\CmsCollector\CmsCollectorClientInterface
-     */
-    public function getCmsCollectorClient()
-    {
-        return $this->getProvidedDependency(CmsDependencyProvider::CLIENT_CMS_COLLECTOR);
-    }
-
-    /**
      * @return \Spryker\Shared\Kernel\Store
      */
     public function getStore()

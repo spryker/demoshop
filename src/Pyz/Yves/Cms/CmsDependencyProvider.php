@@ -31,14 +31,48 @@ class CmsDependencyProvider extends AbstractBundleDependencyProvider
             return new CmsTwigContentRendererPlugin();
         };
 
+        $container = $this->addCustomerClient($container);
+        $container = $this->addCmsCollectorClient($container);
+        $container = $this->addStore($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addCustomerClient(Container $container)
+    {
         $container[static::CLIENT_CUSTOMER] = function (Container $container) {
             return $container->getLocator()->customer()->client();
         };
 
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addCmsCollectorClient(Container $container)
+    {
         $container[static::CLIENT_CMS_COLLECTOR] = function (Container $container) {
             return $container->getLocator()->cmsCollector()->client();
         };
 
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addStore(Container $container)
+    {
         $container[static::STORE] = function (Container $container) {
             return Store::getInstance();
         };
