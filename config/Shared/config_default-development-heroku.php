@@ -208,3 +208,7 @@ $config[LogConstants::LOG_LEVEL] = 0;
 // ---------- Event journal
 $config[EventJournalConstants::WRITERS]['YVES'] = [];
 $config[EventJournalConstants::WRITERS]['ZED'] = [];
+
+$config[\Spryker\Shared\SequenceNumber\SequenceNumberConstants::ENVIRONMENT_PREFIX]
+    = $config[SalesConstants::ENVIRONMENT_PREFIX]
+    = 'Test';
