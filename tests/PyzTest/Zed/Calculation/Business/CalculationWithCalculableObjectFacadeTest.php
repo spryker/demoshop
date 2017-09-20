@@ -11,14 +11,17 @@ use ArrayObject;
 use Codeception\TestCase\Test;
 use DateTime;
 use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\CurrencyTransfer;
 use Generated\Shared\Transfer\DiscountTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
+use Orm\Zed\Currency\Persistence\SpyCurrencyQuery;
 use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscount;
+use Orm\Zed\Discount\Persistence\SpyDiscountAmount;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
 use Orm\Zed\Product\Persistence\SpyProductAbstract;
@@ -440,6 +443,11 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     protected function createFixtureDataForCalculation()
     {
         $quoteTransfer = new QuoteTransfer();
+
+        $currencyTransfer = new CurrencyTransfer();
+        $currencyTransfer->setCode('EUR');
+        $quoteTransfer->setCurrency($currencyTransfer);
+
         $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
 
         $shippingAddressTransfer = new AddressTransfer();
@@ -503,11 +511,26 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
         $discountEntity->save();
 
+        $discountAmountEntity = new SpyDiscountAmount();
+        $currencyEntity = $this->getCurrency();
+        $discountAmountEntity->setFkCurrency($currencyEntity->getIdCurrency());
+        $discountAmountEntity->setAmount($discountAmount);
+        $discountAmountEntity->setFkDiscount($discountEntity->getIdDiscount());
+        $discountAmountEntity->save();
+
         $discountEntity->reload(true);
         $pool = $discountEntity->getVoucherPool();
         $pool->getDiscountVouchers();
 
         return $discountVoucherEntity;
+    }
+
+    /**
+     * @return \Orm\Zed\Currency\Persistence\SpyCurrency
+     */
+    protected function getCurrency()
+    {
+        return SpyCurrencyQuery::create()->findOneByCode('EUR');
     }
 
     /**
