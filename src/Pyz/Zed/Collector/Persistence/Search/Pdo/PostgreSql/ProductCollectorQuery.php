@@ -13,7 +13,9 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 class ProductCollectorQuery extends AbstractPdoCollectorQuery
 {
 
-    const CONCAT_DELIMITER = "':'";
+    const SKU_DELIMITER = ':#:';
+    const GROUP_SKU_DELIMITER = ':##:';
+    const CONCAT_DELIMITER = "'".self::SKU_DELIMITER."'";
 
     /**
      * @return void
@@ -25,12 +27,12 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 MIN(spy_product_abstract.id_product_abstract)                                                 AS id_product_abstract,
                 MIN(spy_product_abstract.attributes)                                                          AS abstract_attributes,
                 MIN(spy_product_abstract_localized_attributes.attributes)                                     AS abstract_localized_attributes,
-                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product.attributes))                          AS concrete_attributes,
-                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_localized_attributes.attributes))     AS concrete_localized_attributes,
+                GROUP_CONCAT(DISTINCT CONCAT(\''.static::GROUP_SKU_DELIMITER.'\', spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product.attributes))                          AS concrete_attributes,
+                GROUP_CONCAT(DISTINCT CONCAT(\''.static::GROUP_SKU_DELIMITER.'\', spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_localized_attributes.attributes))     AS concrete_localized_attributes,
                 MIN(product_urls.url)                                                                         AS product_urls,
                 MIN(spy_product_abstract_localized_attributes.name)                                           AS abstract_name,
                 MIN("spy_product_abstract_localized_attributes"."description")                                AS abstract_description,
-                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_localized_attributes.name))  AS concrete_names,
+                GROUP_CONCAT(DISTINCT CONCAT(\''.static::GROUP_SKU_DELIMITER.'\', spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_localized_attributes.name))  AS concrete_names,
                 GROUP_CONCAT(spy_product_localized_attributes.description)                                    AS concrete_descriptions,
                 MIN(spy_product_abstract.sku)                                                                 AS abstract_sku,
                 GROUP_CONCAT(DISTINCT spy_product.sku)                                                        AS concrete_skus,

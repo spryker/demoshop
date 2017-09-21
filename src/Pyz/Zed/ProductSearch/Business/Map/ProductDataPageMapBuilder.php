@@ -11,6 +11,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Pyz\Shared\ProductSearch\ProductSearchConfig;
+use Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql\ProductCollectorQuery;
 use Pyz\Zed\ProductSearch\Dependency\ProductSearchToProductInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface;
@@ -217,7 +218,7 @@ class ProductDataPageMapBuilder
         $productSearchableList = explode(',', $productData['product_searchable_status_aggregation']);
         $searchableProducts = [];
         foreach ($productSearchableList as $productSearchableStatus) {
-            list($concreteSku, $status) = explode(':', $productSearchableStatus);
+            list($concreteSku, $status) = explode(ProductCollectorQuery::SKU_DELIMITER, $productSearchableStatus);
 
             if (filter_var($status, FILTER_VALIDATE_BOOLEAN) && isset($activeProducts[$concreteSku])) {
                 $searchableProducts[$concreteSku] = true;
@@ -249,10 +250,10 @@ class ProductDataPageMapBuilder
      */
     protected function filterInactiveConcreteData($data, array $activeProducts)
     {
-        $rows = explode(',', $data);
+        $rows = explode(ProductCollectorQuery::GROUP_SKU_DELIMITER, $data);
         $activeConcreteData = [];
         foreach ($rows as $col) {
-            list($sku, $entry) = explode(':', $col);
+            list($sku, $entry) = explode(ProductCollectorQuery::SKU_DELIMITER, rtrim($col, ','), 2);
 
             if (isset($activeProducts[$sku])) {
                 $activeConcreteData[] = $entry;
@@ -272,7 +273,7 @@ class ProductDataPageMapBuilder
         $productStatusList = explode(',', $productData['product_status_aggregation']);
         $activeProducts = [];
         foreach ($productStatusList as $productStatus) {
-            list($abstractSku, $status) = explode(':', $productStatus);
+            list($abstractSku, $status) = explode(ProductCollectorQuery::SKU_DELIMITER, $productStatus);
 
             if (filter_var($status, FILTER_VALIDATE_BOOLEAN)) {
                 $activeProducts[$abstractSku] = true;
