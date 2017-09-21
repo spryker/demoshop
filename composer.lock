@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8a02f147ee7223e56512e39acaed1ea",
+    "content-hash": "464f24c60c780ca975497a34217e22ca",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1023,16 +1023,16 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "v2.6.3",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6"
+                "reference": "f48748546e398d846134c594dfca9070c4c3b356"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/fa2f0d4410a11008cb36b379177291be7ee9e4f6",
-                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/f48748546e398d846134c594dfca9070c4c3b356",
+                "reference": "f48748546e398d846134c594dfca9070c4c3b356",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1089,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2016-04-11T14:30:01+00:00"
+            "time": "2017-08-03T22:06:21+00:00"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-777-gift-cards",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "47d8f40d85f25c2d431e45944d5d6616fb224ae6"
+                "reference": "53a40f1d9359c170ab849622aea3bc92b1e16170"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1692,6 +1692,7 @@
                 "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
+                "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
@@ -1813,7 +1814,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-18T14:17:19+00:00"
+            "time": "2017-09-21T14:11:06+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6772,16 +6773,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51"
+                "reference": "3c2d0a0fe39684ba0c1eb842a6a775d0b938d699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/c7594a88ae75401e8f8d0bd4deb8431b39045c51",
-                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/3c2d0a0fe39684ba0c1eb842a6a775d0b938d699",
+                "reference": "3c2d0a0fe39684ba0c1eb842a6a775d0b938d699",
                 "shasum": ""
             },
             "require": {
@@ -6791,7 +6792,7 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
             },
             "bin": [
                 "bin/phpcs",
@@ -6819,7 +6820,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-07-18T01:12:32+00:00"
+            "time": "2017-09-19T22:47:14+00:00"
         },
         {
             "name": "stecman/symfony-console-completion",
