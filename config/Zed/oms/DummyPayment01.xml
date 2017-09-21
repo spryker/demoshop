@@ -60,7 +60,7 @@
             </transition>
 
             <transition happy="true">
-                <source>gift card created</source>
+                <source>gift card shipped</source>
                 <target>exported</target>
                 <event>complete gift card creation</event>
             </transition>
