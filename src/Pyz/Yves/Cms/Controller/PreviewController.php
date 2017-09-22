@@ -44,7 +44,6 @@ class PreviewController extends AbstractController
 
         return $this->renderView($metaData['template'], [
             'placeholders' => $metaData['placeholders'],
-            'edit' => false,
             'page_title' => $metaData['meta_title'],
             'page_description' => $metaData['meta_description'],
             'page_keywords' => $metaData['meta_keywords'],
@@ -93,7 +92,7 @@ class PreviewController extends AbstractController
     {
         $customer = $this->getFactory()->getCustomerClient()->getCustomer();
 
-        if ($customer === null || empty($customer->getFkUser())) {
+        if ($customer === null || $customer->getFkUser() === null) {
             return false;
         }
 
