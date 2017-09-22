@@ -1627,59 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "9769cbcef3c7468a46249cf2eaf53047b35183e8"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-                "reference": "47d8f40d85f25c2d431e45944d5d6616fb224ae6"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-                "reference": "86760a70b5af7b2915d01696ef9e9ba9a45355c7"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-                "reference": "895885602667dee0a0e4693d6c02aba3b8ff72c5"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-                "reference": "5ca3f43c5a99b8704c26ecc765b072c142bbd752"
-=======
-                "reference": "4117a57c42b80702601e8251ddeadc7fab62447a"
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-=======
-=======
-=======
-=======
-=======
-                "reference": "5ca3f43c5a99b8704c26ecc765b072c142bbd752"
->>>>>>> core-478 update
->>>>>>> core-478 update
->>>>>>> core-478 update
->>>>>>> core-478 update
->>>>>>> core-478 update
-=======
-                "reference": "ac8d5f265f5024080b234519cd25864d254fa5d6"
->>>>>>> core-478 remove EventJournal
-=======
                 "reference": "c9dd45b962804756a2c535dbb1f91ba17e3e4edb"
->>>>>>> core-478 finalized without ELK
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1865,59 +1813,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-09-22T08:38:33+00:00"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-            "time": "2017-09-18T14:17:19+00:00"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-            "time": "2017-05-23 08:58:48"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-            "time": "2017-04-26 16:57:52"
-=======
-=======
->>>>>>> core-478 update
-<<<<<<< HEAD
-            "time": "2017-02-24 11:14:17"
-=======
-            "time": "2017-02-24 08:11:45"
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-02-24 11:14:17"
->>>>>>> core-478 update
->>>>>>> core-478 update
->>>>>>> core-478 update
->>>>>>> core-478 update
->>>>>>> core-478 update
-=======
-            "time": "2017-09-20T09:07:54+00:00"
->>>>>>> core-478 remove EventJournal
-=======
             "time": "2017-09-22T07:49:20+00:00"
->>>>>>> core-478 finalized without ELK
         },
         {
             "name": "swiftmailer/swiftmailer",
