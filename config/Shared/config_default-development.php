@@ -4,6 +4,7 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
+use Monolog\Logger;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\ConfigConstants;
@@ -116,7 +117,13 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 // ---------- Logging
-$config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
+$config[LogConstants::LOG_LEVEL] = Logger::INFO;
+//$config[LogConstants::EXCEPTION_LOG_FILE_PATH] = sprintf(
+//    '%s/data/%s/logs/%s/exception.log',
+//    APPLICATION_ROOT_DIR,
+//    $CURRENT_STORE,
+//    APPLICATION
+//);
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = true;

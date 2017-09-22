@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8a02f147ee7223e56512e39acaed1ea",
+    "content-hash": "2eab19d8e379637ef60d31676a6261d5",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,10 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2100-cleanup-logging",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1676,6 +1677,9 @@
 =======
                 "reference": "ac8d5f265f5024080b234519cd25864d254fa5d6"
 >>>>>>> core-478 remove EventJournal
+=======
+                "reference": "c9dd45b962804756a2c535dbb1f91ba17e3e4edb"
+>>>>>>> core-478 finalized without ELK
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1864,6 +1868,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-09-22T08:38:33+00:00"
 =======
 =======
@@ -1910,6 +1915,9 @@
 =======
             "time": "2017-09-20T09:07:54+00:00"
 >>>>>>> core-478 remove EventJournal
+=======
+            "time": "2017-09-22T07:49:20+00:00"
+>>>>>>> core-478 finalized without ELK
         },
         {
             "name": "swiftmailer/swiftmailer",
