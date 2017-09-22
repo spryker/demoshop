@@ -45,7 +45,7 @@ class HerokuLoggerConfig implements LoggerConfigInterface
     }
 
     /**
-     * @return \callable[]
+     * @return callable[]
      */
     public function getProcessors()
     {
