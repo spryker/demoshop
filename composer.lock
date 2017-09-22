@@ -4,24 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "a8a02f147ee7223e56512e39acaed1ea",
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "7fe3178f4775165f76c11b64a66f460b",
-=======
-<<<<<<< HEAD
-    "content-hash": "ccbb096268d3a0a365aa80b780e17d10",
-=======
-    "hash": "4d3086f0c2ef0b065288b635f4c50175",
-    "content-hash": "3545f5136cad4b67e579ec17e3e6c35b",
->>>>>>> core-478 use new Log bundle
->>>>>>> core-478 use new Log bundle
-=======
-    "content-hash": "b888074ccc2fdce33dfc5fc6ff8f3f2c",
->>>>>>> core-478 rebased master
->>>>>>> core-478 rebased master
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1040,16 +1023,16 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "v2.6.3",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6"
+                "reference": "f48748546e398d846134c594dfca9070c4c3b356"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/fa2f0d4410a11008cb36b379177291be7ee9e4f6",
-                "reference": "fa2f0d4410a11008cb36b379177291be7ee9e4f6",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/f48748546e398d846134c594dfca9070c4c3b356",
+                "reference": "f48748546e398d846134c594dfca9070c4c3b356",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1089,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2016-04-11T14:30:01+00:00"
+            "time": "2017-08-03T22:06:21+00:00"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -1646,6 +1629,7 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "9769cbcef3c7468a46249cf2eaf53047b35183e8"
 =======
 =======
@@ -1689,6 +1673,9 @@
 >>>>>>> core-478 update
 >>>>>>> core-478 update
 >>>>>>> core-478 update
+=======
+                "reference": "ac8d5f265f5024080b234519cd25864d254fa5d6"
+>>>>>>> core-478 remove EventJournal
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1876,6 +1863,7 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-09-22T08:38:33+00:00"
 =======
 =======
@@ -1919,6 +1907,9 @@
 >>>>>>> core-478 update
 >>>>>>> core-478 update
 >>>>>>> core-478 update
+=======
+            "time": "2017-09-20T09:07:54+00:00"
+>>>>>>> core-478 remove EventJournal
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6291,23 +6282,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-<<<<<<< HEAD
             "time": "2017-02-18T15:18:39+00:00"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-02-18T15:18:39+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2016-01-28T13:25:10+00:00"
-=======
-            "time": "2016-01-28 13:25:10"
->>>>>>> core-478 use new Log bundle
->>>>>>> core-478 use new Log bundle
-=======
-            "time": "2016-01-28T13:25:10+00:00"
->>>>>>> core-478 rebased master
->>>>>>> core-478 rebased master
         },
         {
             "name": "sebastian/phpcpd",
@@ -6411,23 +6386,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-<<<<<<< HEAD
             "time": "2016-11-19T07:33:16+00:00"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-11-19T07:33:16+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2015-11-11T19:50:13+00:00"
-=======
-            "time": "2015-11-11 19:50:13"
->>>>>>> core-478 use new Log bundle
->>>>>>> core-478 use new Log bundle
-=======
-            "time": "2015-11-11T19:50:13+00:00"
->>>>>>> core-478 rebased master
->>>>>>> core-478 rebased master
         },
         {
             "name": "sebastian/resource-operations",
@@ -6691,7 +6650,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6909,16 +6868,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51"
+                "reference": "3c2d0a0fe39684ba0c1eb842a6a775d0b938d699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/c7594a88ae75401e8f8d0bd4deb8431b39045c51",
-                "reference": "c7594a88ae75401e8f8d0bd4deb8431b39045c51",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/3c2d0a0fe39684ba0c1eb842a6a775d0b938d699",
+                "reference": "3c2d0a0fe39684ba0c1eb842a6a775d0b938d699",
                 "shasum": ""
             },
             "require": {
@@ -6928,7 +6887,7 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
             },
             "bin": [
                 "bin/phpcs",
@@ -6956,7 +6915,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-07-18T01:12:32+00:00"
+            "time": "2017-09-19T22:47:14+00:00"
         },
         {
             "name": "stecman/symfony-console-completion",
@@ -7449,23 +7408,12 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> core-478 rebased master
         "spryker/spryker": 20,
         "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
-=======
->>>>>>> core-478 rebased master
         "spryker/code-generator": 20,
-<<<<<<< HEAD
         "spryker/code-sniffer": 20,
         "spryker/git-hook": 20
-=======
-        "spryker/code-sniffer": 20
->>>>>>> core-478 rebased master
     },
     "prefer-stable": true,
     "prefer-lowest": false,

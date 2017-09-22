@@ -10,7 +10,6 @@ use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -121,6 +120,3 @@ $config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = true;
-
-// ---------- Event journal (deprecated)
-$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;
