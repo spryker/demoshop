@@ -13,6 +13,10 @@ use Pyz\Zed\Customer\Business\Customer\Customer;
 use Pyz\Zed\DynamicPricing\Business\DynamicPricingFacadeInterface;
 use Spryker\Zed\Customer\Business\CustomerBusinessFactory as SprykerBusinessFactory;
 
+/**
+ * Class CustomerBusinessFactory
+ * @package Pyz\Zed\Customer\Business
+ */
 class CustomerBusinessFactory extends SprykerBusinessFactory
 {
     /**

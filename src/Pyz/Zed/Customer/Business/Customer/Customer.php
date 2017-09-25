@@ -18,7 +18,10 @@ use Spryker\Zed\Customer\Dependency\Facade\CustomerToMailInterface;
 use Spryker\Zed\Customer\Persistence\CustomerQueryContainerInterface;
 use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
 
-
+/**
+ * Class Customer
+ * @package Pyz\Zed\Customer\Business\Customer
+ */
 class Customer extends SprykerCustomer
 {
     /**
@@ -56,6 +59,10 @@ class Customer extends SprykerCustomer
         $this->dynamicPricingFacade = $dynamicPricingFacade;
     }
 
+    /**
+     * @param CustomerTransfer $customerTransfer
+     * @return CustomerTransfer
+     */
     public function get(CustomerTransfer $customerTransfer)
     {
         $customerTransfer = parent::get($customerTransfer);

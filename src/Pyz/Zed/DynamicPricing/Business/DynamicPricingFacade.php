@@ -1,9 +1,8 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: theodorosliokos
- * Date: 25.09.17
- * Time: 22:06
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\DynamicPricing\Business;
@@ -15,16 +14,19 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
  * Class DynamicPricingFacade
  * @package Pyz\Zed\DynamicPricing\Business
  *
- * @method DynamicPricingBusinessFactory getFactory()
+ * @method \Pyz\Zed\DynamicPricing\Business\DynamicPricingBusinessFactory getFactory()
  */
 class DynamicPricingFacade extends AbstractFacade implements DynamicPricingFacadeInterface
 {
+
     /**
-     * @param CustomerTransfer $customerTransfer
-     * @return CustomerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     public function attachPricingFactors(CustomerTransfer $customerTransfer)
     {
         return $this->getFactory()->createDynamicPricing()->attachPricingFactors($customerTransfer);
     }
+
 }

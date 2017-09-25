@@ -1,27 +1,26 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: theodorosliokos
- * Date: 25.09.17
- * Time: 22:50
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\DynamicPricing\Business;
 
 use Pyz\Zed\DynamicPricing\Business\Model\DynamicPricing;
-use Pyz\Zed\DynamicPricing\Persistence\DynamicPricingQueryContainerInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
  * Class DynamicPricingBusinessFactory
  * @package Pyz\Zed\DynamicPricing\Business
  *
- * @method DynamicPricingQueryContainerInterface getQueryContainer()
+ * @method \Pyz\Zed\DynamicPricing\Persistence\DynamicPricingQueryContainerInterface getQueryContainer()
  */
 class DynamicPricingBusinessFactory extends AbstractBusinessFactory
 {
+
     /**
-     * @return DynamicPricing
+     * @return \Pyz\Zed\DynamicPricing\Business\Model\DynamicPricing
      */
     public function createDynamicPricing()
     {
@@ -29,4 +28,5 @@ class DynamicPricingBusinessFactory extends AbstractBusinessFactory
             $this->getQueryContainer()
         );
     }
+
 }

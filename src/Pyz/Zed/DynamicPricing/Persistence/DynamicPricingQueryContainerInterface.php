@@ -1,20 +1,24 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: theodorosliokos
- * Date: 25.09.17
- * Time: 22:41
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\DynamicPricing\Persistence;
 
-use Orm\Zed\DynamicPricing\Persistence\SpyCustomerPricingFactorQuery;
-
+/**
+ * Interface DynamicPricingQueryContainerInterface
+ * @package Pyz\Zed\DynamicPricing\Persistence
+ */
 interface DynamicPricingQueryContainerInterface
 {
+
     /**
-     * @param $customerId
-     * @return SpyCustomerPricingFactorQuery
+     * @param int $customerId
+     *
+     * @return \Orm\Zed\DynamicPricing\Persistence\SpyCustomerPricingFactorQuery
      */
     public function queryPricingFactorsByCustomerId($customerId);
+
 }
