@@ -36,6 +36,11 @@ class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
             new Twig_SimpleFunction('isLoggedIn', function () {
                 return $this->getClient()->isLoggedIn();
             }),
+            new Twig_SimpleFunction('getCustomerPrice', function ($price) {
+
+                return $price;
+//                return $this->getClient()->isLoggedIn();
+            }),
         ];
     }
 

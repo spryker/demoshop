@@ -10,7 +10,7 @@
 
                     {% for productValue in productOptionGroup.values %}
                         <option value="{{ productValue.idProductOptionValue }}">
-                            {{ productValue.value|trans }} {{ productValue.price | money }}
+                            {{ productValue.value|trans }} {{ getCustomerPrice(productValue.price) | money }}
                         </option>
                     {% endfor %}
 

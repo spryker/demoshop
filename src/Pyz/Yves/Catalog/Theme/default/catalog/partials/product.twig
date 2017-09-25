@@ -38,10 +38,10 @@
 
         <p>
             {% if originalPrice %}
-                <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
-                <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
+                <span class="catalog-price__price-original">{{ getCustomerPrice(originalPrice) | money }}</span>
+                <span class="catalog-price__price-reduced">{{ getCustomerPrice(priceValue) | money }}</span>
             {% else %}
-                {{ priceValue | money }}
+                {{ getCustomerPrice(priceValue) | money }}
             {% endif %}
         </p>
         <div class="product__action">

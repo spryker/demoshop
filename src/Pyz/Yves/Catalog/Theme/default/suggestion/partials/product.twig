@@ -11,9 +11,9 @@
         {{ product.abstract_name }}
         <br>
         {% if product.prices.ORIGINAL is defined %}
-            <span class="catalog-price__price-original">{{ product.prices.ORIGINAL | money }}</span> <span class="catalog-price__price-reduced">{{ product.price | money }}</span>
+            <span class="catalog-price__price-original">{{ product.prices.ORIGINAL | money }}</span> <span class="catalog-price__price-reduced">{{ getCustomerPrice(product.price) | money }}</span>
         {% else %}
-            <strong>{{ product.price | money }}</strong>
+            <strong>{{ getCustomerPrice(product.price) | money }}</strong>
         {% endif %}
     </span>
 </a>

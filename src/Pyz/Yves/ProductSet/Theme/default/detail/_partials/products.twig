@@ -12,7 +12,7 @@
                 <div class="small-7 columns">
                     <p id="test">
                         <a href="{{ storageProduct.url }}"><strong>{{ storageProduct.name }}</strong></a><br>
-                        {{ storageProduct.price | money }}
+                        {{ getCustomerPrice(storageProduct.price) | money }}
                     </p>
 
                     {% include '@ProductSet/detail/_partials/variants.twig' with {product: storageProduct}%}

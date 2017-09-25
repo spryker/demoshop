@@ -1,7 +1,7 @@
 <div class="small-12 large-4 columns">
     <ul class="no-bullet">
-        <li>{{ 'cart.item.item_price' | trans }} <span class="float-right">{{ promotionStorageProduct.price | money }}</span></li>
+        <li>{{ 'cart.item.item_price' | trans }} <span class="float-right">{{ getCustomerPrice(promotionStorageProduct.price) | money }}</span></li>
         <li><hr/></li>
-        <li><strong>{{ 'cart.item.item_total' | trans }}</strong> <strong class="float-right">{{ promotionStorageProduct.price | money }}</strong></li>
+        <li><strong>{{ 'cart.item.item_total' | trans }}</strong> <strong class="float-right">{{ getCustomerPrice(promotionStorageProduct.price) | money }}</strong></li>
     </ul>
 </div>
