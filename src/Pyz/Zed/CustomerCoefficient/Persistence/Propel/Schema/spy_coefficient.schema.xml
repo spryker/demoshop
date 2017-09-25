@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\CustomerCoefficient\Persistence" package="src.Orm.Zed.CustomerCoefficient.Persistence">
+
+    <table name="spy_coefficient" idMethod="native" phpName="SpyCoefficient" identifierQuoting="true">
+
+        <column name="id_coefficient" required="true" primaryKey="true" autoIncrement="true" type="INTEGER"/>
+        <column name="fk_coefficient_type" required="true" type="INTEGER"/>
+        <column name="name" required="true" type="VARCHAR"/>
+        <column name="value" required="true" type="DECIMAL"/>
+
+        <foreign-key foreignTable="spy_coefficient_type">
+            <reference local="fk_coefficient_type" foreign="id_coefficient_type"/>
+        </foreign-key>
+
+    <id-method-parameter value="spy_coefficient_pk_seq"/></table>
+
+</database>
