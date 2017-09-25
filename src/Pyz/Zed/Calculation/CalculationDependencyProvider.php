@@ -17,6 +17,7 @@ use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemDiscountAmountFu
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemProductOptionPriceAggregatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemSubtotalAggregatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemTaxAmountFullAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\NetTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\OrderTaxTotalCalculationPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\PriceCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\PriceToPayAggregatorPlugin;
@@ -164,6 +165,9 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      * TaxTotalCalculatorPlugin - Total tax amount
      *    - Totals.taxTotal.amount
      *
+     * NetTotalCalculatorPlugin - Calculate total amount before taxes
+     *   - Totals.netTotal
+     *
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculationPluginInterface[]
@@ -206,6 +210,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new RefundTotalCalculatorPlugin(),
             new TaxTotalCalculatorPlugin(),
             new GrandTotalCalculatorPlugin(),
+            new NetTotalCalculatorPlugin(),
 
         ];
     }
@@ -245,6 +250,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new CanceledTotalCalculationPlugin(),
             new OrderTaxTotalCalculationPlugin(),
             new GrandTotalCalculatorPlugin(),
+            new NetTotalCalculatorPlugin(),
         ];
     }
 

@@ -514,7 +514,7 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $discountAmountEntity = new SpyDiscountAmount();
         $currencyEntity = $this->getCurrency();
         $discountAmountEntity->setFkCurrency($currencyEntity->getIdCurrency());
-        $discountAmountEntity->setAmount($discountAmount);
+        $discountAmountEntity->setGrossAmount($discountAmount);
         $discountAmountEntity->setFkDiscount($discountEntity->getIdDiscount());
         $discountAmountEntity->save();
 

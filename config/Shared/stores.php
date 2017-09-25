@@ -39,4 +39,8 @@ $stores['DE'] = [
     'currencyIsoCodes' => ['EUR', 'USD'],
 ];
 
+$stores['UK'] = [
+    'currencyIsoCodes' => ['EUR', 'GBP'],
+];
+
 return $stores;
