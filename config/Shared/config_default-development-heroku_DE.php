@@ -4,7 +4,6 @@ use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
@@ -82,8 +81,3 @@ $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstan
 $config[ApplicationConstants::ZED_RABBITMQ_USERNAME] = 'DE_development';
 $config[ApplicationConstants::ZED_RABBITMQ_PASSWORD] = 'mate20mg';
 $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
-
-// ---------- Event journal
-$config[EventJournalConstants::WRITER_OPTIONS] = [
-    \Spryker\Shared\EventJournal\Model\Writer\File::class => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
-];

@@ -23,6 +23,7 @@ use Spryker\Zed\Api\Communication\Plugin\ApiServiceProviderPlugin;
 use Spryker\Zed\Api\Communication\Plugin\ServiceProvider\ApiRoutingServiceProvider;
 use Spryker\Zed\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\EnvironmentInformationServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\KernelLogServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
@@ -37,7 +38,6 @@ use Spryker\Zed\Auth\Communication\Plugin\ServiceProvider\RedirectAfterLoginProv
 use Spryker\Zed\Currency\Communication\Plugin\ServiceProvider\TwigCurrencyServiceProvider;
 use Spryker\Zed\Gui\Communication\Plugin\ServiceProvider\GuiTwigExtensionServiceProvider;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\Log\Communication\Plugin\ServiceProvider\LogServiceProvider;
 use Spryker\Zed\Messenger\Communication\Plugin\ServiceProvider\MessengerServiceProvider;
 use Spryker\Zed\Money\Communication\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Zed\NewRelic\Communication\Plugin\ServiceProvider\NewRelicRequestTransactionServiceProvider;
@@ -98,7 +98,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
         $coreProviders = parent::getServiceProviders($container);
 
         $providers = [
-            new LogServiceProvider(),
+            new KernelLogServiceProvider(),
             new SessionServiceProvider(),
             $this->getSessionServiceProvider($container),
             new SslServiceProvider(),
@@ -166,7 +166,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     protected function getInternalCallServiceProviders(Container $container)
     {
         return [
-            new LogServiceProvider(),
+            new KernelLogServiceProvider(),
             new PropelServiceProvider(),
             new RequestServiceProvider(),
             new SslServiceProvider(),
@@ -191,7 +191,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
     protected function getInternalCallServiceProvidersWithAuthentication(Container $container)
     {
         return [
-            new LogServiceProvider(),
+            new KernelLogServiceProvider(),
             new PropelServiceProvider(),
             new RequestServiceProvider(),
             new SessionServiceProvider(),
