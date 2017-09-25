@@ -30,6 +30,22 @@ if [[ `echo "$@" | grep '\-vvv'` ]]; then
     VERBOSITY='-vvv'
 fi
 
+function deleteDevelopmentQueues {
+    labelText "Deleting RabbitMQ Queues/Exchanges "
+    curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/ | grep -Po '"name":.*?[^\\]"' | awk  -F "\"" '{print $4}' | while read queue; do curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} -XDELETE http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/%2F${RABBITMQ_VHOST}/${queue};echo ${queue} queue has deleted.; done
+
+    for item in ${RABBITMQ_EXCHANGE[*]}
+    do
+        curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} -XDELETE http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/exchanges/%2F${RABBITMQ_VHOST}/$item | grep name || true
+    done
+}
+
+function purgeAllQueues {
+    labelText "Resetting RabbitMQ Queues"
+    curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/ | grep -Po '"name":.*?[^\\]"' | awk  -F "\"" '{print $4}' | while read queue; do curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} -XDELETE http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/%2F${RABBITMQ_VHOST}/${queue}/contents;echo ${queue} queue has purged.; done
+}
+
+
 function generateTwigCacheFiles {
     labelText "Generating twig cache files"
     vendor/bin/console twig:cache:warmer
@@ -117,10 +133,12 @@ function installZed {
     setupText "Zed setup"
 
     labelText "Stopping jenkins"
-    $CONSOLE setup:jenkins:disable $VERBOSITY
+    $CONSOLE setup:jenkins:disable $VERBOSITY --no-post
     writeErrorMessage "Failed to stop jenkins"
 
     resetDataStores
+
+    deleteDevelopmentQueues
 
     dropDevelopmentDatabase
 
@@ -134,6 +152,9 @@ function installZed {
     labelText "Updating product label relations"
     $CONSOLE product-label:relations:update $VERBOSITY
     writeErrorMessage "Updating product label relations failed"
+
+    labelText "Purge All Queues"
+    purgeAllQueues
 
     labelText "Setting up data stores"
 
@@ -205,10 +226,12 @@ function resetDevelopmentState {
 
     resetDataStores
 
+    deleteDevelopmentQueues
+
     dropDevelopmentDatabase
 
     labelText "Generating Transfer Objects"
-    $CONSOLE transfer:generate
+    $CONSOLE transfer:generate --no-post
     writeErrorMessage "Generating Transfer Objects failed"
 
     $CONSOLE setup:install $VERBOSITY

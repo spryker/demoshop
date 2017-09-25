@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/core-1073-publish-and-sync-affected-bundles",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
@@ -53,7 +53,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
-    "spryker/rabbit-mq": "dev-master",
+    "spryker/rabbit-mq": "dev-bugfix/core-1337-wrong-composer-json",
     "league/flysystem": "^1.0"
   },
   "require-dev": {
