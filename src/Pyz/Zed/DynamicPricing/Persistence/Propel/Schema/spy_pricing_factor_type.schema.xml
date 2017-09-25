@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\DynamicPricing\Persistence" package="src.Orm.Zed.DynamicPricing.Persistence">
+
+    <table name="spy_pricing_factor_type" idMethod="native" phpName="SpyPricingFactorType" identifierQuoting="true">
+        <column name="id_pricing_factor_type" required="true" primaryKey="true" autoIncrement="true" type="INTEGER"/>
+        <column name="name" required="true" type="VARCHAR"/>
+        <id-method-parameter value="spy_pricing_factor_type_pk_seq"/>
+    </table>
+
+</database>

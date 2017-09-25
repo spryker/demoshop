@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\DynamicPricing\Persistence" package="src.Orm.Zed.DynamicPricing.Persistence">
+
+    <table name="spy_customer_pricing_factor" idMethod="native" phpName="SpyCustomerPricingFactor" identifierQuoting="true">
+        <column name="id_customer_pricing_factor" required="true" primaryKey="true" autoIncrement="true" type="INTEGER"/>
+        <column name="fk_customer" required="true" type="INTEGER"/>
+        <column name="fk_pricing_factor" required="true" type="INTEGER"/>
+        <foreign-key foreignTable="spy_customer">
+            <reference local="fk_customer" foreign="id_customer"/>
+        </foreign-key>
+        <foreign-key foreignTable="spy_pricing_factor">
+            <reference local="fk_pricing_factor" foreign="id_pricing_factor"/>
+        </foreign-key>
+        <id-method-parameter value="spy_customer_pricing_factor_pk_seq"/>
+    </table>
+
+</database>
