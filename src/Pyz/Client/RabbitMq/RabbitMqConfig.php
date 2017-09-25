@@ -15,14 +15,13 @@ use Spryker\Shared\Event\EventConstants;
 
 class RabbitMqConfig extends SprykerRabbitMqConfig
 {
-
     /**
      * @return \ArrayObject
      */
     protected function getQueueOptions()
     {
         $queueOptionCollection = new ArrayObject();
-        $queueOptionCollection->append($this->createQueueOption(EventConstants::EVENT_QUEUE, EventConstants::EVENT_ERROR_QUEUE));
+        $queueOptionCollection->append($this->createQueueOption(EventConstants::EVENT_QUEUE, EventConstants::EVENT_QUEUE_ERROR));
 
         return $queueOptionCollection;
     }
@@ -36,8 +35,8 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
      */
     protected function createQueueOption($queueName, $errorQueueName, $routingKey = 'error')
     {
-        $queueOption = new RabbitMqOptionTransfer();
-        $queueOption
+        $queueOptionTransfer = new RabbitMqOptionTransfer();
+        $queueOptionTransfer
             ->setQueueName($queueName)
             ->setDurable(true)
             ->setType('direct')
@@ -45,7 +44,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
             ->addBindingQueueItem($this->createQueueBinding($queueName))
             ->addBindingQueueItem($this->createErrorQueueBinding($errorQueueName, $routingKey));
 
-        return $queueOption;
+        return $queueOptionTransfer;
     }
 
     /**
@@ -55,12 +54,13 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
      */
     protected function createQueueBinding($queueName)
     {
-        $queueOption = new RabbitMqOptionTransfer();
-        $queueOption
+        $queueOptionTransfer = new RabbitMqOptionTransfer();
+        $queueOptionTransfer
             ->setQueueName($queueName)
-            ->setDurable(true);
+            ->setDurable(true)
+            ->addRoutingKey('');
 
-        return $queueOption;
+        return $queueOptionTransfer;
     }
 
     /**
@@ -71,13 +71,12 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
      */
     protected function createErrorQueueBinding($errorQueueName, $routingKey)
     {
-        $queueOption = new RabbitMqOptionTransfer();
-        $queueOption
+        $queueOptionTransfer = new RabbitMqOptionTransfer();
+        $queueOptionTransfer
             ->setQueueName($errorQueueName)
             ->setDurable(true)
-            ->setRoutingKey($routingKey);
+            ->addRoutingKey($routingKey);
 
-        return $queueOption;
+        return $queueOptionTransfer;
     }
-
 }

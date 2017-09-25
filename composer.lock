@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecd72eec046c4fc2ea7d6d5f4fd8dc6c",
+    "content-hash": "745c6c0323d6ec3b799495fc0808808a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1575,32 +1575,62 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-1337-wrong-composer-json",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "8315b6d650378462f0310730f3940776487e04df"
+                "url": "https://github.com/spryker/rabbit-mq.git",
+                "reference": "d7c8b71fc17b16eb3fea5667ea4cac82e1085c1a",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/d7c8b71fc17b16eb3fea5667ea4cac82e1085c1a",
+                "reference": "d7c8b71fc17b16eb3fea5667ea4cac82e1085c1a",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.4.16",
                 "php-amqplib/php-amqplib": "^2.6"
             },
+            "require-dev": {
+                "spryker/code-sniffer": "*"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "RabbitMq\\": "src"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "RabbitMq\\Test\\": "tests"
+                    "Spryker\\Test\\": "tests"
                 }
             },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1619,15 +1649,15 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-07-14T09:20:08+00:00"
+            "time": "2017-10-18T09:45:12+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1073-publish-and-sync-affected-bundles",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b80e4dfee2d476bbd14a369668f044e7aad438fd"
+                "reference": "4a6fa2b04d95578d5dd30307fb64593a15c6ef48"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,6 +1719,8 @@
                 "spryker/dummy-payment": "*",
                 "spryker/elastica": "*",
                 "spryker/error-handler": "*",
+                "spryker/event": "*",
+                "spryker/event-behavior": "*",
                 "spryker/event-journal": "*",
                 "spryker/file-system": "*",
                 "spryker/flysystem": "*",
@@ -1780,6 +1812,8 @@
                 "spryker/storage": "*",
                 "spryker/store": "*",
                 "spryker/symfony": "*",
+                "spryker/synchronization": "*",
+                "spryker/synchronization-behavior": "*",
                 "spryker/tax": "*",
                 "spryker/tax-product-connector": "*",
                 "spryker/testify": "*",
@@ -1821,7 +1855,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-16T10:44:06+00:00"
+            "time": "2017-10-17T08:36:02+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6598,7 +6632,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6617,13 +6651,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "2d354fd5e92bbe18be68a03b84e9588659e9aa30"
+                "reference": "2d354fd5e92bbe18be68a03b84e9588659e9aa30",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2d354fd5e92bbe18be68a03b84e9588659e9aa30",
                 "reference": "2d354fd5e92bbe18be68a03b84e9588659e9aa30",
-                "shasum": ""
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6668,13 +6714,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "45ef2c7b500d4c9757bb41cf1b7706a73d03f776"
+                "reference": "45ef2c7b500d4c9757bb41cf1b7706a73d03f776",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/45ef2c7b500d4c9757bb41cf1b7706a73d03f776",
                 "reference": "45ef2c7b500d4c9757bb41cf1b7706a73d03f776",
-                "shasum": ""
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.6.0",
@@ -6698,11 +6756,23 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/master",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
             "time": "2017-10-09T19:16:30+00:00"
         },
         {

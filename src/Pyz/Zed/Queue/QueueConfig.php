@@ -14,6 +14,8 @@ use Spryker\Zed\Queue\QueueConfig as SprykerQueueConfig;
 
 class QueueConfig extends SprykerQueueConfig
 {
+    const RABBITMQ = 'rabbitmq';
+
     /**
      * @return array
      */
@@ -21,10 +23,10 @@ class QueueConfig extends SprykerQueueConfig
     {
         return [
             QueueConstants::QUEUE_DEFAULT_RECEIVER => [
-                'rabbitmq' => $this->getRabbitMqQueueConsumerOptions(),
+                static::RABBITMQ => $this->getRabbitMqQueueConsumerOptions(),
             ],
             EventConstants::EVENT_QUEUE => [
-                'rabbitmq' => $this->getRabbitMqQueueConsumerOptions(),
+                static::RABBITMQ => $this->getRabbitMqQueueConsumerOptions(),
             ],
         ];
     }
@@ -32,11 +34,11 @@ class QueueConfig extends SprykerQueueConfig
     /**
      * @return array
      */
-    protected function getMessageCheckOption()
+    protected function getMessageCheckOptions()
     {
         return [
             QueueConstants::QUEUE_WORKER_MESSAGE_CHECK_OPTION => [
-                'rabbitmq' => $this->getRabbitMqQueueMessageCheckOptions(),
+                static::RABBITMQ => $this->getRabbitMqQueueMessageCheckOptions(),
             ],
         ];
     }
