@@ -4,6 +4,7 @@
            xsi:schemaLocation="http://static.spryker.com http://static.spryker.com/transfer-01.xsd" >
 
     <transfer name="Customer">
+        <property name="pricingPercentage" type="float" />
         <property name="pricingFactors" type="PricingFactor[]" singular="pricingFactor" />
     </transfer>
 

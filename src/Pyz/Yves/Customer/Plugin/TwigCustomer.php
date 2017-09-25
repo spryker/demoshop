@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Customer\Plugin;
 
+use Pyz\Shared\DynamicPricing\DynamicPricingConstants;
 use Pyz\Yves\Twig\Dependency\Plugin\TwigFunctionPluginInterface;
 use Silex\Application;
 use Spryker\Yves\Kernel\AbstractPlugin;
@@ -37,9 +38,11 @@ class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
                 return $this->getClient()->isLoggedIn();
             }),
             new Twig_SimpleFunction('getCustomerPrice', function ($price) {
-
-                return $price;
-//                return $this->getClient()->isLoggedIn();
+                $pricingPercentage = DynamicPricingConstants::DEFAULT_PRICING_FACTOR;
+                if($this->getClient()->getCustomer()) {
+                    $pricingPercentage = $this->getClient()->getCustomer()->getPricingPercentage();
+                }
+                return (int) floor($pricingPercentage * $price);
             }),
         ];
     }

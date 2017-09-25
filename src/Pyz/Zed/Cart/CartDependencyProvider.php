@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Cart;
 
-use Pyz\Zed\CustomerCoefficient\Communication\Plugin\CustomerCoefficientPlugin;
+use Pyz\Zed\DynamicPRicing\Communication\Plugin\CustomerCoefficientPlugin;
 use Spryker\Zed\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
 use Spryker\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\CartGroupPromotionItems;

@@ -18,6 +18,22 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 
     const SALES_FACADE = 'sales facade';
     const NEWSLETTER_FACADE = 'newsletter facade';
+    const DYNAMIC_PRICING_FACADE = 'dynamic pricing facade';
+
+    /**
+     * @param Container $container
+     * @return Container
+     */
+    public function provideBusinessLayerDependencies(Container $container)
+    {
+        $container = parent::provideBusinessLayerDependencies($container);
+
+        $container[self::DYNAMIC_PRICING_FACADE] = function (Container $container) {
+            return $container->getLocator()->dynamicPricing()->facade();
+        };
+
+        return $container;
+    }
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
