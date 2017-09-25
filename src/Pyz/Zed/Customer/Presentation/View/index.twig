@@ -1,0 +1,94 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'View Customer' %}
+
+{% block head_title widget_title %}
+{% block section_title widget_title %}
+
+{% block action %}
+    {{ backActionButton('/customer', 'List Customers' | trans) }}
+    {{ removeActionButton(url('/customer/delete', {'id-customer': idCustomer}), 'Delete' | trans) }}
+    {{ editActionButton('/customer/edit?id-customer=' ~ idCustomer, 'Edit Customer' | trans) }}
+    {{ createActionButton('/customer/address/add?id-customer=' ~ idCustomer, 'Add new Address' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Customer' } %}
+
+        {% block widget_content %}
+
+            <div class="row">
+                <table class="table">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <th class="col-lg-2">
+                            {{ 'Salutation' | trans }}</th>
+                        <td>{{ customer.salutation }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'First name' | trans }}</th>
+                        <td>{{ customer.firstName }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Last name' | trans }}</th>
+                        <td>{{ customer.lastName }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Email' | trans }}</th>
+                        <td>{{ customer.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Company' | trans }}</th>
+                        <td>{{ customer.company }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Customer Reference' | trans }}</th>
+                        <td>{{ customer.customerReference }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Gender' | trans }}</th>
+                        <td>{{ customer.gender }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Locale' | trans }}</th>
+                        <td>{{ customer.locale }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Phone' | trans }}</th>
+                        <td>{{ customer.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Date of birth' | trans }}</th>
+                        <td>{{ customer.dateOfBirth }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Registered at' | trans }}</th>
+                        <td>{{ customer.createdAt | formatDateTime }}</td>
+                    </tr>
+
+                    {% for pricingFactor in customer.pricingFactors %}
+                        <tr>
+                            <th>{{ pricingFactor.type }}</th>
+                            <td>{{ pricingFactor.value }} ({{ pricingFactor.percentage }})</td>
+                        </tr>
+                    {%  endfor %}
+
+                    </tbody>
+                    <tfoot>
+                </table>
+            </div>
+
+        {% endblock %}
+    {% endembed %}
+
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Addresses' } %}
+        {% block widget_content %}
+            {{ addressTable | raw }}
+        {% endblock %}
+    {% endembed %}
+
+
+{% endblock %}
