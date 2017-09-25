@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\GiftCard;
 
-use Orm\Zed\GiftCard\Persistence\SpyGiftCardProductConfiguration;
-use Orm\Zed\GiftCard\Persistence\SpyGiftCardProductConfigurationLink;
+use Orm\Zed\GiftCard\Persistence\SpyGiftCardProductConfigurationLinkQuery;
+use Orm\Zed\GiftCard\Persistence\SpyGiftCardProductConfigurationQuery;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -49,14 +49,14 @@ class GiftCardConcreteConfigurationWriterStep implements DataImportStepInterface
         $value = $dataSet['value'];
         $concreteSku = $dataSet['sku'];
 
-        $typeEntity = new SpyGiftCardProductConfiguration();
-        $typeEntity->setValue($value);
-        $typeEntity->save();
+        $typeEntity = SpyGiftCardProductConfigurationQuery::create()
+            ->filterByValue($value)
+            ->findOneOrCreate();
 
-        $configurationLink = new SpyGiftCardProductConfigurationLink();
-        $configurationLink->setSpyGiftCardProductConfiguration($typeEntity);
-        $configurationLink->setFkProduct($this->productRepository->getIdProductByConcreteSku($concreteSku));
-        $configurationLink->save();
+        SpyGiftCardProductConfigurationLinkQuery::create()
+            ->filterByFkGiftCardProductConfiguration($typeEntity->getIdGiftCardProductConfiguration())
+            ->filterByFkProduct($this->productRepository->getIdProductByConcreteSku($concreteSku))
+            ->findOneOrCreate();
     }
 
 }
