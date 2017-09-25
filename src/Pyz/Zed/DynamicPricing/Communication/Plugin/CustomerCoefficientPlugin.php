@@ -29,7 +29,8 @@ class CustomerCoefficientPlugin extends AbstractPlugin implements ItemExpanderPl
     {
         $pricingFactor = $cartChangeTransfer->getQuote()->getCustomer()->getPricingPercentage();
         foreach($cartChangeTransfer->getItems() as $itemTransfer) {
-            $itemTransfer->setUnitGrossPrice($itemTransfer->getUnitGrossPrice() * $pricingFactor / 100);
+            $unitGrossPrice = (int) floor($itemTransfer->getUnitGrossPrice() * $pricingFactor);
+            $itemTransfer->setUnitGrossPrice($unitGrossPrice);
         }
 
         return $cartChangeTransfer;

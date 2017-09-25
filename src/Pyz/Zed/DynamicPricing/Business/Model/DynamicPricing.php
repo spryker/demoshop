@@ -81,7 +81,7 @@ class DynamicPricing implements DynamicPricingInterface
     private function getPricingFactorTransfer(SpyCustomerPricingFactor $pricingFactorEntity)
     {
         $pricingFactorTransfer = new PricingFactorTransfer();
-        $pricingFactorTransfer->setType('Type');
+        $pricingFactorTransfer->setType($pricingFactorEntity->getSpyPricingFactor()->getSpyPricingFactorType()->getName());
         $pricingFactorTransfer->setValue($pricingFactorEntity->getSpyPricingFactor()->getValue());
         $pricingFactorTransfer->setPercentage($pricingFactorEntity->getSpyPricingFactor()->getPercentage());
 

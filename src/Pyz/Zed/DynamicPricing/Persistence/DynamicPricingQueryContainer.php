@@ -28,7 +28,9 @@ class DynamicPricingQueryContainer extends AbstractQueryContainer implements Dyn
     {
         $query = $this->getFactory()->createCustomerPricingFactorQuery();
         $query
-            ->useSpyPricingFactorQuery('pf')
+            ->leftJoinWithSpyPricingFactor()
+            ->useSpyPricingFactorQuery()
+            ->leftJoinWithSpyPricingFactorType()
             ->endUse()
             ->filterByFkCustomer($customerId);
 

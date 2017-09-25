@@ -68,13 +68,6 @@
                         <td>{{ customer.createdAt | formatDateTime }}</td>
                     </tr>
 
-                    {% for pricingFactor in customer.pricingFactors %}
-                        <tr>
-                            <th>{{ pricingFactor.type }}</th>
-                            <td>{{ pricingFactor.value }} ({{ pricingFactor.percentage }})</td>
-                        </tr>
-                    {%  endfor %}
-
                     </tbody>
                     <tfoot>
                 </table>
@@ -83,6 +76,32 @@
         {% endblock %}
     {% endembed %}
 
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Dynamic Pricing' } %}
+        {% block widget_content %}
+
+                <div class="row">
+                    <table class="table">
+                        <thead></thead>
+                        <tbody>
+                            {% if customer.pricingFactors[0] is defined %}
+                                {% for pricingFactor in customer.pricingFactors %}
+                                    <tr>
+                                        <th class="col-lg-2">{{ pricingFactor.type }}</th>
+                                        <td>{{ pricingFactor.value }} ({{ pricingFactor.percentage }})</td>
+                                    </tr>
+                                 {%  endfor %}
+                            {% else %}
+                                <tr>
+                                    <td>Dynamic pricing is not defined for this customer</td>
+                                </tr>
+                            {%  endif %}
+                        </tbody>
+                        <tfoot>
+                    </table>
+                </div>
+
+        {% endblock %}
+    {% endembed %}
 
     {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Addresses' } %}
         {% block widget_content %}

@@ -9,9 +9,13 @@
     </transfer>
 
     <transfer name="PricingFactor">
-        <property name="type" type="string" />
+        <property name="pricingFactorType" type="PricingFactorType" />
         <property name="value" type="string" />
         <property name="percentage" type="float" />
+    </transfer>
+
+    <transfer name="PricingFactorType">
+        <property name="name" type="string" />
     </transfer>
 
 </transfers>
