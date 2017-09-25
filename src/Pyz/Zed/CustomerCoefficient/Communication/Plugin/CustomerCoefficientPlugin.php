@@ -21,6 +21,8 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
  */
 class CustomerCoefficientPlugin extends AbstractPlugin implements ItemExpanderPluginInterface
 {
+    const DEFAULT_CUSTOMER_COEFFICIENT = 1;
+
     /**
      * @param CartChangeTransfer $cartChangeTransfer
      * @return CartChangeTransfer
@@ -42,7 +44,10 @@ class CustomerCoefficientPlugin extends AbstractPlugin implements ItemExpanderPl
     private function getCustomerCoefficient(CartChangeTransfer $cartChangeTransfer)
     {
         $customerTransfer = $cartChangeTransfer->getQuote()->getCustomer();
+        if ($customerTransfer) {
+            return $this->getFacade()->getCustomerCoefficient($customerTransfer);
+        }
 
-        return $this->getFacade()->getCustomerCoefficient($customerTransfer);
+        return self::DEFAULT_CUSTOMER_COEFFICIENT;
     }
 }
