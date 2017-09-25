@@ -2,6 +2,8 @@
 
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Zed\Propel\Business\Builder\ObjectBuilderWithLogger;
+use Spryker\Zed\Propel\Business\Builder\QueryBuilder;
 use Spryker\Zed\Propel\PropelConfig;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
@@ -49,8 +51,8 @@ $config[PropelConstants::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
-                'object' => '\Spryker\Zed\Propel\Business\Builder\ObjectBuilder',
-                'query' => '\Spryker\Zed\Propel\Business\Builder\QueryBuilder',
+                'object' => ObjectBuilderWithLogger::class,
+                'query' => QueryBuilder::class,
             ],
         ],
     ],
