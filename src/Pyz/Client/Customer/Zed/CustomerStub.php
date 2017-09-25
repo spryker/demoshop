@@ -16,15 +16,13 @@ class CustomerStub extends SprykerCustomerStub implements CustomerStubInterface
     /**
      * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
-     * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
+     * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer|\Spryker\Shared\Kernel\Transfer\TransferInterface
      */
     public function getCustomerOverview(CustomerOverviewRequestTransfer $overviewRequest)
     {
         return $this->zedStub->call(
             '/customer/gateway/get-customer-overview',
-            $overviewRequest,
-            null,
-            true
+            $overviewRequest
         );
     }
 

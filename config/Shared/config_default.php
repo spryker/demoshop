@@ -1,8 +1,10 @@
 <?php
 
 use Monolog\Logger;
+use Spryker\Client\RabbitMq\Model\RabbitMqAdapter;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Collector\CollectorConstants;
@@ -13,6 +15,7 @@ use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Flysystem\FlysystemConstants;
+use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -67,6 +70,7 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
 ];
 $config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = APPLICATION_VENDOR_DIR . '/*/*/src/*/Zed/*/Persistence/Propel/Schema/';
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
+$config[PropelConstants::PROPEL_DEBUG] = false;
 
 // ---------- Authentication
 $config[UserConstants::USER_SYSTEM_USERS] = [
@@ -277,7 +281,7 @@ $config[CmsConstants::YVES_THEME] = $YVES_THEME;
 
 // ---------- Error handling
 $config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
-$config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
+$config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Zed/errorpage/error.html';
 $config[ErrorHandlerConstants::ERROR_RENDERER] = WebHtmlErrorRenderer::class;
 // Due to some deprecation notices we silence all deprecations for the time being
 $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
@@ -286,6 +290,7 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 //$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
 // ---------- Logging
+$config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[LogConstants::LOG_FILE_PATH] = sprintf(
     '%s/data/%s/logs/%s/application.log',
@@ -293,11 +298,18 @@ $config[LogConstants::LOG_FILE_PATH] = sprintf(
     $CURRENT_STORE,
     APPLICATION
 );
+$config[LogConstants::LOG_SANITIZE_FIELDS] = [
+    'password'
+];
+/**
+ * As long EventJournal is in ZedRequest bundle this needs to be disabled by hand
+ */
+$config[EventJournalConstants::DISABLE_EVENT_JOURNAL] = true;
 
 // ---------- Auto-loader
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
-$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
+$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = File::class;
 
 // ---------- Dependency injector
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
@@ -348,7 +360,7 @@ $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
 $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];
 $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
     EventConstants::EVENT_QUEUE => [
-        QueueConfig::CONFIG_QUEUE_ADAPTER => \Spryker\Client\RabbitMq\Model\RabbitMqAdapter::class,
+        QueueConfig::CONFIG_QUEUE_ADAPTER => RabbitMqAdapter::class,
         QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
     ],
 ];
@@ -367,48 +379,6 @@ $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
 
 // ---------- Taxes
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
-
-// ---------- Event journal
-$config[EventJournalConstants::COLLECTORS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-    '\\Pyz\\Yves\\EventJournal\\Collector\\YvesDataCollector',
-];
-$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = false;
-$config[EventJournalConstants::WRITERS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
-];
-$config[EventJournalConstants::COLLECTORS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-];
-$config[EventJournalConstants::WRITERS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
-];
-$config[EventJournalConstants::FILTERS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
-];
-$config[EventJournalConstants::FILTERS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
-];
-$config[EventJournalConstants::FILTER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' => [
-        'filter_pattern' => [
-            ['registerForm', 'password', 'first'],
-            ['registerForm', 'password', 'second'],
-            ['_password'],
-            ['transfer_data', 'login', 'password'],
-        ],
-        'filtered_string' => '***',
-    ],
-];
-$config[EventJournalConstants::WRITER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => [
-        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/',
-    ],
-];
 
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];

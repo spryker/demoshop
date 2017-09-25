@@ -1,5 +1,7 @@
 <?php
 
+use Monolog\Logger;
+use Pyz\Shared\Log\LogConstants;
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
@@ -163,3 +165,6 @@ $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_
 
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
+
+// ---------- Logging
+$config[LogConstants::LOG_LEVEL] = Logger::CRITICAL;
