@@ -4,6 +4,8 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a devtest environment.
  */
 
+use Monolog\Logger;
+use Pyz\Shared\Log\LogConstants;
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
@@ -73,3 +75,6 @@ $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data
 
 // ---------- ErrorHandler
 $config[ErrorHandlerConstants::ERROR_RENDERER] = WebExceptionErrorRenderer::class;
+
+// ---------- Logging
+$config[LogConstants::LOG_LEVEL] = Logger::CRITICAL;

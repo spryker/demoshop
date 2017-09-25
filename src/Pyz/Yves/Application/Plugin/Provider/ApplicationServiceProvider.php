@@ -93,7 +93,7 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     protected function setControllerResolver()
     {
         $this->application['resolver'] = $this->application->share(function () {
-            return new YvesFragmentControllerResolver($this->application, $this->application['logger']);
+            return new YvesFragmentControllerResolver($this->application);
         });
     }
 

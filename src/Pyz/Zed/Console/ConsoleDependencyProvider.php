@@ -18,6 +18,7 @@ use Spryker\Zed\CodeGenerator\Communication\Console\BundleYvesCodeGeneratorConso
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
+use Spryker\Zed\Console\Communication\Plugin\ConsoleLogPlugin;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 use Spryker\Zed\DataImport\Communication\Console\DataImportConsole;
 use Spryker\Zed\Development\Communication\Console\CodeArchitectureSnifferConsole;
@@ -179,19 +180,16 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
      *
      * @return \Symfony\Component\EventDispatcher\EventSubscriberInterface[]
      */
-    protected function getEventSubscriber(Container $container)
+    public function getEventSubscriber(Container $container)
     {
-        return [
-            $this->createNewRelicConsolePlugin()
-        ];
-    }
+        $eventSubscriber = parent::getEventSubscriber($container);
 
-    /**
-     * @return \Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin
-     */
-    protected function createNewRelicConsolePlugin()
-    {
-        return new NewRelicConsolePlugin();
+        if (!Environment::isDevelopment()) {
+            $eventSubscriber[] = new ConsoleLogPlugin();
+            $eventSubscriber[] = new NewRelicConsolePlugin();
+        }
+
+        return $eventSubscriber;
     }
 
 }
