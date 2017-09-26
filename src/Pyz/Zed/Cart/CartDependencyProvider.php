@@ -6,7 +6,7 @@
 
 namespace Pyz\Zed\Cart;
 
-use Pyz\Zed\DynamicPRicing\Communication\Plugin\CustomerCoefficientPlugin;
+use Pyz\Zed\DynamicPRicing\Communication\Plugin\CustomerDynamicPricingPlugin;
 use Spryker\Zed\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
 use Spryker\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\CartGroupPromotionItems;
@@ -38,7 +38,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
         return [
             new ProductCartPlugin(),
             new CartItemPricePlugin(),
-            new CustomerCoefficientPlugin(),
+            new CustomerDynamicPricingPlugin(),
             new CartItemProductOptionPlugin(),
             new ExpandBundleItemsPlugin(),
             new ExpandBundleItemsWithImagesPlugin(),

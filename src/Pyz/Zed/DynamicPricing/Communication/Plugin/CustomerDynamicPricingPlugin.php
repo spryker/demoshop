@@ -17,7 +17,7 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
  *
  * @method \Pyz\Zed\DynamicPricing\Business\DynamicPricingFacadeInterface getFacade()
  */
-class CustomerCoefficientPlugin extends AbstractPlugin implements ItemExpanderPluginInterface
+class CustomerDynamicPricingPlugin extends AbstractPlugin implements ItemExpanderPluginInterface
 {
 
     /**
@@ -27,10 +27,12 @@ class CustomerCoefficientPlugin extends AbstractPlugin implements ItemExpanderPl
      */
     public function expandItems(CartChangeTransfer $cartChangeTransfer)
     {
-        $pricingFactor = $cartChangeTransfer->getQuote()->getCustomer()->getPricingPercentage();
-        foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
-            $unitGrossPrice = (int)floor($itemTransfer->getUnitGrossPrice() * $pricingFactor);
-            $itemTransfer->setUnitGrossPrice($unitGrossPrice);
+        if($cartChangeTransfer->getQuote()->getCustomer()) {
+            $pricingFactor = $cartChangeTransfer->getQuote()->getCustomer()->getPricingPercentage();
+            foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
+                $unitGrossPrice = (int) floor($itemTransfer->getUnitGrossPrice() * $pricingFactor);
+                $itemTransfer->setUnitGrossPrice($unitGrossPrice);
+            }
         }
 
         return $cartChangeTransfer;
