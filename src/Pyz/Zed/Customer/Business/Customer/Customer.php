@@ -1,17 +1,16 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: theodorosliokos
- * Date: 25.09.17
- * Time: 21:55
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Customer\Business\Customer;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Pyz\Zed\DynamicPricing\Business\DynamicPricingFacadeInterface;
-use Spryker\Zed\Customer\Business\Customer\Customer as SprykerCustomer;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Zed\Customer\Business\Customer\Customer as SprykerCustomer;
 use Spryker\Zed\Customer\Business\ReferenceGenerator\CustomerReferenceGeneratorInterface;
 use Spryker\Zed\Customer\CustomerConfig;
 use Spryker\Zed\Customer\Dependency\Facade\CustomerToMailInterface;
@@ -24,20 +23,22 @@ use Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface;
  */
 class Customer extends SprykerCustomer
 {
+
     /**
-     * @var DynamicPricingFacadeInterface
+     * @var \Pyz\Zed\DynamicPricing\Business\DynamicPricingFacadeInterface
      */
     private $dynamicPricingFacade;
 
     /**
      * Customer constructor.
-     * @param CustomerQueryContainerInterface $queryContainer
-     * @param CustomerReferenceGeneratorInterface $customerReferenceGenerator
-     * @param CustomerConfig $customerConfig
-     * @param CustomerToMailInterface $mailFacade
-     * @param LocaleQueryContainerInterface $localeQueryContainer
-     * @param Store $store
-     * @param DynamicPricingFacadeInterface $dynamicPricingFacade
+     *
+     * @param \Spryker\Zed\Customer\Persistence\CustomerQueryContainerInterface $queryContainer
+     * @param \Spryker\Zed\Customer\Business\ReferenceGenerator\CustomerReferenceGeneratorInterface $customerReferenceGenerator
+     * @param \Spryker\Zed\Customer\CustomerConfig $customerConfig
+     * @param \Spryker\Zed\Customer\Dependency\Facade\CustomerToMailInterface $mailFacade
+     * @param \Spryker\Zed\Locale\Persistence\LocaleQueryContainerInterface $localeQueryContainer
+     * @param \Spryker\Shared\Kernel\Store $store
+     * @param \Pyz\Zed\DynamicPricing\Business\DynamicPricingFacadeInterface $dynamicPricingFacade
      */
     public function __construct(
         CustomerQueryContainerInterface $queryContainer,
@@ -60,8 +61,9 @@ class Customer extends SprykerCustomer
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
-     * @return CustomerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerTransfer
      */
     public function get(CustomerTransfer $customerTransfer)
     {
@@ -70,4 +72,5 @@ class Customer extends SprykerCustomer
 
         return $customerTransfer;
     }
+
 }

@@ -1,16 +1,14 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: theodorosliokos
- * Date: 25.09.17
- * Time: 21:59
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Customer\Business;
 
-use Pyz\Zed\Customer\CustomerDependencyProvider;
 use Pyz\Zed\Customer\Business\Customer\Customer;
-use Pyz\Zed\DynamicPricing\Business\DynamicPricingFacadeInterface;
+use Pyz\Zed\Customer\CustomerDependencyProvider;
 use Spryker\Zed\Customer\Business\CustomerBusinessFactory as SprykerBusinessFactory;
 
 /**
@@ -19,8 +17,9 @@ use Spryker\Zed\Customer\Business\CustomerBusinessFactory as SprykerBusinessFact
  */
 class CustomerBusinessFactory extends SprykerBusinessFactory
 {
+
     /**
-     * @return Customer
+     * @return \Pyz\Zed\Customer\Business\Customer\Customer
      */
     public function createCustomer()
     {
@@ -40,10 +39,11 @@ class CustomerBusinessFactory extends SprykerBusinessFactory
     }
 
     /**
-     * @return DynamicPricingFacadeInterface
+     * @return \Pyz\Zed\DynamicPricing\Business\DynamicPricingFacadeInterface
      */
     private function getDynamicPricingFacade()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::DYNAMIC_PRICING_FACADE);
     }
+
 }

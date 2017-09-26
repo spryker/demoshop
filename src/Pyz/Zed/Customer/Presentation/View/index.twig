@@ -86,7 +86,7 @@
                             {% if customer.pricingFactors[0] is defined %}
                                 {% for pricingFactor in customer.pricingFactors %}
                                     <tr>
-                                        <th class="col-lg-2">{{ pricingFactor.type }}</th>
+                                        <th class="col-lg-2">{{ pricingFactor.pricingFactorType.name }}</th>
                                         <td>{{ pricingFactor.value }} ({{ pricingFactor.percentage }})</td>
                                     </tr>
                                  {%  endfor %}

@@ -21,8 +21,9 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     const DYNAMIC_PRICING_FACADE = 'dynamic pricing facade';
 
     /**
-     * @param Container $container
-     * @return Container
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideBusinessLayerDependencies(Container $container)
     {

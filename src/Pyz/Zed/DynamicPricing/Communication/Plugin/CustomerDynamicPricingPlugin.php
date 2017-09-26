@@ -27,10 +27,10 @@ class CustomerDynamicPricingPlugin extends AbstractPlugin implements ItemExpande
      */
     public function expandItems(CartChangeTransfer $cartChangeTransfer)
     {
-        if($cartChangeTransfer->getQuote()->getCustomer()) {
+        if ($cartChangeTransfer->getQuote()->getCustomer()) {
             $pricingFactor = $cartChangeTransfer->getQuote()->getCustomer()->getPricingPercentage();
             foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
-                $unitGrossPrice = (int) floor($itemTransfer->getUnitGrossPrice() * $pricingFactor);
+                $unitGrossPrice = (int)floor($itemTransfer->getUnitGrossPrice() * $pricingFactor);
                 $itemTransfer->setUnitGrossPrice($unitGrossPrice);
             }
         }

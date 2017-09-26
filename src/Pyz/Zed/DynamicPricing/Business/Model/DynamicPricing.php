@@ -9,6 +9,7 @@ namespace Pyz\Zed\DynamicPricing\Business\Model;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\PricingFactorTransfer;
+use Generated\Shared\Transfer\PricingFactorTypeTransfer;
 use Orm\Zed\DynamicPricing\Persistence\Base\SpyCustomerPricingFactor;
 use Pyz\Shared\DynamicPricing\DynamicPricingConstants;
 use Pyz\Zed\DynamicPricing\Persistence\DynamicPricingQueryContainerInterface;
@@ -45,7 +46,7 @@ class DynamicPricing implements DynamicPricingInterface
         $pricingFactorEntities = $this->getPricingFactorEntities($customerTransfer);
         $customerTransfer->setPricingPercentage(DynamicPricingConstants::DEFAULT_PRICING_FACTOR);
         foreach ($pricingFactorEntities as $pricingFactorEntity) {
-            $pricingFactorTransfer = $this->getPricingFactorTransfer($pricingFactorEntity);
+            $pricingFactorTransfer = $this->createPricingFactorTransfer($pricingFactorEntity);
             $customerTransfer->addPricingFactor($pricingFactorTransfer);
             $this->adjustPricingPercentage($customerTransfer, $pricingFactorTransfer);
         }
@@ -86,14 +87,31 @@ class DynamicPricing implements DynamicPricingInterface
      *
      * @return \Generated\Shared\Transfer\PricingFactorTransfer
      */
-    private function getPricingFactorTransfer(SpyCustomerPricingFactor $pricingFactorEntity)
+    private function createPricingFactorTransfer(SpyCustomerPricingFactor $pricingFactorEntity)
     {
         $pricingFactorTransfer = new PricingFactorTransfer();
-        $pricingFactorTransfer->setType($pricingFactorEntity->getSpyPricingFactor()->getSpyPricingFactorType()->getName());
+        $pricingFactorTransfer->setPricingFactorType(
+            $this->createPricingFactorTypeTransfer($pricingFactorEntity)
+        );
         $pricingFactorTransfer->setValue($pricingFactorEntity->getSpyPricingFactor()->getValue());
         $pricingFactorTransfer->setPercentage($pricingFactorEntity->getSpyPricingFactor()->getPercentage());
 
         return $pricingFactorTransfer;
+    }
+
+    /**
+     * @param \Orm\Zed\DynamicPricing\Persistence\Base\SpyCustomerPricingFactor $pricingFactorEntity
+     *
+     * @return \Generated\Shared\Transfer\PricingFactorTypeTransfer
+     */
+    private function createPricingFactorTypeTransfer(SpyCustomerPricingFactor $pricingFactorEntity)
+    {
+        $pricingFactorTypeTransfer = new PricingFactorTypeTransfer();
+        $pricingFactorTypeTransfer->setName(
+            $pricingFactorEntity->getSpyPricingFactor()->getSpyPricingFactorType()->getName()
+        );
+
+        return $pricingFactorTypeTransfer;
     }
 
 }
