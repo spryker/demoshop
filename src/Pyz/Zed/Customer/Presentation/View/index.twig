@@ -90,6 +90,10 @@
                                         <td>{{ pricingFactor.value }} ({{ pricingFactor.percentage }})</td>
                                     </tr>
                                  {%  endfor %}
+                                    <tr>
+                                        <th class="col-lg-2">Combined Pricing Factor</th>
+                                        <td>{{ customer.pricingPercentage }}</td>
+                                    </tr>
                             {% else %}
                                 <tr>
                                     <td>Dynamic pricing is not defined for this customer</td>
