@@ -6205,11 +6205,11 @@
         },
         {
             "name": "spryker/key-builder",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/KeyBuilder.git",
-                "reference": "2e990117a9bc887b882a1727945cbf79fef58581",
+                "reference": "cf9a19a226b6001d767f90f55cc795ba0af10943",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6219,8 +6219,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/KeyBuilder/zipball/2e990117a9bc887b882a1727945cbf79fef58581",
-                "reference": "2e990117a9bc887b882a1727945cbf79fef58581",
+                "url": "https://api.github.com/repos/spryker/KeyBuilder/zipball/cf9a19a226b6001d767f90f55cc795ba0af10943",
+                "reference": "cf9a19a226b6001d767f90f55cc795ba0af10943",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6256,11 +6256,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "KeyBuilder bundle",
+            "description": "KeyBuilder module",
             "support": {
-                "source": "https://github.com/spryker/KeyBuilder/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/KeyBuilder/tree/1.0.1"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-09-26T09:11:18+00:00"
         },
         {
             "name": "spryker/locale",
@@ -10407,11 +10407,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "8.0.0",
+            "version": "8.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "eec4325910701116d1ac51d588f6c1f193a106bb",
+                "reference": "6f1ce3552ff235eeb4cc6928a60a03d0ce4df8aa",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10421,8 +10421,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/eec4325910701116d1ac51d588f6c1f193a106bb",
-                "reference": "eec4325910701116d1ac51d588f6c1f193a106bb",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/6f1ce3552ff235eeb4cc6928a60a03d0ce4df8aa",
+                "reference": "6f1ce3552ff235eeb4cc6928a60a03d0ce4df8aa",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10491,9 +10491,9 @@
             ],
             "description": "Sales module",
             "support": {
-                "source": "https://github.com/spryker/Sales/tree/master"
+                "source": "https://github.com/spryker/Sales/tree/8.0.1"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-09-26T08:50:52+00:00"
         },
         {
             "name": "spryker/sales-product-connector",
