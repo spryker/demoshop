@@ -11,6 +11,6 @@ class NavigationStatusTogglePage
 {
 
     const URL = '/navigation-gui/toggle-status?id-navigation=%d';
-    const MESSAGE_SUCCESS = '/Navigation #(\d+) successfully updated./';
+    const MESSAGE_ACTIVE_SUCCESS = '/Navigation element (\d+) was activated successfully\\./';
 
 }
