@@ -26,8 +26,6 @@
 
         </transitions>
 
-        <!-- TODO add transitions / commands for sending gift card emails -->
-
         <events>
             <event name="check giftcard purchase" onEnter="true"/>
             <event name="create giftcard" onEnter="true" command="GiftCard/CreateGiftCard" />
