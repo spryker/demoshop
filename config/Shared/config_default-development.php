@@ -20,7 +20,6 @@ use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
-use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
@@ -79,24 +78,6 @@ $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data
 $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = true;
 $config[ZedRequestConstants::YVES_REQUEST_REPEAT_DATA_PATH] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/yves-requests';
-
-// ---------- Twig
-$config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
-];
-$config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
-];
-$config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/cache/Yves/twig/.pathCache',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
-);
-$config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/cache/Zed/twig/.pathCache',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
-);
 
 // ---------- Navigation
 $config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
