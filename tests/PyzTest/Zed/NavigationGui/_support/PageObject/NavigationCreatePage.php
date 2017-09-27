@@ -11,6 +11,6 @@ class NavigationCreatePage
 {
 
     const URL = '/navigation-gui/create';
-    const MESSAGE_SUCCESS = '/Navigation #(\d+) successfully created./';
+    const MESSAGE_SUCCESS = '/Navigation element (\d+) was created successfully\\./';
 
 }

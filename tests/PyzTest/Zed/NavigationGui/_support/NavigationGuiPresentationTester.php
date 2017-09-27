@@ -48,6 +48,7 @@ class NavigationGuiPresentationTester extends Actor
     const ADD_CHILD_NODE_BUTTON_SELECTOR = '#add-child-node-btn';
     const LOCALIZED_FORM_CONTAINER_SELECTOR = '#localized_attributes_container-%s .collapse-link';
     const NODE_CHILD_SELECTOR = '#navigation-node-%d #navigation-node-%d';
+    const NODE_NAME_CHILD_SELECTOR = "//*[@id=\"navigation-node-%d\"]//*[text()[contains(.,'%s')]]";
     const NODE_FORM_IFRAME_NAME = 'navigation-node-form-iframe';
     const SUCCESS_MESSAGE_SELECTOR = '.flash-messages .alert-success';
     const SWEET_ALERT_SELECTOR = '.sweet-alert';
@@ -492,6 +493,21 @@ class NavigationGuiPresentationTester extends Actor
             self::NODE_CHILD_SELECTOR,
             $idParentNavigationNode,
             $idChildNavigationNode
+        ));
+    }
+
+    /**
+     * @param int $idParentNavigationNode
+     * @param string $childNavigationNodeName
+     *
+     * @return void
+     */
+    public function seeNavigationNodeHierarchyByChildNodeName($idParentNavigationNode, $childNavigationNodeName)
+    {
+        $this->seeElement(sprintf(
+            self::NODE_NAME_CHILD_SELECTOR,
+            $idParentNavigationNode,
+            $childNavigationNodeName
         ));
     }
 

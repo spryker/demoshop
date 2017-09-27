@@ -11,6 +11,6 @@ class NavigationDeletePage
 {
 
     const URL = '/navigation-gui/delete?id-navigation=%d';
-    const MESSAGE_SUCCESS = '/Navigation #(\d+) successfully deleted./';
+    const MESSAGE_SUCCESS = '/Navigation element (\d+) was deleted successfully\\./';
 
 }
