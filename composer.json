@@ -57,7 +57,7 @@
     "league/flysystem": "^1.0"
   },
   "require-dev": {
-    "codeception/codeception": "^2.2.10",
+    "codeception/codeception": "^2.3.5",
     "codeception/c3": "^2.0.12",
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
