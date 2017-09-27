@@ -18,6 +18,7 @@ use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface;
+use Spryker\Client\Search\Model\Elasticsearch\Aggregation\StringFacetAggregation;
 use Spryker\Shared\Search\SearchConfig;
 
 /**
@@ -91,7 +92,10 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setParameterName(static::CATEGORY_FACET_PARAM_NAME)
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
             ->setType(SearchConfig::FACET_TYPE_CATEGORY)
-            ->setSize(self::SIZE_UNLIMITED);
+            ->setSize(10);
+//            ->setAggregationParams([
+//                StringFacetAggregation::AGGREGATION_PARAM_SIZE => static::SIZE_UNLIMITED
+//            ]);
 
         $facetConfigBuilder->addFacet($categoryFacet);
 
@@ -129,6 +133,9 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setFieldName(PageIndexMap::STRING_FACET)
             ->setType(SearchConfig::FACET_TYPE_ENUMERATION)
             ->setIsMultiValued(true)
+            ->setAggregationParams([
+                StringFacetAggregation::AGGREGATION_PARAM_SIZE => 10,
+            ])
             ->setValueTransformer(ProductLabelFacetValueTransformerPlugin::class);
 
         $facetConfigBuilder->addFacet($productLabelFacetTransfer);
