@@ -34,7 +34,7 @@ class TaxRateCreateCest
         $i->expect('Tax rate is successfully created');
 
         $i->createTaxRate(TaxRateCreatePage::TAX_RATE_VALID);
-        $i->seeMatches(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION, $i->grabTextFrom('//*'));
+        $i->seeMatches(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION, 'div.alert-success');
 
         $i->removeTaxRateFromDatabase(TaxRateCreatePage::TAX_RATE_VALID);
     }
@@ -66,7 +66,7 @@ class TaxRateCreateCest
         $i->createTaxRateWithoutSaving(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
         $i->click(TaxRateCreatePage::SELECTOR_LIST_OF_TAX_RATES_BUTTON);
 
-        $i->dontSeeMatches(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION, $i->grabTextFrom('//*'));
+        $i->dontSeeMatches(TaxRateCreatePage::MESSAGE_SUCCESSFUL_ALERT_CREATION, 'div.alert-success');
 
         $i->searchForTaxRate(TaxRateCreatePage::TAX_RATE_VALID_NOT_CREATED);
 
