@@ -467,7 +467,7 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function waitForNavigationTree()
     {
-        $this->waitForElement(self::NAVIGATION_TREE_SELECTOR, 5);
+        $this->waitForElement(self::NAVIGATION_TREE_SELECTOR);
         $this->wait(5);
     }
 
@@ -489,7 +489,7 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function seeNavigationNodeHierarchy($idParentNavigationNode, $idChildNavigationNode)
     {
-        $this->seeElement(sprintf(
+        $this->waitForElement(sprintf(
             self::NODE_CHILD_SELECTOR,
             $idParentNavigationNode,
             $idChildNavigationNode
