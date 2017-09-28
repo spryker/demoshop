@@ -23,8 +23,6 @@ use Spryker\Shared\ZedRequest\ZedRequestConstants;
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = false;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = false;
-$config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
-$config[ApplicationConstants::SHOW_SYMFONY_TOOLBAR] = false;
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
 
 // ---------- Propel

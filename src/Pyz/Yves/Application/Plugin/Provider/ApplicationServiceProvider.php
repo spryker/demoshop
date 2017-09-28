@@ -43,7 +43,6 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->setPimpleApplication();
         $this->setDebugMode();
         $this->setControllerResolver();
-        $this->setProfilerCacheDirectory();
         $this->setTrustedProxies();
         $this->setTrustedHosts();
         $this->setLocale();
@@ -95,16 +94,6 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->application['resolver'] = $this->application->share(function () {
             return new YvesFragmentControllerResolver($this->application);
         });
-    }
-
-    /**
-     * @return void
-     */
-    protected function setProfilerCacheDirectory()
-    {
-        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
-            $this->application['profiler.cache_dir'] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/profiler';
-        }
     }
 
     /**

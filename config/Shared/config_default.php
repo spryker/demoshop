@@ -45,7 +45,6 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 // ---------- General environment
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
-$config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
 $config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
 $ENVIRONMENT_PREFIX = '';
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = $ENVIRONMENT_PREFIX;

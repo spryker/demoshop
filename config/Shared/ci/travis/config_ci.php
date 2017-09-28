@@ -3,10 +3,12 @@
 use Monolog\Logger;
 use Pyz\Shared\Log\LogConstants;
 use Pyz\Shared\Newsletter\NewsletterConstants;
+use Pyz\Shared\WebProfiler\WebProfilerConstants;
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
+use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
@@ -26,6 +28,9 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 
 // ---------- General
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
+$config[WebProfilerConstants::ENABLE_WEB_PROFILER]
+    = $config[ConfigConstants::ENABLE_WEB_PROFILER]
+    = false;
 
 // ---------- Yves host
 $config[ApplicationConstants::HOST_YVES] = 'www.de.spryker.test';
@@ -153,9 +158,6 @@ $config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
 $config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
 $config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
 $config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
-
-// ---------- Propel
-$config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
 
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
