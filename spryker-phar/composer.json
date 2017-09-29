@@ -1,0 +1,13 @@
+{
+    "name": "jetbrains/phpstorm-workshop",
+    "description": "Materials for the PhpStorm workshop. Check https://github.com/jetbrains/phpstorm-workshop/ for more info.",
+    "minimum-stability": "dev",
+    "license": "Apache-2.0",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Maksim Kolmakov",
+            "email": "maxim.kolmakov@jetbrains.com"
+        }
+    ]
+}

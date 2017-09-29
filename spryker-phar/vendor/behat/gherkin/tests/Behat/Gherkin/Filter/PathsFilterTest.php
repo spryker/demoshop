@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
+namespace Tests\Behat\Gherkin\Filter;
+
+use Behat\Gherkin\Filter\PathsFilter;
+use Behat\Gherkin\Node\FeatureNode;
+
+class PathsFilterTest extends FilterTest
+{
+
+    /**
+     * @return void
+     */
+    public function testIsFeatureMatchFilter()
+    {
+        $feature = new FeatureNode(null, null, [], null, [], null, null, __FILE__, 1);
+
+        $filter = new PathsFilter([__DIR__]);
+        $this->assertTrue($filter->isFeatureMatch($feature));
+
+        $filter = new PathsFilter(['/abc', '/def', dirname(__DIR__)]);
+        $this->assertTrue($filter->isFeatureMatch($feature));
+
+        $filter = new PathsFilter(['/abc', '/def', __DIR__]);
+        $this->assertTrue($filter->isFeatureMatch($feature));
+
+        $filter = new PathsFilter(['/abc', __DIR__, '/def']);
+        $this->assertTrue($filter->isFeatureMatch($feature));
+
+        $filter = new PathsFilter(['/abc', '/def', '/wrong/path']);
+        $this->assertFalse($filter->isFeatureMatch($feature));
+    }
+
+    /**
+     * @return void
+     */
+    public function testItDoesNotMatchPartialPaths()
+    {
+        $fixtures = __DIR__ . DIRECTORY_SEPARATOR . 'Fixtures' . DIRECTORY_SEPARATOR;
+
+        $feature = new FeatureNode(null, null, [], null, [], null, null, $fixtures . 'full_path' . DIRECTORY_SEPARATOR . 'file1', 1);
+
+        $filter = new PathsFilter([$fixtures . 'full']);
+        $this->assertFalse($filter->isFeatureMatch($feature));
+
+        $filter = new PathsFilter([$fixtures . 'full' . DIRECTORY_SEPARATOR]);
+        $this->assertFalse($filter->isFeatureMatch($feature));
+
+        $filter = new PathsFilter([$fixtures . 'full_path' . DIRECTORY_SEPARATOR]);
+        $this->assertTrue($filter->isFeatureMatch($feature));
+
+        $filter = new PathsFilter([$fixtures . 'full_path']);
+        $this->assertTrue($filter->isFeatureMatch($feature));
+    }
+
+}

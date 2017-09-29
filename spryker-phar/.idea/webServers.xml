@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a0e508f8-a658-4975-ba82-96d8aae9127a" name="vm" url="http://192.168.56.102">
+        <fileTransfer host="192.168.56.102" port="22" privateKey="$PROJECT_DIR$/.idea/private_key" accessType="SFTP" keyPair="true" username="vagrant">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

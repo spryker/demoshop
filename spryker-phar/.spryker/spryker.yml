@@ -1,0 +1,72 @@
+stages:
+  development:
+    composer:
+      install-composer:
+        command: "Spryker\Command\Composer\ComposerInstallCommand"
+
+      install-dependencies:
+        command: "vendor/bin/console install"
+
+    before:
+      stop-jenkins:
+        command: "vendor/bin/console setup:jenkins:disable"
+
+      cache-clear:
+        command: "vendor/bin/console cache:clear-all"
+        groups:
+          - cache
+
+    database:
+      flush-elastic:
+        command: "vendor/bin/console search:flush"
+        groups:
+          - elastic
+
+      flush-redis:
+        command: "vendor/bin/console redis:flush"
+        groups:
+          - redis
+
+      drop-schema-files:
+        command: "vendor/bin/console propel:drop:migration-files"
+        groups:
+          - Propel
+
+      setup-propel:
+        command: "vendor/bin/console propel:install"
+        groups:
+          - Propel
+
+    install:
+      init-database:
+        command: "vendor/bin/console setup:init-db"
+
+      import:
+        command: "vendor/bin/console data:import"
+
+      update-product-labels:
+        command: "vendor/bin/console product-label:relations:update"
+
+    export:
+      search:
+        command: "vendor/bin/console collector:search:export"
+      storage:
+        command: "vendor/bin/console collector:storage:export"
+
+    generate:
+      ide-auto-completion:
+        command: "vendor/bin/console dev:ide:generate-auto-completion"
+
+      generate-transfers:
+        command: "vendor/bin/console transfer:generate"
+
+      generate-data-builders:
+        command: "vendor/bin/console transfer:databuilder:generate"
+        groups:
+          - testing
+
+    frontend:
+      npm:
+        commands: "npm -i"
+
+

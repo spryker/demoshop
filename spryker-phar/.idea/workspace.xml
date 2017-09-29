@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="55683029-210d-4c2a-80ca-a13426307ec5" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SetupConsoleCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Spryker/Console/SetupConsoleCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1350">
+              <caret line="90" column="46" lean-forward="false" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigurationBuilder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationBuilder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="75" lean-forward="false" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spryker.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.spryker/spryker.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SetupConsoleCommandTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/SprykerTest/Console/SetupConsoleCommandTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$stage</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>$section</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Exception/ConfigurationException.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Exception/StageExistsException.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Configuration.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/ConfigurationTest.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/Stage/SprykerTest/Configuration/Stage/StageTest.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Stage/StageConfigurationInterface.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Stage/StageInterface.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Exception/SectionExistsException.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/Stage/StageTest.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Stage/Stage.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Command/CommandInterface.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/Command/SprykerTest/Configuration/Command/CommandTest.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Command/CommandConfigurationInterface.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/Command/CommandTest.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Console/SprykerTest/Console/SetupConsoleCommandTest.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Section/SectionConfigurationInterface.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/Section/StageTest.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Exception/CommandExistsException.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Section/SectionInterface.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Section/Section.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/Section/SectionTest.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Console/DescribeSetupConsoleCommand.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Console/DesrcibeConsoleCommandTest.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationInterface.php" />
+        <option value="$PROJECT_DIR$/vendor/bin/codecept" />
+        <option value="$PROJECT_DIR$/src/Spryker/Console/DescribeConsoleCommand.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Console/SetupConsoleCommandTest.php" />
+        <option value="$PROJECT_DIR$/.spryker" />
+        <option value="$PROJECT_DIR$/src/index.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Command/CommandInterface.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Command/Composer/ComposerInstallCommand.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Command/CommandLine/CommandLineCommand.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Command/Callback/CallbackCommand.php" />
+        <option value="$PROJECT_DIR$/.spryker/setup.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Command/Command.php" />
+        <option value="$PROJECT_DIR$/vendor/symfony/css-selector/Parser/Reader.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Command/CommandFactory.php" />
+        <option value="$PROJECT_DIR$/tests/_bootstrap.php" />
+        <option value="$PROJECT_DIR$/codeception.yml" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Console/_bootstrap.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationFactory.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Console/Fixtures/simple-configuration.php" />
+        <option value="$PROJECT_DIR$/tests/SprykerTest/Console/Fixtures/spryker.yml" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Exception/ConfigurationFileNotFound.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/Exception/ConfigurationFileNotFoundException.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationLoader.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationLoaderInterface.php" />
+        <option value="$PROJECT_DIR$/src/Spryker/Console/SetupConsoleCommand.php" />
+        <option value="$PROJECT_DIR$/.spryker/spryker.yml" />
+        <option value="$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationBuilder.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1920" />
+    <option name="y" value="243" />
+    <option name="width" value="1920" />
+    <option name="height" value="913" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name=".spryker" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SprykerTest" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SprykerTest" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Configuration" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SprykerTest" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Console" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="spryker-phar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spryker-phar" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SprykerTest" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Console" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Fixtures" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/SprykerTest/Configuration" />
+      <recent name="$PROJECT_DIR$/tests/SprykerTest" />
+      <recent name="$PROJECT_DIR$/tests/SprykerTest/Console" />
+      <recent name="$PROJECT_DIR$/src/Spryker/Console" />
+      <recent name="$PROJECT_DIR$/tests/SprykerTest/Configuration/SprykerTest/Configuration/Command" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.spryker" />
+      <recent name="$PROJECT_DIR$/tests/SprykerTest/Configuration" />
+      <recent name="$PROJECT_DIR$/tests/SprykerTest/Console" />
+      <recent name="$PROJECT_DIR$/src/Spryker/Command/CommandLine" />
+      <recent name="$PROJECT_DIR$/src/Spryker/Console" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55683029-210d-4c2a-80ca-a13426307ec5" name="Default" comment="" />
+      <created>1505500005544</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1505500005544</updated>
+      <workItem from="1505500007265" duration="8165000" />
+      <workItem from="1505819374505" duration="2652000" />
+      <workItem from="1505822978132" duration="14267000" />
+      <workItem from="1506605614751" duration="266000" />
+      <workItem from="1506606208836" duration="21000" />
+      <workItem from="1506606490218" duration="55000" />
+      <workItem from="1506606555641" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="25431000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1920" y="243" width="1920" height="913" extended-state="0" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Redis Servers" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Codecept Form" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20979765" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationBuilder.php</url>
+          <line>35</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Spryker/Console/SetupConsoleCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="46" lean-forward="false" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.spryker/spryker.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/SprykerTest/Console/SetupConsoleCommandTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="75" lean-forward="true" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spryker/Console/SetupConsoleCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="46" lean-forward="false" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.spryker/spryker.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/SprykerTest/Console/SetupConsoleCommandTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spryker/Console/SetupConsoleCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="46" lean-forward="false" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.spryker/spryker.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/SprykerTest/Console/SetupConsoleCommandTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Spryker/Configuration/ConfigurationBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="75" lean-forward="false" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
