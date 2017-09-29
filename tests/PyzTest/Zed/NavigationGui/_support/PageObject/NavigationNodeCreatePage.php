@@ -11,6 +11,6 @@ class NavigationNodeCreatePage
 {
 
     const URL = '/navigation-gui/node/create';
-    const MESSAGE_SUCCESS = '/Navigation node #(\d+) successfully created./';
+    const MESSAGE_SUCCESS = '/Navigation node "([^"]*)" was created successfully\\./';
 
 }
