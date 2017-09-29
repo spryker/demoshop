@@ -9,6 +9,7 @@ namespace Pyz\Client\Catalog;
 
 use Pyz\Client\Catalog\Plugin\Config\CatalogSearchConfigBuilder;
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin;
+use Pyz\Client\Catalog\Plugin\Elasticsearch\QueryExpander\CartBoostQueryExpanderPlugin;
 use Spryker\Client\Catalog\CatalogDependencyProvider as SprykerCatalogDependencyProvider;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 use Spryker\Client\Kernel\Container;
@@ -35,6 +36,8 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
     const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
     const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
+    const CART_CLIENT = 'cart client';
+    const PRODUCT_CLIENT = 'product client';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -44,6 +47,14 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     public function provideServiceLayerDependencies(Container $container)
     {
         $container = parent::provideServiceLayerDependencies($container);
+
+        $container[self::CART_CLIENT] = function (Container $container) {
+            return $container->getLocator()->cart()->client();
+        };
+
+        $container[self::PRODUCT_CLIENT] = function (Container $container) {
+            return $container->getLocator()->product()->client();
+        };
 
         $container = $this->provideFeatureProductsResultFormatterPlugins($container);
         $container = $this->provideFeatureProductsQueryExpanderPlugins($container);
@@ -69,7 +80,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new LocalizedQueryExpanderPlugin(),
             new FacetQueryExpanderPlugin(),
             new SortedQueryExpanderPlugin(),
-            new SortedCategoryQueryExpanderPlugin(CatalogSearchConfigBuilder::CATEGORY_FACET_PARAM_NAME),
+            new CartBoostQueryExpanderPlugin(),
             new PaginatedQueryExpanderPlugin(),
             new SpellingSuggestionQueryExpanderPlugin(),
             new IsActiveQueryExpanderPlugin(),
