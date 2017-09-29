@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: theodorosliokos
@@ -29,12 +30,11 @@ use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
  */
 class CartBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpanderPluginInterface
 {
+
     const SEPARATOR = '.';
     const BOOSTED_ATTRIBUTE = 'attributes.color';
 
     /**
-     * @api
-     *
      * @param \Spryker\Client\Search\Dependency\Plugin\QueryInterface $searchQuery
      * @param array $requestParameters
      *
@@ -74,6 +74,7 @@ class CartBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpand
 
     /**
      * @param ItemTransfer $itemTransfer
+     *
      * @return null
      */
     private function getProductAttribute(ItemTransfer $itemTransfer)
@@ -87,7 +88,8 @@ class CartBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpand
     }
 
     /**
-     * @param $product
+     * @param array $product
+     *
      * @return null|mixed
      */
     private function extractProductAttribute($product)
@@ -105,7 +107,8 @@ class CartBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpand
 
 
     /**
-     * @param $searchString
+     * @param string $searchString
+     *
      * @return \Elastica\Query\MultiMatch
      */
     private function createFulltextSearchQuery($searchString)
@@ -138,4 +141,5 @@ class CartBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpand
 
         return $boolQuery;
     }
+
 }
