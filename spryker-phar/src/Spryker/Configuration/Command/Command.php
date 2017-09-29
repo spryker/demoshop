@@ -71,7 +71,8 @@ class Command implements CommandConfigurationInterface, CommandInterface
 
     /**
      * @param array $groups
-     * @return self
+     *
+     * @return $this
      */
     public function setGroups($groups)
     {
