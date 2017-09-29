@@ -5,11 +5,11 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace PyzTest\Zed\NavigationGui\PageObject;
+namespace Pyz\Shared\WebProfiler;
 
-class NavigationNodeUpdatePage
+interface WebProfilerConstants
 {
 
-    const MESSAGE_SUCCESS = '/Navigation node "([^"]*)" was updated successfully./';
+    const ENABLE_WEB_PROFILER = 'WEBPROFILER:ENABLE_WEB_PROFILER';
 
 }

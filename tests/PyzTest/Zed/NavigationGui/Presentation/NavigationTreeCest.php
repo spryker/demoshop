@@ -145,7 +145,7 @@ class NavigationTreeCest
         $i->waitForNavigationTree();
         $i->clickNode($idNavigationNode);
         $i->switchToNodeForm();
-        $i->see('Update node');
+        $i->see('Edit node');
         $i->submitUpdateNodeToCategoryType('/en/computer', '/de/computer');
 
         $i->seeSuccessMessage(NavigationNodeUpdatePage::MESSAGE_SUCCESS);
@@ -188,13 +188,15 @@ class NavigationTreeCest
         $i->see('Create child node');
         $i->submitCreateNodeFormWithCmsPageType('Child 1.1', '/en/imprint', '/de/impressum');
 
-        $idChildNavigationNode = $i->seeSuccessMessage(NavigationNodeCreatePage::MESSAGE_SUCCESS);
+        $childNavigationNodeName = $i->seeSuccessMessage(NavigationNodeCreatePage::MESSAGE_SUCCESS);
         $i->switchToNavigationTree();
         $i->seeNumberOfNavigationNodes(3);
-        $i->seeNavigationNodeHierarchy($idNavigationNode, $idChildNavigationNode);
+        $i->seeNavigationNodeHierarchyByChildNodeName($idNavigationNode, $childNavigationNodeName);
     }
 
     /**
+     * @group singleNavigationTest
+     *
      * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
