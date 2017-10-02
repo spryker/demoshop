@@ -10,6 +10,7 @@ namespace Pyz\Client\Catalog;
 use Pyz\Client\Catalog\Plugin\Config\CatalogSearchConfigBuilder;
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin;
 use Pyz\Client\Catalog\Plugin\Elasticsearch\QueryExpander\CartBoostQueryExpanderPlugin;
+use Pyz\Client\Catalog\Plugin\Elasticsearch\QueryExpander\OrderHistoryBoostQueryExpanderPlugin;
 use Spryker\Client\Catalog\CatalogDependencyProvider as SprykerCatalogDependencyProvider;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 use Spryker\Client\Kernel\Container;
@@ -38,6 +39,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
     const CART_CLIENT = 'cart client';
     const PRODUCT_CLIENT = 'product client';
+    const SALES_CLIENT = 'sales client';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -50,6 +52,10 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
         $container[self::CART_CLIENT] = function (Container $container) {
             return $container->getLocator()->cart()->client();
+        };
+
+        $container[self::SALES_CLIENT] = function (Container $container) {
+            return $container->getLocator()->sales()->client();
         };
 
         $container[self::PRODUCT_CLIENT] = function (Container $container) {
@@ -81,6 +87,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new FacetQueryExpanderPlugin(),
             new SortedQueryExpanderPlugin(),
             new CartBoostQueryExpanderPlugin(),
+            new OrderHistoryBoostQueryExpanderPlugin(),
             new PaginatedQueryExpanderPlugin(),
             new SpellingSuggestionQueryExpanderPlugin(),
             new IsActiveQueryExpanderPlugin(),

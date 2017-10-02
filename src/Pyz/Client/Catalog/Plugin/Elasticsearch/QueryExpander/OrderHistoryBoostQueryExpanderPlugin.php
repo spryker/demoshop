@@ -14,7 +14,7 @@ use Elastica\Query\BoolQuery;
 use Elastica\Query\FunctionScore;
 use Elastica\Query\MultiMatch;
 use Generated\Shared\Search\PageIndexMap;
-use Generated\Shared\Transfer\ItemTransfer;
+use Generated\Shared\Transfer\OrderListTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use InvalidArgumentException;
 use Pyz\Client\Catalog\CatalogFactory;
@@ -28,11 +28,13 @@ use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
  *
  * @method CatalogFactory getFactory()
  */
-class CartBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpanderPluginInterface
+class OrderHistoryBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpanderPluginInterface
 {
 
-    const SEPARATOR = '.';
-    const BOOSTED_ATTRIBUTE = 'attributes.color';
+    /**
+     * @var array
+     */
+    private $orderedItems = [];
 
     /**
      * @param \Spryker\Client\Search\Dependency\Plugin\QueryInterface $searchQuery
@@ -43,80 +45,80 @@ class CartBoostQueryExpanderPlugin extends AbstractPlugin implements QueryExpand
     public function expandQuery(QueryInterface $searchQuery, array $requestParameters = [])
     {
         $quoteTransfer = $this->getFactory()->getCartClient()->getQuote();
-        if (!$quoteTransfer->getItems()->count()) {
+        $this->populateOrderedItems($quoteTransfer);
+
+        if(!$this->orderedItems) {
             return $searchQuery;
         }
+
         $boolQuery = $this->getBoolQuery($searchQuery->getSearchQuery());
-        $this->boostByCartItemAttribute($boolQuery, $quoteTransfer);
+        $this->boostByOrderedItemsHistory($boolQuery);
 
         return $searchQuery;
     }
 
     /**
-     * @param BoolQuery $boolQuery
      * @param QuoteTransfer $quoteTransfer
+     *
+     * @return void
      */
-    private function boostByCartItemAttribute(BoolQuery $boolQuery, QuoteTransfer $quoteTransfer)
+    private function populateOrderedItems(QuoteTransfer $quoteTransfer)
+    {
+        if ($quoteTransfer->getCustomer()) {
+            $orderList = $this->getOrderListByCustomer($quoteTransfer->getCustomer()->getIdCustomer());
+            foreach ($orderList->getOrders() as $order) {
+                foreach ($order->getItems() as $item) {
+                    if (!isset($this->orderedItems[$item->getSku()])) {
+                        $this->orderedItems[$item->getSku()] = 0;
+                    }
+                    $this->orderedItems[$item->getSku()] += $item->getQuantity();
+                }
+            }
+        }
+    }
+
+    /**
+     * @param $customerId
+     *
+     * @return OrderListTransfer
+     */
+    private function getOrderListByCustomer($customerId)
+    {
+        $orderListTransfer = new OrderListTransfer();
+        $orderListTransfer->setIdCustomer($customerId);
+        $salesClient = $this->getFactory()->getSalesClient();
+
+        return  $salesClient->getOrders($orderListTransfer);
+    }
+
+
+    /**
+     * @param BoolQuery $boolQuery
+     */
+    private function boostByOrderedItemsHistory(BoolQuery $boolQuery)
     {
         $functionScoreQuery = new FunctionScore();
         $functionScoreQuery->setScoreMode(FunctionScore::SCORE_MODE_MULTIPLY);
         $functionScoreQuery->setBoostMode(FunctionScore::BOOST_MODE_MULTIPLY);
-        foreach ($quoteTransfer->getItems() as $itemTransfer) {
-            $attribute = $this->getProductAttribute($itemTransfer);
-            if ($attribute) {
-                $filter = $this->createFulltextSearchQuery($attribute);
-                $functionScoreQuery->addFunction('weight', 20, $filter);
-            }
+        foreach ($this->orderedItems as $sku => $quantity) {
+            $filter = $this->createFulltextSearchQuery($sku);
+            $functionScoreQuery->addFunction('weight', 30 * $quantity, $filter);
         }
 
         $boolQuery->addMust($functionScoreQuery);
     }
 
     /**
-     * @param ItemTransfer $itemTransfer
-     *
-     * @return null
+     * @param $sku
+     * @return MultiMatch
      */
-    private function getProductAttribute(ItemTransfer $itemTransfer)
-    {
-        $product = $this->getFactory()
-            ->getProductClient()
-            ->getProductConcreteByIdForCurrentLocale($itemTransfer->getId());
-
-        return $this->extractProductAttribute($product);
-    }
-
-    /**
-     * @param array $product
-     *
-     * @return null|mixed
-     */
-    private function extractProductAttribute($product)
-    {
-        $attributes = explode(self::SEPARATOR, self::BOOSTED_ATTRIBUTE);
-        foreach ($attributes as $attribute) {
-            if (!isset($product[$attribute])) {
-                return null;
-            }
-            $product = $product[$attribute];
-        }
-
-        return $product;
-    }
-
-
-    /**
-     * @param string $searchString
-     *
-     * @return \Elastica\Query\MultiMatch
-     */
-    private function createFulltextSearchQuery($searchString)
+    private function createFulltextSearchQuery($sku)
     {
         $matchQuery = (new MultiMatch())->setFields([
             PageIndexMap::FULL_TEXT,
             PageIndexMap::FULL_TEXT_BOOSTED . '^3',
         ])
-        ->setQuery($searchString)
+        ->setQuery($sku)
         ->setType(MultiMatch::TYPE_CROSS_FIELDS);
 
         return $matchQuery;

@@ -11,6 +11,7 @@ use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\FeaturedProductsQueryPlugin;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
 use Spryker\Client\Product\ProductClientInterface;
+use Spryker\Client\Sales\SalesClientInterface;
 
 class CatalogFactory extends SprykerCatalogFactory
 {
@@ -52,6 +53,14 @@ class CatalogFactory extends SprykerCatalogFactory
     public function getCartClient()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CART_CLIENT);
+    }
+
+    /**
+     * @return SalesClientInterface
+     */
+    public function getSalesClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::SALES_CLIENT);
     }
 
     /**
