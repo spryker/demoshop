@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcde3fe33a453bb60e8c3a2dfd260654",
+    "content-hash": "42435c937d0bb4cbf52e345282ffa2a2",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -6748,11 +6748,11 @@
         },
         {
             "name": "spryker/navigation",
-            "version": "1.0.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Navigation.git",
-                "reference": "f1c4f5cff48ffcff1065391e7f2a68c7ae53fb3d",
+                "reference": "fa6a4e24d8a8e7db8b68880807a22fe9ba292b68",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6762,8 +6762,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Navigation/zipball/f1c4f5cff48ffcff1065391e7f2a68c7ae53fb3d",
-                "reference": "f1c4f5cff48ffcff1065391e7f2a68c7ae53fb3d",
+                "url": "https://api.github.com/repos/spryker/Navigation/zipball/fa6a4e24d8a8e7db8b68880807a22fe9ba292b68",
+                "reference": "fa6a4e24d8a8e7db8b68880807a22fe9ba292b68",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6784,7 +6784,8 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/propel": "^3.0.0",
+                "spryker/propel": "*",
+                "spryker/silex": "*",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -6812,17 +6813,17 @@
             ],
             "description": "Navigation module",
             "support": {
-                "source": "https://github.com/spryker/Navigation/tree/1.0.2"
+                "source": "https://github.com/spryker/Navigation/tree/master"
             },
-            "time": "2017-09-08T10:42:54+00:00"
+            "time": "2017-09-20T11:00:15+00:00"
         },
         {
             "name": "spryker/navigation-collector",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationCollector.git",
-                "reference": "d9835517a73ad23b221fff38e0b3d7d210a3c9ff",
+                "reference": "469dea2687d42e41fdc6e176f877bfdac5b9ee52",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6832,8 +6833,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationCollector/zipball/d9835517a73ad23b221fff38e0b3d7d210a3c9ff",
-                "reference": "d9835517a73ad23b221fff38e0b3d7d210a3c9ff",
+                "url": "https://api.github.com/repos/spryker/NavigationCollector/zipball/469dea2687d42e41fdc6e176f877bfdac5b9ee52",
+                "reference": "469dea2687d42e41fdc6e176f877bfdac5b9ee52",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6846,7 +6847,7 @@
                 "spryker/collector": "^5.1.1",
                 "spryker/kernel": "^3.0.0",
                 "spryker/key-builder": "^1.0.0",
-                "spryker/navigation": "^1.0.0",
+                "spryker/navigation": "^1.0.0 || ^2.0.0",
                 "spryker/propel-orm": "^1.1.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/touch": "^3.0.0",
@@ -6880,17 +6881,17 @@
             ],
             "description": "NavigationCollector module",
             "support": {
-                "source": "https://github.com/spryker/NavigationCollector/tree/1.0.2"
+                "source": "https://github.com/spryker/NavigationCollector/tree/1.0.3"
             },
-            "time": "2017-09-11T14:40:18+00:00"
+            "time": "2017-10-02T09:31:28+00:00"
         },
         {
             "name": "spryker/navigation-gui",
-            "version": "1.1.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationGui.git",
-                "reference": "d2378df93e0a3ff618ea9ca73b99a033f0ee9fd2",
+                "reference": "ecc00fff0436f2e92cca96138d0eafd8079fb74e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6900,8 +6901,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/d2378df93e0a3ff618ea9ca73b99a033f0ee9fd2",
-                "reference": "d2378df93e0a3ff618ea9ca73b99a033f0ee9fd2",
+                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/ecc00fff0436f2e92cca96138d0eafd8079fb74e",
+                "reference": "ecc00fff0436f2e92cca96138d0eafd8079fb74e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6916,7 +6917,7 @@
                 "spryker/gui": "^3.7.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
-                "spryker/navigation": "^1.0.0",
+                "spryker/navigation": "^2.0.0",
                 "spryker/propel-orm": "^1.1.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/url": "^3.1.0",
@@ -6949,7 +6950,10 @@
                 "proprietary"
             ],
             "description": "NavigationGui module",
-            "time": "2017-09-27T09:34:34+00:00"
+            "support": {
+                "source": "https://github.com/spryker/NavigationGui/tree/master"
+            },
+            "time": "2017-10-02T09:06:55+00:00"
         },
         {
             "name": "spryker/new-relic",
