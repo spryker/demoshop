@@ -18,6 +18,7 @@ use Spryker\Zed\CodeGenerator\Communication\Console\BundleYvesCodeGeneratorConso
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
+use Spryker\Zed\Console\Communication\Plugin\ConsoleLogPlugin;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 use Spryker\Zed\DataImport\Communication\Console\DataImportConsole;
 use Spryker\Zed\Development\Communication\Console\BundleCreateConsole;
@@ -106,8 +107,11 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new ProductLabelValidityConsole(),
             new ProductLabelRelationUpdaterConsole(),
             new DataImportConsole(),
+            new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_STORE),
+            new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_CURRENCY),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_CATEGORY_TEMPLATE),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_CATEGORY),
+            new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_CUSTOMER),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_GLOSSARY),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_NAVIGATION),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_NAVIGATION_NODE),
@@ -128,6 +132,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_GROUP),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_OPTION),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_RELATION),
+            new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_REVIEW),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_LABEL),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_SET),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP),
@@ -186,19 +191,16 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
      *
      * @return \Symfony\Component\EventDispatcher\EventSubscriberInterface[]
      */
-    protected function getEventSubscriber(Container $container)
+    public function getEventSubscriber(Container $container)
     {
-        return [
-            $this->createNewRelicConsolePlugin()
-        ];
-    }
+        $eventSubscriber = parent::getEventSubscriber($container);
 
-    /**
-     * @return \Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin
-     */
-    protected function createNewRelicConsolePlugin()
-    {
-        return new NewRelicConsolePlugin();
+        if (!Environment::isDevelopment()) {
+            $eventSubscriber[] = new ConsoleLogPlugin();
+            $eventSubscriber[] = new NewRelicConsolePlugin();
+        }
+
+        return $eventSubscriber;
     }
 
 }

@@ -17,7 +17,7 @@ class YvesBootstrap extends Framework
 {
 
     /**
-     * @var \Spryker\Zed\Testify\Bootstrap\ZedBootstrap
+     * @var \PyzTest\Shared\Testify\Helper\Bootstrap\YvesBootstrap
      */
     private $application;
 

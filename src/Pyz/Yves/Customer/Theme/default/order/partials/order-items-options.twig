@@ -8,7 +8,7 @@
                 <small>{{ productOption.value | trans }}</small>
             </td>
             <td class="text-right">
-                <small>{{ productOption.unitPrice | money }}</small>
+                <small>{{ productOption.unitPrice | money(true, order.currencyIsoCode) }}</small>
             </td>
             <td class="text-right" colspan="2"></td>
         </tr>
