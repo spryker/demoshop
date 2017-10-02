@@ -3,8 +3,12 @@
 {% set externalUrl = node.navigationNode.navigationNodeLocalizedAttributes[0].externalUrl %}
 {% set link = node.navigationNode.navigationNodeLocalizedAttributes[0].link %}
 {% set title = node.navigationNode.navigationNodeLocalizedAttributes[0].title %}
+{% set today = "now"|date("Ymd") %}
 
-{% if node.navigationNode.isActive %}
+{% if node.navigationNode.isActive and
+    (node.navigationNode.validFrom is empty or node.navigationNode.validFrom|date("Ymd") <= today) and
+    (node.navigationNode.validTo is empty or node.navigationNode.validTo|date("Ymd") >= today)
+%}
     {% block nodeContainer %}
         {% if url %}
             {% block url %}{% endblock %}
