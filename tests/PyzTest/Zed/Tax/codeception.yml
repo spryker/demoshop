@@ -36,3 +36,4 @@ suites:
               - \SprykerTest\Shared\Application\Helper\ZedHelper
               - \SprykerTest\Shared\Application\Helper\YvesHelper
               - \SprykerTest\Shared\Application\Helper\SetupHelper
+              - \SprykerTest\Shared\Testify\Helper\SeeHelper
