@@ -112,7 +112,7 @@ class NavigationCRUDCest
         $i->amOnPage(NavigationPage::URL);
         $i->waitForElementVisible(NavigationPage::PAGE_LIST_TABLE_XPATH, 5);
         $i->activateFirstNavigationRow();
-        $i->seeSuccessMessage(NavigationStatusTogglePage::MESSAGE_SUCCESS);
+        $i->seeSuccessMessage(NavigationStatusTogglePage::MESSAGE_ACTIVE_SUCCESS);
         $i->seeCurrentUrlEquals(NavigationPage::URL);
     }
 

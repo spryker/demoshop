@@ -17,7 +17,6 @@ use Spryker\Shared\Log\LogConstants;
 
 use Spryker\Yves\Kernel\ControllerResolver\YvesFragmentControllerResolver;
 use Spryker\Yves\Kernel\Plugin\Pimple;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ApplicationServiceProvider extends AbstractServiceProvider
@@ -43,12 +42,8 @@ class ApplicationServiceProvider extends AbstractServiceProvider
         $this->setPimpleApplication();
         $this->setDebugMode();
         $this->setControllerResolver();
-        $this->setProfilerCacheDirectory();
-        $this->setTrustedProxies();
-        $this->setTrustedHosts();
         $this->setLocale();
         $this->setLogLevel();
-        $this->setProtocolCheck();
 
         $this->addTwigExtension($this->application, [
             $this->getFactory()->getTwigYvesExtension(),
@@ -67,7 +62,6 @@ class ApplicationServiceProvider extends AbstractServiceProvider
      */
     public function boot(Application $app)
     {
-        // do nothing
     }
 
     /**
@@ -100,34 +94,6 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     /**
      * @return void
      */
-    protected function setProfilerCacheDirectory()
-    {
-        if (Config::get(ApplicationConstants::ENABLE_WEB_PROFILER, false)) {
-            $this->application['profiler.cache_dir'] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/cache/profiler';
-        }
-    }
-
-    /**
-     * @return void
-     */
-    protected function setTrustedProxies()
-    {
-        $proxies = Config::get(ApplicationConstants::YVES_TRUSTED_PROXIES);
-        Request::setTrustedProxies($proxies);
-    }
-
-    /**
-     * @return void
-     */
-    protected function setTrustedHosts()
-    {
-        $trustedHosts = Config::get(ApplicationConstants::YVES_TRUSTED_HOSTS);
-        Request::setTrustedHosts($trustedHosts);
-    }
-
-    /**
-     * @return void
-     */
     protected function setLocale()
     {
         $store = Store::getInstance();
@@ -153,32 +119,6 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     protected function setLogLevel()
     {
         $this->application['monolog.level'] = Config::get(LogConstants::LOG_LEVEL);
-    }
-
-    /**
-     * @return void
-     */
-    protected function setProtocolCheck()
-    {
-        if (!Config::get(ApplicationConstants::YVES_SSL_ENABLED) || !Config::get(ApplicationConstants::YVES_COMPLETE_SSL_ENABLED)) {
-            return;
-        }
-
-        $this->application->before(
-            function (Request $request) {
-                if (!$request->isSecure()
-                    && !in_array($request->getPathInfo(), Config::get(ApplicationConstants::YVES_SSL_EXCLUDED))
-                ) {
-                    $fakeRequest = clone $request;
-                    $fakeRequest->server->set('HTTPS', true);
-
-                    return new RedirectResponse($fakeRequest->getUri(), 301);
-                }
-
-                return null;
-            },
-            255
-        );
     }
 
     /**
