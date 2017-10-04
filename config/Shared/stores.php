@@ -36,7 +36,7 @@ $stores['DE'] = [
     'countries' => ['DE', 'AT'],
     // internal and shop
     'currencyIsoCode' => 'EUR',
-    'currencyIsoCodes' => ['EUR', 'USD'],
+    'currencyIsoCodes' => ['EUR'],
 ];
 
 return $stores;

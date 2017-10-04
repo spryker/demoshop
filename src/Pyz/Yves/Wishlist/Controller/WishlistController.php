@@ -7,8 +7,8 @@
 
 namespace Pyz\Yves\Wishlist\Controller;
 
+use Generated\Shared\Transfer\WishlistItemMetaTransfer;
 use Generated\Shared\Transfer\WishlistItemTransfer;
-use Generated\Shared\Transfer\WishlistMoveToCartRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewRequestTransfer;
 use Generated\Shared\Transfer\WishlistOverviewResponseTransfer;
 use Generated\Shared\Transfer\WishlistTransfer;
@@ -138,14 +138,26 @@ class WishlistController extends AbstractController
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGIN);
         }
 
-        $wishlistMoveToCartRequestTransfer = (new WishlistMoveToCartRequestTransfer())
-            ->setSku($request->query->get(self::PARAM_SKU))
-            ->setWishlistItem($wishlistItemTransfer);
+        $wishlistItemMetaTransferCollection = [
+            (new WishlistItemMetaTransfer())
+                ->setSku($wishlistItemTransfer->getSku())
+        ];
 
-        $this->getClient()->moveToCart($wishlistMoveToCartRequestTransfer);
+        $result = $this->getFactory()
+            ->createMoveToCartHandler()
+            ->moveAllAvailableToCart(
+                $wishlistItemTransfer->getWishlistName(),
+                $wishlistItemMetaTransferCollection
+            );
+
+        if ($result->getRequests()->count()) {
+            $this->addErrorMessage('customer.account.wishlist.item.moved_to_cart.failed');
+            return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
+                'wishlistName' => $wishlistItemTransfer->getWishlistName(),
+            ]);
+        }
 
         $this->addSuccessMessage('customer.account.wishlist.item.moved_to_cart');
-
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
             'wishlistName' => $wishlistItemTransfer->getWishlistName(),
         ]);
@@ -168,13 +180,18 @@ class WishlistController extends AbstractController
                 ->get(AddAllAvailableProductsToCartFormType::WISHLIST_ITEM_META_COLLECTION)
                 ->getData();
 
-            $count = $this->getFactory()
+            $result = $this->getFactory()
                 ->createMoveToCartHandler()
                 ->moveAllAvailableToCart($wishlistName, $wishlistItemMetaTransferCollection);
 
-            if ($count) {
-                $this->addSuccessMessage('customer.account.wishlist.item.moved_all_available_to_cart');
+            if ($result->getRequests()->count()) {
+                $this->addErrorMessage('customer.account.wishlist.item.moved_all_available_to_cart.failed');
+                return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
+                    'wishlistName' => $wishlistName,
+                ]);
             }
+
+            $this->addSuccessMessage('customer.account.wishlist.item.moved_all_available_to_cart');
         }
 
         return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
