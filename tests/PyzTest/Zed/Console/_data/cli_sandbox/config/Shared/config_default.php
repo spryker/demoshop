@@ -122,8 +122,6 @@ $config[ApplicationConstants::HOST_ZED_GUI]
     = $config[ApplicationConstants::HOST_SSL_ZED_API]
     = 'zed.de.project.local';
 
-$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
-
 $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED] =
     $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_ENABLED] = false;
 
@@ -164,19 +162,10 @@ $config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_TIMEOUT_MILLISECONDS] = 
 $config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_RETRY_DELAY_MICROSECONDS] = 0;
 $config[SessionConstants::SESSION_HANDLER_REDIS_LOCKING_LOCK_TTL_MILLISECONDS] = 0;
 
-$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
-$config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
 $config[TwigConstants::YVES_THEME]
     = $config[CmsConstants::YVES_THEME] = 'default';
-
-$config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
-$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
-$config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
-$config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
-    'heartbeat' => '/heartbeat',
-];
 
 $config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
 $config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';

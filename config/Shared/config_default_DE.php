@@ -27,7 +27,6 @@ $config[ProductManagementConstants::BASE_URL_YVES] = $config[ApplicationConstant
 $config[PayolutionConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[NewsletterConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
-$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
 // ---------- Zed host
 $config[ApplicationConstants::HOST_ZED] = 'zed.de.demoshop.local';

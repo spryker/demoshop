@@ -35,6 +35,9 @@ $config[WebProfilerConstants::ENABLE_WEB_PROFILER]
     = $config[ConfigConstants::ENABLE_WEB_PROFILER]
     = true;
 
+$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
+
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = true;
 $config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;

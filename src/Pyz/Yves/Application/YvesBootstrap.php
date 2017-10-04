@@ -40,16 +40,15 @@ use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
-use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\RoutingServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\UrlGeneratorServiceProvider;
-use Spryker\Shared\Config\Config;
 use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
 use Spryker\Yves\Application\Plugin\ServiceProvider\KernelLogServiceProvider;
+use Spryker\Yves\Application\Plugin\ServiceProvider\SslServiceProvider;
 use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
 use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
 use Spryker\Yves\Kernel\Application;
@@ -75,9 +74,15 @@ class YvesBootstrap
      */
     protected $application;
 
+    /**
+     * @var \Pyz\Yves\Application\ApplicationConfig
+     */
+    protected $config;
+
     public function __construct()
     {
         $this->application = new Application();
+        $this->config = new ApplicationConfig();
     }
 
     /**
@@ -97,6 +102,7 @@ class YvesBootstrap
      */
     protected function registerServiceProviders()
     {
+        $this->application->register(new SslServiceProvider());
         $this->application->register(new StorageCacheServiceProvider());
         $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new KernelLogServiceProvider());
@@ -154,7 +160,7 @@ class YvesBootstrap
      */
     protected function registerControllerProviders()
     {
-        $isSsl = Config::get(ApplicationConstants::YVES_SSL_ENABLED);
+        $isSsl = $this->config->isSslEnabled();
 
         $controllerProviders = $this->getControllerProviderStack($isSsl);
 
