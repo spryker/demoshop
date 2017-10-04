@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.17",
+            "version": "3.36.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4bf27e8808e5e08a71b7fbdb951f51918c57a1c6"
+                "reference": "bed7567b2ed8e70fbf5e1ecf927100e91955b29a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4bf27e8808e5e08a71b7fbdb951f51918c57a1c6",
-                "reference": "4bf27e8808e5e08a71b7fbdb951f51918c57a1c6",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bed7567b2ed8e70fbf5e1ecf927100e91955b29a",
+                "reference": "bed7567b2ed8e70fbf5e1ecf927100e91955b29a",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-09-29T19:46:41+00:00"
+            "time": "2017-10-03T15:53:57+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -840,16 +840,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.7",
+            "version": "v3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "52d80135bd820f0486d14e03789ebcb45323b2d5"
+                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/52d80135bd820f0486d14e03789ebcb45323b2d5",
-                "reference": "52d80135bd820f0486d14e03789ebcb45323b2d5",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/149ba5943511e118bf68f9118e3c84bbe42bf94f",
+                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f",
                 "shasum": ""
             },
             "require": {
@@ -914,7 +914,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-08-04T16:41:06+00:00"
+            "time": "2017-10-03T09:21:46+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1716,7 +1716,7 @@
             ],
             "description": "Acl module",
             "support": {
-                "source": "https://github.com/spryker/Acl/tree/master"
+                "source": "https://github.com/spryker/Acl/tree/3.0.2"
             },
             "time": "2017-08-29T09:44:02+00:00"
         },
@@ -1856,11 +1856,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "3.5.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "ef8c54f2a286620bf58e3137635c0128c115ec1b",
+                "reference": "64cfa5e39ab872eac931db13703bef1251cfedcd",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -1870,8 +1870,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/ef8c54f2a286620bf58e3137635c0128c115ec1b",
-                "reference": "ef8c54f2a286620bf58e3137635c0128c115ec1b",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/64cfa5e39ab872eac931db13703bef1251cfedcd",
+                "reference": "64cfa5e39ab872eac931db13703bef1251cfedcd",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1883,7 +1883,7 @@
             "require": {
                 "spryker/config": "^3.0.0",
                 "spryker/error-handler": "^2.0.0",
-                "spryker/kernel": "^3.0.0",
+                "spryker/kernel": "^3.8.0",
                 "spryker/log": "^3.1.0",
                 "spryker/monolog": "^2.0.0",
                 "spryker/propel-orm": "^1.0.0",
@@ -1928,9 +1928,9 @@
             ],
             "description": "Application module",
             "support": {
-                "source": "https://github.com/spryker/Application/tree/master"
+                "source": "https://github.com/spryker/Application/tree/3.6.0"
             },
-            "time": "2017-09-25T09:34:43+00:00"
+            "time": "2017-10-02T10:27:07+00:00"
         },
         {
             "name": "spryker/assertion",
@@ -2488,7 +2488,7 @@
             ],
             "description": "Braintree module",
             "support": {
-                "source": "https://github.com/spryker/Braintree/tree/master"
+                "source": "https://github.com/spryker/Braintree/tree/0.5.6"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -3083,7 +3083,7 @@
             ],
             "description": "Checkout module",
             "support": {
-                "source": "https://github.com/spryker/Checkout/tree/master"
+                "source": "https://github.com/spryker/Checkout/tree/3.1.1"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -4239,7 +4239,10 @@
                 "proprietary"
             ],
             "description": "Config module",
-            "time": "2017-09-27T12:04:50+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Config/tree/master"
+            },
+            "time": "2017-09-27T12:07:31+00:00"
         },
         {
             "name": "spryker/console",
@@ -4690,7 +4693,7 @@
             ],
             "description": "CustomerGroup module",
             "support": {
-                "source": "https://github.com/spryker/CustomerGroup/tree/master"
+                "source": "https://github.com/spryker/CustomerGroup/tree/2.2.0"
             },
             "time": "2017-08-29T13:22:27+00:00"
         },
@@ -4822,7 +4825,7 @@
             ],
             "description": "DataImport module",
             "support": {
-                "source": "https://github.com/spryker/DataImport/tree/1.2.0"
+                "source": "https://github.com/spryker/DataImport/tree/master"
             },
             "time": "2017-09-18T07:58:07+00:00"
         },
@@ -4902,7 +4905,7 @@
             ],
             "description": "Discount module",
             "support": {
-                "source": "https://github.com/spryker/Discount/tree/master"
+                "source": "https://github.com/spryker/Discount/tree/4.6.0"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -5040,6 +5043,9 @@
                 "proprietary"
             ],
             "description": "DiscountPromotion module",
+            "support": {
+                "source": "https://github.com/spryker/DiscountPromotion/tree/1.0.1"
+            },
             "time": "2017-09-08T09:49:31+00:00"
         },
         {
@@ -5113,7 +5119,7 @@
             ],
             "description": "DummyPayment module",
             "support": {
-                "source": "https://github.com/spryker/DummyPayment/tree/master"
+                "source": "https://github.com/spryker/DummyPayment/tree/2.1.2"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -6699,6 +6705,9 @@
                 "proprietary"
             ],
             "description": "Money module",
+            "support": {
+                "source": "https://github.com/spryker/Money/tree/master"
+            },
             "time": "2017-09-13T14:54:17+00:00"
         },
         {
@@ -7205,7 +7214,7 @@
             ],
             "description": "Nopayment module",
             "support": {
-                "source": "https://github.com/spryker/Nopayment/tree/master"
+                "source": "https://github.com/spryker/Nopayment/tree/3.0.3"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -7417,7 +7426,7 @@
             ],
             "description": "Payment module",
             "support": {
-                "source": "https://github.com/spryker/Payment/tree/master"
+                "source": "https://github.com/spryker/Payment/tree/4.1.0"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -7560,7 +7569,7 @@
             ],
             "description": "Payolution module",
             "support": {
-                "source": "https://github.com/spryker/Payolution/tree/master"
+                "source": "https://github.com/spryker/Payolution/tree/4.0.6"
             },
             "time": "2017-09-13T15:25:35+00:00"
         },
@@ -8144,7 +8153,7 @@
             ],
             "description": "ProductAttributeGui module",
             "support": {
-                "source": "https://github.com/spryker/ProductAttributeGui/tree/master"
+                "source": "https://github.com/spryker/ProductAttributeGui/tree/1.0.1"
             },
             "time": "2017-09-07T13:02:20+00:00"
         },
@@ -9201,7 +9210,7 @@
             ],
             "description": "ProductOption module",
             "support": {
-                "source": "https://github.com/spryker/ProductOption/tree/master"
+                "source": "https://github.com/spryker/ProductOption/tree/5.3.1"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -9989,6 +9998,9 @@
                 "proprietary"
             ],
             "description": "Propel module",
+            "support": {
+                "source": "https://github.com/spryker/Propel/tree/3.2.0"
+            },
             "time": "2017-09-12T14:38:43+00:00"
         },
         {
@@ -10222,7 +10234,7 @@
             ],
             "description": "Quote module",
             "support": {
-                "source": "https://github.com/spryker/Quote/tree/master"
+                "source": "https://github.com/spryker/Quote/tree/1.1.0"
             },
             "time": "2017-09-19T11:56:53+00:00"
         },
@@ -10573,7 +10585,7 @@
             ],
             "description": "SalesProductConnector module",
             "support": {
-                "source": "https://github.com/spryker/SalesProductConnector/tree/master"
+                "source": "https://github.com/spryker/SalesProductConnector/tree/1.0.1"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -10637,7 +10649,7 @@
             ],
             "description": "SalesSplit module",
             "support": {
-                "source": "https://github.com/spryker/SalesSplit/tree/master"
+                "source": "https://github.com/spryker/SalesSplit/tree/3.0.3"
             },
             "time": "2017-09-13T15:25:35+00:00"
         },
@@ -10988,7 +11000,7 @@
             ],
             "description": "Shipment module",
             "support": {
-                "source": "https://github.com/spryker/Shipment/tree/master"
+                "source": "https://github.com/spryker/Shipment/tree/5.2.0"
             },
             "time": "2017-09-25T14:16:40+00:00"
         },
@@ -11496,6 +11508,9 @@
                 "proprietary"
             ],
             "description": "Storage module",
+            "support": {
+                "source": "https://github.com/spryker/Storage/tree/master"
+            },
             "time": "2017-09-28T12:56:39+00:00"
         },
         {
@@ -11905,6 +11920,9 @@
                 "proprietary"
             ],
             "description": "Transfer module",
+            "support": {
+                "source": "https://github.com/spryker/Transfer/tree/3.4.0"
+            },
             "time": "2017-09-28T10:24:21+00:00"
         },
         {
@@ -11973,6 +11991,9 @@
                 "proprietary"
             ],
             "description": "Twig module",
+            "support": {
+                "source": "https://github.com/spryker/Twig/tree/3.2.3"
+            },
             "time": "2017-09-26T15:54:56+00:00"
         },
         {
@@ -12429,11 +12450,11 @@
         },
         {
             "name": "spryker/wishlist",
-            "version": "4.1.3",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Wishlist.git",
-                "reference": "da7946454105c3e2169fe314a24c7f063a57ff8c",
+                "reference": "7ff70f532f4caec6ee6f7b6a3105779f3b2e04e3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12443,8 +12464,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Wishlist/zipball/da7946454105c3e2169fe314a24c7f063a57ff8c",
-                "reference": "da7946454105c3e2169fe314a24c7f063a57ff8c",
+                "url": "https://api.github.com/repos/spryker/Wishlist/zipball/7ff70f532f4caec6ee6f7b6a3105779f3b2e04e3",
+                "reference": "7ff70f532f4caec6ee6f7b6a3105779f3b2e04e3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12493,7 +12514,7 @@
             "support": {
                 "source": "https://github.com/spryker/Wishlist/tree/master"
             },
-            "time": "2017-08-25T08:57:44+00:00"
+            "time": "2017-10-02T10:41:34+00:00"
         },
         {
             "name": "spryker/zed-navigation",
@@ -12626,6 +12647,9 @@
                 "proprietary"
             ],
             "description": "ZedRequest module",
+            "support": {
+                "source": "https://github.com/spryker/ZedRequest/tree/master"
+            },
             "time": "2017-09-13T10:02:56+00:00"
         },
         {
@@ -17065,13 +17089,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -17279,7 +17297,7 @@
             ],
             "description": "Development module",
             "support": {
-                "source": "https://github.com/spryker/Development/tree/master"
+                "source": "https://github.com/spryker/Development/tree/3.2.4"
             },
             "time": "2017-09-14T13:27:02+00:00"
         },
