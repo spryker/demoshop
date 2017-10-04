@@ -93,7 +93,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
             ->setType(SearchConfig::FACET_TYPE_CATEGORY)
             ->setAggregationParams([
-                CategoryFacetAggregation::AGGREGATION_PARAM_SIZE => static::SIZE_UNLIMITED
+                CategoryFacetAggregation::AGGREGATION_PARAM_SIZE => static::SIZE_UNLIMITED,
             ]);
 
         $facetConfigBuilder->addFacet($categoryFacet);
