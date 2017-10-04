@@ -23,7 +23,7 @@ use Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 
 /**
- * Class CartBoostQueryExpanderPlugin
+ * Class OrderHistoryBoostQueryExpanderPlugin
  * @package Pyz\Client\Catalog\Plugin\Elasticsearch\QueryExpander
  *
  * @method CatalogFactory getFactory()
@@ -134,7 +134,7 @@ class OrderHistoryBoostQueryExpanderPlugin extends AbstractPlugin implements Que
         $boolQuery = $searchQuery->getQuery();
         if (!$boolQuery instanceof BoolQuery) {
             throw new InvalidArgumentException(sprintf(
-                'Cart boost query expander available only with %s, got: %s',
+                'Order history boost query expander available only with %s, got: %s',
                 BoolQuery::class,
                 get_class($boolQuery)
             ));
