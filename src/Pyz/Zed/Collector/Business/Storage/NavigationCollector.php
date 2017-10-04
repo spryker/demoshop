@@ -76,13 +76,13 @@ class NavigationCollector extends CategoryNodeCollector
     protected function formatCategoryNode(array $collectItemData)
     {
         return [
-            'node_id' => $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
+            'node_id' => (int)$collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'name' => $collectItemData['name'],
             'url' => $collectItemData['url'],
             'image' => $collectItemData['category_image_name'],
             'children' => $collectItemData['children'],
             'parents' => $collectItemData['parents'],
-            'order' => $collectItemData['node_order'],
+            'order' => (int)$collectItemData['node_order'],
             'meta_title' => $collectItemData['meta_title'],
             'meta_description' => $collectItemData['meta_description'],
             'meta_keywords' => $collectItemData['meta_keywords'],

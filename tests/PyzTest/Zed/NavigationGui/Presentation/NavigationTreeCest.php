@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Copyright © 2017-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace PyzTest\Zed\NavigationGui\Presentation;
@@ -42,8 +42,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node without type test')
-                ->setKey('Create child node without type test')
+                ->setName('Create child node without type test 1')
+                ->setKey('Create child node without type test 1')
                 ->setIsActive(true)));
         $i->amOnPage(NavigationPage::URL);
 
@@ -64,8 +64,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node without type test')
-                ->setKey('Create child node without type test')
+                ->setName('Create child node without type test 2')
+                ->setKey('Create child node without type test 2')
                 ->setIsActive(true)));
         $i->amOnPage(NavigationPage::URL);
 
@@ -93,8 +93,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node with external URL type test')
-                ->setKey('Create child node with external URL type test')
+                ->setName('Create child node with external URL type test 3')
+                ->setKey('Create child node with external URL type test 3')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())
@@ -127,8 +127,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Update child node to category type test')
-                ->setKey('Update child node to category type test')
+                ->setName('Update child node to category type test 4')
+                ->setKey('Update child node to category type test 4')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())
@@ -145,7 +145,7 @@ class NavigationTreeCest
         $i->waitForNavigationTree();
         $i->clickNode($idNavigationNode);
         $i->switchToNodeForm();
-        $i->see('Update node');
+        $i->see('Edit node');
         $i->submitUpdateNodeToCategoryType('/en/computer', '/de/computer');
 
         $i->seeSuccessMessage(NavigationNodeUpdatePage::MESSAGE_SUCCESS);
@@ -166,8 +166,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node with CMS page type test')
-                ->setKey('Create child node with CMS page type test')
+                ->setName('Create child node with CMS page type test 5')
+                ->setKey('Create child node with CMS page type test 5')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())
@@ -188,13 +188,15 @@ class NavigationTreeCest
         $i->see('Create child node');
         $i->submitCreateNodeFormWithCmsPageType('Child 1.1', '/en/imprint', '/de/impressum');
 
-        $idChildNavigationNode = $i->seeSuccessMessage(NavigationNodeCreatePage::MESSAGE_SUCCESS);
+        $childNavigationNodeName = $i->seeSuccessMessage(NavigationNodeCreatePage::MESSAGE_SUCCESS);
         $i->switchToNavigationTree();
         $i->seeNumberOfNavigationNodes(3);
-        $i->seeNavigationNodeHierarchy($idNavigationNode, $idChildNavigationNode);
+        $i->seeNavigationNodeHierarchyByChildNodeName($idNavigationNode, $childNavigationNodeName);
     }
 
     /**
+     * @group singleNavigationTest
+     *
      * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
      * @return void
@@ -207,8 +209,8 @@ class NavigationTreeCest
         $i->amLoggedInUser();
         $navigationTreeTransfer = $i->prepareTestNavigationTreeEntities((new NavigationTreeTransfer())
             ->setNavigation((new NavigationTransfer())
-                ->setName('Create child node with CMS page type test')
-                ->setKey('Create child node with CMS page type test')
+                ->setName('Create child node with CMS page type test 6')
+                ->setKey('Create child node with CMS page type test 6')
                 ->setIsActive(true))
             ->addNode((new NavigationTreeNodeTransfer())
                 ->setNavigationNode((new NavigationNodeTransfer())

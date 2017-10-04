@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace PyzTest\Zed\NavigationGui;
 
 use Codeception\Actor;
@@ -43,6 +48,7 @@ class NavigationGuiPresentationTester extends Actor
     const ADD_CHILD_NODE_BUTTON_SELECTOR = '#add-child-node-btn';
     const LOCALIZED_FORM_CONTAINER_SELECTOR = '#localized_attributes_container-%s .collapse-link';
     const NODE_CHILD_SELECTOR = '#navigation-node-%d #navigation-node-%d';
+    const NODE_NAME_CHILD_SELECTOR = "//*[@id=\"navigation-node-%d\"]//*[text()[contains(.,'%s')]]";
     const NODE_FORM_IFRAME_NAME = 'navigation-node-form-iframe';
     const SUCCESS_MESSAGE_SELECTOR = '.flash-messages .alert-success';
     const SWEET_ALERT_SELECTOR = '.sweet-alert';
@@ -461,8 +467,8 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function waitForNavigationTree()
     {
-        $this->waitForElement(self::NAVIGATION_TREE_SELECTOR, 5);
-        $this->wait(1);
+        $this->waitForElement(self::NAVIGATION_TREE_SELECTOR);
+        $this->wait(5);
     }
 
     /**
@@ -483,10 +489,25 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function seeNavigationNodeHierarchy($idParentNavigationNode, $idChildNavigationNode)
     {
-        $this->seeElement(sprintf(
+        $this->waitForElement(sprintf(
             self::NODE_CHILD_SELECTOR,
             $idParentNavigationNode,
             $idChildNavigationNode
+        ));
+    }
+
+    /**
+     * @param int $idParentNavigationNode
+     * @param string $childNavigationNodeName
+     *
+     * @return void
+     */
+    public function seeNavigationNodeHierarchyByChildNodeName($idParentNavigationNode, $childNavigationNodeName)
+    {
+        $this->seeElement(sprintf(
+            self::NODE_NAME_CHILD_SELECTOR,
+            $idParentNavigationNode,
+            $childNavigationNodeName
         ));
     }
 

@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace PyzTest\Zed\Touch;
 
 use Codeception\Actor;
@@ -22,9 +28,5 @@ class TouchBusinessTester extends Actor
 {
 
     use _generated\TouchBusinessTesterActions;
-
-   /**
-    * Define custom actions here
-    */
 
 }

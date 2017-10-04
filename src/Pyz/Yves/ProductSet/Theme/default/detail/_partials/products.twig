@@ -18,7 +18,7 @@
                     {% include '@ProductSet/detail/_partials/variants.twig' with {product: storageProduct}%}
 
                     <a href="{{ path('cart/add', {sku: storageProduct.sku}) }}"
-                       class="button expanded success __no-margin-bottom {{ (not storageProduct.isVariant or not storageProduct.available) ? 'disabled' : '' }}"
+                       class="button expanded success __no-margin-bottom js-add-to-cart-button {{ (not storageProduct.isVariant or not storageProduct.available) ? 'disabled' : '' }}"
                        data-component="disable-on-click"
                     >
                         <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}

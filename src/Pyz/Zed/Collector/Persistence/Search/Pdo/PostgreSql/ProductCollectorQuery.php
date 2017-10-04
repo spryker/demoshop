@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Collector\Persistence\Search\Pdo\PostgreSql;
 
+use Orm\Zed\ProductReview\Persistence\Map\SpyProductReviewTableMap;
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductCollectorQuery extends AbstractPdoCollectorQuery
@@ -37,8 +38,10 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 GROUP_CONCAT(DISTINCT spy_category_node.id_category_node)       AS category_node_ids,
                 GROUP_CONCAT(DISTINCT spy_product_abstract.is_featured)         AS is_featured,
                 MIN(spy_product_image_set.id_product_image_set)                 AS id_image_set,
-                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product.is_active)) AS product_status_aggregation,
-                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', spy_product_search.is_searchable)) AS product_searchable_status_aggregation,
+                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', cast(spy_product.is_active as TEXT))) AS product_status_aggregation,
+                GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', cast(spy_product_search.is_searchable as TEXT))) AS product_searchable_status_aggregation,
+                AVG(spy_product_review.rating)                                  AS average_rating,
+                COUNT(spy_product_review.fk_product_abstract)                   AS review_count,
                 spy_touch.id_touch                                              AS %s,
                 spy_touch.item_id                                               AS %s,
                 spy_touch_search.id_touch_search                                AS %s
@@ -72,6 +75,9 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 LEFT JOIN spy_product_image_set 
                   ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract AND (
                   spy_product_image_set.fk_locale = spy_locale.id_locale OR spy_product_image_set.fk_locale IS NULL))
+                LEFT JOIN spy_product_review
+                  ON (spy_product_review.fk_product_abstract = spy_product_abstract.id_product_abstract AND
+                      spy_product_review.status = :review_status)
             WHERE
                 spy_touch.item_event = :spy_touch_item_event
                 AND spy_touch.touched >= :spy_touch_touched
@@ -86,7 +92,20 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 spy_touch.id_touch,
                 spy_touch_search.id_touch_search,
                 spy_product_image_set.id_product_image_set
-            ')->setParameter(':id_locale', $this->locale->getIdLocale());
+            ')
+            ->setParameter(':id_locale', $this->locale->getIdLocale())
+            ->setParameter(':review_status', $this->getApprovedReviewStatus());
+    }
+
+    /**
+     * @return int
+     */
+    protected function getApprovedReviewStatus()
+    {
+        $productReviewStatusValueSet = SpyProductReviewTableMap::getValueSet(SpyProductReviewTableMap::COL_STATUS);
+        $convertedStatus = array_search(SpyProductReviewTableMap::COL_STATUS_APPROVED, $productReviewStatusValueSet);
+
+        return $convertedStatus;
     }
 
 }

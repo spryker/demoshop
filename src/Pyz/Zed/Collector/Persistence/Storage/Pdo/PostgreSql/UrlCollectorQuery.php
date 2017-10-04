@@ -70,7 +70,7 @@ FROM spy_url u
      */
     protected function getResourceColumnNames()
     {
-        $reflection = new ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
+        $reflection = new ReflectionClass(SpyUrlTableMap::class);
         $constants = $reflection->getConstants();
 
         return array_filter($constants, function ($constant) {
@@ -85,7 +85,7 @@ FROM spy_url u
      */
     protected function getConstantValue($constantName)
     {
-        $reflection = new ReflectionClass('Orm\Zed\Url\Persistence\Map\SpyUrlTableMap');
+        $reflection = new ReflectionClass(SpyUrlTableMap::class);
 
         return $reflection->getConstant($constantName);
     }
