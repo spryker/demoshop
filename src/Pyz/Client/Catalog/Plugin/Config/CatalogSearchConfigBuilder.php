@@ -92,10 +92,9 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setParameterName(static::CATEGORY_FACET_PARAM_NAME)
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
             ->setType(SearchConfig::FACET_TYPE_CATEGORY)
-            ->setSize(10);
-//            ->setAggregationParams([
-//                StringFacetAggregation::AGGREGATION_PARAM_SIZE => static::SIZE_UNLIMITED
-//            ]);
+            ->setAggregationParams([
+                StringFacetAggregation::AGGREGATION_PARAM_SIZE => static::SIZE_UNLIMITED
+            ]);
 
         $facetConfigBuilder->addFacet($categoryFacet);
 
@@ -133,9 +132,6 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setFieldName(PageIndexMap::STRING_FACET)
             ->setType(SearchConfig::FACET_TYPE_ENUMERATION)
             ->setIsMultiValued(true)
-            ->setAggregationParams([
-                StringFacetAggregation::AGGREGATION_PARAM_SIZE => 10,
-            ])
             ->setValueTransformer(ProductLabelFacetValueTransformerPlugin::class);
 
         $facetConfigBuilder->addFacet($productLabelFacetTransfer);
