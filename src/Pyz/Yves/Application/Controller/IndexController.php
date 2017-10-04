@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Application\Controller;
 
+use Pyz\Client\Catalog\CatalogClientInterface;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,20 +27,35 @@ class IndexController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $searchString = $this->getSearchStringFromReferrer($request);
         $catalogClient = $this->getFactory()->getCatalogClient();
-        $searchResult = $searchString
-            ? $catalogClient->catalogSearch($searchString, [])
-            : $catalogClient->getFeaturedProducts(self::FEATURED_PRODUCT_LIMIT);
+        $searchResult = $this->getProductsFromReferrerInfo($request, $catalogClient)
+            ?: $catalogClient->getFeaturedProducts(self::FEATURED_PRODUCT_LIMIT);
 
         return $this->viewResponse($searchResult);
     }
 
     /**
      * @param Request $request
+     * @param CatalogClientInterface $catalogClient
+     * @return array
+     */
+    private function getProductsFromReferrerInfo(Request $request, CatalogClientInterface $catalogClient)
+    {
+        $result = [];
+        $referrerQueryString = $this->getReferrerQueryString($request);
+        if ($referrerQueryString) {
+            $searchResult = $catalogClient->catalogSearch($referrerQueryString, []);
+            $result = $searchResult['products'] ? $searchResult : $result;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param Request $request
      * @return bool|null|string
      */
-    private function getSearchStringFromReferrer(Request $request)
+    private function getReferrerQueryString(Request $request)
     {
         $searchString = null;
         $referrer = $request->headers->get('referer');
