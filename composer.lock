@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9885aaa6f3a2eb94bcfb780d9981b397",
+    "content-hash": "6ab7449d84bbe40727e24defe23ee65f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -354,7 +354,7 @@
             ],
             "authors": [
                 {
-                    "name": "Fran??ois Zaninotto"
+                    "name": "François Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
@@ -773,16 +773,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.7",
+            "version": "v3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "52d80135bd820f0486d14e03789ebcb45323b2d5"
+                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/52d80135bd820f0486d14e03789ebcb45323b2d5",
-                "reference": "52d80135bd820f0486d14e03789ebcb45323b2d5",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/149ba5943511e118bf68f9118e3c84bbe42bf94f",
+                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f",
                 "shasum": ""
             },
             "require": {
@@ -836,7 +836,7 @@
                     "email": "f.bosch@genkgo.nl"
                 },
                 {
-                    "name": "M??rk S??gi-Kaz??r",
+                    "name": "Márk Sági-Kazár",
                     "email": "mark.sagi-kazar@gmail.com"
                 }
             ],
@@ -847,7 +847,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-08-04T16:41:06+00:00"
+            "time": "2017-10-03T09:21:46+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1077,7 +1077,7 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Ra??l Araya",
+                    "name": "Raúl Araya",
                     "email": "nubeiro@gmail.com",
                     "role": "Maintainer"
                 }
@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b3ccdc716cab02eef483aa7f79df7223b61a74ef"
+                "reference": "1259a39cac27cafe49047b530349d827c600f583"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1814,7 +1814,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-09-26T12:24:34+00:00"
+            "time": "2017-10-05T13:02:29+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4299,7 +4299,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jens-Andr?? Koch",
+                    "name": "Jens-André Koch",
                     "email": "jakoch@web.de"
                 }
             ],
@@ -4463,7 +4463,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
+            "description": "🅱 Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "bootstrapping",
@@ -4528,7 +4528,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
+            "description": "💎 Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "compiled",
@@ -4761,7 +4761,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "autoload",
@@ -4831,7 +4831,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
             "homepage": "https://nette.org",
             "keywords": [
                 "array",
@@ -5204,7 +5204,7 @@
                     "role": "Contributors"
                 },
                 {
-                    "name": "Marc W??rth",
+                    "name": "Marc Würth",
                     "email": "ravage@bluewin.ch",
                     "homepage": "https://github.com/ravage84",
                     "role": "Project Maintainer"
@@ -6717,7 +6717,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "3d080871250552d72f40763d314baa859824b352"
+                "reference": "fc4cadf3a3b75212ac0d9e8fa66411cf83be847d"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6768,7 +6768,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-09-18T05:58:01+00:00"
+            "time": "2017-10-05T08:57:13+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -6960,7 +6960,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-Fran??ois Simon",
+                    "name": "Jean-François Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
