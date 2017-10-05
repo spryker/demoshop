@@ -1,27 +1,16 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib;
 
 use Codeception\Exception\InjectionException;
-use Exception;
-use ReflectionClass;
-use ReflectionMethod;
-use ReflectionObject;
 
 class Di
 {
-
     const DEFAULT_INJECT_METHOD_NAME = '_inject';
 
     protected $container = [];
 
     /**
-     * @var \Codeception\Lib\Di
+     * @var Di
      */
     protected $fallback;
 
@@ -37,9 +26,6 @@ class Di
         return isset($this->container[$className]) ? $this->container[$className] : null;
     }
 
-    /**
-     * @return void
-     */
     public function set($class)
     {
         $this->container[get_class($class)] = $class;
@@ -47,12 +33,10 @@ class Di
 
     /**
      * @param string $className
-     * @param array|null $constructorArgs
+     * @param array $constructorArgs
      * @param string $injectMethodName Method which will be invoked after object creation;
      *                                 Resolved dependencies will be passed to it as arguments
-     *
-     * @throws \Codeception\Exception\InjectionException
-     *
+     * @throws InjectionException
      * @return null|object
      */
     public function instantiate(
@@ -62,7 +46,7 @@ class Di
     ) {
         // normalize namespace
         $className = ltrim($className, '\\');
-
+        
         // get class from container
         if (isset($this->container[$className])) {
             if ($this->container[$className] instanceof $className) {
@@ -81,20 +65,20 @@ class Di
 
         $this->container[$className] = false; // flag that object is being instantiated
 
-        $reflectedClass = new ReflectionClass($className);
+        $reflectedClass = new \ReflectionClass($className);
         if (!$reflectedClass->isInstantiable()) {
             return null;
         }
 
         $reflectedConstructor = $reflectedClass->getConstructor();
-        if ($reflectedConstructor === null) {
+        if (is_null($reflectedConstructor)) {
             $object = new $className;
         } else {
             try {
                 if (!$constructorArgs) {
                     $constructorArgs = $this->prepareArgs($reflectedConstructor);
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 throw new InjectionException("Failed to create instance of '$className'. " . $e->getMessage());
             }
             $object = $reflectedClass->newInstanceArgs($constructorArgs);
@@ -111,10 +95,7 @@ class Di
     /**
      * @param $object
      * @param string $injectMethodName Method which will be invoked with resolved dependencies as its arguments
-     *
-     * @throws \Codeception\Exception\InjectionException
-     *
-     * @return void
+     * @throws InjectionException
      */
     public function injectDependencies($object, $injectMethodName = self::DEFAULT_INJECT_METHOD_NAME, $defaults = [])
     {
@@ -122,7 +103,7 @@ class Di
             return;
         }
 
-        $reflectedObject = new ReflectionObject($object);
+        $reflectedObject = new \ReflectionObject($object);
         if (!$reflectedObject->hasMethod($injectMethodName)) {
             return;
         }
@@ -130,10 +111,10 @@ class Di
         $reflectedMethod = $reflectedObject->getMethod($injectMethodName);
         try {
             $args = $this->prepareArgs($reflectedMethod, $defaults);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $msg = $e->getMessage();
             if ($e->getPrevious()) { // injection failed because PHP code is invalid. See #3869
-                $msg .= '; ' . $e->getPrevious();
+                $msg .= '; '. $e->getPrevious();
             }
             throw new InjectionException(
                 "Failed to inject dependencies in instance of '{$reflectedObject->name}'. $msg"
@@ -148,19 +129,17 @@ class Di
 
     /**
      * @param \ReflectionMethod $method
-     * @param $defaults|array
-     *
-     * @throws \Codeception\Exception\InjectionException
-     *
+     * @param $defaults
+     * @throws InjectionException
      * @return array
      */
-    protected function prepareArgs(ReflectionMethod $method, $defaults = [])
+    protected function prepareArgs(\ReflectionMethod $method, $defaults = [])
     {
         $args = [];
         $parameters = $method->getParameters();
         foreach ($parameters as $k => $parameter) {
             $dependency = $parameter->getClass();
-            if ($dependency === null) {
+            if (is_null($dependency)) {
                 if (!$parameter->isOptional()) {
                     if (!isset($defaults[$k])) {
                         throw new InjectionException("Parameter '$parameter->name' must have default value.");
@@ -171,7 +150,7 @@ class Di
                 $args[] = $parameter->getDefaultValue();
             } else {
                 $arg = $this->instantiate($dependency->name);
-                if ($arg === null) {
+                if (is_null($arg)) {
                     throw new InjectionException("Failed to resolve dependency '{$dependency->name}'.");
                 }
                 $args[] = $arg;
@@ -179,5 +158,4 @@ class Di
         }
         return $args;
     }
-
 }

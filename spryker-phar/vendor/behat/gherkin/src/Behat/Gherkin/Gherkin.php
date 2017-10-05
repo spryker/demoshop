@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin;
@@ -20,25 +23,21 @@ use Behat\Gherkin\Loader\LoaderInterface;
  */
 class Gherkin
 {
-
     const VERSION = '4.4-dev';
 
     /**
-     * @var \Behat\Gherkin\Loader\LoaderInterface[]
+     * @var LoaderInterface[]
      */
-    protected $loaders = [];
-
+    protected $loaders = array();
     /**
-     * @var \Behat\Gherkin\Filter\FeatureFilterInterface[]
+     * @var FeatureFilterInterface[]
      */
-    protected $filters = [];
+    protected $filters = array();
 
     /**
      * Adds loader to manager.
      *
-     * @param \Behat\Gherkin\Loader\LoaderInterface $loader Feature loader
-     *
-     * @return void
+     * @param LoaderInterface $loader Feature loader
      */
     public function addLoader(LoaderInterface $loader)
     {
@@ -48,9 +47,7 @@ class Gherkin
     /**
      * Adds filter to manager.
      *
-     * @param \Behat\Gherkin\Filter\FeatureFilterInterface $filter Feature filter
-     *
-     * @return void
+     * @param FeatureFilterInterface $filter Feature filter
      */
     public function addFilter(FeatureFilterInterface $filter)
     {
@@ -60,22 +57,18 @@ class Gherkin
     /**
      * Sets filters to the parser.
      *
-     * @param \Behat\Gherkin\Filter\FeatureFilterInterface[] $filters
-     *
-     * @return void
+     * @param FeatureFilterInterface[] $filters
      */
     public function setFilters(array $filters)
     {
-        $this->filters = [];
-        array_map([$this, 'addFilter'], $filters);
+        $this->filters = array();
+        array_map(array($this, 'addFilter'), $filters);
     }
 
     /**
      * Sets base features path.
      *
      * @param string $path Loaders base path
-     *
-     * @return void
      */
     public function setBasePath($path)
     {
@@ -89,16 +82,16 @@ class Gherkin
     /**
      * Loads & filters resource with added loaders.
      *
-     * @param mixed $resource Resource to load
-     * @param \Behat\Gherkin\Filter\FeatureFilterInterface[] $filters Additional filters
+     * @param mixed                    $resource Resource to load
+     * @param FeatureFilterInterface[] $filters  Additional filters
      *
      * @return array
      */
-    public function load($resource, array $filters = [])
+    public function load($resource, array $filters = array())
     {
         $filters = array_merge($this->filters, $filters);
 
-        $matches = [];
+        $matches = array();
         if (preg_match('/^(.*)\:(\d+)-(\d+|\*)$/', $resource, $matches)) {
             $resource = $matches[1];
             $filters[] = new LineRangeFilter($matches[2], $matches[3]);
@@ -110,10 +103,10 @@ class Gherkin
         $loader = $this->resolveLoader($resource);
 
         if (null === $loader) {
-            return [];
+            return array();
         }
 
-        $features = [];
+        $features = array();
         foreach ($loader->load($resource) as $feature) {
             foreach ($filters as $filter) {
                 $feature = $filter->filterFeature($feature);
@@ -134,7 +127,7 @@ class Gherkin
      *
      * @param mixed $resource Resource to load
      *
-     * @return \Behat\Gherkin\Loader\LoaderInterface
+     * @return LoaderInterface
      */
     public function resolveLoader($resource)
     {
@@ -146,5 +139,4 @@ class Gherkin
 
         return null;
     }
-
 }

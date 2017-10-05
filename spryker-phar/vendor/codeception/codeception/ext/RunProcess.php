@@ -1,10 +1,5 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Extension;
 
 use Codeception\Events;
@@ -56,21 +51,15 @@ use Symfony\Component\Process\Process;
  */
 class RunProcess extends Extension
 {
-
     public $config = ['sleep' => 0];
-
+    
     static $events = [
         Events::SUITE_BEFORE => 'runProcess',
-        Events::SUITE_AFTER => 'stopProcess',
+        Events::SUITE_AFTER => 'stopProcess'
     ];
 
     protected $processes = [];
-
-    /**
-     * @throws \Codeception\Exception\ExtensionException
-     *
-     * @return void
-     */
+    
     public function _initialize()
     {
         if (!class_exists('Symfony\Component\Process\Process')) {
@@ -78,9 +67,6 @@ class RunProcess extends Extension
         }
     }
 
-    /**
-     * @return void
-     */
     public function runProcess()
     {
         $this->processes = [];
@@ -94,7 +80,7 @@ class RunProcess extends Extension
             $process = new Process($command, $this->getRootDir(), null, null, null);
             $process->start();
             $this->processes[] = $process;
-            $this->output->debug('[RunProcess] Starting ' . $command);
+            $this->output->debug('[RunProcess] Starting '.$command);
         }
         sleep($this->config['sleep']);
     }
@@ -104,13 +90,10 @@ class RunProcess extends Extension
         $this->stopProcess();
     }
 
-    /**
-     * @return void
-     */
     public function stopProcess()
     {
         foreach (array_reverse($this->processes) as $process) {
-            /** @var \Symfony\Component\Process\Process $process */
+            /** @var $process Process  **/
             if (!$process->isRunning()) {
                 continue;
             }
@@ -119,5 +102,4 @@ class RunProcess extends Extension
         }
         $this->processes = [];
     }
-
 }

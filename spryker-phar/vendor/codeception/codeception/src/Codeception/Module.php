@@ -1,19 +1,10 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception;
 
-use ArrayAccess;
 use Codeception\Exception\ModuleException;
 use Codeception\Lib\Interfaces\RequiresPackage;
 use Codeception\Lib\ModuleContainer;
 use Codeception\Util\Shared\Asserts;
-use Exception\ModuleConfigException;
-use Exception\ModuleException as ExceptionModuleException;
 
 /**
  * Basic class for Modules and Helpers.
@@ -25,11 +16,10 @@ use Exception\ModuleException as ExceptionModuleException;
  */
 abstract class Module
 {
-
     use Asserts;
-
+    
     /**
-     * @var \Codeception\Lib\ModuleContainer
+     * @var ModuleContainer
      */
     protected $moduleContainer;
 
@@ -74,7 +64,7 @@ abstract class Module
      *
      * Requires module container (to provide access between modules of suite) and config.
      *
-     * @param \Codeception\Lib\ModuleContainer $moduleContainer
+     * @param ModuleContainer $moduleContainer
      * @param null $config
      */
     public function __construct(ModuleContainer $moduleContainer, $config = null)
@@ -99,8 +89,8 @@ abstract class Module
      * ```
      *
      * @param $config
-     *
-     * @return void
+     * @throws Exception\ModuleConfigException
+     * @throws ModuleException
      */
     public function _setConfig($config)
     {
@@ -123,8 +113,8 @@ abstract class Module
      * ```
      *
      * @param $config
-     *
-     * @return void
+     * @throws Exception\ModuleConfigException
+     * @throws ModuleException
      */
     public function _reconfigure($config)
     {
@@ -135,8 +125,6 @@ abstract class Module
 
     /**
      * HOOK to be executed when config changes with `_reconfigure`.
-     *
-     * @return void
      */
     protected function onReconfigure()
     {
@@ -145,8 +133,6 @@ abstract class Module
 
     /**
      * Reverts config changed by `_reconfigure`
-     *
-     * @return void
      */
     public function _resetConfig()
     {
@@ -157,15 +143,13 @@ abstract class Module
      * Validates current config for required fields and required packages.
      *
      * @throws Exception\ModuleConfigException
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
+     * @throws ModuleException
      */
     protected function validateConfig()
     {
         $fields = array_keys($this->config);
         if (array_intersect($this->requiredFields, $fields) != $this->requiredFields) {
-            throw new ModuleConfigException(
+            throw new Exception\ModuleConfigException(
                 get_class($this),
                 "\nOptions: " . implode(', ', $this->requiredFields) . " are required\n" .
                 "Please, update the configuration and set all the required fields\n\n"
@@ -192,7 +176,7 @@ abstract class Module
      */
     public function _getName()
     {
-        $moduleName = '\\' . get_class($this);
+        $moduleName = '\\'.get_class($this);
 
         if (strpos($moduleName, ModuleContainer::MODULE_NAMESPACE) === 0) {
             return substr($moduleName, strlen(ModuleContainer::MODULE_NAMESPACE));
@@ -213,8 +197,6 @@ abstract class Module
 
     /**
      * **HOOK** triggered after module is created and configuration is loaded
-     *
-     * @return void
      */
     public function _initialize()
     {
@@ -224,8 +206,6 @@ abstract class Module
      * **HOOK** executed before suite
      *
      * @param array $settings
-     *
-     * @return void
      */
     public function _beforeSuite($settings = [])
     {
@@ -233,8 +213,6 @@ abstract class Module
 
     /**
      * **HOOK** executed after suite
-     *
-     * @return void
      */
     public function _afterSuite()
     {
@@ -243,9 +221,7 @@ abstract class Module
     /**
      * **HOOK** executed before step
      *
-     * @param \Codeception\Step $step
-     *
-     * @return void
+     * @param Step $step
      */
     public function _beforeStep(Step $step)
     {
@@ -254,9 +230,7 @@ abstract class Module
     /**
      * **HOOK** executed after step
      *
-     * @param \Codeception\Step $step
-     *
-     * @return void
+     * @param Step $step
      */
     public function _afterStep(Step $step)
     {
@@ -265,9 +239,7 @@ abstract class Module
     /**
      * **HOOK** executed before test
      *
-     * @param \Codeception\TestInterface $test
-     *
-     * @return void
+     * @param TestInterface $test
      */
     public function _before(TestInterface $test)
     {
@@ -276,9 +248,7 @@ abstract class Module
     /**
      * **HOOK** executed after test
      *
-     * @param \Codeception\TestInterface $test
-     *
-     * @return void
+     * @param TestInterface $test
      */
     public function _after(TestInterface $test)
     {
@@ -287,10 +257,8 @@ abstract class Module
     /**
      * **HOOK** executed when test fails but before `_after`
      *
-     * @param \Codeception\TestInterface $test
+     * @param TestInterface $test
      * @param \Exception $fail
-     *
-     * @return void
      */
     public function _failed(TestInterface $test, $fail)
     {
@@ -300,8 +268,6 @@ abstract class Module
      * Print debug message to the screen.
      *
      * @param $message
-     *
-     * @return void
      */
     protected function debug($message)
     {
@@ -313,8 +279,6 @@ abstract class Module
      *
      * @param $title
      * @param $message
-     *
-     * @return void
      */
     protected function debugSection($title, $message)
     {
@@ -328,7 +292,6 @@ abstract class Module
      * Checks that module is enabled.
      *
      * @param $name
-     *
      * @return bool
      */
     protected function hasModule($name)
@@ -355,15 +318,13 @@ abstract class Module
      * ```
      *
      * @param $name
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return \Codeception\Module
+     * @return Module
+     * @throws ModuleException
      */
     protected function getModule($name)
     {
         if (!$this->hasModule($name)) {
-            throw new ExceptionModuleException(__CLASS__, "Module $name couldn't be connected");
+            throw new Exception\ModuleException(__CLASS__, "Module $name couldn't be connected");
         }
         return $this->moduleContainer->getModule($name);
     }
@@ -372,7 +333,6 @@ abstract class Module
      * Get config values or specific config item.
      *
      * @param null $key
-     *
      * @return array|mixed|null
      */
     public function _getConfig($key = null)
@@ -389,8 +349,8 @@ abstract class Module
     protected function scalarizeArray($array)
     {
         foreach ($array as $k => $v) {
-            if ($v !== null && !is_scalar($v)) {
-                $array[$k] = (is_array($v) || $v instanceof ArrayAccess)
+            if (!is_null($v) && !is_scalar($v)) {
+                $array[$k] = (is_array($v) || $v instanceof \ArrayAccess)
                     ? $this->scalarizeArray($v)
                     : (string)$v;
             }
@@ -398,5 +358,4 @@ abstract class Module
 
         return $array;
     }
-
 }

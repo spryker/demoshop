@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Configuration;
@@ -13,7 +7,6 @@ use Codeception\Util\Template;
 
 class Test
 {
-
     use Namespaces;
     use Shared\Classname;
 
@@ -45,7 +38,6 @@ class {{name}}Test extends \Codeception\Test\Unit
 EOF;
 
     protected $settings;
-
     protected $name;
 
     public function __construct($settings, $name)
@@ -70,5 +62,4 @@ EOF;
             ->place('actor', lcfirst(Configuration::config()['actor_suffix']))
             ->produce();
     }
-
 }

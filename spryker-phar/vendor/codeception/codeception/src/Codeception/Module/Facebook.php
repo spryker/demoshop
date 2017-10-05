@@ -1,13 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\Exception\ModuleException as ModuleException;
+use Codeception\Exception\ModuleConfigException as ModuleConfigException;
 use Codeception\Lib\Driver\Facebook as FacebookDriver;
 use Codeception\Lib\Interfaces\DependsOnModule;
 use Codeception\Lib\Interfaces\RequiresPackage;
@@ -51,7 +46,7 @@ use Codeception\Module as BaseModule;
  *                     locale: uk_UA
  *                     permissions: [email, publish_stream]
  *
- * ### Test example:
+ * ###  Test example:
  *
  * ``` php
  * <?php
@@ -87,11 +82,10 @@ use Codeception\Module as BaseModule;
  */
 class Facebook extends BaseModule implements DependsOnModule, RequiresPackage
 {
-
     protected $requiredFields = ['app_id', 'secret'];
 
     /**
-     * @var \Codeception\Lib\Driver\Facebook
+     * @var FacebookDriver
      */
     protected $facebook;
 
@@ -101,7 +95,7 @@ class Facebook extends BaseModule implements DependsOnModule, RequiresPackage
     protected $testUser = [];
 
     /**
-     * @var \Codeception\Module\PhpBrowser
+     * @var PhpBrowser
      */
     protected $browserModule;
 
@@ -130,17 +124,11 @@ EOF;
         return ['Codeception\Module\PhpBrowser' => $this->dependencyMessage];
     }
 
-    /**
-     * @return void
-     */
     public function _inject(PhpBrowser $browserModule)
     {
         $this->browserModule = $browserModule;
     }
 
-    /**
-     * @return void
-     */
     protected function deleteTestUser()
     {
         if (array_key_exists('id', $this->testUser)) {
@@ -150,15 +138,12 @@ EOF;
         }
     }
 
-    /**
-     * @return void
-     */
     public function _initialize()
     {
         if (!array_key_exists('test_user', $this->config)) {
             $this->config['test_user'] = [
                 'permissions' => [],
-                'name' => 'Codeception Testuser',
+                'name' => 'Codeception Testuser'
             ];
         } elseif (!array_key_exists('permissions', $this->config['test_user'])) {
             $this->config['test_user']['permissions'] = [];
@@ -179,9 +164,6 @@ EOF;
         );
     }
 
-    /**
-     * @return void
-     */
     public function _afterSuite()
     {
         $this->deleteTestUser();
@@ -193,8 +175,6 @@ EOF;
      * *Please, note that the test user is created only at first invoke, unless $renew arguments is true.*
      *
      * @param bool $renew true if the test user should be recreated
-     *
-     * @return void
      */
     public function haveFacebookTestUserAccount($renew = false)
     {
@@ -215,9 +195,7 @@ EOF;
      * Get facebook test user be logged in on facebook.
      * This is done by going to facebook.com
      *
-     * @throws Codeception\Exception\ModuleException
-     *
-     * @return void
+     * @throws ModuleConfigException
      */
     public function haveTestUserLoggedInOnFacebook()
     {
@@ -232,7 +210,7 @@ EOF;
         $this->browserModule->amOnUrl('https://facebook.com/login');
         $this->browserModule->submitForm('#login_form', [
             'email' => $this->grabFacebookTestUserEmail(),
-            'pass' => $this->grabFacebookTestUserPassword(),
+            'pass' => $this->grabFacebookTestUserPassword()
         ]);
         // if login in successful we are back on login screen:
         $this->browserModule->dontSeeInCurrentUrl('/login');
@@ -302,8 +280,6 @@ EOF;
      * Please, note that you must have publish_actions permission to be able to publish to user's feed.
      *
      * @param array $params
-     *
-     * @return void
      */
     public function postToFacebookAsTestUser($params)
     {
@@ -315,8 +291,6 @@ EOF;
      * Please, note that you must have publish_actions permission to be able to publish to user's feed.
      *
      * @param string $placeId Place identifier to be verified against user published posts
-     *
-     * @return void
      */
     public function seePostOnFacebookWithAttachedPlace($placeId)
     {
@@ -331,8 +305,6 @@ EOF;
      * Please, note that you must have publish_actions permission to be able to publish to user's feed.
      *
      * @param string $message published post to be verified against the actual post on facebook
-     *
-     * @return void
      */
     public function seePostOnFacebookWithMessage($message)
     {
@@ -348,5 +320,4 @@ EOF;
         }
         $this->assertEquals($message, $facebook_post_message, "The post message was not found on facebook page");
     }
-
 }

@@ -1,24 +1,12 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
-use Exception;
 use Symfony\Component\BrowserKit\Client;
-use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
 use Symfony\Component\BrowserKit\Response;
-use Zend_Controller_Action_HelperBroker;
-use Zend_Controller_Request_HttpTestCase;
-use Zend_Controller_Response_Abstract;
-use Zend_Controller_Response_HttpTestCase;
+use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
 
 class ZF1 extends Client
 {
-
     use Shared\PhpSuperGlobalsConverter;
 
     /**
@@ -32,13 +20,10 @@ class ZF1 extends Client
     protected $bootstrap;
 
     /**
-     * @var \Zend_Controller_Request_HttpTestCase
+     * @var  \Zend_Controller_Request_HttpTestCase
      */
     protected $zendRequest;
 
-    /**
-     * @return void
-     */
     public function setBootstrap($bootstrap)
     {
         $this->bootstrap = $bootstrap;
@@ -53,15 +38,16 @@ class ZF1 extends Client
 
     public function doRequest($request)
     {
+
         // redirector should not exit
-        $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
+        $redirector = \Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
         $redirector->setExit(false);
 
         // json helper should not exit
-        $json = Zend_Controller_Action_HelperBroker::getStaticHelper('json');
+        $json = \Zend_Controller_Action_HelperBroker::getStaticHelper('json');
         $json->suppressExit = true;
 
-        $zendRequest = new Zend_Controller_Request_HttpTestCase();
+        $zendRequest = new \Zend_Controller_Request_HttpTestCase();
         $zendRequest->setMethod($request->getMethod());
         $zendRequest->setCookies($request->getCookies());
         $zendRequest->setParams($request->getParameters());
@@ -80,17 +66,17 @@ class ZF1 extends Client
         $zendRequest->setRequestUri($requestUri);
 
         $zendRequest->setHeaders($this->extractHeaders($request));
-        $_FILES = $this->remapFiles($request->getFiles());
+        $_FILES  = $this->remapFiles($request->getFiles());
         $_SERVER = array_merge($_SERVER, $request->getServer());
 
-        $zendResponse = new Zend_Controller_Response_HttpTestCase;
+        $zendResponse = new \Zend_Controller_Response_HttpTestCase;
         $this->front->setRequest($zendRequest)->setResponse($zendResponse);
 
         ob_start();
         try {
             $this->bootstrap->run();
             $_GET = $_POST = [];
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             ob_end_clean();
             $_GET = $_POST = [];
             throw $e;
@@ -112,10 +98,9 @@ class ZF1 extends Client
      * Format up the ZF1 response headers into Symfony\Component\BrowserKit\Response headers format.
      *
      * @param \Zend_Controller_Response_Abstract $response The ZF1 Response Object.
-     *
      * @return array the clean key/value headers
      */
-    private function formatResponseHeaders(Zend_Controller_Response_Abstract $response)
+    private function formatResponseHeaders(\Zend_Controller_Response_Abstract $response)
     {
         $headers = [];
         foreach ($response->getHeaders() as $header) {
@@ -130,6 +115,7 @@ class ZF1 extends Client
         }
         return $headers;
     }
+
 
     /**
      * @return \Zend_Controller_Request_HttpTestCase
@@ -146,7 +132,7 @@ class ZF1 extends Client
 
         $contentHeaders = ['Content-Length' => true, 'Content-Md5' => true, 'Content-Type' => true];
         foreach ($server as $header => $val) {
-            $header = implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header)))));
+            $header = html_entity_decode(implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header))))), ENT_NOQUOTES);
 
             if (strpos($header, 'Http-') === 0) {
                 $headers[substr($header, 5)] = $val;
@@ -156,5 +142,4 @@ class ZF1 extends Client
         }
         return $headers;
     }
-
 }

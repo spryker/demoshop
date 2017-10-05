@@ -1,18 +1,9 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception;
 
 use Codeception\Command\Shared\FileSystem;
 use Codeception\Command\Shared\Style;
-use Exception;
-use Lib\Generator\Actions;
-use Lib\Generator\Actor;
-use Lib\Generator\Helper;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -41,7 +32,6 @@ use Symfony\Component\Console\Question\Question;
  */
 abstract class InitTemplate
 {
-
     use FileSystem;
     use Style;
 
@@ -63,12 +53,12 @@ abstract class InitTemplate
     protected $workDir = '.';
 
     /**
-     * @var \Symfony\Component\Console\Input\InputInterface
+     * @var InputInterface
      */
     protected $input;
 
     /**
-     * @var \Symfony\Component\Console\Output\OutputInterface
+     * @var OutputInterface
      */
     protected $output;
 
@@ -81,8 +71,6 @@ abstract class InitTemplate
 
     /**
      * Change the directory where Codeception should be installed.
-     *
-     * @return void
      */
     public function initDir($workDir)
     {
@@ -95,7 +83,6 @@ abstract class InitTemplate
 
     /**
      * Override this class to create customized setup.
-     *
      * @return mixed
      */
     abstract public function setup();
@@ -115,7 +102,6 @@ abstract class InitTemplate
      *
      * @param $question
      * @param null $answer
-     *
      * @return mixed|string
      */
     protected function ask($question, $answer = null)
@@ -144,9 +130,8 @@ abstract class InitTemplate
      * $this->say('Welcome to Setup');
      * ```
      *
-     * @param string $message
      *
-     * @return void
+     * @param string $message
      */
     protected function say($message = '')
     {
@@ -155,10 +140,7 @@ abstract class InitTemplate
 
     /**
      * Print a successful message
-     *
      * @param $message
-     *
-     * @return void
      */
     protected function saySuccess($message)
     {
@@ -167,10 +149,7 @@ abstract class InitTemplate
 
     /**
      * Print warning message
-     *
      * @param $message
-     *
-     * @return void
      */
     protected function sayWarning($message)
     {
@@ -179,10 +158,7 @@ abstract class InitTemplate
 
     /**
      * Print info message
-     *
      * @param $message
-     *
-     * @return void
      */
     protected function sayInfo($message)
     {
@@ -194,8 +170,6 @@ abstract class InitTemplate
      *
      * @param $name
      * @param $directory
-     *
-     * @return void
      */
     protected function createHelper($name, $directory)
     {
@@ -204,7 +178,7 @@ abstract class InitTemplate
             "$name.php"
         ) . "$name.php";
 
-        $gen = new Helper($name, $this->namespace);
+        $gen = new Lib\Generator\Helper($name, $this->namespace);
         // generate helper
         $this->createFile(
             $file,
@@ -216,10 +190,7 @@ abstract class InitTemplate
 
     /**
      * Create an empty directory and add a placeholder file into it
-     *
      * @param $dir
-     *
-     * @return void
      */
     protected function createEmptyDirectory($dir)
     {
@@ -227,9 +198,6 @@ abstract class InitTemplate
         $this->createFile($dir . DIRECTORY_SEPARATOR . '.gitkeep', '');
     }
 
-    /**
-     * @return void
-     */
     protected function gitIgnore($path)
     {
         if (file_exists(self::GIT_IGNORE)) {
@@ -237,15 +205,10 @@ abstract class InitTemplate
         }
     }
 
-    /**
-     * @throws \Exception
-     *
-     * @return void
-     */
     protected function checkInstalled($dir = '.')
     {
         if (file_exists($dir . DIRECTORY_SEPARATOR . 'codeception.yml') || file_exists($dir . DIRECTORY_SEPARATOR . 'codeception.dist.yml')) {
-            throw new Exception("Codeception is already installed in this directory");
+            throw new \Exception("Codeception is already installed in this directory");
         }
     }
 
@@ -256,8 +219,6 @@ abstract class InitTemplate
      * @param $name
      * @param $directory
      * @param $suiteConfig
-     *
-     * @return void
      */
     protected function createActor($name, $directory, $suiteConfig)
     {
@@ -270,14 +231,14 @@ abstract class InitTemplate
         $suiteConfig['namespace'] = $this->namespace;
         $config = Configuration::mergeConfigs(Configuration::$defaultSuiteSettings, $suiteConfig);
 
-        $actorGenerator = new Actor($config);
+        $actorGenerator = new Lib\Generator\Actor($config);
 
         $content = $actorGenerator->produce();
 
         $this->createFile($file, $content);
         $this->sayInfo("$name actor has been created in $directory");
 
-        $actionsGenerator = new Actions($config);
+        $actionsGenerator = new Lib\Generator\Actions($config);
         $content = $actionsGenerator->produce();
 
         $generatedDir = $directory . DIRECTORY_SEPARATOR . '_generated';
@@ -285,5 +246,4 @@ abstract class InitTemplate
         $this->createFile($generatedDir . DIRECTORY_SEPARATOR . $actorGenerator->getActorName() . 'Actions.php', $content);
         $this->sayInfo("Actions have been loaded");
     }
-
 }

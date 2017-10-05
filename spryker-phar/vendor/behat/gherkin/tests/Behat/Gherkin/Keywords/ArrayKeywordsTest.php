@@ -1,10 +1,5 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Keywords;
 
 use Behat\Gherkin\Keywords\ArrayKeywords;
@@ -12,7 +7,6 @@ use Behat\Gherkin\Node\StepNode;
 
 class ArrayKeywordsTest extends KeywordsTest
 {
-
     protected function getKeywords()
     {
         return new ArrayKeywords($this->getKeywordsArray());
@@ -20,8 +14,8 @@ class ArrayKeywordsTest extends KeywordsTest
 
     protected function getKeywordsArray()
     {
-        return [
-            'with_special_chars' => [
+        return array(
+            'with_special_chars' => array(
                 'and' => 'And/foo',
                 'background' => 'Background.',
                 'but' => 'But[',
@@ -34,22 +28,21 @@ class ArrayKeywordsTest extends KeywordsTest
                 'scenario_outline' => 'Scenario Outline|Scenario Template',
                 'then' => 'Then',
                 'when' => 'When',
-            ],
-        ];
+            ),
+        );
     }
 
     protected function getSteps($keywords, $text, &$line, $keywordType)
     {
-        $steps = [];
+        $steps = array();
         foreach (explode('|', $keywords) as $keyword) {
             if (false !== mb_strpos($keyword, '<')) {
                 $keyword = mb_substr($keyword, 0, -1);
             }
 
-            $steps[] = new StepNode($keyword, $text, [], $line++, $keywordType);
+            $steps[] = new StepNode($keyword, $text, array(), $line++, $keywordType);
         }
 
         return $steps;
     }
-
 }

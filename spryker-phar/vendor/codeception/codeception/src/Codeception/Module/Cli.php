@@ -1,15 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\Module as CodeceptionModule;
 use Codeception\TestInterface;
-use PHPUnit_Framework_Assert;
 
 /**
  * Wrapper for basic shell commands and shell output
@@ -23,14 +16,10 @@ use PHPUnit_Framework_Assert;
  */
 class Cli extends CodeceptionModule
 {
-
     public $output = '';
 
     public $result = null;
 
-    /**
-     * @return void
-     */
     public function _before(TestInterface $test)
     {
         $this->output = '';
@@ -50,8 +39,6 @@ class Cli extends CodeceptionModule
      *
      * @param $command
      * @param bool $failNonZero
-     *
-     * @return void
      */
     public function runShellCommand($command, $failNonZero = true)
     {
@@ -60,10 +47,10 @@ class Cli extends CodeceptionModule
         $this->result = $resultCode;
         $this->output = implode("\n", $data);
         if ($this->output === null) {
-            PHPUnit_Framework_Assert::fail("$command can't be executed");
+            \PHPUnit_Framework_Assert::fail("$command can't be executed");
         }
         if ($resultCode !== 0 && $failNonZero) {
-            PHPUnit_Framework_Assert::fail("Result code was $resultCode.\n\n" . $this->output);
+            \PHPUnit_Framework_Assert::fail("Result code was $resultCode.\n\n" . $this->output);
         }
         $this->debug(preg_replace('~s/\e\[\d+(?>(;\d+)*)m//g~', '', $this->output));
     }
@@ -72,12 +59,10 @@ class Cli extends CodeceptionModule
      * Checks that output from last executed command contains text
      *
      * @param $text
-     *
-     * @return void
      */
     public function seeInShellOutput($text)
     {
-        PHPUnit_Framework_Assert::assertContains($text, $this->output);
+        \PHPUnit_Framework_Assert::assertContains($text, $this->output);
     }
 
     /**
@@ -85,22 +70,19 @@ class Cli extends CodeceptionModule
      *
      * @param $text
      *
-     * @return void
      */
     public function dontSeeInShellOutput($text)
     {
         $this->debug($this->output);
-        PHPUnit_Framework_Assert::assertNotContains($text, $this->output);
+        \PHPUnit_Framework_Assert::assertNotContains($text, $this->output);
     }
 
     /**
      * @param $regex
-     *
-     * @return void
      */
     public function seeShellOutputMatches($regex)
     {
-        PHPUnit_Framework_Assert::assertRegExp($regex, $this->output);
+        \PHPUnit_Framework_Assert::assertRegExp($regex, $this->output);
     }
 
     /**
@@ -112,8 +94,6 @@ class Cli extends CodeceptionModule
      * ```
      *
      * @param $code
-     *
-     * @return void
      */
     public function seeResultCodeIs($code)
     {
@@ -129,12 +109,9 @@ class Cli extends CodeceptionModule
      * ```
      *
      * @param $code
-     *
-     * @return void
      */
     public function seeResultCodeIsNot($code)
     {
         $this->assertNotEquals($this->result, $code, "result code is $code");
     }
-
 }

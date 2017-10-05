@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Exception\ConfigurationException;
@@ -13,7 +7,6 @@ use Codeception\Util\Template;
 
 class StepObject
 {
-
     use Namespaces;
     use Shared\Classname;
 
@@ -37,9 +30,7 @@ EOF;
 EOF;
 
     protected $settings;
-
     protected $name;
-
     protected $actions = '';
 
     public function __construct($settings, $name)
@@ -68,14 +59,10 @@ EOF;
             ->produce();
     }
 
-    /**
-     * @return void
-     */
     public function createAction($action)
     {
         $this->actions .= (new Template($this->actionTemplate))
             ->place('action', $action)
             ->produce();
     }
-
 }

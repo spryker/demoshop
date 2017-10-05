@@ -1,27 +1,17 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
-use Stecman\Component\Symfony\Console\BashCompletion\Completion\ShellPathCompletion as ShellPathCompletion;
 use Stecman\Component\Symfony\Console\BashCompletion\Completion as ConsoleCompletion;
 use Stecman\Component\Symfony\Console\BashCompletion\CompletionCommand;
 use Stecman\Component\Symfony\Console\BashCompletion\CompletionHandler;
+use Stecman\Component\Symfony\Console\BashCompletion\Completion\ShellPathCompletion as ShellPathCompletion;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Completion extends CompletionCommand
 {
-
-    /**
-     * @return void
-     */
     protected function configureCompletion(CompletionHandler $handler)
     {
         // Can't set for all commands, because it wouldn't work well with generate:suite
@@ -38,7 +28,7 @@ class Completion extends CompletionCommand
             'generate:stepobject',
             'generate:test',
             'gherkin:snippets',
-            'gherkin:steps',
+            'gherkin:steps'
         ];
 
         foreach ($suiteCommands as $suiteCommand) {
@@ -64,9 +54,6 @@ class Completion extends CompletionCommand
         ]);
     }
 
-    /**
-     * @return void
-     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if ($input->getOption('generate-hook') && $input->getOption('use-vendor-bin')) {
@@ -89,5 +76,4 @@ class Completion extends CompletionCommand
 
         return $definition;
     }
-
 }

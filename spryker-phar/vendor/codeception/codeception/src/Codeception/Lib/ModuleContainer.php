@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib;
 
 use Codeception\Configuration;
@@ -16,8 +10,6 @@ use Codeception\Lib\Interfaces\ConflictsWithModule;
 use Codeception\Lib\Interfaces\DependsOnModule;
 use Codeception\Lib\Interfaces\PartedModule;
 use Codeception\Util\Annotation;
-use ReflectionClass;
-use ReflectionMethod;
 
 /**
  * Class ModuleContainer
@@ -25,7 +17,6 @@ use ReflectionMethod;
  */
 class ModuleContainer
 {
-
     /**
      * @var string
      */
@@ -37,7 +28,7 @@ class ModuleContainer
     private $config;
 
     /**
-     * @var \Codeception\Lib\Di
+     * @var Di
      */
     private $di;
 
@@ -59,7 +50,7 @@ class ModuleContainer
     /**
      * Constructor.
      *
-     * @param \Codeception\Lib\Di $di
+     * @param Di $di
      * @param array $config
      */
     public function __construct(Di $di, $config)
@@ -74,10 +65,11 @@ class ModuleContainer
      *
      * @param string $moduleName
      * @param bool $active
-     *
-     * @throws \Codeception\Exception\ConfigurationException
-     *
      * @return \Codeception\Module
+     * @throws \Codeception\Exception\ConfigurationException
+     * @throws \Codeception\Exception\ModuleException
+     * @throws \Codeception\Exception\ModuleRequireException
+     * @throws \Codeception\Exception\InjectionException
      */
     public function create($moduleName, $active = true)
     {
@@ -117,7 +109,6 @@ class ModuleContainer
      * Does a module have dependencies?
      *
      * @param \Codeception\Module $module
-     *
      * @return bool
      */
     private function moduleHasDependencies($module)
@@ -126,7 +117,7 @@ class ModuleContainer
             return false;
         }
 
-        return (bool)$module->_depends();
+        return (bool) $module->_depends();
     }
 
     /**
@@ -134,15 +125,14 @@ class ModuleContainer
      *
      * @param \Codeception\Module $module
      * @param array $config
-     *
      * @return array
      */
     private function getActionsForModule($module, $config)
     {
-        $reflectionClass = new ReflectionClass($module);
+        $reflectionClass = new \ReflectionClass($module);
 
         // Only public methods can be actions
-        $methods = $reflectionClass->getMethods(ReflectionMethod::IS_PUBLIC);
+        $methods = $reflectionClass->getMethods(\ReflectionMethod::IS_PUBLIC);
 
         // Should this module be loaded partially?
         $configuredParts = null;
@@ -166,7 +156,6 @@ class ModuleContainer
      * @param \Codeception\Module $module
      * @param \ReflectionMethod $method
      * @param array|null $configuredParts
-     *
      * @return bool
      */
     private function includeMethodAsAction($module, $method, $configuredParts = null)
@@ -211,7 +200,6 @@ class ModuleContainer
      * Is the module a helper?
      *
      * @param string $moduleName
-     *
      * @return bool
      */
     private function isHelper($moduleName)
@@ -223,7 +211,6 @@ class ModuleContainer
      * Get the fully qualified class name for a module.
      *
      * @param string $moduleName
-     *
      * @return string
      */
     private function getModuleClass($moduleName)
@@ -239,7 +226,6 @@ class ModuleContainer
      * Is a module instantiated in this ModuleContainer?
      *
      * @param string $moduleName
-     *
      * @return bool
      */
     public function hasModule($moduleName)
@@ -251,10 +237,8 @@ class ModuleContainer
      * Get a module from this ModuleContainer.
      *
      * @param string $moduleName
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
      * @return \Codeception\Module
+     * @throws \Codeception\Exception\ModuleException
      */
     public function getModule($moduleName)
     {
@@ -269,7 +253,6 @@ class ModuleContainer
      * Get the module for an action.
      *
      * @param string $action
-     *
      * @return \Codeception\Module|null This method returns null if there is no module for $action
      */
     public function moduleForAction($action)
@@ -306,8 +289,6 @@ class ModuleContainer
      *
      * @param string $moduleName
      * @param object $mock
-     *
-     * @return void
      */
     public function mock($moduleName, $mock)
     {
@@ -319,8 +300,8 @@ class ModuleContainer
      *
      * @param string $moduleName
      * @param \Codeception\Lib\Interfaces\DependsOnModule $module
-     *
      * @throws \Codeception\Exception\ModuleException
+     * @throws \Codeception\Exception\ModuleRequireException
      */
     private function injectModuleDependencies($moduleName, DependsOnModule $module)
     {
@@ -342,10 +323,8 @@ class ModuleContainer
      *
      * @param string $moduleName
      * @param \Codeception\Lib\Interfaces\DependsOnModule $module
-     *
+     * @throws \Codeception\Exception\ModuleException
      * @throws \Codeception\Exception\ModuleRequireException
-     *
-     * @return void
      */
     private function checkForMissingDependencies($moduleName, DependsOnModule $module)
     {
@@ -369,10 +348,8 @@ class ModuleContainer
      * Get the dependencies of a module.
      *
      * @param \Codeception\Lib\Interfaces\DependsOnModule $module
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
      * @return array
+     * @throws \Codeception\Exception\ModuleException
      */
     private function getModuleDependencies(DependsOnModule $module)
     {
@@ -394,7 +371,6 @@ class ModuleContainer
      * Get the configured dependencies for a module.
      *
      * @param string $moduleName
-     *
      * @return array
      */
     private function getConfiguredDependencies($moduleName)
@@ -413,7 +389,6 @@ class ModuleContainer
      *
      * @param \Codeception\Module $module
      * @param string $missingDependency
-     *
      * @return string
      */
     private function getErrorMessageForDependency($module, $missingDependency)
@@ -435,7 +410,6 @@ class ModuleContainer
      * over modules.config.$moduleName if the same parameters are configured at both locations.
      *
      * @param string $moduleName
-     *
      * @return array
      */
     private function getModuleConfig($moduleName)
@@ -469,7 +443,7 @@ class ModuleContainer
     /**
      * Check if there are conflicting modules in this ModuleContainer.
      *
-     * @return void
+     * @throws \Codeception\Exception\ModuleConflictException
      */
     public function validateConflicts()
     {
@@ -494,10 +468,7 @@ class ModuleContainer
      *
      * @param \Codeception\Module $module
      * @param \Codeception\Module $otherModule
-     *
      * @throws \Codeception\Exception\ModuleConflictException
-     *
-     * @return void
      */
     private function validateConflict($module, $otherModule)
     {
@@ -516,7 +487,6 @@ class ModuleContainer
      * This is necessary because it can return a module name instead of the name of a class or interface.
      *
      * @param string $conflicts
-     *
      * @return string
      */
     private function normalizeConflictSpecification($conflicts)
@@ -531,5 +501,4 @@ class ModuleContainer
 
         return $conflicts;
     }
-
 }

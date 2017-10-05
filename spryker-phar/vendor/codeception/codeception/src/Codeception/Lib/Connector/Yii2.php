@@ -1,15 +1,9 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Lib\Connector\Yii2\Logger;
+use Codeception\Lib\Connector\Yii2\TestMailer;
 use Codeception\Util\Debug;
-use Exception;
 use Symfony\Component\BrowserKit\Client;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\BrowserKit\Response;
@@ -17,11 +11,9 @@ use Yii;
 use yii\base\ExitException;
 use yii\web\HttpException;
 use yii\web\Response as YiiResponse;
-use yii\web\UploadedFile;
 
 class Yii2 extends Client
 {
-
     use Shared\PhpSuperGlobalsConverter;
 
     /**
@@ -35,7 +27,6 @@ class Yii2 extends Client
      * @var array
      */
     public $headers;
-
     public $statusCode;
 
     /**
@@ -46,12 +37,10 @@ class Yii2 extends Client
     /**
      * @var \yii\db\Connection
      */
-    public static $db;
-
- // remember the db instance
+    public static $db; // remember the db instance
 
     /**
-     * @var \Codeception\Lib\Connector\Yii2\TestMailer
+     * @var TestMailer
      */
     public static $mailer;
 
@@ -66,17 +55,11 @@ class Yii2 extends Client
         return $this->app;
     }
 
-    /**
-     * @return void
-     */
     public function resetApplication()
     {
         $this->app = null;
     }
 
-    /**
-     * @return void
-     */
     public function startApp()
     {
         $config = require($this->configFile);
@@ -87,20 +70,18 @@ class Yii2 extends Client
         $this->app = Yii::createObject($config);
         $this->persistDb();
         $this->mockMailer($config);
-        Yii::setLogger(new Logger());
+        \Yii::setLogger(new Logger());
     }
 
-    /**
-     * @return void
-     */
     public function resetPersistentVars()
     {
         static::$db = null;
         static::$mailer = null;
-        UploadedFile::reset();
+        \yii\web\UploadedFile::reset();
     }
 
     /**
+     *
      * @param \Symfony\Component\BrowserKit\Request $request
      *
      * @return \Symfony\Component\BrowserKit\Response
@@ -141,7 +122,7 @@ class Yii2 extends Client
             $target->enabled = false;
         }
 
-        $this->headers = [];
+        $this->headers    = [];
         $this->statusCode = null;
 
         ob_start();
@@ -162,7 +143,7 @@ class Yii2 extends Client
             $app->handleRequest($yiiRequest)->send();
 
             $app->trigger($app::EVENT_AFTER_REQUEST);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if ($e instanceof HttpException) {
                 // Don't discard output and pass exception handling to Yii to be able
                 // to expect error response codes in tests.
@@ -188,18 +169,13 @@ class Yii2 extends Client
         return new Response($content, $this->statusCode, $this->headers);
     }
 
-    /**
-     * @return void
-     */
     protected function revertErrorHandler()
     {
         $handler = new ErrorHandler();
         set_error_handler([$handler, 'errorHandler']);
     }
 
-    /**
-     * @return void
-     */
+
     public function restoreServerVars()
     {
         $this->server = $this->defaultServerVars;
@@ -208,9 +184,6 @@ class Yii2 extends Client
         }
     }
 
-    /**
-     * @return void
-     */
     public function processResponse($event)
     {
         /** @var \yii\web\Response $response */
@@ -250,11 +223,8 @@ class Yii2 extends Client
 
     /**
      * Replace mailer with in memory mailer
-     *
      * @param $config
      * @param $app
-     *
-     * @return void
      */
     protected function mockMailer($config)
     {
@@ -294,8 +264,6 @@ class Yii2 extends Client
 
     /**
      * @param $app
-     *
-     * @return void
      */
     protected function persistDb()
     {
@@ -306,5 +274,4 @@ class Yii2 extends Client
             static::$db = $this->app->get('db');
         }
     }
-
 }

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Lib\Generator\GherkinSnippets as SnippetsGenerator;
@@ -27,13 +21,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GherkinSnippets extends Command
 {
-
     use Shared\Config;
     use Shared\Style;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition(
@@ -51,9 +41,6 @@ class GherkinSnippets extends Command
         return 'Fetches empty steps from feature files of suite and prints code snippets for them';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $this->addStyles($output);
@@ -82,5 +69,4 @@ class GherkinSnippets extends Command
         $output->writeln(sprintf(' <bold>%d</bold> snippets proposed', count($snippets)));
         $output->writeln("<notice> Copy generated snippets to {$config['actor']} or a specific Gherkin context </notice>");
     }
-
 }

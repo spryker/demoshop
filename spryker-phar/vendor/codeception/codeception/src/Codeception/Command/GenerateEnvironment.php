@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
@@ -23,13 +17,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GenerateEnvironment extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -42,11 +32,6 @@ class GenerateEnvironment extends Command
         return 'Generates empty environment config';
     }
 
-    /**
-     * @throws \Codeception\Exception\ConfigurationException
-     *
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $conf = $this->getGlobalConfig();
@@ -70,5 +55,4 @@ class GenerateEnvironment extends Command
             $output->writeln("<error>File $relativePath/$file already exists</error>");
         }
     }
-
 }

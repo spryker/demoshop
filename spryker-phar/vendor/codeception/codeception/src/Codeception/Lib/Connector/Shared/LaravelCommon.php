@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector\Shared;
 
 /**
@@ -14,7 +8,6 @@ namespace Codeception\Lib\Connector\Shared;
  */
 trait LaravelCommon
 {
-
     /**
      * @var array
      */
@@ -37,8 +30,6 @@ trait LaravelCommon
 
     /**
      * Apply the registered application handlers.
-     *
-     * @return void
      */
     private function applyApplicationHandlers()
     {
@@ -49,8 +40,6 @@ trait LaravelCommon
 
     /**
      * Apply the registered Laravel service container bindings.
-     *
-     * @return void
      */
     private function applyBindings()
     {
@@ -63,8 +52,6 @@ trait LaravelCommon
 
     /**
      * Apply the registered Laravel service container contextual bindings.
-     *
-     * @return void
      */
     private function applyContextualBindings()
     {
@@ -77,8 +64,6 @@ trait LaravelCommon
 
     /**
      * Apply the registered Laravel service container instance bindings.
-     *
-     * @return void
      */
     private function applyInstances()
     {
@@ -98,8 +83,6 @@ trait LaravelCommon
      * @param $abstract
      * @param $concrete
      * @param bool $shared
-     *
-     * @return void
      */
     public function haveBinding($abstract, $concrete, $shared = false)
     {
@@ -113,12 +96,10 @@ trait LaravelCommon
      * @param $concrete
      * @param $abstract
      * @param $implementation
-     *
-     * @return void
      */
     public function haveContextualBinding($concrete, $abstract, $implementation)
     {
-        if (!isset($this->contextualBindings[$concrete])) {
+        if (! isset($this->contextualBindings[$concrete])) {
             $this->contextualBindings[$concrete] = [];
         }
 
@@ -131,8 +112,6 @@ trait LaravelCommon
      *
      * @param $abstract
      * @param $instance
-     *
-     * @return void
      */
     public function haveInstance($abstract, $instance)
     {
@@ -144,8 +123,6 @@ trait LaravelCommon
      * The Laravel application object will be passed as an argument to the handler.
      *
      * @param $handler
-     *
-     * @return void
      */
     public function haveApplicationHandler($handler)
     {
@@ -154,12 +131,9 @@ trait LaravelCommon
 
     /**
      * Clear the registered application handlers.
-     *
-     * @return void
      */
     public function clearApplicationHandlers()
     {
         $this->applicationHandlers = [];
     }
-
 }

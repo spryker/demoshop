@@ -1,18 +1,11 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use Codeception\Exception\ModuleException;
 use Codeception\Lib\Interfaces\DataMapper;
 use Codeception\Lib\Interfaces\DependsOnModule;
 use Codeception\Lib\Interfaces\ORM;
+use Codeception\Exception\ModuleException;
 use Codeception\Lib\Interfaces\RequiresPackage;
-use Codeception\Module;
 use Codeception\TestInterface;
 use League\FactoryMuffin\FactoryMuffin;
 use League\FactoryMuffin\Stores\RepositoryStore;
@@ -39,15 +32,15 @@ use League\FactoryMuffin\Stores\RepositoryStore;
  * use League\FactoryMuffin\Faker\Facade as Faker;
  *
  * $fm->define(User::class)->setDefinitions([
- *  'name' => Faker::name(),
+ *  'name'   => Faker::name(),
  *
  *     // generate email
- *    'email' => Faker::email(),
- *    'body' => Faker::text(),
+ *    'email'  => Faker::email(),
+ *    'body'   => Faker::text(),
  *
  *    // generate a profile and return its Id
  *    'profile_id' => 'factory|Profile'
- * ]);
+ *]);
  * ```
  *
  * Configure this module to load factory definitions from a directory.
@@ -128,9 +121,8 @@ gst * You should create this directory manually and create PHP files in it with 
  * 'user' => 'entity|User'
  * ```
  */
-class DataFactory extends Module implements DependsOnModule, RequiresPackage
+class DataFactory extends \Codeception\Module implements DependsOnModule, RequiresPackage
 {
-
     protected $dependencyMessage = <<<EOF
 ORM module (like Doctrine2) or Framework module with ActiveRecord support is required:
 --
@@ -144,12 +136,12 @@ EOF;
     /**
      * ORM module on which we we depend on.
      *
-     * @var \Codeception\Lib\Interfaces\ORM
+     * @var ORM
      */
     public $ormModule;
 
     /**
-     * @var \League\FactoryMuffin\FactoryMuffin
+     * @var FactoryMuffin
      */
     public $factoryMuffin;
 
@@ -159,23 +151,18 @@ EOF;
     {
         return [
             'League\FactoryMuffin\FactoryMuffin' => '"league/factory-muffin": "^3.0"',
-            'League\FactoryMuffin\Faker\Facade' => '"league/factory-muffin-faker": "^1.0"',
+            'League\FactoryMuffin\Faker\Facade' => '"league/factory-muffin-faker": "^1.0"'
         ];
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     public function _beforeSuite($settings = [])
     {
         $store = $this->getStore();
         $this->factoryMuffin = new FactoryMuffin($store);
 
         if ($this->config['factories']) {
-            foreach ((array)$this->config['factories'] as $factoryPath) {
-                $realpath = realpath(codecept_root_dir() . $factoryPath);
+            foreach ((array) $this->config['factories'] as $factoryPath) {
+                $realpath = realpath(codecept_root_dir().$factoryPath);
                 if ($realpath === false) {
                     throw new ModuleException($this, 'The path to one of your factories is not correct. Please specify the directory relative to the codeception.yml file (ie. _support/factories).');
                 }
@@ -183,7 +170,7 @@ EOF;
             }
         }
     }
-
+    
     /**
      * @return StoreInterface|null
      */
@@ -194,17 +181,11 @@ EOF;
             : null;
     }
 
-    /**
-     * @return void
-     */
     public function _inject(ORM $orm)
     {
         $this->ormModule = $orm;
     }
 
-    /**
-     * @return void
-     */
     public function _after(TestInterface $test)
     {
         $skipCleanup = array_key_exists('cleanup', $this->config) && $this->config['cleanup'] === false;
@@ -234,6 +215,8 @@ EOF;
      * @param $fields
      *
      * @return \League\FactoryMuffin\Definition
+     *
+     * @throws \League\FactoryMuffin\Exceptions\DefinitionAlreadyDefinedException
      */
     public function _define($model, $fields)
     {
@@ -278,5 +261,4 @@ EOF;
     {
         return $this->factoryMuffin->seed($times, $name, $extraAttrs);
     }
-
 }

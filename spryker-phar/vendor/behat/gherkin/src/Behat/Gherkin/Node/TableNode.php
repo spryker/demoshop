@@ -1,14 +1,18 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
 
 use ArrayIterator;
 use Behat\Gherkin\Exception\NodeException;
+use Iterator;
 use IteratorAggregate;
 
 /**
@@ -18,23 +22,21 @@ use IteratorAggregate;
  */
 class TableNode implements ArgumentInterface, IteratorAggregate
 {
-
     /**
      * @var array
      */
     private $table;
-
     /**
-     * @var array
+     * @var integer
      */
-    private $maxLineLength = [];
+    private $maxLineLength = array();
 
     /**
      * Initializes table.
      *
      * @param array $table Table in form of [$rowLineNumber => [$val1, $val2, $val3]]
-     *
-     * @throws \Behat\Gherkin\Exception\NodeException If the number of columns is not the same in each row
+     * 
+     * @throws NodeException If the number of columns is not the same in each row
      */
     public function __construct(array $table)
     {
@@ -90,7 +92,7 @@ class TableNode implements ArgumentInterface, IteratorAggregate
         $rows = $this->getRows();
         $keys = array_shift($rows);
 
-        $hash = [];
+        $hash = array();
         foreach ($rows as $row) {
             $hash[] = array_combine($keys, $row);
         }
@@ -105,7 +107,7 @@ class TableNode implements ArgumentInterface, IteratorAggregate
      */
     public function getRowsHash()
     {
-        $hash = [];
+        $hash = array();
 
         foreach ($this->getRows() as $row) {
             $hash[array_shift($row)] = (1 == count($row)) ? $row[0] : $row;
@@ -150,9 +152,9 @@ class TableNode implements ArgumentInterface, IteratorAggregate
      *
      * @param integer $index Row number
      *
-     * @throws \Behat\Gherkin\Exception\NodeException If row with specified index does not exist
-     *
      * @return array
+     *
+     * @throws NodeException If row with specified index does not exist
      */
     public function getRow($index)
     {
@@ -170,9 +172,9 @@ class TableNode implements ArgumentInterface, IteratorAggregate
      *
      * @param integer $index Column number
      *
-     * @throws \Behat\Gherkin\Exception\NodeException If column with specified index does not exist
-     *
      * @return array
+     *
+     * @throws NodeException If column with specified index does not exist
      */
     public function getColumn($index)
     {
@@ -181,7 +183,7 @@ class TableNode implements ArgumentInterface, IteratorAggregate
         }
 
         $rows = $this->getRows();
-        $column = [];
+        $column = array();
 
         foreach ($rows as $row) {
             $column[] = $row[$index];
@@ -195,9 +197,9 @@ class TableNode implements ArgumentInterface, IteratorAggregate
      *
      * @param integer $index
      *
-     * @throws \Behat\Gherkin\Exception\NodeException If row with specified index does not exist
-     *
      * @return integer
+     *
+     * @throws NodeException If row with specified index does not exist
      */
     public function getRowLine($index)
     {
@@ -219,7 +221,7 @@ class TableNode implements ArgumentInterface, IteratorAggregate
      */
     public function getRowAsString($rowNum)
     {
-        $values = [];
+        $values = array();
         foreach ($this->getRow($rowNum) as $column => $value) {
             $values[] = $this->padRight(' ' . $value . ' ', $this->maxLineLength[$column] + 2);
         }
@@ -230,14 +232,14 @@ class TableNode implements ArgumentInterface, IteratorAggregate
     /**
      * Converts row into delimited string.
      *
-     * @param integer $rowNum Row number
+     * @param integer  $rowNum  Row number
      * @param callable $wrapper Wrapper function
      *
      * @return string
      */
     public function getRowAsStringWithWrappedValues($rowNum, $wrapper)
     {
-        $values = [];
+        $values = array();
         foreach ($this->getRow($rowNum) as $column => $value) {
             $value = $this->padRight(' ' . $value . ' ', $this->maxLineLength[$column] + 2);
 
@@ -254,7 +256,7 @@ class TableNode implements ArgumentInterface, IteratorAggregate
      */
     public function getTableAsString()
     {
-        $lines = [];
+        $lines = array();
         for ($i = 0; $i < count($this->getRows()); $i++) {
             $lines[] = $this->getRowAsString($i);
         }
@@ -285,7 +287,7 @@ class TableNode implements ArgumentInterface, IteratorAggregate
     /**
      * Retrieves a hash iterator.
      *
-     * @return \Iterator
+     * @return Iterator
      */
     public function getIterator()
     {
@@ -295,7 +297,7 @@ class TableNode implements ArgumentInterface, IteratorAggregate
     /**
      * Pads string right.
      *
-     * @param string $text Text to pad
+     * @param string  $text   Text to pad
      * @param integer $length Length
      *
      * @return string
@@ -308,5 +310,4 @@ class TableNode implements ArgumentInterface, IteratorAggregate
 
         return $text;
     }
-
 }

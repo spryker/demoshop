@@ -1,15 +1,9 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use Codeception\Exception\ModuleException;
 use Codeception\Module;
 use Codeception\TestInterface;
+use Codeception\Exception\ModuleException;
 
 /**
  * This module interacts with the [Alternative PHP Cache (APC)](http://php.net/manual/en/intro.apcu.php)
@@ -35,15 +29,11 @@ use Codeception\TestInterface;
  */
 class Apc extends Module
 {
-
     /**
      * Code to run before each test.
      *
-     * @param \Codeception\TestInterface $test
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
+     * @param TestInterface $test
+     * @throws ModuleException
      */
     public function _before(TestInterface $test)
     {
@@ -65,9 +55,7 @@ class Apc extends Module
     /**
      * Code to run after each test.
      *
-     * @param \Codeception\TestInterface $test
-     *
-     * @return void
+     * @param TestInterface $test
      */
     public function _after(TestInterface $test)
     {
@@ -86,7 +74,6 @@ class Apc extends Module
      * ```
      *
      * @param string|string[] $key
-     *
      * @return mixed
      */
     public function grabValueFromApc($key)
@@ -114,8 +101,6 @@ class Apc extends Module
      *
      * @param string|string[] $key
      * @param mixed $value
-     *
-     * @return void
      */
     public function seeInApc($key, $value = null)
     {
@@ -145,8 +130,6 @@ class Apc extends Module
      *
      * @param string|string[] $key
      * @param mixed $value
-     *
-     * @return void
      */
     public function dontSeeInApc($key, $value = null)
     {
@@ -186,8 +169,7 @@ class Apc extends Module
      *
      * @param string|array $key
      * @param mixed $value
-     * @param int|null $expiration
-     *
+     * @param int $expiration
      * @return mixed
      */
     public function haveInApc($key, $value, $expiration = null)
@@ -199,8 +181,6 @@ class Apc extends Module
 
     /**
      * Clears the APC(u) cache
-     *
-     * @return void
      */
     public function flushApc()
     {
@@ -277,5 +257,4 @@ class Apc extends Module
 
         return apc_store($key, $var, $ttl);
     }
-
 }

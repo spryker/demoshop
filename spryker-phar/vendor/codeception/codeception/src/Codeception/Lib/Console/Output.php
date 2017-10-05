@@ -1,13 +1,6 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Console;
 
-use Exception;
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Helper\FormatterHelper;
@@ -15,11 +8,10 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class Output extends ConsoleOutput
 {
-
     protected $config = [
-        'colors' => true,
-        'verbosity' => self::VERBOSITY_NORMAL,
-        'interactive' => true,
+        'colors'      => true,
+        'verbosity'   => self::VERBOSITY_NORMAL,
+        'interactive' => true
     ];
 
     /**
@@ -38,7 +30,7 @@ class Output extends ConsoleOutput
         // enable interactive output mode for CLI
         $this->isInteractive = $this->config['interactive']
             && isset($_SERVER['TERM'])
-            && PHP_SAPI == 'cli'
+            && php_sapi_name() == 'cli'
             && $_SERVER['TERM'] != 'linux';
 
         $formatter = new OutputFormatter($this->config['colors']);
@@ -55,6 +47,7 @@ class Output extends ConsoleOutput
 
         $this->formatHelper = new FormatterHelper();
 
+
         parent::__construct($this->config['verbosity'], $this->config['colors'], $formatter);
     }
 
@@ -70,9 +63,6 @@ class Output extends ConsoleOutput
         return $message;
     }
 
-    /**
-     * @return void
-     */
     public function debug($message)
     {
         $message = print_r($message, true);
@@ -93,10 +83,7 @@ class Output extends ConsoleOutput
         return new Message($message, $this);
     }
 
-    /**
-     * @return void
-     */
-    public function exception(Exception $e)
+    public function exception(\Exception $e)
     {
         $class = get_class($e);
 
@@ -106,12 +93,8 @@ class Output extends ConsoleOutput
         $this->writeln("");
     }
 
-    /**
-     * @return void
-     */
     public function notification($message)
     {
         $this->writeln("<comment>$message</comment>");
     }
-
 }

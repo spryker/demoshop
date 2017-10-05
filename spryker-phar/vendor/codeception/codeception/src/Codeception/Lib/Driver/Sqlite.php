@@ -1,23 +1,13 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
 
 use Codeception\Configuration;
 use Codeception\Exception\ModuleException;
-use PDO;
 
 class Sqlite extends Db
 {
-
     protected $hasSnapshot = false;
-
     protected $filename = '';
-
     protected $con = null;
 
     public function __construct($dsn, $user, $password)
@@ -32,9 +22,6 @@ class Sqlite extends Db
         parent::__construct($this->dsn, $user, $password);
     }
 
-    /**
-     * @return void
-     */
     public function cleanup()
     {
         $this->dbh = null;
@@ -42,15 +29,12 @@ class Sqlite extends Db
         $this->dbh = self::connect($this->dsn, $this->user, $this->password);
     }
 
-    /**
-     * @return void
-     */
     public function load($sql)
     {
         if ($this->hasSnapshot) {
             $this->dbh = null;
             file_put_contents($this->filename, file_get_contents($this->filename . '_snapshot'));
-            $this->dbh = new PDO($this->dsn, $this->user, $this->password);
+            $this->dbh = new \PDO($this->dsn, $this->user, $this->password);
         } else {
             if (file_exists($this->filename . '_snapshot')) {
                 unlink($this->filename . '_snapshot');
@@ -76,11 +60,11 @@ class Sqlite extends Db
             $primaryKey = [];
             $query = 'PRAGMA table_info(' . $this->getQuotedName($tableName) . ')';
             $stmt = $this->executeQuery($query, []);
-            $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $columns = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             foreach ($columns as $column) {
                 if ($column['pk'] !== '0') {
-                    $primaryKey[] = $column['name'];
+                    $primaryKey []= $column['name'];
                 }
             }
 
@@ -92,7 +76,6 @@ class Sqlite extends Db
 
     /**
      * @param $tableName
-     *
      * @return bool
      */
     private function hasRowId($tableName)
@@ -103,5 +86,4 @@ class Sqlite extends Db
         $sql = $result->fetchColumn(0);
         return strpos($sql, ') WITHOUT ROWID') === false;
     }
-
 }

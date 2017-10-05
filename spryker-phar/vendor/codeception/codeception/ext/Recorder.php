@@ -1,18 +1,12 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Extension;
 
 use Codeception\Event\StepEvent;
 use Codeception\Event\TestEvent;
 use Codeception\Events;
 use Codeception\Exception\ExtensionException;
-use Codeception\Extension;
 use Codeception\Lib\Interfaces\ScreenshotSaver;
+use Codeception\Module\WebDriver;
 use Codeception\Step\Comment as CommentStep;
 use Codeception\Test\Descriptor;
 use Codeception\Util\FileSystem;
@@ -36,7 +30,7 @@ use Codeception\Util\Template;
  *
  * #### Configuration
  *
- * * `delete_successful` (default: true) - delete screenshots for successfully passed tests (i.e. log only failed and errored tests).
+ * * `delete_successful` (default: true) - delete screenshots for successfully passed tests  (i.e. log only failed and errored tests).
  * * `module` (default: WebDriver) - which module for screenshots to use. Set `AngularJS` if you want to use it with AngularJS module. Generally, the module should implement `Codeception\Lib\Interfaces\ScreenshotSaver` interface.
  *
  *
@@ -51,14 +45,13 @@ use Codeception\Util\Template;
  * ```
  *
  */
-class Recorder extends Extension
+class Recorder extends \Codeception\Extension
 {
-
     protected $config = [
         'delete_successful' => true,
-        'module' => 'WebDriver',
-        'template' => null,
-        'animate_slides' => true,
+        'module'            => 'WebDriver',
+        'template'          => null,
+        'animate_slides'    => true
     ];
 
     protected $template = <<<EOF
@@ -218,34 +211,24 @@ EOF;
 
     public static $events = [
         Events::SUITE_BEFORE => 'beforeSuite',
-        Events::SUITE_AFTER => 'afterSuite',
-        Events::TEST_BEFORE => 'before',
-        Events::TEST_ERROR => 'persist',
-        Events::TEST_FAIL => 'persist',
+        Events::SUITE_AFTER  => 'afterSuite',
+        Events::TEST_BEFORE  => 'before',
+        Events::TEST_ERROR   => 'persist',
+        Events::TEST_FAIL    => 'persist',
         Events::TEST_SUCCESS => 'cleanup',
-        Events::STEP_AFTER => 'afterStep',
+        Events::STEP_AFTER   => 'afterStep',
     ];
 
     /**
-     * @var \Codeception\Module\WebDriver
+     * @var WebDriver
      */
     protected $webDriverModule;
-
     protected $dir;
-
     protected $slides = [];
-
     protected $stepNum = 0;
-
     protected $seed;
-
     protected $recordedTests = [];
 
-    /**
-     * @throws \Codeception\Exception\ExtensionException
-     *
-     * @return void
-     */
     public function beforeSuite()
     {
         $this->webDriverModule = null;
@@ -268,9 +251,6 @@ EOF;
         $this->writeln("Directory Format: <debug>record_{$this->seed}_{testname}</debug> ----");
     }
 
-    /**
-     * @return void
-     */
     public function afterSuite()
     {
         if (!$this->webDriverModule or !$this->dir) {
@@ -285,13 +265,10 @@ EOF;
             ->place('records', $links)
             ->produce();
 
-        file_put_contents(codecept_output_dir() . 'records.html', $indexHTML);
-        $this->writeln("⏺ Records saved into: <info>file://" . codecept_output_dir() . 'records.html</info>');
+        file_put_contents(codecept_output_dir().'records.html', $indexHTML);
+        $this->writeln("⏺ Records saved into: <info>file://" . codecept_output_dir().'records.html</info>');
     }
 
-    /**
-     * @return void
-     */
     public function before(TestEvent $e)
     {
         if (!$this->webDriverModule) {
@@ -305,9 +282,6 @@ EOF;
         @mkdir($this->dir);
     }
 
-    /**
-     * @return void
-     */
     public function cleanup(TestEvent $e)
     {
         if (!$this->webDriverModule or !$this->dir) {
@@ -322,9 +296,6 @@ EOF;
         FileSystem::deleteDir($this->dir);
     }
 
-    /**
-     * @return void
-     */
     public function persist(TestEvent $e)
     {
         if (!$this->webDriverModule or !$this->dir) {
@@ -356,13 +327,10 @@ EOF;
 
         $indexFile = $this->dir . DIRECTORY_SEPARATOR . 'index.html';
         file_put_contents($indexFile, $html);
-        $testName = Descriptor::getTestSignature($e->getTest()) . ' - ' . ucfirst($e->getTest()->getFeature());
+        $testName = Descriptor::getTestSignature($e->getTest()). ' - '.ucfirst($e->getTest()->getFeature());
         $this->recordedTests[$testName] = substr($indexFile, strlen(codecept_output_dir()));
     }
 
-    /**
-     * @return void
-     */
     public function afterStep(StepEvent $e)
     {
         if (!$this->webDriverModule or !$this->dir) {
@@ -377,5 +345,4 @@ EOF;
         $this->stepNum++;
         $this->slides[$filename] = $e->getStep();
     }
-
 }

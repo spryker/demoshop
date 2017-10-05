@@ -47,6 +47,7 @@ use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelRelationUpdaterConsole;
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelValidityConsole;
 use Spryker\Zed\ProductRelation\Communication\Console\ProductRelationUpdaterConsole;
+use Spryker\Zed\Propel\Communication\Console\DatabaseDropConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
 use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
@@ -152,6 +153,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new JenkinsDisableConsole(),
             new JenkinsGenerateConsole(),
             new DeployPreparePropelConsole(),
+
+            new DatabaseDropConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Coverage\Subscriber;
 
 use Codeception\Configuration;
@@ -12,38 +6,26 @@ use Codeception\Coverage\Filter;
 use Codeception\Event\PrintResultEvent;
 use Codeception\Events;
 use Codeception\Subscriber\Shared\StaticEvents;
-use PHPUnit_Runner_Version;
-use PHPUnit_Util_Printer;
-use PHP_CodeCoverage;
-use PHP_CodeCoverage_Report_Clover;
-use PHP_CodeCoverage_Report_Crap4j;
-use PHP_CodeCoverage_Report_HTML;
-use PHP_CodeCoverage_Report_PHP;
-use PHP_CodeCoverage_Report_Text;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class Printer implements EventSubscriberInterface
 {
-
     use StaticEvents;
 
     public static $events = [
-        Events::RESULT_PRINT_AFTER => 'printResult',
+        Events::RESULT_PRINT_AFTER => 'printResult'
     ];
 
     protected $settings = [
-        'enabled' => true,
-        'low_limit' => '35',
-        'high_limit' => '70',
-        'show_uncovered' => false,
+        'enabled'        => true,
+        'low_limit'      => '35',
+        'high_limit'     => '70',
+        'show_uncovered' => false
     ];
 
     public static $coverage;
-
     protected $options;
-
     protected $logDir;
-
     protected $destination = [];
 
     public function __construct($options)
@@ -51,7 +33,7 @@ class Printer implements EventSubscriberInterface
         $this->options = $options;
         $this->logDir = Configuration::outputDir();
         $this->settings = array_merge($this->settings, Configuration::config()['coverage']);
-        self::$coverage = new PHP_CodeCoverage();
+        self::$coverage = new \PHP_CodeCoverage();
 
         // Apply filter
         $filter = new Filter(self::$coverage);
@@ -68,9 +50,6 @@ class Printer implements EventSubscriberInterface
         return $this->logDir . $path;
     }
 
-    /**
-     * @return void
-     */
     public function printResult(PrintResultEvent $e)
     {
         $printer = $e->getPrinter();
@@ -103,12 +82,9 @@ class Printer implements EventSubscriberInterface
         }
     }
 
-    /**
-     * @return void
-     */
-    protected function printConsole(PHPUnit_Util_Printer $printer)
+    protected function printConsole(\PHPUnit_Util_Printer $printer)
     {
-        $writer = new PHP_CodeCoverage_Report_Text(
+        $writer = new \PHP_CodeCoverage_Report_Text(
             $this->settings['low_limit'],
             $this->settings['high_limit'],
             $this->settings['show_uncovered'],
@@ -117,47 +93,35 @@ class Printer implements EventSubscriberInterface
         $printer->write($writer->process(self::$coverage, $this->options['colors']));
     }
 
-    /**
-     * @return void
-     */
     protected function printHtml()
     {
-        $writer = new PHP_CodeCoverage_Report_HTML(
+        $writer = new \PHP_CodeCoverage_Report_HTML(
             $this->settings['low_limit'],
             $this->settings['high_limit'],
             sprintf(
                 ', <a href="http://codeception.com">Codeception</a> and <a href="http://phpunit.de/">PHPUnit %s</a>',
-                PHPUnit_Runner_Version::id()
+                \PHPUnit_Runner_Version::id()
             )
         );
 
         $writer->process(self::$coverage, $this->absolutePath($this->options['coverage-html']));
     }
 
-    /**
-     * @return void
-     */
     protected function printXml()
     {
-        $writer = new PHP_CodeCoverage_Report_Clover;
+        $writer = new \PHP_CodeCoverage_Report_Clover;
         $writer->process(self::$coverage, $this->absolutePath($this->options['coverage-xml']));
     }
 
-    /**
-     * @return void
-     */
     protected function printPHP()
     {
-        $writer = new PHP_CodeCoverage_Report_PHP;
+        $writer = new \PHP_CodeCoverage_Report_PHP;
         $writer->process(self::$coverage, $this->absolutePath($this->options['coverage']));
     }
 
-    /**
-     * @return void
-     */
     protected function printText()
     {
-        $writer = new PHP_CodeCoverage_Report_Text(
+        $writer = new \PHP_CodeCoverage_Report_Text(
             $this->settings['low_limit'],
             $this->settings['high_limit'],
             $this->settings['show_uncovered'],
@@ -169,13 +133,9 @@ class Printer implements EventSubscriberInterface
         );
     }
 
-    /**
-     * @return void
-     */
     protected function printCrap4j()
     {
-        $writer = new PHP_CodeCoverage_Report_Crap4j;
+        $writer = new \PHP_CodeCoverage_Report_Crap4j;
         $writer->process(self::$coverage, $this->absolutePath($this->options['coverage-crap4j']));
     }
-
 }

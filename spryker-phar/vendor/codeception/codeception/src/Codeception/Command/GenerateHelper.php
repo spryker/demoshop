@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
@@ -23,13 +17,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GenerateHelper extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -42,9 +32,6 @@ class GenerateHelper extends Command
         return 'Generates new helper';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $name = ucfirst($input->getArgument('name'));
@@ -60,5 +47,4 @@ class GenerateHelper extends Command
             $output->writeln("<error>Error creating helper $filename</error>");
         }
     }
-
 }

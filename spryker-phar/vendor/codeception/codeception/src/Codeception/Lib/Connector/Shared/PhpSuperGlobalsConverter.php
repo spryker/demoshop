@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector\Shared;
 
 /**
@@ -17,10 +11,8 @@ namespace Codeception\Lib\Connector\Shared;
  */
 trait PhpSuperGlobalsConverter
 {
-
     /**
      * Rearrange files array to be compatible with PHP $_FILES superglobal structure
-     *
      * @see https://bugs.php.net/bug.php?id=25589
      *
      * @param array $requestFiles
@@ -37,7 +29,6 @@ trait PhpSuperGlobalsConverter
     /**
      * Escape high-level variable name with dots, underscores and other "special" chars
      * to be compatible with PHP "bug"
-     *
      * @see https://bugs.php.net/bug.php?id=40000
      *
      * @param array $parameters
@@ -110,7 +101,6 @@ trait PhpSuperGlobalsConverter
     /**
      * Replace spaces and dots and other chars in high-level query parameters for
      * compatibility with PHP bug (or not a bug)
-     *
      * @see https://bugs.php.net/bug.php?id=40000
      *
      * @param array $parameters Array of request parameters to be converted
@@ -124,5 +114,4 @@ trait PhpSuperGlobalsConverter
 
         return $output;
     }
-
 }

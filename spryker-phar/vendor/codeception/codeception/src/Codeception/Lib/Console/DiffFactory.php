@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Console;
 
 use SebastianBergmann\Comparator\ComparisonFailure;
@@ -15,10 +9,8 @@ use SebastianBergmann\Diff\Differ;
  **/
 class DiffFactory
 {
-
     /**
-     * @param \SebastianBergmann\Comparator\ComparisonFailure $failure
-     *
+     * @param ComparisonFailure $failure
      * @return string|null
      */
     public function createDiff(ComparisonFailure $failure)
@@ -34,7 +26,6 @@ class DiffFactory
     /**
      * @param string $expected
      * @param string $actual
-     *
      * @return string
      */
     private function getDiff($expected = '', $actual = '')
@@ -47,5 +38,4 @@ class DiffFactory
 
         return $differ->diff($expected, $actual);
     }
-
 }

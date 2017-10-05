@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Codecept;
@@ -18,8 +12,6 @@ use Codeception\Scenario;
 use Codeception\SuiteManager;
 use Codeception\Test\Cept;
 use Codeception\Util\Debug;
-use Exception;
-use PHPUnit_Framework_AssertionFailedError;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
@@ -35,20 +27,12 @@ use Symfony\Component\Console\Question\Question;
  */
 class Console extends Command
 {
-
     protected $test;
-
     protected $codecept;
-
     protected $suite;
-
     protected $output;
-
     protected $actions = [];
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -64,11 +48,6 @@ class Console extends Command
         return 'Launches interactive test console';
     }
 
-    /**
-     * @throws \Codeception\Exception\ConfigurationException
-     *
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $suiteName = $input->getArgument('suite');
@@ -98,7 +77,7 @@ class Console extends Command
         $this->test = new Cept(null, null);
         $this->test->getMetadata()->setServices([
            'dispatcher' => $dispatcher,
-           'modules' => $moduleContainer,
+           'modules' =>  $moduleContainer
         ]);
 
         $scenario = new Scenario($this->test);
@@ -106,7 +85,7 @@ class Console extends Command
             throw new ConfigurationException("Interactive shell can't be started without an actor");
         }
         if (isset($config["namespace"])) {
-            $settings['actor'] = $config["namespace"] . '\\' . $settings['actor'];
+            $settings['actor'] = $config["namespace"] .'\\' . $settings['actor'];
         }
         $actor = $settings['actor'];
         $I = new $actor($scenario);
@@ -133,9 +112,6 @@ class Console extends Command
         $output->writeln("<info>Bye-bye!</info>");
     }
 
-    /**
-     * @return void
-     */
     protected function executeCommands(InputInterface $input, OutputInterface $output, $I, $bootstrap)
     {
         $dialog = new QuestionHelper();
@@ -164,17 +140,14 @@ class Console extends Command
                 if ($value && !is_object($value)) {
                     codecept_debug($value);
                 }
-            } catch (PHPUnit_Framework_AssertionFailedError $fail) {
+            } catch (\PHPUnit_Framework_AssertionFailedError $fail) {
                 $output->writeln("<error>fail</error> " . $fail->getMessage());
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $output->writeln("<error>error</error> " . $e->getMessage());
             }
         } while (true);
     }
 
-    /**
-     * @return void
-     */
     protected function listenToSignals()
     {
         if (function_exists('pcntl_signal')) {
@@ -183,5 +156,4 @@ class Console extends Command
             pcntl_signal(SIGTERM, SIG_IGN);
         }
     }
-
 }

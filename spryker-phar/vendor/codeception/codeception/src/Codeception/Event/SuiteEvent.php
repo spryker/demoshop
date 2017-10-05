@@ -1,19 +1,11 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Event;
 
-use PHPUnit_Framework_TestResult;
-use PHPUnit_Framework_TestSuite;
+use Codeception\Suite;
 use Symfony\Component\EventDispatcher\Event;
 
 class SuiteEvent extends Event
 {
-
     /**
      * @var \PHPUnit_Framework_TestSuite
      */
@@ -30,8 +22,8 @@ class SuiteEvent extends Event
     protected $settings;
 
     public function __construct(
-        PHPUnit_Framework_TestSuite $suite,
-        PHPUnit_Framework_TestResult $result = null,
+        \PHPUnit_Framework_TestSuite $suite,
+        \PHPUnit_Framework_TestResult $result = null,
         $settings = []
     ) {
         $this->suite = $suite;
@@ -40,7 +32,7 @@ class SuiteEvent extends Event
     }
 
     /**
-     * @return \Codeception\Suite
+     * @return Suite
      */
     public function getSuite()
     {
@@ -59,5 +51,4 @@ class SuiteEvent extends Event
     {
         return $this->settings;
     }
-
 }

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Codecept;
@@ -12,8 +6,6 @@ use Codeception\Configuration;
 use Codeception\Lib\Di;
 use Codeception\Lib\ModuleContainer;
 use Codeception\Util\Template;
-use ReflectionClass;
-use ReflectionMethod;
 
 class Actions
 {
@@ -40,6 +32,7 @@ trait {{name}}Actions
 
 EOF;
 
+
     protected $methodTemplate = <<<EOF
 
     /**
@@ -54,13 +47,9 @@ EOF;
 EOF;
 
     protected $name;
-
     protected $settings;
-
     protected $modules = [];
-
     protected $actions;
-
     protected $numMethods = 0;
 
     public function __construct($settings)
@@ -75,6 +64,7 @@ EOF;
         }
         $this->actions = $this->moduleContainer->getActions();
     }
+
 
     public function produce()
     {
@@ -91,7 +81,7 @@ EOF;
             if (in_array($action, $methods)) {
                 continue;
             }
-            $class = new ReflectionClass($this->modules[$moduleName]);
+            $class = new \ReflectionClass($this->modules[$moduleName]);
             $method = $class->getMethod($action);
             $code[] = $this->addMethod($method);
             $methods[] = $action;
@@ -107,7 +97,7 @@ EOF;
             ->produce();
     }
 
-    protected function addMethod(ReflectionMethod $refMethod)
+    protected function addMethod(\ReflectionMethod $refMethod)
     {
         $class = $refMethod->getDeclaringClass();
         $params = $this->getParamsString($refMethod);
@@ -162,10 +152,9 @@ EOF;
 
     /**
      * @param \ReflectionMethod $refMethod
-     *
      * @return array
      */
-    protected function getParamsString(ReflectionMethod $refMethod)
+    protected function getParamsString(\ReflectionMethod $refMethod)
     {
         $params = [];
         foreach ($refMethod->getParameters() as $param) {
@@ -181,17 +170,16 @@ EOF;
     /**
      * @param \ReflectionClass $class
      * @param \ReflectionMethod $refMethod
-     *
      * @return string
      */
-    protected function addDoc(ReflectionClass $class, ReflectionMethod $refMethod)
+    protected function addDoc(\ReflectionClass $class, \ReflectionMethod $refMethod)
     {
         $doc = $refMethod->getDocComment();
 
         if (!$doc) {
             $interfaces = $class->getInterfaces();
             foreach ($interfaces as $interface) {
-                $i = new ReflectionClass($interface->name);
+                $i = new \ReflectionClass($interface->name);
                 if ($i->hasMethod($refMethod->name)) {
                     $doc = $i->getMethod($refMethod->name)->getDocComment();
                     break;
@@ -200,7 +188,7 @@ EOF;
         }
 
         if (!$doc and $class->getParentClass()) {
-            $parent = new ReflectionClass($class->getParentClass()->name);
+            $parent = new \ReflectionClass($class->getParentClass()->name);
             if ($parent->hasMethod($refMethod->name)) {
                 $doc = $parent->getMethod($refMethod->name)->getDocComment();
                 return $doc;
@@ -224,5 +212,4 @@ EOF;
     {
         return $this->numMethods;
     }
-
 }

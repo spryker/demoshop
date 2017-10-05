@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Lib\Connector\Lumen\DummyKernel;
@@ -12,13 +6,12 @@ use Codeception\Lib\Connector\Shared\LaravelCommon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
-use ReflectionMethod;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Client;
 
 class Lumen extends Client
 {
-
     use LaravelCommon;
 
     /**
@@ -66,9 +59,8 @@ class Lumen extends Client
     /**
      * Execute a request.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param SymfonyRequest $request
+     * @return Response
      */
     protected function doRequest($request)
     {
@@ -85,7 +77,7 @@ class Lumen extends Client
         $request = Request::createFromBase($request);
         $response = $this->kernel->handle($request);
 
-        $method = new ReflectionMethod(get_class($this->app), 'callTerminableMiddleware');
+        $method = new \ReflectionMethod(get_class($this->app), 'callTerminableMiddleware');
         $method->setAccessible(true);
         $method->invoke($this->app, $response);
 
@@ -95,7 +87,7 @@ class Lumen extends Client
     /**
      * Initialize the Lumen framework.
      *
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
+     * @param SymfonyRequest|null $request
      */
     private function initialize($request = null)
     {
@@ -132,5 +124,4 @@ class Lumen extends Client
 
         $this->module->setApplication($this->app);
     }
-
 }

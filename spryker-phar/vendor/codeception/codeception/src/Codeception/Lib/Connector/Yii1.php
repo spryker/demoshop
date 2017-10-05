@@ -1,21 +1,12 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Util\Stub;
-use ReflectionProperty;
 use Symfony\Component\BrowserKit\Client;
 use Symfony\Component\BrowserKit\Response;
-use Yii;
 
 class Yii1 extends Client
 {
-
     use Shared\PhpSuperGlobalsConverter;
     /**
      * http://localhost/path/to/your/app/index.php
@@ -42,6 +33,7 @@ class Yii1 extends Client
     private $headers;
 
     /**
+     *
      * @param \Symfony\Component\BrowserKit\Request $request
      *
      * @return \Symfony\Component\BrowserKit\Response
@@ -49,11 +41,11 @@ class Yii1 extends Client
     public function doRequest($request)
     {
         $this->headers = [];
-        $_COOKIE = array_merge($_COOKIE, $request->getCookies());
-        $_SERVER = array_merge($_SERVER, $request->getServer());
-        $_FILES = $this->remapFiles($request->getFiles());
-        $_REQUEST = $this->remapRequestParameters($request->getParameters());
-        $_POST = $_GET = [];
+        $_COOKIE        = array_merge($_COOKIE, $request->getCookies());
+        $_SERVER        = array_merge($_SERVER, $request->getServer());
+        $_FILES         = $this->remapFiles($request->getFiles());
+        $_REQUEST       = $this->remapRequestParameters($request->getParameters());
+        $_POST          = $_GET = [];
 
         if (strtoupper($request->getMethod()) == 'GET') {
             $_GET = $_REQUEST;
@@ -94,10 +86,10 @@ class Yii1 extends Client
         $_SERVER['SCRIPT_FILENAME'] = $this->appPath;
 
         ob_start();
-        Yii::setApplication(null);
-        Yii::createApplication($this->appSettings['class'], $this->appSettings['config']);
+        \Yii::setApplication(null);
+        \Yii::createApplication($this->appSettings['class'], $this->appSettings['config']);
 
-        $app = Yii::app();
+        $app = \Yii::app();
         // disabling logging. Logs slow down test execution
         if ($app->hasComponent('log')) {
             foreach ($app->getComponent('log')->routes as $route) {
@@ -116,7 +108,7 @@ class Yii1 extends Client
             // close connection
             $app->getDb()->setActive(false);
             // cleanup metadata cache
-            $property = new ReflectionProperty('CActiveRecord', '_md');
+            $property = new \ReflectionProperty('CActiveRecord', '_md');
             $property->setAccessible(true);
             $property->setValue([]);
         }
@@ -138,22 +130,18 @@ class Yii1 extends Client
 
     /**
      * Set current client headers when terminating yii application (onEndRequest)
-     *
-     * @return void
      */
     public function setHeaders()
     {
-        $this->headers = Yii::app()->request->getAllHeaders();
+        $this->headers = \Yii::app()->request->getAllHeaders();
     }
 
     /**
      * Returns current client headers
-     *
      * @return array headers
      */
     public function getHeaders()
     {
         return $this->headers;
     }
-
 }

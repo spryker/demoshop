@@ -1,20 +1,13 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
-use Codeception\Lib\Generator\Actor as ActorGenerator;
 use Codeception\Lib\Generator\Helper;
 use Codeception\Util\Template;
-use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Codeception\Lib\Generator\Actor as ActorGenerator;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
 
@@ -29,14 +22,10 @@ use Symfony\Component\Yaml\Yaml;
  */
 class GenerateSuite extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
     use Shared\Style;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -50,11 +39,6 @@ class GenerateSuite extends Command
         return 'Generates new test suite';
     }
 
-    /**
-     * @throws \Exception
-     *
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $this->addStyles($output);
@@ -73,7 +57,7 @@ class GenerateSuite extends Command
 
         $dir = Configuration::testsDir();
         if (file_exists($dir . $suite . '.suite.yml')) {
-            throw new Exception("Suite configuration file '$suite.suite.yml' already exists.");
+            throw new \Exception("Suite configuration file '$suite.suite.yml' already exists.");
         }
 
         $this->createDirectoryFor($dir . $suite);
@@ -127,7 +111,7 @@ EOF;
             Configuration::supportDir(),
             $actor
         ) . $this->getShortClassName($actor);
-        $file .= '.php';
+        $file .=  '.php';
 
         $this->createFile($file, $content);
 
@@ -147,5 +131,4 @@ EOF;
     {
         return preg_match('#[^A-Za-z0-9_]#', $suite) ? true : false;
     }
-
 }

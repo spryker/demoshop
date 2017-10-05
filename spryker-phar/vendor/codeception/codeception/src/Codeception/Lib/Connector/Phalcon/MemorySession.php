@@ -1,17 +1,10 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector\Phalcon;
 
 use Phalcon\Session\AdapterInterface;
 
 class MemorySession implements AdapterInterface
 {
-
     /**
      * @var string
      */
@@ -249,14 +242,13 @@ class MemorySession implements AdapterInterface
      */
     public function toArray()
     {
-        return (array)$this->memory;
+        return (array) $this->memory;
     }
 
     /**
      * Alias: Gets a session variable from an application context
      *
      * @param string $index
-     *
      * @return mixed
      */
     public function __get($index)
@@ -269,8 +261,6 @@ class MemorySession implements AdapterInterface
      *
      * @param string $index
      * @param mixed $value
-     *
-     * @return void
      */
     public function __set($index, $value)
     {
@@ -280,8 +270,7 @@ class MemorySession implements AdapterInterface
     /**
      * Alias: Check whether a session variable is set in an application context
      *
-     * @param string $index
-     *
+     * @param  string $index
      * @return bool
      */
     public function __isset($index)
@@ -293,8 +282,6 @@ class MemorySession implements AdapterInterface
      * Alias: Removes a session variable from an application context
      *
      * @param string $index
-     *
-     * @return void
      */
     public function __unset($index)
     {
@@ -319,5 +306,4 @@ class MemorySession implements AdapterInterface
     {
         return md5(time());
     }
-
 }

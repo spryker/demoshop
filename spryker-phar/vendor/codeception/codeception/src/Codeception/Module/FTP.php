@@ -1,15 +1,7 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\TestInterface;
-use Crypt_RSA;
-use Net_SFTP;
 
 /**
  *
@@ -98,9 +90,7 @@ use Net_SFTP;
 
 class FTP extends Filesystem
 {
-
     /**
-     * @var null
      * FTP/SFTP connection handler
      */
     protected $ftp = null;
@@ -111,15 +101,15 @@ class FTP extends Filesystem
      * @var array
      */
     protected $config = [
-        'type' => 'ftp',
-        'port' => 21,
-        'timeout' => 90,
-        'user' => 'anonymous',
+        'type'     => 'ftp',
+        'port'     => 21,
+        'timeout'  => 90,
+        'user'     => 'anonymous',
         'password' => '',
-        'key' => '',
-        'tmp' => 'tests/_data',
-        'passive' => false,
-        'cleanup' => true,
+        'key'      => '',
+        'tmp'      => 'tests/_data',
+        'passive'  => false,
+        'cleanup'  => true
     ];
 
     /**
@@ -135,8 +125,6 @@ class FTP extends Filesystem
      * Setup connection and login with config settings
      *
      * @param \Codeception\TestInterface $test
-     *
-     * @return void
      */
     public function _before(TestInterface $test)
     {
@@ -146,8 +134,6 @@ class FTP extends Filesystem
 
     /**
      * Close the FTP connection & Clear up
-     *
-     * @return void
      */
     public function _after(TestInterface $test)
     {
@@ -175,10 +161,8 @@ class FTP extends Filesystem
      * ?>
      * ```
      *
-     * @param String|string $user
-     * @param String|string $password
-     *
-     * @return void
+     * @param String $user
+     * @param String $password
      */
     public function loginAs($user = 'anonymous', $password = '')
     {
@@ -189,8 +173,6 @@ class FTP extends Filesystem
      * Enters a directory on the ftp system - FTP root directory is used by default
      *
      * @param $path
-     *
-     * @return void
      */
     public function amInPath($path)
     {
@@ -202,7 +184,6 @@ class FTP extends Filesystem
      * Resolve path
      *
      * @param $path
-     *
      * @return string
      */
     protected function absolutizePath($path)
@@ -227,8 +208,6 @@ class FTP extends Filesystem
      *
      * @param $filename
      * @param string $path
-     *
-     * @return void
      */
     public function seeFileFound($filename, $path = '')
     {
@@ -249,8 +228,6 @@ class FTP extends Filesystem
      *
      * @param $regex
      * @param string $path
-     *
-     * @return void
      */
     public function seeFileFoundMatches($regex, $path = '')
     {
@@ -269,8 +246,6 @@ class FTP extends Filesystem
      *
      * @param $filename
      * @param string $path
-     *
-     * @return void
      */
     public function dontSeeFileFound($filename, $path = '')
     {
@@ -285,8 +260,6 @@ class FTP extends Filesystem
      *
      * @param $regex
      * @param string $path
-     *
-     * @return void
      */
     public function dontSeeFileFoundMatches($regex, $path = '')
     {
@@ -316,8 +289,6 @@ class FTP extends Filesystem
      * ```
      *
      * @param $filename
-     *
-     * @return void
      */
     public function openFile($filename)
     {
@@ -336,8 +307,6 @@ class FTP extends Filesystem
      *
      * @param $filename
      * @param $contents
-     *
-     * @return void
      */
     public function writeToFile($filename, $contents)
     {
@@ -354,8 +323,6 @@ class FTP extends Filesystem
      * ```
      *
      * @param $dirname
-     *
-     * @return void
      */
     public function makeDir($dirname)
     {
@@ -367,8 +334,6 @@ class FTP extends Filesystem
      *
      * @param $src
      * @param $dst
-     *
-     * @return void
      */
     public function copyDir($src, $dst)
     {
@@ -386,8 +351,6 @@ class FTP extends Filesystem
      *
      * @param $filename
      * @param $rename
-     *
-     * @return void
      */
     public function renameFile($filename, $rename)
     {
@@ -405,8 +368,6 @@ class FTP extends Filesystem
      *
      * @param $dirname
      * @param $rename
-     *
-     * @return void
      */
     public function renameDir($dirname, $rename)
     {
@@ -423,8 +384,6 @@ class FTP extends Filesystem
      * ```
      *
      * @param $filename
-     *
-     * @return void
      */
     public function deleteFile($filename)
     {
@@ -441,8 +400,6 @@ class FTP extends Filesystem
      * ```
      *
      * @param $dirname
-     *
-     * @return void
      */
     public function deleteDir($dirname)
     {
@@ -459,8 +416,6 @@ class FTP extends Filesystem
      * ```
      *
      * @param $dirname
-     *
-     * @return void
      */
     public function cleanDir($dirname)
     {
@@ -482,7 +437,6 @@ class FTP extends Filesystem
      *
      * @param string $path
      * @param bool $ignore - suppress '.', '..' and '.thumbs.db'
-     *
      * @return array
      */
     public function grabFileList($path = '', $ignore = true)
@@ -527,7 +481,6 @@ class FTP extends Filesystem
      *
      * @param string $path
      * @param bool $ignore - suppress '.', '..' and '.thumbs.db'
-     *
      * @return int
      */
     public function grabFileCount($path = '', $ignore = true)
@@ -547,7 +500,6 @@ class FTP extends Filesystem
      * ```
      *
      * @param $filename
-     *
      * @return bool
      */
     public function grabFileSize($filename)
@@ -567,7 +519,6 @@ class FTP extends Filesystem
      * ```
      *
      * @param $filename
-     *
      * @return bool
      */
     public function grabFileModified($filename)
@@ -602,8 +553,6 @@ class FTP extends Filesystem
      *
      * @param string $user
      * @param string $password
-     *
-     * @return void
      */
     private function _openConnection($user = 'anonymous', $password = '')
     {
@@ -619,8 +568,6 @@ class FTP extends Filesystem
 
     /**
      * Close open FTP/SFTP connection
-     *
-     * @return void
      */
     private function _closeConnection()
     {
@@ -637,7 +584,6 @@ class FTP extends Filesystem
      * Get the file listing for FTP/SFTP connection
      *
      * @param String $path
-     *
      * @return array
      */
     private function _listFiles($path)
@@ -675,8 +621,6 @@ class FTP extends Filesystem
      * Change the working directory on the FTP/SFTP server
      *
      * @param $path
-     *
-     * @return void
      */
     private function _changeDirectory($path)
     {
@@ -694,13 +638,11 @@ class FTP extends Filesystem
      * Download remote file to local tmp directory and open contents.
      *
      * @param $filename
-     *
-     * @return void
      */
     private function _openFile($filename)
     {
         // Check local tmp directory
-        if (!is_dir($this->config['tmp']) || !is_writable($this->config['tmp'])) {
+        if (!is_dir($this->config['tmp']) || !is_writeable($this->config['tmp'])) {
             $this->fail('tmp directory not found or is not writable');
         }
 
@@ -729,13 +671,11 @@ class FTP extends Filesystem
      *
      * @param $filename
      * @param $contents
-     *
-     * @return void
      */
     private function _writeToFile($filename, $contents)
     {
         // Check local tmp directory
-        if (!is_dir($this->config['tmp']) || !is_writable($this->config['tmp'])) {
+        if (!is_dir($this->config['tmp']) || !is_writeable($this->config['tmp'])) {
             $this->fail('tmp directory not found or is not writable');
         }
 
@@ -762,8 +702,6 @@ class FTP extends Filesystem
      * Make new directory on server
      *
      * @param $path
-     *
-     * @return void
      */
     private function makeDirectory($path)
     {
@@ -783,8 +721,6 @@ class FTP extends Filesystem
      *
      * @param $path
      * @param $rename
-     *
-     * @return void
      */
     private function renameDirectory($path, $rename)
     {
@@ -803,8 +739,6 @@ class FTP extends Filesystem
      * Delete file on server
      *
      * @param $filename
-     *
-     * @return void
      */
     private function delete($filename, $isDir = false)
     {
@@ -819,11 +753,11 @@ class FTP extends Filesystem
         $this->debug("Deleted: {$filename}");
     }
 
+
     /**
      * Function to recursively delete folder, used for PHP FTP build in client.
      *
      * @param $directory
-     *
      * @return bool
      */
     private function ftpDelete($directory)
@@ -848,8 +782,6 @@ class FTP extends Filesystem
      * Clear directory on server of all content
      *
      * @param $path
-     *
-     * @return void
      */
     private function clearDirectory($path)
     {
@@ -862,7 +794,6 @@ class FTP extends Filesystem
      * Return the size of a given file
      *
      * @param $filename
-     *
      * @return bool
      */
     private function size($filename)
@@ -882,7 +813,6 @@ class FTP extends Filesystem
      * Return the last modified time of a given file
      *
      * @param $filename
-     *
      * @return bool
      */
     private function modified($filename)
@@ -903,12 +833,10 @@ class FTP extends Filesystem
     /**
      * @param $user
      * @param $password
-     *
-     * @return void
      */
     protected function sftpConnect($user, $password)
     {
-        $this->ftp = new Net_SFTP($this->config['host'], $this->config['port'], $this->config['timeout']);
+        $this->ftp = new \Net_SFTP($this->config['host'], $this->config['port'], $this->config['timeout']);
         if ($this->ftp === false) {
             $this->ftp = null;
             $this->fail('failed to connect to ftp server');
@@ -916,7 +844,7 @@ class FTP extends Filesystem
 
         if (isset($this->config['key'])) {
             $keyFile = file_get_contents($this->config['key']);
-            $password = new Crypt_RSA();
+            $password = new \Crypt_RSA();
             $password->loadKey($keyFile);
         }
 
@@ -928,8 +856,6 @@ class FTP extends Filesystem
     /**
      * @param $user
      * @param $password
-     *
-     * @return void
      */
     protected function ftpConnect($user, $password)
     {
@@ -954,5 +880,4 @@ class FTP extends Filesystem
     {
         return strtolower($this->config['type']) == 'sftp';
     }
-
 }

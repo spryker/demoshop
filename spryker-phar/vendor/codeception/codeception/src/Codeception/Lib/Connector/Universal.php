@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Symfony\Component\BrowserKit\Client;
@@ -12,24 +6,16 @@ use Symfony\Component\BrowserKit\Response;
 
 class Universal extends Client
 {
-
     use Shared\PhpSuperGlobalsConverter;
 
     protected $mockedResponse;
-
     protected $index;
 
-    /**
-     * @return void
-     */
     public function setIndex($index)
     {
         $this->index = $index;
     }
 
-    /**
-     * @return void
-     */
     public function mockResponse($response)
     {
         $this->mockedResponse = $response;
@@ -83,5 +69,4 @@ class Universal extends Client
         $response = new Response($content, 200, $headers);
         return $response;
     }
-
 }

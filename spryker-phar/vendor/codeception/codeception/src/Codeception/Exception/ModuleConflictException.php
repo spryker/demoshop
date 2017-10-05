@@ -1,17 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Exception;
 
-use Exception;
-
-class ModuleConflictException extends Exception
+class ModuleConflictException extends \Exception
 {
-
     public function __construct($module, $conflicted, $additional = '')
     {
         if (is_object($module)) {
@@ -29,5 +20,4 @@ class ModuleConflictException extends Exception
             . "You can load a part of module (like: ORM) to avoid conflict.\n"
             . $additional;
     }
-
 }

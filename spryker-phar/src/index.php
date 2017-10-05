@@ -6,7 +6,7 @@ use Spryker\Console\DescribeConsoleCommand;
 use Spryker\Console\SetupConsoleCommand;
 use Symfony\Component\Console\Application;
 
-define('SPRYKER_ROOT', __DIR__);
+define('SPRYKER_ROOT', getcwd());
 
 $application = new Application();
 

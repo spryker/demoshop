@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Test\Loader\Gherkin;
@@ -25,13 +19,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GherkinSteps extends Command
 {
-
     use Shared\Config;
     use Shared\Style;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition(
@@ -48,9 +38,6 @@ class GherkinSteps extends Command
         return 'Prints all defined feature steps';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $this->addStyles($output);
@@ -62,7 +49,7 @@ class GherkinSteps extends Command
         $steps = $loader->getSteps();
 
         foreach ($steps as $name => $context) {
-            /** @var \Symfony\Component\Console\Helper\Table $table */
+            /** @var $table Table  **/
             $table = new Table($output);
             $table->setHeaders(['Step', 'Implementation']);
             $output->writeln("Steps from <bold>$name</bold> context:");
@@ -81,5 +68,4 @@ class GherkinSteps extends Command
             $output->writeln("No steps are defined, start creating them by running <bold>gherkin:snippets</bold>");
         }
     }
-
 }

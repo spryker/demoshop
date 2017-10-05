@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Filter;
@@ -19,7 +22,6 @@ use Behat\Gherkin\Node\ScenarioInterface;
  */
 class LineFilter implements FilterInterface
 {
-
     protected $filterLine;
 
     /**
@@ -29,13 +31,13 @@ class LineFilter implements FilterInterface
      */
     public function __construct($filterLine)
     {
-        $this->filterLine = (int)$filterLine;
+        $this->filterLine = intval($filterLine);
     }
 
     /**
      * Checks if Feature matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
+     * @param FeatureNode $feature Feature instance
      *
      * @return Boolean
      */
@@ -47,7 +49,7 @@ class LineFilter implements FilterInterface
     /**
      * Checks if scenario or outline matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\ScenarioInterface $scenario Scenario or Outline node instance
+     * @param ScenarioInterface $scenario Scenario or Outline node instance
      *
      * @return Boolean
      */
@@ -68,13 +70,13 @@ class LineFilter implements FilterInterface
     /**
      * Filters feature according to the filter and returns new one.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature
+     * @param FeatureNode $feature
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @return FeatureNode
      */
     public function filterFeature(FeatureNode $feature)
     {
-        $scenarios = [];
+        $scenarios = array();
         foreach ($feature->getScenarios() as $scenario) {
             if (!$this->isScenarioMatch($scenario)) {
                 continue;
@@ -85,7 +87,7 @@ class LineFilter implements FilterInterface
                 $lines = array_keys($table);
 
                 if (in_array($this->filterLine, $lines)) {
-                    $filteredTable = [$lines[0] => $table[$lines[0]]];
+                    $filteredTable = array($lines[0] => $table[$lines[0]]);
 
                     if ($lines[0] !== $this->filterLine) {
                         $filteredTable[$this->filterLine] = $table[$this->filterLine];
@@ -117,5 +119,4 @@ class LineFilter implements FilterInterface
             $feature->getLine()
         );
     }
-
 }

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Util\Shared\Namespaces;
@@ -12,7 +6,6 @@ use Codeception\Util\Template;
 
 class PageObject
 {
-
     use Namespaces;
     use Shared\Classname;
 
@@ -60,11 +53,8 @@ EOF;
 EOF;
 
     protected $actions = '';
-
     protected $settings;
-
     protected $name;
-
     protected $namespace;
 
     public function __construct($settings, $name)
@@ -101,5 +91,4 @@ EOF;
             ->place('pageObject', $this->name)
             ->produce();
     }
-
 }

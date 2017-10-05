@@ -1,18 +1,12 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
+use Codeception\Module as CodeceptionModule;
+use Codeception\TestInterface;
 use Codeception\Exception\ModuleConfigException;
 use Codeception\Lib\Driver\AmazonSQS;
 use Codeception\Lib\Driver\Beanstalk;
 use Codeception\Lib\Driver\Iron;
-use Codeception\Module as CodeceptionModule;
-use Codeception\TestInterface;
 
 /**
  *
@@ -37,7 +31,7 @@ use Codeception\TestInterface;
  *
  * * Maintainer: **nathanmac**
  * * Stability:
- *     - Iron.io: **stable**
+ *     - Iron.io:    **stable**
  *     - Beanstalkd: **stable**
  *     - Amazon SQS: **stable**
  * * Contact: nathan.macnamara@outlook.com
@@ -62,7 +56,7 @@ use Codeception\TestInterface;
  *          It can also make it difficult to rotate credentials in the future.
  * * profile - AWS credential profile
  *           - it should be located in ~/.aws/credentials file
- *           - eg: [default]
+ *           - eg:  [default]
  *                  aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
  *                  aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
  *                  [project1]
@@ -130,7 +124,6 @@ use Codeception\TestInterface;
  */
 class Queue extends CodeceptionModule
 {
-
     /**
      * @var \Codeception\Lib\Interfaces\Queue
      */
@@ -140,8 +133,6 @@ class Queue extends CodeceptionModule
      * Setup connection and open/setup the connection with config settings
      *
      * @param \Codeception\TestInterface $test
-     *
-     * @return void
      */
     public function _before(TestInterface $test)
     {
@@ -150,8 +141,6 @@ class Queue extends CodeceptionModule
 
     /**
      * Provide and override for the config settings and allow custom settings depending on the service being used.
-     *
-     * @return void
      */
     protected function validateConfig()
     {
@@ -162,9 +151,8 @@ class Queue extends CodeceptionModule
     }
 
     /**
-     * @throws \Codeception\Exception\ModuleConfigException
-     *
      * @return \Codeception\Lib\Interfaces\Queue
+     * @throws ModuleConfigException
      */
     protected function createQueueDriver()
     {
@@ -200,8 +188,6 @@ class Queue extends CodeceptionModule
      * ```
      *
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function seeQueueExists($queue)
     {
@@ -218,8 +204,6 @@ class Queue extends CodeceptionModule
      * ```
      *
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function dontSeeQueueExists($queue)
     {
@@ -236,8 +220,6 @@ class Queue extends CodeceptionModule
      * ```
      *
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function seeEmptyQueue($queue)
     {
@@ -254,8 +236,6 @@ class Queue extends CodeceptionModule
      * ```
      *
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function dontSeeEmptyQueue($queue)
     {
@@ -273,8 +253,6 @@ class Queue extends CodeceptionModule
      *
      * @param string $queue Queue Name
      * @param int $expected Number of messages expected
-     *
-     * @return void
      */
     public function seeQueueHasCurrentCount($queue, $expected)
     {
@@ -292,8 +270,6 @@ class Queue extends CodeceptionModule
      *
      * @param string $queue Queue Name
      * @param int $expected Number of messages expected
-     *
-     * @return void
      */
     public function dontSeeQueueHasCurrentCount($queue, $expected)
     {
@@ -311,8 +287,6 @@ class Queue extends CodeceptionModule
      *
      * @param string $queue Queue Name
      * @param int $expected Number of messages expected
-     *
-     * @return void
      */
     public function seeQueueHasTotalCount($queue, $expected)
     {
@@ -330,8 +304,6 @@ class Queue extends CodeceptionModule
      *
      * @param string $queue Queue Name
      * @param int $expected Number of messages expected
-     *
-     * @return void
      */
     public function dontSeeQueueHasTotalCount($queue, $expected)
     {
@@ -351,8 +323,6 @@ class Queue extends CodeceptionModule
      *
      * @param string $message Message Body
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function addMessageToQueue($message, $queue)
     {
@@ -369,8 +339,6 @@ class Queue extends CodeceptionModule
      * ```
      *
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function clearQueue($queue)
     {
@@ -403,7 +371,6 @@ class Queue extends CodeceptionModule
      *     $I->grabQueueCurrentCount('default');
      * ?>
      * ```
-     *
      * @param string $queue Queue Name
      *
      * @return int Count
@@ -430,5 +397,4 @@ class Queue extends CodeceptionModule
     {
         return $this->queueDriver->getMessagesTotalCountOnQueue($queue);
     }
-
 }

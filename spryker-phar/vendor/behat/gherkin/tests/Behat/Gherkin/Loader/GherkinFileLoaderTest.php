@@ -1,31 +1,20 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Loader;
 
 use Behat\Gherkin\Keywords\CucumberKeywords;
 use Behat\Gherkin\Lexer;
 use Behat\Gherkin\Loader\GherkinFileLoader;
 use Behat\Gherkin\Parser;
-use PHPUnit_Framework_TestCase;
 
-class GherkinFileLoaderTest extends PHPUnit_Framework_TestCase
+class GherkinFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
-     * @var \Behat\Gherkin\Loader\GherkinFileLoader
+     * @var GherkinFileLoader
      */
     private $loader;
-
     private $featuresPath;
 
-    /**
-     * @return void
-     */
     public function testSupports()
     {
         $this->assertFalse($this->loader->supports('non-existent path'));
@@ -37,9 +26,6 @@ class GherkinFileLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->loader->supports(__DIR__ . '/../Fixtures/features/pystring.feature'));
     }
 
-    /**
-     * @return void
-     */
     public function testLoad()
     {
         $features = $this->loader->load($this->featuresPath . '/pystring.feature');
@@ -53,9 +39,6 @@ class GherkinFileLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->featuresPath . DIRECTORY_SEPARATOR . 'multiline_name.feature', $features[0]->getFile());
     }
 
-    /**
-     * @return void
-     */
     public function testParsingUncachedFeature()
     {
         $cache = $this->getMockBuilder('Behat\Gherkin\Cache\CacheInterface')->getMock();
@@ -73,9 +56,6 @@ class GherkinFileLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($features));
     }
 
-    /**
-     * @return void
-     */
     public function testParsingCachedFeature()
     {
         $cache = $this->getMockBuilder('Behat\Gherkin\Cache\CacheInterface')->getMock();
@@ -98,9 +78,6 @@ class GherkinFileLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('cache', $features[0]);
     }
 
-    /**
-     * @return void
-     */
     public function testBasePath()
     {
         $this->assertFalse($this->loader->supports('features'));
@@ -123,9 +100,6 @@ class GherkinFileLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('multiline_name.feature', $features[0]->getFile());
     }
 
-    /**
-     * @return void
-     */
     protected function setUp()
     {
         $keywords = new CucumberKeywords(__DIR__ . '/../Fixtures/i18n.yml');
@@ -134,5 +108,4 @@ class GherkinFileLoaderTest extends PHPUnit_Framework_TestCase
 
         $this->featuresPath = realpath(__DIR__ . '/../Fixtures/features');
     }
-
 }

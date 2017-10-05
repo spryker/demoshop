@@ -1,15 +1,10 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Coverage\Subscriber;
 
 use Codeception\Coverage\SuiteSubscriber;
 use Codeception\Event\SuiteEvent;
 use Codeception\Events;
+use Codeception\Lib\Interfaces\Remote;
 
 /**
  * Collects code coverage from unit and functional tests.
@@ -17,14 +12,13 @@ use Codeception\Events;
  */
 class Local extends SuiteSubscriber
 {
-
     public static $events = [
         Events::SUITE_BEFORE => 'beforeSuite',
-        Events::SUITE_AFTER => 'afterSuite',
+        Events::SUITE_AFTER  => 'afterSuite',
     ];
 
     /**
-     * @var \Codeception\Lib\Interfaces\Remote
+     * @var Remote
      */
     protected $module;
 
@@ -33,9 +27,6 @@ class Local extends SuiteSubscriber
         return $this->module === null and $this->settings['enabled'];
     }
 
-    /**
-     * @return void
-     */
     public function beforeSuite(SuiteEvent $e)
     {
         $this->applySettings($e->getSettings());
@@ -46,9 +37,6 @@ class Local extends SuiteSubscriber
         $this->applyFilter($e->getResult());
     }
 
-    /**
-     * @return void
-     */
     public function afterSuite(SuiteEvent $e)
     {
         if (!$this->isEnabled()) {
@@ -56,5 +44,4 @@ class Local extends SuiteSubscriber
         }
         $this->mergeToPrint($e->getResult()->getCodeCoverage());
     }
-
 }

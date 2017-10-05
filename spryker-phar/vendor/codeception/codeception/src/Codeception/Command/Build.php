@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
@@ -24,14 +18,13 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class Build extends Command
 {
-
     use Shared\Config;
     use Shared\FileSystem;
 
     protected $inheritedMethodTemplate = ' * @method void %s(%s)';
 
     /**
-     * @var \Symfony\Component\Console\Output\OutputInterface
+     * @var OutputInterface
      */
     protected $output;
 
@@ -40,15 +33,13 @@ class Build extends Command
         return 'Generates base classes for all suites';
     }
 
-    /**
-     * @return void
-     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->output = $output;
         $this->buildActorsForConfig();
     }
-
+    
     private function buildActor(array $settings)
     {
         $actorGenerator = new ActorGenerator($settings);
@@ -56,17 +47,17 @@ class Build extends Command
             '<info>' . Configuration::config()['namespace'] . '\\' . $actorGenerator->getActorName()
             . "</info> includes modules: " . implode(', ', $actorGenerator->getModules())
         );
-
+        
         $content = $actorGenerator->produce();
 
         $file = $this->createDirectoryFor(
             Configuration::supportDir(),
             $settings['actor']
         ) . $this->getShortClassName($settings['actor']);
-        $file .= '.php';
+        $file .=  '.php';
         return $this->createFile($file, $content);
     }
-
+    
     private function buildActions(array $settings)
     {
         $actionsGenerator = new ActionsGenerator($settings);
@@ -74,17 +65,14 @@ class Build extends Command
             " -> {$settings['actor']}Actions.php generated successfully. "
             . $actionsGenerator->getNumMethods() . " methods added"
         );
-
+        
         $content = $actionsGenerator->produce();
-
+        
         $file = $this->createDirectoryFor(Configuration::supportDir() . '_generated', $settings['actor']);
         $file .= $this->getShortClassName($settings['actor']) . 'Actions.php';
         return $this->createFile($file, $content, true);
     }
 
-    /**
-     * @return void
-     */
     private function buildSuiteActors()
     {
         $suites = $this->getSuites();
@@ -98,20 +86,17 @@ class Build extends Command
             }
             $this->buildActions($settings);
             $actorBuilt = $this->buildActor($settings);
-
+            
             if ($actorBuilt) {
                 $this->output->writeln("{$settings['actor']}.php created.");
             }
         }
     }
-
-    /**
-     * @return void
-     */
+    
     protected function buildActorsForConfig($configFile = null)
     {
         $config = $this->getGlobalConfig($configFile);
-
+        
         $dir = Configuration::projectDir();
         $this->buildSuiteActors();
 
@@ -120,5 +105,4 @@ class Build extends Command
             $this->buildActorsForConfig($dir . DIRECTORY_SEPARATOR . $subConfig);
         }
     }
-
 }

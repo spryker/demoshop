@@ -1,24 +1,18 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception;
 
 use Codeception\Exception\ConfigurationException;
 use Codeception\Lib\ParamsLoader;
 use Codeception\Util\Autoload;
 use Codeception\Util\Template;
-use InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
 class Configuration
 {
-
     protected static $suites = [];
 
     /**
@@ -71,54 +65,54 @@ class Configuration
      * @var array Default config
      */
     public static $defaultConfig = [
-        'actor_suffix' => 'Tester',
-        'namespace' => '',
-        'include' => [],
-        'paths' => [],
-        'suites' => [],
-        'modules' => [],
+        'actor_suffix'=> 'Tester',
+        'namespace'  => '',
+        'include'    => [],
+        'paths'      => [],
+        'suites'     => [],
+        'modules'    => [],
         'extensions' => [
-            'enabled' => [],
-            'config' => [],
+            'enabled'  => [],
+            'config'   => [],
             'commands' => [],
         ],
-        'reporters' => [
-            'xml' => 'Codeception\PHPUnit\Log\JUnit',
-            'html' => 'Codeception\PHPUnit\ResultPrinter\HTML',
-            'tap' => 'PHPUnit_Util_Log_TAP',
-            'json' => 'PHPUnit_Util_Log_JSON',
+        'reporters'  => [
+            'xml'    => 'Codeception\PHPUnit\Log\JUnit',
+            'html'   => 'Codeception\PHPUnit\ResultPrinter\HTML',
+            'tap'    => 'PHPUnit_Util_Log_TAP',
+            'json'   => 'PHPUnit_Util_Log_JSON',
             'report' => 'Codeception\PHPUnit\ResultPrinter\Report',
         ],
-        'groups' => [],
-        'settings' => [
-            'colors' => true,
-            'bootstrap' => false,
-            'strict_xml' => false,
-            'lint' => true,
-            'backup_globals' => true,
-            'log_incomplete_skipped' => false,
-            'report_useless_tests' => false,
-            'disallow_test_output' => false,
-            'be_strict_about_changes_to_global_state' => false,
+        'groups'     => [],
+        'settings'   => [
+            'colors'                    => true,
+            'bootstrap'                 => false,
+            'strict_xml'                => false,
+            'lint'                      => true,
+            'backup_globals'            => true,
+            'log_incomplete_skipped'    => false,
+            'report_useless_tests'      => false,
+            'disallow_test_output'      => false,
+            'be_strict_about_changes_to_global_state' => false
         ],
-        'coverage' => [],
-        'params' => [],
-        'gherkin' => [],
+        'coverage'   => [],
+        'params'     => [],
+        'gherkin'    => []
     ];
 
     public static $defaultSuiteSettings = [
-        'actor' => null,
-        'class_name' => null, // Codeception <2.3 compatibility
-        'modules' => [
+        'actor'       => null,
+        'class_name'  => null, // Codeception <2.3 compatibility
+        'modules'     => [
             'enabled' => [],
-            'config' => [],
-            'depends' => [],
+            'config'  => [],
+            'depends' => []
         ],
-        'path' => null,
-        'namespace' => null,
-        'groups' => [],
-        'shuffle' => false,
-        'extensions' => [ // suite extensions
+        'path'        => null,
+        'namespace'   => null,
+        'groups'      => [],
+        'shuffle'     => false,
+        'extensions'  => [ // suite extensions
             'enabled' => [],
             'config' => [],
         ],
@@ -132,10 +126,8 @@ class Configuration
      * When config is already loaded - returns it.
      *
      * @param null $configFile
-     *
-     * @throws Exception\ConfigurationException
-     *
      * @return array
+     * @throws Exception\ConfigurationException
      */
     public static function config($configFile = null)
     {
@@ -249,9 +241,6 @@ class Configuration
         return $config;
     }
 
-    /**
-     * @return void
-     */
     protected static function loadBootstrap($bootstrap)
     {
         if (!$bootstrap) {
@@ -263,9 +252,6 @@ class Configuration
         }
     }
 
-    /**
-     * @return void
-     */
     protected static function loadSuites()
     {
         $suites = Finder::create()
@@ -281,7 +267,7 @@ class Configuration
             self::$suites[$suite] = $suite;
         }
 
-        /** @var \Symfony\Component\Finder\SplFileInfo $suite */
+        /** @var SplFileInfo $suite */
         foreach ($suites as $suite) {
             preg_match('~(.*?)(\.suite|\.suite\.dist)\.yml~', $suite->getFilename(), $matches);
             self::$suites[$matches[1]] = $matches[1];
@@ -293,10 +279,8 @@ class Configuration
      *
      * @param string $suite
      * @param array $config
-     *
-     * @throws \Codeception\Exception\ConfigurationException
-     *
      * @return array
+     * @throws \Exception
      */
     public static function suiteSettings($suite, $config)
     {
@@ -339,6 +323,8 @@ class Configuration
         $settings['path'] = self::$dir . DIRECTORY_SEPARATOR . $config['paths']['tests']
             . DIRECTORY_SEPARATOR . $settings['path'] . DIRECTORY_SEPARATOR;
 
+
+
         return $settings;
     }
 
@@ -346,7 +332,6 @@ class Configuration
      * Loads environments configuration from set directory
      *
      * @param string $path path to the directory
-     *
      * @return array
      */
     protected static function loadEnvConfigs($path)
@@ -366,7 +351,7 @@ class Configuration
             ->depth('< 2');
 
         $envConfig = [];
-        /** @var \Symfony\Component\Finder\SplFileInfo $envFile */
+        /** @var SplFileInfo $envFile */
         foreach ($envFiles as $envFile) {
             $env = str_replace(['.dist.yml', '.yml'], '', $envFile->getFilename());
             $envConfig[$env] = [];
@@ -392,10 +377,8 @@ class Configuration
      *
      * @param string $contents Yaml config file contents
      * @param string $filename which is supposed to be loaded
-     *
-     * @throws \Codeception\Exception\ConfigurationException
-     *
      * @return array
+     * @throws ConfigurationException
      */
     protected static function getConfFromContents($contents, $filename = '(.yml)')
     {
@@ -423,7 +406,6 @@ class Configuration
      *
      * @param string $filename filename
      * @param mixed $nonExistentValue value used if filename is not found
-     *
      * @return array
      */
     protected static function getConfFromFile($filename, $nonExistentValue = [])
@@ -440,7 +422,6 @@ class Configuration
      * Suite configurations will contain `current_environment` key which specifies what environment used.
      *
      * @param $suite
-     *
      * @return array
      */
     public static function suiteEnvironments($suite)
@@ -470,7 +451,6 @@ class Configuration
      * Return list of enabled modules according suite config.
      *
      * @param array $settings suite settings
-     *
      * @return array
      */
     public static function modules($settings)
@@ -525,9 +505,8 @@ class Configuration
      * Returns actual path to current `_output` dir.
      * Use it in Helpers or Groups to save result or temporary files.
      *
-     * @throws Exception\ConfigurationException
-     *
      * @return string
+     * @throws Exception\ConfigurationException
      */
     public static function outputDir()
     {
@@ -559,7 +538,6 @@ class Configuration
 
     /**
      * Compatibility alias to `Configuration::logDir()`
-     *
      * @return string
      */
     public static function logDir()
@@ -571,13 +549,13 @@ class Configuration
      * Returns path to the root of your project.
      * Basically returns path to current `codeception.yml` loaded.
      * Use this method instead of `__DIR__`, `getcwd()` or anything else.
-     *
      * @return string
      */
     public static function projectDir()
     {
         return self::$dir . DIRECTORY_SEPARATOR;
     }
+
 
     /**
      * Returns path to tests directory
@@ -618,7 +596,6 @@ class Configuration
      * Adds parameters to config
      *
      * @param array $config
-     *
      * @return array
      */
     public static function append(array $config = [])
@@ -683,7 +660,6 @@ class Configuration
      * @param $suite
      * @param $path
      * @param $settings
-     *
      * @return array
      */
     protected static function loadSuiteConfig($suite, $path, $settings)
@@ -708,7 +684,6 @@ class Configuration
      * Replaces wildcarded items in include array with real paths.
      *
      * @param $includes
-     *
      * @return array
      */
     protected static function expandWildcardedIncludes(array $includes)
@@ -728,22 +703,20 @@ class Configuration
      * Returns the expanded paths or the original if not a wildcard.
      *
      * @param $include
-     *
-     * @throws \Codeception\Exception\ConfigurationException
-     *
      * @return array
+     * @throws ConfigurationException
      */
     protected static function expandWildcardsFor($include)
     {
         if (1 !== preg_match('/[\?\.\*]/', $include)) {
-            return [$include];
+            return [$include,];
         }
 
         try {
             $configFiles = Finder::create()->files()
                 ->name('/codeception(\.dist\.yml|\.yml)/')
                 ->in(self::$dir . DIRECTORY_SEPARATOR . $include);
-        } catch (InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             throw new ConfigurationException(
                 "Configuration file(s) could not be found in \"$include\"."
             );
@@ -757,9 +730,6 @@ class Configuration
         return $paths;
     }
 
-    /**
-     * @return void
-     */
     private static function prepareParams($settings)
     {
         self::$params = [];
@@ -769,5 +739,4 @@ class Configuration
             static::$params = array_merge(self::$params, $paramsLoader->load($paramStorage));
         }
     }
-
 }

@@ -1,20 +1,14 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector\ZF2;
 
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\ServiceManager;
+use \Zend\ServiceManager\ServiceLocatorInterface;
+use \Zend\ServiceManager\ServiceManager;
 
 class PersistentServiceManager extends ServiceManager implements ServiceLocatorInterface
 {
-
     /**
-     * @var \Zend\ServiceManager\ServiceLocatorInterface Used to retrieve Doctrine services
+     * @var ServiceLocatorInterface Used to retrieve Doctrine services
      */
     private $serviceManager;
 
@@ -42,12 +36,8 @@ class PersistentServiceManager extends ServiceManager implements ServiceLocatorI
         return false;
     }
 
-    /**
-     * @return void
-     */
     public function setService($name, $service)
     {
         parent::setService($name, $service);
     }
-
 }

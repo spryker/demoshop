@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\Exception\ModuleException as ModuleException;
@@ -12,6 +6,7 @@ use Codeception\Lib\Interfaces\RequiresPackage;
 use Codeception\Module as CodeceptionModule;
 use Codeception\TestInterface;
 use Exception;
+use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Exception\AMQPProtocolChannelException;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -53,19 +48,18 @@ use PhpAmqpLib\Message\AMQPMessage;
  */
 class AMQP extends CodeceptionModule implements RequiresPackage
 {
-
     protected $config = [
-        'host' => 'localhost',
-        'username' => 'guest',
-        'password' => 'guest',
-        'port' => '5672',
-        'vhost' => '/',
-        'cleanup' => true,
-        'single_channel' => false,
+        'host'           => 'localhost',
+        'username'       => 'guest',
+        'password'       => 'guest',
+        'port'           => '5672',
+        'vhost'          => '/',
+        'cleanup'        => true,
+        'single_channel' => false
     ];
 
     /**
-     * @var \PhpAmqpLib\Connection\AMQPStreamConnection
+     * @var AMQPStreamConnection
      */
     public $connection;
 
@@ -81,11 +75,6 @@ class AMQP extends CodeceptionModule implements RequiresPackage
         return ['PhpAmqpLib\Connection\AMQPStreamConnection' => '"php-amqplib/php-amqplib": "~2.4"'];
     }
 
-    /**
-     * @throws Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     public function _initialize()
     {
         $host = $this->config['host'];
@@ -101,9 +90,6 @@ class AMQP extends CodeceptionModule implements RequiresPackage
         }
     }
 
-    /**
-     * @return void
-     */
     public function _before(TestInterface $test)
     {
         if ($this->config['cleanup']) {
@@ -125,9 +111,7 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      *
      * @param string $exchange
      * @param string|\PhpAmqpLib\Message\AMQPMessage $message
-     * @param string|null $routing_key
-     *
-     * @return void
+     * @param string $routing_key
      */
     public function pushToExchange($exchange, $message, $routing_key = null)
     {
@@ -149,8 +133,6 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      *
      * @param string $queue
      * @param string|\PhpAmqpLib\Message\AMQPMessage $message
-     *
-     * @return void
      */
     public function pushToQueue($queue, $message)
     {
@@ -182,9 +164,8 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      * @param bool $auto_delete
      * @param bool $internal
      * @param bool $nowait
-     * @param array|null $arguments
-     * @param int|null $ticket
-     *
+     * @param array $arguments
+     * @param int $ticket
      * @return mixed|null
      */
     public function declareExchange(
@@ -229,9 +210,8 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      * @param bool $exclusive
      * @param bool $auto_delete
      * @param bool $nowait
-     * @param array|null $arguments
-     * @param int|null $ticket
-     *
+     * @param array $arguments
+     * @param int $ticket
      * @return mixed|null
      */
     public function declareQueue(
@@ -274,9 +254,8 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      * @param string $exchange
      * @param string $routing_key
      * @param bool $nowait
-     * @param array|null $arguments
-     * @param int|null $ticket
-     *
+     * @param array $arguments
+     * @param int $ticket
      * @return mixed|null
      */
     public function bindQueueToExchange(
@@ -312,8 +291,6 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      *
      * @param string $queue
      * @param string $text
-     *
-     * @return void
      */
     public function seeMessageInQueueContainsText($queue, $text)
     {
@@ -338,7 +315,6 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      * ```
      *
      * @param string $queue
-     *
      * @return \PhpAmqpLib\Message\AMQPMessage
      */
     public function grabMessageFromQueue($queue)
@@ -357,14 +333,10 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      * ```
      *
      * @param string $queueName
-     *
-     * @throws Codeception\Exception\ModuleException
-     *
-     * @return void
      */
     public function purgeQueue($queueName = '')
     {
-        if (!in_array($queueName, $this->config['queues'])) {
+        if (! in_array($queueName, $this->config['queues'])) {
             throw new ModuleException(__CLASS__, "'$queueName' doesn't exist in queues config list");
         }
 
@@ -379,8 +351,6 @@ class AMQP extends CodeceptionModule implements RequiresPackage
      * $I->purgeAllQueues();
      * ?>
      * ```
-     *
-     * @return void
      */
     public function purgeAllQueues()
     {
@@ -398,9 +368,6 @@ class AMQP extends CodeceptionModule implements RequiresPackage
         return $this->connection->channel($this->channelId);
     }
 
-    /**
-     * @return void
-     */
     protected function cleanup()
     {
         if (!isset($this->config['queues'])) {
@@ -420,5 +387,4 @@ class AMQP extends CodeceptionModule implements RequiresPackage
             }
         }
     }
-
 }

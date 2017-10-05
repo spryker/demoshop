@@ -1,17 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Exception;
 
-use Exception;
-
-class ModuleException extends Exception
+class ModuleException extends \Exception
 {
-
     protected $module;
 
     public function __construct($module, $message)
@@ -24,5 +15,4 @@ class ModuleException extends Exception
         parent::__construct($message);
         $this->message = "$module: {$this->message}";
     }
-
 }

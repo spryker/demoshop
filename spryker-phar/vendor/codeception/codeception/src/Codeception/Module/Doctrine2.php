@@ -1,22 +1,13 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use Codeception\Exception\ModuleConfigException;
 use Codeception\Lib\Interfaces\DataMapper;
+use Codeception\Module as CodeceptionModule;
+use Codeception\Exception\ModuleConfigException;
 use Codeception\Lib\Interfaces\DependsOnModule;
 use Codeception\Lib\Interfaces\DoctrineProvider;
-use Codeception\Module as CodeceptionModule;
 use Codeception\TestInterface;
 use Codeception\Util\Stub;
-use Doctrine\ORM\EntityManagerInterface;
-use PDOException;
-use ReflectionClass;
 
 /**
  * Access the database using [Doctrine2 ORM](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/).
@@ -68,7 +59,7 @@ class Doctrine2 extends CodeceptionModule implements DependsOnModule, DataMapper
     protected $config = [
         'cleanup' => true,
         'connection_callback' => false,
-        'depends' => null,
+        'depends' => null
     ];
 
     protected $dependencyMessage = <<<EOF
@@ -88,7 +79,7 @@ modules:
 EOF;
 
     /**
-     * @var \Doctrine\ORM\EntityManagerInterface|null
+     * @var \Doctrine\ORM\EntityManagerInterface
      */
     public $em = null;
 
@@ -105,25 +96,16 @@ EOF;
         return ['Codeception\Lib\Interfaces\DoctrineProvider' => $this->dependencyMessage];
     }
 
-    /**
-     * @return void
-     */
     public function _inject(DoctrineProvider $dependentModule = null)
     {
         $this->dependentModule = $dependentModule;
     }
 
-    /**
-     * @return void
-     */
     public function _beforeSuite($settings = [])
     {
         $this->retrieveEntityManager();
     }
 
-    /**
-     * @return void
-     */
     public function _before(TestInterface $test)
     {
         $this->retrieveEntityManager();
@@ -133,11 +115,6 @@ EOF;
         }
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleConfigException
-     *
-     * @return void
-     */
     protected function retrieveEntityManager()
     {
         if ($this->dependentModule) {
@@ -159,7 +136,8 @@ EOF;
             );
         }
 
-        if (!($this->em instanceof EntityManagerInterface)) {
+
+        if (!($this->em instanceof \Doctrine\ORM\EntityManagerInterface)) {
             throw new ModuleConfigException(
                 __CLASS__,
                 "Connection object is not an instance of \\Doctrine\\ORM\\EntityManagerInterface.\n"
@@ -170,33 +148,27 @@ EOF;
         $this->em->getConnection()->connect();
     }
 
-    /**
-     * @return void
-     */
     public function _after(TestInterface $test)
     {
-        if (!$this->em instanceof EntityManagerInterface) {
+        if (!$this->em instanceof \Doctrine\ORM\EntityManagerInterface) {
             return;
         }
         if ($this->config['cleanup'] && $this->em->getConnection()->isTransactionActive()) {
             try {
                 $this->em->getConnection()->rollback();
                 $this->debugSection('Database', 'Transaction cancelled; all changes reverted.');
-            } catch (PDOException $e) {
+            } catch (\PDOException $e) {
             }
         }
         $this->clean();
         $this->em->getConnection()->close();
     }
 
-    /**
-     * @return void
-     */
     protected function clean()
     {
         $em = $this->em;
 
-        $reflectedEm = new ReflectionClass($em);
+        $reflectedEm = new \ReflectionClass($em);
         if ($reflectedEm->hasProperty('repositories')) {
             $property = $reflectedEm->getProperty('repositories');
             $property->setAccessible(true);
@@ -205,15 +177,15 @@ EOF;
         $this->em->clear();
     }
 
+
     /**
      * Performs $em->flush();
-     *
-     * @return void
      */
     public function flushToDatabase()
     {
         $this->em->flush();
     }
+
 
     /**
      * Adds entity to repository and flushes. You can redefine it's properties with the second parameter.
@@ -228,13 +200,11 @@ EOF;
      *
      * @param $obj
      * @param array $values
-     *
-     * @return void
      */
     public function persistEntity($obj, $values = [])
     {
         if ($values) {
-            $reflectedObj = new ReflectionClass($obj);
+            $reflectedObj = new \ReflectionClass($obj);
             foreach ($values as $key => $val) {
                 $property = $reflectedObj->getProperty($key);
                 $property->setAccessible(true);
@@ -257,7 +227,7 @@ EOF;
      * ``` php
      * <?php
      *
-     * $I->haveFakeRepository('Entity\User', array('findByUsername' => function($username) { return null; }));
+     * $I->haveFakeRepository('Entity\User', array('findByUsername' => function($username) {  return null; }));
      *
      * ```
      *
@@ -266,8 +236,6 @@ EOF;
      *
      * @param $classname
      * @param array $methods
-     *
-     * @return void
      */
     public function haveFakeRepository($classname, $methods = [])
     {
@@ -286,14 +254,15 @@ EOF;
                 [
                     '_entityName' => $metadata->name,
                     '_em' => $em,
-                    '_class' => $metadata,
+                    '_class' => $metadata
                 ],
                 $methods
             )
         );
 
         $em->clear();
-        $reflectedEm = new ReflectionClass($em);
+        $reflectedEm = new \ReflectionClass($em);
+
 
         if ($reflectedEm->hasProperty('repositories')) {
             //Support doctrine versions before 2.4.0
@@ -308,7 +277,7 @@ EOF;
             $repositoryFactoryProperty->setAccessible(true);
             $repositoryFactory = $repositoryFactoryProperty->getValue($em);
 
-            $reflectedRepositoryFactory = new ReflectionClass($repositoryFactory);
+            $reflectedRepositoryFactory = new \ReflectionClass($repositoryFactory);
 
             if ($reflectedRepositoryFactory->hasProperty('repositoryList')) {
                 $repositoryListProperty = $reflectedRepositoryFactory->getProperty('repositoryList');
@@ -346,10 +315,10 @@ EOF;
      */
     public function haveInRepository($entity, array $data)
     {
-        $reflectedEntity = new ReflectionClass($entity);
+        $reflectedEntity = new \ReflectionClass($entity);
         $entityObject = $reflectedEntity->newInstance();
         foreach ($reflectedEntity->getProperties() as $property) {
-            /** @var \ReflectionProperty $property */
+            /** @var $property \ReflectionProperty */
             if (!isset($data[$property->name])) {
                 continue;
             }
@@ -384,8 +353,6 @@ EOF;
      *
      * @param $entity
      * @param array $params
-     *
-     * @return void
      */
     public function seeInRepository($entity, $params = [])
     {
@@ -398,8 +365,6 @@ EOF;
      *
      * @param $entity
      * @param array $params
-     *
-     * @return void
      */
     public function dontSeeInRepository($entity, $params = [])
     {
@@ -434,11 +399,9 @@ EOF;
      * ```
      *
      * @version 1.1
-     *
      * @param $entity
      * @param $field
      * @param array $params
-     *
      * @return array
      */
     public function grabFromRepository($entity, $field, $params = [])
@@ -467,10 +430,8 @@ EOF;
      * ```
      *
      * @version 1.1
-     *
      * @param $entity
      * @param array $params
-     *
      * @return array
      */
     public function grabEntitiesFromRepository($entity, $params = [])
@@ -482,7 +443,7 @@ EOF;
         $qb->select('s');
         $this->buildAssociationQuery($qb, $entity, 's', $params);
         $this->debug($qb->getDQL());
-
+        
         return $qb->getQuery()->getResult();
     }
 
@@ -500,10 +461,8 @@ EOF;
      * ```
      *
      * @version 1.1
-     *
      * @param $entity
      * @param array $params
-     *
      * @return object
      */
     public function grabEntityFromRepository($entity, $params = [])
@@ -515,9 +474,11 @@ EOF;
         $qb->select('s');
         $this->buildAssociationQuery($qb, $entity, 's', $params);
         $this->debug($qb->getDQL());
-
+        
         return $qb->getQuery()->getSingleResult();
     }
+
+    
 
     /**
      * It's Fuckin Recursive!
@@ -526,8 +487,6 @@ EOF;
      * @param $assoc
      * @param $alias
      * @param $params
-     *
-     * @return void
      */
     protected function buildAssociationQuery($qb, $assoc, $alias, $params)
     {
@@ -562,7 +521,9 @@ EOF;
 
     public function _getEntityManager()
     {
+        if (is_null($this->em)) {
+            $this->retrieveEntityManager();
+        }
         return $this->em;
     }
-
 }

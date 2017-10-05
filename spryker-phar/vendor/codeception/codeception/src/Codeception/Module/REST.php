@@ -1,29 +1,21 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use ArrayAccess;
 use Codeception\Exception\ModuleException;
-use Codeception\Lib\Framework;
-use Codeception\Lib\InnerBrowser;
-use Codeception\Lib\Interfaces\API;
 use Codeception\Lib\Interfaces\ConflictsWithModule;
-use Codeception\Lib\Interfaces\DependsOnModule;
-use Codeception\Lib\Interfaces\PartedModule;
 use Codeception\Module as CodeceptionModule;
 use Codeception\PHPUnit\Constraint\JsonContains;
 use Codeception\PHPUnit\Constraint\JsonType as JsonTypeConstraint;
 use Codeception\TestInterface;
+use Codeception\Lib\Interfaces\API;
+use Codeception\Lib\Framework;
+use Codeception\Lib\InnerBrowser;
+use Codeception\Lib\Interfaces\DependsOnModule;
+use Codeception\Lib\Interfaces\PartedModule;
 use Codeception\Util\JsonArray;
-use Codeception\Util\Soap as XmlUtils;
+use Codeception\Util\JsonType;
 use Codeception\Util\XmlStructure;
-use JsonSerializable;
-use PHPUnit_Framework_Assert;
+use Codeception\Util\Soap as XmlUtils;
 
 /**
  * Module for testing REST WebService.
@@ -64,9 +56,8 @@ use PHPUnit_Framework_Assert;
  */
 class REST extends CodeceptionModule implements DependsOnModule, PartedModule, API, ConflictsWithModule
 {
-
     protected $config = [
-        'url' => '',
+        'url' => ''
     ];
 
     protected $dependencyMessage = <<<EOF
@@ -82,33 +73,25 @@ Framework modules can be used for testing of API as well.
 EOF;
 
     /**
-     * @var \Symfony\Component\HttpKernel\Client|\Symfony\Component\BrowserKit\Client|null
+     * @var \Symfony\Component\HttpKernel\Client|\Symfony\Component\BrowserKit\Client
      */
     public $client = null;
-
     public $isFunctional = false;
 
     /**
-     * @var \Codeception\Lib\InnerBrowser
+     * @var InnerBrowser
      */
     protected $connectionModule;
 
     public $params = [];
-
     public $response = "";
 
-    /**
-     * @return void
-     */
     public function _before(TestInterface $test)
     {
         $this->client = &$this->connectionModule->client;
         $this->resetVariables();
     }
 
-    /**
-     * @return void
-     */
     protected function resetVariables()
     {
         $this->params = [];
@@ -131,9 +114,6 @@ EOF;
         return ['xml', 'json'];
     }
 
-    /**
-     * @return void
-     */
     public function _inject(InnerBrowser $connection)
     {
         $this->connectionModule = $connection;
@@ -165,13 +145,10 @@ EOF;
      * ?>
      * ```
      *
-     * @part json
-     * @part xml
-     *
      * @param $name
      * @param $value
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function haveHttpHeader($name, $value)
     {
@@ -179,7 +156,7 @@ EOF;
     }
 
     /**
-     * Deletes the header with the passed name. Subsequent requests
+     * Deletes the header with the passed name.  Subsequent requests
      * will not have the deleted header in its request.
      *
      * Example:
@@ -193,12 +170,9 @@ EOF;
      * ?>
      * ```
      *
+     * @param string $name the name of the header to delete.
      * @part json
      * @part xml
-     *
-     * @param string $name the name of the header to delete.
-     *
-     * @return void
      */
     public function deleteHeader($name)
     {
@@ -209,13 +183,10 @@ EOF;
      * Checks over the given HTTP header and (optionally)
      * its value, asserting that are there
      *
+     * @param $name
+     * @param $value
      * @part json
      * @part xml
-     *
-     * @param $name
-     * @param $value|null
-     *
-     * @return void
      */
     public function seeHttpHeader($name, $value = null)
     {
@@ -233,13 +204,10 @@ EOF;
      * Checks over the given HTTP header and (optionally)
      * its value, asserting that are not there
      *
+     * @param $name
+     * @param $value
      * @part json
      * @part xml
-     *
-     * @param $name
-     * @param $value|null
-     *
-     * @return void
      */
     public function dontSeeHttpHeader($name, $value = null)
     {
@@ -264,12 +232,9 @@ EOF;
      * ?>>
      * ```
      *
+     * @param $name
      * @part json
      * @part xml
-     *
-     * @param $name
-     *
-     * @return void
      */
     public function seeHttpHeaderOnce($name)
     {
@@ -280,13 +245,12 @@ EOF;
     /**
      * Returns the value of the specified header name
      *
-     * @part json
-     * @part xml
-     *
      * @param $name
-     * @param Boolean|bool $first Whether to return the first value or all header values
+     * @param Boolean $first Whether to return the first value or all header values
      *
      * @return string|array The first header value if $first is true, an array of values otherwise
+     * @part json
+     * @part xml
      */
     public function grabHttpHeader($name, $first = true)
     {
@@ -296,13 +260,10 @@ EOF;
     /**
      * Adds HTTP authentication via username/password.
      *
-     * @part json
-     * @part xml
-     *
      * @param $username
      * @param $password
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function amHttpAuthenticated($username, $password)
     {
@@ -317,13 +278,10 @@ EOF;
     /**
      * Adds Digest authentication via username/password.
      *
-     * @part json
-     * @part xml
-     *
      * @param $username
      * @param $password
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function amDigestAuthenticated($username, $password)
     {
@@ -333,16 +291,45 @@ EOF;
     /**
      * Adds Bearer authentication via access token.
      *
+     * @param $accessToken
      * @part json
      * @part xml
-     *
-     * @param $accessToken
-     *
-     * @return void
      */
     public function amBearerAuthenticated($accessToken)
     {
         $this->haveHttpHeader('Authorization', 'Bearer ' . $accessToken);
+    }
+
+    /**
+     * Adds NTLM authentication via username/password.
+     * Requires client to be Guzzle >=6.3.0
+     * Out of scope for functional modules.
+     *
+     * Example:
+     * ```php
+     * <?php
+     * $I->amNTLMAuthenticated('jon_snow', 'targaryen');
+     * ?>
+     * ```
+     *
+     * @param $username
+     * @param $password
+     * @throws ModuleException
+     * @part json
+     * @part xml
+     */
+    public function amNTLMAuthenticated($username, $password)
+    {
+        if ($this->isFunctional) {
+            throw new ModuleException(__METHOD__, 'Out of scope for functional modules.');
+        }
+        if (!defined('\GuzzleHttp\Client::VERSION')) {
+            throw new ModuleException(__METHOD__, 'Out of scope if not using a Guzzle client.');
+        }
+        if (version_compare(\GuzzleHttp\Client::VERSION, '6.2.1', 'lt')) {
+            throw new ModuleException(__METHOD__, 'Guzzle '.\GuzzleHttp\Client::VERSION.' found. Requires Guzzle >=6.3.0 for NTLM auth option.');
+        }
+        $this->client->setAuth($username, $password, 'ntlm');
     }
 
     /**
@@ -367,19 +354,16 @@ EOF;
      * ]);
      * ```
      *
-     * @see http://php.net/manual/en/features.file-upload.post-method.php
-     * @see codecept_data_dir()
-     *
-     * @part json
-     * @part xml
-     *
      * @param $url
      * @param array|\JsonSerializable $params
      * @param array $files A list of filenames or "mocks" of $_FILES (each entry being an array with the following
      *                     keys: name, type, error, size, tmp_name (pointing to the real file path). Each key works
      *                     as the "name" attribute of a file input field.
      *
-     * @return void
+     * @see http://php.net/manual/en/features.file-upload.post-method.php
+     * @see codecept_data_dir()
+     * @part json
+     * @part xml
      */
     public function sendPOST($url, $params = [], $files = [])
     {
@@ -389,13 +373,10 @@ EOF;
     /**
      * Sends a HEAD request to given uri.
      *
-     * @part json
-     * @part xml
-     *
      * @param $url
      * @param array $params
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function sendHEAD($url, $params = [])
     {
@@ -405,13 +386,10 @@ EOF;
     /**
      * Sends an OPTIONS request to given uri.
      *
-     * @part json
-     * @part xml
-     *
      * @param $url
      * @param array $params
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function sendOPTIONS($url, $params = [])
     {
@@ -421,13 +399,10 @@ EOF;
     /**
      * Sends a GET request to given uri.
      *
-     * @part json
-     * @part xml
-     *
      * @param $url
      * @param array $params
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function sendGET($url, $params = [])
     {
@@ -437,14 +412,11 @@ EOF;
     /**
      * Sends PUT request to given uri.
      *
-     * @part json
-     * @part xml
-     *
      * @param $url
      * @param array $params
      * @param array $files
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function sendPUT($url, $params = [], $files = [])
     {
@@ -454,14 +426,11 @@ EOF;
     /**
      * Sends PATCH request to given uri.
      *
-     * @part json
-     * @part xml
-     *
-     * @param $url
+     * @param       $url
      * @param array $params
      * @param array $files
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function sendPATCH($url, $params = [], $files = [])
     {
@@ -471,14 +440,11 @@ EOF;
     /**
      * Sends DELETE request to given uri.
      *
-     * @part json
-     * @part xml
-     *
      * @param $url
      * @param array $params
      * @param array $files
-     *
-     * @return void
+     * @part json
+     * @part xml
      */
     public function sendDELETE($url, $params = [], $files = [])
     {
@@ -488,24 +454,22 @@ EOF;
     /**
      * Sets Headers "Link" as one header "Link" based on linkEntries
      *
+     * @param array $linkEntries (entry is array with keys "uri" and "link-param")
+     *
      * @link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
      *
      * @author samva.ua@gmail.com
-     *
-     * @param array $linkEntries (entry is array with keys "uri" and "link-param")
-     *
-     * @return void
      */
     private function setHeaderLink(array $linkEntries)
     {
         $values = [];
         foreach ($linkEntries as $linkEntry) {
-            PHPUnit_Framework_Assert::assertArrayHasKey(
+            \PHPUnit_Framework_Assert::assertArrayHasKey(
                 'uri',
                 $linkEntry,
                 'linkEntry should contain property "uri"'
             );
-            PHPUnit_Framework_Assert::assertArrayHasKey(
+            \PHPUnit_Framework_Assert::assertArrayHasKey(
                 'link-param',
                 $linkEntry,
                 'linkEntry should contain property "link-param"'
@@ -519,17 +483,14 @@ EOF;
     /**
      * Sends LINK request to given uri.
      *
+     * @param       $url
+     * @param array $linkEntries (entry is array with keys "uri" and "link-param")
+     *
      * @link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
      *
      * @author samva.ua@gmail.com
-     *
      * @part json
      * @part xml
-     *
-     * @param $url
-     * @param array $linkEntries (entry is array with keys "uri" and "link-param")
-     *
-     * @return void
      */
     public function sendLINK($url, array $linkEntries)
     {
@@ -540,17 +501,12 @@ EOF;
     /**
      * Sends UNLINK request to given uri.
      *
+     * @param       $url
+     * @param array $linkEntries (entry is array with keys "uri" and "link-param")
      * @link http://tools.ietf.org/html/rfc2068#section-19.6.2.4
-     *
      * @author samva.ua@gmail.com
-     *
      * @part json
      * @part xml
-     *
-     * @param $url
-     * @param array $linkEntries (entry is array with keys "uri" and "link-param")
-     *
-     * @return void
      */
     public function sendUNLINK($url, array $linkEntries)
     {
@@ -558,9 +514,6 @@ EOF;
         $this->execute('UNLINK', $url);
     }
 
-    /**
-     * @return void
-     */
     protected function execute($method, $url, $parameters = [], $files = [])
     {
         // allow full url to be requested
@@ -608,7 +561,6 @@ EOF;
      * Check if data has non-printable bytes and it is not a valid unicode string
      *
      * @param string $data the text or binary data string
-     *
      * @return boolean
      */
     protected function isBinaryData($data)
@@ -620,7 +572,6 @@ EOF;
      * Format a binary string for debug printing
      *
      * @param string $data the binary data string
-     *
      * @return string the debug string
      */
     protected function binaryToDebugString($data)
@@ -635,10 +586,10 @@ EOF;
                 || preg_match('!^application/.+\+json$!', $this->connectionModule->headers['Content-Type'])
             )
         ) {
-            if ($parameters instanceof JsonSerializable) {
+            if ($parameters instanceof \JsonSerializable) {
                 return json_encode($parameters);
             }
-            if (is_array($parameters) || $parameters instanceof ArrayAccess) {
+            if (is_array($parameters) || $parameters instanceof \ArrayAccess) {
                 $parameters = $this->scalarizeArray($parameters);
                 return json_encode($parameters);
             }
@@ -699,11 +650,6 @@ EOF;
         return 'application/octet-stream';
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     private function checkFileBeforeUpload($file)
     {
         if (!file_exists($file)) {
@@ -722,17 +668,15 @@ EOF;
      * This is done with json_last_error function.
      *
      * @part json
-     *
-     * @return void
      */
     public function seeResponseIsJson()
     {
         $responseContent = $this->connectionModule->_getResponseContent();
-        PHPUnit_Framework_Assert::assertNotEquals('', $responseContent, 'response is empty');
+        \PHPUnit_Framework_Assert::assertNotEquals('', $responseContent, 'response is empty');
         json_decode($responseContent);
         $errorCode = json_last_error();
         $errorMessage = json_last_error_msg();
-        PHPUnit_Framework_Assert::assertEquals(
+        \PHPUnit_Framework_Assert::assertEquals(
             JSON_ERROR_NONE,
             $errorCode,
             sprintf(
@@ -746,12 +690,9 @@ EOF;
     /**
      * Checks whether the last response contains text.
      *
+     * @param $text
      * @part json
      * @part xml
-     *
-     * @param $text
-     *
-     * @return void
      */
     public function seeResponseContains($text)
     {
@@ -761,12 +702,9 @@ EOF;
     /**
      * Checks whether last response do not contain text.
      *
+     * @param $text
      * @part json
      * @part xml
-     *
-     * @param $text
-     *
-     * @return void
      */
     public function dontSeeResponseContains($text)
     {
@@ -794,15 +732,12 @@ EOF;
      *
      * This method recursively checks if one array can be found inside of another.
      *
-     * @part json
-     *
      * @param array $json
-     *
-     * @return void
+     * @part json
      */
     public function seeResponseContainsJson($json = [])
     {
-        PHPUnit_Framework_Assert::assertThat(
+        \PHPUnit_Framework_Assert::assertThat(
             $this->connectionModule->_getResponseContent(),
             new JsonContains($json)
         );
@@ -821,11 +756,9 @@ EOF;
      * ```
      *
      * @version 1.1
-     *
+     * @return string
      * @part json
      * @part xml
-     *
-     * @return string
      */
     public function grabResponse()
     {
@@ -850,13 +783,11 @@ EOF;
      * ?>
      * ```
      *
-     * @version 2.0.9
-     *
-     * @part json
-     *
      * @param string $jsonPath
-     *
      * @return array Array of matching items
+     * @version 2.0.9
+     * @throws \Exception
+     * @part json
      */
     public function grabDataFromResponseByJsonPath($jsonPath)
     {
@@ -900,14 +831,9 @@ EOF;
      * $I->seeResponseJsonMatchesXpath('/store//price');
      * ?>
      * ```
-     *
-     * @part json
-     *
-     * @version 2.0.9
-     *
      * @param string $xpath
-     *
-     * @return void
+     * @part json
+     * @version 2.0.9
      */
     public function seeResponseJsonMatchesXpath($xpath)
     {
@@ -922,11 +848,8 @@ EOF;
     /**
      * Opposite to seeResponseJsonMatchesXpath
      *
-     * @part json
-     *
      * @param string $xpath
-     *
-     * @return void
+     * @part json
      */
     public function dontSeeResponseJsonMatchesXpath($xpath)
     {
@@ -979,13 +902,9 @@ EOF;
      * ?>
      * ```
      *
-     * @part json
-     *
-     * @version 2.0.9
-     *
      * @param string $jsonPath
-     *
-     * @return void
+     * @part json
+     * @version 2.0.9
      */
     public function seeResponseJsonMatchesJsonPath($jsonPath)
     {
@@ -999,11 +918,8 @@ EOF;
     /**
      * Opposite to seeResponseJsonMatchesJsonPath
      *
-     * @part json
-     *
      * @param string $jsonPath
-     *
-     * @return void
+     * @part json
      */
     public function dontSeeResponseJsonMatchesJsonPath($jsonPath)
     {
@@ -1018,10 +934,7 @@ EOF;
      * Opposite to seeResponseContainsJson
      *
      * @part json
-     *
      * @param array $json
-     *
-     * @return void
      */
     public function dontSeeResponseContainsJson($json = [])
     {
@@ -1110,13 +1023,9 @@ EOF;
      * See [JsonType reference](http://codeception.com/docs/reference/JsonType).
      *
      * @part json
-     *
      * @version 2.1.3
-     *
      * @param array $jsonType
-     * @param string|null $jsonPath
-     *
-     * @return void
+     * @param string $jsonPath
      */
     public function seeResponseMatchesJsonType(array $jsonType, $jsonPath = null)
     {
@@ -1125,22 +1034,17 @@ EOF;
             $jsonArray = $jsonArray->filterByJsonPath($jsonPath);
         }
 
-        PHPUnit_Framework_Assert::assertThat($jsonArray, new JsonTypeConstraint($jsonType));
+        \PHPUnit_Framework_Assert::assertThat($jsonArray, new JsonTypeConstraint($jsonType));
     }
 
     /**
      * Opposite to `seeResponseMatchesJsonType`.
      *
      * @part json
-     *
      * @see seeResponseMatchesJsonType
-     *
-     * @version 2.1.3
-     *
      * @param $jsonType jsonType structure
      * @param null $jsonPath optionally set specific path to structure with JsonPath
-     *
-     * @return void
+     * @version 2.1.3
      */
     public function dontSeeResponseMatchesJsonType($jsonType, $jsonPath = null)
     {
@@ -1149,7 +1053,7 @@ EOF;
             $jsonArray = $jsonArray->filterByJsonPath($jsonPath);
         }
 
-        PHPUnit_Framework_Assert::assertThat($jsonArray, new JsonTypeConstraint($jsonType, false));
+        \PHPUnit_Framework_Assert::assertThat($jsonArray, new JsonTypeConstraint($jsonType, false));
     }
 
     /**
@@ -1157,10 +1061,7 @@ EOF;
      *
      * @part json
      * @part xml
-     *
      * @param $response
-     *
-     * @return void
      */
     public function seeResponseEquals($expected)
     {
@@ -1180,10 +1081,7 @@ EOF;
      *
      * @part json
      * @part xml
-     *
      * @param $code
-     *
-     * @return void
      */
     public function seeResponseCodeIs($code)
     {
@@ -1203,10 +1101,7 @@ EOF;
      *
      * @part json
      * @part xml
-     *
      * @param $code
-     *
-     * @return void
      */
     public function dontSeeResponseCodeIs($code)
     {
@@ -1218,8 +1113,6 @@ EOF;
      * This is done with libxml_get_last_error function.
      *
      * @part xml
-     *
-     * @return void
      */
     public function seeResponseIsXml()
     {
@@ -1234,7 +1127,7 @@ EOF;
             libxml_clear_errors();
         }
         libxml_use_internal_errors(false);
-        PHPUnit_Framework_Assert::assertNotSame(
+        \PHPUnit_Framework_Assert::assertNotSame(
             false,
             $doc,
             "xml decoding error #$num with message \"$title\", see http://www.xmlsoft.org/html/libxml-xmlerror.html"
@@ -1248,12 +1141,8 @@ EOF;
      * <?php
      * $I->seeXmlResponseMatchesXpath('//root/user[@id=1]');
      * ```
-     *
      * @part xml
-     *
      * @param $xpath
-     *
-     * @return void
      */
     public function seeXmlResponseMatchesXpath($xpath)
     {
@@ -1268,12 +1157,8 @@ EOF;
      * <?php
      * $I->dontSeeXmlResponseMatchesXpath('//root/user[@id=1]');
      * ```
-     *
      * @part xml
-     *
      * @param $xpath
-     *
-     * @return void
      */
     public function dontSeeXmlResponseMatchesXpath($xpath)
     {
@@ -1285,11 +1170,9 @@ EOF;
      * Finds and returns text contents of element.
      * Element is matched by either CSS or XPath
      *
-     * @part xml
-     *
      * @param $cssOrXPath
-     *
      * @return string
+     * @part xml
      */
     public function grabTextContentFromXmlElement($cssOrXPath)
     {
@@ -1301,12 +1184,10 @@ EOF;
      * Finds and returns attribute of element.
      * Element is matched by either CSS or XPath
      *
-     * @part xml
-     *
      * @param $cssOrXPath
      * @param $attribute
-     *
      * @return string
+     * @part xml
      */
     public function grabAttributeFromXmlElement($cssOrXPath, $attribute)
     {
@@ -1323,16 +1204,14 @@ EOF;
      *
      * Parameters can be passed either as DOMDocument, DOMNode, XML string, or array (if no attributes).
      *
-     * @part xml
-     *
      * @param $xml
-     *
-     * @return void
+     * @part xml
      */
     public function seeXmlResponseEquals($xml)
     {
-        PHPUnit_Framework_Assert::assertXmlStringEqualsXmlString($this->connectionModule->_getResponseContent(), $xml);
+        \PHPUnit_Framework_Assert::assertXmlStringEqualsXmlString($this->connectionModule->_getResponseContent(), $xml);
     }
+
 
     /**
      * Checks XML response does not equal to provided XML.
@@ -1340,15 +1219,12 @@ EOF;
      *
      * Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
      *
-     * @part xml
-     *
      * @param $xml
-     *
-     * @return void
+     * @part xml
      */
     public function dontSeeXmlResponseEquals($xml)
     {
-        PHPUnit_Framework_Assert::assertXmlStringNotEqualsXmlString(
+        \PHPUnit_Framework_Assert::assertXmlStringNotEqualsXmlString(
             $this->connectionModule->_getResponseContent(),
             $xml
         );
@@ -1367,11 +1243,8 @@ EOF;
      * ?>
      * ```
      *
-     * @part xml
-     *
      * @param $xml
-     *
-     * @return void
+     * @part xml
      */
     public function seeXmlResponseIncludes($xml)
     {
@@ -1387,11 +1260,8 @@ EOF;
      * Comparison is done by canonicalizing both xml`s.
      * Parameter can be passed either as XmlBuilder, DOMDocument, DOMNode, XML string, or array (if no attributes).
      *
-     * @part xml
-     *
      * @param $xml
-     *
-     * @return void
+     * @part xml
      */
     public function dontSeeXmlResponseIncludes($xml)
     {
@@ -1432,13 +1302,10 @@ EOF;
      * ?>
      * ```
      *
+     * @param $hash the hashed data response expected
+     * @param $algo the hash algorithm to use. Default md5.
      * @part json
      * @part xml
-     *
-     * @param $hash the hashed data response expected
-     * @param $algo|string the hash algorithm to use. Default md5.
-     *
-     * @return void
      */
     public function seeBinaryResponseEquals($hash, $algo = 'md5')
     {
@@ -1456,13 +1323,10 @@ EOF;
      * ```
      * Opposite to `seeBinaryResponseEquals`
      *
+     * @param $hash the hashed data response expected
+     * @param $algo the hash algorithm to use. Default md5.
      * @part json
      * @part xml
-     *
-     * @param $hash the hashed data response expected
-     * @param $algo|string the hash algorithm to use. Default md5.
-     *
-     * @return void
      */
     public function dontSeeBinaryResponseEquals($hash, $algo = 'md5')
     {
@@ -1473,13 +1337,9 @@ EOF;
     /**
      * Deprecated since 2.0.9 and removed since 2.1.0
      *
-     * @deprecated
-     *
      * @param $path
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
+     * @throws ModuleException
+     * @deprecated
      */
     public function grabDataFromJsonResponse($path)
     {
@@ -1500,8 +1360,6 @@ EOF;
      *
      * @part xml
      * @part json
-     *
-     * @return void
      */
     public function stopFollowingRedirects()
     {
@@ -1518,12 +1376,9 @@ EOF;
      *
      * @part xml
      * @part json
-     *
-     * @return void
      */
     public function startFollowingRedirects()
     {
         $this->client->followRedirects(true);
     }
-
 }

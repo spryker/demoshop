@@ -1,123 +1,83 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
 
 use Codeception\Exception\ModuleConfigException;
 use Codeception\Exception\ModuleException;
-use Exception;
-use MongoClient;
-use MongoConnectionException;
-use MongoDB\Client;
-use MongoDB\Driver\Exception as MongoDBException;
-use MongoException;
+use MongoDB\Database;
 
 class MongoDb
 {
-
     const DEFAULT_PORT = 27017;
 
     private $legacy;
-
     private $dbh;
-
     private $dsn;
-
     private $dbName;
-
     private $host;
-
     private $user;
-
     private $password;
-
     private $client;
-
     private $quiet = '';
 
-    /**
-     * @throws \Exception
-     *
-     * @return void
-     */
     public static function connect($dsn, $user, $password)
     {
-        throw new Exception(__CLASS__ . '::connect() - hm, it looked like this method had become obsolete...');
+        throw new \Exception(__CLASS__ . '::connect() - hm, it looked like this method had become obsolete...');
     }
 
     /**
      * Connect to the Mongo server using the MongoDB extension.
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
      */
     protected function setupMongoDB($dsn, $options)
     {
         try {
-            $this->client = new Client($dsn, $options);
-            $this->dbh = $this->client->selectDatabase($this->dbName);
-        } catch (MongoDBException $e) {
+            $this->client = new \MongoDB\Client($dsn, $options);
+            $this->dbh    = $this->client->selectDatabase($this->dbName);
+        } catch (\MongoDB\Driver\Exception $e) {
             throw new ModuleException($this, sprintf('Failed to open Mongo connection: %s', $e->getMessage()));
         }
     }
 
     /**
      * Connect to the Mongo server using the legacy mongo extension.
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
      */
     protected function setupMongo($dsn, $options)
     {
         try {
-            $this->client = new MongoClient($dsn, $options);
-            $this->dbh = $this->client->selectDB($this->dbName);
-        } catch (MongoConnectionException $e) {
+            $this->client = new \MongoClient($dsn, $options);
+            $this->dbh    = $this->client->selectDB($this->dbName);
+        } catch (\MongoConnectionException $e) {
             throw new ModuleException($this, sprintf('Failed to open Mongo connection: %s', $e->getMessage()));
         }
     }
 
     /**
      * Clean up the Mongo database using the MongoDB extension.
-     *
-     * @throws \Exception
-     *
-     * @return void
      */
     protected function cleanupMongoDB()
     {
         try {
             $this->dbh->drop();
-        } catch (MongoDBException $e) {
-            throw new Exception(sprintf('Failed to drop the DB: %s', $e->getMessage()));
+        } catch (\MongoDB\Driver\Exception $e) {
+            throw new \Exception(sprintf('Failed to drop the DB: %s', $e->getMessage()));
         }
     }
 
     /**
      * Clean up the Mongo database using the legacy Mongo extension.
-     *
-     * @throws \Exception
-     *
-     * @return void
      */
     protected function cleanupMongo()
     {
         try {
             $list = $this->dbh->listCollections();
-        } catch (MongoException $e) {
-            throw new Exception(sprintf('Failed to list collections of the DB: %s', $e->getMessage()));
+        } catch (\MongoException $e) {
+            throw new \Exception(sprintf('Failed to list collections of the DB: %s', $e->getMessage()));
         }
         foreach ($list as $collection) {
             try {
                 $collection->drop();
-            } catch (MongoException $e) {
-                throw new Exception(sprintf('Failed to drop collection: %s', $e->getMessage()));
+            } catch (\MongoException $e) {
+                throw new \Exception(sprintf('Failed to drop collection: %s', $e->getMessage()));
             }
         }
     }
@@ -131,13 +91,14 @@ class MongoDb
      * @param $user
      * @param $password
      *
-     * @throws \Codeception\Exception\ModuleConfigException
+     * @throws ModuleConfigException
+     * @throws \Exception
      */
     public function __construct($dsn, $user, $password)
     {
         $this->legacy = extension_loaded('mongodb') === false &&
             class_exists('\\MongoClient') &&
-            strpos(MongoClient::VERSION, 'mongofill') === false;
+            strpos(\MongoClient::VERSION, 'mongofill') === false;
 
         /* defining DB name */
         $this->dbName = preg_replace('/\?.*/', '', substr($dsn, strrpos($dsn, '/') + 1));
@@ -155,13 +116,13 @@ class MongoDb
         $this->host = rtrim(str_replace($this->dbName, '', $this->host), '/');
 
         $options = [
-            'connect' => true,
+            'connect' => true
         ];
 
         if ($user && $password) {
             $options += [
                 'username' => $user,
-                'password' => $password,
+                'password' => $password
             ];
         }
 
@@ -179,16 +140,13 @@ class MongoDb
      * @param $user
      * @param $password
      *
-     * @return \Codeception\Lib\Driver\MongoDb
+     * @return MongoDb
      */
     public static function create($dsn, $user, $password)
     {
         return new MongoDb($dsn, $user, $password);
     }
 
-    /**
-     * @return void
-     */
     public function cleanup()
     {
         $this->{$this->legacy ? 'cleanupMongo' : 'cleanupMongoDB'}();
@@ -199,8 +157,6 @@ class MongoDb
      * just FYI: this file can be easily created be RockMongo's export button
      *
      * @param $dumpFile
-     *
-     * @return void
      */
     public function load($dumpFile)
     {
@@ -213,9 +169,6 @@ class MongoDb
         shell_exec($cmd);
     }
 
-    /**
-     * @return void
-     */
     public function loadFromMongoDump($dumpFile)
     {
         list($host, $port) = $this->getHostPort();
@@ -231,11 +184,6 @@ class MongoDb
         shell_exec($cmd);
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     public function loadFromTarGzMongoDump($dumpFile)
     {
         list($host, $port) = $this->getHostPort();
@@ -282,9 +230,6 @@ class MongoDb
         return $this->dbh;
     }
 
-    /**
-     * @return void
-     */
     public function setDatabase($dbName)
     {
         $this->dbh = $this->client->{$this->legacy ? 'selectDB' : 'selectDatabase'}($dbName);
@@ -312,12 +257,8 @@ class MongoDb
         throw new ModuleException($this, '$dsn MUST be like (mongodb://)<host>:<port>/<db name>');
     }
 
-    /**
-     * @return void
-     */
     public function setQuiet($quiet)
     {
         $this->quiet = $quiet ? '--quiet' : '';
     }
-
 }

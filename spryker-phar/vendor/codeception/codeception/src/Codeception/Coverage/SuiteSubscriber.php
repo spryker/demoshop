@@ -1,49 +1,33 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Coverage;
 
 use Codeception\Configuration;
 use Codeception\Coverage\Subscriber\Printer;
 use Codeception\Lib\Interfaces\Remote;
 use Codeception\Subscriber\Shared\StaticEvents;
-use Exception;
-use PHPUnit_Framework_TestResult;
-use PHP_CodeCoverage;
-use PHP_CodeCoverage_Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 abstract class SuiteSubscriber implements EventSubscriberInterface
 {
-
     use StaticEvents;
 
     protected $defaultSettings = [
-        'enabled' => false,
-        'remote' => false,
-        'local' => false,
+        'enabled'        => false,
+        'remote'         => false,
+        'local'          => false,
         'xdebug_session' => 'codeception',
-        'remote_config' => null,
+        'remote_config'  => null,
         'show_uncovered' => false,
-        'c3_url' => null,
+        'c3_url'         => null
     ];
 
     protected $settings = [];
-
     protected $filters = [];
-
     protected $modules = [];
 
     protected $coverage;
-
     protected $logDir;
-
     protected $options;
-
     public static $events = [];
 
     abstract protected function isEnabled();
@@ -54,17 +38,12 @@ abstract class SuiteSubscriber implements EventSubscriberInterface
         $this->logDir = Configuration::outputDir();
     }
 
-    /**
-     * @throws \Exception
-     *
-     * @return void
-     */
     protected function applySettings($settings)
     {
         try {
-            $this->coverage = new PHP_CodeCoverage();
-        } catch (PHP_CodeCoverage_Exception $e) {
-            throw new Exception(
+            $this->coverage = new \PHP_CodeCoverage();
+        } catch (\PHP_CodeCoverage_Exception $e) {
+            throw new \Exception(
                 'XDebug is required to collect CodeCoverage. Please install xdebug extension and enable it in php.ini'
             );
         }
@@ -82,7 +61,6 @@ abstract class SuiteSubscriber implements EventSubscriberInterface
 
     /**
      * @param array $modules
-     *
      * @return \Codeception\Lib\Interfaces\Remote|null
      */
     protected function getServerConnectionModule(array $modules)
@@ -95,10 +73,7 @@ abstract class SuiteSubscriber implements EventSubscriberInterface
         return null;
     }
 
-    /**
-     * @return void
-     */
-    public function applyFilter(PHPUnit_Framework_TestResult $result)
+    public function applyFilter(\PHPUnit_Framework_TestResult $result)
     {
         $result->setCodeCoverage(new DummyCodeCoverage());
 
@@ -109,12 +84,8 @@ abstract class SuiteSubscriber implements EventSubscriberInterface
         $result->setCodeCoverage($this->coverage);
     }
 
-    /**
-     * @return void
-     */
     protected function mergeToPrint($coverage)
     {
         Printer::$coverage->merge($coverage);
     }
-
 }

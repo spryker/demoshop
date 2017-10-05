@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector\Yii2;
 
 use yii\test\FixtureTrait;
@@ -12,7 +6,6 @@ use yii\test\InitDbFixture;
 
 class FixturesStore
 {
-
     use FixtureTrait;
 
     protected $data;
@@ -21,7 +14,6 @@ class FixturesStore
      * Expects fixtures config
      *
      * FixturesStore constructor.
-     *
      * @param $data
      */
     public function __construct($data)
@@ -40,5 +32,4 @@ class FixturesStore
             InitDbFixture::className()
         ];
     }
-
 }

@@ -1,23 +1,13 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Configuration;
 use Codeception\Lib\Di;
 use Codeception\Lib\ModuleContainer;
 use Codeception\Util\Template;
-use ReflectionClass;
-use ReflectionMethod;
-use ReflectionParameter;
 
 class Actor
 {
-
     protected $template = <<<EOF
 <?php
 {{hasNamespace}}
@@ -42,9 +32,7 @@ EOF;
     protected $inheritedMethodTemplate = ' * @method {{return}} {{method}}({{params}})';
 
     protected $settings;
-
     protected $modules;
-
     protected $actions;
 
     public function __construct($settings)
@@ -81,8 +69,8 @@ EOF;
     {
         $inherited = [];
 
-        $class = new ReflectionClass('\Codeception\\Actor');
-        $methods = $class->getMethods(ReflectionMethod::IS_PUBLIC);
+        $class = new \ReflectionClass('\Codeception\\Actor');
+        $methods = $class->getMethods(\ReflectionMethod::IS_PUBLIC);
 
         foreach ($methods as $method) {
             if ($method->name == '__call') {
@@ -108,15 +96,14 @@ EOF;
 
     /**
      * @param \ReflectionMethod $refMethod
-     *
      * @return array
      */
-    protected function getParamsString(ReflectionMethod $refMethod)
+    protected function getParamsString(\ReflectionMethod $refMethod)
     {
         $params = [];
         foreach ($refMethod->getParameters() as $param) {
             if ($param->isOptional()) {
-                $params[] = '$' . $param->name . ' = ' . $this->getDefaultValue($param);
+                $params[] = '$' . $param->name . ' = '.$this->getDefaultValue($param);
             } else {
                 $params[] = '$' . $param->name;
             };
@@ -141,7 +128,7 @@ EOF;
      *
      * @return string
      */
-    private function getDefaultValue(ReflectionParameter $param)
+    private function getDefaultValue(\ReflectionParameter $param)
     {
         if ($param->isDefaultValueAvailable()) {
             if (method_exists($param, 'isDefaultValueConstant') && $param->isDefaultValueConstant()) {
@@ -149,7 +136,7 @@ EOF;
                 if (false !== strpos($constName, '::')) {
                     list($class, $const) = explode('::', $constName);
                     if (in_array($class, ['self', 'static'])) {
-                        $constName = $param->getDeclaringClass()->getName() . '::' . $const;
+                        $constName = $param->getDeclaringClass()->getName().'::'.$const;
                     }
                 }
 
@@ -200,12 +187,11 @@ EOF;
         };
 
         if ($isPlainArray($array)) {
-            return '[' . implode(', ', array_map([$this, 'phpEncodeValue'], $array)) . ']';
+            return '['.implode(', ', array_map([$this, 'phpEncodeValue'], $array)).']';
         }
 
-        return '[' . implode(', ', array_map(function ($key) use ($array) {
-            return $this->phpEncodeValue($key) . ' => ' . $this->phpEncodeValue($array[$key]);
-        }, array_keys($array))) . ']';
+        return '['.implode(', ', array_map(function ($key) use ($array) {
+            return $this->phpEncodeValue($key).' => '.$this->phpEncodeValue($array[$key]);
+        }, array_keys($array))).']';
     }
-
 }

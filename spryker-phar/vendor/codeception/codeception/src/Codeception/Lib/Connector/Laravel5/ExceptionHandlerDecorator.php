@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector\Laravel5;
 
 use Exception;
@@ -17,14 +11,13 @@ use Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
  */
 class ExceptionHandlerDecorator implements ExceptionHandlerContract
 {
-
     /**
-     * @var \Illuminate\Contracts\Debug\ExceptionHandler
+     * @var ExceptionHandlerContract
      */
     private $laravelExceptionHandler;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $exceptionHandlingDisabled = true;
 
@@ -40,8 +33,6 @@ class ExceptionHandlerDecorator implements ExceptionHandlerContract
 
     /**
      * @param boolean $exceptionHandlingDisabled
-     *
-     * @return void
      */
     public function exceptionHandlingDisabled($exceptionHandlingDisabled)
     {
@@ -51,8 +42,7 @@ class ExceptionHandlerDecorator implements ExceptionHandlerContract
     /**
      * Report or log an exception.
      *
-     * @param \Exception $e
-     *
+     * @param  \Exception $e
      * @return void
      */
     public function report(Exception $e)
@@ -62,11 +52,9 @@ class ExceptionHandlerDecorator implements ExceptionHandlerContract
 
     /**
      * @param $request
-     * @param \Exception $e
-     *
-     * @throws \Exception
-     *
+     * @param Exception $e
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws Exception
      */
     public function render($request, Exception $e)
     {
@@ -86,7 +74,6 @@ class ExceptionHandlerDecorator implements ExceptionHandlerContract
      * Check if the response content is HTML output of the Symfony exception handler class.
      *
      * @param string $content
-     *
      * @return bool
      */
     private function isSymfonyExceptionHandlerOutput($content)
@@ -98,9 +85,8 @@ class ExceptionHandlerDecorator implements ExceptionHandlerContract
     /**
      * Render an exception to the console.
      *
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     * @param \Exception $e
-     *
+     * @param  \Symfony\Component\Console\Output\OutputInterface $output
+     * @param  \Exception $e
      * @return void
      */
     public function renderForConsole($output, Exception $e)
@@ -111,12 +97,10 @@ class ExceptionHandlerDecorator implements ExceptionHandlerContract
     /**
      * @param string $method
      * @param array $args
-     *
      * @return mixed
      */
     public function __call($method, $args)
     {
         return call_user_func_array([$this->laravelExceptionHandler, $method], $args);
     }
-
 }

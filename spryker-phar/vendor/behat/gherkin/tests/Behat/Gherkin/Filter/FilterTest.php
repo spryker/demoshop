@@ -1,38 +1,31 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Filter;
 
 use Behat\Gherkin\Keywords\ArrayKeywords;
 use Behat\Gherkin\Lexer;
 use Behat\Gherkin\Parser;
-use PHPUnit_Framework_TestCase;
 
-abstract class FilterTest extends PHPUnit_Framework_TestCase
+abstract class FilterTest extends \PHPUnit_Framework_TestCase
 {
-
     protected function getParser()
     {
         return new Parser(
             new Lexer(
-                new ArrayKeywords([
-                    'en' => [
-                        'feature' => 'Feature',
-                        'background' => 'Background',
-                        'scenario' => 'Scenario',
+                new ArrayKeywords(array(
+                    'en' => array(
+                        'feature'          => 'Feature',
+                        'background'       => 'Background',
+                        'scenario'         => 'Scenario',
                         'scenario_outline' => 'Scenario Outline|Scenario Template',
-                        'examples' => 'Examples|Scenarios',
-                        'given' => 'Given',
-                        'when' => 'When',
-                        'then' => 'Then',
-                        'and' => 'And',
-                        'but' => 'But',
-                    ],
-                ])
+                        'examples'         => 'Examples|Scenarios',
+                        'given'            => 'Given',
+                        'when'             => 'When',
+                        'then'             => 'Then',
+                        'and'              => 'And',
+                        'but'              => 'But'
+                    )
+                ))
             )
         );
     }
@@ -68,5 +61,4 @@ GHERKIN;
     {
         return $this->getParser()->parse($this->getGherkinFeature());
     }
-
 }

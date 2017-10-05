@@ -1,13 +1,17 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Loader;
 
 use Behat\Gherkin\Gherkin;
+use Behat\Gherkin\Node\FeatureNode;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -18,13 +22,12 @@ use RecursiveIteratorIterator;
  */
 class DirectoryLoader extends AbstractFileLoader
 {
-
     protected $gherkin;
 
     /**
      * Initializes loader.
      *
-     * @param \Behat\Gherkin\Gherkin $gherkin Gherkin manager
+     * @param Gherkin $gherkin Gherkin manager
      */
     public function __construct(Gherkin $gherkin)
     {
@@ -49,7 +52,7 @@ class DirectoryLoader extends AbstractFileLoader
      *
      * @param string $path Resource to load
      *
-     * @return \Behat\Gherkin\Node\FeatureNode[]
+     * @return FeatureNode[]
      */
     public function load($path)
     {
@@ -61,10 +64,10 @@ class DirectoryLoader extends AbstractFileLoader
         $paths = array_map('strval', iterator_to_array($iterator));
         uasort($paths, 'strnatcasecmp');
 
-        $features = [];
+        $features = array();
 
         foreach ($paths as $path) {
-            $path = (string)$path;
+            $path = (string) $path;
             $loader = $this->gherkin->resolveLoader($path);
 
             if (null !== $loader) {
@@ -74,5 +77,4 @@ class DirectoryLoader extends AbstractFileLoader
 
         return $features;
     }
-
 }

@@ -1,15 +1,18 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
+/*
+* This file is part of the Behat Gherkin.
+* (c) Konstantin Kudryashov <ever.zet@gmail.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 namespace Behat\Gherkin\Cache;
 
 use Behat\Gherkin\Exception\CacheException;
-use Behat\Gherkin\Gherkin;
 use Behat\Gherkin\Node\FeatureNode;
+use Behat\Gherkin\Gherkin;
 
 /**
  * File cache.
@@ -19,7 +22,6 @@ use Behat\Gherkin\Node\FeatureNode;
  */
 class FileCache implements CacheInterface
 {
-
     private $path;
 
     /**
@@ -27,17 +29,17 @@ class FileCache implements CacheInterface
      *
      * @param string $path Path to the folder where to store caches.
      *
-     * @throws \Behat\Gherkin\Exception\CacheException
+     * @throws CacheException
      */
     public function __construct($path)
     {
-        $this->path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'v' . Gherkin::VERSION;
+        $this->path = rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR.'v'.Gherkin::VERSION;
 
         if (!is_dir($this->path)) {
             @mkdir($this->path, 0777, true);
         }
 
-        if (!is_writable($this->path)) {
+        if (!is_writeable($this->path)) {
             throw new CacheException(sprintf('Cache path "%s" is not writeable. Check your filesystem permissions or disable Gherkin file cache.', $this->path));
         }
     }
@@ -45,7 +47,7 @@ class FileCache implements CacheInterface
     /**
      * Checks that cache for feature exists and is fresh.
      *
-     * @param string $path Feature path
+     * @param string  $path      Feature path
      * @param integer $timestamp The last time feature was updated
      *
      * @return Boolean
@@ -66,9 +68,9 @@ class FileCache implements CacheInterface
      *
      * @param string $path Feature path
      *
-     * @throws \Behat\Gherkin\Exception\CacheException
+     * @return FeatureNode
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @throws CacheException
      */
     public function read($path)
     {
@@ -85,10 +87,8 @@ class FileCache implements CacheInterface
     /**
      * Caches feature node.
      *
-     * @param string $path Feature path
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
-     *
-     * @return void
+     * @param string      $path    Feature path
+     * @param FeatureNode $feature Feature instance
      */
     public function write($path, FeatureNode $feature)
     {
@@ -104,7 +104,6 @@ class FileCache implements CacheInterface
      */
     protected function getCachePathFor($path)
     {
-        return $this->path . '/' . md5($path) . '.feature.cache';
+        return $this->path.'/'.md5($path).'.feature.cache';
     }
-
 }

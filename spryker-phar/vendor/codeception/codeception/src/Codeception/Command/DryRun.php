@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
@@ -17,12 +11,10 @@ use Codeception\SuiteManager;
 use Codeception\Test\Interfaces\ScenarioDriven;
 use Codeception\Test\Test;
 use Codeception\Util\Maybe;
-use Exception;
-use InvalidArgumentException;
-use PHPUnit_Framework_TestSuite_DataProvider;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
@@ -37,13 +29,9 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  */
 class DryRun extends Command
 {
-
     use Shared\Config;
     use Shared\Style;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition(
@@ -60,9 +48,6 @@ class DryRun extends Command
         return 'Prints step-by-step scenario-driven test or a feature';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $this->addStyles($output);
@@ -70,7 +55,7 @@ class DryRun extends Command
         $test = $input->getArgument('test');
 
         $config = $this->getGlobalConfig();
-        if (!Configuration::isEmpty() && !$test && strpos($suite, $config['paths']['tests']) === 0) {
+        if (! Configuration::isEmpty() && ! $test && strpos($suite, $config['paths']['tests']) === 0) {
             list(, $suite, $test) = $this->matchTestFromFilename($suite, $config['paths']['tests']);
         }
         $settings = $this->getSuiteConfig($suite);
@@ -78,7 +63,7 @@ class DryRun extends Command
         $dispatcher = new EventDispatcher();
         $dispatcher->addSubscriber(new ConsolePrinter([
             'colors' => !$input->getOption('no-ansi'),
-            'steps' => true,
+            'steps'     => true,
             'verbosity' => OutputInterface::VERBOSITY_VERBOSE,
         ]));
         $dispatcher->addSubscriber(new BootstrapLoader());
@@ -94,7 +79,7 @@ class DryRun extends Command
         $dispatcher->dispatch(Events::SUITE_INIT, new SuiteEvent($suiteManager->getSuite(), null, $settings));
         $dispatcher->dispatch(Events::SUITE_BEFORE, new SuiteEvent($suiteManager->getSuite(), null, $settings));
         foreach ($tests as $test) {
-            if ($test instanceof PHPUnit_Framework_TestSuite_DataProvider) {
+            if ($test instanceof \PHPUnit_Framework_TestSuite_DataProvider) {
                 foreach ($test as $t) {
                     if ($t instanceof Test) {
                         $this->dryRunTest($output, $dispatcher, $t);
@@ -108,23 +93,22 @@ class DryRun extends Command
         $dispatcher->dispatch(Events::SUITE_AFTER, new SuiteEvent($suiteManager->getSuite()));
     }
 
+
     protected function matchTestFromFilename($filename, $tests_path)
     {
         $filename = str_replace(['//', '\/', '\\'], '/', $filename);
         $res = preg_match("~^$tests_path/(.*?)/(.*)$~", $filename, $matches);
         if (!$res) {
-            throw new InvalidArgumentException("Test file can't be matched");
+            throw new \InvalidArgumentException("Test file can't be matched");
         }
 
         return $matches;
     }
 
     /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param OutputInterface $output
      * @param $dispatcher
      * @param $test
-     *
-     * @return void
      */
     protected function dryRunTest(OutputInterface $output, EventDispatcher $dispatcher, Test $test)
     {
@@ -132,7 +116,7 @@ class DryRun extends Command
         $dispatcher->dispatch(Events::TEST_BEFORE, new TestEvent($test));
         try {
             $test->test();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
         }
         $dispatcher->dispatch(Events::TEST_AFTER, new TestEvent($test));
         $dispatcher->dispatch(Events::TEST_END, new TestEvent($test));
@@ -147,5 +131,4 @@ class DryRun extends Command
         }
         $output->writeln('');
     }
-
 }

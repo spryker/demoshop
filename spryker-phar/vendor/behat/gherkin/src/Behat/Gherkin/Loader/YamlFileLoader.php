@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Loader;
@@ -17,7 +20,6 @@ use Symfony\Component\Yaml\Yaml;
  */
 class YamlFileLoader extends AbstractFileLoader
 {
-
     private $loader;
 
     public function __construct()
@@ -44,7 +46,7 @@ class YamlFileLoader extends AbstractFileLoader
      *
      * @param string $path Resource to load
      *
-     * @return \Behat\Gherkin\Node\FeatureNode[]
+     * @return FeatureNode[]
      */
     public function load($path)
     {
@@ -68,5 +70,4 @@ class YamlFileLoader extends AbstractFileLoader
             );
         }, $features);
     }
-
 }

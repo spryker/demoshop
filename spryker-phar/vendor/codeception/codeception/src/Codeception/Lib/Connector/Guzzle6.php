@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Util\Uri;
@@ -19,18 +13,17 @@ use GuzzleHttp\Psr7\Request as Psr7Request;
 use GuzzleHttp\Psr7\Response as Psr7Response;
 use GuzzleHttp\Psr7\Uri as Psr7Uri;
 use Symfony\Component\BrowserKit\Client;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\BrowserKit\Response as BrowserKitResponse;
 
 class Guzzle6 extends Client
 {
-
     protected $requestOptions = [
         'allow_redirects' => false,
-        'headers' => [],
+        'headers'         => [],
     ];
-
     protected $refreshMaxInterval = 0;
 
     /** @var \GuzzleHttp\Client */
@@ -41,29 +34,24 @@ class Guzzle6 extends Client
      * automatically redirect a request.
      *
      * A meta tag detected with an interval equal to or greater than $seconds
-     * would not result in a redirect. A meta tag without a specified interval
+     * would not result in a redirect.  A meta tag without a specified interval
      * or one with a value less than $seconds would result in the client
      * automatically redirecting to the specified URL
      *
      * @param int $seconds Number of seconds
-     *
-     * @return void
      */
     public function setRefreshMaxInterval($seconds)
     {
         $this->refreshMaxInterval = $seconds;
     }
 
-    /**
-     * @return void
-     */
     public function setClient(GuzzleClient &$client)
     {
         $this->client = $client;
     }
 
     /**
-     * Sets the request header to the passed value. The header will be
+     * Sets the request header to the passed value.  The header will be
      * sent along with the next request.
      *
      * Passing an empty value clears the header, which is the equivalent
@@ -71,12 +59,10 @@ class Guzzle6 extends Client
      *
      * @param string $name the name of the header
      * @param string $value the value of the header
-     *
-     * @return void
      */
     public function setHeader($name, $value)
     {
-        if ((string)$value === '') {
+        if (strval($value) === '') {
             $this->deleteHeader($name);
         } else {
             $this->requestOptions['headers'][$name] = $value;
@@ -88,8 +74,6 @@ class Guzzle6 extends Client
      * that will be sent with the request.
      *
      * @param string $name the name of the header to delete.
-     *
-     * @return void
      */
     public function deleteHeader($name)
     {
@@ -99,9 +83,7 @@ class Guzzle6 extends Client
     /**
      * @param string $username
      * @param string $password
-     * @param string $type Default: 'basic'
-     *
-     * @return void
+     * @param string $type  Default: 'basic'
      */
     public function setAuth($username, $password, $type = 'basic')
     {
@@ -121,7 +103,7 @@ class Guzzle6 extends Client
      */
     protected function createResponse(Psr7Response $response)
     {
-        $body = (string)$response->getBody();
+        $body = (string) $response->getBody();
         $headers = $response->getHeaders();
 
         $contentType = null;
@@ -154,7 +136,7 @@ class Guzzle6 extends Client
                 // match by header
                 preg_match(
                     '/^\s*(\d*)\s*;\s*url=(.*)/i',
-                    (string)reset($headers['Refresh']),
+                    (string) reset($headers['Refresh']),
                     $matches
                 );
             }
@@ -195,7 +177,7 @@ class Guzzle6 extends Client
 
     protected function doRequest($request)
     {
-        /** @var \Symfony\Component\BrowserKit\Request $request */
+        /** @var $request BrowserKitRequest  **/
         $guzzleRequest = new Psr7Request(
             $request->getMethod(),
             $request->getUri(),
@@ -232,7 +214,7 @@ class Guzzle6 extends Client
 
         $contentHeaders = ['Content-Length' => true, 'Content-Md5' => true, 'Content-Type' => true];
         foreach ($server as $header => $val) {
-            $header = implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header)))));
+            $header = html_entity_decode(implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header))))), ENT_NOQUOTES);
             if (strpos($header, 'Http-') === 0) {
                 $headers[substr($header, 5)] = $val;
             } elseif (isset($contentHeaders[$header])) {
@@ -283,11 +265,11 @@ class Guzzle6 extends Client
     {
         if (is_array($value)) {
             foreach ($value as $subKey => $subValue) {
-                $parts = array_merge($this->formatMultipart([], $key . "[$subKey]", $subValue), $parts);
+                $parts = array_merge($this->formatMultipart([], $key."[$subKey]", $subValue), $parts);
             }
             return $parts;
         }
-        $parts[] = ['name' => $key, 'contents' => (string)$value];
+        $parts[] = ['name' => $key, 'contents' => (string) $value];
         return $parts;
     }
 
@@ -308,7 +290,7 @@ class Guzzle6 extends Client
                         $files[] = [
                             'name' => $name,
                             'contents' => $handle,
-                            'filename' => $filename,
+                            'filename' => $filename
                         ];
                     }
                 } else {
@@ -317,7 +299,7 @@ class Guzzle6 extends Client
             } else {
                 $files[] = [
                     'name' => $name,
-                    'contents' => fopen($info, 'r'),
+                    'contents' => fopen($info, 'r')
                 ];
             }
         }
@@ -330,7 +312,7 @@ class Guzzle6 extends Client
         $jar = [];
         $cookies = $this->getCookieJar()->all();
         foreach ($cookies as $cookie) {
-            /** @var \Symfony\Component\BrowserKit\Cookie $cookie */
+            /** @var $cookie Cookie  **/
             $setCookie = SetCookie::fromString((string)$cookie);
             if (!$setCookie->getDomain()) {
                 $setCookie->setDomain($host);
@@ -356,5 +338,4 @@ class Guzzle6 extends Client
         }
         return HandlerStack::create();
     }
-
 }

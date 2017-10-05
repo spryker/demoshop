@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Filter;
@@ -16,11 +19,10 @@ use Behat\Gherkin\Node\FeatureNode;
  */
 interface FeatureFilterInterface
 {
-
     /**
      * Checks if Feature matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
+     * @param FeatureNode $feature Feature instance
      *
      * @return Boolean
      */
@@ -29,10 +31,9 @@ interface FeatureFilterInterface
     /**
      * Filters feature according to the filter and returns new one.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature
+     * @param FeatureNode $feature
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @return FeatureNode
      */
     public function filterFeature(FeatureNode $feature);
-
 }

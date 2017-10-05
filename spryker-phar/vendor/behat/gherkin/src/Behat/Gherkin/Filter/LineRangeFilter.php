@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Filter;
@@ -19,9 +22,7 @@ use Behat\Gherkin\Node\ScenarioInterface;
  */
 class LineRangeFilter implements FilterInterface
 {
-
     protected $filterMinLine;
-
     protected $filterMaxLine;
 
     /**
@@ -32,18 +33,18 @@ class LineRangeFilter implements FilterInterface
      */
     public function __construct($filterMinLine, $filterMaxLine)
     {
-        $this->filterMinLine = (int)$filterMinLine;
+        $this->filterMinLine = intval($filterMinLine);
         if ($filterMaxLine == '*') {
             $this->filterMaxLine = PHP_INT_MAX;
         } else {
-            $this->filterMaxLine = (int)$filterMaxLine;
+            $this->filterMaxLine = intval($filterMaxLine);
         }
     }
 
     /**
      * Checks if Feature matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
+     * @param FeatureNode $feature Feature instance
      *
      * @return Boolean
      */
@@ -56,7 +57,7 @@ class LineRangeFilter implements FilterInterface
     /**
      * Checks if scenario or outline matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\ScenarioInterface $scenario Scenario or Outline node instance
+     * @param ScenarioInterface $scenario Scenario or Outline node instance
      *
      * @return Boolean
      */
@@ -80,13 +81,13 @@ class LineRangeFilter implements FilterInterface
     /**
      * Filters feature according to the filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature
+     * @param FeatureNode $feature
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @return FeatureNode
      */
     public function filterFeature(FeatureNode $feature)
     {
-        $scenarios = [];
+        $scenarios = array();
         foreach ($feature->getScenarios() as $scenario) {
             if (!$this->isScenarioMatch($scenario)) {
                 continue;
@@ -96,7 +97,7 @@ class LineRangeFilter implements FilterInterface
                 $table = $scenario->getExampleTable()->getTable();
                 $lines = array_keys($table);
 
-                $filteredTable = [$lines[0] => $table[$lines[0]]];
+                $filteredTable = array($lines[0] => $table[$lines[0]]);
                 unset($table[$lines[0]]);
 
                 foreach ($table as $line => $row) {
@@ -130,5 +131,4 @@ class LineRangeFilter implements FilterInterface
             $feature->getLine()
         );
     }
-
 }

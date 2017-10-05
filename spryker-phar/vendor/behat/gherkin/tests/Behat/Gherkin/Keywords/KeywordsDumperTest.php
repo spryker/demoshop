@@ -1,57 +1,44 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Keywords;
 
 use Behat\Gherkin\Keywords\ArrayKeywords;
 use Behat\Gherkin\Keywords\KeywordsDumper;
-use PHPUnit_Framework_TestCase;
 
-class KeywordsDumperTest extends PHPUnit_Framework_TestCase
+class KeywordsDumperTest extends \PHPUnit_Framework_TestCase
 {
-
     private $keywords;
 
-    /**
-     * @return void
-     */
     protected function setUp()
     {
-        $this->keywords = new ArrayKeywords([
-           'en' => [
-               'feature' => 'Feature',
-               'background' => 'Background',
-               'scenario' => 'Scenario',
+        $this->keywords = new ArrayKeywords(array(
+           'en' => array(
+               'feature'          => 'Feature',
+               'background'       => 'Background',
+               'scenario'         => 'Scenario',
                'scenario_outline' => 'Scenario Outline|Scenario Template',
-               'examples' => 'Examples|Scenarios',
-               'given' => 'Given',
-               'when' => 'When',
-               'then' => 'Then',
-               'and' => 'And',
-               'but' => 'But',
-           ],
-           'ru' => [
-               'feature' => 'Функционал|Фича',
-               'background' => 'Предыстория|Бэкграунд',
-               'scenario' => 'Сценарий|История',
+               'examples'         => 'Examples|Scenarios',
+               'given'            => 'Given',
+               'when'             => 'When',
+               'then'             => 'Then',
+               'and'              => 'And',
+               'but'              => 'But'
+           ),
+           'ru' => array(
+               'feature'          => 'Функционал|Фича',
+               'background'       => 'Предыстория|Бэкграунд',
+               'scenario'         => 'Сценарий|История',
                'scenario_outline' => 'Структура сценария|Аутлайн',
-               'examples' => 'Значения',
-               'given' => 'Допустим',
-               'when' => 'Если|@',
-               'then' => 'То',
-               'and' => 'И',
-               'but' => 'Но',
-           ],
-        ]);
+               'examples'         => 'Значения',
+               'given'            => 'Допустим',
+               'when'             => 'Если|@',
+               'then'             => 'То',
+               'and'              => 'И',
+               'but'              => 'Но'
+           )
+        ));
     }
 
-    /**
-     * @return void
-     */
     public function testEnKeywordsDumper()
     {
         $dumper = new KeywordsDumper($this->keywords);
@@ -89,9 +76,6 @@ GHERKIN;
         $this->assertEquals($etalon, $dumped);
     }
 
-    /**
-     * @return void
-     */
     public function testRuKeywordsDumper()
     {
         $dumper = new KeywordsDumper($this->keywords);
@@ -134,7 +118,7 @@ GHERKIN;
     {
         $dumper = new KeywordsDumper($this->keywords);
         $dumper->setKeywordsDumperFunction(function ($keywords) {
-            return '<keyword>' . implode(', ', $keywords) . '</keyword>';
+            return '<keyword>'.implode(', ', $keywords).'</keyword>';
         });
 
         $dumped = $dumper->dump('ru');
@@ -171,15 +155,12 @@ GHERKIN;
         $this->assertEquals($etalon, $dumped);
     }
 
-    /**
-     * @return void
-     */
     public function testExtendedVersionDumper()
     {
         $dumper = new KeywordsDumper($this->keywords);
 
         $dumped = $dumper->dump('ru', false);
-        $etalon = [
+        $etalon = array(
             <<<GHERKIN
 # language: ru
 Функционал: Internal operations
@@ -230,7 +211,8 @@ GHERKIN;
     Значения:
       | agent1 | agent2 |
       | D      | M      |
-GHERKIN            , <<<GHERKIN
+GHERKIN
+            , <<<GHERKIN
 # language: ru
 Фича: Internal operations
   In order to stay secret
@@ -281,9 +263,8 @@ GHERKIN            , <<<GHERKIN
       | agent1 | agent2 |
       | D      | M      |
 GHERKIN
-        ];
+        );
 
         $this->assertEquals($etalon, $dumped);
     }
-
 }

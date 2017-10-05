@@ -1,27 +1,19 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\Configuration;
-use Codeception\Exception\ModuleConfigException;
 use Codeception\Exception\ModuleException;
+use Codeception\Exception\ModuleConfigException;
 use Codeception\Lib\Connector\Lumen as LumenConnector;
 use Codeception\Lib\Framework;
 use Codeception\Lib\Interfaces\ActiveRecord;
 use Codeception\Lib\Interfaces\PartedModule;
-use Codeception\Lib\ModuleContainer;
 use Codeception\Lib\Shared\LaravelCommon;
+use Codeception\Lib\ModuleContainer;
 use Codeception\TestInterface;
 use Codeception\Util\ReflectionHelper;
-use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use RuntimeException;
 
 /**
  *
@@ -63,7 +55,6 @@ use RuntimeException;
  */
 class Lumen extends Framework implements ActiveRecord, PartedModule
 {
-
     use LaravelCommon;
 
     /**
@@ -79,7 +70,7 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
     /**
      * Constructor.
      *
-     * @param \Codeception\Lib\ModuleContainer $container
+     * @param ModuleContainer $container
      * @param array|null $config
      */
     public function __construct(ModuleContainer $container, $config = null)
@@ -114,8 +105,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
 
     /**
      * Initialize hook.
-     *
-     * @return void
      */
     public function _initialize()
     {
@@ -127,8 +116,7 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * Before hook.
      *
      * @param \Codeception\TestInterface $test
-     *
-     * @return void
+     * @throws ModuleConfigException
      */
     public function _before(TestInterface $test)
     {
@@ -143,8 +131,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * After hook.
      *
      * @param \Codeception\TestInterface $test
-     *
-     * @return void
      */
     public function _after(TestInterface $test)
     {
@@ -161,9 +147,7 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
     /**
      * Make sure the Lumen bootstrap file exists.
      *
-     * @throws \Codeception\Exception\ModuleConfigException
-     *
-     * @return void
+     * @throws ModuleConfigException
      */
     protected function checkBootstrapFileExists()
     {
@@ -180,8 +164,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
 
     /**
      * Register autoloaders.
-     *
-     * @return void
      */
     protected function registerAutoloaders()
     {
@@ -200,8 +182,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
 
     /**
      * @param \Laravel\Lumen\Application $app
-     *
-     * @return void
      */
     public function setApplication($app)
     {
@@ -219,8 +199,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      *
      * @param $routeName
      * @param array $params
-     *
-     * @return void
      */
     public function amOnRoute($routeName, $params = [])
     {
@@ -238,7 +216,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * Get the route for a route name.
      *
      * @param string $routeName
-     *
      * @return array|null
      */
     private function getRouteByName($routeName)
@@ -263,7 +240,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      *
      * @param array $route
      * @param array $params
-     *
      * @return string
      */
     private function generateUrlForRoute($route, $params)
@@ -282,9 +258,8 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * Set the authenticated user for the next request.
      * This will not persist between multiple requests.
      *
-     * @param \Illuminate\Contracts\Auth\Authenticatable
-     * @param string|null $driver The authentication driver for Lumen <= 5.1.*, guard name for Lumen >= 5.2
-     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable
+     * @param  string|null $driver The authentication driver for Lumen <= 5.1.*, guard name for Lumen >= 5.2
      * @return void
      */
     public function amLoggedAs($user, $driver = null)
@@ -310,18 +285,13 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
 
     /**
      * Checks that user is authenticated.
-     *
-     * @return void
      */
     public function seeAuthentication()
     {
         $this->assertTrue($this->app['auth']->check(), 'User is not logged in');
     }
-
     /**
      * Check that user is not authenticated.
-     *
-     * @return void
      */
     public function dontSeeAuthentication()
     {
@@ -347,8 +317,7 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * ?>
      * ```
      *
-     * @param string $class
-     *
+     * @param  string $class
      * @return mixed
      */
     public function grabService($class)
@@ -368,14 +337,10 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * ?>
      * ```
      *
-     * @part orm
-     *
      * @param string $table
      * @param array $attributes
-     *
-     * @throws \RuntimeException
-     *
-     * @return integer|\Illuminate\Database\Eloquent\Model
+     * @return integer|EloquentModel
+     * @part orm
      */
     public function haveRecord($table, $attributes = [])
     {
@@ -383,7 +348,7 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
             $model = new $table;
 
             if (!$model instanceof EloquentModel) {
-                throw new RuntimeException("Class $table is not an Eloquent model");
+                throw new \RuntimeException("Class $table is not an Eloquent model");
             }
 
             $model->fill($attributes)->save();
@@ -393,7 +358,7 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
 
         try {
             return $this->app['db']->table($table)->insertGetId($attributes);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->fail("Could not insert record into table '$table':\n\n" . $e->getMessage());
         }
     }
@@ -409,12 +374,9 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * ?>
      * ```
      *
-     * @part orm
-     *
      * @param string $table
      * @param array $attributes
-     *
-     * @return void
+     * @part orm
      */
     public function seeRecord($table, $attributes = [])
     {
@@ -438,12 +400,9 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * ?>
      * ```
      *
-     * @part orm
-     *
      * @param string $table
      * @param array $attributes
-     *
-     * @return void
+     * @part orm
      */
     public function dontSeeRecord($table, $attributes = [])
     {
@@ -468,12 +427,10 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * ?>
      * ```
      *
-     * @part orm
-     *
      * @param string $table
      * @param array $attributes
-     *
-     * @return array|\Illuminate\Database\Eloquent\Model
+     * @return array|EloquentModel
+     * @part orm
      */
     public function grabRecord($table, $attributes = [])
     {
@@ -496,16 +453,14 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * @param string $modelClass
      * @param array $attributes
      *
-     * @throws \RuntimeException
-     *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return EloquentModel
      */
     protected function findModel($modelClass, $attributes = [])
     {
         $model = new $modelClass;
 
         if (!$model instanceof EloquentModel) {
-            throw new RuntimeException("Class $modelClass is not an Eloquent model");
+            throw new \RuntimeException("Class $modelClass is not an Eloquent model");
         }
 
         $query = $model->newQuery();
@@ -519,7 +474,6 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
     /**
      * @param string $table
      * @param array $attributes
-     *
      * @return array
      */
     protected function findRecord($table, $attributes = [])
@@ -545,20 +499,17 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * ```
      *
      * @see https://lumen.laravel.com/docs/master/testing#model-factories
-     *
-     * @part orm
-     *
      * @param string $model
      * @param array $attributes
      * @param string $name
-     *
      * @return mixed
+     * @part orm
      */
     public function have($model, $attributes = [], $name = 'default')
     {
         try {
             return $this->modelFactory($model, $name)->create($attributes);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->fail("Could not create model: \n\n" . get_class($e) . "\n\n" . $e->getMessage());
         }
     }
@@ -576,21 +527,18 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * ```
      *
      * @see https://lumen.laravel.com/docs/master/testing#model-factories
-     *
-     * @part orm
-     *
      * @param string $model
      * @param int $times
      * @param array $attributes
      * @param string $name
-     *
      * @return mixed
+     * @part orm
      */
     public function haveMultiple($model, $times, $attributes = [], $name = 'default')
     {
         try {
             return $this->modelFactory($model, $name, $times)->create($attributes);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->fail("Could not create model: \n\n" . get_class($e) . "\n\n" . $e->getMessage());
         }
     }
@@ -599,10 +547,8 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
      * @param string $model
      * @param string $name
      * @param int $times
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
      * @return \Illuminate\Database\Eloquent\FactoryBuilder
+     * @throws ModuleException
      */
     protected function modelFactory($model, $name, $times = 1)
     {
@@ -626,5 +572,4 @@ class Lumen extends Framework implements ActiveRecord, PartedModule
 
         return ['/^' . str_replace('.', '\.', $server['HTTP_HOST']) . '$/'];
     }
-
 }

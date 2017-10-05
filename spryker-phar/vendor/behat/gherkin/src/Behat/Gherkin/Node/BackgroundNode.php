@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
@@ -14,22 +17,18 @@ namespace Behat\Gherkin\Node;
  */
 class BackgroundNode implements ScenarioLikeInterface
 {
-
     /**
      * @var string
      */
     private $title;
-
     /**
-     * @var \Behat\Gherkin\Node\StepNode[]
+     * @var StepNode[]
      */
-    private $steps = [];
-
+    private $steps = array();
     /**
      * @var string
      */
     private $keyword;
-
     /**
      * @var integer
      */
@@ -39,9 +38,9 @@ class BackgroundNode implements ScenarioLikeInterface
      * Initializes background.
      *
      * @param null|string $title
-     * @param \Behat\Gherkin\Node\StepNode[] $steps
-     * @param string $keyword
-     * @param integer $line
+     * @param StepNode[]  $steps
+     * @param string      $keyword
+     * @param integer     $line
      */
     public function __construct($title, array $steps, $keyword, $line)
     {
@@ -84,7 +83,7 @@ class BackgroundNode implements ScenarioLikeInterface
     /**
      * Returns background steps.
      *
-     * @return \Behat\Gherkin\Node\StepNode[]
+     * @return StepNode[]
      */
     public function getSteps()
     {
@@ -110,5 +109,4 @@ class BackgroundNode implements ScenarioLikeInterface
     {
         return $this->line;
     }
-
 }

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
@@ -37,13 +31,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ConfigValidate extends Command
 {
-
     use Shared\Config;
     use Shared\Style;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition(
@@ -61,9 +51,7 @@ class ConfigValidate extends Command
         return 'Validates and prints config to screen';
     }
 
-    /**
-     * @return void
-     */
+
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $this->addStyles($output);
@@ -105,6 +93,7 @@ class ConfigValidate extends Command
             $output->writeln('Ok');
         }
 
+
         $output->writeln("Execute <info>codecept config:validate [<suite>]</info> to see config for a suite");
     }
 
@@ -113,5 +102,4 @@ class ConfigValidate extends Command
         $output = print_r($config, true);
         return preg_replace('~\[(.*?)\] =>~', "<fg=yellow>$1</fg=yellow> =>", $output);
     }
-
 }

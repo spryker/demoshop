@@ -1,20 +1,12 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib;
-
-use RuntimeException;
 
 /**
  * Populates a db using a parameterized command built from the Db module configuration.
  */
 class DbPopulator
 {
-
     /**
      * The command to be executed.
      *
@@ -30,16 +22,15 @@ class DbPopulator
     /**
      * Constructs a DbPopulator object for the given command and Db module.
      *
+     * @param $config
      * @internal param string $command The parameterized command to evaluate and execute later.
      * @internal param Codeception\Module\Db|null $dbModule The Db module used to build the populator command or null.
-     *
-     * @param $config
      */
     public function __construct($config)
     {
         $this->config = $config;
         $command = $this->config['populator'];
-        $this->builtCommand = $this->buildCommand((string)$command);
+        $this->builtCommand = $this->buildCommand((string) $command);
     }
 
     /**
@@ -59,7 +50,6 @@ class DbPopulator
      *
      * @param string $command The command to be evaluated using the given config
      * @param array $config The configuration values used to replace any found $keys with values from this array.
-     *
      * @return string The resulting command string after evaluating any configuration's key
      */
     protected function buildCommand($command)
@@ -76,7 +66,7 @@ class DbPopulator
         }
         $vars = array_merge($dsnVars, $this->config);
         foreach ($vars as $key => $value) {
-            $vars['$' . $key] = $value;
+            $vars['$'.$key] = $value;
             unset($vars[$key]);
         }
         return str_replace(array_keys($vars), array_values($vars), $command);
@@ -86,8 +76,6 @@ class DbPopulator
      * Executes the command built using the Db module configuration.
      *
      * Uses the PHP `exec` to spin off a child process for the built command.
-     *
-     * @throws \RuntimeException
      *
      * @return bool
      */
@@ -99,7 +87,7 @@ class DbPopulator
         exec($command, $output, $exitCode);
 
         if (0 !== $exitCode) {
-            throw new RuntimeException(
+            throw new \RuntimeException(
                 "The populator command did not end successfully: \n" .
                 "  Exit code: $exitCode \n" .
                 "  Output:" . implode("\n", $output)
@@ -114,5 +102,4 @@ class DbPopulator
     {
         return $this->builtCommand;
     }
-
 }

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Interfaces;
 
 interface Queue
@@ -12,9 +6,7 @@ interface Queue
 
     /**
      * Connect to the queueing server.
-     *
      * @param array $config
-     *
      * @return
      */
     public function openConnection($config);
@@ -57,5 +49,4 @@ interface Queue
     public function getRequiredConfig();
 
     public function getDefaultConfig();
-
 }

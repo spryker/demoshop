@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Lib\Generator\Test as TestGenerator;
@@ -21,13 +15,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GenerateTest extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition(
@@ -44,9 +34,6 @@ class GenerateTest extends Command
         return 'Generates empty unit test file in suite';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $suite = $input->getArgument('suite');
@@ -70,5 +57,4 @@ class GenerateTest extends Command
         }
         $output->writeln("<info>Test was created in $filename</info>");
     }
-
 }

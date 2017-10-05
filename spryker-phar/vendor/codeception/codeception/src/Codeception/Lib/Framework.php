@@ -1,10 +1,5 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib;
 
 /**
@@ -15,7 +10,6 @@ namespace Codeception\Lib;
  */
 abstract class Framework extends InnerBrowser
 {
-
     /**
      * Returns a list of recognized domain names
      *
@@ -26,9 +20,6 @@ abstract class Framework extends InnerBrowser
         return [];
     }
 
-    /**
-     * @return void
-     */
     public function _beforeSuite($settings = [])
     {
         /**
@@ -36,5 +27,4 @@ abstract class Framework extends InnerBrowser
          */
         $this->internalDomains = null;
     }
-
 }

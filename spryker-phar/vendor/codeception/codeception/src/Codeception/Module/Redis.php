@@ -1,17 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use Codeception\Exception\ModuleException;
 use Codeception\Lib\Interfaces\RequiresPackage;
 use Codeception\Module as CodeceptionModule;
+use Codeception\Exception\ModuleException;
 use Codeception\TestInterface;
-use Exception;
 use Predis\Client as RedisDriver;
 
 /**
@@ -51,21 +45,18 @@ use Predis\Client as RedisDriver;
  */
 class Redis extends CodeceptionModule implements RequiresPackage
 {
-
     /**
-     * @var array
      * {@inheritdoc}
      *
      * No default value is set for the database, using this parameter.
      */
     protected $config = [
-        'host' => '127.0.0.1',
-        'port' => 6379,
-        'cleanupBefore' => 'never',
+        'host'          => '127.0.0.1',
+        'port'          => 6379,
+        'cleanupBefore' => 'never'
     ];
 
     /**
-     * @var array
      * {@inheritdoc}
      */
     protected $requiredFields = [
@@ -75,7 +66,7 @@ class Redis extends CodeceptionModule implements RequiresPackage
     /**
      * The Redis driver
      *
-     * @var \Predis\Client
+     * @var RedisDriver
      */
     public $driver;
 
@@ -87,19 +78,17 @@ class Redis extends CodeceptionModule implements RequiresPackage
     /**
      * Instructions to run after configuration is loaded
      *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
+     * @throws ModuleException
      */
     public function _initialize()
     {
         try {
             $this->driver = new RedisDriver([
-                'host' => $this->config['host'],
-                'port' => $this->config['port'],
-                'database' => $this->config['database'],
+                'host'     => $this->config['host'],
+                'port'     => $this->config['port'],
+                'database' => $this->config['database']
             ]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new ModuleException(
                 __CLASS__,
                 $e->getMessage()
@@ -111,8 +100,6 @@ class Redis extends CodeceptionModule implements RequiresPackage
      * Code to run before each suite
      *
      * @param array $settings
-     *
-     * @return void
      */
     public function _beforeSuite($settings = [])
     {
@@ -124,9 +111,7 @@ class Redis extends CodeceptionModule implements RequiresPackage
     /**
      * Code to run before each test
      *
-     * @param \Codeception\TestInterface $test
-     *
-     * @return void
+     * @param TestInterface $test
      */
     public function _before(TestInterface $test)
     {
@@ -138,15 +123,13 @@ class Redis extends CodeceptionModule implements RequiresPackage
     /**
      * Delete all the keys in the Redis database
      *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
+     * @throws ModuleException
      */
     public function cleanup()
     {
         try {
             $this->driver->flushdb();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new ModuleException(
                 __CLASS__,
                 $e->getMessage()
@@ -191,9 +174,9 @@ class Redis extends CodeceptionModule implements RequiresPackage
      *
      * @param string $key The key name
      *
-     * @throws \Codeception\Exception\ModuleException if the key does not exist
-     *
      * @return mixed
+     *
+     * @throws ModuleException if the key does not exist
      */
     public function grabFromRedis($key)
     {
@@ -284,13 +267,11 @@ class Redis extends CodeceptionModule implements RequiresPackage
      * $I->haveInRedis('hash', ['obladi' => 'oblada']);
      * ```
      *
-     * @param string $type The type of the key
-     * @param string $key The key name
-     * @param mixed $value The value
+     * @param string $type  The type of the key
+     * @param string $key   The key name
+     * @param mixed  $value The value
      *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
+     * @throws ModuleException
      */
     public function haveInRedis($type, $key, $value)
     {
@@ -372,16 +353,14 @@ class Redis extends CodeceptionModule implements RequiresPackage
      * $I->dontSeeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' => 2]);
      * ```
      *
-     * @param string $key The key name
-     * @param mixed $value Optional. If specified, also checks the key has this
+     * @param string $key   The key name
+     * @param mixed  $value Optional. If specified, also checks the key has this
      * value. Booleans will be converted to 1 and 0 (even inside arrays)
-     *
-     * @return void
      */
     public function dontSeeInRedis($key, $value = null)
     {
         $this->assertFalse(
-            (bool)$this->checkKeyExists($key, $value),
+            (bool) $this->checkKeyExists($key, $value),
             "The key \"$key\" exists" . ($value ? ' and its value matches the one provided' : '')
         );
     }
@@ -415,9 +394,9 @@ class Redis extends CodeceptionModule implements RequiresPackage
      * $I->dontSeeRedisKeyContains('example:hash', 'magic', 32);
      * ```
      *
-     * @param string $key The key
-     * @param mixed $item The item
-     * @param null $itemValue Optional and only used for zsets and hashes. If
+     * @param string $key       The key
+     * @param mixed  $item      The item
+     * @param null   $itemValue Optional and only used for zsets and hashes. If
      * specified, the method will also check that the $item has this value/score
      *
      * @return bool
@@ -425,9 +404,9 @@ class Redis extends CodeceptionModule implements RequiresPackage
     public function dontSeeRedisKeyContains($key, $item, $itemValue = null)
     {
         $this->assertFalse(
-            (bool)$this->checkKeyContains($key, $item, $itemValue),
+            (bool) $this->checkKeyContains($key, $item, $itemValue),
             "The key \"$key\" contains " . (
-                $itemValue === null
+                is_null($itemValue)
                 ? "\"$item\""
                 : "[\"$item\" => \"$itemValue\"]"
             )
@@ -460,16 +439,14 @@ class Redis extends CodeceptionModule implements RequiresPackage
      * $I->seeInRedis('example:hash', ['riri' => true, 'fifi' => 'Dewey', 'loulou' => 2]);
      * ```
      *
-     * @param string $key The key name
-     * @param mixed $value Optional. If specified, also checks the key has this
+     * @param string $key   The key name
+     * @param mixed  $value Optional. If specified, also checks the key has this
      * value. Booleans will be converted to 1 and 0 (even inside arrays)
-     *
-     * @return void
      */
     public function seeInRedis($key, $value = null)
     {
         $this->assertTrue(
-            (bool)$this->checkKeyExists($key, $value),
+            (bool) $this->checkKeyExists($key, $value),
             "Cannot find key \"$key\"" . ($value ? ' with the provided value' : '')
         );
     }
@@ -531,9 +508,9 @@ class Redis extends CodeceptionModule implements RequiresPackage
      * $I->seeRedisKeyContains('example:hash', 'magic', 32);
      * ```
      *
-     * @param string $key The key
-     * @param mixed $item The item
-     * @param null $itemValue Optional and only used for zsets and hashes. If
+     * @param string $key       The key
+     * @param mixed  $item      The item
+     * @param null   $itemValue Optional and only used for zsets and hashes. If
      * specified, the method will also check that the $item has this value/score
      *
      * @return bool
@@ -541,9 +518,9 @@ class Redis extends CodeceptionModule implements RequiresPackage
     public function seeRedisKeyContains($key, $item, $itemValue = null)
     {
         $this->assertTrue(
-            (bool)$this->checkKeyContains($key, $item, $itemValue),
+            (bool) $this->checkKeyContains($key, $item, $itemValue),
             "The key \"$key\" does not contain " . (
-            $itemValue === null
+            is_null($itemValue)
                 ? "\"$item\""
                 : "[\"$item\" => \"$itemValue\"]"
             )
@@ -573,14 +550,14 @@ class Redis extends CodeceptionModule implements RequiresPackage
     /**
      * Checks whether a key contains a given item
      *
-     * @param string $key The key
-     * @param mixed $item The item
-     * @param null $itemValue Optional and only used for zsets and hashes. If
+     * @param string $key       The key
+     * @param mixed  $item      The item
+     * @param null   $itemValue Optional and only used for zsets and hashes. If
      * specified, the method will also check that the $item has this value/score
      *
-     * @throws \Codeception\Exception\ModuleException
-     *
      * @return bool
+     *
+     * @throws ModuleException
      */
     private function checkKeyContains($key, $item, $itemValue = null)
     {
@@ -611,10 +588,10 @@ class Redis extends CodeceptionModule implements RequiresPackage
             case 'zset':
                 $reply = $this->driver->zscore($key, $item);
 
-                if ($reply === null) {
+                if (is_null($reply)) {
                     $result = false;
-                } elseif ($itemValue !== null) {
-                    $result = (float)$reply === (float)$itemValue;
+                } elseif (!is_null($itemValue)) {
+                    $result = (float) $reply === (float) $itemValue;
                 } else {
                     $result = true;
                 }
@@ -623,9 +600,9 @@ class Redis extends CodeceptionModule implements RequiresPackage
             case 'hash':
                 $reply = $this->driver->hget($key, $item);
 
-                $result = $itemValue === null
-                    ? $reply !== null
-                    : (string)$reply === (string)$itemValue;
+                $result = is_null($itemValue)
+                    ? !is_null($reply)
+                    : (string) $reply === (string) $itemValue;
                 break;
 
             case 'none':
@@ -642,8 +619,8 @@ class Redis extends CodeceptionModule implements RequiresPackage
     /**
      * Checks whether a key exists and, optionally, whether it has a given $value
      *
-     * @param string $key The key name
-     * @param mixed $value Optional. If specified, also checks the key has this
+     * @param string $key   The key name
+     * @param mixed  $value Optional. If specified, also checks the key has this
      * value. Booleans will be converted to 1 and 0 (even inside arrays)
      *
      * @return bool
@@ -652,7 +629,7 @@ class Redis extends CodeceptionModule implements RequiresPackage
     {
         $type = $this->driver->type($key);
 
-        if ($value === null) {
+        if (is_null($value)) {
             return $type != 'none';
         }
 
@@ -710,10 +687,9 @@ class Redis extends CodeceptionModule implements RequiresPackage
     private function scoresToFloat(array $arr)
     {
         foreach ($arr as $member => $score) {
-            $arr[$member] = (float)$score;
+            $arr[$member] = (float) $score;
         }
 
         return $arr;
     }
-
 }

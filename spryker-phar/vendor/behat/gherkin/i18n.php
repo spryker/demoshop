@@ -9,9 +9,9 @@
  * Please send your translation changes there.
  */
 
-return [
-  'en' =>
-   [
+return array (
+  'en' => 
+  array (
     'and' => 'And|*',
     'background' => 'Background',
     'but' => 'But|*',
@@ -24,9 +24,9 @@ return [
     'scenario_outline' => 'Scenario Template|Scenario Outline',
     'then' => 'Then|*',
     'when' => 'When|*',
-   ],
-  'af' =>
-   [
+  ),
+  'af' => 
+  array (
     'and' => 'En|*',
     'background' => 'Agtergrond',
     'but' => 'Maar|*',
@@ -39,9 +39,9 @@ return [
     'scenario_outline' => 'Situasie Uiteensetting',
     'then' => 'Dan|*',
     'when' => 'Wanneer|*',
-   ],
-  'am' =>
-   [
+  ),
+  'am' => 
+  array (
     'and' => 'Եվ|*',
     'background' => 'Կոնտեքստ',
     'but' => 'Բայց|*',
@@ -54,9 +54,9 @@ return [
     'scenario_outline' => 'Սցենարի կառուցվացքը',
     'then' => 'Ապա|*',
     'when' => 'Երբ|Եթե|*',
-   ],
-  'ar' =>
-   [
+  ),
+  'ar' => 
+  array (
     'and' => '*|و',
     'background' => 'الخلفية',
     'but' => 'لكن|*',
@@ -69,9 +69,9 @@ return [
     'scenario_outline' => 'سيناريو مخطط',
     'then' => 'اذاً|ثم|*',
     'when' => 'عندما|متى|*',
-   ],
-  'ast' =>
-   [
+  ),
+  'ast' => 
+  array (
     'and' => 'Ya|*|Y',
     'background' => 'Antecedentes',
     'but' => 'Peru|*',
@@ -84,9 +84,9 @@ return [
     'scenario_outline' => 'Esbozu del casu',
     'then' => 'Entós|*',
     'when' => 'Cuando|*',
-   ],
-  'az' =>
-   [
+  ),
+  'az' => 
+  array (
     'and' => 'Həm|Və|*',
     'background' => 'Kontekst|Keçmiş',
     'but' => 'Ancaq|Amma|*',
@@ -99,9 +99,9 @@ return [
     'scenario_outline' => 'Ssenarinin strukturu',
     'then' => 'O halda|*',
     'when' => 'Nə vaxt ki|Əgər|*',
-   ],
-  'bg' =>
-   [
+  ),
+  'bg' => 
+  array (
     'and' => '*|И',
     'background' => 'Предистория',
     'but' => 'Но|*',
@@ -114,9 +114,9 @@ return [
     'scenario_outline' => 'Рамка на сценарий',
     'then' => 'То|*',
     'when' => 'Когато|*',
-   ],
-  'bm' =>
-   [
+  ),
+  'bm' => 
+  array (
     'and' => 'Dan|*',
     'background' => 'Latar Belakang',
     'but' => 'Tetapi|Tapi|*',
@@ -129,9 +129,9 @@ return [
     'scenario_outline' => 'Garis Panduan Senario|Kerangka Senario|Kerangka Situasi|Kerangka Keadaan',
     'then' => 'Kemudian|Maka|*',
     'when' => 'Apabila|*',
-   ],
-  'bs' =>
-   [
+  ),
+  'bs' => 
+  array (
     'and' => '*|I|A',
     'background' => 'Pozadina',
     'but' => 'Ali|*',
@@ -144,9 +144,9 @@ return [
     'scenario_outline' => 'Scenario-outline|Scenariju-obris',
     'then' => 'Zatim|*',
     'when' => 'Kada|*',
-   ],
-  'ca' =>
-   [
+  ),
+  'ca' => 
+  array (
     'and' => '*|I',
     'background' => 'Antecedents|Rerefons',
     'but' => 'Però|*',
@@ -159,9 +159,9 @@ return [
     'scenario_outline' => 'Esquema de l\'escenari',
     'then' => 'Aleshores|Cal|*',
     'when' => 'Quan|*',
-   ],
-  'cs' =>
-   [
+  ),
+  'cs' => 
+  array (
     'and' => 'A také|*|A',
     'background' => 'Kontext|Pozadí',
     'but' => 'Ale|*',
@@ -174,9 +174,9 @@ return [
     'scenario_outline' => 'Osnova scénáře|Náčrt Scénáře',
     'then' => 'Pak|*',
     'when' => 'Když|*',
-   ],
-  'cy-GB' =>
-   [
+  ),
+  'cy-GB' => 
+  array (
     'and' => '*|A',
     'background' => 'Cefndir',
     'but' => 'Ond|*',
@@ -189,9 +189,9 @@ return [
     'scenario_outline' => 'Scenario Amlinellol',
     'then' => 'Yna|*',
     'when' => 'Pryd|*',
-   ],
-  'da' =>
-   [
+  ),
+  'da' => 
+  array (
     'and' => 'Og|*',
     'background' => 'Baggrund',
     'but' => 'Men|*',
@@ -204,9 +204,9 @@ return [
     'scenario_outline' => 'Abstrakt Scenario',
     'then' => 'Så|*',
     'when' => 'Når|*',
-   ],
-  'de' =>
-   [
+  ),
+  'de' => 
+  array (
     'and' => 'Und|*',
     'background' => 'Grundlage',
     'but' => 'Aber|*',
@@ -219,9 +219,9 @@ return [
     'scenario_outline' => 'Szenariogrundriss',
     'then' => 'Dann|*',
     'when' => 'Wenn|*',
-   ],
-  'el' =>
-   [
+  ),
+  'el' => 
+  array (
     'and' => 'Και|*',
     'background' => 'Υπόβαθρο',
     'but' => 'Αλλά|*',
@@ -234,9 +234,9 @@ return [
     'scenario_outline' => 'Περιγραφή Σεναρίου',
     'then' => 'Τότε|*',
     'when' => 'Όταν|*',
-   ],
-  'em' =>
-   [
+  ),
+  'em' => 
+  array (
     'and' => '😂<|*',
     'background' => '💤',
     'but' => '😔<|*',
@@ -249,9 +249,9 @@ return [
     'scenario_outline' => '📖',
     'then' => '🙏<|*',
     'when' => '🎬<|*',
-   ],
-  'en-Scouse' =>
-   [
+  ),
+  'en-Scouse' => 
+  array (
     'and' => 'An|*',
     'background' => 'Dis is what went down',
     'but' => 'Buh|*',
@@ -264,9 +264,9 @@ return [
     'scenario_outline' => 'Wharrimean is',
     'then' => 'Den youse gotta|Dun|*',
     'when' => 'Youse know like when|Wun|*',
-   ],
-  'en-au' =>
-   [
+  ),
+  'en-au' => 
+  array (
     'and' => 'Too right|*',
     'background' => 'First off',
     'but' => 'Yeah nah|*',
@@ -279,9 +279,9 @@ return [
     'scenario_outline' => 'Reckon it\'s like',
     'then' => 'But at the end of the day I reckon|*',
     'when' => 'It\'s just unbelievable|*',
-   ],
-  'en-lol' =>
-   [
+  ),
+  'en-lol' => 
+  array (
     'and' => 'AN|*',
     'background' => 'B4',
     'but' => 'BUT|*',
@@ -294,9 +294,9 @@ return [
     'scenario_outline' => 'MISHUN SRSLY',
     'then' => 'DEN|*',
     'when' => 'WEN|*',
-   ],
-  'en-old' =>
-   [
+  ),
+  'en-old' => 
+  array (
     'and' => 'Ond|*|7',
     'background' => 'Aer|Ær',
     'but' => 'Ac|*',
@@ -309,9 +309,9 @@ return [
     'scenario_outline' => 'Swa hwaer swa|Swa hwær swa',
     'then' => 'Tha the|Þa þe|Ða ðe|Tha|Þa|Ða|*',
     'when' => 'Tha|Þa|Ða|*',
-   ],
-  'en-pirate' =>
-   [
+  ),
+  'en-pirate' => 
+  array (
     'and' => 'Aye|*',
     'background' => 'Yo-ho-ho',
     'but' => 'Avast!|*',
@@ -324,9 +324,9 @@ return [
     'scenario_outline' => 'Shiver me timbers',
     'then' => 'Let go and haul|*',
     'when' => 'Blimey!|*',
-   ],
-  'eo' =>
-   [
+  ),
+  'eo' => 
+  array (
     'and' => 'Kaj|*',
     'background' => 'Fono',
     'but' => 'Sed|*',
@@ -339,9 +339,9 @@ return [
     'scenario_outline' => 'Konturo de la scenaro|Kazo-skizo|Skizo',
     'then' => 'Do|*',
     'when' => 'Se|*',
-   ],
-  'es' =>
-   [
+  ),
+  'es' => 
+  array (
     'and' => '*|Y|E',
     'background' => 'Antecedentes',
     'but' => 'Pero|*',
@@ -354,9 +354,9 @@ return [
     'scenario_outline' => 'Esquema del escenario',
     'then' => 'Entonces|*',
     'when' => 'Cuando|*',
-   ],
-  'et' =>
-   [
+  ),
+  'et' => 
+  array (
     'and' => 'Ja|*',
     'background' => 'Taust',
     'but' => 'Kuid|*',
@@ -369,9 +369,9 @@ return [
     'scenario_outline' => 'Raamstsenaarium',
     'then' => 'Siis|*',
     'when' => 'Kui|*',
-   ],
-  'fa' =>
-   [
+  ),
+  'fa' => 
+  array (
     'and' => '*|و',
     'background' => 'زمینه',
     'but' => 'اما|*',
@@ -384,9 +384,9 @@ return [
     'scenario_outline' => 'الگوی سناریو',
     'then' => 'آنگاه|*',
     'when' => 'هنگامی|*',
-   ],
-  'fi' =>
-   [
+  ),
+  'fi' => 
+  array (
     'and' => 'Ja|*',
     'background' => 'Tausta',
     'but' => 'Mutta|*',
@@ -399,9 +399,9 @@ return [
     'scenario_outline' => 'Tapausaihio',
     'then' => 'Niin|*',
     'when' => 'Kun|*',
-   ],
-  'fr' =>
-   [
+  ),
+  'fr' => 
+  array (
     'and' => 'Et qu\'<|Et que|Et|*',
     'background' => 'Contexte',
     'but' => 'Mais qu\'<|Mais que|Mais|*',
@@ -414,9 +414,9 @@ return [
     'scenario_outline' => 'Plan du scénario|Plan du Scénario',
     'then' => 'Alors|*',
     'when' => 'Lorsqu\'<|Lorsque|Quand|*',
-   ],
-  'ga' =>
-   [
+  ),
+  'ga' => 
+  array (
     'and' => 'Agus<|*',
     'background' => 'Cúlra',
     'but' => 'Ach<|*',
@@ -429,9 +429,9 @@ return [
     'scenario_outline' => 'Cás Achomair',
     'then' => 'Ansin<|*',
     'when' => 'Nuair nach<|Nuair nár<|Nuair ba<|Nuair a<|*',
-   ],
-  'gj' =>
-   [
+  ),
+  'gj' => 
+  array (
     'and' => 'અને|*',
     'background' => 'બેકગ્રાઉન્ડ',
     'but' => 'પણ|*',
@@ -444,9 +444,9 @@ return [
     'scenario_outline' => 'પરિદ્દશ્ય રૂપરેખા|પરિદ્દશ્ય ઢાંચો',
     'then' => 'પછી|*',
     'when' => 'ક્યારે|*',
-   ],
-  'gl' =>
-   [
+  ),
+  'gl' => 
+  array (
     'and' => '*|E',
     'background' => 'Contexto',
     'but' => 'Pero|Mais|*',
@@ -459,9 +459,9 @@ return [
     'scenario_outline' => 'Esbozo do escenario',
     'then' => 'Entón|Logo|*',
     'when' => 'Cando|*',
-   ],
-  'he' =>
-   [
+  ),
+  'he' => 
+  array (
     'and' => 'וגם|*',
     'background' => 'רקע',
     'but' => 'אבל|*',
@@ -474,9 +474,9 @@ return [
     'scenario_outline' => 'תבנית תרחיש',
     'then' => 'אזי|אז|*',
     'when' => 'כאשר|*',
-   ],
-  'hi' =>
-   [
+  ),
+  'hi' => 
+  array (
     'and' => 'तथा|और|*',
     'background' => 'पृष्ठभूमि',
     'but' => 'परन्तु|किन्तु|पर|*',
@@ -489,9 +489,9 @@ return [
     'scenario_outline' => 'परिदृश्य रूपरेखा',
     'then' => 'तदा|तब|*',
     'when' => 'कदा|जब|*',
-   ],
-  'hr' =>
-   [
+  ),
+  'hr' => 
+  array (
     'and' => '*|I',
     'background' => 'Pozadina',
     'but' => 'Ali|*',
@@ -504,9 +504,9 @@ return [
     'scenario_outline' => 'Koncept|Skica',
     'then' => 'Onda|*',
     'when' => 'Kada|Kad|*',
-   ],
-  'ht' =>
-   [
+  ),
+  'ht' => 
+  array (
     'and' => 'Epi|Ak|*|E',
     'background' => 'Kontèks|Istorik',
     'but' => 'Men|*',
@@ -519,9 +519,9 @@ return [
     'scenario_outline' => 'Senaryo deskripsyon|Senaryo Deskripsyon|Dyagram senaryo|Dyagram Senaryo|Plan senaryo|Plan Senaryo',
     'then' => 'Le sa a|Lè sa a|*',
     'when' => 'Le|Lè|*',
-   ],
-  'hu' =>
-   [
+  ),
+  'hu' => 
+  array (
     'and' => 'És|*',
     'background' => 'Háttér',
     'but' => 'De|*',
@@ -534,9 +534,9 @@ return [
     'scenario_outline' => 'Forgatókönyv vázlat',
     'then' => 'Akkor|*',
     'when' => 'Amikor|Majd|Ha|*',
-   ],
-  'id' =>
-   [
+  ),
+  'id' => 
+  array (
     'and' => 'Dan|*',
     'background' => 'Dasar',
     'but' => 'Tapi|*',
@@ -549,9 +549,9 @@ return [
     'scenario_outline' => 'Skenario konsep',
     'then' => 'Maka|*',
     'when' => 'Ketika|*',
-   ],
-  'is' =>
-   [
+  ),
+  'is' => 
+  array (
     'and' => 'Og|*',
     'background' => 'Bakgrunnur',
     'but' => 'En|*',
@@ -564,9 +564,9 @@ return [
     'scenario_outline' => 'Lýsing Atburðarásar|Lýsing Dæma',
     'then' => 'Þá|*',
     'when' => 'Þegar|*',
-   ],
-  'it' =>
-   [
+  ),
+  'it' => 
+  array (
     'and' => '*|E',
     'background' => 'Contesto',
     'but' => 'Ma|*',
@@ -579,9 +579,9 @@ return [
     'scenario_outline' => 'Schema dello scenario',
     'then' => 'Allora|*',
     'when' => 'Quando|*',
-   ],
-  'ja' =>
-   [
+  ),
+  'ja' => 
+  array (
     'and' => 'かつ<|*',
     'background' => '背景',
     'but' => 'しかし<|ただし<|但し<|*',
@@ -594,9 +594,9 @@ return [
     'scenario_outline' => 'シナリオアウトライン|シナリオテンプレート|シナリオテンプレ|テンプレ',
     'then' => 'ならば<|*',
     'when' => 'もし<|*',
-   ],
-  'jv' =>
-   [
+  ),
+  'jv' => 
+  array (
     'and' => 'Lan|*',
     'background' => 'Dasar',
     'but' => 'Ananging|Nanging|Tapi|*',
@@ -609,9 +609,9 @@ return [
     'scenario_outline' => 'Konsep skenario',
     'then' => 'Banjur|Njuk|*',
     'when' => 'Menawa|Manawa|*',
-   ],
-  'kn' =>
-   [
+  ),
+  'kn' => 
+  array (
     'and' => 'ಮತ್ತು|*',
     'background' => 'ಹಿನ್ನೆಲೆ',
     'but' => 'ಆದರೆ|*',
@@ -624,9 +624,9 @@ return [
     'scenario_outline' => 'ವಿವರಣೆ',
     'then' => 'ನಂತರ|*',
     'when' => 'ಸ್ಥಿತಿಯನ್ನು|*',
-   ],
-  'ko' =>
-   [
+  ),
+  'ko' => 
+  array (
     'and' => '그리고<|*',
     'background' => '배경',
     'but' => '하지만<|단<|*',
@@ -639,9 +639,9 @@ return [
     'scenario_outline' => '시나리오 개요',
     'then' => '그러면<|*',
     'when' => '만약<|만일<|*',
-   ],
-  'lt' =>
-   [
+  ),
+  'lt' => 
+  array (
     'and' => 'Ir|*',
     'background' => 'Kontekstas',
     'but' => 'Bet|*',
@@ -654,9 +654,9 @@ return [
     'scenario_outline' => 'Scenarijaus šablonas',
     'then' => 'Tada|*',
     'when' => 'Kai|*',
-   ],
-  'lu' =>
-   [
+  ),
+  'lu' => 
+  array (
     'and' => 'an|*|a',
     'background' => 'Hannergrond',
     'but' => 'awer|mä|*',
@@ -669,9 +669,9 @@ return [
     'scenario_outline' => 'Plang vum Szenario',
     'then' => 'dann|*',
     'when' => 'wann|*',
-   ],
-  'lv' =>
-   [
+  ),
+  'lv' => 
+  array (
     'and' => 'Un|*',
     'background' => 'Konteksts|Situācija',
     'but' => 'Bet|*',
@@ -684,9 +684,9 @@ return [
     'scenario_outline' => 'Scenārijs pēc parauga',
     'then' => 'Tad|*',
     'when' => 'Ja|*',
-   ],
-  'mn' =>
-   [
+  ),
+  'mn' => 
+  array (
     'and' => 'Тэгээд|Мөн|*',
     'background' => 'Агуулга',
     'but' => 'Гэхдээ|Харин|*',
@@ -699,9 +699,9 @@ return [
     'scenario_outline' => 'Сценарын төлөвлөгөө',
     'then' => 'Үүний дараа|Тэгэхэд|*',
     'when' => 'Хэрэв|*',
-   ],
-  'nl' =>
-   [
+  ),
+  'nl' => 
+  array (
     'and' => 'En|*',
     'background' => 'Achtergrond',
     'but' => 'Maar|*',
@@ -714,9 +714,9 @@ return [
     'scenario_outline' => 'Abstract Scenario',
     'then' => 'Dan|*',
     'when' => 'Als|*',
-   ],
-  'no' =>
-   [
+  ),
+  'no' => 
+  array (
     'and' => 'Og|*',
     'background' => 'Bakgrunn',
     'but' => 'Men|*',
@@ -729,9 +729,9 @@ return [
     'scenario_outline' => 'Abstrakt Scenario|Scenariomal',
     'then' => 'Så|*',
     'when' => 'Når|*',
-   ],
-  'pa' =>
-   [
+  ),
+  'pa' => 
+  array (
     'and' => 'ਅਤੇ|*',
     'background' => 'ਪਿਛੋਕੜ',
     'but' => 'ਪਰ|*',
@@ -744,9 +744,9 @@ return [
     'scenario_outline' => 'ਪਟਕਥਾ ਰੂਪ ਰੇਖਾ|ਪਟਕਥਾ ਢਾਂਚਾ',
     'then' => 'ਤਦ|*',
     'when' => 'ਜਦੋਂ|*',
-   ],
-  'pl' =>
-   [
+  ),
+  'pl' => 
+  array (
     'and' => 'Oraz|*|I',
     'background' => 'Założenia',
     'but' => 'Ale|*',
@@ -759,9 +759,9 @@ return [
     'scenario_outline' => 'Szablon scenariusza',
     'then' => 'Wtedy|*',
     'when' => 'Jeżeli|Jeśli|Kiedy|Gdy|*',
-   ],
-  'pt' =>
-   [
+  ),
+  'pt' => 
+  array (
     'and' => '*|E',
     'background' => 'Cenario de Fundo|Cenário de Fundo|Contexto|Fundo',
     'but' => 'Mas|*',
@@ -774,9 +774,9 @@ return [
     'scenario_outline' => 'Delineação do Cenário|Delineacao do Cenario|Esquema do Cenário|Esquema do Cenario',
     'then' => 'Entao|Então|*',
     'when' => 'Quando|*',
-   ],
-  'ro' =>
-   [
+  ),
+  'ro' => 
+  array (
     'and' => 'Și|Si|Şi|*',
     'background' => 'Context',
     'but' => 'Dar|*',
@@ -789,9 +789,9 @@ return [
     'scenario_outline' => 'Structura scenariu|Structură scenariu',
     'then' => 'Atunci|*',
     'when' => 'Când|Cand|*',
-   ],
-  'ru' =>
-   [
+  ),
+  'ru' => 
+  array (
     'and' => 'К тому же|Также|*|И',
     'background' => 'Предыстория|Контекст',
     'but' => 'Но|*|А',
@@ -804,9 +804,9 @@ return [
     'scenario_outline' => 'Структура сценария',
     'then' => 'Тогда|То|*',
     'when' => 'Когда|Если|*',
-   ],
-  'sk' =>
-   [
+  ),
+  'sk' => 
+  array (
     'and' => 'A taktiež|A zároveň|A tiež|*|A',
     'background' => 'Pozadie',
     'but' => 'Ale|*',
@@ -819,9 +819,9 @@ return [
     'scenario_outline' => 'Osnova Scenára|Náčrt Scenáru|Náčrt Scenára',
     'then' => 'Potom|Tak|*',
     'when' => 'Keď|Ak|*',
-   ],
-  'sl' =>
-   [
+  ),
+  'sl' => 
+  array (
     'and' => 'Ter|In',
     'background' => 'Kontekst|Osnova|Ozadje',
     'but' => 'Vendar|Ampak|Toda',
@@ -834,9 +834,9 @@ return [
     'scenario_outline' => 'Struktura scenarija|Oris scenarija|Koncept|Osnutek|Skica',
     'then' => 'Takrat|Potem|Nato',
     'when' => 'Kadar|Ko|Ce|Če',
-   ],
-  'sr-Cyrl' =>
-   [
+  ),
+  'sr-Cyrl' => 
+  array (
     'and' => '*|И',
     'background' => 'Контекст|Позадина|Основа',
     'but' => 'Али|*',
@@ -849,9 +849,9 @@ return [
     'scenario_outline' => 'Структура сценарија|Концепт|Скица',
     'then' => 'Онда|*',
     'when' => 'Када|Кад|*',
-   ],
-  'sr-Latn' =>
-   [
+  ),
+  'sr-Latn' => 
+  array (
     'and' => '*|I',
     'background' => 'Kontekst|Pozadina|Osnova',
     'but' => 'Ali|*',
@@ -864,9 +864,9 @@ return [
     'scenario_outline' => 'Struktura scenarija|Koncept|Skica',
     'then' => 'Onda|*',
     'when' => 'Kada|Kad|*',
-   ],
-  'sv' =>
-   [
+  ),
+  'sv' => 
+  array (
     'and' => 'Och|*',
     'background' => 'Bakgrund',
     'but' => 'Men|*',
@@ -879,9 +879,9 @@ return [
     'scenario_outline' => 'Abstrakt Scenario|Scenariomall',
     'then' => 'Så|*',
     'when' => 'När|*',
-   ],
-  'ta' =>
-   [
+  ),
+  'ta' => 
+  array (
     'and' => 'மற்றும்|மேலும்|*',
     'background' => 'பின்னணி',
     'but' => 'ஆனால்|*',
@@ -894,9 +894,9 @@ return [
     'scenario_outline' => 'காட்சி வார்ப்புரு|காட்சி சுருக்கம்',
     'then' => 'அப்பொழுது|*',
     'when' => 'எப்போது|*',
-   ],
-  'th' =>
-   [
+  ),
+  'th' => 
+  array (
     'and' => 'และ|*',
     'background' => 'แนวคิด',
     'but' => 'แต่|*',
@@ -909,9 +909,9 @@ return [
     'scenario_outline' => 'โครงสร้างของเหตุการณ์|สรุปเหตุการณ์',
     'then' => 'ดังนั้น|*',
     'when' => 'เมื่อ|*',
-   ],
-  'tl' =>
-   [
+  ),
+  'tl' => 
+  array (
     'and' => 'మరియు|*',
     'background' => 'నేపథ్యం',
     'but' => 'కాని|*',
@@ -924,9 +924,9 @@ return [
     'scenario_outline' => 'కథనం',
     'then' => 'అప్పుడు|*',
     'when' => 'ఈ పరిస్థితిలో|*',
-   ],
-  'tlh' =>
-   [
+  ),
+  'tlh' => 
+  array (
     'and' => 'latlh|\'ej|*',
     'background' => 'mo\'',
     'but' => '\'ach|\'a|*',
@@ -939,9 +939,9 @@ return [
     'scenario_outline' => 'lut chovnatlh',
     'then' => 'vaj|*',
     'when' => 'qaSDI\'|*',
-   ],
-  'tr' =>
-   [
+  ),
+  'tr' => 
+  array (
     'and' => 'Ve|*',
     'background' => 'Geçmiş',
     'but' => 'Fakat|Ama|*',
@@ -954,9 +954,9 @@ return [
     'scenario_outline' => 'Senaryo taslağı',
     'then' => 'O zaman|*',
     'when' => 'Eğer ki|*',
-   ],
-  'tt' =>
-   [
+  ),
+  'tt' => 
+  array (
     'and' => 'Һәм|Вә|*',
     'background' => 'Кереш',
     'but' => 'Ләкин|Әмма|*',
@@ -969,9 +969,9 @@ return [
     'scenario_outline' => 'Сценарийның төзелеше',
     'then' => 'Нәтиҗәдә|*',
     'when' => 'Әгәр|*',
-   ],
-  'uk' =>
-   [
+  ),
+  'uk' => 
+  array (
     'and' => 'А також|Та|*|І',
     'background' => 'Передумова',
     'but' => 'Але|*',
@@ -984,9 +984,9 @@ return [
     'scenario_outline' => 'Структура сценарію',
     'then' => 'Тоді|То|*',
     'when' => 'Коли|Якщо|*',
-   ],
-  'ur' =>
-   [
+  ),
+  'ur' => 
+  array (
     'and' => 'اور|*',
     'background' => 'پس منظر',
     'but' => 'لیکن|*',
@@ -999,9 +999,9 @@ return [
     'scenario_outline' => 'منظر نامے کا خاکہ',
     'then' => 'پھر|تب|*',
     'when' => 'جب|*',
-   ],
-  'uz' =>
-   [
+  ),
+  'uz' => 
+  array (
     'and' => 'Ва|*',
     'background' => 'Тарих',
     'but' => 'Бирок|Лекин|Аммо|*',
@@ -1014,9 +1014,9 @@ return [
     'scenario_outline' => 'Сценарий структураси',
     'then' => 'Унда|*',
     'when' => 'Агар|*',
-   ],
-  'vi' =>
-   [
+  ),
+  'vi' => 
+  array (
     'and' => 'Và|*',
     'background' => 'Bối cảnh',
     'but' => 'Nhưng|*',
@@ -1029,9 +1029,9 @@ return [
     'scenario_outline' => 'Khung tình huống|Khung kịch bản',
     'then' => 'Thì|*',
     'when' => 'Khi|*',
-   ],
-  'zh-CN' =>
-   [
+  ),
+  'zh-CN' => 
+  array (
     'and' => '并且<|而且<|同时<|*',
     'background' => '背景',
     'but' => '但是<|*',
@@ -1044,9 +1044,9 @@ return [
     'scenario_outline' => '场景大纲|剧本大纲',
     'then' => '那么<|*',
     'when' => '当<|*',
-   ],
-  'zh-TW' =>
-   [
+  ),
+  'zh-TW' => 
+  array (
     'and' => '並且<|而且<|同時<|*',
     'background' => '背景',
     'but' => '但是<|*',
@@ -1059,5 +1059,5 @@ return [
     'scenario_outline' => '場景大綱|劇本大綱',
     'then' => '那麼<|*',
     'when' => '當<|*',
-   ],
-];
+  ),
+);

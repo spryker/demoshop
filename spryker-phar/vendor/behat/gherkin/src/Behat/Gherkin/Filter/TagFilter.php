@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Filter;
@@ -17,7 +20,6 @@ use Behat\Gherkin\Node\ScenarioInterface;
  */
 class TagFilter extends ComplexFilter
 {
-
     protected $filterString;
 
     /**
@@ -33,7 +35,7 @@ class TagFilter extends ComplexFilter
     /**
      * Checks if Feature matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
+     * @param FeatureNode $feature Feature instance
      *
      * @return Boolean
      */
@@ -45,8 +47,8 @@ class TagFilter extends ComplexFilter
     /**
      * Checks if scenario or outline matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature node instance
-     * @param \Behat\Gherkin\Node\ScenarioInterface $scenario Scenario or Outline node instance
+     * @param FeatureNode       $feature  Feature node instance
+     * @param ScenarioInterface $scenario Scenario or Outline node instance
      *
      * @return Boolean
      */
@@ -85,5 +87,4 @@ class TagFilter extends ComplexFilter
 
         return $satisfies;
     }
-
 }

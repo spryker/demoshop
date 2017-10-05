@@ -1,28 +1,18 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
 
 use Codeception\Lib\Interfaces\Queue;
-use Pheanstalk\Exception\ConnectionException;
 use Pheanstalk\Pheanstalk;
-use PHPUnit_Framework_Assert;
+use Pheanstalk\Exception\ConnectionException;
 
 class Beanstalk implements Queue
 {
 
     /**
-     * @var \Pheanstalk\Pheanstalk
+     * @var Pheanstalk
      */
     protected $queue;
 
-    /**
-     * @return void
-     */
     public function openConnection($config)
     {
         $this->queue = new Pheanstalk($config['host'], $config['port'], $config['timeout']);
@@ -33,8 +23,6 @@ class Beanstalk implements Queue
      *
      * @param string $message Message Body to be send
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function addMessageToQueue($message, $queue)
     {
@@ -53,13 +41,10 @@ class Beanstalk implements Queue
         try {
             return $this->queue->statsTube($queue)['total-jobs'];
         } catch (ConnectionException $ex) {
-            PHPUnit_Framework_Assert::fail("queue [$queue] not found");
+            \PHPUnit_Framework_Assert::fail("queue [$queue] not found");
         }
     }
 
-    /**
-     * @return void
-     */
     public function clearQueue($queue = 'default')
     {
         while ($job = $this->queue->reserveFromTube($queue, 0)) {
@@ -89,7 +74,7 @@ class Beanstalk implements Queue
         try {
             return $this->queue->statsTube($queue)['current-jobs-ready'];
         } catch (ConnectionException $e) {
-            PHPUnit_Framework_Assert::fail("queue [$queue] not found");
+            \PHPUnit_Framework_Assert::fail("queue [$queue] not found");
         }
     }
 
@@ -102,5 +87,4 @@ class Beanstalk implements Queue
     {
         return ['port' => 11300, 'timeout' => 90];
     }
-
 }

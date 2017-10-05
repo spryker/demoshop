@@ -1,15 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
 use Codeception\Exception\ConfigurationException as ConfigurationException;
-use Codeception\SuiteManager;
 use Codeception\Test\Cest;
 use Codeception\Test\Interfaces\ScenarioDriven;
 use Symfony\Component\Console\Command\Command;
@@ -28,13 +21,9 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  */
 class GenerateScenarios extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -51,11 +40,6 @@ class GenerateScenarios extends Command
         return 'Generates text representation for all scenarios';
     }
 
-    /**
-     * @throws Codeception\Exception\ConfigurationException
-     *
-     * @return void
-     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $suite = $input->getArgument('suite');
@@ -81,7 +65,7 @@ class GenerateScenarios extends Command
             @mkdir($path);
         }
 
-        $suiteManager = new SuiteManager(new EventDispatcher(), $suite, $suiteConf);
+        $suiteManager = new \Codeception\SuiteManager(new EventDispatcher(), $suite, $suiteConf);
 
         if ($suiteConf['bootstrap']) {
             if (file_exists($suiteConf['path'] . $suiteConf['bootstrap'])) {
@@ -155,5 +139,4 @@ class GenerateScenarios extends Command
         $name = preg_replace('/_Cest$/', '', $name);
         return $name;
     }
-
 }

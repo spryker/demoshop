@@ -1,21 +1,10 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
 
 use Codeception\Exception\ModuleException;
-use Exception;
-use InvalidArgumentException;
-use PDO;
-use PDOException;
 
 class Db
 {
-
     /**
      * @var \PDO
      */
@@ -27,7 +16,6 @@ class Db
     protected $dsn;
 
     protected $user;
-
     protected $password;
 
     /**
@@ -39,8 +27,8 @@ class Db
 
     public static function connect($dsn, $user, $password)
     {
-        $dbh = new PDO($dsn, $user, $password);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = new \PDO($dsn, $user, $password);
+        $dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
         return $dbh;
     }
@@ -52,7 +40,7 @@ class Db
      * @param $user
      * @param $password
      *
-     * @return \Codeception\Lib\Driver\Db|\Codeception\Lib\Driver\SqlSrv|\Codeception\Lib\Driver\MySql|\Codeception\Lib\Driver\Oci|\Codeception\Lib\Driver\PostgreSql|\Codeception\Lib\Driver\Sqlite
+     * @return Db|SqlSrv|MySql|Oci|PostgreSql|Sqlite
      */
     public static function create($dsn, $user, $password)
     {
@@ -83,8 +71,8 @@ class Db
 
     public function __construct($dsn, $user, $password)
     {
-        $this->dbh = new PDO($dsn, $user, $password);
-        $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->dbh = new \PDO($dsn, $user, $password);
+        $this->dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
         $this->dsn = $dsn;
         $this->user = $user;
@@ -107,16 +95,10 @@ class Db
         return $matches[1];
     }
 
-    /**
-     * @return void
-     */
     public function cleanup()
     {
     }
 
-    /**
-     * @return void
-     */
     public function load($sql)
     {
         $query = '';
@@ -195,8 +177,6 @@ class Db
 
     /**
      * @deprecated use deleteQueryByCriteria instead
-     *
-     * @return void
      */
     public function deleteQuery($table, $id, $primaryKey = 'id')
     {
@@ -204,9 +184,6 @@ class Db
         $this->executeQuery($query, [$id]);
     }
 
-    /**
-     * @return void
-     */
     public function deleteQueryByCriteria($table, array $criteria)
     {
         $where = $this->generateWhereClause($criteria);
@@ -235,16 +212,11 @@ class Db
         );
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     protected function sqlQuery($query)
     {
         try {
             $this->dbh->exec($query);
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             throw new ModuleException(
                 'Codeception\Module\Db',
                 $e->getMessage() . "\nSQL query being executed: " . $query
@@ -256,18 +228,18 @@ class Db
     {
         $sth = $this->dbh->prepare($query);
         if (!$sth) {
-            throw new Exception("Query '$query' can't be prepared.");
+            throw new \Exception("Query '$query' can't be prepared.");
         }
 
         $i = 0;
         foreach ($params as $value) {
             $i++;
             if (is_bool($value)) {
-                $type = PDO::PARAM_BOOL;
+                $type = \PDO::PARAM_BOOL;
             } elseif (is_int($value)) {
-                $type = PDO::PARAM_INT;
+                $type = \PDO::PARAM_INT;
             } else {
-                $type = PDO::PARAM_STR;
+                $type = \PDO::PARAM_STR;
             }
             $sth->bindValue($i, $value, $type);
         }
@@ -277,13 +249,11 @@ class Db
     }
 
     /**
-     * @deprecated use getPrimaryKey instead
-     *
      * @param string $tableName
      *
-     * @throws \Exception
-     *
      * @return string
+     * @throws \Exception
+     * @deprecated use getPrimaryKey instead
      */
     public function getPrimaryColumn($tableName)
     {
@@ -291,7 +261,7 @@ class Db
         if (empty($primaryKey)) {
             return null;
         } elseif (count($primaryKey) > 1) {
-            throw new Exception(
+            throw new \Exception(
                 'getPrimaryColumn method does not support composite primary keys, use getPrimaryKey instead'
             );
         }
@@ -318,23 +288,22 @@ class Db
 
         return empty($this->primaryKeys);
     }
-
+    
     public function update($table, array $data, array $criteria)
     {
         if (empty($data)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 "Query update can't be prepared without data."
             );
         }
-
+        
         $set = [];
         foreach ($data as $column => $value) {
-            $set[] = $this->getQuotedName($column) . " = ?";
+            $set[] = $this->getQuotedName($column)." = ?";
         }
 
         $where = $this->generateWhereClause($criteria);
 
         return sprintf('UPDATE %s SET %s %s', $this->getQuotedName($table), implode(', ', $set), $where);
     }
-
 }

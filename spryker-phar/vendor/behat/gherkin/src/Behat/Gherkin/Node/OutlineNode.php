@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
@@ -14,51 +17,44 @@ namespace Behat\Gherkin\Node;
  */
 class OutlineNode implements ScenarioInterface
 {
-
     /**
      * @var string
      */
     private $title;
-
     /**
      * @var string[]
      */
     private $tags;
-
     /**
-     * @var \Behat\Gherkin\Node\StepNode[]
+     * @var StepNode[]
      */
     private $steps;
-
     /**
-     * @var \Behat\Gherkin\Node\ExampleTableNode
+     * @var ExampleTableNode
      */
     private $table;
-
     /**
      * @var string
      */
     private $keyword;
-
     /**
      * @var integer
      */
     private $line;
-
     /**
-     * @var null|\Behat\Gherkin\Node\ExampleNode[]
+     * @var null|ExampleNode[]
      */
     private $examples;
 
     /**
      * Initializes outline.
      *
-     * @param null|string $title
-     * @param string[] $tags
-     * @param \Behat\Gherkin\Node\StepNode[] $steps
-     * @param \Behat\Gherkin\Node\ExampleTableNode $table
-     * @param string $keyword
-     * @param integer $line
+     * @param null|string      $title
+     * @param string[]         $tags
+     * @param StepNode[]       $steps
+     * @param ExampleTableNode $table
+     * @param string           $keyword
+     * @param integer          $line
      */
     public function __construct(
         $title,
@@ -141,7 +137,7 @@ class OutlineNode implements ScenarioInterface
     /**
      * Returns outline steps.
      *
-     * @return \Behat\Gherkin\Node\StepNode[]
+     * @return StepNode[]
      */
     public function getSteps()
     {
@@ -161,7 +157,7 @@ class OutlineNode implements ScenarioInterface
     /**
      * Returns examples table.
      *
-     * @return \Behat\Gherkin\Node\ExampleTableNode
+     * @return ExampleTableNode
      */
     public function getExampleTable()
     {
@@ -171,7 +167,7 @@ class OutlineNode implements ScenarioInterface
     /**
      * Returns list of examples for the outline.
      *
-     * @return \Behat\Gherkin\Node\ExampleNode[]
+     * @return ExampleNode[]
      */
     public function getExamples()
     {
@@ -201,11 +197,11 @@ class OutlineNode implements ScenarioInterface
     /**
      * Creates examples for this outline using examples table.
      *
-     * @return \Behat\Gherkin\Node\ExampleNode[]
+     * @return ExampleNode[]
      */
     protected function createExamples()
     {
-        $examples = [];
+        $examples = array();
         foreach ($this->table->getColumnsHash() as $rowNum => $row) {
             $examples[] = new ExampleNode(
                 $this->table->getRowAsString($rowNum + 1),
@@ -218,5 +214,4 @@ class OutlineNode implements ScenarioInterface
 
         return $examples;
     }
-
 }

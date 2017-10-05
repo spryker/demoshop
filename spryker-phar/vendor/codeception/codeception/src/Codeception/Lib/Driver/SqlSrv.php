@@ -1,17 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
-
-use PDO;
 
 class SqlSrv extends Db
 {
-
     public function getDb()
     {
         $matches = [];
@@ -24,9 +15,6 @@ class SqlSrv extends Db
         return $matches[1];
     }
 
-    /**
-     * @return void
-     */
     public function cleanup()
     {
         $this->dbh->exec(
@@ -102,15 +90,14 @@ class SqlSrv extends Db
                     AND Col.Table_Name = Tab.Table_Name
                     AND Constraint_Type = 'PRIMARY KEY' AND Col.Table_Name = ?";
             $stmt = $this->executeQuery($query, [$tableName]);
-            $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $columns = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             foreach ($columns as $column) {
-                $primaryKey[] = $column['Column_Name'];
+                $primaryKey []= $column['Column_Name'];
             }
             $this->primaryKeys[$tableName] = $primaryKey;
         }
 
         return $this->primaryKeys[$tableName];
     }
-
 }

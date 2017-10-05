@@ -1,17 +1,9 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use Codeception\Exception\ModuleConfigException;
 use Codeception\Module as CodeceptionModule;
 use Codeception\TestInterface;
-use Memcache as MemcacheMemcache;
-use Memcached;
+use Codeception\Exception\ModuleConfigException;
 
 /**
  * Connects to [memcached](http://www.memcached.org/) using either _Memcache_ or _Memcached_ extension.
@@ -47,37 +39,32 @@ use Memcached;
  */
 class Memcache extends CodeceptionModule
 {
-
     /**
-     * @var \Memcache|\Memcached|null
+     * @var \Memcache|\Memcached
      */
     public $memcache = null;
 
     /**
-     * @var array
      * {@inheritdoc}
      */
     protected $config = [
         'host' => 'localhost',
-        'port' => 11211,
+        'port' => 11211
     ];
 
     /**
      * Code to run before each test.
      *
-     * @param \Codeception\TestInterface $test
-     *
-     * @throws \Codeception\Exception\ModuleConfigException
-     *
-     * @return void
+     * @param TestInterface $test
+     * @throws ModuleConfigException
      */
     public function _before(TestInterface $test)
     {
         if (class_exists('\Memcache')) {
-            $this->memcache = new MemcacheMemcache;
+            $this->memcache = new \Memcache;
             $this->memcache->connect($this->config['host'], $this->config['port']);
         } elseif (class_exists('\Memcached')) {
-            $this->memcache = new Memcached;
+            $this->memcache = new \Memcached;
             $this->memcache->addServer($this->config['host'], $this->config['port']);
         } else {
             throw new ModuleConfigException(__CLASS__, 'Memcache classes not loaded');
@@ -87,9 +74,7 @@ class Memcache extends CodeceptionModule
     /**
      * Code to run after each test.
      *
-     * @param \Codeception\TestInterface $test
-     *
-     * @return void
+     * @param TestInterface $test
      */
     public function _after(TestInterface $test)
     {
@@ -120,7 +105,6 @@ class Memcache extends CodeceptionModule
      * ```
      *
      * @param $key
-     *
      * @return array|string
      */
     public function grabValueFromMemcached($key)
@@ -147,9 +131,7 @@ class Memcache extends CodeceptionModule
      * ```
      *
      * @param $key
-     * @param $value|null
-     *
-     * @return void
+     * @param $value
      */
     public function seeInMemcached($key, $value = null)
     {
@@ -179,9 +161,7 @@ class Memcache extends CodeceptionModule
      * ```
      *
      * @param $key
-     * @param $value|null
-     *
-     * @return void
+     * @param $value
      */
     public function dontSeeInMemcached($key, $value = null)
     {
@@ -202,9 +182,7 @@ class Memcache extends CodeceptionModule
      *
      * @param string $key
      * @param mixed $value
-     * @param int|null $expiration
-     *
-     * @return void
+     * @param int $expiration
      */
     public function haveInMemcached($key, $value, $expiration = null)
     {
@@ -220,12 +198,9 @@ class Memcache extends CodeceptionModule
 
     /**
      * Flushes all Memcached data.
-     *
-     * @return void
      */
     public function clearMemcache()
     {
         $this->memcache->flush();
     }
-
 }

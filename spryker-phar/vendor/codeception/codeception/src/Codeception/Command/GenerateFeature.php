@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Lib\Generator\Feature;
@@ -24,13 +18,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GenerateFeature extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -45,9 +35,6 @@ class GenerateFeature extends Command
         return 'Generates empty feature file in suite';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $suite = $input->getArgument('suite');
@@ -68,5 +55,4 @@ class GenerateFeature extends Command
         }
         $output->writeln("<info>Feature was created in $full_path</info>");
     }
-
 }

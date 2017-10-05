@@ -1,44 +1,18 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception;
 
+use Codeception\Exception\ConfigurationException;
 use Codeception\Subscriber\ExtensionLoader;
-use Coverage\Subscriber\Local;
-use Coverage\Subscriber\LocalServer;
-use Coverage\Subscriber\Printer;
-use Coverage\Subscriber\RemoteServer;
-use Event\PrintResultEvent;
-use PHPUnit\Listener;
-use PHPUnit\ResultPrinter\UI;
-use PHPUnit\Runner;
-use PHPUnit_Framework_TestResult;
-use Subscriber\AutoRebuild;
-use Subscriber\BeforeAfterTest;
-use Subscriber\Bootstrap;
-use Subscriber\Console;
-use Subscriber\Dependencies;
-use Subscriber\ErrorHandler;
-use Subscriber\FailFast;
-use Subscriber\GracefulTermination;
-use Subscriber\Module;
-use Subscriber\PrepareTest;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class Codecept
 {
-
-    const VERSION = "2.3.5";
+    const VERSION = "2.3.6";
 
     /**
      * @var \Codeception\PHPUnit\Runner
      */
     protected $runner;
-
     /**
      * @var \PHPUnit_Framework_TestResult
      */
@@ -55,7 +29,7 @@ class Codecept
     protected $dispatcher;
 
     /**
-     * @var \Codeception\Subscriber\ExtensionLoader
+     * @var ExtensionLoader
      */
     protected $extensionLoader;
 
@@ -63,30 +37,30 @@ class Codecept
      * @var array
      */
     protected $options = [
-        'silent' => false,
-        'debug' => false,
-        'steps' => false,
-        'html' => false,
-        'xml' => false,
-        'json' => false,
-        'tap' => false,
-        'report' => false,
-        'colors' => false,
-        'coverage' => false,
-        'coverage-xml' => false,
-        'coverage-html' => false,
-        'coverage-text' => false,
+        'silent'          => false,
+        'debug'           => false,
+        'steps'           => false,
+        'html'            => false,
+        'xml'             => false,
+        'json'            => false,
+        'tap'             => false,
+        'report'          => false,
+        'colors'          => false,
+        'coverage'        => false,
+        'coverage-xml'    => false,
+        'coverage-html'   => false,
+        'coverage-text'   => false,
         'coverage-crap4j' => false,
-        'groups' => null,
-        'excludeGroups' => null,
-        'filter' => null,
-        'env' => null,
-        'fail-fast' => false,
-        'ansi' => true,
-        'verbosity' => 1,
-        'interactive' => true,
-        'no-rebuild' => false,
-        'quiet' => false,
+        'groups'          => null,
+        'excludeGroups'   => null,
+        'filter'          => null,
+        'env'             => null,
+        'fail-fast'       => false,
+        'ansi'            => true,
+        'verbosity'       => 1,
+        'interactive'     => true,
+        'no-rebuild'      => false,
+        'quiet'           => false,
     ];
 
     protected $config = [];
@@ -98,7 +72,7 @@ class Codecept
 
     public function __construct($options = [])
     {
-        $this->result = new PHPUnit_Framework_TestResult;
+        $this->result = new \PHPUnit_Framework_TestResult;
         $this->dispatcher = new EventDispatcher();
         $this->extensionLoader = new ExtensionLoader($this->dispatcher);
 
@@ -117,8 +91,8 @@ class Codecept
      * Merges given options with default values and current configuration
      *
      * @param array $options options
-     *
      * @return array
+     * @throws ConfigurationException
      */
     protected function mergeOptions($options)
     {
@@ -127,53 +101,44 @@ class Codecept
         return array_merge($baseOptions, $options);
     }
 
-    /**
-     * @return void
-     */
     protected function registerPHPUnitListeners()
     {
-        $listener = new Listener($this->dispatcher);
+        $listener = new PHPUnit\Listener($this->dispatcher);
         $this->result->addListener($listener);
     }
 
-    /**
-     * @return void
-     */
     public function registerSubscribers()
     {
         // required
-        $this->dispatcher->addSubscriber(new GracefulTermination());
-        $this->dispatcher->addSubscriber(new ErrorHandler());
-        $this->dispatcher->addSubscriber(new Dependencies());
-        $this->dispatcher->addSubscriber(new Bootstrap());
-        $this->dispatcher->addSubscriber(new PrepareTest());
-        $this->dispatcher->addSubscriber(new Module());
-        $this->dispatcher->addSubscriber(new BeforeAfterTest());
+        $this->dispatcher->addSubscriber(new Subscriber\GracefulTermination());
+        $this->dispatcher->addSubscriber(new Subscriber\ErrorHandler());
+        $this->dispatcher->addSubscriber(new Subscriber\Dependencies());
+        $this->dispatcher->addSubscriber(new Subscriber\Bootstrap());
+        $this->dispatcher->addSubscriber(new Subscriber\PrepareTest());
+        $this->dispatcher->addSubscriber(new Subscriber\Module());
+        $this->dispatcher->addSubscriber(new Subscriber\BeforeAfterTest());
 
         // optional
         if (!$this->options['no-rebuild']) {
-            $this->dispatcher->addSubscriber(new AutoRebuild());
+            $this->dispatcher->addSubscriber(new Subscriber\AutoRebuild());
         }
         if (!$this->options['silent']) {
-            $this->dispatcher->addSubscriber(new Console($this->options));
+            $this->dispatcher->addSubscriber(new Subscriber\Console($this->options));
         }
         if ($this->options['fail-fast']) {
-            $this->dispatcher->addSubscriber(new FailFast());
+            $this->dispatcher->addSubscriber(new Subscriber\FailFast());
         }
 
         if ($this->options['coverage']) {
-            $this->dispatcher->addSubscriber(new Local($this->options));
-            $this->dispatcher->addSubscriber(new LocalServer($this->options));
-            $this->dispatcher->addSubscriber(new RemoteServer($this->options));
-            $this->dispatcher->addSubscriber(new Printer($this->options));
+            $this->dispatcher->addSubscriber(new Coverage\Subscriber\Local($this->options));
+            $this->dispatcher->addSubscriber(new Coverage\Subscriber\LocalServer($this->options));
+            $this->dispatcher->addSubscriber(new Coverage\Subscriber\RemoteServer($this->options));
+            $this->dispatcher->addSubscriber(new Coverage\Subscriber\Printer($this->options));
         }
         $this->dispatcher->addSubscriber($this->extensionLoader);
         $this->extensionLoader->registerGlobalExtensions();
     }
 
-    /**
-     * @return void
-     */
     public function run($suite, $test = null, array $config = null)
     {
         ini_set(
@@ -229,9 +194,6 @@ class Codecept
         return 'Codeception PHP Testing Framework v' . self::VERSION;
     }
 
-    /**
-     * @return void
-     */
     public function printResult()
     {
         $result = $this->getResult();
@@ -240,7 +202,7 @@ class Codecept
         $printer = $this->runner->getPrinter();
         $printer->printResult($result);
 
-        $this->dispatcher->dispatch(Events::RESULT_PRINT_AFTER, new PrintResultEvent($result, $printer));
+        $this->dispatcher->dispatch(Events::RESULT_PRINT_AFTER, new Event\PrintResultEvent($result, $printer));
     }
 
     /**
@@ -257,21 +219,17 @@ class Codecept
     }
 
     /**
-     * @return \Symfony\Component\EventDispatcher\EventDispatcher
+     * @return EventDispatcher
      */
     public function getDispatcher()
     {
         return $this->dispatcher;
     }
 
-    /**
-     * @return void
-     */
     protected function registerPrinter()
     {
-        $printer = new UI($this->dispatcher, $this->options);
-        $this->runner = new Runner();
+        $printer = new PHPUnit\ResultPrinter\UI($this->dispatcher, $this->options);
+        $this->runner = new PHPUnit\Runner();
         $this->runner->setPrinter($printer);
     }
-
 }

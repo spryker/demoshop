@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Coverage\Subscriber;
 
 use Codeception\Configuration;
@@ -15,7 +9,6 @@ use Codeception\Event\TestEvent;
 use Codeception\Events;
 use Codeception\Exception\ModuleException;
 use Codeception\Exception\RemoteException;
-use RuntimeException;
 
 /**
  * When collecting code coverage data from local server HTTP requests are sent to c3.php file.
@@ -27,7 +20,6 @@ use RuntimeException;
  */
 class LocalServer extends SuiteSubscriber
 {
-
     // headers
     const COVERAGE_HEADER = 'X-Codeception-CodeCoverage';
     const COVERAGE_HEADER_ERROR = 'X-Codeception-CodeCoverage-Error';
@@ -39,12 +31,11 @@ class LocalServer extends SuiteSubscriber
     const COVERAGE_COOKIE_ERROR = 'CODECEPTION_CODECOVERAGE_ERROR';
 
     protected $suiteName;
-
     protected $c3Access = [
         'http' => [
             'method' => "GET",
-            'header' => '',
-        ],
+            'header' => ''
+        ]
     ];
 
     /**
@@ -54,9 +45,9 @@ class LocalServer extends SuiteSubscriber
 
     public static $events = [
         Events::SUITE_BEFORE => 'beforeSuite',
-        Events::TEST_BEFORE => 'beforeTest',
-        Events::STEP_AFTER => 'afterStep',
-        Events::SUITE_AFTER => 'afterSuite',
+        Events::TEST_BEFORE  => 'beforeTest',
+        Events::STEP_AFTER   => 'afterStep',
+        Events::SUITE_AFTER  => 'afterSuite',
     ];
 
     protected function isEnabled()
@@ -64,11 +55,6 @@ class LocalServer extends SuiteSubscriber
         return $this->module && !$this->settings['remote'] && $this->settings['enabled'];
     }
 
-    /**
-     * @throws \Codeception\Exception\RemoteException
-     *
-     * @return void
-     */
     public function beforeSuite(SuiteEvent $e)
     {
         $this->module = $this->getServerConnectionModule($e->getSuite()->getModules());
@@ -96,9 +82,6 @@ class LocalServer extends SuiteSubscriber
         }
     }
 
-    /**
-     * @return void
-     */
     public function beforeTest(TestEvent $e)
     {
         if (!$this->isEnabled()) {
@@ -107,9 +90,6 @@ class LocalServer extends SuiteSubscriber
         $this->startCoverageCollection($e->getTest()->getName());
     }
 
-    /**
-     * @return void
-     */
     public function afterStep(StepEvent $e)
     {
         if (!$this->isEnabled()) {
@@ -118,11 +98,6 @@ class LocalServer extends SuiteSubscriber
         $this->fetchErrors();
     }
 
-    /**
-     * @throws \RuntimeException
-     *
-     * @return void
-     */
     public function afterSuite(SuiteEvent $e)
     {
         if (!$this->isEnabled()) {
@@ -137,7 +112,7 @@ class LocalServer extends SuiteSubscriber
 
         if (!file_exists($coverageFile)) {
             if (file_exists(Configuration::outputDir() . 'c3tmp/error.txt')) {
-                throw new RuntimeException(file_get_contents(Configuration::outputDir() . 'c3tmp/error.txt'));
+                throw new \RuntimeException(file_get_contents(Configuration::outputDir() . 'c3tmp/error.txt'));
             }
             return;
         }
@@ -172,15 +147,12 @@ class LocalServer extends SuiteSubscriber
         return $contents;
     }
 
-    /**
-     * @return void
-     */
     protected function startCoverageCollection($testName)
     {
         $value = [
-            'CodeCoverage' => $testName,
-            'CodeCoverage_Suite' => $this->suiteName,
-            'CodeCoverage_Config' => $this->settings['remote_config'],
+            'CodeCoverage'        => $testName,
+            'CodeCoverage_Suite'  => $this->suiteName,
+            'CodeCoverage_Config' => $this->settings['remote_config']
         ];
         $value = json_encode($value);
 
@@ -209,18 +181,13 @@ class LocalServer extends SuiteSubscriber
         if (!$found) {
             $cookies[] = [
                 'Name' => self::COVERAGE_COOKIE,
-                'Value' => $value,
+                'Value' => $value
             ];
         }
 
         $this->module->_setConfig(['cookies' => $cookies]);
     }
 
-    /**
-     * @throws \Codeception\Exception\RemoteException
-     *
-     * @return void
-     */
     protected function fetchErrors()
     {
         try {
@@ -236,11 +203,6 @@ class LocalServer extends SuiteSubscriber
         }
     }
 
-    /**
-     * @throws \Codeception\Exception\RemoteException
-     *
-     * @return void
-     */
     protected function getRemoteError($headers)
     {
         foreach ($headers as $header) {
@@ -250,9 +212,6 @@ class LocalServer extends SuiteSubscriber
         }
     }
 
-    /**
-     * @return void
-     */
     protected function addC3AccessHeader($header, $value)
     {
         $headerString = "$header: $value\r\n";
@@ -261,9 +220,6 @@ class LocalServer extends SuiteSubscriber
         }
     }
 
-    /**
-     * @return void
-     */
     protected function applySettings($settings)
     {
         parent::applySettings($settings);
@@ -271,5 +227,4 @@ class LocalServer extends SuiteSubscriber
             $this->c3Access = array_replace_recursive($this->c3Access, $settings['coverage']['remote_context_options']);
         }
     }
-
 }

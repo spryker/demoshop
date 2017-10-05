@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Loader;
@@ -23,7 +26,6 @@ use Behat\Gherkin\Node\TableNode;
  */
 class ArrayLoader implements LoaderInterface
 {
-
     /**
      * Checks if current loader supports provided resource.
      *
@@ -41,11 +43,11 @@ class ArrayLoader implements LoaderInterface
      *
      * @param mixed $resource Resource to load
      *
-     * @return \Behat\Gherkin\Node\FeatureNode[]
+     * @return FeatureNode[]
      */
     public function load($resource)
     {
-        $features = [];
+        $features = array();
 
         if (isset($resource['features'])) {
             foreach ($resource['features'] as $iterator => $hash) {
@@ -63,29 +65,29 @@ class ArrayLoader implements LoaderInterface
     /**
      * Loads feature from provided feature hash.
      *
-     * @param array $hash Feature hash
-     * @param integer|int $line
+     * @param array   $hash Feature hash
+     * @param integer $line
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @return FeatureNode
      */
     protected function loadFeatureHash(array $hash, $line = 0)
     {
         $hash = array_merge(
-            [
+            array(
                 'title' => null,
                 'description' => null,
-                'tags' => [],
+                'tags' => array(),
                 'keyword' => 'Feature',
                 'language' => 'en',
                 'line' => $line,
-                'scenarios' => [],
-            ],
+                'scenarios' => array(),
+            ),
             $hash
         );
         $background = isset($hash['background']) ? $this->loadBackgroundHash($hash['background']) : null;
 
-        $scenarios = [];
-        foreach ((array)$hash['scenarios'] as $scenarioIterator => $scenarioHash) {
+        $scenarios = array();
+        foreach ((array) $hash['scenarios'] as $scenarioIterator => $scenarioHash) {
             if (isset($scenarioHash['type']) && 'outline' === $scenarioHash['type']) {
                 $scenarios[] = $this->loadOutlineHash($scenarioHash, $scenarioIterator);
             } else {
@@ -101,17 +103,17 @@ class ArrayLoader implements LoaderInterface
      *
      * @param array $hash Background hash
      *
-     * @return \Behat\Gherkin\Node\BackgroundNode
+     * @return BackgroundNode
      */
     protected function loadBackgroundHash(array $hash)
     {
         $hash = array_merge(
-            [
+            array(
                 'title' => null,
                 'keyword' => 'Background',
                 'line' => 0,
-                'steps' => [],
-            ],
+                'steps' => array(),
+            ),
             $hash
         );
 
@@ -123,21 +125,21 @@ class ArrayLoader implements LoaderInterface
     /**
      * Loads scenario from provided scenario hash.
      *
-     * @param array $hash Scenario hash
-     * @param integer|int $line Scenario definition line
+     * @param array   $hash Scenario hash
+     * @param integer $line Scenario definition line
      *
-     * @return \Behat\Gherkin\Node\ScenarioNode
+     * @return ScenarioNode
      */
     protected function loadScenarioHash(array $hash, $line = 0)
     {
         $hash = array_merge(
-            [
+            array(
                 'title' => null,
-                'tags' => [],
+                'tags' => array(),
                 'keyword' => 'Scenario',
                 'line' => $line,
-                'steps' => [],
-            ],
+                'steps' => array(),
+            ),
             $hash
         );
 
@@ -149,22 +151,22 @@ class ArrayLoader implements LoaderInterface
     /**
      * Loads outline from provided outline hash.
      *
-     * @param array $hash Outline hash
-     * @param integer|int $line Outline definition line
+     * @param array   $hash Outline hash
+     * @param integer $line Outline definition line
      *
-     * @return \Behat\Gherkin\Node\OutlineNode
+     * @return OutlineNode
      */
     protected function loadOutlineHash(array $hash, $line = 0)
     {
         $hash = array_merge(
-            [
+            array(
                 'title' => null,
-                'tags' => [],
+                'tags' => array(),
                 'keyword' => 'Scenario Outline',
                 'line' => $line,
-                'steps' => [],
-                'examples' => [],
-            ],
+                'steps' => array(),
+                'examples' => array(),
+            ),
             $hash
         );
 
@@ -187,11 +189,11 @@ class ArrayLoader implements LoaderInterface
      *
      * @param array $hash
      *
-     * @return \Behat\Gherkin\Node\StepNode[]
+     * @return StepNode[]
      */
     private function loadStepsHash(array $hash)
     {
-        $steps = [];
+        $steps = array();
         foreach ($hash as $stepIterator => $stepHash) {
             $steps[] = $this->loadStepHash($stepHash, $stepIterator);
         }
@@ -202,26 +204,26 @@ class ArrayLoader implements LoaderInterface
     /**
      * Loads step from provided hash.
      *
-     * @param array $hash Step hash
-     * @param integer|int $line Step definition line
+     * @param array   $hash Step hash
+     * @param integer $line Step definition line
      *
-     * @return \Behat\Gherkin\Node\StepNode
+     * @return StepNode
      */
     protected function loadStepHash(array $hash, $line = 0)
     {
         $hash = array_merge(
-            [
+            array(
                 'keyword_type' => 'Given',
                 'type' => 'Given',
                 'text' => null,
                 'keyword' => 'Scenario',
                 'line' => $line,
-                'arguments' => [],
-            ],
+                'arguments' => array(),
+            ),
             $hash
         );
 
-        $arguments = [];
+        $arguments = array();
         foreach ($hash['arguments'] as $argumentHash) {
             if ('table' === $argumentHash['type']) {
                 $arguments[] = $this->loadTableHash($argumentHash['rows']);
@@ -238,7 +240,7 @@ class ArrayLoader implements LoaderInterface
      *
      * @param array $hash Table hash
      *
-     * @return \Behat\Gherkin\Node\TableNode
+     * @return TableNode
      */
     protected function loadTableHash(array $hash)
     {
@@ -248,21 +250,20 @@ class ArrayLoader implements LoaderInterface
     /**
      * Loads PyString from provided hash.
      *
-     * @param array $hash PyString hash
-     * @param integer|int $line
+     * @param array   $hash PyString hash
+     * @param integer $line
      *
-     * @return \Behat\Gherkin\Node\PyStringNode
+     * @return PyStringNode
      */
     protected function loadPyStringHash(array $hash, $line = 0)
     {
         $line = isset($hash['line']) ? $hash['line'] : $line;
 
-        $strings = [];
+        $strings = array();
         foreach (explode("\n", $hash['text']) as $string) {
             $strings[] = $string;
         }
 
         return new PyStringNode($strings, $line);
     }
-
 }

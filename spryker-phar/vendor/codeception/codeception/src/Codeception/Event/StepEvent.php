@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Event;
 
 use Codeception\Step;
@@ -13,14 +7,13 @@ use Symfony\Component\EventDispatcher\Event;
 
 class StepEvent extends Event
 {
-
     /**
-     * @var \Codeception\Step
+     * @var Step
      */
     protected $step;
 
     /**
-     * @var \Codeception\TestInterface
+     * @var TestInterface
      */
     protected $test;
 
@@ -36,11 +29,10 @@ class StepEvent extends Event
     }
 
     /**
-     * @return \Codeception\TestInterface
+     * @return TestInterface
      */
     public function getTest()
     {
         return $this->test;
     }
-
 }

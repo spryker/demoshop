@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Util\Shared\Namespaces;
@@ -12,7 +6,6 @@ use Codeception\Util\Template;
 
 class Helper
 {
-
     use Namespaces;
 
     protected $template = <<<EOF
@@ -29,7 +22,6 @@ class {{name}} extends \\Codeception\\Module
 EOF;
 
     protected $namespace;
-
     protected $name;
 
     public function __construct($name, $namespace = '')
@@ -50,5 +42,4 @@ EOF;
     {
         return rtrim('\\' . $this->namespace, '\\') . '\\Helper\\' . $this->name;
     }
-
 }

@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
@@ -16,27 +19,22 @@ use Behat\Gherkin\Exception\NodeException;
  */
 class StepNode implements NodeInterface
 {
-
     /**
      * @var string
      */
     private $keyword;
-
     /**
      * @var string
      */
     private $keywordType;
-
     /**
      * @var string
      */
     private $text;
-
     /**
-     * @var \Behat\Gherkin\Node\ArgumentInterface[]
+     * @var ArgumentInterface[]
      */
-    private $arguments = [];
-
+    private $arguments = array();
     /**
      * @var integer
      */
@@ -45,13 +43,11 @@ class StepNode implements NodeInterface
     /**
      * Initializes step.
      *
-     * @param string $keyword
-     * @param string $text
-     * @param \Behat\Gherkin\Node\ArgumentInterface[] $arguments
-     * @param integer $line
-     * @param string|null $keywordType
-     *
-     * @throws \Behat\Gherkin\Exception\NodeException
+     * @param string              $keyword
+     * @param string              $text
+     * @param ArgumentInterface[] $arguments
+     * @param integer             $line
+     * @param string              $keywordType
      */
     public function __construct($keyword, $text, array $arguments, $line, $keywordType = null)
     {
@@ -84,9 +80,9 @@ class StepNode implements NodeInterface
     /**
      * Returns step keyword in provided language (Given, When, Then, etc.).
      *
-     * @deprecated use getKeyword() instead
-     *
      * @return string
+     *
+     * @deprecated use getKeyword() instead
      */
     public function getType()
     {
@@ -97,6 +93,7 @@ class StepNode implements NodeInterface
      * Returns step keyword in provided language (Given, When, Then, etc.).
      *
      * @return string
+     *
      */
     public function getKeyword()
     {
@@ -136,7 +133,7 @@ class StepNode implements NodeInterface
     /**
      * Returns step arguments.
      *
-     * @return \Behat\Gherkin\Node\ArgumentInterface[]
+     * @return ArgumentInterface[]
      */
     public function getArguments()
     {
@@ -152,5 +149,4 @@ class StepNode implements NodeInterface
     {
         return $this->line;
     }
-
 }

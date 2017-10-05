@@ -1,31 +1,18 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Loader;
 
 use Behat\Gherkin\Loader\YamlFileLoader;
-use PHPUnit_Framework_TestCase;
 
-class YamlFileLoaderTest extends PHPUnit_Framework_TestCase
+class YamlFileLoaderTest extends \PHPUnit_Framework_TestCase
 {
-
     private $loader;
 
-    /**
-     * @return void
-     */
     protected function setUp()
     {
         $this->loader = new YamlFileLoader();
     }
 
-    /**
-     * @return void
-     */
     public function testSupports()
     {
         $this->assertFalse($this->loader->supports(__DIR__));
@@ -35,16 +22,13 @@ class YamlFileLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->loader->supports(__DIR__ . '/../Fixtures/etalons/addition.yml'));
     }
 
-    /**
-     * @return void
-     */
     public function testLoadAddition()
     {
         $this->loader->setBasePath(__DIR__ . '/../Fixtures');
         $features = $this->loader->load('etalons/addition.yml');
 
         $this->assertEquals(1, count($features));
-        $this->assertEquals('etalons' . DIRECTORY_SEPARATOR . 'addition.yml', $features[0]->getFile());
+        $this->assertEquals('etalons'.DIRECTORY_SEPARATOR.'addition.yml', $features[0]->getFile());
         $this->assertEquals('Addition', $features[0]->getTitle());
         $this->assertEquals(2, $features[0]->getLine());
         $this->assertEquals('en', $features[0]->getLanguage());
@@ -80,5 +64,4 @@ EOS;
         $this->assertEquals('When', $steps[2]->getKeywordType());
         $this->assertEquals('I press div', $steps[2]->getText());
     }
-
 }

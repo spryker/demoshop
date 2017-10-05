@@ -1,15 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Interfaces;
 
 interface Db
 {
-
     /**
      * Asserts that a row with the given column values exists.
      * Provide table name and column values.
@@ -58,5 +51,4 @@ interface Db
      * @return mixed
      */
     public function grabFromDatabase($table, $column, $criteria = []);
-
 }

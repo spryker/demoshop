@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Shared;
 
 /**
@@ -14,7 +8,6 @@ namespace Codeception\Lib\Shared;
  */
 trait LaravelCommon
 {
-
     /**
      * Add a binding to the Laravel service container.
      * (https://laravel.com/docs/master/container)
@@ -27,8 +20,6 @@ trait LaravelCommon
      *
      * @param $abstract
      * @param $concrete
-     *
-     * @return void
      */
     public function haveBinding($abstract, $concrete)
     {
@@ -47,8 +38,6 @@ trait LaravelCommon
      *
      * @param $abstract
      * @param $concrete
-     *
-     * @return void
      */
     public function haveSingleton($abstract, $concrete)
     {
@@ -73,8 +62,6 @@ trait LaravelCommon
      * @param $concrete
      * @param $abstract
      * @param $implementation
-     *
-     * @return void
      */
     public function haveContextualBinding($concrete, $abstract, $implementation)
     {
@@ -93,8 +80,6 @@ trait LaravelCommon
      *
      * @param $abstract
      * @param $instance
-     *
-     * @return void
      */
     public function haveInstance($abstract, $instance)
     {
@@ -114,8 +99,6 @@ trait LaravelCommon
      * ```
      *
      * @param $handler
-     *
-     * @return void
      */
     public function haveApplicationHandler($handler)
     {
@@ -131,11 +114,9 @@ trait LaravelCommon
      * ?>
      * ```
      *
-     * @return void
      */
     public function clearApplicationHandlers()
     {
         $this->client->clearApplicationHandlers();
     }
-
 }

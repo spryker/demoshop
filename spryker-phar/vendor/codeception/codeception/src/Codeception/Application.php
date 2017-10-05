@@ -1,26 +1,21 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception;
 
 use Codeception\Exception\ConfigurationException;
-use Exception;
 use Symfony\Component\Console\Application as BaseApplication;
-use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Application extends BaseApplication
 {
 
     /**
-     * @var \Symfony\Component\Console\Input\ArgvInput|null
+     * @var ArgvInput
      */
     protected $coreArguments = null;
 
@@ -31,7 +26,6 @@ class Application extends BaseApplication
      *      commands:
      *          - Project\Command\MyCustomCommand
      *
-     * @return void
      */
     public function registerCustomCommands()
     {
@@ -43,7 +37,7 @@ class Application extends BaseApplication
             }
             $this->renderException($e, new ConsoleOutput());
             exit(1);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->renderException($e, new ConsoleOutput());
             exit(1);
         }
@@ -52,7 +46,7 @@ class Application extends BaseApplication
     /**
      * Search custom commands and register them.
      *
-     * @return void
+     * @throws ConfigurationException
      */
     protected function readCustomCommandsFromConfig()
     {
@@ -73,9 +67,9 @@ class Application extends BaseApplication
     /**
      * Validate and get the name of the command
      *
-     * @param \Codeception\CustomCommandInterface $commandClass
+     * @param CustomCommandInterface $commandClass
      *
-     * @throws \Codeception\Exception\ConfigurationException
+     * @throws ConfigurationException
      *
      * @return string
      */
@@ -112,7 +106,7 @@ class Application extends BaseApplication
     /**
      * Add global a --config option.
      *
-     * @return \Symfony\Component\Console\Input\InputDefinition
+     * @return InputDefinition
      */
     protected function getDefaultInputDefinition()
     {
@@ -132,7 +126,7 @@ class Application extends BaseApplication
      * --config file.yml|dir
      * --config=file.yml|dir
      *
-     * @return \Symfony\Component\Console\Input\ArgvInput
+     * @return ArgvInput
      */
     protected function getCoreArguments()
     {
@@ -151,7 +145,7 @@ class Application extends BaseApplication
                     $this->preloadConfiguration($argv[++$i]);
                 }
                 if (!empty($match[1])) {
-                    $argvWithoutConfig[] = "-" . $match[1]; //rest commands
+                    $argvWithoutConfig[] = "-".$match[1]; //rest commands
                 }
                 continue;
             }
@@ -166,9 +160,7 @@ class Application extends BaseApplication
      *
      * @param string $configFile Path to Configuration
      *
-     * @throws \Codeception\Exception\ConfigurationException
-     *
-     * @return void
+     * @throws ConfigurationException
      */
     protected function preloadConfiguration($configFile)
     {
@@ -181,5 +173,4 @@ class Application extends BaseApplication
             throw $e;
         }
     }
-
 }

@@ -1,23 +1,13 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin;
 
 use Behat\Gherkin\Gherkin;
 use Behat\Gherkin\Node\FeatureNode;
 use Behat\Gherkin\Node\ScenarioNode;
-use PHPUnit_Framework_TestCase;
 
-class GherkinTest extends PHPUnit_Framework_TestCase
+class GherkinTest extends \PHPUnit_Framework_TestCase
 {
-
-    /**
-     * @return void
-     */
     public function testLoader()
     {
         $customFilter1 = $this->getCustomFilterMock();
@@ -28,8 +18,8 @@ class GherkinTest extends PHPUnit_Framework_TestCase
         $gherkin->addFilter($nameFilter = $this->getNameFilterMock());
         $gherkin->addFilter($tagFilter = $this->getTagFilterMock());
 
-        $scenario = new ScenarioNode(null, [], [], null, null);
-        $feature = new FeatureNode(null, null, [], null, [$scenario], null, null, null, null);
+        $scenario = new ScenarioNode(null, array(), array(), null, null);
+        $feature = new FeatureNode(null, null, array(), null, array($scenario), null, null, null, null);
 
         $loader
             ->expects($this->once())
@@ -40,7 +30,7 @@ class GherkinTest extends PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('load')
             ->with($resource)
-            ->will($this->returnValue([$feature]));
+            ->will($this->returnValue(array($feature)));
 
         $nameFilter
             ->expects($this->once())
@@ -63,7 +53,7 @@ class GherkinTest extends PHPUnit_Framework_TestCase
             ->with($this->identicalTo($feature))
             ->will($this->returnValue($feature));
 
-        $features = $gherkin->load($resource, [$customFilter1, $customFilter2]);
+        $features = $gherkin->load($resource, array($customFilter1, $customFilter2));
         $this->assertEquals(1, count($features));
 
         $scenarios = $features[0]->getScenarios();
@@ -71,26 +61,20 @@ class GherkinTest extends PHPUnit_Framework_TestCase
         $this->assertSame($scenario, $scenarios[0]);
     }
 
-    /**
-     * @return void
-     */
     public function testNotFoundLoader()
     {
         $gherkin = new Gherkin();
 
-        $this->assertEquals([], $gherkin->load('some/feature/resource'));
+        $this->assertEquals(array(), $gherkin->load('some/feature/resource'));
     }
 
-    /**
-     * @return void
-     */
     public function testLoaderFiltersFeatures()
     {
         $gherkin = new Gherkin();
         $gherkin->addLoader($loader = $this->getLoaderMock());
         $gherkin->addFilter($nameFilter = $this->getNameFilterMock());
 
-        $feature = new FeatureNode(null, null, [], null, [], null, null, null, null);
+        $feature = new FeatureNode(null, null, array(), null, array(), null, null, null, null);
 
         $loader
             ->expects($this->once())
@@ -101,7 +85,7 @@ class GherkinTest extends PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('load')
             ->with($resource)
-            ->will($this->returnValue([$feature]));
+            ->will($this->returnValue(array($feature)));
 
         $nameFilter
             ->expects($this->once())
@@ -118,17 +102,14 @@ class GherkinTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0, count($features));
     }
 
-    /**
-     * @return void
-     */
     public function testSetFiltersOverridesAllFilters()
     {
         $gherkin = new Gherkin();
         $gherkin->addLoader($loader = $this->getLoaderMock());
         $gherkin->addFilter($nameFilter = $this->getNameFilterMock());
-        $gherkin->setFilters([]);
+        $gherkin->setFilters(array());
 
-        $feature = new FeatureNode(null, null, [], null, [], null, null, null, null);
+        $feature = new FeatureNode(null, null, array(), null, array(), null, null, null, null);
 
         $loader
             ->expects($this->once())
@@ -139,7 +120,7 @@ class GherkinTest extends PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('load')
             ->with($resource)
-            ->will($this->returnValue([$feature]));
+            ->will($this->returnValue(array($feature)));
 
         $nameFilter
             ->expects($this->never())
@@ -152,9 +133,6 @@ class GherkinTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($features));
     }
 
-    /**
-     * @return void
-     */
     public function testSetBasePath()
     {
         $gherkin = new Gherkin();
@@ -203,5 +181,4 @@ class GherkinTest extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
     }
-
 }

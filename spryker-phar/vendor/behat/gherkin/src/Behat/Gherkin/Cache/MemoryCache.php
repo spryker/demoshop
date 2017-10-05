@@ -1,9 +1,12 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
+/*
+* This file is part of the Behat Gherkin.
+* (c) Konstantin Kudryashov <ever.zet@gmail.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 namespace Behat\Gherkin\Cache;
 
@@ -17,15 +20,13 @@ use Behat\Gherkin\Node\FeatureNode;
  */
 class MemoryCache implements CacheInterface
 {
-
-    private $features = [];
-
-    private $timestamps = [];
+    private $features = array();
+    private $timestamps = array();
 
     /**
      * Checks that cache for feature exists and is fresh.
      *
-     * @param string $path Feature path
+     * @param string  $path      Feature path
      * @param integer $timestamp The last time feature was updated
      *
      * @return Boolean
@@ -44,7 +45,7 @@ class MemoryCache implements CacheInterface
      *
      * @param string $path Feature path
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @return FeatureNode
      */
     public function read($path)
     {
@@ -54,15 +55,12 @@ class MemoryCache implements CacheInterface
     /**
      * Caches feature node.
      *
-     * @param string $path Feature path
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
-     *
-     * @return void
+     * @param string      $path    Feature path
+     * @param FeatureNode $feature Feature instance
      */
     public function write($path, FeatureNode $feature)
     {
-        $this->features[$path] = $feature;
+        $this->features[$path]   = $feature;
         $this->timestamps[$path] = time();
     }
-
 }

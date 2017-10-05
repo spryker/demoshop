@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Exception\ConfigurationException;
@@ -13,9 +7,8 @@ use Codeception\Util\Template;
 
 class Cest
 {
-
-    use Namespaces;
     use Shared\Classname;
+    use Namespaces;
 
     protected $template = <<<EOF
 <?php
@@ -40,7 +33,6 @@ class {{name}}Cest
 EOF;
 
     protected $settings;
-
     protected $name;
 
     public function __construct($className, $settings)
@@ -56,10 +48,16 @@ EOF;
             throw new ConfigurationException("Cept can't be created for suite without an actor. Add `actor: SomeTester` to suite config");
         }
 
-        $namespace = rtrim($this->settings['namespace'], '\\');
-        $ns = $this->getNamespaceHeader($namespace . '\\' . $this->name);
-        if ($ns) {
-            $ns .= "use " . $this->settings['namespace'] . '\\' . $actor . ";";
+        if (array_key_exists('suite_namespace', $this->settings)) {
+            $namespace = rtrim($this->settings['suite_namespace'], '\\');
+        } else {
+            $namespace = rtrim($this->settings['namespace'], '\\');
+        }
+
+        $ns = $this->getNamespaceHeader($namespace.'\\'.$this->name);
+
+        if ($namespace) {
+            $ns .= "use ".$this->settings['namespace'].'\\'.$actor.";";
         }
 
         return (new Template($this->template))
@@ -68,5 +66,4 @@ EOF;
             ->place('actor', $actor)
             ->produce();
     }
-
 }

@@ -1,18 +1,11 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use Codeception\Configuration;
+use Codeception\Util\FileSystem as Util;
+use Symfony\Component\Finder\Finder;
 use Codeception\Module as CodeceptionModule;
 use Codeception\TestInterface;
-use Codeception\Util\FileSystem as Util;
-use PHPUnit_Framework_Assert;
-use Symfony\Component\Finder\Finder;
+use Codeception\Configuration;
 
 /**
  * Module for testing local filesystem.
@@ -28,16 +21,11 @@ use Symfony\Component\Finder\Finder;
  */
 class Filesystem extends CodeceptionModule
 {
-
     protected $file = null;
-
     protected $filepath = null;
 
     protected $path = '';
 
-    /**
-     * @return void
-     */
     public function _before(TestInterface $test)
     {
         $this->path = Configuration::projectDir();
@@ -48,8 +36,6 @@ class Filesystem extends CodeceptionModule
      * Project root directory is used by default
      *
      * @param string $path
-     *
-     * @return void
      */
     public function amInPath($path)
     {
@@ -59,7 +45,6 @@ class Filesystem extends CodeceptionModule
 
     /**
      * @param string $path
-     *
      * @return string
      */
     protected function absolutizePath($path)
@@ -89,8 +74,6 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param string $filename
-     *
-     * @return void
      */
     public function openFile($filename)
     {
@@ -108,13 +91,11 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param string $filename
-     *
-     * @return void
      */
     public function deleteFile($filename)
     {
         if (!file_exists($this->absolutizePath($filename))) {
-            PHPUnit_Framework_Assert::fail('file not found');
+            \PHPUnit_Framework_Assert::fail('file not found');
         }
         unlink($this->absolutizePath($filename));
     }
@@ -129,8 +110,6 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param string $dirname
-     *
-     * @return void
      */
     public function deleteDir($dirname)
     {
@@ -149,8 +128,6 @@ class Filesystem extends CodeceptionModule
      *
      * @param string $src
      * @param string $dst
-     *
-     * @return void
      */
     public function copyDir($src, $dst)
     {
@@ -170,8 +147,6 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param string $text
-     *
-     * @return void
      */
     public function seeInThisFile($text)
     {
@@ -191,25 +166,20 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param int $number New lines
-     *
-     * @return void
      */
     public function seeNumberNewLines($number)
     {
         $lines = preg_split('/\n|\r/', $this->file);
 
         $this->assertTrue(
-            (int)$number === count($lines),
+            (int) $number === count($lines),
             "The number of new lines does not match with $number"
         );
     }
-
     /**
      * Checks that contents of currently opened file matches $regex
      *
      * @param string $regex
-     *
-     * @return void
      */
     public function seeThisFileMatches($regex)
     {
@@ -230,13 +200,11 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param string $text
-     *
-     * @return void
      */
     public function seeFileContentsEqual($text)
     {
         $file = str_replace("\r", '', $this->file);
-        PHPUnit_Framework_Assert::assertEquals($text, $file);
+        \PHPUnit_Framework_Assert::assertEquals($text, $file);
     }
 
     /**
@@ -250,8 +218,6 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param string $text
-     *
-     * @return void
      */
     public function dontSeeInThisFile($text)
     {
@@ -260,8 +226,6 @@ class Filesystem extends CodeceptionModule
 
     /**
      * Deletes a file
-     *
-     * @return void
      */
     public function deleteThisFile()
     {
@@ -280,14 +244,12 @@ class Filesystem extends CodeceptionModule
      *
      * @param string $filename
      * @param string $path
-     *
-     * @return void
      */
     public function seeFileFound($filename, $path = '')
     {
         if ($path === '' && file_exists($filename)) {
             $this->openFile($filename);
-            PHPUnit_Framework_Assert::assertFileExists($filename);
+            \PHPUnit_Framework_Assert::assertFileExists($filename);
             return;
         }
 
@@ -298,7 +260,7 @@ class Filesystem extends CodeceptionModule
         }
 
         $this->openFile($found);
-        PHPUnit_Framework_Assert::assertFileExists($found);
+        \PHPUnit_Framework_Assert::assertFileExists($found);
     }
 
     /**
@@ -306,13 +268,11 @@ class Filesystem extends CodeceptionModule
      *
      * @param string $filename
      * @param string $path
-     *
-     * @return void
      */
     public function dontSeeFileFound($filename, $path = '')
     {
         if ($path === '') {
-            PHPUnit_Framework_Assert::assertFileNotExists($filename);
+            \PHPUnit_Framework_Assert::assertFileNotExists($filename);
             return;
         }
 
@@ -320,11 +280,11 @@ class Filesystem extends CodeceptionModule
 
         if ($found === false) {
             //this line keeps a count of assertions correct
-            PHPUnit_Framework_Assert::assertTrue(true);
+            \PHPUnit_Framework_Assert::assertTrue(true);
             return;
         }
 
-        PHPUnit_Framework_Assert::assertFileNotExists($found);
+        \PHPUnit_Framework_Assert::assertFileNotExists($found);
     }
 
     /**
@@ -332,7 +292,7 @@ class Filesystem extends CodeceptionModule
      *
      * @param string $filename
      * @param string $path
-     *
+     * @throws \PHPUnit_Framework_AssertionFailedError When path does not exist
      * @return string|false Path to the first matching file
      */
     private function findFileInPath($filename, $path)
@@ -352,6 +312,7 @@ class Filesystem extends CodeceptionModule
         }
     }
 
+
     /**
      * Erases directory contents
      *
@@ -362,8 +323,6 @@ class Filesystem extends CodeceptionModule
      * ```
      *
      * @param string $dirname
-     *
-     * @return void
      */
     public function cleanDir($dirname)
     {
@@ -376,12 +335,9 @@ class Filesystem extends CodeceptionModule
      *
      * @param string $filename
      * @param string $contents
-     *
-     * @return void
      */
     public function writeToFile($filename, $contents)
     {
         file_put_contents($filename, $contents);
     }
-
 }

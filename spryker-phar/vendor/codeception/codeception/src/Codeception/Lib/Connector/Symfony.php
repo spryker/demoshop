@@ -1,30 +1,20 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
-use Symfony\Component\HttpKernel\Client;
-use Symfony\Component\HttpKernel\Kernel;
-
-class Symfony extends Client
+class Symfony extends \Symfony\Component\HttpKernel\Client
 {
-
     /**
-     * @var bool
+     * @var boolean
      */
     private $rebootable = true;
 
     /**
-     * @var bool
+     * @var boolean
      */
     private $hasPerformedRequest = false;
 
     /**
-     * @var \Symfony\Component\DependencyInjection\ContainerInterface|null
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
     private $container = null;
 
@@ -36,15 +26,15 @@ class Symfony extends Client
     /**
      * Constructor.
      *
-     * @param \Symfony\Component\HttpKernel\Kernel $kernel A booted HttpKernel instance
-     * @param array $services An injected services
-     * @param boolean|bool $rebootable
+     * @param \Symfony\Component\HttpKernel\Kernel  $kernel     A booted HttpKernel instance
+     * @param array                                 $services   An injected services
+     * @param boolean                               $rebootable
      */
-    public function __construct(Kernel $kernel, array $services = [], $rebootable = true)
+    public function __construct(\Symfony\Component\HttpKernel\Kernel $kernel, array $services = [], $rebootable = true)
     {
         parent::__construct($kernel);
         $this->followRedirects(true);
-        $this->rebootable = (bool)$rebootable;
+        $this->rebootable = (boolean)$rebootable;
         $this->persistentServices = $services;
         $this->rebootKernel();
     }
@@ -70,8 +60,6 @@ class Symfony extends Client
      * Services from the list of persistent services
      * are updated from service container before kernel shutdown
      * and injected into newly initialized container after kernel boot.
-     *
-     * @return void
      */
     public function rebootKernel()
     {
@@ -95,5 +83,4 @@ class Symfony extends Client
             $this->container->get('profiler')->enable();
         }
     }
-
 }

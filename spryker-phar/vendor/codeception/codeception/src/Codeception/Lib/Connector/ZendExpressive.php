@@ -1,37 +1,30 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Lib\Connector\ZendExpressive\ResponseCollector;
 use Symfony\Component\BrowserKit\Client;
-use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
 use Zend\Diactoros\ServerRequest;
-use Zend\Diactoros\UploadedFile;
 use Zend\Expressive\Application;
+use Zend\Diactoros\UploadedFile;
 
 class ZendExpressive extends Client
 {
 
     /**
-     * @var \Zend\Expressive\Application
+     * @var Application
      */
     protected $application;
 
     /**
-     * @var \Codeception\Lib\Connector\ZendExpressive\ResponseCollector
+     * @var ResponseCollector
      */
     protected $responseCollector;
 
     /**
-     * @param \Zend\Expressive\Application
-     *
-     * @return void
+     * @param Application
      */
     public function setApplication(Application $application)
     {
@@ -39,9 +32,7 @@ class ZendExpressive extends Client
     }
 
     /**
-     * @param \Codeception\Lib\Connector\ZendExpressive\ResponseCollector $responseCollector
-     *
-     * @return void
+     * @param ResponseCollector $responseCollector
      */
     public function setResponseCollector(ResponseCollector $responseCollector)
     {
@@ -49,9 +40,10 @@ class ZendExpressive extends Client
     }
 
     /**
-     * @param \Symfony\Component\BrowserKit\Request $request
+     * @param Request $request
      *
-     * @return \Symfony\Component\BrowserKit\Response
+     * @return Response
+     * @throws \Exception
      */
     public function doRequest($request)
     {
@@ -136,7 +128,7 @@ class ZendExpressive extends Client
 
         $contentHeaders = ['Content-Length' => true, 'Content-Md5' => true, 'Content-Type' => true];
         foreach ($server as $header => $val) {
-            $header = implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header)))));
+            $header = html_entity_decode(implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header))))), ENT_NOQUOTES);
 
             if (strpos($header, 'Http-') === 0) {
                 $headers[substr($header, 5)] = $val;
@@ -147,5 +139,4 @@ class ZendExpressive extends Client
 
         return $headers;
     }
-
 }

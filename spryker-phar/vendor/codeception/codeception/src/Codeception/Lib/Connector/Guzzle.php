@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Util\Uri;
@@ -12,27 +6,23 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Post\PostFile;
 use Symfony\Component\BrowserKit\Client;
-use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
 use Symfony\Component\BrowserKit\Response as BrowserKitResponse;
+use GuzzleHttp\Url;
+use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
 
 class Guzzle extends Client
 {
-
     protected $baseUri;
-
     protected $requestOptions = [
         'allow_redirects' => false,
         'headers' => [],
     ];
-
     protected $refreshMaxInterval = 0;
+
 
     /** @var \GuzzleHttp\Client */
     protected $client;
 
-    /**
-     * @return void
-     */
     public function setBaseUri($uri)
     {
         $this->baseUri = $uri;
@@ -43,29 +33,24 @@ class Guzzle extends Client
      * automatically redirect a request.
      *
      * A meta tag detected with an interval equal to or greater than $seconds
-     * would not result in a redirect. A meta tag without a specified interval
+     * would not result in a redirect.  A meta tag without a specified interval
      * or one with a value less than $seconds would result in the client
      * automatically redirecting to the specified URL
      *
      * @param int $seconds Number of seconds
-     *
-     * @return void
      */
     public function setRefreshMaxInterval($seconds)
     {
         $this->refreshMaxInterval = $seconds;
     }
 
-    /**
-     * @return void
-     */
-    public function setClient($client)
+    public function setClient(\GuzzleHttp\Client $client)
     {
         $this->client = $client;
     }
 
     /**
-     * Sets the request header to the passed value. The header will be
+     * Sets the request header to the passed value.  The header will be
      * sent along with the next request.
      *
      * Passing an empty value clears the header, which is the equivalent
@@ -73,12 +58,10 @@ class Guzzle extends Client
      *
      * @param string $name the name of the header
      * @param string $value the value of the header
-     *
-     * @return void
      */
     public function setHeader($name, $value)
     {
-        if ((string)$value === '') {
+        if (strval($value) === '') {
             $this->deleteHeader($name);
         } else {
             $this->requestOptions['headers'][$name] = $value;
@@ -90,8 +73,6 @@ class Guzzle extends Client
      * that will be sent with the request.
      *
      * @param string $name the name of the header to delete.
-     *
-     * @return void
      */
     public function deleteHeader($name)
     {
@@ -101,9 +82,7 @@ class Guzzle extends Client
     /**
      * @param string $username
      * @param string $password
-     * @param string $type Default: 'basic'
-     *
-     * @return void
+     * @param string $type  Default: 'basic'
      */
     public function setAuth($username, $password, $type = 'basic')
     {
@@ -117,7 +96,7 @@ class Guzzle extends Client
     /**
      * Taken from Mink\BrowserKitDriver
      *
-     * @param \GuzzleHttp\Message\Response $response
+     * @param Response $response
      *
      * @return \Symfony\Component\BrowserKit\Response
      */
@@ -199,11 +178,11 @@ class Guzzle extends Client
 
     protected function doRequest($request)
     {
-        /** @var \Symfony\Component\BrowserKit\Request $request */
+        /** @var $request BrowserKitRequest  **/
         $requestOptions = [
             'body' => $this->extractBody($request),
             'cookies' => $this->extractCookies($request),
-            'headers' => $this->extractHeaders($request),
+            'headers' => $this->extractHeaders($request)
         ];
 
         $requestOptions = array_replace_recursive($requestOptions, $this->requestOptions);
@@ -237,7 +216,7 @@ class Guzzle extends Client
 
         $contentHeaders = ['Content-Length' => true, 'Content-Md5' => true, 'Content-Type' => true];
         foreach ($server as $header => $val) {
-            $header = implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header)))));
+            $header = html_entity_decode(implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header))))), ENT_NOQUOTES);
             if (strpos($header, 'Http-') === 0) {
                 $headers[substr($header, 5)] = $val;
             } elseif (isset($contentHeaders[$header])) {
@@ -273,7 +252,7 @@ class Guzzle extends Client
         $files = [];
         foreach ($requestFiles as $name => $info) {
             if (!empty($arrayName)) {
-                $name = $arrayName . '[' . $name . ']';
+                $name = $arrayName.'['.$name.']';
             }
 
             if (is_array($info)) {
@@ -299,5 +278,4 @@ class Guzzle extends Client
     {
         return $this->getCookieJar()->allRawValues($request->getUri());
     }
-
 }

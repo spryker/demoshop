@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin;
@@ -17,47 +20,29 @@ use Behat\Gherkin\Keywords\KeywordsInterface;
  */
 class Lexer
 {
-
     private $language;
-
     private $lines;
-
     private $linesCount;
-
     private $line;
-
     private $trimmedLine;
-
     private $lineNumber;
-
     private $eos;
-
     private $keywords;
-
-    private $keywordsCache = [];
-
-    private $stepKeywordTypesCache = [];
-
-    private $deferredObjects = [];
-
+    private $keywordsCache = array();
+    private $stepKeywordTypesCache = array();
+    private $deferredObjects = array();
     private $deferredObjectsCount = 0;
-
     private $stashedToken;
-
     private $inPyString = false;
-
     private $pyStringSwallow = 0;
-
     private $featureStarted = false;
-
     private $allowMultilineArguments = false;
-
     private $allowSteps = false;
 
     /**
      * Initializes lexer.
      *
-     * @param \Behat\Gherkin\Keywords\KeywordsInterface $keywords Keywords holder
+     * @param KeywordsInterface $keywords Keywords holder
      */
     public function __construct(KeywordsInterface $keywords)
     {
@@ -67,12 +52,10 @@ class Lexer
     /**
      * Sets lexer input.
      *
-     * @param string $input Input string
+     * @param string $input    Input string
      * @param string $language Language name
      *
      * @throws Exception\LexerException
-     *
-     * @return void
      */
     public function analyse($input, $language = 'en')
     {
@@ -81,7 +64,7 @@ class Lexer
             throw new LexerException('Feature file is not in UTF8 encoding');
         }
 
-        $input = strtr($input, ["\r\n" => "\n", "\r" => "\n"]);
+        $input = strtr($input, array("\r\n" => "\n", "\r" => "\n"));
 
         $this->lines = explode("\n", $input);
         $this->linesCount = count($this->lines);
@@ -90,7 +73,7 @@ class Lexer
         $this->trimmedLine = null;
         $this->eos = false;
 
-        $this->deferredObjects = [];
+        $this->deferredObjects = array();
         $this->deferredObjectsCount = 0;
         $this->stashedToken = null;
         $this->inPyString = false;
@@ -101,8 +84,8 @@ class Lexer
         $this->allowSteps = false;
 
         $this->keywords->setLanguage($this->language = $language);
-        $this->keywordsCache = [];
-        $this->stepKeywordTypesCache = [];
+        $this->keywordsCache = array();
+        $this->stepKeywordTypesCache = array();
     }
 
     /**
@@ -129,8 +112,6 @@ class Lexer
      * Defers token.
      *
      * @param array $token Token to defer
-     *
-     * @return void
      */
     public function deferToken(array $token)
     {
@@ -156,25 +137,23 @@ class Lexer
     /**
      * Constructs token with specified parameters.
      *
-     * @param string $type Token type
-     * @param string|null $value Token value
+     * @param string $type  Token type
+     * @param string $value Token value
      *
      * @return array
      */
     public function takeToken($type, $value = null)
     {
-        return [
-            'type' => $type,
-            'line' => $this->lineNumber,
-            'value' => $value ?: null,
-            'deferred' => false,
-        ];
+        return array(
+            'type'     => $type,
+            'line'     => $this->lineNumber,
+            'value'    => $value ?: null,
+            'deferred' => false
+        );
     }
 
     /**
      * Consumes line from input & increments line counter.
-     *
-     * @return void
      */
     protected function consumeLine()
     {
@@ -258,7 +237,7 @@ class Lexer
      * Scans for token with specified regex.
      *
      * @param string $regex Regular expression
-     * @param string $type Expected token type
+     * @param string $type  Expected token type
      *
      * @return null|array
      */
@@ -278,7 +257,7 @@ class Lexer
      * Scans for token with specified keywords.
      *
      * @param string $keywords Keywords (splitted with |)
-     * @param string $type Expected token type
+     * @param string $type     Expected token type
      *
      * @return null|array
      */
@@ -342,7 +321,7 @@ class Lexer
             $keywords = $this->keywords->$getter();
 
             if ('Step' === $type) {
-                $padded = [];
+                $padded = array();
                 foreach (explode('|', $keywords) as $keyword) {
                     $padded[] = false !== mb_strpos($keyword, '<', 0, 'utf8')
                         ? preg_quote(mb_substr($keyword, 0, -1, 'utf8'), '/') . '\s*'
@@ -605,7 +584,6 @@ class Lexer
      * Returns step type keyword (Given, When, Then, etc.).
      *
      * @param string $native Step keyword in provided language
-     *
      * @return string
      */
     private function getStepKeywordType($native)
@@ -616,13 +594,13 @@ class Lexer
         }
 
         if (empty($this->stepKeywordTypesCache)) {
-            $this->stepKeywordTypesCache = [
+            $this->stepKeywordTypesCache = array(
                 'Given' => explode('|', $this->keywords->getGivenKeywords()),
                 'When' => explode('|', $this->keywords->getWhenKeywords()),
                 'Then' => explode('|', $this->keywords->getThenKeywords()),
                 'And' => explode('|', $this->keywords->getAndKeywords()),
-                'But' => explode('|', $this->keywords->getButKeywords()),
-            ];
+                'But' => explode('|', $this->keywords->getButKeywords())
+            );
         }
 
         foreach ($this->stepKeywordTypesCache as $type => $keywords) {
@@ -633,5 +611,4 @@ class Lexer
 
         return 'Given';
     }
-
 }

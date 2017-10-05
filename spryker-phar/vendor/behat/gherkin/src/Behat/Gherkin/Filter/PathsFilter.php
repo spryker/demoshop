@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Filter;
@@ -17,8 +20,7 @@ use Behat\Gherkin\Node\ScenarioInterface;
  */
 class PathsFilter extends SimpleFilter
 {
-
-    protected $filterPaths = [];
+    protected $filterPaths = array();
 
     /**
      * Initializes filter.
@@ -41,7 +43,7 @@ class PathsFilter extends SimpleFilter
     /**
      * Checks if Feature matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
+     * @param FeatureNode $feature Feature instance
      *
      * @return Boolean
      */
@@ -59,7 +61,7 @@ class PathsFilter extends SimpleFilter
     /**
      * Checks if scenario or outline matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\ScenarioInterface $scenario Scenario or Outline node instance
+     * @param ScenarioInterface $scenario Scenario or Outline node instance
      *
      * @return false This filter is designed to work only with features
      */
@@ -67,5 +69,4 @@ class PathsFilter extends SimpleFilter
     {
         return false;
     }
-
 }

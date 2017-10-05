@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception;
 
 /**
@@ -14,7 +8,6 @@ namespace Codeception;
  */
 final class Events
 {
-
     /**
      * Private constructor. This class cannot be instantiated.
      */
@@ -124,5 +117,4 @@ final class Events
      * The event listener method receives a {@link Codeception\Event\PrintResultEvent} instance.
      */
     const RESULT_PRINT_AFTER = 'result.print.after';
-
 }

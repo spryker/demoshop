@@ -1,15 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Interfaces;
 
 interface Remote
 {
-
     /**
      * Changes the subdomain for the 'url' configuration parameter.
      * Does not open a page; use `amOnPage` for that.
@@ -45,5 +38,4 @@ interface Remote
     public function amOnUrl($url);
 
     public function _getUrl();
-
 }

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Console;
 
 use SebastianBergmann\Comparator\ComparisonFailure;
@@ -14,26 +8,23 @@ use SebastianBergmann\Comparator\ComparisonFailure;
  **/
 class MessageFactory
 {
-
     /**
-     * @var \Codeception\Lib\Console\DiffFactory
+     * @var DiffFactory
      */
     protected $diffFactory;
-
     /**
-     * @var \Codeception\Lib\Console\Output
+     * @var Output
      */
     private $output;
 
     /**
-     * @var \Codeception\Lib\Console\Colorizer
+     * @var Colorizer
      */
     protected $colorizer;
 
     /**
      * MessageFactory constructor.
-     *
-     * @param \Codeception\Lib\Console\Output $output
+     * @param Output $output
      */
     public function __construct(Output $output)
     {
@@ -44,8 +35,7 @@ class MessageFactory
 
     /**
      * @param string $text
-     *
-     * @return \Codeception\Lib\Console\Message
+     * @return Message
      */
     public function message($text = '')
     {
@@ -53,8 +43,7 @@ class MessageFactory
     }
 
     /**
-     * @param \SebastianBergmann\Comparator\ComparisonFailure $failure
-     *
+     * @param ComparisonFailure $failure
      * @return string
      */
     public function prepareComparisonFailureMessage(ComparisonFailure $failure)
@@ -67,5 +56,4 @@ class MessageFactory
 
         return "\n<comment>- Expected</comment> | <info>+ Actual</info>\n$diff";
     }
-
 }

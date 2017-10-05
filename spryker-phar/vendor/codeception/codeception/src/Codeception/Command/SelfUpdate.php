@@ -1,21 +1,11 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
-use Codeception\Codecept;
-use Exception;
-use Phar;
-use PharException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
-use UnexpectedValueException;
+use Codeception\Codecept;
 
 /**
  * Auto-updates phar archive from official site: 'http://codeception.com/codecept.phar' .
@@ -26,7 +16,6 @@ use UnexpectedValueException;
  */
 class SelfUpdate extends Command
 {
-
     /**
      * Class constants
      */
@@ -114,7 +103,7 @@ class SelfUpdate extends Command
             } else {
                 $output->writeln('You are already using the latest version.');
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $output->writeln(
                 sprintf(
                     "<error>\n%s\n</error>",
@@ -129,7 +118,6 @@ class SelfUpdate extends Command
      *
      * @param string $version The version number to check.
      * @param string $latestVersion Latest stable version
-     *
      * @return boolean Returns True if a new version is available.
      */
     private function isOutOfDate($version, $latestVersion)
@@ -156,7 +144,6 @@ class SelfUpdate extends Command
 
     /**
      * @param array $tags
-     *
      * @return array
      */
     private function filterStableVersions($tags)
@@ -169,8 +156,7 @@ class SelfUpdate extends Command
     /**
      * Returns an array of tags from a github repo.
      *
-     * @param string $repo The repository name to check upon.
-     *
+     * @param  string $repo The repository name to check upon.
      * @return array
      */
     protected function getGithubTags($repo)
@@ -190,11 +176,9 @@ class SelfUpdate extends Command
     /**
      * Retrieves the body-content from the provided URL.
      *
-     * @param string $url
-     *
-     * @throws \Exception if status code is above 300
-     *
+     * @param  string $url
      * @return string
+     * @throws \Exception if status code is above 300
      */
     private function retrieveContentFromUrl($url)
     {
@@ -205,10 +189,10 @@ class SelfUpdate extends Command
         if (isset($http_response_header)) {
             $code = substr($http_response_header[0], 9, 3);
             if (floor($code / 100) > 3) {
-                throw new Exception($http_response_header[0]);
+                throw new \Exception($http_response_header[0]);
             }
         } else {
-            throw new Exception('Request failed.');
+            throw new \Exception('Request failed.');
         }
 
         return $body;
@@ -219,8 +203,6 @@ class SelfUpdate extends Command
      *
      * @param array $opt context options
      * @param string $url
-     *
-     * @return void
      */
     private function prepareProxy(&$opt, $url)
     {
@@ -241,7 +223,6 @@ class SelfUpdate extends Command
 
     /**
      * Preparing context for request
-     *
      * @param $url
      *
      * @return resource
@@ -251,10 +232,10 @@ class SelfUpdate extends Command
         $opts = [
             'http' => [
                 'follow_location' => 1,
-                'max_redirects' => 20,
-                'timeout' => 10,
-                'user_agent' => self::NAME,
-            ],
+                'max_redirects'   => 20,
+                'timeout'         => 10,
+                'user_agent'      => self::NAME
+            ]
         ];
         $this->prepareProxy($opts, $url);
         return stream_context_create($opts);
@@ -264,11 +245,8 @@ class SelfUpdate extends Command
      * Retrieves the latest phar file.
      *
      * @param string $version
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
+     * @param OutputInterface $output
      * @throws \Exception
-     *
-     * @return void
      */
     protected function retrievePharFile($version, OutputInterface $output)
     {
@@ -280,16 +258,16 @@ class SelfUpdate extends Command
                 chmod($temp, 0777 & ~umask());
 
                 // test the phar validity
-                $phar = new Phar($temp);
+                $phar = new \Phar($temp);
                 // free the variable to unlock the file
                 unset($phar);
                 rename($temp, $this->filename);
             } else {
-                throw new Exception('Request failed.');
+                throw new \Exception('Request failed.');
             }
-        } catch (Exception $e) {
-            if (!$e instanceof UnexpectedValueException
-                && !$e instanceof PharException
+        } catch (\Exception $e) {
+            if (!$e instanceof \UnexpectedValueException
+                && !$e instanceof \PharException
             ) {
                 throw $e;
             }
@@ -315,7 +293,6 @@ class SelfUpdate extends Command
      * Returns Phar file URL for specified version
      *
      * @param string $version
-     *
      * @return string
      */
     protected function getPharUrl($version)
@@ -327,5 +304,4 @@ class SelfUpdate extends Command
 
         return sprintf($sourceUrl, $version);
     }
-
 }

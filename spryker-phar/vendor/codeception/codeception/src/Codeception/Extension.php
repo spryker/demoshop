@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception;
 
 use Codeception\Configuration as Config;
@@ -24,15 +18,10 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 abstract class Extension implements EventSubscriberInterface
 {
-
     protected $config = [];
-
     protected $options;
-
     protected $output;
-
     protected $globalConfig;
-
     private $modules = [];
 
     public function __construct($config, $options)
@@ -42,6 +31,7 @@ abstract class Extension implements EventSubscriberInterface
         $this->output = new Output($options);
         $this->_initialize();
     }
+
 
     public static function getSubscribedEvents()
     {
@@ -59,9 +49,6 @@ abstract class Extension implements EventSubscriberInterface
         return static::$events;
     }
 
-    /**
-     * @return void
-     */
     public function receiveModuleContainer(SuiteEvent $e)
     {
         $this->modules = $e->getSuite()->getModules();
@@ -71,8 +58,6 @@ abstract class Extension implements EventSubscriberInterface
      * Pass config variables that should be injected into global config.
      *
      * @param array $config
-     *
-     * @return void
      */
     public function _reconfigure($config = [])
     {
@@ -84,17 +69,12 @@ abstract class Extension implements EventSubscriberInterface
     /**
      * You can do all preparations here. No need to override constructor.
      * Also you can skip calling `_reconfigure` if you don't need to.
-     *
-     * @return void
      */
     public function _initialize()
     {
         $this->_reconfigure(); // hook for BC only.
     }
 
-    /**
-     * @return void
-     */
     protected function write($message)
     {
         if (!$this->options['silent']) {
@@ -102,9 +82,6 @@ abstract class Extension implements EventSubscriberInterface
         }
     }
 
-    /**
-     * @return void
-     */
     protected function writeln($message)
     {
         if (!$this->options['silent']) {
@@ -154,5 +131,4 @@ abstract class Extension implements EventSubscriberInterface
     {
         return Config::config();
     }
-
 }

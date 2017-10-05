@@ -1,15 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Interfaces;
 
 interface Web
 {
-
     /**
      * Opens the page for the given relative URI.
      *
@@ -33,9 +26,9 @@ interface Web
      *
      * ``` php
      * <?php
-     * $I->see('Logout'); // I can suppose user is logged in
-     * $I->see('Sign Up', 'h1'); // I can suppose it's a signup page
-     * $I->see('Sign Up', '//body/h1'); // with XPath
+     * $I->see('Logout');                        // I can suppose user is logged in
+     * $I->see('Sign Up', 'h1');                 // I can suppose it's a signup page
+     * $I->see('Sign Up', '//body/h1');          // with XPath
      * $I->see('Sign Up', ['css' => 'body h1']); // with strict CSS locator
      * ```
      *
@@ -54,7 +47,7 @@ interface Web
      * For checking the raw source code, use `seeInSource()`.
      *
      * @param string $text
-     * @param string|null $selector optional
+     * @param string $selector optional
      */
     public function see($text, $selector = null);
 
@@ -64,9 +57,9 @@ interface Web
      *
      * ```php
      * <?php
-     * $I->dontSee('Login'); // I can suppose user is already logged in
-     * $I->dontSee('Sign Up','h1'); // I can suppose it's not a signup page
-     * $I->dontSee('Sign Up','//body/h1'); // with XPath
+     * $I->dontSee('Login');                         // I can suppose user is already logged in
+     * $I->dontSee('Sign Up','h1');                  // I can suppose it's not a signup page
+     * $I->dontSee('Sign Up','//body/h1');           // with XPath
      * $I->dontSee('Sign Up', ['css' => 'body h1']); // with strict CSS locator
      * ```
      *
@@ -85,10 +78,10 @@ interface Web
      * For checking the raw source code, use `seeInSource()`.
      *
      * @param string $text
-     * @param string|null $selector optional
+     * @param string $selector optional
      */
     public function dontSee($text, $selector = null);
-
+    
     /**
      * Checks that the current page contains the given string in its
      * raw source code.
@@ -98,7 +91,7 @@ interface Web
      * $I->seeInSource('<h1>Green eggs &amp; ham</h1>');
      * ```
      *
-     * @param $raw
+     * @param      $raw
      */
     public function seeInSource($raw);
 
@@ -111,13 +104,13 @@ interface Web
      * $I->dontSeeInSource('<h1>Green eggs &amp; ham</h1>');
      * ```
      *
-     * @param $raw
+     * @param      $raw
      */
     public function dontSeeInSource($raw);
 
     /**
      * Submits the given form on the page, with the given form
-     * values. Pass the form field's values as an array in the second
+     * values.  Pass the form field's values as an array in the second
      * parameter.
      *
      * Although this function can be used as a short-hand version of
@@ -126,7 +119,7 @@ interface Web
      *
      *  * Only field *names* may be used, not CSS/XPath selectors nor field labels
      *  * If a field is sent to this function that does *not* exist on the page,
-     *    it will silently be added to the HTTP request. This is helpful for testing
+     *    it will silently be added to the HTTP request.  This is helpful for testing
      *    some types of forms, but be aware that you will *not* get an exception
      *    like you would if you called `fillField()` or `selectOption()` with
      *    a missing field.
@@ -229,7 +222,7 @@ interface Web
      * ```
      *
      * Parameter values can be set to arrays for multiple input fields
-     * of the same name, or multi-select combo boxes. For checkboxes,
+     * of the same name, or multi-select combo boxes.  For checkboxes,
      * you can use either the string value or boolean `true`/`false` which will
      * be replaced by the checkbox's value in the DOM.
      *
@@ -257,7 +250,7 @@ interface Web
      * and may produce unexpected results.
      *
      * Field names ending in `[]` must be passed without the trailing square
-     * bracket characters, and must contain an array for its value. This allows
+     * bracket characters, and must contain an array for its value.  This allows
      * submitting multiple values with the same name, consider:
      *
      * ```php
@@ -265,7 +258,7 @@ interface Web
      * // This will NOT work correctly
      * $I->submitForm('#my-form', [
      *     'field[]' => 'value',
-     *     'field[]' => 'another value', // 'field[]' is already a defined key
+     *     'field[]' => 'another value',  // 'field[]' is already a defined key
      * ]);
      * ```
      *
@@ -284,7 +277,7 @@ interface Web
      *
      * @param $selector
      * @param $params
-     * @param $button|null
+     * @param $button
      */
     public function submitForm($selector, array $params, $button = null);
 
@@ -317,7 +310,7 @@ interface Web
      * ```
      *
      * @param $link
-     * @param $context|null
+     * @param $context
      */
     public function click($link, $context = null);
 
@@ -333,7 +326,7 @@ interface Web
      * ```
      *
      * @param string $text
-     * @param string|null $url optional
+     * @param string $url optional
      */
     public function seeLink($text, $url = null);
 
@@ -349,7 +342,7 @@ interface Web
      * ```
      *
      * @param string $text
-     * @param string|null $url optional
+     * @param string $url optional
      */
     public function dontSeeLink($text, $url = null);
 
@@ -441,7 +434,7 @@ interface Web
     public function dontSeeCurrentUrlMatches($uri);
 
     /**
-     * Executes the given regular expression against the current URI and returns the first match.
+     * Executes the given regular expression against the current URI and returns the first capturing group.
      * If no parameters are provided, the full URI is returned.
      *
      * ``` php
@@ -451,7 +444,7 @@ interface Web
      * ?>
      * ```
      *
-     * @param string|null $uri optional
+     * @param string $uri optional
      *
      * @return mixed
      */
@@ -562,8 +555,8 @@ interface Web
      * ``` php
      * <?php
      * $I->seeInFormFields('#form-id', [
-     *      'checkbox1' => true, // passes if checked
-     *      'checkbox2' => false, // passes if unchecked
+     *      'checkbox1' => true,        // passes if checked
+     *      'checkbox2' => false,       // passes if unchecked
      * ]);
      * ?>
      * ```
@@ -621,8 +614,8 @@ interface Web
      * ``` php
      * <?php
      * $I->dontSeeInFormFields('#form-id', [
-     *      'checkbox1' => true, // fails if checked
-     *      'checkbox2' => false, // fails if unchecked
+     *      'checkbox1' => true,        // fails if checked
+     *      'checkbox2' => false,       // fails if unchecked
      * ]);
      * ?>
      * ```
@@ -759,6 +752,7 @@ interface Web
      */
     public function grabValueFrom($field);
 
+
     /**
      * Grabs the value of the given attribute value from the given element.
      * Fails if element is not found.
@@ -769,13 +763,14 @@ interface Web
      * ?>
      * ```
      *
+     *
      * @param $cssOrXpath
      * @param $attribute
      *
      * @return mixed
      */
     public function grabAttributeFrom($cssOrXpath, $attribute);
-
+    
     /**
      * Grabs either the text content, or attribute values, of nodes
      * matched by $cssOrXpath and returns them as an array.
@@ -797,8 +792,7 @@ interface Web
      * ```
      *
      * @param $cssOrXpath
-     * @param $attribute|null
-     *
+     * @param $attribute
      * @return string[]
      */
     public function grabMultiple($cssOrXpath, $attribute = null);
@@ -821,7 +815,6 @@ interface Web
      *
      * @param $selector
      * @param array $attributes
-     *
      * @return
      */
     public function seeElement($selector, $attributes = []);
@@ -853,7 +846,6 @@ interface Web
      * $I->seeNumberOfElements('tr', [0,10]); // between 0 and 10 elements
      * ?>
      * ```
-     *
      * @param $selector
      * @param mixed $expected int or int[]
      */
@@ -927,7 +919,6 @@ interface Web
      *
      * @param $cookie
      * @param array $params
-     *
      * @return mixed
      */
     public function seeCookie($cookie, array $params = []);
@@ -937,8 +928,8 @@ interface Web
      * You can set additional cookie params like `domain`, `path` as array passed in last argument.
      *
      * @param $cookie
-     * @param array $params
      *
+     * @param array $params
      * @return mixed
      */
     public function dontSeeCookie($cookie, array $params = []);
@@ -966,8 +957,8 @@ interface Web
      * You can set additional cookie params like `domain`, `path` in array passed as last argument.
      *
      * @param $cookie
-     * @param array $params
      *
+     * @param array $params
      * @return mixed
      */
     public function resetCookie($cookie, array $params = []);
@@ -977,8 +968,8 @@ interface Web
      * You can set additional cookie params like `domain`, `path` in array passed as last argument.
      *
      * @param $cookie
-     * @param array $params
      *
+     * @param array $params
      * @return mixed
      */
     public function grabCookie($cookie, array $params = []);
@@ -989,5 +980,4 @@ interface Web
      * @return string Current page source code.
      */
     public function grabPageSource();
-
 }

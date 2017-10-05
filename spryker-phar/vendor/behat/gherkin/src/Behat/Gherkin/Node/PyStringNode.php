@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
@@ -14,12 +17,10 @@ namespace Behat\Gherkin\Node;
  */
 class PyStringNode implements ArgumentInterface
 {
-
     /**
      * @var array
      */
-    private $strings = [];
-
+    private $strings = array();
     /**
      * @var integer
      */
@@ -28,8 +29,8 @@ class PyStringNode implements ArgumentInterface
     /**
      * Initializes PyString.
      *
-     * @param array $strings String in form of [$stringLine]
-     * @param integer $line Line number where string been started
+     * @param array   $strings String in form of [$stringLine]
+     * @param integer $line    Line number where string been started
      */
     public function __construct(array $strings, $line)
     {
@@ -86,5 +87,4 @@ class PyStringNode implements ArgumentInterface
     {
         return $this->line;
     }
-
 }

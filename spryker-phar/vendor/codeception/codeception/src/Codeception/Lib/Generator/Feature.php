@@ -1,17 +1,10 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Util\Template;
 
 class Feature
 {
-
     protected $template = <<<EOF
 Feature: {{name}}
   In order to ...
@@ -35,5 +28,4 @@ EOF;
             ->place('name', $this->name)
             ->produce();
     }
-
 }

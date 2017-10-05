@@ -1,19 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
 
 use Codeception\Exception\ModuleException;
-use PDO;
-use PDOException;
 
 class PostgreSql extends Db
 {
-
     protected $putline = false;
 
     protected $connection = null;
@@ -24,8 +16,6 @@ class PostgreSql extends Db
      * Loads a SQL file.
      *
      * @param string $sql sql file
-     *
-     * @return void
      */
     public function load($sql)
     {
@@ -71,9 +61,6 @@ class PostgreSql extends Db
         }
     }
 
-    /**
-     * @return void
-     */
     public function cleanup()
     {
         $this->dbh->exec('DROP SCHEMA IF EXISTS public CASCADE;');
@@ -98,11 +85,6 @@ class PostgreSql extends Db
         return true;
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     public function sqlQuery($query)
     {
         if (strpos(trim($query), 'COPY ') === 0) {
@@ -149,7 +131,7 @@ class PostgreSql extends Db
 
         try {
             $lastSequence = $this->getDbh()->lastInsertId($sequenceName);
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             // in this case, the sequence name might be combined with the primary key name
         }
 
@@ -199,14 +181,13 @@ class PostgreSql extends Db
                 WHERE  i.indrelid = '$tableName'::regclass
                 AND    i.indisprimary";
             $stmt = $this->executeQuery($query, []);
-            $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $columns = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             foreach ($columns as $column) {
-                $primaryKey[] = $column['attname'];
+                $primaryKey []= $column['attname'];
             }
             $this->primaryKeys[$tableName] = $primaryKey;
         }
 
         return $this->primaryKeys[$tableName];
     }
-
 }

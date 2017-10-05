@@ -1,10 +1,5 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Keywords;
 
 use Behat\Gherkin\Keywords\CucumberKeywords;
@@ -13,7 +8,6 @@ use Symfony\Component\Yaml\Yaml;
 
 class CucumberKeywordsTest extends KeywordsTest
 {
-
     protected function getKeywords()
     {
         return new CucumberKeywords(__DIR__ . '/../Fixtures/i18n.yml');
@@ -26,16 +20,15 @@ class CucumberKeywordsTest extends KeywordsTest
 
     protected function getSteps($keywords, $text, &$line, $keywordType)
     {
-        $steps = [];
+        $steps = array();
         foreach (explode('|', mb_substr($keywords, 2)) as $keyword) {
             if (false !== mb_strpos($keyword, '<')) {
                 $keyword = mb_substr($keyword, 0, -1);
             }
 
-            $steps[] = new StepNode($keyword, $text, [], $line++, $keywordType);
+            $steps[] = new StepNode($keyword, $text, array(), $line++, $keywordType);
         }
 
         return $steps;
     }
-
 }

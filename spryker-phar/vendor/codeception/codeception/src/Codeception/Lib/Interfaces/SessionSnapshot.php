@@ -1,15 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Interfaces;
 
 interface SessionSnapshot
 {
-
     /**
      * Saves current cookies into named snapshot in order to restore them in other tests
      * This is useful to save session state between tests.
@@ -38,7 +31,6 @@ interface SessionSnapshot
      * ```
      *
      * @param $name
-     *
      * @return mixed
      */
     public function saveSessionSnapshot($name);
@@ -46,12 +38,9 @@ interface SessionSnapshot
     /**
      * Loads cookies from saved snapshot.
      *
-     * @see saveSessionSnapshot
-     *
      * @param $name
-     *
+     * @see saveSessionSnapshot
      * @return mixed
      */
     public function loadSessionSnapshot($name);
-
 }

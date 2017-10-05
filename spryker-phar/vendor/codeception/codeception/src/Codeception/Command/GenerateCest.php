@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Lib\Generator\Cest as CestGenerator;
@@ -24,13 +18,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GenerateCest extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -44,9 +34,6 @@ class GenerateCest extends Command
         return 'Generates empty Cest file in suite';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $suite = $input->getArgument('suite');
@@ -72,5 +59,4 @@ class GenerateCest extends Command
 
         $output->writeln("<info>Test was created in $filename</info>");
     }
-
 }

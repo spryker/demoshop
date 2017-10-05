@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin;
@@ -22,7 +25,7 @@ use Behat\Gherkin\Node\TableNode;
 /**
  * Gherkin parser.
  *
- * $lexer = new Behat\Gherkin\Lexer($keywords);
+ * $lexer  = new Behat\Gherkin\Lexer($keywords);
  * $parser = new Behat\Gherkin\Parser($lexer);
  * $featuresArray = $parser->parse('/path/to/feature.feature');
  *
@@ -30,21 +33,16 @@ use Behat\Gherkin\Node\TableNode;
  */
 class Parser
 {
-
     private $lexer;
-
     private $input;
-
     private $file;
-
-    private $tags = [];
-
+    private $tags = array();
     private $languageSpecifierLine;
 
     /**
      * Initializes parser.
      *
-     * @param \Behat\Gherkin\Lexer $lexer Lexer instance
+     * @param Lexer $lexer Lexer instance
      */
     public function __construct(Lexer $lexer)
     {
@@ -55,18 +53,18 @@ class Parser
      * Parses input & returns features array.
      *
      * @param string $input Gherkin string document
-     * @param string|null $file File name
+     * @param string $file  File name
      *
-     * @throws \Behat\Gherkin\Exception\ParserException
+     * @return FeatureNode|null
      *
-     * @return \Behat\Gherkin\Node\FeatureNode|null
+     * @throws ParserException
      */
     public function parse($input, $file = null)
     {
         $this->languageSpecifierLine = null;
         $this->input = $input;
         $this->file = $file;
-        $this->tags = [];
+        $this->tags = array();
 
         try {
             $this->lexer->analyse($this->input, 'en');
@@ -124,13 +122,13 @@ class Parser
      *
      * @param string $type Token type
      *
-     * @throws Exception\ParserException
-     *
      * @return array
+     *
+     * @throws Exception\ParserException
      */
     protected function expectTokenType($type)
     {
-        $types = (array)$type;
+        $types = (array) $type;
         if (in_array($this->predictTokenType(), $types)) {
             return $this->lexer->getAdvancedToken();
         }
@@ -177,9 +175,9 @@ class Parser
     /**
      * Parses current expression & returns Node.
      *
-     * @throws \Behat\Gherkin\Exception\ParserException
+     * @return string|FeatureNode|BackgroundNode|ScenarioNode|OutlineNode|TableNode|StepNode
      *
-     * @return string|\Behat\Gherkin\Node\FeatureNode|\Behat\Gherkin\Node\BackgroundNode|\Behat\Gherkin\Node\ScenarioNode|\Behat\Gherkin\Node\OutlineNode|\Behat\Gherkin\Node\TableNode|\Behat\Gherkin\Node\StepNode
+     * @throws ParserException
      */
     protected function parseExpression()
     {
@@ -220,9 +218,9 @@ class Parser
     /**
      * Parses feature token & returns it's node.
      *
-     * @throws \Behat\Gherkin\Exception\ParserException
+     * @return FeatureNode
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @throws ParserException
      */
     protected function parseFeature()
     {
@@ -232,7 +230,7 @@ class Parser
         $description = null;
         $tags = $this->popTags();
         $background = null;
-        $scenarios = [];
+        $scenarios = array();
         $keyword = $token['keyword'];
         $language = $this->lexer->getLanguage();
         $file = $this->file;
@@ -293,9 +291,9 @@ class Parser
     /**
      * Parses background token & returns it's node.
      *
-     * @throws \Behat\Gherkin\Exception\ParserException
+     * @return BackgroundNode
      *
-     * @return \Behat\Gherkin\Node\BackgroundNode
+     * @throws ParserException
      */
     protected function parseBackground()
     {
@@ -314,8 +312,8 @@ class Parser
         }
 
         // Parse description and steps
-        $steps = [];
-        $allowedTokenTypes = ['Step', 'Newline', 'Text', 'Comment'];
+        $steps = array();
+        $allowedTokenTypes = array('Step', 'Newline', 'Text', 'Comment');
         while (in_array($this->predictTokenType(), $allowedTokenTypes)) {
             $node = $this->parseExpression();
 
@@ -358,9 +356,9 @@ class Parser
     /**
      * Parses scenario token & returns it's node.
      *
-     * @throws \Behat\Gherkin\Exception\ParserException
+     * @return ScenarioNode
      *
-     * @return \Behat\Gherkin\Node\ScenarioNode
+     * @throws ParserException
      */
     protected function parseScenario()
     {
@@ -372,8 +370,8 @@ class Parser
         $line = $token['line'];
 
         // Parse description and steps
-        $steps = [];
-        while (in_array($this->predictTokenType(), ['Step', 'Newline', 'Text', 'Comment'])) {
+        $steps = array();
+        while (in_array($this->predictTokenType(), array('Step', 'Newline', 'Text', 'Comment'))) {
             $node = $this->parseExpression();
 
             if ($node instanceof StepNode) {
@@ -415,9 +413,9 @@ class Parser
     /**
      * Parses scenario outline token & returns it's node.
      *
-     * @throws \Behat\Gherkin\Exception\ParserException
+     * @return OutlineNode
      *
-     * @return \Behat\Gherkin\Node\OutlineNode
+     * @throws ParserException
      */
     protected function parseOutline()
     {
@@ -430,8 +428,8 @@ class Parser
         $line = $token['line'];
 
         // Parse description, steps and examples
-        $steps = [];
-        while (in_array($this->predictTokenType(), ['Step', 'Examples', 'Newline', 'Text', 'Comment'])) {
+        $steps = array();
+        while (in_array($this->predictTokenType(), array('Step', 'Examples', 'Newline', 'Text', 'Comment'))) {
             $node = $this->parseExpression();
 
             if ($node instanceof StepNode) {
@@ -487,7 +485,7 @@ class Parser
     /**
      * Parses step token & returns it's node.
      *
-     * @return \Behat\Gherkin\Node\StepNode
+     * @return StepNode
      */
     protected function parseStep()
     {
@@ -498,8 +496,8 @@ class Parser
         $text = trim($token['text']);
         $line = $token['line'];
 
-        $arguments = [];
-        while (in_array($predicted = $this->predictTokenType(), ['PyStringOp', 'TableRow', 'Newline', 'Comment'])) {
+        $arguments = array();
+        while (in_array($predicted = $this->predictTokenType(), array('PyStringOp', 'TableRow', 'Newline', 'Comment'))) {
             if ('Comment' === $predicted || 'Newline' === $predicted) {
                 $this->acceptTokenType($predicted);
                 continue;
@@ -518,7 +516,7 @@ class Parser
     /**
      * Parses examples table node.
      *
-     * @return \Behat\Gherkin\Node\ExampleTableNode
+     * @return ExampleTableNode
      */
     protected function parseExamples()
     {
@@ -532,7 +530,7 @@ class Parser
     /**
      * Parses table token & returns it's node.
      *
-     * @return \Behat\Gherkin\Node\TableNode
+     * @return TableNode
      */
     protected function parseTable()
     {
@@ -542,7 +540,7 @@ class Parser
     /**
      * Parses PyString token & returns it's node.
      *
-     * @return \Behat\Gherkin\Node\PyStringNode
+     * @return PyStringNode
      */
     protected function parsePyString()
     {
@@ -550,7 +548,7 @@ class Parser
 
         $line = $token['line'];
 
-        $strings = [];
+        $strings = array();
         while ('PyStringOp' !== ($predicted = $this->predictTokenType()) && 'Text' === $predicted) {
             $token = $this->expectTokenType('Text');
 
@@ -565,7 +563,7 @@ class Parser
     /**
      * Parses tags.
      *
-     * @return \Behat\Gherkin\Node\BackgroundNode|\Behat\Gherkin\Node\FeatureNode|\Behat\Gherkin\Node\OutlineNode|\Behat\Gherkin\Node\ScenarioNode|\Behat\Gherkin\Node\StepNode|\Behat\Gherkin\Node\TableNode|string
+     * @return BackgroundNode|FeatureNode|OutlineNode|ScenarioNode|StepNode|TableNode|string
      */
     protected function parseTags()
     {
@@ -583,7 +581,7 @@ class Parser
     protected function popTags()
     {
         $tags = $this->tags;
-        $this->tags = [];
+        $this->tags = array();
 
         return $tags;
     }
@@ -615,7 +613,7 @@ class Parser
     /**
      * Parses next comment token & returns it's string content.
      *
-     * @return \Behat\Gherkin\Node\BackgroundNode|\Behat\Gherkin\Node\FeatureNode|\Behat\Gherkin\Node\OutlineNode|\Behat\Gherkin\Node\ScenarioNode|\Behat\Gherkin\Node\StepNode|\Behat\Gherkin\Node\TableNode|string
+     * @return BackgroundNode|FeatureNode|OutlineNode|ScenarioNode|StepNode|TableNode|string
      */
     protected function parseComment()
     {
@@ -627,9 +625,9 @@ class Parser
     /**
      * Parses language block and updates lexer configuration based on it.
      *
-     * @throws \Behat\Gherkin\Exception\ParserException
+     * @return BackgroundNode|FeatureNode|OutlineNode|ScenarioNode|StepNode|TableNode|string
      *
-     * @return \Behat\Gherkin\Node\BackgroundNode|\Behat\Gherkin\Node\FeatureNode|\Behat\Gherkin\Node\OutlineNode|\Behat\Gherkin\Node\ScenarioNode|\Behat\Gherkin\Node\StepNode|\Behat\Gherkin\Node\TableNode|string
+     * @throws ParserException
      */
     protected function parseLanguage()
     {
@@ -657,8 +655,8 @@ class Parser
      */
     private function parseTableRows()
     {
-        $table = [];
-        while (in_array($predicted = $this->predictTokenType(), ['TableRow', 'Newline', 'Comment'])) {
+        $table = array();
+        while (in_array($predicted = $this->predictTokenType(), array('TableRow', 'Newline', 'Comment'))) {
             if ('Comment' === $predicted || 'Newline' === $predicted) {
                 $this->acceptTokenType($predicted);
                 continue;
@@ -675,14 +673,13 @@ class Parser
     /**
      * Changes step node type for types But, And to type of previous step if it exists else sets to Given
      *
-     * @param \Behat\Gherkin\Node\StepNode $node
-     * @param \Behat\Gherkin\Node\StepNode[] $steps
-     *
-     * @return \Behat\Gherkin\Node\StepNode
+     * @param StepNode   $node
+     * @param StepNode[] $steps
+     * @return StepNode
      */
-    private function normalizeStepNodeKeywordType(StepNode $node, array $steps = [])
+    private function normalizeStepNodeKeywordType(StepNode $node, array $steps = array())
     {
-        if (in_array($node->getKeywordType(), ['And', 'But'])) {
+        if (in_array($node->getKeywordType(), array('And', 'But'))) {
             if (($prev = end($steps))) {
                 $keywordType = $prev->getKeywordType();
             } else {
@@ -699,5 +696,4 @@ class Parser
         }
         return $node;
     }
-
 }

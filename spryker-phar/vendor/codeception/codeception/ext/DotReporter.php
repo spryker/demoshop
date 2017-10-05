@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Extension;
 
 use Codeception\Event\FailEvent;
@@ -45,23 +39,17 @@ use Codeception\Subscriber\Console;
  */
 class DotReporter extends Extension
 {
-
     /**
-     * @var \Codeception\Subscriber\Console
+     * @var Console
      */
     protected $standardReporter;
 
     protected $errors = [];
-
     protected $failures = [];
 
     protected $width = 10;
-
     protected $currentPos = 0;
 
-    /**
-     * @return void
-     */
     public function _initialize()
     {
         $this->options['silent'] = false; // turn on printing for this extension
@@ -74,55 +62,37 @@ class DotReporter extends Extension
     public static $events = [
         Events::SUITE_BEFORE => 'beforeSuite',
         Events::TEST_SUCCESS => 'success',
-        Events::TEST_FAIL => 'fail',
-        Events::TEST_ERROR => 'error',
+        Events::TEST_FAIL    => 'fail',
+        Events::TEST_ERROR   => 'error',
         Events::TEST_SKIPPED => 'skipped',
-        Events::TEST_FAIL_PRINT => 'printFailed',
+        Events::TEST_FAIL_PRINT => 'printFailed'
     ];
 
-    /**
-     * @return void
-     */
     public function beforeSuite()
     {
         $this->writeln("");
     }
 
-    /**
-     * @return void
-     */
     public function success()
     {
         $this->printChar('.');
     }
 
-    /**
-     * @return void
-     */
     public function fail(FailEvent $e)
     {
         $this->printChar("<error>F</error>");
     }
 
-    /**
-     * @return void
-     */
     public function error(FailEvent $e)
     {
         $this->printChar('<error>E</error>');
     }
 
-    /**
-     * @return void
-     */
     public function skipped()
     {
         $this->printChar('S');
     }
-
-    /**
-     * @return void
-     */
+    
     protected function printChar($char)
     {
         if ($this->currentPos >= $this->width) {
@@ -133,12 +103,8 @@ class DotReporter extends Extension
         $this->currentPos++;
     }
 
-    /**
-     * @return void
-     */
     public function printFailed(FailEvent $event)
     {
         $this->standardReporter->printFail($event);
     }
-
 }

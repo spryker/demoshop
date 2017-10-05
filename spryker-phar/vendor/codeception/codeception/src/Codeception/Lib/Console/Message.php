@@ -1,19 +1,11 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Console;
 
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Message
 {
-
     protected $output;
-
     protected $message;
 
     public function __construct($message, Output $output = null)
@@ -51,9 +43,6 @@ class Message
         return $this;
     }
 
-    /**
-     * @return void
-     */
     public function write($verbose = OutputInterface::VERBOSITY_NORMAL)
     {
         if ($verbose > $this->output->getVerbosity()) {
@@ -62,9 +51,6 @@ class Message
         $this->output->write($this->message);
     }
 
-    /**
-     * @return void
-     */
     public function writeln($verbose = OutputInterface::VERBOSITY_NORMAL)
     {
         if ($verbose > $this->output->getVerbosity()) {
@@ -133,5 +119,4 @@ class Message
     {
         return $this->message;
     }
-
 }

@@ -1,17 +1,10 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command\Shared;
 
 use Codeception\Util\Shared\Namespaces;
 
 trait FileSystem
 {
-
     use Namespaces;
 
     protected function createDirectoryFor($basePath, $className = '')
@@ -58,5 +51,4 @@ trait FileSystem
         file_put_contents($filename, $contents, $flags);
         return true;
     }
-
 }

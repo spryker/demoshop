@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Filter;
@@ -17,7 +20,6 @@ use Behat\Gherkin\Node\ScenarioInterface;
  */
 class NameFilter extends SimpleFilter
 {
-
     protected $filterString;
 
     /**
@@ -33,7 +35,7 @@ class NameFilter extends SimpleFilter
     /**
      * Checks if Feature matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
+     * @param FeatureNode $feature Feature instance
      *
      * @return Boolean
      */
@@ -49,7 +51,7 @@ class NameFilter extends SimpleFilter
     /**
      * Checks if scenario or outline matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\ScenarioInterface $scenario Scenario or Outline node instance
+     * @param ScenarioInterface $scenario Scenario or Outline node instance
      *
      * @return Boolean
      */
@@ -63,5 +65,4 @@ class NameFilter extends SimpleFilter
 
         return false;
     }
-
 }

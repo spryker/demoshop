@@ -1,51 +1,42 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Coverage;
 
 use Codeception\Configuration;
 use Codeception\Exception\ConfigurationException;
 use Codeception\Exception\ModuleException;
-use PHP_CodeCoverage;
 use Symfony\Component\Finder\Finder;
 
 class Filter
 {
-
     /**
-     * @var \PHP_CodeCoverage|null
+     * @var \PHP_CodeCoverage
      */
     protected $phpCodeCoverage = null;
 
     /**
-     * @var \Codeception\Coverage\Filter
+     * @var Filter
      */
     protected static $c3;
 
     /**
-     * @var \PHP_CodeCoverage_Filter|null
+     * @var \PHP_CodeCoverage_Filter
      */
     protected $filter = null;
 
-    public function __construct(PHP_CodeCoverage $phpCoverage)
+    public function __construct(\PHP_CodeCoverage $phpCoverage)
     {
         $this->phpCodeCoverage = $phpCoverage
             ? $phpCoverage
-            : new PHP_CodeCoverage;
+            : new \PHP_CodeCoverage;
 
         $this->filter = $this->phpCodeCoverage->filter();
     }
 
     /**
      * @param \PHP_CodeCoverage $phpCoverage
-     *
-     * @return \Codeception\Coverage\Filter
+     * @return Filter
      */
-    public static function setup(PHP_CodeCoverage $phpCoverage)
+    public static function setup(\PHP_CodeCoverage $phpCoverage)
     {
         self::$c3 = new self($phpCoverage);
         return self::$c3;
@@ -61,10 +52,7 @@ class Filter
 
     /**
      * @param $config
-     *
-     * @throws \Codeception\Exception\ConfigurationException
-     *
-     * @return \Codeception\Coverage\Filter
+     * @return Filter
      */
     public function whiteList($config)
     {
@@ -117,10 +105,7 @@ class Filter
 
     /**
      * @param $config
-     *
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return \Codeception\Coverage\Filter
+     * @return Filter
      */
     public function blackList($config)
     {
@@ -187,5 +172,4 @@ class Filter
     {
         return $this->filter;
     }
-
 }

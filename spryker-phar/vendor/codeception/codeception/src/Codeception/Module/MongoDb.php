@@ -1,23 +1,13 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
+use Codeception\Lib\Interfaces\RequiresPackage;
+use Codeception\Module as CodeceptionModule;
 use Codeception\Configuration as Configuration;
 use Codeception\Exception\ModuleConfigException;
 use Codeception\Exception\ModuleException;
 use Codeception\Lib\Driver\MongoDb as MongoDbDriver;
-use Codeception\Lib\Interfaces\RequiresPackage;
-use Codeception\Module as CodeceptionModule;
 use Codeception\TestInterface;
-use Exception;
-use MongoConnectionException;
-use PHPUnit_Framework_Assert;
-use PHPUnit_Framework_ExpectationFailedException;
 
 /**
  * Works with MongoDb database.
@@ -62,7 +52,6 @@ use PHPUnit_Framework_ExpectationFailedException;
  */
 class MongoDb extends CodeceptionModule implements RequiresPackage
 {
-
     const DUMP_TYPE_JS = 'js';
     const DUMP_TYPE_MONGODUMP = 'mongodump';
     const DUMP_TYPE_MONGODUMP_TAR_GZ = 'mongodump-tar-gz';
@@ -78,17 +67,16 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      */
 
     protected $dumpFile;
-
     protected $isDumpFileEmpty = true;
 
     protected $config = [
-        'populate' => true,
-        'cleanup' => true,
-        'dump' => null,
+        'populate'  => true,
+        'cleanup'   => true,
+        'dump'      => null,
         'dump_type' => self::DUMP_TYPE_JS,
-        'user' => null,
-        'password' => null,
-        'quiet' => false,
+        'user'      => null,
+        'password'  => null,
+        'quiet'     => false,
     ];
 
     protected $populated = false;
@@ -100,20 +88,16 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
 
     protected $requiredFields = ['dsn'];
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     public function _initialize()
     {
+
         try {
             $this->driver = MongoDbDriver::create(
                 $this->config['dsn'],
                 $this->config['user'],
                 $this->config['password']
             );
-        } catch (MongoConnectionException $e) {
+        } catch (\MongoConnectionException $e) {
             throw new ModuleException(__CLASS__, $e->getMessage() . ' while creating Mongo connection');
         }
 
@@ -125,11 +109,6 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
         }
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleConfigException
-     *
-     * @return void
-     */
     private function validateDump()
     {
         if ($this->config['dump'] && ($this->config['cleanup'] or ($this->config['populate']))) {
@@ -146,7 +125,7 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
             if ($this->config['dump_type'] === self::DUMP_TYPE_JS) {
                 $content = file_get_contents($this->dumpFile);
                 $content = trim(preg_replace('%/\*(?:(?!\*/).)*\*/%s', "", $content));
-                if (!count(explode("\n", $content))) {
+                if (!sizeof(explode("\n", $content))) {
                     $this->isDumpFileEmpty = true;
                 }
                 return;
@@ -199,9 +178,6 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
         }
     }
 
-    /**
-     * @return void
-     */
     public function _before(TestInterface $test)
     {
         if ($this->config['cleanup'] && !$this->populated) {
@@ -210,20 +186,11 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
         }
     }
 
-    /**
-     * @return void
-     */
     public function _after(TestInterface $test)
     {
         $this->populated = false;
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleConfigException
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     protected function cleanup()
     {
         $dbh = $this->driver->getDbh();
@@ -235,16 +202,11 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
         }
         try {
             $this->driver->cleanup();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new ModuleException(__CLASS__, $e->getMessage());
         }
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     protected function loadDump()
     {
         $this->validateDump();
@@ -265,7 +227,7 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
                 $this->driver->setQuiet($this->config['quiet']);
                 $this->driver->loadFromTarGzMongoDump($this->dumpFile);
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new ModuleException(__CLASS__, $e->getMessage());
         }
     }
@@ -279,8 +241,6 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      * ```
      *
      * @param $dbName
-     *
-     * @return void
      */
     public function useDatabase($dbName)
     {
@@ -307,7 +267,7 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
             return $data['_id'];
         } else {
             $response = $collection->insertOne($data);
-            return (string)$response->getInsertedId();
+            return (string) $response->getInsertedId();
         }
     }
 
@@ -321,14 +281,12 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      *
      * @param $collection
      * @param array $criteria
-     *
-     * @return void
      */
     public function seeInCollection($collection, $criteria = [])
     {
         $collection = $this->driver->getDbh()->selectCollection($collection);
         $res = $collection->count($criteria);
-        PHPUnit_Framework_Assert::assertGreaterThan(0, $res);
+        \PHPUnit_Framework_Assert::assertGreaterThan(0, $res);
     }
 
     /**
@@ -341,14 +299,12 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      *
      * @param $collection
      * @param array $criteria
-     *
-     * @return void
      */
     public function dontSeeInCollection($collection, $criteria = [])
     {
         $collection = $this->driver->getDbh()->selectCollection($collection);
         $res = $collection->count($criteria);
-        PHPUnit_Framework_Assert::assertLessThan(1, $res);
+        \PHPUnit_Framework_Assert::assertLessThan(1, $res);
     }
 
     /**
@@ -361,7 +317,6 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      *
      * @param $collection
      * @param array $criteria
-     *
      * @return array
      */
     public function grabFromCollection($collection, $criteria = [])
@@ -382,7 +337,6 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      *
      * @param $collection
      * @param array $criteria
-     *
      * @return integer
      */
     public function grabCollectionCount($collection, $criteria = [])
@@ -400,12 +354,8 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      * ```
      *
      * @param String $collection
-     * @param Array|array $criteria
-     * @param String|null $elementToCheck
-     *
-     * @throws \PHPUnit_Framework_ExpectationFailedException
-     *
-     * @return void
+     * @param Array $criteria
+     * @param String $elementToCheck
      */
     public function seeElementIsArray($collection, $criteria = [], $elementToCheck = null)
     {
@@ -416,16 +366,16 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
                 $criteria,
                 [
                     $elementToCheck => ['$exists' => true],
-                    '$where' => "Array.isArray(this.{$elementToCheck})",
+                    '$where' => "Array.isArray(this.{$elementToCheck})"
                 ]
             )
         );
         if ($res > 1) {
-            throw new PHPUnit_Framework_ExpectationFailedException(
+            throw new \PHPUnit_Framework_ExpectationFailedException(
                 'Error: you should test against a single element criteria when asserting that elementIsArray'
             );
         }
-        PHPUnit_Framework_Assert::assertEquals(1, $res, 'Specified element is not a Mongo Object');
+        \PHPUnit_Framework_Assert::assertEquals(1, $res, 'Specified element is not a Mongo Object');
     }
 
     /**
@@ -437,12 +387,8 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      * ```
      *
      * @param String $collection
-     * @param Array|array $criteria
-     * @param String|null $elementToCheck
-     *
-     * @throws \PHPUnit_Framework_ExpectationFailedException
-     *
-     * @return void
+     * @param Array $criteria
+     * @param String $elementToCheck
      */
     public function seeElementIsObject($collection, $criteria = [], $elementToCheck = null)
     {
@@ -453,16 +399,16 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
                 $criteria,
                 [
                     $elementToCheck => ['$exists' => true],
-                    '$where' => "! Array.isArray(this.{$elementToCheck}) && isObject(this.{$elementToCheck})",
+                    '$where' => "! Array.isArray(this.{$elementToCheck}) && isObject(this.{$elementToCheck})"
                 ]
             )
         );
         if ($res > 1) {
-            throw new PHPUnit_Framework_ExpectationFailedException(
+            throw new \PHPUnit_Framework_ExpectationFailedException(
                 'Error: you should test against a single element criteria when asserting that elementIsObject'
             );
         }
-        PHPUnit_Framework_Assert::assertEquals(1, $res, 'Specified element is not a Mongo Object');
+        \PHPUnit_Framework_Assert::assertEquals(1, $res, 'Specified element is not a Mongo Object');
     }
 
     /**
@@ -477,14 +423,12 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
      * @param $collection
      * @param integer $expected
      * @param array $criteria
-     *
-     * @return void
      */
     public function seeNumElementsInCollection($collection, $expected, $criteria = [])
     {
         $collection = $this->driver->getDbh()->selectCollection($collection);
         $res = $collection->count($criteria);
-        PHPUnit_Framework_Assert::assertSame($expected, $res);
+        \PHPUnit_Framework_Assert::assertSame($expected, $res);
     }
 
     /**
@@ -494,5 +438,4 @@ class MongoDb extends CodeceptionModule implements RequiresPackage
     {
         return ['MongoDB\Client' => '"mongodb/mongodb": "^1.0"'];
     }
-
 }

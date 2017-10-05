@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
@@ -14,45 +17,39 @@ namespace Behat\Gherkin\Node;
  */
 class ExampleNode implements ScenarioInterface
 {
-
     /**
      * @var string
      */
     private $title;
-
     /**
      * @var string[]
      */
     private $tags;
-
     /**
-     * @var \Behat\Gherkin\Node\StepNode[]
+     * @var StepNode[]
      */
     private $outlineSteps;
-
     /**
      * @var string[]
      */
     private $tokens;
-
     /**
      * @var integer
      */
     private $line;
-
     /**
-     * @var null|\Behat\Gherkin\Node\StepNode[]
+     * @var null|StepNode[]
      */
     private $steps;
 
     /**
      * Initializes outline.
      *
-     * @param string $title
-     * @param string[] $tags
-     * @param \Behat\Gherkin\Node\StepNode[] $outlineSteps
-     * @param string[] $tokens
-     * @param integer $line
+     * @param string     $title
+     * @param string[]   $tags
+     * @param StepNode[] $outlineSteps
+     * @param string[]   $tokens
+     * @param integer    $line
      */
     public function __construct($title, array $tags, $outlineSteps, array $tokens, $line)
     {
@@ -138,7 +135,7 @@ class ExampleNode implements ScenarioInterface
     /**
      * Returns outline steps.
      *
-     * @return \Behat\Gherkin\Node\StepNode[]
+     * @return StepNode[]
      */
     public function getSteps()
     {
@@ -168,11 +165,11 @@ class ExampleNode implements ScenarioInterface
     /**
      * Creates steps for this example from abstract outline steps.
      *
-     * @return \Behat\Gherkin\Node\StepNode[]
+     * @return StepNode[]
      */
     protected function createExampleSteps()
     {
-        $steps = [];
+        $steps = array();
         foreach ($this->outlineSteps as $outlineStep) {
             $keyword = $outlineStep->getKeyword();
             $keywordType = $outlineStep->getKeywordType();
@@ -189,9 +186,9 @@ class ExampleNode implements ScenarioInterface
     /**
      * Replaces tokens in arguments with row values.
      *
-     * @param \Behat\Gherkin\Node\ArgumentInterface[] $arguments
+     * @param ArgumentInterface[] $arguments
      *
-     * @return \Behat\Gherkin\Node\ArgumentInterface[]
+     * @return ArgumentInterface[]
      */
     protected function replaceArgumentsTokens(array $arguments)
     {
@@ -210,9 +207,9 @@ class ExampleNode implements ScenarioInterface
     /**
      * Replaces tokens in table with row values.
      *
-     * @param \Behat\Gherkin\Node\TableNode $argument
+     * @param TableNode $argument
      *
-     * @return \Behat\Gherkin\Node\TableNode
+     * @return TableNode
      */
     protected function replaceTableArgumentTokens(TableNode $argument)
     {
@@ -229,9 +226,9 @@ class ExampleNode implements ScenarioInterface
     /**
      * Replaces tokens in PyString with row values.
      *
-     * @param \Behat\Gherkin\Node\PyStringNode $argument
+     * @param PyStringNode $argument
      *
-     * @return \Behat\Gherkin\Node\PyStringNode
+     * @return PyStringNode
      */
     protected function replacePyStringArgumentTokens(PyStringNode $argument)
     {
@@ -258,5 +255,4 @@ class ExampleNode implements ScenarioInterface
 
         return $text;
     }
-
 }

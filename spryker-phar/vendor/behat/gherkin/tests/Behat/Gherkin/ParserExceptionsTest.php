@@ -1,62 +1,49 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin;
 
-use Behat\Gherkin\Keywords\ArrayKeywords;
 use Behat\Gherkin\Lexer;
 use Behat\Gherkin\Parser;
-use PHPUnit_Framework_TestCase;
+use Behat\Gherkin\Keywords\ArrayKeywords;
 
-class ParserExceptionsTest extends PHPUnit_Framework_TestCase
+class ParserExceptionsTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
-     * @var \Behat\Gherkin\Parser
+     * @var Parser
      */
     private $gherkin;
 
-    /**
-     * @return void
-     */
     protected function setUp()
     {
-        $keywords = new ArrayKeywords([
-            'en' => [
-                'feature' => 'Feature',
-                'background' => 'Background',
-                'scenario' => 'Scenario',
+        $keywords       = new ArrayKeywords(array(
+            'en' => array(
+                'feature'          => 'Feature',
+                'background'       => 'Background',
+                'scenario'         => 'Scenario',
                 'scenario_outline' => 'Scenario Outline',
-                'examples' => 'Examples',
-                'given' => 'Given',
-                'when' => 'When',
-                'then' => 'Then',
-                'and' => 'And',
-                'but' => 'But',
-            ],
-            'ru' => [
-                'feature' => 'Функционал',
-                'background' => 'Предыстория',
-                'scenario' => 'Сценарий',
+                'examples'         => 'Examples',
+                'given'            => 'Given',
+                'when'             => 'When',
+                'then'             => 'Then',
+                'and'              => 'And',
+                'but'              => 'But'
+            ),
+            'ru' => array(
+                'feature'          => 'Функционал',
+                'background'       => 'Предыстория',
+                'scenario'         => 'Сценарий',
                 'scenario_outline' => 'Структура сценария',
-                'examples' => 'Значения',
-                'given' => 'Допустим',
-                'when' => 'То',
-                'then' => 'Если',
-                'and' => 'И',
-                'but' => 'Но',
-            ],
-        ]);
+                'examples'         => 'Значения',
+                'given'            => 'Допустим',
+                'when'             => 'То',
+                'then'             => 'Если',
+                'and'              => 'И',
+                'but'              => 'Но'
+            )
+        ));
         $this->gherkin = new Parser(new Lexer($keywords));
     }
 
-    /**
-     * @return void
-     */
     public function testStepRightAfterFeature()
     {
         $feature = <<<GHERKIN
@@ -70,9 +57,6 @@ GHERKIN;
         $this->assertEquals("\n  Given some step-like line", $parsed->getDescription());
     }
 
-    /**
-     * @return void
-     */
     public function testTextInBackground()
     {
         $feature = <<<GHERKIN
@@ -95,9 +79,6 @@ GHERKIN;
         $this->gherkin->parse($feature);
     }
 
-    /**
-     * @return void
-     */
     public function testTextInScenario()
     {
         $feature = <<<GHERKIN
@@ -162,8 +143,6 @@ TEXT;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testAmbigiousLanguage()
     {
@@ -182,8 +161,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testEmptyOutline()
     {
@@ -198,8 +175,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testWrongTagPlacement()
     {
@@ -217,8 +192,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testBackgroundWithTag()
     {
@@ -235,8 +208,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testEndlessPyString()
     {
@@ -254,8 +225,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testWrongStepType()
     {
@@ -273,8 +242,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testMultipleBackgrounds()
     {
@@ -293,8 +260,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testMultipleFeatures()
     {
@@ -309,8 +274,6 @@ GHERKIN;
 
     /**
      * @expectedException \Behat\Gherkin\Exception\ParserException
-     *
-     * @return void
      */
     public function testTableWithoutRightBorder()
     {
@@ -325,5 +288,4 @@ GHERKIN;
 
         $this->gherkin->parse($feature);
     }
-
 }

@@ -1,20 +1,9 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
-
-use PDO;
 
 class Oci extends Db
 {
 
-    /**
-     * @return void
-     */
     public function cleanup()
     {
         $this->dbh->exec(
@@ -58,8 +47,6 @@ class Oci extends Db
      * but in this case you need to change the $delimiter from `//` to `;`
      *
      * @param $sql
-     *
-     * @return void
      */
     public function load($sql)
     {
@@ -109,15 +96,14 @@ class Oci extends Db
                 AND cons.owner = cols.owner
                 ORDER BY cols.table_name, cols.position";
             $stmt = $this->executeQuery($query, [$tableName]);
-            $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $columns = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             foreach ($columns as $column) {
-                $primaryKey[] = $column['COLUMN_NAME'];
+                $primaryKey []= $column['COLUMN_NAME'];
             }
             $this->primaryKeys[$tableName] = $primaryKey;
         }
 
         return $this->primaryKeys[$tableName];
     }
-
 }

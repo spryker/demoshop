@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
@@ -24,13 +18,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class GeneratePageObject extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -45,9 +35,6 @@ class GeneratePageObject extends Command
         return 'Generates empty PageObject class';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $suite = $input->getArgument('suite');
@@ -82,11 +69,7 @@ class GeneratePageObject extends Command
         $output->writeln("<info>PageObject was created in $filename</info>");
     }
 
-    /**
-     * @return void
-     */
     protected function pathToPageObject($class, $suite)
     {
     }
-
 }

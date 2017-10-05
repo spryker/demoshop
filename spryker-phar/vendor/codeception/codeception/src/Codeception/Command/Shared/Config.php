@@ -1,22 +1,13 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command\Shared;
 
 use Codeception\Configuration;
-use Codeception\Exception\ParseException as ExceptionParseException;
-use InvalidArgumentException;
 use Symfony\Component\Console\Exception\InvalidOptionException;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
 trait Config
 {
-
     protected function getSuiteConfig($suite)
     {
         return Configuration::suiteSettings($suite, $this->getGlobalConfig());
@@ -38,7 +29,7 @@ trait Config
         foreach ($configOptions as $option) {
             $keys = explode(': ', $option);
             if (count($keys) < 2) {
-                throw new InvalidArgumentException('--config-option should have config passed as "key:value"');
+                throw new \InvalidArgumentException('--config-option should have config passed as "key:value"');
             }
             $value = array_pop($keys);
             $yaml = '';
@@ -49,7 +40,7 @@ trait Config
             try {
                 $config = Yaml::parse($yaml);
             } catch (ParseException $e) {
-                throw new ExceptionParseException("Overridden config can't be parsed: \n$yaml\n" . $e->getParsedLine());
+                throw new \Codeception\Exception\ParseException("Overridden config can't be parsed: \n$yaml\n" . $e->getParsedLine());
             }
             $updatedConfig = array_merge_recursive($updatedConfig, $config);
         }
@@ -72,5 +63,4 @@ trait Config
         }
         return Configuration::append($config);
     }
-
 }

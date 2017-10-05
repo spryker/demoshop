@@ -1,68 +1,49 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Loader;
 
 use Behat\Gherkin\Loader\ArrayLoader;
-use PHPUnit_Framework_TestCase;
 
-class ArrayLoaderTest extends PHPUnit_Framework_TestCase
+class ArrayLoaderTest extends \PHPUnit_Framework_TestCase
 {
-
     private $loader;
 
-    /**
-     * @return void
-     */
     protected function setUp()
     {
         $this->loader = new ArrayLoader();
     }
 
-    /**
-     * @return void
-     */
     public function testSupports()
     {
         $this->assertFalse($this->loader->supports(__DIR__));
         $this->assertFalse($this->loader->supports(__FILE__));
         $this->assertFalse($this->loader->supports('string'));
-        $this->assertFalse($this->loader->supports(['wrong_root']));
-        $this->assertFalse($this->loader->supports(['features']));
-        $this->assertTrue($this->loader->supports(['features' => []]));
-        $this->assertTrue($this->loader->supports(['feature' => []]));
+        $this->assertFalse($this->loader->supports(array('wrong_root')));
+        $this->assertFalse($this->loader->supports(array('features')));
+        $this->assertTrue($this->loader->supports(array('features' => array())));
+        $this->assertTrue($this->loader->supports(array('feature' => array())));
     }
 
-    /**
-     * @return void
-     */
     public function testLoadEmpty()
     {
-        $this->assertEquals([], $this->loader->load(['features' => []]));
+        $this->assertEquals(array(), $this->loader->load(array('features' => array())));
     }
 
-    /**
-     * @return void
-     */
     public function testLoadFeatures()
     {
-        $features = $this->loader->load([
-            'features' => [
-                [
-                    'title' => 'First feature',
-                    'line' => 3,
-                ],
-                [
-                    'description' => 'Second feature description',
-                    'language' => 'ru',
-                    'tags' => ['some', 'tags'],
-                ],
-            ],
-        ]);
+        $features = $this->loader->load(array(
+            'features' => array(
+                array(
+                    'title'         => 'First feature',
+                    'line'          => 3,
+                ),
+                array(
+                    'description'   => 'Second feature description',
+                    'language'      => 'ru',
+                    'tags'          => array('some', 'tags')
+                )
+            ),
+        ));
 
         $this->assertEquals(2, count($features));
 
@@ -78,34 +59,31 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Second feature description', $features[1]->getDescription());
         $this->assertNull($features[1]->getFile());
         $this->assertEquals('ru', $features[1]->getLanguage());
-        $this->assertEquals(['some', 'tags'], $features[1]->getTags());
+        $this->assertEquals(array('some', 'tags'), $features[1]->getTags());
     }
 
-    /**
-     * @return void
-     */
     public function testLoadScenarios()
     {
-        $features = $this->loader->load([
-            'features' => [
-                [
-                    'title' => 'Feature',
-                    'scenarios' => [
-                        [
+        $features = $this->loader->load(array(
+            'features' => array(
+                array(
+                    'title'     => 'Feature',
+                    'scenarios' => array(
+                        array(
                             'title' => 'First scenario',
-                            'line' => 2,
-                        ],
-                        [
-                            'tags' => ['second', 'scenario', 'tags'],
-                        ],
-                        [
-                            'tags' => ['third', 'scenario'],
-                            'line' => 3,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
+                            'line'  => 2
+                        ),
+                        array(
+                            'tags'  => array('second', 'scenario', 'tags')
+                        ),
+                        array(
+                            'tags'  => array('third', 'scenario'),
+                            'line'  => 3
+                        )
+                    )
+                )
+            ),
+        ));
 
         $this->assertEquals(1, count($features));
 
@@ -120,38 +98,35 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('Behat\Gherkin\Node\ScenarioNode', $scenarios[1]);
         $this->assertNull($scenarios[1]->getTitle());
-        $this->assertEquals(['second', 'scenario', 'tags'], $scenarios[1]->getTags());
+        $this->assertEquals(array('second', 'scenario', 'tags'), $scenarios[1]->getTags());
         $this->assertEquals(1, $scenarios[1]->getLine());
 
         $this->assertInstanceOf('Behat\Gherkin\Node\ScenarioNode', $scenarios[2]);
         $this->assertNull($scenarios[2]->getTitle());
-        $this->assertEquals(['third', 'scenario'], $scenarios[2]->getTags());
+        $this->assertEquals(array('third', 'scenario'), $scenarios[2]->getTags());
         $this->assertEquals(3, $scenarios[2]->getLine());
     }
 
-    /**
-     * @return void
-     */
     public function testLoadOutline()
     {
-        $features = $this->loader->load([
-            'features' => [
-                [
-                    'title' => 'Feature',
-                    'scenarios' => [
-                        [
-                            'type' => 'outline',
+        $features = $this->loader->load(array(
+            'features' => array(
+                array(
+                    'title'     => 'Feature',
+                    'scenarios' => array(
+                        array(
+                            'type'  => 'outline',
                             'title' => 'First outline',
-                            'line' => 2,
-                        ],
-                        [
-                            'type' => 'outline',
-                            'tags' => ['second', 'outline', 'tags'],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
+                            'line'  => 2
+                        ),
+                        array(
+                            'type'  => 'outline',
+                            'tags'  => array('second', 'outline', 'tags')
+                        )
+                    )
+                )
+            ),
+        ));
 
         $this->assertEquals(1, count($features));
 
@@ -166,69 +141,63 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('Behat\Gherkin\Node\OutlineNode', $outlines[1]);
         $this->assertNull($outlines[1]->getTitle());
-        $this->assertEquals(['second', 'outline', 'tags'], $outlines[1]->getTags());
+        $this->assertEquals(array('second', 'outline', 'tags'), $outlines[1]->getTags());
         $this->assertEquals(1, $outlines[1]->getLine());
     }
 
-    /**
-     * @return void
-     */
     public function testOutlineExamples()
     {
-        $features = $this->loader->load([
-            'features' => [
-                [
-                    'title' => 'Feature',
-                    'scenarios' => [
-                        [
-                            'type' => 'outline',
-                            'title' => 'First outline',
-                            'line' => 2,
-                            'examples' => [
-                                ['user', 'pass'],
-                                ['ever', 'sdsd'],
-                                ['anto', 'fdfd'],
-                            ],
-                        ],
-                        [
-                            'type' => 'outline',
-                            'tags' => ['second', 'outline', 'tags'],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
+        $features = $this->loader->load(array(
+            'features' => array(
+                array(
+                    'title'     => 'Feature',
+                    'scenarios' => array(
+                        array(
+                            'type'      => 'outline',
+                            'title'     => 'First outline',
+                            'line'      => 2,
+                            'examples'  => array(
+                                array('user', 'pass'),
+                                array('ever', 'sdsd'),
+                                array('anto', 'fdfd')
+                            )
+                        ),
+                        array(
+                            'type'  => 'outline',
+                            'tags'  => array('second', 'outline', 'tags')
+                        )
+                    )
+                )
+            ),
+        ));
 
         $this->assertEquals(1, count($features));
 
         $scenarios = $features[0]->getScenarios();
-        $scenario = $scenarios[0];
+        $scenario  = $scenarios[0];
 
         $this->assertEquals(
-            [['user' => 'ever', 'pass' => 'sdsd'], ['user' => 'anto', 'pass' => 'fdfd']],
+            array(array('user' => 'ever', 'pass' => 'sdsd'), array('user' => 'anto', 'pass' => 'fdfd')),
             $scenario->getExampleTable()->getHash()
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLoadBackground()
     {
-        $features = $this->loader->load([
-            'features' => [
-                [
-                ],
-                [
-                    'background' => [],
-                ],
-                [
-                    'background' => [
-                        'line' => 2,
-                    ],
-                ],
-            ],
-        ]);
+        $features = $this->loader->load(array(
+            'features' => array(
+                array(
+                ),
+                array(
+                    'background' => array()
+                ),
+                array(
+                    'background' => array(
+                        'line' => 2
+                    )
+                ),
+            )
+        ));
 
         $this->assertEquals(3, count($features));
 
@@ -239,40 +208,37 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(2, $features[2]->getBackground()->getLine());
     }
 
-    /**
-     * @return void
-     */
     public function testLoadSteps()
     {
-        $features = $this->loader->load([
-            'features' => [
-                [
-                    'background' => [
-                        'steps' => [
-                            ['type' => 'Gangway!', 'keyword_type' => 'Given', 'text' => 'bg step 1', 'line' => 3],
-                            ['type' => 'Blimey!', 'keyword_type' => 'When', 'text' => 'bg step 2'],
-                        ],
-                    ],
-                    'scenarios' => [
-                        [
+        $features = $this->loader->load(array(
+            'features' => array(
+                array(
+                    'background' => array(
+                        'steps' => array(
+                            array('type' => 'Gangway!', 'keyword_type' => 'Given', 'text' => 'bg step 1', 'line' => 3),
+                            array('type' => 'Blimey!', 'keyword_type' => 'When', 'text' => 'bg step 2')
+                        )
+                    ),
+                    'scenarios' => array(
+                        array(
                             'title' => 'Scenario',
-                            'steps' => [
-                                ['type' => 'Gangway!', 'keyword_type' => 'Given', 'text' => 'sc step 1'],
-                                ['type' => 'Blimey!', 'keyword_type' => 'When', 'text' => 'sc step 2'],
-                            ],
-                        ],
-                        [
+                            'steps' => array(
+                                array('type' => 'Gangway!', 'keyword_type' => 'Given', 'text' => 'sc step 1'),
+                                array('type' => 'Blimey!', 'keyword_type' => 'When', 'text' => 'sc step 2')
+                            )
+                        ),
+                        array(
                             'title' => 'Outline',
-                            'type' => 'outline',
-                            'steps' => [
-                                ['type' => 'Gangway!', 'keyword_type' => 'Given', 'text' => 'out step 1'],
-                                ['type' => 'Blimey!', 'keyword_type' => 'When', 'text' => 'out step 2'],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
+                            'type'  => 'outline',
+                            'steps' => array(
+                                array('type' => 'Gangway!', 'keyword_type' => 'Given', 'text' => 'out step 1'),
+                                array('type' => 'Blimey!', 'keyword_type' => 'When', 'text' => 'out step 2')
+                            )
+                        )
+                    )
+                )
+            )
+        ));
 
         $background = $features[0]->getBackground();
         $this->assertTrue($background->hasSteps());
@@ -289,7 +255,7 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('bg step 2', $steps[1]->getText());
         $this->assertEquals(1, $steps[1]->getLine());
 
-        $scenarios = $features[0]->getScenarios();
+        $scenarios  = $features[0]->getScenarios();
 
         $scenario = $scenarios[0];
         $this->assertTrue($scenario->hasSteps());
@@ -322,52 +288,49 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, $steps[1]->getLine());
     }
 
-    /**
-     * @return void
-     */
     public function testLoadStepArguments()
     {
-        $features = $this->loader->load([
-            'features' => [
-                [
-                    'background' => [
-                        'steps' => [
-                            [
+        $features = $this->loader->load(array(
+            'features' => array(
+                array(
+                    'background' => array(
+                        'steps' => array(
+                            array(
                                 'type' => 'Gangway!', 'keyword_type' => 'Given', 'text' => 'step with table argument',
-                                'arguments' => [
-                                    [
-                                        'type' => 'table',
-                                        'rows' => [
-                                            ['key', 'val'],
-                                            [1, 2],
-                                            [3, 4],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                            [
+                                'arguments' => array(
+                                    array(
+                                        'type'  => 'table',
+                                        'rows'  => array(
+                                            array('key', 'val'),
+                                            array(1, 2),
+                                            array(3, 4)
+                                        )
+                                    )
+                                )
+                            ),
+                            array(
                                 'type' => 'Blimey!', 'keyword_type' => 'When', 'text' => 'step with pystring argument',
-                                'arguments' => [
-                                    [
-                                        'type' => 'pystring',
-                                        'text' => '    some text',
-                                    ],
-                                ],
-                            ],
-                            [
+                                'arguments' => array(
+                                    array(
+                                        'type'      => 'pystring',
+                                        'text'      => '    some text',
+                                    )
+                                )
+                            ),
+                            array(
                                 'type' => 'Let go and haul', 'keyword_type' => 'Then', 'text' => '2nd step with pystring argument',
-                                'arguments' => [
-                                    [
-                                        'type' => 'pystring',
-                                        'text' => 'some text',
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
+                                'arguments' => array(
+                                    array(
+                                        'type'      => 'pystring',
+                                        'text'      => 'some text',
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        ));
 
         $background = $features[0]->getBackground();
 
@@ -383,7 +346,7 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Given', $steps[0]->getKeywordType());
         $this->assertEquals('step with table argument', $steps[0]->getText());
         $this->assertInstanceOf('Behat\Gherkin\Node\TableNode', $arguments[0]);
-        $this->assertEquals([['key' => 1, 'val' => 2], ['key' => 3, 'val' => 4]], $arguments[0]->getHash());
+        $this->assertEquals(array(array('key'=>1, 'val'=>2), array('key'=>3,'val'=>4)), $arguments[0]->getHash());
 
         $arguments = $steps[1]->getArguments();
         $this->assertEquals('Blimey!', $steps[1]->getType());
@@ -391,7 +354,7 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('When', $steps[1]->getKeywordType());
         $this->assertEquals('step with pystring argument', $steps[1]->getText());
         $this->assertInstanceOf('Behat\Gherkin\Node\PyStringNode', $arguments[0]);
-        $this->assertEquals('    some text', (string)$arguments[0]);
+        $this->assertEquals('    some text', (string) $arguments[0]);
 
         $arguments = $steps[2]->getArguments();
         $this->assertEquals('Let go and haul', $steps[2]->getType());
@@ -399,22 +362,18 @@ class ArrayLoaderTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Then', $steps[2]->getKeywordType());
         $this->assertEquals('2nd step with pystring argument', $steps[2]->getText());
         $this->assertInstanceOf('Behat\Gherkin\Node\PyStringNode', $arguments[0]);
-        $this->assertEquals('some text', (string)$arguments[0]);
+        $this->assertEquals('some text', (string) $arguments[0]);
     }
 
-    /**
-     * @return void
-     */
     public function testSingleFeatureArray()
     {
-        $features = $this->loader->load([
-            'feature' => [
-                'title' => 'Some feature',
-            ],
-        ]);
+        $features = $this->loader->load(array(
+            'feature' => array(
+                'title' => 'Some feature'
+            )
+        ));
 
         $this->assertEquals(1, count($features));
         $this->assertEquals('Some feature', $features[0]->getTitle());
     }
-
 }

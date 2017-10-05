@@ -1,30 +1,22 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Lib\Connector\Laravel5\ExceptionHandlerDecorator;
 use Codeception\Lib\Connector\Shared\LaravelCommon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use PHPUnit_Framework_MockObject_Generator;
-use PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount;
-use PHPUnit_Framework_MockObject_Stub_ReturnCallback;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Client;
 
 class Laravel5 extends Client
 {
-
     use LaravelCommon;
 
     /**
-     * @var \Illuminate\Foundation\Application
+     * @var Application
      */
     private $app;
 
@@ -99,9 +91,8 @@ class Laravel5 extends Client
     /**
      * Execute a request.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param SymfonyRequest $request
+     * @return Response
      */
     protected function doRequest($request)
     {
@@ -127,14 +118,13 @@ class Laravel5 extends Client
      * Fixes issue https://github.com/Codeception/Codeception/pull/3417.
      *
      * @param array $files
-     *
      * @return array
      */
     protected function filterFiles(array $files)
     {
         $files = parent::filterFiles($files);
 
-        if (!class_exists('Illuminate\Http\UploadedFile')) {
+        if (! class_exists('Illuminate\Http\UploadedFile')) {
             // The \Illuminate\Http\UploadedFile class was introduced in Laravel 5.2.15,
             // so don't change the $files array if it does not exist.
             return $files;
@@ -145,7 +135,6 @@ class Laravel5 extends Client
 
     /**
      * @param array $files
-     *
      * @return array
      */
     private function convertToTestFiles(array $files)
@@ -166,7 +155,7 @@ class Laravel5 extends Client
     /**
      * Initialize the Laravel framework.
      *
-     * @param \Symfony\Component\HttpFoundation\Request|null $request
+     * @param SymfonyRequest $request
      */
     private function initialize($request = null)
     {
@@ -180,7 +169,7 @@ class Laravel5 extends Client
         $this->app = $this->kernel = $this->loadApplication();
 
         // Set the request instance for the application,
-        if ($request === null) {
+        if (is_null($request)) {
             $appConfig = require $this->module->config['project_dir'] . 'config/app.php';
             $request = SymfonyRequest::create($appConfig['url']);
         }
@@ -235,8 +224,8 @@ class Laravel5 extends Client
 
     /**
      * Boot the Laravel application object.
-     *
-     * @return \Illuminate\Foundation\Application
+     * @return Application
+     * @throws ModuleConfig
      */
     private function loadApplication()
     {
@@ -252,7 +241,7 @@ class Laravel5 extends Client
      */
     private function mockEventDispatcher()
     {
-        $mockGenerator = new PHPUnit_Framework_MockObject_Generator;
+        $mockGenerator = new \PHPUnit_Framework_MockObject_Generator;
         $mock = $mockGenerator->getMock('Illuminate\Contracts\Events\Dispatcher');
 
         // Even if events are disabled we still want to record the triggered events.
@@ -268,9 +257,9 @@ class Laravel5 extends Client
         // the 'fire' method was renamed to 'dispatch'. This code determines the correct method to mock.
         $method = method_exists($this->app['events'], 'dispatch') ? 'dispatch' : 'fire';
 
-        $mock->expects(new PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount)
+        $mock->expects(new \PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount)
             ->method($method)
-            ->will(new PHPUnit_Framework_MockObject_Stub_ReturnCallback($callback));
+            ->will(new \PHPUnit_Framework_MockObject_Stub_ReturnCallback($callback));
 
         $this->app->instance('events', $mock);
     }
@@ -279,7 +268,6 @@ class Laravel5 extends Client
      * Normalize events to class names.
      *
      * @param $event
-     *
      * @return string
      */
     private function normalizeEvent($event)
@@ -306,7 +294,6 @@ class Laravel5 extends Client
      * Did an event trigger?
      *
      * @param $event
-     *
      * @return bool
      */
     public function eventTriggered($event)
@@ -324,8 +311,6 @@ class Laravel5 extends Client
 
     /**
      * Disable Laravel exception handling.
-     *
-     * @return void
      */
     public function disableExceptionHandling()
     {
@@ -335,8 +320,6 @@ class Laravel5 extends Client
 
     /**
      * Enable Laravel exception handling.
-     *
-     * @return void
      */
     public function enableExceptionHandling()
     {
@@ -346,8 +329,6 @@ class Laravel5 extends Client
 
     /**
      * Disable events.
-     *
-     * @return void
      */
     public function disableEvents()
     {
@@ -357,8 +338,6 @@ class Laravel5 extends Client
 
     /**
      * Disable model events.
-     *
-     * @return void
      */
     public function disableModelEvents()
     {
@@ -369,13 +348,9 @@ class Laravel5 extends Client
     /*
      * Disable middleware.
      */
-    /**
-     * @return void
-     */
     public function disableMiddleware()
     {
         $this->middlewareDisabled = true;
         $this->app->instance('middleware.disable', true);
     }
-
 }

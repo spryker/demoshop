@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
@@ -14,47 +17,38 @@ namespace Behat\Gherkin\Node;
  */
 class FeatureNode implements KeywordNodeInterface, TaggedNodeInterface
 {
-
     /**
      * @var null|string
      */
     private $title;
-
     /**
      * @var null|string
      */
     private $description;
-
     /**
      * @var string[]
      */
-    private $tags = [];
-
+    private $tags = array();
     /**
-     * @var null|\Behat\Gherkin\Node\BackgroundNode
+     * @var null|BackgroundNode
      */
     private $background;
-
     /**
-     * @var \Behat\Gherkin\Node\ScenarioInterface[]
+     * @var ScenarioInterface[]
      */
-    private $scenarios = [];
-
+    private $scenarios = array();
     /**
      * @var string
      */
     private $keyword;
-
     /**
      * @var string
      */
     private $language;
-
     /**
      * @var null|string
      */
     private $file;
-
     /**
      * @var integer
      */
@@ -63,21 +57,21 @@ class FeatureNode implements KeywordNodeInterface, TaggedNodeInterface
     /**
      * Initializes feature.
      *
-     * @param null|string $title
-     * @param null|string $description
-     * @param string[] $tags
-     * @param null|\Behat\Gherkin\Node\BackgroundNode $background
-     * @param \Behat\Gherkin\Node\ScenarioInterface[] $scenarios
-     * @param string $keyword
-     * @param string $language
-     * @param null|string $file
-     * @param integer $line
+     * @param null|string         $title
+     * @param null|string         $description
+     * @param string[]            $tags
+     * @param null|BackgroundNode $background
+     * @param ScenarioInterface[] $scenarios
+     * @param string              $keyword
+     * @param string              $language
+     * @param null|string         $file
+     * @param integer             $line
      */
     public function __construct(
         $title,
         $description,
         array $tags,
-        BackgroundNode $background,
+        BackgroundNode $background = null,
         array $scenarios,
         $keyword,
         $language,
@@ -180,7 +174,7 @@ class FeatureNode implements KeywordNodeInterface, TaggedNodeInterface
     /**
      * Returns feature background.
      *
-     * @return null|\Behat\Gherkin\Node\BackgroundNode
+     * @return null|BackgroundNode
      */
     public function getBackground()
     {
@@ -200,7 +194,7 @@ class FeatureNode implements KeywordNodeInterface, TaggedNodeInterface
     /**
      * Returns feature scenarios.
      *
-     * @return \Behat\Gherkin\Node\ScenarioInterface[]
+     * @return ScenarioInterface[]
      */
     public function getScenarios()
     {
@@ -246,5 +240,4 @@ class FeatureNode implements KeywordNodeInterface, TaggedNodeInterface
     {
         return $this->line;
     }
-
 }

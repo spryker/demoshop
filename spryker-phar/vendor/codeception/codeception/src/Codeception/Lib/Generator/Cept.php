@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Exception\ConfigurationException;
@@ -34,7 +28,7 @@ EOF;
             throw new ConfigurationException("Cept can't be created for suite without an actor. Add `actor: SomeTester` to suite config");
         }
         $use = '';
-        if (!empty($this->settings['namespace'])) {
+        if (! empty($this->settings['namespace'])) {
             $namespace = rtrim($this->settings['namespace'], '\\');
             $use = "use {$namespace}\\$actor;";
         }
@@ -44,5 +38,4 @@ EOF;
             ->place('use', $use)
             ->produce();
     }
-
 }

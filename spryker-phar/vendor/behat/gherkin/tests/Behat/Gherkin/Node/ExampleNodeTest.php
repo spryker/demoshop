@@ -1,10 +1,5 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Node;
 
 use Behat\Gherkin\Node\ExampleTableNode;
@@ -12,30 +7,25 @@ use Behat\Gherkin\Node\OutlineNode;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\StepNode;
 use Behat\Gherkin\Node\TableNode;
-use PHPUnit_Framework_TestCase;
 
-class ExampleNodeTest extends PHPUnit_Framework_TestCase
+class ExampleNodeTest extends \PHPUnit_Framework_TestCase
 {
-
-    /**
-     * @return void
-     */
     public function testCreateExampleSteps()
     {
-        $steps = [
-            $step1 = new StepNode('Gangway!', 'I am <name>', [], null, 'Given'),
-            $step2 = new StepNode('Aye!', 'my email is <email>', [], null, 'And'),
-            $step3 = new StepNode('Blimey!', 'I open homepage', [], null, 'When'),
-            $step4 = new StepNode('Let go and haul', 'website should recognise me', [], null, 'Then'),
-        ];
+        $steps = array(
+            $step1 = new StepNode('Gangway!', 'I am <name>', array(), null, 'Given'),
+            $step2 = new StepNode('Aye!', 'my email is <email>', array(), null, 'And'),
+            $step3 = new StepNode('Blimey!', 'I open homepage', array(), null, 'When'),
+            $step4 = new StepNode('Let go and haul', 'website should recognise me', array(), null, 'Then'),
+        );
 
-        $table = new ExampleTableNode([
-            ['name', 'email'],
-            ['everzet', 'ever.zet@gmail.com'],
-            ['example', 'example@example.com'],
-        ], 'Examples');
+        $table = new ExampleTableNode(array(
+            array('name', 'email'),
+            array('everzet', 'ever.zet@gmail.com'),
+            array('example', 'example@example.com')
+        ), 'Examples');
 
-        $outline = new OutlineNode(null, [], $steps, $table, null, null);
+        $outline = new OutlineNode(null, array(), $steps, $table, null, null);
         $examples = $outline->getExamples();
 
         $this->assertCount(4, $steps = $examples[0]->getSteps());
@@ -69,29 +59,26 @@ class ExampleNodeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('I open homepage', $steps[2]->getText());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateExampleStepsWithArguments()
     {
-        $steps = [
-            $step1 = new StepNode('Gangway!', 'I am <name>', [], null, 'Given'),
-            $step2 = new StepNode('Aye!', 'my email is <email>', [], null, 'And'),
-            $step3 = new StepNode('Blimey!', 'I open:', [
-                new PyStringNode(['page: <url>'], null)
-            ], null, 'When'),
-            $step4 = new StepNode('Let go and haul',  'website should recognise me', [
-                new TableNode([['page', '<url>']])
-            ], null, 'Then'),
-        ];
+        $steps = array(
+            $step1 = new StepNode('Gangway!', 'I am <name>', array(), null, 'Given'),
+            $step2 = new StepNode('Aye!', 'my email is <email>', array(), null, 'And'),
+            $step3 = new StepNode('Blimey!', 'I open:', array(
+                new PyStringNode(array('page: <url>'), null)
+            ), null, 'When'),
+            $step4 = new StepNode('Let go and haul',  'website should recognise me', array(
+                new TableNode(array(array('page', '<url>')))
+            ), null, 'Then'),
+        );
 
-        $table = new ExampleTableNode([
-            ['name', 'email', 'url'],
-            ['everzet', 'ever.zet@gmail.com', 'homepage'],
-            ['example', 'example@example.com', 'other page'],
-        ], 'Examples');
+        $table = new ExampleTableNode(array(
+            array('name', 'email', 'url'),
+            array('everzet', 'ever.zet@gmail.com', 'homepage'),
+            array('example', 'example@example.com', 'other page')
+        ), 'Examples');
 
-        $outline = new OutlineNode(null, [], $steps, $table, null, null);
+        $outline = new OutlineNode(null, array(), $steps, $table, null, null);
         $examples = $outline->getExamples();
 
         $steps = $examples[0]->getSteps();
@@ -102,5 +89,4 @@ class ExampleNodeTest extends PHPUnit_Framework_TestCase
         $args = $steps[3]->getArguments();
         $this->assertEquals('| page | homepage |', $args[0]->getTableAsString());
     }
-
 }

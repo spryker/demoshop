@@ -1,34 +1,22 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib;
 
 use Codeception\Configuration;
 use Codeception\Exception\TestParseException;
 use Codeception\Scenario;
-use Codeception\Step\Comment;
+use Codeception\Step;
 use Codeception\Test\Metadata;
-use Exception;
-use ParseError;
-use Step\Action;
 
 class Parser
 {
-
     /**
-     * @var \Codeception\Scenario
+     * @var Scenario
      */
     protected $scenario;
-
     /**
-     * @var \Codeception\Test\Metadata
+     * @var Metadata
      */
     protected $metadata;
-
     protected $code;
 
     public function __construct(Scenario $scenario, Metadata $metadata)
@@ -37,18 +25,12 @@ class Parser
         $this->metadata = $metadata;
     }
 
-    /**
-     * @return void
-     */
     public function prepareToRun($code)
     {
         $this->parseFeature($code);
         $this->parseScenarioOptions($code);
     }
 
-    /**
-     * @return void
-     */
     public function parseFeature($code)
     {
         $matches = [];
@@ -65,17 +47,11 @@ class Parser
         }
     }
 
-    /**
-     * @return void
-     */
     public function parseScenarioOptions($code)
     {
         $this->metadata->setParamsFromAnnotations($this->matchComments($code));
     }
 
-    /**
-     * @return void
-     */
     public function parseSteps($code)
     {
         // parse per line
@@ -111,31 +87,20 @@ class Parser
         }
     }
 
-    /**
-     * @return void
-     */
     protected function addStep($matches)
     {
         list($m, $action, $params) = $matches;
         if (in_array($action, ['wantTo', 'wantToTest'])) {
             return;
         }
-        $this->scenario->addStep(new Action($action, explode(',', $params)));
+        $this->scenario->addStep(new Step\Action($action, explode(',', $params)));
     }
 
-    /**
-     * @return void
-     */
     protected function addCommentStep($comment)
     {
-        $this->scenario->addStep(new Comment($comment, []));
+        $this->scenario->addStep(new \Codeception\Step\Comment($comment, []));
     }
 
-    /**
-     * @throws \Codeception\Exception\TestParseException
-     *
-     * @return void
-     */
     public static function validate($file)
     {
         $config = Configuration::config();
@@ -152,11 +117,6 @@ class Parser
         }
     }
 
-    /**
-     * @throws \Codeception\Exception\TestParseException
-     *
-     * @return void
-     */
     public static function load($file)
     {
         if (PHP_MAJOR_VERSION < 7) {
@@ -164,9 +124,9 @@ class Parser
         }
         try {
             self::includeFile($file);
-        } catch (ParseError $e) {
-            throw new TestParseException($file, $e->getMessage());
-        } catch (Exception $e) {
+        } catch (\ParseError $e) {
+            throw new TestParseException($file, $e->getMessage(), $e->getLine());
+        } catch (\Exception $e) {
             // file is valid otherwise
         }
     }
@@ -217,9 +177,6 @@ class Parser
     /*
      * Include in different scope to prevent included file from affecting $file variable
      */
-    /**
-     * @return void
-     */
     private static function includeFile($file)
     {
         include_once $file;
@@ -227,7 +184,6 @@ class Parser
 
     /**
      * @param $code
-     *
      * @return mixed
      */
     protected function stripComments($code)
@@ -244,14 +200,13 @@ class Parser
         $hasLineComment = preg_match_all('~\/\/(.*?)$~m', $code, $matches);
         if ($hasLineComment) {
             foreach ($matches[1] as $line) {
-                $comments .= $line . "\n";
+                $comments .= $line."\n";
             }
         }
         $hasBlockComment = preg_match('~\/*\*(.*?)\*\/~ms', $code, $matches);
         if ($hasBlockComment) {
-            $comments .= $matches[1] . "\n";
+            $comments .= $matches[1]."\n";
         }
         return $comments;
     }
-
 }

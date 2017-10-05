@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\Configuration;
@@ -57,20 +51,12 @@ use Symfony\Component\HttpKernel\Client;
  */
 class Silex extends Framework implements DoctrineProvider
 {
-
     protected $app;
-
     protected $requiredFields = ['app'];
-
     protected $config = [
-        'em_service' => 'db.orm.em',
+        'em_service' => 'db.orm.em'
     ];
 
-    /**
-     * @throws \Codeception\Exception\ModuleConfigException
-     *
-     * @return void
-     */
     public function _initialize()
     {
         if (!file_exists(Configuration::projectDir() . $this->config['app'])) {
@@ -80,9 +66,6 @@ class Silex extends Framework implements DoctrineProvider
         $this->loadApp();
     }
 
-    /**
-     * @return void
-     */
     public function _before(TestInterface $test)
     {
         $this->loadApp();
@@ -131,8 +114,7 @@ class Silex extends Framework implements DoctrineProvider
      * ?>
      * ```
      *
-     * @param string $service
-     *
+     * @param  string $service
      * @return mixed
      */
     public function grabService($service)
@@ -157,5 +139,4 @@ class Silex extends Framework implements DoctrineProvider
 
         return $internalDomains;
     }
-
 }

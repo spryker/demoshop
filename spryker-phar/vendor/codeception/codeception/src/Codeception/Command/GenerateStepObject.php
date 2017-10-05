@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
 use Codeception\Configuration;
@@ -25,13 +19,9 @@ use Symfony\Component\Console\Question\Question;
  */
 class GenerateStepObject extends Command
 {
-
-    use Shared\Config;
     use Shared\FileSystem;
+    use Shared\Config;
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition([
@@ -46,9 +36,6 @@ class GenerateStepObject extends Command
         return 'Generates empty StepObject class';
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $suite = $input->getArgument('suite');
@@ -85,5 +72,4 @@ class GenerateStepObject extends Command
         }
         $output->writeln("<info>StepObject was created in $filename</info>");
     }
-
 }

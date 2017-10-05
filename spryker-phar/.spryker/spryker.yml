@@ -2,10 +2,10 @@ stages:
   development:
     composer:
       install-composer:
-        command: "Spryker\Command\Composer\ComposerInstallCommand"
+        command: "Spryker\\Command\\Composer\\ComposerInstallCommand"
 
       install-dependencies:
-        command: "vendor/bin/console install"
+        command: "php composer.phar install"
 
     before:
       stop-jenkins:
@@ -67,6 +67,6 @@ stages:
 
     frontend:
       npm:
-        commands: "npm -i"
+        command: "npm -i"
 
 

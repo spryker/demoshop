@@ -26,7 +26,7 @@ class ConfigurationLoader implements ConfigurationLoaderInterface
     public function __construct($configFile)
     {
         if (!file_exists($configFile)) {
-            throw new ConfigurationFileNotFoundException(sprintf('File "%s" does not exists', $configFile));
+            throw new ConfigurationFileNotFoundException(sprintf('File "%s" does not exists. Please add the expected file.', $configFile));
         }
 
         $this->configFile = $configFile;

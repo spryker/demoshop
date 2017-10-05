@@ -1,20 +1,12 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Console;
 
 use Symfony\Component\Console\Formatter\OutputFormatter;
 
 class Colorizer
 {
-
     /**
      * @param string $string
-     *
      * @return string
      */
     public function colorize($string = '')
@@ -42,5 +34,4 @@ class Colorizer
 
         return trim($colorizedMessage);
     }
-
 }

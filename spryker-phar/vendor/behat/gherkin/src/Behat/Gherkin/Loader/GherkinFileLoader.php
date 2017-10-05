@@ -1,13 +1,17 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Loader;
 
 use Behat\Gherkin\Cache\CacheInterface;
+use Behat\Gherkin\Node\FeatureNode;
 use Behat\Gherkin\Parser;
 
 /**
@@ -17,16 +21,14 @@ use Behat\Gherkin\Parser;
  */
 class GherkinFileLoader extends AbstractFileLoader
 {
-
     protected $parser;
-
     protected $cache;
 
     /**
      * Initializes loader.
      *
-     * @param \Behat\Gherkin\Parser $parser Parser
-     * @param \Behat\Gherkin\Cache\CacheInterface|null $cache Cache layer
+     * @param Parser         $parser Parser
+     * @param CacheInterface $cache  Cache layer
      */
     public function __construct(Parser $parser, CacheInterface $cache = null)
     {
@@ -37,9 +39,7 @@ class GherkinFileLoader extends AbstractFileLoader
     /**
      * Sets cache layer.
      *
-     * @param \Behat\Gherkin\Cache\CacheInterface $cache Cache layer
-     *
-     * @return void
+     * @param CacheInterface $cache Cache layer
      */
     public function setCache(CacheInterface $cache)
     {
@@ -65,7 +65,7 @@ class GherkinFileLoader extends AbstractFileLoader
      *
      * @param string $path Resource to load
      *
-     * @return \Behat\Gherkin\Node\FeatureNode[]
+     * @return FeatureNode[]
      */
     public function load($path)
     {
@@ -81,7 +81,7 @@ class GherkinFileLoader extends AbstractFileLoader
             $feature = $this->parseFeature($path);
         }
 
-        return null !== $feature ? [$feature] : [];
+        return null !== $feature ? array($feature) : array();
     }
 
     /**
@@ -89,7 +89,7 @@ class GherkinFileLoader extends AbstractFileLoader
      *
      * @param string $path Feature path
      *
-     * @return \Behat\Gherkin\Node\FeatureNode
+     * @return FeatureNode
      */
     protected function parseFeature($path)
     {
@@ -99,5 +99,4 @@ class GherkinFileLoader extends AbstractFileLoader
 
         return $feature;
     }
-
 }

@@ -1,16 +1,9 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Coverage\Subscriber;
 
 use Codeception\Configuration;
 use Codeception\Event\SuiteEvent;
 use Codeception\Util\FileSystem;
-use PharData;
 
 /**
  * When collecting code coverage on remote server
@@ -21,15 +14,11 @@ use PharData;
  */
 class RemoteServer extends LocalServer
 {
-
     public function isEnabled()
     {
         return $this->module and $this->settings['remote'] and $this->settings['enabled'];
     }
 
-    /**
-     * @return void
-     */
     public function afterSuite(SuiteEvent $e)
     {
         if (!$this->isEnabled()) {
@@ -48,9 +37,6 @@ class RemoteServer extends LocalServer
         }
     }
 
-    /**
-     * @return void
-     */
     protected function retrieveAndPrintHtml($suite)
     {
         $tempFile = tempnam(sys_get_temp_dir(), 'C3') . '.tar';
@@ -63,28 +49,21 @@ class RemoteServer extends LocalServer
             mkdir($destDir, 0777, true);
         }
 
-        $phar = new PharData($tempFile);
+        $phar = new \PharData($tempFile);
         $phar->extractTo($destDir);
 
         unlink($tempFile);
     }
 
-    /**
-     * @return void
-     */
     protected function retrieveAndPrintXml($suite)
     {
         $destFile = Configuration::outputDir() . $suite . '.remote.coverage.xml';
         file_put_contents($destFile, $this->c3Request('clover'));
     }
 
-    /**
-     * @return void
-     */
     protected function retrieveAndPrintCrap4j($suite)
     {
         $destFile = Configuration::outputDir() . $suite . '.remote.crap4j.xml';
         file_put_contents($destFile, $this->c3Request('crap4j'));
     }
-
 }

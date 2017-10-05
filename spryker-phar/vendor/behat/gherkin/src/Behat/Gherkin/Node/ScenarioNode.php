@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Node;
@@ -14,27 +17,22 @@ namespace Behat\Gherkin\Node;
  */
 class ScenarioNode implements ScenarioInterface
 {
-
     /**
      * @var string
      */
     private $title;
-
     /**
      * @var array
      */
-    private $tags = [];
-
+    private $tags = array();
     /**
-     * @var \Behat\Gherkin\Node\StepNode[]
+     * @var StepNode[]
      */
-    private $steps = [];
-
+    private $steps = array();
     /**
      * @var string
      */
     private $keyword;
-
     /**
      * @var integer
      */
@@ -44,10 +42,10 @@ class ScenarioNode implements ScenarioInterface
      * Initializes scenario.
      *
      * @param null|string $title
-     * @param array $tags
-     * @param \Behat\Gherkin\Node\StepNode[] $steps
-     * @param string $keyword
-     * @param integer $line
+     * @param array       $tags
+     * @param StepNode[]  $steps
+     * @param string      $keyword
+     * @param integer     $line
      */
     public function __construct($title, array $tags, array $steps, $keyword, $line)
     {
@@ -123,7 +121,7 @@ class ScenarioNode implements ScenarioInterface
     /**
      * Returns scenario steps.
      *
-     * @return \Behat\Gherkin\Node\StepNode[]
+     * @return StepNode[]
      */
     public function getSteps()
     {
@@ -149,5 +147,4 @@ class ScenarioNode implements ScenarioInterface
     {
         return $this->line;
     }
-
 }

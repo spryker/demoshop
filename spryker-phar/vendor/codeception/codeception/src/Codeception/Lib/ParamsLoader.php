@@ -1,22 +1,12 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib;
 
 use Codeception\Exception\ConfigurationException;
-use Dotenv\Dotenv;
-use Exception;
 use Symfony\Component\Yaml\Yaml;
 
 class ParamsLoader
 {
-
     protected $paramStorage;
-
     protected $paramsFile;
 
     public function load($paramStorage)
@@ -53,7 +43,7 @@ class ParamsLoader
             if (preg_match('~(\.env(\.|$))~', $paramStorage)) {
                 return $this->loadDotEnvFile();
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new ConfigurationException("Failed loading params from $paramStorage\n" . $e->getMessage());
         }
 
@@ -92,7 +82,7 @@ class ParamsLoader
                 "Please install it via composer: composer require vlucas/phpdotenv"
             );
         }
-        $dotEnv = new Dotenv(codecept_root_dir(), $this->paramStorage);
+        $dotEnv = new \Dotenv\Dotenv(codecept_root_dir(), $this->paramStorage);
         $dotEnv->load();
         return $_SERVER;
     }
@@ -101,5 +91,4 @@ class ParamsLoader
     {
         return $_SERVER;
     }
-
 }

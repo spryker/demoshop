@@ -1,14 +1,17 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Filter;
 
-use Behat\Gherkin\Node\FeatureNode;
 use Behat\Gherkin\Node\ScenarioInterface;
+use Behat\Gherkin\Node\FeatureNode;
 
 /**
  * Filters features by their narrative using regular expression.
@@ -17,7 +20,6 @@ use Behat\Gherkin\Node\ScenarioInterface;
  */
 class NarrativeFilter extends SimpleFilter
 {
-
     /**
      * @var string
      */
@@ -36,7 +38,7 @@ class NarrativeFilter extends SimpleFilter
     /**
      * Checks if Feature matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\FeatureNode $feature Feature instance
+     * @param FeatureNode $feature Feature instance
      *
      * @return Boolean
      */
@@ -48,7 +50,7 @@ class NarrativeFilter extends SimpleFilter
     /**
      * Checks if scenario or outline matches specified filter.
      *
-     * @param \Behat\Gherkin\Node\ScenarioInterface $scenario Scenario or Outline node instance
+     * @param ScenarioInterface $scenario Scenario or Outline node instance
      *
      * @return Boolean
      */
@@ -56,5 +58,4 @@ class NarrativeFilter extends SimpleFilter
     {
         return false;
     }
-
 }

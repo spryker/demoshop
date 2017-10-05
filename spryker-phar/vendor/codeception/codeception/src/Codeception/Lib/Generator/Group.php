@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Codeception\Util\Shared\Namespaces;
@@ -12,7 +6,6 @@ use Codeception\Util\Template;
 
 class Group
 {
-
     use Namespaces;
     use Shared\Classname;
 
@@ -47,9 +40,7 @@ class {{class}} extends \Codeception\Platform\Group
 EOF;
 
     protected $name;
-
     protected $namespace;
-
     protected $settings;
 
     public function __construct($settings, $name)
@@ -69,5 +60,4 @@ EOF;
             ->place('groupName', strtolower($this->name))
             ->produce();
     }
-
 }

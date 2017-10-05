@@ -1,15 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Interfaces;
 
 interface ElementLocator
 {
-
     /**
      * Locates element using available Codeception locator types:
      *
@@ -32,11 +25,8 @@ interface ElementLocator
      * PhpBrowser and Framework modules return `Symfony\Component\DomCrawler\Crawler` instances
      *
      * @api
-     *
      * @param $locator
-     *
      * @return array of interactive elements
      */
     public function _findElements($locator);
-
 }

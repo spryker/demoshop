@@ -1,13 +1,38 @@
 {
-    "name": "jetbrains/phpstorm-workshop",
-    "description": "Materials for the PhpStorm workshop. Check https://github.com/jetbrains/phpstorm-workshop/ for more info.",
-    "minimum-stability": "dev",
-    "license": "Apache-2.0",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Maksim Kolmakov",
-            "email": "maxim.kolmakov@jetbrains.com"
-        }
-    ]
+  "name": "spryker/tool",
+  "description": "Project",
+  "license": "MIT",
+  "require": {
+    "symfony/console": "^3.0.0",
+    "symfony/filesystem": "^2.6.13",
+    "symfony/finder": "^2.6.13",
+    "symfony/process": "^2.6.13",
+    "symfony/yaml": "^3.3"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.2.10",
+    "pdepend/pdepend": "^2.2.2",
+    "phploc/phploc": "^3.0.1",
+    "phpmd/phpmd": "^2.4",
+    "sebastian/phpcpd": "^2.0.2",
+    "symfony/var-dumper": "*",
+    "site5/phantoman": "^1.1",
+    "jakoch/phantomjs-installer": "^2.1.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "SprykerTest": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "use-include-path": true,
+    "process-timeout": 600
+  }
 }

@@ -1,20 +1,24 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Loader;
 
+use Behat\Gherkin\Node\FeatureNode;
+
 /**
  * Loader interface.
  *
- * @author Konstantin Kudryashov <ever.zet@gmail.com>
+ * @author      Konstantin Kudryashov <ever.zet@gmail.com>
  */
 interface LoaderInterface
 {
-
     /**
      * Checks if current loader supports provided resource.
      *
@@ -29,8 +33,7 @@ interface LoaderInterface
      *
      * @param mixed $resource Resource to load
      *
-     * @return \Behat\Gherkin\Node\FeatureNode[]
+     * @return FeatureNode[]
      */
     public function load($resource);
-
 }

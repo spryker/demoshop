@@ -1,14 +1,7 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\Module as CodeceptionModule;
-use Exception;
 
 /**
  * Special module for using asserts in your tests.
@@ -33,12 +26,10 @@ class Asserts extends CodeceptionModule
      * $I->assertEquals($calculator->add(0.1, 0.2), 0.3, 'Calculator should add the two numbers correctly.', 0.01);
      * ```
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     * @param float $delta
-     *
-     * @return void
+     * @param float  $delta
      */
     public function assertEquals($expected, $actual, $message = '', $delta = 0.0)
     {
@@ -62,12 +53,10 @@ class Asserts extends CodeceptionModule
      * $I->assertNotEquals($calculator->add(0.1, 0.2), 0.4, 'Calculator should add the two numbers correctly.', 0.01);
      * ```
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     * @param float $delta
-     *
-     * @return void
+     * @param float  $delta
      */
     public function assertNotEquals($expected, $actual, $message = '', $delta = 0.0)
     {
@@ -77,11 +66,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that two variables are same
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertSame($expected, $actual, $message = '')
     {
@@ -91,11 +78,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that two variables are not same
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertNotSame($expected, $actual, $message = '')
     {
@@ -105,11 +90,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that actual is greater than expected
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertGreaterThan($expected, $actual, $message = '')
     {
@@ -119,11 +102,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that actual is greater or equal than expected
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertGreaterThanOrEqual($expected, $actual, $message = '')
     {
@@ -133,11 +114,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that actual is less than expected
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertLessThan($expected, $actual, $message = '')
     {
@@ -147,11 +126,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that actual is less or equal than expected
      *
-     * @param $expected
-     * @param $actual
+     * @param        $expected
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertLessThanOrEqual($expected, $actual, $message = '')
     {
@@ -161,11 +138,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that haystack contains needle
      *
-     * @param $needle
-     * @param $haystack
+     * @param        $needle
+     * @param        $haystack
      * @param string $message
-     *
-     * @return void
      */
     public function assertContains($needle, $haystack, $message = '')
     {
@@ -175,11 +150,9 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that haystack doesn't contain needle.
      *
-     * @param $needle
-     * @param $haystack
+     * @param        $needle
+     * @param        $haystack
      * @param string $message
-     *
-     * @return void
      */
     public function assertNotContains($needle, $haystack, $message = '')
     {
@@ -192,8 +165,6 @@ class Asserts extends CodeceptionModule
      * @param string $pattern
      * @param string $string
      * @param string $message
-     *
-     * @return void
      */
     public function assertRegExp($pattern, $string, $message = '')
     {
@@ -206,8 +177,6 @@ class Asserts extends CodeceptionModule
      * @param string $pattern
      * @param string $string
      * @param string $message
-     *
-     * @return void
      */
     public function assertNotRegExp($pattern, $string, $message = '')
     {
@@ -220,8 +189,6 @@ class Asserts extends CodeceptionModule
      * @param string $prefix
      * @param string $string
      * @param string $message
-     *
-     * @return void
      */
     public function assertStringStartsWith($prefix, $string, $message = '')
     {
@@ -234,21 +201,18 @@ class Asserts extends CodeceptionModule
      * @param string $prefix
      * @param string $string
      * @param string $message
-     *
-     * @return void
      */
     public function assertStringStartsNotWith($prefix, $string, $message = '')
     {
         parent::assertStringStartsNotWith($prefix, $string, $message);
     }
 
+
     /**
      * Checks that variable is empty.
      *
-     * @param $actual
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertEmpty($actual, $message = '')
     {
@@ -258,10 +222,8 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that variable is not empty.
      *
-     * @param $actual
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertNotEmpty($actual, $message = '')
     {
@@ -271,10 +233,8 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that variable is NULL
      *
-     * @param $actual
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertNull($actual, $message = '')
     {
@@ -284,10 +244,8 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that variable is not NULL
      *
-     * @param $actual
+     * @param        $actual
      * @param string $message
-     *
-     * @return void
      */
     public function assertNotNull($actual, $message = '')
     {
@@ -297,10 +255,8 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that condition is positive.
      *
-     * @param $condition
+     * @param        $condition
      * @param string $message
-     *
-     * @return void
      */
     public function assertTrue($condition, $message = '')
     {
@@ -310,10 +266,8 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that condition is negative.
      *
-     * @param $condition
+     * @param        $condition
      * @param string $message
-     *
-     * @return void
      */
     public function assertFalse($condition, $message = '')
     {
@@ -325,21 +279,17 @@ class Asserts extends CodeceptionModule
      *
      * @param string $filename
      * @param string $message
-     *
-     * @return void
      */
     public function assertFileExists($filename, $message = '')
     {
         parent::assertFileExists($filename, $message);
     }
-
+    
     /**
      * Checks if file doesn't exist
      *
      * @param string $filename
      * @param string $message
-     *
-     * @return void
      */
     public function assertFileNotExists($filename, $message = '')
     {
@@ -349,9 +299,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $expected
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertGreaterOrEquals($expected, $actual, $description = '')
     {
@@ -361,9 +309,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $expected
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertLessOrEquals($expected, $actual, $description = '')
     {
@@ -372,9 +318,7 @@ class Asserts extends CodeceptionModule
 
     /**
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertIsEmpty($actual, $description = '')
     {
@@ -384,9 +328,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $key
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertArrayHasKey($key, $actual, $description = '')
     {
@@ -396,9 +338,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $key
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertArrayNotHasKey($key, $actual, $description = '')
     {
@@ -408,12 +348,10 @@ class Asserts extends CodeceptionModule
     /**
      * Checks that array contains subset.
      *
-     * @param array $subset
-     * @param array $array
-     * @param bool $strict
+     * @param array  $subset
+     * @param array  $array
+     * @param bool   $strict
      * @param string $message
-     *
-     * @return void
      */
     public function assertArraySubset($subset, $array, $strict = false, $message = '')
     {
@@ -423,9 +361,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $expectedCount
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertCount($expectedCount, $actual, $description = '')
     {
@@ -435,9 +371,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $class
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertInstanceOf($class, $actual, $description = '')
     {
@@ -447,9 +381,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $class
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertNotInstanceOf($class, $actual, $description = '')
     {
@@ -459,9 +391,7 @@ class Asserts extends CodeceptionModule
     /**
      * @param $type
      * @param $actual
-     * @param $description|string
-     *
-     * @return void
+     * @param $description
      */
     public function assertInternalType($type, $actual, $description = '')
     {
@@ -472,8 +402,6 @@ class Asserts extends CodeceptionModule
      * Fails the test with message.
      *
      * @param $message
-     *
-     * @return void
      */
     public function fail($message)
     {
@@ -505,15 +433,13 @@ class Asserts extends CodeceptionModule
      *
      * @param $exception string or \Exception
      * @param $callback
-     *
-     * @return void
      */
     public function expectException($exception, $callback)
     {
         $code = null;
         $msg = null;
         if (is_object($exception)) {
-            /** @var \Exception $exception */
+            /** @var $exception \Exception  **/
              $class = get_class($exception);
             $msg = $exception->getMessage();
             $code = $exception->getCode();
@@ -522,7 +448,7 @@ class Asserts extends CodeceptionModule
         }
         try {
             $callback();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if (!$e instanceof $class) {
                 $this->fail(sprintf("Exception of class $class expected to be thrown, but %s caught", get_class($e)));
             }
@@ -543,5 +469,4 @@ class Asserts extends CodeceptionModule
         }
         $this->fail("Expected exception to be thrown, but nothing was caught");
     }
-
 }

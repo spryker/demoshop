@@ -1,10 +1,5 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Keywords;
 
 use Behat\Gherkin\Keywords\CachedArrayKeywords;
@@ -12,7 +7,6 @@ use Behat\Gherkin\Node\StepNode;
 
 class CachedArrayKeywordsTest extends KeywordsTest
 {
-
     protected function getKeywords()
     {
         return new CachedArrayKeywords(__DIR__ . '/../../../../i18n.php');
@@ -25,7 +19,7 @@ class CachedArrayKeywordsTest extends KeywordsTest
 
     protected function getSteps($keywords, $text, &$line, $keywordType)
     {
-        $steps = [];
+        $steps = array();
         foreach (explode('|', $keywords) as $keyword) {
             if ('*' === $keyword) {
                 continue;
@@ -35,10 +29,9 @@ class CachedArrayKeywordsTest extends KeywordsTest
                 $keyword = mb_substr($keyword, 0, -1);
             }
 
-            $steps[] = new StepNode($keyword, $text, [], $line++, $keywordType);
+            $steps[] = new StepNode($keyword, $text, array(), $line++, $keywordType);
         }
 
         return $steps;
     }
-
 }

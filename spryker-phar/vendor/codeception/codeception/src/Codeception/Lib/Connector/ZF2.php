@@ -1,28 +1,20 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Codeception\Exception\ModuleException;
 use Codeception\Lib\Connector\ZF2\PersistentServiceManager;
-use Exception;
-use PHPUnit_Framework_AssertionFailedError;
 use Symfony\Component\BrowserKit\Client;
-use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\BrowserKit\Response;
-use Zend\Http\Headers as HttpHeaders;
 use Zend\Http\Request as HttpRequest;
+use Zend\Http\Headers as HttpHeaders;
 use Zend\Mvc\Application;
 use Zend\Stdlib\Parameters;
 use Zend\Uri\Http as HttpUri;
+use Symfony\Component\BrowserKit\Request as BrowserKitRequest;
 
 class ZF2 extends Client
 {
-
     /**
      * @var \Zend\Mvc\ApplicationInterface
      */
@@ -34,19 +26,17 @@ class ZF2 extends Client
     protected $applicationConfig;
 
     /**
-     * @var \Zend\Http\PhpEnvironment\Request
+     * @var  \Zend\Http\PhpEnvironment\Request
      */
     protected $zendRequest;
 
     /**
-     * @var \Codeception\Lib\Connector\ZF2\PersistentServiceManager
+     * @var PersistentServiceManager
      */
     private $persistentServiceManager;
 
     /**
      * @param array $applicationConfig
-     *
-     * @return void
      */
     public function setApplicationConfig($applicationConfig)
     {
@@ -55,11 +45,10 @@ class ZF2 extends Client
     }
 
     /**
-     * @param \Symfony\Component\BrowserKit\Request $request
+     * @param Request $request
      *
+     * @return Response
      * @throws \Exception
-     *
-     * @return \Symfony\Component\BrowserKit\Response
      */
     public function doRequest($request)
     {
@@ -107,7 +96,7 @@ class ZF2 extends Client
         $this->zendRequest = $zendRequest;
 
         $exception = $this->application->getMvcEvent()->getParam('exception');
-        if ($exception instanceof Exception) {
+        if ($exception instanceof \Exception) {
             throw $exception;
         }
 
@@ -135,7 +124,7 @@ class ZF2 extends Client
 
         $contentHeaders = ['Content-Length' => true, 'Content-Md5' => true, 'Content-Type' => true];
         foreach ($server as $header => $val) {
-            $header = implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header)))));
+            $header = html_entity_decode(implode('-', array_map('ucfirst', explode('-', strtolower(str_replace('_', '-', $header))))), ENT_NOQUOTES);
 
             if (strpos($header, 'Http-') === 0) {
                 $headers[substr($header, 5)] = $val;
@@ -153,7 +142,7 @@ class ZF2 extends Client
         $serviceManager = $this->application->getServiceManager();
 
         if (!$serviceManager->has($service)) {
-            throw new PHPUnit_Framework_AssertionFailedError("Service $service is not available in container");
+            throw new \PHPUnit_Framework_AssertionFailedError("Service $service is not available in container");
         }
 
         if ($service === 'Doctrine\ORM\EntityManager' && !isset($this->persistentServiceManager)) {
@@ -166,11 +155,6 @@ class ZF2 extends Client
         return $serviceManager->get($service);
     }
 
-    /**
-     * @throws \Codeception\Exception\ModuleException
-     *
-     * @return void
-     */
     public function addServiceToContainer($name, $service)
     {
         if (!isset($this->persistentServiceManager)) {
@@ -187,9 +171,6 @@ class ZF2 extends Client
         $this->persistentServiceManager->setAllowOverride(false);
     }
 
-    /**
-     * @return void
-     */
     private function createApplication()
     {
         $this->application = Application::init($this->applicationConfig);
@@ -208,5 +189,4 @@ class ZF2 extends Client
             $events->detach([$sendResponseListener, 'sendResponse']); //ZF3
         }
     }
-
 }

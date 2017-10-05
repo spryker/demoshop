@@ -1,18 +1,15 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Command;
 
+use Codeception\Lib\Generator\Helper;
 use Codeception\Template\Bootstrap as BootstrapTemplate;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Creates default config, tests directory and sample suites for current project.
@@ -30,9 +27,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 class Bootstrap extends Command
 {
 
-    /**
-     * @return void
-     */
     protected function configure()
     {
         $this->setDefinition(
@@ -45,7 +39,7 @@ class Bootstrap extends Command
                     'Namespace to add for actor classes and helpers'
                 ),
                 new InputOption('actor', 'a', InputOption::VALUE_OPTIONAL, 'Custom actor instead of Tester'),
-                new InputOption('empty', 'e', InputOption::VALUE_NONE, 'Don\'t create standard suites'),
+                new InputOption('empty', 'e', InputOption::VALUE_NONE, 'Don\'t create standard suites')
             ]
         );
     }
@@ -55,9 +49,6 @@ class Bootstrap extends Command
         return "Creates default test suites and generates all required files";
     }
 
-    /**
-     * @return void
-     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $bootstrap = new BootstrapTemplate($input, $output);
@@ -66,5 +57,4 @@ class Bootstrap extends Command
         }
         $bootstrap->setup();
     }
-
 }

@@ -1,20 +1,10 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Driver;
 
 use Codeception\Lib\Interfaces\Queue;
-use Http_Exception;
-use IronMQ;
-use PHPUnit_Framework_Assert;
 
 class Iron implements Queue
 {
-
     /**
      * @var \IronMQ
      */
@@ -22,20 +12,18 @@ class Iron implements Queue
 
     /**
      * Connect to the queueing server. (AWS, Iron.io and Beanstalkd)
-     *
      * @param array $config
-     *
      * @return
      */
     public function openConnection($config)
     {
-        $this->queue = new IronMQ([
-            "token" => $config['token'],
+        $this->queue = new \IronMQ([
+            "token"      => $config['token'],
             "project_id" => $config['project'],
-            "host" => $config['host'],
+            "host"       => $config['host']
         ]);
         if (!$this->queue) {
-            PHPUnit_Framework_Assert::fail('connection failed or timed-out.');
+            \PHPUnit_Framework_Assert::fail('connection failed or timed-out.');
         }
     }
 
@@ -44,8 +32,6 @@ class Iron implements Queue
      *
      * @param string $message Message Body to be send
      * @param string $queue Queue Name
-     *
-     * @return void
      */
     public function addMessageToQueue($message, $queue)
     {
@@ -78,8 +64,8 @@ class Iron implements Queue
     {
         try {
             return $this->queue->getQueue($queue)->size;
-        } catch (Http_Exception $ex) {
-            PHPUnit_Framework_Assert::fail("queue [$queue] not found");
+        } catch (\Http_Exception $ex) {
+            \PHPUnit_Framework_Assert::fail("queue [$queue] not found");
         }
     }
 
@@ -94,20 +80,17 @@ class Iron implements Queue
     {
         try {
             return $this->queue->getQueue($queue)->total_messages;
-        } catch (Http_Exception $e) {
-            PHPUnit_Framework_Assert::fail("queue [$queue] not found");
+        } catch (\Http_Exception $e) {
+            \PHPUnit_Framework_Assert::fail("queue [$queue] not found");
         }
     }
 
-    /**
-     * @return void
-     */
     public function clearQueue($queue)
     {
         try {
             $this->queue->clearQueue($queue);
-        } catch (Http_Exception $ex) {
-            PHPUnit_Framework_Assert::fail("queue [$queue] not found");
+        } catch (\Http_Exception $ex) {
+            \PHPUnit_Framework_Assert::fail("queue [$queue] not found");
         }
     }
 
@@ -120,5 +103,4 @@ class Iron implements Queue
     {
         return [];
     }
-
 }

@@ -1,10 +1,4 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Generator;
 
 use Behat\Gherkin\Node\StepNode;
@@ -14,7 +8,6 @@ use Symfony\Component\Finder\Finder;
 
 class GherkinSnippets
 {
-
     protected $template = <<<EOF
     /**
      * @{{type}} {{text}}
@@ -27,9 +20,7 @@ class GherkinSnippets
 EOF;
 
     protected $snippets = [];
-
     protected $processed = [];
-
     protected $features = [];
 
     public function __construct($settings, $test = null)
@@ -38,7 +29,7 @@ EOF;
         $pattern = $loader->getPattern();
         $path = $settings['path'];
         if (!empty($test)) {
-            $path = $settings['path'] . '/' . $test;
+            $path = $settings['path'].'/'.$test;
             if (preg_match($pattern, $test)) {
                 $path = dirname($path);
                 $pattern = basename($test);
@@ -62,7 +53,7 @@ EOF;
             $allSteps = array_merge($allSteps, $stepGroup);
         }
         foreach ($loader->getTests() as $test) {
-            /** @var \Codeception\Test\Gherkin $test */
+            /** @var $test \Codeception\Test\Gherkin  **/
             $steps = $test->getScenarioNode()->getSteps();
             if ($test->getFeatureNode()->hasBackground()) {
                 $steps = array_merge($steps, $test->getFeatureNode()->getBackground()->getSteps());
@@ -91,9 +82,6 @@ EOF;
         }
     }
 
-    /**
-     * @return void
-     */
     public function addSnippet(StepNode $step)
     {
         $args = [];
@@ -113,7 +101,7 @@ EOF;
             foreach ($matches[1] as $num => $param) {
                 $num++;
                 $args[] = '$arg' . $num;
-                $pattern = str_replace('"' . $param . '"', ":arg$num", $pattern);
+                $pattern = str_replace('"'.$param.'"', ":arg$num", $pattern);
             }
         }
         // Has multiline argument at the end of step?
@@ -161,5 +149,4 @@ EOF;
         }
         return false;
     }
-
 }

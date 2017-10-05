@@ -1,28 +1,21 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Actor\Shared;
 
 use Codeception\Lib\Friend as LibFriend;
+use Codeception\Scenario;
 
 trait Friend
 {
-
     protected $friends = [];
 
     /**
-     * @return \Codeception\Scenario
+     * @return Scenario
      */
     abstract protected function getScenario();
 
     /**
      * @param $name
-     * @param $actorClass|null
-     *
+     * @param $actorClass
      * @return \Codeception\Lib\Friend
      */
     public function haveFriend($name, $actorClass = null)
@@ -33,5 +26,4 @@ trait Friend
         }
         return $this->friends[$name];
     }
-
 }

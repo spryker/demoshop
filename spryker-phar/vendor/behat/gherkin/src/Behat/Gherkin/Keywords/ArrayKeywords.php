@@ -1,8 +1,11 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
+/*
+ * This file is part of the Behat Gherkin.
+ * (c) Konstantin Kudryashov <ever.zet@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Behat\Gherkin\Keywords;
@@ -12,28 +15,28 @@ namespace Behat\Gherkin\Keywords;
  *
  * $keywords = new Behat\Gherkin\Keywords\ArrayKeywords(array(
  *     'en' => array(
- *         'feature' => 'Feature',
- *         'background' => 'Background',
- *         'scenario' => 'Scenario',
+ *         'feature'          => 'Feature',
+ *         'background'       => 'Background',
+ *         'scenario'         => 'Scenario',
  *         'scenario_outline' => 'Scenario Outline|Scenario Template',
- *         'examples' => 'Examples|Scenarios',
- *         'given' => 'Given',
- *         'when' => 'When',
- *         'then' => 'Then',
- *         'and' => 'And',
- *         'but' => 'But'
+ *         'examples'         => 'Examples|Scenarios',
+ *         'given'            => 'Given',
+ *         'when'             => 'When',
+ *         'then'             => 'Then',
+ *         'and'              => 'And',
+ *         'but'              => 'But'
  *     ),
  *     'ru' => array(
- *         'feature' => 'Функционал',
- *         'background' => 'Предыстория',
- *         'scenario' => 'Сценарий',
+ *         'feature'          => 'Функционал',
+ *         'background'       => 'Предыстория',
+ *         'scenario'         => 'Сценарий',
  *         'scenario_outline' => 'Структура сценария',
- *         'examples' => 'Значения',
- *         'given' => 'Допустим',
- *         'when' => 'Если',
- *         'then' => 'То',
- *         'and' => 'И',
- *         'but' => 'Но'
+ *         'examples'         => 'Значения',
+ *         'given'            => 'Допустим',
+ *         'when'             => 'Если',
+ *         'then'             => 'То',
+ *         'and'              => 'И',
+ *         'but'              => 'Но'
  *     )
  * ));
  *
@@ -41,11 +44,8 @@ namespace Behat\Gherkin\Keywords;
  */
 class ArrayKeywords implements KeywordsInterface
 {
-
-    private $keywords = [];
-
-    private $keywordString = [];
-
+    private $keywords = array();
+    private $keywordString = array();
     private $language;
 
     /**
@@ -62,8 +62,6 @@ class ArrayKeywords implements KeywordsInterface
      * Sets keywords holder language.
      *
      * @param string $language Language name
-     *
-     * @return void
      */
     public function setLanguage($language)
     {
@@ -199,5 +197,4 @@ class ArrayKeywords implements KeywordsInterface
 
         return $this->keywordString[$this->language];
     }
-
 }

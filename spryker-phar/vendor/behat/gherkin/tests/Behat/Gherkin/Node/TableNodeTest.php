@@ -1,263 +1,216 @@
 <?php
 
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Tests\Behat\Gherkin\Node;
 
 use Behat\Gherkin\Node\TableNode;
-use PHPUnit_Framework_TestCase;
 
-class TableNodeTest extends PHPUnit_Framework_TestCase
+class TableNodeTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @expectedException \Behat\Gherkin\Exception\NodeException
-     *
-     * @return void
      */
     public function testConstructorExpectsSameNumberOfColumnsInEachRow()
     {
-        new TableNode([
-            ['username', 'password'],
-            ['everzet'],
-            ['antono', 'pa$sword'],
-        ]);
+        new TableNode(array(
+            array('username', 'password'),
+            array('everzet'),
+            array('antono', 'pa$sword')
+        ));
     }
 
-    /**
-     * @return void
-     */
     public function testHashTable()
     {
-        $table = new TableNode([
-            ['username', 'password'],
-            ['everzet', 'qwerty'],
-            ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'password'),
+            array('everzet', 'qwerty'),
+            array('antono', 'pa$sword')
+        ));
 
         $this->assertEquals(
-            [
-                ['username' => 'everzet', 'password' => 'qwerty'], ['username' => 'antono', 'password' => 'pa$sword'],
-            ],
+            array(
+                array('username' => 'everzet', 'password' => 'qwerty')
+              , array('username' => 'antono', 'password' => 'pa$sword')
+            ),
             $table->getHash()
         );
 
-        $table = new TableNode([
-            ['username', 'password'],
-            ['', 'qwerty'],
-            ['antono', ''],
-            ['', ''],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'password'),
+            array('', 'qwerty'),
+            array('antono', ''),
+            array('', '')
+        ));
 
         $this->assertEquals(
-            [
-                ['username' => '', 'password' => 'qwerty'],
-                ['username' => 'antono', 'password' => ''],
-                ['username' => '', 'password' => ''],
-            ],
+            array(
+                array('username' => '', 'password' => 'qwerty'),
+                array('username' => 'antono', 'password' => ''),
+                array('username' => '', 'password' => ''),
+            ),
             $table->getHash()
         );
     }
 
-    /**
-     * @return void
-     */
     public function testIterator()
     {
-        $table = new TableNode([
-            ['username', 'password'],
-            ['', 'qwerty'],
-            ['antono', ''],
-            ['', ''],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'password'),
+            array('', 'qwerty'),
+            array('antono', ''),
+            array('', ''),
+        ));
 
         $this->assertEquals(
-            [
-                ['username' => '', 'password' => 'qwerty'],
-                ['username' => 'antono', 'password' => ''],
-                ['username' => '', 'password' => ''],
-            ],
+            array(
+                array('username' => '', 'password' => 'qwerty'),
+                array('username' => 'antono', 'password' => ''),
+                array('username' => '', 'password' => ''),
+            ),
             iterator_to_array($table)
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRowsHashTable()
     {
-        $table = new TableNode([
-            ['username', 'everzet'],
-            ['password', 'qwerty'],
-            ['uid', '35'],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'everzet'),
+            array('password', 'qwerty'),
+            array('uid', '35'),
+        ));
 
         $this->assertEquals(
-            ['username' => 'everzet', 'password' => 'qwerty', 'uid' => '35'],
+            array('username' => 'everzet', 'password' => 'qwerty', 'uid' => '35'),
             $table->getRowsHash()
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLongRowsHashTable()
     {
-        $table = new TableNode([
-            ['username', 'everzet', 'marcello'],
-            ['password', 'qwerty', '12345'],
-            ['uid', '35', '22'],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'everzet', 'marcello'),
+            array('password', 'qwerty', '12345'),
+            array('uid', '35', '22')
+        ));
 
-        $this->assertEquals([
-            'username' => ['everzet', 'marcello'],
-            'password' => ['qwerty', '12345'],
-            'uid' => ['35', '22'],
-        ], $table->getRowsHash());
+        $this->assertEquals(array(
+            'username' => array('everzet', 'marcello'),
+            'password' => array('qwerty', '12345'),
+            'uid'      => array('35', '22')
+        ), $table->getRowsHash());
     }
 
-    /**
-     * @return void
-     */
     public function testGetRows()
     {
-        $table = new TableNode([
-            ['username', 'password'],
-            ['everzet', 'qwerty'],
-            ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'password'),
+            array('everzet', 'qwerty'),
+            array('antono', 'pa$sword')
+        ));
 
-        $this->assertEquals([
-            ['username', 'password'],
-            ['everzet', 'qwerty'],
-            ['antono', 'pa$sword'],
-        ], $table->getRows());
+        $this->assertEquals(array(
+            array('username', 'password'),
+            array('everzet', 'qwerty'),
+            array('antono', 'pa$sword')
+        ), $table->getRows());
     }
 
-    /**
-     * @return void
-     */
     public function testGetLines()
     {
-        $table = new TableNode([
-            5 => ['username', 'password'],
-            10 => ['everzet', 'qwerty'],
-            13 => ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            5  => array('username', 'password'),
+            10 => array('everzet', 'qwerty'),
+            13 => array('antono', 'pa$sword')
+        ));
 
-        $this->assertEquals([5, 10, 13], $table->getLines());
+        $this->assertEquals(array(5, 10, 13), $table->getLines());
     }
 
-    /**
-     * @return void
-     */
     public function testGetRow()
     {
-        $table = new TableNode([
-            ['username', 'password'],
-            ['everzet', 'qwerty'],
-            ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'password'),
+            array('everzet', 'qwerty'),
+            array('antono', 'pa$sword')
+        ));
 
-        $this->assertEquals(['username', 'password'], $table->getRow(0));
-        $this->assertEquals(['antono', 'pa$sword'], $table->getRow(2));
+        $this->assertEquals(array('username', 'password'), $table->getRow(0));
+        $this->assertEquals(array('antono', 'pa$sword'), $table->getRow(2));
     }
 
-    /**
-     * @return void
-     */
     public function testGetColumn()
     {
-        $table = new TableNode([
-            ['username', 'password'],
-            ['everzet', 'qwerty'],
-            ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            array('username', 'password'),
+            array('everzet', 'qwerty'),
+            array('antono', 'pa$sword')
+        ));
 
-        $this->assertEquals(['username', 'everzet', 'antono'], $table->getColumn(0));
-        $this->assertEquals(['password', 'qwerty', 'pa$sword'], $table->getColumn(1));
+        $this->assertEquals(array('username', 'everzet', 'antono'), $table->getColumn(0));
+        $this->assertEquals(array('password', 'qwerty', 'pa$sword'), $table->getColumn(1));
 
-        $table = new TableNode([
-            ['username'],
-            ['everzet'],
-            ['antono'],
-        ]);
+        $table = new TableNode(array(
+            array('username'),
+            array('everzet'),
+            array('antono')
+        ));
 
-        $this->assertEquals(['username', 'everzet', 'antono'], $table->getColumn(0));
+        $this->assertEquals(array('username', 'everzet', 'antono'), $table->getColumn(0));
     }
 
-    /**
-     * @return void
-     */
     public function testGetRowWithLineNumbers()
     {
-        $table = new TableNode([
-            5 => ['username', 'password'],
-            10 => ['everzet', 'qwerty'],
-            13 => ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            5  => array('username', 'password'),
+            10 => array('everzet', 'qwerty'),
+            13 => array('antono', 'pa$sword')
+        ));
 
-        $this->assertEquals(['username', 'password'], $table->getRow(0));
-        $this->assertEquals(['antono', 'pa$sword'], $table->getRow(2));
+        $this->assertEquals(array('username', 'password'), $table->getRow(0));
+        $this->assertEquals(array('antono', 'pa$sword'), $table->getRow(2));
     }
 
-    /**
-     * @return void
-     */
     public function testGetTable()
     {
-        $table = new TableNode($a = [
-            5 => ['username', 'password'],
-            10 => ['everzet', 'qwerty'],
-            13 => ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode($a = array(
+            5  => array('username', 'password'),
+            10 => array('everzet', 'qwerty'),
+            13 => array('antono', 'pa$sword')
+        ));
 
         $this->assertEquals($a, $table->getTable());
     }
 
-    /**
-     * @return void
-     */
     public function testGetRowLine()
     {
-        $table = new TableNode([
-            5 => ['username', 'password'],
-            10 => ['everzet', 'qwerty'],
-            13 => ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            5  => array('username', 'password'),
+            10 => array('everzet', 'qwerty'),
+            13 => array('antono', 'pa$sword')
+        ));
 
         $this->assertEquals(5, $table->getRowLine(0));
         $this->assertEquals(13, $table->getRowLine(2));
     }
 
-    /**
-     * @return void
-     */
     public function testGetRowAsString()
     {
-        $table = new TableNode([
-            5 => ['username', 'password'],
-            10 => ['everzet', 'qwerty'],
-            13 => ['antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            5  => array('username', 'password'),
+            10 => array('everzet', 'qwerty'),
+            13 => array('antono', 'pa$sword')
+        ));
 
         $this->assertEquals('| username | password |', $table->getRowAsString(0));
         $this->assertEquals('| antono   | pa$sword |', $table->getRowAsString(2));
     }
 
-    /**
-     * @return void
-     */
     public function testGetTableAsString()
     {
-        $table = new TableNode([
-            5 => ['id', 'username', 'password'],
-            10 => ['42', 'everzet', 'qwerty'],
-            13 => ['2', 'antono', 'pa$sword'],
-        ]);
+        $table = new TableNode(array(
+            5  => array('id', 'username', 'password'),
+            10 => array('42', 'everzet', 'qwerty'),
+            13 => array('2', 'antono', 'pa$sword')
+        ));
 
         $expected = <<<TABLE
 | id | username | password |
@@ -266,5 +219,4 @@ class TableNodeTest extends PHPUnit_Framework_TestCase
 TABLE;
         $this->assertEquals($expected, $table->getTableAsString());
     }
-
 }

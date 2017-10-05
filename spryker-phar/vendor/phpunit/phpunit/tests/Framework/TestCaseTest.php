@@ -498,6 +498,18 @@ class TestCaseTest extends TestCase
         );
     }
 
+    public function testSkipsIfRequiresNonExistingOsFamily()
+    {
+        $test   = new \RequirementsTest('testAlwaysSkip4');
+        $result = $test->run();
+
+        $this->assertEquals(1, $result->skippedCount());
+        $this->assertEquals(
+            'Operating system DOESNOTEXIST is required.',
+            $test->getStatusMessage()
+        );
+    }
+
     public function testSkipsIfRequiresNonExistingFunction()
     {
         $test   = new \RequirementsTest('testNine');

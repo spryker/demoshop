@@ -1,14 +1,8 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
-use Codeception\Exception\ModuleException;
 use Codeception\Module as CodeceptionModule;
+use Codeception\Exception\ModuleException;
 use Codeception\TestInterface;
 
 /**
@@ -105,39 +99,26 @@ use Codeception\TestInterface;
  */
 class Sequence extends CodeceptionModule
 {
-
     public static $hash = [];
-
     public static $suiteHash = [];
-
     public static $prefix = '';
 
     protected $config = ['prefix' => '{id}_'];
 
-    /**
-     * @return void
-     */
     public function _initialize()
     {
         static::$prefix = $this->config['prefix'];
     }
 
-    /**
-     * @return void
-     */
     public function _after(TestInterface $t)
     {
         self::$hash = [];
     }
 
-    /**
-     * @return void
-     */
     public function _afterSuite()
     {
         self::$suiteHash = [];
     }
-
 }
 
 if (!function_exists('sq') && !function_exists('sqs')) {

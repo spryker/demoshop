@@ -1,30 +1,21 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Lib\Connector;
 
 use Closure;
-use Codeception\Lib\Connector\Shared\PhpSuperGlobalsConverter;
-use Codeception\Util\Stub;
-use Http\Request;
-use Http\RequestInterface;
-use Http\ResponseInterface;
 use Phalcon\Di;
-use Phalcon\Mvc\Application;
-use Phalcon\Mvc\Micro as MicroApplication;
-use ReflectionProperty;
+use Phalcon\Http;
 use RuntimeException;
-use Symfony\Component\BrowserKit\Client;
+use ReflectionProperty;
+use Codeception\Util\Stub;
+use Phalcon\Mvc\Application;
 use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\BrowserKit\Client;
+use Phalcon\Mvc\Micro as MicroApplication;
 use Symfony\Component\BrowserKit\Response;
+use Codeception\Lib\Connector\Shared\PhpSuperGlobalsConverter;
 
 class Phalcon extends Client
 {
-
     use PhpSuperGlobalsConverter;
 
     /**
@@ -37,8 +28,6 @@ class Phalcon extends Client
      * Set Phalcon Application by \Phalcon\DI\Injectable, Closure or bootstrap file path
      *
      * @param mixed $application
-     *
-     * @return void
      */
     public function setApplication($application)
     {
@@ -48,7 +37,7 @@ class Phalcon extends Client
     /**
      * Get Phalcon Application
      *
-     * @return \Phalcon\Mvc\Application|\Phalcon\Mvc\Micro
+     * @return Application|MicroApplication
      */
     public function getApplication()
     {
@@ -69,9 +58,8 @@ class Phalcon extends Client
      *
      * @param \Symfony\Component\BrowserKit\Request $request
      *
-     * @throws \RuntimeException
-     *
      * @return \Symfony\Component\BrowserKit\Response
+     * @throws \RuntimeException
      */
     public function doRequest($request)
     {
@@ -86,23 +74,23 @@ class Phalcon extends Client
             $phRequest = $di->get('request');
         }
 
-        if (!$phRequest instanceof RequestInterface) {
-            $phRequest = new Request();
+        if (!$phRequest instanceof Http\RequestInterface) {
+            $phRequest = new Http\Request();
         }
 
-        $uri = $request->getUri() ?: $phRequest->getURI();
-        $pathString = parse_url($uri, PHP_URL_PATH);
+        $uri         = $request->getUri() ?: $phRequest->getURI();
+        $pathString  = parse_url($uri, PHP_URL_PATH);
         $queryString = parse_url($uri, PHP_URL_QUERY);
 
         $_SERVER = $request->getServer();
         $_SERVER['REQUEST_METHOD'] = strtoupper($request->getMethod());
         $_SERVER['REQUEST_URI'] = null === $queryString ? $pathString : $pathString . '?' . $queryString;
 
-        $_COOKIE = $request->getCookies();
-        $_FILES = $this->remapFiles($request->getFiles());
+        $_COOKIE  = $request->getCookies();
+        $_FILES   = $this->remapFiles($request->getFiles());
         $_REQUEST = $this->remapRequestParameters($request->getParameters());
-        $_POST = [];
-        $_GET = [];
+        $_POST    = [];
+        $_GET     = [];
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $_GET = $_REQUEST;
@@ -115,7 +103,7 @@ class Phalcon extends Client
             $_GET[$k] = $v;
         }
 
-        $_GET['_url'] = $pathString;
+        $_GET['_url']            = $pathString;
         $_SERVER['QUERY_STRING'] = http_build_query($_GET);
 
         Di::reset();
@@ -124,12 +112,12 @@ class Phalcon extends Client
         $di['request'] = Stub::construct($phRequest, [], ['getRawBody' => $request->getContent()]);
 
         $response = $application->handle();
-        if (!$response instanceof ResponseInterface) {
+        if (!$response instanceof Http\ResponseInterface) {
             $response = $application->response;
         }
 
         $headers = $response->getHeaders();
-        $status = (int)$headers->get('Status');
+        $status = (int) $headers->get('Status');
 
         $headersProperty = new ReflectionProperty($headers, '_headers');
         $headersProperty->setAccessible(true);
@@ -168,5 +156,4 @@ class Phalcon extends Client
             $headers
         );
     }
-
 }

@@ -1,21 +1,14 @@
 <?php
-
-/**
- * This file is part of the Spryker Demoshop.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
 namespace Codeception\Module;
 
 use Codeception\Configuration;
+use Codeception\Lib\Framework;
 use Codeception\Exception\ModuleRequireException;
 use Codeception\Lib\Connector\Symfony as SymfonyConnector;
-use Codeception\Lib\Framework;
 use Codeception\Lib\Interfaces\DoctrineProvider;
 use Codeception\Lib\Interfaces\PartedModule;
-use Codeception\TestInterface;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\VarDumper\Cloner\Data;
 
 /**
@@ -97,7 +90,6 @@ use Symfony\Component\VarDumper\Cloner\Data;
  */
 class Symfony extends Framework implements DoctrineProvider, PartedModule
 {
-
     /**
      * @var \Symfony\Component\HttpKernel\Kernel
      */
@@ -140,11 +132,9 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      */
     protected $persistentServices = [];
 
-    /**
-     * @return void
-     */
     public function _initialize()
     {
+
         $this->initializeSymfonyCache();
         $this->kernelClass = $this->getKernelClass();
         $maxNestingLevel = 200; // Symfony may have very long nesting level
@@ -164,9 +154,7 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
     /**
      * Require Symfonys bootstrap.php.cache only for PHP Version < 7
      *
-     * @throws \Codeception\Exception\ModuleRequireException
-     *
-     * @return void
+     * @throws ModuleRequireException
      */
     private function initializeSymfonyCache()
     {
@@ -190,10 +178,8 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
 
     /**
      * Initialize new client instance before each test
-     *
-     * @return void
      */
-    public function _before(TestInterface $test)
+    public function _before(\Codeception\TestInterface $test)
     {
         $this->persistentServices = array_merge($this->persistentServices, $this->permanentServices);
         $this->client = new SymfonyConnector($this->kernel, $this->persistentServices, $this->config['rebootable_client']);
@@ -201,10 +187,8 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
 
     /**
      * Update permanent services after each test
-     *
-     * @return void
      */
-    public function _after(TestInterface $test)
+    public function _after(\Codeception\TestInterface $test)
     {
         foreach ($this->permanentServices as $serviceName => $service) {
             $this->permanentServices[$serviceName] = $this->grabService($serviceName);
@@ -242,7 +226,7 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
     /**
      * Return container.
      *
-     * @return \Symfony\Component\DependencyInjection\ContainerInterface
+     * @return ContainerInterface
      */
     public function _getContainer()
     {
@@ -254,14 +238,12 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      *
      * When the Kernel is located, the file is required.
      *
-     * @throws \Codeception\Exception\ModuleRequireException
-     *
      * @return string The Kernel class name
      */
     protected function getKernelClass()
     {
-        $path = Configuration::projectDir() . $this->config['app_path'];
-        if (!file_exists(Configuration::projectDir() . $this->config['app_path'])) {
+        $path = \Codeception\Configuration::projectDir() . $this->config['app_path'];
+        if (!file_exists(\Codeception\Configuration::projectDir() . $this->config['app_path'])) {
             throw new ModuleRequireException(
                 __CLASS__,
                 "Can't load Kernel from $path.\n"
@@ -292,10 +274,8 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      * Get service $serviceName and add it to the lists of persistent services.
      * If $isPermanent then service becomes persistent between tests
      *
-     * @param string $serviceName
-     * @param boolean|bool $isPermanent
-     *
-     * @return void
+     * @param string  $serviceName
+     * @param boolean $isPermanent
      */
     public function persistService($serviceName, $isPermanent = false)
     {
@@ -313,8 +293,6 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      * Remove service $serviceName from the lists of persistent services.
      *
      * @param string $serviceName
-     *
-     * @return void
      */
     public function unpersistService($serviceName)
     {
@@ -331,8 +309,6 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
 
     /**
      * Invalidate previously cached routes.
-     *
-     * @return void
      */
     public function invalidateCachedRouter()
     {
@@ -351,8 +327,6 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      *
      * @param $routeName
      * @param array $params
-     *
-     * @return void
      */
     public function amOnRoute($routeName, array $params = [])
     {
@@ -376,8 +350,6 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      *
      * @param $routeName
      * @param array $params
-     *
-     * @return void
      */
     public function seeCurrentRouteIs($routeName, array $params = [])
     {
@@ -389,7 +361,7 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
         $uri = explode('?', $this->grabFromCurrentUrl())[0];
         try {
             $match = $router->match($uri);
-        } catch (ResourceNotFoundException $e) {
+        } catch (\Symfony\Component\Routing\Exception\ResourceNotFoundException $e) {
             $this->fail(sprintf('The "%s" url does not match with any route', $uri));
         }
         $expected = array_merge(['_route' => $routeName], $params);
@@ -409,8 +381,6 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      * ```
      *
      * @param $routeName
-     *
-     * @return void
      */
     public function seeInCurrentRoute($routeName)
     {
@@ -422,7 +392,7 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
         $uri = explode('?', $this->grabFromCurrentUrl())[0];
         try {
             $matchedRouteName = $router->match($uri)['_route'];
-        } catch (ResourceNotFoundException $e) {
+        } catch (\Symfony\Component\Routing\Exception\ResourceNotFoundException $e) {
             $this->fail(sprintf('The "%s" url does not match with any route', $uri));
         }
 
@@ -432,7 +402,7 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
     /**
      * Checks if any email were sent by last request
      *
-     * @return void
+     * @throws \LogicException
      */
     public function seeEmailIsSent()
     {
@@ -457,13 +427,10 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      * ?>
      * ```
      *
-     * @part services
-     *
-     * @deprecated Use grabService instead
-     *
      * @param $service
-     *
      * @return mixed
+     * @part services
+     * @deprecated Use grabService instead
      */
     public function grabServiceFromContainer($service)
     {
@@ -480,11 +447,9 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      * ?>
      * ```
      *
-     * @part services
-     *
      * @param $service
-     *
      * @return mixed
+     * @part services
      */
     public function grabService($service)
     {
@@ -515,8 +480,6 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
 
     /**
      * @param $url
-     *
-     * @return void
      */
     protected function debugResponse($url)
     {
@@ -553,8 +516,7 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
     }
 
     /**
-     * @param \Symfony\Component\VarDumper\Cloner\Data $data
-     *
+     * @param Data $data
      * @return array
      */
     private function extractRawRoles(Data $data)
@@ -579,11 +541,11 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
         $internalDomains = [];
 
         $routes = $this->grabService('router')->getRouteCollection();
-        /** @var \Symfony\Component\Routing\Route $route */
+        /* @var \Symfony\Component\Routing\Route $route */
         foreach ($routes as $route) {
-            if ($route->getHost() !== null) {
+            if (!is_null($route->getHost())) {
                 $compiled = $route->compile();
-                if ($compiled->getHostRegex() !== null) {
+                if (!is_null($compiled->getHostRegex())) {
                     $internalDomains[] = $compiled->getHostRegex();
                 }
             }
@@ -609,7 +571,6 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
      * ?>
      * ```
      *
-     * @return void
      */
     public function rebootClientKernel()
     {
@@ -629,5 +590,4 @@ class Symfony extends Framework implements DoctrineProvider, PartedModule
     {
         return method_exists($data, 'getValue');
     }
-
 }
