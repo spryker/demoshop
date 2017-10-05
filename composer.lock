@@ -6,6 +6,7 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "f54702266ffb5e8fe28e740b67a67e7b",
 =======
 <<<<<<< HEAD
@@ -17,6 +18,9 @@
 =======
     "content-hash": "04156f0754762a57e90987f1c1eb1c30",
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+=======
+    "content-hash": "3b6f6bd6fb0ba55e0a5e95319c9522f5",
+>>>>>>> core-2125 use spryker-eco/loggly
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1586,6 +1590,51 @@
             "time": "2017-04-30T16:26:54+00:00"
         },
         {
+            "name": "spryker-eco/loggly",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-eco/loggly.git",
+                "reference": "a7674226a2ac8e25664b450ee54b8c4964659383"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-eco/loggly/zipball/a7674226a2ac8e25664b450ee54b8c4964659383",
+                "reference": "a7674226a2ac8e25664b450ee54b8c4964659383",
+                "shasum": ""
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/monolog": "*",
+                "spryker/queue": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/monolog": "Needed to send messages to loggly via Curl helper",
+                "spryker/queue": "Needed to process messages from the queue"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerEco\\": "src/SprykerEco/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Loggly module",
+            "time": "2017-10-05T06:40:47+00:00"
+        },
+        {
             "name": "spryker/rabbit-mq",
             "version": "dev-master",
             "source": {
@@ -1679,15 +1728,20 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "f287258142da53a9b7471f69d000b8dd8728916b"
 =======
 =======
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+=======
+>>>>>>> core-2125 use spryker-eco/loggly
 <<<<<<< HEAD
                 "reference": "b80e4dfee2d476bbd14a369668f044e7aad438fd"
 =======
 =======
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+=======
+>>>>>>> core-2125 use spryker-eco/loggly
 <<<<<<< HEAD
                 "reference": "555bdec160dc1614927cdee6d8382275e481544c"
 =======
@@ -1706,8 +1760,17 @@
 =======
                 "reference": "7a4845d76861c81c472dadb38b3f47dbd0f70803"
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+<<<<<<< HEAD
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+<<<<<<< HEAD
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+=======
+=======
+=======
+                "reference": "7951f0e31836ba41a1b20e2752431d37e2e7f49d"
+>>>>>>> core-2125 use spryker-eco/loggly
+>>>>>>> core-2125 use spryker-eco/loggly
+>>>>>>> core-2125 use spryker-eco/loggly
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1907,15 +1970,20 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-24T08:36:55+00:00"
 =======
 =======
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+=======
+>>>>>>> core-2125 use spryker-eco/loggly
 <<<<<<< HEAD
             "time": "2017-10-16T10:44:06+00:00"
 =======
 =======
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+=======
+>>>>>>> core-2125 use spryker-eco/loggly
 <<<<<<< HEAD
             "time": "2017-10-16T10:12:01+00:00"
 =======
@@ -1934,8 +2002,17 @@
 =======
             "time": "2017-10-04T06:29:31+00:00"
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+<<<<<<< HEAD
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+<<<<<<< HEAD
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
+=======
+=======
+=======
+            "time": "2017-10-05T06:44:27+00:00"
+>>>>>>> core-2125 use spryker-eco/loggly
+>>>>>>> core-2125 use spryker-eco/loggly
+>>>>>>> core-2125 use spryker-eco/loggly
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7512,10 +7589,18 @@
             "time": "2017-06-30T11:53:12+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "9999999-dev",
+            "package": "spryker-eco/loggly"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
+        "spryker-eco/loggly": 20,
         "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,

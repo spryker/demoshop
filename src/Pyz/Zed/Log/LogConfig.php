@@ -7,8 +7,8 @@
 
 namespace Pyz\Zed\Log;
 
-use Spryker\Shared\Loggly\LogglyConstants;
 use Spryker\Zed\Log\LogConfig as SprykerLogConfig;
+use SprykerEco\Shared\Loggly\LogglyConstants;
 
 class LogConfig extends SprykerLogConfig
 {

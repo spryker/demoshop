@@ -9,7 +9,6 @@ namespace Pyz\Zed\Log\Communication;
 
 use Monolog\Handler\BufferHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
-use Pyz\Shared\Log\LogConstants;
 use Spryker\Shared\Application\Log\Processor\EntitySanitizerProcessor;
 use Spryker\Shared\Application\Log\Processor\EnvironmentProcessor;
 use Spryker\Shared\Application\Log\Processor\GuzzleBodyProcessor;
@@ -17,11 +16,12 @@ use Spryker\Shared\Application\Log\Processor\RequestProcessor;
 use Spryker\Shared\Application\Log\Processor\ResponseProcessor;
 use Spryker\Shared\Application\Log\Processor\ServerProcessor;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Log\Sanitizer\Sanitizer;
-use Spryker\Shared\Loggly\LogglyConstants;
 use Spryker\Zed\Log\Communication\Handler\QueueHandler;
 use Spryker\Zed\Log\Communication\LogCommunicationFactory as SprykerLogCommunicationFactory;
 use Spryker\Zed\Log\LogDependencyProvider;
+use SprykerEco\Shared\Loggly\LogglyConstants;
 
 /**
  * @method \Pyz\Zed\Log\LogConfig getConfig()

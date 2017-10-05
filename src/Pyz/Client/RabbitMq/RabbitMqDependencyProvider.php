@@ -100,14 +100,14 @@ class RabbitMqDependencyProvider extends RabbitMqRabbitMqDependencyProvider
      */
     protected function getLoggerQueueOption()
     {
-        $queueOption = new RabbitMqOptionTransfer();
-        $queueOption->setQueueName(Config::get(LogglyConstants::QUEUE_NAME));
-        $queueOption->setDurable(true);
-        $queueOption->setType('direct');
-        $queueOption->setDeclarationType(Connection::RABBIT_MQ_EXCHANGE);
-        $queueOption->setBindingQueue($this->getLoggerQueueBinding());
+        $rabbitMqOptionTransfer = new RabbitMqOptionTransfer();
+        $rabbitMqOptionTransfer->setQueueName(Config::get(LogglyConstants::QUEUE_NAME));
+        $rabbitMqOptionTransfer->setDurable(true);
+        $rabbitMqOptionTransfer->setType('direct');
+        $rabbitMqOptionTransfer->setDeclarationType(Connection::RABBIT_MQ_EXCHANGE);
+        $rabbitMqOptionTransfer->setBindingQueue($this->getLoggerQueueBinding());
 
-        return $queueOption;
+        return $rabbitMqOptionTransfer;
     }
 
     /**
@@ -115,10 +115,10 @@ class RabbitMqDependencyProvider extends RabbitMqRabbitMqDependencyProvider
      */
     protected function getLoggerQueueBinding()
     {
-        $queueOption = new RabbitMqOptionTransfer();
-        $queueOption->setQueueName(Config::get(LogglyConstants::QUEUE_NAME));
-        $queueOption->setDurable(true);
+        $rabbitMqOptionTransfer = new RabbitMqOptionTransfer();
+        $rabbitMqOptionTransfer->setQueueName(Config::get(LogglyConstants::QUEUE_NAME));
+        $rabbitMqOptionTransfer->setDurable(true);
 
-        return $queueOption;
+        return $rabbitMqOptionTransfer;
     }
 }

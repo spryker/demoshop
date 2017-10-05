@@ -9,18 +9,18 @@ namespace Pyz\Yves\Log;
 
 use Monolog\Handler\BufferHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
-use Pyz\Shared\Log\LogConstants;
 use Spryker\Shared\Application\Log\Processor\EnvironmentProcessor;
 use Spryker\Shared\Application\Log\Processor\GuzzleBodyProcessor;
 use Spryker\Shared\Application\Log\Processor\RequestProcessor;
 use Spryker\Shared\Application\Log\Processor\ResponseProcessor;
 use Spryker\Shared\Application\Log\Processor\ServerProcessor;
 use Spryker\Shared\Config\Config;
+use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Log\Sanitizer\Sanitizer;
-use Spryker\Shared\Loggly\LogglyConstants;
 use Spryker\Yves\Log\Handler\QueueHandler;
 use Spryker\Yves\Log\LogDependencyProvider;
 use Spryker\Yves\Log\LogFactory as SprykerLogFactory;
+use SprykerEco\Shared\Loggly\LogglyConstants;
 
 /**
  * @method \Pyz\Yves\Log\LogConfig getConfig()
