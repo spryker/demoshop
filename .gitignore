@@ -83,3 +83,4 @@ npm-debug.log
 composer.phar
 c3.php
 .phpstorm.meta.php
+.githook_local
