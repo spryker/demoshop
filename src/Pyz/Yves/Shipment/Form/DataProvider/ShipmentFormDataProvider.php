@@ -195,7 +195,8 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
      */
     protected function getFormattedShipmentPrice(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
-        $moneyTransfer = $this->moneyPlugin->fromInteger($shipmentMethodTransfer->getDefaultPrice());
+        $moneyTransfer = $this->moneyPlugin
+            ->fromInteger($shipmentMethodTransfer->getStoreCurrencyPrice());
 
         return $this->moneyPlugin->formatWithSymbol($moneyTransfer);
     }
