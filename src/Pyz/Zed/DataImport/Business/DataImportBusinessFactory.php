@@ -29,6 +29,7 @@ use Pyz\Zed\DataImport\Business\Model\Locale\LocaleNameToIdLocaleStep;
 use Pyz\Zed\DataImport\Business\Model\Locale\Repository\LocaleRepository;
 use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationKeyToIdNavigationStep;
 use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationWriterStep;
+use Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeValidityDatesStep;
 use Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Product\AttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
@@ -593,6 +594,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
                 NavigationNodeWriterStep::KEY_URL,
                 NavigationNodeWriterStep::KEY_CSS_CLASS,
             ]))
+            ->addStep($this->createNavigationNodeValidityDatesStep(NavigationNodeWriterStep::KEY_VALID_FROM, NavigationNodeWriterStep::KEY_VALID_TO))
             ->addStep(new NavigationNodeWriterStep($this->getTouchFacade(), NavigationNodeWriterStep::BULK_SIZE));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
@@ -609,6 +611,17 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     protected function createNavigationKeyToIdNavigationStep($source = NavigationKeyToIdNavigationStep::KEY_SOURCE, $target = NavigationKeyToIdNavigationStep::KEY_TARGET)
     {
         return new NavigationKeyToIdNavigationStep($source, $target);
+    }
+
+    /**
+     * @param string $keyValidFrom
+     * @param string $keyValidTo
+     *
+     * @return \Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeValidityDatesStep
+     */
+    protected function createNavigationNodeValidityDatesStep($keyValidFrom, $keyValidTo)
+    {
+        return new NavigationNodeValidityDatesStep($keyValidFrom, $keyValidTo);
     }
 
     /**

@@ -4,13 +4,14 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
+use Monolog\Logger;
+use Pyz\Shared\WebProfiler\WebProfilerConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -30,9 +31,12 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
-$config[ApplicationConstants::ENABLE_WEB_PROFILER]
+$config[WebProfilerConstants::ENABLE_WEB_PROFILER]
     = $config[ConfigConstants::ENABLE_WEB_PROFILER]
     = true;
+
+$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = true;
@@ -117,10 +121,13 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 // ---------- Logging
-$config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
+$config[LogConstants::LOG_LEVEL] = Logger::INFO;
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH] = sprintf(
+    '%s/data/%s/logs/%s/exception.log',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE,
+    APPLICATION
+);
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = true;
-
-// ---------- Event journal (deprecated)
-$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;
