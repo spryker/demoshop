@@ -1,6 +1,6 @@
 {% if currencies|length > 1 %}
     <form method="GET" action="{{ path('currency-switch') }}" data-component="currency-switch">
-        <select name="currency-code" onchange="this.form.submit()">
+        <select name="currency-iso-code" onchange="this.form.submit()">
         {% for currency in currencies %}
                <option value="{{ currency.code }}" {{ (currency.code == currentCurrency) ? 'selected' : ''}}>{{ currency.name | trans }}</option>
         {% endfor %}

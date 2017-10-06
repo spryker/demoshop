@@ -165,16 +165,20 @@
                 <td>{{ quote.totals.discountTotal | default(0) | money }}</td>
             </tr>
             <tr>
-                <td>Refundable total:</td>
+                <td>Refundable total (incl. tax):</td>
                 <td>{{ quote.totals.refundTotal | default(0) | money }}</td>
             </tr>
             <tr>
-                <td>Grand total:</td>
+                <td>Grand total (incl. tax):</td>
                 <td>{{ quote.totals.grandTotal | default(0) | money }}</td>
             </tr>
             <tr>
                 <td>Tax total:</td>
                 <td>{{ quote.totals.taxTotal.amount | default(0) | money }}</td>
+            </tr>
+            <tr>
+                <td>Net total:</td>
+                <td>{{ quote.totals.netTotal | default(0) | money }}</td>
             </tr>
 
         </table>
