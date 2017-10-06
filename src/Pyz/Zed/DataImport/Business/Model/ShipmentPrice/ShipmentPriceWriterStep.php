@@ -46,8 +46,8 @@ class ShipmentPriceWriterStep implements DataImportStepInterface
             ->filterByFkStore($this->getIdStoreByStoreName($dataSet[static::COL_STORE]))
             ->findOneOrCreate();
 
-        $shipmentMethodPriceEntity->setNetAmount($dataSet[static::COL_NET_AMOUNT]);
-        $shipmentMethodPriceEntity->setGrossAmount($dataSet[static::COL_GROSS_AMOUNT]);
+        $shipmentMethodPriceEntity->setDefaultNetPrice($dataSet[static::COL_NET_AMOUNT]);
+        $shipmentMethodPriceEntity->setDefaultGrossPrice($dataSet[static::COL_GROSS_AMOUNT]);
         $shipmentMethodPriceEntity->save();
     }
 
