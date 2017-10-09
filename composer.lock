@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecd72eec046c4fc2ea7d6d5f4fd8dc6c",
+    "content-hash": "810eef97329b440fd2fd5c174cfac073",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1750-product-multi-currency",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4e8676d766d8ca937a503e065b5cbda091fb78a2"
+                "reference": "482d1c82348937d7e126b67d85743939dea9e11f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1649,6 +1649,7 @@
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
+                "spryker/cart-currency-connector": "*",
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
                 "spryker/category": "*",
@@ -1678,6 +1679,8 @@
                 "spryker/customer": "*",
                 "spryker/customer-group": "*",
                 "spryker/customer-group-discount-connector": "*",
+                "spryker/customer-user-connector": "*",
+                "spryker/customer-user-connector-gui": "*",
                 "spryker/development": "*",
                 "spryker/discount": "*",
                 "spryker/discount-calculation-connector": "*",
@@ -1813,7 +1816,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-02T10:41:34+00:00"
+            "time": "2017-10-06T14:39:42+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
