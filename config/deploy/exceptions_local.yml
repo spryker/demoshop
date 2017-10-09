@@ -1,0 +1,7 @@
+sections:
+   section:
+    failing-command:
+      command: "ls -la /catface"
+
+    successful-command:
+      command: "echo 'catface'"

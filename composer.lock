@@ -4,7 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
+=======
+<<<<<<< HEAD
+    "content-hash": "367dceaef55702aa441912c8b8ac96db",
+=======
+<<<<<<< HEAD
+    "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
+=======
+<<<<<<< HEAD
+    "content-hash": "bee9ce99543a7ee88dbaa0292004c998",
+=======
+<<<<<<< HEAD
+    "content-hash": "7e516bf63ed5855079d9710a018927b4",
+=======
+<<<<<<< HEAD
+    "content-hash": "f54702266ffb5e8fe28e740b67a67e7b",
+=======
+<<<<<<< HEAD
+    "content-hash": "c8f976d8ff79ef41c90e6823e30bc25c",
+=======
+    "content-hash": "1428a13d19c03bb3e003e0642e4c198f",
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1817,11 +1845,101 @@
         },
         {
             "name": "spryker/spryker",
+<<<<<<< HEAD
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "c5b430d6c49db8aeb654d910934d6f6f990d27d4"
+=======
+<<<<<<< HEAD
+                "reference": "ad7d2b4997b4a4b672a5e7caffc49c72dca03168"
+=======
+                "reference": "d99b9d86ed675c51089f2501bc8e86a8444b35f3"
+=======
+<<<<<<< HEAD
+            "version": "dev-bugfix/core-791-case-sensitive-propel-plan-D",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/spryker.git",
+                "reference": "1ce73963ac420f7354feeb2a0844068d95511904"
+=======
+            "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i-new-commands",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
+                "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
+=======
+<<<<<<< HEAD
+                "reference": "c142b69f4b2ebabb615d2dead92176658fe4191d"
+=======
+<<<<<<< HEAD
+                "reference": "519a38e62498ab5fce5c16551d683ad8ef4ed67e"
+=======
+<<<<<<< HEAD
+                "reference": "721036624dcad6f8bb99f2b37c1763fba87f9f17"
+=======
+<<<<<<< HEAD
+                "reference": "62e321fb41f78f7a67ba841f11492bf53b2fdf9d"
+=======
+<<<<<<< HEAD
+                "reference": "41fad0e10c2c8020ef691fc88ffd2523fcd27060"
+=======
+<<<<<<< HEAD
+                "reference": "01c59b63fad764328d796460b250a9138638d8cf"
+=======
+<<<<<<< HEAD
+                "reference": "f287258142da53a9b7471f69d000b8dd8728916b"
+=======
+<<<<<<< HEAD
+                "reference": "b80e4dfee2d476bbd14a369668f044e7aad438fd"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                "reference": "e4a5ea9584bd7aa7a8f299f04edec5c1cbe757aa"
+=======
+=======
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+                "reference": "2e6388ade60f52865e46d9d55f1a26e512e9a742"
+=======
+=======
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+                "reference": "7453f1df2d162212b3d6e869761a9621eba05212"
+=======
+<<<<<<< HEAD
+                "reference": "482d1c82348937d7e126b67d85743939dea9e11f"
+=======
+                "reference": "cce99c7e73198f65af753713970462604a0c15b4"
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+<<<<<<< HEAD
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+<<<<<<< HEAD
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+=======
+=======
+=======
+                "reference": "1ef6f3c1b01996c8b5146b28b8a901d1cd17a934"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2021,7 +2139,89 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-22T10:11:43+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-13T15:33:34+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-13T14:44:42+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-13T09:40:11+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-10T16:05:18+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-09T13:30:16+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-08T10:19:41+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-02T17:32:29+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-02T08:02:23+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-10-25T13:51:50+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-10-24T08:36:55+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-10-16T10:44:06+00:00"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            "time": "2017-10-16T10:05:25+00:00"
+=======
+=======
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+            "time": "2017-10-12T10:10:59+00:00"
+=======
+=======
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+            "time": "2017-10-10T10:27:27+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-10-06T14:39:42+00:00"
+=======
+            "time": "2017-10-04T15:26:13+00:00"
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+<<<<<<< HEAD
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+<<<<<<< HEAD
+>>>>>>> core-2001 moved spryker-phar code to vendor dir, update spryker.yml
+=======
+=======
+=======
+            "time": "2017-10-09T13:50:46+00:00"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",

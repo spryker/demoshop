@@ -1,0 +1,7 @@
+[2017-11-09 08:39:44] setup.INFO: Setup for break-on-failure environment [] []
+[2017-11-09 08:39:44] setup.INFO: Section section-a [] []
+[2017-11-09 08:39:44] setup.INFO: Command section-a-command-a [lskdf] (In progress...) [] []
+[2017-11-09 08:39:44] setup.INFO: Command section-a-command-a [lskdf] (0.02s) [] []
+[2017-11-09 08:39:44] setup.INFO: Command section-a-command-b [echo 'catface'] (In progress...) [] []
+[2017-11-09 08:39:44] setup.INFO: Command section-a-command-b [echo 'catface'] (0.00s) [] []
+[2017-11-09 08:39:44] setup.INFO: Setup break-on-failure finished in 0.03s [] []

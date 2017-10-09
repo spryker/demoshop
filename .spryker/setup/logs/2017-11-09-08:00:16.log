@@ -1,0 +1,5 @@
+[2017-11-09 08:00:16] setup.INFO: Setup for development environment [] []
+[2017-11-09 08:00:16] setup.INFO: Section clear [] []
+[2017-11-09 08:00:16] setup.INFO: Command remove-logs [vendor/bin/console log:clear] (In progress...) [] []
+[2017-11-09 08:00:17] setup.INFO: Command remove-logs [vendor/bin/console log:clear] (0.47) [] []
+[2017-11-09 08:00:17] setup.INFO: Command remove-cache [vendor/bin/console cache:empty-all] (In progress...) [] []
