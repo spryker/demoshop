@@ -22,6 +22,7 @@ use Pyz\Zed\DataImport\Business\Model\Currency\CurrencyWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Customer\CustomerWriterStep;
 use Pyz\Zed\DataImport\Business\Model\DataImportStep\LocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Discount\DiscountWriterStep;
+use Pyz\Zed\DataImport\Business\Model\DiscountAmount\DiscountAmountWriterStep;
 use Pyz\Zed\DataImport\Business\Model\DiscountVoucher\DiscountVoucherWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Glossary\GlossaryWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Locale\AddLocalesStep;
@@ -114,7 +115,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createCmsBlockCategoryPositionImporter())
             ->addDataImporter($this->createCmsBlockCategoryImporter())
             ->addDataImporter($this->createNavigationImporter())
-            ->addDataImporter($this->createNavigationNodeImporter());
+            ->addDataImporter($this->createNavigationNodeImporter())
+            ->addDataImporter($this->createDiscountAmountImporter());
 
         return $dataImporterCollection;
     }
@@ -372,6 +374,22 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(DiscountWriterStep::BULK_SIZE);
         $dataSetStepBroker
             ->addStep(new DiscountWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createDiscountAmountImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getDiscountAmountDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(DiscountAmountWriterStep::BULK_SIZE);
+        $dataSetStepBroker
+            ->addStep(new DiscountAmountWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
