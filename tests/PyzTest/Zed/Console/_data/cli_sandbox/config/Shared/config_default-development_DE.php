@@ -55,7 +55,6 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = 'https://static.pr
 
 $config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED_GUI] . ':1080';
-$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [];
 
 /* Elasticsearch */
 $config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME]

@@ -767,8 +767,12 @@ customer.account.wishlist.item.removed,Product removed successfully.,en_US
 customer.account.wishlist.item.removed,Produkt erfolgreich entfernt.,de_DE
 customer.account.wishlist.item.moved_to_cart,Item moved to cart successfully.,en_US
 customer.account.wishlist.item.moved_to_cart,Produkt erfolgreich in den Warenkorb gelegt.,de_DE
+customer.account.wishlist.item.moved_to_cart.failed,Item was not moved to cart.,en_US
+customer.account.wishlist.item.moved_to_cart.failed,Produkt konnte nicht in den Warenkorb gelegt werden.,de_DE
 customer.account.wishlist.item.moved_all_available_to_cart,Available items moved to cart successfully.,en_US
 customer.account.wishlist.item.moved_all_available_to_cart,Verfügbare Produkte wurden erfolgreich in den Warenkorb gelegt.,de_DE
+customer.account.wishlist.item.moved_all_available_to_cart.failed,Not all items are moved to cart successfully,en_US
+customer.account.wishlist.item.moved_all_available_to_cart.failed,Nicht alle Artikel konnten erfolgreich in den Warenkorb gelegt werden.,de_DE
 customer.account.wishlist.created,Wishlist created successfully.,en_US
 customer.account.wishlist.created,Wunschliste erfolgreich angelegt.,de_DE
 customer.account.wishlist.updated,Wishlist updated successfully,en_US
@@ -1011,6 +1015,8 @@ cart.promotion.items,Promotional products,en_US
 cart.promotion.items,Werbeprodukte,de_DE
 checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE
+cms.preview.access_denied,You are not logged in or you do not have permission to access this page.,en_US
+cms.preview.access_denied,Du bist nicht eingeloggt oder hast keine Berechtigung diese Seite zu betreten.,de_DE
 product-cart.validation.error.abstract-product-exists,"Product not found",en_US
 product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
 product-cart.validation.error.concrete-product-exists,"Product not found",en_US

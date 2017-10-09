@@ -7,6 +7,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Shared\CmsGui\CmsGuiConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
@@ -45,7 +46,8 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 // ---------- General environment
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
-$config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
+$config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
+
 $ENVIRONMENT_PREFIX = '';
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = $ENVIRONMENT_PREFIX;
 $config[SalesConstants::ENVIRONMENT_PREFIX] = $ENVIRONMENT_PREFIX;
@@ -263,14 +265,14 @@ $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = $HSTS
 $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = $HSTS_CONFIG;
 
 // ---------- SSL
-$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[SessionConstants::YVES_SSL_ENABLED] = false;
-$config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
     'heartbeat' => '/heartbeat',
 ];
-$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
+
 $config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
+$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
 // ---------- Theme
@@ -381,3 +383,4 @@ $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
+$config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';
