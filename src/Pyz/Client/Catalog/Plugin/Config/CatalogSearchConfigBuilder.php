@@ -18,6 +18,7 @@ use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface;
+use Spryker\Client\Search\Model\Elasticsearch\Aggregation\CategoryFacetAggregation;
 use Spryker\Shared\Search\SearchConfig;
 
 /**
@@ -91,7 +92,9 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setParameterName(static::CATEGORY_FACET_PARAM_NAME)
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
             ->setType(SearchConfig::FACET_TYPE_CATEGORY)
-            ->setSize(self::SIZE_UNLIMITED);
+            ->setAggregationParams([
+                CategoryFacetAggregation::AGGREGATION_PARAM_SIZE => static::SIZE_UNLIMITED,
+            ]);
 
         $facetConfigBuilder->addFacet($categoryFacet);
 
