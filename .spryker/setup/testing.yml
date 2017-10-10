@@ -99,9 +99,39 @@ sections:
       command: "vendor/bin/console setup:jenkins:enable"
 
 
+  frontend:
+    install-node:
+      command: "vendor/bin/console frontend:install-node-js"
+
+    dependencies-cleanup:
+      command: "vendor/bin/console frontend:cleanup-dependencies"
+
+    dependencies-install:
+      command: "vendor/bin/console frontend:install-dependencies"
+
+    yves-install-dependencies:
+      command: "vendor/bin/console frontend:yves-install-dependencies"
+      groups:
+        - yves
+
+    yves-build-frontend:
+      command: "vendor/bin/console frontend:yves-build-frontend"
+      groups:
+        - yves
+
+    zed-install-dependencies:
+      command: "vendor/bin/console frontend:zed-install-dependencies"
+      groups:
+        - zed
+
+    zed-build-frontend:
+      command: "vendor/bin/console frontend:zed-build-frontend"
+      groups:
+        - zed
+
   backup:
     export-database:
-      command: "vendor/bin/console propel:database:export ./data/test.backup_new"
+      command: "vendor/bin/console propel:database:export ./data/test.backup"
       groups:
         - propel
 
@@ -113,6 +143,6 @@ sections:
         - propel
 
     import-database:
-      command: "vendor/bin/console propel:database:import ./data/test.backup_new"
+      command: "vendor/bin/console propel:database:import ./data/test.backup"
       groups:
         - propel

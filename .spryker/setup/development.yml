@@ -139,6 +139,8 @@ sections:
         - zed
 
   backup:
+    excluded: true
+
     export-database:
       command: "vendor/bin/console propel:database:export ./data/test.backup"
       excluded: true
@@ -152,15 +154,16 @@ sections:
         - propel
 
   restore:
+    excluded: true
+
     drop-database:
       command: "vendor/bin/console propel:database:drop"
-      excluded: true
+
       groups:
         - propel
 
     import-database:
       command: "vendor/bin/console propel:database:import ./data/test.backup"
-      excluded: true
       groups:
         - propel
 

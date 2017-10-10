@@ -52,6 +52,10 @@ use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
 use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\Search\Communication\Console\SearchCreateSnapshotConsole;
+use Spryker\Zed\Search\Communication\Console\SearchDeleteIndexConsole;
+use Spryker\Zed\Search\Communication\Console\SearchRegisterSnapshotRepositoryConsole;
+use Spryker\Zed\Search\Communication\Console\SearchRestoreSnapshotConsole;
 use Spryker\Zed\Session\Communication\Console\SessionRemoveLockConsole;
 use Spryker\Zed\Setup\Communication\Console\DeployPreparePropelConsole;
 use Spryker\Zed\Setup\Communication\Console\EmptyGeneratedDirectoryConsole;
@@ -155,6 +159,27 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DeployPreparePropelConsole(),
 
             new DatabaseDropConsole(),
+
+            new DatabaseExportConsole(),
+            new DatabaseImportConsole(),
+            new DeleteMigrationFilesConsole(),
+
+            new DeleteLogFilesConsole(),
+            new CopyRdbFileConsole(),
+            new SearchDeleteIndexConsole(),
+            new SearchRegisterSnapshotRepositoryConsole(),
+            new SearchCreateSnapshotConsole(),
+            new SearchRestoreSnapshotConsole(),
+
+            new InstallNodeJsConsole(),
+            new CleanUpDependenciesConsole(),
+            new InstallProjectDependenciesConsole(),
+
+            new YvesInstallDependenciesConsole(),
+            new YvesBuildFrontendConsole(),
+
+            new ZedInstallDependenciesConsole(),
+            new ZedBuildFrontendConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
