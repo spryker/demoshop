@@ -24,19 +24,19 @@ class ShipmentPriceWriterStep implements DataImportStepInterface
     const COL_GROSS_AMOUNT = 'value_gross';
 
     /**
-     * @var array Keys are shipment method keys, values are shipment method ids.
+     * @var int[] Keys are shipment method keys, values are shipment method ids.
      */
-    protected $idShipmentMethodCache = [];
+    protected static $idShipmentMethodCache = [];
 
     /**
-     * @var array Keys are currency iso codes, values are currency ids.
+     * @var int[] Keys are currency iso codes, values are currency ids.
      */
-    protected $idCurrencyCache = [];
+    protected static $idCurrencyCache = [];
 
     /**
-     * @var array Keys are store names, values are store ids.
+     * @var int[] Keys are store names, values are store ids.
      */
-    protected $idStoreCache = [];
+    protected static $idStoreCache = [];
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -63,13 +63,13 @@ class ShipmentPriceWriterStep implements DataImportStepInterface
      */
     protected function getIdShipmentMethodByShipmentMethodKey($shipmentMethodKey)
     {
-        if (!isset($this->idShipmentMethodCache[$shipmentMethodKey])) {
-            $this->idShipmentMethodCache[$shipmentMethodKey] = SpyShipmentMethodQuery::create()
+        if (!isset(static::$idShipmentMethodCache[$shipmentMethodKey])) {
+            static::$idShipmentMethodCache[$shipmentMethodKey] = SpyShipmentMethodQuery::create()
                 ->findOneByShipmentMethodKey($shipmentMethodKey)
                 ->getIdShipmentMethod();
         }
 
-        return $this->idShipmentMethodCache[$shipmentMethodKey];
+        return static::$idShipmentMethodCache[$shipmentMethodKey];
     }
 
     /**
@@ -79,13 +79,13 @@ class ShipmentPriceWriterStep implements DataImportStepInterface
      */
     protected function getIdCurrencyByIsoCode($currencyIsoCode)
     {
-        if (!isset($this->idCurrencyCache[$currencyIsoCode])) {
-            $this->idCurrencyCache[$currencyIsoCode] = SpyCurrencyQuery::create()
+        if (!isset(static::$idCurrencyCache[$currencyIsoCode])) {
+            static::$idCurrencyCache[$currencyIsoCode] = SpyCurrencyQuery::create()
                 ->findOneByCode(strtoupper($currencyIsoCode))
                 ->getIdCurrency();
         }
 
-        return $this->idCurrencyCache[$currencyIsoCode];
+        return static::$idCurrencyCache[$currencyIsoCode];
     }
 
     /**
@@ -95,13 +95,13 @@ class ShipmentPriceWriterStep implements DataImportStepInterface
      */
     protected function getIdStoreByStoreName($storeName)
     {
-        if (!isset($this->idStoreCache[$storeName])) {
-            $this->idStoreCache[$storeName] = SpyStoreQuery::create()
+        if (!isset(static::$idStoreCache[$storeName])) {
+            static::$idStoreCache[$storeName] = SpyStoreQuery::create()
                 ->findOneByName(strtoupper($storeName))
                 ->getIdStore();
         }
 
-        return $this->idStoreCache[$storeName];
+        return static::$idStoreCache[$storeName];
     }
 
 }
