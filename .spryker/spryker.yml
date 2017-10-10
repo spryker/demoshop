@@ -74,4 +74,17 @@ stages:
       npm:
         command: "npm -i"
 
+<<<<<<< HEAD
 
+=======
+      restore:
+        drop-database:
+          command: "vendor/bin/console propel:database:drop"
+          groups:
+            - propel
+
+        import-database:
+          command: "vendor/bin/console propel:database:import ./data/test.backup_new"
+          groups:
+            - propel
+>>>>>>> core-2001 fixed merge conflicts, update spryker.phar
