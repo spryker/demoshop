@@ -1898,10 +1898,13 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "e4a5ea9584bd7aa7a8f299f04edec5c1cbe757aa"
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update dependencies
 <<<<<<< HEAD
                 "reference": "2e6388ade60f52865e46d9d55f1a26e512e9a742"
 =======
@@ -1926,20 +1929,65 @@
                 "reference": "1ef6f3c1b01996c8b5146b28b8a901d1cd17a934"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "f1e16b4e94cadad0bf42ab3362c64dd630dcfbe2"
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2180,10 +2228,13 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-16T10:05:25+00:00"
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update dependencies
 <<<<<<< HEAD
             "time": "2017-10-12T10:10:59+00:00"
 =======
@@ -2208,20 +2259,65 @@
             "time": "2017-10-09T13:50:46+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-10-10T13:24:49+00:00"
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
+>>>>>>> core-2001 update dependencies
         },
         {
             "name": "swiftmailer/swiftmailer",
