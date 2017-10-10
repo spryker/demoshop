@@ -1,0 +1,171 @@
+env:
+  APPLICATION_ENV: development
+
+sections:
+  composer:
+    install-composer:
+      command: "Spryker\\Command\\Composer\\ComposerInstallCommand"
+
+    install-dependencies:
+      command: "php composer.phar install --prefer-dist"
+
+
+  logs-down:
+    remove-logs:
+      command: "vendor/bin/console log:delete:log-file-directories"
+
+
+  cache-down:
+    remove-cache:
+      command: "vendor/bin/console cache:empty-all"
+
+
+  generate-down:
+    remove-generated-files:
+      command: "vendor/bin/console setup:empty-generated-directory"
+
+
+  jenkins-down:
+    jenkins-stop:
+      command: "vendor/bin/console setup:jenkins:disable"
+      groups:
+        - jenkins
+
+
+  generate-up:
+    transfers:
+      command: "vendor/bin/console transfer:generate"
+
+    ide-auto-completion:
+      command: "vendor/bin/console dev:ide:generate-auto-completion"
+
+
+  cache-up:
+    twig-cache-warmup:
+      command: "vendor/bin/console twig:cache:warmer"
+
+    navigation-cache-warmup:
+      command: "vendor/bin/console navigation:build-cache"
+
+
+  database-down:
+    delete-elastic-search-index:
+      command: "vendor/bin/console search:delete"
+      groups:
+        - elastic
+
+    delete-storage:
+      command: "vendor/bin/console storage:delete"
+      groups:
+        - redis
+
+    drop-database:
+      command: "vendor/bin/console propel:database:drop"
+      groups:
+        - propel
+
+    delete-migration-files:
+      command: "vendor/bin/console propel:migration:delete"
+      groups:
+        - propel
+
+
+  database-up:
+    setup-propel:
+      command: "vendor/bin/console propel:install"
+      groups:
+        - propel
+
+    setup-search:
+      command: "vendor/bin/console setup:search"
+      groups:
+        - elastic
+
+
+  setup-data:
+    init-database:
+      command: "vendor/bin/console setup:init-db"
+
+    import:
+      command: "vendor/bin/console data:import"
+
+    update-product-labels:
+      command: "vendor/bin/console product-label:relations:update"
+
+
+  export-data:
+    search:
+      command: "vendor/bin/console collector:search:export"
+    storage:
+      command: "vendor/bin/console collector:storage:export"
+
+
+  jenkins-up:
+    jenkins-generate:
+      command: "vendor/bin/console setup:jenkins:generate"
+
+    jenkins-enable:
+      command: "vendor/bin/console setup:jenkins:enable"
+
+
+  frontend:
+    install-node:
+      command: "vendor/bin/console frontend:install-node-js"
+
+    dependencies-cleanup:
+      command: "vendor/bin/console frontend:cleanup-dependencies"
+
+    dependencies-install:
+      command: "vendor/bin/console frontend:install-dependencies"
+
+    yves-install-dependencies:
+      command: "vendor/bin/console frontend:yves-install-dependencies"
+      groups:
+        - yves
+
+    yves-build-frontend:
+      command: "vendor/bin/console frontend:yves-build-frontend"
+      groups:
+        - yves
+
+    zed-install-dependencies:
+      command: "vendor/bin/console frontend:zed-install-dependencies"
+      groups:
+        - zed
+
+    zed-build-frontend:
+      command: "vendor/bin/console frontend:zed-build-frontend"
+      groups:
+        - zed
+
+  backup:
+    export-database:
+      command: "vendor/bin/console propel:database:export ./data/test.backup"
+      excluded: true
+      groups:
+        - propel
+
+    export-storage:
+      command: "vendor/bin/console storage:copy-rdb-file /var/lib/redis/dump.rdb ./data/redis_dump.rdb"
+      excluded: true
+      groups:
+        - propel
+
+  restore:
+    drop-database:
+      command: "vendor/bin/console propel:database:drop"
+      excluded: true
+      groups:
+        - propel
+
+    import-database:
+      command: "vendor/bin/console propel:database:import ./data/test.backup"
+      excluded: true
+      groups:
+        - propel
+
+    import-storage:
+      command: "vendor/bin/console storage:copy-rdb-file ./data/redis_dump.rdb /var/lib/redis/dump.rdb"
+      excluded: true
+      groups:
+        - redis

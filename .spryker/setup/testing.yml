@@ -1,0 +1,118 @@
+env:
+  APPLICATION_ENV: devtest
+
+sections:
+  composer:
+    install-dependencies:
+      command: "php composer.phar install --prefer-dist"
+
+
+  jenkins-down:
+    jenkins-stop:
+      command: "vendor/bin/console setup:jenkins:disable"
+      groups:
+        - jenkins
+
+
+  generate-up:
+    transfers:
+      command: "vendor/bin/console transfer:generate"
+
+    data-builders:
+      command: "vendor/bin/console transfer:databuilder:generate"
+      groups:
+        - transfer
+
+
+  cache-up:
+    twig-cache-warmup:
+      command: "vendor/bin/console twig:cache:warmer"
+
+    navigation-cache-warmup:
+      command: "vendor/bin/console navigation:build-cache"
+
+
+  codeception:
+    build:
+      command: "vendor/bin/codecept build -q"
+      groups:
+        - codeception
+
+
+  database-down:
+    delete-elastic-search-index:
+      command: "vendor/bin/console search:delete"
+      groups:
+        - elastic
+
+    delete-storage:
+      command: "vendor/bin/console storage:delete"
+      groups:
+        - redis
+
+    drop-database:
+      command: "vendor/bin/console propel:database:drop"
+      groups:
+        - propel
+
+    delete-migration-files:
+      command: "vendor/bin/console propel:migration:delete"
+      groups:
+        - propel
+
+
+  database-up:
+    setup-propel:
+      command: "vendor/bin/console propel:install"
+      groups:
+        - propel
+
+    setup-search:
+      command: "vendor/bin/console setup:search"
+      groups:
+        - elastic
+
+
+  setup-data:
+    init-database:
+      command: "vendor/bin/console setup:init-db"
+
+    import:
+      command: "vendor/bin/console data:import"
+
+    update-product-labels:
+      command: "vendor/bin/console product-label:relations:update"
+
+
+  export-data:
+    search:
+      command: "vendor/bin/console collector:search:export"
+    storage:
+      command: "vendor/bin/console collector:storage:export"
+
+
+  jenkins-up:
+    jenkins-generate:
+      command: "vendor/bin/console setup:jenkins:generate"
+
+    jenkins-enable:
+      command: "vendor/bin/console setup:jenkins:enable"
+
+
+  backup:
+    export-database:
+      command: "vendor/bin/console propel:database:export ./data/test.backup_new"
+      groups:
+        - propel
+
+
+  restore:
+    drop-database:
+      command: "vendor/bin/console propel:database:drop"
+      groups:
+        - propel
+
+    import-database:
+      command: "vendor/bin/console propel:database:import ./data/test.backup_new"
+      groups:
+        - propel
