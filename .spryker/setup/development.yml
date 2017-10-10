@@ -143,15 +143,20 @@ sections:
 
     export-database:
       command: "vendor/bin/console propel:database:export ./data/test.backup"
-      excluded: true
       groups:
         - propel
 
     export-storage:
       command: "vendor/bin/console storage:copy-rdb-file /var/lib/redis/dump.rdb ./data/redis_dump.rdb"
-      excluded: true
       groups:
         - propel
+
+    register-search-repo:
+      command: "vendor/bin/console search:snapshot:register-repository development"
+
+    create-search-snapshot:
+      command: "vendor/bin/console search:snapshot:create development snapshot"
+
 
   restore:
     excluded: true
@@ -172,3 +177,6 @@ sections:
       excluded: true
       groups:
         - redis
+
+    restore-search-snapshot:
+      command: "vendor/bin/console search:snapshot:restore development local"
