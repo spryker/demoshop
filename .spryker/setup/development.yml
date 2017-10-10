@@ -50,7 +50,7 @@ sections:
 
   database-down:
     delete-elastic-search-index:
-      command: "vendor/bin/console search:delete"
+      command: "vendor/bin/console search:index:delete"
       groups:
         - elastic
 

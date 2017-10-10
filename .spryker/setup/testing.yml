@@ -7,13 +7,6 @@ sections:
       command: "php composer.phar install --prefer-dist"
 
 
-  jenkins-down:
-    jenkins-stop:
-      command: "vendor/bin/console setup:jenkins:disable"
-      groups:
-        - jenkins
-
-
   generate-up:
     transfers:
       command: "vendor/bin/console transfer:generate"
@@ -41,7 +34,7 @@ sections:
 
   database-down:
     delete-elastic-search-index:
-      command: "vendor/bin/console search:delete"
+      command: "vendor/bin/console search:index:delete"
       groups:
         - elastic
 
@@ -89,14 +82,6 @@ sections:
       command: "vendor/bin/console collector:search:export"
     storage:
       command: "vendor/bin/console collector:storage:export"
-
-
-  jenkins-up:
-    jenkins-generate:
-      command: "vendor/bin/console setup:jenkins:generate"
-
-    jenkins-enable:
-      command: "vendor/bin/console setup:jenkins:enable"
 
 
   frontend:

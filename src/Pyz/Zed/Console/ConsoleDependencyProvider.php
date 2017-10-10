@@ -52,6 +52,7 @@ use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
 use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
+use Spryker\Zed\Search\Communication\Console\SearchCopyIndexConsole;
 use Spryker\Zed\Search\Communication\Console\SearchCreateSnapshotConsole;
 use Spryker\Zed\Search\Communication\Console\SearchDeleteIndexConsole;
 use Spryker\Zed\Search\Communication\Console\SearchRegisterSnapshotRepositoryConsole;
@@ -170,6 +171,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new SearchRegisterSnapshotRepositoryConsole(),
             new SearchCreateSnapshotConsole(),
             new SearchRestoreSnapshotConsole(),
+            new SearchCopyIndexConsole(),
 
             new InstallNodeJsConsole(),
             new CleanUpDependenciesConsole(),
