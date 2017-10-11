@@ -587,8 +587,6 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function submitCreateNodeFormWithoutType($title)
     {
-        $this->expandLocalizedForm('de_DE');
-
         $this->submitForm(self::NODE_FORM_SELECTOR, [
             'navigation_node[navigation_node_localized_attributes][0][title]' => $title,
             'navigation_node[navigation_node_localized_attributes][1][title]' => $title,
@@ -604,8 +602,6 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function submitCreateNodeFormWithExternalUrlType($title, $externalUrl)
     {
-        $this->expandLocalizedForm('de_DE');
-
         $this->submitForm(self::NODE_FORM_SELECTOR, [
             'navigation_node[node_type]' => 'external_url',
             'navigation_node[navigation_node_localized_attributes][0][external_url]' => $externalUrl,
@@ -624,8 +620,6 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function submitUpdateNodeToCategoryType($categoryUrl_en_US, $categoryUrl_de_DE)
     {
-        $this->expandLocalizedForm('de_DE');
-
         $this->submitForm(self::NODE_FORM_SELECTOR, [
             'navigation_node[node_type]' => 'category',
             'navigation_node[navigation_node_localized_attributes][0][category_url]' => $categoryUrl_en_US,
@@ -642,8 +636,6 @@ class NavigationGuiPresentationTester extends Actor
      */
     public function submitCreateNodeFormWithCmsPageType($title, $cmsPageUrl_en_US, $cmsPageUrl_de_DE)
     {
-        $this->expandLocalizedForm('de_DE');
-
         $this->submitForm(self::NODE_FORM_SELECTOR, [
             'navigation_node[node_type]' => 'cms_page',
             'navigation_node[navigation_node_localized_attributes][0][title]' => $title,
