@@ -139,8 +139,6 @@ sections:
         - zed
 
   backup:
-    excluded: true
-
     export-database:
       command: "vendor/bin/console propel:database:export ./data/development.backup"
       groups:
