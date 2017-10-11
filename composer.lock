@@ -1903,6 +1903,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "e4a5ea9584bd7aa7a8f299f04edec5c1cbe757aa"
 =======
 =======
@@ -1917,6 +1918,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update config, added commands
 <<<<<<< HEAD
                 "reference": "2e6388ade60f52865e46d9d55f1a26e512e9a742"
 =======
@@ -2126,20 +2129,65 @@
 =======
                 "reference": "a8a03db7f523cddd0a6f24aca6f212f0256e02be"
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "aa8ceddc659d28e76278b21b507d2d93c15ccb7e"
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2385,6 +2433,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-16T10:05:25+00:00"
 =======
 =======
@@ -2399,6 +2448,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update config, added commands
 <<<<<<< HEAD
             "time": "2017-10-12T10:10:59+00:00"
 =======
@@ -2608,20 +2659,65 @@
 =======
             "time": "2017-10-11T05:35:15+00:00"
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-10-11T06:31:57+00:00"
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
+>>>>>>> core-2001 update config, added commands
         },
         {
             "name": "swiftmailer/swiftmailer",
