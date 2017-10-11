@@ -179,13 +179,11 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
      */
     protected function getDeliveryTime(ShipmentMethodTransfer $method)
     {
-        $deliveryTime = 0;
-
-        if ($method->getDeliveryTime()) {
-            $deliveryTime = ($method->getDeliveryTime() / 3600);
+        if (!$method->getDeliveryTime()) {
+            return 0;
         }
 
-        return $deliveryTime;
+        return round($method->getDeliveryTime() / 86400);
     }
 
     /**
