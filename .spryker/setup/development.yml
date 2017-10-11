@@ -142,23 +142,29 @@ sections:
     excluded: true
 
     export-database:
-      command: "vendor/bin/console propel:database:export ./data/test.backup"
+      command: "vendor/bin/console propel:database:export ./data/development.backup"
       groups:
         - propel
 
     export-storage:
-      command: "vendor/bin/console storage:copy-rdb-file /var/lib/redis/dump.rdb ./data/redis_dump.rdb"
+      command: "vendor/bin/console storage:export ./data/redis_dump.rdb"
       groups:
-        - propel
+        - storage
 
     register-search-repo:
       command: "vendor/bin/console search:snapshot:register-repository development"
+      groups:
+        - searh
 
     delete-search-snapshot:
       command: "vendor/bin/console search:snapshot:delete development snapshot"
+      groups:
+        - search
 
     create-search-snapshot:
       command: "vendor/bin/console search:snapshot:create development snapshot"
+      groups:
+        - search
 
 
   restore:
@@ -175,15 +181,22 @@ sections:
         - propel
 
     import-database:
-      command: "vendor/bin/console propel:database:import ./data/test.backup"
+      command: "vendor/bin/console propel:database:import ./data/development.backup"
       groups:
         - propel
 
     import-storage:
-      command: "vendor/bin/console storage:copy-rdb-file ./data/redis_dump.rdb /var/lib/redis/dump.rdb"
+      command: "vendor/bin/console storage:import ./data/redis_dump.rdb"
       excluded: true
       groups:
-        - redis
+        - storage
+
+    close-all-indices:
+      command: "vendor/bin/console search:index:close -a"
+      groups:
+        - search
 
     restore-search-snapshot:
-      command: "vendor/bin/console search:snapshot:restore development local"
+      command: "vendor/bin/console search:snapshot:restore development snapshot"
+      groups:
+        - search
