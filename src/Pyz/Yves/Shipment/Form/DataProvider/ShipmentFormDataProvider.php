@@ -183,7 +183,7 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
             return 0;
         }
 
-        return round($method->getDeliveryTime() / 86400);
+        return (int)($method->getDeliveryTime() / 86400);
     }
 
     /**
