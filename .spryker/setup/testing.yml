@@ -122,6 +122,8 @@ sections:
 
 
   restore:
+    excluded: true
+
     drop-database:
       command: "vendor/bin/console propel:database:drop"
       groups:
