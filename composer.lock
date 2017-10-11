@@ -1902,6 +1902,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "e4a5ea9584bd7aa7a8f299f04edec5c1cbe757aa"
 =======
 =======
@@ -1912,6 +1913,8 @@
 >>>>>>> core-2001 update configs
 =======
 >>>>>>> core-2001 update dependencies
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -2117,6 +2120,11 @@
 =======
 =======
                 "reference": "2af65a0f3069e218108ce6d2179ce1ed97f99edb"
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "a8a03db7f523cddd0a6f24aca6f212f0256e02be"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -2376,6 +2384,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-16T10:05:25+00:00"
 =======
 =======
@@ -2386,6 +2395,8 @@
 >>>>>>> core-2001 update configs
 =======
 >>>>>>> core-2001 update dependencies
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -2591,6 +2602,11 @@
 =======
 =======
             "time": "2017-10-11T04:25:34+00:00"
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-10-11T05:35:15+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
