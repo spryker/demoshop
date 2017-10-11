@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7453f1df2d162212b3d6e869761a9621eba05212"
+                "reference": "53ac3313133015ece7d73c467db32ef031df7c33"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1816,7 +1816,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-10T10:27:27+00:00"
+            "time": "2017-10-11T14:17:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6669,12 +6669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "456fcd8cc3fd71e8aefd54d159bee9bd25a1824f"
+                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/456fcd8cc3fd71e8aefd54d159bee9bd25a1824f",
-                "reference": "456fcd8cc3fd71e8aefd54d159bee9bd25a1824f",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc1d3178a7ff36af360360ace5fee9229a2af93b",
+                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b",
                 "shasum": ""
             },
             "require": {
@@ -6711,7 +6711,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-10T09:27:27+00:00"
+            "time": "2017-10-10T17:07:04+00:00"
         },
         {
             "name": "spryker/git-hook",
