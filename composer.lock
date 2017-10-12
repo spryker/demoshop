@@ -1907,6 +1907,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "e4a5ea9584bd7aa7a8f299f04edec5c1cbe757aa"
 =======
 =======
@@ -1929,6 +1930,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setting, added new console command
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "2e6388ade60f52865e46d9d55f1a26e512e9a742"
 =======
@@ -2278,20 +2281,65 @@
 =======
                 "reference": "a361472619192b2078f311c107f8205f5ea39fce"
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "be72d27d9f5f04c13cd16ef78ae66e9cf43c279a"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2541,6 +2589,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-16T10:05:25+00:00"
 =======
 =======
@@ -2563,6 +2612,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setting, added new console command
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-10-12T10:10:59+00:00"
 =======
@@ -2912,20 +2963,65 @@
 =======
             "time": "2017-10-11T11:24:47+00:00"
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+<<<<<<< HEAD
 >>>>>>> core-2001 update setting, added new console command
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-10-12T05:27:23+00:00"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
