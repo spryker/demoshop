@@ -23,7 +23,7 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
     protected function getPostSavePlugins(Container $container)
     {
         return [
-            new UserCmsVersionPostSavePlugin()
+            new UserCmsVersionPostSavePlugin(),
         ];
     }
 
@@ -35,7 +35,7 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
     protected function getTransferExpanderPlugins(Container $container)
     {
         return [
-            new UserCmsVersionTransferExpanderPlugin()
+            new UserCmsVersionTransferExpanderPlugin(),
         ];
     }
 

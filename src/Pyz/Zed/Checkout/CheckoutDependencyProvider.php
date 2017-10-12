@@ -82,7 +82,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     protected function getCheckoutPreSaveHooks(Container $container)
     {
         return [
-            new SalesOrderExpanderPlugin()
+            new SalesOrderExpanderPlugin(),
         ];
     }
 }

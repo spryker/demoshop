@@ -18,7 +18,7 @@ class ProductManagementDependencyProvider extends SprykerProductManagementDepend
     protected function getProductAbstractViewPlugins()
     {
         return [
-            new CmsBlockProductAbstractBlockListViewPlugin()
+            new CmsBlockProductAbstractBlockListViewPlugin(),
         ];
     }
 }

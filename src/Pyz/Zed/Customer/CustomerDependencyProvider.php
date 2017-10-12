@@ -46,7 +46,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     {
         return [
             new CustomerUnsubscribePlugin([
-                NewsletterConstants::EDITORIAL_NEWSLETTER
+                NewsletterConstants::EDITORIAL_NEWSLETTER,
             ]),
             new RemoveCustomerFromGroupPlugin(),
         ];

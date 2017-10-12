@@ -131,7 +131,7 @@ class ProductReviewForm extends AbstractType
                 'label' => 'product_review.submit.summary',
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1])
+                    new Length(['min' => 1]),
                 ],
             ]
         );
@@ -156,7 +156,7 @@ class ProductReviewForm extends AbstractType
                 ],
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1])
+                    new Length(['min' => 1]),
                 ],
             ]
         );
@@ -178,7 +178,7 @@ class ProductReviewForm extends AbstractType
                 'label' => 'product_review.submit.nickname',
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1, 'max' => 255])
+                    new Length(['min' => 1, 'max' => 255]),
                 ],
             ]
         );

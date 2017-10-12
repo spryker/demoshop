@@ -139,7 +139,7 @@ class WishlistController extends AbstractController
 
         $wishlistItemMetaTransferCollection = [
             (new WishlistItemMetaTransfer())
-                ->setSku($wishlistItemTransfer->getSku())
+                ->setSku($wishlistItemTransfer->getSku()),
         ];
 
         $result = $this->getFactory()
