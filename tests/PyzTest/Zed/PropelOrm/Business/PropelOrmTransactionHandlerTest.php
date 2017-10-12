@@ -25,7 +25,6 @@ use Throwable;
  */
 class PropelOrmTransactionHandlerTest extends Unit
 {
-
     const TEST_SKU = 'foo';
     const TEST_NAME = 'Foo Bar';
 
@@ -93,9 +92,7 @@ class PropelOrmTransactionHandlerTest extends Unit
         try {
             $productManager->addProductWithoutTransactionHandlingShouldThrowException(static::TEST_SKU, static::TEST_NAME);
         } catch (Exception $e) {
-
         } catch (Throwable $e) {
-
         }
 
         $this->assertEntityCreatedWithinTransaction();
@@ -205,5 +202,4 @@ class PropelOrmTransactionHandlerTest extends Unit
 
         $this->assertNotNull($entityToAssert);
     }
-
 }

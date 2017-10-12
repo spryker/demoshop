@@ -11,7 +11,6 @@ use Spryker\Client\Availability\AvailabilityClientInterface;
 
 class AvailabilityReader implements AvailabilityReaderInterface
 {
-
     /**
      * @var \Spryker\Client\Availability\AvailabilityClientInterface
      */
@@ -46,5 +45,4 @@ class AvailabilityReader implements AvailabilityReaderInterface
 
         return $availability;
     }
-
 }

@@ -22,7 +22,6 @@ use Pyz\Yves\Twig\Model\UrlParameterCacheBuster;
  */
 class UrlParameterCacheBusterTest extends Unit
 {
-
     /**
      * @group Asset
      *
@@ -48,5 +47,4 @@ class UrlParameterCacheBusterTest extends Unit
 
         $this->assertEquals('bar.css?v=' . (string)$cacheBust, $provider->addCacheBust('bar.css'));
     }
-
 }

@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class StockWriterStep implements DataImportStepInterface
 {
-
     const KEY_NAME = 'name';
 
     /**
@@ -29,5 +28,4 @@ class StockWriterStep implements DataImportStepInterface
 
         $stockEntity->save();
     }
-
 }

@@ -74,7 +74,6 @@ use Stecman\Component\Symfony\Console\BashCompletion\CompletionCommand;
  */
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -203,5 +202,4 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 
         return $eventSubscriber;
     }
-
 }

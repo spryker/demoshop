@@ -13,7 +13,6 @@ use Pyz\Yves\Customer\Form\AddressForm;
 
 class AddressFormDataProvider extends AbstractAddressFormDataProvider
 {
-
     /**
      * @param int|null $idCustomerAddress
      *
@@ -87,5 +86,4 @@ class AddressFormDataProvider extends AbstractAddressFormDataProvider
 
         return $countries;
     }
-
 }

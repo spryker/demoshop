@@ -12,7 +12,6 @@ use Spryker\Shared\Storage\StorageConstants;
 
 class RedirectController extends AbstractController
 {
-
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
@@ -27,5 +26,4 @@ class RedirectController extends AbstractController
             $meta['status']
         );
     }
-
 }

@@ -29,7 +29,6 @@ use Spryker\Zed\Url\UrlConfig;
  */
 class ProductSetWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_PRODUCT_SET_KEY = 'product_set_key';
@@ -211,5 +210,4 @@ class ProductSetWriterStep extends TouchAwareStep implements DataImportStepInter
             }
         }
     }
-
 }

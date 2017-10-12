@@ -13,7 +13,6 @@ use Twig_SimpleFilter;
 
 class TwigNative extends AbstractPlugin implements TwigFilterPluginInterface
 {
-
     /**
      * @return \Twig_SimpleFilter[]
      */
@@ -31,5 +30,4 @@ class TwigNative extends AbstractPlugin implements TwigFilterPluginInterface
             }),
         ];
     }
-
 }

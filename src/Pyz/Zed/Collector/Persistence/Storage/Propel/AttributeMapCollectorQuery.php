@@ -15,7 +15,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class AttributeMapCollectorQuery extends AbstractPropelCollectorQuery
 {
-
     const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
 
     /**
@@ -43,5 +42,4 @@ class AttributeMapCollectorQuery extends AbstractPropelCollectorQuery
 
         $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, static::ID_PRODUCT_ABSTRACT);
     }
-
 }

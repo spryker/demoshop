@@ -14,7 +14,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 
 class PriceExpander implements ProductPageMapExpanderInterface
 {
-
     /**
      * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
      */
@@ -84,5 +83,4 @@ class PriceExpander implements ProductPageMapExpanderInterface
 
         $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
     }
-
 }

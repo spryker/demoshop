@@ -22,7 +22,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
  */
 class WishlistFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Client\Customer\CustomerClientInterface
      */
@@ -119,5 +118,4 @@ class WishlistFactory extends AbstractFactory
     {
         return new AvailabilityReader($this->getAvailabilityClient());
     }
-
 }

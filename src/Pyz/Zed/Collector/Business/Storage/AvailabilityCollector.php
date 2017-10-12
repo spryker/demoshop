@@ -15,7 +15,6 @@ use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollec
 
 class AvailabilityCollector extends AbstractStoragePropelCollector
 {
-
     /**
      * @param string $touchKey
      * @param array $collectItemData
@@ -97,5 +96,4 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     {
         return $availabilityEntity->getQuantity() > 0 || $availabilityEntity->getIsNeverOutOfStock();
     }
-
 }

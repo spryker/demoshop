@@ -16,7 +16,6 @@ use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
  */
 class ShipmentFormDataProviderPlugin extends AbstractPlugin implements StepEngineFormDataProviderInterface
 {
-
     /**
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
      *
@@ -36,5 +35,4 @@ class ShipmentFormDataProviderPlugin extends AbstractPlugin implements StepEngin
     {
         return $this->getFactory()->createShipmentDataProvider()->getOptions($dataTransfer);
     }
-
 }

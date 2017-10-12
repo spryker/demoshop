@@ -15,7 +15,6 @@ use Spryker\Yves\Kernel\Application;
  */
 class TwigYves extends AbstractPlugin
 {
-
     /**
      * @param \Spryker\Yves\Kernel\Application $application
      *
@@ -26,5 +25,4 @@ class TwigYves extends AbstractPlugin
         return $this->getFactory()
             ->createYvesTwigExtension($application);
     }
-
 }

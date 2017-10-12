@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 
 class GuestCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements CheckoutAuthenticationHandlerPluginInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -32,5 +31,4 @@ class GuestCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements
     {
         return ((bool)$quoteTransfer->getCustomer()->getIsGuest() === true);
     }
-
 }

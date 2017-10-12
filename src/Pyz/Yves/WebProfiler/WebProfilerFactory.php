@@ -11,7 +11,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class WebProfilerFactory extends AbstractFactory
 {
-
     /**
      * @return \Silex\ServiceProviderInterface[]|\Silex\ControllerProviderInterface[]
      */
@@ -19,5 +18,4 @@ class WebProfilerFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(WebProfilerDependencyProvider::PLUGINS_WEB_PROFILER);
     }
-
 }

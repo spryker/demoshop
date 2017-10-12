@@ -11,7 +11,6 @@ use Spryker\Zed\ZedNavigation\ZedNavigationConfig as SprykerZedNavigationConfig;
 
 class ZedNavigationConfig extends SprykerZedNavigationConfig
 {
-
     /**
      * @return array
      */
@@ -36,5 +35,4 @@ class ZedNavigationConfig extends SprykerZedNavigationConfig
 
         return $paths;
     }
-
 }

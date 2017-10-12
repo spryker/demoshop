@@ -12,7 +12,6 @@ use Spryker\Client\Newsletter\NewsletterClientInterface as SprykerNewsletterClie
 
 interface NewsletterClientInterface extends SprykerNewsletterClientInterface
 {
-
     /**
      * Specification:
      * - Subscribes a Customer to editorial Newsletter.
@@ -49,5 +48,4 @@ interface NewsletterClientInterface extends SprykerNewsletterClientInterface
      * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
      */
     public function checkEditorialNewsletterSubscription(CustomerTransfer $customerTransfer);
-
 }

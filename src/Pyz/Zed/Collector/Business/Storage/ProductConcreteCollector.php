@@ -23,7 +23,6 @@ use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
 class ProductConcreteCollector extends AbstractStoragePdoCollector
 {
-
     const SKU = 'sku';
     const QUANTITY = 'quantity';
     const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
@@ -262,5 +261,4 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
 
         return array_keys($variantSuperAttributes);
     }
-
 }

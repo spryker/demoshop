@@ -16,7 +16,6 @@ use Spryker\Client\Wishlist\WishlistClientInterface;
 
 class MoveToCartHandler implements MoveToCartHandlerInterface
 {
-
     /**
      * @var \Spryker\Client\Wishlist\WishlistClientInterface
      */
@@ -116,5 +115,4 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
             ->getCustomer()
             ->getIdCustomer();
     }
-
 }

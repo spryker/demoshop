@@ -12,7 +12,6 @@ use Spryker\Client\ZedRequest\ZedRequestDependencyProvider as SprykerZedRequestD
 
 class ZedRequestDependencyProvider extends SprykerZedRequestDependencyProvider
 {
-
     /**
      * @return \Spryker\Client\ZedRequest\Dependency\Plugin\MetaDataProviderPluginInterface[]
      */
@@ -22,5 +21,4 @@ class ZedRequestDependencyProvider extends SprykerZedRequestDependencyProvider
             'currency' => new ZedRequestMetaDataProviderPlugin(),
         ];
     }
-
 }

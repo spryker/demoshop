@@ -36,7 +36,6 @@ use PyzTest\Zed\NavigationGui\PageObject\NavigationPage;
  */
 class NavigationGuiPresentationTester extends Actor
 {
-
     use _generated\NavigationGuiPresentationTesterActions;
 
     const ROOT_NODE_ANCHOR_SELECTOR = '#navigation-node-0_anchor';
@@ -692,5 +691,4 @@ class NavigationGuiPresentationTester extends Actor
     {
         return $this->getLocator()->locale()->facade()->getLocale($locale)->getIdLocale();
     }
-
 }

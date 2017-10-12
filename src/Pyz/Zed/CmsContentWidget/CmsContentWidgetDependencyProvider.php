@@ -17,7 +17,6 @@ use Spryker\Zed\Kernel\Container;
 
 class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependencyProvider
 {
-
     /**
      * {@inheritdoc}
      *
@@ -33,5 +32,4 @@ class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependen
             CmsProductGroupContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSkuMapperPlugin(),
         ];
     }
-
 }

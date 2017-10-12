@@ -12,7 +12,6 @@ use Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInt
 
 class StateMachineExampleItemReader
 {
-
     /**
      * @var \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface
      */
@@ -73,5 +72,4 @@ class StateMachineExampleItemReader
 
         return $stateMachineItems;
     }
-
 }

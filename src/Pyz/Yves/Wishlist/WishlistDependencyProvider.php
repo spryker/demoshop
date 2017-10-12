@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\Container;
 
 class WishlistDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
     const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
 
@@ -45,5 +44,4 @@ class WishlistDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

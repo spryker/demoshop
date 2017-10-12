@@ -25,7 +25,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerProfilePage;
  */
 class CustomerOverviewCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -108,5 +107,4 @@ class CustomerOverviewCest
         $i->click(CustomerOverviewPage::LINK_TO_NEWSLETTER_PAGE);
         $i->amOnPage(CustomerNewsletterPage::URL);
     }
-
 }

@@ -9,12 +9,10 @@ namespace Pyz\Yves\Collector\Mapper;
 
 interface UrlMapperInterface
 {
-
     /**
      * @param array $mergedParameters
      *
      * @return string
      */
     public function generateUrlFromParameters(array $mergedParameters);
-
 }

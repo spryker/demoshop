@@ -11,7 +11,6 @@ use Spryker\Client\Kernel\AbstractFactory;
 
 class ProductNewFactory extends AbstractFactory
 {
-
     /**
      * @param array $requestParameters
      *
@@ -75,5 +74,4 @@ class ProductNewFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(ProductNewDependencyProvider::NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS);
     }
-
 }

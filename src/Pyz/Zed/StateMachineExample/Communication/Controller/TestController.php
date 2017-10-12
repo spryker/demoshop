@@ -19,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class TestController extends AbstractController
 {
-
     const STATE_MACHINE_NAME = 'Test';
 
     /**
@@ -94,5 +93,4 @@ class TestController extends AbstractController
     {
         return $this->getFactory()->getStateMachineFacade();
     }
-
 }

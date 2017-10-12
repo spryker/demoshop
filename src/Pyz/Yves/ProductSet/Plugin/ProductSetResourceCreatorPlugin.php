@@ -14,7 +14,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class ProductSetResourceCreatorPlugin extends AbstractPlugin
 {
-
     /**
      * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface
      */
@@ -22,5 +21,4 @@ class ProductSetResourceCreatorPlugin extends AbstractPlugin
     {
         return $this->getFactory()->createProductSetResourceCreator();
     }
-
 }

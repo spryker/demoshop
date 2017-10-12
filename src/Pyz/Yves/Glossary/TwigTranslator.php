@@ -13,7 +13,6 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class TwigTranslator implements TranslatorInterface
 {
-
     /**
      * @var \Spryker\Client\Glossary\GlossaryClientInterface
      */
@@ -108,5 +107,4 @@ class TwigTranslator implements TranslatorInterface
     {
         return $this->localeName;
     }
-
 }

@@ -15,7 +15,6 @@ use Spryker\Zed\Kernel\Container;
 
 class CmsDependencyProvider extends SprykerCmsDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -49,5 +48,4 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
             new CmsPageParameterMapExpanderPlugin(),
         ];
     }
-
 }

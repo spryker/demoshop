@@ -19,7 +19,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
  */
 class ProductPriceWriterStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_ABSTRACT_SKU = 'abstract_sku';
@@ -82,5 +81,4 @@ class ProductPriceWriterStep implements DataImportStepInterface
         $productPrice->setPrice((int)$dataSet[static::KEY_PRICE]);
         $productPrice->save();
     }
-
 }

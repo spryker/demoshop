@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class LoginForm extends AbstractType
 {
-
     const FORM_NAME = 'loginForm';
 
     const FIELD_EMAIL = 'email';
@@ -78,5 +77,4 @@ class LoginForm extends AbstractType
 
         return $this;
     }
-
 }

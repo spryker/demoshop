@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProfileForm extends AbstractType
 {
-
     const FIELD_EMAIL = 'email';
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_FIRST_NAME = 'first_name';
@@ -121,5 +120,4 @@ class ProfileForm extends AbstractType
 
         return $this;
     }
-
 }

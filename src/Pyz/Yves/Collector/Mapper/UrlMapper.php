@@ -9,7 +9,6 @@ namespace Pyz\Yves\Collector\Mapper;
 
 class UrlMapper implements UrlMapperInterface
 {
-
     /**
      * @param array $mergedParameters
      *
@@ -23,5 +22,4 @@ class UrlMapper implements UrlMapperInterface
 
         return '?' . http_build_query($mergedParameters);
     }
-
 }

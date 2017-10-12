@@ -34,7 +34,6 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
  */
 class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_BLOCK_NAME = 'block_name';
@@ -242,5 +241,4 @@ class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterfa
             }
         }
     }
-
 }

@@ -21,7 +21,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
  */
 class ProductDataPageMapBuilder
 {
-
     /**
      * @var \Spryker\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
@@ -280,5 +279,4 @@ class ProductDataPageMapBuilder
         }
         return $activeProducts;
     }
-
 }

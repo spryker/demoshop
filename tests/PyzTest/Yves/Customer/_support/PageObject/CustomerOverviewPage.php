@@ -9,7 +9,6 @@ namespace PyzTest\Yves\Customer\PageObject;
 
 class CustomerOverviewPage extends Customer
 {
-
     const URL = '/customer/overview';
 
     const BOX_HEADLINE_ORDERS = 'Last orders';
@@ -26,5 +25,4 @@ class CustomerOverviewPage extends Customer
 
     const INFO_TEXT_ADD_SHIPPING_ADDRESS = 'Please Specify Shipping Address';
     const INFO_TEXT_ADD_BILLING_ADDRESS = 'Please Specify Billing Address';
-
 }

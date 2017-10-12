@@ -13,7 +13,6 @@ use Spryker\Zed\Kernel\Container;
 
 class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
 {
-
     const FACADE_AVAILABILITY = 'availability facade';
     const FACADE_CATEGORY = 'category facade';
     const FACADE_PRODUCT_BUNDLE = 'product bundle facade';
@@ -111,5 +110,4 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
             return Store::getInstance();
         };
     }
-
 }

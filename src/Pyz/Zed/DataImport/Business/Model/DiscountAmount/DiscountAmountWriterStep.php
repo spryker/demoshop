@@ -15,7 +15,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class DiscountAmountWriterStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_DISCOUNT_KEY = 'discount_key';
@@ -70,5 +69,4 @@ class DiscountAmountWriterStep implements DataImportStepInterface
 
         return static::$currencyCache[$currencyCode];
     }
-
 }

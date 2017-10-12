@@ -12,7 +12,6 @@ use Orm\Zed\Category\Persistence\SpyCategoryNode;
 
 interface CategoryRepositoryInterface
 {
-
     /**
      * @param string $categoryKey
      *
@@ -55,5 +54,4 @@ interface CategoryRepositoryInterface
      * @return string
      */
     public function getParentUrl($categoryKey, $idLocale);
-
 }

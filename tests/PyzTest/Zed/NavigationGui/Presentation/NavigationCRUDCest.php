@@ -25,7 +25,6 @@ use PyzTest\Zed\NavigationGui\PageObject\NavigationUpdatePage;
  */
 class NavigationCRUDCest
 {
-
     /**
      * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
@@ -133,5 +132,4 @@ class NavigationCRUDCest
         $i->seeSuccessMessage(NavigationDeletePage::MESSAGE_SUCCESS);
         $i->seeCurrentUrlEquals(NavigationPage::URL);
     }
-
 }

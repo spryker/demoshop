@@ -11,7 +11,6 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class BaseHandler
 {
-
     /**
      * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
@@ -44,5 +43,4 @@ class BaseHandler
             $this->flashMessenger->addInfoMessage($infoMessage->getValue());
         }
     }
-
 }

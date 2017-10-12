@@ -14,7 +14,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ShipmentWriterStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     /**
@@ -40,5 +39,4 @@ class ShipmentWriterStep implements DataImportStepInterface
             ->setFkTaxSet($dataSet['idTaxSet'])
             ->save();
     }
-
 }

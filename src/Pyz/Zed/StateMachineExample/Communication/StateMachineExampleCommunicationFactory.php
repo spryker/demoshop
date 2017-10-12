@@ -15,7 +15,6 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
  */
 class StateMachineExampleCommunicationFactory extends AbstractCommunicationFactory
 {
-
     /**
      * @return \Spryker\Zed\StateMachine\Business\StateMachineFacade
      */
@@ -23,5 +22,4 @@ class StateMachineExampleCommunicationFactory extends AbstractCommunicationFacto
     {
         return $this->getProvidedDependency(StateMachineExampleDependencyProvider::FACADE_STATE_MACHINE);
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\Container;
 
 class HeartbeatDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_SEARCH = 'search client';
     const CLIENT_SESSION = 'session client';
     const CLIENT_STORAGE = 'storage client';
@@ -38,5 +37,4 @@ class HeartbeatDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

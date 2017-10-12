@@ -12,7 +12,6 @@ use Pyz\Yves\Wishlist\Form\AddAllAvailableProductsToCartFormType;
 
 class AddAllAvailableProductsToCartFormDataProvider
 {
-
     /**
      * @param \Generated\Shared\Transfer\WishlistOverviewResponseTransfer|null $wishlistOverviewResponseTransfer
      *
@@ -42,5 +41,4 @@ class AddAllAvailableProductsToCartFormDataProvider
             ->getWishlistItemMetaCollection()
             ->getArrayCopy();
     }
-
 }
