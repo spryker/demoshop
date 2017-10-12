@@ -1908,6 +1908,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "e4a5ea9584bd7aa7a8f299f04edec5c1cbe757aa"
 =======
 =======
@@ -2327,6 +2328,11 @@
                 "reference": "be72d27d9f5f04c13cd16ef78ae66e9cf43c279a"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "01d5086ee997b9b5b841848ac586ce88511a3770"
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -2578,6 +2584,7 @@
 <<<<<<< HEAD
             "time": "2017-10-16T10:44:06+00:00"
 =======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3008,6 +3015,11 @@
 =======
             "time": "2017-10-12T05:27:23+00:00"
 >>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-10-12T12:22:36+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -7912,6 +7924,7 @@
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a"
             },
             "dist": {
@@ -7919,6 +7932,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/3380144509a8d8850c4af602d9649c1de8099e0a",
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
             },
@@ -7927,6 +7942,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1f8241790a7bdc1da3de294ecce45addc8dde34e",
                 "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "6273b5233d003764e59af4b5798decb6422c5acd"
             },
@@ -7935,6 +7952,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/6273b5233d003764e59af4b5798decb6422c5acd",
                 "reference": "6273b5233d003764e59af4b5798decb6422c5acd",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7"
             },
@@ -7943,6 +7962,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/80f56b7fb0725ab02535b890d1f95f135c87f0b7",
                 "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "a8df3b638ce9d0b06747d6c749a775f2f6c681b6"
             },
@@ -7967,10 +7988,30 @@
                 "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b",
 >>>>>>> core-2001 update dependencies
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+=======
+=======
+=======
+=======
+=======
+                "reference": "de5678d0fd9d862f76027a4957661e4c79e14907"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/de5678d0fd9d862f76027a4957661e4c79e14907",
+                "reference": "de5678d0fd9d862f76027a4957661e4c79e14907",
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -8009,17 +8050,26 @@
                 "standards"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-21T13:26:10+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-07T15:24:39+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-07T12:05:04+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-10-17T11:04:08+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-10-16T09:26:46+00:00"
 =======
@@ -8029,10 +8079,25 @@
             "time": "2017-10-10T17:07:04+00:00"
 >>>>>>> core-2001 update dependencies
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+<<<<<<< HEAD
 >>>>>>> core-2001 update dependencies
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-10-12T10:51:30+00:00"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "spryker/git-hook",
