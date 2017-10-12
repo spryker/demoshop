@@ -129,6 +129,11 @@ sections:
       groups:
         - propel
 
+    create-database:
+      command: "vendor/bin/console propel:database:create"
+      groups:
+        - propel
+
     import-database:
       command: "vendor/bin/console propel:database:import ./data/test.backup"
       groups:
