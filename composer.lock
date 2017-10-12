@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.24",
+            "version": "3.36.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "aa3d8ca598c40f0cc03245d92fa8ac727410e47b"
+                "reference": "c7a93ab8a4aff2915f4dd1545c99f9f59e13bafd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/aa3d8ca598c40f0cc03245d92fa8ac727410e47b",
-                "reference": "aa3d8ca598c40f0cc03245d92fa8ac727410e47b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c7a93ab8a4aff2915f4dd1545c99f9f59e13bafd",
+                "reference": "c7a93ab8a4aff2915f4dd1545c99f9f59e13bafd",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-10-10T17:49:15+00:00"
+            "time": "2017-10-11T19:12:01+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -7113,11 +7113,11 @@
         },
         {
             "name": "spryker/navigation-gui",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationGui.git",
-                "reference": "ecc00fff0436f2e92cca96138d0eafd8079fb74e",
+                "reference": "617f055e48258b926c2e30a3ed89991c3af9965f",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7127,8 +7127,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/ecc00fff0436f2e92cca96138d0eafd8079fb74e",
-                "reference": "ecc00fff0436f2e92cca96138d0eafd8079fb74e",
+                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/617f055e48258b926c2e30a3ed89991c3af9965f",
+                "reference": "617f055e48258b926c2e30a3ed89991c3af9965f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7177,9 +7177,9 @@
             ],
             "description": "NavigationGui module",
             "support": {
-                "source": "https://github.com/spryker/NavigationGui/tree/master"
+                "source": "https://github.com/spryker/NavigationGui/tree/2.0.1"
             },
-            "time": "2017-10-02T09:06:55+00:00"
+            "time": "2017-10-09T14:04:16+00:00"
         },
         {
             "name": "spryker/new-relic",
