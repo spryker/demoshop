@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.21",
+            "version": "3.36.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "010aea6ccdc76ad63fdca556f9a408544d390dfb"
+                "reference": "aa3d8ca598c40f0cc03245d92fa8ac727410e47b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/010aea6ccdc76ad63fdca556f9a408544d390dfb",
-                "reference": "010aea6ccdc76ad63fdca556f9a408544d390dfb",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/aa3d8ca598c40f0cc03245d92fa8ac727410e47b",
+                "reference": "aa3d8ca598c40f0cc03245d92fa8ac727410e47b",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-10-05T19:28:13+00:00"
+            "time": "2017-10-10T17:49:15+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -11662,11 +11662,11 @@
         },
         {
             "name": "spryker/storage",
-            "version": "3.3.1",
+            "version": "3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Storage.git",
-                "reference": "c7a49fe9d5ff1854299b3a95cede2534db6c2db5",
+                "reference": "b29530376a08ccc2afeb637899bb21845dd88c60",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11676,8 +11676,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Storage/zipball/c7a49fe9d5ff1854299b3a95cede2534db6c2db5",
-                "reference": "c7a49fe9d5ff1854299b3a95cede2534db6c2db5",
+                "url": "https://api.github.com/repos/spryker/Storage/zipball/b29530376a08ccc2afeb637899bb21845dd88c60",
+                "reference": "b29530376a08ccc2afeb637899bb21845dd88c60",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11727,7 +11727,10 @@
                 "proprietary"
             ],
             "description": "Storage module",
-            "time": "2017-09-28T12:56:39+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Storage/tree/3.3.2"
+            },
+            "time": "2017-10-09T08:13:37+00:00"
         },
         {
             "name": "spryker/store",
@@ -17402,16 +17405,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.10.3",
+            "version": "0.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "aec92a8231510ee629745ad8a016a534e1ab70f8"
+                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/aec92a8231510ee629745ad8a016a534e1ab70f8",
-                "reference": "aec92a8231510ee629745ad8a016a534e1ab70f8",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc1d3178a7ff36af360360ace5fee9229a2af93b",
+                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b",
                 "shasum": ""
             },
             "require": {
@@ -17448,7 +17451,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-09-12T10:02:43+00:00"
+            "time": "2017-10-10T17:07:04+00:00"
         },
         {
             "name": "spryker/development",
