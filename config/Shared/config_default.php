@@ -314,7 +314,7 @@ $config[LogConstants::LOG_FILE_PATH] = sprintf(
     APPLICATION
 );
 $config[LogConstants::LOG_SANITIZE_FIELDS] = [
-    'password'
+    'password',
 ];
 /**
  * As long EventJournal is in ZedRequest bundle this needs to be disabled by hand
