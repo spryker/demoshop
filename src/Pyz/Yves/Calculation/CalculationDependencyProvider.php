@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\Container;
 
 class CalculationDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_QUOTE = 'quote client';
 
     /**
@@ -40,5 +39,4 @@ class CalculationDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductSetImageExtractorStep implements DataImportStepInterface
 {
-
     const KEY_TARGET = 'productImageSets';
 
     const IMAGE_SET_KEY_PREFIX = 'image_set.';
@@ -46,5 +45,4 @@ class ProductSetImageExtractorStep implements DataImportStepInterface
 
         $dataSet[static::KEY_TARGET] = $imageSets;
     }
-
 }

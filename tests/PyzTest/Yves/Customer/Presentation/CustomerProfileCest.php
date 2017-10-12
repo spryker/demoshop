@@ -21,7 +21,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerProfilePage;
  */
 class CustomerProfileCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -123,5 +122,4 @@ class CustomerProfileCest
 
         $i->waitForText(CustomerProfilePage::ERROR_MESSAGE_CHANGE_PASSWORD);
     }
-
 }

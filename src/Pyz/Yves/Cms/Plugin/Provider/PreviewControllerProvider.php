@@ -12,7 +12,6 @@ use Silex\Application;
 
 class PreviewControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_PREVIEW = 'cms-preview';
     const PARAM_PAGE = 'page';
 
@@ -30,5 +29,4 @@ class PreviewControllerProvider extends AbstractYvesControllerProvider
             ->value('cms', 'cms')
             ->assert(static::PARAM_PAGE, '[0-9]+');
     }
-
 }

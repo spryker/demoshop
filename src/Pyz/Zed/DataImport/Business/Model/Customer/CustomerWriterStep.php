@@ -16,7 +16,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CustomerWriterStep implements DataImportStepInterface
 {
-
     const COL_CUSTOMER_REFERENCE = 'customer_reference';
 
     /**
@@ -62,5 +61,4 @@ class CustomerWriterStep implements DataImportStepInterface
 
         return (int)$matches[1];
     }
-
 }

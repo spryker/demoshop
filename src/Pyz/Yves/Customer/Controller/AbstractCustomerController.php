@@ -16,7 +16,6 @@ use Pyz\Yves\Application\Controller\AbstractController;
  */
 abstract class AbstractCustomerController extends AbstractController
 {
-
     /**
      * @return \Generated\Shared\Transfer\CustomerTransfer|null
      */
@@ -48,5 +47,4 @@ abstract class AbstractCustomerController extends AbstractController
             $this->addErrorMessage($errorTransfer->getMessage());
         }
     }
-
 }

@@ -20,7 +20,6 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductReviewWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface
      */
@@ -95,5 +94,4 @@ class ProductReviewWriterStep extends TouchAwareStep implements DataImportStepIn
     {
         return $this->localeRepository->getIdLocaleByLocale($dataSet['locale_name']);
     }
-
 }

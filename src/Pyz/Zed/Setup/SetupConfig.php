@@ -18,7 +18,6 @@ use Spryker\Zed\ZedNavigation\Communication\Console\BuildNavigationConsole;
 
 class SetupConfig extends SprykerSetupConfig
 {
-
     /**
      * The following commands are a boilerplate stack. Please customize for your project.
      *
@@ -41,5 +40,4 @@ class SetupConfig extends SprykerSetupConfig
             SearchConsole::COMMAND_NAME,
         ];
     }
-
 }

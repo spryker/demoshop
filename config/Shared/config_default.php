@@ -201,7 +201,8 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 // ---------- Twig
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => new Twig_Cache_Filesystem(sprintf(
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
             '%s/data/%s/cache/Yves/twig',
             APPLICATION_ROOT_DIR,
             $CURRENT_STORE
@@ -210,7 +211,8 @@ $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     ),
 ];
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => new Twig_Cache_Filesystem(sprintf(
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
             '%s/data/%s/cache/Zed/twig',
             APPLICATION_ROOT_DIR,
             $CURRENT_STORE
@@ -312,7 +314,7 @@ $config[LogConstants::LOG_FILE_PATH] = sprintf(
     APPLICATION
 );
 $config[LogConstants::LOG_SANITIZE_FIELDS] = [
-    'password'
+    'password',
 ];
 /**
  * As long EventJournal is in ZedRequest bundle this needs to be disabled by hand

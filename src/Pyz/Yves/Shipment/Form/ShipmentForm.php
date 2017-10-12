@@ -15,7 +15,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ShipmentForm extends AbstractType
 {
-
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
     const OPTION_SHIPMENT_METHODS = 'shipmentMethods';
 
@@ -87,5 +86,4 @@ class ShipmentForm extends AbstractType
 
         return $this;
     }
-
 }

@@ -20,7 +20,6 @@ use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 
 class CartFactory extends AbstractFactory
 {
-
     /**
      * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
@@ -199,5 +198,4 @@ class CartFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_PROMOTION_PRODUCT_MAPPER);
     }
-
 }

@@ -14,7 +14,6 @@ use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
 class PageResourceCreator extends AbstractResourceCreator
 {
-
     /**
      * @return string
      */
@@ -41,5 +40,4 @@ class PageResourceCreator extends AbstractResourceCreator
             'meta' => $data,
         ];
     }
-
 }

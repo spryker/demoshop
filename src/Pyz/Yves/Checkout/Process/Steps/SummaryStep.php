@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
     /**
      * @var \Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper
      */
@@ -142,5 +141,4 @@ class SummaryStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
             $quoteTransfer->setCheckoutConfirmed(true);
         }
     }
-
 }

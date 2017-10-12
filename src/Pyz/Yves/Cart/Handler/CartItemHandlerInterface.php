@@ -12,7 +12,6 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 
 interface CartItemHandlerInterface
 {
-
     /**
      * @param string $sku
      * @param array $selectedAttributes
@@ -47,5 +46,4 @@ interface CartItemHandlerInterface
      * @return array
      */
     public function narrowDownOptions(ArrayObject $items, array $itemAttributesBySku, array $selectedAttributes = null);
-
 }

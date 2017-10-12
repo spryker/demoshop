@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class RedirectFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Redirect\ResourceCreator\RedirectResourceCreator
      */
@@ -20,5 +19,4 @@ class RedirectFactory extends AbstractFactory
     {
         return new RedirectResourceCreator();
     }
-
 }

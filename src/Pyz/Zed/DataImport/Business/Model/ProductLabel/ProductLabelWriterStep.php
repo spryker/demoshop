@@ -21,7 +21,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductLabelWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_NAME = 'name';
@@ -158,5 +157,4 @@ class ProductLabelWriterStep extends TouchAwareStep implements DataImportStepInt
             }
         }
     }
-
 }

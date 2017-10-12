@@ -15,7 +15,6 @@ use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductAbs
 
 class CmsBlockGuiDependencyProvider extends CmsBlockGuiCmsBlockGuiDependencyProvider
 {
-
     /**
      * @return array
      */
@@ -40,5 +39,4 @@ class CmsBlockGuiDependencyProvider extends CmsBlockGuiCmsBlockGuiDependencyProv
             new CmsBlockProductAbstractListViewPlugin(),
         ]);
     }
-
 }

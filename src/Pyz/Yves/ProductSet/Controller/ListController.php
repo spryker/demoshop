@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ListController extends AbstractController
 {
-
     const PARAM_LIMIT = 'limit';
     const PARAM_OFFSET = 'offset';
     const DEFAULT_LIMIT = 100;
@@ -36,5 +35,4 @@ class ListController extends AbstractController
 
         return $this->viewResponse($searchResults);
     }
-
 }

@@ -59,7 +59,6 @@ use Spryker\Zed\Url\UrlConfig;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
-
     const SERVICE_UTIL_DATE_TIME = 'util date time service';
 
     const SERVICE_NETWORK = 'util network service';
@@ -181,5 +180,4 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         return $container;
     }
-
 }

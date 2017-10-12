@@ -11,7 +11,6 @@ use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterfa
 
 interface ProductCategoryQueryContainerInterface extends SprykerProductCategoryQueryContainerInterface
 {
-
     /**
      * @api
      *
@@ -24,5 +23,4 @@ interface ProductCategoryQueryContainerInterface extends SprykerProductCategoryQ
         $idProductAbstract,
         array $idsCategoryNode
     );
-
 }

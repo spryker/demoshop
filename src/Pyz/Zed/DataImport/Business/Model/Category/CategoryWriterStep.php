@@ -31,7 +31,6 @@ use Spryker\Zed\Url\UrlConfig;
  */
 class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_NAME = 'name';
@@ -245,5 +244,4 @@ class CategoryWriterStep extends TouchAwareStep implements DataImportStepInterfa
             $categoryClosureTableEntity->save();
         }
     }
-
 }

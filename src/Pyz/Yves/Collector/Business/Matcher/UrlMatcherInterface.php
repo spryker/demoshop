@@ -9,7 +9,6 @@ namespace Pyz\Yves\Collector\Business\Matcher;
 
 interface UrlMatcherInterface
 {
-
     /**
      * @param string $url
      * @param string $localeName
@@ -17,5 +16,4 @@ interface UrlMatcherInterface
      * @return mixed
      */
     public function matchUrl($url, $localeName);
-
 }

@@ -20,7 +20,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerI
  */
 class CustomerAuthenticationSuccessHandler extends AbstractPlugin implements AuthenticationSuccessHandlerInterface
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface $token
@@ -73,5 +72,4 @@ class CustomerAuthenticationSuccessHandler extends AbstractPlugin implements Aut
 
         return ApplicationControllerProvider::ROUTE_HOME;
     }
-
 }

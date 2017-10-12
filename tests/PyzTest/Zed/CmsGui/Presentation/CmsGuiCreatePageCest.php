@@ -23,7 +23,6 @@ use PyzTest\Zed\CmsGui\PageObject\CmsEditPage;
  */
 class CmsGuiCreatePageCest
 {
-
     /**
      * @param \PyzTest\Zed\CmsGui\CmsGuiPresentationTester $i
      *
@@ -85,5 +84,4 @@ class CmsGuiCreatePageCest
 //
 //        });
     }
-
 }

@@ -27,7 +27,6 @@ use Codeception\Scenario;
  */
 class CmsGuiPresentationTester extends Actor
 {
-
     use _generated\CmsGuiPresentationTesterActions;
 
     /**
@@ -159,5 +158,4 @@ class CmsGuiPresentationTester extends Actor
     {
         return $this->grabFromCurrentUrl('/id-cms-page=(\d+)/');
     }
-
 }

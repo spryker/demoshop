@@ -15,7 +15,6 @@ use Spryker\Zed\Heartbeat\HeartbeatConfig as SprykerHeartbeatConfig;
 
 class HeartbeatConfig extends SprykerHeartbeatConfig
 {
-
     /**
      * @return \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface[]
      */
@@ -28,5 +27,4 @@ class HeartbeatConfig extends SprykerHeartbeatConfig
             new SearchHealthIndicatorPlugin(),
         ];
     }
-
 }

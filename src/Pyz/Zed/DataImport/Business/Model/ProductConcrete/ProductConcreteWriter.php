@@ -21,7 +21,6 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_ATTRIBUTES = 'attributes';
@@ -151,5 +150,4 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
             }
         }
     }
-
 }

@@ -16,7 +16,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
  */
 class CategoryFacade extends SprykerCategoryFacade implements CategoryFacadeInterface
 {
-
     /**
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $cmsData
@@ -31,5 +30,4 @@ class CategoryFacade extends SprykerCategoryFacade implements CategoryFacadeInte
             ->createCategoryNodeDataPageMapBuilder()
             ->buildPageMap($pageMapBuilder, $cmsData, $locale);
     }
-
 }

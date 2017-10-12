@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProfileController extends AbstractCustomerController
 {
-
     const MESSAGE_PROFILE_CHANGE_SUCCESS = 'customer.profile.change.success';
     const MESSAGE_PASSWORD_CHANGE_SUCCESS = 'customer.password.change.success';
 
@@ -127,5 +126,4 @@ class ProfileController extends AbstractCustomerController
         $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
         $loggedInCustomerTransfer->fromArray($customerTransfer->modifiedToArray());
     }
-
 }

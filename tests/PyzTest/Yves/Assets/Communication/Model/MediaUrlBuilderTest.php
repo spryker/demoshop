@@ -22,7 +22,6 @@ use Pyz\Yves\Twig\Model\MediaUrlBuilder;
  */
 class MediaUrlBuilderTest extends Unit
 {
-
     /**
      * @var string
      */
@@ -60,5 +59,4 @@ class MediaUrlBuilderTest extends Unit
 
         $this->assertEquals('//' . $this->host . '/media.jpg', $provider->buildUrl('/media.jpg'));
     }
-
 }

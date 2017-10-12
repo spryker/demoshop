@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 interface UrlGeneratorInterface
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Spryker\Shared\Kernel\Transfer\TransferInterface $searchResultTransfer
@@ -29,5 +28,4 @@ interface UrlGeneratorInterface
      * @return string
      */
     public function generateUrlWithoutAllActiveSearchFilters(Request $request, array $facetFilters);
-
 }

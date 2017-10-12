@@ -15,7 +15,6 @@ use Pyz\Zed\ProductSale\ProductSaleConfig;
 
 class ProductAbstractRelationReader implements ProductAbstractRelationReaderInterface
 {
-
     /**
      * @var \Pyz\Zed\ProductSale\Persistence\ProductSaleQueryContainerInterface
      */
@@ -144,5 +143,4 @@ class ProductAbstractRelationReader implements ProductAbstractRelationReaderInte
 
         return $productLabelProductAbstractRelationsTransfer;
     }
-
 }

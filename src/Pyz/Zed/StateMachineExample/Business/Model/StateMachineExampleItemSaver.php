@@ -13,7 +13,6 @@ use Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInt
 
 class StateMachineExampleItemSaver
 {
-
     /**
      * @var \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface
      */
@@ -57,5 +56,4 @@ class StateMachineExampleItemSaver
 
         return $affectedRowCount > 0;
     }
-
 }

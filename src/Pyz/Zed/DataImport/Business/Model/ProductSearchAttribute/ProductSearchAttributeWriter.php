@@ -21,7 +21,6 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY = 'key';
@@ -79,5 +78,4 @@ class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportS
             $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
         }
     }
-
 }

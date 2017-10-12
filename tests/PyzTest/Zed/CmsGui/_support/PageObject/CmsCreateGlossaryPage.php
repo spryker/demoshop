@@ -9,7 +9,6 @@ namespace PyzTest\Zed\CmsGui\PageObject;
 
 class CmsCreateGlossaryPage
 {
-
     const URL = 'cms-gui/create-glossary/index?id-cms-page=%d';
 
     /**
@@ -36,5 +35,4 @@ class CmsCreateGlossaryPage
     {
         return static::$localizedPlaceholders[$placeholder][$locale];
     }
-
 }

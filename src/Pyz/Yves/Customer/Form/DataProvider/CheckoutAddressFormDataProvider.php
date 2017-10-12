@@ -15,7 +15,6 @@ use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
 class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider implements StepEngineFormDataProviderInterface
 {
-
     /**
      * @var \Generated\Shared\Transfer\CustomerTransfer
      */
@@ -141,5 +140,4 @@ class CheckoutAddressFormDataProvider extends AbstractAddressFormDataProvider im
 
         return $choices;
     }
-
 }

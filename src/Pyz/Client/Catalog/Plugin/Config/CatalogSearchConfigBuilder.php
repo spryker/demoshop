@@ -26,7 +26,6 @@ use Spryker\Shared\Search\SearchConfig;
  */
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
-
     const DEFAULT_ITEMS_PER_PAGE = 12;
     const VALID_ITEMS_PER_PAGE_OPTIONS = [12, 24, 36];
     const SIZE_UNLIMITED = 0;
@@ -245,5 +244,4 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
 
         return $this;
     }
-
 }

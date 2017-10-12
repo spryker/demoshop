@@ -14,7 +14,6 @@ use Spryker\Zed\Oms\Dependency\Plugin\Command\CommandByOrderInterface;
 
 class SendInvoice extends AbstractCommand implements CommandByOrderInterface
 {
-
     /**
      * @param array $orderItems
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $orderEntity
@@ -26,5 +25,4 @@ class SendInvoice extends AbstractCommand implements CommandByOrderInterface
     {
         return [];
     }
-
 }

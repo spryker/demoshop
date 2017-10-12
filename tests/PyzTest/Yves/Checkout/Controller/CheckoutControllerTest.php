@@ -45,7 +45,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
  */
 class CheckoutControllerTest extends Unit
 {
-
     const CUSTOMER_URL = '/checkout/customer';
     const CUSTOMER_ACTION = 'customerAction';
     const CUSTOMER_ROUTE = 'checkout-customer';
@@ -579,5 +578,4 @@ class CheckoutControllerTest extends Unit
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue(null, 0);
     }
-
 }

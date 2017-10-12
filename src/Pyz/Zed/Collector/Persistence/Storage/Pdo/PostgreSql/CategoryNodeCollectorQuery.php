@@ -11,7 +11,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     /**
      * @return void
      */
@@ -79,5 +78,4 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
             ->setParameter('fk_locale_2', $this->locale->getIdLocale())
             ->setParameter('fk_locale_3', $this->locale->getIdLocale());
     }
-
 }

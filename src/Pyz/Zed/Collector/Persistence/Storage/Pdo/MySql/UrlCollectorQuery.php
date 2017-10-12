@@ -13,7 +13,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class UrlCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     /**
      * @return void
      */
@@ -89,5 +88,4 @@ FROM spy_url u
 
         return $reflection->getConstant($constantName);
     }
-
 }

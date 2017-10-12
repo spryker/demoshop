@@ -11,7 +11,6 @@ use Spryker\Zed\Auth\AuthConfig as SprykerAuthConfig;
 
 class AuthConfig extends SprykerAuthConfig
 {
-
     /**
      * @return array
      */
@@ -22,5 +21,4 @@ class AuthConfig extends SprykerAuthConfig
 
         return parent::getIgnorable();
     }
-
 }

@@ -14,7 +14,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class PageResourceCreator extends AbstractPlugin
 {
-
     /**
      * @return \Pyz\Yves\Cms\ResourceCreator\PageResourceCreator
      */
@@ -22,5 +21,4 @@ class PageResourceCreator extends AbstractPlugin
     {
         return $this->getFactory()->createPageResourceCreator();
     }
-
 }

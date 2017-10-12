@@ -12,7 +12,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class SummaryForm extends AbstractType
 {
-
     /**
      * Builds the form.
      *
@@ -39,5 +38,4 @@ class SummaryForm extends AbstractType
     {
         return 'summaryForm';
     }
-
 }

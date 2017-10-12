@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\CustomerTransfer;
 
 class Customer
 {
-
     const NEW_CUSTOMER_EMAIL = 'new-customer@spryker.com';
     const REGISTERED_CUSTOMER_EMAIL = 'registered-customer@spryker.com';
 
@@ -47,5 +46,4 @@ class Customer
 
         return $customerTransfer;
     }
-
 }

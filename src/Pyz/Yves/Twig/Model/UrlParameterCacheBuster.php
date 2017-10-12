@@ -9,7 +9,6 @@ namespace Pyz\Yves\Twig\Model;
 
 class UrlParameterCacheBuster implements CacheBusterInterface
 {
-
     /**
      * @var string
      */
@@ -40,5 +39,4 @@ class UrlParameterCacheBuster implements CacheBusterInterface
     {
         return $this->cacheBust;
     }
-
 }

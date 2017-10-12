@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\Container;
 
 class CmsContentWidgetProductConnectorDependencyProvider extends SprykerCmsContentWidgetProductConnectorDependencyProvider
 {
-
     const CLIENT_PRODUCT = 'product';
     const STORAGE_PRODUCT_MAPPER_PLUGIN = 'storage product mapper plugin';
 
@@ -32,5 +31,4 @@ class CmsContentWidgetProductConnectorDependencyProvider extends SprykerCmsConte
 
         return $container;
     }
-
 }

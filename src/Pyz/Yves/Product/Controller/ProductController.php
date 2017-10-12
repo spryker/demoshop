@@ -17,7 +17,6 @@ use Spryker\Shared\Storage\StorageConstants;
  */
 class ProductController extends AbstractController
 {
-
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
     /**
@@ -53,5 +52,4 @@ class ProductController extends AbstractController
     {
         return $this->getApplication()['request'];
     }
-
 }
