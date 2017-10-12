@@ -20,7 +20,6 @@ use Spryker\Zed\StateMachine\Dependency\Plugin\StateMachineHandlerInterface;
  */
 class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachineHandlerInterface
 {
-
     /**
      * List of command plugins for this state machine for all processes.
      *
@@ -115,5 +114,4 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     {
          return $this->getFacade()->getStateMachineExampleItemsByStateIds($stateIds);
     }
-
 }

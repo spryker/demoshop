@@ -30,7 +30,6 @@ use Orm\Zed\Newsletter\Persistence\SpyNewsletterTypeQuery;
  */
 class NewsletterPresentationTester extends Actor
 {
-
     use _generated\NewsletterPresentationTesterActions;
 
     /**
@@ -64,5 +63,4 @@ class NewsletterPresentationTester extends Actor
             ->setSpyNewsletterSubscriber($newsletterSubscriberEntity)
             ->save();
     }
-
 }

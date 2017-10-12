@@ -15,7 +15,6 @@ use Spryker\Yves\Application\Plugin\Provider\YvesControllerProvider as SprykerYv
  */
 abstract class AbstractYvesControllerProvider extends SprykerYvesControllerProvider
 {
-
     /**
      * @return string
      */
@@ -27,5 +26,4 @@ abstract class AbstractYvesControllerProvider extends SprykerYvesControllerProvi
 
         return $allowedLocalesPattern;
     }
-
 }

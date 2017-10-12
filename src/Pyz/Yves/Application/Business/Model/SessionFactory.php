@@ -13,7 +13,6 @@ use Spryker\Shared\Session\SessionConstants;
 
 class SessionFactory extends SharedSessionFactory
 {
-
     /**
      * @return int
      */
@@ -23,5 +22,4 @@ class SessionFactory extends SharedSessionFactory
 
         return $lifetime;
     }
-
 }

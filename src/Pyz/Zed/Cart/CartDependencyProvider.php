@@ -26,7 +26,6 @@ use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOpt
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -74,5 +73,4 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new RemovePaymentCartPostSavePlugin(),
         ];
     }
-
 }

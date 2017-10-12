@@ -16,7 +16,6 @@ use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 
 class FeaturedProductsQueryPlugin implements QueryInterface
 {
-
     /**
      * @var int
      */
@@ -62,5 +61,4 @@ class FeaturedProductsQueryPlugin implements QueryInterface
 
         return $query;
     }
-
 }

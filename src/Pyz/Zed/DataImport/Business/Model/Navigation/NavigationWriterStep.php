@@ -16,7 +16,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class NavigationWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const NAME = 'name';
@@ -54,5 +53,4 @@ class NavigationWriterStep extends TouchAwareStep implements DataImportStepInter
 
         return $navigationEntity->getName();
     }
-
 }

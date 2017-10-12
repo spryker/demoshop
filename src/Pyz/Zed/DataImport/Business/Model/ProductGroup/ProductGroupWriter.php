@@ -18,7 +18,6 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductGroupWriter extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_ABSTRACT_SKU = 'abstract_sku';
@@ -70,5 +69,4 @@ class ProductGroupWriter extends TouchAwareStep implements DataImportStepInterfa
 
         $this->addSubTouchable(ProductGroupConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_GROUPS, $productAbstractGroup->getFkProductAbstract());
     }
-
 }

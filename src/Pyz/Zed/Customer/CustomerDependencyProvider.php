@@ -16,7 +16,6 @@ use Spryker\Zed\Newsletter\Communication\Plugin\CustomerAnonymizer\CustomerUnsub
 
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
-
     const SALES_FACADE = 'sales facade';
     const NEWSLETTER_FACADE = 'newsletter facade';
 
@@ -62,5 +61,4 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
             new CustomerTransferUsernameExpanderPlugin(),
         ];
     }
-
 }

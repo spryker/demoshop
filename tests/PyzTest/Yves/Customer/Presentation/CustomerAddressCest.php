@@ -22,7 +22,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerAddressPage;
  */
 class CustomerAddressCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -50,5 +49,4 @@ class CustomerAddressCest
         $i->click(CustomerAddressPage::BUTTON_SUBMIT);
         $i->waitForText(CustomerAddressPage::SUCCESS_MESSAGE);
     }
-
 }

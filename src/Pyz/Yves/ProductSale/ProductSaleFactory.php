@@ -11,7 +11,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class ProductSaleFactory extends AbstractFactory
 {
-
     /**
      * @return \Spryker\Client\Search\SearchClientInterface
      */
@@ -27,5 +26,4 @@ class ProductSaleFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(ProductSaleDependencyProvider::PLUGIN_CATEGORY_READER);
     }
-
 }

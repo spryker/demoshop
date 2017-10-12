@@ -11,7 +11,6 @@ use Spryker\Zed\Sales\Business\OrderProcess\OrderprocessConstant;
 
 interface Orderprocess extends OrderprocessConstant
 {
-
     /************************************************************************************************
      *     GENERAL
      ************************************************************************************************/
@@ -86,5 +85,4 @@ interface Orderprocess extends OrderprocessConstant
 
     //flags
     const FLAG_DEMO_TEST_FLAG = 'DEMO TEST FLAG';
-
 }

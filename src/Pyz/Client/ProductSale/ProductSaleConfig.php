@@ -12,7 +12,6 @@ use Spryker\Client\Kernel\AbstractBundleConfig;
 
 class ProductSaleConfig extends AbstractBundleConfig
 {
-
     /**
      * @return string
      */
@@ -20,5 +19,4 @@ class ProductSaleConfig extends AbstractBundleConfig
     {
         return SharedProductSaleConfig::DEFAULT_LABEL_NAME;
     }
-
 }

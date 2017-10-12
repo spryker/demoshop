@@ -16,7 +16,6 @@ use Spryker\Yves\CmsContentWidgetProductSetConnector\Plugin\CmsProductSetContent
  */
 class CmsProductSetContentWidgetPlugin extends SprykerCmsProductSetContentWidgetPlugin
 {
-
     /**
      * @param array $context
      * @param \Generated\Shared\Transfer\ProductSetStorageTransfer $productSetStorageTransfer
@@ -60,5 +59,4 @@ class CmsProductSetContentWidgetPlugin extends SprykerCmsProductSetContentWidget
     {
         return $context['app']['request'];
     }
-
 }

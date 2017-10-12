@@ -16,7 +16,6 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
  */
 class StorageRouter extends AbstractRouter
 {
-
     const PARAMETER_PAGE = 'page';
 
     /**
@@ -107,5 +106,4 @@ class StorageRouter extends AbstractRouter
     {
         return $this->getFactory()->getApplication();
     }
-
 }

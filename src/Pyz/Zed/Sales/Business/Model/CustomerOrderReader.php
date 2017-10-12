@@ -13,7 +13,6 @@ use Spryker\Zed\Sales\Business\Model\Customer\CustomerOrderReader as SprykerCust
 
 class CustomerOrderReader extends SprykerCustomerOrderReader
 {
-
     /**
      * @param \Generated\Shared\Transfer\OrderListTransfer $orderListTransfer
      * @param int $idCustomer
@@ -85,5 +84,4 @@ class CustomerOrderReader extends SprykerCustomerOrderReader
 
         return $orderEntities;
     }
-
 }

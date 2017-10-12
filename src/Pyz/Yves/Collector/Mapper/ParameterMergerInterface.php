@@ -9,7 +9,6 @@ namespace Pyz\Yves\Collector\Mapper;
 
 interface ParameterMergerInterface
 {
-
     /**
      * @param array $requestParameters
      * @param array $generationParameters
@@ -17,5 +16,4 @@ interface ParameterMergerInterface
      * @return array
      */
     public function mergeParameters(array $requestParameters, array $generationParameters);
-
 }

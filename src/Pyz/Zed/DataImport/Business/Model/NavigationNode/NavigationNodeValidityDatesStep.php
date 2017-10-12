@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class NavigationNodeValidityDatesStep implements DataImportStepInterface
 {
-
     /**
      * @var string
      */
@@ -116,5 +115,4 @@ class NavigationNodeValidityDatesStep implements DataImportStepInterface
             );
         }
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Zed\StateMachine\StateMachineDependencyProvider as SprykerStateMachi
 
 class StateMachineDependencyProvider extends SprykerStateMachineDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\StateMachine\Dependency\Plugin\StateMachineHandlerInterface[]
      */
@@ -22,5 +21,4 @@ class StateMachineDependencyProvider extends SprykerStateMachineDependencyProvid
             new TestStateMachineHandlerPlugin()
         ];
     }
-
 }

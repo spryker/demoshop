@@ -9,7 +9,6 @@ namespace PyzTest\Yves\Customer\PageObject;
 
 class CustomerLoginPage extends Customer
 {
-
     const URL = '/register';
 
     const FORGOT_PASSWORD_LINK = '//a[@data-id="customer-forgot-password-link"]';
@@ -23,5 +22,4 @@ class CustomerLoginPage extends Customer
     const FORM_NAME_LOGIN_FORM = 'loginForm';
 
     const LOGOUT_LINK = ['id' => 'logout-link'];
-
 }

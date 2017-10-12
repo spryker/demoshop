@@ -24,7 +24,6 @@ use Spryker\Zed\Newsletter\NewsletterDependencyProvider;
  */
 class CustomerNewsletterCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -59,5 +58,4 @@ class CustomerNewsletterCest
         $i->click(CustomerNewsletterPage::BUTTON_SUBMIT);
         $i->waitForText(CustomerNewsletterPage::SUCCESS_MESSAGE_UN_SUBSCRIBED);
     }
-
 }

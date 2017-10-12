@@ -14,7 +14,6 @@ use Spryker\Zed\Collector\CollectorConfig;
 
 class NavigationCollector extends CategoryNodeCollector
 {
-
     /**
      * @var array
      */
@@ -118,5 +117,4 @@ class NavigationCollector extends CategoryNodeCollector
     {
         return 'category';
     }
-
 }

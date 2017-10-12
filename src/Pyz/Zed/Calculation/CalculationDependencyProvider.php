@@ -40,7 +40,6 @@ use Spryker\Zed\TaxProductConnector\Communication\Plugin\ProductItemTaxRateCalcu
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
-
     /**
      * This calculator stack working with quote object which happens to be processed in cart/checkout
      *
@@ -253,5 +252,4 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new NetTotalCalculatorPlugin(),
         ];
     }
-
 }

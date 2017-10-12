@@ -14,7 +14,6 @@ use Spryker\Client\Kernel\AbstractClient;
  */
 class ProductNewClient extends AbstractClient implements ProductNewClientInterface
 {
-
     /**
      * {@inheritdoc}
      *
@@ -33,5 +32,4 @@ class ProductNewClient extends AbstractClient implements ProductNewClientInterfa
             ->getSearchClient()
             ->search($searchQuery, $resultFormatters, $requestParameters);
     }
-
 }

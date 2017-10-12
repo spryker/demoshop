@@ -16,7 +16,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class StorageProductMapperPlugin extends AbstractPlugin implements StorageProductMapperPluginInterface
 {
-
     /**
      * @param array $productStorageData
      * @param array $selectedAttributes
@@ -29,5 +28,4 @@ class StorageProductMapperPlugin extends AbstractPlugin implements StorageProduc
             ->createStorageProductMapperPlugin()
             ->mapStorageProduct($productStorageData, $selectedAttributes);
     }
-
 }

@@ -11,7 +11,6 @@ use Spryker\Zed\Propel\PropelConfig as SprykerPropelConfig;
 
 class PropelConfig extends SprykerPropelConfig
 {
-
     /**
      * @project Only needed in Project, not in demoshop
      *
@@ -32,5 +31,4 @@ class PropelConfig extends SprykerPropelConfig
             parent::getProjectPropelSchemaPathPatterns()
         );
     }
-
 }

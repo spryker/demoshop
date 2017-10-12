@@ -13,7 +13,6 @@ use Spryker\Zed\CmsGui\Communication\Plugin\CreateGlossaryExpanderPlugin;
 
 class CmsGuiDependencyProvider extends SprykerCmsGuiDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\CmsGui\Dependency\Plugin\CmsPageTableExpanderPluginInterface[]
      */
@@ -33,5 +32,4 @@ class CmsGuiDependencyProvider extends SprykerCmsGuiDependencyProvider
             new CreateGlossaryExpanderPlugin(),
         ];
     }
-
 }

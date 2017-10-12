@@ -9,7 +9,6 @@ namespace Pyz\Yves\Twig\Model;
 
 abstract class AbstractUrlBuilder
 {
-
     /**
      * @var string
      */
@@ -52,5 +51,4 @@ abstract class AbstractUrlBuilder
     {
         return (($urlPart[0] === '/') ? '' : '/');
     }
-
 }

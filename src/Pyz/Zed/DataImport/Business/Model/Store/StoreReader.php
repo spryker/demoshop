@@ -12,7 +12,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class StoreReader implements DataReaderInterface
 {
-
     /**
      * @var array
      */
@@ -100,5 +99,4 @@ class StoreReader implements DataReaderInterface
     {
         return $this->dataSet;
     }
-
 }

@@ -17,7 +17,6 @@ use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
  */
 class ProductDataPageMapPlugin extends AbstractPlugin implements PageMapInterface
 {
-
     /**
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $productData
@@ -31,5 +30,4 @@ class ProductDataPageMapPlugin extends AbstractPlugin implements PageMapInterfac
             ->getFacade()
             ->buildPageMap($pageMapBuilder, $productData, $locale);
     }
-
 }

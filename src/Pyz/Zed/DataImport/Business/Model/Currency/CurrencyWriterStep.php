@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CurrencyWriterStep implements DataImportStepInterface
 {
-
     const KEY_ISO_CODE = 'iso_code';
     const KEY_CURRENCY_SYMBOL = 'currency_symbol';
     const KEY_NAME = 'name';
@@ -33,5 +32,4 @@ class CurrencyWriterStep implements DataImportStepInterface
 
         $currencyEntity->save();
     }
-
 }

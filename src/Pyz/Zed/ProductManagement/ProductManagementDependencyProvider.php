@@ -12,7 +12,6 @@ use Spryker\Zed\ProductManagement\ProductManagementDependencyProvider as Spryker
 
 class ProductManagementDependencyProvider extends SprykerProductManagementDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\ProductManagement\Communication\Plugin\ProductAbstractViewPluginInterface[]
      */
@@ -22,5 +21,4 @@ class ProductManagementDependencyProvider extends SprykerProductManagementDepend
             new CmsBlockProductAbstractBlockListViewPlugin()
         ];
     }
-
 }

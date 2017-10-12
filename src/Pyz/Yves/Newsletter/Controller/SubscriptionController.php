@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SubscriptionController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -67,5 +66,4 @@ class SubscriptionController extends AbstractController
             'success' => $success,
         ]);
     }
-
 }

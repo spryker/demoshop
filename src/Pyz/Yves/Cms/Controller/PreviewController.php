@@ -20,7 +20,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class PreviewController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -50,7 +49,8 @@ class PreviewController extends AbstractController
             'availablePreviewLanguages' => $this->getAvailablePreviewLanguages(
                 $this->getCurrentPreviewPageUri($idCmsPage),
                 $this->getFactory()->getStore()->getLocales(),
-                $this->getLocale()),
+                $this->getLocale()
+            ),
         ]);
     }
 
@@ -146,5 +146,4 @@ class PreviewController extends AbstractController
 
         return preg_replace("#^/($localMatchRegExp)/#", "/$targetLocale/", $uri);
     }
-
 }

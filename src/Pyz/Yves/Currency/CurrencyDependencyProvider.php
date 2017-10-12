@@ -12,7 +12,6 @@ use Spryker\Yves\Currency\CurrencyDependencyProvider as SprykerCurrencyDependenc
 
 class CurrencyDependencyProvider extends SprykerCurrencyDependencyProvider
 {
-
     /**
      * @return \Spryker\Yves\Currency\Dependency\CurrencyPostChangePluginInterface[]
      */
@@ -22,5 +21,4 @@ class CurrencyDependencyProvider extends SprykerCurrencyDependencyProvider
             new RebuildCartOnCurrencyChangePlugin(),
         ];
     }
-
 }

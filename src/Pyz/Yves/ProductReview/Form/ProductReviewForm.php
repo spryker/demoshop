@@ -21,7 +21,6 @@ use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 class ProductReviewForm extends AbstractType
 {
-
     const FIELD_RATING = ProductReviewRequestTransfer::RATING;
     const FIELD_SUMMARY = ProductReviewRequestTransfer::SUMMARY;
     const FIELD_DESCRIPTION = ProductReviewRequestTransfer::DESCRIPTION;
@@ -204,5 +203,4 @@ class ProductReviewForm extends AbstractType
 
         return $this;
     }
-
 }

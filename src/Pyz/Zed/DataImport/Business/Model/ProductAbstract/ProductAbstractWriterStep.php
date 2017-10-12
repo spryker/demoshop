@@ -27,7 +27,6 @@ use Spryker\Zed\Url\UrlConfig;
  */
 class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_ABSTRACT_SKU = 'abstract_sku';
@@ -227,7 +226,6 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
                 $urlEntity->save();
                 $this->addSubTouchable(UrlConfig::RESOURCE_TYPE_URL, $urlEntity->getIdUrl());
             }
-
         }
     }
 
@@ -243,5 +241,4 @@ class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStep
             ->filterByFkResourceRedirect(null, Criteria::ISNOTNULL)
             ->delete();
     }
-
 }

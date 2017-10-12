@@ -27,7 +27,6 @@ use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container ’
      *
@@ -86,5 +85,4 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new SalesOrderExpanderPlugin()
         ];
     }
-
 }

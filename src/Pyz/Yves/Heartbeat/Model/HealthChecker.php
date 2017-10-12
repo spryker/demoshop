@@ -12,7 +12,6 @@ use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class HealthChecker
 {
-
     /**
      * @var \Generated\Shared\Transfer\HealthReportTransfer
      */
@@ -81,5 +80,4 @@ class HealthChecker
 
         return $systemIsAlive;
     }
-
 }

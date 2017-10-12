@@ -16,7 +16,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class NewsletterSubscriptionForm extends AbstractType
 {
-
     const FIELD_SUBSCRIBE = 'subscribe';
     const FORM_ID = 'subscription';
 
@@ -86,5 +85,4 @@ class NewsletterSubscriptionForm extends AbstractType
 
         return $this;
     }
-
 }

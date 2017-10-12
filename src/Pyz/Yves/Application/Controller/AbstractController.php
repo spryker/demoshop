@@ -16,7 +16,6 @@ use Spryker\Yves\Storage\Controller\StorageCacheControllerTrait;
  */
 abstract class AbstractController extends SprykerAbstractController
 {
-
     use StorageCacheControllerTrait;
 
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_REPLACE;
@@ -30,5 +29,4 @@ abstract class AbstractController extends SprykerAbstractController
 
         $this->initializeStorageCacheStrategy(static::STORAGE_CACHE_STRATEGY);
     }
-
 }

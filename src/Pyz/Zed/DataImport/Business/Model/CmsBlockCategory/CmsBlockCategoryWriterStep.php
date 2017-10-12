@@ -19,7 +19,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CmsBlockCategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const KEY_BLOCK_NAME = 'block_name';
     const KEY_CATEGORY_KEY = 'category_key';
     const KEY_CATEGORY_TEMPLATE_NAME = 'template_name';
@@ -53,5 +52,4 @@ class CmsBlockCategoryWriterStep extends TouchAwareStep implements DataImportSte
             );
         }
     }
-
 }
