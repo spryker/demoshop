@@ -7,7 +7,6 @@
 namespace Pyz\Yves\Customer\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
