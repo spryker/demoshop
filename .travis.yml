@@ -80,8 +80,11 @@ before_install:
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer remove --dev phpstan/phpstan spryker/git-hook
+  - cd vendor/spryker/spryker/ && git reset --hard && cd ../../..
+  - composer remove --dev phpstan/phpstan spryker/git-hook spryker/code-sniffer
   - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan; fi
+  - if [[ $TRAVIS_PHP_VERSION != 5.6 && $PHPSTAN != 1 ]] ; then composer require --dev spryker/code-sniffer:dev-master; fi
+  - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
