@@ -12,7 +12,7 @@ sections:
 
   logs-down:
     remove-logs:
-      command: "vendor/bin/console log:delete:log-file-directories"
+      command: "vendor/bin/console log:clear"
 
 
   cache-down:
@@ -33,10 +33,10 @@ sections:
 
 
   generate-up:
-    transfers:
+    generate-transfers:
       command: "vendor/bin/console transfer:generate"
 
-    ide-auto-completion:
+    generate-ide-auto-completion:
       command: "vendor/bin/console dev:ide:generate-auto-completion"
 
 
