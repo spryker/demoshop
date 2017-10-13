@@ -15,7 +15,6 @@ namespace Install;
  */
 class ComposerAdjuster
 {
-
     /**
      * @return void
      */
@@ -72,5 +71,4 @@ class ComposerAdjuster
 
         file_put_contents($composerLockFile, $composerLockUpdated);
     }
-
 }
