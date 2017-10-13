@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecd72eec046c4fc2ea7d6d5f4fd8dc6c",
+    "content-hash": "d63e2d675514beb151b2720c5c57836f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2137-checkout-fail",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2e6388ade60f52865e46d9d55f1a26e512e9a742"
+                "reference": "5af259c1f7ca2c940e91e482d2ca3ef0df2c04d2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1800,7 +1800,7 @@
                 "spryker/zend": "*"
             },
             "require-dev": {
-                "spryker/code-sniffer": "*"
+                "spryker/code-sniffer": "dev-master"
             },
             "bin": [
                 "Bundles/Console/bin/console"
@@ -1816,7 +1816,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-12T10:10:59+00:00"
+            "time": "2017-10-13T15:23:41+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6593,7 +6593,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6706,12 +6706,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "8062efaf844d185d3bb379f7b953862cb7df9e9e"
+                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8062efaf844d185d3bb379f7b953862cb7df9e9e",
-                "reference": "8062efaf844d185d3bb379f7b953862cb7df9e9e",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f0764f8e3c76dcbf053a55a009b83096dbf82039",
+                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039",
                 "shasum": ""
             },
             "require": {
@@ -6749,7 +6749,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-12T10:11:22+00:00"
+            "time": "2017-10-12T13:20:45+00:00"
         },
         {
             "name": "spryker/git-hook",
