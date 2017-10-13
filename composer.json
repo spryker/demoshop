@@ -188,8 +188,10 @@
     "nette/php-generator": "^2.6.1",
     "pdepend/pdepend": "^2.2.4",
     "php-mock/php-mock": "^1.0",
+    "phpdocumentor/reflection-docblock": "^2.0",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "~2.4.3",
+    "phpstan/phpstan": "^0.8.5",
     "phpunit/php-token-stream": "^1.4.11",
     "phpunit/phpunit": "^5.0",
     "sebastian/phpcpd": "^2.0.2",
@@ -204,7 +206,6 @@
     "spryker/testify": "^3.0.0",
     "squizlabs/php_codesniffer": "^3.0",
     "stecman/symfony-console-completion": "^0.7.0",
-    "phpdocumentor/reflection-docblock": "^2.0",
     "symfony/var-dumper": "*",
     "symfony/web-profiler-bundle": "*"
   },
