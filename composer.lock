@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2e6388ade60f52865e46d9d55f1a26e512e9a742"
+                "reference": "06fd9fa3f640debe755833d1cd7398a15b5332f0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1800,7 +1800,7 @@
                 "spryker/zend": "*"
             },
             "require-dev": {
-                "spryker/code-sniffer": "*"
+                "spryker/code-sniffer": "dev-master"
             },
             "bin": [
                 "Bundles/Console/bin/console"
@@ -1816,7 +1816,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-12T10:10:59+00:00"
+            "time": "2017-10-12T13:30:34+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6706,12 +6706,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "8062efaf844d185d3bb379f7b953862cb7df9e9e"
+                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/8062efaf844d185d3bb379f7b953862cb7df9e9e",
-                "reference": "8062efaf844d185d3bb379f7b953862cb7df9e9e",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f0764f8e3c76dcbf053a55a009b83096dbf82039",
+                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039",
                 "shasum": ""
             },
             "require": {
@@ -6749,7 +6749,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-12T10:11:22+00:00"
+            "time": "2017-10-12T13:20:45+00:00"
         },
         {
             "name": "spryker/git-hook",
