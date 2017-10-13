@@ -258,6 +258,13 @@
     "post-update-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS",
       "Install\\ComposerAdjuster::assertDemoshopGitUrls"
-    ]
+    ],
+    "phpstan": [
+      "php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
+    ],
+    "phpstan-core": [
+      "php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1"
+    ],
+    "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }
 }

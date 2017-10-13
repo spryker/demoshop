@@ -11948,11 +11948,11 @@
         },
         {
             "name": "spryker/tax-product-connector",
-            "version": "4.0.2",
+            "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/TaxProductConnector.git",
-                "reference": "e83105335334231889dc2cd31fa781eb6f372bfc",
+                "reference": "5341a6e1d2db36378467e877adcc47892bb8ce59",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11962,8 +11962,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/TaxProductConnector/zipball/e83105335334231889dc2cd31fa781eb6f372bfc",
-                "reference": "e83105335334231889dc2cd31fa781eb6f372bfc",
+                "url": "https://api.github.com/repos/spryker/TaxProductConnector/zipball/5341a6e1d2db36378467e877adcc47892bb8ce59",
+                "reference": "5341a6e1d2db36378467e877adcc47892bb8ce59",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11979,6 +11979,7 @@
                 "spryker/tax": "^4.0.0 || ^5.0.0"
             },
             "require-dev": {
+                "spryker/calculation": "*",
                 "spryker/code-sniffer": "*",
                 "spryker/country": "*",
                 "spryker/propel": "*",
@@ -11986,7 +11987,7 @@
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/calculation": "If you want to use Calculation plugins you need to install spryker/calculation."
+                "spryker/calculation": "If you want to use Calculation plugins."
             },
             "type": "library",
             "extra": {
@@ -12009,8 +12010,11 @@
             "license": [
                 "proprietary"
             ],
-            "description": "TaxProductConnector bundle",
-            "time": "2017-06-15T10:05:40+00:00"
+            "description": "TaxProductConnector module",
+            "support": {
+                "source": "https://github.com/spryker/TaxProductConnector/tree/4.0.3"
+            },
+            "time": "2017-10-13T09:42:40+00:00"
         },
         {
             "name": "spryker/touch",
