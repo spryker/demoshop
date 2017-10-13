@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "758a8fcd3b816d8d44fb2d460773728d",
+    "content-hash": "4bfc01f8719278951711097fcdb1b4c7",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -17763,6 +17763,43 @@
             "time": "2016-09-15T14:35:04+00:00"
         },
         {
+            "name": "slevomat/coding-standard",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slevomat/coding-standard.git",
+                "reference": "bab653d0f7f2e3ed13796f7803067d252f00a25a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/bab653d0f7f2e3ed13796f7803067d252f00a25a",
+                "reference": "bab653d0f7f2e3ed13796f7803067d252f00a25a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "squizlabs/php_codesniffer": "^3.0.1"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "0.9.2",
+                "phing/phing": "2.16",
+                "phpstan/phpstan": "0.8.4",
+                "phpunit/phpunit": "6.3.0"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "SlevomatCodingStandard\\": "SlevomatCodingStandard"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+            "time": "2017-09-15T17:47:36+00:00"
+        },
+        {
             "name": "sllh/composer-versions-check",
             "version": "v2.0.3",
             "source": {
@@ -17926,20 +17963,21 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.10.4",
+            "version": "0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b"
+                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc1d3178a7ff36af360360ace5fee9229a2af93b",
-                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f0764f8e3c76dcbf053a55a009b83096dbf82039",
+                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.16",
+                "php": "^7.0",
+                "slevomat/coding-standard": "^4.0",
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
@@ -17972,7 +18010,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-10T17:07:04+00:00"
+            "time": "2017-10-12T13:20:45+00:00"
         },
         {
             "name": "spryker/development",
