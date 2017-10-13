@@ -58,15 +58,13 @@ sudo: required
 
 before_install:
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  -  if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/*; fi
-  - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh; fi
+  - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/* ; fi
+  - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh ; fi
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer install --no-interaction --optimize-autoloader
-  - cd vendor/spryker/spryker/ && git reset --hard && cd ../../..
-  - composer remove --dev phpstan/phpstan spryker/code-sniffer
+  - composer remove --dev phpstan/phpstan spryker/code-sniffer jean85/pretty-package-versions
   - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan ; fi
   - if [[ $TRAVIS_PHP_VERSION != 5.6 && $PHPSTAN != 1 ]] ; then composer require --dev spryker/code-sniffer:dev-master ; fi
   - composer install --optimize-autoloader --no-interaction
