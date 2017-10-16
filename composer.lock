@@ -1730,6 +1730,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "f287258142da53a9b7471f69d000b8dd8728916b"
 =======
 =======
@@ -1779,6 +1780,9 @@
 =======
                 "reference": "17577fa4db2104b13513448f4d4881a6e04c344f"
 >>>>>>> core-2125 update spryker/spryker
+>>>>>>> core-2125 update spryker/spryker
+=======
+                "reference": "17577fa4db2104b13513448f4d4881a6e04c344f"
 >>>>>>> core-2125 update spryker/spryker
             },
             "require": {
@@ -1981,6 +1985,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-24T08:36:55+00:00"
 =======
 =======
@@ -2030,6 +2035,9 @@
 =======
             "time": "2017-10-16T10:42:56+00:00"
 >>>>>>> core-2125 update spryker/spryker
+>>>>>>> core-2125 update spryker/spryker
+=======
+            "time": "2017-10-16T10:42:56+00:00"
 >>>>>>> core-2125 update spryker/spryker
         },
         {
