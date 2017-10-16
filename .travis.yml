@@ -92,15 +92,8 @@ before_script:
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
-<<<<<<< HEAD
-  - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh ; fi
-  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
-  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
-=======
-#  - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh; fi
   - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/; fi
   - if [[ $DB == 'mysql' ]]; then sudo service mysql restart; fi
->>>>>>> core-2001 update config
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f ; fi
