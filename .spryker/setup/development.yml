@@ -112,9 +112,6 @@ sections:
     install-node:
       command: "vendor/bin/console frontend:install-node-js"
 
-    dependencies-cleanup:
-      command: "vendor/bin/console frontend:cleanup-dependencies"
-
     dependencies-install:
       command: "vendor/bin/console frontend:install-dependencies"
 
