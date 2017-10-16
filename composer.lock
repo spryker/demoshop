@@ -302,16 +302,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.1.10",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec"
+                "reference": "a99f0b151846021ba7a73b4e3cba3ebc9f14f03e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec",
-                "reference": "ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/a99f0b151846021ba7a73b4e3cba3ebc9f14f03e",
+                "reference": "a99f0b151846021ba7a73b4e3cba3ebc9f14f03e",
                 "shasum": ""
             },
             "require": {
@@ -356,10 +356,10 @@
                 "exception",
                 "handling",
                 "library",
-                "whoops",
-                "zf2"
+                "throwable",
+                "whoops"
             ],
-            "time": "2017-08-03T18:23:40+00:00"
+            "time": "2017-10-15T13:05:10+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -1802,7 +1802,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "06fd9fa3f640debe755833d1cd7398a15b5332f0"
+                "reference": "b80e4dfee2d476bbd14a369668f044e7aad438fd"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1987,11 +1987,16 @@
                     "Bundles/Config/src/Spryker/Shared/Config.php"
                 ]
             },
+            "scripts": {
+                "cs-check": [
+                    "vendor/bin/phpcs Bundles --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -p"
+                ]
+            },
             "license": [
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-12T13:30:34+00:00"
+            "time": "2017-10-16T10:44:06+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5766,16 +5771,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.22",
+            "version": "5.7.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "10df877596c9906d4110b5b905313829043f2ada"
+                "reference": "78532d5269d984660080d8e0f4c99c5c2ea65ffe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/10df877596c9906d4110b5b905313829043f2ada",
-                "reference": "10df877596c9906d4110b5b905313829043f2ada",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/78532d5269d984660080d8e0f4c99c5c2ea65ffe",
+                "reference": "78532d5269d984660080d8e0f4c99c5c2ea65ffe",
                 "shasum": ""
             },
             "require": {
@@ -5844,7 +5849,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-09-24T07:23:38+00:00"
+            "time": "2017-10-15T06:13:55+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6881,12 +6886,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039"
+                "reference": "a8df3b638ce9d0b06747d6c749a775f2f6c681b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f0764f8e3c76dcbf053a55a009b83096dbf82039",
-                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a8df3b638ce9d0b06747d6c749a775f2f6c681b6",
+                "reference": "a8df3b638ce9d0b06747d6c749a775f2f6c681b6",
                 "shasum": ""
             },
             "require": {
@@ -6924,7 +6929,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-12T13:20:45+00:00"
+            "time": "2017-10-16T09:26:46+00:00"
         },
         {
             "name": "spryker/git-hook",
