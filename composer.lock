@@ -1729,12 +1729,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "f287258142da53a9b7471f69d000b8dd8728916b"
 =======
 =======
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
 =======
 >>>>>>> core-2125 use spryker-eco/loggly
+=======
+>>>>>>> core-2125 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "b80e4dfee2d476bbd14a369668f044e7aad438fd"
 =======
@@ -1770,7 +1773,13 @@
                 "reference": "7951f0e31836ba41a1b20e2752431d37e2e7f49d"
 >>>>>>> core-2125 use spryker-eco/loggly
 >>>>>>> core-2125 use spryker-eco/loggly
+<<<<<<< HEAD
 >>>>>>> core-2125 use spryker-eco/loggly
+=======
+=======
+                "reference": "17577fa4db2104b13513448f4d4881a6e04c344f"
+>>>>>>> core-2125 update spryker/spryker
+>>>>>>> core-2125 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1971,12 +1980,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-24T08:36:55+00:00"
 =======
 =======
 >>>>>>> core-2125 log to queue, removed HerokuLoggerConfig
 =======
 >>>>>>> core-2125 use spryker-eco/loggly
+=======
+>>>>>>> core-2125 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-10-16T10:44:06+00:00"
 =======
@@ -2012,7 +2024,13 @@
             "time": "2017-10-05T06:44:27+00:00"
 >>>>>>> core-2125 use spryker-eco/loggly
 >>>>>>> core-2125 use spryker-eco/loggly
+<<<<<<< HEAD
 >>>>>>> core-2125 use spryker-eco/loggly
+=======
+=======
+            "time": "2017-10-16T10:42:56+00:00"
+>>>>>>> core-2125 update spryker/spryker
+>>>>>>> core-2125 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
