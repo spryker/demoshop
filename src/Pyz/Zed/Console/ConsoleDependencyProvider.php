@@ -68,7 +68,7 @@ use Spryker\Zed\Setup\Communication\Console\JenkinsEnableConsole;
 use Spryker\Zed\Setup\Communication\Console\JenkinsGenerateConsole;
 use Spryker\Zed\Setup\Communication\Console\Npm\RunnerConsole;
 use Spryker\Zed\SetupFrontend\Communication\Console\CleanUpDependenciesConsole;
-use Spryker\Zed\SetupFrontend\Communication\Console\InstallNodeJsConsole;
+use Spryker\Zed\SetupFrontend\Communication\Console\InstallPackageManagerConsole;
 use Spryker\Zed\SetupFrontend\Communication\Console\InstallProjectDependenciesConsole;
 use Spryker\Zed\SetupFrontend\Communication\Console\YvesBuildFrontendConsole;
 use Spryker\Zed\SetupFrontend\Communication\Console\YvesInstallDependenciesConsole;
@@ -188,7 +188,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new SearchRestoreSnapshotConsole(),
             new SearchCopyIndexConsole(),
 
-            new InstallNodeJsConsole(),
+            new InstallPackageManagerConsole(),
             new CleanUpDependenciesConsole(),
             new InstallProjectDependenciesConsole(),
 

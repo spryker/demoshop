@@ -109,29 +109,29 @@ sections:
 
 
   frontend:
-    install-node:
-      command: "vendor/bin/console frontend:install-node-js"
+    install-package-manager:
+      command: "vendor/bin/console frontend:install:package-manager"
 
     dependencies-install:
-      command: "vendor/bin/console frontend:install-dependencies"
+      command: "vendor/bin/console frontend:project:install-dependencies"
 
     yves-install-dependencies:
-      command: "vendor/bin/console frontend:yves-install-dependencies"
+      command: "vendor/bin/console frontend:yves:install-dependencies"
       groups:
         - yves
 
     yves-build-frontend:
-      command: "vendor/bin/console frontend:yves-build-frontend"
+      command: "vendor/bin/console frontend:yves:build"
       groups:
         - yves
 
     zed-install-dependencies:
-      command: "vendor/bin/console frontend:zed-install-dependencies"
+      command: "vendor/bin/console frontend:zed:install-dependencies"
       groups:
         - zed
 
     zed-build-frontend:
-      command: "vendor/bin/console frontend:zed-build-frontend"
+      command: "vendor/bin/console frontend:zed:build"
       groups:
         - zed
 
