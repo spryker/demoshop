@@ -38,6 +38,7 @@ use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionCo
 use Spryker\Zed\EventBehavior\Communication\Console\EventBehaviorTriggerTimeoutConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Log\Communication\Console\DeleteLogFilesConsole;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
@@ -48,6 +49,9 @@ use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelRelationUpdaterCo
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelValidityConsole;
 use Spryker\Zed\ProductRelation\Communication\Console\ProductRelationUpdaterConsole;
 use Spryker\Zed\Propel\Communication\Console\DatabaseDropConsole;
+use Spryker\Zed\Propel\Communication\Console\DatabaseExportConsole;
+use Spryker\Zed\Propel\Communication\Console\DatabaseImportConsole;
+use Spryker\Zed\Propel\Communication\Console\DeleteMigrationFilesConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
 use Spryker\Zed\RabbitMq\Communication\Console\DeleteAllExchangesConsole;
@@ -183,6 +187,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DeleteLogFilesConsole(),
             new StorageExportRdbConsole(),
             new StorageImportRdbConsole(),
+            new StorageDeleteAllConsole(),
             new SearchDeleteIndexConsole(),
             new SearchCloseIndexConsole(),
             new SearchRegisterSnapshotRepositoryConsole(),

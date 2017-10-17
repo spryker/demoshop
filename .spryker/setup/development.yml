@@ -42,15 +42,15 @@ sections:
       command: "vendor/bin/console navigation:build-cache"
 
 
-  queue-flush:
-    purge-all-queues:
-      command: "vendor/bin/console queue:queue:purge-all"
-
-    delete-all-queues:
-      command: "vendor/bin/console queue:queue:delete-all"
-
-    delete-all-exchanges:
-      command: "vendor/bin/console queue:exchanges:delete-all"
+#  queue-flush:
+#    purge-all-queues:
+#      command: "vendor/bin/console queue:queue:purge-all"
+#
+#    delete-all-queues:
+#      command: "vendor/bin/console queue:queue:delete-all"
+#
+#    delete-all-exchanges:
+#      command: "vendor/bin/console queue:exchanges:delete-all"
 
 
   database-flush:

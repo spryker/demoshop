@@ -103,7 +103,7 @@
     ]
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
+  "prefer-stable": false,
   "config": {
     "use-include-path": true,
     "process-timeout": 600
