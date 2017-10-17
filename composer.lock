@@ -1627,7 +1627,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "bf5a30208e0d379005481c08ac01e426cd32acd8"
+                "reference": "56c498a044a0255e0f6884d11c9f2a972dea85f8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1821,7 +1821,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-17T15:11:33+00:00"
+            "time": "2017-10-17T16:35:55+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6617,12 +6617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "42609e4eec51ea9a710929f12cea2995d5957157"
+                "reference": "708d91629e7619f308d7af786815266fe2ccb04d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/42609e4eec51ea9a710929f12cea2995d5957157",
-                "reference": "42609e4eec51ea9a710929f12cea2995d5957157",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/708d91629e7619f308d7af786815266fe2ccb04d",
+                "reference": "708d91629e7619f308d7af786815266fe2ccb04d",
                 "shasum": ""
             },
             "require": {
@@ -6660,7 +6660,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2017-10-17T13:21:43+00:00"
+            "time": "2017-10-17T15:34:24+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6762,7 +6762,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "fc4cadf3a3b75212ac0d9e8fa66411cf83be847d"
+                "reference": "c0173350f16c739454160151caa78b88348beb62"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6813,7 +6813,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-10-05T08:57:13+00:00"
+            "time": "2017-10-17T15:26:10+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
