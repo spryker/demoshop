@@ -14,7 +14,6 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CategoryDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_CATEGORY_EXPORTER = 'category exporter client';
     const STORE = 'STORE';
     const APPLICATION = 'APPLICATION';
@@ -76,5 +75,4 @@ class CategoryDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

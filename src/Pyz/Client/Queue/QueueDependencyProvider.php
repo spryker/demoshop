@@ -12,7 +12,6 @@ use Spryker\Client\Queue\QueueDependencyProvider as BaseQueueDependencyProvider;
 
 class QueueDependencyProvider extends BaseQueueDependencyProvider
 {
-
     /**
      * @param \Spryker\Client\Kernel\Container $container
      *
@@ -24,5 +23,4 @@ class QueueDependencyProvider extends BaseQueueDependencyProvider
             $container->getLocator()->rabbitMq()->client()->createQueueAdapter(),
         ];
     }
-
 }

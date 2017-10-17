@@ -16,7 +16,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class AuthenticationHandler extends AbstractPlugin
 {
-
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
@@ -57,5 +56,4 @@ class AuthenticationHandler extends AbstractPlugin
 
         return $application['security'];
     }
-
 }

@@ -21,7 +21,6 @@ use Spryker\Zed\Customer\Communication\Controller\GatewayController as SprykerGa
  */
 class GatewayController extends SprykerGatewayController
 {
-
     /**
      * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
@@ -82,5 +81,4 @@ class GatewayController extends SprykerGatewayController
 
         return $subscriptionResponseTransfer;
     }
-
 }

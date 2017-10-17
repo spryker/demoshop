@@ -20,7 +20,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
  */
 class CustomerUserProvider extends AbstractPlugin implements UserProviderInterface
 {
-
     /**
      * @param string $username
      *
@@ -111,5 +110,4 @@ class CustomerUserProvider extends AbstractPlugin implements UserProviderInterfa
 
         return $customerTransfer;
     }
-
 }

@@ -27,7 +27,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SuccessStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -115,5 +114,4 @@ class SuccessStepTest extends Unit
     {
         return $this->getMockBuilder(CustomerClientInterface::class)->getMock();
     }
-
 }

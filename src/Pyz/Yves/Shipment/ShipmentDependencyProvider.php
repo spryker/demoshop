@@ -14,7 +14,6 @@ use Spryker\Yves\Money\Plugin\MoneyPlugin;
 
 class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_SHIPMENT = 'shipment client';
     const CLIENT_GLOSSARY = 'glossary client';
     const PLUGIN_MONEY = 'money plugin';
@@ -46,5 +45,4 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

@@ -17,7 +17,6 @@ use Spryker\Zed\Category\Business\CategoryBusinessFactory as SprykerCategoryBusi
  */
 class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
 {
-
     /**
      * @return \Spryker\Zed\Category\Business\Model\CategoryUrl\CategoryUrlInterface
      */
@@ -37,5 +36,4 @@ class CategoryBusinessFactory extends SprykerCategoryBusinessFactory
     {
         return new CategoryNodeDataPageMapBuilder();
     }
-
 }

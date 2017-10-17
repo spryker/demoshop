@@ -11,7 +11,6 @@ use Spryker\Zed\Development\DevelopmentConfig as SprykerDevelopmentConfig;
 
 class DevelopmentConfig extends SprykerDevelopmentConfig
 {
-
     /**
      * @project Only needed in Project, not in demoshop
      *
@@ -34,5 +33,4 @@ class DevelopmentConfig extends SprykerDevelopmentConfig
 
         return $rootDir . 'config/ruleset.xml';
     }
-
 }

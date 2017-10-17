@@ -15,7 +15,6 @@ use Spryker\Zed\ProductLabel\Dependency\Plugin\ProductLabelRelationUpdaterPlugin
  */
 class ProductSaleLabelUpdaterPlugin extends AbstractPlugin implements ProductLabelRelationUpdaterPluginInterface
 {
-
     /**
      * @return \Generated\Shared\Transfer\ProductLabelProductAbstractRelationsTransfer[]
      */
@@ -23,5 +22,4 @@ class ProductSaleLabelUpdaterPlugin extends AbstractPlugin implements ProductLab
     {
         return $this->getFacade()->findProductLabelProductAbstractRelationChanges();
     }
-
 }

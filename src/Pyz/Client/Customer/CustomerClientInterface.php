@@ -12,7 +12,6 @@ use Spryker\Client\Customer\CustomerClientInterface as SprykerCustomerClientInte
 
 interface CustomerClientInterface extends SprykerCustomerClientInterface
 {
-
     /**
      * Specification:
      * - Loads information about e.g. orders and newsletter subscriptions.
@@ -36,5 +35,4 @@ interface CustomerClientInterface extends SprykerCustomerClientInterface
      * @return void
      */
     public function markCustomerAsDirty();
-
 }

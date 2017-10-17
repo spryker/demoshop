@@ -16,7 +16,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class CheckoutBreadcrumbPlugin extends AbstractPlugin
 {
-
     /**
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|null $dataTransfer
      *
@@ -29,5 +28,4 @@ class CheckoutBreadcrumbPlugin extends AbstractPlugin
 
         return $stepFactory->createStepBreadcrumbGenerator()->generateStepBreadcrumbs($stepCollection, $dataTransfer);
     }
-
 }

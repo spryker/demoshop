@@ -22,7 +22,6 @@ use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
  */
 class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
 {
-
     /**
      * @var \Elastica\Query
      */
@@ -136,5 +135,4 @@ class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
 
         return $query;
     }
-
 }

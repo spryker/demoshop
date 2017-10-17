@@ -11,7 +11,6 @@ use Silex\Application;
 
 class ApplicationControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_HOME = 'home';
     const ROUTE_ERROR_404 = 'error/404';
     const ROUTE_ERROR_404_PATH = '/error/404';
@@ -31,5 +30,4 @@ class ApplicationControllerProvider extends AbstractYvesControllerProvider
 
         $this->createController(self::ROUTE_ERROR_404_PATH, self::ROUTE_ERROR_404, 'Application', 'Error404');
     }
-
 }

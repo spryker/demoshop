@@ -18,7 +18,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class DebugController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -39,5 +38,4 @@ class DebugController extends AbstractController
             'quote' => $quoteTransfer,
         ];
     }
-
 }

@@ -7,6 +7,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Shared\CmsGui\CmsGuiConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
@@ -200,10 +201,24 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 // ---------- Twig
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
+            '%s/data/%s/cache/Yves/twig',
+            APPLICATION_ROOT_DIR,
+            $CURRENT_STORE
+        ),
+        Twig_Cache_Filesystem::FORCE_BYTECODE_INVALIDATION
+    ),
 ];
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
+            '%s/data/%s/cache/Zed/twig',
+            APPLICATION_ROOT_DIR,
+            $CURRENT_STORE
+        ),
+        Twig_Cache_Filesystem::FORCE_BYTECODE_INVALIDATION
+    ),
 ];
 $config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
     '%s/data/%s/cache/Yves/twig/.pathCache',
@@ -299,7 +314,7 @@ $config[LogConstants::LOG_FILE_PATH] = sprintf(
     APPLICATION
 );
 $config[LogConstants::LOG_SANITIZE_FIELDS] = [
-    'password'
+    'password',
 ];
 /**
  * As long EventJournal is in ZedRequest bundle this needs to be disabled by hand
@@ -382,3 +397,4 @@ $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
+$config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';

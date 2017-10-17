@@ -22,7 +22,6 @@ use PyzTest\Yves\Application\PageObject\Homepage;
  */
 class HomepageCest
 {
-
     /**
      * @param \PyzTest\Yves\Application\ApplicationCommunicationTester $i
      *
@@ -34,5 +33,4 @@ class HomepageCest
         $i->amOnPage(Homepage::URL);
         $i->canSeeElement(['class' => '__page']);
     }
-
 }

@@ -22,7 +22,6 @@ use PyzTest\Yves\Product\PageObject\ProductDetailPage;
  */
 class AvailabilityAddToCartCest
 {
-
     /**
      * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
      *
@@ -44,5 +43,4 @@ class AvailabilityAddToCartCest
 
         $i->see(AvailabilityPresentationTester::CART_PRE_CHECK_AVAILABILITY_ERROR_MESSAGE);
     }
-
 }

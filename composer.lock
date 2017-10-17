@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "483bd01c86652707e03e60137dd39848",
+    "content-hash": "ecd72eec046c4fc2ea7d6d5f4fd8dc6c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -256,16 +256,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.1.10",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec"
+                "reference": "a99f0b151846021ba7a73b4e3cba3ebc9f14f03e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec",
-                "reference": "ffbbd2c06c64b08fb47974eed5dbce4ca2bb0eec",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/a99f0b151846021ba7a73b4e3cba3ebc9f14f03e",
+                "reference": "a99f0b151846021ba7a73b4e3cba3ebc9f14f03e",
                 "shasum": ""
             },
             "require": {
@@ -310,10 +310,10 @@
                 "exception",
                 "handling",
                 "library",
-                "whoops",
-                "zf2"
+                "throwable",
+                "whoops"
             ],
-            "time": "2017-08-03T18:23:40+00:00"
+            "time": "2017-10-15T13:05:10+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-2138-oms-improvements",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "67490a68eb647502bf500be77afc952ef42e6252"
+                "reference": "b80e4dfee2d476bbd14a369668f044e7aad438fd"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1800,7 +1800,7 @@
                 "spryker/zend": "*"
             },
             "require-dev": {
-                "spryker/code-sniffer": "*"
+                "spryker/code-sniffer": "dev-master"
             },
             "bin": [
                 "Bundles/Console/bin/console"
@@ -1812,11 +1812,16 @@
                     "Bundles/Config/src/Spryker/Shared/Config.php"
                 ]
             },
+            "scripts": {
+                "cs-check": [
+                    "vendor/bin/phpcs Bundles --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -p"
+                ]
+            },
             "license": [
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-11T14:12:19+00:00"
+            "time": "2017-10-16T10:44:06+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5591,16 +5596,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.22",
+            "version": "5.7.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "10df877596c9906d4110b5b905313829043f2ada"
+                "reference": "78532d5269d984660080d8e0f4c99c5c2ea65ffe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/10df877596c9906d4110b5b905313829043f2ada",
-                "reference": "10df877596c9906d4110b5b905313829043f2ada",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/78532d5269d984660080d8e0f4c99c5c2ea65ffe",
+                "reference": "78532d5269d984660080d8e0f4c99c5c2ea65ffe",
                 "shasum": ""
             },
             "require": {
@@ -5669,7 +5674,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-09-24T07:23:38+00:00"
+            "time": "2017-10-15T06:13:55+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6516,6 +6521,43 @@
             "time": "2016-09-15T14:35:04+00:00"
         },
         {
+            "name": "slevomat/coding-standard",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slevomat/coding-standard.git",
+                "reference": "bab653d0f7f2e3ed13796f7803067d252f00a25a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/bab653d0f7f2e3ed13796f7803067d252f00a25a",
+                "reference": "bab653d0f7f2e3ed13796f7803067d252f00a25a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "squizlabs/php_codesniffer": "^3.0.1"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "0.9.2",
+                "phing/phing": "2.16",
+                "phpstan/phpstan": "0.8.4",
+                "phpunit/phpunit": "6.3.0"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "SlevomatCodingStandard\\": "SlevomatCodingStandard"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+            "time": "2017-09-15T17:47:36+00:00"
+        },
+        {
             "name": "sllh/composer-versions-check",
             "version": "v2.0.3",
             "source": {
@@ -6575,12 +6617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "0025d0cd23fda963a0339dcbce09df3750f4e1ca"
+                "reference": "2d354fd5e92bbe18be68a03b84e9588659e9aa30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/0025d0cd23fda963a0339dcbce09df3750f4e1ca",
-                "reference": "0025d0cd23fda963a0339dcbce09df3750f4e1ca",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2d354fd5e92bbe18be68a03b84e9588659e9aa30",
+                "reference": "2d354fd5e92bbe18be68a03b84e9588659e9aa30",
                 "shasum": ""
             },
             "require": {
@@ -6618,7 +6660,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2017-10-02T08:01:45+00:00"
+            "time": "2017-10-12T07:28:18+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6669,16 +6711,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b"
+                "reference": "a8df3b638ce9d0b06747d6c749a775f2f6c681b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc1d3178a7ff36af360360ace5fee9229a2af93b",
-                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a8df3b638ce9d0b06747d6c749a775f2f6c681b6",
+                "reference": "a8df3b638ce9d0b06747d6c749a775f2f6c681b6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.16",
+                "php": "^7.0",
+                "slevomat/coding-standard": "^4.0",
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
@@ -6711,7 +6754,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-10T17:07:04+00:00"
+            "time": "2017-10-16T09:26:46+00:00"
         },
         {
             "name": "spryker/git-hook",

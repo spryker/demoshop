@@ -15,7 +15,6 @@ use Spryker\Shared\Application\Business\Routing\SilexRouter as SprykerSilexRoute
  */
 class SilexRouter extends SprykerSilexRouter
 {
-
     /**
      * {@inheritdoc}
      */
@@ -25,5 +24,4 @@ class SilexRouter extends SprykerSilexRouter
 
         return $generator->generate($name, $parameters, $referenceType);
     }
-
 }

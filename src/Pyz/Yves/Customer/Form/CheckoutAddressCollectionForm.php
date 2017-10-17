@@ -15,7 +15,6 @@ use Symfony\Component\Validator\Constraint;
 
 class CheckoutAddressCollectionForm extends AbstractType
 {
-
     const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     const FIELD_BILLING_ADDRESS = 'billingAddress';
     const FIELD_BILLING_SAME_AS_SHIPPING = 'billingSameAsShipping';
@@ -162,5 +161,4 @@ class CheckoutAddressCollectionForm extends AbstractType
 
         return $this;
     }
-
 }

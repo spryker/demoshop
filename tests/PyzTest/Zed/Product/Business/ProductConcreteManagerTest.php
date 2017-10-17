@@ -24,7 +24,6 @@ use Generated\Shared\Transfer\StockProductTransfer;
  */
 class ProductConcreteManagerTest extends ProductTestAbstract
 {
-
     /**
      * @return void
      */
@@ -191,5 +190,4 @@ class ProductConcreteManagerTest extends ProductTestAbstract
         $this->assertEquals(self::IMAGE_URL_LARGE, $productImage->getExternalUrlLarge());
         $this->assertEquals(self::IMAGE_URL_SMALL, $productImage->getExternalUrlSmall());
     }
-
 }

@@ -14,7 +14,6 @@ use Spryker\Client\Search\SearchDependencyProvider as SprykerSearchDependencyPro
 
 class SearchDependencyProvider extends SprykerSearchDependencyProvider
 {
-
     /**
      * @param \Spryker\Client\Kernel\Container $container
      *
@@ -38,5 +37,4 @@ class SearchDependencyProvider extends SprykerSearchDependencyProvider
 
         return $searchConfigExpanderPlugins;
     }
-
 }

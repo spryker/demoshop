@@ -12,7 +12,6 @@ namespace Pyz\Zed\ProductSale\Persistence;
  */
 interface ProductSaleQueryContainerInterface
 {
-
     /**
      * @api
      *
@@ -39,5 +38,4 @@ interface ProductSaleQueryContainerInterface
      * @return \Orm\Zed\Product\Persistence\SpyProductAbstractQuery
      */
     public function queryRelationsBecomingActive($idProductLabel);
-
 }

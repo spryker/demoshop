@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 
 interface AttributeVariantMapperInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
@@ -26,5 +25,4 @@ interface AttributeVariantMapperInterface
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function setSelectedVariants(array $selectedAttributes, StorageProductTransfer $storageProductTransfer);
-
 }

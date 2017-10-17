@@ -9,7 +9,6 @@ namespace PyzTest\Yves\Customer\PageObject;
 
 class CustomerAddressPage extends Customer
 {
-
     const URL = '/customer/address/new';
 
     const FORM_FIELD_SELECTOR_SALUTATION = 'addressForm[salutation]';
@@ -30,5 +29,4 @@ class CustomerAddressPage extends Customer
     const BUTTON_SUBMIT = 'Submit';
 
     const SUCCESS_MESSAGE = 'Address was successfully added';
-
 }

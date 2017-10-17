@@ -50,7 +50,6 @@ use Spryker\Zed\ZedRequest\Communication\Plugin\GatewayServiceProviderPlugin;
 
 class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
-
     const SERVICE_UTIL_DATE_TIME = 'util date time service';
     const SERVICE_NETWORK = 'util network service';
     const SERVICE_UTIL_IO = 'util io service';
@@ -248,5 +247,4 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
         return $serviceProvider;
     }
-
 }

@@ -16,7 +16,6 @@ use Spryker\Zed\Glossary\GlossaryConfig;
 
 class GlossaryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_KEY = 'key';
@@ -48,5 +47,4 @@ class GlossaryWriterStep extends TouchAwareStep implements DataImportStepInterfa
 
         $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
     }
-
 }

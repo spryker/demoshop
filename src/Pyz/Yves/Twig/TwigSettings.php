@@ -17,7 +17,6 @@ use Spryker\Yves\CmsBlock\Twig\Plugin\TwigCmsBlockPlaceholder;
 
 class TwigSettings
 {
-
     /**
      * @return \Pyz\Yves\Twig\Dependency\Plugin\TwigFilterPluginInterface[]
      */
@@ -42,5 +41,4 @@ class TwigSettings
             new TwigCatalogActiveSearchFilterFunctions(),
         ];
     }
-
 }

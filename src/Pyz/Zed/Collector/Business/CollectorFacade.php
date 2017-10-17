@@ -23,7 +23,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeInterface
 {
-
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
@@ -451,5 +450,4 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
             $output
         );
     }
-
 }

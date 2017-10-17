@@ -17,7 +17,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class CmsController extends AbstractController
 {
-
     /**
      * @param array $meta
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -65,7 +64,6 @@ class CmsController extends AbstractController
     protected function isPageActiveInGivenDate(array $meta, DateTime $dateToCompare)
     {
         if (isset($meta['valid_from']) && isset($meta['valid_to'])) {
-
             $validFrom = new DateTime($meta['valid_from']);
             $validTo = new DateTime($meta['valid_to']);
 
@@ -78,5 +76,4 @@ class CmsController extends AbstractController
 
         return true;
     }
-
 }

@@ -9,7 +9,6 @@ namespace PyzTest\Yves\Newsletter\PageObject;
 
 class NewsletterSubscriptionHomePage
 {
-
     const NEW_EMAIL = 'foo@bar.com';
     const EXISTING_EMAIL = 'bar@foo.com';
 
@@ -19,5 +18,4 @@ class NewsletterSubscriptionHomePage
     const SUCCESS_MESSAGE = 'You successfully subscribed to the newsletter';
 
     const FORM_SUBMIT = 'Subscribe';
-
 }

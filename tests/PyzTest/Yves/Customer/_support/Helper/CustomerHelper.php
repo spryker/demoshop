@@ -32,7 +32,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class CustomerHelper extends Module
 {
-
     use DependencyHelperTrait;
     use LocatorHelperTrait;
 
@@ -252,5 +251,4 @@ class CustomerHelper extends Module
         $sessionClient = new SessionClient();
         $sessionClient->setContainer($sessionContainer);
     }
-
 }

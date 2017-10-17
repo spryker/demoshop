@@ -12,7 +12,6 @@ use Spryker\Client\Customer\CustomerFactory as SprykerCustomerFactory;
 
 class CustomerFactory extends SprykerCustomerFactory
 {
-
     /**
      * @return \Pyz\Client\Customer\Zed\CustomerStubInterface
      */
@@ -30,5 +29,4 @@ class CustomerFactory extends SprykerCustomerFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::CART_CLIENT);
     }
-
 }

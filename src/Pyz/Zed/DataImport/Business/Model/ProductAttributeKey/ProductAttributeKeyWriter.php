@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductAttributeKeyWriter implements DataImportStepInterface
 {
-
     const ATTRIBUTE_KEY = 'attribute_key';
     const IS_SUPER = 'is_super';
 
@@ -32,5 +31,4 @@ class ProductAttributeKeyWriter implements DataImportStepInterface
         $productAttributeKeyEntity->setIsSuper($dataSet[static::IS_SUPER]);
         $productAttributeKeyEntity->save();
     }
-
 }

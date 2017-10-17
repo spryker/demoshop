@@ -14,7 +14,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 
 class ProductImageExpander implements ProductPageMapExpanderInterface
 {
-
     /**
      * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
      */
@@ -68,5 +67,4 @@ class ProductImageExpander implements ProductPageMapExpanderInterface
 
         return $result;
     }
-
 }

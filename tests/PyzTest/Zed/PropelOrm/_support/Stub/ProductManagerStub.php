@@ -15,7 +15,6 @@ use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 
 class ProductManagerStub
 {
-
     use DatabaseTransactionHandlerTrait;
 
     /**
@@ -131,7 +130,6 @@ class ProductManagerStub
             $localizedAttributeEntity->save();
 
             $this->throwSampleException();
-
         }, $this->productQueryContainer->getConnection());
     }
 
@@ -157,7 +155,6 @@ class ProductManagerStub
             $localizedAttributeEntity->save();
 
             return $localizedAttributeEntity;
-
         }, $this->productQueryContainer->getConnection());
     }
 
@@ -170,5 +167,4 @@ class ProductManagerStub
     {
         throw new Exception('DB error occured');
     }
-
 }

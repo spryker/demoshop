@@ -12,7 +12,6 @@ use Spryker\Zed\DataImport\Business\Model\DataImporterAfterImportInterface;
 
 class ProductSearchAfterImportHook implements DataImporterAfterImportInterface
 {
-
     /**
      * @var \Pyz\Zed\ProductSearch\Business\ProductSearchFacadeInterface
      */
@@ -34,5 +33,4 @@ class ProductSearchAfterImportHook implements DataImporterAfterImportInterface
         $this->productSearchFacade->touchProductAbstractByAsynchronousAttributes();
         $this->productSearchFacade->touchProductSearchConfigExtension();
     }
-
 }

@@ -20,7 +20,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SubmitController extends AbstractController
 {
-
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
@@ -75,7 +74,7 @@ class SubmitController extends AbstractController
         }
 
         $productReviewResponseTransfer = $this->getFactory()->getProductReviewClient()->submitCustomerReview(
-                $this->getProductReviewFormData($form)
+            $this->getProductReviewFormData($form)
                     ->setCustomerReference($customerReference)
                     ->setLocaleName($this->getLocale())
         );
@@ -106,5 +105,4 @@ class SubmitController extends AbstractController
     {
         return $this->getApplication()['request_stack']->getParentRequest();
     }
-
 }

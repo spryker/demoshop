@@ -11,14 +11,17 @@ use ArrayObject;
 use Codeception\TestCase\Test;
 use DateTime;
 use Generated\Shared\Transfer\AddressTransfer;
+use Generated\Shared\Transfer\CurrencyTransfer;
 use Generated\Shared\Transfer\DiscountTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
+use Orm\Zed\Currency\Persistence\SpyCurrencyQuery;
 use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscount;
+use Orm\Zed\Discount\Persistence\SpyDiscountAmount;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
 use Orm\Zed\Product\Persistence\SpyProductAbstract;
@@ -43,7 +46,6 @@ use Spryker\Zed\Discount\DiscountDependencyProvider;
  */
 class CalculationWithCalculableObjectFacadeTest extends Test
 {
-
     /**
      * @return void
      */
@@ -201,9 +203,9 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $itemTransfer = $recalculatedQuoteTransfer->getItems()[0];
 
         $this->assertSame(19, $itemTransfer->getTaxRate());
-        $this->assertSame(14, $itemTransfer->getUnitTaxAmount());
+        $this->assertSame(13, $itemTransfer->getUnitTaxAmount());
         $this->assertSame(27, $itemTransfer->getSumTaxAmount());
-        $this->assertSame(18, $itemTransfer->getUnitTaxAmountFullAggregation());
+        $this->assertSame(17, $itemTransfer->getUnitTaxAmountFullAggregation());
         $this->assertSame(35, $itemTransfer->getSumTaxAmountFullAggregation());
 
         $this->assertSame(80, $itemTransfer->getUnitNetPrice());
@@ -215,14 +217,14 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $this->assertSame(100, $itemTransfer->getUnitSubtotalAggregation());
         $this->assertSame(200, $itemTransfer->getSumSubtotalAggregation());
 
-        $this->assertSame(110, $itemTransfer->getUnitPriceToPayAggregation());
-        $this->assertSame(219, $itemTransfer->getSumPriceToPayAggregation());
+        $this->assertSame(107, $itemTransfer->getUnitPriceToPayAggregation());
+        $this->assertSame(215, $itemTransfer->getSumPriceToPayAggregation());
 
-        $this->assertSame(8, $itemTransfer->getUnitDiscountAmountAggregation());
-        $this->assertSame(16, $itemTransfer->getSumDiscountAmountAggregation());
+        $this->assertSame(10, $itemTransfer->getUnitDiscountAmountAggregation());
+        $this->assertSame(20, $itemTransfer->getSumDiscountAmountAggregation());
 
-        $this->assertSame(8, $itemTransfer->getUnitDiscountAmountFullAggregation());
-        $this->assertSame(16, $itemTransfer->getSumDiscountAmountFullAggregation());
+        $this->assertSame(10, $itemTransfer->getUnitDiscountAmountFullAggregation());
+        $this->assertSame(20, $itemTransfer->getSumDiscountAmountFullAggregation());
 
         $expenseTransfer = $recalculatedQuoteTransfer->getExpenses()[0];
 
@@ -241,9 +243,9 @@ class CalculationWithCalculableObjectFacadeTest extends Test
 
         $totalsTransfer = $recalculatedQuoteTransfer->getTotals();
         $this->assertSame(200, $totalsTransfer->getSubtotal());
-        $this->assertSame(16, $totalsTransfer->getDiscountTotal());
+        $this->assertSame(20, $totalsTransfer->getDiscountTotal());
         $this->assertSame(80, $totalsTransfer->getExpenseTotal());
-        $this->assertSame(314, $totalsTransfer->getGrandTotal());
+        $this->assertSame(310, $totalsTransfer->getGrandTotal());
         $this->assertSame(50, $totalsTransfer->getTaxTotal()->getAmount());
     }
 
@@ -440,6 +442,11 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     protected function createFixtureDataForCalculation()
     {
         $quoteTransfer = new QuoteTransfer();
+
+        $currencyTransfer = new CurrencyTransfer();
+        $currencyTransfer->setCode('EUR');
+        $quoteTransfer->setCurrency($currencyTransfer);
+
         $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
 
         $shippingAddressTransfer = new AddressTransfer();
@@ -503,11 +510,27 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
         $discountEntity->save();
 
+        $discountAmountEntity = new SpyDiscountAmount();
+        $currencyEntity = $this->getCurrency();
+        $discountAmountEntity->setFkCurrency($currencyEntity->getIdCurrency());
+        $discountAmountEntity->setNetAmount($discountAmount);
+        $discountAmountEntity->setGrossAmount($discountAmount);
+        $discountAmountEntity->setFkDiscount($discountEntity->getIdDiscount());
+        $discountAmountEntity->save();
+
         $discountEntity->reload(true);
         $pool = $discountEntity->getVoucherPool();
         $pool->getDiscountVouchers();
 
         return $discountVoucherEntity;
+    }
+
+    /**
+     * @return \Orm\Zed\Currency\Persistence\SpyCurrency
+     */
+    protected function getCurrency()
+    {
+        return SpyCurrencyQuery::create()->findOneByCode('EUR');
     }
 
     /**
@@ -613,5 +636,4 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $taxSetTaxRateEntity->setFkTaxRate($taxRateEntity->getIdTaxRate());
         $taxSetTaxRateEntity->save();
     }
-
 }

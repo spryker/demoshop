@@ -19,6 +19,7 @@ use Pyz\Yves\Cart\Plugin\Provider\CartServiceProvider;
 use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
+use Pyz\Yves\Cms\Plugin\Provider\PreviewControllerProvider;
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\Currency\Plugin\CurrencyControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
@@ -68,7 +69,6 @@ use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
 
 class YvesBootstrap
 {
-
     /**
      * @var \Spryker\Yves\Kernel\Application
      */
@@ -189,9 +189,9 @@ class YvesBootstrap
             new ProductSetControllerProvider($isSsl),
             new ProductSaleControllerProvider($isSsl),
             new ProductNewControllerProvider($isSsl),
+            new PreviewControllerProvider($isSsl),
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
         ];
     }
-
 }

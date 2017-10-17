@@ -18,7 +18,6 @@ use Spryker\Zed\ProductSearch\Business\ProductSearchBusinessFactory as SprykerPr
 
 class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
 {
-
     /**
      * @return \Pyz\Zed\ProductSearch\Business\Map\ProductDataPageMapBuilder
      */
@@ -143,5 +142,4 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRODUCT_LABEL);
     }
-
 }

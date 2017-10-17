@@ -15,7 +15,6 @@ use Spryker\Shared\Event\EventConstants;
 
 class RabbitMqDependencyProvider extends RabbitMqRabbitMqDependencyProvider
 {
-
     /**
      * @return \ArrayObject
      */
@@ -92,5 +91,4 @@ class RabbitMqDependencyProvider extends RabbitMqRabbitMqDependencyProvider
 
         return $rabbitMqOptionTransfer;
     }
-
 }

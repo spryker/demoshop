@@ -20,7 +20,6 @@ use PyzTest\Zed\Console\ConsoleConsoleTester;
  */
 class GenerateDataBuildersCest
 {
-
     /**
      * @param \PyzTest\Zed\Console\ConsoleConsoleTester $i
      *
@@ -32,5 +31,4 @@ class GenerateDataBuildersCest
         $i->seeInShellOutput('CustomerBuilder.php was generated');
         $i->seeFileFound(codecept_data_dir() . 'cli_sandbox/src/Generated/Shared/DataBuilder/CustomerBuilder.php');
     }
-
 }

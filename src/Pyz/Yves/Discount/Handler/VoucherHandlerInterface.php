@@ -8,7 +8,6 @@ namespace Pyz\Yves\Discount\Handler;
 
 interface VoucherHandlerInterface
 {
-
     /**
      * @param string $voucherCode
      *
@@ -27,5 +26,4 @@ interface VoucherHandlerInterface
      * @return void
      */
     public function clear();
-
 }

@@ -9,7 +9,6 @@ namespace PyzTest\Yves\Customer\PageObject;
 
 class CustomerRegistrationPage extends Customer
 {
-
     const URL = '/register';
 
     const TITLE_CREATE_ACCOUNT = 'Create account';
@@ -25,5 +24,4 @@ class CustomerRegistrationPage extends Customer
     const FORM_FIELD_SELECTOR_ACCEPT_TERMS = '#registerForm_accept_terms';
 
     const SUCCESS_MESSAGE = 'Registration Successful';
-
 }

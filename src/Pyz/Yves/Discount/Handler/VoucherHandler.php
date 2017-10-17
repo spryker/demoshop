@@ -15,7 +15,6 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class VoucherHandler extends BaseHandler implements VoucherHandlerInterface
 {
-
     /**
      * @var \Spryker\Client\Calculation\CalculationClientInterface|\Spryker\Client\Kernel\AbstractClient
      */
@@ -166,5 +165,4 @@ class VoucherHandler extends BaseHandler implements VoucherHandlerInterface
 
         return false;
     }
-
 }

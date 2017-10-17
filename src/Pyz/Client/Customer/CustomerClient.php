@@ -17,7 +17,6 @@ use Spryker\Client\Customer\CustomerClient as SprykerCustomerClient;
  */
 class CustomerClient extends SprykerCustomerClient implements CustomerClientInterface
 {
-
     /**
      * {@inheritdoc}
      *
@@ -125,5 +124,4 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
             $this->getCustomer()->setIsDirty(true);
         }
     }
-
 }

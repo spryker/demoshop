@@ -12,7 +12,6 @@ use Spryker\Zed\Customer\Communication\CustomerCommunicationFactory as SprykerCu
 
 class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
 {
-
     /**
      * @return \Spryker\Zed\Sales\Business\SalesFacade
      */
@@ -28,5 +27,4 @@ class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::NEWSLETTER_FACADE);
     }
-
 }
