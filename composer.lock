@@ -4,54 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8f976d8ff79ef41c90e6823e30bc25c",
+    "content-hash": "ecd72eec046c4fc2ea7d6d5f4fd8dc6c",
     "packages": [
-        {
-            "name": "amzn/amazon-pay-sdk-php",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/amzn/amazon-pay-sdk-php.git",
-                "reference": "8069ed971acc9e07d2b5d77303d1527c027bd14d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/amzn/amazon-pay-sdk-php/zipball/8069ed971acc9e07d2b5d77303d1527c027bd14d",
-                "reference": "8069ed971acc9e07d2b5d77303d1527c027bd14d",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PayWithAmazon\\": "PayWithAmazon/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache OSL-2"
-            ],
-            "authors": [
-                {
-                    "name": "Amazon Payments",
-                    "email": "eps-dse@amazon.com"
-                }
-            ],
-            "description": "Pay with Amazon SDK",
-            "homepage": "https://github.com/amzn/login-and-pay-with-amazon-sdk-php",
-            "keywords": [
-                "amazon",
-                "amazon payments",
-                "pay",
-                "pay with amazon",
-                "payment",
-                "payments"
-            ],
-            "time": "2016-10-25T22:32:07+00:00"
-        },
         {
             "name": "braintree/braintree_php",
             "version": "3.15.0",
@@ -1486,46 +1440,6 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
-            "name": "ralouphie/getallheaders",
-            "version": "2.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ralouphie/getallheaders.git",
-                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
-                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~3.7.0",
-                "satooshi/php-coveralls": ">=1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/getallheaders.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ralph Khattar",
-                    "email": "ralph.khattar@gmail.com"
-                }
-            ],
-            "description": "A polyfill for getallheaders.",
-            "time": "2016-02-11T07:05:27+00:00"
-        },
-        {
             "name": "ruflin/elastica",
             "version": "3.2.3",
             "source": {
@@ -1658,95 +1572,6 @@
                 "microframework"
             ],
             "time": "2017-04-30T16:26:54+00:00"
-        },
-        {
-            "name": "spryker-eco/amazon-pay",
-            "version": "dev-feature/ECO-573-per-item-processing",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker-eco/amazon-pay.git",
-                "reference": "7b71810beea2696589cc7255f38b1d6aa85931d2"
-            },
-            "require": {
-                "amzn/amazon-pay-sdk-php": "^2.1",
-                "ralouphie/getallheaders": "^2.0",
-                "spryker/calculation": "^4.0.0",
-                "spryker/checkout": "^3.0.0",
-                "spryker/money": "^2.0.1",
-                "spryker/oms": "^7.0.0",
-                "spryker/quote": "^1.0.0",
-                "spryker/refund": "^5.0.0",
-                "spryker/sales": "^6.0.0",
-                "spryker/shipment": "^5.0.0",
-                "spryker/transfer": "^3.4",
-                "spryker/util-encoding": "^2.0.1",
-                "spryker/zed-request": "^3.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Spryker": "src/",
-                    "Function": "tests/"
-                }
-            },
-            "license": [
-                "Apache OSL-2"
-            ],
-            "description": "Amazon Pay Bundle",
-            "time": "2017-10-12T07:41:18+00:00"
-        },
-        {
-            "name": "spryker-eco/payone",
-            "version": "dev-feature/ECO-508-ci-setup",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker-eco/payone.git",
-                "reference": "a7bb054f1c75fbc0383308347e9494051d060a7c"
-            },
-            "require": {
-                "spryker/config": "^3.0.0",
-                "spryker/guzzle": "^2.1.0",
-                "spryker/kernel": "^3.0.0",
-                "spryker/oms": "^6.0.0 || ^7.0.0",
-                "spryker/propel-orm": "^1.0.0",
-                "spryker/refund": "^4.0.0 || ^5.0.0",
-                "spryker/sales": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 ",
-                "spryker/symfony": "^3.0.0"
-            },
-            "replace": {
-                "spryker/payone": "*"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/propel": "*",
-                "spryker/silex": "*",
-                "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins you need to install spryker/checkout."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "SprykerEco": "src/",
-                    "SprykerTest": "tests/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Payone module",
-            "time": "2017-10-13T13:33:04+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -4491,7 +4316,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2017-08-16T08:44:29+00:00"
+            "time": "2017-08-16T08:57:05+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
@@ -6773,7 +6598,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7534,8 +7359,6 @@
     "stability-flags": {
         "spryker/spryker": 20,
         "spryker/rabbit-mq": 20,
-        "spryker-eco/payone": 20,
-        "spryker-eco/amazon-pay": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20,
