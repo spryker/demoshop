@@ -16,7 +16,6 @@ use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
-use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Price\PriceConstants;
 use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
@@ -102,7 +101,6 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
  */
 $config[ApplicationConstants::HOST_YVES]
     = $config[ProductManagementConstants::HOST_YVES]
-    = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
     = $config[CustomerConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]

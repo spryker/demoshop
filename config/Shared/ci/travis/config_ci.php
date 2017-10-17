@@ -13,7 +13,6 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Mail\MailConstants;
-use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Search\SearchConstants;
@@ -47,7 +46,6 @@ $config[ApplicationConstants::BASE_URL_SSL_YVES] = sprintf(
     $config[ApplicationConstants::PORT_SSL_YVES]
 );
 $config[ProductManagementConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
-$config[PayolutionConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[NewsletterConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 $config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 
@@ -136,27 +134,6 @@ $config[SetupConstants::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shared/dat
 
 // ---------- Email
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED] . ':1080';
-
-// ---------- Payolution
-$config[PayolutionConstants::TRANSACTION_GATEWAY_URL] = 'https://test.ctpe.net/frontend/payment.prc';
-$config[PayolutionConstants::CALCULATION_GATEWAY_URL] = 'https://test-payment.payolution.com/payolution-payment/rest/request/v2';
-$config[PayolutionConstants::TRANSACTION_SECURITY_SENDER] = '8a82941850cd6ba60150cdba275b0201';
-$config[PayolutionConstants::TRANSACTION_USER_LOGIN] = '8a82941850cd6ba60150cdba275c0205';
-$config[PayolutionConstants::TRANSACTION_USER_PASSWORD] = 'EANPb8wg';
-$config[PayolutionConstants::CALCULATION_SENDER] = 'Spryker';
-$config[PayolutionConstants::CALCULATION_USER_LOGIN] = 'spryker-installment';
-$config[PayolutionConstants::CALCULATION_USER_PASSWORD] = '0mQzn5iqhr3idfZZjvsEPOrlDvT97Tg3M5d';
-$config[PayolutionConstants::TRANSACTION_MODE] = 'CONNECTOR_TEST';
-$config[PayolutionConstants::CALCULATION_MODE] = 'TEST';
-$config[PayolutionConstants::TRANSACTION_CHANNEL_PRE_CHECK] = '8a82941850cd6ba60150cdc25e54028f';
-$config[PayolutionConstants::TRANSACTION_CHANNEL_INVOICE] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConstants::TRANSACTION_CHANNEL_INSTALLMENT] = '8a82941850cd6ba60150cdbf9af40280';
-$config[PayolutionConstants::CALCULATION_CHANNEL] = 'spryker-installment';
-$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INVOICE] = '500';
-$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INVOICE] = '500000';
-$config[PayolutionConstants::MIN_ORDER_GRAND_TOTAL_INSTALLMENT] = '500';
-$config[PayolutionConstants::MAX_ORDER_GRAND_TOTAL_INSTALLMENT] = '500000';
-$config[PayolutionConstants::PAYOLUTION_BCC_EMAIL] = 'invoices@payolution.com';
 
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
