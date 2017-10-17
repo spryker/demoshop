@@ -60,6 +60,11 @@ $config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
 $config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
 $config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
 
+$config[RabbitMqConstants::RABBITMQ_API_HOST] = 'localhost';
+$config[RabbitMqConstants::RABBITMQ_API_PORT] = '15672';
+$config[RabbitMqConstants::RABBITMQ_API_USERNAME] = 'admin';
+$config[RabbitMqConstants::RABBITMQ_API_PASSWORD] = 'mate20mg';
+
 // ---------- Session
 $config[SessionConstants::YVES_SESSION_COOKIE_SECURE] = false;
 $config[SessionConstants::YVES_SESSION_REDIS_PROTOCOL] = $config[StorageConstants::STORAGE_REDIS_PROTOCOL];

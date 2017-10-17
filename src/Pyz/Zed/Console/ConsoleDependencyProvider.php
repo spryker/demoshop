@@ -50,6 +50,9 @@ use Spryker\Zed\ProductRelation\Communication\Console\ProductRelationUpdaterCons
 use Spryker\Zed\Propel\Communication\Console\DatabaseDropConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
+use Spryker\Zed\RabbitMq\Communication\Console\DeleteAllExchangesConsole;
+use Spryker\Zed\RabbitMq\Communication\Console\DeleteAllQueuesConsole;
+use Spryker\Zed\RabbitMq\Communication\Console\PurgeAllQueuesConsole;
 use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
 use Spryker\Zed\Search\Communication\Console\SearchCloseIndexConsole;
 use Spryker\Zed\Search\Communication\Console\SearchConsole;
@@ -197,6 +200,10 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 
             new ZedInstallDependenciesConsole(),
             new ZedBuildFrontendConsole(),
+
+            new DeleteAllQueuesConsole(),
+            new PurgeAllQueuesConsole(),
+            new DeleteAllExchangesConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();

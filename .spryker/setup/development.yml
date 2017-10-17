@@ -10,17 +10,13 @@ sections:
       command: "php composer.phar install --prefer-dist"
 
 
-  logs-down:
+  clear:
     remove-logs:
       command: "vendor/bin/console log:clear"
 
-
-  cache-down:
     remove-cache:
       command: "vendor/bin/console cache:empty-all"
 
-
-  generate-down:
     remove-generated-files:
       command: "vendor/bin/console setup:empty-generated-directory"
 
@@ -28,11 +24,9 @@ sections:
   jenkins-down:
     jenkins-stop:
       command: "vendor/bin/console setup:jenkins:disable"
-      groups:
-        - jenkins
 
 
-  generate-up:
+  generate:
     generate-transfers:
       command: "vendor/bin/console transfer:generate"
 
@@ -40,7 +34,7 @@ sections:
       command: "vendor/bin/console dev:ide:generate-auto-completion"
 
 
-  cache-up:
+  cache:
     twig-cache-warmup:
       command: "vendor/bin/console twig:cache:warmer"
 
@@ -48,7 +42,18 @@ sections:
       command: "vendor/bin/console navigation:build-cache"
 
 
-  database-down:
+  queue-flush:
+    purge-all-queues:
+      command: "vendor/bin/console queue:queue:purge-all"
+
+    delete-all-queues:
+      command: "vendor/bin/console queue:queue:delete-all"
+
+    delete-all-exchanges:
+      command: "vendor/bin/console queue:exchanges:delete-all"
+
+
+  database-flush:
     delete-elastic-search-index:
       command: "vendor/bin/console search:index:delete"
       groups:
@@ -70,11 +75,39 @@ sections:
         - propel
 
 
-  database-up:
-    setup-propel:
-      command: "vendor/bin/console propel:install"
+  database-migrate:
+    propel-create:
+      command: "vendor/bin/console propel:database:create"
       groups:
         - propel
+
+    propel-postgres-compatibility:
+      command: "vendor/bin/console propel:pg-sql-compat"
+      groups:
+        - propel
+
+    propel-copy-schema:
+      command: "vendor/bin/console propel:schema:copy"
+      groups:
+        - propel
+
+    propel-build:
+      command: "vendor/bin/console propel:model:build"
+      groups:
+        - propel
+
+    propel-diff:
+      command: "vendor/bin/console propel:diff"
+      groups:
+        - propel
+
+    propel-migrate:
+      command: "vendor/bin/console propel:migrate"
+      groups:
+        - propel
+
+    init-database:
+      command: "vendor/bin/console setup:init-db"
 
     setup-search:
       command: "vendor/bin/console setup:search"
@@ -82,21 +115,17 @@ sections:
         - elastic
 
 
-  setup-data:
-    init-database:
-      command: "vendor/bin/console setup:init-db"
-
+  demodata:
     import:
       command: "vendor/bin/console data:import"
 
     update-product-labels:
       command: "vendor/bin/console product-label:relations:update"
 
-
-  export-data:
-    search:
+    search-collector:
       command: "vendor/bin/console collector:search:export"
-    storage:
+
+    storage-collector:
       command: "vendor/bin/console collector:storage:export"
 
 
@@ -111,9 +140,13 @@ sections:
   frontend:
     install-package-manager:
       command: "vendor/bin/console frontend:install:package-manager"
+      groups:
+        - project
 
     dependencies-install:
       command: "vendor/bin/console frontend:project:install-dependencies"
+      groups:
+        - project
 
     yves-install-dependencies:
       command: "vendor/bin/console frontend:yves:install-dependencies"
@@ -134,64 +167,3 @@ sections:
       command: "vendor/bin/console frontend:zed:build"
       groups:
         - zed
-
-  backup:
-    export-database:
-      command: "vendor/bin/console propel:database:export ./data/development.backup"
-      groups:
-        - propel
-
-    export-storage:
-      command: "vendor/bin/console storage:export ./data/redis_dump.rdb"
-      groups:
-        - storage
-
-    register-search-repo:
-      command: "vendor/bin/console search:snapshot:register-repository development"
-      groups:
-        - searh
-
-    delete-search-snapshot:
-      command: "vendor/bin/console search:snapshot:delete development snapshot"
-      groups:
-        - search
-
-    create-search-snapshot:
-      command: "vendor/bin/console search:snapshot:create development snapshot"
-      groups:
-        - search
-
-
-  restore:
-    excluded: true
-
-    drop-database:
-      command: "vendor/bin/console propel:database:drop"
-      groups:
-        - propel
-
-    create-database:
-      command: "vendor/bin/console propel:database:create"
-      groups:
-        - propel
-
-    import-database:
-      command: "vendor/bin/console propel:database:import ./data/development.backup"
-      groups:
-        - propel
-
-    import-storage:
-      command: "vendor/bin/console storage:import ./data/redis_dump.rdb"
-      excluded: true
-      groups:
-        - storage
-
-    close-all-indices:
-      command: "vendor/bin/console search:index:close -a"
-      groups:
-        - search
-
-    restore-search-snapshot:
-      command: "vendor/bin/console search:snapshot:restore development snapshot"
-      groups:
-        - search

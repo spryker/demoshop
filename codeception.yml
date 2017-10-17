@@ -2,8 +2,10 @@ namespace: PyzTest
 actor: Tester
 
 include:
-    - tests/PyzTest/*/*
-    - vendor/spryker/spryker/Bundles/*/*
+  - tests/PyzTest/*/*
+  - vendor/spryker/spryker/Bundles/*/*
+  - vendor/spryker-eco/*/*
+  - vendor/spryker/rabbit-mq
 
 paths:
     tests: tests
