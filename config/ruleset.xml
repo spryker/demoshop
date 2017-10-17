@@ -10,7 +10,8 @@
     <rule ref="vendor/spryker/code-sniffer/Spryker/ruleset.xml"/>
 
     <exclude-pattern>*/src/Generated/*</exclude-pattern>
-    <exclude-pattern>*/src/Orm/*</exclude-pattern>
+    <exclude-pattern>*/src/Orm/*/Base/</exclude-pattern>
+    <exclude-pattern>*/src/Orm/*/Map/</exclude-pattern>
     <exclude-pattern>*/tests/_support/_generated/*</exclude-pattern>
     <exclude-pattern>*/tests/_helpers/*</exclude-pattern>
     <exclude-pattern>*/tests/_output/*</exclude-pattern>
