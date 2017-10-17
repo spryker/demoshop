@@ -94,7 +94,8 @@
   },
   "autoload-dev": {
     "psr-0": {
-      "PyzTest": "tests"
+      "PyzTest": "tests",
+      "PhpStan": "tests"
     },
     "files": [
       "test-autoload.php"
