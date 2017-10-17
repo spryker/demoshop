@@ -13,7 +13,6 @@ namespace Pyz\Yves\Product\Dependency\Plugin;
  */
 interface StorageProductMapperPluginInterface
 {
-
     /**
      * @param array $data
      * @param array $selectedAttributes
@@ -21,5 +20,4 @@ interface StorageProductMapperPluginInterface
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function mapStorageProduct(array $data, array $selectedAttributes = []);
-
 }

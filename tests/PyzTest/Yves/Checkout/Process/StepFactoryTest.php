@@ -23,7 +23,6 @@ use Spryker\Yves\Kernel\Container;
  */
 class StepFactoryTest extends Unit
 {
-
     const EXPECTED_DEPENDENCY = 'expected dependency';
 
     /**
@@ -51,5 +50,4 @@ class StepFactoryTest extends Unit
 
         $this->assertSame(self::EXPECTED_DEPENDENCY, $stepFactory->getCheckoutClient());
     }
-
 }

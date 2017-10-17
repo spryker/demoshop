@@ -19,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PasswordController extends AbstractCustomerController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -103,5 +102,4 @@ class PasswordController extends AbstractCustomerController
         return $this->getClient()
             ->sendPasswordRestoreMail($customerTransfer);
     }
-
 }

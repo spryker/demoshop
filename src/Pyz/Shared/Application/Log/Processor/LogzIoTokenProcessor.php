@@ -12,7 +12,6 @@ use Spryker\Shared\Config\Config;
 
 class LogzIoTokenProcessor
 {
-
     /**
      * @param array $record
      *
@@ -24,5 +23,4 @@ class LogzIoTokenProcessor
 
         return $record;
     }
-
 }

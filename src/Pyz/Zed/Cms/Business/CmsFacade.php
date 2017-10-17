@@ -15,7 +15,6 @@ use Spryker\Zed\Cms\Business\CmsFacade as SprykerCmsFacade;
  */
 class CmsFacade extends SprykerCmsFacade implements CmsFacadeInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\PageTransfer $pageTransfer
      * @param string $url
@@ -27,5 +26,4 @@ class CmsFacade extends SprykerCmsFacade implements CmsFacadeInterface
     {
         return $this->getFactory()->createPageManager()->createPageUrlWithLocale($pageTransfer, $url, $localeTransfer);
     }
-
 }

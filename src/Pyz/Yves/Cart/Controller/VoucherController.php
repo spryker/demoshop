@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class VoucherController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -35,7 +34,6 @@ class VoucherController extends AbstractController
             $this->getFactory()
                 ->createCartVoucherHandler()
                 ->add($voucherCode);
-
         }
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
@@ -67,5 +65,4 @@ class VoucherController extends AbstractController
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
-
 }

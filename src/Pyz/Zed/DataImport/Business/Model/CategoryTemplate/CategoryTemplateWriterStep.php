@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CategoryTemplateWriterStep implements DataImportStepInterface
 {
-
     const KEY_NAME = 'template_name';
     const KEY_PATH = 'template_path';
 
@@ -34,5 +33,4 @@ class CategoryTemplateWriterStep implements DataImportStepInterface
             $categoryTemplateEntity->save();
         }
     }
-
 }

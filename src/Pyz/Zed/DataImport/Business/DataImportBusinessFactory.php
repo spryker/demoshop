@@ -76,7 +76,6 @@ use Spryker\Zed\Discount\DiscountConfig;
  */
 class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 {
-
     /**
      * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
      */
@@ -1064,5 +1063,4 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     {
         return new AddProductAttributeKeysStep();
     }
-
 }

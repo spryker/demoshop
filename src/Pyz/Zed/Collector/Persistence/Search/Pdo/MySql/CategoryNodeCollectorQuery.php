@@ -11,7 +11,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     const COL_IS_ACTIVE = 'is_active';
     const COL_IS_SEARCHABLE = 'is_searchable';
 
@@ -58,5 +57,4 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
             ->setParameter('fk_locale_2', $this->locale->getIdLocale())
         ->setParameter('fk_locale_3', $this->locale->getIdLocale());
     }
-
 }

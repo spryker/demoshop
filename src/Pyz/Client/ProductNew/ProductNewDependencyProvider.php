@@ -25,7 +25,6 @@ use Spryker\Shared\Kernel\Store;
 
 class ProductNewDependencyProvider extends AbstractDependencyProvider
 {
-
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const CLIENT_PRODUCT_LABEL = 'CLIENT_PRODUCT_LABEL';
     const NEW_PRODUCTS_QUERY_PLUGIN = 'NEW_PRODUCTS_QUERY_PLUGIN';
@@ -144,5 +143,4 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
 
         return $container;
     }
-
 }

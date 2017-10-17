@@ -15,7 +15,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class HeartbeatFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Heartbeat\Model\HealthChecker
      */
@@ -78,5 +77,4 @@ class HeartbeatFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(HeartbeatDependencyProvider::CLIENT_STORAGE);
     }
-
 }

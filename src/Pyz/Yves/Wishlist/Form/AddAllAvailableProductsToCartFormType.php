@@ -13,7 +13,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class AddAllAvailableProductsToCartFormType extends AbstractType
 {
-
     const WISHLIST_ITEM_META_COLLECTION = 'wishlistItemMetaCollection';
 
     /**
@@ -42,5 +41,4 @@ class AddAllAvailableProductsToCartFormType extends AbstractType
 
         return $this;
     }
-
 }

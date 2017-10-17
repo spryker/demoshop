@@ -22,7 +22,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerAddressPage;
  */
 class CustomerAddressesCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -35,5 +34,4 @@ class CustomerAddressesCest
         $i->click(CustomerAddressesPage::ADD_ADDRESS_LINK);
         $i->seeCurrentUrlEquals(CustomerAddressPage::URL);
     }
-
 }

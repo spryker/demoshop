@@ -20,7 +20,6 @@ use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
 class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 {
-
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
 
     /**
@@ -208,5 +207,4 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     {
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
     }
-
 }

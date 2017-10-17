@@ -46,7 +46,6 @@ use Spryker\Zed\Discount\DiscountDependencyProvider;
  */
 class CalculationWithCalculableObjectFacadeTest extends Test
 {
-
     /**
      * @return void
      */
@@ -637,5 +636,4 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $taxSetTaxRateEntity->setFkTaxRate($taxRateEntity->getIdTaxRate());
         $taxSetTaxRateEntity->save();
     }
-
 }

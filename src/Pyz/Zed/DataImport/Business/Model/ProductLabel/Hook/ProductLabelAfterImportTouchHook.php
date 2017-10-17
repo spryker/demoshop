@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductLabelAfterImportTouchHook implements DataImporterAfterImportInterface
 {
-
     /**
      * @var \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface
      */
@@ -37,5 +36,4 @@ class ProductLabelAfterImportTouchHook implements DataImporterAfterImportInterfa
             [ProductLabelConstants::RESOURCE_TYPE_PRODUCT_LABEL_DICTIONARY_IDENTIFIER]
         );
     }
-
 }

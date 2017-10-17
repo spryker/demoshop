@@ -12,7 +12,6 @@ use Silex\Application;
 
 class NewsletterControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_NEWSLETTER_SUBSCRIBE = 'newsletter/subscribe';
 
     /**
@@ -28,5 +27,4 @@ class NewsletterControllerProvider extends AbstractYvesControllerProvider
             ->assert('newsletter', $allowedLocalesPattern . 'newsletter|newsletter')
             ->value('newsletter', 'newsletter');
     }
-
 }

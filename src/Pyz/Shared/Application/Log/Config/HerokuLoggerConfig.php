@@ -25,7 +25,6 @@ use Spryker\Shared\Transfer\Log\Processor\TransferSanitizerProcessor;
 
 class HerokuLoggerConfig implements LoggerConfigInterface
 {
-
     /**
      * @return string
      */
@@ -99,5 +98,4 @@ class HerokuLoggerConfig implements LoggerConfigInterface
 
         return $sanitizer;
     }
-
 }

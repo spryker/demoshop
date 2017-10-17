@@ -16,7 +16,6 @@ use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 class ProductOptionCollector extends AbstractStoragePdoCollector
 {
-
     const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
 
     /**
@@ -106,5 +105,4 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
 
         return $optionGroupEntity;
     }
-
 }

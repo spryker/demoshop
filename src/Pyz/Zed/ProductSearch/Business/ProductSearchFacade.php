@@ -16,7 +16,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
  */
 class ProductSearchFacade extends SprykerProductSearchFacade implements ProductSearchFacadeInterface
 {
-
     /**
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $productData
@@ -31,5 +30,4 @@ class ProductSearchFacade extends SprykerProductSearchFacade implements ProductS
             ->createProductDataPageMapBuilder()
             ->buildPageMap($pageMapBuilder, $productData, $locale);
     }
-
 }

@@ -16,7 +16,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class TranslationCollectorQuery extends AbstractPropelCollectorQuery
 {
-
     /**
      * @return void
      */
@@ -57,5 +56,4 @@ class TranslationCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyGlossaryTranslationTableMap::COL_VALUE, 'translation_value');
         $this->touchQuery->withColumn(SpyGlossaryKeyTableMap::COL_KEY, 'translation_key');
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Shared\Kernel\Store;
 
 abstract class AbstractAddressFormDataProvider
 {
-
     const COUNTRY_GLOSSARY_PREFIX = 'countries.iso.';
 
     /**
@@ -48,5 +47,4 @@ abstract class AbstractAddressFormDataProvider
 
         return $countries;
     }
-
 }

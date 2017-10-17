@@ -14,7 +14,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ShipmentWriterStep implements DataImportStepInterface
 {
-
     const COL_CARRIER = 'carrier';
     const COL_SHIPMENT_METHOD_KEY = 'shipment_method_key';
     const COL_NAME = 'name';
@@ -45,5 +44,4 @@ class ShipmentWriterStep implements DataImportStepInterface
             ->setFkTaxSet($dataSet[static::COL_ID_TAX_SET])
             ->save();
     }
-
 }

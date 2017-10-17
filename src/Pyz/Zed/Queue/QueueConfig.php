@@ -13,7 +13,6 @@ use Spryker\Zed\Queue\QueueConfig as SprykerQueueConfig;
 
 class QueueConfig extends SprykerQueueConfig
 {
-
     /**
      * @return array
      */
@@ -37,5 +36,4 @@ class QueueConfig extends SprykerQueueConfig
 
         return $queueOptionTransfer;
     }
-
 }

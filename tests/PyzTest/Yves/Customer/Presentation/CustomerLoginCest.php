@@ -23,7 +23,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerPasswordForgottenPage;
  */
 class CustomerLoginCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -59,5 +58,4 @@ class CustomerLoginCest
         $i->submitLoginForm($customerTransfer->getEmail(), $customerTransfer->getPassword());
         $i->seeCurrentUrlEquals(CustomerOverviewPage::URL);
     }
-
 }

@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UrlGenerator implements UrlGeneratorInterface
 {
-
     /**
      * @var \Spryker\Client\Search\SearchClientInterface
      */
@@ -152,5 +151,4 @@ class UrlGenerator implements UrlGeneratorInterface
 
         return $params;
     }
-
 }

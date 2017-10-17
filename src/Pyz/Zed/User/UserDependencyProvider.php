@@ -14,7 +14,6 @@ use Spryker\Zed\User\UserDependencyProvider as SprykerUserDependencyProvider;
 
 class UserDependencyProvider extends SprykerUserDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -38,5 +37,4 @@ class UserDependencyProvider extends SprykerUserDependencyProvider
             new UsersTableExpanderPlugin(),
         ];
     }
-
 }

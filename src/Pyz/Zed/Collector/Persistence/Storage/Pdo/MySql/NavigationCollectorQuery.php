@@ -11,7 +11,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class NavigationCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     /**
      * @return void
      */
@@ -88,5 +87,4 @@ AND     @pv := concat(@pv, \',\', spy_category_node_rec.id_category_node)) tree
             ->setParameter('fk_locale_2', $this->locale->getIdLocale())
             ->setParameter('fk_locale_3', $this->locale->getIdLocale());
     }
-
 }

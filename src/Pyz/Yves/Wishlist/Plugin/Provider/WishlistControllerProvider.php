@@ -12,7 +12,6 @@ use Silex\Application;
 
 class WishlistControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_ADD_TO_WISHLIST = 'wishlist/add-to-wishlist';
     const ROUTE_WISHLIST_OVERVIEW = 'wishlist/overview';
     const ROUTE_WISHLIST_UPDATE = 'wishlist/update';
@@ -73,5 +72,4 @@ class WishlistControllerProvider extends AbstractYvesControllerProvider
             ->value('wishlist', 'wishlist')
             ->assert('wishlistName', '.+');
     }
-
 }

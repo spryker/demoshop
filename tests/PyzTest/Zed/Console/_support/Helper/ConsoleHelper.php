@@ -13,7 +13,6 @@ use Codeception\Util\FileSystem;
 
 class ConsoleHelper extends Module
 {
-
     const RUNNER = 'console_runner.php';
     const SANDBOX_DIR = 'cli_sandbox/';
 
@@ -56,5 +55,4 @@ class ConsoleHelper extends Module
     {
         return $this->getModule('Cli');
     }
-
 }

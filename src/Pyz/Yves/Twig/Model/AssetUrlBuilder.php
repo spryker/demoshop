@@ -9,7 +9,6 @@ namespace Pyz\Yves\Twig\Model;
 
 class AssetUrlBuilder extends AbstractUrlBuilder implements AssetUrlBuilderInterface
 {
-
     /**
      * @var \Pyz\Yves\Twig\Model\CacheBusterInterface
      */
@@ -44,5 +43,4 @@ class AssetUrlBuilder extends AbstractUrlBuilder implements AssetUrlBuilderInter
     {
         return $this->cacheBuster;
     }
-
 }

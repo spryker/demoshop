@@ -21,7 +21,6 @@ use PyzTest\Zed\Console\ConsoleConsoleTester;
  */
 class ConsoleCest
 {
-
     /**
      * @param \PyzTest\Zed\Console\ConsoleConsoleTester $i
      *
@@ -35,5 +34,4 @@ class ConsoleCest
         PHPUnit_Framework_Assert::assertRegExp('/Store/', $output);
         PHPUnit_Framework_Assert::assertRegExp('/Environment/', $output);
     }
-
 }

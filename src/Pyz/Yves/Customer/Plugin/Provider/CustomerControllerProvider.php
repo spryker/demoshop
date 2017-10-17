@@ -12,7 +12,6 @@ use Silex\Application;
 
 class CustomerControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_LOGIN = 'login';
     const ROUTE_LOGOUT = 'logout';
     const ROUTE_REGISTER = 'register';
@@ -99,5 +98,4 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
     }
-
 }

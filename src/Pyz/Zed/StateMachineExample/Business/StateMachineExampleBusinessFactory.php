@@ -17,7 +17,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class StateMachineExampleBusinessFactory extends AbstractBusinessFactory
 {
-
     /**
      * @return \Pyz\Zed\StateMachineExample\Business\Model\StateMachineExampleItemSaver
      */
@@ -33,5 +32,4 @@ class StateMachineExampleBusinessFactory extends AbstractBusinessFactory
     {
         return new StateMachineExampleItemReader($this->getQueryContainer());
     }
-
 }

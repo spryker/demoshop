@@ -12,7 +12,6 @@ use Spryker\Zed\Kernel\Container;
 
 class ProductSaleDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const QUERY_CONTAINER_PRODUCT_LABEL = 'QUERY_CONTAINER_PRODUCT_LABEL';
     const QUERY_CONTAINER_PRODUCT = 'QUERY_CONTAINER_PRODUCT';
 
@@ -56,5 +55,4 @@ class ProductSaleDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

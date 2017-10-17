@@ -12,7 +12,6 @@ use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 
 class TranslationCollector extends AbstractStoragePropelCollector
 {
-
     /**
      * @param string $touchKey
      * @param array $collectItemData
@@ -51,5 +50,4 @@ class TranslationCollector extends AbstractStoragePropelCollector
     {
         return 'glossary';
     }
-
 }

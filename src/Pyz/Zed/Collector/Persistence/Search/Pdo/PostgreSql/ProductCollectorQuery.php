@@ -12,7 +12,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     const CONCAT_DELIMITER = "':'";
 
     /**
@@ -107,5 +106,4 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
 
         return $convertedStatus;
     }
-
 }

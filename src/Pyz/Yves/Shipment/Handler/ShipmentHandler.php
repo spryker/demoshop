@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentHandler
 {
-
     /**
      * @var \Spryker\Client\Shipment\ShipmentClientInterface
      */
@@ -140,5 +139,4 @@ class ShipmentHandler
     {
         return new ExpenseTransfer();
     }
-
 }

@@ -14,7 +14,6 @@ use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
  */
 class EntryStep extends AbstractBaseStep
 {
-
     /**
      * Require input, should we render view with form or just skip step after calling execute.
      *
@@ -38,5 +37,4 @@ class EntryStep extends AbstractBaseStep
     {
         return true;
     }
-
 }

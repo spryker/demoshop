@@ -9,7 +9,5 @@ namespace PyzTest\Yves\Application\PageObject;
 
 class Homepage
 {
-
     const URL = '/';
-
 }

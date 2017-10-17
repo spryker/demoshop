@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class AddCategoryKeysStep implements DataImportStepInterface
 {
-
     const KEY_CATEGORY_KEYS = 'categoryKeys';
 
     /**
@@ -38,5 +37,4 @@ class AddCategoryKeysStep implements DataImportStepInterface
 
         $dataSet[static::KEY_CATEGORY_KEYS] = $this->categoryKeys;
     }
-
 }

@@ -16,7 +16,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ShipmentPriceWriterStep implements DataImportStepInterface
 {
-
     const COL_STORE = 'store';
     const COL_CURRENCY = 'currency';
     const COL_SHIPMENT_METHOD_KEY = 'shipment_method_key';
@@ -103,5 +102,4 @@ class ShipmentPriceWriterStep implements DataImportStepInterface
 
         return static::$idStoreCache[$storeName];
     }
-
 }

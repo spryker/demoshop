@@ -15,7 +15,6 @@ use Spryker\Zed\ProductApi\Communication\Plugin\Api\ProductApiValidatorPlugin;
 
 class ApiDependencyProvider extends SprykerApiDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Api\Dependency\Plugin\ApiResourcePluginInterface[]
      */
@@ -37,5 +36,4 @@ class ApiDependencyProvider extends SprykerApiDependencyProvider
             new ProductApiValidatorPlugin(),
         ];
     }
-
 }

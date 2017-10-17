@@ -12,7 +12,6 @@ namespace Pyz\Client\ProductSale;
  */
 interface ProductSaleClientInterface
 {
-
     /**
      * Specification:
      * - A query based on the request parameters will be executed.
@@ -27,5 +26,4 @@ interface ProductSaleClientInterface
      * @return array
      */
     public function saleSearch(array $requestParameters);
-
 }

@@ -15,7 +15,6 @@ use Spryker\Yves\Kernel\Controller\AbstractController;
  */
 class AddToWishlistController extends AbstractController
 {
-
     /**
      * @return array
      */
@@ -31,5 +30,4 @@ class AddToWishlistController extends AbstractController
             'wishlistCollection' => $wishlistCollection,
         ]);
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Shared\ProductNew\ProductNewConfig as SprykerSharedProductNewConfig;
 
 class ProductNewConfig extends AbstractBundleConfig
 {
-
     /**
      * @return string
      */
@@ -20,5 +19,4 @@ class ProductNewConfig extends AbstractBundleConfig
     {
         return SprykerSharedProductNewConfig::DEFAULT_LABEL_NAME;
     }
-
 }

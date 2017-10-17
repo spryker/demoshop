@@ -20,7 +20,6 @@ use Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationL
  */
 class CustomerSecurityServiceProvider extends AbstractServiceProvider
 {
-
     const FIREWALL_SECURED = 'secured';
     const ROLE_USER = 'ROLE_USER';
     const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';
@@ -173,5 +172,4 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
         }
         return $logoutTarget;
     }
-
 }

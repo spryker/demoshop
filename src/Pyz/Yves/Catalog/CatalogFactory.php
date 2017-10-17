@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CatalogFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Catalog\ActiveSearchFilter\UrlGeneratorInterface
      */
@@ -44,5 +43,4 @@ class CatalogFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_SEARCH);
     }
-
 }

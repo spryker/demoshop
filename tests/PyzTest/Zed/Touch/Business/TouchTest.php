@@ -21,7 +21,6 @@ use Orm\Zed\Touch\Persistence\SpyTouchQuery;
  */
 class TouchTest extends Test
 {
-
     /**
      * @return void
      */
@@ -30,5 +29,4 @@ class TouchTest extends Test
         $query = SpyTouchQuery::create();
         $query->count();
     }
-
 }

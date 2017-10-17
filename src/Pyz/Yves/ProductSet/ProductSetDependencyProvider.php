@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\Container;
 
 class ProductSetDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_CART = 'CLIENT_CART';
     const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
     const CLIENT_PRODUCT_SET = 'CLIENT_PRODUCT_SET';
@@ -83,5 +82,4 @@ class ProductSetDependencyProvider extends AbstractBundleDependencyProvider
             return new StorageProductMapperPlugin();
         };
     }
-
 }

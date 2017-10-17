@@ -12,7 +12,6 @@ use Spryker\Client\Availability\AvailabilityClientInterface;
 
 class StorageProductAvailabilityMapper implements StorageProductAvailabilityMapperInterface
 {
-
     /**
      * @var \Spryker\Client\Availability\AvailabilityClientInterface
      */
@@ -48,5 +47,4 @@ class StorageProductAvailabilityMapper implements StorageProductAvailabilityMapp
 
         return $storageProductTransfer;
     }
-
 }

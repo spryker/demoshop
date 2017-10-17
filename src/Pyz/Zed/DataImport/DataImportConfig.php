@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\DataImportConfig as SprykerDataImportConfig;
 
 class DataImportConfig extends SprykerDataImportConfig
 {
-
     const IMPORT_TYPE_CATEGORY_TEMPLATE = 'category-template';
     const IMPORT_TYPE_CATEGORY = 'category';
     const IMPORT_TYPE_CUSTOMER = 'customer';
@@ -348,5 +347,4 @@ class DataImportConfig extends SprykerDataImportConfig
 
         return $dataImporterConfigurationTransfer;
     }
-
 }

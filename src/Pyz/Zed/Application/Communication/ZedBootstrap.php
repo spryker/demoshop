@@ -15,7 +15,6 @@ use Spryker\Zed\Application\Communication\ZedBootstrap as SprykerZedBootstrap;
 
 class ZedBootstrap extends SprykerZedBootstrap
 {
-
     /**
      * @SuppressWarnings(PHPMD)
      *
@@ -80,5 +79,4 @@ class ZedBootstrap extends SprykerZedBootstrap
     {
         return Config::get(AuthConstants::AUTH_ZED_ENABLED, true);
     }
-
 }

@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 
 class StorageProductMapper implements StorageProductMapperInterface
 {
-
     /**
      * @var \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
      */
@@ -59,5 +58,4 @@ class StorageProductMapper implements StorageProductMapperInterface
 
         return $storageProductTransfer;
     }
-
 }

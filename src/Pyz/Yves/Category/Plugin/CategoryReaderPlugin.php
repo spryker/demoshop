@@ -16,7 +16,6 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
  */
 class CategoryReaderPlugin extends AbstractPlugin
 {
-
     /**
      * @param string $categoryPath
      *
@@ -48,5 +47,4 @@ class CategoryReaderPlugin extends AbstractPlugin
     {
         return $this->getFactory()->getApplication()['routers'];
     }
-
 }

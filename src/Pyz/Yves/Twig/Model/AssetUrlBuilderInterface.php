@@ -9,7 +9,6 @@ namespace Pyz\Yves\Twig\Model;
 
 interface AssetUrlBuilderInterface
 {
-
     /**
      * @param string $assetPath
      *
@@ -18,5 +17,4 @@ interface AssetUrlBuilderInterface
      * @return string
      */
     public function buildUrl($assetPath);
-
 }
