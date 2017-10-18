@@ -14,7 +14,6 @@ use Generated\Shared\Transfer\StateMachineItemTransfer;
  */
 interface StateMachineExampleFacadeInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
@@ -38,5 +37,4 @@ interface StateMachineExampleFacadeInterface
      * @return bool
      */
     public function createExampleItem();
-
 }

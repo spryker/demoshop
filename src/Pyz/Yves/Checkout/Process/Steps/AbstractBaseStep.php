@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 abstract class AbstractBaseStep extends SprykerBaseStep
 {
-
     /**
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
@@ -45,5 +44,4 @@ abstract class AbstractBaseStep extends SprykerBaseStep
     {
         return count($quoteTransfer->getItems()) === 0;
     }
-
 }

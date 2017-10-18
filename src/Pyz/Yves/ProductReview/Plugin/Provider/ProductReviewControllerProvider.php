@@ -12,7 +12,6 @@ use Silex\Application;
 
 class ProductReviewControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_PRODUCT_REVIEW_INDEX = 'product-review/index';
     const ROUTE_PRODUCT_REVIEW_SUBMIT = 'product-review/submit';
 
@@ -30,12 +29,11 @@ class ProductReviewControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/{productReview}/index/{idProductAbstract}', static::ROUTE_PRODUCT_REVIEW_INDEX, 'ProductReview', 'Index', 'index')
             ->assert('productReview', $allowedLocalesPattern . 'product-review|product-review')
             ->value('productReview', 'product-review')
-            ->assert('idProductAbstract',  static::ID_ABSTRACT_PRODUCT_REGEX);
+            ->assert('idProductAbstract', static::ID_ABSTRACT_PRODUCT_REGEX);
 
         $this->createController('/{productReview}/submit/{idProductAbstract}', static::ROUTE_PRODUCT_REVIEW_SUBMIT, 'ProductReview', 'Submit', 'index')
             ->assert('productReview', $allowedLocalesPattern . 'product-review|product-review')
             ->value('productReview', 'product-review')
-            ->assert('idProductAbstract',  static::ID_ABSTRACT_PRODUCT_REGEX);
+            ->assert('idProductAbstract', static::ID_ABSTRACT_PRODUCT_REGEX);
     }
-
 }

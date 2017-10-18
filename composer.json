@@ -188,8 +188,10 @@
     "nette/php-generator": "^2.6.1",
     "pdepend/pdepend": "^2.2.4",
     "php-mock/php-mock": "^1.0",
+    "phpdocumentor/reflection-docblock": "^2.0",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "~2.4.3",
+    "phpstan/phpstan": "^0.8.5",
     "phpunit/php-token-stream": "^1.4.11",
     "phpunit/phpunit": "^5.0",
     "sebastian/phpcpd": "^2.0.2",
@@ -199,12 +201,11 @@
     "sllh/composer-versions-check": "^2.0.2",
     "spryker/architecture-sniffer": "^0.4.0",
     "spryker/code-generator": "^0.3.0",
-    "spryker/code-sniffer": "^0.10.0",
+    "spryker/code-sniffer": "^0.11.0",
     "spryker/development": "^3.0.0",
     "spryker/testify": "^3.0.0",
     "squizlabs/php_codesniffer": "^3.0",
     "stecman/symfony-console-completion": "^0.7.0",
-    "phpdocumentor/reflection-docblock": "^2.0",
     "symfony/var-dumper": "*",
     "symfony/web-profiler-bundle": "*"
   },
@@ -257,6 +258,9 @@
     "post-update-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS",
       "Install\\ComposerAdjuster::assertDemoshopGitUrls"
-    ]
+    ],
+    "phpstan": "php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1",
+    "phpstan-core": "php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1",
+    "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }
 }

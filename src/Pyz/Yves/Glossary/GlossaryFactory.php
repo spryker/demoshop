@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class GlossaryFactory extends AbstractFactory
 {
-
     /**
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $glossaryClient
      * @param string $localeName
@@ -23,5 +22,4 @@ class GlossaryFactory extends AbstractFactory
     {
         return new TwigTranslator($glossaryClient, $localeName);
     }
-
 }

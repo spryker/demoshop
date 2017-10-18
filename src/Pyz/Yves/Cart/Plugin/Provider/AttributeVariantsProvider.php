@@ -15,7 +15,6 @@ use Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginI
 
 class AttributeVariantsProvider
 {
-
     /**
      * @var \Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginInterface
      */
@@ -38,7 +37,6 @@ class AttributeVariantsProvider
     ) {
         $this->cartVariantAttributeMapperPlugin = $cartVariantAttributeMapperPlugin;
         $this->cartItemHandler = $cartItemHandler;
-
     }
 
     /**
@@ -111,5 +109,4 @@ class AttributeVariantsProvider
 
         return $haystack;
     }
-
 }

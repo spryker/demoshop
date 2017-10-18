@@ -21,7 +21,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class UrlCollector extends AbstractStoragePdoCollector
 {
-
     const FK_RESOURCE_ = 'fk_resource_';
     const RESOURCE_TYPE = 'resourceType';
     const VALUE = 'value';
@@ -294,5 +293,4 @@ class UrlCollector extends AbstractStoragePdoCollector
 
         $storeWriter->write($dataToWrite);
     }
-
 }

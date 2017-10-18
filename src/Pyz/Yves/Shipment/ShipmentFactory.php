@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class ShipmentFactory extends AbstractFactory
 {
-
     /**
      * @return \Symfony\Component\Form\AbstractType
      */
@@ -73,5 +72,4 @@ class ShipmentFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(ShipmentDependencyProvider::PLUGIN_MONEY);
     }
-
 }

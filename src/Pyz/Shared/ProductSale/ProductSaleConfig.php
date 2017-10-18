@@ -9,8 +9,6 @@ namespace Pyz\Shared\ProductSale;
 
 interface ProductSaleConfig
 {
-
     const PRICE_TYPE_ORIGINAL = 'ORIGINAL';
     const DEFAULT_LABEL_NAME = 'SALE';
-
 }

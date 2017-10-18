@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SuggestionController extends AbstractController
 {
-
     const PARAM_SEARCH_QUERY = 'q';
 
     /**
@@ -41,5 +40,4 @@ class SuggestionController extends AbstractController
             'suggestion' => $this->renderView('@Catalog/suggestion/index.twig', $searchResults)->getContent(),
         ]);
     }
-
 }

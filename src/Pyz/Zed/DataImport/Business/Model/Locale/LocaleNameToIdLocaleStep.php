@@ -15,7 +15,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class LocaleNameToIdLocaleStep implements DataImportStepInterface
 {
-
     const KEY_SOURCE = 'localeName';
     const KEY_TARGET = 'idLocale';
 
@@ -88,5 +87,4 @@ class LocaleNameToIdLocaleStep implements DataImportStepInterface
 
         return $localeEntity->getIdLocale();
     }
-
 }

@@ -22,7 +22,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class RedirectCollectorStoragePlugin extends AbstractCollectorPlugin
 {
-
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
@@ -46,5 +45,4 @@ class RedirectCollectorStoragePlugin extends AbstractCollectorPlugin
         $this->getFacade()
             ->runStorageRedirectCollector($baseQuery, $locale, $result, $dataReader, $dataWriter, $touchUpdater, $output);
     }
-
 }

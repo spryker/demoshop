@@ -11,7 +11,6 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 
 class DeleteController extends AbstractCustomerController
 {
-
     /**
      * @return void
      */
@@ -30,5 +29,4 @@ class DeleteController extends AbstractCustomerController
 
         return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_LOGOUT);
     }
-
 }

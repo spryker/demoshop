@@ -12,7 +12,6 @@ use Orm\Zed\Country\Persistence\SpyCountryQuery;
 
 class CountryRepository implements CountryRepositoryInterface
 {
-
     /**
      * @var \ArrayObject
      */
@@ -62,5 +61,4 @@ class CountryRepository implements CountryRepositoryInterface
             $this->countryIds[$countryEntity->getName()] = $countryEntity->getIdCountry();
         }
     }
-
 }

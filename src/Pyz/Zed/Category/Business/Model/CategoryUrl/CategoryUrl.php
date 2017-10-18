@@ -14,7 +14,6 @@ use Spryker\Zed\Category\Business\Model\CategoryUrl\CategoryUrl as SprykerCatego
 
 class CategoryUrl extends SprykerCategoryUrl
 {
-
     /**
      * @param \Generated\Shared\Transfer\NodeTransfer $categoryNodeTransfer
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
@@ -47,5 +46,4 @@ class CategoryUrl extends SprykerCategoryUrl
     {
         return mb_substr($localeTransfer->getLocaleName(), 0, 2);
     }
-
 }

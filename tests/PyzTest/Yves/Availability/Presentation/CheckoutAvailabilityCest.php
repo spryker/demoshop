@@ -25,7 +25,6 @@ use PyzTest\Zed\Sales\PageObject\OrderListPage;
  */
 class CheckoutAvailabilityCest
 {
-
     /**
      * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
      *
@@ -79,5 +78,4 @@ class CheckoutAvailabilityCest
 
         $i->assertEquals($reservedProductsAfter, $reservedProductsBefore - 1); //Reserved item returned back
     }
-
 }

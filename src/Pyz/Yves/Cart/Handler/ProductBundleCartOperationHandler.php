@@ -14,7 +14,6 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class ProductBundleCartOperationHandler extends BaseHandler implements CartOperationInterface
 {
-
     /**
      * @var \Pyz\Yves\Cart\Handler\CartOperationInterface
      */
@@ -242,5 +241,4 @@ class ProductBundleCartOperationHandler extends BaseHandler implements CartOpera
 
         return $bundleItemQuantity;
     }
-
 }

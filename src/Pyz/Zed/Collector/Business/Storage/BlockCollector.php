@@ -13,7 +13,6 @@ use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollec
 
 class BlockCollector extends AbstractStoragePropelCollector
 {
-
     /**
      * @return string
      */
@@ -59,5 +58,4 @@ class BlockCollector extends AbstractStoragePropelCollector
 
         return $this->generateKey($blockName, $localeName);
     }
-
 }

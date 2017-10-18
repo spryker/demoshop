@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\Container;
 
 class DiscountPromotionDependencyProvider extends SprykerDiscountPromotionDependencyProvider
 {
-
     /**
      * {@inheritdoc}
      *
@@ -25,5 +24,4 @@ class DiscountPromotionDependencyProvider extends SprykerDiscountPromotionDepend
     {
         return new StorageProductMapperPlugin();
     }
-
 }

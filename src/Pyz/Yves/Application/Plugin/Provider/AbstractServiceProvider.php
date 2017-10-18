@@ -16,7 +16,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 abstract class AbstractServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
-
     /**
      * @param \Silex\Application $app
      * @param \Twig_Extension[] $twigExtensions
@@ -50,5 +49,4 @@ abstract class AbstractServiceProvider extends AbstractPlugin implements Service
             })
         );
     }
-
 }

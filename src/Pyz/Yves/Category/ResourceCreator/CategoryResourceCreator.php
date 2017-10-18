@@ -15,7 +15,6 @@ use Spryker\Zed\Category\CategoryConfig;
 
 class CategoryResourceCreator extends AbstractResourceCreator
 {
-
     /**
      * @return string
      */
@@ -43,5 +42,4 @@ class CategoryResourceCreator extends AbstractResourceCreator
             'categoryNode' => $data,
         ];
     }
-
 }

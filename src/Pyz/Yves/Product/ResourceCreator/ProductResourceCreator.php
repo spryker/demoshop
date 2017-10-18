@@ -16,7 +16,6 @@ use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
 class ProductResourceCreator extends AbstractResourceCreator
 {
-
     /**
      * @var \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
@@ -81,5 +80,4 @@ class ProductResourceCreator extends AbstractResourceCreator
     {
         return array_filter($this->getRequest($application)->query->get('attribute', []));
     }
-
 }

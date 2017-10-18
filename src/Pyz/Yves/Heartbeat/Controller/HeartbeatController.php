@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class HeartbeatController extends AbstractController
 {
-
     const SYSTEM_UP = 'UP';
     const SYSTEM_DOWN = 'DOWN';
     const SYSTEM_STATUS = 'status';
@@ -50,5 +49,4 @@ class HeartbeatController extends AbstractController
             Response::HTTP_SERVICE_UNAVAILABLE
         );
     }
-
 }

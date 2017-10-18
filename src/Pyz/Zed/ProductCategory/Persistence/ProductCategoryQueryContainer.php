@@ -12,7 +12,6 @@ use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainer as Spr
 
 class ProductCategoryQueryContainer extends SprykerProductCategoryQueryContainer implements ProductCategoryQueryContainerInterface
 {
-
     const VIRT_COLUMN_ID_CATEGORY_NODE = 'id_category_node';
 
     /**
@@ -40,5 +39,4 @@ class ProductCategoryQueryContainer extends SprykerProductCategoryQueryContainer
                 ->endUse()
             ->endUse();
     }
-
 }

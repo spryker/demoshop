@@ -11,7 +11,6 @@ use Spryker\Zed\Cms\CmsConfig as SprykerCmsConfig;
 
 class CmsConfig extends SprykerCmsConfig
 {
-
     /**
      * @return bool
      */
@@ -19,5 +18,4 @@ class CmsConfig extends SprykerCmsConfig
     {
         return true;
     }
-
 }

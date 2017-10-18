@@ -9,7 +9,6 @@ namespace Pyz\Yves\Cart\Handler;
 
 interface CartOperationInterface
 {
-
     /**
      * @param string $sku
      * @param int $quantity
@@ -58,5 +57,4 @@ interface CartOperationInterface
      * @return void
      */
     public function changeQuantity($sku, $quantity, $groupKey = null);
-
 }

@@ -17,7 +17,6 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class PlaceOrderStep extends AbstractPlaceOrderStep
 {
-
     /**
      * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface
      */
@@ -96,5 +95,4 @@ class PlaceOrderStep extends AbstractPlaceOrderStep
             $this->flashMessenger->addErrorMessage($checkoutErrorTransfer->getMessage());
         }
     }
-
 }

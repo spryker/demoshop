@@ -20,7 +20,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class TaxWriterStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_COUNTRY_NAME = 'country_name';
@@ -152,5 +151,4 @@ class TaxWriterStep implements DataImportStepInterface
 
         unset($this->shipmentSets[$taxSetEntity->getName()]);
     }
-
 }

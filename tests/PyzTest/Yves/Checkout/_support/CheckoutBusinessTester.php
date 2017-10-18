@@ -26,11 +26,9 @@ use Codeception\Actor;
  */
 class CheckoutBusinessTester extends Actor
 {
-
     use _generated\CheckoutBusinessTesterActions;
 
    /**
     * Define custom actions here
     */
-
 }

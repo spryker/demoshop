@@ -13,7 +13,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 
 class ProductReviewExpander implements ProductPageMapExpanderInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
@@ -52,5 +51,4 @@ class ProductReviewExpander implements ProductPageMapExpanderInterface
     {
         return round($productData['average_rating'], 2);
     }
-
 }

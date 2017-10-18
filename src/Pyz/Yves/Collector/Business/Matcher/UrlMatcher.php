@@ -12,7 +12,6 @@ use Spryker\Zed\Collector\Business\Storage\Adapter\KeyValue\ReadInterface;
 
 class UrlMatcher implements UrlMatcherInterface
 {
-
     /**
      * @var \Spryker\Shared\KeyBuilder\KeyBuilderInterface
      */
@@ -45,5 +44,4 @@ class UrlMatcher implements UrlMatcherInterface
 
         return $this->keyValueReader->get($urlKey);
     }
-
 }

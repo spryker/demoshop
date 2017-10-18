@@ -11,7 +11,5 @@ use Spryker\Shared\ProductSearch\ProductSearchConfig as SprykerProductSearchCons
 
 interface ProductSearchConfig extends SprykerProductSearchConstants
 {
-
     const PRODUCT_ABSTRACT_PAGE_SEARCH_TYPE = 'product_abstract';
-
 }

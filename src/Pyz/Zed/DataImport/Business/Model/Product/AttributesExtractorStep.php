@@ -12,7 +12,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class AttributesExtractorStep implements DataImportStepInterface
 {
-
     const KEY_ATTRIBUTES = 'attributes';
 
     /**
@@ -47,5 +46,4 @@ class AttributesExtractorStep implements DataImportStepInterface
 
         $dataSet[static::KEY_ATTRIBUTES] = $attributes;
     }
-
 }

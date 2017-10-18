@@ -12,7 +12,6 @@ use Spryker\Client\Customer\Zed\CustomerStub as SprykerCustomerStub;
 
 class CustomerStub extends SprykerCustomerStub implements CustomerStubInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
@@ -25,5 +24,4 @@ class CustomerStub extends SprykerCustomerStub implements CustomerStubInterface
             $overviewRequest
         );
     }
-
 }

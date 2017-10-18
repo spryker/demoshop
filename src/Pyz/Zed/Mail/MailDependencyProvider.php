@@ -23,7 +23,6 @@ use Spryker\Zed\Oms\Communication\Plugin\Mail\OrderShippedMailTypePlugin;
 
 class MailDependencyProvider extends SprykerMailDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -54,5 +53,4 @@ class MailDependencyProvider extends SprykerMailDependencyProvider
 
         return $container;
     }
-
 }

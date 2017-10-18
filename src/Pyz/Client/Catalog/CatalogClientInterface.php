@@ -11,7 +11,6 @@ use Spryker\Client\Catalog\CatalogClientInterface as SprykerCatalogClientInterfa
 
 interface CatalogClientInterface extends SprykerCatalogClientInterface
 {
-
     /**
      * Specification:
      * - Returns a list of featured products.
@@ -23,5 +22,4 @@ interface CatalogClientInterface extends SprykerCatalogClientInterface
      * @return mixed
      */
     public function getFeaturedProducts($limit);
-
 }

@@ -16,7 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractQueryContainer;
  */
 class ProductSaleQueryContainer extends AbstractQueryContainer implements ProductSaleQueryContainerInterface
 {
-
     /**
      * @api
      *
@@ -74,5 +73,4 @@ class ProductSaleQueryContainer extends AbstractQueryContainer implements Produc
             ->endUse()
             ->addJoinCondition('rel', sprintf('rel.fk_product_label = %d', $idProductLabel));
     }
-
 }

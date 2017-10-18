@@ -15,7 +15,6 @@ use Spryker\Zed\Category\Persistence\CategoryQueryContainer as SprykerCategoryQu
  */
 class CategoryQueryContainer extends SprykerCategoryQueryContainer implements CategoryQueryContainerInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
@@ -27,5 +26,4 @@ class CategoryQueryContainer extends SprykerCategoryQueryContainer implements Ca
             ->createCategoryAttributeQuery()
             ->filterByFkLocale($localeTransfer->getIdLocale());
     }
-
 }

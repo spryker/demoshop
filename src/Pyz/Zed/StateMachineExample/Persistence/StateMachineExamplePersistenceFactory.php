@@ -15,7 +15,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class StateMachineExamplePersistenceFactory extends AbstractPersistenceFactory
 {
-
     /**
      * @return \Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItemQuery
      */
@@ -23,5 +22,4 @@ class StateMachineExamplePersistenceFactory extends AbstractPersistenceFactory
     {
         return PyzStateMachineExampleItemQuery::create();
     }
-
 }

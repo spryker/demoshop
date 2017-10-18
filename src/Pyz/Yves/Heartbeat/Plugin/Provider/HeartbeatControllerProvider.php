@@ -12,7 +12,6 @@ use Silex\Application;
 
 class HeartbeatControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_HEARTBEAT = 'heartbeat';
 
     /**
@@ -27,5 +26,4 @@ class HeartbeatControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/{heartbeat}', self::ROUTE_HEARTBEAT, 'Heartbeat', 'Heartbeat', 'index')
             ->assert('heartbeat', $allowedLocalesPattern . 'heartbeat|heartbeat');
     }
-
 }

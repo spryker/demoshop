@@ -19,7 +19,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductImageWriterStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_LOCALE = 'locale';
@@ -152,5 +151,4 @@ class ProductImageWriterStep implements DataImportStepInterface
             $productImageSetToProductImageEntity->save();
         }
     }
-
 }

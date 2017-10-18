@@ -15,7 +15,6 @@ use Spryker\Yves\ProductReview\ProductReviewFactory as SprykerProductReviewFacto
 
 class ProductReviewFactory extends SprykerProductReviewFactory
 {
-
     /**
      * @return \Pyz\Client\Customer\CustomerClientInterface
      */
@@ -80,5 +79,4 @@ class ProductReviewFactory extends SprykerProductReviewFactory
     {
         return new ProductReviewFormDataProvider();
     }
-
 }

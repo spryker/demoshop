@@ -13,7 +13,6 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 
 class StorageProductCategoryMapper implements StorageProductCategoryMapperInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param array $persistedProduct
@@ -39,5 +38,4 @@ class StorageProductCategoryMapper implements StorageProductCategoryMapperInterf
 
         return $storageProductTransfer;
     }
-
 }

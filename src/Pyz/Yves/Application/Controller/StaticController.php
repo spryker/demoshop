@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class StaticController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -25,5 +24,4 @@ class StaticController extends AbstractController
 
         return $this->viewResponse(['data' => $content]);
     }
-
 }

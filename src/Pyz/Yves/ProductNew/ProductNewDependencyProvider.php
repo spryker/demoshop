@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\Container;
 
 class ProductNewDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const PLUGIN_CATEGORY_READER = 'PLUGIN_CATEGORY_READER';
 
@@ -57,5 +56,4 @@ class ProductNewDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }
