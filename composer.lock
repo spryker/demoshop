@@ -6617,12 +6617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "42609e4eec51ea9a710929f12cea2995d5957157"
+                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/42609e4eec51ea9a710929f12cea2995d5957157",
-                "reference": "42609e4eec51ea9a710929f12cea2995d5957157",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/f7519b4fb6030c8576c59c801a9716dface7b72c",
+                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c",
                 "shasum": ""
             },
             "require": {
@@ -6660,7 +6660,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2017-10-17T13:21:43+00:00"
+            "time": "2017-10-17T16:29:19+00:00"
         },
         {
             "name": "spryker/code-generator",
