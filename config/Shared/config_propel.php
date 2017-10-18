@@ -51,7 +51,8 @@ $config[PropelConstants::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
-                //You might need full entity logging on Create/Update/Delete, then switch to \Spryker\Zed\Propel\Business\Builder\ObjectBuilderWithLogger
+                // If you need full entity logging on Create/Update/Delete, then switch to
+                // Spryker\Zed\Propel\Business\Builder\ObjectBuilderWithLogger instead.
                 'object' => ObjectBuilder::class,
                 'query' => QueryBuilder::class,
             ],
