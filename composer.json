@@ -114,6 +114,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/git-hook.git"
+    },
+    {
+      "type": "composer",
+      "url": "https://code.spryker.com/repo/private"
     }
   ],
   "scripts": {
