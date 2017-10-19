@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f54702266ffb5e8fe28e740b67a67e7b",
+    "content-hash": "a9a2d99143ad275d15db5ab10b49a603",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1661,11 +1661,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-777-gift-cards",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fa784b21d54f107981abee3a4088236eb15c4a28"
+                "reference": "5d02af5c09f69021e6c17819517d5fe8d624e773"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1735,6 +1735,7 @@
                 "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
+                "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
@@ -1863,7 +1864,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19T14:30:18+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6640,7 +6641,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6659,25 +6660,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/f7519b4fb6030c8576c59c801a9716dface7b72c",
                 "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6722,25 +6711,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
                 "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
