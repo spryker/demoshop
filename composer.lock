@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0e604cf325f13528726daf46116d088",
+    "content-hash": "f54702266ffb5e8fe28e740b67a67e7b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -4065,16 +4065,16 @@
         },
         {
             "name": "codeception/c3",
-            "version": "2.0.13",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01"
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/7cbeb7029efe621cf5a5b73853e5321147bfab01",
-                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
                 "shasum": ""
             },
             "require": {
@@ -4111,7 +4111,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-10-19T07:08:06+00:00"
+            "time": "2017-04-06T00:08:55+00:00"
         },
         {
             "name": "codeception/codeception",
