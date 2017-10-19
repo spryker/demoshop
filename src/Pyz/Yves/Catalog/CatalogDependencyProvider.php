@@ -15,6 +15,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_LOCALE = 'CLIENT_LOCALE';
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const CLIENT_CATEGORY = 'CLIENT_CATEGORY';
+    const CLIENT_PRODUCT_CATEGORY_FILTER = 'CLIENT_PRODUCT_CATEGORY_FILTER';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -26,6 +27,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addSearchClient($container);
         $container = $this->addCategoryClient($container);
         $container = $this->addLocaleClient($container);
+        $container = $this->addProductCategoryFilter($container);
 
         return $container;
     }
@@ -67,6 +69,20 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[static::CLIENT_LOCALE] = function (Container $container) {
             return $container->getLocator()->locale()->client();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addProductCategoryFilter(Container $container)
+    {
+        $container[static::CLIENT_PRODUCT_CATEGORY_FILTER] = function (Container $container) {
+            return $container->getLocator()->productCategoryFilter()->client();
         };
 
         return $container;
