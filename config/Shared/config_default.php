@@ -13,6 +13,7 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
+use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Flysystem\FlysystemConstants;
@@ -359,8 +360,10 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 // ---------- Queue
 $config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
-$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 10000;
+$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 1000;
 $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
+$config[QueueConstants::QUEUE_WORKER_LOG_ACTIVE] = false;
+
 /*
  * Queues can have different adapters and maximum worker number
  * QUEUE_ADAPTER_CONFIGURATION can have the array like this as an example:
@@ -372,7 +375,11 @@ $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
  *
  *
  */
-$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION_DEFAULT] = [
+    QueueConfig::CONFIG_QUEUE_ADAPTER => RabbitMqAdapter::class,
+    QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
+];
+
 $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
     EventConstants::EVENT_QUEUE => [
         QueueConfig::CONFIG_QUEUE_ADAPTER => RabbitMqAdapter::class,
@@ -382,6 +389,9 @@ $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = false;
+
+// ---------- EventBehavior
+$config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;
 
 // ---------- Customer
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|/de)?/customer|^(/en|/de)?/wishlist)';

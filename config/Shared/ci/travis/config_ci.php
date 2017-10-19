@@ -10,6 +10,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Mail\MailConstants;
@@ -163,3 +164,6 @@ $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
 
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::CRITICAL;
+
+// ---------- EventBehavior
+$config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;

@@ -184,7 +184,7 @@
     "codeception/c3": "^2.0.12",
     "doctrine/instantiator": "~1.0.5",
     "fzaninotto/faker": "^1.6",
-    "jakoch/phantomjs-installer": "^2.1.0",
+    "jakoch/phantomjs-installer": "2.1.0",
     "nette/php-generator": "^2.6.1",
     "pdepend/pdepend": "^2.2.4",
     "php-mock/php-mock": "^1.0",
@@ -241,6 +241,10 @@
     "process-timeout": 600
   },
   "repositories": [
+    {
+      "type": "composer",
+      "url": "https://code.spryker.com/repo/private"
+    },
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
