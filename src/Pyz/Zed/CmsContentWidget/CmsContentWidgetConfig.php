@@ -14,7 +14,6 @@ use Spryker\Zed\CmsContentWidget\CmsContentWidgetConfig as SprykerCmsContentConf
 
 class CmsContentWidgetConfig extends SprykerCmsContentConfig
 {
-
     /**
      * {@inheritdoc}
      *
@@ -28,5 +27,4 @@ class CmsContentWidgetConfig extends SprykerCmsContentConfig
             CmsProductGroupContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductGroupContentWidgetConfigurationProvider(),
         ];
     }
-
 }

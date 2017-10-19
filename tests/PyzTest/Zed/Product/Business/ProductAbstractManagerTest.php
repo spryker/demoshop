@@ -23,7 +23,6 @@ use Generated\Shared\Transfer\ProductImageTransfer;
  */
 class ProductAbstractManagerTest extends ProductTestAbstract
 {
-
     /**
      * @return void
      */
@@ -158,5 +157,4 @@ class ProductAbstractManagerTest extends ProductTestAbstract
         $this->assertEquals(self::IMAGE_URL_LARGE, $productImage->getExternalUrlLarge());
         $this->assertEquals(self::IMAGE_URL_SMALL, $productImage->getExternalUrlSmall());
     }
-
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "464f24c60c780ca975497a34217e22ca",
+    "content-hash": "f54702266ffb5e8fe28e740b67a67e7b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1601,7 +1601,10 @@
             },
             "require": {
                 "php": ">=5.4.16",
-                "php-amqplib/php-amqplib": "^2.6"
+                "php-amqplib/php-amqplib": "^2.6",
+                "spryker/kernel": "^3.0.0",
+                "spryker/queue": "^1.0.0",
+                "spryker/transfer": "^3.3.4"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -1658,11 +1661,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/CORE-777-gift-cards",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5d02af5c09f69021e6c17819517d5fe8d624e773"
+                "reference": "fa784b21d54f107981abee3a4088236eb15c4a28"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1732,7 +1735,6 @@
                 "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
-                "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
@@ -1861,7 +1863,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-19T14:30:18+00:00"
+            "time": "2017-10-19T09:20:10+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4063,16 +4065,16 @@
         },
         {
             "name": "codeception/c3",
-            "version": "2.0.13",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01"
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/7cbeb7029efe621cf5a5b73853e5321147bfab01",
-                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
                 "shasum": ""
             },
             "require": {
@@ -4109,7 +4111,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-10-19T07:08:06+00:00"
+            "time": "2017-04-06T00:08:55+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -6638,7 +6640,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],

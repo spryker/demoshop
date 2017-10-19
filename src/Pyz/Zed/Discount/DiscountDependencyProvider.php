@@ -32,19 +32,18 @@ use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Discount\Dependency\Plugin\DecisionRulePluginInterface[]
      */
     protected function getDecisionRulePlugins()
     {
         return array_merge(parent::getDecisionRulePlugins(), [
-            new ProductAttributeDecisionRulePlugin(),
-            new CustomerGroupDecisionRulePlugin(),
-            new ProductLabelDecisionRulePlugin(),
             new ShipmentCarrierDecisionRulePlugin(),
             new ShipmentMethodDecisionRulePlugin(),
             new ShipmentPriceDecisionRulePlugin(),
+            new CustomerGroupDecisionRulePlugin(),
+            new ProductLabelDecisionRulePlugin(),
+            new ProductAttributeDecisionRulePlugin(),
         ]);
     }
 
@@ -54,11 +53,11 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     protected function getCollectorPlugins()
     {
         return array_merge(parent::getCollectorPlugins(), [
-            new ProductAttributeCollectorPlugin(),
             new ProductLabelCollectorPlugin(),
             new ItemByShipmentCarrierPlugin(),
             new ItemByShipmentMethodPlugin(),
             new ItemByShipmentPricePlugin(),
+            new ProductAttributeCollectorPlugin(),
         ]);
     }
 
@@ -152,5 +151,4 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
            new DiscountPromotionFilterApplicableItemsPlugin(),
         ];
     }
-
 }

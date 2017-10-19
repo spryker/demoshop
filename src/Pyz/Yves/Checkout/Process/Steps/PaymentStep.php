@@ -22,7 +22,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
     /**
      * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
@@ -229,5 +228,4 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     {
         return !$this->requireInput($dataTransfer);
     }
-
 }

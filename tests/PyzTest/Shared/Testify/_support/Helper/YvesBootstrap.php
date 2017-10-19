@@ -15,9 +15,8 @@ use Symfony\Component\HttpKernel\Client;
 
 class YvesBootstrap extends Framework
 {
-
     /**
-     * @var \Spryker\Zed\Testify\Bootstrap\ZedBootstrap
+     * @var \PyzTest\Shared\Testify\Helper\Bootstrap\YvesBootstrap
      */
     private $application;
 
@@ -52,5 +51,4 @@ class YvesBootstrap extends Framework
             throw new ModuleConfigException(__CLASS__, 'Application instance was not received from bootstrap file');
         }
     }
-
 }

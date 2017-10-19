@@ -13,7 +13,6 @@ use Spryker\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependency
 
 class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -55,5 +54,4 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
             new OnlyGiftCardShipmentMethodFilterPlugin(),
         ];
     }
-
 }

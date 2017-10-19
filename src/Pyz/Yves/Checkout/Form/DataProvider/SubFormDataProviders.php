@@ -14,7 +14,6 @@ use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 
 class SubFormDataProviders implements StepEngineFormDataProviderInterface
 {
-
     /**
      * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
@@ -61,5 +60,4 @@ class SubFormDataProviders implements StepEngineFormDataProviderInterface
             SubFormInterface::OPTIONS_FIELD_NAME => $options,
         ];
     }
-
 }

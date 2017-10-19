@@ -19,7 +19,6 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CartDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_CALCULATION = 'calculation client';
     const CLIENT_CART = 'cart client';
     const PLUGIN_APPLICATION = 'application plugin';
@@ -103,5 +102,4 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

@@ -12,7 +12,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class Customer implements UserInterface
 {
-
     /**
      * @var \Generated\Shared\Transfer\CustomerTransfer
      */
@@ -95,5 +94,4 @@ class Customer implements UserInterface
     {
         return $this->customerTransfer;
     }
-
 }

@@ -26,11 +26,5 @@ use Codeception\Actor;
  */
 class TouchBusinessTester extends Actor
 {
-
     use _generated\TouchBusinessTesterActions;
-
-   /**
-    * Define custom actions here
-    */
-
 }

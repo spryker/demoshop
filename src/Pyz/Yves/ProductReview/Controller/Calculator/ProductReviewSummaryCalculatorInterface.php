@@ -9,12 +9,10 @@ namespace Pyz\Yves\ProductReview\Controller\Calculator;
 
 interface ProductReviewSummaryCalculatorInterface
 {
-
     /**
      * @param array $ratingAggregation
      *
      * @return \Generated\Shared\Transfer\ProductReviewSummaryTransfer
      */
     public function execute(array $ratingAggregation);
-
 }

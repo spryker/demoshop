@@ -2,6 +2,8 @@
 
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Zed\Propel\Business\Builder\ObjectBuilder;
+use Spryker\Zed\Propel\Business\Builder\QueryBuilder;
 use Spryker\Zed\Propel\PropelConfig;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
@@ -49,8 +51,10 @@ $config[PropelConstants::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
-                'object' => '\Spryker\Zed\Propel\Business\Builder\ObjectBuilder',
-                'query' => '\Spryker\Zed\Propel\Business\Builder\QueryBuilder',
+                // If you need full entity logging on Create/Update/Delete, then switch to
+                // Spryker\Zed\Propel\Business\Builder\ObjectBuilderWithLogger instead.
+                'object' => ObjectBuilder::class,
+                'query' => QueryBuilder::class,
             ],
         ],
     ],

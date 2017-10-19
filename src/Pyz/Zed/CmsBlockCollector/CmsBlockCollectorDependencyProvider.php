@@ -12,7 +12,6 @@ use Spryker\Zed\CmsContentWidget\Communication\Plugin\CmsBlockCollector\CmsBlock
 
 class CmsBlockCollectorDependencyProvider extends SprykerCmsBlockCollectorDependencyProvider
 {
-
     /**
      * Stack of plugins which run during data collection for each item.
      *
@@ -24,5 +23,4 @@ class CmsBlockCollectorDependencyProvider extends SprykerCmsBlockCollectorDepend
              new CmsBlockCollectorParameterMapExpanderPlugin(),
         ];
     }
-
 }

@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class NewsletterFactory extends AbstractFactory
 {
-
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
@@ -30,5 +29,4 @@ class NewsletterFactory extends AbstractFactory
     {
         return new NewsletterSubscriptionForm();
     }
-
 }

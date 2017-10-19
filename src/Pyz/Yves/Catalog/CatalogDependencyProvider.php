@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\Container;
 
 class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_LOCALE = 'CLIENT_LOCALE';
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const CLIENT_CATEGORY = 'CLIENT_CATEGORY';
@@ -72,5 +71,4 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

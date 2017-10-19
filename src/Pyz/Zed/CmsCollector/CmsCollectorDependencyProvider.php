@@ -8,21 +8,7 @@
 namespace Pyz\Zed\CmsCollector;
 
 use Spryker\Zed\CmsCollector\CmsCollectorDependencyProvider as SprykerCmsCollectorDependencyProvider;
-use Spryker\Zed\CmsContentWidget\Communication\Plugin\CmsPageCollector\CmsPageCollectorParameterMapExpanderPlugin;
 
 class CmsCollectorDependencyProvider extends SprykerCmsCollectorDependencyProvider
 {
-
-    /**
-     * Stack of plugins which run during data collection for each item.
-     *
-     * @return \Spryker\Zed\CmsCollector\Dependency\Plugin\CmsPageCollectorDataExpanderPluginInterface[]
-     */
-    protected function getCollectorDataExpanderPlugins()
-    {
-        return [
-            new CmsPageCollectorParameterMapExpanderPlugin(),
-        ];
-    }
-
 }

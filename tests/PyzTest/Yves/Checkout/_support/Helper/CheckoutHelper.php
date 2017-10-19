@@ -11,7 +11,6 @@ use Codeception\Module;
 
 class CheckoutHelper extends Module
 {
-
     /**
      * @return \Codeception\Module|\Codeception\Module\WebDriver
      */
@@ -149,5 +148,4 @@ class CheckoutHelper extends Module
 
         return $this;
     }
-
 }

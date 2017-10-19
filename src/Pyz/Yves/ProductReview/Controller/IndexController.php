@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class IndexController extends AbstractController
 {
-
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
@@ -54,5 +53,4 @@ class IndexController extends AbstractController
     {
         return $this->getApplication()['request_stack']->getParentRequest();
     }
-
 }

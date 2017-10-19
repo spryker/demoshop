@@ -7,7 +7,6 @@
 
 namespace PyzTest\Shared\Testify\Helper\Bootstrap;
 
-use Pyz\Shared\Application\Plugin\Provider\WebProfilerServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\LanguageServiceProvider;
@@ -18,6 +17,7 @@ use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Twig\Plugin\Provider\TwigServiceProvider;
+use Pyz\Yves\WebProfiler\Plugin\ServiceProvider\WebProfilerServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RememberMeServiceProvider;
@@ -51,7 +51,6 @@ use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigS
  */
 class YvesBootstrap extends ApplicationYvesBootstrap
 {
-
     /**
      * @return void
      */
@@ -95,5 +94,4 @@ class YvesBootstrap extends ApplicationYvesBootstrap
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
         $this->application->register(new CurrencySwitcherServiceProvider());
     }
-
 }

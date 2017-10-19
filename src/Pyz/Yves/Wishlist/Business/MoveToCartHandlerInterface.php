@@ -9,13 +9,11 @@ namespace Pyz\Yves\Wishlist\Business;
 
 interface MoveToCartHandlerInterface
 {
-
     /**
      * @param string $wishlistName
      * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer[] $wishlistItemMetaTransferCollection
      *
-     * @return int
+     * @return \Generated\Shared\Transfer\WishlistMoveToCartRequestCollectionTransfer
      */
     public function moveAllAvailableToCart($wishlistName, $wishlistItemMetaTransferCollection);
-
 }

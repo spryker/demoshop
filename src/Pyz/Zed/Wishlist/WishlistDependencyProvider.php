@@ -10,7 +10,6 @@ use Spryker\Zed\Wishlist\WishlistDependencyProvider as SprykerWishlistDependency
 
 class WishlistDependencyProvider extends SprykerWishlistDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Wishlist\Dependency\Plugin\ItemExpanderPluginInterface[]
      */
@@ -18,5 +17,4 @@ class WishlistDependencyProvider extends SprykerWishlistDependencyProvider
     {
         return [];
     }
-
 }

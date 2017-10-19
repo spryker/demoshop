@@ -17,7 +17,6 @@ use Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface;
  */
 class TestConditionPlugin extends AbstractPlugin implements ConditionPluginInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
@@ -27,5 +26,4 @@ class TestConditionPlugin extends AbstractPlugin implements ConditionPluginInter
     {
         return (bool)($stateMachineItemTransfer->getIdentifier() % 2);
     }
-
 }

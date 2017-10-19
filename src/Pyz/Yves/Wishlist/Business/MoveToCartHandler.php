@@ -16,7 +16,6 @@ use Spryker\Client\Wishlist\WishlistClientInterface;
 
 class MoveToCartHandler implements MoveToCartHandlerInterface
 {
-
     /**
      * @var \Spryker\Client\Wishlist\WishlistClientInterface
      */
@@ -48,7 +47,7 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
      * @param string $wishlistName
      * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer[] $wishlistItemMetaTransferCollection
      *
-     * @return int
+     * @return \Generated\Shared\Transfer\WishlistMoveToCartRequestCollectionTransfer
      */
     public function moveAllAvailableToCart($wishlistName, $wishlistItemMetaTransferCollection)
     {
@@ -57,13 +56,11 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
             $wishlistItemMetaTransferCollection
         );
 
-        $count = $wishlistMoveToCartRequestCollectionTransfer->getRequests()->count();
-
-        if ($count) {
-            $this->wishlistClient->moveCollectionToCart($wishlistMoveToCartRequestCollectionTransfer);
+        if ($wishlistMoveToCartRequestCollectionTransfer->getRequests()->count() <= 0) {
+            return $wishlistMoveToCartRequestCollectionTransfer;
         }
 
-        return $count;
+        return $this->wishlistClient->moveCollectionToCart($wishlistMoveToCartRequestCollectionTransfer);
     }
 
     /**
@@ -75,14 +72,12 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
     protected function createMoveAvailableItemsToCartRequestCollection($wishlistName, $wishlistItemMetaTransferCollection)
     {
         $wishlistMoveToCartRequestCollectionTransfer = new WishlistMoveToCartRequestCollectionTransfer();
-        $availability = $this->availabilityReader->getAvailability($wishlistItemMetaTransferCollection);
 
         foreach ($wishlistItemMetaTransferCollection as $wishlistItemMetaTransfer) {
-            if (!isset($availability[$wishlistItemMetaTransfer->getSku()]) || !$availability[$wishlistItemMetaTransfer->getSku()]) {
-                continue;
-            }
-
-            $wishlistMoveToCartRequestTransfer = $this->createWishlistMoveToCartRequestTransfer($wishlistName, $wishlistItemMetaTransfer);
+            $wishlistMoveToCartRequestTransfer = $this->createWishlistMoveToCartRequestTransfer(
+                $wishlistName,
+                $wishlistItemMetaTransfer
+            );
 
             $wishlistMoveToCartRequestCollectionTransfer->addRequest($wishlistMoveToCartRequestTransfer);
         }
@@ -120,5 +115,4 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
             ->getCustomer()
             ->getIdCustomer();
     }
-
 }

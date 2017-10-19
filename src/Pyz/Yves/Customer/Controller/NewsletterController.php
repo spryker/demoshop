@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class NewsletterController extends AbstractCustomerController
 {
-
     const MESSAGE_UNSUBSCRIPTION_SUCCESS = 'newsletter.unsubscription.success';
     const MESSAGE_UNSUBSCRIPTION_FAILED = 'newsletter.unsubscription.failed';
     const MESSAGE_SUBSCRIPTION_CONFIRMATION_APPROVED = 'newsletter.subscription.confirmation.approved';
@@ -122,5 +121,4 @@ class NewsletterController extends AbstractCustomerController
             NewsletterSubscriptionForm::FIELD_SUBSCRIBE => $subscriptionResultTransfer->getIsSuccess(),
         ];
     }
-
 }

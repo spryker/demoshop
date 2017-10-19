@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SuccessStep extends AbstractBaseStep
 {
-
     /**
      * @var \Pyz\Client\Customer\CustomerClientInterface
      */
@@ -84,5 +83,4 @@ class SuccessStep extends AbstractBaseStep
 
         return true;
     }
-
 }

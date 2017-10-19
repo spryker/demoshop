@@ -1,18 +1,23 @@
 <?php
 
 use Monolog\Logger;
+use Spryker\Client\RabbitMq\Model\RabbitMqAdapter;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Shared\CmsGui\CmsGuiConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
+use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Flysystem\FlysystemConstants;
+use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File;
 use Spryker\Shared\GiftCard\GiftCardConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
@@ -46,7 +51,7 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 $config[ApplicationConstants::PROJECT_TIMEZONE] = 'UTC';
 $config[ApplicationConstants::ENABLE_WEB_PROFILER] = false;
-$config[ApplicationConstants::YVES_TRUSTED_PROXIES] = [];
+
 $ENVIRONMENT_PREFIX = '';
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX] = $ENVIRONMENT_PREFIX;
 $config[SalesConstants::ENVIRONMENT_PREFIX] = $ENVIRONMENT_PREFIX;
@@ -70,6 +75,7 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
 ];
 $config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = APPLICATION_VENDOR_DIR . '/*/*/src/*/Zed/*/Persistence/Propel/Schema/';
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
+$config[PropelConstants::PROPEL_DEBUG] = false;
 
 // ---------- Authentication
 $config[UserConstants::USER_SYSTEM_USERS] = [
@@ -199,10 +205,24 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 // ---------- Twig
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
+            '%s/data/%s/cache/Yves/twig',
+            APPLICATION_ROOT_DIR,
+            $CURRENT_STORE
+        ),
+        Twig_Cache_Filesystem::FORCE_BYTECODE_INVALIDATION
+    ),
 ];
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
+            '%s/data/%s/cache/Zed/twig',
+            APPLICATION_ROOT_DIR,
+            $CURRENT_STORE
+        ),
+        Twig_Cache_Filesystem::FORCE_BYTECODE_INVALIDATION
+    ),
 ];
 $config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
     '%s/data/%s/cache/Yves/twig/.pathCache',
@@ -263,14 +283,14 @@ $config[ApplicationConstants::ZED_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = $HSTS
 $config[ApplicationConstants::YVES_HTTP_STRICT_TRANSPORT_SECURITY_CONFIG] = $HSTS_CONFIG;
 
 // ---------- SSL
-$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[SessionConstants::YVES_SSL_ENABLED] = false;
-$config[ApplicationConstants::YVES_COMPLETE_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 $config[ApplicationConstants::YVES_SSL_EXCLUDED] = [
     'heartbeat' => '/heartbeat',
 ];
-$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
+
 $config[ZedRequestConstants::ZED_API_SSL_ENABLED] = false;
+$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
 $config[ApplicationConstants::ZED_SSL_EXCLUDED] = ['heartbeat/index'];
 
 // ---------- Theme
@@ -280,7 +300,7 @@ $config[CmsConstants::YVES_THEME] = $YVES_THEME;
 
 // ---------- Error handling
 $config[ErrorHandlerConstants::YVES_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
-$config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Yves/errorpage/error.html';
+$config[ErrorHandlerConstants::ZED_ERROR_PAGE] = APPLICATION_ROOT_DIR . '/public/Zed/errorpage/error.html';
 $config[ErrorHandlerConstants::ERROR_RENDERER] = WebHtmlErrorRenderer::class;
 // Due to some deprecation notices we silence all deprecations for the time being
 $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;
@@ -289,6 +309,7 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 //$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
 // ---------- Logging
+$config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[LogConstants::LOG_FILE_PATH] = sprintf(
     '%s/data/%s/logs/%s/application.log',
@@ -296,11 +317,18 @@ $config[LogConstants::LOG_FILE_PATH] = sprintf(
     $CURRENT_STORE,
     APPLICATION
 );
+$config[LogConstants::LOG_SANITIZE_FIELDS] = [
+    'password',
+];
+/**
+ * As long EventJournal is in ZedRequest bundle this needs to be disabled by hand
+ */
+$config[EventJournalConstants::DISABLE_EVENT_JOURNAL] = true;
 
 // ---------- Auto-loader
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
-$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = \Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File::class;
+$config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = File::class;
 
 // ---------- Dependency injector
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
@@ -350,8 +378,10 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 // ---------- Queue
 $config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
-$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 10000;
+$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 1000;
 $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
+$config[QueueConstants::QUEUE_WORKER_LOG_ACTIVE] = false;
+
 /*
  * Queues can have different adapters and maximum worker number
  * QUEUE_ADAPTER_CONFIGURATION can have the array like this as an example:
@@ -363,16 +393,23 @@ $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
  *
  *
  */
-$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION_DEFAULT] = [
+    QueueConfig::CONFIG_QUEUE_ADAPTER => RabbitMqAdapter::class,
+    QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
+];
+
 $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
     EventConstants::EVENT_QUEUE => [
-        QueueConfig::CONFIG_QUEUE_ADAPTER => \Spryker\Client\RabbitMq\Model\RabbitMqAdapter::class,
+        QueueConfig::CONFIG_QUEUE_ADAPTER => RabbitMqAdapter::class,
         QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
     ],
 ];
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = false;
+
+// ---------- EventBehavior
+$config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;
 
 // ---------- Customer
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|/de)?/customer|^(/en|/de)?/wishlist)';
@@ -386,47 +423,6 @@ $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
 // ---------- Taxes
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
-// ---------- Event journal
-$config[EventJournalConstants::COLLECTORS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-    '\\Pyz\\Yves\\EventJournal\\Collector\\YvesDataCollector',
-];
-$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = false;
-$config[EventJournalConstants::WRITERS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
-];
-$config[EventJournalConstants::COLLECTORS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-];
-$config[EventJournalConstants::WRITERS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
-];
-$config[EventJournalConstants::FILTERS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
-];
-$config[EventJournalConstants::FILTERS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
-];
-$config[EventJournalConstants::FILTER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' => [
-        'filter_pattern' => [
-            ['registerForm', 'password', 'first'],
-            ['registerForm', 'password', 'second'],
-            ['_password'],
-            ['transfer_data', 'login', 'password'],
-        ],
-        'filtered_string' => '***',
-    ],
-];
-$config[EventJournalConstants::WRITER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => [
-        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/',
-    ],
-];
-
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
+$config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';

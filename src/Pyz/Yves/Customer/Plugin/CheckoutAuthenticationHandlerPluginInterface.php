@@ -9,7 +9,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface CheckoutAuthenticationHandlerPluginInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -23,5 +22,4 @@ interface CheckoutAuthenticationHandlerPluginInterface
      * @return bool
      */
     public function canHandle(QuoteTransfer $quoteTransfer);
-
 }

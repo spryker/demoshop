@@ -18,7 +18,6 @@ use Twig_SimpleFunction;
  */
 class TwigCatalogActiveSearchFilterFunctions extends AbstractPlugin implements TwigFunctionPluginInterface
 {
-
     const FUNCTION_GET_URL_WITHOUT_ACTIVE_SEARCH_FILTER = 'generateUrlWithoutActiveSearchFilter';
     const FUNCTION_GET_URL_WITHOUT_ALL_ACTIVE_SEARCH_FILTERS = 'generateUrlWithoutAllActiveSearchFilters';
 
@@ -81,5 +80,4 @@ class TwigCatalogActiveSearchFilterFunctions extends AbstractPlugin implements T
     {
         return $context['app']['request'];
     }
-
 }

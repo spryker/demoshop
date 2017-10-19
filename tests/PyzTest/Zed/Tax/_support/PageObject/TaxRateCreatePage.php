@@ -9,13 +9,12 @@ namespace PyzTest\Zed\Tax\PageObject;
 
 class TaxRateCreatePage
 {
-
     const URL = '/tax/rate/create';
 
     const HEADER = 'Create new tax rate';
     const SELECTOR_HEADER = 'h2';
 
-    const MESSAGE_SUCCESSFUL_ALERT_CREATION = 'Tax rate successfully created.';
+    const MESSAGE_SUCCESSFUL_ALERT_CREATION = '/Tax rate [0-9]+ was created successfully\\./';
     const ERROR_MESSAGE_NAME_SHOULD_NOT_BE_BLANK = 'This value should not be blank.';
     const ERROR_MESSAGE_COUNTRY_SHOULD_NOT_BE_BLANK = 'Select country.';
     const ERROR_MESSAGE_PERCENTAGE_SHOULD_BE_VALID_NUMBER = 'This value should be a valid number.';
@@ -61,5 +60,4 @@ class TaxRateCreatePage
             'percentage' => '10',
         ],
     ];
-
 }

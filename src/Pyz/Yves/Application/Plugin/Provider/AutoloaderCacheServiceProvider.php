@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 
 class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServiceProviderInterface
 {
-
     /**
      * @param \Silex\Application $app
      *
@@ -49,5 +48,4 @@ class AutoloaderCacheServiceProvider extends AbstractPlugin implements ServicePr
         $cacheProvider = $resolverCacheManager->createClassResolverCacheProvider();
         $cacheProvider->getCache()->persist();
     }
-
 }

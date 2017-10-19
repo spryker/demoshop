@@ -28,7 +28,6 @@ use Spryker\Yves\StepEngine\Process\StepEngine;
 
 class StepFactory extends SprykerStepFactory
 {
-
     /**
      * @param \Spryker\Yves\StepEngine\Process\StepCollectionInterface $stepCollection
      *
@@ -256,5 +255,4 @@ class StepFactory extends SprykerStepFactory
     {
         return new StepBreadcrumbGenerator();
     }
-
 }

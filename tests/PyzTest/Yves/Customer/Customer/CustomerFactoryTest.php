@@ -22,7 +22,6 @@ use Pyz\Yves\Customer\CustomerFactory;
  */
 class CustomerFactoryTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -32,5 +31,4 @@ class CustomerFactoryTest extends Unit
 
         $this->assertInstanceOf(NewsletterClientInterface::class, $customerFactory->getNewsletterClient());
     }
-
 }

@@ -1,0 +1,3 @@
+discount_key,store,currency,value_net,value_gross
+discount_2,DE,EUR,4500,5000
+discount_2,DE,CHF,5200,5800

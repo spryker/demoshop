@@ -18,7 +18,6 @@ use Spryker\Zed\ProductBundle\Communication\Plugin\Oms\ProductBundleAvailability
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -62,5 +61,4 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
 
         return $container;
     }
-
 }

@@ -11,7 +11,6 @@ use Spryker\Zed\Event\EventDependencyProvider as SprykerEventDependencyProvider;
 
 class EventDependencyProvider extends SprykerEventDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Event\Dependency\EventCollectionInterface
      */
@@ -29,5 +28,4 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
 
         return $eventSubscriberCollection;
     }
-
 }

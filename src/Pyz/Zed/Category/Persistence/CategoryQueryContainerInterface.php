@@ -12,12 +12,10 @@ use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface as SprykerC
 
 interface CategoryQueryContainerInterface extends SprykerCategoryQueryContainerInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return \Orm\Zed\Category\Persistence\SpyCategoryAttributeQuery
      */
     public function queryCategoryAttributesByLocale(LocaleTransfer $localeTransfer);
-
 }

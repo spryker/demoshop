@@ -12,7 +12,6 @@ use Silex\Application;
 
 class CheckoutControllerProvider extends AbstractYvesControllerProvider
 {
-
     const CHECKOUT_CUSTOMER = 'checkout-customer';
     const CHECKOUT_ADDRESS = 'checkout-address';
     const CHECKOUT_SHIPMENT = 'checkout-shipment';
@@ -83,5 +82,4 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
             ->value('checkout', 'checkout')
             ->method('GET|POST');
     }
-
 }

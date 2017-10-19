@@ -14,7 +14,6 @@ use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\StoreQueryExpanderP
 
 class ProductSetDependencyProvider extends SprykerProductSetDependencyProvider
 {
-
     /**
      * @return array
      */
@@ -35,5 +34,4 @@ class ProductSetDependencyProvider extends SprykerProductSetDependencyProvider
             new StoreQueryExpanderPlugin(),
         ];
     }
-
 }

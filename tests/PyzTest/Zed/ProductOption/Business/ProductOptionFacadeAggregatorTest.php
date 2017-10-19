@@ -36,7 +36,6 @@ use Spryker\Zed\ProductOption\Business\ProductOptionFacade;
  */
 class ProductOptionFacadeAggregatorTest extends Test
 {
-
     /**
      * @return void
      */
@@ -232,5 +231,4 @@ class ProductOptionFacadeAggregatorTest extends Test
         $orderTransfer->addItem($itemTransfer);
         return $orderTransfer;
     }
-
 }

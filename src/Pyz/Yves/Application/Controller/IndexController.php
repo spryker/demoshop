@@ -15,7 +15,6 @@ use Spryker\Yves\Kernel\Controller\AbstractController;
  */
 class IndexController extends AbstractController
 {
-
     const FEATURED_PRODUCT_LIMIT = 6;
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
@@ -30,5 +29,4 @@ class IndexController extends AbstractController
 
         return $this->viewResponse($searchResult);
     }
-
 }

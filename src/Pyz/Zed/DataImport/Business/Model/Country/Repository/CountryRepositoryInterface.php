@@ -9,7 +9,6 @@ namespace Pyz\Zed\DataImport\Business\Model\Country\Repository;
 
 interface CountryRepositoryInterface
 {
-
     /**
      * @param string $countryName
      *
@@ -23,5 +22,4 @@ interface CountryRepositoryInterface
      * @return int
      */
     public function getIdCountryByName($countryName);
-
 }

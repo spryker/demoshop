@@ -20,7 +20,6 @@ use Spryker\Zed\Stock\StockConfig;
 
 class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
     const KEY_NAME = 'name';
     const KEY_CONCRETE_SKU = 'concrete_sku';
@@ -96,5 +95,4 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
             $this->productBundleFacade->updateAffectedBundlesAvailability($dataSet[static::KEY_CONCRETE_SKU]);
         }
     }
-
 }

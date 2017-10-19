@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\AddressTransfer;
 
 class CustomerAddressesPage extends Customer
 {
-
     const URL = '/customer/address';
 
     const ADD_ADDRESS_LINK = '//a[@data-id="customer-add-new-address"]';
@@ -63,5 +62,4 @@ class CustomerAddressesPage extends Customer
 
         return $addressTransfer;
     }
-
 }

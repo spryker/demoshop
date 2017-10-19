@@ -25,7 +25,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class EntryStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -80,5 +79,4 @@ class EntryStepTest extends Unit
     {
         return new CustomerClient();
     }
-
 }

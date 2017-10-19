@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class RegisterController extends AbstractCustomerController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -76,5 +75,4 @@ class RegisterController extends AbstractCustomerController
 
         return $customerResponseTransfer;
     }
-
 }

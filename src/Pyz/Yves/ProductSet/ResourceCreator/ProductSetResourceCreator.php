@@ -19,7 +19,6 @@ use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
 class ProductSetResourceCreator extends AbstractResourceCreator
 {
-
     /**
      * @var \Spryker\Client\ProductSet\ProductSetClientInterface
      */
@@ -124,5 +123,4 @@ class ProductSetResourceCreator extends AbstractResourceCreator
     {
         return $application['request'];
     }
-
 }

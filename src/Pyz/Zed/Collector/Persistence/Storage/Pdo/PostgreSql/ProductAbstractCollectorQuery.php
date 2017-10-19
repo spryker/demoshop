@@ -11,7 +11,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductAbstractCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     /**
      * @return void
      */
@@ -48,5 +47,4 @@ WHERE
             ->sql($sql)
             ->setParameter('fk_locale_1', $this->locale->getIdLocale());
     }
-
 }

@@ -22,7 +22,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const DEFAULT_IS_ACTIVE = true;
@@ -36,6 +35,8 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
     const KEY_URL = 'url';
     const KEY_IS_ACTIVE = 'is_active';
     const KEY_CSS_CLASS = 'css_class';
+    const KEY_VALID_FROM = 'valid_from';
+    const KEY_VALID_TO = 'valid_to';
 
     const NODE_TYPE_LINK = 'link';
     const NODE_TYPE_EXTERNAL_URL = 'external_url';
@@ -58,6 +59,14 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
             ->setPosition($this->getPosition($navigationNodeEntity, $dataSet))
             ->setIsActive($this->getIsActive($navigationNodeEntity, $dataSet))
             ->setNodeType($this->getNodeType($navigationNodeEntity, $dataSet));
+
+        if ($dataSet[static::KEY_VALID_FROM] !== "") {
+            $navigationNodeEntity->setValidFrom($dataSet[static::KEY_VALID_FROM]);
+        }
+
+        if ($dataSet[static::KEY_VALID_TO] !== "") {
+            $navigationNodeEntity->setValidTo($dataSet[static::KEY_VALID_TO]);
+        }
 
         if (!empty($dataSet[static::KEY_PARENT_NODE_KEY])) {
             $navigationNodeEntity->setFkParentNavigationNode(
@@ -248,5 +257,4 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
 
         return $navigationNodeLocalizedAttributes->getCssClass();
     }
-
 }

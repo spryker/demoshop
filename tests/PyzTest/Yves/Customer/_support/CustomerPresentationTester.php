@@ -29,7 +29,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerRegistrationPage;
  */
 class CustomerPresentationTester extends Actor
 {
-
     use _generated\CustomerPresentationTesterActions;
 
     /**
@@ -73,5 +72,4 @@ class CustomerPresentationTester extends Actor
         $i->fillField(CustomerRegistrationPage::FORM_FIELD_SELECTOR_PASSWORD_CONFIRM, $customerTransfer->getPassword());
         $i->checkOption(CustomerRegistrationPage::FORM_FIELD_SELECTOR_ACCEPT_TERMS);
     }
-
 }

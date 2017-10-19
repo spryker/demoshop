@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\Container;
 
 class ProductDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_PRODUCT_OPTION = 'CLIENT_PRODUCT_OPTION';
     const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
     const CLIENT_PRODUCT_GROUP = 'CLIENT_PRODUCT_GROUP';
@@ -50,5 +49,4 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

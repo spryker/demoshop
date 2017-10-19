@@ -10,9 +10,11 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Yves\Application\Plugin\Provider\YvesControllerProvider as SprykerYvesControllerProvider;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 abstract class AbstractYvesControllerProvider extends SprykerYvesControllerProvider
 {
-
     /**
      * @return string
      */
@@ -24,5 +26,4 @@ abstract class AbstractYvesControllerProvider extends SprykerYvesControllerProvi
 
         return $allowedLocalesPattern;
     }
-
 }

@@ -34,7 +34,6 @@ use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
  */
 class ProductAbstractCollector extends AbstractStoragePdoCollector
 {
-
     const ID_CATEGORY_NODE = 'id_category_node';
     const SKU = 'sku';
     const URL = 'url';
@@ -419,5 +418,4 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
 
         return array_keys($variantSuperAttributes);
     }
-
 }

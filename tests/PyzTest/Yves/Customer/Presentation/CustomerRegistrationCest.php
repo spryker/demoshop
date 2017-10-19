@@ -22,7 +22,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerRegistrationPage;
  */
 class CustomerRegistrationCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -47,5 +46,4 @@ class CustomerRegistrationCest
         $i->seeCurrentUrlEquals(CustomerOverviewPage::URL);
         $i->see(CustomerRegistrationPage::SUCCESS_MESSAGE);
     }
-
 }

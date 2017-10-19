@@ -12,7 +12,6 @@ use Spryker\Yves\CmsContentWidget\Plugin\CmsTwigContentRendererPlugin;
 
 class CmsBlockDependencyProvider extends SprykerCmsBlockDependencyProvider
 {
-
     /**
      * @return \Spryker\Yves\CmsContentWidget\Plugin\CmsTwigContentRendererPluginInterface
      */
@@ -20,5 +19,4 @@ class CmsBlockDependencyProvider extends SprykerCmsBlockDependencyProvider
     {
         return new CmsTwigContentRendererPlugin();
     }
-
 }

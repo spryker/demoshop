@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 
 interface StorageProductCategoryMapperInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param array $persistedProduct
@@ -19,5 +18,4 @@ interface StorageProductCategoryMapperInterface
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function mapProductCategories(StorageProductTransfer $storageProductTransfer, array $persistedProduct);
-
 }

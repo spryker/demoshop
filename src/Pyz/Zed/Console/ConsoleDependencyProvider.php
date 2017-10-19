@@ -18,6 +18,7 @@ use Spryker\Zed\CodeGenerator\Communication\Console\BundleYvesCodeGeneratorConso
 use Spryker\Zed\CodeGenerator\Communication\Console\BundleZedCodeGeneratorConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorSearchExportConsole;
 use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
+use Spryker\Zed\Console\Communication\Plugin\ConsoleLogPlugin;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 use Spryker\Zed\DataImport\Communication\Console\DataImportConsole;
 use Spryker\Zed\Development\Communication\Console\BundleCreateConsole;
@@ -34,6 +35,7 @@ use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConso
 use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateYvesIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionConsole;
+use Spryker\Zed\EventBehavior\Communication\Console\EventBehaviorTriggerTimeoutConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
@@ -73,7 +75,6 @@ use Stecman\Component\Symfony\Console\BashCompletion\CompletionCommand;
  */
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -141,6 +142,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_SHIPMENT),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_STOCK),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_TAX),
+            new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_DISCOUNT_AMOUNT),
+            new EventBehaviorTriggerTimeoutConsole(),
 
             // Setup commands
             new RunnerConsole(),
@@ -192,19 +195,15 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
      *
      * @return \Symfony\Component\EventDispatcher\EventSubscriberInterface[]
      */
-    protected function getEventSubscriber(Container $container)
+    public function getEventSubscriber(Container $container)
     {
-        return [
-            $this->createNewRelicConsolePlugin()
-        ];
-    }
+        $eventSubscriber = parent::getEventSubscriber($container);
 
-    /**
-     * @return \Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin
-     */
-    protected function createNewRelicConsolePlugin()
-    {
-        return new NewRelicConsolePlugin();
-    }
+        if (!Environment::isDevelopment()) {
+            $eventSubscriber[] = new ConsoleLogPlugin();
+            $eventSubscriber[] = new NewRelicConsolePlugin();
+        }
 
+        return $eventSubscriber;
+    }
 }

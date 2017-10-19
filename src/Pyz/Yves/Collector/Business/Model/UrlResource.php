@@ -9,7 +9,6 @@ namespace Pyz\Yves\Collector\Business\Model;
 
 class UrlResource
 {
-
     /**
      * @var string
      */
@@ -69,5 +68,4 @@ class UrlResource
             'reference_key' => $this->referenceKey,
         ];
     }
-
 }

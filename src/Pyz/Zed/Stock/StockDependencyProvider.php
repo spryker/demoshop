@@ -13,7 +13,6 @@ use Spryker\Zed\Stock\StockDependencyProvider as SprykerStockDependencyProvider;
 
 class StockDependencyProvider extends SprykerStockDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -26,5 +25,4 @@ class StockDependencyProvider extends SprykerStockDependencyProvider
             new ProductBundleAvailabilityHandlerPlugin(),
         ];
     }
-
 }

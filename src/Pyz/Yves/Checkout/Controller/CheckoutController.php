@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CheckoutController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -185,5 +184,4 @@ class CheckoutController extends AbstractController
     {
         return $this->getFactory()->createCheckoutProcess();
     }
-
 }

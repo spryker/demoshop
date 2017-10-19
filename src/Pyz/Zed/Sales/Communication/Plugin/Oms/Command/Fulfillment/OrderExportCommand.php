@@ -14,7 +14,6 @@ use Spryker\Zed\Oms\Dependency\Plugin\Command\CommandByOrderInterface;
 
 class OrderExportCommand extends AbstractCommand implements CommandByOrderInterface
 {
-
     /**
      * @param array $orderItems
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $orderEntity
@@ -27,5 +26,4 @@ class OrderExportCommand extends AbstractCommand implements CommandByOrderInterf
         // TODO: needs implementation
         return [];
     }
-
 }

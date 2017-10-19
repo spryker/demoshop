@@ -13,7 +13,6 @@ use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider as SprykerProductS
 
 class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProvider
 {
-
     const FACADE_PRODUCT_SEARCH = 'product search facade';
     const FACADE_PRICE = 'price facade';
     const FACADE_PRODUCT_LABEL = 'FACADE_PRODUCT_LABEL';
@@ -125,5 +124,4 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
             return $container->getLocator()->productCategory()->queryContainer();
         };
     }
-
 }

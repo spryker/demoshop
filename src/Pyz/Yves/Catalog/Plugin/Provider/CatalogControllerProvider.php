@@ -12,7 +12,6 @@ use Silex\Application;
 
 class CatalogControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_SEARCH = 'search';
     const ROUTE_SUGGESTION = 'search/suggestion';
 
@@ -33,5 +32,4 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
             ->assert('search', $allowedLocalesPattern . 'search|search')
             ->value('search', 'search');
     }
-
 }

@@ -21,7 +21,6 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class CustomerFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Customer\Form\FormFactory
      */
@@ -187,5 +186,4 @@ class CustomerFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::FLASH_MESSENGER);
     }
-
 }

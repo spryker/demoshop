@@ -13,7 +13,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class StoreWriterStep implements DataImportStepInterface
 {
-
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
@@ -29,5 +28,4 @@ class StoreWriterStep implements DataImportStepInterface
             $storeEntity->save();
         }
     }
-
 }

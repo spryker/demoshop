@@ -9,7 +9,6 @@ namespace PyzTest\Zed\CmsGui\PageObject;
 
 class CmsCreatePage
 {
-
     const URL = '/cms-gui/create-page';
     const PAGE_CREATED_SUCCESS_MESSAGE = 'Page successfully created.';
 
@@ -46,5 +45,4 @@ class CmsCreatePage
     {
         return static::$localizedPageAttributes[$locale]['url'];
     }
-
 }

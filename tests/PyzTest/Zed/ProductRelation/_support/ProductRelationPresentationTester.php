@@ -27,7 +27,6 @@ use Codeception\Scenario;
  */
 class ProductRelationPresentationTester extends Actor
 {
-
     use _generated\ProductRelationPresentationTesterActions;
 
     /**
@@ -136,5 +135,4 @@ class ProductRelationPresentationTester extends Actor
 
         return $this;
     }
-
 }

@@ -25,7 +25,6 @@ use PyzTest\Yves\Newsletter\PageObject\NewsletterSubscriptionHomePage;
  */
 class NewsletterSubscriptionCest
 {
-
     /**
      * @param \PyzTest\Yves\Newsletter\NewsletterPresentationTester $i
      *
@@ -131,5 +130,4 @@ class NewsletterSubscriptionCest
 
         return $customerTransfer;
     }
-
 }

@@ -12,7 +12,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class CheckoutAddressForm extends AddressForm
 {
-
     const OPTION_VALIDATION_GROUP = 'validation_group';
     const OPTION_ADDRESS_CHOICES = 'addresses_choices';
 
@@ -102,5 +101,4 @@ class CheckoutAddressForm extends AddressForm
     {
         return new NotBlank(['groups' => $options[self::OPTION_VALIDATION_GROUP]]);
     }
-
 }

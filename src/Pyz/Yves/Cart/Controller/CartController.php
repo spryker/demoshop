@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CartController extends AbstractController
 {
-
     const PARAM_ITEMS = 'items';
 
     /**
@@ -189,5 +188,4 @@ class CartController extends AbstractController
 
         return $itemTransfers;
     }
-
 }

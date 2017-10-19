@@ -25,7 +25,6 @@ use PyzTest\Zed\NavigationGui\PageObject\NavigationUpdatePage;
  */
 class NavigationCRUDCest
 {
-
     /**
      * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
@@ -112,7 +111,7 @@ class NavigationCRUDCest
         $i->amOnPage(NavigationPage::URL);
         $i->waitForElementVisible(NavigationPage::PAGE_LIST_TABLE_XPATH, 5);
         $i->activateFirstNavigationRow();
-        $i->seeSuccessMessage(NavigationStatusTogglePage::MESSAGE_SUCCESS);
+        $i->seeSuccessMessage(NavigationStatusTogglePage::MESSAGE_ACTIVE_SUCCESS);
         $i->seeCurrentUrlEquals(NavigationPage::URL);
     }
 
@@ -133,5 +132,4 @@ class NavigationCRUDCest
         $i->seeSuccessMessage(NavigationDeletePage::MESSAGE_SUCCESS);
         $i->seeCurrentUrlEquals(NavigationPage::URL);
     }
-
 }

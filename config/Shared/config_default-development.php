@@ -4,13 +4,14 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
+use Monolog\Logger;
+use Pyz\Shared\WebProfiler\WebProfilerConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -20,7 +21,6 @@ use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
-use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
@@ -30,9 +30,12 @@ $CURRENT_STORE = Store::getInstance()->getStoreName();
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker/spryker/Bundles';
 $config[KernelConstants::STORE_PREFIX] = 'DEV';
 $config[ApplicationConstants::ENABLE_APPLICATION_DEBUG] = true;
-$config[ApplicationConstants::ENABLE_WEB_PROFILER]
+$config[WebProfilerConstants::ENABLE_WEB_PROFILER]
     = $config[ConfigConstants::ENABLE_WEB_PROFILER]
     = true;
+
+$config[ApplicationConstants::ZED_SSL_ENABLED] = false;
+$config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = true;
@@ -80,24 +83,6 @@ $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = true;
 $config[ZedRequestConstants::YVES_REQUEST_REPEAT_DATA_PATH] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/yves-requests';
 
-// ---------- Twig
-$config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
-];
-$config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
-];
-$config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/cache/Yves/twig/.pathCache',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
-);
-$config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/cache/Zed/twig/.pathCache',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
-);
-
 // ---------- Navigation
 $config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
 
@@ -117,10 +102,13 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 // ---------- Logging
-$config[LogConstants::LOG_LEVEL] = \Monolog\Logger::INFO;
+$config[LogConstants::LOG_LEVEL] = Logger::INFO;
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH] = sprintf(
+    '%s/data/%s/logs/%s/exception.log',
+    APPLICATION_ROOT_DIR,
+    $CURRENT_STORE,
+    APPLICATION
+);
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = true;
-
-// ---------- Event journal (deprecated)
-$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = true;

@@ -9,7 +9,6 @@ namespace Pyz\Yves\Collector\Mapper;
 
 class ParameterMerger implements ParameterMergerInterface
 {
-
     /**
      * @param array $requestParameters
      * @param array $generationParameters
@@ -20,5 +19,4 @@ class ParameterMerger implements ParameterMergerInterface
     {
         return array_replace_recursive($requestParameters, $generationParameters);
     }
-
 }

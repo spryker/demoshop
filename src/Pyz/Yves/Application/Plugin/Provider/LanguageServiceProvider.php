@@ -11,7 +11,6 @@ use Spryker\Shared\Kernel\Store;
 
 class LanguageServiceProvider extends AbstractServiceProvider
 {
-
     /**
      * @param \Silex\Application $app
      *
@@ -49,5 +48,4 @@ class LanguageServiceProvider extends AbstractServiceProvider
     public function boot(Application $app)
     {
     }
-
 }

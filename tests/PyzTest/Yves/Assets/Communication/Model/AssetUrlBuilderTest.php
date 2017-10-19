@@ -23,7 +23,6 @@ use Pyz\Yves\Twig\Model\CacheBusterInterface;
  */
 class AssetUrlBuilderTest extends Unit
 {
-
     /**
      * @var string
      */
@@ -80,5 +79,4 @@ class AssetUrlBuilderTest extends Unit
 
         return $mock;
     }
-
 }

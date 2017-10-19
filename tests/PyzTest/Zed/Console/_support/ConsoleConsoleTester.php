@@ -27,7 +27,6 @@ use Symfony\Component\Process\Process;
  */
 class ConsoleConsoleTester extends Actor
 {
-
     use _generated\ConsoleConsoleTesterActions;
 
     /**
@@ -42,5 +41,4 @@ class ConsoleConsoleTester extends Actor
 
         return $output;
     }
-
 }

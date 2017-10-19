@@ -29,7 +29,6 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
  */
 class CustomerDependencyProviderTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -52,5 +51,4 @@ class CustomerDependencyProviderTest extends Unit
         $this->assertInstanceOf(CheckoutAuthenticationHandlerPluginInterface::class, $container[CustomerDependencyProvider::PLUGIN_LOGIN_AUTHENTICATION_HANDLER]);
         $this->assertInstanceOf(CheckoutAuthenticationHandlerPluginInterface::class, $container[CustomerDependencyProvider::PLUGIN_GUEST_AUTHENTICATION_HANDLER]);
     }
-
 }

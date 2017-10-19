@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterface, StepWithExternalRedirectInterface
 {
-
     /**
      * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
@@ -187,5 +186,4 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     {
         return $this->externalRedirect;
     }
-
 }
