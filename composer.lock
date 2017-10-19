@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "952fc93acffcb2a442fe6b65a10849f0",
+    "content-hash": "f54702266ffb5e8fe28e740b67a67e7b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1578,29 +1578,67 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "8315b6d650378462f0310730f3940776487e04df"
+                "url": "https://github.com/spryker/rabbit-mq.git",
+                "reference": "026c0ff1963e53c385af559d703a582044b283ec",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/026c0ff1963e53c385af559d703a582044b283ec",
+                "reference": "026c0ff1963e53c385af559d703a582044b283ec",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.4.16",
-                "php-amqplib/php-amqplib": "^2.6"
+                "php-amqplib/php-amqplib": "^2.6",
+                "spryker/kernel": "^3.0.0",
+                "spryker/queue": "^1.0.0",
+                "spryker/transfer": "^3.3.4"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "RabbitMq\\": "src"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "RabbitMq\\Test\\": "tests"
+                    "Spryker\\Test\\": "tests"
                 }
             },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1619,15 +1657,15 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-07-14T09:20:08+00:00"
+            "time": "2017-10-19T09:44:15+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-2155-statemachine-subprocess-reuse",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b38e69ac42a4a654bdb38953ced1f45a45347416"
+                "reference": "fa784b21d54f107981abee3a4088236eb15c4a28"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1689,6 +1727,8 @@
                 "spryker/dummy-payment": "*",
                 "spryker/elastica": "*",
                 "spryker/error-handler": "*",
+                "spryker/event": "*",
+                "spryker/event-behavior": "*",
                 "spryker/event-journal": "*",
                 "spryker/file-system": "*",
                 "spryker/flysystem": "*",
@@ -1780,6 +1820,8 @@
                 "spryker/storage": "*",
                 "spryker/store": "*",
                 "spryker/symfony": "*",
+                "spryker/synchronization": "*",
+                "spryker/synchronization-behavior": "*",
                 "spryker/tax": "*",
                 "spryker/tax-product-connector": "*",
                 "spryker/testify": "*",
@@ -1821,7 +1863,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-19T11:03:09+00:00"
+            "time": "2017-10-19T09:20:10+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4023,16 +4065,16 @@
         },
         {
             "name": "codeception/c3",
-            "version": "2.0.13",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01"
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/7cbeb7029efe621cf5a5b73853e5321147bfab01",
-                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
+                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
                 "shasum": ""
             },
             "require": {
@@ -4069,7 +4111,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-10-19T07:08:06+00:00"
+            "time": "2017-04-06T00:08:55+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -6598,7 +6640,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6617,13 +6659,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c"
+                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/f7519b4fb6030c8576c59c801a9716dface7b72c",
                 "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c",
-                "shasum": ""
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6668,13 +6722,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839"
+                "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
                 "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
-                "shasum": ""
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.6.0",
