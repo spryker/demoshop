@@ -70,7 +70,8 @@
     "spryker/dummy-payment": "^2.0.0",
     "spryker/elastica": "^3.0.0",
     "spryker/error-handler": "^2.0.0",
-    "spryker/event": "^1.0.0",
+    "spryker/event": "^2.0.0",
+    "spryker/event-behavior": "^0.1.0",
     "spryker/event-journal": "^3.0.0",
     "spryker/file-system": "^1.0.0",
     "spryker/flysystem": "^1.0.0",
@@ -144,9 +145,9 @@
     "spryker/propel": "^3.0.0",
     "spryker/propel-orm": "^1.0.0",
     "spryker/propel-query-builder": "^0.3.0",
-    "spryker/queue": "^0.3.0",
+    "spryker/queue": "^1.0.0",
     "spryker/quote": "^1.0.0",
-    "spryker/rabbit-mq": "^0.1.0",
+    "spryker/rabbit-mq": "^1.0.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^5.0.0",
     "spryker/sales": "^8.0.0",
@@ -167,6 +168,8 @@
     "spryker/storage": "^3.0.0",
     "spryker/store": "^1.0.0",
     "spryker/symfony": "^3.0.0",
+    "spryker/synchronization": "^0.1.0",
+    "spryker/synchronization-behavior": "^0.1.0",
     "spryker/tax": "^5.0.0",
     "spryker/tax-product-connector": "^4.0.0",
     "spryker/touch": "^3.0.0",
@@ -181,10 +184,10 @@
     "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
-    "codeception/c3": "^2.0.12",
+    "codeception/c3": "2.0.12",
     "doctrine/instantiator": "~1.0.5",
     "fzaninotto/faker": "^1.6",
-    "jakoch/phantomjs-installer": "2.1.0",
+    "jakoch/phantomjs-installer": "^2.1.0",
     "nette/php-generator": "^2.6.1",
     "pdepend/pdepend": "^2.2.4",
     "php-mock/php-mock": "^1.0",
@@ -241,10 +244,6 @@
     "process-timeout": 600
   },
   "repositories": [
-    {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
-    },
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
