@@ -12,10 +12,13 @@ use Pyz\Yves\Discount\Handler\VoucherCodeHandler;
 use Pyz\Yves\GiftCard\Cart\Plugin\GiftCardCodeHandler;
 use Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
+use Spryker\Shared\Kernel\ContainerInterface;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Nopayment\NopaymentConfig;
 use Spryker\Yves\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
+use Spryker\Yves\Nopayment\Plugin\NopaymentHandlerPlugin;
 use Spryker\Yves\Payment\Plugin\PaymentFormFilterPlugin;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 
@@ -116,6 +119,24 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
                 new GiftCardCodeHandler(),
             ];
         };
+
+        $container = $this->extendPaymentMethodHandler($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function extendPaymentMethodHandler(Container $container)
+    {
+        $container->extend(CheckoutDependencyProvider::PAYMENT_METHOD_HANDLER, function (StepHandlerPluginCollection $paymentMethodHandler) {
+            $paymentMethodHandler->add(new NopaymentHandlerPlugin(), NopaymentConfig::PAYMENT_PROVIDER_NAME);
+
+            return $paymentMethodHandler;
+        });
 
         return $container;
     }

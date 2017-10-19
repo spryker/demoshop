@@ -7,12 +7,29 @@
 
 namespace Pyz\Zed\Payment;
 
+use Spryker\Shared\GiftCard\GiftCardConstants;
+use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderSaverPlugin;
+use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPreCheckPlugin;
+use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
 use Spryker\Zed\Nopayment\Communication\Plugin\Payment\PriceToPayPaymentMethodFilterPlugin;
+use Spryker\Zed\Payment\Dependency\Plugin\Checkout\CheckoutPluginCollectionInterface;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
 
 class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
 {
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
+    public function provideBusinessLayerDependencies(Container $container)
+    {
+        $container = parent::provideBusinessLayerDependencies($container);
+        $container = $this->extendPaymentPlugins($container);
+
+        return $container;
+    }
 
     /**
      * @return \Spryker\Zed\Payment\Dependency\Plugin\Payment\PaymentMethodFilterPluginInterface[]
@@ -25,4 +42,32 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
         ];
     }
 
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function extendPaymentPlugins(Container $container)
+    {
+        $container->extend(
+            PaymentDependencyProvider::CHECKOUT_PLUGINS,
+            function (CheckoutPluginCollectionInterface $pluginCollection) {
+                $pluginCollection->add(
+                    new GiftCardPreCheckPlugin(),
+                    GiftCardConstants::PROVIDER_NAME,
+                    PaymentDependencyProvider::CHECKOUT_PRE_CHECK_PLUGINS
+                );
+
+                $pluginCollection->add(
+                    new GiftCardOrderSaverPlugin(),
+                    GiftCardConstants::PROVIDER_NAME,
+                    PaymentDependencyProvider::CHECKOUT_ORDER_SAVER_PLUGINS
+                );
+
+                return $pluginCollection;
+            }
+        );
+
+        return $container;
+    }
 }
