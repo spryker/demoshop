@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecd72eec046c4fc2ea7d6d5f4fd8dc6c",
+    "content-hash": "952fc93acffcb2a442fe6b65a10849f0",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1623,11 +1623,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2155-statemachine-subprocess-reuse",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "180f21c88d2cd9be462f8e2a1a4b887d1cef1e9d"
+                "reference": "b38e69ac42a4a654bdb38953ced1f45a45347416"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1821,7 +1821,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-18T10:33:12+00:00"
+            "time": "2017-10-19T11:03:09+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4023,16 +4023,16 @@
         },
         {
             "name": "codeception/c3",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c"
+                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
-                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/7cbeb7029efe621cf5a5b73853e5321147bfab01",
+                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01",
                 "shasum": ""
             },
             "require": {
@@ -4069,7 +4069,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-04-06T00:08:55+00:00"
+            "time": "2017-10-19T07:08:06+00:00"
         },
         {
             "name": "codeception/codeception",
@@ -6598,7 +6598,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
