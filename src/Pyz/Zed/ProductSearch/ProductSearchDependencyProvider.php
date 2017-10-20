@@ -14,7 +14,8 @@ use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider as SprykerProductS
 class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProvider
 {
     const FACADE_PRODUCT_SEARCH = 'product search facade';
-    const FACADE_PRICE_PRODUCT = 'price facade';
+    const FACADE_PRICE_PRODUCT = 'price product facade';
+    const FACADE_PRICE = 'price facade';
     const FACADE_PRODUCT_LABEL = 'FACADE_PRODUCT_LABEL';
 
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
@@ -30,9 +31,10 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     {
         $container = parent::provideBusinessLayerDependencies($container);
 
-        $this->providePriceFacade($container);
+        $this->providePriceProductFacade($container);
         $this->provideProductSearchFacade($container);
         $this->provideProductLabelFacade($container);
+        $this->providerPriceFacade($container);
 
         $this->provideProductImageQueryContainer($container);
         $this->provideCategoryQueryContainer($container);
@@ -70,7 +72,7 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
      *
      * @return void
      */
-    protected function providePriceFacade(Container $container)
+    protected function providePriceProductFacade(Container $container)
     {
         $container[self::FACADE_PRICE_PRODUCT] = function (Container $container) {
             return $container->getLocator()->priceProduct()->facade();
@@ -122,6 +124,18 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     {
         $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
             return $container->getLocator()->productCategory()->queryContainer();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function providerPriceFacade(Container $container)
+    {
+        $container[static::FACADE_PRICE] = function (Container $container) {
+            return $container->getLocator()->price()->facade();
         };
     }
 }

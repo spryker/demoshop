@@ -52,6 +52,6 @@ class PriceIdentifierBuilder implements PriceIdentifierBuilderInterface
         $currencyIsoCode = $this->currencyClient->getCurrent()->getCode();
         $priceMode = $this->priceClient->getCurrentPriceMode();
 
-        return sprintf('price.%s.%s.%s', $priceType, $currencyIsoCode, $priceMode);
+        return sprintf('price-%s-%s-%s', $priceType, $currencyIsoCode, $priceMode);
     }
 }

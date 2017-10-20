@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "810eef97329b440fd2fd5c174cfac073",
+    "content-hash": "8581740f3d4f15b4c3dc34630d5c6f5c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -354,7 +354,7 @@
             ],
             "authors": [
                 {
-                    "name": "Fran??ois Zaninotto"
+                    "name": "François Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
@@ -836,7 +836,7 @@
                     "email": "f.bosch@genkgo.nl"
                 },
                 {
-                    "name": "M??rk S??gi-Kaz??r",
+                    "name": "Márk Sági-Kazár",
                     "email": "mark.sagi-kazar@gmail.com"
                 }
             ],
@@ -1077,7 +1077,7 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Ra??l Araya",
+                    "name": "Raúl Araya",
                     "email": "nubeiro@gmail.com",
                     "role": "Maintainer"
                 }
@@ -1665,7 +1665,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "09614455770fc8f537baad24c16235ac1cb1570f"
+                "reference": "81a53e43d865e4cd5432c07750535e7fff1d482b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1690,6 +1690,7 @@
                 "spryker/cart-currency-connector": "*",
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
+                "spryker/catalog-price-product-connector": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
@@ -1864,7 +1865,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-20T08:47:20+00:00"
+            "time": "2017-10-20T16:23:07+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4349,7 +4350,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jens-Andr?? Koch",
+                    "name": "Jens-André Koch",
                     "email": "jakoch@web.de"
                 }
             ],
@@ -4513,7 +4514,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
+            "description": "🅱 Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "bootstrapping",
@@ -4578,7 +4579,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
+            "description": "💎 Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "compiled",
@@ -4811,7 +4812,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "autoload",
@@ -4881,7 +4882,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "???? Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
             "homepage": "https://nette.org",
             "keywords": [
                 "array",
@@ -5254,7 +5255,7 @@
                     "role": "Contributors"
                 },
                 {
-                    "name": "Marc W??rth",
+                    "name": "Marc Würth",
                     "email": "ravage@bluewin.ch",
                     "homepage": "https://github.com/ravage84",
                     "role": "Project Maintainer"
@@ -6641,7 +6642,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7072,7 +7073,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-Fran??ois Simon",
+                    "name": "Jean-François Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {

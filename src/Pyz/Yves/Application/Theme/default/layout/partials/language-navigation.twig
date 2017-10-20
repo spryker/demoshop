@@ -1,19 +1,6 @@
-{#{% if availableLanguages is defined and availableLanguages|length > 0 %}
-    {% for availableLanguage in availableLanguages %}
-        <li>
-            {% if availableLanguage != currentLanguage %}
-                <a href="/{{ availableLanguage }}">{{ availableLanguage }}</a>
-            {% else %}
-                <span>{{ availableLanguage }}</span>
-            {% endif %}
-        </li>
-    {% endfor %}
-{% endif %}#}
-
-
 {% if availableLanguages is defined and availableLanguages|length > 0 %}
-    <form method="GET" action="/" data-component="language-switch">
-        <select name="" onchange="this.form.submit()">
+    <form method="GET" action="" data-component="language-switch">
+        <select name="" onchange="this.form.action='/' + this.value;this.form.submit()">
             {% for availableLanguage in availableLanguages %}
                 <option value="{{ availableLanguage }}" {{ (availableLanguage == currentLanguage) ? 'selected' : ''}}>{{ availableLanguage }}</option>
             {% endfor %}

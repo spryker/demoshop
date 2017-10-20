@@ -41,14 +41,6 @@ class SaleController extends AbstractController
             ->getClient()
             ->saleSearch($parameters);
 
-        $priceProductClient = new PriceProductClient();
-        foreach ($searchResults['products'] as &$product) {
-            $currentProductPriceTransfer = $priceProductClient->resolveProductPrice($product['prices']);
-
-            $product['price'] = $currentProductPriceTransfer->getPrice();
-            $product['prices'] = $currentProductPriceTransfer->getPrices();
-        }
-
         $searchResults['category'] = $categoryNode;
         $searchResults['filterPath'] = ProductSaleControllerProvider::ROUTE_SALE;
 

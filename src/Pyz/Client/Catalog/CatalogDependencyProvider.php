@@ -11,6 +11,7 @@ use Pyz\Client\Catalog\Plugin\Config\CatalogSearchConfigBuilder;
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin;
 use Spryker\Client\Catalog\CatalogDependencyProvider as SprykerCatalogDependencyProvider;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\CurrencyAwareCatalogSearchResultFormatterPlugin;
 use Spryker\Client\Kernel\Container;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\CompletionQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\FacetQueryExpanderPlugin;
@@ -134,7 +135,9 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new FacetResultFormatterPlugin(),
             new SortedResultFormatterPlugin(),
             new PaginatedResultFormatterPlugin(),
-            new RawCatalogSearchResultFormatterPlugin(),
+            new CurrencyAwareCatalogSearchResultFormatterPlugin(
+                new RawCatalogSearchResultFormatterPlugin()
+            ),
             new SpellingSuggestionResultFormatterPlugin(),
         ];
     }
@@ -174,7 +177,9 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     {
         $container[self::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function () {
             return [
-                new RawCatalogSearchResultFormatterPlugin(),
+                new CurrencyAwareCatalogSearchResultFormatterPlugin(
+                    new RawCatalogSearchResultFormatterPlugin()
+                ),
             ];
         };
 

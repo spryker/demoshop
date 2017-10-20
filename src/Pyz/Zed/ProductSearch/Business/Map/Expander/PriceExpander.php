@@ -11,22 +11,43 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Generated\Shared\Transfer\PriceFilterTransfer;
 use Generated\Shared\Transfer\PriceProductTransfer;
+use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 class PriceExpander implements ProductPageMapExpanderInterface
 {
     /**
+     * @var string
+     */
+    protected static $netPriceModeIdentifier;
+
+    /**
+     * @var string
+     */
+    protected static $grossPriceModeIdentifier;
+
+    /**
      * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
      */
     protected $priceProductFacade;
 
     /**
-     * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceFacade
+     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
      */
-    public function __construct(PriceProductFacadeInterface $priceFacade)
+    protected $priceFacade;
+
+    /**
+     * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
+     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface
+     */
+    public function __construct(
+        PriceProductFacadeInterface $priceProductFacade,
+        PriceFacadeInterface $priceFacade
+    )
     {
-        $this->priceProductFacade = $priceFacade;
+        $this->priceProductFacade = $priceProductFacade;
+        $this->priceFacade = $priceFacade;
     }
 
     /**
@@ -77,20 +98,36 @@ class PriceExpander implements ProductPageMapExpanderInterface
             $moneyValueTransfer = $priceProductTransfer->getMoneyValue();
             $currencyTransfer = $moneyValueTransfer->getCurrency();
 
-            $prices[$currencyTransfer->getCode()]['GROSS_MODE'][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getGrossAmount();
-            $prices[$currencyTransfer->getCode()]['NET_MODE'][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getNetAmount();
+            $prices[$currencyTransfer->getCode()][$this->getGrossPriceModeIdentifier()][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getGrossAmount();
+            $prices[$currencyTransfer->getCode()][$this->getNetPriceModeIdentifier()][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getNetAmount();
+
+            $integerGrossFacetName = $this->buildPriceIntegerFacetName(
+                $priceProductTransfer,
+                $currencyTransfer->getCode(),
+                $this->getNetPriceModeIdentifier()
+            );
+
+            $integerNetFacetName = $this->buildPriceIntegerFacetName(
+                $priceProductTransfer,
+                $currencyTransfer->getCode(),
+                $this->getGrossPriceModeIdentifier()
+            );
 
             $pageMapBuilder->addIntegerFacet(
                 $pageMapTransfer,
-                $this->buildPriceIntegerFacetName($priceProductTransfer, $currencyTransfer->getCode(), 'GROSS_MODE'),
+                $integerGrossFacetName,
                 $moneyValueTransfer->getGrossAmount()
             );
 
             $pageMapBuilder->addIntegerFacet(
                 $pageMapTransfer,
-                $this->buildPriceIntegerFacetName($priceProductTransfer, $currencyTransfer->getCode(), 'NET_MODE'),
+                $integerNetFacetName,
                 $moneyValueTransfer->getNetAmount()
             );
+
+            $pageMapBuilder->addIntegerSort($pageMapTransfer, $integerGrossFacetName,  $moneyValueTransfer->getGrossAmount());
+            $pageMapBuilder->addIntegerSort($pageMapTransfer, $integerNetFacetName,  $moneyValueTransfer->getNetAmount());
+
         }
 
         $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
@@ -105,6 +142,30 @@ class PriceExpander implements ProductPageMapExpanderInterface
      */
     protected function buildPriceIntegerFacetName(PriceProductTransfer $priceProductTransfer, $currencyCode, $priceMode)
     {
-        return sprintf('price.%s.%s.%s', $priceProductTransfer->getPriceTypeName(), $currencyCode, $priceMode);
+        return sprintf('price-%s-%s-%s', $priceProductTransfer->getPriceTypeName(), $currencyCode, $priceMode);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getNetPriceModeIdentifier()
+    {
+        if (!static::$netPriceModeIdentifier) {
+            static::$netPriceModeIdentifier = $this->priceFacade->getNetPriceModeIdentifier();
+        }
+
+        return static::$netPriceModeIdentifier;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getGrossPriceModeIdentifier()
+    {
+        if (!static::$grossPriceModeIdentifier) {
+            static::$grossPriceModeIdentifier = $this->priceFacade->getGrossPriceModeIdentifier();
+        }
+
+        return static::$grossPriceModeIdentifier;
     }
 }

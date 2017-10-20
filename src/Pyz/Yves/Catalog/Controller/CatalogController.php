@@ -38,15 +38,6 @@ class CatalogController extends AbstractController
             ->getClient()
             ->catalogSearch($searchString, $parameters);
 
-        $priceProductClient = new PriceProductClient();
-        foreach ($searchResults['products'] as &$product) {
-            $currentProductPriceTransfer = $priceProductClient->resolveProductPrice($product['prices']);
-
-            $product['price'] = $currentProductPriceTransfer->getPrice();
-            $product['prices'] = $currentProductPriceTransfer->getPrices();
-        }
-
-
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
         $metaAttributes = [
             'idCategory' => $parameters['category'],

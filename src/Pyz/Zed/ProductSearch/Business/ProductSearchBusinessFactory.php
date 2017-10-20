@@ -79,6 +79,14 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
+     */
+    protected function getPriceFacade()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRICE);
+    }
+
+    /**
      * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface[]
      */
     protected function getProductPageMapExpanders()
@@ -97,7 +105,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      */
     protected function createPriceExpander()
     {
-        return new PriceExpander($this->getPriceProductFacade());
+        return new PriceExpander($this->getPriceProductFacade(), $this->getPriceFacade());
     }
 
     /**

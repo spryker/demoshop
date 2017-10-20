@@ -23,7 +23,7 @@ use Spryker\Shared\Search\SearchConfig;
 use Spryker\Yves\Currency\Plugin\CurrencyPlugin;
 
 /**
- * @method \Pyz\Client\Catalog\CatalogFactory getFactory()
+ * @method \Pyz\Client\Catalog\CatalogPriceProductConnectorFactory getFactory()
  */
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
@@ -224,7 +224,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
         $priceIdentifierBuilder = $this->getFactory()->createPriceIdentifierBuilder();
 
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName($priceIdentifierBuilder)
+            ->setName($priceIdentifierBuilder->buildIdentifier())
             ->setParameterName('price_asc')
             ->setFieldName(PageIndexMap::INTEGER_SORT);
 

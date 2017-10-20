@@ -41,14 +41,6 @@ class NewProductsController extends AbstractController
             ->getClient()
             ->findNewProducts($parameters);
 
-        $priceProductClient = new PriceProductClient();
-        foreach ($searchResults['products'] as &$product) {
-            $currentProductPriceTransfer = $priceProductClient->resolveProductPrice($product['prices']);
-
-            $product['price'] = $currentProductPriceTransfer->getPrice();
-            $product['prices'] = $currentProductPriceTransfer->getPrices();
-        }
-
         $searchResults['category'] = $categoryNode;
         $searchResults['filterPath'] = ProductNewControllerProvider::ROUTE_NEW_PRODUCTS;
 
