@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
     /**
      * @var \Spryker\Client\Calculation\CalculationClient
      */
@@ -126,5 +125,4 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     {
         return !$this->requireInput($dataTransfer);
     }
-
 }

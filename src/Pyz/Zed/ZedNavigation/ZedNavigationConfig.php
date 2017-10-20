@@ -11,8 +11,9 @@ use Spryker\Zed\ZedNavigation\ZedNavigationConfig as SprykerZedNavigationConfig;
 
 class ZedNavigationConfig extends SprykerZedNavigationConfig
 {
-
     /**
+     * @project Only needed in Project, not in demoshop
+     *
      * @return array
      */
     public function getNavigationSchemaPathPattern()
@@ -36,5 +37,4 @@ class ZedNavigationConfig extends SprykerZedNavigationConfig
 
         return $paths;
     }
-
 }

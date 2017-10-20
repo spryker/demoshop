@@ -12,7 +12,6 @@ use Spryker\Yves\ProductReview\ProductReviewDependencyProvider as SprykerProduct
 
 class ProductReviewDependencyProvider extends SprykerProductReviewDependencyProvider
 {
-
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
     const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
     const CLIENT_PRODUCT_REVIEW = 'CLIENT_PRODUCT_REVIEW';
@@ -74,5 +73,4 @@ class ProductReviewDependencyProvider extends SprykerProductReviewDependencyProv
 
         return $container;
     }
-
 }

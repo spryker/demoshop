@@ -27,7 +27,6 @@ use Codeception\Scenario;
  */
 class AvailabilityPresentationTester extends Actor
 {
-
     use _generated\AvailabilityPresentationTesterActions;
 
     const FUJITSU_PRODUCT_PAGE = '/en/fujitsu-esprimo-e420-118';
@@ -52,5 +51,4 @@ class AvailabilityPresentationTester extends Actor
     {
         $this->processAllCheckoutSteps();
     }
-
 }

@@ -14,7 +14,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 
 class ProductLabelExpander implements ProductPageMapExpanderInterface
 {
-
     /**
      * @var \Spryker\Zed\ProductLabel\Business\ProductLabelFacadeInterface
      */
@@ -62,5 +61,4 @@ class ProductLabelExpander implements ProductPageMapExpanderInterface
     {
         return $this->productLabelFacade->findLabelIdsByIdProductAbstract($idProductAbstract);
     }
-
 }

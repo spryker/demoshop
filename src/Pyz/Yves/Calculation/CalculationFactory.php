@@ -14,7 +14,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
  */
 class CalculationFactory extends AbstractFactory
 {
-
     /**
      * @return \Spryker\Client\Quote\QuoteClientInterface
      */
@@ -22,5 +21,4 @@ class CalculationFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CalculationDependencyProvider::CLIENT_QUOTE);
     }
-
 }

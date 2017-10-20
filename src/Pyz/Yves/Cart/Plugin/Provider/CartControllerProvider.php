@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CartControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_CART = 'cart';
     const ROUTE_CART_ADD = 'cart/add';
     const ROUTE_CART_REMOVE = 'cart/remove';
@@ -164,5 +163,4 @@ class CartControllerProvider extends AbstractYvesControllerProvider
 
         return $request->query->get('groupKey');
     }
-
 }

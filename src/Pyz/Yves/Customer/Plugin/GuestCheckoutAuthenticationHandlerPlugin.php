@@ -7,12 +7,10 @@
 namespace Pyz\Yves\Customer\Plugin;
 
 use Generated\Shared\Transfer\QuoteTransfer;
-use Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 class GuestCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements CheckoutAuthenticationHandlerPluginInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -32,5 +30,4 @@ class GuestCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements
     {
         return ((bool)$quoteTransfer->getCustomer()->getIsGuest() === true);
     }
-
 }

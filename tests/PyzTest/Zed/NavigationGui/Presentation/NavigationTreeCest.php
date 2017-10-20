@@ -28,7 +28,6 @@ use PyzTest\Zed\NavigationGui\PageObject\NavigationPage;
  */
 class NavigationTreeCest
 {
-
     /**
      * @param \PyzTest\Zed\NavigationGui\NavigationGuiPresentationTester $i
      *
@@ -298,5 +297,4 @@ class NavigationTreeCest
 //        $i->switchToNavigationTree();
 //        $i->seeNumberOfNavigationNodes(1);
     }
-
 }

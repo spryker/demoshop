@@ -32,7 +32,6 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionByTypeR
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
-
     const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
     const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
 
@@ -198,5 +197,4 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
         return $container;
     }
-
 }

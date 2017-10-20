@@ -13,7 +13,6 @@ use Spryker\Shared\Kernel\Store;
 
 class WebProfilerServiceProvider extends SilexWebProfilerServiceProvider
 {
-
     /**
      * @param \Silex\Application $app
      *
@@ -27,5 +26,4 @@ class WebProfilerServiceProvider extends SilexWebProfilerServiceProvider
 
         parent::register($app);
     }
-
 }

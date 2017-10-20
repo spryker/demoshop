@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SaleController extends AbstractController
 {
-
     /**
      * @param string $categoryPath
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -55,5 +54,4 @@ class SaleController extends AbstractController
 
         return $this->viewResponse($searchResults);
     }
-
 }

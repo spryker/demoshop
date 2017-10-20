@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApplicationFactory extends SprykerApplicationFactory
 {
-
     /**
      * @return \Spryker\Yves\Application\Plugin\Provider\ExceptionService\ExceptionHandlerInterface[]
      */
@@ -88,5 +87,4 @@ class ApplicationFactory extends SprykerApplicationFactory
     {
         return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_CATALOG);
     }
-
 }

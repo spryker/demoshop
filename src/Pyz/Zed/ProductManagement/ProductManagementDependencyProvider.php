@@ -13,14 +13,13 @@ use Spryker\Zed\ProductManagement\ProductManagementDependencyProvider as Spryker
 
 class ProductManagementDependencyProvider extends SprykerProductManagementDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\ProductManagement\Communication\Plugin\ProductAbstractViewPluginInterface[]
      */
     protected function getProductAbstractViewPlugins()
     {
         return [
-            new CmsBlockProductAbstractBlockListViewPlugin()
+            new CmsBlockProductAbstractBlockListViewPlugin(),
         ];
     }
 }

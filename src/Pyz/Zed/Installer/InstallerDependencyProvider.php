@@ -18,7 +18,6 @@ use Spryker\Zed\User\Communication\Plugin\UserInstallerPlugin;
 
 class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Installer\Dependency\Plugin\InstallerPluginInterface[]
      */
@@ -34,5 +33,4 @@ class InstallerDependencyProvider extends SprykerInstallerDependencyProvider
             new GlossaryInstallerPlugin(),
         ];
     }
-
 }

@@ -12,7 +12,6 @@ use Silex\Application;
 
 class ProductSaleControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_SALE = 'sale';
 
     /**
@@ -33,5 +32,4 @@ class ProductSaleControllerProvider extends AbstractYvesControllerProvider
                 return preg_replace('#^\/' . $allowedLocalesPattern . '#', '/', $categoryPath);
             });
     }
-
 }

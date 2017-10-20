@@ -17,7 +17,6 @@ use Twig_SimpleFunction;
  */
 class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
 {
-
     /**
      * @param \Silex\Application $application
      *
@@ -38,5 +37,4 @@ class TwigCustomer extends AbstractPlugin implements TwigFunctionPluginInterface
             }),
         ];
     }
-
 }

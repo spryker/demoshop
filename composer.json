@@ -59,7 +59,7 @@
   "require-dev": {
     "codeception/codeception": "^2.3.5",
     "phpunit/phpunit": "^5.0",
-    "codeception/c3": "^2.0.12",
+    "codeception/c3": "2.0.12",
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
@@ -114,6 +114,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/git-hook.git"
+    },
+    {
+      "type": "composer",
+      "url": "https://code.spryker.com/repo/private"
     }
   ],
   "scripts": {
@@ -131,6 +135,13 @@
       "PhantomInstaller\\Installer::installPhantomJS",
       "GitHook\\Composer\\Scripts\\HookInstaller::installSprykerHooks",
       "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
-    ]
+    ],
+    "phpstan": [
+      "php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
+    ],
+    "phpstan-core": [
+      "php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1"
+    ],
+    "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }
 }

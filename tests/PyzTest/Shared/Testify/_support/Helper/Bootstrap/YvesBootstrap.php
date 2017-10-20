@@ -51,7 +51,6 @@ use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigS
  */
 class YvesBootstrap extends ApplicationYvesBootstrap
 {
-
     /**
      * @return void
      */
@@ -95,5 +94,4 @@ class YvesBootstrap extends ApplicationYvesBootstrap
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
         $this->application->register(new PriceModeSwitcherServiceProvider());
     }
-
 }

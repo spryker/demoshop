@@ -12,7 +12,6 @@ use Spryker\Zed\Product\Business\ProductBusinessFactory as SprykerProductBusines
 
 class ProductBusinessFactory extends SprykerProductBusinessFactory
 {
-
     /**
      * @return \Spryker\Zed\Product\Business\Product\Url\ProductUrlGenerator
      */
@@ -24,5 +23,4 @@ class ProductBusinessFactory extends SprykerProductBusinessFactory
             $this->getUtilTextService()
         );
     }
-
 }

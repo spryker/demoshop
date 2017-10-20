@@ -9,7 +9,6 @@ namespace PyzTest\Zed\Tax\PageObject;
 
 class TaxRateCreatePage
 {
-
     const URL = '/tax/rate/create';
 
     const HEADER = 'Create new tax rate';
@@ -61,5 +60,4 @@ class TaxRateCreatePage
             'percentage' => '10',
         ],
     ];
-
 }

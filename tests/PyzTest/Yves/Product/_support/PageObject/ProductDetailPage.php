@@ -9,7 +9,5 @@ namespace PyzTest\Yves\Product\PageObject;
 
 class ProductDetailPage
 {
-
     const ADD_TO_CART_XPATH = "//*[contains(concat(' ', normalize-space(@class), ' '), ' js-add-to-cart-button ')]";
-
 }

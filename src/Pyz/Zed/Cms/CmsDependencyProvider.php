@@ -15,7 +15,6 @@ use Spryker\Zed\Kernel\Container;
 
 class CmsDependencyProvider extends SprykerCmsDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -24,7 +23,7 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
     protected function getPostSavePlugins(Container $container)
     {
         return [
-            new UserCmsVersionPostSavePlugin()
+            new UserCmsVersionPostSavePlugin(),
         ];
     }
 
@@ -36,7 +35,7 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
     protected function getTransferExpanderPlugins(Container $container)
     {
         return [
-            new UserCmsVersionTransferExpanderPlugin()
+            new UserCmsVersionTransferExpanderPlugin(),
         ];
     }
 
@@ -49,5 +48,4 @@ class CmsDependencyProvider extends SprykerCmsDependencyProvider
             new CmsPageParameterMapExpanderPlugin(),
         ];
     }
-
 }

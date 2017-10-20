@@ -11,12 +11,10 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 
 interface StorageImageMapperInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      */
     public function mapProductImages(StorageProductTransfer $storageProductTransfer);
-
 }

@@ -11,7 +11,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductOptionCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
 
     /**
@@ -40,5 +39,4 @@ GROUP BY
             ->sql($sql)
             ->setParameter('fk_storage_locale', $this->getLocale()->requireIdLocale()->getIdLocale());
     }
-
 }

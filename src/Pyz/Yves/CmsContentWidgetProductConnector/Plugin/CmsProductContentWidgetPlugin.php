@@ -14,7 +14,6 @@ use Spryker\Yves\CmsContentWidgetProductConnector\Plugin\CmsProductContentWidget
  */
 class CmsProductContentWidgetPlugin extends SprykerCmsProductContentWidgetPlugin
 {
-
     /**
      * @param array $productData
      *
@@ -26,5 +25,4 @@ class CmsProductContentWidgetPlugin extends SprykerCmsProductContentWidgetPlugin
             ->getStorageProductMapperPlugin()
             ->mapStorageProduct($productData, []);
     }
-
 }

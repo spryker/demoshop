@@ -20,7 +20,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class DiscountWriterStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
     const KEY_DISCOUNT_KEY = 'discount_key';
     const KEY_DISPLAY_NAME = 'display_name';
@@ -189,7 +188,6 @@ class DiscountWriterStep implements DataImportStepInterface
     {
         if (!isset($dataSet[static::KEY_PROMOTION_SKU]) || empty($dataSet[static::KEY_PROMOTION_SKU])) {
             return;
-
         }
         $discountPromotion = SpyDiscountPromotionQuery::create()
             ->filterByFkDiscount($discountEntity->getIdDiscount())
@@ -199,5 +197,4 @@ class DiscountWriterStep implements DataImportStepInterface
         $discountPromotion->setQuantity($dataSet[static::KEY_PROMOTION_QUANTITY]);
         $discountPromotion->save();
     }
-
 }

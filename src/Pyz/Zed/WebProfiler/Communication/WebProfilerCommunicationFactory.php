@@ -15,7 +15,6 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
  */
 class WebProfilerCommunicationFactory extends AbstractCommunicationFactory
 {
-
     /**
      * @return \Silex\ServiceProviderInterface[]|\Silex\ControllerProviderInterface[]
      */
@@ -23,5 +22,4 @@ class WebProfilerCommunicationFactory extends AbstractCommunicationFactory
     {
         return $this->getProvidedDependency(WebProfilerDependencyProvider::PLUGINS_WEB_PROFILER);
     }
-
 }

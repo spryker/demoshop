@@ -14,7 +14,6 @@ use Spryker\Zed\Queue\QueueDependencyProvider as SprykerDependencyProvider;
 
 class QueueDependencyProvider extends SprykerDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -26,5 +25,4 @@ class QueueDependencyProvider extends SprykerDependencyProvider
             EventConstants::EVENT_QUEUE => new EventQueueMessageProcessorPlugin(),
         ];
     }
-
 }

@@ -11,7 +11,6 @@ use Spryker\Zed\Twig\TwigConfig as SprykerTwigConfig;
 
 class TwigConfig extends SprykerTwigConfig
 {
-
     /**
      * @project Only needed in Project, not in demoshop
      *
@@ -58,5 +57,4 @@ class TwigConfig extends SprykerTwigConfig
 
         return $directories;
     }
-
 }

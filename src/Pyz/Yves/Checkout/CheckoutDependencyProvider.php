@@ -18,7 +18,6 @@ use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollectio
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
-
     const CLIENT_CALCULATION = 'CLIENT_CALCULATION';
     const CLIENT_CHECKOUT = 'CLIENT_CHECKOUT';
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
@@ -118,5 +117,4 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 
         return $container;
     }
-
 }

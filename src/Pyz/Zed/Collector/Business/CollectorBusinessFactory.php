@@ -35,7 +35,6 @@ use Spryker\Zed\Collector\Business\CollectorBusinessFactory as SprykerCollectorB
  */
 class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
 {
-
     /**
      * @return \Pyz\Zed\Collector\Business\Search\ProductCollector
      */
@@ -505,5 +504,4 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE_PRODUCT);
     }
-
 }

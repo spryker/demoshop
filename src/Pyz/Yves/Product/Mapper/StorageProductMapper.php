@@ -14,7 +14,6 @@ use Spryker\Yves\Currency\Plugin\CurrencyPluginInterface;
 
 class StorageProductMapper implements StorageProductMapperInterface
 {
-
     /**
      * @var \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface
      */

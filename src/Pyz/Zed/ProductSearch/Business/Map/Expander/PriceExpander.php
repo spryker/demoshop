@@ -16,7 +16,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 
 class PriceExpander implements ProductPageMapExpanderInterface
 {
-
     /**
      * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
      */
@@ -108,5 +107,4 @@ class PriceExpander implements ProductPageMapExpanderInterface
     {
         return sprintf('price.%s.%s.%s', $priceProductTransfer->getPriceTypeName(), $currencyCode, $priceMode);
     }
-
 }

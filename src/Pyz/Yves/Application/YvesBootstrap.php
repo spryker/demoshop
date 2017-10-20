@@ -71,7 +71,6 @@ use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
 
 class YvesBootstrap
 {
-
     /**
      * @var \Spryker\Yves\Kernel\Application
      */
@@ -199,5 +198,4 @@ class YvesBootstrap
             new PriceControllerProvider($isSsl),
         ];
     }
-
 }

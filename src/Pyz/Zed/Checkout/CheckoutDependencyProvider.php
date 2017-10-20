@@ -27,7 +27,6 @@ use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container ’
      *
@@ -83,8 +82,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     protected function getCheckoutPreSaveHooks(Container $container)
     {
         return [
-            new SalesOrderExpanderPlugin()
+            new SalesOrderExpanderPlugin(),
         ];
     }
-
 }

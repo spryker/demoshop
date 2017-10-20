@@ -17,7 +17,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
  */
 class CategoryNodeDataPageMapBuilder
 {
-
     const TYPE_CATEGORY = 'category';
 
     /**
@@ -54,5 +53,4 @@ class CategoryNodeDataPageMapBuilder
 
         return $pageMapTransfer;
     }
-
 }

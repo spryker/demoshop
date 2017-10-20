@@ -13,7 +13,6 @@ use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
 
 class CatalogFactory extends SprykerCatalogFactory
 {
-
     /**
      * @param int $limit
      *

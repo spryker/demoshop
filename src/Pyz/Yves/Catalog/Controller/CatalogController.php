@@ -19,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CatalogController extends AbstractController
 {
-
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
     /**
@@ -117,5 +116,4 @@ class CatalogController extends AbstractController
 
         return $this->viewResponse($result);
     }
-
 }

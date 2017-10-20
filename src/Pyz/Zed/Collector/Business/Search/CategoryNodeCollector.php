@@ -16,7 +16,6 @@ use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
 class CategoryNodeCollector extends AbstractSearchPdoCollector
 {
-
     /**
      * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface
      */
@@ -82,5 +81,4 @@ class CategoryNodeCollector extends AbstractSearchPdoCollector
 
         return $result;
     }
-
 }

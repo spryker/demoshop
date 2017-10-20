@@ -25,7 +25,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class WishlistController extends AbstractController
 {
-
     const DEFAULT_NAME = 'My wishlist';
     const DEFAULT_ITEMS_PER_PAGE = 10;
 
@@ -140,7 +139,7 @@ class WishlistController extends AbstractController
 
         $wishlistItemMetaTransferCollection = [
             (new WishlistItemMetaTransfer())
-                ->setSku($wishlistItemTransfer->getSku())
+                ->setSku($wishlistItemTransfer->getSku()),
         ];
 
         $result = $this->getFactory()
@@ -263,5 +262,4 @@ class WishlistController extends AbstractController
 
         return $addAllAvailableProductsToCartForm;
     }
-
 }

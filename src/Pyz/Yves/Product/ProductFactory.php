@@ -22,7 +22,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
  */
 class ProductFactory extends AbstractFactory
 {
-
     /**
      * @return ResourceCreator\ProductResourceCreator
      */
@@ -113,5 +112,4 @@ class ProductFactory extends AbstractFactory
     {
         return new StorageProductMapperPlugin();
     }
-
 }

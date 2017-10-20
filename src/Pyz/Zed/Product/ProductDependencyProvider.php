@@ -35,7 +35,6 @@ use Spryker\Zed\TaxProductConnector\Communication\Plugin\TaxSetProductAbstractRe
 
 class ProductDependencyProvider extends SprykerProductDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -165,5 +164,4 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ProductBundleProductConcreteAfterUpdatePlugin(),
         ];
     }
-
 }

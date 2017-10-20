@@ -31,7 +31,6 @@ use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Discount\Dependency\Plugin\DecisionRulePluginInterface[]
      */
@@ -150,5 +149,4 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
            new DiscountPromotionFilterApplicableItemsPlugin(),
         ];
     }
-
 }

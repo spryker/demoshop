@@ -12,7 +12,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class PasswordForm extends AbstractType
 {
-
     const FIELD_NEW_PASSWORD = 'new_password';
     const FIELD_PASSWORD = 'password';
 
@@ -80,5 +79,4 @@ class PasswordForm extends AbstractType
 
         return $this;
     }
-
 }

@@ -21,7 +21,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class WishlistOverviewController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -139,5 +138,4 @@ class WishlistOverviewController extends AbstractController
             $wishlistForm->addError(new FormError($error));
         }
     }
-
 }

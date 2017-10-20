@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\ProductReviewRequestTransfer;
 
 class ProductReviewFormDataProvider
 {
-
     /**
      * @param int $idProductAbstract
      *
@@ -34,5 +33,4 @@ class ProductReviewFormDataProvider
             'data_class' => ProductReviewRequestTransfer::class,
         ];
     }
-
 }

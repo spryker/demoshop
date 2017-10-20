@@ -11,7 +11,5 @@ use Spryker\Shared\Product\ProductConfig as SprykerProductConstant;
 
 interface ProductConfig extends SprykerProductConstant
 {
-
     const DEFAULT_IMAGE_SET_NAME = 'default';
-
 }

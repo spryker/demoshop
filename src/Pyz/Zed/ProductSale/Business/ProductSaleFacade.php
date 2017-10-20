@@ -14,7 +14,6 @@ use Spryker\Zed\Product\Business\ProductFacade as SprykerProductFacade;
  */
 class ProductSaleFacade extends SprykerProductFacade implements ProductSaleFacadeInterface
 {
-
     /**
      * @return \Generated\Shared\Transfer\ProductLabelProductAbstractRelationsTransfer[]
      */
@@ -24,5 +23,4 @@ class ProductSaleFacade extends SprykerProductFacade implements ProductSaleFacad
             ->createProductAbstractRelationReader()
             ->findProductLabelProductAbstractRelationChanges();
     }
-
 }

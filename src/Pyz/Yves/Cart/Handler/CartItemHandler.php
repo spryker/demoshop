@@ -17,7 +17,6 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
 {
-
     /**
      * @var \Pyz\Yves\Cart\Handler\CartOperationInterface
      */
@@ -163,7 +162,6 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
         }
 
         foreach ($selectedAttributes as $sku => $attributes) {
-
             $itemAttributesBySku = $this->setSelectedAttributesAsSelected($itemAttributesBySku, $attributes, $sku);
 
             $availableAttributes = $this->getAvailableAttributesForItem($items, $selectedAttributes, $sku);
@@ -228,5 +226,4 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
 
         return $itemAttributesBySku;
     }
-
 }

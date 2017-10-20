@@ -11,7 +11,6 @@ use Silex\Application;
 
 interface ResourceCreatorInterface
 {
-
     /**
      * @return string
      */
@@ -24,5 +23,4 @@ interface ResourceCreatorInterface
      * @return array
      */
     public function createResource(Application $application, array $data);
-
 }

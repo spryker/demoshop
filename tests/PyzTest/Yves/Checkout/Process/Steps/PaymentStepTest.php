@@ -28,7 +28,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PaymentStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -112,5 +111,4 @@ class PaymentStepTest extends Unit
     {
         return $this->getMockBuilder(FlashMessengerInterface::class)->getMock();
     }
-
 }

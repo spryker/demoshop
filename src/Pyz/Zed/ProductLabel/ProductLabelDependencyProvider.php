@@ -13,7 +13,6 @@ use Spryker\Zed\ProductNew\Communication\Plugin\ProductNewLabelUpdaterPlugin;
 
 class ProductLabelDependencyProvider extends SprykerProductLabelDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\ProductLabel\Dependency\Plugin\ProductLabelRelationUpdaterPluginInterface[]
      */
@@ -24,5 +23,4 @@ class ProductLabelDependencyProvider extends SprykerProductLabelDependencyProvid
             new ProductSaleLabelUpdaterPlugin(),
         ];
     }
-
 }

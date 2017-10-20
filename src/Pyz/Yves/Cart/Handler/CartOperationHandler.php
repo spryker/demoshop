@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CartOperationHandler extends BaseHandler implements CartOperationInterface
 {
-
     const URL_PARAM_ID_DISCOUNT_PROMOTION = 'idDiscountPromotion';
 
     /**
@@ -157,5 +156,4 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
     {
         return (int)$this->request->request->get(static::URL_PARAM_ID_DISCOUNT_PROMOTION);
     }
-
 }

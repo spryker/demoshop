@@ -13,7 +13,6 @@ use Spryker\Zed\Messenger\MessengerDependencyProvider as SprykerMessengerDepende
 
 class MessengerDependencyProvider extends SprykerMessengerDependencyProvider
 {
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -27,5 +26,4 @@ class MessengerDependencyProvider extends SprykerMessengerDependencyProvider
 
         return $container;
     }
-
 }

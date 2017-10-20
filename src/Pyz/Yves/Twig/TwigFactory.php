@@ -16,7 +16,6 @@ use Spryker\Yves\Twig\TwigFactory as SprykerTwigFactory;
 
 class TwigFactory extends SprykerTwigFactory
 {
-
     /**
      * @var \Pyz\Yves\Twig\TwigSettings
      */
@@ -86,5 +85,4 @@ class TwigFactory extends SprykerTwigFactory
 
         return new UrlParameterCacheBuster($cacheBust);
     }
-
 }

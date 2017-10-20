@@ -9,12 +9,10 @@ namespace Pyz\Yves\Wishlist\Business;
 
 interface AvailabilityReaderInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer[] $wishlistItemMetaTransferCollection
      *
      * @return array
      */
     public function getAvailability($wishlistItemMetaTransferCollection);
-
 }

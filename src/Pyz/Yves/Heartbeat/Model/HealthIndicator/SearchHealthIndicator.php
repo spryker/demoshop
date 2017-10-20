@@ -13,7 +13,6 @@ use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class SearchHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {
-
     const FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH = 'Unable to connect to search';
 
     /**
@@ -49,5 +48,4 @@ class SearchHealthIndicator extends AbstractHealthIndicator implements HealthInd
             $this->addFailure($e->getMessage());
         }
     }
-
 }
