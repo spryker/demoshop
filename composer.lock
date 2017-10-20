@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f763a8d84761d7094d4e94b271be2e1a",
+    "content-hash": "f54702266ffb5e8fe28e740b67a67e7b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1661,11 +1661,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-2155-statemachine-subprocess-reuse",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "30804d19f7282fca06d89c11fbeea9fabc01bc3b"
+                "reference": "4c4b19d2919de0cbde12ba434d9559bdbc84c7bf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1863,7 +1863,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-19T13:57:42+00:00"
+            "time": "2017-10-20T08:33:35+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6640,7 +6640,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
