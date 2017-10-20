@@ -52,11 +52,13 @@ class GiftCardConcreteConfigurationWriterStep implements DataImportStepInterface
         $typeEntity = SpyGiftCardProductConfigurationQuery::create()
             ->filterByValue($value)
             ->findOneOrCreate();
+        $typeEntity->save();
 
-        SpyGiftCardProductConfigurationLinkQuery::create()
+        $linkEntity = SpyGiftCardProductConfigurationLinkQuery::create()
             ->filterByFkGiftCardProductConfiguration($typeEntity->getIdGiftCardProductConfiguration())
             ->filterByFkProduct($this->productRepository->getIdProductByConcreteSku($concreteSku))
             ->findOneOrCreate();
+        $linkEntity->save();
     }
 
 }
