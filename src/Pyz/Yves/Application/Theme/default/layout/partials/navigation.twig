@@ -2,7 +2,8 @@
     <div class="row">
         <div class="large-12 columns show-for-large">
             <ul class="menu align-right">
-                <li><span class="float-left small-10 columns">{{ spyCurrencySwitch() }}</span></li>
+                <li><span class="float-left small-15 columns">{{ spyPriceModeSwitch() }}</span></li>
+                <li><span class="float-left small-15 columns">{{ spyCurrencySwitch() }}</span></li>
                 {% include '@application/layout/partials/language-navigation.twig' %}
                 {% if app['cart.quantity'] > 0 %}
                     <li><span class="warning badge float-left">{{ app['cart.quantity'] }}</span></li>

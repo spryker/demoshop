@@ -27,6 +27,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
+use Pyz\Yves\Price\Plugin\PriceControllerProvider;
 use Pyz\Yves\ProductNew\Plugin\Provider\ProductNewControllerProvider;
 use Pyz\Yves\ProductReview\Plugin\Provider\ProductReviewControllerProvider;
 use Pyz\Yves\ProductSale\Plugin\Provider\ProductSaleControllerProvider;
@@ -52,6 +53,7 @@ use Spryker\Yves\Application\Plugin\ServiceProvider\KernelLogServiceProvider;
 use Spryker\Yves\Application\Plugin\ServiceProvider\SslServiceProvider;
 use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
 use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
+use Spryker\Yves\Price\Plugin\PriceModeSwitcherServiceProvider;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
@@ -145,6 +147,7 @@ class YvesBootstrap
         $this->application->register(new CmsContentWidgetServiceProvider());
         $this->application->register(new CurrencySwitcherServiceProvider());
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
+        $this->application->register(new PriceModeSwitcherServiceProvider());
     }
 
     /**
@@ -193,6 +196,7 @@ class YvesBootstrap
             new PreviewControllerProvider($isSsl),
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
+            new PriceControllerProvider($isSsl),
         ];
     }
 

@@ -8,6 +8,7 @@
 namespace Pyz\Yves\ProductNew\Controller;
 
 use Pyz\Yves\ProductNew\Plugin\Provider\ProductNewControllerProvider;
+use Spryker\Client\PriceProduct\PriceProductClient;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -40,6 +41,14 @@ class NewProductsController extends AbstractController
         $searchResults = $this
             ->getClient()
             ->findNewProducts($parameters);
+
+        $priceProductClient = new PriceProductClient();
+        foreach ($searchResults['products'] as &$product) {
+            $currentProductPriceTransfer = $priceProductClient->resolveProductPrice($product['prices']);
+
+            $product['price'] = $currentProductPriceTransfer->getPrice();
+            $product['prices'] = $currentProductPriceTransfer->getPrices();
+        }
 
         $searchResults['category'] = $categoryNode;
         $searchResults['filterPath'] = ProductNewControllerProvider::ROUTE_NEW_PRODUCTS;

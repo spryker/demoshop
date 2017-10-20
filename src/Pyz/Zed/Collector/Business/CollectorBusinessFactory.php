@@ -139,7 +139,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getProductCategoryQueryContainer(),
             $this->getProductImageQueryContainer(),
             $this->getProductFacade(),
-            $this->getPriceFacade(),
+            $this->getPriceProductFacade(),
             $this->getProductImageFacade()
         );
 
@@ -226,7 +226,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $productConcreteCollector = new ProductConcreteCollector(
             $this->getUtilDataReaderService(),
             $this->getProductFacade(),
-            $this->getPriceFacade(),
+            $this->getPriceProductFacade(),
             $this->getProductImageQueryContainer(),
             $this->getProductImageFacade()
         );
@@ -427,14 +427,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
-     */
-    protected function getPriceQueryContainer()
-    {
-        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE);
-    }
-
-    /**
      * @return \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
     protected function getProductCategoryQueryContainer()
@@ -504,6 +496,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getProductImageFacade()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_IMAGE);
+    }
+
+    /**
+     * @return \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
+     */
+    protected function getPriceProductFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE_PRODUCT);
     }
 
 }

@@ -8,6 +8,7 @@
 namespace Pyz\Yves\ProductSale\Controller;
 
 use Pyz\Yves\ProductSale\Plugin\Provider\ProductSaleControllerProvider;
+use Spryker\Client\PriceProduct\PriceProductClient;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -40,6 +41,14 @@ class SaleController extends AbstractController
         $searchResults = $this
             ->getClient()
             ->saleSearch($parameters);
+
+        $priceProductClient = new PriceProductClient();
+        foreach ($searchResults['products'] as &$product) {
+            $currentProductPriceTransfer = $priceProductClient->resolveProductPrice($product['prices']);
+
+            $product['price'] = $currentProductPriceTransfer->getPrice();
+            $product['prices'] = $currentProductPriceTransfer->getPrices();
+        }
 
         $searchResults['category'] = $categoryNode;
         $searchResults['filterPath'] = ProductSaleControllerProvider::ROUTE_SALE;

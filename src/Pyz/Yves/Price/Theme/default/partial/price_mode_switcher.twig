@@ -1,0 +1,11 @@
+{% if price_modes|length > 1 %}
+    <form method="GET" action="{{ path('price-mode-switch') }}" data-component="price-mode-switch">
+        <select name="price-mode" onchange="this.form.submit()">
+            {% for price_mode in price_modes %}
+                <option value="{{ price_mode }}" {{ (price_mode == current_price_mode) ? 'selected' : ''}}>{{ price_mode | trans }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="referrer-url" value="{{ app.request.requestUri }}" />
+    </form>
+{% endif %}
+

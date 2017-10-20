@@ -20,9 +20,10 @@ use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface;
 use Spryker\Client\Search\Model\Elasticsearch\Aggregation\CategoryFacetAggregation;
 use Spryker\Shared\Search\SearchConfig;
+use Spryker\Yves\Currency\Plugin\CurrencyPlugin;
 
 /**
- * @method \Spryker\Client\Catalog\CatalogFactory getFactory()
+ * @method \Pyz\Client\Catalog\CatalogFactory getFactory()
  */
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
@@ -47,6 +48,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->addPriceFacet($facetConfigBuilder)
             ->addProductLabelFacet($facetConfigBuilder)
             ->addProductRatingFacet($facetConfigBuilder);
+
     }
 
     /**
@@ -108,8 +110,10 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addPriceFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
+        $priceIdentifierBuilder = $this->getFactory()->createPriceIdentifierBuilder();
+
         $priceFacet = (new FacetConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifierBuilder->buildIdentifier())
             ->setParameterName('price')
             ->setFieldName(PageIndexMap::INTEGER_FACET)
             ->setType(SearchConfig::FACET_TYPE_PRICE_RANGE);
@@ -218,8 +222,10 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addAscendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
+        $priceIdentifierBuilder = $this->getFactory()->createPriceIdentifierBuilder();
+
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifierBuilder)
             ->setParameterName('price_asc')
             ->setFieldName(PageIndexMap::INTEGER_SORT);
 
@@ -235,8 +241,10 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addDescendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
+        $priceIdentifierBuilder = $this->getFactory()->createPriceIdentifierBuilder();
+
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifierBuilder->buildIdentifier())
             ->setParameterName('price_desc')
             ->setFieldName(PageIndexMap::INTEGER_SORT)
             ->setIsDescending(true);

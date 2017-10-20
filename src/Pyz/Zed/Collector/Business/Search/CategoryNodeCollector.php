@@ -30,17 +30,17 @@ class CategoryNodeCollector extends AbstractSearchPdoCollector
     /**
      * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $categoryNodeDataPageMapPlugin
-     * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchFacade
+     * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchProductFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
         PageMapInterface $categoryNodeDataPageMapPlugin,
-        SearchFacadeInterface $searchFacade
+        SearchFacadeInterface $searchProductFacade
     ) {
         parent::__construct($utilDataReaderService);
 
         $this->categoryNodeDataPageMapPlugin = $categoryNodeDataPageMapPlugin;
-        $this->searchFacade = $searchFacade;
+        $this->searchFacade = $searchProductFacade;
     }
 
     /**

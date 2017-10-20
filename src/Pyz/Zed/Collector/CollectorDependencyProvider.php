@@ -70,13 +70,13 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
     const FACADE_PROPEL = 'propel facade';
     const FACADE_PRICE = 'price facade';
+    const FACADE_PRICE_PRODUCT = 'price product facade';
     const FACADE_SEARCH = 'search facade';
     const FACADE_PRODUCT_SEARCH = 'product search facade';
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
     const FACADE_PRODUCT_IMAGE = 'FACADE_PRODUCT_IMAGE';
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
 
-    const QUERY_CONTAINER_PRICE = 'price query container';
     const QUERY_CONTAINER_CATEGORY = 'category query container';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
@@ -101,10 +101,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->price()->facade();
         };
 
-        $container[self::QUERY_CONTAINER_PRICE] = function (Container $container) {
-            return $container->getLocator()->price()->queryContainer();
-        };
-
         $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
             return $container->getLocator()->category()->queryContainer();
         };
@@ -127,6 +123,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {
             return $container->getLocator()->productImage()->queryContainer();
+        };
+
+        $container[self::FACADE_PRICE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->priceProduct()->facade();
         };
 
         $container[self::SEARCH_PLUGINS] = function (Container $container) {

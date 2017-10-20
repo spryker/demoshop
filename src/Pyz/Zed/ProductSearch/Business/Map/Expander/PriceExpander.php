@@ -9,23 +9,25 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Generated\Shared\Transfer\PriceFilterTransfer;
+use Generated\Shared\Transfer\PriceProductTransfer;
+use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 class PriceExpander implements ProductPageMapExpanderInterface
 {
 
     /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
      */
-    protected $priceFacade;
+    protected $priceProductFacade;
 
     /**
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceFacade
      */
-    public function __construct(PriceFacadeInterface $priceFacade)
+    public function __construct(PriceProductFacadeInterface $priceFacade)
     {
-        $this->priceFacade = $priceFacade;
+        $this->priceProductFacade = $priceFacade;
     }
 
     /**
@@ -57,7 +59,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
      */
     protected function getPriceBySku($sku)
     {
-        return $this->priceFacade->getPriceBySku($sku);
+        return $this->priceProductFacade->getPriceBySku($sku);
     }
 
     /**
@@ -69,20 +71,42 @@ class PriceExpander implements ProductPageMapExpanderInterface
      */
     protected function setPricesByType(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData)
     {
-        $priceProductTransfers = $this->priceFacade->findPricesBySku($productData['abstract_sku']);
+        $priceProductTransfers = $this->priceProductFacade->findPricesBySku($productData['abstract_sku']);
 
         $prices = [];
         foreach ($priceProductTransfers as $priceProductTransfer) {
-            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
+            $moneyValueTransfer = $priceProductTransfer->getMoneyValue();
+            $currencyTransfer = $moneyValueTransfer->getCurrency();
+
+            $prices[$currencyTransfer->getCode()]['GROSS_MODE'][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getGrossAmount();
+            $prices[$currencyTransfer->getCode()]['NET_MODE'][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getNetAmount();
 
             $pageMapBuilder->addIntegerFacet(
                 $pageMapTransfer,
-                sprintf('price.%s', $priceProductTransfer->getPriceTypeName()),
-                $priceProductTransfer->getPrice()
+                $this->buildPriceIntegerFacetName($priceProductTransfer, $currencyTransfer->getCode(), 'GROSS_MODE'),
+                $moneyValueTransfer->getGrossAmount()
+            );
+
+            $pageMapBuilder->addIntegerFacet(
+                $pageMapTransfer,
+                $this->buildPriceIntegerFacetName($priceProductTransfer, $currencyTransfer->getCode(), 'NET_MODE'),
+                $moneyValueTransfer->getNetAmount()
             );
         }
 
         $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
+     * @param string $currencyCode
+     * @param string $priceMode
+     *
+     * @return string
+     */
+    protected function buildPriceIntegerFacetName(PriceProductTransfer $priceProductTransfer, $currencyCode, $priceMode)
+    {
+        return sprintf('price.%s.%s.%s', $priceProductTransfer->getPriceTypeName(), $currencyCode, $priceMode);
     }
 
 }

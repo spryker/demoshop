@@ -14,6 +14,7 @@ use Pyz\Yves\Product\Mapper\StorageProductCategoryMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
+use Spryker\Shared\Kernel\ContainerInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 /**
@@ -35,7 +36,10 @@ class ProductFactory extends AbstractFactory
      */
     public function createStorageProductMapper()
     {
-        return new StorageProductMapper($this->createAttributeVariantMapper());
+        return new StorageProductMapper(
+            $this->createAttributeVariantMapper(),
+            $this->getPriceProductClient()
+        );
     }
 
     /**
@@ -92,6 +96,14 @@ class ProductFactory extends AbstractFactory
     public function getProductGroupClient()
     {
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_GROUP);
+    }
+
+    /**
+     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
+     */
+    protected function getPriceProductClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRICE_PRODUCT);
     }
 
     /**

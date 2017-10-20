@@ -36,6 +36,10 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
     const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
 
+    const CLIENT_CURRENCY = 'CLIENT_CURRENCY';
+    const CLIENT_PRICE = 'CLIENT_PRICE';
+    const CLIENT_PRICE_PRODUCT = 'CLIENT_PRICE_PRODUCT';
+
     /**
      * @param \Spryker\Client\Kernel\Container $container
      *
@@ -47,6 +51,51 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
         $container = $this->provideFeatureProductsResultFormatterPlugins($container);
         $container = $this->provideFeatureProductsQueryExpanderPlugins($container);
+        $container = $this->addCurrencyClient($container);
+        $container = $this->addPriceClient($container);
+        $container = $this->addPriceProductClient($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function addPriceClient(Container $container)
+    {
+        $container[static::CLIENT_PRICE] = function (Container $container) {
+            return $container->getLocator()->price()->client();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function addCurrencyClient(Container $container)
+    {
+        $container[static::CLIENT_CURRENCY] = function (Container $container) {
+            return $container->getLocator()->currency()->client();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function addPriceProductClient(Container $container)
+    {
+        $container[static::CLIENT_PRICE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->priceProduct()->client();
+        };
 
         return $container;
     }

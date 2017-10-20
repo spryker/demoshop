@@ -1,8 +1,8 @@
 <?php
 
-namespace Orm\Zed\Price\Persistence;
+namespace Orm\Zed\PriceProduct\Persistence;
 
-use Spryker\Zed\Price\Persistence\Propel\AbstractSpyPriceTypeQuery as BaseSpyPriceTypeQuery;
+use Spryker\Zed\PriceProduct\Persistence\Propel\AbstractSpyPriceTypeQuery as BaseSpyPriceTypeQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_price_type' table.

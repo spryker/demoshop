@@ -17,6 +17,7 @@ use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
@@ -41,9 +42,9 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     const ATTRIBUTES = 'attributes';
 
     /**
-     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
      */
-    protected $priceFacade;
+    protected $priceProductFacade;
 
     /**
      * @var \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface
@@ -58,7 +59,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
-    private $productFacade;
+    protected $productFacade;
 
     /**
      * @var array
@@ -68,20 +69,20 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     /**
      * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface $productImageFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
         ProductFacadeInterface $productFacade,
-        PriceFacadeInterface $priceFacade,
+        PriceProductFacadeInterface $priceProductFacade,
         ProductImageQueryContainerInterface $productImageQueryContainer,
         ProductImageFacadeInterface $productImageFacade
     ) {
         parent::__construct($utilDataReaderService);
 
-        $this->priceFacade = $priceFacade;
+        $this->priceProductFacade = $priceProductFacade;
         $this->productImageQueryContainer = $productImageQueryContainer;
         $this->productFacade = $productFacade;
         $this->productImageFacade = $productImageFacade;
@@ -117,7 +118,6 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
                 $collectItemData[self::ID_PRODUCT_ABSTRACT],
                 $collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]
             ),
-            StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
             StorageProductTransfer::PRICES => $this->getPrices($collectItemData[self::SKU]),
             StorageProductTransfer::META_TITLE => $collectItemData[self::META_TITLE],
             StorageProductTransfer::META_KEYWORDS => $collectItemData[self::META_KEYWORDS],
@@ -179,15 +179,6 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
         return $result;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceFacade->getPriceBySku($sku);
-    }
 
     /**
      * @param string $sku
@@ -196,14 +187,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
      */
     protected function getPrices($sku)
     {
-        $priceProductTransfers = $this->priceFacade->findPricesBySku($sku);
-
-        $prices = [];
-        foreach ($priceProductTransfers as $priceProductTransfer) {
-            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
-        }
-
-        return $prices;
+        return $this->priceProductFacade->findPricesBySkuGrouped($sku);
     }
 
     /**

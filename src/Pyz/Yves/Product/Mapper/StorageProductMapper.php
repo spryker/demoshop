@@ -8,6 +8,9 @@
 namespace Pyz\Yves\Product\Mapper;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
+use Spryker\Client\PriceProduct\PriceProductClientInterface;
+use Spryker\Yves\Currency\Plugin\CurrencyPlugin;
+use Spryker\Yves\Currency\Plugin\CurrencyPluginInterface;
 
 class StorageProductMapper implements StorageProductMapperInterface
 {
@@ -18,11 +21,21 @@ class StorageProductMapper implements StorageProductMapperInterface
     protected $attributeVariantMapper;
 
     /**
-     * @param \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface $attributeVariantMapper
+     * @var \Spryker\Client\PriceProduct\PriceProductClientInterface
      */
-    public function __construct(AttributeVariantMapperInterface $attributeVariantMapper)
+    protected $priceProductClient;
+
+    /**
+     * @param \Pyz\Yves\Product\Mapper\AttributeVariantMapperInterface $attributeVariantMapper
+     * @param \Spryker\Client\PriceProduct\PriceProductClientInterface $priceProductClient
+     */
+    public function __construct(
+        AttributeVariantMapperInterface $attributeVariantMapper,
+        PriceProductClientInterface $priceProductClient
+    )
     {
         $this->attributeVariantMapper = $attributeVariantMapper;
+        $this->priceProductClient = $priceProductClient;
     }
 
     /**
@@ -44,6 +57,13 @@ class StorageProductMapper implements StorageProductMapperInterface
             );
         }
 
+        $currentProductPriceTransfer = $this->priceProductClient->resolveProductPrice(
+            $storageProductTransfer->getPrices()
+        );
+
+        $storageProductTransfer->setPrices($currentProductPriceTransfer->getPrices());
+        $storageProductTransfer->setPrice($currentProductPriceTransfer->getPrice());
+
         return $storageProductTransfer;
     }
 
@@ -59,5 +79,4 @@ class StorageProductMapper implements StorageProductMapperInterface
 
         return $storageProductTransfer;
     }
-
 }

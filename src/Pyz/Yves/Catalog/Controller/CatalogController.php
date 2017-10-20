@@ -9,6 +9,7 @@ namespace Pyz\Yves\Catalog\Controller;
 
 use Generated\Shared\Search\PageIndexMap;
 use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Client\PriceProduct\PriceProductClient;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -37,6 +38,15 @@ class CatalogController extends AbstractController
         $searchResults = $this
             ->getClient()
             ->catalogSearch($searchString, $parameters);
+
+        $priceProductClient = new PriceProductClient();
+        foreach ($searchResults['products'] as &$product) {
+            $currentProductPriceTransfer = $priceProductClient->resolveProductPrice($product['prices']);
+
+            $product['price'] = $currentProductPriceTransfer->getPrice();
+            $product['prices'] = $currentProductPriceTransfer->getPrices();
+        }
+
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
         $metaAttributes = [
