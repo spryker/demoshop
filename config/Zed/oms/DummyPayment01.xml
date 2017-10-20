@@ -61,7 +61,7 @@
 
             <transition happy="true">
                 <source>gift card shipped</source>
-                <target>delivered</target>
+                <target>exported</target>
                 <event>complete gift card creation</event>
             </transition>
 

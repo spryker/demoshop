@@ -22,7 +22,6 @@ use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Spryker\Yves\Checkout\Form\Provider\FilterableSubFormProvider;
-use Spryker\Yves\Checkout\Form\Provider\SubFormDataProviders;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Form\FormCollectionHandler;
@@ -105,24 +104,6 @@ class FormFactory extends SprykerFormFactory
             $this->getFormFactory(),
             $this->createSubFormDataProvider($subFormProvider)
         );
-    }
-
-    /**
-     * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
-     */
-    public function createPaymentFormCollection()
-    {
-        $createPaymentSubForms = $this->createPaymentMethodSubForms();
-        $paymentFormType = $this->createPaymentForm($createPaymentSubForms);
-        $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
-
-        return $this->createSubFormCollection($paymentFormType, $subFormDataProvider);
-    }
-
-    protected function createSubFormDataProvider($subForms)
-    {
-        return new \Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders($subForms);
-//        return new SubFormDataProviders($subForms);
     }
 
     /**
