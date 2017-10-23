@@ -2,7 +2,7 @@ namespace: PyzTest
 actor: Tester
 
 include:
-  - tests/PyzTest/*/*
+    - tests/PyzTest/*/*
 
 paths:
     tests: tests

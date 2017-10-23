@@ -17,6 +17,7 @@ CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
+PG_VERSION=$(psql --version | awk '{print $3}' | cut -f1,2 -d'.')
 
 if [[ `echo "$@" | grep '\-v'` ]]; then
     VERBOSITY='-v'
@@ -104,7 +105,7 @@ function dropAndRestoreDatabase {
         mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "CREATE DATABASE ${DATABASE_NAME};"
         mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${DATABASE_NAME} < ${DATABASE_BACKUP_PATH}
     else
-        sudo pg_ctlcluster 9.4 main restart --force
+        sudo pg_ctlcluster $PG_VERSION main restart --force
         sudo dropdb $DATABASE_NAME
         sudo createdb $DATABASE_NAME
         pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
@@ -256,7 +257,7 @@ function dropDevelopmentDatabase {
             if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
                 labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
                 labelText "Drop PostgresSQL database: ${DATABASE_NAME}"
-                sudo pg_ctlcluster 9.4 main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
+                sudo pg_ctlcluster $PG_VERSION main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
                 writeErrorMessage "Deleting DB command failed"
             fi
         fi

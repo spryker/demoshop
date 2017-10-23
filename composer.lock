@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.29",
+            "version": "3.36.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "210958295921f0004d0fdc38bc9aefe33ef2a3de"
+                "reference": "e3135c1f6bc797ca0e0fbba7b2a27faae4e09d5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/210958295921f0004d0fdc38bc9aefe33ef2a3de",
-                "reference": "210958295921f0004d0fdc38bc9aefe33ef2a3de",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e3135c1f6bc797ca0e0fbba7b2a27faae4e09d5e",
+                "reference": "e3135c1f6bc797ca0e0fbba7b2a27faae4e09d5e",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-10-18T18:46:11+00:00"
+            "time": "2017-10-20T16:43:56+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -3935,11 +3935,11 @@
         },
         {
             "name": "spryker/cms-gui",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsGui.git",
-                "reference": "a827232aca4f9c1da1bd5090174f76d2b59e5d32",
+                "reference": "18f9ddf5a2ce5e02c8edae5670a02b2f93b9be53",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3949,8 +3949,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/a827232aca4f9c1da1bd5090174f76d2b59e5d32",
-                "reference": "a827232aca4f9c1da1bd5090174f76d2b59e5d32",
+                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/18f9ddf5a2ce5e02c8edae5670a02b2f93b9be53",
+                "reference": "18f9ddf5a2ce5e02c8edae5670a02b2f93b9be53",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3986,13 +3986,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -4003,7 +4003,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsGui/tree/master"
             },
-            "time": "2017-09-21T14:16:26+00:00"
+            "time": "2017-10-20T06:49:56+00:00"
         },
         {
             "name": "spryker/cms-user-connector",
@@ -10146,11 +10146,11 @@
         },
         {
             "name": "spryker/product-set-gui",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductSetGui.git",
-                "reference": "f941cb541822445e7e5c8e562481eb515ef5c3e6",
+                "reference": "4ee0d4d932bc70fe2a6243dda9c1dbe86af5ccd1",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10160,8 +10160,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductSetGui/zipball/f941cb541822445e7e5c8e562481eb515ef5c3e6",
-                "reference": "f941cb541822445e7e5c8e562481eb515ef5c3e6",
+                "url": "https://api.github.com/repos/spryker/ProductSetGui/zipball/4ee0d4d932bc70fe2a6243dda9c1dbe86af5ccd1",
+                "reference": "4ee0d4d932bc70fe2a6243dda9c1dbe86af5ccd1",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10198,13 +10198,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Spryker\\": "src/Spryker/",
-                    "SprykerTest\\Zed\\ProductSet\\": "tests/SprykerTest/Zed/ProductSet/_support/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -10215,7 +10209,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductSetGui/tree/master"
             },
-            "time": "2017-09-15T10:44:55+00:00"
+            "time": "2017-10-20T06:49:56+00:00"
         },
         {
             "name": "spryker/propel",
@@ -11490,11 +11484,11 @@
         },
         {
             "name": "spryker/state-machine",
-            "version": "2.0.3",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/StateMachine.git",
-                "reference": "33b20185c139d3f17f352f3d6bb724e0fc8fa1c5",
+                "reference": "44b72ccf120667675617811eee96abaf3c57db6c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11504,8 +11498,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/33b20185c139d3f17f352f3d6bb724e0fc8fa1c5",
-                "reference": "33b20185c139d3f17f352f3d6bb724e0fc8fa1c5",
+                "url": "https://api.github.com/repos/spryker/StateMachine/zipball/44b72ccf120667675617811eee96abaf3c57db6c",
+                "reference": "44b72ccf120667675617811eee96abaf3c57db6c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11535,14 +11529,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -11553,7 +11546,7 @@
             "support": {
                 "source": "https://github.com/spryker/StateMachine/tree/master"
             },
-            "time": "2017-08-01T04:28:04+00:00"
+            "time": "2017-10-19T13:57:42+00:00"
         },
         {
             "name": "spryker/step-engine",
@@ -12432,11 +12425,11 @@
         },
         {
             "name": "spryker/url",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Url.git",
-                "reference": "080e0be3dbe94ef49cbadcc08ddc60a092e7641e",
+                "reference": "80e3e21bb8cc49a942c68be71281eda8e389745c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12446,8 +12439,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Url/zipball/080e0be3dbe94ef49cbadcc08ddc60a092e7641e",
-                "reference": "080e0be3dbe94ef49cbadcc08ddc60a092e7641e",
+                "url": "https://api.github.com/repos/spryker/Url/zipball/80e3e21bb8cc49a942c68be71281eda8e389745c",
+                "reference": "80e3e21bb8cc49a942c68be71281eda8e389745c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12494,7 +12487,7 @@
             "support": {
                 "source": "https://github.com/spryker/Url/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-20T06:49:56+00:00"
         },
         {
             "name": "spryker/user",
@@ -15764,37 +15757,40 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "doctrine/collections": "1.*",
-                "phpunit/phpunit": "~4.1"
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.6",
+                "phpunit/phpunit": "^4.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "DeepCopy\\": "src/DeepCopy/"
-                }
+                },
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Create deep copies (clones) of your objects",
-            "homepage": "https://github.com/myclabs/DeepCopy",
             "keywords": [
                 "clone",
                 "copy",
@@ -15802,7 +15798,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12T18:52:22+00:00"
+            "time": "2017-10-19T19:58:43+00:00"
         },
         {
             "name": "nette/bootstrap",
