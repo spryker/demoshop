@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
+=======
+    "content-hash": "afa22bc45d1b0b5705a7296c7ad1ff22",
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1817,11 +1821,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2141-testify-has-wrong-dependencies",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "d99b9d86ed675c51089f2501bc8e86a8444b35f3"
+=======
+<<<<<<< HEAD
+                "reference": "35fe048d44d4eab5ff3a1a60fd03d5cb671bd569"
+=======
+                "reference": "6a298bce831118428107bd5eebea20b3eedf1f16"
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2021,7 +2033,15 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-10-23T13:07:57+00:00"
+=======
+            "time": "2017-10-23T12:46:32+00:00"
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6771,7 +6791,11 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
+<<<<<<< HEAD
                 "reference": "2621122211a37dfa1500f12d10a4850a70297859",
+=======
+                "reference": "26fa644db6de6bc03b20a3f016c92b43fad99f1d",
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6781,8 +6805,13 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2621122211a37dfa1500f12d10a4850a70297859",
                 "reference": "2621122211a37dfa1500f12d10a4850a70297859",
+=======
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/26fa644db6de6bc03b20a3f016c92b43fad99f1d",
+                "reference": "26fa644db6de6bc03b20a3f016c92b43fad99f1d",
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6843,7 +6872,11 @@
                 "source": "https://github.com/spryker/architecture-sniffer",
                 "issues": "https://github.com/spryker/architecture-sniffer/issues"
             },
+<<<<<<< HEAD
             "time": "2017-11-07T13:29:11+00:00"
+=======
+            "time": "2017-10-23T10:19:40+00:00"
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
         },
         {
             "name": "spryker/code-generator",
@@ -6957,7 +6990,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
+<<<<<<< HEAD
                 "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
+=======
+                "reference": "9c7eb1c033e8af93ce4e401cc709851c2504da7a"
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
             },
             "require": {
                 "php": ">=5.4.16",
@@ -7005,7 +7042,11 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
+<<<<<<< HEAD
             "time": "2017-11-13T13:27:04+00:00"
+=======
+            "time": "2017-10-23T08:10:50+00:00"
+>>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
         },
         {
             "name": "squizlabs/php_codesniffer",
