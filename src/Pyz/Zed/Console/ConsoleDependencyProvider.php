@@ -108,7 +108,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
     public function getConsoleCommands(Container $container)
     {
         $commands = [
-
+            new CacheWarmerConsole(),
             new BuildNavigationConsole(),
             new CollectorStorageExportConsole(),
             new CollectorSearchExportConsole(),
@@ -237,7 +237,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new GenerateServiceIdeAutoCompletionConsole();
             $commands[] = new GenerateYvesIdeAutoCompletionConsole();
             $commands[] = new GenerateIdeAutoCompletionConsole();
-            $commands[] = new CacheWarmerConsole();
             $commands[] = new DataBuilderGeneratorConsole();
             $commands[] = new CompletionCommand();
             $commands[] = new DataBuilderGeneratorConsole();
