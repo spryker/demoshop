@@ -15,7 +15,7 @@
 
             <li>
                 {{ cart.shipment.method.name }}
-                <span class="float-right">{{ cart.shipment.method.defaultPrice | money }}</span>
+                <span class="float-right">{{ cart.shipment.method.storeCurrencyPrice | money }}</span>
             </li>
 
             <li><hr/></li>
