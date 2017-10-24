@@ -1665,7 +1665,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f5f6b1f779d2d7eb6a331619e3ad0f7a9c9c7767"
+                "reference": "0fa6fb05e6226502e7841e3376aa4bbc12464227"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1863,7 +1863,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-24T12:21:44+00:00"
+            "time": "2017-10-24T13:33:21+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6662,7 +6662,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "26fa644db6de6bc03b20a3f016c92b43fad99f1d",
+                "reference": "cc37b39d1eab60562b89412a0690031470824e89",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6672,8 +6672,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/26fa644db6de6bc03b20a3f016c92b43fad99f1d",
-                "reference": "26fa644db6de6bc03b20a3f016c92b43fad99f1d",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/cc37b39d1eab60562b89412a0690031470824e89",
+                "reference": "cc37b39d1eab60562b89412a0690031470824e89",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6734,7 +6734,7 @@
                 "source": "https://github.com/spryker/architecture-sniffer",
                 "issues": "https://github.com/spryker/architecture-sniffer/issues"
             },
-            "time": "2017-10-23T10:19:40+00:00"
+            "time": "2017-10-24T14:34:27+00:00"
         },
         {
             "name": "spryker/code-generator",
