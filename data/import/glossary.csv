@@ -915,8 +915,6 @@ countries.iso.AT,Österreich,de_DE
 countries.iso.AT,Austria,en_US
 cart.item.option.description,Product options:,en_US
 cart.item.option.description,Produktoptionen:,de_DE
-cart.item.option.pre.check.validation.error.exists,"Product option with '%id%' does not exist.",en_US
-cart.item.option.pre.check.validation.error.exists,"Die Produktoption ‘%id%’ existiert nicht.",de_DE
 cart.item.sku,SKU,en_US
 cart.item.sku,SKU,de_DE
 checkout.summary.item.option.description,Product options:,en_US
@@ -1023,3 +1021,5 @@ product-cart.validation.error.abstract-product-exists,"Product not found",en_US
 product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
 product-cart.validation.error.concrete-product-exists,"Product not found",en_US
 product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
+cart.item.option.pre.check.validation.error.exists,"Product option with value '%id%' does not exist.",en_US
+cart.item.option.pre.check.validation.error.exists,"Die Produktoption ‘%id%’ existiert nicht.",de_DE
