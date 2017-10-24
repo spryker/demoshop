@@ -5,6 +5,8 @@ use Spryker\Shared\Config\Application\Environment;
 
 use Spryker\Shared\ErrorHandler\ErrorHandlerEnvironment;
 
+include_once __DIR__ . '/maintenance.php';
+
 define('APPLICATION', 'YVES');
 defined('APPLICATION_ROOT_DIR') || define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../..'));
 

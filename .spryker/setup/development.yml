@@ -1,6 +1,11 @@
 env:
   APPLICATION_ENV: development
 
+stores:
+  - DE
+  - AT
+  - US
+
 sections:
   composer:
     install-composer:
@@ -45,6 +50,7 @@ sections:
   queue-flush:
     purge-all-queues:
       command: "vendor/bin/console queue:queue:purge-all"
+      store: true
 
     delete-all-queues:
       command: "vendor/bin/console queue:queue:delete-all"
@@ -106,7 +112,7 @@ sections:
       groups:
         - propel
 
-    maintainance-page-enable:
+    maintenance-page-enable:
       command: "vendor/bin/console maintenance:enable"
       condition:
         command: "propel-migration-check"
@@ -117,7 +123,7 @@ sections:
       groups:
         - propel
 
-    maintainance-page-diable:
+    maintenance-page-disable:
       command: "vendor/bin/console maintenance:disable"
 
     init-database:
