@@ -6,8 +6,11 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -15,14 +18,20 @@
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "bee9ce99543a7ee88dbaa0292004c998",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -44,6 +53,11 @@
 =======
     "content-hash": "f76691ad469b03718f0018191dffe269",
 >>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+    "content-hash": "52b4cc9df42e87b29e89130642996a7d",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -472,16 +486,16 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "dev-master",
+            "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "1e898a8a8fc088683f151f8d74738861d7272089"
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1e898a8a8fc088683f151f8d74738861d7272089",
-                "reference": "1e898a8a8fc088683f151f8d74738861d7272089",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
                 "shasum": ""
             },
             "require": {
@@ -518,7 +532,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-10-16T16:09:09+00:00"
+            "time": "2017-08-15T16:48:10+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -587,23 +601,23 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "dev-master",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6"
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/e9cdab6ff93ff789b5b599326c727f51d10893a6",
-                "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.36"
+                "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "extra": {
@@ -634,20 +648,20 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2017-10-06T12:25:00+00:00"
+            "time": "2016-12-20T10:07:11+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "dev-master",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/d2537c86fa8b004c29e9b9f5e10028f0a29df101",
-                "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -699,20 +713,20 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-10-07T03:19:56+00:00"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
-            "version": "1.0.x-dev",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "9b99377557a33a4129c9194e60a97a685fab21e0"
+                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/9b99377557a33a4129c9194e60a97a685fab21e0",
-                "reference": "9b99377557a33a4129c9194e60a97a685fab21e0",
+                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
+                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
                 "shasum": ""
             },
             "require-dev": {
@@ -741,11 +755,11 @@
                 "hashing",
                 "password"
             ],
-            "time": "2014-11-20T19:18:42+00:00"
+            "time": "2014-11-20T16:49:30+00:00"
         },
         {
             "name": "league/csv",
-            "version": "8.x-dev",
+            "version": "8.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
@@ -802,16 +816,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "dev-master",
+            "version": "1.0.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "6a355779c5c156408cc70a8d8b263ff688205016"
+                "reference": "f400aa98912c561ba625ea4065031b7a41e5a155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/6a355779c5c156408cc70a8d8b263ff688205016",
-                "reference": "6a355779c5c156408cc70a8d8b263ff688205016",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f400aa98912c561ba625ea4065031b7a41e5a155",
+                "reference": "f400aa98912c561ba625ea4065031b7a41e5a155",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +838,7 @@
                 "ext-fileinfo": "*",
                 "mockery/mockery": "~0.9",
                 "phpspec/phpspec": "^2.2",
-                "phpunit/phpunit": "^4.8.35"
+                "phpunit/phpunit": "~4.8"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -881,7 +895,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-10-09T16:11:23+00:00"
+            "time": "2017-08-06T17:41:04+00:00"
         },
         {
             "name": "mandrill/mandrill",
@@ -929,9 +943,13 @@
         {
             "name": "moneyphp/money",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.0.9",
 =======
             "version": "dev-master",
+>>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.0.8",
 >>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
@@ -1010,7 +1028,7 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.x-dev",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
@@ -1182,16 +1200,16 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "dev-master",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "0f90b3d8bc50403458f0eefbcba7d1e2329dd0f6"
+                "reference": "f48748546e398d846134c594dfca9070c4c3b356"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/0f90b3d8bc50403458f0eefbcba7d1e2329dd0f6",
-                "reference": "0f90b3d8bc50403458f0eefbcba7d1e2329dd0f6",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/f48748546e398d846134c594dfca9070c4c3b356",
+                "reference": "f48748546e398d846134c594dfca9070c4c3b356",
                 "shasum": ""
             },
             "require": {
@@ -1248,7 +1266,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2017-09-26T05:30:15+00:00"
+            "time": "2017-08-03T22:06:21+00:00"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -1293,16 +1311,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "1.1.x-dev",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "cae373ff3d87f8763fe78557312ec7f47f5c745c"
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/cae373ff3d87f8763fe78557312ec7f47f5c745c",
-                "reference": "cae373ff3d87f8763fe78557312ec7f47f5c745c",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
                 "shasum": ""
             },
             "require": {
@@ -1335,20 +1353,20 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2016-09-10T19:35:52+00:00"
+            "time": "2013-11-22T08:30:29+00:00"
         },
         {
             "name": "predis/predis",
-            "version": "v1.1.x-dev",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "111d100ee389d624036b46b35ed0c9ac59c71313"
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/111d100ee389d624036b46b35ed0c9ac59c71313",
-                "reference": "111d100ee389d624036b46b35ed0c9ac59c71313",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
                 "shasum": ""
             },
             "require": {
@@ -1385,7 +1403,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2017-07-12T14:39:17+00:00"
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "propel/propel",
@@ -1454,16 +1472,16 @@
         },
         {
             "name": "psr/container",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
                 "shasum": ""
             },
             "require": {
@@ -1499,11 +1517,11 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-06-28T15:35:32+00:00"
+            "time": "2017-02-14T16:28:37+00:00"
         },
         {
             "name": "psr/http-message",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
@@ -1553,7 +1571,7 @@
         },
         {
             "name": "psr/log",
-            "version": "dev-master",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
@@ -1657,7 +1675,7 @@
         },
         {
             "name": "silex/silex",
-            "version": "1.3.x-dev",
+            "version": "v1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
@@ -1782,7 +1800,6 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-<<<<<<< HEAD
                 "url": "https://github.com/spryker/rabbit-mq.git",
                 "reference": "026c0ff1963e53c385af559d703a582044b283ec",
                 "mirrors": [
@@ -1820,16 +1837,6 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-=======
-                "url": "git@github.com:spryker/rabbit-mq.git",
-                "reference": "8315b6d650378462f0310730f3940776487e04df"
-            },
-            "require": {
-                "php": ">=5.4.16",
-                "php-amqplib/php-amqplib": "^2.6"
-            },
-            "type": "library",
->>>>>>> core-2001 update spryker/spryker
             "autoload": {
                 "psr-4": {
                     "Spryker\\": "src/Spryker/"
@@ -1903,8 +1910,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -1916,9 +1926,13 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "519a38e62498ab5fce5c16551d683ad8ef4ed67e"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -1930,6 +1944,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "62e321fb41f78f7a67ba841f11492bf53b2fdf9d"
 =======
@@ -1937,9 +1953,13 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "41fad0e10c2c8020ef691fc88ffd2523fcd27060"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -2415,6 +2435,11 @@
                 "reference": "f38d0fc52bb8d7f8506b20f4e3c27aa7ba9b6df8"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "0c2c15e46657263ac9def2d298de5e68afcb8dae"
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -2627,8 +2652,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -2640,9 +2668,13 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -2654,9 +2686,13 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -2668,9 +2704,13 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-09T13:30:16+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -2682,6 +2722,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-02T17:32:29+00:00"
 =======
@@ -2689,9 +2731,13 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-02T08:02:23+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -3167,6 +3213,11 @@
             "time": "2017-10-17T08:58:14+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-10-24T10:32:06+00:00"
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -3180,16 +3231,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "5.x-dev",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "93df08e2dadf7ae27fef6eb7dd4ad4cdbd1e6b5f"
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/93df08e2dadf7ae27fef6eb7dd4ad4cdbd1e6b5f",
-                "reference": "93df08e2dadf7ae27fef6eb7dd4ad4cdbd1e6b5f",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9a06dc570a0367850280eefd3f1dc2da45aef517",
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
                 "shasum": ""
             },
             "require": {
@@ -3224,17 +3275,17 @@
                 }
             ],
             "description": "Swiftmailer, free feature-rich PHP mailer",
-            "homepage": "http://swiftmailer.symfony.com",
+            "homepage": "http://swiftmailer.org",
             "keywords": [
                 "email",
                 "mail",
                 "mailer"
             ],
-            "time": "2017-08-29T20:43:58+00:00"
+            "time": "2017-05-01T15:54:03+00:00"
         },
         {
             "name": "symfony-cmf/routing",
-            "version": "1.4.x-dev",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony-cmf/routing.git",
@@ -3294,9 +3345,13 @@
         {
             "name": "symfony/config",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.2.14",
 =======
             "version": "3.2.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.2.13",
 >>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3354,9 +3409,13 @@
         {
             "name": "symfony/console",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.2.14",
 =======
             "version": "3.2.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.2.13",
 >>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3421,8 +3480,11 @@
         {
             "name": "symfony/debug",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 >>>>>>> core-2001 update spryker/spryker
@@ -3437,15 +3499,23 @@
                 "reference": "a0a29e9867debabdace779a20a9385c623a23bbd",
 =======
             "version": "2.8.x-dev",
+=======
+            "version": "v2.8.28",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "d2954795088f2152eb2ea1abe74dcf1779cd487c"
+                "reference": "eaaec993ca5e8067e204b2ee653cdd142961f33e"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/debug/zipball/d2954795088f2152eb2ea1abe74dcf1779cd487c",
                 "reference": "d2954795088f2152eb2ea1abe74dcf1779cd487c",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/debug/zipball/eaaec993ca5e8067e204b2ee653cdd142961f33e",
+                "reference": "eaaec993ca5e8067e204b2ee653cdd142961f33e",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -3491,14 +3561,18 @@
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-24T13:48:52+00:00"
 =======
             "time": "2017-10-10T07:42:03+00:00"
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "3.0.x-dev",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -3559,12 +3633,20 @@
         {
             "name": "symfony/filesystem",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -3616,12 +3698,20 @@
         {
             "name": "symfony/finder",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -3673,8 +3763,11 @@
         {
             "name": "symfony/form",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 >>>>>>> core-2001 update spryker/spryker
@@ -3693,15 +3786,25 @@
                 "reference": "1be8d65b0ae9dfa63d1d5376bb36252619e28249",
 =======
             "version": "2.8.x-dev",
+=======
+            "version": "v2.8.28",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "e6dfd3496527c0a64807c93df3b7d23d53d3a577"
+                "reference": "4d876095289700f13274bc6d80f1c4e535397a46"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/form/zipball/e6dfd3496527c0a64807c93df3b7d23d53d3a577",
                 "reference": "e6dfd3496527c0a64807c93df3b7d23d53d3a577",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/form/zipball/4d876095289700f13274bc6d80f1c4e535397a46",
+                "reference": "4d876095289700f13274bc6d80f1c4e535397a46",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
@@ -3766,21 +3869,31 @@
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-16T15:20:19+00:00"
         },
         {
             "name": "symfony/http-foundation",
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-07T14:08:47+00:00"
 =======
             "time": "2017-10-10T07:42:03+00:00"
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/http-foundation",
+<<<<<<< HEAD
             "version": "3.0.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.0.9",
 >>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3836,16 +3949,16 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "3.0.x-dev",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "03ac7bbc8fccbf002e0bea88dbe09262b29dc2a9"
+                "reference": "d97ba4425e36e79c794e7d14ff36f00f081b37b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/03ac7bbc8fccbf002e0bea88dbe09262b29dc2a9",
-                "reference": "03ac7bbc8fccbf002e0bea88dbe09262b29dc2a9",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/d97ba4425e36e79c794e7d14ff36f00f081b37b3",
+                "reference": "d97ba4425e36e79c794e7d14ff36f00f081b37b3",
                 "shasum": ""
             },
             "require": {
@@ -3914,17 +4027,25 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30T09:29:03+00:00"
+            "time": "2016-07-30T09:10:37+00:00"
         },
         {
             "name": "symfony/intl",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -4003,12 +4124,20 @@
         {
             "name": "symfony/options-resolver",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -4064,11 +4193,7 @@
         },
         {
             "name": "symfony/polyfill-intl-icu",
-<<<<<<< HEAD
             "version": "v1.6.0",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-icu.git",
@@ -4126,11 +4251,7 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-<<<<<<< HEAD
             "version": "v1.6.0",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -4189,11 +4310,7 @@
         },
         {
             "name": "symfony/polyfill-php54",
-<<<<<<< HEAD
             "version": "v1.6.0",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php54.git",
@@ -4251,11 +4368,7 @@
         },
         {
             "name": "symfony/polyfill-php55",
-<<<<<<< HEAD
             "version": "v1.6.0",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php55.git",
@@ -4311,11 +4424,7 @@
         },
         {
             "name": "symfony/polyfill-php56",
-<<<<<<< HEAD
             "version": "v1.6.0",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php56.git",
@@ -4371,11 +4480,7 @@
         },
         {
             "name": "symfony/polyfill-php70",
-<<<<<<< HEAD
             "version": "v1.6.0",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php70.git",
@@ -4434,11 +4539,7 @@
         },
         {
             "name": "symfony/polyfill-util",
-<<<<<<< HEAD
             "version": "v1.6.0",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-util.git",
@@ -4491,12 +4592,20 @@
         {
             "name": "symfony/process",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -4548,12 +4657,20 @@
         {
             "name": "symfony/property-access",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -4616,8 +4733,11 @@
         {
             "name": "symfony/routing",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 >>>>>>> core-2001 update spryker/spryker
@@ -4632,15 +4752,23 @@
                 "reference": "67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
 =======
             "version": "2.8.x-dev",
+=======
+            "version": "v2.8.28",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "f140c7000539d55a2181e83c3dfe3c68d3c01131"
+                "reference": "74808bc927c173935edc31e331d742698b055d0a"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/routing/zipball/f140c7000539d55a2181e83c3dfe3c68d3c01131",
                 "reference": "f140c7000539d55a2181e83c3dfe3c68d3c01131",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/routing/zipball/74808bc927c173935edc31e331d742698b055d0a",
+                "reference": "74808bc927c173935edc31e331d742698b055d0a",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -4704,6 +4832,7 @@
                 "url"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-07T14:08:47+00:00"
         },
         {
@@ -4724,19 +4853,29 @@
                 "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d",
 =======
             "time": "2017-10-10T07:42:03+00:00"
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/security",
-            "version": "2.8.x-dev",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "84776a61269891b539872623886bdd6b28f99b37"
+                "reference": "824b292fc929a126897d4d59306fc1a39b0769f3"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/security/zipball/84776a61269891b539872623886bdd6b28f99b37",
                 "reference": "84776a61269891b539872623886bdd6b28f99b37",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/security/zipball/824b292fc929a126897d4d59306fc1a39b0769f3",
+                "reference": "824b292fc929a126897d4d59306fc1a39b0769f3",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
@@ -4809,38 +4948,46 @@
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-16T16:08:43+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-07T14:08:47+00:00"
 =======
             "time": "2017-10-10T07:42:03+00:00"
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/security-acl",
-            "version": "dev-master",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-acl.git",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff"
+                "reference": "053b49bf4aa333a392c83296855989bcf88ddad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff",
+                "url": "https://api.github.com/repos/symfony/security-acl/zipball/053b49bf4aa333a392c83296855989bcf88ddad1",
+                "reference": "053b49bf4aa333a392c83296855989bcf88ddad1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.9",
-                "symfony/security-core": "~2.8|~3.0|~4.0"
+                "symfony/security-core": "~2.8|~3.0"
             },
             "require-dev": {
                 "doctrine/common": "~2.2",
                 "doctrine/dbal": "~2.2",
                 "psr/log": "~1.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0|~4.0"
+                "symfony/phpunit-bridge": "~2.8|~3.0"
             },
             "suggest": {
                 "doctrine/dbal": "For using the built-in ACL implementation",
@@ -4877,17 +5024,25 @@
             ],
             "description": "Symfony Security Component - ACL (Access Control List)",
             "homepage": "https://symfony.com",
-            "time": "2017-07-21T06:01:18+00:00"
+            "time": "2015-12-28T09:39:46+00:00"
         },
         {
             "name": "symfony/serializer",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -4954,8 +5109,11 @@
         {
             "name": "symfony/translation",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 >>>>>>> core-2001 update spryker/spryker
@@ -4970,15 +5128,23 @@
                 "reference": "0c63d56516c4c4c323228ca6348eadb7c91b1daf",
 =======
             "version": "2.8.x-dev",
+=======
+            "version": "v2.8.28",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "a69be9fa6fbc305d501bdf62ded33a8503de7b88"
+                "reference": "1248f84f702c4490adb526856e9356e52aa991be"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/translation/zipball/a69be9fa6fbc305d501bdf62ded33a8503de7b88",
                 "reference": "a69be9fa6fbc305d501bdf62ded33a8503de7b88",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/translation/zipball/1248f84f702c4490adb526856e9356e52aa991be",
+                "reference": "1248f84f702c4490adb526856e9356e52aa991be",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -5031,6 +5197,7 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-07T14:08:47+00:00"
         },
         {
@@ -5047,19 +5214,27 @@
                 "reference": "65dd18c34c5eef8bb159106aef10c1028fc1f95f",
 =======
             "time": "2017-10-13T13:30:20+00:00"
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "2.8.x-dev",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "125e5ea74522761e9ec1407c721a92f728ece2f3"
+                "reference": "624cfc984d47ac5d3a940ba53bd14c4550c8a9e4"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/125e5ea74522761e9ec1407c721a92f728ece2f3",
                 "reference": "125e5ea74522761e9ec1407c721a92f728ece2f3",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/624cfc984d47ac5d3a940ba53bd14c4550c8a9e4",
+                "reference": "624cfc984d47ac5d3a940ba53bd14c4550c8a9e4",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -5076,7 +5251,6 @@
                 "symfony/expression-language": "~2.4|~3.0.0",
                 "symfony/finder": "~2.3|~3.0.0",
                 "symfony/form": "^2.8.23",
-                "symfony/http-foundation": "^2.8.29|~3.0.0",
                 "symfony/http-kernel": "~2.8|~3.0.0",
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/routing": "~2.2|~3.0.0",
@@ -5133,6 +5307,7 @@
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-07T11:56:23+00:00"
         },
         {
@@ -5149,19 +5324,27 @@
                 "reference": "2c5ae6fa983b65c58cb7c4481cd54871a3bfd10a",
 =======
             "time": "2017-10-10T07:42:03+00:00"
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/validator",
-            "version": "2.8.x-dev",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "a3c0a454fdf0ddf2036726d558519b5986039ad3"
+                "reference": "1531ddfd96efd1b2c231cbf45f22e652a8f67925"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/validator/zipball/a3c0a454fdf0ddf2036726d558519b5986039ad3",
                 "reference": "a3c0a454fdf0ddf2036726d558519b5986039ad3",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/validator/zipball/1531ddfd96efd1b2c231cbf45f22e652a8f67925",
+                "reference": "1531ddfd96efd1b2c231cbf45f22e652a8f67925",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -5223,6 +5406,7 @@
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-10T18:59:36+00:00"
         },
         {
@@ -5237,6 +5421,15 @@
         {
             "name": "symfony/yaml",
             "version": "2.8.x-dev",
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             "source": {
@@ -5287,16 +5480,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "1.x-dev",
+            "version": "v1.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e7944a1f67499a230463f463d7cecc3336b87ea1"
+                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e7944a1f67499a230463f463d7cecc3336b87ea1",
-                "reference": "e7944a1f67499a230463f463d7cecc3336b87ea1",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/daa657073e55b0a78cce8fdd22682fddecc6385f",
+                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f",
                 "shasum": ""
             },
             "require": {
@@ -5348,20 +5541,20 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-09-27T18:07:18+00:00"
+            "time": "2017-09-27T18:06:46+00:00"
         },
         {
             "name": "zendframework/zend-config",
-            "version": "dev-develop",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-config.git",
-                "reference": "724e8c71b5c206d965ebd5d82604ae77a3157be9"
+                "reference": "a12e4a592bf66d9629b84960e268f3752e53abe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-config/zipball/724e8c71b5c206d965ebd5d82604ae77a3157be9",
-                "reference": "724e8c71b5c206d965ebd5d82604ae77a3157be9",
+                "url": "https://api.github.com/repos/zendframework/zend-config/zipball/a12e4a592bf66d9629b84960e268f3752e53abe4",
+                "reference": "a12e4a592bf66d9629b84960e268f3752e53abe4",
                 "shasum": ""
             },
             "require": {
@@ -5408,20 +5601,20 @@
                 "config",
                 "zf2"
             ],
-            "time": "2017-02-22T14:32:30+00:00"
+            "time": "2017-02-22T14:31:10+00:00"
         },
         {
             "name": "zendframework/zend-filter",
-            "version": "dev-develop",
+            "version": "2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-filter.git",
-                "reference": "5820559b511f2a520c553a02a90bfd9f8eb74a26"
+                "reference": "b8d0ff872f126631bf63a932e33aa2d22d467175"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/5820559b511f2a520c553a02a90bfd9f8eb74a26",
-                "reference": "5820559b511f2a520c553a02a90bfd9f8eb74a26",
+                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/b8d0ff872f126631bf63a932e33aa2d22d467175",
+                "reference": "b8d0ff872f126631bf63a932e33aa2d22d467175",
                 "shasum": ""
             },
             "require": {
@@ -5468,20 +5661,20 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2017-05-17T20:58:27+00:00"
+            "time": "2017-05-17T20:56:17+00:00"
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "dev-master",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "fc81deea9f6767dfbed549aa3f168d5977651d20"
+                "reference": "c3036efb81f71bfa36cc9962ee5d4474f36581d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/fc81deea9f6767dfbed549aa3f168d5977651d20",
-                "reference": "fc81deea9f6767dfbed549aa3f168d5977651d20",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/c3036efb81f71bfa36cc9962ee5d4474f36581d0",
+                "reference": "c3036efb81f71bfa36cc9962ee5d4474f36581d0",
                 "shasum": ""
             },
             "require": {
@@ -5531,20 +5724,20 @@
                 "servicemanager",
                 "zf"
             ],
-            "time": "2017-04-27T21:01:14+00:00"
+            "time": "2017-03-01T22:08:02+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "dev-develop",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "16818ed8ee2a92a503c43883dcb6263fe6283ee8"
+                "reference": "debedcfc373a293f9250cc9aa03cf121428c8e78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/16818ed8ee2a92a503c43883dcb6263fe6283ee8",
-                "reference": "16818ed8ee2a92a503c43883dcb6263fe6283ee8",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/debedcfc373a293f9250cc9aa03cf121428c8e78",
+                "reference": "debedcfc373a293f9250cc9aa03cf121428c8e78",
                 "shasum": ""
             },
             "require": {
@@ -5576,22 +5769,22 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-09-13T14:40:02+00:00"
+            "time": "2016-09-13T14:38:50+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "behat/gherkin",
-            "version": "dev-master",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "0069ea0ca51f5d372096fe7b02b63d5aef97ef15"
+                "reference": "5c14cff4f955b17d20d088dec1bde61c0539ec74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/0069ea0ca51f5d372096fe7b02b63d5aef97ef15",
-                "reference": "0069ea0ca51f5d372096fe7b02b63d5aef97ef15",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/5c14cff4f955b17d20d088dec1bde61c0539ec74",
+                "reference": "5c14cff4f955b17d20d088dec1bde61c0539ec74",
                 "shasum": ""
             },
             "require": {
@@ -5637,13 +5830,13 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2017-08-30T11:04:59+00:00"
+            "time": "2016-10-30T11:50:56+00:00"
         },
         {
 <<<<<<< HEAD
 =======
             "name": "codeception/c3",
-            "version": "2.0.x-dev",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
@@ -5694,16 +5887,16 @@
         {
 >>>>>>> core-2001 update spryker/spryker
             "name": "codeception/codeception",
-            "version": "2.3.x-dev",
+            "version": "2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "d3332831fa87641680c1b5eb2647f68b2b6ec200"
+                "reference": "c3dd3b5d9e0b1ea6c2fcca52457736dc756716f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/d3332831fa87641680c1b5eb2647f68b2b6ec200",
-                "reference": "d3332831fa87641680c1b5eb2647f68b2b6ec200",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/c3dd3b5d9e0b1ea6c2fcca52457736dc756716f8",
+                "reference": "c3dd3b5d9e0b1ea6c2fcca52457736dc756716f8",
                 "shasum": ""
             },
             "require": {
@@ -5784,11 +5977,11 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-10-16T09:52:00+00:00"
+            "time": "2017-09-28T23:19:49+00:00"
         },
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.x-dev",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
@@ -5984,7 +6177,6 @@
         },
         {
             "name": "myclabs/deep-copy",
-<<<<<<< HEAD
             "version": "1.7.0",
             "source": {
                 "type": "git",
@@ -5995,18 +6187,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
-=======
-            "version": "1.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "ae684c84fd1be31813faffa78ebd70cdc013fc8e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/ae684c84fd1be31813faffa78ebd70cdc013fc8e",
-                "reference": "ae684c84fd1be31813faffa78ebd70cdc013fc8e",
->>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -6038,15 +6218,11 @@
                 "object",
                 "object graph"
             ],
-<<<<<<< HEAD
             "time": "2017-10-19T19:58:43+00:00"
-=======
-            "time": "2017-10-16T22:02:21+00:00"
->>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "nette/bootstrap",
-            "version": "v2.4.x-dev",
+            "version": "v2.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/bootstrap.git",
@@ -6122,16 +6298,16 @@
         },
         {
             "name": "nette/di",
-            "version": "v2.4.x-dev",
+            "version": "v2.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "bfe3c161e89add6ef8de2fa8b118b8c2b3a18e60"
+                "reference": "a4b3be935b755f23aebea1ce33d7e3c832cdff98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/bfe3c161e89add6ef8de2fa8b118b8c2b3a18e60",
-                "reference": "bfe3c161e89add6ef8de2fa8b118b8c2b3a18e60",
+                "url": "https://api.github.com/repos/nette/di/zipball/a4b3be935b755f23aebea1ce33d7e3c832cdff98",
+                "reference": "a4b3be935b755f23aebea1ce33d7e3c832cdff98",
                 "shasum": ""
             },
             "require": {
@@ -6187,25 +6363,25 @@
                 "nette",
                 "static"
             ],
-            "time": "2017-09-26T11:14:17+00:00"
+            "time": "2017-08-31T22:42:00+00:00"
         },
         {
             "name": "nette/finder",
-            "version": "dev-master",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/finder.git",
-                "reference": "636a9b8960ef0060faf02592cb8d4765b02b5210"
+                "reference": "4d43a66d072c57d585bf08a3ef68d3587f7e9547"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/finder/zipball/636a9b8960ef0060faf02592cb8d4765b02b5210",
-                "reference": "636a9b8960ef0060faf02592cb8d4765b02b5210",
+                "url": "https://api.github.com/repos/nette/finder/zipball/4d43a66d072c57d585bf08a3ef68d3587f7e9547",
+                "reference": "4d43a66d072c57d585bf08a3ef68d3587f7e9547",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^2.4 || ~3.0.0",
-                "php": ">=7.0"
+                "php": ">=5.6.0"
             },
             "conflict": {
                 "nette/nette": "<2.2"
@@ -6217,7 +6393,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -6241,43 +6417,37 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🔍 Nette Finder: find files and directories with an intuitive API.",
+            "description": "Nette Finder: Files Searching",
             "homepage": "https://nette.org",
-            "keywords": [
-                "filesystem",
-                "glob",
-                "iterator",
-                "nette"
-            ],
-            "time": "2017-09-26T13:29:29+00:00"
+            "time": "2017-07-10T23:47:08+00:00"
         },
         {
             "name": "nette/neon",
-            "version": "dev-master",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/neon.git",
-                "reference": "01bf77f92e57d2143e934a24a95a992a3c781a91"
+                "reference": "9eacd50553b26b53a3977bfb2fea2166d4331622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/neon/zipball/01bf77f92e57d2143e934a24a95a992a3c781a91",
-                "reference": "01bf77f92e57d2143e934a24a95a992a3c781a91",
+                "url": "https://api.github.com/repos/nette/neon/zipball/9eacd50553b26b53a3977bfb2fea2166d4331622",
+                "reference": "9eacd50553b26b53a3977bfb2fea2166d4331622",
                 "shasum": ""
             },
             "require": {
                 "ext-iconv": "*",
                 "ext-json": "*",
-                "php": ">=7.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
-                "nette/tester": "^2.0",
+                "nette/tester": "~2.0",
                 "tracy/tracy": "^2.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -6301,29 +6471,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍸 Nette NEON: encodes and decodes NEON file format.",
+            "description": "Nette NEON: parser & generator for Nette Object Notation",
             "homepage": "http://ne-on.org",
-            "keywords": [
-                "export",
-                "import",
-                "neon",
-                "nette",
-                "yaml"
-            ],
-            "time": "2017-09-26T13:39:11+00:00"
+            "time": "2017-07-11T18:29:08+00:00"
         },
         {
             "name": "nette/php-generator",
-            "version": "v2.6.x-dev",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "cf1587c3ca3c820debc29e3d6a9020c51a2502bb"
+                "reference": "78c898808d3a1018cc81f9d7108bc645129776c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/cf1587c3ca3c820debc29e3d6a9020c51a2502bb",
-                "reference": "cf1587c3ca3c820debc29e3d6a9020c51a2502bb",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/78c898808d3a1018cc81f9d7108bc645129776c8",
+                "reference": "78c898808d3a1018cc81f9d7108bc645129776c8",
                 "shasum": ""
             },
             "require": {
@@ -6364,28 +6527,22 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.1 features.",
+            "description": "Nette PHP Generator",
             "homepage": "https://nette.org",
-            "keywords": [
-                "code",
-                "nette",
-                "php",
-                "scaffolding"
-            ],
-            "time": "2017-09-26T11:20:00+00:00"
+            "time": "2017-07-14T07:06:27+00:00"
         },
         {
             "name": "nette/robot-loader",
-            "version": "dev-master",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/robot-loader.git",
-                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a"
+                "reference": "b703b4f5955831b0bcaacbd2f6af76021b056826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
-                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/b703b4f5955831b0bcaacbd2f6af76021b056826",
+                "reference": "b703b4f5955831b0bcaacbd2f6af76021b056826",
                 "shasum": ""
             },
             "require": {
@@ -6437,20 +6594,20 @@
                 "nette",
                 "trait"
             ],
-            "time": "2017-09-26T13:42:21+00:00"
+            "time": "2017-07-18T00:09:56+00:00"
         },
         {
             "name": "nette/utils",
-            "version": "v2.4.x-dev",
+            "version": "v2.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "d8ace5c620be0286ae89c00130a98b4170b27f4d"
+                "reference": "f1584033b5af945b470533b466b81a789d532034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/d8ace5c620be0286ae89c00130a98b4170b27f4d",
-                "reference": "d8ace5c620be0286ae89c00130a98b4170b27f4d",
+                "url": "https://api.github.com/repos/nette/utils/zipball/f1584033b5af945b470533b466b81a789d532034",
+                "reference": "f1584033b5af945b470533b466b81a789d532034",
                 "shasum": ""
             },
             "require": {
@@ -6516,10 +6673,11 @@
                 "utility",
                 "validation"
             ],
-            "time": "2017-09-26T11:24:17+00:00"
+            "time": "2017-08-20T17:32:29+00:00"
         },
         {
             "name": "nikic/php-parser",
+<<<<<<< HEAD
 <<<<<<< HEAD
             "version": "v3.1.2",
             "source": {
@@ -6533,15 +6691,23 @@
                 "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
 =======
             "version": "3.x-dev",
+=======
+            "version": "v3.1.1",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "d418bf395113b6a3293bda1d08ddc9b0209d5dcf"
+                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/d418bf395113b6a3293bda1d08ddc9b0209d5dcf",
                 "reference": "d418bf395113b6a3293bda1d08ddc9b0209d5dcf",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a1e8e1a30e1352f118feff1a8481066ddc2f234a",
+                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -6581,9 +6747,13 @@
                 "php"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-04T11:48:34+00:00"
 =======
             "time": "2017-10-01T14:54:43+00:00"
+>>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-09-02T17:10:46+00:00"
 >>>>>>> core-2001 update spryker/spryker
         },
         {
@@ -6907,7 +7077,7 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "dev-master",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
@@ -6970,7 +7140,7 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.8.x-dev",
+            "version": "0.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
@@ -7024,7 +7194,7 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.x-dev",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
@@ -7087,7 +7257,7 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "dev-master",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
@@ -7175,16 +7345,16 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "dev-master",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "d107f347d368dd8a384601398280c7c608390ab7"
+                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/d107f347d368dd8a384601398280c7c608390ab7",
-                "reference": "d107f347d368dd8a384601398280c7c608390ab7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
+                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
                 "shasum": ""
             },
             "require": {
@@ -7220,20 +7390,20 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-03-07T15:42:04+00:00"
+            "time": "2017-02-26T11:10:40+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.x-dev",
+            "version": "1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "958103f327daef5dd0bb328dec53e0a9e43cfaf7"
+                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/958103f327daef5dd0bb328dec53e0a9e43cfaf7",
-                "reference": "958103f327daef5dd0bb328dec53e0a9e43cfaf7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e03f8f67534427a787e21a385a67ec3ca6978ea7",
+                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7",
                 "shasum": ""
             },
             "require": {
@@ -7269,10 +7439,11 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-03-07T08:21:50+00:00"
+            "time": "2017-02-27T10:12:30+00:00"
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD
 <<<<<<< HEAD
             "version": "5.7.25",
             "source": {
@@ -7286,15 +7457,23 @@
                 "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a",
 =======
             "version": "5.7.x-dev",
+=======
+            "version": "5.7.23",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "ab4cdd85dd2e52e45a6279cf89c0777960598b3b"
+                "reference": "78532d5269d984660080d8e0f4c99c5c2ea65ffe"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ab4cdd85dd2e52e45a6279cf89c0777960598b3b",
                 "reference": "ab4cdd85dd2e52e45a6279cf89c0777960598b3b",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/78532d5269d984660080d8e0f4c99c5c2ea65ffe",
+                "reference": "78532d5269d984660080d8e0f4c99c5c2ea65ffe",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -7365,14 +7544,18 @@
                 "xunit"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-14T14:50:51+00:00"
 =======
             "time": "2017-10-16T12:41:57+00:00"
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-10-15T06:13:55+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.4.x-dev",
+            "version": "3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
@@ -7431,16 +7614,16 @@
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/code-unit-reverse-lookup.git",
-                "reference": "3488be0a7b346cd6e5361510ed07e88f9bea2e88"
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/3488be0a7b346cd6e5361510ed07e88f9bea2e88",
-                "reference": "3488be0a7b346cd6e5361510ed07e88f9bea2e88",
+                "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
                 "shasum": ""
             },
             "require": {
@@ -7472,20 +7655,20 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04T10:23:55+00:00"
+            "time": "2017-03-04T06:30:41+00:00"
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.2.x-dev",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "18a5d97c25f408f48acaf6d1b9f4079314c5996a"
+                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/18a5d97c25f408f48acaf6d1b9f4079314c5996a",
-                "reference": "18a5d97c25f408f48acaf6d1b9f4079314c5996a",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
+                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
                 "shasum": ""
             },
             "require": {
@@ -7536,11 +7719,11 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-03-07T10:34:43+00:00"
+            "time": "2017-01-29T09:50:25+00:00"
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.x-dev",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
@@ -7592,7 +7775,7 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "2.0.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
@@ -7642,25 +7825,25 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "2.0.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "5e8e30670c3f36481e75211dbbcfd029a41ebf07"
+                "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/5e8e30670c3f36481e75211dbbcfd029a41ebf07",
-                "reference": "5e8e30670c3f36481e75211dbbcfd029a41ebf07",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
+                "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0",
-                "sebastian/recursion-context": "^2.0"
+                "php": ">=5.3.3",
+                "sebastian/recursion-context": "~2.0"
             },
             "require-dev": {
                 "ext-mbstring": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+                "phpunit/phpunit": "~4.4"
             },
             "type": "library",
             "extra": {
@@ -7705,7 +7888,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2017-03-07T10:36:49+00:00"
+            "time": "2016-11-19T08:54:04+00:00"
         },
         {
             "name": "sebastian/finder-facade",
@@ -7748,16 +7931,16 @@
         },
         {
             "name": "sebastian/git",
-            "version": "dev-master",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/git.git",
-                "reference": "e92926d76127378fc9f461fa3e6bbbe70a2165b5"
+                "reference": "815bbbc963cf35e5413df195aa29df58243ecd24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/e92926d76127378fc9f461fa3e6bbbe70a2165b5",
-                "reference": "e92926d76127378fc9f461fa3e6bbbe70a2165b5",
+                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/815bbbc963cf35e5413df195aa29df58243ecd24",
+                "reference": "815bbbc963cf35e5413df195aa29df58243ecd24",
                 "shasum": ""
             },
             "require": {
@@ -7790,27 +7973,27 @@
                 "git"
             ],
             "abandoned": true,
-            "time": "2017-05-12T05:36:31+00:00"
+            "time": "2017-01-23T20:57:12+00:00"
         },
         {
             "name": "sebastian/global-state",
-            "version": "1.1.x-dev",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "cea85a84b00f2795341ebbbca4fa396347f2494e"
+                "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/cea85a84b00f2795341ebbbca4fa396347f2494e",
-                "reference": "cea85a84b00f2795341ebbbca4fa396347f2494e",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/bc37d50fea7d017d3d340f230811c9f1d7280af4",
+                "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2|~5.0"
+                "phpunit/phpunit": "~4.2"
             },
             "suggest": {
                 "ext-uopz": "*"
@@ -7841,28 +8024,28 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-02-23T14:11:06+00:00"
+            "time": "2015-10-12T03:26:01+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
-            "version": "2.0.x-dev",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "c956fe7a68318639f694fc6bba0c89b7cdf1b08c"
+                "reference": "1311872ac850040a79c3c058bea3e22d0f09cbb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/c956fe7a68318639f694fc6bba0c89b7cdf1b08c",
-                "reference": "c956fe7a68318639f694fc6bba0c89b7cdf1b08c",
+                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/1311872ac850040a79c3c058bea3e22d0f09cbb7",
+                "reference": "1311872ac850040a79c3c058bea3e22d0f09cbb7",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0",
-                "sebastian/recursion-context": "^2.0"
+                "php": ">=5.6",
+                "sebastian/recursion-context": "~2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7"
+                "phpunit/phpunit": "~5"
             },
             "type": "library",
             "extra": {
@@ -7887,11 +8070,11 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-03-07T10:37:45+00:00"
+            "time": "2017-02-18T15:18:39+00:00"
         },
         {
             "name": "sebastian/phpcpd",
-            "version": "2.0.x-dev",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpcpd.git",
@@ -7942,16 +8125,16 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "2.0.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "7e4d7c56f6e65d215f71ad913a5256e5439aca1c"
+                "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/7e4d7c56f6e65d215f71ad913a5256e5439aca1c",
-                "reference": "7e4d7c56f6e65d215f71ad913a5256e5439aca1c",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/2c3ba150cbec723aa057506e73a8d33bdb286c9a",
+                "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a",
                 "shasum": ""
             },
             "require": {
@@ -7991,20 +8174,20 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2017-03-08T08:21:15+00:00"
+            "time": "2016-11-19T07:33:16+00:00"
         },
         {
             "name": "sebastian/resource-operations",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/resource-operations.git",
-                "reference": "fadc83f7c41fb2924e542635fea47ae546816ece"
+                "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/fadc83f7c41fb2924e542635fea47ae546816ece",
-                "reference": "fadc83f7c41fb2924e542635fea47ae546816ece",
+                "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
+                "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
                 "shasum": ""
             },
             "require": {
@@ -8033,11 +8216,11 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2016-10-03T07:43:09+00:00"
+            "time": "2015-07-28T20:34:47+00:00"
         },
         {
             "name": "sebastian/version",
-            "version": "dev-master",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
@@ -8124,23 +8307,23 @@
         },
         {
             "name": "silex/web-profiler",
-            "version": "1.0.x-dev",
+            "version": "v1.0.8",
             "target-dir": "Silex/Provider",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex-WebProfiler.git",
-                "reference": "2c5df830c864bec709307e706176771b57440be5"
+                "reference": "3b767e6c9006a542cac737474f02671bdf2909cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/2c5df830c864bec709307e706176771b57440be5",
-                "reference": "2c5df830c864bec709307e706176771b57440be5",
+                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/3b767e6c9006a542cac737474f02671bdf2909cb",
+                "reference": "3b767e6c9006a542cac737474f02671bdf2909cb",
                 "shasum": ""
             },
             "require": {
                 "silex/silex": "~1.1",
-                "symfony/stopwatch": "~2.2|3.0.*",
-                "symfony/web-profiler-bundle": "~2.4|3.0.*"
+                "symfony/stopwatch": "~2.2",
+                "symfony/web-profiler-bundle": "~2.4"
             },
             "type": "library",
             "extra": {
@@ -8165,7 +8348,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2016-05-04T16:32:42+00:00"
+            "time": "2016-01-10T11:39:13+00:00"
         },
         {
             "name": "site5/phantoman",
@@ -8253,16 +8436,16 @@
         },
         {
             "name": "sllh/composer-versions-check",
-            "version": "dev-master",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Soullivaneuh/composer-versions-check.git",
-                "reference": "10d23e6e3802770f08d46e23a7d5aa3baf64ce70"
+                "reference": "f6fe100dd71a9fa0d3c922612b445fb179e19127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/10d23e6e3802770f08d46e23a7d5aa3baf64ce70",
-                "reference": "10d23e6e3802770f08d46e23a7d5aa3baf64ce70",
+                "url": "https://api.github.com/repos/Soullivaneuh/composer-versions-check/zipball/f6fe100dd71a9fa0d3c922612b445fb179e19127",
+                "reference": "f6fe100dd71a9fa0d3c922612b445fb179e19127",
                 "shasum": ""
             },
             "require": {
@@ -8303,7 +8486,7 @@
                 "update",
                 "versions"
             ],
-            "time": "2017-06-16T10:15:22+00:00"
+            "time": "2017-06-16T09:29:23+00:00"
         },
         {
             "name": "spryker/architecture-sniffer",
@@ -8391,7 +8574,6 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-<<<<<<< HEAD
                 "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
                 "mirrors": [
                     {
@@ -8399,15 +8581,11 @@
                         "preferred": true
                     }
                 ]
-=======
-                "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839"
->>>>>>> core-2001 update spryker/spryker
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
                 "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8415,9 +8593,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> core-2001 update spryker/spryker
             },
             "require": {
                 "php": ">=5.6.0",
@@ -8459,6 +8634,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a"
             },
             "dist": {
@@ -8466,6 +8642,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/3380144509a8d8850c4af602d9649c1de8099e0a",
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -8482,6 +8660,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1f8241790a7bdc1da3de294ecce45addc8dde34e",
                 "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -8507,12 +8687,15 @@
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
+=======
+>>>>>>> core-2001 update spryker/spryker
                 "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/80f56b7fb0725ab02535b890d1f95f135c87f0b7",
                 "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7",
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
@@ -8591,6 +8774,10 @@
                 "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
@@ -8635,8 +8822,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-21T13:26:10+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -8648,6 +8838,8 @@
 <<<<<<< HEAD
             "time": "2017-11-07T15:24:39+00:00"
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
@@ -8715,6 +8907,11 @@
             "time": "2017-10-17T11:04:08+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-10-17T11:04:08+00:00"
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
         },
@@ -8776,11 +8973,7 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-<<<<<<< HEAD
             "version": "3.1.1",
-=======
-            "version": "dev-master",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
@@ -8877,8 +9070,11 @@
         {
             "name": "symfony/browser-kit",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.3.13",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.11",
 >>>>>>> core-2001 update spryker/spryker
@@ -8893,25 +9089,33 @@
                 "reference": "03f957cd24bf939524f07b8b910c89cfcad722a8",
 =======
             "version": "3.4.x-dev",
+=======
+            "version": "v3.3.10",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "f8d7bce4bd5ed029e2d8683d3b29940304aa9818"
+                "reference": "317d5bdf0127f06db7ea294186132b4f5b036839"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/browser-kit/zipball/f8d7bce4bd5ed029e2d8683d3b29940304aa9818",
                 "reference": "f8d7bce4bd5ed029e2d8683d3b29940304aa9818",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/317d5bdf0127f06db7ea294186132b4f5b036839",
+                "reference": "317d5bdf0127f06db7ea294186132b4f5b036839",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8",
-                "symfony/dom-crawler": "~2.8|~3.0|~4.0"
+                "symfony/dom-crawler": "~2.8|~3.0"
             },
             "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0|~4.0",
-                "symfony/process": "~2.8|~3.0|~4.0"
+                "symfony/css-selector": "~2.8|~3.0",
+                "symfony/process": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/process": ""
@@ -8919,7 +9123,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -8947,6 +9151,7 @@
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-07T14:12:55+00:00"
         },
         {
@@ -8963,19 +9168,27 @@
                 "reference": "66e6e046032ebdf1f562c26928549f613d428bd1",
 =======
             "time": "2017-10-13T13:33:47+00:00"
+=======
+            "time": "2017-10-02T06:42:24+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/css-selector",
-            "version": "3.4.x-dev",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "f38b363faac4d647f53ef389203436e6c3b27f01"
+                "reference": "07447650225ca9223bd5c97180fe7c8267f7d332"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/css-selector/zipball/f38b363faac4d647f53ef389203436e6c3b27f01",
                 "reference": "f38b363faac4d647f53ef389203436e6c3b27f01",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/07447650225ca9223bd5c97180fe7c8267f7d332",
+                "reference": "07447650225ca9223bd5c97180fe7c8267f7d332",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -8985,7 +9198,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -9017,14 +9230,18 @@
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-05T15:47:03+00:00"
 =======
             "time": "2017-10-02T06:49:52+00:00"
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-10-02T06:42:24+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "3.1.x-dev",
+            "version": "v3.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -9085,8 +9302,11 @@
         {
             "name": "symfony/dom-crawler",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.3.13",
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.11",
 >>>>>>> core-2001 update spryker/spryker
@@ -9101,15 +9321,23 @@
                 "reference": "cebe3c068867956e012d9135282ba6a05d8a259e",
 =======
             "version": "3.4.x-dev",
+=======
+            "version": "v3.3.10",
+>>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "a7a9ef79fc160ebd64c4623c7b1d01dcba374aae"
+                "reference": "40dafd42d5dad7fe5ad4e958413d92a207522ac1"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/a7a9ef79fc160ebd64c4623c7b1d01dcba374aae",
                 "reference": "a7a9ef79fc160ebd64c4623c7b1d01dcba374aae",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/40dafd42d5dad7fe5ad4e958413d92a207522ac1",
+                "reference": "40dafd42d5dad7fe5ad4e958413d92a207522ac1",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -9118,7 +9346,7 @@
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0|~4.0"
+                "symfony/css-selector": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/css-selector": ""
@@ -9126,7 +9354,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -9154,6 +9382,7 @@
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-05T15:47:03+00:00"
         },
         {
@@ -9170,29 +9399,37 @@
                 "reference": "533bb9d7c2da1c6d2da163ecf0f22043ea98f59b",
 =======
             "time": "2017-10-02T06:49:52+00:00"
+=======
+            "time": "2017-10-02T06:42:24+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/stopwatch",
-            "version": "3.0.x-dev",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "49c0ea2f3d3a779df4780927671332edc406ea84"
+                "reference": "28ee62ea4736431ca817cdaebcb005663e9cd1cb"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/stopwatch/zipball/49c0ea2f3d3a779df4780927671332edc406ea84",
                 "reference": "49c0ea2f3d3a779df4780927671332edc406ea84",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/28ee62ea4736431ca817cdaebcb005663e9cd1cb",
+                "reference": "28ee62ea4736431ca817cdaebcb005663e9cd1cb",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -9220,6 +9457,7 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-10T18:59:36+00:00"
         },
         {
@@ -9236,19 +9474,27 @@
                 "reference": "805de6bd6869073e60610df1b14ab7d969c61b01",
 =======
             "time": "2016-06-29T05:40:00+00:00"
+=======
+            "time": "2017-10-01T21:00:16+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/var-dumper",
-            "version": "3.4.x-dev",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "41c9a132b8f96797e750ccb50d1064aab5b16d93"
+                "reference": "03e3693a36701f1c581dd24a6d6eea2eba2113f6"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/var-dumper/zipball/41c9a132b8f96797e750ccb50d1064aab5b16d93",
                 "reference": "41c9a132b8f96797e750ccb50d1064aab5b16d93",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/03e3693a36701f1c581dd24a6d6eea2eba2113f6",
+                "reference": "03e3693a36701f1c581dd24a6d6eea2eba2113f6",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
@@ -9265,13 +9511,12 @@
             },
             "suggest": {
                 "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
-                "ext-intl": "To show region name in time zone dump",
                 "ext-symfony_debug": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -9306,6 +9551,7 @@
                 "dump"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-07T14:16:22+00:00"
         },
         {
@@ -9322,38 +9568,47 @@
                 "reference": "30c183d1963c6d38c49e5f2b64abd45345e11d8f",
 =======
             "time": "2017-10-10T17:27:52+00:00"
+=======
+            "time": "2017-10-02T06:42:24+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "3.0.x-dev",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7"
+                "reference": "37c96c7f38fa4453780ed5a9dfb09660dfa3dfaf"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
                 "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
+>>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/37c96c7f38fa4453780ed5a9dfb09660dfa3dfaf",
+                "reference": "37c96c7f38fa4453780ed5a9dfb09660dfa3dfaf",
 >>>>>>> core-2001 update spryker/spryker
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "symfony/http-kernel": "~2.8|~3.0",
-                "symfony/routing": "~2.8|~3.0",
-                "symfony/twig-bridge": "~2.8|~3.0"
+                "php": ">=5.3.9",
+                "symfony/http-kernel": "~2.4|~3.0.0",
+                "symfony/routing": "~2.2|~3.0.0",
+                "symfony/twig-bridge": "~2.7|~3.0.0",
+                "twig/twig": "~1.34|~2.4"
             },
             "require-dev": {
-                "symfony/config": "~2.8|~3.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0"
+                "symfony/config": "~2.2|~3.0.0",
+                "symfony/console": "~2.3|~3.0.0",
+                "symfony/dependency-injection": "~2.2|~3.0.0",
+                "symfony/stopwatch": "~2.2|~3.0.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -9381,9 +9636,13 @@
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-05T16:18:41+00:00"
 =======
             "time": "2016-07-26T08:03:56+00:00"
+>>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-10-01T21:00:16+00:00"
 >>>>>>> core-2001 update spryker/spryker
         },
         {
@@ -9445,7 +9704,7 @@
         "spryker/code-sniffer": 20,
         "spryker/git-hook": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.6.0",
