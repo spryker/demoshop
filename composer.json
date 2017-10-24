@@ -157,7 +157,7 @@
     "spryker/sequence-number": "^3.0.0",
     "spryker/session": "^3.0.0",
     "spryker/setup": "^4.0.0",
-    "spryker/shipment": "^5.0.0",
+    "spryker/shipment": "^6.0.0",
     "spryker/shipment-discount-connector": "^1.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
