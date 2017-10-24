@@ -223,12 +223,11 @@
   },
   "autoload-dev": {
     "psr-4": {
+      "PyzTest\\": "tests/PyzTest",
+      "PhpStan\\": "tests/PhpStan",
+      "Acceptance\\Auth\\": "vendor/spryker/auth/tests/",
       "Application\\Module\\": "vendor/spryker/application/tests/_support/Module",
       "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module"
-    },
-    "psr-0": {
-      "PyzTest": "tests",
-      "Acceptance\\Auth\\": "vendor/spryker/auth/tests/"
     },
     "files": [
       "test-autoload.php"

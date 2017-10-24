@@ -1,6 +1,32 @@
 parameters:
-  excludes_analyse:
-    - %rootDir%/../../../src/Generated/*
-    - %rootDir%/../../../src/Orm/*
+    excludes_analyse:
+        - %rootDir%/../../../src/Generated/*
+        - %rootDir%/../../../src/Orm/*
 
-  bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+    bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+
+services:
+    -
+        class: PhpStan\DynamicType\FacadeDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\QueryContainerDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ConsoleDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ControllerDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\PluginDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
