@@ -25,6 +25,7 @@ use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SpellingSuggestionQ
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\StoreQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\SuggestionByTypeQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\CompletionResultFormatterPlugin;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\CurrencyAwareSuggestionByTypeResultFormatter;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\FacetResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\PaginatedResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultFormatterPlugin;
@@ -164,7 +165,9 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     {
         return [
             new CompletionResultFormatterPlugin(),
-            new SuggestionByTypeResultFormatterPlugin(),
+            new CurrencyAwareSuggestionByTypeResultFormatter(
+                new SuggestionByTypeResultFormatterPlugin()
+            )
         ];
     }
 
