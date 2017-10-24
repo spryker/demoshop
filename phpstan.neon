@@ -1,9 +1,9 @@
 parameters:
-  excludes_analyse:
-    - %rootDir%/../../../src/Generated/*
-    - %rootDir%/../../../src/Orm/*
+    excludes_analyse:
+        - %rootDir%/../../../src/Generated/*
+        - %rootDir%/../../../src/Orm/*
 
-  bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+    bootstrap: %rootDir%/../../../phpstan-bootstrap.php
 
 services:
     -
