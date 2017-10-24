@@ -569,6 +569,8 @@ customer.authentication.failed,Authentication failed,en_US
 customer.authentication.failed,Authentifizierung fehlgeschlagen,de_DE
 customer.email.invalid,Email address is invalid,en_US
 customer.email.invalid,E-Mail Adresse ist ungültig,de_DE
+customer.email.format.invalid,Invalid Email address format,en_US
+customer.email.format.invalid,Ungültige E-Mail-Adressformat,de_DE
 customer.password.recovery.mail.sent,"If there is an account associated with this email address, you will receive an email with further instructions",en_US
 customer.password.recovery.mail.sent,"Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen",de_DE
 customer.address.number,Number,en_US
