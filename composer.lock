@@ -1731,6 +1731,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "f287258142da53a9b7471f69d000b8dd8728916b"
 =======
 =======
@@ -1784,6 +1785,9 @@
 =======
                 "reference": "17577fa4db2104b13513448f4d4881a6e04c344f"
 >>>>>>> core-2125 update spryker/spryker
+=======
+                "reference": "27000f952d5adca325400d8e8ad39147aa53dbb4"
+>>>>>>> core-2125 update spryker/sprkyer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1986,6 +1990,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-24T08:36:55+00:00"
 =======
 =======
@@ -2039,6 +2044,9 @@
 =======
             "time": "2017-10-16T10:42:56+00:00"
 >>>>>>> core-2125 update spryker/spryker
+=======
+            "time": "2017-10-24T08:45:54+00:00"
+>>>>>>> core-2125 update spryker/sprkyer
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4240,16 +4248,16 @@
         },
         {
             "name": "codeception/c3",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/c3.git",
-                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c"
+                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
-                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/7cbeb7029efe621cf5a5b73853e5321147bfab01",
+                "reference": "7cbeb7029efe621cf5a5b73853e5321147bfab01",
                 "shasum": ""
             },
             "require": {
@@ -4286,7 +4294,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-04-06T00:08:55+00:00"
+            "time": "2017-10-19T07:08:06+00:00"
         },
         {
             "name": "codeception/codeception",
