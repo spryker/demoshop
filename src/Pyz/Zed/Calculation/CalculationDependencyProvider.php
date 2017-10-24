@@ -8,7 +8,7 @@ namespace Pyz\Zed\Calculation;
 
 use Spryker\Zed\Calculation\CalculationDependencyProvider as SprykerCalculationDependencyProvider;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\CanceledTotalCalculationPlugin;
-use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountAmountAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountAmountAggregatorForGenericAmountPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ExpenseTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\GrandTotalCalculatorPlugin;
@@ -84,7 +84,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      *    - Item.productOptions.calculatedDiscounts[].unitGrossAmount
      *    - Expense.calculatedDiscounts[].unitGrossAmount
      *
-     * DiscountAmountAggregatorPlugin - Sums all discounts for corresponding object
+     * DiscountAmountAggregatorForGenericAmountPlugin - Sums all discounts for corresponding object
      *    - Item.unitDiscountAmountAggregation
      *    - Item.sumDiscountAmountAggregation
      *    - Item.productOptions.unitDiscountAmountAggregation
@@ -190,7 +190,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             new InitialGrandTotalCalculatorPlugin(),
             new DiscountCalculatorPlugin(),
-            new DiscountAmountAggregatorPlugin(),
+            new DiscountAmountAggregatorForGenericAmountPlugin(),
             new ItemDiscountAmountFullAggregatorPlugin(),
 
             new TaxAmountCalculatorPlugin(),
@@ -231,7 +231,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             new SubtotalCalculatorPlugin(),
 
-            new DiscountAmountAggregatorPlugin(),
+            new DiscountAmountAggregatorForGenericAmountPlugin(),
             new ItemDiscountAmountFullAggregatorPlugin(),
 
             new TaxAmountCalculatorPlugin(),
