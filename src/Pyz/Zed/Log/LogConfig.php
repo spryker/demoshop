@@ -12,7 +12,6 @@ use SprykerEco\Shared\Loggly\LogglyConstants;
 
 class LogConfig extends SprykerLogConfig
 {
-
     /**
      * @return string
      */
@@ -20,5 +19,4 @@ class LogConfig extends SprykerLogConfig
     {
         return $this->get(LogglyConstants::QUEUE_NAME);
     }
-
 }

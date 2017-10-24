@@ -27,7 +27,6 @@ use SprykerEco\Shared\Loggly\LogglyConstants;
  */
 class LogFactory extends SprykerLogFactory
 {
-
     /**
      * @return \Monolog\Handler\HandlerInterface[]
      */
@@ -148,5 +147,4 @@ class LogFactory extends SprykerLogFactory
     {
         return new GuzzleBodyProcessor($this->createSanitizer());
     }
-
 }
