@@ -42,15 +42,15 @@ sections:
       command: "vendor/bin/console navigation:build-cache"
 
 
-#  queue-flush:
-#    purge-all-queues:
-#      command: "vendor/bin/console queue:queue:purge-all"
-#
-#    delete-all-queues:
-#      command: "vendor/bin/console queue:queue:delete-all"
-#
-#    delete-all-exchanges:
-#      command: "vendor/bin/console queue:exchanges:delete-all"
+  queue-flush:
+    purge-all-queues:
+      command: "vendor/bin/console queue:queue:purge-all"
+
+    delete-all-queues:
+      command: "vendor/bin/console queue:queue:delete-all"
+
+    delete-all-exchanges:
+      command: "vendor/bin/console queue:exchanges:delete-all"
 
 
   database-flush:
@@ -101,10 +101,24 @@ sections:
       groups:
         - propel
 
+    propel-migration-check:
+      command: "vendor/bin/console propel:migration:check"
+      groups:
+        - propel
+
+    maintainance-page-enable:
+      command: "vendor/bin/console maintenance:enable"
+      condition:
+        command: "propel-migration-check"
+        ifExitCode: 2
+
     propel-migrate:
       command: "vendor/bin/console propel:migrate"
       groups:
         - propel
+
+    maintainance-page-diable:
+      command: "vendor/bin/console maintenance:disable"
 
     init-database:
       command: "vendor/bin/console setup:init-db"

@@ -39,6 +39,8 @@ use Spryker\Zed\EventBehavior\Communication\Console\EventBehaviorTriggerTimeoutC
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Log\Communication\Console\DeleteLogFilesConsole;
+use Spryker\Zed\Maintenance\Communication\Console\MaintenanceDisableConsole;
+use Spryker\Zed\Maintenance\Communication\Console\MaintenanceEnableConsole;
 use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
 use Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
@@ -209,6 +211,9 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DeleteAllQueuesConsole(),
             new PurgeAllQueuesConsole(),
             new DeleteAllExchangesConsole(),
+
+            new MaintenanceEnableConsole(),
+            new MaintenanceDisableConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
