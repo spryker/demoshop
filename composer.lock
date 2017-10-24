@@ -1826,6 +1826,7 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "d99b9d86ed675c51089f2501bc8e86a8444b35f3"
 =======
 <<<<<<< HEAD
@@ -1834,6 +1835,9 @@
                 "reference": "6a298bce831118428107bd5eebea20b3eedf1f16"
 >>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
 >>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
+=======
+                "reference": "fc36954cda421d379c58a1ac38998b2e2532181b"
+>>>>>>> core-2141 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2034,6 +2038,7 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
 <<<<<<< HEAD
@@ -2042,6 +2047,9 @@
             "time": "2017-10-23T12:46:32+00:00"
 >>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
 >>>>>>> core-2141 cleanup ApplicationDependencyProvider, update spryker/spryker
+=======
+            "time": "2017-10-24T05:51:36+00:00"
+>>>>>>> core-2141 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
