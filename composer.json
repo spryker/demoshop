@@ -181,6 +181,7 @@
     "spryker/zed-navigation": "^1.0.0",
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
+    "spryker-eco/loggly": "dev-master as 1.0.0",
     "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
