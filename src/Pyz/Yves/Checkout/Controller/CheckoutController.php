@@ -85,11 +85,11 @@ class CheckoutController extends AbstractController
      */
     public function paymentAction(Request $request)
     {
-        return $this->createStepProcess()->processProvided(
+        return $this->createStepProcess()->process(
             $request,
             $this->getFactory()
                 ->createCheckoutFormFactory()
-                ->createPaymentFormCollectionProvider()
+                ->createPaymentFormCollection()
         );
     }
 

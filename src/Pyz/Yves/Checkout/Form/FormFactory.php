@@ -9,7 +9,6 @@ namespace Pyz\Yves\Checkout\Form;
 
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
 use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
-use Pyz\Yves\Checkout\Form\Steps\PaymentFormCollectionHandlerProvider;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
 use Pyz\Yves\Checkout\Form\Voucher\VoucherForm;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
@@ -79,31 +78,6 @@ class FormFactory extends SprykerFormFactory
     protected function getShipmentFormDataProviderPlugin()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PLUGIN_SHIPMENT_FORM_DATA_PROVIDER);
-    }
-
-    /**
-     * @return \Spryker\Yves\Checkout\Form\Provider\FilterableSubFormProvider
-     */
-    protected function createPaymentSubFormProvider()
-    {
-        $paymentSubForms = $this->getPaymentMethodSubForms();
-        $paymentMethodFormFilters = $this->getMethodFormFilters();
-
-        return new FilterableSubFormProvider($paymentSubForms, $paymentMethodFormFilters);
-    }
-
-    /**
-     * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerProviderInterface
-     */
-    public function createPaymentFormCollectionProvider()
-    {
-        $subFormProvider = $this->createPaymentSubFormProvider();
-
-        return new PaymentFormCollectionHandlerProvider(
-            $this->createPaymentSubFormProvider(),
-            $this->getFormFactory(),
-            $this->createSubFormDataProvider($subFormProvider)
-        );
     }
 
     /**
@@ -193,16 +167,6 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subForms
-     *
-     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
-     */
-    protected function createPaymentForm(SubFormPluginCollection $subForms)
-    {
-        return new PaymentForm($subForms);
-    }
-
-    /**
      * @return \Pyz\Yves\Checkout\Form\Steps\SummaryForm
      */
     protected function createSummaryForm()
@@ -219,17 +183,6 @@ class FormFactory extends SprykerFormFactory
     protected function createFormCollection(array $formTypes, StepEngineFormDataProviderInterface $dataProvider = null)
     {
         return new FormCollectionHandler($formTypes, $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY), $dataProvider);
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormTypeInterface $formType
-     * @param \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface $dataProvider
-     *
-     * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
-     */
-    protected function createSubFormCollection($formType, StepEngineFormDataProviderInterface $dataProvider)
-    {
-        return new FormCollectionHandler([$formType], $this->getFormFactory(), $dataProvider);
     }
 
     /**
