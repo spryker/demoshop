@@ -27,9 +27,9 @@ class CalculationDependencyProvider extends AbstractBundleDependencyProvider
     }
 
     /**
-     * @param \Spryker\Client\Kernel\Container $container
+     * @param \Spryker\Yves\Kernel\Container $container
      *
-     * @return \Spryker\Client\Kernel\Container
+     * @return \Spryker\Yves\Kernel\Container
      */
     protected function addQuoteClient(Container $container)
     {
