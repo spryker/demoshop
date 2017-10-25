@@ -9,7 +9,7 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Generated\Shared\Transfer\PriceFilterTransfer;
+use Generated\Shared\Transfer\PriceProductFilterTransfer;
 use Generated\Shared\Transfer\PriceProductTransfer;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
