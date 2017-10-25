@@ -42,7 +42,6 @@ use Spryker\Zed\Url\Business\UrlFacade;
 
 abstract class ProductTestAbstract extends Test
 {
-
     const PRODUCT_ABSTRACT_NAME = [
         'en_US' => 'Product name en_US',
         'de_DE' => 'Product name de_DE',
@@ -391,5 +390,4 @@ abstract class ProductTestAbstract extends Test
             ->filterByFkProductAbstract($idProductAbstract)
             ->findOne();
     }
-
 }

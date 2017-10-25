@@ -16,7 +16,6 @@ use Spryker\Yves\CmsContentWidget\CmsContentWidgetDependencyProvider as SprykerC
 
 class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependencyProvider
 {
-
     /**
      * {@inheritdoc}
      *
@@ -36,5 +35,4 @@ class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependen
             ),
         ];
     }
-
 }

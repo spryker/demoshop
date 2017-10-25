@@ -18,7 +18,6 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CollectorDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const SERVICE_UTIL_DATE_TIME = 'util date time service';
 
     const SERVICE_NETWORK = 'util network service';
@@ -112,5 +111,4 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

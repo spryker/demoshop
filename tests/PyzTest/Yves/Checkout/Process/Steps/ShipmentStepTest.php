@@ -31,7 +31,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ShipmentStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -118,5 +117,4 @@ class ShipmentStepTest extends Unit
     {
         return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
-
 }

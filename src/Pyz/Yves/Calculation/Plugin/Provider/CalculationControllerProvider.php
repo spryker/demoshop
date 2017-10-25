@@ -12,7 +12,6 @@ use Silex\Application;
 
 class CalculationControllerProvider extends AbstractYvesControllerProvider
 {
-
     /**
      * @param \Silex\Application $app
      *
@@ -28,5 +27,4 @@ class CalculationControllerProvider extends AbstractYvesControllerProvider
             'cart'
         )->method('GET');
     }
-
 }

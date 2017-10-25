@@ -15,7 +15,6 @@ use Silex\Application;
  */
 class CartServiceProvider extends AbstractServiceProvider
 {
-
     /**
      * @param \Silex\Application $app
      *
@@ -38,5 +37,4 @@ class CartServiceProvider extends AbstractServiceProvider
     public function boot(Application $app)
     {
     }
-
 }

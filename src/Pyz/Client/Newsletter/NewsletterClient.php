@@ -15,7 +15,6 @@ use Spryker\Client\Newsletter\NewsletterClient as SprykerNewsletterClient;
  */
 class NewsletterClient extends SprykerNewsletterClient implements NewsletterClientInterface
 {
-
     /**
      * {@inheritdoc}
      *
@@ -74,5 +73,4 @@ class NewsletterClient extends SprykerNewsletterClient implements NewsletterClie
 
         return $subscriptionResponse->getSubscriptionResults()[0];
     }
-
 }

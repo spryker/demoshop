@@ -16,7 +16,6 @@ use Spryker\Zed\Newsletter\Communication\Plugin\CustomerAnonymizer\CustomerUnsub
 
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
-
     const SALES_FACADE = 'sales facade';
     const NEWSLETTER_FACADE = 'newsletter facade';
 
@@ -47,7 +46,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     {
         return [
             new CustomerUnsubscribePlugin([
-                NewsletterConstants::EDITORIAL_NEWSLETTER
+                NewsletterConstants::EDITORIAL_NEWSLETTER,
             ]),
             new RemoveCustomerFromGroupPlugin(),
         ];
@@ -62,5 +61,4 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
             new CustomerTransferUsernameExpanderPlugin(),
         ];
     }
-
 }

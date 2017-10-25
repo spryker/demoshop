@@ -9,10 +9,12 @@ namespace Pyz\Zed\Queue;
 
 use Generated\Shared\Transfer\RabbitMqConsumerOptionTransfer;
 use Spryker\Shared\Event\EventConstants;
+use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Zed\Queue\QueueConfig as SprykerQueueConfig;
 
 class QueueConfig extends SprykerQueueConfig
 {
+    const RABBITMQ = 'rabbitmq';
 
     /**
      * @return array
@@ -20,10 +22,36 @@ class QueueConfig extends SprykerQueueConfig
     protected function getQueueReceiverOptions()
     {
         return [
+            QueueConstants::QUEUE_DEFAULT_RECEIVER => [
+                static::RABBITMQ => $this->getRabbitMqQueueConsumerOptions(),
+            ],
             EventConstants::EVENT_QUEUE => [
-                'rabbitmq' => $this->getRabbitMqQueueConsumerOptions(),
+                static::RABBITMQ => $this->getRabbitMqQueueConsumerOptions(),
             ],
         ];
+    }
+
+    /**
+     * @return array
+     */
+    protected function getMessageCheckOptions()
+    {
+        return [
+            QueueConstants::QUEUE_WORKER_MESSAGE_CHECK_OPTION => [
+                static::RABBITMQ => $this->getRabbitMqQueueMessageCheckOptions(),
+            ],
+        ];
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\RabbitMqConsumerOptionTransfer
+     */
+    protected function getRabbitMqQueueMessageCheckOptions()
+    {
+        $queueOptionTransfer = $this->getRabbitMqQueueConsumerOptions();
+        $queueOptionTransfer->setRequeueOnReject(true);
+
+        return $queueOptionTransfer;
     }
 
     /**
@@ -37,5 +65,4 @@ class QueueConfig extends SprykerQueueConfig
 
         return $queueOptionTransfer;
     }
-
 }

@@ -22,7 +22,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const DEFAULT_IS_ACTIVE = true;
@@ -258,5 +257,4 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
 
         return $navigationNodeLocalizedAttributes->getCssClass();
     }
-
 }

@@ -13,7 +13,6 @@ use Spryker\Client\Wishlist\WishlistClientInterface;
 
 class WishlistFormDataProvider
 {
-
     /**
      * @var \Spryker\Client\Wishlist\WishlistClientInterface
      */
@@ -50,5 +49,4 @@ class WishlistFormDataProvider
 
         return $this->wishlistClient->getWishlist($wishlistTransfer);
     }
-
 }

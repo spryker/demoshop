@@ -15,7 +15,6 @@ use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
 
 abstract class AbstractResourceCreator implements ResourceCreatorInterface
 {
-
     /**
      * @param \Silex\Application $application
      * @param \Spryker\Shared\Kernel\Communication\BundleControllerActionInterface $bundleControllerAction
@@ -38,5 +37,4 @@ abstract class AbstractResourceCreator implements ResourceCreatorInterface
 
         return $service;
     }
-
 }

@@ -15,7 +15,6 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
  */
 class StateMachineExampleFacade extends AbstractFacade implements StateMachineExampleFacadeInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StateMachineItemTransfer $stateMachineItemTransfer
      *
@@ -51,5 +50,4 @@ class StateMachineExampleFacade extends AbstractFacade implements StateMachineEx
     {
         return $this->getFactory()->createStateMachineSaver()->createExampleItem();
     }
-
 }

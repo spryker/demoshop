@@ -12,7 +12,6 @@ use Spryker\Zed\ProductRelation\Business\ProductRelationFacadeInterface;
 
 class ProductRelationAfterImportHook implements DataImporterAfterImportInterface
 {
-
     /**
      * @var \Spryker\Zed\ProductRelation\Business\ProductRelationFacadeInterface
      */
@@ -33,5 +32,4 @@ class ProductRelationAfterImportHook implements DataImporterAfterImportInterface
     {
         $this->productRelationFacade->rebuildRelations();
     }
-
 }

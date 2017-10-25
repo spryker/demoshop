@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CmsFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Cms\ResourceCreator\PageResourceCreator
      */
@@ -44,5 +43,4 @@ class CmsFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CmsDependencyProvider::STORE);
     }
-
 }

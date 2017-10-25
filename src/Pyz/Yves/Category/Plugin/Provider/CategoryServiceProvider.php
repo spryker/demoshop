@@ -15,7 +15,6 @@ use Silex\Application;
  */
 class CategoryServiceProvider extends AbstractServiceProvider
 {
-
     /**
      * @param \Silex\Application $app
      *
@@ -36,5 +35,4 @@ class CategoryServiceProvider extends AbstractServiceProvider
     public function boot(Application $app)
     {
     }
-
 }

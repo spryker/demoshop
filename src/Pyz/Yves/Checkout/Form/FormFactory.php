@@ -28,7 +28,6 @@ use Symfony\Component\Form\FormTypeInterface;
 
 class FormFactory extends SprykerFormFactory
 {
-
     /**
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
@@ -292,5 +291,4 @@ class FormFactory extends SprykerFormFactory
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
     }
-
 }

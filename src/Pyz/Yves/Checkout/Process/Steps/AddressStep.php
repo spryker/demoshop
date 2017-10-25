@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
     /**
      * @var \Pyz\Client\Customer\CustomerClientInterface
      */
@@ -188,5 +187,4 @@ class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     {
         return !$this->requireInput($dataTransfer);
     }
-
 }

@@ -70,7 +70,8 @@
     "spryker/dummy-payment": "^2.0.0",
     "spryker/elastica": "^3.0.0",
     "spryker/error-handler": "^2.0.0",
-    "spryker/event": "^1.0.0",
+    "spryker/event": "^2.0.0",
+    "spryker/event-behavior": "^0.1.0",
     "spryker/event-journal": "^3.0.0",
     "spryker/file-system": "^1.0.0",
     "spryker/flysystem": "^1.0.0",
@@ -143,9 +144,9 @@
     "spryker/propel": "^3.0.0",
     "spryker/propel-orm": "^1.0.0",
     "spryker/propel-query-builder": "^0.3.0",
-    "spryker/queue": "^0.3.0",
+    "spryker/queue": "^1.0.0",
     "spryker/quote": "^1.0.0",
-    "spryker/rabbit-mq": "^0.1.0",
+    "spryker/rabbit-mq": "^1.0.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^5.0.0",
     "spryker/sales": "^8.0.0",
@@ -155,7 +156,7 @@
     "spryker/sequence-number": "^3.0.0",
     "spryker/session": "^3.0.0",
     "spryker/setup": "^4.0.0",
-    "spryker/shipment": "^5.0.0",
+    "spryker/shipment": "^6.0.0",
     "spryker/shipment-discount-connector": "^1.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
@@ -166,6 +167,8 @@
     "spryker/storage": "^3.0.0",
     "spryker/store": "^1.0.0",
     "spryker/symfony": "^3.0.0",
+    "spryker/synchronization": "^0.1.0",
+    "spryker/synchronization-behavior": "^0.1.0",
     "spryker/tax": "^5.0.0",
     "spryker/tax-product-connector": "^4.0.0",
     "spryker/touch": "^3.0.0",
@@ -180,15 +183,17 @@
     "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
-    "codeception/c3": "^2.0.12",
+    "codeception/c3": "2.0.12",
     "doctrine/instantiator": "~1.0.5",
     "fzaninotto/faker": "^1.6",
     "jakoch/phantomjs-installer": "^2.1.0",
     "nette/php-generator": "^2.6.1",
     "pdepend/pdepend": "^2.2.4",
     "php-mock/php-mock": "^1.0",
+    "phpdocumentor/reflection-docblock": "^2.0",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "~2.4.3",
+    "phpstan/phpstan": "^0.8.5",
     "phpunit/php-token-stream": "^1.4.11",
     "phpunit/phpunit": "^5.0",
     "sebastian/phpcpd": "^2.0.2",
@@ -198,12 +203,11 @@
     "sllh/composer-versions-check": "^2.0.2",
     "spryker/architecture-sniffer": "^0.4.0",
     "spryker/code-generator": "^0.3.0",
-    "spryker/code-sniffer": "^0.10.0",
+    "spryker/code-sniffer": "^0.11.0",
     "spryker/development": "^3.0.0",
     "spryker/testify": "^3.0.0",
     "squizlabs/php_codesniffer": "^3.0",
     "stecman/symfony-console-completion": "^0.7.0",
-    "phpdocumentor/reflection-docblock": "^2.0",
     "symfony/var-dumper": "*",
     "symfony/web-profiler-bundle": "*"
   },
@@ -218,12 +222,11 @@
   },
   "autoload-dev": {
     "psr-4": {
+      "PyzTest\\": "tests/PyzTest",
+      "PhpStan\\": "tests/PhpStan",
+      "Acceptance\\Auth\\": "vendor/spryker/auth/tests/",
       "Application\\Module\\": "vendor/spryker/application/tests/_support/Module",
       "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module"
-    },
-    "psr-0": {
-      "PyzTest": "tests",
-      "Acceptance\\Auth\\": "vendor/spryker/auth/tests/"
     },
     "files": [
       "test-autoload.php"
@@ -256,6 +259,9 @@
     "post-update-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS",
       "Install\\ComposerAdjuster::assertDemoshopGitUrls"
-    ]
+    ],
+    "phpstan": "php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1",
+    "phpstan-core": "php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1",
+    "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }
 }

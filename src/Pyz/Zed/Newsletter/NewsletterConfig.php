@@ -12,7 +12,6 @@ use Spryker\Zed\Newsletter\NewsletterConfig as SprykerNewsletterConfig;
 
 class NewsletterConfig extends SprykerNewsletterConfig
 {
-
     /**
      * @return array
      */
@@ -22,5 +21,4 @@ class NewsletterConfig extends SprykerNewsletterConfig
             NewsletterConstants::EDITORIAL_NEWSLETTER,
         ];
     }
-
 }

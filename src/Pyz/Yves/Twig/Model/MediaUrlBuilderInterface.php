@@ -9,7 +9,6 @@ namespace Pyz\Yves\Twig\Model;
 
 interface MediaUrlBuilderInterface
 {
-
     /**
      * @param string $mediaPath
      *
@@ -18,5 +17,4 @@ interface MediaUrlBuilderInterface
      * @return string
      */
     public function buildUrl($mediaPath);
-
 }

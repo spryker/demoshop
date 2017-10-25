@@ -27,7 +27,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CustomerStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -160,5 +159,4 @@ class CustomerStepTest extends Unit
     {
         return $this->getMockBuilder(CustomerClientInterface::class)->getMock();
     }
-
 }

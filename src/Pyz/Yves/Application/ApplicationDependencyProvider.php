@@ -14,7 +14,6 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const SERVICE_UTIL_DATE_TIME = 'util date time service';
 
     const SERVICE_NETWORK = 'util network service';
@@ -94,5 +93,4 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

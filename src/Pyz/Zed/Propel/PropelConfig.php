@@ -11,7 +11,6 @@ use Spryker\Zed\Propel\PropelConfig as SprykerPropelConfig;
 
 class PropelConfig extends SprykerPropelConfig
 {
-
     /**
      * @return array
      */
@@ -22,5 +21,4 @@ class PropelConfig extends SprykerPropelConfig
             parent::getProjectPropelSchemaPathPatterns()
         );
     }
-
 }

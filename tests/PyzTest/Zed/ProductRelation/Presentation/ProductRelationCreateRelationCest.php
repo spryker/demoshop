@@ -22,7 +22,6 @@ use Spryker\Shared\ProductRelation\ProductRelationTypes;
  */
 class ProductRelationCreateRelationCest
 {
-
     /**
      * @param \PyzTest\Zed\ProductRelation\ProductRelationPresentationTester $i
      *
@@ -59,5 +58,4 @@ class ProductRelationCreateRelationCest
         $i->canSee('Similar products');
         $i->canSee('HP EliteDesk 800 G2');
     }
-
 }

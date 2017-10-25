@@ -9,10 +9,8 @@ namespace Pyz\Zed\ProductSale\Business\Label;
 
 interface ProductAbstractRelationReaderInterface
 {
-
     /**
      * @return \Generated\Shared\Transfer\ProductLabelProductAbstractRelationsTransfer[]
      */
     public function findProductLabelProductAbstractRelationChanges();
-
 }

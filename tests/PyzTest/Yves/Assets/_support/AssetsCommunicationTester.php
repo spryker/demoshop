@@ -26,11 +26,9 @@ use Codeception\Actor;
  */
 class AssetsCommunicationTester extends Actor
 {
-
     use _generated\AssetsCommunicationTesterActions;
 
    /**
     * Define custom actions here
     */
-
 }

@@ -23,7 +23,6 @@ use PyzTest\Zed\CmsGui\PageObject\CmsListPage;
  */
 class CmsGuiPageListCest
 {
-
     /**
      * @param \PyzTest\Zed\CmsGui\CmsGuiPresentationTester $i
      *
@@ -36,5 +35,4 @@ class CmsGuiPageListCest
 
         $i->waitForElementVisible(CmsListPage::PAGE_LIST_TABLE_XPATH, 5);
     }
-
 }

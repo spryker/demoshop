@@ -30,7 +30,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PlaceOrderStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -186,5 +185,4 @@ class PlaceOrderStepTest extends Unit
 
         return $quoteTransfer;
     }
-
 }

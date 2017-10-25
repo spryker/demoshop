@@ -14,7 +14,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CheckoutFactory extends AbstractFactory
 {
-
     /**
      * @return \Spryker\Yves\StepEngine\Process\StepEngineInterface
      */
@@ -92,5 +91,4 @@ class CheckoutFactory extends AbstractFactory
     {
         return $this->getApplication()['flash_messenger'];
     }
-
 }

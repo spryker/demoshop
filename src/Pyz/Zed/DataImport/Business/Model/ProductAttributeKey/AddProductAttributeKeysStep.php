@@ -15,7 +15,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class AddProductAttributeKeysStep implements DataImportStepInterface
 {
-
     const KEY_TARGET = 'attributeKeys';
 
     /**
@@ -48,5 +47,4 @@ class AddProductAttributeKeysStep implements DataImportStepInterface
 
         $dataSet[static::KEY_TARGET] = $this->productAttributeKeys;
     }
-
 }

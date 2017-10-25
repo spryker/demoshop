@@ -16,7 +16,6 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class WishlistFormType extends AbstractType
 {
-
     const FIELD_NAME = 'name';
 
     /**
@@ -59,5 +58,4 @@ class WishlistFormType extends AbstractType
 
         return $this;
     }
-
 }

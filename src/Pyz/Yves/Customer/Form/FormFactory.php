@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class FormFactory extends AbstractFactory
 {
-
     /**
      * @return \Symfony\Component\Form\FormFactory
      */
@@ -127,5 +126,4 @@ class FormFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::STORE);
     }
-
 }

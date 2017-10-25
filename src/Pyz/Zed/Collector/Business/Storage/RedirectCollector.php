@@ -12,7 +12,6 @@ use Spryker\Zed\Url\UrlConfig;
 
 class RedirectCollector extends AbstractStoragePropelCollector
 {
-
     const KEY_FROM_URL = 'from_url';
     const KEY_TO_URL = 'to_url';
     const KEY_STATUS = 'status';
@@ -41,5 +40,4 @@ class RedirectCollector extends AbstractStoragePropelCollector
             self::KEY_ID => $collectItemData[self::KEY_ID],
         ];
     }
-
 }

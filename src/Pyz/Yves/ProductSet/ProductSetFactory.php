@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class ProductSetFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface
      */
@@ -56,5 +55,4 @@ class ProductSetFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(ProductSetDependencyProvider::PLUGIN_STORAGE_PRODUCT_MAPPER);
     }
-
 }

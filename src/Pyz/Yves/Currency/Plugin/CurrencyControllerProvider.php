@@ -12,7 +12,6 @@ use Silex\Application;
 
 class CurrencyControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_CART = 'currency-switch';
 
     /**
@@ -30,5 +29,4 @@ class CurrencyControllerProvider extends AbstractYvesControllerProvider
             'index'
         );
     }
-
 }

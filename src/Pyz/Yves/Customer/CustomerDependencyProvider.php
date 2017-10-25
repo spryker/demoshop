@@ -18,7 +18,6 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_CUSTOMER = 'customer client';
     const CLIENT_NEWSLETTER = 'newsletter client';
     const CLIENT_SALES = 'client client';
@@ -115,5 +114,4 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductBridge as 
 
 class ProductSearchToProductBridge extends SprykerProductSearchToProductBridge implements ProductSearchToProductInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\RawProductAttributesTransfer $rawProductAttributesTransfer
      *
@@ -32,5 +31,4 @@ class ProductSearchToProductBridge extends SprykerProductSearchToProductBridge i
     {
         return $this->productFacade->decodeProductAttributes($attributes);
     }
-
 }

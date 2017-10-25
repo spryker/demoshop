@@ -15,7 +15,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class RegistrationCheckoutAuthenticationHandlerPlugin extends AbstractPlugin implements CheckoutAuthenticationHandlerPluginInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -66,5 +65,4 @@ class RegistrationCheckoutAuthenticationHandlerPlugin extends AbstractPlugin imp
     {
         return ($quoteTransfer->getCustomer() !== null);
     }
-
 }

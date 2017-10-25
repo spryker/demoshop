@@ -14,7 +14,6 @@ use Pyz\Shared\Product\ProductConfig;
 
 class StorageImageMapper implements StorageImageMapperInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
@@ -67,5 +66,4 @@ class StorageImageMapper implements StorageImageMapperInterface
 
         return $storageImageTransfer;
     }
-
 }

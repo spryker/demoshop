@@ -12,7 +12,6 @@ use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
 
 class LocaleRepository implements LocaleRepositoryInterface
 {
-
     /**
      * @var array
      */
@@ -45,5 +44,4 @@ class LocaleRepository implements LocaleRepositoryInterface
             static::$localeMap[$locale[SpyLocaleTableMap::COL_LOCALE_NAME]] = $locale[SpyLocaleTableMap::COL_ID_LOCALE];
         }
     }
-
 }

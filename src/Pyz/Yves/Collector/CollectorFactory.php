@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CollectorFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface[]
      */
@@ -99,5 +98,4 @@ class CollectorFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_SET_RESOURCE_CREATOR);
     }
-
 }

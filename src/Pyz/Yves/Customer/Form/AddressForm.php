@@ -18,7 +18,6 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class AddressForm extends AbstractType
 {
-
     const FIELD_SALUTATION = 'salutation';
     const FIELD_FIRST_NAME = 'first_name';
     const FIELD_LAST_NAME = 'last_name';
@@ -435,5 +434,4 @@ class AddressForm extends AbstractType
         }
         return $validationGroup;
     }
-
 }

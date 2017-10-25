@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\Application;
 
 class YvesExtension extends TwigExtension
 {
-
     /**
      * @var \Spryker\Yves\Kernel\Application
      */
@@ -71,5 +70,4 @@ class YvesExtension extends TwigExtension
 
         return $twigFunctions;
     }
-
 }

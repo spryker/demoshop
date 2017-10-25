@@ -14,7 +14,6 @@ use Spryker\Zed\Oms\Dependency\Plugin\Command\CommandByOrderInterface;
 
 class FakeAuthPayment extends AbstractCommand implements CommandByOrderInterface
 {
-
     /**
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrderItem[] $orderItems
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $orderEntity
@@ -26,5 +25,4 @@ class FakeAuthPayment extends AbstractCommand implements CommandByOrderInterface
     {
         return [];
     }
-
 }

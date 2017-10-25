@@ -12,7 +12,6 @@ use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
 
 class CatalogFactory extends SprykerCatalogFactory
 {
-
     /**
      * @param int $limit
      *
@@ -43,5 +42,4 @@ class CatalogFactory extends SprykerCatalogFactory
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS);
     }
-
 }

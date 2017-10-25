@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CustomerStepHandler extends AbstractPlugin implements StepHandlerPluginInterface
 {
-
     /**
      * @var \Pyz\Yves\Customer\Plugin\CheckoutAuthenticationHandlerPluginInterface[]
      */
@@ -53,5 +52,4 @@ class CustomerStepHandler extends AbstractPlugin implements StepHandlerPluginInt
 
         return $quoteTransfer;
     }
-
 }

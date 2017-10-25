@@ -13,7 +13,6 @@ use Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInt
 
 class StateMachineExampleItemSaver
 {
-
     /**
      * @var \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface
      */
@@ -51,11 +50,9 @@ class StateMachineExampleItemSaver
     {
         $stateMachineExampleItemEntity = new PyzStateMachineExampleItem();
         $stateMachineExampleItemEntity->setName('Test item ' . rand(123, 321));
-        $stateMachineExampleItemEntity->save();
 
         $affectedRowCount = $stateMachineExampleItemEntity->save();
 
         return $affectedRowCount > 0;
     }
-
 }

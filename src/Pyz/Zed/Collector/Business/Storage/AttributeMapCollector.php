@@ -28,7 +28,6 @@ use Spryker\Zed\Product\Business\ProductFacadeInterface;
  */
 class AttributeMapCollector extends AbstractStoragePropelCollector
 {
-
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
@@ -249,5 +248,4 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
 
         return $concreteProductIds;
     }
-
 }

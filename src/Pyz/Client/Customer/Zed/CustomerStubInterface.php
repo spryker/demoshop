@@ -12,12 +12,10 @@ use Spryker\Client\Customer\Zed\CustomerStubInterface as SprykerCustomerStubInte
 
 interface CustomerStubInterface extends SprykerCustomerStubInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\CustomerOverviewRequestTransfer $overviewRequest
      *
      * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
      */
     public function getCustomerOverview(CustomerOverviewRequestTransfer $overviewRequest);
-
 }

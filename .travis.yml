@@ -10,15 +10,13 @@ dist: precise
 matrix:
   fast_finish: true
   include:
-     - php: "5.6"
-       env:
-          - TEST_GROUP=without-acceptance
      - php: "7.0"
        env:
           - TEST_GROUP=without-acceptance
      - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
+          - PHPSTAN=1
      - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
@@ -57,13 +55,16 @@ sudo: required
 
 before_install:
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/*; fi
-  - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh; fi
+  - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/* ; fi
+  - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh ; fi
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer self-update && composer --version
-  - composer install --no-interaction
+  - composer remove --dev phpstan/phpstan spryker/code-sniffer jean85/pretty-package-versions
+  - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan ; fi
+  - if [[ $TRAVIS_PHP_VERSION != 7.1 && $PHPSTAN != 1 ]] ; then composer require --dev spryker/code-sniffer ; fi
+  - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
@@ -77,19 +78,19 @@ before_script:
   - chmod -R 777 data/
 
   - mv config/Zed/propel.ci.yml config/Zed/propel.yml
-  - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php; fi
-  - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php; fi
+  - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
+  - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
 
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
   - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
-  - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh; fi
-  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/; fi
-  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart; fi
+  - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh ; fi
+  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
+  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
 
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f; fi
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b ; fi
 
   - vendor/bin/console twig:cache:warmer
 
@@ -100,6 +101,9 @@ script:
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console transfer:validate ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console code:sniff ; fi
+
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
 
 notifications:
   email: false

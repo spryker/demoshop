@@ -29,7 +29,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AddressStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -225,5 +224,4 @@ class AddressStepTest extends Unit
     {
         return $this->getMockBuilder(CustomerClientInterface::class)->getMock();
     }
-
 }

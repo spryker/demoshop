@@ -15,7 +15,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class RedirectCollectorQuery extends AbstractPropelCollectorQuery
 {
-
     /**
      * @return void
      */
@@ -43,5 +42,4 @@ class RedirectCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyUrlRedirectTableMap::COL_STATUS, 'status');
         $this->touchQuery->withColumn(SpyUrlRedirectTableMap::COL_TO_URL, 'to_url');
     }
-
 }

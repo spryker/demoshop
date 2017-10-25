@@ -12,7 +12,6 @@ use Spryker\Zed\ProductSearch\Dependency\Facade\ProductSearchToProductInterface 
 
 interface ProductSearchToProductInterface extends SprykerProductSearchToProductInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\RawProductAttributesTransfer $rawProductAttributesTransfer
      *
@@ -26,5 +25,4 @@ interface ProductSearchToProductInterface extends SprykerProductSearchToProductI
      * @return array
      */
     public function decodeProductAttributes($attributes);
-
 }

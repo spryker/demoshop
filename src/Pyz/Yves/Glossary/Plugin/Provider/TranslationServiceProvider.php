@@ -16,7 +16,6 @@ use Silex\Application;
  */
 class TranslationServiceProvider extends AbstractServiceProvider
 {
-
     /**
      * @param \Silex\Application $app
      *
@@ -42,5 +41,4 @@ class TranslationServiceProvider extends AbstractServiceProvider
     public function boot(Application $app)
     {
     }
-
 }

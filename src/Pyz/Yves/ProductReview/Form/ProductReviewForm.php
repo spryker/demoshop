@@ -21,7 +21,6 @@ use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 class ProductReviewForm extends AbstractType
 {
-
     const FIELD_RATING = ProductReviewRequestTransfer::RATING;
     const FIELD_SUMMARY = ProductReviewRequestTransfer::SUMMARY;
     const FIELD_DESCRIPTION = ProductReviewRequestTransfer::DESCRIPTION;
@@ -132,7 +131,7 @@ class ProductReviewForm extends AbstractType
                 'label' => 'product_review.submit.summary',
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1])
+                    new Length(['min' => 1]),
                 ],
             ]
         );
@@ -157,7 +156,7 @@ class ProductReviewForm extends AbstractType
                 ],
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1])
+                    new Length(['min' => 1]),
                 ],
             ]
         );
@@ -179,7 +178,7 @@ class ProductReviewForm extends AbstractType
                 'label' => 'product_review.submit.nickname',
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1, 'max' => 255])
+                    new Length(['min' => 1, 'max' => 255]),
                 ],
             ]
         );
@@ -204,5 +203,4 @@ class ProductReviewForm extends AbstractType
 
         return $this;
     }
-
 }

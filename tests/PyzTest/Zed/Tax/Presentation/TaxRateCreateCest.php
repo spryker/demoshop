@@ -22,7 +22,6 @@ use PyzTest\Zed\Tax\TaxPresentationTester;
  */
 class TaxRateCreateCest
 {
-
     /**
      * @param \PyzTest\Zed\Tax\TaxPresentationTester $i
      *
@@ -107,5 +106,4 @@ class TaxRateCreateCest
 
         $i->see(TaxRateCreatePage::ERROR_MESSAGE_TAX_RATE_ALREADY_EXISTS);
     }
-
 }

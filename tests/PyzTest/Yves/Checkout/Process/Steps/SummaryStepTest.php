@@ -30,7 +30,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SummaryStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -107,5 +106,4 @@ class SummaryStepTest extends Unit
     {
         return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
-
 }

@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ShipmentHandler
 {
-
     /**
      * @var \Spryker\Client\Shipment\ShipmentClientInterface
      */
@@ -89,7 +88,7 @@ class ShipmentHandler
         $shipmentExpenseTransfer = $this->createExpenseTransfer();
         $shipmentExpenseTransfer->fromArray($shipmentMethodTransfer->toArray(), true);
         $shipmentExpenseTransfer->setType(ShipmentConstants::SHIPMENT_EXPENSE_TYPE);
-        $this->setPrice($shipmentExpenseTransfer, $shipmentMethodTransfer->getDefaultPrice(), $priceMode);
+        $this->setPrice($shipmentExpenseTransfer, $shipmentMethodTransfer->getStoreCurrencyPrice(), $priceMode);
         $shipmentExpenseTransfer->setQuantity(1);
 
         return $shipmentExpenseTransfer;
@@ -140,5 +139,4 @@ class ShipmentHandler
     {
         return new ExpenseTransfer();
     }
-
 }
