@@ -11,7 +11,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface CodeHandlerInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $code
@@ -58,5 +57,4 @@ interface CodeHandlerInterface
      * @return void
      */
     public function clearQuote(QuoteTransfer $quoteTransfer);
-
 }

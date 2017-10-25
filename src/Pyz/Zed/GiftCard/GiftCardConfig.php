@@ -12,15 +12,13 @@ use Spryker\Zed\GiftCard\GiftCardConfig as SprykerGiftCardConfig;
 
 class GiftCardConfig extends SprykerGiftCardConfig
 {
-
     /**
      * @return array
      */
     public function getGiftCardMethodBlacklist()
     {
         return [
-            DummyPaymentConfig::PAYMENT_METHOD_INVOICE
+            DummyPaymentConfig::PAYMENT_METHOD_INVOICE,
         ];
     }
-
 }

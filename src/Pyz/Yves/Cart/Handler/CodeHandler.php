@@ -14,7 +14,6 @@ use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 
 class CodeHandler extends BaseHandler
 {
-
     /**
      * @var \Spryker\Client\Calculation\CalculationClientInterface|\Spryker\Client\Kernel\AbstractClient
      */
@@ -150,5 +149,4 @@ class CodeHandler extends BaseHandler
     {
         $this->flashMessenger->addErrorMessage('cart.code.apply.failed');
     }
-
 }

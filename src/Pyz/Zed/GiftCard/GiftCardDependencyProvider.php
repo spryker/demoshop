@@ -15,7 +15,6 @@ use Spryker\Zed\GiftCardBalance\Communication\Plugin\GiftCardBalanceValueProvide
 
 class GiftCardDependencyProvider extends SprykerGiftCardDependencyProvider
 {
-
     //TODO evaluate strategies: replace gift card vs balance approach
     //balance: requires module GiftCardBalance, otherwise leave as is
     //replacement: GiftCardBalance not needed, uncomment lines below, see RecreateGiftCards process
@@ -54,5 +53,4 @@ class GiftCardDependencyProvider extends SprykerGiftCardDependencyProvider
             new BalanceTransactionLogPaymentSaverPlugin(),
         ];
     }
-
 }

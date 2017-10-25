@@ -12,7 +12,6 @@ use Pyz\Yves\Discount\Handler\VoucherCodeHandler;
 use Pyz\Yves\GiftCard\Cart\Plugin\GiftCardCodeHandler;
 use Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
-use Spryker\Shared\Kernel\ContainerInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Nopayment\NopaymentConfig;
 use Spryker\Yves\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;

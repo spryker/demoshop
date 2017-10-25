@@ -17,8 +17,8 @@ use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Flysystem\FlysystemConstants;
-use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File;
 use Spryker\Shared\GiftCard\GiftCardConstants;
+use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
@@ -355,7 +355,7 @@ $config[NopaymentConstants::NO_PAYMENT_METHODS] = [
 ];
 
 $config[NopaymentConstants::WHITELIST_PAYMENT_METHODS] = [
-    GiftCardConstants::PROVIDER_NAME
+    GiftCardConstants::PROVIDER_NAME,
 ];
 
 // ---------- State machine (OMS)

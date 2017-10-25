@@ -9,9 +9,9 @@ namespace Pyz\Zed\Payment;
 
 use Spryker\Shared\GiftCard\GiftCardConstants;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderSaverPlugin;
+use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPreCheckPlugin;
 use Spryker\Zed\Kernel\Container;
-use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
 use Spryker\Zed\Nopayment\Communication\Plugin\Payment\PriceToPayPaymentMethodFilterPlugin;
 use Spryker\Zed\Payment\Dependency\Plugin\Checkout\CheckoutPluginCollectionInterface;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
@@ -19,9 +19,9 @@ use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyPro
 class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
 {
     /**
-     * @param Container $container
+     * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Zed\Kernel\Container
      */
     public function provideBusinessLayerDependencies(Container $container)
     {

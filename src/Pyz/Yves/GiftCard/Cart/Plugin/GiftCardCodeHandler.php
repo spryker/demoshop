@@ -16,7 +16,6 @@ use Pyz\Yves\Cart\Plugin\CodeHandlerInterface;
 
 class GiftCardCodeHandler implements CodeHandlerInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $code
@@ -81,7 +80,6 @@ class GiftCardCodeHandler implements CodeHandlerInterface
 
                 break;
             }
-
         }
 
         return $result;
@@ -125,5 +123,4 @@ class GiftCardCodeHandler implements CodeHandlerInterface
 
         return false;
     }
-
 }

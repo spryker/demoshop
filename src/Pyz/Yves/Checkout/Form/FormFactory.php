@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Checkout\Form;
 
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
-use Pyz\Yves\Checkout\Form\Steps\PaymentForm;
 use Pyz\Yves\Checkout\Form\Steps\SummaryForm;
 use Pyz\Yves\Checkout\Form\Voucher\VoucherForm;
 use Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm;
@@ -20,9 +19,7 @@ use Pyz\Yves\Customer\Form\RegisterForm;
 use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
-use Spryker\Yves\Checkout\Form\Provider\FilterableSubFormProvider;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Form\FormCollectionHandler;
 use Symfony\Component\Form\FormTypeInterface;
 

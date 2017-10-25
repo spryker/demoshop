@@ -15,7 +15,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class GiftCardAbstractConfigurationWriterStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     /**
@@ -65,5 +64,4 @@ class GiftCardAbstractConfigurationWriterStep implements DataImportStepInterface
             ->findOneOrCreate();
         $linkEntity->save();
     }
-
 }
