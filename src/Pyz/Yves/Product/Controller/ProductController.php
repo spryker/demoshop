@@ -42,7 +42,7 @@ class ProductController extends AbstractController
         $this->localizePrices(
             $productOptionGroupsTransfer,
             $this->getCurrentCurrencyCode(),
-            $this->getPriceMode()
+            $this->getCurrentPriceMode()
         );
 
         $productData = [
@@ -71,7 +71,7 @@ class ProductController extends AbstractController
     /**
      * @return string
      */
-    protected function getPriceMode()
+    protected function getCurrentPriceMode()
     {
         return $this->getFactory()
             ->getPriceClient()
@@ -106,7 +106,7 @@ class ProductController extends AbstractController
         }
 
         $productOptionGroupTransfer->setValues(
-            $this->filterEmptyPrices($productOptionGroupTransfer->getValues())
+            $this->filterOptionValuesWithEmptyPrice($productOptionGroupTransfer->getValues())
         );
     }
 
@@ -133,7 +133,7 @@ class ProductController extends AbstractController
      *
      * @return \ArrayObject|\Generated\Shared\Transfer\StorageProductOptionValueTransfer[]
      */
-    protected function filterEmptyPrices(ArrayObject $productOptionValueCollection)
+    protected function filterOptionValuesWithEmptyPrice(ArrayObject $productOptionValueCollection)
     {
         return new ArrayObject(
             array_filter((array)$productOptionValueCollection, function (StorageProductOptionValueTransfer $productOptionValueTransfer) {
