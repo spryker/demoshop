@@ -1665,7 +1665,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5d02af5c09f69021e6c17819517d5fe8d624e773"
+                "reference": "7bdb9c23678c4486aa89f5292277b2d4d7ec3c40"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1864,7 +1864,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-19T14:30:18+00:00"
+            "time": "2017-10-25T15:10:43+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4406,37 +4406,40 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "doctrine/collections": "1.*",
-                "phpunit/phpunit": "~4.1"
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.6",
+                "phpunit/phpunit": "^4.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "DeepCopy\\": "src/DeepCopy/"
-                }
+                },
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Create deep copies (clones) of your objects",
-            "homepage": "https://github.com/myclabs/DeepCopy",
             "keywords": [
                 "clone",
                 "copy",
@@ -4444,7 +4447,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12T18:52:22+00:00"
+            "time": "2017-10-19T19:58:43+00:00"
         },
         {
             "name": "nette/bootstrap",
@@ -6660,13 +6663,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c"
+                "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/f7519b4fb6030c8576c59c801a9716dface7b72c",
-                "reference": "f7519b4fb6030c8576c59c801a9716dface7b72c",
-                "shasum": ""
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/80ec189e9825995d37a2790da91b5f4ce0d6a68a",
+                "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6682,10 +6697,23 @@
                     "ArchitectureSniffer\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "ArchitectureSniffer\\Test\\": "tests"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "vendor/bin/phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
+                ],
+                "cs-fix": [
+                    "vendor/bin/phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -6703,7 +6731,11 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2017-10-17T16:29:19+00:00"
+            "support": {
+                "source": "https://github.com/spryker/architecture-sniffer",
+                "issues": "https://github.com/spryker/architecture-sniffer/issues"
+            },
+            "time": "2017-10-24T15:59:01+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6711,13 +6743,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839"
+                "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
                 "reference": "ea7cc3f78928aeb2dea46a5e5b1fbbab51623839",
-                "shasum": ""
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "php": ">=5.6.0",
@@ -6741,11 +6785,23 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/master",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
             "time": "2017-10-17T11:12:00+00:00"
         },
         {
@@ -6805,7 +6861,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "c0173350f16c739454160151caa78b88348beb62"
+                "reference": "9c7eb1c033e8af93ce4e401cc709851c2504da7a"
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6856,7 +6912,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-10-17T15:26:10+00:00"
+            "time": "2017-10-23T08:10:50+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
