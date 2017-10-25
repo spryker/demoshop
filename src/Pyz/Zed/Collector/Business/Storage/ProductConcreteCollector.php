@@ -40,7 +40,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     const ATTRIBUTES = 'attributes';
 
     /**
-     * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
+     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
      */
     protected $priceFacade;
 
@@ -60,7 +60,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     private $productFacade;
 
     /**
-     * @var array
+     * @var array|null
      */
     protected $superAttributes;
 
