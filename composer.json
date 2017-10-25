@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-2125-integrate-with-saas-elk",
+    "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master as 1.0.0",
 
     "php": ">=5.6.0",
