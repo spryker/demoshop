@@ -75,10 +75,13 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
     const FACADE_PRODUCT_IMAGE = 'FACADE_PRODUCT_IMAGE';
     const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
+    const FACADE_CURRENCY = 'FACADE_CURRENCY';
+    const FACADE_STORE = 'FACADE_STORE';
 
     const QUERY_CONTAINER_CATEGORY = 'category query container';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
+    const QUERY_CONTAINER_PRODUCT_OPTION = 'QUERY_CONTAINER_PRODUCT_OPTION';
 
     const PLUGIN_PRODUCT_DATA_PAGE_MAP = 'PLUGIN_PRODUCT_DATA_PAGE_MAP';
     const PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP = 'PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP';
@@ -176,6 +179,52 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[static::SERVICE_DATA] = function (Container $container) {
             return $container->getLocator()->utilDataReader()->service();
+        };
+
+        $container = $this->addCurrencyFacade($container);
+        $container = $this->addStoreFacade($container);
+        $container = $this->addProductOptionQueryContainer($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addProductOptionQueryContainer(Container $container)
+    {
+        $container[static::QUERY_CONTAINER_PRODUCT_OPTION] = function (Container $container) {
+            return $container->getLocator()->productOption()->queryContainer();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addCurrencyFacade(Container $container)
+    {
+        $container[static::FACADE_CURRENCY] = function (Container $container) {
+            return $container->getLocator()->currency()->facade();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addStoreFacade(Container $container)
+    {
+        $container[static::FACADE_STORE] = function (Container $container) {
+            return $container->getLocator()->store()->facade();
         };
 
         return $container;

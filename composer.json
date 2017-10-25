@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-1750-product-multi-currency",
+    "spryker/spryker": "dev-feature/core-1752-multi-currency-product-options",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",

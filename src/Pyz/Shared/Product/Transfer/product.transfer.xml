@@ -8,6 +8,21 @@
         <property name="colorCode" type="string" />
     </transfer>
 
+    <transfer name="StorageProductOptionGroupCollection">
+        <property name="productOptionGroups" type="StorageProductOptionGroup[]" singular="productOptionGroup" />
+    </transfer>
+
+    <transfer name="StorageProductOptionGroup">
+        <property name="values" type="StorageProductOptionValue[]" singular="value" />
+    </transfer>
+
+    <transfer name="StorageProductOptionValue">
+        <property name="idProductOptionValue" type="int" />
+        <property name="price" type="int" />
+        <property name="prices" type="array" />
+        <property name="value" type="string" />
+    </transfer>
+
     <transfer name="StorageProduct">
         <property name="idProductConcrete" type="int" />
         <property name="idProductAbstract" type="int" />
