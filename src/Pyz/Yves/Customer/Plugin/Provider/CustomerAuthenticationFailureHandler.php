@@ -15,6 +15,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerI
 /**
  * @method \Spryker\Client\Customer\CustomerClientInterface getClient()
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
  */
 class CustomerAuthenticationFailureHandler extends AbstractPlugin implements AuthenticationFailureHandlerInterface
 {
@@ -67,12 +68,33 @@ class CustomerAuthenticationFailureHandler extends AbstractPlugin implements Aut
      *
      * @return string
      */
-    protected function determineTargetUrl($request)
+    protected function determineTargetUrl(Request $request)
     {
-        if ($request->headers->has('Referer')) {
-            return $request->headers->get('Referer');
+        $refererUrl = $request->headers->get('Referer');
+        if ($refererUrl !== null && $this->isYvesDomain($refererUrl)) {
+            return $refererUrl;
         }
 
-        return ApplicationControllerProvider::ROUTE_HOME;
+        return $this->getHomeUrl();
+    }
+
+    /**
+     * @param string $url
+     *
+     * @return bool
+     */
+    protected function isYvesDomain($url)
+    {
+        $acceptedDomain = sprintf('#^(http|https)://%s/#', $this->getConfig()->getYvesHost());
+
+        return (bool)preg_match($acceptedDomain, $url);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getHomeUrl()
+    {
+        return $this->getFactory()->getApplication()->url(ApplicationControllerProvider::ROUTE_HOME);
     }
 }
