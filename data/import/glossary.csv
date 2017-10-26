@@ -66,7 +66,7 @@ customer.password,Password,en_US
 password.confirm,Passwort bestätigen,de_DE
 password.confirm,Confirm passwort,en_US
 page.checkout.address.heading,1. Adressangaben,de_DE
-page.checkout.address.heading,1. Address Data ,en_US
+page.checkout.address.heading,1. Address Data,en_US
 page.checkout.address.name,Name,de_DE
 page.checkout.address.name,Name,en_US
 page.checkout.address.billing-address,Rechnungsadresse,de_DE
@@ -232,7 +232,7 @@ customer.email,E-Mail,en_US
 customer.phone,Telefonnummer,de_DE
 customer.phone,Telephone number,en_US
 customer.reset.password.error.already.loggedIn,"Kunde bereits eingeloggt. Bitte logge dich aus, um dein Kundenpasswort zurückzusetzen.",de_DE
-customer.reset.password.error.already.loggedIn,"Another customer already logged in. Please logout to reset your password.",en_US
+customer.reset.password.error.already.loggedIn,Another customer already logged in. Please logout to reset your password.,en_US
 payment.prepay,Vorkasse,de_DE
 payment.prepay,Prepayment,en_US
 payment.paypal,PayPal,de_DE
@@ -827,7 +827,7 @@ product.detail.out_of_stock,This product is currently not available.,en_US
 product.detail.out_of_stock,Das Produkt ist zur Zeit nicht verfügbar.,de_DE
 product.groups,Product Groups,en_US
 product.groups,Produktgruppen,de_DE
-cart.pre.check.availability.failed.empty,Currently this product is not available. ,en_US
+cart.pre.check.availability.failed.empty,Currently this product is not available.,en_US
 cart.pre.check.availability.failed.empty,Das Produkt ist zurzeit nicht verfügbar.,de_DE
 mail.sender.name,Spryker demoshop,en_US
 mail.sender.name,Spryker demoshop,de_DE
@@ -1019,7 +1019,9 @@ checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE
 cms.preview.access_denied,You are not logged in or you do not have permission to access this page.,en_US
 cms.preview.access_denied,Du bist nicht eingeloggt oder hast keine Berechtigung diese Seite zu betreten.,de_DE
-product-cart.validation.error.abstract-product-exists,"Product not found",en_US
-product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
-product-cart.validation.error.concrete-product-exists,"Product not found",en_US
-product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
+product-cart.validation.error.abstract-product-exists,Product not found,en_US
+product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
+product-cart.validation.error.concrete-product-exists,Product not found,en_US
+product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
+product.filter.label,Product Labels,en_US
+product.filter.label,Product Labels,de_DE

@@ -15,7 +15,7 @@ use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 abstract class AbstractHealthIndicator implements HealthIndicatorInterface
 {
     /**
-     * @var \Generated\Shared\Transfer\HealthReportTransfer
+     * @var \Generated\Shared\Transfer\HealthIndicatorReportTransfer
      */
     private $healthIndicatorReport;
 
