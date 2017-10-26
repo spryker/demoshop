@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Payment;
 
+use Spryker\Shared\GiftCard\GiftCardConfig;
 use Spryker\Shared\GiftCard\GiftCardConstants;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderSaverPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
@@ -54,13 +55,13 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
             function (CheckoutPluginCollectionInterface $pluginCollection) {
                 $pluginCollection->add(
                     new GiftCardPreCheckPlugin(),
-                    GiftCardConstants::PROVIDER_NAME,
+                    GiftCardConfig::PROVIDER_NAME,
                     PaymentDependencyProvider::CHECKOUT_PRE_CHECK_PLUGINS
                 );
 
                 $pluginCollection->add(
                     new GiftCardOrderSaverPlugin(),
-                    GiftCardConstants::PROVIDER_NAME,
+                    GiftCardConfig::PROVIDER_NAME,
                     PaymentDependencyProvider::CHECKOUT_ORDER_SAVER_PLUGINS
                 );
 
