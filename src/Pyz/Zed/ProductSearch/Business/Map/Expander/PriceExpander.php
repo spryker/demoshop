@@ -51,6 +51,8 @@ class PriceExpander implements ProductPageMapExpanderInterface
     }
 
     /**
+     * @todo update to multicurrency
+     *
      * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $productData
@@ -89,60 +91,38 @@ class PriceExpander implements ProductPageMapExpanderInterface
      *
      * @return void
      */
-    protected function setPricesByType(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData)
-    {
-        $priceProductTransfers = $this->priceProductFacade->findPricesBySku($productData['abstract_sku']);
+    protected function setPricesByType(
+        PageMapBuilderInterface $pageMapBuilder,
+        PageMapTransfer $pageMapTransfer,
+        array $productData
+    ) {
 
-        $prices = [];
-        foreach ($priceProductTransfers as $priceProductTransfer) {
-            $moneyValueTransfer = $priceProductTransfer->getMoneyValue();
-            $currencyTransfer = $moneyValueTransfer->getCurrency();
+        $pricesGrouped = $this->priceProductFacade->findPricesBySkuGrouped($productData['abstract_sku']);
 
-            $prices[$currencyTransfer->getCode()][$this->getGrossPriceModeIdentifier()][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getGrossAmount();
-            $prices[$currencyTransfer->getCode()][$this->getNetPriceModeIdentifier()][$priceProductTransfer->getPriceTypeName()] = $moneyValueTransfer->getNetAmount();
+        foreach ($pricesGrouped as $currencyIsoCode => $pricesByPriceMode) {
+            foreach ($pricesByPriceMode as $priceMode => $pricesByType) {
+                foreach ($pricesByType as $priceType => $price) {
 
-            $integerGrossFacetName = $this->buildPriceIntegerFacetName(
-                $priceProductTransfer,
-                $currencyTransfer->getCode(),
-                $this->getNetPriceModeIdentifier()
-            );
-
-            $integerNetFacetName = $this->buildPriceIntegerFacetName(
-                $priceProductTransfer,
-                $currencyTransfer->getCode(),
-                $this->getGrossPriceModeIdentifier()
-            );
-
-            $pageMapBuilder->addIntegerFacet(
-                $pageMapTransfer,
-                $integerGrossFacetName,
-                $moneyValueTransfer->getGrossAmount()
-            );
-
-            $pageMapBuilder->addIntegerFacet(
-                $pageMapTransfer,
-                $integerNetFacetName,
-                $moneyValueTransfer->getNetAmount()
-            );
-
-            $pageMapBuilder->addIntegerSort($pageMapTransfer, $integerGrossFacetName,  $moneyValueTransfer->getGrossAmount());
-            $pageMapBuilder->addIntegerSort($pageMapTransfer, $integerNetFacetName,  $moneyValueTransfer->getNetAmount());
-
+                    $facetName = $this->buildPriceIntegerFacetName($priceType, $currencyIsoCode, $priceMode);
+                    $pageMapBuilder->addIntegerFacet($pageMapTransfer, $facetName, $price);
+                    $pageMapBuilder->addIntegerSort($pageMapTransfer, $facetName, $price);
+                }
+            }
         }
 
-        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
+        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $pricesGrouped );
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
+     * @param string $priceTypeName
      * @param string $currencyCode
      * @param string $priceMode
      *
      * @return string
      */
-    protected function buildPriceIntegerFacetName(PriceProductTransfer $priceProductTransfer, $currencyCode, $priceMode)
+    protected function buildPriceIntegerFacetName($priceTypeName, $currencyCode, $priceMode)
     {
-        return sprintf('price-%s-%s-%s', $priceProductTransfer->getPriceTypeName(), $currencyCode, $priceMode);
+        return sprintf('price-%s-%s-%s', $priceTypeName, $currencyCode, $priceMode);
     }
 
     /**
