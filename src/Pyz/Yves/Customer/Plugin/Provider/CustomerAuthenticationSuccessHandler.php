@@ -67,24 +67,33 @@ class CustomerAuthenticationSuccessHandler extends AbstractPlugin implements Aut
      */
     protected function determineTargetUrl(Request $request)
     {
-        $refererUrl = $request->headers->get('Referer');
-        if ($refererUrl !== null && $this->isYvesDomain($refererUrl)) {
-            return $refererUrl;
+        $refererUrl = $this->filterUrl($request->headers->get('Referer'));
+        if ($refererUrl === null) {
+            return $this->getHomeUrl();
         }
 
-        return $this->getHomeUrl();
+        return $refererUrl;
     }
 
     /**
-     * @param string $url
+     * @param string|null $url
      *
-     * @return bool
+     * @return string|null
      */
-    protected function isYvesDomain($url)
+    protected function filterUrl($url)
     {
-        $acceptedDomain = sprintf('#^(http|https)://%s/#', $this->getConfig()->getYvesHost());
+        if ($url === null) {
+            return null;
+        }
 
-        return (bool)preg_match($acceptedDomain, $url);
+        $acceptedDomain = sprintf('#^(?P<protocol>http|https)://%s/(?P<uri>.*)#', $this->getConfig()->getYvesHost());
+
+        $isValid = (bool)preg_match($acceptedDomain, $url, $matches);
+        if ($isValid) {
+            return sprintf('%s://%s/%s', $matches['protocol'], $this->getConfig()->getYvesHost(), $matches['uri']);
+        }
+
+        return null;
     }
 
     /**
