@@ -109,12 +109,11 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
-$config[LogConstants::EXCEPTION_LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/%s/exception.log',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION
-);
+
+$baseLogFilePath = sprintf('%s/data/%s/logs', APPLICATION_ROOT_DIR, $CURRENT_STORE);
+
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH_YVES] = $baseLogFilePath . '/YVES/exception.log';
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/exception.log';
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = true;

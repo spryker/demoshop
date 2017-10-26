@@ -311,12 +311,12 @@ $config[LogConstants::LOGGER_CONFIG_ZED] = ZedLoggerConfigPlugin::class;
 $config[LogConstants::LOGGER_CONFIG_YVES] = YvesLoggerConfigPlugin::class;
 
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
-$config[LogConstants::LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/%s/application.log',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION
-);
+
+$baseLogFilePath = sprintf('%s/data/%s/logs', APPLICATION_ROOT_DIR, $CURRENT_STORE);
+
+$config[LogConstants::LOG_FILE_PATH_YVES] = $baseLogFilePath . '/YVES/application.log';
+$config[LogConstants::LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/application.log';
+
 $config[LogConstants::LOG_SANITIZE_FIELDS] = [
     'password',
 ];
