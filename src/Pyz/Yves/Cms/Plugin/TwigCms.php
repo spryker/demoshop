@@ -49,7 +49,7 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
     /**
      * @param string $translation
      *
-     * @return string
+     * @return bool
      */
     protected function isGlossaryKey($translation)
     {
