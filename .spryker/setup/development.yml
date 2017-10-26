@@ -62,38 +62,51 @@ sections:
   database-flush:
     delete-elastic-search-index:
       command: "vendor/bin/console search:index:delete"
+      stores: true
       groups:
         - elastic
 
     delete-storage:
       command: "vendor/bin/console storage:delete"
+      stores: true
       groups:
         - redis
 
     drop-database:
       command: "vendor/bin/console propel:database:drop"
+      stores: true
       groups:
         - propel
 
     delete-migration-files:
       command: "vendor/bin/console propel:migration:delete"
+      stores: true
       groups:
         - propel
 
 
   database-migrate:
+    propel-config:
+      command: "vendor/bin/console propel:config:convert"
+      stores: true
+      groups:
+        - propel
+
     propel-create:
       command: "vendor/bin/console propel:database:create"
+      stores: true
       groups:
         - propel
 
     propel-postgres-compatibility:
       command: "vendor/bin/console propel:pg-sql-compat"
+      stores: true
       groups:
         - propel
 
     propel-copy-schema:
       command: "vendor/bin/console propel:schema:copy"
+      stores: true
       groups:
         - propel
 
@@ -104,33 +117,40 @@ sections:
 
     propel-diff:
       command: "vendor/bin/console propel:diff"
+      stores: true
       groups:
         - propel
 
     propel-migration-check:
       command: "vendor/bin/console propel:migration:check"
+      stores: true
       groups:
         - propel
 
     maintenance-page-enable:
       command: "vendor/bin/console maintenance:enable"
+      stores: true
       condition:
         command: "propel-migration-check"
         ifExitCode: 2
 
     propel-migrate:
       command: "vendor/bin/console propel:migrate"
+      stores: true
       groups:
         - propel
 
     maintenance-page-disable:
       command: "vendor/bin/console maintenance:disable"
+      stores: true
 
     init-database:
       command: "vendor/bin/console setup:init-db"
+      stores: true
 
     setup-search:
       command: "vendor/bin/console setup:search"
+      stores: true
       groups:
         - elastic
 
@@ -138,15 +158,19 @@ sections:
   demodata:
     import:
       command: "vendor/bin/console data:import"
+      stores: true
 
     update-product-labels:
       command: "vendor/bin/console product-label:relations:update"
+      stores: true
 
     search-collector:
       command: "vendor/bin/console collector:search:export"
+      stores: true
 
     storage-collector:
       command: "vendor/bin/console collector:storage:export"
+      stores: true
 
 
   jenkins-up:
