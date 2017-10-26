@@ -258,7 +258,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param array $productConcrete
      *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer;
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     protected function mapVariantStorageProductTransfer(StorageProductTransfer $storageProductTransfer, array $productConcrete)
     {
