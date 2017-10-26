@@ -3,8 +3,8 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master as 1.0.0",
+    "spryker/spryker": "dev-feature/CORE-2097-category-filters",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
