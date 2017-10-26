@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e516bf63ed5855079d9710a018927b4",
+    "content-hash": "9d5bb23e14977fb2ac3248b47ced1e13",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1706,11 +1706,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2146-add-email-validation-in-zed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "80cd19049a434cebee3aeec7080a5dce1a74692e"
+                "reference": "e4cc1d085e07b34a757acc58550b54ee077d9556"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1771,6 +1771,7 @@
                 "spryker/discount-sales-aggregator-connector": "*",
                 "spryker/dummy-payment": "*",
                 "spryker/elastica": "*",
+                "spryker/email-validator": "*",
                 "spryker/error-handler": "*",
                 "spryker/event": "*",
                 "spryker/event-behavior": "*",
@@ -1881,6 +1882,7 @@
                 "spryker/util-network": "*",
                 "spryker/util-sanitize": "*",
                 "spryker/util-text": "*",
+                "spryker/util-validate": "*",
                 "spryker/wishlist": "*",
                 "spryker/zed-navigation": "*",
                 "spryker/zed-request": "*",
@@ -1908,7 +1910,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-26T13:39:48+00:00"
+            "time": "2017-10-26T14:24:10+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6688,7 +6690,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
