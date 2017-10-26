@@ -183,14 +183,6 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\FormFactoryInterface
-     */
-    protected function getFormFactory()
-    {
-        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY);
-    }
-
-    /**
      * @return \Spryker\Yves\Kernel\Application
      */
     protected function getApplication()
