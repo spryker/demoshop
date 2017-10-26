@@ -61,7 +61,7 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
     protected $productFacade;
 
     /**
-     * @var array
+     * @var array|null
      */
     protected $superAttributes;
 
