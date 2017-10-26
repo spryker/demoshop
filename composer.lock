@@ -4582,11 +4582,11 @@
         },
         {
             "name": "spryker/customer",
-            "version": "6.3.0",
+            "version": "6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Customer.git",
-                "reference": "6867a2f8bf7dd393ddb30091625e5d0301d1b1e5",
+                "reference": "4ffedb89e942297b5c52e48276ffc9309d6c74ea",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4596,8 +4596,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Customer/zipball/6867a2f8bf7dd393ddb30091625e5d0301d1b1e5",
-                "reference": "6867a2f8bf7dd393ddb30091625e5d0301d1b1e5",
+                "url": "https://api.github.com/repos/spryker/Customer/zipball/4ffedb89e942297b5c52e48276ffc9309d6c74ea",
+                "reference": "4ffedb89e942297b5c52e48276ffc9309d6c74ea",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4617,6 +4617,7 @@
                 "spryker/session": "^3.0.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-date-time": "^1.0.0",
+                "spryker/util-sanitize": "^2.0.0",
                 "spryker/util-text": "^1.1.0",
                 "spryker/zed-request": "^3.0.0"
             },
@@ -4646,19 +4647,12 @@
             "autoload": {
                 "psr-4": {
                     "Spryker\\": "src/Spryker/",
-                    "SprykerTest\\Shared\\Customer\\": "tests/SprykerTest/Shared/Customer/_support/",
-                    "SprykerTest\\Zed\\Customer\\": "tests/SprykerTest/Zed/Customer/_support/",
-                    "Customer\\Module\\": "tests/_support/Module/"
+                    "SprykerTest\\Shared\\Customer\\Helper\\": "tests/SprykerTest/Shared/Customer/_support/Helper/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
                     "SprykerTest\\": "tests/SprykerTest/"
-                },
-                "psr-0": {
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Unit": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -4667,9 +4661,9 @@
             ],
             "description": "Customer module",
             "support": {
-                "source": "https://github.com/spryker/Customer/tree/master"
+                "source": "https://github.com/spryker/Customer/tree/6.3.2"
             },
-            "time": "2017-10-05T13:25:23+00:00"
+            "time": "2017-10-26T12:54:24+00:00"
         },
         {
             "name": "spryker/customer-api",
@@ -5692,11 +5686,11 @@
         },
         {
             "name": "spryker/file-system",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/FileSystem.git",
-                "reference": "8fcf606e57f07126a9929c2faa5dc8a94838bac7",
+                "reference": "eaa99c62c76d8f5fc4e159ca3ce9855ca4642e67",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5706,8 +5700,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/FileSystem/zipball/8fcf606e57f07126a9929c2faa5dc8a94838bac7",
-                "reference": "8fcf606e57f07126a9929c2faa5dc8a94838bac7",
+                "url": "https://api.github.com/repos/spryker/FileSystem/zipball/eaa99c62c76d8f5fc4e159ca3ce9855ca4642e67",
+                "reference": "eaa99c62c76d8f5fc4e159ca3ce9855ca4642e67",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5716,11 +5710,13 @@
                     }
                 ]
             },
+            "require": {
+                "spryker/flysystem": "^1.0.0",
+                "spryker/kernel": "^3.5.0"
+            },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/flysystem": "*",
                 "spryker/flysystem-local-file-system": "*",
-                "spryker/kernel": "^3.5.0",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -5728,14 +5724,13 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5744,17 +5739,17 @@
             ],
             "description": "FileSystem module",
             "support": {
-                "source": "https://github.com/spryker/FileSystem/tree/1.0.1"
+                "source": "https://github.com/spryker/FileSystem/tree/1.0.2"
             },
-            "time": "2017-09-14T14:41:49+00:00"
+            "time": "2017-10-24T13:32:31+00:00"
         },
         {
             "name": "spryker/flysystem",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Flysystem.git",
-                "reference": "c864b5741d939232b8d9f50949111aa84ceb699e",
+                "reference": "e83c1779acbc42c0d1e59d7b6a7c6b4b4bdfd000",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5764,8 +5759,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Flysystem/zipball/c864b5741d939232b8d9f50949111aa84ceb699e",
-                "reference": "c864b5741d939232b8d9f50949111aa84ceb699e",
+                "url": "https://api.github.com/repos/spryker/Flysystem/zipball/e83c1779acbc42c0d1e59d7b6a7c6b4b4bdfd000",
+                "reference": "e83c1779acbc42c0d1e59d7b6a7c6b4b4bdfd000",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5776,18 +5771,18 @@
             },
             "require": {
                 "league/flysystem": "^1.0",
-                "spryker/file-system": "^1.0.0"
+                "spryker/file-system": "^1.0.0",
+                "spryker/kernel": "^3.5.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/flysystem-local-file-system": "*",
-                "spryker/kernel": "^3.0.0",
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/flysystem-aws3v3-file-system": "For handling AWS3v3 filesystem",
-                "spryker/flysystem-ftp-file-system": "For handling FTP filesystem",
-                "spryker/flysystem-local-file-system": "For handling local files"
+                "spryker/flysystem-aws3v3-file-system": "For handling AWS3v3 filesystem.",
+                "spryker/flysystem-ftp-file-system": "For handling FTP filesystem.",
+                "spryker/flysystem-local-file-system": "For handling local files."
             },
             "type": "library",
             "extra": {
@@ -5796,14 +5791,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5811,15 +5805,18 @@
                 "proprietary"
             ],
             "description": "Flysystem module",
-            "time": "2017-06-30T12:01:02+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Flysystem/tree/1.0.1"
+            },
+            "time": "2017-10-25T08:03:49+00:00"
         },
         {
             "name": "spryker/flysystem-aws3v3-file-system",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/FlysystemAws3v3FileSystem.git",
-                "reference": "0d07ec06fd83e25687449714453997e7bdcb6345",
+                "reference": "ab906166c9f09f8cc873f18410fba28a1b6a76a8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5829,8 +5826,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/FlysystemAws3v3FileSystem/zipball/0d07ec06fd83e25687449714453997e7bdcb6345",
-                "reference": "0d07ec06fd83e25687449714453997e7bdcb6345",
+                "url": "https://api.github.com/repos/spryker/FlysystemAws3v3FileSystem/zipball/ab906166c9f09f8cc873f18410fba28a1b6a76a8",
+                "reference": "ab906166c9f09f8cc873f18410fba28a1b6a76a8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5840,10 +5837,12 @@
                 ]
             },
             "require": {
-                "league/flysystem-aws-s3-v3": "^1.0"
+                "league/flysystem-aws-s3-v3": "^1.0",
+                "spryker/kernel": "^3.5.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/flysystem": "*",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -5856,14 +5855,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5871,15 +5869,18 @@
                 "proprietary"
             ],
             "description": "FlysystemAws3v3FileSystem module",
-            "time": "2017-06-30T09:17:07+00:00"
+            "support": {
+                "source": "https://github.com/spryker/FlysystemAws3v3FileSystem/tree/1.0.1"
+            },
+            "time": "2017-10-25T08:03:49+00:00"
         },
         {
             "name": "spryker/flysystem-ftp-file-system",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/FlysystemFtpFileSystem.git",
-                "reference": "433b247123d37a1a859908f67767d31186cb9723",
+                "reference": "f697e5bff48e75652a7d389700ab501d4a1ccf8f",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5889,8 +5890,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/FlysystemFtpFileSystem/zipball/433b247123d37a1a859908f67767d31186cb9723",
-                "reference": "433b247123d37a1a859908f67767d31186cb9723",
+                "url": "https://api.github.com/repos/spryker/FlysystemFtpFileSystem/zipball/f697e5bff48e75652a7d389700ab501d4a1ccf8f",
+                "reference": "f697e5bff48e75652a7d389700ab501d4a1ccf8f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5900,10 +5901,12 @@
                 ]
             },
             "require": {
-                "league/flysystem": "^1.0"
+                "league/flysystem": "^1.0",
+                "spryker/kernel": "^3.5.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/flysystem": "*",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -5916,14 +5919,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5931,15 +5933,18 @@
                 "proprietary"
             ],
             "description": "FlysystemFtpFileSystem module",
-            "time": "2017-06-29T15:15:50+00:00"
+            "support": {
+                "source": "https://github.com/spryker/FlysystemFtpFileSystem/tree/1.0.1"
+            },
+            "time": "2017-10-25T08:03:49+00:00"
         },
         {
             "name": "spryker/flysystem-local-file-system",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/FlysystemLocalFileSystem.git",
-                "reference": "3a7ce384a84383a864785dbd769fd10b4318e083",
+                "reference": "c00835e434eaac58a326c254bb8bac81469f4f88",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5949,8 +5954,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/FlysystemLocalFileSystem/zipball/3a7ce384a84383a864785dbd769fd10b4318e083",
-                "reference": "3a7ce384a84383a864785dbd769fd10b4318e083",
+                "url": "https://api.github.com/repos/spryker/FlysystemLocalFileSystem/zipball/c00835e434eaac58a326c254bb8bac81469f4f88",
+                "reference": "c00835e434eaac58a326c254bb8bac81469f4f88",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5960,10 +5965,12 @@
                 ]
             },
             "require": {
-                "league/flysystem": "^1.0"
+                "league/flysystem": "^1.0",
+                "spryker/kernel": "^3.5.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/flysystem": "*",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -5976,14 +5983,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5991,7 +5997,10 @@
                 "proprietary"
             ],
             "description": "FlysystemLocalFileSystem module",
-            "time": "2017-06-29T15:15:50+00:00"
+            "support": {
+                "source": "https://github.com/spryker/FlysystemLocalFileSystem/tree/1.0.1"
+            },
+            "time": "2017-10-25T08:03:49+00:00"
         },
         {
             "name": "spryker/glossary",
@@ -6178,11 +6187,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "3.10.0",
+            "version": "3.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "6a42c290943df93cbbb321e90fcca04d851bdc33",
+                "reference": "62aa6a2d462e5924b6f37ce3920aba12bd02c589",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6192,8 +6201,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/6a42c290943df93cbbb321e90fcca04d851bdc33",
-                "reference": "6a42c290943df93cbbb321e90fcca04d851bdc33",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/62aa6a2d462e5924b6f37ce3920aba12bd02c589",
+                "reference": "62aa6a2d462e5924b6f37ce3920aba12bd02c589",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6225,13 +6234,14 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Zed\\Gui\\Helper\\": "tests/SprykerTest/Zed/Gui/_support/Helper/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -6240,9 +6250,9 @@
             ],
             "description": "Gui module",
             "support": {
-                "source": "https://github.com/spryker/Gui/tree/master"
+                "source": "https://github.com/spryker/Gui/tree/3.10.1"
             },
-            "time": "2017-09-21T14:17:11+00:00"
+            "time": "2017-10-26T13:23:18+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -12643,11 +12653,11 @@
         },
         {
             "name": "spryker/util-date-time",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilDateTime.git",
-                "reference": "99e7177821285e25b60f8e9648c01bead9b51972",
+                "reference": "2692e02ce1377cf40b3278933f13416e15039f0d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12657,8 +12667,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilDateTime/zipball/99e7177821285e25b60f8e9648c01bead9b51972",
-                "reference": "99e7177821285e25b60f8e9648c01bead9b51972",
+                "url": "https://api.github.com/repos/spryker/UtilDateTime/zipball/2692e02ce1377cf40b3278933f13416e15039f0d",
+                "reference": "2692e02ce1377cf40b3278933f13416e15039f0d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12667,11 +12677,11 @@
                     }
                 ]
             },
-            "require-dev": {
-                "spryker/config": "*",
-                "spryker/kernel": "*",
-                "spryker/silex": "*",
-                "spryker/twig": "*"
+            "require": {
+                "spryker/config": "^3.0.0",
+                "spryker/kernel": "^3.3.0",
+                "spryker/silex": "^2.0.0",
+                "spryker/twig": "^3.1.0"
             },
             "type": "library",
             "extra": {
@@ -12680,14 +12690,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/",
-                    "Functional": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -12695,7 +12704,10 @@
                 "proprietary"
             ],
             "description": "UtilDateTime module",
-            "time": "2017-08-14T16:28:34+00:00"
+            "support": {
+                "source": "https://github.com/spryker/UtilDateTime/tree/1.0.2"
+            },
+            "time": "2017-10-24T13:32:31+00:00"
         },
         {
             "name": "spryker/util-encoding",
@@ -12749,11 +12761,11 @@
         },
         {
             "name": "spryker/util-network",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilNetwork.git",
-                "reference": "1865ad10c90b965c087178023a798f1cdcd5ba07",
+                "reference": "d517edc9406274c5223b0842ebcb544800d19667",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12763,8 +12775,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilNetwork/zipball/1865ad10c90b965c087178023a798f1cdcd5ba07",
-                "reference": "1865ad10c90b965c087178023a798f1cdcd5ba07",
+                "url": "https://api.github.com/repos/spryker/UtilNetwork/zipball/d517edc9406274c5223b0842ebcb544800d19667",
+                "reference": "d517edc9406274c5223b0842ebcb544800d19667",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12773,6 +12785,9 @@
                     }
                 ]
             },
+            "require": {
+                "spryker/kernel": "^3.0.0"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -12780,25 +12795,24 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "UtilNetwork bundle",
+            "description": "UtilNetwork module",
             "support": {
-                "source": "https://github.com/spryker/UtilNetwork/tree/master"
+                "source": "https://github.com/spryker/UtilNetwork/tree/1.1.1"
             },
-            "time": "2017-02-22T11:58:40+00:00"
+            "time": "2017-10-24T13:32:31+00:00"
         },
         {
             "name": "spryker/util-sanitize",
