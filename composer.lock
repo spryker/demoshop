@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "386b8efd560fb2a2e440476e641e3912",
+    "content-hash": "8581740f3d4f15b4c3dc34630d5c6f5c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1574,51 +1574,6 @@
             "time": "2017-04-30T16:26:54+00:00"
         },
         {
-            "name": "spryker-eco/loggly",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker-eco/loggly.git",
-                "reference": "7c30eb96c89c5d79b30832d20e7ee17a03f5751a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker-eco/loggly/zipball/7c30eb96c89c5d79b30832d20e7ee17a03f5751a",
-                "reference": "7c30eb96c89c5d79b30832d20e7ee17a03f5751a",
-                "shasum": ""
-            },
-            "require": {
-                "spryker/kernel": "^3.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/monolog": "*",
-                "spryker/queue": "*",
-                "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/monolog": "Needed to send messages to loggly via Curl helper",
-                "spryker/queue": "Needed to process messages from the queue"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SprykerEco\\": "src/SprykerEco/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Loggly module",
-            "time": "2017-10-24T10:37:10+00:00"
-        },
-        {
             "name": "spryker/rabbit-mq",
             "version": "dev-master",
             "source": {
@@ -1706,11 +1661,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1752-multi-currency-product-options",
+            "version": "dev-feature/core-1750-product-multi-currency",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8c175b812cb22c5c8b962a91639f7eb4fb0b95a0"
+                "reference": "c8f123b1e58bb92d7ff30db4a441b4fbf4ca2949"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1910,7 +1865,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-10-27T11:39:02+00:00"
+            "time": "2017-10-27T07:57:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6690,7 +6645,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6702,6 +6657,51 @@
                 "versions"
             ],
             "time": "2017-06-16T09:29:23+00:00"
+        },
+        {
+            "name": "spryker-eco/loggly",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-eco/loggly.git",
+                "reference": "7c30eb96c89c5d79b30832d20e7ee17a03f5751a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-eco/loggly/zipball/7c30eb96c89c5d79b30832d20e7ee17a03f5751a",
+                "reference": "7c30eb96c89c5d79b30832d20e7ee17a03f5751a",
+                "shasum": ""
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/monolog": "*",
+                "spryker/queue": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/monolog": "Needed to send messages to loggly via Curl helper",
+                "spryker/queue": "Needed to process messages from the queue"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerEco\\": "src/SprykerEco/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Loggly module",
+            "time": "2017-10-24T10:37:10+00:00"
         },
         {
             "name": "spryker/architecture-sniffer",
@@ -7487,18 +7487,10 @@
             "time": "2017-06-30T11:53:12+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "9999999-dev",
-            "package": "spryker-eco/loggly"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
-        "spryker-eco/loggly": 20,
         "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,

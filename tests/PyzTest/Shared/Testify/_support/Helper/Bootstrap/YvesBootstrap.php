@@ -33,11 +33,12 @@ use Spryker\Yves\Application\Plugin\Provider\CookieServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionServiceProvider;
 use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
 use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
-use Spryker\Yves\Currency\Plugin\PriceModeSwitcherServiceProvider;
+use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\NewRelic\Plugin\ServiceProvider\NewRelicRequestTransactionServiceProvider;
+use Spryker\Yves\Price\Plugin\PriceModeSwitcherServiceProvider;
 use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
 use Spryker\Yves\ProductLabel\Plugin\Provider\ProductLabelTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
@@ -93,5 +94,6 @@ class YvesBootstrap extends ApplicationYvesBootstrap
         $this->application->register(new CmsContentWidgetServiceProvider());
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
         $this->application->register(new PriceModeSwitcherServiceProvider());
+        $this->application->register(new CurrencySwitcherServiceProvider());
     }
 }
