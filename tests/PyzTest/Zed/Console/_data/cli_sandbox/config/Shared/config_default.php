@@ -18,7 +18,7 @@ use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Price\PriceConstants;
-use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
+use Spryker\Shared\PriceProduct\PriceProductConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
@@ -190,8 +190,8 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 $config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 
-$config[PriceConstants::DEFAULT_PRICE_TYPE] =
-    $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
+$config[PriceProductConstants::DEFAULT_PRICE_TYPE] =
+    $config[PriceProductConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
 
 $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
