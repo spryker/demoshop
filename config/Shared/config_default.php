@@ -4,7 +4,6 @@ use Monolog\Logger;
 use Spryker\Client\RabbitMq\Model\RabbitMqAdapter;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\CmsGui\CmsGuiConstants;
@@ -39,7 +38,9 @@ use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
+use Spryker\Yves\Log\Plugin\YvesLoggerConfigPlugin;
 use Spryker\Zed\DummyPayment\DummyPaymentConfig;
+use Spryker\Zed\Log\Communication\Plugin\ZedLoggerConfigPlugin;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
 
@@ -307,7 +308,9 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 //$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
 // ---------- Logging
-$config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
+$config[LogConstants::LOGGER_CONFIG_ZED] = ZedLoggerConfigPlugin::class;
+$config[LogConstants::LOGGER_CONFIG_YVES] = YvesLoggerConfigPlugin::class;
+
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[LogConstants::LOG_FILE_PATH] = sprintf(
     '%s/data/%s/logs/%s/application.log',

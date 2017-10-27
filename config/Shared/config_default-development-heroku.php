@@ -4,9 +4,6 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use Psr\Log\LogLevel;
-use Pyz\Shared\Application\Log\Config\HerokuLoggerConfig;
-use Pyz\Shared\Log\LogConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
@@ -100,11 +97,5 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 
 // ---------- Error handling
 $config[ErrorHandlerConstants::DISPLAY_ERRORS] = true;
-
-// ---------- Logging
-$config[LogConstants::LOGGER_CONFIG] = HerokuLoggerConfig::class;
-$config[LogConstants::LOGZ_IO_TOKEN] = getenv('LOGZIO_API_KEY');
-$config[LogConstants::LOGZ_IO_UDP_CONNECTION_STRING] = 'udp://listener.logz.io:5050';
-$config[LogConstants::LOG_LEVEL] = LogLevel::INFO;
 
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;

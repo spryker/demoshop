@@ -23,7 +23,7 @@ class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     protected $customerClient;
 
     /**
-     * @var \Spryker\Client\Calculation\CalculationClient
+     * @var \Spryker\Client\Calculation\CalculationClientInterface
      */
     protected $calculationClient;
 
