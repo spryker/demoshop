@@ -4,20 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "8156333912b7de24b4563915a0533c50",
     "content-hash": "a7773c105de5b93decf7f04cd5b17c97",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.33",
+            "version": "3.36.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a98d00916b65c89cdbae94cf53f7905a27ff88ca"
+                "reference": "adc4e9928730cb65b9b7914084cbf1d8c988419a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a98d00916b65c89cdbae94cf53f7905a27ff88ca",
-                "reference": "a98d00916b65c89cdbae94cf53f7905a27ff88ca",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/adc4e9928730cb65b9b7914084cbf1d8c988419a",
+                "reference": "adc4e9928730cb65b9b7914084cbf1d8c988419a",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-10-24T18:41:59+00:00"
+            "time": "2017-10-26 20:45:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -131,7 +132,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2016-07-18T21:55:50+00:00"
+            "time": "2016-07-18 21:55:50"
         },
         {
             "name": "container-interop/container-interop",
@@ -162,7 +163,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
-            "time": "2017-02-14T19:40:03+00:00"
+            "time": "2017-02-14 19:40:03"
         },
         {
             "name": "everon/collection",
@@ -204,7 +205,7 @@
                 }
             ],
             "description": "Everon Collection Component",
-            "time": "2016-03-13T23:30:28+00:00"
+            "time": "2016-03-13 23:30:28"
         },
         {
             "name": "everon/criteria-builder",
@@ -248,7 +249,7 @@
                 }
             ],
             "description": "Everon Criteria Builder Component",
-            "time": "2016-03-20T14:50:11+00:00"
+            "time": "2016-03-20 14:50:11"
         },
         {
             "name": "everon/factory",
@@ -291,7 +292,7 @@
                 }
             ],
             "description": "Everon Factory Component",
-            "time": "2016-03-20T14:52:02+00:00"
+            "time": "2016-03-20 14:52:02"
         },
         {
             "name": "everon/utils",
@@ -332,7 +333,7 @@
                 }
             ],
             "description": "Everon Utils Component",
-            "time": "2016-03-20T14:52:54+00:00"
+            "time": "2016-03-20 14:52:54"
         },
         {
             "name": "filp/whoops",
@@ -393,7 +394,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2017-10-15T13:05:10+00:00"
+            "time": "2017-10-15 13:05:10"
         },
         {
             "name": "fzaninotto/faker",
@@ -443,7 +444,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-15T16:48:10+00:00"
+            "time": "2017-08-15 16:48:10"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -505,7 +506,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-02-28T22:50:30+00:00"
+            "time": "2017-02-28 22:50:30"
         },
         {
             "name": "guzzlehttp/promises",
@@ -556,7 +557,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20T10:07:11+00:00"
+            "time": "2016-12-20 10:07:11"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -621,7 +622,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -663,7 +664,7 @@
                 "hashing",
                 "password"
             ],
-            "time": "2014-11-20T16:49:30+00:00"
+            "time": "2014-11-20 16:49:30"
         },
         {
             "name": "league/flysystem",
@@ -746,7 +747,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-08-06T17:41:04+00:00"
+            "time": "2017-08-06 17:41:04"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -793,7 +794,7 @@
                 }
             ],
             "description": "Flysystem adapter for the AWS S3 SDK v3.x",
-            "time": "2017-06-30T06:29:25+00:00"
+            "time": "2017-06-30 06:29:25"
         },
         {
             "name": "mandrill/mandrill",
@@ -836,7 +837,7 @@
                 "api",
                 "email"
             ],
-            "time": "2015-09-22T13:58:03+00:00"
+            "time": "2015-09-22 13:58:03"
         },
         {
             "name": "moneyphp/money",
@@ -914,7 +915,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-10-03T09:21:46+00:00"
+            "time": "2017-10-03 09:21:46"
         },
         {
             "name": "monolog/monolog",
@@ -992,7 +993,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-06-19T01:22:40+00:00"
+            "time": "2017-06-19 01:22:40"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -1047,7 +1048,7 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2016-12-03T22:08:25+00:00"
+            "time": "2016-12-03 22:08:25"
         },
         {
             "name": "paragonie/random_compat",
@@ -1095,7 +1096,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-09-27T21:40:39+00:00"
+            "time": "2017-09-27 21:40:39"
         },
         {
             "name": "php-amqplib/php-amqplib",
@@ -1165,7 +1166,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2017-08-03T22:06:21+00:00"
+            "time": "2017-08-03 22:06:21"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -1206,7 +1207,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2016-02-02T13:00:08+00:00"
+            "time": "2016-02-02 13:00:08"
         },
         {
             "name": "pimple/pimple",
@@ -1252,7 +1253,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2013-11-22T08:30:29+00:00"
+            "time": "2013-11-22 08:30:29"
         },
         {
             "name": "predis/predis",
@@ -1302,7 +1303,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-06-16T16:22:20+00:00"
+            "time": "2016-06-16 16:22:20"
         },
         {
             "name": "propel/propel",
@@ -1367,7 +1368,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-01-03T15:55:52+00:00"
+            "time": "2017-01-03 15:55:52"
         },
         {
             "name": "psr/container",
@@ -1416,7 +1417,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14T16:28:37+00:00"
+            "time": "2017-02-14 16:28:37"
         },
         {
             "name": "psr/http-message",
@@ -1466,7 +1467,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -1513,7 +1514,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "ruflin/elastica",
@@ -1570,7 +1571,7 @@
                 "client",
                 "search"
             ],
-            "time": "2016-09-23T10:24:25+00:00"
+            "time": "2016-09-23 10:24:25"
         },
         {
             "name": "silex/silex",
@@ -1647,7 +1648,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2017-04-30T16:26:54+00:00"
+            "time": "2017-04-30 16:26:54"
         },
         {
             "name": "spryker-eco/loggly",
@@ -1692,7 +1693,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2017-10-24T10:37:10+00:00"
+            "time": "2017-10-24 10:37:10"
         },
         {
             "name": "spryker/acl",
@@ -1765,7 +1766,7 @@
             "support": {
                 "source": "https://github.com/spryker/Acl/tree/master"
             },
-            "time": "2017-09-21T14:17:11+00:00"
+            "time": "2017-09-21 14:17:11"
         },
         {
             "name": "spryker/api",
@@ -1831,7 +1832,10 @@
                 "proprietary"
             ],
             "description": "Api module",
-            "time": "2017-07-13T16:43:49+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Api/tree/0.1.2"
+            },
+            "time": "2017-07-13 16:43:49"
         },
         {
             "name": "spryker/api-query-builder",
@@ -1899,7 +1903,10 @@
                 "proprietary"
             ],
             "description": "ApiQueryBuilder bundle",
-            "time": "2017-05-17T15:39:19+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ApiQueryBuilder/tree/0.1.0"
+            },
+            "time": "2017-05-17 15:39:19"
         },
         {
             "name": "spryker/application",
@@ -1977,7 +1984,7 @@
             "support": {
                 "source": "https://github.com/spryker/Application/tree/3.6.0"
             },
-            "time": "2017-10-02T10:27:07+00:00"
+            "time": "2017-10-02 10:27:07"
         },
         {
             "name": "spryker/assertion",
@@ -2038,9 +2045,9 @@
             ],
             "description": "Assertion bundle",
             "support": {
-                "source": "https://github.com/spryker/Assertion/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Assertion/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/auth",
@@ -2109,9 +2116,9 @@
             ],
             "description": "Auth bundle",
             "support": {
-                "source": "https://github.com/spryker/Auth/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Auth/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/auth-mail-connector",
@@ -2172,9 +2179,9 @@
             ],
             "description": "AuthMailConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/AuthMailConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/AuthMailConnector/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/availability",
@@ -2247,7 +2254,7 @@
             "support": {
                 "source": "https://github.com/spryker/Availability/tree/master"
             },
-            "time": "2017-10-24T08:36:55+00:00"
+            "time": "2017-10-24 08:36:55"
         },
         {
             "name": "spryker/availability-cart-connector",
@@ -2308,9 +2315,9 @@
             ],
             "description": "AvailabilityCartConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/AvailabilityCartConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/AvailabilityCartConnector/tree/4.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/availability-data-feed",
@@ -2375,9 +2382,9 @@
             ],
             "description": "Availability DataFeed bundle",
             "support": {
-                "source": "https://github.com/spryker/AvailabilityDataFeed/tree/master"
+                "source": "https://github.com/spryker/AvailabilityDataFeed/tree/0.1.1"
             },
-            "time": "2017-04-13T12:53:00+00:00"
+            "time": "2017-04-13 12:53:00"
         },
         {
             "name": "spryker/availability-gui",
@@ -2447,9 +2454,9 @@
             ],
             "description": "AvailabilityGui module",
             "support": {
-                "source": "https://github.com/spryker/AvailabilityGui/tree/master"
+                "source": "https://github.com/spryker/AvailabilityGui/tree/2.0.3"
             },
-            "time": "2017-08-01T04:28:05+00:00"
+            "time": "2017-08-01 04:28:05"
         },
         {
             "name": "spryker/braintree",
@@ -2534,9 +2541,9 @@
             ],
             "description": "Braintree module",
             "support": {
-                "source": "https://github.com/spryker/Braintree/tree/master"
+                "source": "https://github.com/spryker/Braintree/tree/0.5.6"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-09-25 14:16:40"
         },
         {
             "name": "spryker/cache",
@@ -2589,9 +2596,9 @@
             ],
             "description": "Cache bundle",
             "support": {
-                "source": "https://github.com/spryker/Cache/tree/master"
+                "source": "https://github.com/spryker/Cache/tree/3.1.0"
             },
-            "time": "2017-04-10T13:13:21+00:00"
+            "time": "2017-04-10 13:13:21"
         },
         {
             "name": "spryker/calculation",
@@ -2656,7 +2663,7 @@
             "support": {
                 "source": "https://github.com/spryker/Calculation/tree/master"
             },
-            "time": "2017-10-23T10:18:45+00:00"
+            "time": "2017-10-23 10:18:45"
         },
         {
             "name": "spryker/cart",
@@ -2726,7 +2733,7 @@
             "support": {
                 "source": "https://github.com/spryker/Cart/tree/master"
             },
-            "time": "2017-10-05T13:02:29+00:00"
+            "time": "2017-10-05 13:02:29"
         },
         {
             "name": "spryker/cart-currency-connector",
@@ -2794,7 +2801,7 @@
             "support": {
                 "source": "https://github.com/spryker/CartCurrencyConnector/tree/master"
             },
-            "time": "2017-10-06T13:00:15+00:00"
+            "time": "2017-10-06 13:00:15"
         },
         {
             "name": "spryker/cart-variant",
@@ -2858,7 +2865,7 @@
             "support": {
                 "source": "https://github.com/spryker/CartVariant/tree/master"
             },
-            "time": "2017-08-23T14:25:58+00:00"
+            "time": "2017-08-23 14:25:58"
         },
         {
             "name": "spryker/catalog",
@@ -2920,9 +2927,9 @@
             ],
             "description": "Catalog bundle",
             "support": {
-                "source": "https://github.com/spryker/Catalog/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Catalog/tree/5.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/category",
@@ -2996,7 +3003,7 @@
             "support": {
                 "source": "https://github.com/spryker/Category/tree/4.2.1"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/category-data-feed",
@@ -3059,9 +3066,9 @@
             ],
             "description": "CategoryDataFeed module",
             "support": {
-                "source": "https://github.com/spryker/CategoryDataFeed/tree/master"
+                "source": "https://github.com/spryker/CategoryDataFeed/tree/0.2.1"
             },
-            "time": "2017-07-13T15:46:45+00:00"
+            "time": "2017-07-13 15:46:45"
         },
         {
             "name": "spryker/category-exporter",
@@ -3116,9 +3123,9 @@
             ],
             "description": "CategoryExporter module",
             "support": {
-                "source": "https://github.com/spryker/CategoryExporter/tree/master"
+                "source": "https://github.com/spryker/CategoryExporter/tree/3.0.2"
             },
-            "time": "2017-07-13T15:46:45+00:00"
+            "time": "2017-07-13 15:46:45"
         },
         {
             "name": "spryker/checkout",
@@ -3192,9 +3199,9 @@
             ],
             "description": "Checkout module",
             "support": {
-                "source": "https://github.com/spryker/Checkout/tree/master"
+                "source": "https://github.com/spryker/Checkout/tree/3.1.1"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-09-25 14:16:40"
         },
         {
             "name": "spryker/cms",
@@ -3272,7 +3279,7 @@
             "support": {
                 "source": "https://github.com/spryker/Cms/tree/6.3.2"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/cms-block",
@@ -3346,7 +3353,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlock/tree/1.4.1"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/cms-block-category-connector",
@@ -3421,7 +3428,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockCategoryConnector/tree/master"
             },
-            "time": "2017-09-07T10:47:29+00:00"
+            "time": "2017-09-07 10:47:29"
         },
         {
             "name": "spryker/cms-block-collector",
@@ -3488,7 +3495,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockCollector/tree/master"
             },
-            "time": "2017-09-04T15:08:53+00:00"
+            "time": "2017-09-04 15:08:53"
         },
         {
             "name": "spryker/cms-block-gui",
@@ -3555,7 +3562,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockGui/tree/master"
             },
-            "time": "2017-10-23T13:07:57+00:00"
+            "time": "2017-10-23 13:07:57"
         },
         {
             "name": "spryker/cms-block-product-connector",
@@ -3628,7 +3635,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockProductConnector/tree/master"
             },
-            "time": "2017-09-07T10:47:29+00:00"
+            "time": "2017-09-07 10:47:29"
         },
         {
             "name": "spryker/cms-collector",
@@ -3697,7 +3704,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsCollector/tree/master"
             },
-            "time": "2017-09-21T14:16:26+00:00"
+            "time": "2017-09-21 14:16:26"
         },
         {
             "name": "spryker/cms-content-widget",
@@ -3777,7 +3784,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsContentWidget/tree/master"
             },
-            "time": "2017-10-23T13:07:57+00:00"
+            "time": "2017-10-23 13:07:57"
         },
         {
             "name": "spryker/cms-content-widget-product-connector",
@@ -3842,9 +3849,9 @@
             ],
             "description": "CmsContentWidgetProductConnector module",
             "support": {
-                "source": "https://github.com/spryker/CmsContentWidgetProductConnector/tree/master"
+                "source": "https://github.com/spryker/CmsContentWidgetProductConnector/tree/1.0.0"
             },
-            "time": "2017-07-12T08:55:54+00:00"
+            "time": "2017-07-12 08:55:54"
         },
         {
             "name": "spryker/cms-content-widget-product-group-connector",
@@ -3905,9 +3912,9 @@
             ],
             "description": "CmsContentWidgetProductGroupConnector module",
             "support": {
-                "source": "https://github.com/spryker/CmsContentWidgetProductGroupConnector/tree/master"
+                "source": "https://github.com/spryker/CmsContentWidgetProductGroupConnector/tree/1.0.0"
             },
-            "time": "2017-07-11T09:55:44+00:00"
+            "time": "2017-07-11 09:55:44"
         },
         {
             "name": "spryker/cms-content-widget-product-set-connector",
@@ -3973,9 +3980,9 @@
             ],
             "description": "CmsContentWidgetProductSetConnector module",
             "support": {
-                "source": "https://github.com/spryker/CmsContentWidgetProductSetConnector/tree/master"
+                "source": "https://github.com/spryker/CmsContentWidgetProductSetConnector/tree/1.0.0"
             },
-            "time": "2017-07-12T08:55:54+00:00"
+            "time": "2017-07-12 08:55:54"
         },
         {
             "name": "spryker/cms-gui",
@@ -4047,7 +4054,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsGui/tree/master"
             },
-            "time": "2017-10-20T06:49:56+00:00"
+            "time": "2017-10-20 06:49:56"
         },
         {
             "name": "spryker/cms-user-connector",
@@ -4108,7 +4115,10 @@
                 "proprietary"
             ],
             "description": "CmsUserConnector bundle",
-            "time": "2017-06-29T10:18:58+00:00"
+            "support": {
+                "source": "https://github.com/spryker/CmsUserConnector/tree/1.0.1"
+            },
+            "time": "2017-06-29 10:18:58"
         },
         {
             "name": "spryker/collector",
@@ -4181,7 +4191,7 @@
             "support": {
                 "source": "https://github.com/spryker/Collector/tree/master"
             },
-            "time": "2017-09-08T12:29:04+00:00"
+            "time": "2017-09-08 12:29:04"
         },
         {
             "name": "spryker/collector-search-connector",
@@ -4235,9 +4245,9 @@
             ],
             "description": "CollectorSearchConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/CollectorSearchConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/CollectorSearchConnector/tree/1.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/collector-storage-connector",
@@ -4293,7 +4303,7 @@
             "support": {
                 "source": "https://github.com/spryker/CollectorStorageConnector/tree/1.0.2"
             },
-            "time": "2017-07-26T16:29:37+00:00"
+            "time": "2017-07-26 16:29:37"
         },
         {
             "name": "spryker/config",
@@ -4360,7 +4370,7 @@
             "support": {
                 "source": "https://github.com/spryker/Config/tree/3.1.2"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/console",
@@ -4432,7 +4442,7 @@
             "support": {
                 "source": "https://github.com/spryker/Console/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/country",
@@ -4499,7 +4509,7 @@
             "support": {
                 "source": "https://github.com/spryker/Country/tree/3.1.1"
             },
-            "time": "2017-09-01T13:58:01+00:00"
+            "time": "2017-09-01 13:58:01"
         },
         {
             "name": "spryker/currency",
@@ -4578,7 +4588,7 @@
             "support": {
                 "source": "https://github.com/spryker/Currency/tree/master"
             },
-            "time": "2017-10-06T13:00:15+00:00"
+            "time": "2017-10-06 13:00:15"
         },
         {
             "name": "spryker/customer",
@@ -4663,7 +4673,7 @@
             "support": {
                 "source": "https://github.com/spryker/Customer/tree/6.3.2"
             },
-            "time": "2017-10-26T12:54:24+00:00"
+            "time": "2017-10-26 12:54:24"
         },
         {
             "name": "spryker/customer-api",
@@ -4736,9 +4746,9 @@
             ],
             "description": "CustomerApi bundle",
             "support": {
-                "source": "https://github.com/spryker/CustomerApi/tree/master"
+                "source": "https://github.com/spryker/CustomerApi/tree/0.1.2"
             },
-            "time": "2017-06-15T10:05:40+00:00"
+            "time": "2017-06-15 10:05:40"
         },
         {
             "name": "spryker/customer-group",
@@ -4812,9 +4822,9 @@
             ],
             "description": "CustomerGroup module",
             "support": {
-                "source": "https://github.com/spryker/CustomerGroup/tree/master"
+                "source": "https://github.com/spryker/CustomerGroup/tree/2.2.0"
             },
-            "time": "2017-08-29T13:22:27+00:00"
+            "time": "2017-08-29 13:22:27"
         },
         {
             "name": "spryker/customer-group-discount-connector",
@@ -4883,7 +4893,7 @@
             "support": {
                 "source": "https://github.com/spryker/CustomerGroupDiscountConnector/tree/master"
             },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2017-10-06 12:43:41"
         },
         {
             "name": "spryker/customer-user-connector",
@@ -4940,7 +4950,7 @@
             "support": {
                 "source": "https://github.com/spryker/CustomerUserConnector/tree/master"
             },
-            "time": "2017-10-05T08:58:59+00:00"
+            "time": "2017-10-05 08:58:59"
         },
         {
             "name": "spryker/customer-user-connector-gui",
@@ -5005,7 +5015,7 @@
             "support": {
                 "source": "https://github.com/spryker/CustomerUserConnectorGui/tree/master"
             },
-            "time": "2017-10-05T08:58:59+00:00"
+            "time": "2017-10-05 08:58:59"
         },
         {
             "name": "spryker/data-import",
@@ -5066,9 +5076,9 @@
             ],
             "description": "DataImport module",
             "support": {
-                "source": "https://github.com/spryker/DataImport/tree/1.2.0"
+                "source": "https://github.com/spryker/DataImport/tree/master"
             },
-            "time": "2017-09-18T07:58:07+00:00"
+            "time": "2017-09-18 07:58:07"
         },
         {
             "name": "spryker/discount",
@@ -5150,7 +5160,7 @@
             "support": {
                 "source": "https://github.com/spryker/Discount/tree/master"
             },
-            "time": "2017-10-06T13:11:38+00:00"
+            "time": "2017-10-06 13:11:38"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -5215,7 +5225,7 @@
             "support": {
                 "source": "https://github.com/spryker/DiscountCalculationConnector/tree/master"
             },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2017-10-06 12:43:41"
         },
         {
             "name": "spryker/discount-promotion",
@@ -5289,7 +5299,7 @@
             "support": {
                 "source": "https://github.com/spryker/DiscountPromotion/tree/master"
             },
-            "time": "2017-10-23T10:58:14+00:00"
+            "time": "2017-10-23 10:58:14"
         },
         {
             "name": "spryker/dummy-payment",
@@ -5362,9 +5372,9 @@
             ],
             "description": "DummyPayment module",
             "support": {
-                "source": "https://github.com/spryker/DummyPayment/tree/master"
+                "source": "https://github.com/spryker/DummyPayment/tree/2.1.2"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-09-25 14:16:40"
         },
         {
             "name": "spryker/elastica",
@@ -5407,9 +5417,9 @@
             ],
             "description": "elastica bundle",
             "support": {
-                "source": "https://github.com/spryker/Elastica/tree/master"
+                "source": "https://github.com/spryker/Elastica/tree/3.0.0"
             },
-            "time": "2016-06-14T11:55:42+00:00"
+            "time": "2016-06-14 11:55:42"
         },
         {
             "name": "spryker/error-handler",
@@ -5476,7 +5486,7 @@
             "support": {
                 "source": "https://github.com/spryker/ErrorHandler/tree/2.1.3"
             },
-            "time": "2017-09-28T14:22:48+00:00"
+            "time": "2017-09-28 14:22:48"
         },
         {
             "name": "spryker/event",
@@ -5542,7 +5552,7 @@
             "support": {
                 "source": "https://github.com/spryker/Event/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/event-behavior",
@@ -5618,7 +5628,7 @@
             "support": {
                 "source": "https://github.com/spryker/EventBehavior/tree/master"
             },
-            "time": "2017-10-19T11:51:06+00:00"
+            "time": "2017-10-19 11:51:06"
         },
         {
             "name": "spryker/event-journal",
@@ -5680,9 +5690,9 @@
             ],
             "description": "EventJournal bundle",
             "support": {
-                "source": "https://github.com/spryker/EventJournal/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/EventJournal/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/file-system",
@@ -5741,7 +5751,7 @@
             "support": {
                 "source": "https://github.com/spryker/FileSystem/tree/1.0.2"
             },
-            "time": "2017-10-24T13:32:31+00:00"
+            "time": "2017-10-24 13:32:31"
         },
         {
             "name": "spryker/flysystem",
@@ -5808,7 +5818,7 @@
             "support": {
                 "source": "https://github.com/spryker/Flysystem/tree/1.0.1"
             },
-            "time": "2017-10-25T08:03:49+00:00"
+            "time": "2017-10-25 08:03:49"
         },
         {
             "name": "spryker/flysystem-aws3v3-file-system",
@@ -5872,7 +5882,7 @@
             "support": {
                 "source": "https://github.com/spryker/FlysystemAws3v3FileSystem/tree/1.0.1"
             },
-            "time": "2017-10-25T08:03:49+00:00"
+            "time": "2017-10-25 08:03:49"
         },
         {
             "name": "spryker/flysystem-ftp-file-system",
@@ -5936,7 +5946,7 @@
             "support": {
                 "source": "https://github.com/spryker/FlysystemFtpFileSystem/tree/1.0.1"
             },
-            "time": "2017-10-25T08:03:49+00:00"
+            "time": "2017-10-25 08:03:49"
         },
         {
             "name": "spryker/flysystem-local-file-system",
@@ -6000,7 +6010,7 @@
             "support": {
                 "source": "https://github.com/spryker/FlysystemLocalFileSystem/tree/1.0.1"
             },
-            "time": "2017-10-25T08:03:49+00:00"
+            "time": "2017-10-25 08:03:49"
         },
         {
             "name": "spryker/glossary",
@@ -6076,7 +6086,7 @@
             "support": {
                 "source": "https://github.com/spryker/Glossary/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/graph",
@@ -6136,9 +6146,9 @@
             ],
             "description": "Graph bundle",
             "support": {
-                "source": "https://github.com/spryker/Graph/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Graph/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/graphviz",
@@ -6181,9 +6191,9 @@
             ],
             "description": "Graphviz module",
             "support": {
-                "source": "https://github.com/spryker/Graphviz/tree/master"
+                "source": "https://github.com/spryker/Graphviz/tree/2.0.1"
             },
-            "time": "2017-08-02T16:31:17+00:00"
+            "time": "2017-08-02 16:31:17"
         },
         {
             "name": "spryker/gui",
@@ -6252,7 +6262,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/3.10.1"
             },
-            "time": "2017-10-26T13:23:18+00:00"
+            "time": "2017-10-26 13:23:18"
         },
         {
             "name": "spryker/guzzle",
@@ -6295,9 +6305,9 @@
             ],
             "description": "Guzzle bundle",
             "support": {
-                "source": "https://github.com/spryker/Guzzle/tree/master"
+                "source": "https://github.com/spryker/Guzzle/tree/2.1.0"
             },
-            "time": "2016-08-19T08:27:58+00:00"
+            "time": "2016-08-19 08:27:58"
         },
         {
             "name": "spryker/heartbeat",
@@ -6362,9 +6372,9 @@
             ],
             "description": "Heartbeat module",
             "support": {
-                "source": "https://github.com/spryker/Heartbeat/tree/master"
+                "source": "https://github.com/spryker/Heartbeat/tree/3.2.0"
             },
-            "time": "2017-08-10T13:34:30+00:00"
+            "time": "2017-08-10 13:34:30"
         },
         {
             "name": "spryker/installer",
@@ -6413,9 +6423,9 @@
             ],
             "description": "Installer bundle",
             "support": {
-                "source": "https://github.com/spryker/Installer/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Installer/tree/4.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/invoice",
@@ -6470,9 +6480,9 @@
             ],
             "description": "Invoice bundle",
             "support": {
-                "source": "https://github.com/spryker/Invoice/tree/master"
+                "source": "https://github.com/spryker/Invoice/tree/2.0.1"
             },
-            "time": "2017-02-22T11:53:10+00:00"
+            "time": "2017-02-22 11:53:10"
         },
         {
             "name": "spryker/kernel",
@@ -6544,7 +6554,7 @@
             "support": {
                 "source": "https://github.com/spryker/Kernel/tree/master"
             },
-            "time": "2017-10-23T09:38:23+00:00"
+            "time": "2017-10-23 09:38:23"
         },
         {
             "name": "spryker/key-builder",
@@ -6603,7 +6613,7 @@
             "support": {
                 "source": "https://github.com/spryker/KeyBuilder/tree/1.0.1"
             },
-            "time": "2017-09-26T09:11:18+00:00"
+            "time": "2017-09-26 09:11:18"
         },
         {
             "name": "spryker/locale",
@@ -6666,7 +6676,10 @@
                 "proprietary"
             ],
             "description": "Locale bundle",
-            "time": "2017-06-07T19:43:51+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Locale/tree/3.1.0"
+            },
+            "time": "2017-06-16 09:45:17"
         },
         {
             "name": "spryker/log",
@@ -6733,7 +6746,7 @@
             "support": {
                 "source": "https://github.com/spryker/Log/tree/master"
             },
-            "time": "2017-10-25T10:19:31+00:00"
+            "time": "2017-10-25 10:19:31"
         },
         {
             "name": "spryker/mail",
@@ -6802,7 +6815,7 @@
             "support": {
                 "source": "https://github.com/spryker/Mail/tree/4.0.1"
             },
-            "time": "2017-05-22T08:59:37+00:00"
+            "time": "2017-05-22 08:59:37"
         },
         {
             "name": "spryker/maintenance",
@@ -6862,9 +6875,9 @@
             ],
             "description": "Maintenance bundle",
             "support": {
-                "source": "https://github.com/spryker/Maintenance/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Maintenance/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/mandrill",
@@ -6907,9 +6920,9 @@
             ],
             "description": "mandrill bundle",
             "support": {
-                "source": "https://github.com/spryker/Mandrill/tree/master"
+                "source": "https://github.com/spryker/Mandrill/tree/2.0.0"
             },
-            "time": "2016-04-01T13:06:05+00:00"
+            "time": "2016-04-01 13:06:05"
         },
         {
             "name": "spryker/messenger",
@@ -6970,9 +6983,9 @@
             ],
             "description": "Messenger bundle",
             "support": {
-                "source": "https://github.com/spryker/Messenger/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/Messenger/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/money",
@@ -7045,7 +7058,7 @@
             "support": {
                 "source": "https://github.com/spryker/Money/tree/master"
             },
-            "time": "2017-10-23T09:38:23+00:00"
+            "time": "2017-10-23 09:38:23"
         },
         {
             "name": "spryker/monolog",
@@ -7088,9 +7101,9 @@
             ],
             "description": "Monolog module",
             "support": {
-                "source": "https://github.com/spryker/Monolog/tree/master"
+                "source": "https://github.com/spryker/Monolog/tree/2.0.3"
             },
-            "time": "2017-08-02T16:31:17+00:00"
+            "time": "2017-08-02 16:31:17"
         },
         {
             "name": "spryker/navigation",
@@ -7161,7 +7174,7 @@
             "support": {
                 "source": "https://github.com/spryker/Navigation/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/navigation-collector",
@@ -7229,7 +7242,7 @@
             "support": {
                 "source": "https://github.com/spryker/NavigationCollector/tree/1.0.3"
             },
-            "time": "2017-10-02T09:31:28+00:00"
+            "time": "2017-10-02 09:31:28"
         },
         {
             "name": "spryker/navigation-gui",
@@ -7299,7 +7312,7 @@
             "support": {
                 "source": "https://github.com/spryker/NavigationGui/tree/2.0.1"
             },
-            "time": "2017-10-09T14:04:16+00:00"
+            "time": "2017-10-09 14:04:16"
         },
         {
             "name": "spryker/new-relic",
@@ -7367,9 +7380,9 @@
             ],
             "description": "NewRelic module",
             "support": {
-                "source": "https://github.com/spryker/NewRelic/tree/master"
+                "source": "https://github.com/spryker/NewRelic/tree/3.1.0"
             },
-            "time": "2017-07-04T10:56:13+00:00"
+            "time": "2017-07-04 10:56:13"
         },
         {
             "name": "spryker/new-relic-api",
@@ -7418,9 +7431,9 @@
             ],
             "description": "NewRelicApi bundle",
             "support": {
-                "source": "https://github.com/spryker/NewRelicApi/tree/master"
+                "source": "https://github.com/spryker/NewRelicApi/tree/1.0.0"
             },
-            "time": "2017-02-22T11:52:23+00:00"
+            "time": "2017-02-22 11:52:23"
         },
         {
             "name": "spryker/newsletter",
@@ -7488,7 +7501,10 @@
                 "proprietary"
             ],
             "description": "Newsletter module",
-            "time": "2017-07-12T12:26:08+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Newsletter/tree/4.1.4"
+            },
+            "time": "2017-07-12 12:26:08"
         },
         {
             "name": "spryker/nopayment",
@@ -7551,9 +7567,9 @@
             ],
             "description": "Nopayment module",
             "support": {
-                "source": "https://github.com/spryker/Nopayment/tree/master"
+                "source": "https://github.com/spryker/Nopayment/tree/3.0.3"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-09-25 14:16:40"
         },
         {
             "name": "spryker/oms",
@@ -7629,7 +7645,7 @@
             "support": {
                 "source": "https://github.com/spryker/Oms/tree/7.2.1"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -7695,7 +7711,7 @@
             "support": {
                 "source": "https://github.com/spryker/OmsDiscountConnector/tree/master"
             },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2017-10-06 12:43:41"
         },
         {
             "name": "spryker/payment",
@@ -7761,9 +7777,9 @@
             ],
             "description": "Payment module",
             "support": {
-                "source": "https://github.com/spryker/Payment/tree/master"
+                "source": "https://github.com/spryker/Payment/tree/4.1.0"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-09-25 14:16:40"
         },
         {
             "name": "spryker/payment-cart-connector",
@@ -7823,7 +7839,7 @@
             "support": {
                 "source": "https://github.com/spryker/PaymentCartConnector/tree/master"
             },
-            "time": "2017-08-25T12:27:25+00:00"
+            "time": "2017-08-25 12:27:25"
         },
         {
             "name": "spryker/payolution",
@@ -7904,9 +7920,9 @@
             ],
             "description": "Payolution module",
             "support": {
-                "source": "https://github.com/spryker/Payolution/tree/master"
+                "source": "https://github.com/spryker/Payolution/tree/4.0.6"
             },
-            "time": "2017-09-13T15:25:35+00:00"
+            "time": "2017-09-13 15:25:35"
         },
         {
             "name": "spryker/pimple",
@@ -7949,9 +7965,9 @@
             ],
             "description": "pimple bundle",
             "support": {
-                "source": "https://github.com/spryker/Pimple/tree/master"
+                "source": "https://github.com/spryker/Pimple/tree/2.0.0"
             },
-            "time": "2016-04-01T13:06:05+00:00"
+            "time": "2016-04-01 13:06:05"
         },
         {
             "name": "spryker/price",
@@ -8021,7 +8037,7 @@
             "support": {
                 "source": "https://github.com/spryker/Price/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/price-cart-connector",
@@ -8083,7 +8099,10 @@
                 "proprietary"
             ],
             "description": "PriceCartConnector bundle",
-            "time": "2017-06-12T07:10:18+00:00"
+            "support": {
+                "source": "https://github.com/spryker/PriceCartConnector/tree/3.1.0"
+            },
+            "time": "2017-06-12 07:10:18"
         },
         {
             "name": "spryker/price-data-feed",
@@ -8145,9 +8164,9 @@
             ],
             "description": "Price DataFeed bundle",
             "support": {
-                "source": "https://github.com/spryker/PriceDataFeed/tree/master"
+                "source": "https://github.com/spryker/PriceDataFeed/tree/0.1.1"
             },
-            "time": "2017-04-13T12:53:00+00:00"
+            "time": "2017-04-13 12:53:00"
         },
         {
             "name": "spryker/product",
@@ -8219,7 +8238,7 @@
             "support": {
                 "source": "https://github.com/spryker/Product/tree/master"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/product-abstract-data-feed",
@@ -8282,7 +8301,10 @@
                 "proprietary"
             ],
             "description": "ProductAbstractDataFeed bundle",
-            "time": "2017-05-12T12:33:31+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductAbstractDataFeed/tree/0.2.0"
+            },
+            "time": "2017-05-12 12:33:31"
         },
         {
             "name": "spryker/product-api",
@@ -8357,7 +8379,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductApi/tree/master"
             },
-            "time": "2017-09-21T16:19:01+00:00"
+            "time": "2017-09-21 16:19:01"
         },
         {
             "name": "spryker/product-attribute",
@@ -8423,7 +8445,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductAttribute/tree/1.0.0"
             },
-            "time": "2017-09-06T12:49:02+00:00"
+            "time": "2017-09-06 12:49:02"
         },
         {
             "name": "spryker/product-attribute-gui",
@@ -8486,9 +8508,9 @@
             ],
             "description": "ProductAttributeGui module",
             "support": {
-                "source": "https://github.com/spryker/ProductAttributeGui/tree/master"
+                "source": "https://github.com/spryker/ProductAttributeGui/tree/1.0.1"
             },
-            "time": "2017-09-07T13:02:20+00:00"
+            "time": "2017-09-07 13:02:20"
         },
         {
             "name": "spryker/product-bundle",
@@ -8571,7 +8593,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductBundle/tree/3.2.3"
             },
-            "time": "2017-09-29T09:05:54+00:00"
+            "time": "2017-09-29 09:05:54"
         },
         {
             "name": "spryker/product-cart-connector",
@@ -8640,7 +8662,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductCartConnector/tree/master"
             },
-            "time": "2017-09-08T08:30:27+00:00"
+            "time": "2017-09-08 08:30:27"
         },
         {
             "name": "spryker/product-category",
@@ -8712,7 +8734,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductCategory/tree/master"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/product-discount-connector",
@@ -8779,7 +8801,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductDiscountConnector/tree/master"
             },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2017-10-06 12:43:41"
         },
         {
             "name": "spryker/product-group",
@@ -8849,7 +8871,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductGroup/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/product-group-collector",
@@ -8914,9 +8936,9 @@
             ],
             "description": "ProductGroupCollector bundle",
             "support": {
-                "source": "https://github.com/spryker/ProductGroupCollector/tree/master"
+                "source": "https://github.com/spryker/ProductGroupCollector/tree/1.0.0"
             },
-            "time": "2017-05-03T10:48:19+00:00"
+            "time": "2017-05-03 10:48:19"
         },
         {
             "name": "spryker/product-image",
@@ -8980,7 +9002,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductImage/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/product-image-cart-connector",
@@ -9046,9 +9068,9 @@
             ],
             "description": "ProductImageCartConnector module",
             "support": {
-                "source": "https://github.com/spryker/ProductImageCartConnector/tree/master"
+                "source": "https://github.com/spryker/ProductImageCartConnector/tree/1.0.0"
             },
-            "time": "2017-06-29T12:15:48+00:00"
+            "time": "2017-06-29 12:15:48"
         },
         {
             "name": "spryker/product-label",
@@ -9124,7 +9146,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductLabel/tree/2.2.1"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/product-label-collector",
@@ -9188,7 +9210,10 @@
                 "proprietary"
             ],
             "description": "ProductLabelCollector module",
-            "time": "2017-07-18T08:30:47+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductLabelCollector/tree/1.1.0"
+            },
+            "time": "2017-07-24 07:40:06"
         },
         {
             "name": "spryker/product-label-discount-connector",
@@ -9250,7 +9275,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductLabelDiscountConnector/tree/master"
             },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2017-10-06 12:43:41"
         },
         {
             "name": "spryker/product-label-gui",
@@ -9317,7 +9342,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductLabelGui/tree/master"
             },
-            "time": "2017-09-07T08:39:13+00:00"
+            "time": "2017-09-07 08:39:13"
         },
         {
             "name": "spryker/product-management",
@@ -9397,7 +9422,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductManagement/tree/master"
             },
-            "time": "2017-09-13T14:54:17+00:00"
+            "time": "2017-09-13 14:54:17"
         },
         {
             "name": "spryker/product-new",
@@ -9459,9 +9484,9 @@
             ],
             "description": "ProductNew module",
             "support": {
-                "source": "https://github.com/spryker/ProductNew/tree/master"
+                "source": "https://github.com/spryker/ProductNew/tree/1.0.0"
             },
-            "time": "2017-07-24T10:39:32+00:00"
+            "time": "2017-07-24 10:39:32"
         },
         {
             "name": "spryker/product-option",
@@ -9543,7 +9568,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductOption/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/product-option-cart-connector",
@@ -9611,7 +9636,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductOptionCartConnector/tree/master"
             },
-            "time": "2017-09-12T13:45:36+00:00"
+            "time": "2017-09-12 13:45:36"
         },
         {
             "name": "spryker/product-relation",
@@ -9698,7 +9723,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductRelation/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/product-relation-collector",
@@ -9766,7 +9791,10 @@
                 "proprietary"
             ],
             "description": "ProductRelationCollector module",
-            "time": "2017-06-30T14:05:21+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductRelationCollector/tree/1.2.0"
+            },
+            "time": "2017-06-30 14:05:21"
         },
         {
             "name": "spryker/product-review",
@@ -9839,7 +9867,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductReview/tree/master"
             },
-            "time": "2017-09-08T15:40:04+00:00"
+            "time": "2017-09-08 15:40:04"
         },
         {
             "name": "spryker/product-review-collector",
@@ -9907,7 +9935,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductReviewCollector/tree/1.0.0"
             },
-            "time": "2017-09-11T14:48:55+00:00"
+            "time": "2017-09-11 14:48:55"
         },
         {
             "name": "spryker/product-review-gui",
@@ -9971,7 +9999,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductReviewGui/tree/1.0.0"
             },
-            "time": "2017-09-11T14:48:55+00:00"
+            "time": "2017-09-11 14:48:55"
         },
         {
             "name": "spryker/product-search",
@@ -10044,7 +10072,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductSearch/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/product-set",
@@ -10117,7 +10145,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductSet/tree/master"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/product-set-collector",
@@ -10183,7 +10211,10 @@
                 "proprietary"
             ],
             "description": "ProductSetCollector bundle",
-            "time": "2017-06-15T15:31:14+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ProductSetCollector/tree/1.0.0"
+            },
+            "time": "2017-06-19 07:00:14"
         },
         {
             "name": "spryker/product-set-gui",
@@ -10250,7 +10281,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductSetGui/tree/master"
             },
-            "time": "2017-10-20T06:49:56+00:00"
+            "time": "2017-10-20 06:49:56"
         },
         {
             "name": "spryker/propel",
@@ -10321,7 +10352,7 @@
             "support": {
                 "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/propel-orm",
@@ -10376,7 +10407,7 @@
             "support": {
                 "source": "https://github.com/spryker/PropelOrm/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/propel-query-builder",
@@ -10443,7 +10474,10 @@
                 "proprietary"
             ],
             "description": "PropelQueryBuilder bundle",
-            "time": "2017-05-16T08:31:15+00:00"
+            "support": {
+                "source": "https://github.com/spryker/PropelQueryBuilder/tree/0.3.0"
+            },
+            "time": "2017-05-16 08:31:15"
         },
         {
             "name": "spryker/queue",
@@ -10501,7 +10535,7 @@
             "support": {
                 "source": "https://github.com/spryker/Queue/tree/master"
             },
-            "time": "2017-10-24T08:45:53+00:00"
+            "time": "2017-10-24 08:45:53"
         },
         {
             "name": "spryker/quote",
@@ -10561,9 +10595,9 @@
             ],
             "description": "Quote module",
             "support": {
-                "source": "https://github.com/spryker/Quote/tree/master"
+                "source": "https://github.com/spryker/Quote/tree/1.1.0"
             },
-            "time": "2017-09-19T11:56:53+00:00"
+            "time": "2017-09-19 11:56:53"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -10649,7 +10683,7 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-10-19T09:44:15+00:00"
+            "time": "2017-10-19 09:44:15"
         },
         {
             "name": "spryker/redis",
@@ -10692,9 +10726,9 @@
             ],
             "description": "Redis bundle",
             "support": {
-                "source": "https://github.com/spryker/Redis/tree/master"
+                "source": "https://github.com/spryker/Redis/tree/2.0.1"
             },
-            "time": "2017-04-26T15:15:36+00:00"
+            "time": "2017-04-26 15:15:36"
         },
         {
             "name": "spryker/refund",
@@ -10768,7 +10802,7 @@
             "support": {
                 "source": "https://github.com/spryker/Refund/tree/5.1.1"
             },
-            "time": "2017-09-28T15:10:11+00:00"
+            "time": "2017-09-28 15:10:11"
         },
         {
             "name": "spryker/sales",
@@ -10858,7 +10892,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2017-10-02T13:18:30+00:00"
+            "time": "2017-10-02 13:18:30"
         },
         {
             "name": "spryker/sales-product-connector",
@@ -10931,9 +10965,9 @@
             ],
             "description": "SalesProductConnector module",
             "support": {
-                "source": "https://github.com/spryker/SalesProductConnector/tree/master"
+                "source": "https://github.com/spryker/SalesProductConnector/tree/1.0.1"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-09-25 14:16:40"
         },
         {
             "name": "spryker/sales-split",
@@ -10995,9 +11029,9 @@
             ],
             "description": "SalesSplit module",
             "support": {
-                "source": "https://github.com/spryker/SalesSplit/tree/master"
+                "source": "https://github.com/spryker/SalesSplit/tree/3.0.3"
             },
-            "time": "2017-09-13T15:25:35+00:00"
+            "time": "2017-09-13 15:25:35"
         },
         {
             "name": "spryker/search",
@@ -11068,7 +11102,7 @@
             "support": {
                 "source": "https://github.com/spryker/Search/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-19 09:20:10"
         },
         {
             "name": "spryker/sequence-number",
@@ -11128,9 +11162,9 @@
             ],
             "description": "SequenceNumber bundle",
             "support": {
-                "source": "https://github.com/spryker/SequenceNumber/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/SequenceNumber/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/session",
@@ -11195,7 +11229,7 @@
             "support": {
                 "source": "https://github.com/spryker/Session/tree/3.2.0"
             },
-            "time": "2017-05-31T14:03:42+00:00"
+            "time": "2017-05-31 14:03:42"
         },
         {
             "name": "spryker/setup",
@@ -11261,9 +11295,9 @@
             ],
             "description": "Setup bundle",
             "support": {
-                "source": "https://github.com/spryker/Setup/tree/master"
+                "source": "https://github.com/spryker/Setup/tree/4.0.0"
             },
-            "time": "2017-04-10T13:13:22+00:00"
+            "time": "2017-04-10 13:13:22"
         },
         {
             "name": "spryker/shipment",
@@ -11346,7 +11380,7 @@
             "support": {
                 "source": "https://github.com/spryker/Shipment/tree/6.0.1"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/shipment-discount-connector",
@@ -11414,7 +11448,7 @@
             "support": {
                 "source": "https://github.com/spryker/ShipmentDiscountConnector/tree/master"
             },
-            "time": "2017-10-23T09:38:23+00:00"
+            "time": "2017-10-23 09:38:23"
         },
         {
             "name": "spryker/silex",
@@ -11461,9 +11495,9 @@
             ],
             "description": "Silex bundle",
             "support": {
-                "source": "https://github.com/spryker/Silex/tree/master"
+                "source": "https://github.com/spryker/Silex/tree/2.0.1"
             },
-            "time": "2016-12-09T13:45:20+00:00"
+            "time": "2016-12-09 13:45:20"
         },
         {
             "name": "spryker/sql-criteria-builder",
@@ -11514,9 +11548,9 @@
             ],
             "description": "sql criteria builder bundle",
             "support": {
-                "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/master"
+                "source": "https://github.com/spryker/SqlCriteriaBuilder/tree/1.0.0"
             },
-            "time": "2016-04-01T13:06:05+00:00"
+            "time": "2016-04-01 13:06:05"
         },
         {
             "name": "spryker/state-machine",
@@ -11582,7 +11616,7 @@
             "support": {
                 "source": "https://github.com/spryker/StateMachine/tree/master"
             },
-            "time": "2017-10-19T13:57:42+00:00"
+            "time": "2017-10-19 13:57:42"
         },
         {
             "name": "spryker/step-engine",
@@ -11648,7 +11682,7 @@
             "support": {
                 "source": "https://github.com/spryker/StepEngine/tree/master"
             },
-            "time": "2017-08-29T09:26:41+00:00"
+            "time": "2017-08-29 09:26:41"
         },
         {
             "name": "spryker/stock",
@@ -11717,7 +11751,7 @@
             "support": {
                 "source": "https://github.com/spryker/Stock/tree/master"
             },
-            "time": "2017-09-14T13:31:42+00:00"
+            "time": "2017-09-14 13:31:42"
         },
         {
             "name": "spryker/stock-sales-connector",
@@ -11776,9 +11810,9 @@
             ],
             "description": "StockSalesConnector bundle",
             "support": {
-                "source": "https://github.com/spryker/StockSalesConnector/tree/beta/core-714-big-core-cleanup"
+                "source": "https://github.com/spryker/StockSalesConnector/tree/3.0.0"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-02-22 12:08:46"
         },
         {
             "name": "spryker/storage",
@@ -11850,7 +11884,7 @@
             "support": {
                 "source": "https://github.com/spryker/Storage/tree/3.3.2"
             },
-            "time": "2017-10-09T08:13:37+00:00"
+            "time": "2017-10-09 08:13:37"
         },
         {
             "name": "spryker/store",
@@ -11919,7 +11953,7 @@
             "support": {
                 "source": "https://github.com/spryker/Store/tree/master"
             },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2017-10-06 12:43:41"
         },
         {
             "name": "spryker/symfony",
@@ -11992,7 +12026,10 @@
                 "proprietary"
             ],
             "description": "Symfony module",
-            "time": "2017-08-10T12:21:41+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Symfony/tree/3.1.0"
+            },
+            "time": "2017-08-10 12:21:41"
         },
         {
             "name": "spryker/synchronization",
@@ -12059,7 +12096,7 @@
             "support": {
                 "source": "https://github.com/spryker/Synchronization/tree/master"
             },
-            "time": "2017-10-19T09:02:04+00:00"
+            "time": "2017-10-19 09:02:04"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -12116,7 +12153,7 @@
             "support": {
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
-            "time": "2017-10-17T08:36:02+00:00"
+            "time": "2017-10-17 08:36:02"
         },
         {
             "name": "spryker/tax",
@@ -12188,7 +12225,7 @@
             "support": {
                 "source": "https://github.com/spryker/Tax/tree/master"
             },
-            "time": "2017-09-27T12:03:35+00:00"
+            "time": "2017-09-27 12:03:35"
         },
         {
             "name": "spryker/tax-product-connector",
@@ -12258,7 +12295,7 @@
             "support": {
                 "source": "https://github.com/spryker/TaxProductConnector/tree/4.0.3"
             },
-            "time": "2017-10-13T09:42:40+00:00"
+            "time": "2017-10-13 09:42:40"
         },
         {
             "name": "spryker/touch",
@@ -12324,7 +12361,7 @@
             "support": {
                 "source": "https://github.com/spryker/Touch/tree/master"
             },
-            "time": "2017-09-04T15:08:54+00:00"
+            "time": "2017-09-04 15:08:54"
         },
         {
             "name": "spryker/transfer",
@@ -12389,7 +12426,7 @@
             "support": {
                 "source": "https://github.com/spryker/Transfer/tree/3.5.1"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/twig",
@@ -12457,7 +12494,10 @@
                 "proprietary"
             ],
             "description": "Twig module",
-            "time": "2017-09-26T15:54:56+00:00"
+            "support": {
+                "source": "https://github.com/spryker/Twig/tree/3.2.3"
+            },
+            "time": "2017-09-26 15:54:56"
         },
         {
             "name": "spryker/url",
@@ -12523,7 +12563,7 @@
             "support": {
                 "source": "https://github.com/spryker/Url/tree/master"
             },
-            "time": "2017-10-20T06:49:56+00:00"
+            "time": "2017-10-20 06:49:56"
         },
         {
             "name": "spryker/user",
@@ -12596,15 +12636,15 @@
             "support": {
                 "source": "https://github.com/spryker/User/tree/master"
             },
-            "time": "2017-10-05T09:26:12+00:00"
+            "time": "2017-10-05 09:26:12"
         },
         {
             "name": "spryker/util-data-reader",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilDataReader.git",
-                "reference": "ed7c612a43c97ac58db30f49f446cb35c5773d8f",
+                "reference": "cfcc0a1c57ff051f9c5eb018d9c681f3c797457c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12614,8 +12654,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilDataReader/zipball/ed7c612a43c97ac58db30f49f446cb35c5773d8f",
-                "reference": "ed7c612a43c97ac58db30f49f446cb35c5773d8f",
+                "url": "https://api.github.com/repos/spryker/UtilDataReader/zipball/cfcc0a1c57ff051f9c5eb018d9c681f3c797457c",
+                "reference": "cfcc0a1c57ff051f9c5eb018d9c681f3c797457c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12624,6 +12664,12 @@
                     }
                 ]
             },
+            "require": {
+                "spryker/kernel": "^3.3.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/sql-criteria-builder": "^1.0.0",
+                "spryker/symfony": "^3.0.0"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -12631,25 +12677,24 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "UtilDataReader bundle",
+            "description": "UtilDataReader module",
             "support": {
                 "source": "https://github.com/spryker/UtilDataReader/tree/master"
             },
-            "time": "2017-04-10T14:30:21+00:00"
+            "time": "2017-10-25 08:03:49"
         },
         {
             "name": "spryker/util-date-time",
@@ -12707,15 +12752,15 @@
             "support": {
                 "source": "https://github.com/spryker/UtilDateTime/tree/1.0.2"
             },
-            "time": "2017-10-24T13:32:31+00:00"
+            "time": "2017-10-24 13:32:31"
         },
         {
             "name": "spryker/util-encoding",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilEncoding.git",
-                "reference": "3f39ac1a2fd40bd28a2e4c2c34f7cf9e72a27a38",
+                "reference": "9e1d562f3e241c10d914e97f2714b95d5b5f2cbf",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12725,8 +12770,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilEncoding/zipball/3f39ac1a2fd40bd28a2e4c2c34f7cf9e72a27a38",
-                "reference": "3f39ac1a2fd40bd28a2e4c2c34f7cf9e72a27a38",
+                "url": "https://api.github.com/repos/spryker/UtilEncoding/zipball/9e1d562f3e241c10d914e97f2714b95d5b5f2cbf",
+                "reference": "9e1d562f3e241c10d914e97f2714b95d5b5f2cbf",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12735,6 +12780,9 @@
                     }
                 ]
             },
+            "require": {
+                "spryker/kernel": "^3.0.0"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -12742,22 +12790,24 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "UtilEncoding bundle",
-            "time": "2017-05-15T17:57:24+00:00"
+            "description": "UtilEncoding module",
+            "support": {
+                "source": "https://github.com/spryker/UtilEncoding/tree/master"
+            },
+            "time": "2017-10-24 13:32:31"
         },
         {
             "name": "spryker/util-network",
@@ -12812,15 +12862,15 @@
             "support": {
                 "source": "https://github.com/spryker/UtilNetwork/tree/1.1.1"
             },
-            "time": "2017-10-24T13:32:31+00:00"
+            "time": "2017-10-24 13:32:31"
         },
         {
             "name": "spryker/util-sanitize",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilSanitize.git",
-                "reference": "0c822f01884f251db3523e0c84b970a608e69bb7",
+                "reference": "5db0ebb8a445aeb2a475d98cafaf95294b0bc546",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12830,8 +12880,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilSanitize/zipball/0c822f01884f251db3523e0c84b970a608e69bb7",
-                "reference": "0c822f01884f251db3523e0c84b970a608e69bb7",
+                "url": "https://api.github.com/repos/spryker/UtilSanitize/zipball/5db0ebb8a445aeb2a475d98cafaf95294b0bc546",
+                "reference": "5db0ebb8a445aeb2a475d98cafaf95294b0bc546",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12839,6 +12889,9 @@
                         "preferred": true
                     }
                 ]
+            },
+            "require": {
+                "spryker/kernel": "^3.0.0"
             },
             "type": "library",
             "extra": {
@@ -12864,15 +12917,15 @@
             "support": {
                 "source": "https://github.com/spryker/UtilSanitize/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-10-24 13:32:31"
         },
         {
             "name": "spryker/util-text",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/UtilText.git",
-                "reference": "0fa9472d7339bea40f9f1f3ef60068b6a3b765fe",
+                "reference": "c7fbae692a06470b6d392831fc4352e8b03704de",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -12882,8 +12935,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilText/zipball/0fa9472d7339bea40f9f1f3ef60068b6a3b765fe",
-                "reference": "0fa9472d7339bea40f9f1f3ef60068b6a3b765fe",
+                "url": "https://api.github.com/repos/spryker/UtilText/zipball/c7fbae692a06470b6d392831fc4352e8b03704de",
+                "reference": "c7fbae692a06470b6d392831fc4352e8b03704de",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12892,6 +12945,9 @@
                     }
                 ]
             },
+            "require": {
+                "spryker/kernel": "^3.0.0"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -12899,22 +12955,24 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "UtilText bundle",
-            "time": "2017-06-09T10:39:37+00:00"
+            "description": "UtilText module",
+            "support": {
+                "source": "https://github.com/spryker/UtilText/tree/master"
+            },
+            "time": "2017-10-24 13:32:31"
         },
         {
             "name": "spryker/wishlist",
@@ -12982,15 +13040,15 @@
             "support": {
                 "source": "https://github.com/spryker/Wishlist/tree/master"
             },
-            "time": "2017-10-02T10:41:34+00:00"
+            "time": "2017-10-02 10:41:34"
         },
         {
             "name": "spryker/zed-navigation",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ZedNavigation.git",
-                "reference": "6a0bbddb26b37852efdf90af9560d90f62e189fc",
+                "reference": "d4e35fcfdafe366e95943418103c486a2e1f3bc3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -13000,8 +13058,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ZedNavigation/zipball/6a0bbddb26b37852efdf90af9560d90f62e189fc",
-                "reference": "6a0bbddb26b37852efdf90af9560d90f62e189fc",
+                "url": "https://api.github.com/repos/spryker/ZedNavigation/zipball/d4e35fcfdafe366e95943418103c486a2e1f3bc3",
+                "reference": "d4e35fcfdafe366e95943418103c486a2e1f3bc3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -13019,7 +13077,9 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
+                "spryker/silex": "*",
+                "spryker/testify": "*",
+                "spryker/twig": "*"
             },
             "suggest": {
                 "spryker/silex": "If you want to use ServiceProvider.",
@@ -13032,13 +13092,14 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Zed\\ZedNavigation\\Helper\\": "tests/SprykerTest/Zed/ZedNavigation/_support/Helper/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -13047,9 +13108,9 @@
             ],
             "description": "ZedNavigation module",
             "support": {
-                "source": "https://github.com/spryker/ZedNavigation/tree/1.2.0"
+                "source": "https://github.com/spryker/ZedNavigation/tree/master"
             },
-            "time": "2017-08-09T04:25:04+00:00"
+            "time": "2017-10-25 13:22:17"
         },
         {
             "name": "spryker/zed-request",
@@ -13115,7 +13176,10 @@
                 "proprietary"
             ],
             "description": "ZedRequest module",
-            "time": "2017-09-13T10:02:56+00:00"
+            "support": {
+                "source": "https://github.com/spryker/ZedRequest/tree/master"
+            },
+            "time": "2017-09-13 10:02:56"
         },
         {
             "name": "spryker/zend",
@@ -13160,9 +13224,9 @@
             ],
             "description": "Zend module",
             "support": {
-                "source": "https://github.com/spryker/Zend/tree/master"
+                "source": "https://github.com/spryker/Zend/tree/2.1.0"
             },
-            "time": "2017-08-02T16:31:17+00:00"
+            "time": "2017-08-02 16:31:17"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -13216,7 +13280,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-05-01T15:54:03+00:00"
+            "time": "2017-05-01 15:54:03"
         },
         {
             "name": "symfony-cmf/routing",
@@ -13275,7 +13339,7 @@
                 "database",
                 "routing"
             ],
-            "time": "2017-05-09T08:10:41+00:00"
+            "time": "2017-05-09 08:10:41"
         },
         {
             "name": "symfony/config",
@@ -13331,7 +13395,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12T14:13:17+00:00"
+            "time": "2017-04-12 14:13:17"
         },
         {
             "name": "symfony/console",
@@ -13394,7 +13458,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29T21:27:41+00:00"
+            "time": "2017-07-29 21:27:41"
         },
         {
             "name": "symfony/debug",
@@ -13451,7 +13515,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -13511,7 +13575,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-19T10:44:15+00:00"
+            "time": "2016-07-19 10:44:15"
         },
         {
             "name": "symfony/filesystem",
@@ -13560,7 +13624,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-02T08:46:46+00:00"
+            "time": "2017-10-02 08:46:46"
         },
         {
             "name": "symfony/finder",
@@ -13609,7 +13673,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/form",
@@ -13684,7 +13748,7 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/http-foundation",
@@ -13737,7 +13801,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-17T13:54:30+00:00"
+            "time": "2016-07-17 13:54:30"
         },
         {
             "name": "symfony/http-kernel",
@@ -13819,7 +13883,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30T09:10:37+00:00"
+            "time": "2016-07-30 09:10:37"
         },
         {
             "name": "symfony/intl",
@@ -13895,7 +13959,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/options-resolver",
@@ -13949,7 +14013,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2017-09-11T20:39:16+00:00"
+            "time": "2017-09-11 20:39:16"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -14007,7 +14071,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -14066,7 +14130,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/polyfill-php54",
@@ -14124,7 +14188,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/polyfill-php55",
@@ -14180,7 +14244,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/polyfill-php56",
@@ -14236,7 +14300,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -14295,7 +14359,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/polyfill-util",
@@ -14347,7 +14411,7 @@
                 "polyfill",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/process",
@@ -14396,7 +14460,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/property-access",
@@ -14456,7 +14520,7 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/routing",
@@ -14531,7 +14595,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/security",
@@ -14611,7 +14675,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/security-acl",
@@ -14672,7 +14736,7 @@
             ],
             "description": "Symfony Security Component - ACL (Access Control List)",
             "homepage": "https://symfony.com",
-            "time": "2015-12-28T09:39:46+00:00"
+            "time": "2015-12-28 09:39:46"
         },
         {
             "name": "symfony/serializer",
@@ -14736,7 +14800,7 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/translation",
@@ -14800,7 +14864,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/twig-bridge",
@@ -14884,7 +14948,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/validator",
@@ -14957,7 +15021,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2017-10-01 21:00:16"
         },
         {
             "name": "symfony/yaml",
@@ -15006,7 +15070,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-05T14:38:30+00:00"
+            "time": "2017-10-05 14:38:30"
         },
         {
             "name": "twig/twig",
@@ -15071,7 +15135,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-09-27T18:06:46+00:00"
+            "time": "2017-09-27 18:06:46"
         },
         {
             "name": "zendframework/zend-config",
@@ -15131,7 +15195,7 @@
                 "config",
                 "zf2"
             ],
-            "time": "2017-02-22T14:31:10+00:00"
+            "time": "2017-02-22 14:31:10"
         },
         {
             "name": "zendframework/zend-filter",
@@ -15191,7 +15255,7 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2017-05-17T20:56:17+00:00"
+            "time": "2017-05-17 20:56:17"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -15254,7 +15318,7 @@
                 "servicemanager",
                 "zf"
             ],
-            "time": "2017-03-01T22:08:02+00:00"
+            "time": "2017-03-01 22:08:02"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -15299,7 +15363,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-09-13T14:38:50+00:00"
+            "time": "2016-09-13 14:38:50"
         }
     ],
     "packages-dev": [
@@ -15360,7 +15424,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2016-10-30T11:50:56+00:00"
+            "time": "2016-10-30 11:50:56"
         },
         {
             "name": "codeception/c3",
@@ -15410,7 +15474,7 @@
                 "code coverage",
                 "codecoverage"
             ],
-            "time": "2017-04-06T00:08:55+00:00"
+            "time": "2017-04-06 00:08:55"
         },
         {
             "name": "codeception/codeception",
@@ -15504,7 +15568,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-09-28T23:19:49+00:00"
+            "time": "2017-09-28 23:19:49"
         },
         {
             "name": "doctrine/instantiator",
@@ -15558,7 +15622,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2015-06-14 21:17:01"
         },
         {
             "name": "facebook/webdriver",
@@ -15607,7 +15671,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2017-01-13T15:48:08+00:00"
+            "time": "2017-01-13 15:48:08"
         },
         {
             "name": "guzzle/guzzle",
@@ -15700,7 +15764,7 @@
                 "web service"
             ],
             "abandoned": "guzzlehttp/guzzle",
-            "time": "2014-01-28T22:29:15+00:00"
+            "time": "2014-01-28 22:29:15"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -15750,7 +15814,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2017-08-16T08:44:29+00:00"
+            "time": "2017-08-16 08:57:05"
         },
         {
             "name": "jean85/pretty-package-versions",
@@ -15793,7 +15857,7 @@
             "keywords": [
                 "package versions"
             ],
-            "time": "2017-09-06T15:48:57+00:00"
+            "time": "2017-09-06 15:48:57"
         },
         {
             "name": "myclabs/deep-copy",
@@ -15838,7 +15902,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-10-19T19:58:43+00:00"
+            "time": "2017-10-19 19:58:43"
         },
         {
             "name": "nette/bootstrap",
@@ -15914,7 +15978,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2017-08-20T17:36:59+00:00"
+            "time": "2017-08-20 17:36:59"
         },
         {
             "name": "nette/di",
@@ -15983,7 +16047,7 @@
                 "nette",
                 "static"
             ],
-            "time": "2017-08-31T22:42:00+00:00"
+            "time": "2017-08-31 22:42:00"
         },
         {
             "name": "nette/finder",
@@ -16039,7 +16103,7 @@
             ],
             "description": "Nette Finder: Files Searching",
             "homepage": "https://nette.org",
-            "time": "2017-07-10T23:47:08+00:00"
+            "time": "2017-07-10 23:47:08"
         },
         {
             "name": "nette/neon",
@@ -16093,7 +16157,7 @@
             ],
             "description": "Nette NEON: parser & generator for Nette Object Notation",
             "homepage": "http://ne-on.org",
-            "time": "2017-07-11T18:29:08+00:00"
+            "time": "2017-07-11 18:29:08"
         },
         {
             "name": "nette/php-generator",
@@ -16149,7 +16213,7 @@
             ],
             "description": "Nette PHP Generator",
             "homepage": "https://nette.org",
-            "time": "2017-07-14T07:06:27+00:00"
+            "time": "2017-07-14 07:06:27"
         },
         {
             "name": "nette/robot-loader",
@@ -16214,7 +16278,7 @@
                 "nette",
                 "trait"
             ],
-            "time": "2017-07-18T00:09:56+00:00"
+            "time": "2017-07-18 00:09:56"
         },
         {
             "name": "nette/utils",
@@ -16293,7 +16357,7 @@
                 "utility",
                 "validation"
             ],
-            "time": "2017-08-20T17:32:29+00:00"
+            "time": "2017-08-20 17:32:29"
         },
         {
             "name": "nikic/php-parser",
@@ -16344,7 +16408,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-09-02T17:10:46+00:00"
+            "time": "2017-09-02 17:10:46"
         },
         {
             "name": "ocramius/package-versions",
@@ -16393,7 +16457,7 @@
                 }
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2017-09-06T15:24:43+00:00"
+            "time": "2017-09-06 15:24:43"
         },
         {
             "name": "pdepend/pdepend",
@@ -16433,7 +16497,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-01-19T14:23:36+00:00"
+            "time": "2017-01-19 14:23:36"
         },
         {
             "name": "php-mock/php-mock",
@@ -16495,7 +16559,7 @@
                 "test",
                 "test double"
             ],
-            "time": "2015-11-11T22:37:09+00:00"
+            "time": "2015-11-11 22:37:09"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -16544,7 +16608,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2016-01-25T08:17:30+00:00"
+            "time": "2016-01-25 08:17:30"
         },
         {
             "name": "phploc/phploc",
@@ -16597,7 +16661,7 @@
             ],
             "description": "A tool for quickly measuring the size of a PHP project.",
             "homepage": "https://github.com/sebastianbergmann/phploc",
-            "time": "2016-04-25T08:11:21+00:00"
+            "time": "2016-04-25 08:11:21"
         },
         {
             "name": "phpmd/phpmd",
@@ -16662,7 +16726,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-11-22T14:35:17+00:00"
+            "time": "2016-11-22 14:35:17"
         },
         {
             "name": "phpspec/prophecy",
@@ -16725,7 +16789,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-09-04T11:05:03+00:00"
+            "time": "2017-09-04 11:05:03"
         },
         {
             "name": "phpstan/phpstan",
@@ -16779,7 +16843,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2017-09-06T17:15:07+00:00"
+            "time": "2017-09-06 17:15:07"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -16842,7 +16906,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-02T07:44:40+00:00"
+            "time": "2017-04-02 07:44:40"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -16889,7 +16953,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03T07:40:28+00:00"
+            "time": "2016-10-03 07:40:28"
         },
         {
             "name": "phpunit/php-text-template",
@@ -16930,7 +16994,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21T13:50:34+00:00"
+            "time": "2015-06-21 13:50:34"
         },
         {
             "name": "phpunit/php-timer",
@@ -16979,7 +17043,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26T11:10:40+00:00"
+            "time": "2017-02-26 11:10:40"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -17028,7 +17092,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27T10:12:30+00:00"
+            "time": "2017-02-27 10:12:30"
         },
         {
             "name": "phpunit/phpunit",
@@ -17110,7 +17174,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-10-15T06:13:55+00:00"
+            "time": "2017-10-15 06:13:55"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -17169,7 +17233,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-06-30T09:13:00+00:00"
+            "time": "2017-06-30 09:13:00"
         },
         {
             "name": "satooshi/php-coveralls",
@@ -17227,7 +17291,7 @@
                 "github",
                 "test"
             ],
-            "time": "2016-01-20T17:35:46+00:00"
+            "time": "2016-01-20 17:35:46"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -17272,7 +17336,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2017-03-04T06:30:41+00:00"
+            "time": "2017-03-04 06:30:41"
         },
         {
             "name": "sebastian/comparator",
@@ -17336,7 +17400,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29T09:50:25+00:00"
+            "time": "2017-01-29 09:50:25"
         },
         {
             "name": "sebastian/diff",
@@ -17388,7 +17452,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22T07:24:03+00:00"
+            "time": "2017-05-22 07:24:03"
         },
         {
             "name": "sebastian/environment",
@@ -17438,7 +17502,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-11-26T07:53:53+00:00"
+            "time": "2016-11-26 07:53:53"
         },
         {
             "name": "sebastian/exporter",
@@ -17505,7 +17569,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-11-19T08:54:04+00:00"
+            "time": "2016-11-19 08:54:04"
         },
         {
             "name": "sebastian/finder-facade",
@@ -17544,7 +17608,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
-            "time": "2016-02-17T07:02:23+00:00"
+            "time": "2016-02-17 07:02:23"
         },
         {
             "name": "sebastian/git",
@@ -17590,7 +17654,7 @@
                 "git"
             ],
             "abandoned": true,
-            "time": "2017-01-23T20:57:12+00:00"
+            "time": "2017-01-23 20:57:12"
         },
         {
             "name": "sebastian/global-state",
@@ -17641,7 +17705,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2015-10-12T03:26:01+00:00"
+            "time": "2015-10-12 03:26:01"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -17687,7 +17751,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2017-02-18T15:18:39+00:00"
+            "time": "2017-02-18 15:18:39"
         },
         {
             "name": "sebastian/phpcpd",
@@ -17738,7 +17802,7 @@
             ],
             "description": "Copy/Paste Detector (CPD) for PHP code.",
             "homepage": "https://github.com/sebastianbergmann/phpcpd",
-            "time": "2016-04-17T19:32:49+00:00"
+            "time": "2016-04-17 19:32:49"
         },
         {
             "name": "sebastian/recursion-context",
@@ -17791,7 +17855,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-11-19T07:33:16+00:00"
+            "time": "2016-11-19 07:33:16"
         },
         {
             "name": "sebastian/resource-operations",
@@ -17833,7 +17897,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2015-07-28T20:34:47+00:00"
+            "time": "2015-07-28 20:34:47"
         },
         {
             "name": "sebastian/version",
@@ -17876,7 +17940,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-10-03T07:35:21+00:00"
+            "time": "2016-10-03 07:35:21"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -17920,27 +17984,27 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-03-29T09:29:53+00:00"
+            "time": "2017-03-29 09:29:53"
         },
         {
             "name": "silex/web-profiler",
-            "version": "v1.0.8",
+            "version": "1.0.x-dev",
             "target-dir": "Silex/Provider",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex-WebProfiler.git",
-                "reference": "3b767e6c9006a542cac737474f02671bdf2909cb"
+                "reference": "2c5df830c864bec709307e706176771b57440be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/3b767e6c9006a542cac737474f02671bdf2909cb",
-                "reference": "3b767e6c9006a542cac737474f02671bdf2909cb",
+                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/2c5df830c864bec709307e706176771b57440be5",
+                "reference": "2c5df830c864bec709307e706176771b57440be5",
                 "shasum": ""
             },
             "require": {
                 "silex/silex": "~1.1",
-                "symfony/stopwatch": "~2.2",
-                "symfony/web-profiler-bundle": "~2.4"
+                "symfony/stopwatch": "~2.2|3.0.*",
+                "symfony/web-profiler-bundle": "~2.4|3.0.*"
             },
             "type": "library",
             "extra": {
@@ -17965,7 +18029,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2016-01-10T11:39:13+00:00"
+            "time": "2016-05-04 16:32:42"
         },
         {
             "name": "site5/phantoman",
@@ -18012,7 +18076,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2016-09-15T14:35:04+00:00"
+            "time": "2016-09-15 14:35:04"
         },
         {
             "name": "slevomat/coding-standard",
@@ -18049,7 +18113,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2017-09-15T17:47:36+00:00"
+            "time": "2017-09-15 17:47:36"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -18092,7 +18156,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -18103,7 +18167,7 @@
                 "update",
                 "versions"
             ],
-            "time": "2017-06-16T09:29:23+00:00"
+            "time": "2017-06-16 09:29:23"
         },
         {
             "name": "spryker/architecture-sniffer",
@@ -18115,6 +18179,18 @@
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/bcd993e532dfe7846da03790cb9f5844ebd20c18",
+                "reference": "bcd993e532dfe7846da03790cb9f5844ebd20c18",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -18138,6 +18214,7 @@
                     "ArchitectureSniffer\\Test\\": "tests"
                 }
             },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
@@ -18167,9 +18244,10 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/spryker/architecture-sniffer"
+                "source": "https://github.com/spryker/architecture-sniffer",
+                "issues": "https://github.com/spryker/architecture-sniffer/issues"
             },
-            "time": "2017-08-01T14:03:04+00:00"
+            "time": "2017-08-01 14:03:04"
         },
         {
             "name": "spryker/code-generator",
@@ -18181,6 +18259,18 @@
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/36275f0ca30c780eca148c0fb62af5ed0abb635d",
+                "reference": "36275f0ca30c780eca148c0fb62af5ed0abb635d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -18207,11 +18297,16 @@
                     "Unit": "tests/"
                 }
             },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator bundle",
-            "time": "2017-08-02T15:26:23+00:00"
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/0.3.3",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
+            "time": "2017-08-02 15:26:23"
         },
         {
             "name": "spryker/code-sniffer",
@@ -18262,15 +18357,15 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-12T13:20:45+00:00"
+            "time": "2017-10-12 13:20:45"
         },
         {
             "name": "spryker/development",
-            "version": "3.3.2",
+            "version": "3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Development.git",
-                "reference": "eaad428ec0a1087c0db05c693c70351c08d6837f",
+                "reference": "d3e8bf29734d0620aebf41243ed7d92f3ec891ae",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -18280,8 +18375,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/eaad428ec0a1087c0db05c693c70351c08d6837f",
-                "reference": "eaad428ec0a1087c0db05c693c70351c08d6837f",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/d3e8bf29734d0620aebf41243ed7d92f3ec891ae",
+                "reference": "d3e8bf29734d0620aebf41243ed7d92f3ec891ae",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -18310,7 +18405,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Spryker\\": "src/Spryker/"
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Zed\\Development\\Helper\\": "tests/SprykerTest/Zed/Development/_support/Helper/"
                 }
             },
             "autoload-dev": {
@@ -18324,9 +18420,9 @@
             ],
             "description": "Development module",
             "support": {
-                "source": "https://github.com/spryker/Development/tree/master"
+                "source": "https://github.com/spryker/Development/tree/3.3.3"
             },
-            "time": "2017-10-17T16:27:21+00:00"
+            "time": "2017-10-26 13:39:48"
         },
         {
             "name": "spryker/testify",
@@ -18403,7 +18499,7 @@
             "support": {
                 "source": "https://github.com/spryker/Testify/tree/master"
             },
-            "time": "2017-09-29T08:51:04+00:00"
+            "time": "2017-09-29 08:51:04"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -18454,7 +18550,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-16T22:40:25+00:00"
+            "time": "2017-10-16 22:40:25"
         },
         {
             "name": "stecman/symfony-console-completion",
@@ -18499,7 +18595,7 @@
                 }
             ],
             "description": "Automatic BASH completion for Symfony Console Component based applications.",
-            "time": "2016-02-24T05:08:54+00:00"
+            "time": "2016-02-24 05:08:54"
         },
         {
             "name": "symfony/browser-kit",
@@ -18556,7 +18652,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-02T06:42:24+00:00"
+            "time": "2017-10-02 06:42:24"
         },
         {
             "name": "symfony/css-selector",
@@ -18609,7 +18705,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-02T06:42:24+00:00"
+            "time": "2017-10-02 06:42:24"
         },
         {
             "name": "symfony/dependency-injection",
@@ -18669,7 +18765,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-28T00:04:57+00:00"
+            "time": "2017-01-28 00:04:57"
         },
         {
             "name": "symfony/dom-crawler",
@@ -18725,29 +18821,29 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-02T06:42:24+00:00"
+            "time": "2017-10-02 06:42:24"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.8.28",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "28ee62ea4736431ca817cdaebcb005663e9cd1cb"
+                "reference": "49c0ea2f3d3a779df4780927671332edc406ea84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/28ee62ea4736431ca817cdaebcb005663e9cd1cb",
-                "reference": "28ee62ea4736431ca817cdaebcb005663e9cd1cb",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/49c0ea2f3d3a779df4780927671332edc406ea84",
+                "reference": "49c0ea2f3d3a779df4780927671332edc406ea84",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -18774,7 +18870,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2016-06-29 05:40:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -18842,39 +18938,38 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-10-02T06:42:24+00:00"
+            "time": "2017-10-02 06:42:24"
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v2.8.28",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "37c96c7f38fa4453780ed5a9dfb09660dfa3dfaf"
+                "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/37c96c7f38fa4453780ed5a9dfb09660dfa3dfaf",
-                "reference": "37c96c7f38fa4453780ed5a9dfb09660dfa3dfaf",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
+                "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/twig-bridge": "~2.7|~3.0.0",
-                "twig/twig": "~1.34|~2.4"
+                "php": ">=5.5.9",
+                "symfony/http-kernel": "~2.8|~3.0",
+                "symfony/routing": "~2.8|~3.0",
+                "symfony/twig-bridge": "~2.8|~3.0"
             },
             "require-dev": {
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/console": "~2.3|~3.0.0",
-                "symfony/dependency-injection": "~2.2|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0"
+                "symfony/config": "~2.8|~3.0",
+                "symfony/console": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -18901,7 +18996,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2017-10-01T21:00:16+00:00"
+            "time": "2016-07-26 08:03:56"
         },
         {
             "name": "theseer/fdomdocument",
@@ -18941,7 +19036,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-06-30T11:53:12+00:00"
+            "time": "2017-06-30 11:53:12"
         }
     ],
     "aliases": [
