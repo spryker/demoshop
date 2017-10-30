@@ -7,9 +7,18 @@ stores:
   - US
 
 sections:
+
+  hidden:
+    excluded: true
+    maintenance-all-on:
+      command: "vendor/bin/console maintenance:enable"
+
+    maintenance-all-off:
+      command: "vendor/bin/console maintenance:disable"
+
   composer:
     install-composer:
-      command: "Spryker\\Command\\Composer\\ComposerInstallCommand"
+      command: "composer"
 
     install-dependencies:
       command: "php composer.phar install --prefer-dist"
@@ -73,6 +82,7 @@ sections:
         - redis
 
     drop-database:
+      pre: ""
       command: "vendor/bin/console propel:database:drop"
       stores: true
       groups:
