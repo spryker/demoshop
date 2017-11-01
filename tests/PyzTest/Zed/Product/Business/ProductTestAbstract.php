@@ -28,7 +28,8 @@ use Spryker\Service\UtilEncoding\UtilEncodingService;
 use Spryker\Service\UtilText\UtilTextService;
 use Spryker\Zed\Currency\Business\CurrencyFacade;
 use Spryker\Zed\Locale\Business\LocaleFacade;
-use Spryker\Zed\Price\Business\PriceProductFacade;
+use Spryker\Zed\Price\Business\PriceFacade;
+use Spryker\Zed\PriceProduct\Business\PriceProductFacade;
 use Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainer;
 use Spryker\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\Product\Business\Product\Url\ProductUrlManager;
@@ -73,6 +74,7 @@ abstract class ProductTestAbstract extends Test
     const IMAGE_URL_SMALL = 'small';
     const PRICE = 1234;
     const STOCK_QUANTITY = 99;
+    const CURRENCY_ISO_CODE = 'EUR';
 
     /**
      * @var \Generated\Shared\Transfer\LocaleTransfer[]
@@ -350,25 +352,32 @@ abstract class ProductTestAbstract extends Test
      */
     protected function setupPluginPrices()
     {
-        $currencyTransfer = $this->currencyFacade->fromIsoCode('EUR');
-        $storeTransfer =  $this->storeFacade->getCurrentStore();
+        $currencyTransfer = $this->currencyFacade->fromIsoCode(static::CURRENCY_ISO_CODE);
+        $storeTransfer = $this->storeFacade->getCurrentStore();
 
-        $moneyValueTransfer = new MoneyValueTransfer();
-        $moneyValueTransfer->setGrossAmount(self::PRICE);
-        $moneyValueTransfer->setCurrency($currencyTransfer);
-        $moneyValueTransfer->setFkStore($storeTransfer->getIdStore());
-        $moneyValueTransfer->setFkCurrency($currencyTransfer->getIdCurrency());
+        $moneyValueTransfer = (new MoneyValueTransfer())
+            ->setGrossAmount(static::PRICE)
+            ->setNetAmount(static::PRICE)
+            ->setCurrency($currencyTransfer)
+            ->setFkStore($storeTransfer->getIdStore())
+            ->setFkCurrency($currencyTransfer->getIdCurrency());
 
         $priceTypeTransfer = new PriceTypeTransfer();
         $priceTypeTransfer->setName($this->priceProductFacade->getDefaultPriceTypeName());
 
-        $price = (new PriceProductTransfer())
+        $priceProductTransfer = (new PriceProductTransfer())
+            ->setSkuProductAbstract($this->productAbstractTransfer->getSku())
+            ->setSkuProduct($this->productConcreteTransfer->getSku())
             ->setPriceType($priceTypeTransfer)
             ->setPriceTypeName($priceTypeTransfer->getName())
             ->setMoneyValue($moneyValueTransfer);
 
-        $this->productAbstractTransfer->addPrices($price);
-        $this->productConcreteTransfer->addPrices($price);
+        $this->productAbstractTransfer->addPrice($priceProductTransfer);
+
+        $priceProductTransfer2 = new PriceProductTransfer();
+        $priceProductTransfer2->fromArray($priceProductTransfer->toArray(), true);
+
+        $this->productConcreteTransfer->addPrice($priceProductTransfer2);
     }
 
     /**
