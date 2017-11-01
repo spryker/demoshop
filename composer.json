@@ -4,7 +4,6 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/core-1752-multi-currency-product-options",
-    "spryker-eco/loggly": "dev-master as 1.0.0",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
