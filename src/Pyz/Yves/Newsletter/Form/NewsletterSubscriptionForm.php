@@ -7,17 +7,32 @@
 
 namespace Pyz\Yves\Newsletter\Form;
 
+use Spryker\Service\UtilValidate\UtilValidateServiceInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class NewsletterSubscriptionForm extends AbstractType
 {
     const FIELD_SUBSCRIBE = 'subscribe';
     const FORM_ID = 'subscription';
+
+    /**
+     * @var \Spryker\Service\UtilValidate\UtilValidateServiceInterface
+     */
+    protected $utilValidateService;
+
+    /**
+     * @param \Spryker\Service\UtilValidate\UtilValidateServiceInterface $utilValidateService
+     */
+    public function __construct(UtilValidateServiceInterface $utilValidateService)
+    {
+        $this->utilValidateService = $utilValidateService;
+    }
 
     /**
      * @return string
@@ -74,12 +89,20 @@ class NewsletterSubscriptionForm extends AbstractType
      */
     protected function addSubscribeField(FormBuilderInterface $builder)
     {
+        $utilValidateService = $this->utilValidateService;
+
         $builder->add(self::FIELD_SUBSCRIBE, 'text', [
             'label' => 'newsletter.subscribe',
             'required' => false,
             'constraints' => [
                 new NotBlank(),
-                new Email(),
+                new Callback([
+                    'callback' => function ($email, ExecutionContextInterface $context) use ($utilValidateService) {
+                        if (!$utilValidateService->isEmailFormatValid($email)) {
+                            $context->buildViolation('customer.email.format.invalid')->addViolation();
+                        }
+                    },
+                ]),
             ],
         ]);
 
