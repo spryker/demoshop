@@ -58,7 +58,7 @@ class TwigCatalogActiveSearchFilterFunctions extends AbstractPlugin implements T
 
     /**
      * @param array $context
-     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface[] $facetFilters
+     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface[]| $facetFilters
      *
      * @return string
      */

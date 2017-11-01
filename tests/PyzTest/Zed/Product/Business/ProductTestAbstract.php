@@ -28,7 +28,6 @@ use Spryker\Service\UtilEncoding\UtilEncodingService;
 use Spryker\Service\UtilText\UtilTextService;
 use Spryker\Zed\Currency\Business\CurrencyFacade;
 use Spryker\Zed\Locale\Business\LocaleFacade;
-use Spryker\Zed\Price\Business\PriceFacade;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacade;
 use Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainer;
 use Spryker\Zed\Product\Business\Product\ProductManager;

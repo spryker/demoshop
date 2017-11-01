@@ -14,7 +14,6 @@ use Pyz\Yves\Product\Mapper\StorageProductCategoryMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
-use Spryker\Shared\Kernel\ContainerInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 /**

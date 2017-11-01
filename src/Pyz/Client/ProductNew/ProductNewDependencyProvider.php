@@ -126,7 +126,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
                 new PaginatedResultFormatterPlugin(),
                 new CurrencyAwareCatalogSearchResultFormatterPlugin(
                     new RawCatalogSearchResultFormatterPlugin()
-                )
+                ),
             ];
         };
 

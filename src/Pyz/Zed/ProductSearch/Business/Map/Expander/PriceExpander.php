@@ -9,8 +9,6 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Generated\Shared\Transfer\PriceProductFilterTransfer;
-use Generated\Shared\Transfer\PriceProductTransfer;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
@@ -44,15 +42,12 @@ class PriceExpander implements ProductPageMapExpanderInterface
     public function __construct(
         PriceProductFacadeInterface $priceProductFacade,
         PriceFacadeInterface $priceFacade
-    )
-    {
+    ) {
         $this->priceProductFacade = $priceProductFacade;
         $this->priceFacade = $priceFacade;
     }
 
     /**
-     * @todo update to multicurrency
-     *
      * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $productData
@@ -102,7 +97,6 @@ class PriceExpander implements ProductPageMapExpanderInterface
         foreach ($pricesGrouped as $currencyIsoCode => $pricesByPriceMode) {
             foreach ($pricesByPriceMode as $priceMode => $pricesByType) {
                 foreach ($pricesByType as $priceType => $price) {
-
                     $facetName = $this->buildPriceIntegerFacetName($priceType, $currencyIsoCode, $priceMode);
                     $pageMapBuilder->addIntegerFacet($pageMapTransfer, $facetName, $price);
                     $pageMapBuilder->addIntegerSort($pageMapTransfer, $facetName, $price);
@@ -110,7 +104,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
             }
         }
 
-        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $pricesGrouped );
+        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $pricesGrouped);
     }
 
     /**

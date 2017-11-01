@@ -7,8 +7,6 @@
 
 namespace Pyz\Yves\Product;
 
-use Spryker\Shared\Kernel\Store;
-use Spryker\Yves\Currency\Plugin\CurrencyPlugin;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 

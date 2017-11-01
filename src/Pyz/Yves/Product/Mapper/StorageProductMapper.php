@@ -9,8 +9,6 @@ namespace Pyz\Yves\Product\Mapper;
 
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Spryker\Client\PriceProduct\PriceProductClientInterface;
-use Spryker\Yves\Currency\Plugin\CurrencyPlugin;
-use Spryker\Yves\Currency\Plugin\CurrencyPluginInterface;
 
 class StorageProductMapper implements StorageProductMapperInterface
 {
@@ -31,8 +29,7 @@ class StorageProductMapper implements StorageProductMapperInterface
     public function __construct(
         AttributeVariantMapperInterface $attributeVariantMapper,
         PriceProductClientInterface $priceProductClient
-    )
-    {
+    ) {
         $this->attributeVariantMapper = $attributeVariantMapper;
         $this->priceProductClient = $priceProductClient;
     }
