@@ -48,7 +48,7 @@ class UrlGenerator implements UrlGeneratorInterface
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param | $facetFilters
+     * @param array $facetFilters
      *
      * @return string
      */
