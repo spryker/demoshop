@@ -16,6 +16,18 @@ sections:
     maintenance-all-off:
       command: "vendor/bin/console maintenance:disable"
 
+    maintenance-zed-on:
+      command: "vendor/bin/console maintenance:enable zed"
+
+    maintenance-zed-off:
+      command: "vendor/bin/console maintenance:disable zed"
+
+    maintenance-yves-on:
+      command: "vendor/bin/console maintenance:enable yves"
+
+    maintenance-yves-off:
+      command: "vendor/bin/console maintenance:disable yves"
+
   composer:
     install-composer:
       command: "composer"
@@ -82,7 +94,8 @@ sections:
         - redis
 
     drop-database:
-      pre: ""
+      pre: "hidden/maintenance-zed-on"
+
       command: "vendor/bin/console propel:database:drop"
       stores: true
       groups:
