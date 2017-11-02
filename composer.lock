@@ -10804,11 +10804,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "8.0.4",
+            "version": "8.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "370e45446168d5fe1c1d381742121f9bfdb02890",
+                "reference": "7e435854ce63622df2974ac281020012f0a5bb6e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10818,8 +10818,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/370e45446168d5fe1c1d381742121f9bfdb02890",
-                "reference": "370e45446168d5fe1c1d381742121f9bfdb02890",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/7e435854ce63622df2974ac281020012f0a5bb6e",
+                "reference": "7e435854ce63622df2974ac281020012f0a5bb6e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10868,7 +10868,8 @@
             "autoload": {
                 "psr-4": {
                     "Spryker\\": "src/Spryker/",
-                    "SprykerTest\\Shared\\Sales\\Helper\\": "tests/SprykerTest/Shared/Sales/_support/Helper/"
+                    "SprykerTest\\Shared\\Sales\\Helper\\": "tests/SprykerTest/Shared/Sales/_support/Helper/",
+                    "SprykerTest\\Zed\\Sales\\Helper\\": "tests/SprykerTest/Zed/Sales/_support/Helper/"
                 }
             },
             "autoload-dev": {
@@ -10882,9 +10883,9 @@
             ],
             "description": "Sales module",
             "support": {
-                "source": "https://github.com/spryker/Sales/tree/master"
+                "source": "https://github.com/spryker/Sales/tree/8.0.5"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-11-02T14:59:32+00:00"
         },
         {
             "name": "spryker/sales-product-connector",
