@@ -37,7 +37,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
 
     /**
      * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
     public function __construct(
         PriceProductFacadeInterface $priceProductFacade,
