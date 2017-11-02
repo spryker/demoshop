@@ -29,7 +29,6 @@ use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use Orm\Zed\Tax\Persistence\SpyTaxSet;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Spryker\Shared\Calculation\CalculationPriceMode;
-use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Zed\Calculation\Business\CalculationFacade;
 use Spryker\Zed\Discount\DiscountDependencyProvider;
@@ -189,7 +188,7 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $calculationFacade = $this->createCalculationFacade();
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_NET);
+        $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_NET);
 
         $discountAmount = 20;
         $voucherEntity = $this->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
@@ -257,7 +256,7 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $calculationFacade = $this->createCalculationFacade();
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_NET);
+        $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_NET);
 
         $recalculatedQuoteTransfer = $calculationFacade->recalculateQuote($quoteTransfer);
 
@@ -447,7 +446,7 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $currencyTransfer->setCode('EUR');
         $quoteTransfer->setCurrency($currencyTransfer);
 
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
+        $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_GROSS);
 
         $shippingAddressTransfer = new AddressTransfer();
         $shippingAddressTransfer->setIso2Code('DE');
