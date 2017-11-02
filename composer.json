@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-bugfix/fix-propel-dependencies",
     "spryker-eco/loggly": "dev-master as 1.0.0",
 
     "php": ">=5.6.0",
