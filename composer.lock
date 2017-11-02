@@ -7315,11 +7315,11 @@
         },
         {
             "name": "spryker/new-relic",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NewRelic.git",
-                "reference": "44c183572d620b190791a174f52d010d2a166a34",
+                "reference": "4d90e4007e1e9cf055a2cf7a6638f9ff2352be49",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7329,8 +7329,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/44c183572d620b190791a174f52d010d2a166a34",
-                "reference": "44c183572d620b190791a174f52d010d2a166a34",
+                "url": "https://api.github.com/repos/spryker/NewRelic/zipball/4d90e4007e1e9cf055a2cf7a6638f9ff2352be49",
+                "reference": "4d90e4007e1e9cf055a2cf7a6638f9ff2352be49",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7349,10 +7349,11 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/silex": "*",
                 "spryker/testify": "*"
             },
             "suggest": {
-                "spryker/silex": "If you want to use ServiceProvider you need to install spryker/silex."
+                "spryker/silex": "If you want to use ServiceProvider."
             },
             "type": "library",
             "extra": {
@@ -7361,16 +7362,14 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
-                },
                 "psr-4": {
-                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module"
+                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module",
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -7379,9 +7378,9 @@
             ],
             "description": "NewRelic module",
             "support": {
-                "source": "https://github.com/spryker/NewRelic/tree/3.1.0"
+                "source": "https://github.com/spryker/NewRelic/tree/3.1.1"
             },
-            "time": "2017-07-04T10:56:13+00:00"
+            "time": "2017-11-02T09:39:11+00:00"
         },
         {
             "name": "spryker/new-relic-api",
