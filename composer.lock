@@ -6196,11 +6196,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "3.10.1",
+            "version": "3.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "62aa6a2d462e5924b6f37ce3920aba12bd02c589",
+                "reference": "84145681fc284bf125378c71b462bed58f11bee6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6210,8 +6210,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/62aa6a2d462e5924b6f37ce3920aba12bd02c589",
-                "reference": "62aa6a2d462e5924b6f37ce3920aba12bd02c589",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/84145681fc284bf125378c71b462bed58f11bee6",
+                "reference": "84145681fc284bf125378c71b462bed58f11bee6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6259,9 +6259,9 @@
             ],
             "description": "Gui module",
             "support": {
-                "source": "https://github.com/spryker/Gui/tree/3.10.1"
+                "source": "https://github.com/spryker/Gui/tree/3.10.2"
             },
-            "time": "2017-10-26T13:23:18+00:00"
+            "time": "2017-11-02T14:06:38+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -8447,11 +8447,11 @@
         },
         {
             "name": "spryker/product-attribute-gui",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductAttributeGui.git",
-                "reference": "31053f7124fa1480d9e2974f3f5ef91f0024a508",
+                "reference": "82a4912a3651303b69dbb386e526222e5752631d",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8461,8 +8461,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductAttributeGui/zipball/31053f7124fa1480d9e2974f3f5ef91f0024a508",
-                "reference": "31053f7124fa1480d9e2974f3f5ef91f0024a508",
+                "url": "https://api.github.com/repos/spryker/ProductAttributeGui/zipball/82a4912a3651303b69dbb386e526222e5752631d",
+                "reference": "82a4912a3651303b69dbb386e526222e5752631d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8491,13 +8491,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -8506,9 +8506,9 @@
             ],
             "description": "ProductAttributeGui module",
             "support": {
-                "source": "https://github.com/spryker/ProductAttributeGui/tree/1.0.1"
+                "source": "https://github.com/spryker/ProductAttributeGui/tree/master"
             },
-            "time": "2017-09-07T13:02:20+00:00"
+            "time": "2017-10-24T05:42:46+00:00"
         },
         {
             "name": "spryker/product-bundle",
