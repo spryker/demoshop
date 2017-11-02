@@ -354,7 +354,7 @@
             ],
             "authors": [
                 {
-                    "name": "François Zaninotto"
+                    "name": "Fran??ois Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
@@ -836,7 +836,7 @@
                     "email": "f.bosch@genkgo.nl"
                 },
                 {
-                    "name": "Márk Sági-Kazár",
+                    "name": "M??rk S??gi-Kaz??r",
                     "email": "mark.sagi-kazar@gmail.com"
                 }
             ],
@@ -1077,7 +1077,7 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Raúl Araya",
+                    "name": "Ra??l Araya",
                     "email": "nubeiro@gmail.com",
                     "role": "Maintainer"
                 }
@@ -4350,7 +4350,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jens-André Koch",
+                    "name": "Jens-Andr?? Koch",
                     "email": "jakoch@web.de"
                 }
             ],
@@ -4517,7 +4517,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🅱 Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
+            "description": "???? Nette Bootstrap: the simple way to configure and bootstrap your Nette application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "bootstrapping",
@@ -4582,7 +4582,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "💎 Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
+            "description": "???? Nette Dependency Injection Container: Flexible, compiled and full-featured DIC with perfectly usable autowiring and support for all new PHP 7.1 features.",
             "homepage": "https://nette.org",
             "keywords": [
                 "compiled",
@@ -4815,7 +4815,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🍀 Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
+            "description": "???? Nette RobotLoader: high performance and comfortable autoloader that will search and autoload classes within your application.",
             "homepage": "https://nette.org",
             "keywords": [
                 "autoload",
@@ -4885,7 +4885,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "description": "???? Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
             "homepage": "https://nette.org",
             "keywords": [
                 "array",
@@ -5258,7 +5258,7 @@
                     "role": "Contributors"
                 },
                 {
-                    "name": "Marc Würth",
+                    "name": "Marc W??rth",
                     "email": "ravage@bluewin.ch",
                     "homepage": "https://github.com/ravage84",
                     "role": "Project Maintainer"
@@ -6645,7 +6645,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan S??n??chal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6786,11 +6786,23 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/master",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
             "time": "2017-10-17T11:12:00+00:00"
         },
         {
@@ -7093,7 +7105,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-François Simon",
+                    "name": "Jean-Fran??ois Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
