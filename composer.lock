@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e516bf63ed5855079d9710a018927b4",
+    "content-hash": "8a40dcf23e26004248473b52d721dc5d",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1706,11 +1706,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/fix-composer-problems",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "53f27a5f72827bc8dfe012b7e6264f372fbb9ee6"
+                "reference": "915f2c54c5fff14a1a1942e644b06d5d702c7378"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1908,7 +1908,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-02T14:06:38+00:00"
+            "time": "2017-11-02T14:59:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6688,7 +6688,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6829,11 +6829,23 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/master",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
             "time": "2017-10-17T11:12:00+00:00"
         },
         {
