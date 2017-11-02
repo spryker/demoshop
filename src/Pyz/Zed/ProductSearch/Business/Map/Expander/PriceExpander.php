@@ -39,10 +39,8 @@ class PriceExpander implements ProductPageMapExpanderInterface
      * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
      * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
-    public function __construct(
-        PriceProductFacadeInterface $priceProductFacade,
-        PriceFacadeInterface $priceFacade
-    ) {
+    public function __construct(PriceProductFacadeInterface $priceProductFacade, PriceFacadeInterface $priceFacade)
+    {
         $this->priceProductFacade = $priceProductFacade;
         $this->priceFacade = $priceFacade;
     }
@@ -55,9 +53,14 @@ class PriceExpander implements ProductPageMapExpanderInterface
      *
      * @return \Generated\Shared\Transfer\PageMapTransfer
      */
-    public function expandProductPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
-    {
-        $price = $this->getPriceBySku($productData['abstract_sku']);
+    public function expandProductPageMap(
+        PageMapTransfer $pageMapTransfer,
+        PageMapBuilderInterface $pageMapBuilder,
+        array $productData,
+        LocaleTransfer $localeTransfer
+    ) {
+
+        $price = $this->priceProductFacade->getPriceBySku($productData['abstract_sku']);
 
         $pageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)
@@ -67,16 +70,6 @@ class PriceExpander implements ProductPageMapExpanderInterface
         $this->setPricesByType($pageMapBuilder, $pageMapTransfer, $productData);
 
         return $pageMapTransfer;
-    }
-
-    /**
-     * @param string $sku
-     *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceProductFacade->getPriceBySku($sku);
     }
 
     /**

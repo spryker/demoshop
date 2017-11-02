@@ -22,7 +22,7 @@ use Spryker\Client\Search\Model\Elasticsearch\Aggregation\CategoryFacetAggregati
 use Spryker\Shared\Search\SearchConfig;
 
 /**
- * @method \Pyz\Client\Catalog\CatalogPriceProductConnectorFactory getFactory()
+ * @method \Pyz\Client\Catalog\CatalogFactory getFactory()
  */
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
