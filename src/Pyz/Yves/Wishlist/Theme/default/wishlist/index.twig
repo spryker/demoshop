@@ -57,9 +57,9 @@
                                     </td>
                                     <td nowrap="nowrap">
                                         {% if item.product.prices.ORIGINAL is defined %}
-                                            <span class="catalog-price__price-reduced">{{ item.product.price | money }}</span> <span class="catalog-price__price-original">{{ item.product.prices.ORIGINAL | money }}</span>
+                                            <span class="catalog-price__price-reduced">{{ item.product.price | default(0) | money }}</span> <span class="catalog-price__price-original">{{ item.product.prices.ORIGINAL | money }}</span>
                                         {% else %}
-                                            {{ item.product.price | money }}
+                                            {{ item.product.price | default(0) | money }}
                                         {% endif %}
                                     </td>
                                     <td>
@@ -79,9 +79,9 @@
                                         {% endif %}
                                     </td>
                                     <td>
-                                        {% if availability[item.sku] is defined and availability[item.sku] %}
+                                        {% if availability[item.sku] is defined and availability[item.sku] and item.product.price is not empty %}
                                             <form id="addToCart_{{ loop.index }}" class="float-left" method="POST" action="{{ path('wishlist/move-to-cart', {sku: item.product.sku, 'wishlist-name': wishlistName}) }}">
-                                                <a title="{{ 'customer.account.wishlist.add-to-cart' | trans }}" onclick="document.getElementById('addToCart_{{ loop.index }}').submit()">
+                                                <a title="{{ 'customer.account.wishlist.add-to-cart' | trans }}" disabled="disabled" onclick="document.getElementById('addToCart_{{ loop.index }}').submit()">
                                                     <i class="fa fa-shopping-cart"></i>
                                                 </a>
                                             </form>

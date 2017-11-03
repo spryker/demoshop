@@ -10,7 +10,6 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductPrice;
 use Orm\Zed\Currency\Persistence\SpyCurrencyQuery;
 use Orm\Zed\PriceProduct\Persistence\Map\SpyPriceTypeTableMap;
 use Orm\Zed\PriceProduct\Persistence\SpyPriceProductQuery;
-use Orm\Zed\PriceProduct\Persistence\SpyPriceProductStore;
 use Orm\Zed\PriceProduct\Persistence\SpyPriceProductStoreQuery;
 use Orm\Zed\PriceProduct\Persistence\SpyPriceTypeQuery;
 use Orm\Zed\Store\Persistence\SpyStoreQuery;

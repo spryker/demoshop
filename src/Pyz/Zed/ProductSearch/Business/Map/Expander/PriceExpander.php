@@ -9,8 +9,6 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Generated\Shared\Transfer\PriceProductFilterTransfer;
-use Generated\Shared\Transfer\PriceProductTransfer;
 use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
@@ -39,20 +37,15 @@ class PriceExpander implements ProductPageMapExpanderInterface
 
     /**
      * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
      */
-    public function __construct(
-        PriceProductFacadeInterface $priceProductFacade,
-        PriceFacadeInterface $priceFacade
-    )
+    public function __construct(PriceProductFacadeInterface $priceProductFacade, PriceFacadeInterface $priceFacade)
     {
         $this->priceProductFacade = $priceProductFacade;
         $this->priceFacade = $priceFacade;
     }
 
     /**
-     * @todo update to multicurrency
-     *
      * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $productData
@@ -60,9 +53,14 @@ class PriceExpander implements ProductPageMapExpanderInterface
      *
      * @return \Generated\Shared\Transfer\PageMapTransfer
      */
-    public function expandProductPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
-    {
-        $price = $this->getPriceBySku($productData['abstract_sku']);
+    public function expandProductPageMap(
+        PageMapTransfer $pageMapTransfer,
+        PageMapBuilderInterface $pageMapBuilder,
+        array $productData,
+        LocaleTransfer $localeTransfer
+    ) {
+
+        $price = $this->priceProductFacade->getPriceBySku($productData['abstract_sku']);
 
         $pageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)
@@ -72,16 +70,6 @@ class PriceExpander implements ProductPageMapExpanderInterface
         $this->setPricesByType($pageMapBuilder, $pageMapTransfer, $productData);
 
         return $pageMapTransfer;
-    }
-
-    /**
-     * @param string $sku
-     *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceProductFacade->getPriceBySku($sku);
     }
 
     /**
@@ -102,7 +90,6 @@ class PriceExpander implements ProductPageMapExpanderInterface
         foreach ($pricesGrouped as $currencyIsoCode => $pricesByPriceMode) {
             foreach ($pricesByPriceMode as $priceMode => $pricesByType) {
                 foreach ($pricesByType as $priceType => $price) {
-
                     $facetName = $this->buildPriceIntegerFacetName($priceType, $currencyIsoCode, $priceMode);
                     $pageMapBuilder->addIntegerFacet($pageMapTransfer, $facetName, $price);
                     $pageMapBuilder->addIntegerSort($pageMapTransfer, $facetName, $price);
@@ -110,7 +97,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
             }
         }
 
-        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $pricesGrouped );
+        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $pricesGrouped);
     }
 
     /**

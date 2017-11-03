@@ -16,7 +16,6 @@ use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface;
@@ -177,7 +176,6 @@ class ProductConcreteCollector extends AbstractStoragePdoCollector
 
         return $result;
     }
-
 
     /**
      * @param string $sku

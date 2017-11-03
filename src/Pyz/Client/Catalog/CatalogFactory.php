@@ -7,8 +7,8 @@
 
 namespace Pyz\Client\Catalog;
 
-use Pyz\Client\Catalog\Price\PriceIdentifierBuilder;
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\FeaturedProductsQueryPlugin;
+use Pyz\Client\Catalog\Price\PriceIdentifierBuilder;
 use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
 
 class CatalogFactory extends SprykerCatalogFactory

@@ -9,7 +9,6 @@ namespace Pyz\Yves\Catalog\Controller;
 
 use Generated\Shared\Search\PageIndexMap;
 use Pyz\Yves\Application\Controller\AbstractController;
-use Spryker\Client\PriceProduct\PriceProductClient;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\HttpFoundation\Request;
 

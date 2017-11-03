@@ -8,7 +8,6 @@
 namespace Pyz\Yves\ProductNew\Controller;
 
 use Pyz\Yves\ProductNew\Plugin\Provider\ProductNewControllerProvider;
-use Spryker\Client\PriceProduct\PriceProductClient;
 use Spryker\Yves\Kernel\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
