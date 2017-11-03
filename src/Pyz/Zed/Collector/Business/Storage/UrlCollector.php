@@ -173,6 +173,11 @@ class UrlCollector extends AbstractStoragePdoCollector
         LocaleTransfer $locale,
         OutputInterface $output
     ) {
+        if ($batchCollection->count() === 0) {
+            return;
+        }
+
+        $output->write(PHP_EOL);
         $progressBar = $this->startProgressBar($batchCollection, $batchResult, $output);
 
         foreach ($batchCollection as $batch) {
@@ -181,7 +186,6 @@ class UrlCollector extends AbstractStoragePdoCollector
         }
 
         $progressBar->finish();
-        $output->writeln('');
 
         parent::exportDataToStore(
             $batchCollection,
