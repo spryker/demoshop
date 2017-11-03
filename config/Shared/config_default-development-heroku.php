@@ -9,6 +9,7 @@ use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\PropelOrm\PropelOrmConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -24,7 +25,7 @@ $config[KernelConstants::STORE_PREFIX] = 'DEV';
 
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = false;
-$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$config[PropelOrmConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 $ENV_DB_CONNECTION_DATA = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
