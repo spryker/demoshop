@@ -1944,6 +1944,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -1970,6 +1971,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "c142b69f4b2ebabb615d2dead92176658fe4191d"
 =======
@@ -1997,6 +2000,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "519a38e62498ab5fce5c16551d683ad8ef4ed67e"
 =======
@@ -2024,6 +2029,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "721036624dcad6f8bb99f2b37c1763fba87f9f17"
 =======
@@ -2051,6 +2058,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "62e321fb41f78f7a67ba841f11492bf53b2fdf9d"
 =======
@@ -2747,14 +2756,41 @@
 =======
                 "reference": "072e31f9a832b615204f6e29594cb19df6a6d0f1"
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "9ea7bd3678664af67afbb9e9c73e9662c2db8869"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2967,6 +3003,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -2993,6 +3030,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3020,6 +3059,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3047,6 +3088,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -3074,6 +3117,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -3101,6 +3146,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-10T16:05:18+00:00"
 =======
@@ -3128,6 +3175,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-09T13:30:16+00:00"
 =======
@@ -3155,6 +3204,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-08T10:19:41+00:00"
 =======
@@ -3182,6 +3233,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-02T17:32:29+00:00"
 =======
@@ -3878,14 +3931,41 @@
 =======
             "time": "2017-11-02T08:10:45+00:00"
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-11-03T07:13:36+00:00"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
