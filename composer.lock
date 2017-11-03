@@ -1945,6 +1945,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -1971,6 +1972,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -2002,6 +2005,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "519a38e62498ab5fce5c16551d683ad8ef4ed67e"
 =======
@@ -2029,6 +2034,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -2784,6 +2791,11 @@
                 "reference": "9ea7bd3678664af67afbb9e9c73e9662c2db8869"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "d3d46f6d91e9aa14a29c3a67f88637415d9a8b80"
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -3004,6 +3016,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3030,6 +3043,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -3061,6 +3076,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3088,6 +3105,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -3119,6 +3138,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -3146,6 +3167,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -3177,6 +3200,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-09T13:30:16+00:00"
 =======
@@ -3204,6 +3229,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -3958,6 +3985,11 @@
 =======
             "time": "2017-11-03T07:13:36+00:00"
 >>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-11-03T07:55:35+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -9213,7 +9245,15 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Sullivan Senechal",
+=======
+<<<<<<< HEAD
+                    "name": "Sullivan SENECHAL",
+=======
+                    "name": "Sullivan Sénéchal",
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
