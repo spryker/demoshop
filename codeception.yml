@@ -2,8 +2,8 @@ namespace: PyzTest
 actor: Tester
 
 include:
-  - tests/PyzTest/*/*
-  - vendor/spryker/spryker/Bundles/*/*
+    - tests/PyzTest/*/*
+    - vendor/spryker/spryker/Bundles/*/*
 
 paths:
     tests: tests
