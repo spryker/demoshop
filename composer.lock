@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.35",
+            "version": "3.36.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "cb1cd051ef07dfbe6b181e552378e7a1673b228c"
+                "reference": "26ed9d51a11ca88ce919d7b0884b4b47232997b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cb1cd051ef07dfbe6b181e552378e7a1673b228c",
-                "reference": "cb1cd051ef07dfbe6b181e552378e7a1673b228c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/26ed9d51a11ca88ce919d7b0884b4b47232997b4",
+                "reference": "26ed9d51a11ca88ce919d7b0884b4b47232997b4",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-11-01T23:08:48+00:00"
+            "time": "2017-11-02T23:56:51+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -10283,11 +10283,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "3.2.3",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "9d67b255ce660ff5200fbc780239e5e274acc2ff",
+                "reference": "cce0f51695d38180089b30ef6c72a8aa8302cbe8",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10297,8 +10297,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/9d67b255ce660ff5200fbc780239e5e274acc2ff",
-                "reference": "9d67b255ce660ff5200fbc780239e5e274acc2ff",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/cce0f51695d38180089b30ef6c72a8aa8302cbe8",
+                "reference": "cce0f51695d38180089b30ef6c72a8aa8302cbe8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10309,10 +10309,9 @@
             },
             "require": {
                 "spryker/config": "^3.0.0",
-                "spryker/error-handler": "^2.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/monolog": "^2.0.0",
-                "spryker/propel-orm": "^1.0.0",
+                "spryker/propel-orm": "^1.4.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-encoding": "^2.0.0",
                 "spryker/util-text": "^1.1.0"
@@ -10350,15 +10349,15 @@
             "support": {
                 "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-11-02T15:51:40+00:00"
         },
         {
             "name": "spryker/propel-orm",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/PropelOrm.git",
-                "reference": "556f2f4a1f5e1483c02e82baa0f03ad1fffe8c5b",
+                "reference": "cb262c18d4fd330a76874df04fc07a9a677e659e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10368,8 +10367,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/PropelOrm/zipball/556f2f4a1f5e1483c02e82baa0f03ad1fffe8c5b",
-                "reference": "556f2f4a1f5e1483c02e82baa0f03ad1fffe8c5b",
+                "url": "https://api.github.com/repos/spryker/PropelOrm/zipball/cb262c18d4fd330a76874df04fc07a9a677e659e",
+                "reference": "cb262c18d4fd330a76874df04fc07a9a677e659e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10379,7 +10378,9 @@
                 ]
             },
             "require": {
-                "propel/propel": "2.0.0-alpha7"
+                "propel/propel": "2.0.0-alpha7",
+                "spryker/config": "^3.0.0",
+                "spryker/error-handler": "^2.0.0"
             },
             "type": "library",
             "extra": {
@@ -10405,7 +10406,7 @@
             "support": {
                 "source": "https://github.com/spryker/PropelOrm/tree/master"
             },
-            "time": "2017-10-19T09:20:10+00:00"
+            "time": "2017-11-02T15:10:37+00:00"
         },
         {
             "name": "spryker/propel-query-builder",
@@ -11099,11 +11100,11 @@
         },
         {
             "name": "spryker/sequence-number",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/SequenceNumber.git",
-                "reference": "16ae39143e3c039af7cc2f920a26d5da55270b93",
+                "reference": "29e0ceaeef22d88c5b7d327f1183b0d8f3d97fb9",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11113,8 +11114,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SequenceNumber/zipball/16ae39143e3c039af7cc2f920a26d5da55270b93",
-                "reference": "16ae39143e3c039af7cc2f920a26d5da55270b93",
+                "url": "https://api.github.com/repos/spryker/SequenceNumber/zipball/29e0ceaeef22d88c5b7d327f1183b0d8f3d97fb9",
+                "reference": "29e0ceaeef22d88c5b7d327f1183b0d8f3d97fb9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11125,7 +11126,7 @@
             },
             "require": {
                 "spryker/kernel": "^3.0.0",
-                "spryker/propel-orm": "^1.0.0"
+                "spryker/propel-orm": "^1.4.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
@@ -11140,24 +11141,24 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "SequenceNumber bundle",
+            "description": "SequenceNumber module",
             "support": {
-                "source": "https://github.com/spryker/SequenceNumber/tree/3.0.0"
+                "source": "https://github.com/spryker/SequenceNumber/tree/master"
             },
-            "time": "2017-02-22T12:08:46+00:00"
+            "time": "2017-11-02T15:51:40+00:00"
         },
         {
             "name": "spryker/session",
