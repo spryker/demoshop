@@ -59,28 +59,18 @@ use Spryker\Zed\Url\UrlConfig;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
-    const SERVICE_UTIL_DATE_TIME = 'util date time service';
+    const SERVICE_DATA = 'SERVICE_DATA';
 
-    const SERVICE_NETWORK = 'util network service';
-
-    const SERVICE_UTIL_IO = 'util io service';
-
-    const SERVICE_DATA = 'util data service';
-
-    const FACADE_PROPEL = 'propel facade';
-    const FACADE_PRICE = 'price facade';
-    const FACADE_PRICE_PRODUCT = 'price product facade';
-    const FACADE_SEARCH = 'search facade';
-    const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const FACADE_PROPEL = 'FACADE_PROPEL';
+    const FACADE_PRICE_PRODUCT = 'FACADE_PRICE_PRODUCT';
+    const FACADE_SEARCH = 'FACADE_SEARCH';
     const FACADE_PRODUCT = 'FACADE_PRODUCT';
+    const FACADE_PRODUCT_OPTION = 'FACADE_PRODUCT_OPTION';
     const FACADE_PRODUCT_IMAGE = 'FACADE_PRODUCT_IMAGE';
-    const FACADE_PRODUCT_OPTION_EXPORTER = 'product option exporter facade';
-    const FACADE_CURRENCY = 'FACADE_CURRENCY';
-    const FACADE_STORE = 'FACADE_STORE';
 
-    const QUERY_CONTAINER_CATEGORY = 'category query container';
-    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
-    const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
+    const QUERY_CONTAINER_CATEGORY = 'QUERY_CONTAINER_CATEGORY';
+    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'QUERY_CONTAINER_PRODUCT_CATEGORY';
+    const QUERY_CONTAINER_PRODUCT_IMAGE = 'QUERY_CONTAINER_PRODUCT_IMAGE';
     const QUERY_CONTAINER_PRODUCT_OPTION = 'QUERY_CONTAINER_PRODUCT_OPTION';
 
     const PLUGIN_PRODUCT_DATA_PAGE_MAP = 'PLUGIN_PRODUCT_DATA_PAGE_MAP';
@@ -97,10 +87,6 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 
         $container[self::FACADE_PROPEL] = function (Container $container) {
             return $container->getLocator()->propel()->facade();
-        };
-
-        $container[self::FACADE_PRICE] = function (Container $container) {
-            return $container->getLocator()->price()->facade();
         };
 
         $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
@@ -181,8 +167,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
             return $container->getLocator()->utilDataReader()->service();
         };
 
-        $container = $this->addCurrencyFacade($container);
-        $container = $this->addStoreFacade($container);
+        $container = $this->addProductOptionFacade($container);
         $container = $this->addProductOptionQueryContainer($container);
 
         return $container;
@@ -207,24 +192,10 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    protected function addCurrencyFacade(Container $container)
+    protected function addProductOptionFacade(Container $container)
     {
-        $container[static::FACADE_CURRENCY] = function (Container $container) {
-            return $container->getLocator()->currency()->facade();
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
-    protected function addStoreFacade(Container $container)
-    {
-        $container[static::FACADE_STORE] = function (Container $container) {
-            return $container->getLocator()->store()->facade();
+        $container[static::FACADE_PRODUCT_OPTION] = function (Container $container) {
+            return $container->getLocator()->productOption()->facade();
         };
 
         return $container;

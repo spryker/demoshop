@@ -278,9 +278,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $productOptionCollector = new ProductOptionCollector(
             $this->getProductOptionQueryContainer(),
             $this->getUtilDataReaderService(),
-            $this->getCurrencyFacade(),
-            $this->getStoreFacade(),
-            $this->getPriceFacade()
+            $this->getProductOptionFacade()
         );
 
         $productOptionCollector->setChunkSize(2);
@@ -462,14 +460,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
-     */
-    protected function getPriceFacade()
-    {
-        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE);
-    }
-
-    /**
      * @return \Spryker\Zed\Propel\Business\PropelFacadeInterface
      */
     protected function getPropelFacade()
@@ -486,19 +476,11 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Currency\Business\CurrencyFacadeInterface
+     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
      */
-    protected function getCurrencyFacade()
+    protected function getProductOptionFacade()
     {
-        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_CURRENCY);
-    }
-
-    /**
-     * @return \Spryker\Zed\Store\Business\StoreFacadeInterface
-     */
-    protected function getStoreFacade()
-    {
-        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_STORE);
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION);
     }
 
     /**
