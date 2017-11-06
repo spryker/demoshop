@@ -30,17 +30,17 @@ class ProductCollector extends AbstractSearchPdoCollector
     /**
      * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $productDataPageMapPlugin
-     * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchProductFacade
+     * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
         PageMapInterface $productDataPageMapPlugin,
-        SearchFacadeInterface $searchProductFacade
+        SearchFacadeInterface $searchFacade
     ) {
         parent::__construct($utilDataReaderService);
 
         $this->productDataPageMapPlugin = $productDataPageMapPlugin;
-        $this->searchFacade = $searchProductFacade;
+        $this->searchFacade = $searchFacade;
     }
 
     /**

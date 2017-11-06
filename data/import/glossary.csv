@@ -1035,3 +1035,5 @@ price.mode.gross_mode,Gross prices,en_US
 price.mode.gross_mode,Gross prices,de_DE
 price.mode.net_mode,Net prices,en_US
 price.mode.net_mode,Net prices,de_DE
+cart.pre.check.price.failed,"Price not found for product with sku '%sku%'.",en_US
+cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%'.",de_DE
