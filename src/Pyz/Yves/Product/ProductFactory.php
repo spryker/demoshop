@@ -105,22 +105,6 @@ class ProductFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\Price\PriceClientInterface
-     */
-    public function getPriceClient()
-    {
-        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRICE);
-    }
-
-    /**
-     * @return \Spryker\Client\Currency\CurrencyClientInterface
-     */
-    public function getCurrencyClient()
-    {
-        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_CURRENCY);
-    }
-
-    /**
      * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
     public function createStorageProductMapperPlugin()

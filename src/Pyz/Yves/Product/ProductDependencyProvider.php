@@ -16,8 +16,6 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
     const CLIENT_PRODUCT_GROUP = 'CLIENT_PRODUCT_GROUP';
     const CLIENT_PRICE_PRODUCT = 'CLIENT_PRICE_PRODUCT';
-    const CLIENT_CURRENCY = 'CLIENT_CURRENCY';
-    const CLIENT_PRICE = 'CLIENT_PRICE';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -51,37 +49,6 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::CLIENT_PRICE_PRODUCT] = function (Container $container) {
             return $container->getLocator()->priceProduct()->client();
-        };
-
-        $container = $this->addCurrencyClient($container);
-        $container = $this->addPriceClient($container);
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
-    protected function addPriceClient(Container $container)
-    {
-        $container[static::CLIENT_PRICE] = function (Container $container) {
-            return $container->getLocator()->price()->client();
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
-    protected function addCurrencyClient(Container $container)
-    {
-        $container[static::CLIENT_CURRENCY] = function (Container $container) {
-            return $container->getLocator()->currency()->client();
         };
 
         return $container;
