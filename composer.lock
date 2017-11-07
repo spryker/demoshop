@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.36",
+            "version": "3.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "26ed9d51a11ca88ce919d7b0884b4b47232997b4"
+                "reference": "24031a1ffbcd26dea0e55662198a3f5454e02cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/26ed9d51a11ca88ce919d7b0884b4b47232997b4",
-                "reference": "26ed9d51a11ca88ce919d7b0884b4b47232997b4",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/24031a1ffbcd26dea0e55662198a3f5454e02cff",
+                "reference": "24031a1ffbcd26dea0e55662198a3f5454e02cff",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-11-02T23:56:51+00:00"
+            "time": "2017-11-07T00:13:20+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -840,16 +840,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.8",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f"
+                "reference": "1507938933696f5028689554347dfc26d07bb617"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/149ba5943511e118bf68f9118e3c84bbe42bf94f",
-                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/1507938933696f5028689554347dfc26d07bb617",
+                "reference": "1507938933696f5028689554347dfc26d07bb617",
                 "shasum": ""
             },
             "require": {
@@ -914,7 +914,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-10-03T09:21:46+00:00"
+            "time": "2017-11-05T18:20:21+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6196,11 +6196,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "3.10.2",
+            "version": "3.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "84145681fc284bf125378c71b462bed58f11bee6",
+                "reference": "76b1c88ec86511a371de745c55e6f43165d03eb1",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6210,8 +6210,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/84145681fc284bf125378c71b462bed58f11bee6",
-                "reference": "84145681fc284bf125378c71b462bed58f11bee6",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/76b1c88ec86511a371de745c55e6f43165d03eb1",
+                "reference": "76b1c88ec86511a371de745c55e6f43165d03eb1",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6259,9 +6259,9 @@
             ],
             "description": "Gui module",
             "support": {
-                "source": "https://github.com/spryker/Gui/tree/3.10.2"
+                "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2017-11-02T14:06:38+00:00"
+            "time": "2017-11-03T13:33:04+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -7245,11 +7245,11 @@
         },
         {
             "name": "spryker/navigation-gui",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationGui.git",
-                "reference": "617f055e48258b926c2e30a3ed89991c3af9965f",
+                "reference": "a38afa8466e203599ec6a703d1566a6441ee1eda",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7259,8 +7259,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/617f055e48258b926c2e30a3ed89991c3af9965f",
-                "reference": "617f055e48258b926c2e30a3ed89991c3af9965f",
+                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/a38afa8466e203599ec6a703d1566a6441ee1eda",
+                "reference": "a38afa8466e203599ec6a703d1566a6441ee1eda",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7294,13 +7294,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -7309,9 +7304,9 @@
             ],
             "description": "NavigationGui module",
             "support": {
-                "source": "https://github.com/spryker/NavigationGui/tree/2.0.1"
+                "source": "https://github.com/spryker/NavigationGui/tree/master"
             },
-            "time": "2017-10-09T14:04:16+00:00"
+            "time": "2017-11-03T13:33:04+00:00"
         },
         {
             "name": "spryker/new-relic",
@@ -10216,11 +10211,11 @@
         },
         {
             "name": "spryker/product-set-gui",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductSetGui.git",
-                "reference": "4ee0d4d932bc70fe2a6243dda9c1dbe86af5ccd1",
+                "reference": "f628003fc47fd51a03807897bad44ced539b2e5c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10230,8 +10225,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductSetGui/zipball/4ee0d4d932bc70fe2a6243dda9c1dbe86af5ccd1",
-                "reference": "4ee0d4d932bc70fe2a6243dda9c1dbe86af5ccd1",
+                "url": "https://api.github.com/repos/spryker/ProductSetGui/zipball/f628003fc47fd51a03807897bad44ced539b2e5c",
+                "reference": "f628003fc47fd51a03807897bad44ced539b2e5c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10279,7 +10274,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductSetGui/tree/master"
             },
-            "time": "2017-10-20T06:49:56+00:00"
+            "time": "2017-11-03T13:33:04+00:00"
         },
         {
             "name": "spryker/propel",
@@ -16355,16 +16350,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a"
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a1e8e1a30e1352f118feff1a8481066ddc2f234a",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
                 "shasum": ""
             },
             "require": {
@@ -16402,7 +16397,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-09-02T17:10:46+00:00"
+            "time": "2017-11-04T11:48:34+00:00"
         },
         {
             "name": "ocramius/package-versions",
