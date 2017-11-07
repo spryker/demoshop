@@ -1,0 +1,39 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'View customer organization' %}
+
+{% block head_title widget_title %}
+{% block section_title widget_title %}
+
+{% block action %}
+    {{ backActionButton('/customer-group', 'List Customer Organizations' | trans) }}
+    {{ editActionButton('/customer-organization/edit?id-customer-organization=' ~ idCustomerGroup, 'Edit Customer Organization' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+
+    <div>
+        <h1>{{ customerGroup.name }}</h1>
+
+        <table class="table">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <th>{{ 'Description' | trans }}</th>
+                <td>{{ customerGroup.description }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        {{ customerTable | raw }}
+    </div>
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}

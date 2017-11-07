@@ -1,0 +1,37 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Edit customer organization' %}
+
+{% block head_title widget_title %}
+{% block section_title widget_title %}
+
+{% block action %}
+    {{ backActionButton('/customer-organization', 'Back to Customer organizations' | trans) }}
+    {{ viewActionButton('/customer-organization/view?id-customer-organization=' ~ idCustomerGroup, 'View Customer organization' | trans) }}
+    {{ removeActionButton('/customer-organization/delete?id-customer-organization=' ~ idCustomerGroup, 'Delete Customer organization' | trans) }}
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+
+    {{ tabs(
+    customerGroupFormTabs,
+    {
+        'customerGroupForm': form,
+        'customerAssignmentForm': form.customerAssignment,
+        'availableCustomerTable': availableCustomerTable,
+        'assignedCustomerTable': assignedCustomerTable
+    }
+    ) }}
+
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block head_css %}
+    {{ parent() }}
+{% endblock %}
+
+{% block footer_js %}
+    {{ parent() }}
+    <script src="/assets/js/spryker-zed-customer-group-form.js"></script>
+{% endblock %}

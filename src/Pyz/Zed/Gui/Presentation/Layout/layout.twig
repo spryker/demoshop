@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block head_title %}{{ title | trans }}{% endblock %}</title>
+
+    {% block head_css %}
+        <link rel="stylesheet" href="/assets/css/spryker-zed-gui-commons.css">
+        <link rel="stylesheet" href="/assets/css/spryker-zed-gui-main.css" />
+    {% endblock %}
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    {% block body_menu %}
+        {% if app.twig.getFunction('navigation') != false %}
+            {% include '@Gui/Partials/navigation.twig' %}
+        {% else %}
+            {% include '@Gui/Partials/menu.twig' %}
+        {% endif %}
+    {% endblock %}
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i></a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">{{ 'Welcome' | trans }}{% if username is defined %} <strong>{{ username }}</strong>{% endif %} <em>[{{ environment }}]</em></span>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Settings <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/edit/password-reset">Reset password</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/auth/logout">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-xs-12 col-md-6">
+                <h2>{% block section_title %}{{ title|trans }}{% endblock %}</h2>
+                {% if app.twig.getFunction('breadcrumb') != false %}
+                    {% include '@Gui/Partials/breadcrumb.twig' %}
+                {% else %}
+                    {% include '@Gui/Partials/backward-compatible-breadcrumb.twig' %}
+                {% endif %}
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="title-action">
+                    {% block action %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+
+            {% include '@Messenger/Partials/flash-messages.twig' %}
+
+            {% block content -%}{%- endblock %}
+
+        </div>
+        <div class="footer">
+            <div>
+                <strong>Copyright</strong> Spryker GmbH &copy; {{ 'now'|date('Y') }}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modal-alert" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content alert" id="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-title"></h4>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'Close' | trans }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block footer_js %}
+    <script src="/assets/js/spryker-zed-gui-commons.js"></script>
+    <script src="/assets/js/spryker-zed-gui-main.js"></script>
+{% endblock %}
+
+</body>
+</html>

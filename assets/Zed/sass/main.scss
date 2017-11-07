@@ -1,0 +1,20 @@
+@media (min-width: 768px) {
+  #page-wrapper{
+    margin: 0 0 0 237px;
+  }
+
+  .navbar-static-side {
+    width: 237px;
+  }
+}
+
+.nav-header{
+  background: url(/assets/img/header-profile.png) repeat-x;
+}
+
+.title-action{
+  .btn-sm, .btn-group-sm > .btn {
+    padding-right: 6px;
+    padding-left: 3px;
+  }
+}

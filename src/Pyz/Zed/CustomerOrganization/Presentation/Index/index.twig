@@ -1,0 +1,25 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Customer organizations' %}
+
+{% block head_title widget_title | trans %}
+
+{% block section_title widget_title | trans %}
+
+{% block action %}
+    {{ createActionButton('/customer-organization/add', 'Add Customer Organization' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+
+            {{ customerGroupTable | raw }}
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}
