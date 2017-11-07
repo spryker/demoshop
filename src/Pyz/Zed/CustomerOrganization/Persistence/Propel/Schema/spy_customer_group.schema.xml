@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<database
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="zed"
+    xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
+    namespace="Orm\Zed\CustomerGroup\Persistence"
+    package="src.Orm.Zed.CustomerGroup.Persistence">
+
+    <table name="spy_customer_group_to_customer" idMethod="native">
+        <column name="fk_customer_organization_role" type="INTEGER"/>
+        <foreign-key name="spy_customer-fk_customer_organization_role" foreignTable="spy_customer_organization_role" phpName="Role">
+            <reference local="fk_customer_organization_role" foreign="id_customer_organization_role"/>
+        </foreign-key>
+    </table>
+
+</database>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd" namespace="Orm\Zed\CustomerGroup\Persistence" package="src.Orm.Zed.CustomerGroup.Persistence">
+
+    <table name="spy_customer_organization_role" idMethod="native" phpName="SpyCustomerOrganizationRole" identifierQuoting="true">
+        <column name="id_customer_organization_role" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="role" required="true" type="VARCHAR" size="255"/>
+        <column name="default" type="INTEGER"/>
+        <id-method-parameter value="spy_customer_organization_role_pk_sequence"/>
+    </table>
+
+</database>

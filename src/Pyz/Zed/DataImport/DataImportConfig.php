@@ -16,6 +16,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_CATEGORY_TEMPLATE = 'category-template';
     const IMPORT_TYPE_CATEGORY = 'category';
     const IMPORT_TYPE_CUSTOMER = 'customer';
+    const IMPORT_TYPE_CUSTOMER_ORGANIZATION_ROLE = 'customer_organization_role';
     const IMPORT_TYPE_GLOSSARY = 'glossary';
     const IMPORT_TYPE_NAVIGATION = 'navigation';
     const IMPORT_TYPE_NAVIGATION_NODE = 'navigation-node';
@@ -87,6 +88,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getCustomerDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('customer.csv', static::IMPORT_TYPE_CUSTOMER);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCustomerOrganizationRoleDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('customer_organization_role.csv', static::IMPORT_TYPE_CUSTOMER_ORGANIZATION_ROLE);
     }
 
     /**
