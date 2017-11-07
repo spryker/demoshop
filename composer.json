@@ -4,6 +4,7 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-bugfix/core-2191-order-filtering",
+    "spryker-eco/loggly": "dev-master as 1.0.0",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
@@ -93,8 +94,9 @@
     ]
   },
   "autoload-dev": {
-    "psr-0": {
-      "PyzTest": "tests"
+    "psr-4": {
+      "PyzTest\\": "tests/PyzTest",
+      "PhpStan\\": "tests/PhpStan"
     },
     "files": [
       "test-autoload.php"

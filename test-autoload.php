@@ -21,6 +21,17 @@ $autoloader = function ($className) {
         ];
     }
 
+    if ($classNameParts[0] === 'PhpStan') {
+        array_shift($classNameParts);
+        $className = implode(DIRECTORY_SEPARATOR, $classNameParts);
+        $filePathPartsSupport = [
+            __DIR__,
+            'tests',
+            'PhpStan',
+            $className . '.php',
+        ];
+    }
+
     if (isset($filePathPartsSupport)) {
         $filePath = implode(DIRECTORY_SEPARATOR, $filePathPartsSupport);
         if (file_exists($filePath)) {

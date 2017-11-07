@@ -50,8 +50,8 @@ $config[PropelConstants::PROPEL] = [
         'objectModel' => [
             'defaultKeyType' => 'fieldName',
             'builders' => [
-                'object' => '\Spryker\Zed\Propel\Business\Builder\ObjectBuilder',
-                'query' => '\Spryker\Zed\Propel\Business\Builder\QueryBuilder',
+                'object' => '\Spryker\Zed\PropelOrm\Business\Builder\ObjectBuilder',
+                'query' => '\Spryker\Zed\PropelOrm\Business\Builder\QueryBuilder',
             ],
         ],
     ],
