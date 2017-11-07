@@ -18,6 +18,7 @@
     <exclude-pattern>*/tests/_output/*</exclude-pattern>
     <exclude-pattern>./data/DE/*</exclude-pattern>
     <exclude-pattern>./data/EN/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
 
     <!-- Define your own sniffs here -->
 
