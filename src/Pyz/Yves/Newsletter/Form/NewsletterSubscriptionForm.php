@@ -91,7 +91,7 @@ class NewsletterSubscriptionForm extends AbstractType
     {
         $utilValidateService = $this->utilValidateService;
 
-        $builder->add(self::FIELD_SUBSCRIBE, 'text', [
+        $builder->add(self::FIELD_SUBSCRIBE, 'email', [
             'label' => 'newsletter.subscribe',
             'required' => false,
             'constraints' => [
