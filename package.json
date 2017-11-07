@@ -12,9 +12,9 @@
     "yves": "node ./assets/Yves/default/build",
     "yves:dev": "node ./assets/Yves/default/build --dev",
     "yves:prod": "node ./assets/Yves/default/build --prod",
-    "zed": "node ./node_modules/@spryker/oryx-for-zed/build",
-    "zed:dev": "node ./node_modules/@spryker/oryx-for-zed/build --dev",
-    "zed:prod": "node ./node_modules/@spryker/oryx-for-zed/build --prod"
+    "zed": "node ./assets/Zed/build",
+    "zed:dev": "node ./assets/Zed/build --dev",
+    "zed:prod": "node ./assets/Zed/build --prod"
   },
   "engines": {
     "node": "^6.0.0"

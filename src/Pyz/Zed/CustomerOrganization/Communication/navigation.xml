@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <customer>
+        <pages>
+            <group>
+                <label>Customer Organizations</label>
+                <title>Customer Organizations</title>
+                <uri>/customer-organization</uri>
+                <bundle>customer-organization</bundle>
+                <controller>index</controller>
+                <action>index</action>
+                <visible>1</visible>
+                <pages>
+                    <customer-organization-add>
+                        <label>Add a Customer Organization</label>
+                        <title>Add a Customer Organization</title>
+                        <bundle>customer-organization</bundle>
+                        <controller>add</controller>
+                        <action>index</action>
+                        <visible>0</visible>
+                    </customer-organization-add>
+
+                    <customer-organization-view>
+                        <label>View Customer Organization</label>
+                        <title>View Customer Organization</title>
+                        <bundle>customer-organization</bundle>
+                        <controller>view</controller>
+                        <action>index</action>
+                        <visible>0</visible>
+                    </customer-organization-view>
+
+                    <customer-organization-edit>
+                        <label>Edit Customer Organization</label>
+                        <title>Edit Customer Organization</title>
+                        <bundle>customer-organization</bundle>
+                        <controller>edit</controller>
+                        <action>index</action>
+                        <visible>0</visible>
+                    </customer-organization-edit>
+                </pages>
+            </group>
+
+        </pages>
+    </customer>
+</config>

@@ -1,0 +1,32 @@
+{% include '@CustomerOrganization/_partials/assigment-table-set.twig' with {
+    sourceTabId: 'available-items-source-tab',
+    sourceTabLabel: 'Available customers' | trans,
+    destinationTabId: 'available-items-destination-tab',
+    destinationTabLabel: 'Selected customers to assign' | trans,
+    selectButtonLabel: 'Select all' | trans,
+    selectButtonClass: 'js-select-all-button',
+    table: availableCustomerTable
+} %}
+
+{% include '@CustomerOrganization/_partials/assigment-table-set.twig' with {
+    sourceTabId: 'assigned-items-source-tab',
+    sourceTabLabel: 'Assigned customers' | trans,
+    destinationTabId: 'assigned-items-destination-tab',
+    destinationTabLabel: 'Selected customers to de-assign' | trans,
+    selectButtonLabel: 'De-select all' | trans,
+    selectButtonClass: 'js-de-select-all-button',
+    table: assignedCustomerTable
+} %}
+
+{{ form_row(
+    customerAssignmentForm.idsCustomerToAssign,
+    {
+        'id': 'js-item-to-assign-ids-csv-field'
+    }
+) }}
+{{ form_row(
+    customerAssignmentForm.idsCustomerToDeAssign,
+    {
+        'id': 'js-item-to-de-assign-ids-csv-field'
+    }
+) }}

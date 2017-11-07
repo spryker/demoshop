@@ -15,6 +15,8 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_PRODUCT_OPTION = 'CLIENT_PRODUCT_OPTION';
     const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
     const CLIENT_PRODUCT_GROUP = 'CLIENT_PRODUCT_GROUP';
+    const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
+    const CLIENT_CUSTOMER_GROUP = 'CLIENT_CUSTOMER_GROUP';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -45,6 +47,10 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::CLIENT_PRODUCT_GROUP] = function (Container $container) {
             return $container->getLocator()->productGroup()->client();
+        };
+
+        $container[self::CLIENT_CUSTOMER] = function (Container $container) {
+            return $container->getLocator()->customer()->client();
         };
 
         return $container;
