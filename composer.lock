@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e516bf63ed5855079d9710a018927b4",
+    "content-hash": "f7d161cb5ae0249e64b8d4749aeab182",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -773,16 +773,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.8",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f"
+                "reference": "1507938933696f5028689554347dfc26d07bb617"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/149ba5943511e118bf68f9118e3c84bbe42bf94f",
-                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/1507938933696f5028689554347dfc26d07bb617",
+                "reference": "1507938933696f5028689554347dfc26d07bb617",
                 "shasum": ""
             },
             "require": {
@@ -847,7 +847,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-10-03T09:21:46+00:00"
+            "time": "2017-11-05T18:20:21+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1706,11 +1706,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2196-order-save-cleanup",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fd0974ec46aff08c7ff70dfafd77c2b44d2154cf"
+                "reference": "ffd0afedbf4d96f10788fa63378f1aebf9a63fc8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1908,7 +1908,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-06T11:16:54+00:00"
+            "time": "2017-11-07T11:48:53+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4950,16 +4950,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a"
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a1e8e1a30e1352f118feff1a8481066ddc2f234a",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
                 "shasum": ""
             },
             "require": {
@@ -4997,7 +4997,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-09-02T17:10:46+00:00"
+            "time": "2017-11-04T11:48:34+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -6688,7 +6688,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6707,7 +6707,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
+                "reference": "710339883dce2efde09586778c81b49dc5d2cd4a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6717,8 +6717,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/80ec189e9825995d37a2790da91b5f4ce0d6a68a",
-                "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/710339883dce2efde09586778c81b49dc5d2cd4a",
+                "reference": "710339883dce2efde09586778c81b49dc5d2cd4a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6779,7 +6779,7 @@
                 "source": "https://github.com/spryker/architecture-sniffer",
                 "issues": "https://github.com/spryker/architecture-sniffer/issues"
             },
-            "time": "2017-10-24T15:59:01+00:00"
+            "time": "2017-11-07T11:21:54+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6829,11 +6829,23 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/master",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
             "time": "2017-10-17T11:12:00+00:00"
         },
         {
