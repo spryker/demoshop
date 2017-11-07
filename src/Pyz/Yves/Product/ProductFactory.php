@@ -15,6 +15,7 @@ use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Zed\CustomerGroup\Business\Model\CustomerGroup;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
@@ -91,6 +92,14 @@ class ProductFactory extends AbstractFactory
     public function getProductGroupClient()
     {
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_GROUP);
+    }
+
+    /**
+     * @return \Spryker\Client\Customer\CustomerClientInterface
+     */
+    public function getCustomerClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_CUSTOMER);
     }
 
     /**
