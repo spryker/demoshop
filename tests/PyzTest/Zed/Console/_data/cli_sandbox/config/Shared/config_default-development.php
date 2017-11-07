@@ -13,6 +13,7 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\PropelOrm\PropelOrmConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
@@ -63,7 +64,7 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 ];
 
 $config[PropelConstants::PROPEL_DEBUG] = true;
-$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
+$config[PropelOrmConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 
 $config[ErrorHandlerConstants::DISPLAY_ERRORS] = true;
 $config[ErrorHandlerConstants::ERROR_RENDERER] = WebExceptionErrorRenderer::class;
