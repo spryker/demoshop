@@ -1710,7 +1710,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a74ba8b8148690754f75e12e4967c69f9d0fdbee"
+                "reference": "fd0974ec46aff08c7ff70dfafd77c2b44d2154cf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1908,7 +1908,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-03T09:39:30+00:00"
+            "time": "2017-11-06T11:16:54+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6688,7 +6688,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6829,23 +6829,11 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "scripts": {
-                "cs-check": [
-                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
-                ],
-                "cs-fix": [
-                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "support": {
-                "source": "https://github.com/spryker/code-generator/tree/master",
-                "issues": "https://github.com/spryker/code-generator/issues"
-            },
             "time": "2017-10-17T11:12:00+00:00"
         },
         {
