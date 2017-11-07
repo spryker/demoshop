@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Cart;
 
+use Pyz\Client\Customer\CustomerClient;
 use Pyz\Yves\Cart\Form\VoucherForm;
 use Pyz\Yves\Cart\Handler\CartItemHandler;
 use Pyz\Yves\Cart\Handler\CartOperationHandler;
@@ -29,11 +30,19 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\Cart\CartClientInterface
+     * @return \Pyz\Client\Cart\CartClient
      */
     public function getCartClient()
     {
         return $this->getProvidedDependency(CartDependencyProvider::CLIENT_CART);
+    }
+
+    /**
+     * @return CustomerClient
+     */
+    public function getCustomerClient()
+    {
+        return $this->getProvidedDependency(CartDependencyProvider::CLIENT_CUSTOMER);
     }
 
     /**

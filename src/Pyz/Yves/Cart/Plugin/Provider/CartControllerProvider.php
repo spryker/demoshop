@@ -24,6 +24,8 @@ class CartControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CART_VOUCHER_ADD = 'cart/voucher/add';
     const ROUTE_CART_VOUCHER_REMOVE = 'cart/voucher/remove';
     const ROUTE_CART_VOUCHER_CLEAR = 'cart/voucher/clear';
+    const ROUTE_CARTS_LIST = 'cart/list';
+    const ROUTE_CARTS_LIST_TO_CART = 'cart/add-list-to-cart';
 
     const SKU_PATTERN = '[a-zA-Z0-9-_]+';
 
@@ -83,6 +85,15 @@ class CartControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/{cart}/voucher/remove', self::ROUTE_CART_VOUCHER_REMOVE, 'Cart', 'Voucher', 'remove')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->value('cart', 'cart');
+
+        $this->createController('/{cart}/list', self::ROUTE_CARTS_LIST, 'Cart', 'Cart', 'list')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart');
+
+        $this->createController('/{cart}/add-list-to-cart', self::ROUTE_CARTS_LIST_TO_CART, 'Cart', 'Cart', 'add-list-to-cart')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart')
+            ->method('POST');
 
         $this->createController('/{cart}/voucher/clear', self::ROUTE_CART_VOUCHER_CLEAR, 'Cart', 'Voucher', 'clear')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')

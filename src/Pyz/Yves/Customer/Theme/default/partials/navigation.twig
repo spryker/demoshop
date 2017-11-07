@@ -15,6 +15,9 @@
     <li {% if active == 'newsletter' %}class="active"{% endif %}>
         <a href="{{ path('customer/newsletter') }}" data-id="sidebar-newsletter">{{ 'customer.account.newsletter' | trans }}</a>
     </li>
+    <li {% if active == 'cart/list' %}class="active"{% endif %}>
+        <a href="{{ path('cart/list') }}" data-id="sidebar-list">Carts</a>
+    </li>
     <li {% if active == 'wishlist' %}class="active"{% endif %}>
         <a href="{{ path('wishlist/overview') }}" data-id="sidebar-wishlist">{{ 'wishlist.wishlist' | trans }}</a>
         {% block wishlistSubmenu %}{% endblock %}

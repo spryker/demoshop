@@ -26,6 +26,20 @@ use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOpt
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
+
+    const FACADE_QUOTE = 'FACADE_QUOTE';
+
+
+    public function provideBusinessLayerDependencies(Container $container)
+    {
+        $container[self::FACADE_QUOTE] = function (Container $container) {
+            return $container->getLocator()->quote()->facade();
+        };
+
+        return parent::provideBusinessLayerDependencies($container);
+    }
+
+
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *

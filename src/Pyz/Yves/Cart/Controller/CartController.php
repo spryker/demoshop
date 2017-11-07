@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Cart\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
+use Generated\Shared\Transfer\QuotesCollectionTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
@@ -161,6 +162,52 @@ class CartController extends AbstractController
             $this->getFactory()
                 ->createCartItemsAttributeProvider()->formatUpdateActionResponse($sku, $selectedAttributes)
         );
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function listAction(Request $request)
+    {
+        $customer = $this->getFactory()->getCustomerClient()->getCustomer();
+
+        if ($customer != null) {
+            $quotes = $this->getFactory()->getCartClient()->getAvailableQuotesForPurchaser($customer);
+        } else {
+            $quotes = new QuotesCollectionTransfer();
+        }
+
+        return $this->viewResponse([
+            'quotes' => $quotes->toArray(true),
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function addListToCartAction(Request $request)
+    {
+        $customerId = $request->get('id_customer');
+        $externalCustomer = $this->getFactory()->getCustomerClient()->getCustomerById($customerId);
+        $currentCustomer = $this->getFactory()->getCustomerClient()->getCustomer();
+
+        if ($externalCustomer != null && $currentCustomer != null) {
+            $externalQuote = $this->getFactory()->getCartClient()->getQuote($externalCustomer);
+            $currentQuote = $this->getFactory()->getCartClient()->getQuote($currentCustomer);
+
+            foreach ($externalQuote->getItems() as $item) {
+                $currentQuote->addItem($item);
+            }
+
+            $currentQuote = $this->getFactory()->getCalculationClient()->recalculate($currentQuote);
+            $this->getFactory()->getCartClient()->setQuote($currentQuote);
+        }
+
+        return $this->redirectResponseInternal('cart');
     }
 
     /**
