@@ -6,6 +6,7 @@
     <transfer name="Customer">
         <property name="phone" type="string" />
         <property name="isDirty" type="bool" />
+        <property name="organizationRole" type="string" />
     </transfer>
 
     <transfer name="CustomerOverviewRequest">
