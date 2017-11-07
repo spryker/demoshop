@@ -82,12 +82,12 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     {
         parent::setCustomer($customerTransfer);
 
-        $cartClient = $this->getFactory()->getCartClient();
+        $quoteClient = $this->getFactory()->getQuoteClient();
 
-        $quoteTransfer = $cartClient->getQuote();
+        $quoteTransfer = $quoteClient->getQuote($customerTransfer);
         $quoteTransfer->setCustomer($customerTransfer);
 
-        $cartClient->storeQuote($quoteTransfer);
+        $quoteClient->setQuote($quoteTransfer);
 
         return $customerTransfer;
     }

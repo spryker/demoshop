@@ -1,0 +1,95 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>Carts</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" %}
+{% endblock %}
+
+{% block customerContent %}
+    {% for quote in quotes.quotes  %}
+        <div class="row xlarge-unstack">
+        <div class="columns">
+            <div class="callout">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        {{ quote.customer.first_name }} {{ quote.customer.last_name }}
+                                    </td>
+                                    <td>
+                                        {{ quote.totals.subtotal | money }}
+                                    </td>
+                                    <td>
+
+                                            {#<a href="{{ path('cart/add-list-to-cart') }}" class="button float-right {{ quote.items | length == 0 ? 'disabled' : '' }}">#}
+                                                {#<i class="fa fa-shopping-cart"></i>#}
+                                                {#Add all to my cart#}
+                                            {#</a>#}
+                                        <form id="addToCart_{{ loop.index }}" method="POST" action="{{ path('cart/add-list-to-cart', {id_customer: quote.customer.id_customer}) }}">
+                                            <button type="submit" href="{{ path('cart/add-list-to-cart') }}" class="button float-right {{ quote.items | length == 0 ? 'disabled' : '' }}">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                Add all to my cart
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {% if quote.items|length %}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in quote.items %}
+                                <tr>
+                                    {% set imageUrl = '' %}
+                                    {% if item.images is defined %}
+                                        {% set imageUrl = item.images[0].external_url_small %}
+                                    {% endif %}
+                                    <td>
+                                        <a href="#">{{ item.name }}</a>
+                                        <div><small>SKU: {{ item.sku }}</small></div>
+                                        {% if imageUrl %}
+                                            <img width="75" src="{{ imageUrl }}" />
+                                        {% endif %}
+                                    </td>
+                                    <td nowrap="nowrap">
+                                        <p>{{ item.quantity }} x {{ item.unit_gross_price | money }} = {{ item.sum_gross_price | money }}</p>
+
+                                        {% if item.product_options is defined %}
+                                            {% for option in item.product_options %}
+                                                <p>{{ option.value | trans }} - {{ option.unit_gross_price | money }}</p>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

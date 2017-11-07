@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd" namespace="Orm\Zed\Product\Persistence" package="src.Orm.Zed.Product.Persistence">
+
+    <table name="pyz_quote" idMethod="native" allowPkInsert="true" phpName="PyzQuote">
+        <column name="id_quote" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="quote_transfer" required="true" size="30000" type="VARCHAR"/>
+        <column name="fk_customer" type="INTEGER"/>
+
+        <foreign-key name="pyz_quote-fk_customer" foreignTable="spy_customer" phpName="Customer">
+            <reference local="fk_customer" foreign="id_customer"/>
+        </foreign-key>
+    <id-method-parameter value="pyz_quote_pk_seq"/></table>
+
+</database>

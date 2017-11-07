@@ -23,6 +23,7 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_CHECKOUT_BREADCRUMB = 'PLUGIN_CHECKOUT_BREADCRUMB';
     const PLUGIN_CART_VARIANT = 'PLUGIN_CART_VARIANT';
     const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+    const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
     const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
     const PLUGIN_PROMOTION_PRODUCT_MAPPER = 'PLUGIN_PROMOTION_PRODUCT_MAPPER';
 
@@ -56,6 +57,10 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::CLIENT_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->client();
+        };
+
+        $container[static::CLIENT_CUSTOMER] = function (Container $container) {
+            return $container->getLocator()->customer()->client();
         };
 
         return $container;
