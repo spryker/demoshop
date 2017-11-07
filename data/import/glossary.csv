@@ -1021,6 +1021,8 @@ product-cart.validation.error.abstract-product-exists,Product not found,en_US
 product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
 product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
+product-cart.validation.error.product-option-value-price-exists,Product option not found,en_US
+product-cart.validation.error.product-option-value-price-exists,Produkt option nicht gefunden,de_DE
 product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
 product.filter.price-default-chf-gross_mode,Preisspanne,de_DE
