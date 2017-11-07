@@ -6842,12 +6842,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7"
+                "reference": "6273b5233d003764e59af4b5798decb6422c5acd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/80f56b7fb0725ab02535b890d1f95f135c87f0b7",
-                "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/6273b5233d003764e59af4b5798decb6422c5acd",
+                "reference": "6273b5233d003764e59af4b5798decb6422c5acd",
                 "shasum": ""
             },
             "require": {
@@ -6885,7 +6885,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-17T11:04:08+00:00"
+            "time": "2017-11-07T12:05:04+00:00"
         },
         {
             "name": "spryker/git-hook",
