@@ -16,6 +16,7 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\PropelOrm\PropelOrmConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Session\SessionConstants;
@@ -39,7 +40,7 @@ $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = true;
-$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
+$config[PropelOrmConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 $config[PropelConstants::ZED_DB_USERNAME] = 'development';
 $config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
