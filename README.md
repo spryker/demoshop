@@ -12,9 +12,10 @@ Core (internal)
 
 License: [MIT](LICENSE)
 
+## Installation
 In order to install Spryker Demoshop on your machine, you can follow the instructions described in the link below :
 
-* [Installation](https://academy.spryker.com/getting_started/installation_guide.html)
+* [Installation Guide](https://academy.spryker.com/getting_started/installation_guide.html)
 
 
 If you encounter any issues during or after installation, you can first check our Troubleshooting article:
