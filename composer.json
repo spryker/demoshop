@@ -15,6 +15,9 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
+    "aws/aws-sdk-php": "^3.37",
+    "google/apiclient": "^2.0",
+    "spryker-eco/loggly": "dev-master as 1.0.0",
     "spryker/acl": "^3.0.0",
     "spryker/api": "^0.1.0",
     "spryker/api-query-builder": "^0.1.0",
@@ -181,7 +184,6 @@
     "spryker/zed-navigation": "^1.0.0",
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
-    "spryker-eco/loggly": "dev-master as 1.0.0",
     "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
