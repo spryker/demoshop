@@ -71,7 +71,7 @@ sections:
   queue-flush:
     purge-all-queues:
       command: "vendor/bin/console queue:queue:purge-all"
-      store: true
+      stores: true
 
     delete-all-queues:
       command: "vendor/bin/console queue:queue:delete-all"
@@ -146,6 +146,7 @@ sections:
 
     propel-migration-check:
       command: "vendor/bin/console propel:migration:check"
+      breakOnFailure: false
       stores: true
       groups:
         - propel
@@ -206,27 +207,27 @@ sections:
 
   frontend:
     install-package-manager:
-      command: "vendor/bin/console frontend:install:package-manager"
+      command: "vendor/bin/console frontend:install:package-manager -vvv"
       groups:
         - project
 
     dependencies-install:
-      command: "vendor/bin/console frontend:project:install-dependencies"
+      command: "vendor/bin/console frontend:project:install-dependencies -vvv"
       groups:
         - project
 
     yves-install-dependencies:
-      command: "vendor/bin/console frontend:yves:install-dependencies"
+      command: "vendor/bin/console frontend:yves:install-dependencies -vvv"
       groups:
         - yves
 
     yves-build-frontend:
-      command: "vendor/bin/console frontend:yves:build"
+      command: "vendor/bin/console frontend:yves:build -vvv"
       groups:
         - yves
 
     zed-install-dependencies:
-      command: "vendor/bin/console frontend:zed:install-dependencies"
+      command: "vendor/bin/console frontend:zed:install-dependencies -vvv"
       groups:
         - zed
 

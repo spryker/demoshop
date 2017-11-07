@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
 =======
@@ -19,6 +20,8 @@
 >>>>>>> core-2001 added maintenance page and commands
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
     "content-hash": "367dceaef55702aa441912c8b8ac96db",
 =======
@@ -30,6 +33,8 @@
 >>>>>>> core-2001 added maintenance page and commands
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
@@ -41,6 +46,8 @@
 >>>>>>> core-2001 added maintenance page and commands
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
     "content-hash": "bee9ce99543a7ee88dbaa0292004c998",
 =======
@@ -103,9 +110,21 @@
 =======
     "content-hash": "fd2f36417b06d0dd1c2113e3e23d0254",
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+    "content-hash": "759aad5f54c2b20206c0f6d8dcbba605",
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -987,6 +1006,7 @@
             "name": "moneyphp/money",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.0.9",
 =======
             "version": "dev-master",
@@ -994,6 +1014,9 @@
 =======
             "version": "v3.0.8",
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.0.9",
+>>>>>>> core-2001 update setup
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
@@ -1947,6 +1970,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -1979,6 +2003,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
                 "reference": "c142b69f4b2ebabb615d2dead92176658fe4191d"
 =======
@@ -2012,6 +2038,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
                 "reference": "519a38e62498ab5fce5c16551d683ad8ef4ed67e"
 =======
@@ -2045,6 +2073,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
                 "reference": "721036624dcad6f8bb99f2b37c1763fba87f9f17"
 =======
@@ -2827,13 +2857,37 @@
 =======
                 "reference": "abfd6c50271acd49b3c5ec384f70427f571be8a1"
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "dd172148fa013da9606cdbd0d3188292e247ea1a"
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3049,6 +3103,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3081,6 +3136,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3114,6 +3171,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3147,6 +3206,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -3180,6 +3241,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -3213,6 +3276,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-10T16:05:18+00:00"
 =======
@@ -3246,6 +3311,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-09T13:30:16+00:00"
 =======
@@ -3279,6 +3346,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-08T10:19:41+00:00"
 =======
@@ -4061,13 +4130,37 @@
 =======
             "time": "2017-11-03T15:15:02+00:00"
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+<<<<<<< HEAD
 >>>>>>> core-2001 update UrlCollector, update phar
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-11-07T15:22:00+00:00"
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5433,10 +5526,13 @@
             "name": "symfony/process",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
@@ -5457,15 +5553,27 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/process/zipball/d25449e031f600807949aab7cadbf267712f4eee",
                 "reference": "d25449e031f600807949aab7cadbf267712f4eee",
+=======
+            "version": "v3.3.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "fdf89e57a723a29baf536e288d6e232c059697b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/fdf89e57a723a29baf536e288d6e232c059697b1",
+                "reference": "fdf89e57a723a29baf536e288d6e232c059697b1",
+>>>>>>> core-2001 update setup
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -5492,7 +5600,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-11-05T15:25:56+00:00"
+=======
+            "time": "2017-10-02T06:42:24+00:00"
+>>>>>>> core-2001 update setup
         },
         {
             "name": "symfony/property-access",
@@ -7519,6 +7631,7 @@
             "name": "nikic/php-parser",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.1.2",
             "source": {
                 "type": "git",
@@ -7534,13 +7647,17 @@
 =======
             "version": "v3.1.1",
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.1.2",
+>>>>>>> core-2001 update setup
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a"
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/d418bf395113b6a3293bda1d08ddc9b0209d5dcf",
                 "reference": "d418bf395113b6a3293bda1d08ddc9b0209d5dcf",
@@ -7549,6 +7666,10 @@
                 "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a1e8e1a30e1352f118feff1a8481066ddc2f234a",
                 "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a",
 >>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+>>>>>>> core-2001 update setup
                 "shasum": ""
             },
             "require": {
@@ -7588,6 +7709,7 @@
             ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-04T11:48:34+00:00"
 =======
             "time": "2017-10-01T14:54:43+00:00"
@@ -7595,6 +7717,9 @@
 =======
             "time": "2017-09-02T17:10:46+00:00"
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-11-04T11:48:34+00:00"
+>>>>>>> core-2001 update setup
         },
         {
             "name": "ocramius/package-versions",
@@ -9345,6 +9470,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "2621122211a37dfa1500f12d10a4850a70297859",
 =======
 =======
@@ -9363,6 +9489,9 @@
 =======
                 "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
 >>>>>>> core-2001 update spryker/spryker
+=======
+                "reference": "2621122211a37dfa1500f12d10a4850a70297859",
+>>>>>>> core-2001 update setup
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9372,6 +9501,7 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -9398,6 +9528,10 @@
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/80ec189e9825995d37a2790da91b5f4ce0d6a68a",
                 "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
 >>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2621122211a37dfa1500f12d10a4850a70297859",
+                "reference": "2621122211a37dfa1500f12d10a4850a70297859",
+>>>>>>> core-2001 update setup
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9461,6 +9595,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-07T13:29:11+00:00"
 =======
 =======
@@ -9479,6 +9614,9 @@
 =======
             "time": "2017-10-24T15:59:01+00:00"
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-11-07T13:29:11+00:00"
+>>>>>>> core-2001 update setup
         },
         {
             "name": "spryker/code-generator",
@@ -9547,6 +9685,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a"
             },
             "dist": {
@@ -9564,6 +9703,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
                 "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
             },
@@ -9582,6 +9723,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
                 "reference": "6273b5233d003764e59af4b5798decb6422c5acd"
             },
@@ -9691,7 +9834,18 @@
 =======
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+                "reference": "aaff9fa8728bb6a58f7e7e1454e569875d106a24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/aaff9fa8728bb6a58f7e7e1454e569875d106a24",
+                "reference": "aaff9fa8728bb6a58f7e7e1454e569875d106a24",
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
                 "shasum": ""
             },
             "require": {
@@ -9735,6 +9889,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-21T13:26:10+00:00"
 =======
 =======
@@ -9747,6 +9902,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-07T15:24:39+00:00"
 =======
@@ -9760,6 +9917,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update setup
 <<<<<<< HEAD
             "time": "2017-11-07T12:05:04+00:00"
 =======
@@ -9824,8 +9983,17 @@
 =======
             "time": "2017-10-17T11:04:08+00:00"
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+            "time": "2017-11-07T15:18:58+00:00"
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
+>>>>>>> core-2001 update setup
         },
         {
             "name": "spryker/git-hook",
