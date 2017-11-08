@@ -27,13 +27,15 @@
     </ul>
 
     {% if cart.items | length %}
-        {% if customer is not defined %}
+        {% if customer == null %}
             <p class="__padding-top">
                 <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
                     <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
                 </a>
             </p>
-        {% elseif customer != null and customer.organization_role == 'Purchasing Specialist' %}
+        {% endif %}
+
+        {% if customer != null and customer.organization_role != 'Procurement Specialist' %}
             <p class="__padding-top">
                 <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
                     <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
