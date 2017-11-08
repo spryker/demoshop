@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7773c105de5b93decf7f04cd5b17c97",
+    "content-hash": "a1555ebfcffa0a306c890b746728f441",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.37.0",
+            "version": "3.37.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "24031a1ffbcd26dea0e55662198a3f5454e02cff"
+                "reference": "f3166fbdf14cea6898729dd945eaabdd211abe8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/24031a1ffbcd26dea0e55662198a3f5454e02cff",
-                "reference": "24031a1ffbcd26dea0e55662198a3f5454e02cff",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f3166fbdf14cea6898729dd945eaabdd211abe8f",
+                "reference": "f3166fbdf14cea6898729dd945eaabdd211abe8f",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-11-07T00:13:20+00:00"
+            "time": "2017-11-07T20:32:15+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -5291,11 +5291,11 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/DummyPayment.git",
-                "reference": "c1738f12427ced51cc1e0ce01494405d6d7d2953",
+                "reference": "d7c768d18e5d7c1d2a97f44b1e6661dd23405bf3",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5305,8 +5305,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/c1738f12427ced51cc1e0ce01494405d6d7d2953",
-                "reference": "c1738f12427ced51cc1e0ce01494405d6d7d2953",
+                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/d7c768d18e5d7c1d2a97f44b1e6661dd23405bf3",
+                "reference": "d7c768d18e5d7c1d2a97f44b1e6661dd23405bf3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5338,20 +5338,17 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                },
                 "psr-4": {
                     "Config\\Module\\": "vendor/spryker/config/tests/_support/Module",
                     "Transfer\\Module\\": "vendor/spryker/transfer/tests/_support/Module",
                     "Propel\\Module\\": "vendor/spryker/propel/tests/_support/Module",
-                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module"
+                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module",
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -5360,9 +5357,9 @@
             ],
             "description": "DummyPayment module",
             "support": {
-                "source": "https://github.com/spryker/DummyPayment/tree/2.1.2"
+                "source": "https://github.com/spryker/DummyPayment/tree/master"
             },
-            "time": "2017-09-25T14:16:40+00:00"
+            "time": "2017-11-07T13:32:47+00:00"
         },
         {
             "name": "spryker/elastica",
@@ -7555,11 +7552,11 @@
         },
         {
             "name": "spryker/oms",
-            "version": "7.2.1",
+            "version": "7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Oms.git",
-                "reference": "4409a2f7ef1bda2c4948b10d2620623013db79e9",
+                "reference": "686a818f30532c46d3db84f2abf41ab49c7c598b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7569,8 +7566,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Oms/zipball/4409a2f7ef1bda2c4948b10d2620623013db79e9",
-                "reference": "4409a2f7ef1bda2c4948b10d2620623013db79e9",
+                "url": "https://api.github.com/repos/spryker/Oms/zipball/686a818f30532c46d3db84f2abf41ab49c7c598b",
+                "reference": "686a818f30532c46d3db84f2abf41ab49c7c598b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7625,9 +7622,9 @@
             ],
             "description": "Oms module",
             "support": {
-                "source": "https://github.com/spryker/Oms/tree/7.2.1"
+                "source": "https://github.com/spryker/Oms/tree/master"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-11-07T13:32:47+00:00"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -10788,11 +10785,11 @@
         },
         {
             "name": "spryker/sales",
-            "version": "8.1.0",
+            "version": "8.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Sales.git",
-                "reference": "fccb2bce47369d72fc97d542434fed2d3599d795",
+                "reference": "2db0cc3679aab18701b5cddc87a9e38948d653e4",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10802,8 +10799,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Sales/zipball/fccb2bce47369d72fc97d542434fed2d3599d795",
-                "reference": "fccb2bce47369d72fc97d542434fed2d3599d795",
+                "url": "https://api.github.com/repos/spryker/Sales/zipball/2db0cc3679aab18701b5cddc87a9e38948d653e4",
+                "reference": "2db0cc3679aab18701b5cddc87a9e38948d653e4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10820,7 +10817,7 @@
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
                 "spryker/money": "^2.0.0",
-                "spryker/oms": "^7.0.0",
+                "spryker/oms": "^7.3.0",
                 "spryker/propel": "^3.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/sales-split": "^3.0.0",
@@ -10869,7 +10866,7 @@
             "support": {
                 "source": "https://github.com/spryker/Sales/tree/master"
             },
-            "time": "2017-11-07T14:27:23+00:00"
+            "time": "2017-11-07T14:29:50+00:00"
         },
         {
             "name": "spryker/sales-product-connector",
@@ -15401,56 +15398,6 @@
                 "parser"
             ],
             "time": "2016-10-30T11:50:56+00:00"
-        },
-        {
-            "name": "codeception/c3",
-            "version": "2.0.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codeception/c3.git",
-                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/c3/zipball/f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
-                "reference": "f08f20b0b6191f0c58be022c6f20d5b1cdc1004c",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0",
-                "php": ">=5.4.0"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Codeception\\c3\\Installer"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Codeception\\c3\\": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tiger Seo",
-                    "email": "tiger.seo@gmail.com"
-                },
-                {
-                    "name": "Michael Bodnarchuk",
-                    "email": "davert.php@codegyre.com",
-                    "homepage": "http://codegyre.com"
-                }
-            ],
-            "description": "CodeCoverage collector for Codeception",
-            "homepage": "http://codeception.com/",
-            "keywords": [
-                "code coverage",
-                "codecoverage"
-            ],
-            "time": "2017-04-06T00:08:55+00:00"
         },
         {
             "name": "codeception/codeception",
