@@ -27,10 +27,12 @@
     </ul>
 
     {% if cart.items | length %}
-        <p class="__padding-top">
-            <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
-                <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
-            </a>
-        </p>
+        {% if customer.organization_role == 'Purchasing Specialist' or customer.organization_role is not defined %}
+            <p class="__padding-top">
+                <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
+                    <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
+                </a>
+            </p>
+        {% endif %}
     {% endif %}
 </div>

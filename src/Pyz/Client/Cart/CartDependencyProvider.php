@@ -13,6 +13,7 @@ use Spryker\Client\ProductBundle\Plugin\Cart\ItemCountPlugin;
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
+
     /**
      * @param \Spryker\Client\Kernel\Container $container
      *
@@ -26,4 +27,19 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
 
         return $container;
     }
+
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
+    protected function addQuoteClient(Container $container)
+    {
+        $container[static::CLIENT_QUOTE] = function (Container $container) {
+            return $container->getLocator()->quote()->client();
+        };
+
+        return $container;
+    }
+
 }

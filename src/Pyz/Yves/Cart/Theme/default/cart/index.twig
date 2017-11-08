@@ -36,7 +36,7 @@
             </div>
 
             <div class="small-12 large-6 columns">
-                {% include '@cart/cart/parts/cart-summary.twig' %}
+                {% include '@cart/cart/parts/cart-summary.twig'  with {customer: customer} %}
             </div>
         </div>
     {% else %}

@@ -13,6 +13,7 @@ use Spryker\Client\Kernel\Container;
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
     const CART_CLIENT = 'cart client';
+    const QUOTE_CLIENT = 'QUOTE_CLIENT';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -25,6 +26,10 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 
         $container[self::CART_CLIENT] = function (Container $container) {
             return $container->getLocator()->cart()->client();
+        };
+
+        $container[self::QUOTE_CLIENT] = function (Container $container) {
+            return $container->getLocator()->quote()->client();
         };
 
         return $container;

@@ -29,4 +29,12 @@ class CustomerFactory extends SprykerCustomerFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::CART_CLIENT);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getQuoteClient()
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::QUOTE_CLIENT);
+    }
 }
