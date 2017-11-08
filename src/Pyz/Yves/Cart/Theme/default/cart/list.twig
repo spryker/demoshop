@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block customerNavigation %}
-    {% include "@customer/partials/navigation.twig" %}
+    {% include "@customer/partials/navigation.twig" with {active: 'cart'} %}
 {% endblock %}
 
 {% block customerContent %}
@@ -33,11 +33,6 @@
                                         {{ quote.totals.subtotal | money }}
                                     </td>
                                     <td>
-
-                                            {#<a href="{{ path('cart/add-list-to-cart') }}" class="button float-right {{ quote.items | length == 0 ? 'disabled' : '' }}">#}
-                                                {#<i class="fa fa-shopping-cart"></i>#}
-                                                {#Add all to my cart#}
-                                            {#</a>#}
                                         <form id="addToCart_{{ loop.index }}" method="POST" action="{{ path('cart/add-list-to-cart', {id_customer: quote.customer.id_customer}) }}">
                                             <button type="submit" href="{{ path('cart/add-list-to-cart') }}" class="button float-right {{ quote.items | length == 0 ? 'disabled' : '' }}">
                                                 <i class="fa fa-shopping-cart"></i>

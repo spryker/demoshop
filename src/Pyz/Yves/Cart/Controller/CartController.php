@@ -54,6 +54,14 @@ class CartController extends AbstractController
                 $request
             );
 
+        $customer = $this->getFactory()
+            ->getCustomerClient()
+            ->getCustomer();
+
+        if ($customer != null) {
+            $customer = $customer->toArray();
+        }
+
         return $this->viewResponse([
             'cart' => $quoteTransfer,
             'cartItems' => $cartItems,
@@ -61,6 +69,7 @@ class CartController extends AbstractController
             'voucherForm' => $voucherForm->createView(),
             'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
             'promotionStorageProducts' => $promotionStorageProducts,
+            'customer' => $customer,
         ]);
     }
 
