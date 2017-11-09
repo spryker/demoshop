@@ -383,6 +383,14 @@ customer.profile.order_history,Last Orders,en_US
 customer.profile.order_history,Letzte Bestellungen,de_DE
 customer.account.no_orders,No orders at the moment,en_US
 customer.account.no_orders,Keine Bestellungen,de_DE
+customer.account.admin,Organisationsverwaltung,de_DE
+customer.account.admin,Organization Administration,en_US
+customer.account.admin.users,Benutzer der Organisation,de_DE
+customer.account.admin.users,Organization Users,en_US
+customer.account.admin.add_users,Organisationsbenutzer hinzufügen,de_DE
+customer.account.admin.add_users,Add Organization Users,en_US
+customer.account.admin.add_users,Organisationsbenutzer hinzufügen,de_DE
+customer.account.admin.add_users,Add Organization Users,en_US
 customer.address.updated,New address updated,en_US
 customer.address.updated,Neue Adresse hinzugefügt,de_DE
 customer.address.delete.success,Address deleted successfully,en_US
