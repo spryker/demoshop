@@ -3,6 +3,9 @@
 namespace Pyz\Zed\Customer\Business\Customer;
 
 use Generated\Shared\Transfer\CustomerTransfer;
+use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerGroupToCustomerTableMap;
+use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerOrganizationRoleTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Pyz\Zed\Customer\Persistence\CustomerQueryContainerInterface;
 use Spryker\Shared\Kernel\Store;
 use \Spryker\Zed\Customer\Business\Customer\Customer as BaseCustomer;
@@ -51,5 +54,47 @@ class Customer extends BaseCustomer
         $customerTransfer = $this->attachAddresses($customerTransfer, $customerEntity);
 
         return $customerTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @throws \Spryker\Zed\Customer\Business\Exception\CustomerNotFoundException
+     *
+     * @return \Orm\Zed\Customer\Persistence\SpyCustomer
+     */
+    protected function getCustomer(CustomerTransfer $customerTransfer)
+    {
+        $customerEntity = null;
+
+        if ($customerTransfer->getIdCustomer()) {
+            $customerEntity = $this->queryContainer->queryCustomerById($customerTransfer->getIdCustomer());
+        } elseif ($customerTransfer->getEmail()) {
+            $customerEntity = $this->queryContainer->queryCustomerByEmail($customerTransfer->getEmail());
+        } elseif ($customerTransfer->getRestorePasswordKey()) {
+            $customerEntity = $this->queryContainer->queryCustomerByRestorePasswordKey($customerTransfer->getRestorePasswordKey());
+        }
+
+        $customerEntity = $customerEntity->useSpyCustomerGroupToCustomerQuery()
+            ->addJoin(
+                SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_ORGANIZATION_ROLE,
+                SpyCustomerOrganizationRoleTableMap::COL_ID_CUSTOMER_ORGANIZATION_ROLE,
+                Criteria::LEFT_JOIN
+            )
+            ->endUse()
+            ->withColumn(SpyCustomerOrganizationRoleTableMap::COL_ROLE, 'role')
+            ->findOne();
+
+
+        if ($customerEntity !== null) {
+            return $customerEntity;
+        }
+
+        throw new CustomerNotFoundException(sprintf(
+            'Customer not found by either ID `%s`, email `%s` or restore password key `%s`.',
+            $customerTransfer->getIdCustomer(),
+            $customerTransfer->getEmail(),
+            $customerTransfer->getRestorePasswordKey()
+        ));
     }
 }
