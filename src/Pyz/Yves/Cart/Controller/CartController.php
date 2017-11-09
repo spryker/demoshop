@@ -9,6 +9,9 @@ namespace Pyz\Yves\Cart\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuotesCollectionTransfer;
+use Google_Client;
+use Google_Service_Sheets;
+use Google_Service_Sheets_ValueRange;
 use Pyz\Yves\Application\Controller\AbstractController;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
@@ -73,6 +76,47 @@ class CartController extends AbstractController
         ]);
     }
 
+    public function exportAction(Request $request, array $selectedAttributes = null)
+    {
+        $quoteTransfer = $this->getClient()
+            ->getQuote();
+
+        $client = $this->getGoogleClient();
+        $service = new Google_Service_Sheets($client);
+
+        $spreadsheetId = '155tp_ut0_-CemsBI85QydKI8ZDCBCuxMsko8uunB-D8';
+        $range = 'Sheet1!A2:F';
+
+        $values = [];
+
+        $orderId = time();
+
+        foreach ($quoteTransfer->getItems() as $item) {
+            $values[] = [
+                $orderId,
+                $item->getSku(),
+                $item->getQuantity(),
+                $item->getUnitPrice()/100,
+                $item->getSumPrice()/100,
+                'EUR',
+            ];
+        }
+
+        $body = new Google_Service_Sheets_ValueRange(array(
+            'values' => $values
+        ));
+
+        $valueInputOption = 'RAW';
+
+        $params = array(
+            'valueInputOption' => $valueInputOption
+        );
+
+        $result = $service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
+
+        return $this->redirectResponseInternal('cart');
+
+    }
     /**
      * @param string $sku
      * @param int $quantity
@@ -244,4 +288,15 @@ class CartController extends AbstractController
 
         return $itemTransfers;
     }
+
+    protected function getGoogleClient()
+    {
+        putenv('GOOGLE_APPLICATION_CREDENTIALS=/data/shop/development/current/client_secret.json');
+
+        $client = new Google_Client();
+        $client->useApplicationDefaultCredentials();
+        $client->setScopes(Google_Service_Sheets::SPREADSHEETS);
+        return $client;
+    }
+
 }

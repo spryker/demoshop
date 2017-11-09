@@ -18,6 +18,7 @@ class CartControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CART_REMOVE = 'cart/remove';
     const ROUTE_CART_CHANGE = 'cart/change';
     const ROUTE_CART_UPDATE = 'cart/update';
+    const ROUTE_CART_EXPORT = 'cart/export';
     const ROUTE_CART_CHANGE_QUANTITY = 'cart/change/quantity';
     const ROUTE_CART_ADD_ITEMS = 'cart/add-items';
 
@@ -43,6 +44,10 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->convert('selectedAttributes', [$this, 'getSelectedAttributesFromRequest']);
 
         $this->createPostController('/{cart}/add-items', self::ROUTE_CART_ADD_ITEMS, 'Cart', 'Cart', 'addItems')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart');
+
+        $this->createController('/{cart}/export', self::ROUTE_CART_EXPORT, 'Cart', 'Cart', 'export')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->value('cart', 'cart');
 

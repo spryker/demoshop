@@ -33,6 +33,11 @@
                     <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
                 </a>
             </p>
+            <p>
+                <a class="button expanded warning __no-margin-bottom" href="{{ url('cart/export') }}">
+                    <i class="fa fa-download"></i>Punch-out
+                </a>
+            </p>
         {% endif %}
 
         {% if customer != null and customer.organization_role != 'Procurement Specialist' %}
