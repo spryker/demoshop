@@ -112,6 +112,22 @@ class CustomerClient extends SprykerCustomerClient implements CustomerClientInte
     }
 
     /**
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomersTransfer
+     */
+    public function getCustomersInSameGroup(CustomerTransfer $customerTransfer)
+    {
+        $customersTransfer = $this->getFactory()
+            ->createZedCustomerStub()
+            ->getCustomersInSameGroup($customerTransfer);
+
+        return $customersTransfer;
+    }
+
+    /**
      * {@inheritdoc}
      *
      * @api

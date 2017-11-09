@@ -19,52 +19,74 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                    {% for user in organizationUsers.customers %}
+                        {% if user.idCustomer != currentUser.idCustomer %}
+                            <tr>
+                                <td>{{ user.firstName }}</td>
+                                <td>{{ user.lastName }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.organizationRole }}</td>
+                                <td>
+                                    <a onclick="alert('Are you sure you want to delete this user from your organization? They will not be able to log in with this account again')" class="alert __no-margin-bottom alert-danger" href="/customer/admin/delete?id={{ user.idCustomer }}">
+                                        {{ 'customer.profile.address.delete' | trans }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="small-12 columns">
-            <div class="callout">
-                <h4>{{ 'customer.account.admin.add_users' | trans}}</h4>
-                <form action="/customer/admin/add">
-                    <table class="stack">
-                        <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Role</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th><input title="First Name" type="text" name="first_name"/></th>
-                            <th><input title="Last Name" type="text" name="last_name"/></th>
-                            <th><input title="Email" type="text" name="email"/></th>
-                            <th><input title="Password" type="text" name="password"/></th>
-                            <th>
-                                <select title="Role" name="role">
-                                    <option value="Procurement Specialist">Procurement Specialist</option>
-                                    <option value="Purchasing Specialist">Purchasing Specialist</option>
-                                </select>
-                            </th>
-                            <th colspan="2">
-                                <button class="button success expanded">Add</button>
-                            </th>
-                        </tr>
-                        </tbody>
-                    </table>
-                </form>
-            </div>
-        </div>
+    {{ form_start(addOrganizationUserForm, {'attr': {'class': 'callout'}}) }}
+    <h4><i class="fa fa-lock __secondary"></i> {{ 'customer.account.admin.add_users' | trans }}</h4>
+
+    <label>{{ addOrganizationUserForm.email.vars.label | trans }}*
+        {{ form_widget(addOrganizationUserForm.email, { 'attr': {'class': 'input-group-field', 'placeholder': addOrganizationUserForm.email.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(addOrganizationUserForm.email) }}
+
+    <label>{{ addOrganizationUserForm.password.vars.label | trans }}*
+        {{ form_widget(addOrganizationUserForm.password, { 'attr': {'class': 'input-group-field', 'placeholder': addOrganizationUserForm.password.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(addOrganizationUserForm.password) }}
+
+    <label>
+        {{ addOrganizationUserForm.first_name.vars.label | trans }}*
+        {{ form_widget(addOrganizationUserForm.first_name, { 'attr': {'placeholder': addOrganizationUserForm.first_name.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(addOrganizationUserForm.first_name) }}
+
+    <label>
+        {{ addOrganizationUserForm.last_name.vars.label | trans }}*
+        {{ form_widget(addOrganizationUserForm.last_name, { 'attr': {'placeholder': addOrganizationUserForm.last_name.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(addOrganizationUserForm.last_name) }}
+
+    <label>
+        {{ addOrganizationUserForm.organization_role.vars.label | trans }}*
+        {{ form_widget(addOrganizationUserForm.organization_role, { 'attr': {'placeholder': addOrganizationUserForm.organization_role.vars.label | trans } }) }}
+    </label>
+    {{ form_errors(addOrganizationUserForm.organization_role) }}
+
+    {{ form_widget(addOrganizationUserForm.id_organization, { 'value': currentUser.idOrganization}) }}
+
+    <div class="row __padding-top">
+        <p class="small-12 large-6 columns">
+        </p>
+        <p class="small-12 large-6 columns">
+            <button class="button success __no-margin-bottom pull-right">
+                {{ 'global.create.account' | trans }}
+            </button>
+        </p>
     </div>
+
+    {{ form_end(addOrganizationUserForm) }}
 {% endblock %}

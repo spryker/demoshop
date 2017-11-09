@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Customer\Plugin;
 
 use Generated\Shared\Transfer\CustomerTransfer;
+use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
@@ -32,6 +33,18 @@ class AuthenticationHandler extends AbstractPlugin
         }
 
         return $customerResponseTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
+     */
+    public function createCustomer(CustomerTransfer $customerTransfer)
+    {
+        return $this
+            ->getClient()
+            ->registerCustomer($customerTransfer);
     }
 
     /**

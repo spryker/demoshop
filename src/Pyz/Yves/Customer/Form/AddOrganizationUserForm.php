@@ -5,6 +5,7 @@ namespace Pyz\Yves\Customer\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -14,8 +15,9 @@ class AddOrganizationUserForm extends AbstractType
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_EMAIL = 'email';
     const FIELD_PASSWORD = 'password';
+    const FIELD_ID_ORGANIZATION = 'id_organization';
 
-    const FIELD_ROLE = 'role';
+    const FIELD_ROLE = 'organization_role';
 
     /**
      * @return string
@@ -38,7 +40,8 @@ class AddOrganizationUserForm extends AbstractType
             ->addLastNameField($builder, $options)
             ->addEmailField($builder, $options)
             ->addPasswordField($builder, $options)
-            ->addRoleField($builder, $options);
+            ->addRoleField($builder, $options)
+            ->addOrganizationIdField($builder, $options);
     }
 
     /**
@@ -57,6 +60,19 @@ class AddOrganizationUserForm extends AbstractType
                 $this->createMinLengthConstraint($options),
             ],
         ]);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array $options
+     *
+     * @return $this
+     */
+    protected function addOrganizationIdField(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add(self::FIELD_ID_ORGANIZATION, 'hidden', [ 'required' => true ]);
 
         return $this;
     }
@@ -95,6 +111,7 @@ class AddOrganizationUserForm extends AbstractType
             'constraints' => [
                 $this->createNotBlankConstraint(),
                 $this->createMinLengthConstraint($options),
+                new Email()
             ],
         ]);
 
@@ -134,7 +151,7 @@ class AddOrganizationUserForm extends AbstractType
             'required' => true,
             'choices' => [
                 'Procurement Specialist' => 'Procurement Specialist',
-                'Purchasing Specialist' => 'PurchasingSpecialist',
+                'Purchasing Specialist' => 'Purchasing Specialist',
             ],
             'constraints' => [
                 $this->createNotBlankConstraint(),

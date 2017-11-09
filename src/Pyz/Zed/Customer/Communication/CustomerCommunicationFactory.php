@@ -38,7 +38,7 @@ class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
      *
      * @return CartTable
      */
-    public function createCartTable(int $idCustomer)
+    public function createCartTable($idCustomer)
     {
         return new CartTable(
             $this->getQueryContainer(),

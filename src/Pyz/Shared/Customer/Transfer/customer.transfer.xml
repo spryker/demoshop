@@ -20,4 +20,8 @@
         <property name="isSubscribed" type="bool" />
     </transfer>
 
+    <transfer name="Customers">
+        <property name="customers" type="Customer[]" singular="customer"/>
+    </transfer>
+
 </transfers>

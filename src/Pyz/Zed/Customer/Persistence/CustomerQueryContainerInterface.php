@@ -11,4 +11,17 @@ use Spryker\Zed\Customer\Persistence\CustomerQueryContainerInterface as BaseCust
 
 interface CustomerQueryContainerInterface extends BaseCustomerQueryContainerInterface
 {
+    /**
+     * @param int $idCustomer
+     *
+     * @return $this|\Orm\Zed\Product\Persistence\PyzQuoteQuery
+     */
+    public function queryCart($idCustomer);
+
+    /**
+     * @param int $name
+     *
+     * @return $this|\Orm\Zed\CustomerGroup\Persistence\SpyCustomerOrganizationRoleQuery
+     */
+    public function queryCustomerOrganizationRoleByName($name);
 }

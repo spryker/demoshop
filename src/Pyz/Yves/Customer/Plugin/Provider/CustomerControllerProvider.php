@@ -71,7 +71,7 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/{customer}/admin/add', self::ROUTE_CUSTOMER_ADMIN_ADD, 'Customer', 'Customer', 'addCustomer')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
-        $this->createController('/{customer}/admin/delete', self::ROUTE_CUSTOMER_ADMIN_DELETE, 'Customer', 'Customer', 'removeCustomer')
+        $this->createController('/{customer}/admin/delete', self::ROUTE_CUSTOMER_ADMIN_DELETE, 'Customer', 'Delete', 'deleteUser')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
 

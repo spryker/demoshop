@@ -8,6 +8,7 @@
 namespace Pyz\Client\Customer;
 
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Client\Customer\CustomerClientInterface as SprykerCustomerClientInterface;
 
 interface CustomerClientInterface extends SprykerCustomerClientInterface
@@ -35,4 +36,13 @@ interface CustomerClientInterface extends SprykerCustomerClientInterface
      * @return void
      */
     public function markCustomerAsDirty();
+
+    /**
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomersTransfer
+     */
+    public function getCustomersInSameGroup(CustomerTransfer $customerTransfer);
 }

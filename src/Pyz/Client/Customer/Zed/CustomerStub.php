@@ -8,6 +8,8 @@
 namespace Pyz\Client\Customer\Zed;
 
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
+use Generated\Shared\Transfer\CustomersTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Client\Customer\Zed\CustomerStub as SprykerCustomerStub;
 
 class CustomerStub extends SprykerCustomerStub implements CustomerStubInterface
@@ -23,5 +25,13 @@ class CustomerStub extends SprykerCustomerStub implements CustomerStubInterface
             '/customer/gateway/get-customer-overview',
             $overviewRequest
         );
+    }
+
+    /**
+     * @return CustomersTransfer|\Spryker\Shared\Kernel\Transfer\TransferInterface
+     */
+    public function getCustomersInSameGroup(CustomerTransfer $customerTransfer)
+    {
+        return $this->zedStub->call('/customer/gateway/get-customers-in-same-group', $customerTransfer);
     }
 }
