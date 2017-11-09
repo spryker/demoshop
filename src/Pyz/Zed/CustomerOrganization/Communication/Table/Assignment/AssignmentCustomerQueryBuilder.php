@@ -7,8 +7,31 @@
 
 namespace Pyz\Zed\CustomerOrganization\Communication\Table\Assignment;
 
+use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerGroupToCustomerTableMap;
+use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerOrganizationRoleTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 use \Spryker\Zed\CustomerGroup\Communication\Table\Assignment\AssignmentCustomerQueryBuilder as BaseAssignmentCustomerQueryBuilder;
 
 class AssignmentCustomerQueryBuilder extends BaseAssignmentCustomerQueryBuilder implements AssignmentCustomerQueryBuilderInterface
 {
+    /**
+     * @param int|null $idCustomerGroup
+     *
+     * @return \Orm\Zed\Customer\Persistence\SpyCustomerQuery
+     */
+    public function buildAssignedQuery($idCustomerGroup = null)
+    {
+        $query = $this->customerQueryContainer
+            ->queryCustomers()
+            ->useSpyCustomerGroupToCustomerQuery()
+            ->filterByFkCustomerGroup($idCustomerGroup)
+            ->endUse()
+            ->addJoin(
+                SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_ORGANIZATION_ROLE,
+                SpyCustomerOrganizationRoleTableMap::COL_ID_CUSTOMER_ORGANIZATION_ROLE,
+                Criteria::LEFT_JOIN
+            );
+
+        return $query;
+    }
 }
