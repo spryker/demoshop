@@ -7,9 +7,13 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use ArrayObject;
+use Generated\Shared\Transfer\MoneyValueTransfer;
+use Generated\Shared\Transfer\ProductOptionValueStorePricesRequestTransfer;
 use Generated\Shared\Transfer\StorageProductOptionGroupTransfer;
 use Generated\Shared\Transfer\StorageProductOptionValueTransfer;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup;
+use Propel\Runtime\Collection\ObjectCollection;
 use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
 use Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface;
@@ -112,11 +116,47 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
             $optionValues[] = [
                 StorageProductOptionValueTransfer::ID_PRODUCT_OPTION_VALUE => $optionValueEntity->getIdProductOptionValue(),
                 StorageProductOptionValueTransfer::SKU => $optionValueEntity->getSku(),
-                StorageProductOptionValueTransfer::PRICES => $this->productOptionFacade->getProductOptionValueStorePrices($optionValueEntity->getProductOptionValuePrices()),
+                StorageProductOptionValueTransfer::PRICES => $this->getPrices($optionValueEntity->getProductOptionValuePrices()),
                 StorageProductOptionValueTransfer::VALUE => $optionValueEntity->getValue(),
             ];
         }
         return $optionValues;
+    }
+
+    /**
+     * @param \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\ProductOption\Persistence\SpyProductOptionValuePrice[] $objectCollection
+     *
+     * @return array
+     */
+    protected function getPrices(ObjectCollection $objectCollection)
+    {
+        $moneyValueCollection = $this->transformPriceEntityCollectionToMoneyValueTransferCollection($objectCollection);
+
+        $priceResponse = $this->productOptionFacade->getProductOptionValueStorePrices(
+            (new ProductOptionValueStorePricesRequestTransfer())->setPrices($moneyValueCollection)
+        );
+
+        return $priceResponse->getStorePrices();
+    }
+
+    /**
+     * @param \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\ProductOption\Persistence\SpyProductOptionValuePrice[] $priceEntityCollection
+     *
+     * @return \ArrayObject|\Generated\Shared\Transfer\MoneyValueTransfer[]
+     */
+    protected function transformPriceEntityCollectionToMoneyValueTransferCollection(ObjectCollection $priceEntityCollection)
+    {
+        $moneyValueCollection = new ArrayObject();
+        foreach ($priceEntityCollection as $productOptionValuePriceEntity) {
+            $moneyValueCollection->append(
+                (new MoneyValueTransfer())
+                    ->fromArray($productOptionValuePriceEntity->toArray(), true)
+                    ->setNetAmount($productOptionValuePriceEntity->getNetPrice())
+                    ->setGrossAmount($productOptionValuePriceEntity->getGrossPrice())
+            );
+        }
+
+        return $moneyValueCollection;
     }
 
     /**
