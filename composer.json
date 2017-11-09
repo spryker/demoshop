@@ -5,6 +5,7 @@
   "require": {
     "spryker/spryker": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i-new-commands",
     "spryker-eco/loggly": "dev-master as 1.0.0",
+    "spryker/phar": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i as 1.0.0",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
@@ -22,9 +23,9 @@
     "silex/silex": "^1.3.5",
     "symfony-cmf/routing": "^1.3.0",
     "symfony/console": "^3.0.0",
-    "symfony/debug": "^2.6.13",
+    "symfony/debug": "^2.6.13|^3",
     "symfony/filesystem": "^2.6.13",
-    "symfony/finder": "^2.6.13",
+    "symfony/finder": "*",
     "symfony/form": "^2.7.0",
     "symfony/http-kernel": "^2.6.13 || ^3.0.0",
     "symfony/intl": "^2.8.8",
@@ -37,7 +38,7 @@
     "symfony/translation": "^2.6.13",
     "symfony/twig-bridge": "^2.7.0",
     "symfony/validator": "^2.6.13",
-    "symfony/yaml": "^2.6.13",
+    "symfony/yaml": "^2.6.13|^3",
     "swiftmailer/swiftmailer": "^5.4.5",
     "twig/twig": "^1.20.0",
     "zendframework/zend-config": "^3.1.0",
@@ -77,12 +78,11 @@
     "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "^2.0.2",
     "jakoch/phantomjs-installer": "^2.1.0",
-    "php-mock/php-mock": "^1.0",
     "doctrine/instantiator": "~1.0.5",
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
-    "spryker/git-hook": "dev-master",
+    "spryker/git-hook": "dev-bugfix/allow-sf-3",
     "stecman/symfony-console-completion": "^0.7.0",
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
@@ -121,6 +121,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/git-hook.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/phar.git"
     },
     {
       "type": "composer",

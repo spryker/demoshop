@@ -10,6 +10,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
 =======
@@ -22,6 +23,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setup
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
     "content-hash": "367dceaef55702aa441912c8b8ac96db",
 =======
@@ -35,6 +38,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setup
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
@@ -48,6 +53,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setup
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
     "content-hash": "bee9ce99543a7ee88dbaa0292004c998",
 =======
@@ -122,9 +129,21 @@
 =======
     "content-hash": "759aad5f54c2b20206c0f6d8dcbba605",
 >>>>>>> core-2001 update setup
+<<<<<<< HEAD
 >>>>>>> core-2001 update setup
+<<<<<<< HEAD
 >>>>>>> core-2001 update setup
+<<<<<<< HEAD
 >>>>>>> core-2001 update setup
+=======
+=======
+=======
+=======
+    "content-hash": "310c7a5b0617ff82b42d08a70d753bae",
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1740,6 +1759,50 @@
             "time": "2016-09-23T10:24:25+00:00"
         },
         {
+            "name": "seld/phar-utils",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/phar-utils.git",
+                "reference": "7009b5139491975ef6486545a39f3e6dad5ac30a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/7009b5139491975ef6486545a39f3e6dad5ac30a",
+                "reference": "7009b5139491975ef6486545a39f3e6dad5ac30a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Seld\\PharUtils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
+                }
+            ],
+            "description": "PHAR file format utilities, for when PHP phars you up",
+            "keywords": [
+                "phra"
+            ],
+            "time": "2015-10-13T18:44:15+00:00"
+        },
+        {
             "name": "silex/silex",
             "version": "v1.3.6",
             "source": {
@@ -1860,6 +1923,52 @@
             ],
             "description": "Loggly module",
             "time": "2017-10-24T10:37:10+00:00"
+        },
+        {
+            "name": "spryker/phar",
+            "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/phar.git",
+                "reference": "541ce7a5ee04bd4a05b13b314d68c52248c4bc5c"
+            },
+            "require": {
+                "monolog/monolog": "^1.23",
+                "seld/phar-utils": "^1.0",
+                "symfony/console": "^3.0.0",
+                "symfony/finder": "^3.0.0",
+                "symfony/process": "^3.0.0",
+                "symfony/yaml": "^3.0.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.2.10",
+                "jakoch/phantomjs-installer": "^2.1.0",
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpstan/phpstan": "^0.8.5",
+                "site5/phantoman": "^1.1",
+                "spryker/code-sniffer": "dev-master as 1.0.0",
+                "symfony/var-dumper": "^3.0.0"
+            },
+            "bin": [
+                "bin/spryker"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker",
+                    "PharBuilder\\": "src/PharBuilder"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Project",
+            "time": "2017-11-09T09:47:25+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -4279,6 +4388,7 @@
             "name": "symfony/config",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.2.14",
 =======
             "version": "3.2.x-dev",
@@ -4286,22 +4396,31 @@
 =======
             "version": "v3.2.13",
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.3.10",
+>>>>>>> core-2001 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "e5533fcc0b3dd377626153b2852707878f363728"
+                "reference": "4ab62407bff9cd97c410a7feaef04c375aaa5cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/e5533fcc0b3dd377626153b2852707878f363728",
-                "reference": "e5533fcc0b3dd377626153b2852707878f363728",
+                "url": "https://api.github.com/repos/symfony/config/zipball/4ab62407bff9cd97c410a7feaef04c375aaa5cfd",
+                "reference": "4ab62407bff9cd97c410a7feaef04c375aaa5cfd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/filesystem": "~2.8|~3.0"
             },
+            "conflict": {
+                "symfony/dependency-injection": "<3.3",
+                "symfony/finder": "<3.3"
+            },
             "require-dev": {
+                "symfony/dependency-injection": "~3.3",
+                "symfony/finder": "~3.3",
                 "symfony/yaml": "~3.0"
             },
             "suggest": {
@@ -4310,7 +4429,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -4337,10 +4456,11 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12T14:13:17+00:00"
+            "time": "2017-10-04T18:56:58+00:00"
         },
         {
             "name": "symfony/console",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             "version": "v3.2.14",
@@ -4350,24 +4470,32 @@
 =======
             "version": "v3.2.13",
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.3.10",
+>>>>>>> core-2001 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "eced439413608647aeff243038a33ea246b2b33a"
+                "reference": "116bc56e45a8e5572e51eb43ab58c769a352366c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/eced439413608647aeff243038a33ea246b2b33a",
-                "reference": "eced439413608647aeff243038a33ea246b2b33a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/116bc56e45a8e5572e51eb43ab58c769a352366c",
+                "reference": "116bc56e45a8e5572e51eb43ab58c769a352366c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/debug": "~2.8|~3.0",
                 "symfony/polyfill-mbstring": "~1.0"
             },
+            "conflict": {
+                "symfony/dependency-injection": "<3.3"
+            },
             "require-dev": {
                 "psr/log": "~1.0",
+                "symfony/config": "~3.3",
+                "symfony/dependency-injection": "~3.3",
                 "symfony/event-dispatcher": "~2.8|~3.0",
                 "symfony/filesystem": "~2.8|~3.0",
                 "symfony/process": "~2.8|~3.0"
@@ -4381,7 +4509,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -4408,16 +4536,19 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29T21:27:41+00:00"
+            "time": "2017-10-02T06:42:24+00:00"
         },
         {
             "name": "symfony/debug",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             "version": "v2.8.31",
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "version": "v2.8.29",
 >>>>>>> core-2001 update spryker/spryker
@@ -4435,13 +4566,17 @@
 =======
             "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "version": "v3.3.10",
+>>>>>>> core-2001 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "eaaec993ca5e8067e204b2ee653cdd142961f33e"
+                "reference": "eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/debug/zipball/d2954795088f2152eb2ea1abe74dcf1779cd487c",
                 "reference": "d2954795088f2152eb2ea1abe74dcf1779cd487c",
@@ -4450,23 +4585,26 @@
                 "url": "https://api.github.com/repos/symfony/debug/zipball/eaaec993ca5e8067e204b2ee653cdd142961f33e",
                 "reference": "eaaec993ca5e8067e204b2ee653cdd142961f33e",
 >>>>>>> core-2001 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/debug/zipball/eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd",
+                "reference": "eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd",
+>>>>>>> core-2001 update composer.lock
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": "^5.5.9|>=7.0.8",
                 "psr/log": "~1.0"
             },
             "conflict": {
                 "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
             },
             "require-dev": {
-                "symfony/class-loader": "~2.2|~3.0.0",
-                "symfony/http-kernel": "~2.3.24|~2.5.9|^2.6.2|~3.0.0"
+                "symfony/http-kernel": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -4495,6 +4633,7 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-10-24T13:48:52+00:00"
 =======
             "time": "2017-10-10T07:42:03+00:00"
@@ -4502,6 +4641,9 @@
 =======
             "time": "2017-10-01T21:00:16+00:00"
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-10-02T06:42:24+00:00"
+>>>>>>> core-2001 update composer.lock
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4632,10 +4774,13 @@
             "name": "symfony/finder",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
@@ -4656,15 +4801,27 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/finder/zipball/efeceae6a05a9b2fcb3391333f1d4a828ff44ab8",
                 "reference": "efeceae6a05a9b2fcb3391333f1d4a828ff44ab8",
+=======
+            "version": "v3.3.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "773e19a491d97926f236942484cb541560ce862d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/773e19a491d97926f236942484cb541560ce862d",
+                "reference": "773e19a491d97926f236942484cb541560ce862d",
+>>>>>>> core-2001 update composer.lock
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -4691,7 +4848,11 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-11-05T15:25:56+00:00"
+=======
+            "time": "2017-10-02T06:42:24+00:00"
+>>>>>>> core-2001 update composer.lock
         },
         {
             "name": "symfony/form",
@@ -6381,6 +6542,7 @@
         },
         {
             "name": "symfony/yaml",
+<<<<<<< HEAD
             "version": "v2.8.28",
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
@@ -6393,15 +6555,33 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/d819bf267e901727141fe828ae888486fd21236e",
                 "reference": "d819bf267e901727141fe828ae888486fd21236e",
+=======
+            "version": "v3.3.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "8c7bf1e7d5d6b05a690b715729cb4cd0c0a99c46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/8c7bf1e7d5d6b05a690b715729cb4cd0c0a99c46",
+                "reference": "8c7bf1e7d5d6b05a690b715729cb4cd0c0a99c46",
+>>>>>>> core-2001 update composer.lock
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "require-dev": {
+                "symfony/console": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -6428,7 +6608,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-11-05T15:25:56+00:00"
+=======
+            "time": "2017-10-05T14:43:42+00:00"
+>>>>>>> core-2001 update composer.lock
         },
         {
             "name": "twig/twig",
@@ -7809,68 +7993,6 @@
             ],
             "description": "Official version of pdepend to be handled with Composer",
             "time": "2017-01-19T14:23:36+00:00"
-        },
-        {
-            "name": "php-mock/php-mock",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-mock/php-mock.git",
-                "reference": "bfa2d17d64dbf129073a7ba2051a96ce52749570"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-mock/php-mock/zipball/bfa2d17d64dbf129073a7ba2051a96ce52749570",
-                "reference": "bfa2d17d64dbf129073a7ba2051a96ce52749570",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5",
-                "phpunit/php-text-template": "^1"
-            },
-            "replace": {
-                "malkusch/php-mock": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4|^5"
-            },
-            "suggest": {
-                "php-mock/php-mock-mockery": "Allows using PHPMockery for Mockery integration",
-                "php-mock/php-mock-phpunit": "Allows integration into PHPUnit testcase with the trait PHPMock."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "phpmock\\": [
-                        "classes/",
-                        "tests/unit/"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "WTFPL"
-            ],
-            "authors": [
-                {
-                    "name": "Markus Malkusch",
-                    "email": "markus@malkusch.de",
-                    "homepage": "http://markus.malkusch.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP-Mock can mock built-in PHP functions (e.g. time()). PHP-Mock relies on PHP's namespace fallback policy. No further extension is needed.",
-            "homepage": "https://github.com/php-mock/php-mock",
-            "keywords": [
-                "BDD",
-                "TDD",
-                "function",
-                "mock",
-                "stub",
-                "test",
-                "test double"
-            ],
-            "time": "2015-11-11T22:37:09+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -9686,6 +9808,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a"
             },
             "dist": {
@@ -9705,6 +9828,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setup
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
                 "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
             },
@@ -9725,6 +9850,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setup
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
                 "reference": "6273b5233d003764e59af4b5798decb6422c5acd"
             },
@@ -9845,7 +9972,18 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/aaff9fa8728bb6a58f7e7e1454e569875d106a24",
                 "reference": "aaff9fa8728bb6a58f7e7e1454e569875d106a24",
 >>>>>>> core-2001 update setup
+<<<<<<< HEAD
 >>>>>>> core-2001 update setup
+=======
+=======
+                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1f8241790a7bdc1da3de294ecce45addc8dde34e",
+                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e",
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
                 "shasum": ""
             },
             "require": {
@@ -9890,6 +10028,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-21T13:26:10+00:00"
 =======
 =======
@@ -9904,6 +10043,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setup
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "time": "2017-11-07T15:24:39+00:00"
 =======
@@ -9919,6 +10060,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update setup
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "time": "2017-11-07T12:05:04+00:00"
 =======
@@ -9992,16 +10135,29 @@
 =======
             "time": "2017-11-07T15:18:58+00:00"
 >>>>>>> core-2001 update setup
+<<<<<<< HEAD
 >>>>>>> core-2001 update setup
+<<<<<<< HEAD
 >>>>>>> core-2001 update setup
+=======
+=======
+=======
+            "time": "2017-11-07T15:24:39+00:00"
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
         },
         {
             "name": "spryker/git-hook",
-            "version": "dev-master",
+            "version": "dev-bugfix/allow-sf-3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
+<<<<<<< HEAD
                 "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
+=======
+                "reference": "99066c271bb770db9684e24e162fe4808d5b4c7b"
+>>>>>>> core-2001 update composer.lock
             },
             "require": {
                 "php": ">=5.4.16",
@@ -10049,7 +10205,11 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
+<<<<<<< HEAD
             "time": "2017-11-13T13:27:04+00:00"
+=======
+            "time": "2017-11-09T10:38:34+00:00"
+>>>>>>> core-2001 update composer.lock
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -10321,36 +10481,46 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.1.10",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "f4a04433f82eb8ca58555d1b6375293fc7c90d18"
+                "reference": "8ebad929aee3ca185b05f55d9cc5521670821ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f4a04433f82eb8ca58555d1b6375293fc7c90d18",
-                "reference": "f4a04433f82eb8ca58555d1b6375293fc7c90d18",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/8ebad929aee3ca185b05f55d9cc5521670821ad1",
+                "reference": "8ebad929aee3ca185b05f55d9cc5521670821ad1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^5.5.9|>=7.0.8",
+                "psr/container": "^1.0"
+            },
+            "conflict": {
+                "symfony/config": "<3.3.1",
+                "symfony/finder": "<3.3",
+                "symfony/yaml": "<3.3"
+            },
+            "provide": {
+                "psr/container-implementation": "1.0"
             },
             "require-dev": {
-                "symfony/config": "~2.8|~3.0",
+                "symfony/config": "~3.3",
                 "symfony/expression-language": "~2.8|~3.0",
-                "symfony/yaml": "~2.8.7|~3.0.7|~3.1.1|~3.2"
+                "symfony/yaml": "~3.3"
             },
             "suggest": {
                 "symfony/config": "",
                 "symfony/expression-language": "For using expressions in service container configuration",
+                "symfony/finder": "For using double-star glob patterns or when GLOB_BRACE portability is required",
                 "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them",
                 "symfony/yaml": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -10377,7 +10547,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-28T00:04:57+00:00"
+            "time": "2017-10-04T17:15:30+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -10772,12 +10942,19 @@
             "alias_normalized": "1.0.0.0",
             "version": "9999999-dev",
             "package": "spryker-eco/loggly"
+        },
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i",
+            "package": "spryker/phar"
         }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
         "spryker/spryker": 20,
         "spryker-eco/loggly": 20,
+        "spryker/phar": 20,
         "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
