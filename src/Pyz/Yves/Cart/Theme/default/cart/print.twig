@@ -1,0 +1,48 @@
+{% extends "@application/layout/layout-print.twig" %}
+
+{% block title %}
+    <h3>Order</h3>
+{% endblock %}
+
+{% block content %}
+    {% if cart.items|length > 0 %}
+        <div class="row">
+            <div class="small-12 columns">
+                {% for cartItem in cartItems %}
+                    {% if cartItem.bundleProduct is defined %}
+                        {% include '@cart/cart/parts/cart-item.twig' with {
+                        cartItem: cartItem.bundleProduct,
+                        bundleItems: cartItem.bundleItems
+                        } %}
+                    {% else %}
+                        {% include '@cart/cart/parts/cart-item-print.twig' %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 large-6 columns">
+                <div class="callout">
+                    Signature for approval:<br><br><br><br><br><br>
+                        _________________________________________________________________
+                        <br><br>
+                    Order Code: <br><br>
+                    <img src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fwww.spryker.com&chs=180x180&choe=UTF-8&chld=L|2' alt='qr code'><a href='http://www.qrcode-generator.de' border='0' style='cursor:default'  rel='nofollow'></a>
+                </div>
+            </div>
+
+            <div class="small-12 large-6 columns">
+                {% include '@cart/cart/parts/cart-summary-print.twig'  with {customer: customer} %}
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="small-12 columns">
+                {% include '@cart/cart/parts/cart-empty.twig' %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}{% endblock %}

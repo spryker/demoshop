@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="{{ app.locale | slice(0, 2) }}">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="{{ page_description | default('') | trans }}" />
+    <meta name="keywords" content="{{ page_keywords | default('') | trans }}" />
+    <meta name="generator" content="spryker" />
+    {% block page_meta %}{% endblock %}
+
+    <link rel="stylesheet" href="/assets/default/css/vendor.css" />
+    <link rel="stylesheet" href="/assets/default/css/app.css" />
+    {% block stylesheets %}{% endblock %}
+
+    <title>{% block page_title %}{{ page_title | default('global.spryker.shop') | trans }}{% endblock %}</title>
+</head>
+
+<body data-component="main">
+    {% block outside %}{% endblock %}
+
+    <div class="__page" tabindex="-1">
+        {% block page_start %}{% endblock %}
+        <header>
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="callout">
+                        <div class="row align-middle align-justify">
+                            <div class="small-7 large-5 xlarge-6 columns">
+                                <a href="/">
+                                    <img src="/assets/default/img/logo.svg" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% block breadcrumb %}
+                        <div class="callout">
+                            {% block title %}{% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            <div class="row">
+                {% block footer %}
+                    {% include "@application/layout/partials/footer.twig" %}
+                {% endblock %}
+
+                <div class="small-12 columns text-center">
+                    <p class="callout">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        <br>Aenean commodo ligula eget dolor. Aenean massa.
+                        <br>&copy; ACME Company
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <script src="/assets/default/js/vendor.js"></script>
+    <script src="/assets/default/js/app.js"></script>
+    {% block javascript %}{% endblock %}
+</body>
+
+</html>
