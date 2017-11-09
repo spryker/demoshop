@@ -9,6 +9,7 @@ namespace Pyz\Zed\CustomerOrganization\Communication\Table;
 
 use Orm\Zed\Customer\Persistence\Map\SpyCustomerTableMap;
 use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerGroupToCustomerTableMap;
+use Orm\Zed\CustomerGroup\Persistence\SpyCustomerGroupToCustomer;
 use \Spryker\Zed\CustomerGroup\Communication\Table\CustomerTable as BaseCustomerTable;
 use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
 
@@ -50,4 +51,23 @@ class CustomerTable extends BaseCustomerTable
 
         return $config;
     }
+
+    /**
+     * @param SpyCustomerGroupToCustomer $customerGroupToCustomerEntity
+     *
+     * @return string
+     */
+    protected function buildLinks(SpyCustomerGroupToCustomer $customerGroupToCustomerEntity)
+    {
+        $buttons = parent::buildLinks($customerGroupToCustomerEntity);
+
+        $cartButton = $this->generateViewButton(
+            sprintf('/customer/cart?id-customer=%d', $customerGroupToCustomerEntity->getFkCustomer()),
+            'Cart'
+        );
+
+        return $buttons . ' ' . $cartButton;
+    }
+
+
 }

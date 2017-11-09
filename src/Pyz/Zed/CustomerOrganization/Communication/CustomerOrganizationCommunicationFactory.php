@@ -23,6 +23,12 @@ use Pyz\Zed\CustomerOrganization\Communication\Table\CustomerTable;
 
 class CustomerOrganizationCommunicationFactory extends BaseCustomerGroupCommunicationFactory
 {
+
+    public function createCartTable()
+    {
+        return [];
+    }
+
     /**
      * @return \Spryker\Zed\CustomerGroup\Communication\Table\CustomerGroupTable
      */

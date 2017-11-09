@@ -13,6 +13,9 @@ use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerOrganizationRoleTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Customer\Persistence\CustomerQueryContainer as BaseCustomerQueryContainer;
 
+/**
+ * @method \Pyz\Zed\Customer\Persistence\CustomerPersistenceFactory getFactory()
+ */
 class CustomerQueryContainer extends BaseCustomerQueryContainer implements CustomerQueryContainerInterface
 {
     public function queryCustomers()
@@ -29,5 +32,18 @@ class CustomerQueryContainer extends BaseCustomerQueryContainer implements Custo
                 Criteria::INNER_JOIN
             )
             ->withColumn(SpyCustomerOrganizationRoleTableMap::COL_ROLE, 'role');
+    }
+
+    /**
+     * @param int $idCustomer
+     *
+     * @return $this|\Orm\Zed\Product\Persistence\PyzQuoteQuery
+     */
+    public function queryCart(int $idCustomer)
+    {
+        return $this->getFactory()
+            ->createQuoteQuery()
+            ->filterByFkCustomer($idCustomer);
+
     }
 }

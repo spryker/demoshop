@@ -7,9 +7,14 @@
 
 namespace Pyz\Zed\Customer\Communication;
 
+use Pyz\Zed\Customer\Communication\Table\CartTable;
 use Pyz\Zed\Customer\CustomerDependencyProvider;
 use Spryker\Zed\Customer\Communication\CustomerCommunicationFactory as SprykerCustomerCommunicationFactory;
 
+/**
+ * @method \Pyz\Zed\Customer\Persistence\CustomerQueryContainerInterface getQueryContainer()
+ *
+*/
 class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
 {
     /**
@@ -26,5 +31,19 @@ class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
     public function getNewsletterFacade()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::NEWSLETTER_FACADE);
+    }
+
+    /**
+     * @param int $idCustomer
+     *
+     * @return CartTable
+     */
+    public function createCartTable(int $idCustomer)
+    {
+        return new CartTable(
+            $this->getQueryContainer(),
+            $this->getProvidedDependency(CustomerDependencyProvider::SERVICE_DATE_FORMATTER),
+            $idCustomer
+        );
     }
 }
