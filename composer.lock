@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1555ebfcffa0a306c890b746728f441",
+    "content-hash": "947276574daff48abc42ecdbd65e0ff8",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.37.1",
+            "version": "3.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f3166fbdf14cea6898729dd945eaabdd211abe8f"
+                "reference": "65bc3aec387a2cfb997ec60bce3febdac8b30701"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f3166fbdf14cea6898729dd945eaabdd211abe8f",
-                "reference": "f3166fbdf14cea6898729dd945eaabdd211abe8f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/65bc3aec387a2cfb997ec60bce3febdac8b30701",
+                "reference": "65bc3aec387a2cfb997ec60bce3febdac8b30701",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-11-07T20:32:15+00:00"
+            "time": "2017-11-08T23:17:54+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -163,6 +163,117 @@
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
             "time": "2017-02-14T19:40:03+00:00"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Lexer\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "time": "2014-09-09T13:34:57+00:00"
+        },
+        {
+            "name": "egulias/email-validator",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egulias/EmailValidator.git",
+                "reference": "bc31baa11ea2883e017f0a10d9722ef9d50eac1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/bc31baa11ea2883e017f0a10d9722ef9d50eac1c",
+                "reference": "bc31baa11ea2883e017f0a10d9722ef9d50eac1c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "^1.0.1",
+                "php": ">= 5.5"
+            },
+            "require-dev": {
+                "dominicsayers/isemail": "dev-master",
+                "phpunit/phpunit": "^4.8.0",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "suggest": {
+                "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Egulias\\EmailValidator\\": "EmailValidator"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Gulias Davis"
+                }
+            ],
+            "description": "A library for validating emails against several RFCs",
+            "homepage": "https://github.com/egulias/EmailValidator",
+            "keywords": [
+                "email",
+                "emailvalidation",
+                "emailvalidator",
+                "validation",
+                "validator"
+            ],
+            "time": "2017-01-30T22:07:36+00:00"
         },
         {
             "name": "everon/collection",
@@ -4589,11 +4700,11 @@
         },
         {
             "name": "spryker/customer",
-            "version": "6.3.3",
+            "version": "6.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Customer.git",
-                "reference": "8ca9336ae9096f40e5ba1a49024ba177e2072205",
+                "reference": "de24442eccffbd9901361b757f12e5d21a2a487e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4603,8 +4714,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Customer/zipball/8ca9336ae9096f40e5ba1a49024ba177e2072205",
-                "reference": "8ca9336ae9096f40e5ba1a49024ba177e2072205",
+                "url": "https://api.github.com/repos/spryker/Customer/zipball/de24442eccffbd9901361b757f12e5d21a2a487e",
+                "reference": "de24442eccffbd9901361b757f12e5d21a2a487e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4626,6 +4737,7 @@
                 "spryker/util-date-time": "^1.0.0",
                 "spryker/util-sanitize": "^2.0.0",
                 "spryker/util-text": "^1.1.0",
+                "spryker/util-validate": "^1.0.0",
                 "spryker/zed-request": "^3.0.0"
             },
             "require-dev": {
@@ -4670,7 +4782,7 @@
             "support": {
                 "source": "https://github.com/spryker/Customer/tree/master"
             },
-            "time": "2017-11-07T14:27:23+00:00"
+            "time": "2017-11-09T11:16:21+00:00"
         },
         {
             "name": "spryker/customer-api",
@@ -5360,6 +5472,55 @@
                 "source": "https://github.com/spryker/DummyPayment/tree/master"
             },
             "time": "2017-11-07T13:32:47+00:00"
+        },
+        {
+            "name": "spryker/egulias",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/Egulias.git",
+                "reference": "154f30dd86390d29382936290b48c6891fef130f",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/Egulias/zipball/154f30dd86390d29382936290b48c6891fef130f",
+                "reference": "154f30dd86390d29382936290b48c6891fef130f",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "egulias/email-validator": "~2.1.2"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Egulias module",
+            "support": {
+                "source": "https://github.com/spryker/Egulias/tree/1.0.0"
+            },
+            "time": "2017-11-09T13:55:22+00:00"
         },
         {
             "name": "spryker/elastica",
@@ -12946,6 +13107,66 @@
                 "source": "https://github.com/spryker/UtilText/tree/master"
             },
             "time": "2017-10-24T13:32:31+00:00"
+        },
+        {
+            "name": "spryker/util-validate",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/UtilValidate.git",
+                "reference": "e9bb63d9ff8262a3c38579d260dab78de4b4fefb",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/UtilValidate/zipball/e9bb63d9ff8262a3c38579d260dab78de4b4fefb",
+                "reference": "e9bb63d9ff8262a3c38579d260dab78de4b4fefb",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/egulias": "^1.0.0",
+                "spryker/kernel": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "UtilValidate module",
+            "support": {
+                "source": "https://github.com/spryker/UtilValidate/tree/1.0.0"
+            },
+            "time": "2017-11-09T13:55:22+00:00"
         },
         {
             "name": "spryker/wishlist",

@@ -15,6 +15,7 @@
     "ext-pgsql": "*",
     "ext-readline": "*",
     "ext-redis": "*",
+    "spryker-eco/loggly": "dev-master as 1.0.0",
     "spryker/acl": "^3.0.0",
     "spryker/api": "^0.1.0",
     "spryker/api-query-builder": "^0.1.0",
@@ -68,6 +69,7 @@
     "spryker/discount-calculation-connector": "^5.0.0",
     "spryker/discount-promotion": "^1.0.0",
     "spryker/dummy-payment": "^2.0.0",
+    "spryker/egulias": "^1.0.0",
     "spryker/elastica": "^3.0.0",
     "spryker/error-handler": "^2.0.0",
     "spryker/event": "^2.0.0",
@@ -177,13 +179,12 @@
     "spryker/twig": "^3.0.0",
     "spryker/url": "^3.0.0",
     "spryker/user": "^3.0.0",
+    "spryker/util-validate": "^1.0.0",
     "spryker/wishlist": "^4.0.0",
     "spryker/zed-navigation": "^1.0.0",
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
-    "spryker-eco/loggly": "dev-master as 1.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5",
-    "egulias/email-validator": "^2.1.2"
+    "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
     "doctrine/instantiator": "~1.0.5",
