@@ -182,7 +182,8 @@
     "spryker/zed-request": "^3.0.0",
     "spryker/zend": "^2.0.0",
     "spryker-eco/loggly": "dev-master as 1.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5"
+    "swiftmailer/swiftmailer": "^5.4.5",
+    "egulias/email-validator": "^2.1.2"
   },
   "require-dev": {
     "doctrine/instantiator": "~1.0.5",
