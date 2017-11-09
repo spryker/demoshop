@@ -1,0 +1,70 @@
+{% extends "@Customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.admin' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'admin'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <h4>{{ 'customer.account.admin.users' | trans}}</h4>
+                <table class="stack">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <h4>{{ 'customer.account.admin.add_users' | trans}}</h4>
+                <form action="/customer/admin/add">
+                    <table class="stack">
+                        <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th><input title="First Name" type="text" name="first_name"/></th>
+                            <th><input title="Last Name" type="text" name="last_name"/></th>
+                            <th><input title="Email" type="text" name="email"/></th>
+                            <th><input title="Password" type="text" name="password"/></th>
+                            <th>
+                                <select title="Role" name="role">
+                                    <option value="Procurement Specialist">Procurement Specialist</option>
+                                    <option value="Purchasing Specialist">Purchasing Specialist</option>
+                                </select>
+                            </th>
+                            <th colspan="2">
+                                <button class="button success expanded">Add</button>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

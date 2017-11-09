@@ -20,6 +20,11 @@
         <a href="{{ path('cart/list') }}" data-id="sidebar-cart">Carts</a>
     </li>
     {% endif %}
+    {% if getOrganisationRole() == 'Admin' %}
+        <li {% if active == 'admin' %}class="active"{% endif %}>
+            <a href="{{ path('customer/admin') }}" data-id="sidebar-cart">Organization Admin</a>
+        </li>
+    {% endif %}
     <li {% if active == 'wishlist' %}class="active"{% endif %}>
         <a href="{{ path('wishlist/overview') }}" data-id="sidebar-wishlist">{{ 'wishlist.wishlist' | trans }}</a>
         {% block wishlistSubmenu %}{% endblock %}

@@ -23,6 +23,12 @@ use Pyz\Zed\CustomerOrganization\Communication\Table\CustomerTable;
 
 class CustomerOrganizationCommunicationFactory extends BaseCustomerGroupCommunicationFactory
 {
+
+    public function createCartTable()
+    {
+        return [];
+    }
+
     /**
      * @return \Spryker\Zed\CustomerGroup\Communication\Table\CustomerGroupTable
      */
@@ -48,9 +54,9 @@ class CustomerOrganizationCommunicationFactory extends BaseCustomerGroupCommunic
     }
 
     /**
-     * @param int|null $idCustomerGroup
+     * @param null|int $idCustomerGroup
      *
-     * @return \Spryker\Zed\CustomerGroup\Communication\Table\Assignment\AssignedCustomerTable
+     * @return AssignedCustomerTable
      */
     public function createAssignedCustomerTable($idCustomerGroup = null)
     {
@@ -64,7 +70,7 @@ class CustomerOrganizationCommunicationFactory extends BaseCustomerGroupCommunic
     /**
      * @param int|null $idCustomerGroup
      *
-     * @return \Spryker\Zed\CustomerGroup\Communication\Table\Assignment\AvailableCustomerTable
+     * @return AvailableCustomerTable
      */
     public function createAvailableCustomerTable($idCustomerGroup = null)
     {

@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\OrderListTransfer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
@@ -52,6 +53,34 @@ class CustomerController extends AbstractCustomerController
             'addresses' => $this->getDefaultAddresses($customerTransfer),
             'isSubscribed' => $overviewResponse->getIsSubscribed(),
         ]);
+    }
+
+    /**
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function adminAction()
+    {
+        return $this->viewResponse([
+
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function addCustomerAction(Request $request)
+    {
+
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteCustomerAction(Request $request)
+    {
+
     }
 
     /**

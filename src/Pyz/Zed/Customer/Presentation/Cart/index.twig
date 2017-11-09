@@ -1,0 +1,25 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% set widget_title = 'Cart' %}
+
+{% block head_title widget_title | trans %}
+
+{% block section_title widget_title | trans %}
+
+{% block action %}
+    {{ createActionButton('/customer/add', 'Edit cart' | trans) }}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' %}
+
+        {% block widget_content %}
+
+            {{ cartTable | raw }}
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}
