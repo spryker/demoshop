@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecdfa8cd0bb18a7d9e6ca4f5fd924773",
+    "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1817,11 +1817,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-2146-add-email-validation-in-zed",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f5fa3713abef65c42811bbb63638b1a06f684d00"
+                "reference": "519a38e62498ab5fce5c16551d683ad8ef4ed67e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2021,7 +2021,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-09T11:16:21+00:00"
+            "time": "2017-11-09T13:30:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6801,7 +6801,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
