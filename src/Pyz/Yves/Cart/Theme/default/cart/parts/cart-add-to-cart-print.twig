@@ -1,0 +1,21 @@
+<div class="small-4 medium-3 large-2 columns">
+    <ul class="no-bullet">
+        <li>
+                <label>
+                    <strong>{{ 'cart.item_quantity' | trans }}</strong>
+                    <span class="input-group __no-margin-bottom">
+
+                         {% if not cartItem.maxQuantity or cartItem.maxQuantity < 0 %}
+                             <input class="input-group-field" type="number" value="{{ cartItem.quantity }}" name="quantity">
+                         {% else %}
+                             <select name="quantity">
+                                {% for i in range(1, cartItem.maxQuantity) %}
+                                    <option {{ (i == cartItem.quantity) ? 'selected' : '' }} value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                             </select>
+                         {% endif %}
+                     </span>
+                </label>
+        </li>
+    </ul>
+</div>

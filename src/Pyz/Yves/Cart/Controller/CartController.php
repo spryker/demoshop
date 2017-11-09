@@ -76,6 +76,58 @@ class CartController extends AbstractController
         ]);
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param array|null $selectedAttributes
+     *
+     * @return array
+     */
+    public function printAction(Request $request, array $selectedAttributes = null)
+    {
+        $quoteTransfer = $this->getClient()
+            ->getQuote();
+
+        $voucherForm = $this->getFactory()
+            ->getVoucherForm();
+
+        $cartItems = $this->getFactory()
+            ->createProductBundleGrouper()
+            ->getGroupedBundleItems($quoteTransfer->getItems(), $quoteTransfer->getBundleItems());
+
+        $stepBreadcrumbsTransfer = $this->getFactory()
+            ->getCheckoutBreadcrumbPlugin()
+            ->generateStepBreadcrumbs($quoteTransfer);
+
+        $itemAttributesBySku = $this->getFactory()
+            ->createCartItemsAttributeProvider()
+            ->getItemsAttributes($quoteTransfer, $selectedAttributes);
+
+        $promotionStorageProducts = $this->getFactory()
+            ->getProductPromotionMapperPlugin()
+            ->mapPromotionItemsFromProductStorage(
+                $quoteTransfer,
+                $request
+            );
+
+        $customer = $this->getFactory()
+            ->getCustomerClient()
+            ->getCustomer();
+
+        if ($customer != null) {
+            $customer = $customer->toArray();
+        }
+
+        return $this->viewResponse([
+            'cart' => $quoteTransfer,
+            'cartItems' => $cartItems,
+            'attributes' => $itemAttributesBySku,
+            'voucherForm' => $voucherForm->createView(),
+            'stepBreadcrumbs' => $stepBreadcrumbsTransfer,
+            'promotionStorageProducts' => $promotionStorageProducts,
+            'customer' => $customer,
+        ]);
+    }
+
     public function exportAction(Request $request, array $selectedAttributes = null)
     {
         $quoteTransfer = $this->getClient()

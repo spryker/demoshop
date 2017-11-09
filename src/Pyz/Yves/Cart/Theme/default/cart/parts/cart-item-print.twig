@@ -1,0 +1,34 @@
+<div class="callout cart-item">
+    <div class="row">
+
+        {% include '@Cart/cart/parts/cart-images.twig' %}
+
+        <div class="small-9 large-expand columns">
+            <ul class="no-bullet">
+                {# General data #}
+                <li class="lead">{{ cartItem.name }}</li>
+                <li class="__secondary">
+                    <small>{{ 'cart.item.sku' | trans }} {{ cartItem.sku }}</small>
+                </li>
+
+                {% if bundleItems is defined %}
+                    {# Product Bundles #}
+                    <li>
+                        <strong>{{ 'cart.item.bundle.description' | trans }}</strong>
+                        <ul>
+                            {% for bundleItem in bundleItems %}
+                                <li>{{ bundleItem.quantity }} x {{ bundleItem.name }}  </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                      {% include '@Cart/cart/parts/cart-product-variants.twig' %}
+                {% endif %}
+            </ul>
+        </div>
+
+        {% include '@Cart/cart/parts/cart-item-prices.twig' %}
+
+        {% include '@Cart/cart/parts/cart-add-to-cart-print.twig' %}
+    </div>
+</div>
