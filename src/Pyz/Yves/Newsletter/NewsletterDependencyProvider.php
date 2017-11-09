@@ -35,7 +35,7 @@ class NewsletterDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function addUtilValidateService(Container $container)
     {
-        $container[static::SERVICE_UTIL_VALIDATE] = function (\Spryker\Yves\Kernel\Container $container) {
+        $container[static::SERVICE_UTIL_VALIDATE] = function (Container $container) {
             return $container->getLocator()->utilValidate()->service();
         };
 
