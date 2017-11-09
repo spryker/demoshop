@@ -8,7 +8,6 @@
 namespace Pyz\Client\Catalog;
 
 use Pyz\Client\Catalog\Plugin\Elasticsearch\Query\FeaturedProductsQueryPlugin;
-use Pyz\Client\Catalog\Price\PriceIdentifierBuilder;
 use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
 
 class CatalogFactory extends SprykerCatalogFactory
@@ -29,15 +28,11 @@ class CatalogFactory extends SprykerCatalogFactory
     }
 
     /**
-     * @return \Pyz\Client\Catalog\Price\PriceIdentifierBuilderInterface
+     * @return \Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface
      */
-    public function createPriceIdentifierBuilder()
+    public function getCatalogPriceProductConnectorClient()
     {
-        return new PriceIdentifierBuilder(
-            $this->getCurrencyClient(),
-            $this->getPriceClient(),
-            $this->getPriceProductClient()
-        );
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT);
     }
 
     /**

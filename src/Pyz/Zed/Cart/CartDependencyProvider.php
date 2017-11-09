@@ -12,6 +12,7 @@ use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\CartGroupPromotionIt
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PaymentCartConnector\Communication\Plugin\Cart\RemovePaymentCartPostSavePlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
+use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePreCheckPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartBundleAvailabilityPreCheckPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartBundleItemsPreReloadPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartItemWithBundleGroupKeyExpanderPlugin;
@@ -24,7 +25,8 @@ use Spryker\Zed\ProductImageCartConnector\Communication\Plugin\ProductImageCartP
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOptionQuantityPlugin;
-use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePreCheckPlugin;
+use Spryker\Zed\ShipmentCartConnector\Communication\Plugin\Cart\CartShipmentExpanderPlugin;
+use Spryker\Zed\ShipmentCartConnector\Communication\Plugin\Cart\CartShipmentPreCheckPlugin;
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
@@ -46,6 +48,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemWithBundleGroupKeyExpanderPlugin(),
             new ProductImageCartPlugin(),
             new CartGroupPromotionItems(),
+            new CartShipmentExpanderPlugin(),
         ];
     }
 
@@ -60,6 +63,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new ProductExistsCartPreCheckPlugin(),
             new CartItemPricePreCheckPlugin(),
             new CartBundleAvailabilityPreCheckPlugin(),
+            new CartShipmentPreCheckPlugin(),
         ];
     }
 

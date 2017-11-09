@@ -1037,3 +1037,7 @@ price.mode.net_mode,Net prices,en_US
 price.mode.net_mode,Net prices,de_DE
 cart.pre.check.price.failed,"Price not found for product with sku '%sku%'.",en_US
 cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%'.",de_DE
+price.mode.switch.error,"Can't switch price mode when there is items in the cart.",en_US
+price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
+cart.pre.check.shipment.failed,"Can't change cart shipment method not found.",en_US
+cart.pre.check.shipment.failed,"Die Versandmethode für den Warenkorb konnte nicht geändert werden.",de_DE

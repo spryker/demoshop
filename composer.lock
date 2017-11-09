@@ -773,16 +773,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.0.8",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f"
+                "reference": "1507938933696f5028689554347dfc26d07bb617"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/149ba5943511e118bf68f9118e3c84bbe42bf94f",
-                "reference": "149ba5943511e118bf68f9118e3c84bbe42bf94f",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/1507938933696f5028689554347dfc26d07bb617",
+                "reference": "1507938933696f5028689554347dfc26d07bb617",
                 "shasum": ""
             },
             "require": {
@@ -847,7 +847,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2017-10-03T09:21:46+00:00"
+            "time": "2017-11-05T18:20:21+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1710,7 +1710,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4300f52a90b635b9ebe9cd27a017e45d6bb32892"
+                "reference": "389f1905407380625911460da21ce4f2e7a071e0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1910,7 +1910,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-06T16:29:38+00:00"
+            "time": "2017-11-08T09:37:31+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4952,16 +4952,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a"
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a1e8e1a30e1352f118feff1a8481066ddc2f234a",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
                 "shasum": ""
             },
             "require": {
@@ -4999,7 +4999,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-09-02T17:10:46+00:00"
+            "time": "2017-11-04T11:48:34+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -6709,7 +6709,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
+                "reference": "2621122211a37dfa1500f12d10a4850a70297859",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6719,8 +6719,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/80ec189e9825995d37a2790da91b5f4ce0d6a68a",
-                "reference": "80ec189e9825995d37a2790da91b5f4ce0d6a68a",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2621122211a37dfa1500f12d10a4850a70297859",
+                "reference": "2621122211a37dfa1500f12d10a4850a70297859",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6781,7 +6781,7 @@
                 "source": "https://github.com/spryker/architecture-sniffer",
                 "issues": "https://github.com/spryker/architecture-sniffer/issues"
             },
-            "time": "2017-10-24T15:59:01+00:00"
+            "time": "2017-11-07T13:29:11+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -6844,12 +6844,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7"
+                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/80f56b7fb0725ab02535b890d1f95f135c87f0b7",
-                "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1f8241790a7bdc1da3de294ecce45addc8dde34e",
+                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e",
                 "shasum": ""
             },
             "require": {
@@ -6887,7 +6887,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-10-17T11:04:08+00:00"
+            "time": "2017-11-07T15:24:39+00:00"
         },
         {
             "name": "spryker/git-hook",
