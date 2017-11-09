@@ -30,3 +30,8 @@ services:
         class: PhpStan\DynamicType\PluginDynamicTypeExtension
         tags:
             - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ServiceDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
