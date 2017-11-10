@@ -10,6 +10,7 @@ namespace Pyz\Zed\CustomerOrganization\Communication\Table;
 use Orm\Zed\Customer\Persistence\Map\SpyCustomerTableMap;
 use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerGroupToCustomerTableMap;
 use Orm\Zed\CustomerGroup\Persistence\SpyCustomerGroupToCustomer;
+use Propel\Runtime\ActiveQuery\Criteria;
 use \Spryker\Zed\CustomerGroup\Communication\Table\CustomerTable as BaseCustomerTable;
 use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
 
@@ -67,6 +68,24 @@ class CustomerTable extends BaseCustomerTable
         );
 
         return $buttons . ' ' . $cartButton;
+    }
+
+    protected function prepareQuery()
+    {
+        $query = $this->customerGroupQueryContainer
+            ->queryCustomerGroupToCustomerByFkCustomerGroup($this->customerGroupTransfer->getIdCustomerGroup())
+            ->addJoin(
+                SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER,
+                SpyCustomerTableMap::COL_ID_CUSTOMER,
+                Criteria::LEFT_JOIN
+            )
+            ->addAnd(SpyCustomerTableMap::COL_ANONYMIZED_AT, null, Criteria::ISNULL)
+            ->withColumn(SpyCustomerTableMap::COL_FIRST_NAME, static::COL_FIRST_NAME)
+            ->withColumn(SpyCustomerTableMap::COL_LAST_NAME, static::COL_LAST_NAME)
+            ->withColumn(SpyCustomerTableMap::COL_EMAIL, static::COL_EMAIL)
+            ->withColumn(SpyCustomerTableMap::COL_GENDER, static::COL_GENDER);
+
+        return $query;
     }
 
 
