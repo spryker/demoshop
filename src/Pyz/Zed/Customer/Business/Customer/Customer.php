@@ -4,6 +4,7 @@ namespace Pyz\Zed\Customer\Business\Customer;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Orm\Zed\Customer\Persistence\SpyCustomer;
+use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerGroupTableMap;
 use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerGroupToCustomerTableMap;
 use Orm\Zed\CustomerGroup\Persistence\Map\SpyCustomerOrganizationRoleTableMap;
 use Orm\Zed\CustomerGroup\Persistence\SpyCustomerGroupToCustomer;
@@ -91,6 +92,12 @@ class Customer extends BaseCustomer
             )
             ->withColumn(SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_GROUP, 'idOrganization')
             ->withColumn(SpyCustomerOrganizationRoleTableMap::COL_ROLE, 'role')
+            ->addJoin(
+                SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_GROUP,
+                SpyCustomerGroupTableMap::COL_ID_CUSTOMER_GROUP,
+                Criteria::LEFT_JOIN
+            )
+            ->withColumn(SpyCustomerGroupTableMap::COL_NAME, 'organizationName')
             ->findOne();
 
 

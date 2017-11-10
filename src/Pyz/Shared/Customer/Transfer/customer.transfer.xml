@@ -8,6 +8,7 @@
         <property name="isDirty" type="bool" />
         <property name="organizationRole" type="string" />
         <property name="idOrganization" type="int" />
+        <property name="organizationName" type="string" />
     </transfer>
 
     <transfer name="CustomerOverviewRequest">
