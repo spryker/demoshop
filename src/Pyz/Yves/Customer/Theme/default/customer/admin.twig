@@ -46,7 +46,7 @@
     </div>
 
     {{ form_start(addOrganizationUserForm, {'attr': {'class': 'callout'}}) }}
-    <h4><i class="fa fa-lock __secondary"></i> {{ 'customer.account.admin.add_users' | trans }}</h4>
+    <h4><i class="fa fa-lock __secondary"></i> {{ 'customer.account.admin.add_user' | trans }}</h4>
 
     <label>{{ addOrganizationUserForm.email.vars.label | trans }}*
         {{ form_widget(addOrganizationUserForm.email, { 'attr': {'class': 'input-group-field', 'placeholder': addOrganizationUserForm.email.vars.label | trans } }) }}
