@@ -36,6 +36,9 @@ class IndexController extends AbstractController
 
     public function generateSitemapAction()
     {
+        $changeFrequencies = [
+            'always','hourly','daily','weekly','monthly','yearly', 'never'
+        ];
         $xml = new DOMDocument('1.0', 'UTF-8');
         $urlSet = $xml->createElement('urlset');
         $urlSet->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
@@ -46,7 +49,11 @@ class IndexController extends AbstractController
                 $fullUrl = $config::get(ApplicationConstants::HOST_YVES) . $matches[1];
                 $url = $xml->createElement('url');
                 $loc = $xml->createElement('loc', htmlspecialchars($fullUrl));
+                $lastMod = $xml->createElement('lastmod', '2017-11-09');
+                $changeFrequency = $xml->createElement('changefreq', $changeFrequencies[array_rand($changeFrequencies)]);
                 $url->appendChild($loc);
+                $url->appendChild($lastMod);
+                $url->appendChild($changeFrequency);
                 $urlSet->appendChild($url);
             }
         }
