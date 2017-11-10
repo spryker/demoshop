@@ -1897,7 +1897,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/deploy.git",
-                "reference": "023d1329fd97cc645cee7fe8976274513ca9e061"
+                "reference": "224ab371daa2fe55dbef46ea9e4f9b222a04e870"
             },
             "require": {
                 "monolog/monolog": "^1.23",
@@ -1931,7 +1931,7 @@
                 "MIT"
             ],
             "description": "Project",
-            "time": "2017-11-10T14:02:05+00:00"
+            "time": "2017-11-10T15:31:58+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
