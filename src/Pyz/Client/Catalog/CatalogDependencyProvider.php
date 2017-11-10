@@ -31,6 +31,7 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\PaginatedResultFo
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SpellingSuggestionResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionByTypeResultFormatterPlugin;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\ProductPriceQueryExpanderPlugin;
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
@@ -40,6 +41,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     const CLIENT_CURRENCY = 'CLIENT_CURRENCY';
     const CLIENT_PRICE = 'CLIENT_PRICE';
     const CLIENT_PRICE_PRODUCT = 'CLIENT_PRICE_PRODUCT';
+    const CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT = 'client price product connector client';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -55,6 +57,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
         $container = $this->addCurrencyClient($container);
         $container = $this->addPriceClient($container);
         $container = $this->addPriceProductClient($container);
+        $container = $this->addCatalogPriceProductConnectorClient($container);
 
         return $container;
     }
@@ -102,6 +105,20 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     }
 
     /**
+     * @param \Spryker\Client\Kernel\Container $container
+     *
+     * @return \Spryker\Client\Kernel\Container
+     */
+    protected function addCatalogPriceProductConnectorClient(Container $container)
+    {
+        $container[static::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT] = function (Container $container) {
+            return $container->getLocator()->catalogPriceProductConnector()->client();
+        };
+
+        return $container;
+    }
+
+    /**
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
      */
     protected function createCatalogSearchQueryPlugin()
@@ -124,6 +141,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new SpellingSuggestionQueryExpanderPlugin(),
             new IsActiveQueryExpanderPlugin(),
             new IsActiveInDateRangeQueryExpanderPlugin(),
+            new ProductPriceQueryExpanderPlugin(),
         ];
     }
 
@@ -155,6 +173,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new SuggestionByTypeQueryExpanderPlugin(),
             new IsActiveQueryExpanderPlugin(),
             new IsActiveInDateRangeQueryExpanderPlugin(),
+            new ProductPriceQueryExpanderPlugin(),
         ];
     }
 
@@ -200,6 +219,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             return [
                 new StoreQueryExpanderPlugin(),
                 new LocalizedQueryExpanderPlugin(),
+                new ProductPriceQueryExpanderPlugin(),
             ];
         };
 

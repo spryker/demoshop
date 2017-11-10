@@ -107,10 +107,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addPriceFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
-        $priceIdentifierBuilder = $this->getFactory()->createPriceIdentifierBuilder();
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
 
         $priceFacet = (new FacetConfigTransfer())
-            ->setName($priceIdentifierBuilder->buildIdentifier())
+            ->setName($priceIdentifier)
             ->setParameterName('price')
             ->setFieldName(PageIndexMap::INTEGER_FACET)
             ->setType(SearchConfig::FACET_TYPE_PRICE_RANGE);
@@ -219,10 +221,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addAscendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
-        $priceIdentifierBuilder = $this->getFactory()->createPriceIdentifierBuilder();
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
 
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName($priceIdentifierBuilder->buildIdentifier())
+            ->setName($priceIdentifier)
             ->setParameterName('price_asc')
             ->setFieldName(PageIndexMap::INTEGER_SORT);
 
@@ -238,10 +242,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addDescendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
-        $priceIdentifierBuilder = $this->getFactory()->createPriceIdentifierBuilder();
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
 
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName($priceIdentifierBuilder->buildIdentifier())
+            ->setName($priceIdentifier)
             ->setParameterName('price_desc')
             ->setFieldName(PageIndexMap::INTEGER_SORT)
             ->setIsDescending(true);

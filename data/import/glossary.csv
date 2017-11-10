@@ -569,6 +569,8 @@ customer.authentication.failed,Authentication failed,en_US
 customer.authentication.failed,Authentifizierung fehlgeschlagen,de_DE
 customer.email.invalid,Email address is invalid,en_US
 customer.email.invalid,E-Mail Adresse ist ungültig,de_DE
+customer.email.format.invalid,Invalid Email address format,en_US
+customer.email.format.invalid,Ungültiges E-Mail-Adressformat,de_DE
 customer.password.recovery.mail.sent,"If there is an account associated with this email address, you will receive an email with further instructions",en_US
 customer.password.recovery.mail.sent,"Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen",de_DE
 customer.address.number,Number,en_US
@@ -1039,3 +1041,7 @@ price.mode.net_mode,Net prices,en_US
 price.mode.net_mode,Net prices,de_DE
 cart.pre.check.price.failed,"Price not found for product with sku '%sku%'.",en_US
 cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%'.",de_DE
+price.mode.switch.error,"Can't switch price mode when there is items in the cart.",en_US
+price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
+cart.pre.check.shipment.failed,"Can't change cart shipment method not found.",en_US
+cart.pre.check.shipment.failed,"Die Versandmethode für den Warenkorb konnte nicht geändert werden.",de_DE

@@ -26,6 +26,8 @@ use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKey
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOptionQuantityPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ProductOptionValuePriceExistsCartPreCheckPlugin;
+use Spryker\Zed\ShipmentCartConnector\Communication\Plugin\Cart\CartShipmentExpanderPlugin;
+use Spryker\Zed\ShipmentCartConnector\Communication\Plugin\Cart\CartShipmentPreCheckPlugin;
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
@@ -47,6 +49,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemWithBundleGroupKeyExpanderPlugin(),
             new ProductImageCartPlugin(),
             new CartGroupPromotionItems(),
+            new CartShipmentExpanderPlugin(),
         ];
     }
 
@@ -62,6 +65,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemPricePreCheckPlugin(),
             new ProductOptionValuePriceExistsCartPreCheckPlugin(),
             new CartBundleAvailabilityPreCheckPlugin(),
+            new CartShipmentPreCheckPlugin(),
         ];
     }
 

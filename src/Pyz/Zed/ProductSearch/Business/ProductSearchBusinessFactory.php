@@ -105,7 +105,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      */
     protected function createPriceExpander()
     {
-        return new PriceExpander($this->getPriceProductFacade(), $this->getPriceFacade());
+        return new PriceExpander($this->getPriceProductFacade(), $this->getCatalogPriceProductConnectorClient());
     }
 
     /**
@@ -149,5 +149,13 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function getProductLabelFacade()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRODUCT_LABEL);
+    }
+
+    /**
+     * @return \Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface
+     */
+    protected function getCatalogPriceProductConnectorClient()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT);
     }
 }

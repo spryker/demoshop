@@ -22,6 +22,8 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     const QUERY_CONTAINER_CATEGORY = 'category query container';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
 
+    const CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT = 'client price product connector client';
+
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -39,6 +41,8 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
         $this->provideProductImageQueryContainer($container);
         $this->provideCategoryQueryContainer($container);
         $this->provideProductCategoryQueryContainer($container);
+
+        $this->provideCatalogPriceProductConnectorClient($container);
 
         return $container;
     }
@@ -137,5 +141,19 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
         $container[static::FACADE_PRICE] = function (Container $container) {
             return $container->getLocator()->price()->facade();
         };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function provideCatalogPriceProductConnectorClient(Container $container)
+    {
+        $container[static::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT] = function (Container $container) {
+            return $container->getLocator()->catalogPriceProductConnector()->client();
+        };
+
+        return $container;
     }
 }
