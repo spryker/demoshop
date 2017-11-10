@@ -1888,7 +1888,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/deploy.git",
-                "reference": "2862ab82f10bbdadc68bdcc0525709298b3b523e"
+                "reference": "023d1329fd97cc645cee7fe8976274513ca9e061"
             },
             "require": {
                 "monolog/monolog": "^1.23",
@@ -1922,7 +1922,7 @@
                 "MIT"
             ],
             "description": "Project",
-            "time": "2017-11-10T10:18:24+00:00"
+            "time": "2017-11-10T14:02:05+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2036,6 +2036,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -2074,6 +2075,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
                 "reference": "c142b69f4b2ebabb615d2dead92176658fe4191d"
 =======
@@ -2113,6 +2116,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
                 "reference": "519a38e62498ab5fce5c16551d683ad8ef4ed67e"
 =======
@@ -2997,12 +3002,33 @@
 =======
                 "reference": "a9efc9b9039913cfacbc1bbaef61779055b55a2d"
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "ca405b5b28ae9632fda53083623d08af6e38c198"
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3221,6 +3247,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3259,6 +3286,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3298,6 +3327,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3337,6 +3368,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -3376,6 +3409,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -3415,6 +3450,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-10T16:05:18+00:00"
 =======
@@ -3454,6 +3491,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-09T13:30:16+00:00"
 =======
@@ -4338,12 +4377,33 @@
 =======
             "time": "2017-11-10T12:20:46+00:00"
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+<<<<<<< HEAD
 >>>>>>> core-2001 update config
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-11-10T14:02:38+00:00"
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
         },
         {
             "name": "swiftmailer/swiftmailer",
