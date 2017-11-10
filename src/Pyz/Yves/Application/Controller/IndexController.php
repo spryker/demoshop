@@ -50,7 +50,7 @@ class IndexController extends AbstractController
                 $url = $xml->createElement('url');
                 $loc = $xml->createElement('loc', htmlspecialchars($fullUrl));
                 $lastMod = $xml->createElement('lastmod', '2017-11-09');
-                $changeFrequency = $xml->createElement('changefreq', array_rand($changeFrequencies));
+                $changeFrequency = $xml->createElement('changefreq', $changeFrequencies[array_rand($changeFrequencies)]);
                 $url->appendChild($loc);
                 $url->appendChild($lastMod);
                 $url->appendChild($changeFrequency);
