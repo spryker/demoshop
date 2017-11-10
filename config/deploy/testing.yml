@@ -2,139 +2,115 @@ env:
   APPLICATION_ENV: devtest
 
 sections:
-  composer:
-    install-dependencies:
-      command: "php composer.phar install --prefer-dist"
-
-
-  generate-up:
-    transfers:
+  generate:
+    generate-transfers:
       command: "vendor/bin/console transfer:generate"
 
-    data-builders:
-      command: "vendor/bin/console transfer:databuilder:generate"
-      groups:
-        - transfer
-
-
-  cache-up:
-    twig-cache-warmup:
-      command: "vendor/bin/console twig:cache:warmer"
-
-    navigation-cache-warmup:
-      command: "vendor/bin/console navigation:build-cache"
-
-
-  codeception:
-    build:
-      command: "vendor/bin/codecept build -q"
-      groups:
-        - codeception
-
-
-  database-down:
-    delete-elastic-search-index:
-      command: "vendor/bin/console search:index:delete"
-      groups:
-        - elastic
-
-    delete-storage:
-      command: "vendor/bin/console storage:delete"
-      groups:
-        - redis
-
-    drop-database:
-      command: "vendor/bin/console propel:database:drop"
-      groups:
-        - propel
-
+  database-flush:
     delete-migration-files:
       command: "vendor/bin/console propel:migration:delete"
+      stores: true
       groups:
         - propel
 
-
-  database-up:
-    setup-propel:
-      command: "vendor/bin/console propel:install"
+  database-migrate:
+    propel-config:
+      command: "vendor/bin/console propel:config:convert"
+      stores: true
       groups:
         - propel
+
+    propel-create:
+      command: "vendor/bin/console propel:database:create"
+      stores: true
+      groups:
+        - propel
+
+    propel-postgres-compatibility:
+      command: "vendor/bin/console propel:pg-sql-compat"
+      stores: true
+      groups:
+        - propel
+
+    propel-copy-schema:
+      command: "vendor/bin/console propel:schema:copy"
+      stores: true
+      groups:
+        - propel
+
+    propel-build:
+      command: "vendor/bin/console propel:model:build"
+      groups:
+        - propel
+
+    propel-diff:
+      command: "vendor/bin/console propel:diff"
+      stores: true
+      groups:
+        - propel
+
+    propel-migrate:
+      command: "vendor/bin/console propel:migrate"
+      stores: true
+      groups:
+        - propel
+
+    init-database:
+      command: "vendor/bin/console setup:init-db"
+      stores: true
 
     setup-search:
       command: "vendor/bin/console setup:search"
+      stores: true
       groups:
         - elastic
 
 
-  setup-data:
-    init-database:
-      command: "vendor/bin/console setup:init-db"
-
+  demodata:
     import:
       command: "vendor/bin/console data:import"
+      stores: true
 
     update-product-labels:
       command: "vendor/bin/console product-label:relations:update"
+      stores: true
 
-
-  export-data:
-    search:
+    search-collector:
       command: "vendor/bin/console collector:search:export"
-    storage:
+      stores: true
+
+    storage-collector:
       command: "vendor/bin/console collector:storage:export"
+      stores: true
 
 
   frontend:
-    install-node:
-      command: "vendor/bin/console frontend:install-node-js"
-
-    dependencies-cleanup:
-      command: "vendor/bin/console frontend:cleanup-dependencies"
+    install-package-manager:
+      command: "vendor/bin/console frontend:install:package-manager"
+      groups:
+        - project
 
     dependencies-install:
-      command: "vendor/bin/console frontend:install-dependencies"
+      command: "vendor/bin/console frontend:project:install-dependencies"
+      groups:
+        - project
 
     yves-install-dependencies:
-      command: "vendor/bin/console frontend:yves-install-dependencies"
+      command: "vendor/bin/console frontend:yves:install-dependencies"
       groups:
         - yves
 
     yves-build-frontend:
-      command: "vendor/bin/console frontend:yves-build-frontend"
+      command: "vendor/bin/console frontend:yves:build"
       groups:
         - yves
 
     zed-install-dependencies:
-      command: "vendor/bin/console frontend:zed-install-dependencies"
+      command: "vendor/bin/console frontend:zed:install-dependencies"
       groups:
         - zed
 
     zed-build-frontend:
-      command: "vendor/bin/console frontend:zed-build-frontend"
+      command: "vendor/bin/console frontend:zed:build"
       groups:
         - zed
-
-  backup:
-    export-database:
-      command: "vendor/bin/console propel:database:export ./data/test.backup"
-      groups:
-        - propel
-
-
-  restore:
-    excluded: true
-
-    drop-database:
-      command: "vendor/bin/console propel:database:drop"
-      groups:
-        - propel
-
-    create-database:
-      command: "vendor/bin/console propel:database:create"
-      groups:
-        - propel
-
-    import-database:
-      command: "vendor/bin/console propel:database:import ./data/test.backup"
-      groups:
-        - propel

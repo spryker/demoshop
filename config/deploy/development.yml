@@ -29,9 +29,6 @@ sections:
       command: "vendor/bin/console maintenance:disable yves"
 
   composer:
-    install-composer:
-      command: "composer"
-
     install-dependencies:
       command: "php composer.phar install --prefer-dist"
 
