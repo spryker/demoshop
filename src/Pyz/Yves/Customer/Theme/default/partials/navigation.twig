@@ -15,7 +15,7 @@
     <li {% if active == 'newsletter' %}class="active"{% endif %}>
         <a href="{{ path('customer/newsletter') }}" data-id="sidebar-newsletter">{{ 'customer.account.newsletter' | trans }}</a>
     </li>
-    {% if getOrganisationRole() == 'Purchasing Specialist' %}
+    {% if getOrganisationRole() == 'Buyer' %}
     <li {% if active == 'cart' %}class="active"{% endif %}>
         <a href="{{ path('cart/list') }}" data-id="sidebar-cart">Saved Carts</a>
     </li>
