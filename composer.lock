@@ -1897,7 +1897,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/deploy.git",
-                "reference": "224ab371daa2fe55dbef46ea9e4f9b222a04e870"
+                "reference": "94a6e9a580fc2841ac0bc815b235ab0f2b648dea"
             },
             "require": {
                 "monolog/monolog": "^1.23",
@@ -1931,7 +1931,7 @@
                 "MIT"
             ],
             "description": "Project",
-            "time": "2017-11-10T15:31:58+00:00"
+            "time": "2017-11-10T15:38:31+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2047,6 +2047,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -2089,6 +2090,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock file
 <<<<<<< HEAD
                 "reference": "c142b69f4b2ebabb615d2dead92176658fe4191d"
 =======
@@ -3041,11 +3044,29 @@
 =======
                 "reference": "06ba3e9fbc2ce5ae95e6ce5881a56eb7bc7c7ae2"
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "bd409d8080404e0320babdf50164245cd8c976e4"
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3266,6 +3287,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3308,6 +3330,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock file
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3351,6 +3375,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock file
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3394,6 +3420,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock file
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -3437,6 +3465,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock file
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -3480,6 +3510,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock file
 <<<<<<< HEAD
             "time": "2017-11-10T16:05:18+00:00"
 =======
@@ -4432,11 +4464,29 @@
 =======
             "time": "2017-11-10T14:43:11+00:00"
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-11-10T16:13:24+00:00"
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
+>>>>>>> core-2001 update lock file
         },
         {
             "name": "swiftmailer/swiftmailer",
