@@ -18,8 +18,8 @@ class QuoteClient extends SprykerQuoteClient
      */
     public function setQuote(QuoteTransfer $quoteTransfer)
     {
-        return $this->getFactory()->createQuoteStub()->saveQuote($quoteTransfer);
-//        parent::setQuote($quoteTransfer);
+        $this->getFactory()->createQuoteStub()->saveQuote($quoteTransfer);
+        parent::setQuote($quoteTransfer);
     }
 
     /**
@@ -29,17 +29,29 @@ class QuoteClient extends SprykerQuoteClient
      */
     public function getQuote(CustomerTransfer $customerTransfer = null)
     {
+        $quoteTransfer =parent::getQuote();
+
         if ($customerTransfer == null) {
             $customerTransfer = (new CustomerClient())->getCustomer();
         }
 
         if ($customerTransfer == null) {
-            $quoteTransfer = new QuoteTransfer();
+//            $quoteTransfer = new QuoteTransfer();
         } else {
             $quoteTransfer = $this->getFactory()->createQuoteStub()->getQuote($customerTransfer);
         }
 
         return $quoteTransfer;
+    }
+
+    /**
+     * @return void
+     */
+    public function clearQuote()
+    {
+        $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setCustomer((new CustomerClient())->getCustomer());
+        $this->getFactory()->createQuoteStub()->saveQuote($quoteTransfer);
     }
 
     /**
