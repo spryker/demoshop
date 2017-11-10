@@ -24,6 +24,7 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
 
     const CLIENT_SESSION = 'session client';
     const CLIENT_CATALOG = 'catalog client';
+    const CLIENT_STORAGE = 'storage client';
     const PLUGIN_APPLICATION = 'application plugin';
     const PLUGIN_TWIG = 'twig plugin';
 
@@ -53,6 +54,9 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
         };
         $container[self::CLIENT_CATALOG] = function (Container $container) {
             return $container->getLocator()->catalog()->client();
+        };
+        $container[self::CLIENT_STORAGE] = function (Container $container) {
+            return $container->getLocator()->storage()->client();
         };
 
         return $container;

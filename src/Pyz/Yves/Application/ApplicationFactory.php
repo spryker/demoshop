@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Application;
 
+use Spryker\Client\Storage\StorageClientInterface;
 use Spryker\Service\UtilDateTime\Model\DateTimeFormatterTwigExtension;
 use Spryker\Yves\Application\ApplicationFactory as SprykerApplicationFactory;
 use Spryker\Yves\Application\Plugin\Provider\ExceptionService\SubRequestExceptionHandler;
@@ -86,5 +87,13 @@ class ApplicationFactory extends SprykerApplicationFactory
     public function getCatalogClient()
     {
         return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_CATALOG);
+    }
+
+    /**
+     * @return StorageClientInterface
+     */
+    public function getStorageClient()
+    {
+        return $this->getProvidedDependency(ApplicationDependencyProvider::CLIENT_STORAGE);
     }
 }

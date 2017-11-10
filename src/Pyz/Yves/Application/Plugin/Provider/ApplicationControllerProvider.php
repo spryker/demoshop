@@ -14,6 +14,7 @@ class ApplicationControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_HOME = 'home';
     const ROUTE_ERROR_404 = 'error/404';
     const ROUTE_ERROR_404_PATH = '/error/404';
+    const ROUTE_GENERATE_SITEMAP = '/generate-sitemap';
 
     /**
      * @param \Silex\Application $app
@@ -25,6 +26,10 @@ class ApplicationControllerProvider extends AbstractYvesControllerProvider
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
         $this->createController('/{root}', self::ROUTE_HOME, 'Application', 'Index')
+            ->assert('root', $allowedLocalesPattern)
+            ->value('root', '');
+
+        $this->createController('/generate-sitemap', self::ROUTE_GENERATE_SITEMAP, 'Application', 'Index', 'generateSitemap')
             ->assert('root', $allowedLocalesPattern)
             ->value('root', '');
 
