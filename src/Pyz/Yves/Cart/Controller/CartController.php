@@ -9,6 +9,7 @@ namespace Pyz\Yves\Cart\Controller;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuotesCollectionTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Google_Client;
 use Google_Service_Sheets;
 use Google_Service_Sheets_ValueRange;
@@ -278,15 +279,126 @@ class CartController extends AbstractController
     {
         $customer = $this->getFactory()->getCustomerClient()->getCustomer();
 
-        if ($customer != null) {
-            $quotes = $this->getFactory()->getCartClient()->getAvailableQuotesForPurchaser($customer);
-        } else {
-            $quotes = new QuotesCollectionTransfer();
+        if (!$customer) {
+            return $this->redirectResponseInternal('cart');
         }
+
+        $quotes = $this->getFactory()->getCartClient()->getAvailableQuotesForPurchaser($customer);
 
         return $this->viewResponse([
             'quotes' => $quotes->toArray(true),
         ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function detailedListAction(Request $request)
+    {
+        $customer = $this->getFactory()->getCustomerClient()->getCustomer();
+
+        if (!$customer) {
+            return $this->redirectResponseInternal('cart');
+        }
+
+        $quotes = $this->getFactory()->getCartClient()->getAvailableQuotesForPurchaser($customer);
+        $idCustomer = $request->get('id');
+        $quote = $this->getCustomerQuote($quotes, $idCustomer);
+
+        return $this->viewResponse([
+            'quote' => $quote->toArray(true),
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function detailedListRemoveAction(Request $request)
+    {
+        $customer = $this->getFactory()->getCustomerClient()->getCustomer();
+
+        if (!$customer) {
+            return $this->redirectResponseInternal('cart');
+        }
+
+        $quotes = $this->getFactory()->getCartClient()->getAvailableQuotesForPurchaser($customer);
+        $idCustomer = $request->get('id');
+        $sku = $request->get('sku');
+        $quote = $this->getCustomerQuote($quotes, $idCustomer);
+        $items = $quote->getItems()->getArrayCopy();
+
+        foreach ($items as $key => $item) {
+            if ($item['sku'] == $sku) {
+                unset($items[$key]);
+                break;
+            }
+        }
+
+        $quote->setItems((new \ArrayObject($items)));
+        $this->getFactory()->getCalculationClient()->recalculate($quote);
+        $this->getClient()->saveQuoteToPersistence($quote);
+
+        return $this->redirectResponseExternal($request->headers->get('referer'));
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function detailedListUpdateAction(Request $request)
+    {
+        $customer = $this->getFactory()->getCustomerClient()->getCustomer();
+
+        if (!$customer) {
+            return $this->redirectResponseInternal('cart');
+        }
+
+        $quotes = $this->getFactory()->getCartClient()->getAvailableQuotesForPurchaser($customer);
+        $idCustomer = $request->get('id');
+        $sku = $request->get('sku');
+        $quantity = $request->get('quantity');
+        $quote = $this->getCustomerQuote($quotes, $idCustomer);
+        $items = $quote->getItems()->getArrayCopy();
+
+        foreach ($items as $key => $item) {
+            if ($item['sku'] == $sku) {
+                $items[$key]->setQuantity($quantity);
+                break;
+            }
+        }
+
+        $quote->setItems((new \ArrayObject($items)));
+        $this->getFactory()->getCalculationClient()->recalculate($quote);
+        $this->getClient()->saveQuoteToPersistence($quote);
+
+        return $this->redirectResponseExternal($request->headers->get('referer'));
+    }
+
+    /**
+     * @param array|QuotesCollectionTransfer $quotes
+     * @param int|null $idCustomer
+     *
+     * @return QuoteTransfer
+     */
+    protected function getCustomerQuote(QuotesCollectionTransfer $quotes, int $idCustomer = null)
+    {
+        $quote = new QuoteTransfer();
+
+        if ($idCustomer) {
+            foreach ($quotes->getQuotes()->getArrayCopy() as $customerQuote) {
+                if ($customerQuote->getCustomer()->getIdCustomer() == $idCustomer) {
+                    $quote = $customerQuote;
+                    break;
+                }
+            }
+        }
+
+        return $quote;
     }
 
     /**

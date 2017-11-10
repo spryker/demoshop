@@ -51,4 +51,12 @@ class QuoteClient extends SprykerQuoteClient
         return $this->getFactory()->createQuoteStub()->getAvailableQuotesForPurchaser($customerTransfer);
     }
 
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     */
+    public function saveQuoteToPersistence(QuoteTransfer $quoteTransfer)
+    {
+        $this->getFactory()->createQuoteStub()->saveQuote($quoteTransfer);
+    }
+
 }
