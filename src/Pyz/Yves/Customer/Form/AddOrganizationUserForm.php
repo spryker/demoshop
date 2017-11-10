@@ -150,8 +150,8 @@ class AddOrganizationUserForm extends AbstractType
             'label' => 'customer.account.admin.role',
             'required' => true,
             'choices' => [
-                'Procurement Specialist' => 'Procurement Specialist',
-                'Purchasing Specialist' => 'Purchasing Specialist',
+                'Purchaser' => 'Purchaser',
+                'Buyer' => 'Buyer',
             ],
             'constraints' => [
                 $this->createNotBlankConstraint(),
