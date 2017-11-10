@@ -1,7 +1,0 @@
-[2017-11-09 09:55:13] setup.INFO: Setup for development environment [] []
-[2017-11-09 09:55:13] setup.INFO: Section composer [] []
-[2017-11-09 09:55:13] setup.INFO: Command install-composer [composer] (In progress...) [] []
-[2017-11-09 09:55:15] setup.INFO: Command install-composer [composer] (1.51s) [] []
-[2017-11-09 09:55:15] setup.INFO: Command install-dependencies [php composer.phar install prefer-dist] (In progress...) [] []
-[2017-11-09 09:55:16] setup.INFO: Command install-dependencies [php composer.phar install prefer-dist] (0.77s) [] []
-[2017-11-09 09:55:16] setup.INFO: Setup development finished in 2.29s [] []
