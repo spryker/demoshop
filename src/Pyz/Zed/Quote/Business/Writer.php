@@ -50,6 +50,8 @@ class Writer implements WriterInterface
             $quoteTransfer->setPayment($paymentTransfer);
         }
 
+        $quoteTransfer->setPriceMode('GROSS_MODE');
+
         $customer = $quoteTransfer->getCustomer();
         $quoteTransferString = json_encode($quoteTransfer->toArray(true));
 

@@ -60,7 +60,13 @@ class Reader implements ReaderInterface
 
         foreach ($quotes as $quote) {
             $quoteTransfer = new QuoteTransfer();
-            $quoteTransfer->fromArray(json_decode($quote->getQuoteTransfer(), true));
+            $quoteArray = json_decode($quote->getQuoteTransfer(), true);
+
+            if ($quoteArray['customer']['organization_role'] == 'Admin') {
+                continue;
+            }
+
+            $quoteTransfer->fromArray($quoteArray);
             $quotesCollection->addQuotes($quoteTransfer);
         }
 
