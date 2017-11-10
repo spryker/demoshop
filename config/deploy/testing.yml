@@ -7,6 +7,12 @@ sections:
     generate-transfers:
       command: "vendor/bin/console transfer:generate"
 
+  cache:
+    twig-cache-warmup:
+      command: "vendor/bin/console twig:cache:warmer"
+
+    navigation-cache-warmup:
+      command: "vendor/bin/console navigation:build-cache"
 
   database-flush:
     delete-migration-files:
