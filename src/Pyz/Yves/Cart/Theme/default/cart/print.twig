@@ -1,7 +1,9 @@
 {% extends "@application/layout/layout-print.twig" %}
 
 {% block title %}
-    <h3>Order | {{ customer.first_name }} {{ customer.last_name }} | {{ customer.organization_name }}</h3>
+        <h3>Order</h3>
+        <h5>Name: {{ customer.first_name }} {{ customer.last_name }}</h5>
+        <h5>Company: {{ customer.organization_name }}</h5>
 {% endblock %}
 
 {% block content %}
