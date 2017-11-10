@@ -1,0 +1,126 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>Saved Carts</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {active: 'cart'} %}
+{% endblock %}
+
+{% block customerContent %}
+    {% if quote is defined  %}
+        <div class="row xlarge-unstack">
+        <div class="columns">
+            <div class="callout">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        {{ quote.customer.first_name }} {{ quote.customer.last_name }}
+                                    </td>
+                                    <td>
+                                        {% if quote.totals.subtotal is defined %}
+                                            {{ quote.totals.subtotal | money }}
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <form id="addToCart" method="POST" action="{{ path('cart/add-list-to-cart', {id_customer: quote.customer.id_customer}) }}">
+                                                <button type="submit" href="{{ path('cart/add-list-to-cart') }}" class="button float-right {{ quote.items | length == 0 ? 'disabled' : '' }}">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    Add all to my cart
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        <div class="row">
+                                            <button type="submit" href="" class="button float-right warning">
+                                                Reject
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {% if quote.items|length %}
+
+                    {% for item in quote.items %}
+                        <div class="callout cart-item">
+                            <div class="row">
+                                <div class="small-9 large-expand columns">
+                                    {% set imageUrl = '' %}
+                                    {% if item.images is defined %}
+                                        {% set imageUrl = item.images[0].external_url_small %}
+                                    {% endif %}
+                                    <div>
+                                        <p class="lead">{{ item.name }}</p>
+                                        <div><small>SKU: {{ item.sku }}</small></div>
+                                        {% if imageUrl %}
+                                            <img width="75" src="{{ imageUrl }}" />
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="small-12 large-4 columns">
+                                    <ul class="no-bullet">
+                                        <li>{{ 'cart.item.item_price' | trans }} <span class="float-right">{{ item.unit_price | money }}</span></li>
+                                        {% if item.product_options|length > 0 %}
+                                            {% for product_option in item.product_options %}
+                                                <li>+ {{ product_option.value | trans }}
+                                                    <span class="float-right">{{ product_option.unit_gross_price | money }}</span>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                        <li><hr/></li>
+                                        <li><strong>{{ 'cart.item.item_total' | trans }}</strong> <strong class="float-right">{{ item.sum_subtotal_aggregation | money }}</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="small-4 medium-3 large-2 columns">
+                                    <ul class="no-bullet">
+                                        <li>
+                                            <form method="POST" action="{{ path('cart/detailed-list/update', {"id": quote.customer.id_customer, "sku": item.sku}) }}">
+                                                <label>
+                                                    <strong>Quantity</strong>
+                                                    <span class="input-group __no-margin-bottom">
+
+                                                      <input class="input-group-field" type="number" value="{{ item.quantity }}" name="quantity">
+
+                                                        <span class="input-group-button">
+                                                            <button type="submit" class="button expanded __no-margin-bottom"><i class="fa fa-refresh"></i></button>
+                                                        </span>
+
+                                                     </span>
+                                                </label>
+                                                <input type="hidden" value="023_21758366-2-5" name="groupKey">
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('cart/detailed-list/remove', {"id": quote.customer.id_customer, "sku": item.sku}) }}">×
+                                                <small>remove</small>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    {% endif %}
+{% endblock %}

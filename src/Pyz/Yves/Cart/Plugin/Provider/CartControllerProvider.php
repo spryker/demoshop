@@ -27,6 +27,9 @@ class CartControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CART_VOUCHER_REMOVE = 'cart/voucher/remove';
     const ROUTE_CART_VOUCHER_CLEAR = 'cart/voucher/clear';
     const ROUTE_CARTS_LIST = 'cart/list';
+    const ROUTE_CARTS_DETAILED_LIST = 'cart/detailed-list';
+    const ROUTE_CARTS_DETAILED_LIST_UPDATE = 'cart/detailed-list/update';
+    const ROUTE_CARTS_DETAILED_LIST_REMOVE = 'cart/detailed-list/remove';
     const ROUTE_CARTS_LIST_TO_CART = 'cart/add-list-to-cart';
 
     const SKU_PATTERN = '[a-zA-Z0-9-_]+';
@@ -97,6 +100,19 @@ class CartControllerProvider extends AbstractYvesControllerProvider
             ->value('cart', 'cart');
 
         $this->createController('/{cart}/list', self::ROUTE_CARTS_LIST, 'Cart', 'Cart', 'list')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart');
+
+        $this->createController('/{cart}/detailed-list', self::ROUTE_CARTS_DETAILED_LIST, 'Cart', 'Cart', 'detailed-list')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart');
+
+        $this->createController('/{cart}/detailed-list/update', self::ROUTE_CARTS_DETAILED_LIST_UPDATE, 'Cart', 'Cart', 'detailed-list-update')
+            ->assert('cart', $allowedLocalesPattern . 'cart|cart')
+            ->value('cart', 'cart')
+            ->method('POST');
+
+        $this->createController('/{cart}/detailed-list/remove', self::ROUTE_CARTS_DETAILED_LIST_REMOVE, 'Cart', 'Cart', 'detailed-list-remove')
             ->assert('cart', $allowedLocalesPattern . 'cart|cart')
             ->value('cart', 'cart');
 
