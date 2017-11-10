@@ -61,6 +61,13 @@ class FormFactory extends AbstractFactory
         return $this->getFormFactory()->create($loginFormType);
     }
 
+    public function createAddOrganizationUserForm()
+    {
+        $addOrganizationUserForm = new AddOrganizationUserForm();
+
+        return $this->getFormFactory()->create($addOrganizationUserForm);
+    }
+
     /**
      * @return \Symfony\Component\Form\FormInterface
      */

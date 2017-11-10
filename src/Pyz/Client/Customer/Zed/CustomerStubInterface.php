@@ -8,6 +8,7 @@
 namespace Pyz\Client\Customer\Zed;
 
 use Generated\Shared\Transfer\CustomerOverviewRequestTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Spryker\Client\Customer\Zed\CustomerStubInterface as SprykerCustomerStubInterface;
 
 interface CustomerStubInterface extends SprykerCustomerStubInterface
@@ -18,4 +19,6 @@ interface CustomerStubInterface extends SprykerCustomerStubInterface
      * @return \Generated\Shared\Transfer\CustomerOverviewResponseTransfer
      */
     public function getCustomerOverview(CustomerOverviewRequestTransfer $overviewRequest);
+
+    public function getCustomersInSameGroup(CustomerTransfer $customerTransfer);
 }

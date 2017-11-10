@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\OrderListTransfer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Spryker\Shared\Customer\Code\Messages;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -58,29 +59,52 @@ class CustomerController extends AbstractCustomerController
     /**
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function adminAction()
+    public function adminAction(Request $request)
     {
-        return $this->viewResponse([
+        $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
+        $addOrganizationUserForm = $this
+            ->getFactory()
+            ->createCustomerFormFactory()
+            ->createAddOrganizationUserForm()
+            ->handleRequest($request);
 
+        $currentOrganizationUsers = $this->getClient()->getCustomersInSameGroup($loggedInCustomerTransfer);
+
+        if ($addOrganizationUserForm->isValid()) {
+            $customerResponseTransfer = $this->createCustomer($addOrganizationUserForm->getData());
+
+            if ($customerResponseTransfer->getIsSuccess()) {
+                $this->addSuccessMessage(Messages::CUSTOMER_AUTHORIZATION_SUCCESS);
+
+                return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADMIN);
+            }
+
+            $this->processResponseErrors($customerResponseTransfer);
+        }
+
+        return $this->viewResponse([
+            'addOrganizationUserForm' => $addOrganizationUserForm->createView(),
+            'currentUser' => $loggedInCustomerTransfer,
+            'organizationUsers' => $currentOrganizationUsers,
         ]);
     }
 
     /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @param array $customerData
+     *
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
-    public function addCustomerAction(Request $request)
+    protected function createCustomer(array $customerData)
     {
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->fromArray($customerData, true);
 
-    }
+        $customerResponseTransfer = $this
+            ->getFactory()
+            ->getAuthenticationHandler()
+            ->createCustomer($customerTransfer);
 
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function deleteCustomerAction(Request $request)
-    {
-
+        return $customerResponseTransfer;
     }
 
     /**

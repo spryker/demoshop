@@ -31,4 +31,16 @@ class CustomerQueryContainer extends BaseCustomerQueryContainer implements Custo
             ->filterByFkCustomer($idCustomer);
 
     }
+
+    /**
+     * @param int $name
+     *
+     * @return $this|\Orm\Zed\CustomerGroup\Persistence\SpyCustomerOrganizationRoleQuery
+     */
+    public function queryCustomerOrganizationRoleByName($name)
+    {
+        return $this->getFactory()
+            ->createSpyCustomerOrganizationRoleQuery()
+            ->filterByRole($name);
+    }
 }

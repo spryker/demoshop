@@ -387,10 +387,14 @@ customer.account.admin,Organisationsverwaltung,de_DE
 customer.account.admin,Organization Administration,en_US
 customer.account.admin.users,Benutzer der Organisation,de_DE
 customer.account.admin.users,Organization Users,en_US
-customer.account.admin.add_users,Organisationsbenutzer hinzufügen,de_DE
-customer.account.admin.add_users,Add Organization Users,en_US
-customer.account.admin.add_users,Organisationsbenutzer hinzufügen,de_DE
-customer.account.admin.add_users,Add Organization Users,en_US
+customer.account.admin.add_user,Organisationsbenutzer hinzufügen,de_DE
+customer.account.admin.add_user,Add Organization User,en_US
+customer.account.admin.role,Role,en_US
+customer.account.admin.role,Rolle,de_DE
+customer.account.admin.create.success,Customer created successfully,en_US
+customer.account.admin.create.success,Benutzer wurde erfolgreich hinzugefügt,de_DE
+customer.account.admin.delete_user,Delete User,en_US
+customer.account.admin.delete_user,Benutzer Löschen,de_DE
 customer.address.updated,New address updated,en_US
 customer.address.updated,Neue Adresse hinzugefügt,de_DE
 customer.address.delete.success,Address deleted successfully,en_US
