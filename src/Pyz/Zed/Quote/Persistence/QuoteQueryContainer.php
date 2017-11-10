@@ -16,7 +16,7 @@ class QuoteQueryContainer extends AbstractQueryContainer
      *
      * @return $this|\Orm\Zed\Product\Persistence\PyzQuoteQuery
      */
-    public function getQuote(int $customerId = null)
+    public function getQuote(int $customerId )
     {
         return $this->getFactory()
             ->createQuoteQuery()

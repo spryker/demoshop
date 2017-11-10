@@ -339,7 +339,7 @@ class CartController extends AbstractController
         }
 
         $quote->setItems((new \ArrayObject($items)));
-        $this->getFactory()->getCalculationClient()->recalculate($quote);
+        $quote = $this->getFactory()->getCalculationClient()->recalculate($quote);
         $this->getClient()->saveQuoteToPersistence($quote);
 
         return $this->redirectResponseExternal($request->headers->get('referer'));
@@ -373,7 +373,7 @@ class CartController extends AbstractController
         }
 
         $quote->setItems((new \ArrayObject($items)));
-        $this->getFactory()->getCalculationClient()->recalculate($quote);
+        $quote = $this->getFactory()->getCalculationClient()->recalculate($quote);
         $this->getClient()->saveQuoteToPersistence($quote);
 
         return $this->redirectResponseExternal($request->headers->get('referer'));
@@ -455,7 +455,7 @@ class CartController extends AbstractController
 
     protected function getGoogleClient()
     {
-        putenv('GOOGLE_APPLICATION_CREDENTIALS=/data/client_secret.json');
+        putenv('GOOGLE_APPLICATION_CREDENTIALS=/data/shop/development/current/client_secret.json');
 
         $client = new Google_Client();
         $client->useApplicationDefaultCredentials();
