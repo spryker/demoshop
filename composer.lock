@@ -12,6 +12,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
 =======
@@ -28,6 +29,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> renamed setup
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
     "content-hash": "367dceaef55702aa441912c8b8ac96db",
 =======
@@ -157,7 +160,13 @@
     "content-hash": "329335fbdc762e469b494ae84ad702e7",
 >>>>>>> renamed setup
 >>>>>>> renamed setup
+<<<<<<< HEAD
 >>>>>>> renamed setup
+=======
+=======
+    "content-hash": "8faf79432070b7a85558fc8b9469f71e",
+>>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2037,6 +2046,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -2075,6 +2085,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
 <<<<<<< HEAD
@@ -3024,6 +3036,11 @@
                 "reference": "ca405b5b28ae9632fda53083623d08af6e38c198"
 >>>>>>> core-2001 update lock
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
+=======
+=======
+                "reference": "06ba3e9fbc2ce5ae95e6ce5881a56eb7bc7c7ae2"
+>>>>>>> core-2001 update lock
 >>>>>>> core-2001 update lock
 >>>>>>> core-2001 update lock
 >>>>>>> core-2001 update lock
@@ -3248,6 +3265,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3286,6 +3304,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
 <<<<<<< HEAD
@@ -3329,6 +3349,8 @@
 >>>>>>> core-2001 update config
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3368,6 +3390,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
 <<<<<<< HEAD
@@ -3411,6 +3435,8 @@
 >>>>>>> core-2001 update config
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 update lock
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -3450,6 +3476,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update config
+=======
+>>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock
 <<<<<<< HEAD
@@ -4398,6 +4426,11 @@
 =======
             "time": "2017-11-10T14:02:38+00:00"
 >>>>>>> core-2001 update lock
+>>>>>>> core-2001 update lock
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-11-10T14:43:11+00:00"
 >>>>>>> core-2001 update lock
 >>>>>>> core-2001 update lock
 >>>>>>> core-2001 update lock
