@@ -75,17 +75,21 @@
 
             <div class="callout">
                 {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
+
                 <p>
+                {% if product.price %}
 
-                    {% if product.prices.ORIGINAL is defined %}
-                        <span class="stat catalog-price__price-reduced">{{ product.price | money }}</span> <span class="catalog-price__price-original">{{ product.prices.ORIGINAL | money }}</span>
-                    {% else %}
-                        <span class="stat">{{ product.price | money }}</span>
-                    {% endif %}
-
+                        {% if product.prices.ORIGINAL is defined %}
+                            <span class="stat catalog-price__price-reduced">
+                                {{ product.price | money }}</span> <span class="catalog-price__price-original">{{ product.prices.ORIGINAL | money }}
+                            </span>
+                        {% else %}
+                            <span class="stat">{{ product.price | money }}</span>
+                        {% endif %}
                     <br/>
-                    <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
+                {% endif %}
                 </p>
+                <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
 
                 {{ spyProductAbstractReview(product.idProductAbstract, '@Product/product/partials/product-rating.twig') }}
 
@@ -97,7 +101,7 @@
             <form method="POST" action="{{ path('cart/add', {'sku': product.sku }) }}">
                 {% include '@Product/product/partials/product-options.twig' %}
                 <div>
-                    <button type="submit" class="button expanded success js-add-to-cart-button" {{ (not product.isVariant or not product.available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                    <button type="submit" class="button expanded success js-add-to-cart-button" {{ (not product.isVariant or not product.available or not product.price) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
                         <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
                     </button>
 
