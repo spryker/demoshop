@@ -2,9 +2,12 @@
 
 namespace Pyz\Zed\Quote\Business;
 
+use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\ShipmentTransfer;
 use Orm\Zed\Product\Persistence\PyzQuote;
 use Pyz\Zed\Quote\Persistence\QuoteQueryContainer;
+use Spryker\Zed\Currency\Business\CurrencyFacade;
 
 class Writer implements WriterInterface
 {
@@ -33,6 +36,18 @@ class Writer implements WriterInterface
     {
         if ($quoteTransfer->getCustomer() == null) {
             return $quoteTransfer;
+        }
+
+        $quoteTransfer->setCurrency((new CurrencyFacade())->getCurrent());
+
+        if ($quoteTransfer->getShipment() == null) {
+            $shipmentTransfer = new ShipmentTransfer();
+            $quoteTransfer->setShipment($shipmentTransfer);
+        }
+
+        if ($quoteTransfer->getPayment() == null) {
+            $paymentTransfer = new PaymentTransfer();
+            $quoteTransfer->setPayment($paymentTransfer);
         }
 
         $customer = $quoteTransfer->getCustomer();

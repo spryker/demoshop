@@ -4,6 +4,7 @@ namespace Pyz\Client\Quote;
 
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Client\Customer\CustomerClient;
 use Spryker\Client\Quote\QuoteClient as SprykerQuoteClient;
 
 /**
@@ -17,8 +18,8 @@ class QuoteClient extends SprykerQuoteClient
      */
     public function setQuote(QuoteTransfer $quoteTransfer)
     {
-        $this->getFactory()->createQuoteStub()->saveQuote($quoteTransfer);
-        parent::setQuote($quoteTransfer);
+        return $this->getFactory()->createQuoteStub()->saveQuote($quoteTransfer);
+//        parent::setQuote($quoteTransfer);
     }
 
     /**
@@ -28,12 +29,12 @@ class QuoteClient extends SprykerQuoteClient
      */
     public function getQuote(CustomerTransfer $customerTransfer = null)
     {
-        $quoteTransfer = parent::getQuote();
+        if ($customerTransfer == null) {
+            $customerTransfer = (new CustomerClient())->getCustomer();
+        }
 
         if ($customerTransfer == null) {
-            if ($quoteTransfer->getCustomer() != null) {
-                $quoteTransfer = $this->getFactory()->createQuoteStub()->getQuote($quoteTransfer->getCustomer());
-            }
+            $quoteTransfer = new QuoteTransfer();
         } else {
             $quoteTransfer = $this->getFactory()->createQuoteStub()->getQuote($customerTransfer);
         }
