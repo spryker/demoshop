@@ -45,7 +45,7 @@
             </p>
         {% endif %}
 
-        {% if customer != null and customer.organization_role != 'Purchaser' %}
+        {% if customer != null and customer.organization_role != 'Buyer' %}
             <p class="__padding-top">
                 <a class="button expanded success __no-margin-bottom" href="{{ url('checkout-index') }}">
                     <i class="fa fa-check"></i>{{ 'cart.checkout'|trans }}
