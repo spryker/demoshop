@@ -6,6 +6,9 @@ sections:
   generate:
     generate-transfers:
       command: "vendor/bin/console transfer:generate"
+      
+    generate-databuilder:
+      command: "vendor/bin/console transfer:databuilder:generate"
 
   cache:
     twig-cache-warmup:
