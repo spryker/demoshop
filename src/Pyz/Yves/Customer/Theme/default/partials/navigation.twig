@@ -17,7 +17,7 @@
     </li>
     {% if getOrganisationRole() == 'Purchasing Specialist' %}
     <li {% if active == 'cart' %}class="active"{% endif %}>
-        <a href="{{ path('cart/list') }}" data-id="sidebar-cart">Carts</a>
+        <a href="{{ path('cart/list') }}" data-id="sidebar-cart">Saved Carts</a>
     </li>
     {% endif %}
     {% if getOrganisationRole() == 'Admin' %}

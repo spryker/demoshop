@@ -7,11 +7,14 @@
 
 namespace Pyz\Zed\CustomerOrganization\Business\Model;
 
+use Generated\Shared\Transfer\CustomerGroupToCustomerTransfer;
 use Generated\Shared\Transfer\CustomerGroupTransfer;
 use Orm\Zed\CustomerGroup\Persistence\SpyCustomerGroup;
 use Orm\Zed\CustomerGroup\Persistence\SpyCustomerGroupToCustomer;
+use Propel\Runtime\Collection\ObjectCollection;
 use Pyz\Zed\CustomerOrganization\Persistence\CustomerOrganizationQueryContainer;
 use \Spryker\Zed\CustomerGroup\Business\Model\CustomerGroup as BaseCustomerGroup;
+use Zend\Stdlib\ArrayObject;
 
 class CustomerOrganization extends BaseCustomerGroup implements CustomerOrganizationInterface
 {

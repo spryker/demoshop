@@ -32,6 +32,14 @@ class CartClient extends SprykerCartClient
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     */
+    public function saveQuoteToPersistence(QuoteTransfer $quoteTransfer)
+    {
+        return $this->getQuoteClient()->saveQuoteToPersistence($quoteTransfer);
+    }
+
+    /**
      * @param CustomerTransfer $customerTransfer
      *
      * @return QuotesCollectionTransfer

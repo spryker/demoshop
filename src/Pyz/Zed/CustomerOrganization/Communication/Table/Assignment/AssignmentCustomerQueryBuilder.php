@@ -46,14 +46,11 @@ class AssignmentCustomerQueryBuilder extends BaseAssignmentCustomerQueryBuilder 
     {
         $query = $this->customerQueryContainer->queryCustomers();
 
-        if ($idCustomerGroup) {
-            $query->addJoin(
-                [SpyCustomerTableMap::COL_ID_CUSTOMER, $idCustomerGroup],
-                [SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER, SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_GROUP],
-                Criteria::LEFT_JOIN
-            )
-                ->addAnd(SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_GROUP, null, Criteria::ISNULL);
-        }
+        $query->addJoin(
+            SpyCustomerTableMap::COL_ID_CUSTOMER,
+            SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER,
+            Criteria::LEFT_JOIN
+        )->addAnd(SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_GROUP, null, Criteria::ISNULL);
 
         $query->addJoin(
             SpyCustomerGroupToCustomerTableMap::COL_FK_CUSTOMER_ORGANIZATION_ROLE,

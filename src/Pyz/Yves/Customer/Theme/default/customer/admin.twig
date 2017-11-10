@@ -32,7 +32,7 @@
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.organizationRole }}</td>
                                 <td>
-                                    <a onclick="alert('Are you sure you want to delete this user from your organization? They will not be able to log in with this account again')" class="alert __no-margin-bottom alert-danger" href="/customer/admin/delete?id={{ user.idCustomer }}">
+                                    <a onclick="return confirm('Are you sure you want to delete this user from your organization? They will not be able to log in with this account again')" class="alert __no-margin-bottom alert-danger" href="/customer/admin/delete?id={{ user.idCustomer }}">
                                         {{ 'customer.profile.address.delete' | trans }}
                                     </a>
                                 </td>
@@ -51,30 +51,30 @@
     <label>{{ addOrganizationUserForm.email.vars.label | trans }}*
         {{ form_widget(addOrganizationUserForm.email, { 'attr': {'class': 'input-group-field', 'placeholder': addOrganizationUserForm.email.vars.label | trans } }) }}
     </label>
-    {{ form_errors(addOrganizationUserForm.email) }}
+    <span class="is-invalid-label">{{ form_errors(addOrganizationUserForm.email) }}</span>
 
     <label>{{ addOrganizationUserForm.password.vars.label | trans }}*
         {{ form_widget(addOrganizationUserForm.password, { 'attr': {'class': 'input-group-field', 'placeholder': addOrganizationUserForm.password.vars.label | trans } }) }}
     </label>
-    {{ form_errors(addOrganizationUserForm.password) }}
+    <span class="is-invalid-label">{{ form_errors(addOrganizationUserForm.password) }}</span>
 
     <label>
         {{ addOrganizationUserForm.first_name.vars.label | trans }}*
         {{ form_widget(addOrganizationUserForm.first_name, { 'attr': {'placeholder': addOrganizationUserForm.first_name.vars.label | trans } }) }}
     </label>
-    {{ form_errors(addOrganizationUserForm.first_name) }}
+    <span class="is-invalid-label">{{ form_errors(addOrganizationUserForm.first_name) }}</span>
 
     <label>
         {{ addOrganizationUserForm.last_name.vars.label | trans }}*
         {{ form_widget(addOrganizationUserForm.last_name, { 'attr': {'placeholder': addOrganizationUserForm.last_name.vars.label | trans } }) }}
     </label>
-    {{ form_errors(addOrganizationUserForm.last_name) }}
+    <span class="is-invalid-label">{{ form_errors(addOrganizationUserForm.last_name) }}</span>
 
     <label>
         {{ addOrganizationUserForm.organization_role.vars.label | trans }}*
         {{ form_widget(addOrganizationUserForm.organization_role, { 'attr': {'placeholder': addOrganizationUserForm.organization_role.vars.label | trans } }) }}
     </label>
-    {{ form_errors(addOrganizationUserForm.organization_role) }}
+    <span class="is-invalid-label">{{ form_errors(addOrganizationUserForm.organization_role) }}</span>
 
     {{ form_widget(addOrganizationUserForm.id_organization, { 'value': currentUser.idOrganization}) }}
 
