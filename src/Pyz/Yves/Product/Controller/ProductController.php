@@ -78,7 +78,7 @@ class ProductController extends AbstractController
     }
 
     protected function getGoogleClient() {
-        putenv('GOOGLE_APPLICATION_CREDENTIALS=/data/shop/development/current/client_secret.json');
+        putenv('GOOGLE_APPLICATION_CREDENTIALS=/data/client_secret.json');
 
         $client = new Google_Client();
         $client->useApplicationDefaultCredentials();
