@@ -1023,8 +1023,8 @@ product-cart.validation.error.abstract-product-exists,Product not found,en_US
 product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
 product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
-product-cart.validation.error.product-option-value-price-exists,Product option price not found,en_US
-product-cart.validation.error.product-option-value-price-exists,Produkt-Optionspreis nicht gefunden,de_DE
+product-cart.validation.error.product-option-value-price-exists,"Price not found for product option of product in the cart '%sku%'.",en_US
+product-cart.validation.error.product-option-value-price-exists,"Der Produkt-Optionspreis vom Product '%sku%' im Warenkorb wurde nicht gefunden.",de_DE
 product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
 product.filter.price-default-chf-gross_mode,Preisspanne,de_DE
