@@ -260,15 +260,15 @@ function dropDevelopmentDatabase {
                 sudo pg_ctlcluster $PG_VERSION main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
                 writeErrorMessage "Deleting DB command failed"
             fi
+        fi
 
-            MIGRATION_DIRECTORY=./src/Orm/Propel/DE/Migration_pgsql
-            if [ -d $MIGRATION_DIRECTORY ] && [ $(ls -A $MIGRATION_DIRECTORY) ]; then
-                labelText "Removing propel migration files for core development"
-                rm "$MIGRATION_DIRECTORY"/*
-                writeErrorMessage "Removing propel migration files command failed"
-            else
-                labelText "Migration directory does not exist or is empty"
-            fi
+        MIGRATION_DIRECTORY=./src/Orm/Propel/DE/Migration_pgsql
+        if [[ -d $MIGRATION_DIRECTORY ]] && [[ $(ls -A $MIGRATION_DIRECTORY) ]]; then
+            labelText "Removing propel migration files for core development"
+            rm "$MIGRATION_DIRECTORY"/*
+            writeErrorMessage "Removing propel migration files command failed"
+        else
+            labelText "Migration directory does not exist or is empty"
         fi
     fi
 
