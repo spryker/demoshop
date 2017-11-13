@@ -13,6 +13,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
 =======
@@ -31,6 +32,8 @@
 >>>>>>> renamed setup
 =======
 >>>>>>> core-2001 update lock
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
     "content-hash": "367dceaef55702aa441912c8b8ac96db",
 =======
@@ -166,7 +169,13 @@
 =======
     "content-hash": "8faf79432070b7a85558fc8b9469f71e",
 >>>>>>> core-2001 update lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock
+=======
+=======
+    "content-hash": "7505868d6f2bf7cbbc02cb8b6ad5c9db",
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2050,6 +2059,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -3105,10 +3115,25 @@
                 "reference": "709ecda2c38027303ff374436701e0b5109ee879"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+                "reference": "db2b323958054f80b2313b611d19a0f7341c0f90"
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3332,6 +3357,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3380,6 +3406,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3429,6 +3457,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3478,6 +3508,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -3527,6 +3559,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -4583,10 +4617,25 @@
             "time": "2017-11-13T08:46:17+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-11-13T10:03:37+00:00"
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5050,12 +5099,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update deploy configs
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
@@ -5072,25 +5124,31 @@
 =======
             "version": "v2.8.29",
 >>>>>>> core-2001 update deploy configs
+<<<<<<< HEAD
 >>>>>>> core-2001 update deploy configs
+=======
+=======
+            "version": "v3.3.11",
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "10507c5f24577b0ad971b0d22097c823b2b45dd3"
+                "reference": "77db266766b54db3ee982fe51868328b887ce15c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/10507c5f24577b0ad971b0d22097c823b2b45dd3",
-                "reference": "10507c5f24577b0ad971b0d22097c823b2b45dd3",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/77db266766b54db3ee982fe51868328b887ce15c",
+                "reference": "77db266766b54db3ee982fe51868328b887ce15c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -5117,7 +5175,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:08:47+00:00"
+            "time": "2017-11-07T14:12:55+00:00"
         },
         {
             "name": "symfony/finder",
@@ -5510,12 +5568,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update deploy configs
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
@@ -5532,6 +5593,7 @@
 =======
             "version": "v2.8.29",
 >>>>>>> core-2001 update deploy configs
+<<<<<<< HEAD
 >>>>>>> core-2001 update deploy configs
             "source": {
                 "type": "git",
@@ -5542,15 +5604,28 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/intl/zipball/ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
                 "reference": "ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
+=======
+=======
+            "version": "v3.2.13",
+>>>>>>> core-2001 udpate spryker/spryker
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "801796ace3769266cc9e8380fc65707249096a39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/801796ace3769266cc9e8380fc65707249096a39",
+                "reference": "801796ace3769266cc9e8380fc65707249096a39",
+>>>>>>> core-2001 udpate spryker/spryker
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/polyfill-php54": "~1.0"
+                "php": ">=5.5.9",
+                "symfony/polyfill-intl-icu": "~1.0"
             },
             "require-dev": {
-                "symfony/filesystem": "~2.1|~3.0.0"
+                "symfony/filesystem": "~2.8|~3.0"
             },
             "suggest": {
                 "ext-intl": "to use the component with locales other than \"en\""
@@ -5558,7 +5633,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -5604,7 +5679,11 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
             "time": "2017-11-16T15:20:19+00:00"
+=======
+            "time": "2017-06-01T21:00:24+00:00"
+>>>>>>> core-2001 udpate spryker/spryker
         },
         {
             "name": "symfony/options-resolver",
@@ -5796,64 +5875,6 @@
             "keywords": [
                 "compatibility",
                 "mbstring",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2017-10-11T12:05:26+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php54",
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php54.git",
-                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
-                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php54\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 5.4+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
                 "polyfill",
                 "portable",
                 "shim"
@@ -6205,27 +6226,34 @@
         },
         {
             "name": "symfony/property-access",
+<<<<<<< HEAD
             "version": "v2.8.29",
 >>>>>>> core-2001 update deploy configs
+<<<<<<< HEAD
 >>>>>>> core-2001 update deploy configs
+=======
+=======
+            "version": "v3.0.9",
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "5b9f8d7d41fb982bee7ab75d0d0427e349ed134f"
+                "reference": "a4f1a668d0a269a65790f07d9ab2a97dd060fccb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/5b9f8d7d41fb982bee7ab75d0d0427e349ed134f",
-                "reference": "5b9f8d7d41fb982bee7ab75d0d0427e349ed134f",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/a4f1a668d0a269a65790f07d9ab2a97dd060fccb",
+                "reference": "a4f1a668d0a269a65790f07d9ab2a97dd060fccb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -6263,7 +6291,7 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2017-11-05T15:25:56+00:00"
+            "time": "2016-07-30T07:22:48+00:00"
         },
         {
             "name": "symfony/routing",
@@ -6598,12 +6626,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
 =======
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update deploy configs
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 =======
@@ -6620,40 +6651,60 @@
 =======
             "version": "v2.8.29",
 >>>>>>> core-2001 update deploy configs
+<<<<<<< HEAD
 >>>>>>> core-2001 update deploy configs
+=======
+=======
+            "version": "v3.3.11",
+>>>>>>> core-2001 udpate spryker/spryker
+>>>>>>> core-2001 udpate spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "13362647299108bd7565756bff3f05f7dc1d4ab5"
+                "reference": "d6dc07653b872b3091c70140751d5f3f4905082a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/13362647299108bd7565756bff3f05f7dc1d4ab5",
-                "reference": "13362647299108bd7565756bff3f05f7dc1d4ab5",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/d6dc07653b872b3091c70140751d5f3f4905082a",
+                "reference": "d6dc07653b872b3091c70140751d5f3f4905082a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/polyfill-php55": "~1.0"
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "conflict": {
+                "phpdocumentor/type-resolver": "<0.2.1",
+                "symfony/dependency-injection": "<3.2",
+                "symfony/property-access": ">=3.0,<3.0.4|>=2.8,<2.8.4",
+                "symfony/property-info": "<3.1",
+                "symfony/yaml": "<3.3"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
                 "doctrine/cache": "~1.0",
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/property-access": "~2.3|~3.0.0",
-                "symfony/yaml": "^2.0.5|~3.0.0"
+                "phpdocumentor/reflection-docblock": "^3.0|^4.0",
+                "symfony/cache": "~3.1",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/dependency-injection": "~3.2",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/property-access": "~2.8|~3.0",
+                "symfony/property-info": "~3.1",
+                "symfony/yaml": "~3.3"
             },
             "suggest": {
                 "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
                 "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
+                "psr/cache-implementation": "For using the metadata cache.",
                 "symfony/config": "For using the XML mapping loader.",
+                "symfony/http-foundation": "To use the DataUriNormalizer.",
                 "symfony/property-access": "For using the ObjectNormalizer.",
+                "symfony/property-info": "To deserialize relations.",
                 "symfony/yaml": "For using the default YAML mapping loader."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -6680,10 +6731,11 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:08:47+00:00"
+            "time": "2017-11-07T14:16:22+00:00"
         },
         {
             "name": "symfony/translation",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -6693,6 +6745,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update deploy configs
+=======
+>>>>>>> core-2001 udpate spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.29",
 >>>>>>> core-2001 update spryker/spryker
@@ -6713,13 +6767,17 @@
 =======
             "version": "v2.8.29",
 >>>>>>> core-2001 update deploy configs
+=======
+            "version": "v3.0.9",
+>>>>>>> core-2001 udpate spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "0c63d56516c4c4c323228ca6348eadb7c91b1daf"
+                "reference": "eee6c664853fd0576f21ae25725cfffeafe83f26"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/translation/zipball/a69be9fa6fbc305d501bdf62ded33a8503de7b88",
@@ -6733,20 +6791,24 @@
                 "url": "https://api.github.com/repos/symfony/translation/zipball/0c63d56516c4c4c323228ca6348eadb7c91b1daf",
                 "reference": "0c63d56516c4c4c323228ca6348eadb7c91b1daf",
 >>>>>>> core-2001 update deploy configs
+=======
+                "url": "https://api.github.com/repos/symfony/translation/zipball/eee6c664853fd0576f21ae25725cfffeafe83f26",
+                "reference": "eee6c664853fd0576f21ae25725cfffeafe83f26",
+>>>>>>> core-2001 udpate spryker/spryker
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": ">=5.5.9",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
-                "symfony/config": "<2.7"
+                "symfony/config": "<2.8"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.8",
-                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
-                "symfony/yaml": "~2.2|~3.0.0"
+                "symfony/config": "~2.8|~3.0",
+                "symfony/intl": "~2.8|~3.0",
+                "symfony/yaml": "~2.8|~3.0"
             },
             "suggest": {
                 "psr/log": "To use logging capability in translator",
@@ -6756,7 +6818,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -6786,6 +6848,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-07T14:08:47+00:00"
         },
         {
@@ -6808,6 +6871,9 @@
 =======
             "time": "2017-11-07T14:08:47+00:00"
 >>>>>>> core-2001 update deploy configs
+=======
+            "time": "2016-07-30T07:22:48+00:00"
+>>>>>>> core-2001 udpate spryker/spryker
         },
         {
             "name": "symfony/twig-bridge",
