@@ -1039,8 +1039,8 @@ price.mode.gross_mode,Gross prices,en_US
 price.mode.gross_mode,Gross prices,de_DE
 price.mode.net_mode,Net prices,en_US
 price.mode.net_mode,Net prices,de_DE
-cart.pre.check.price.failed,"Price not found for product with sku '%sku%'.",en_US
-cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%'.",de_DE
+cart.pre.check.price.failed,"Price not found for added to cart product with sku '%sku%'. Please remove the product from cart to change the currency.",en_US
+cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%' im Warenkorb. Bitte entfernen Sie das Produkt aus dem Warenkorb, um die Währung zu ändern.",de_DE
 price.mode.switch.error,"Can't switch price mode when there is items in the cart.",en_US
 price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
 cart.pre.check.shipment.failed,"Can't change cart shipment method not found.",en_US

@@ -21,12 +21,15 @@ class PriceControllerProvider extends AbstractYvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
+        $allowedLocalesPattern = $this->getAllowedLocalesPattern();
+
         $this->createController(
-            '/price-mode-switch',
+            '/{price}/mode-switch',
             static::ROUTE_PRICE_SWITCH,
             'Price',
             'PriceModeSwitch',
             'index'
-        );
+        )->assert('price', $allowedLocalesPattern . 'price|price')
+            ->value('price', 'price');;
     }
 }

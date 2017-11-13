@@ -53,14 +53,7 @@ class StorageProductMapper implements StorageProductMapperInterface
             );
         }
 
-        $currentProductPriceTransfer = $this->priceProductClient->resolveProductPrice(
-            $storageProductTransfer->getPrices()
-        );
-
-        $storageProductTransfer->setPrices($currentProductPriceTransfer->getPrices());
-        $storageProductTransfer->setPrice($currentProductPriceTransfer->getPrice());
-
-        return $storageProductTransfer;
+        return $this->setPrices($storageProductTransfer);
     }
 
     /**
@@ -70,8 +63,22 @@ class StorageProductMapper implements StorageProductMapperInterface
      */
     protected function mapAbstractStorageProduct(array $productData)
     {
-        $storageProductTransfer = new StorageProductTransfer();
-        $storageProductTransfer->fromArray($productData, true);
+        return (new StorageProductTransfer())->fromArray($productData, true);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
+     *
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     */
+    protected function setPrices(StorageProductTransfer $storageProductTransfer)
+    {
+        $currentProductPriceTransfer = $this->priceProductClient->resolveProductPrice(
+            $storageProductTransfer->getPrices()
+        );
+
+        $storageProductTransfer->setPrices($currentProductPriceTransfer->getPrices());
+        $storageProductTransfer->setPrice($currentProductPriceTransfer->getPrice());
 
         return $storageProductTransfer;
     }
