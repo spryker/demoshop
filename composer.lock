@@ -4,7 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
+=======
+<<<<<<< HEAD
+    "content-hash": "1da1d976b1c0174590aea4fbb51335d8",
+=======
+<<<<<<< HEAD
+    "content-hash": "367dceaef55702aa441912c8b8ac96db",
+=======
+    "content-hash": "f3ca6ea9d453c52f5d946116bea3a3ce",
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1859,11 +1871,43 @@
         },
         {
             "name": "spryker/spryker",
+<<<<<<< HEAD
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
+=======
+<<<<<<< HEAD
+                "reference": "7d02745dc13e6b9c45c725500678b684711cebd7"
+=======
+<<<<<<< HEAD
+                "reference": "8d96e0ab920bc95b4a72d62343954748c9154fd2"
+=======
+<<<<<<< HEAD
+                "reference": "ead6aaf91ddf6342ef2cf2184be99d2b9b5c31d5"
+=======
+                "reference": "f560e329b66224580a58959ed993da279096caef"
+=======
+<<<<<<< HEAD
+            "version": "dev-bugfix/core-791-case-sensitive-propel-plan-D",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/spryker.git",
+                "reference": "1ce73963ac420f7354feeb2a0844068d95511904"
+=======
+            "version": "dev-feature/core-2247-allow-to-change-the-type-of-table-column-from-project-code",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:spryker/spryker.git",
+                "reference": "82a5a43d28df54d32fd4476608b2c1a57230c639"
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2107,31 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-13T14:23:45+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-12T18:20:05+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-11T13:01:16+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-06T14:10:00+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-13T14:44:42+00:00"
+=======
+            "time": "2017-11-13T16:34:57+00:00"
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6772,7 +6840,23 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Sullivan Sénéchal",
+=======
+<<<<<<< HEAD
+                    "name": "Sullivan Senechal",
+=======
+<<<<<<< HEAD
+                    "name": "Sullivan Sénéchal",
+=======
+<<<<<<< HEAD
+                    "name": "Sullivan SENECHAL",
+=======
+                    "name": "Sullivan Sénéchal",
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
