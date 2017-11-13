@@ -77,7 +77,7 @@
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
-    "spryker/git-hook": "dev-bugfix/allow-sf-3",
+    "spryker/git-hook": "dev-master",
     "stecman/symfony-console-completion": "^0.7.0",
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
