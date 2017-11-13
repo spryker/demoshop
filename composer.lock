@@ -2060,6 +2060,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -3130,10 +3131,25 @@
 =======
                 "reference": "db2b323958054f80b2313b611d19a0f7341c0f90"
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+=======
+=======
+=======
+=======
+                "reference": "074ef2cb654073ad281d946ace5d35bc40cd71e8"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3358,6 +3374,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3408,6 +3425,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3459,6 +3478,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3510,6 +3531,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -3561,6 +3584,8 @@
 >>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -4632,10 +4657,25 @@
 =======
             "time": "2017-11-13T10:03:37+00:00"
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-11-13T13:20:35+00:00"
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
