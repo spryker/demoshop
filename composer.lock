@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
 =======
 =======
@@ -34,6 +35,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker, update travis
 <<<<<<< HEAD
     "content-hash": "367dceaef55702aa441912c8b8ac96db",
 =======
@@ -175,7 +178,13 @@
 =======
     "content-hash": "7505868d6f2bf7cbbc02cb8b6ad5c9db",
 >>>>>>> core-2001 udpate spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 udpate spryker/spryker
+=======
+=======
+    "content-hash": "72385b66a4b85f25e8a912a7d0ddc4b3",
+>>>>>>> core-2001 update spryker/spryker, update travis
+>>>>>>> core-2001 update spryker/spryker, update travis
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2061,6 +2070,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -3147,9 +3157,21 @@
                 "reference": "074ef2cb654073ad281d946ace5d35bc40cd71e8"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+                "reference": "0676c2e82b7d0cde1ef45b454d1df7033413fdf3"
+>>>>>>> core-2001 update spryker/spryker, update travis
+>>>>>>> core-2001 update spryker/spryker, update travis
+>>>>>>> core-2001 update spryker/spryker, update travis
+>>>>>>> core-2001 update spryker/spryker, update travis
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3375,6 +3397,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3427,6 +3450,8 @@
 >>>>>>> core-2001 udpate spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker, update travis
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3480,6 +3505,8 @@
 >>>>>>> core-2001 udpate spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker, update travis
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3533,6 +3560,8 @@
 >>>>>>> core-2001 udpate spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
+=======
+>>>>>>> core-2001 update spryker/spryker, update travis
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -4673,9 +4702,21 @@
             "time": "2017-11-13T13:20:35+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2001 update spryker/spryker
+=======
+=======
+=======
+=======
+            "time": "2017-11-13T13:34:36+00:00"
+>>>>>>> core-2001 update spryker/spryker, update travis
+>>>>>>> core-2001 update spryker/spryker, update travis
+>>>>>>> core-2001 update spryker/spryker, update travis
+>>>>>>> core-2001 update spryker/spryker, update travis
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -10665,10 +10706,11 @@
         },
         {
             "name": "spryker/git-hook",
-            "version": "dev-bugfix/allow-sf-3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
@@ -10678,6 +10720,9 @@
 =======
                 "reference": "5b9398bf1f995876f2a13bdaa78f54f7e82915f7"
 >>>>>>> core-2001 update deploy configs
+=======
+                "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
+>>>>>>> core-2001 update spryker/spryker, update travis
             },
             "require": {
                 "php": ">=5.4.16",
@@ -10727,6 +10772,7 @@
             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-13T13:27:04+00:00"
 =======
             "time": "2017-11-09T10:38:34+00:00"
@@ -10734,6 +10780,9 @@
 =======
             "time": "2017-11-13T07:10:49+00:00"
 >>>>>>> core-2001 update deploy configs
+=======
+            "time": "2017-11-13T13:27:04+00:00"
+>>>>>>> core-2001 update spryker/spryker, update travis
         },
         {
             "name": "squizlabs/php_codesniffer",
