@@ -2048,6 +2048,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -2092,6 +2093,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock file
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
                 "reference": "c142b69f4b2ebabb615d2dead92176658fe4191d"
 =======
@@ -3062,11 +3065,29 @@
 =======
                 "reference": "bd409d8080404e0320babdf50164245cd8c976e4"
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "0f21f6b237d7cca7d9b8983672d0b9c531810960"
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3288,6 +3309,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3332,6 +3354,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock file
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -3377,6 +3401,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock file
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "time": "2017-11-13T15:33:34+00:00"
 =======
@@ -3422,6 +3448,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock file
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "time": "2017-11-13T14:44:42+00:00"
 =======
@@ -3467,6 +3495,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock file
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "time": "2017-11-13T09:40:11+00:00"
 =======
@@ -3512,6 +3542,8 @@
 >>>>>>> core-2001 update lock
 =======
 >>>>>>> core-2001 update lock file
+=======
+>>>>>>> core-2001 update composer.lock
 <<<<<<< HEAD
             "time": "2017-11-10T16:05:18+00:00"
 =======
@@ -4482,11 +4514,29 @@
 =======
             "time": "2017-11-10T16:13:24+00:00"
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+<<<<<<< HEAD
 >>>>>>> core-2001 update lock file
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-11-13T08:01:53+00:00"
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
+>>>>>>> core-2001 update composer.lock
         },
         {
             "name": "swiftmailer/swiftmailer",
