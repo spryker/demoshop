@@ -30,6 +30,7 @@ class PriceControllerProvider extends AbstractYvesControllerProvider
             'PriceModeSwitch',
             'index'
         )->assert('price', $allowedLocalesPattern . 'price|price')
-            ->value('price', 'price');;
+            ->value('price', 'price');
+        ;
     }
 }
