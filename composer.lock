@@ -1821,7 +1821,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "32f7daca783882939c1d4882c93b3ee68109563e"
+                "reference": "cb7679baf4838d7963c5f1a3ccb34ac468037d8b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2021,7 +2021,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-13T11:34:42+00:00"
+            "time": "2017-11-13T15:58:02+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6969,13 +6969,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-                "reference": "9c7eb1c033e8af93ce4e401cc709851c2504da7a"
+                "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
             },
             "require": {
                 "php": ">=5.4.16",
                 "phpmd/phpmd": "^2.6",
                 "phpstan/phpstan": "^0.8",
-                "symfony/yaml": "^2.8"
+                "symfony/yaml": "^2.8|^3"
             },
             "require-dev": {
                 "codeception/codeception": "^2.2.10",
@@ -6987,10 +6987,7 @@
             "autoload": {
                 "psr-0": {
                     "GitHook": "src"
-                },
-                "files": [
-                    "php-stan-autoload-shim.php"
-                ]
+                }
             },
             "scripts": {
                 "post-install-cmd": [
@@ -7020,7 +7017,7 @@
             "support": {
                 "source": "https://github.com/spryker/git-hook"
             },
-            "time": "2017-10-23T08:10:50+00:00"
+            "time": "2017-11-13T13:27:04+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
