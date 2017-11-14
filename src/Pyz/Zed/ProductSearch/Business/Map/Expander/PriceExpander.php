@@ -52,7 +52,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
         LocaleTransfer $localeTransfer
     ) {
 
-        $price = (int)$this->priceProductFacade->getPriceBySku($productData['abstract_sku']);
+        $price = (int)$this->priceProductFacade->findPriceBySku($productData['abstract_sku']);
 
         $pageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)
