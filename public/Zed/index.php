@@ -2,10 +2,9 @@
 
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Config\Application\Environment;
-
 use Spryker\Shared\ErrorHandler\ErrorHandlerEnvironment;
 
-require_once __DIR__ . '/maintenance.php';
+require __DIR__ . '/maintenance/maintenance.php';
 
 define('APPLICATION', 'ZED');
 defined('APPLICATION_ROOT_DIR') || define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../..'));
