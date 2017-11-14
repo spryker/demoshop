@@ -103,13 +103,13 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
-    = $config[CustomerConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_STATIC_MEDIA]
     = $config[ApplicationConstants::HOST_SSL_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
     = 'www.de.project.local';
+$config[CustomerConstants::BASE_URL_YVES] = 'www.de.project.local';
 
 /**
  * Hostname(s) for Zed - Shop frontend
