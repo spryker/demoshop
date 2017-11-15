@@ -262,7 +262,6 @@ function dropDevelopmentDatabase {
             fi
         fi
     fi
-
 }
 
 function updateComposerBinary {
