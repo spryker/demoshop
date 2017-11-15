@@ -1821,7 +1821,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c030f0d5716ad00f75a1d51a91c73d9a85a11f56"
+                "reference": "e994b13df91541a24fe5b8cf61d3d3be7b538b2b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2024,7 +2024,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-14T13:01:01+00:00"
+            "time": "2017-11-15T09:45:25+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5753,16 +5753,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.24",
+            "version": "5.7.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f0b07fbcb0c563eae088736dd0c81acba1d31ac3"
+                "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f0b07fbcb0c563eae088736dd0c81acba1d31ac3",
-                "reference": "f0b07fbcb0c563eae088736dd0c81acba1d31ac3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4b1c822a68ae6577df38a59eb49b046712ec0f6a",
+                "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a",
                 "shasum": ""
             },
             "require": {
@@ -5831,7 +5831,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-11-14T07:52:47+00:00"
+            "time": "2017-11-14T14:50:51+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
