@@ -58,7 +58,7 @@
     "spryker/console": "^3.0.0",
     "spryker/country": "^3.0.0",
     "spryker/currency": "^3.0.0",
-    "spryker/customer": "^6.0.0",
+    "spryker/customer": "^7.0.0",
     "spryker/customer-api": "^0.1.0",
     "spryker/customer-group": "^2.0.0",
     "spryker/customer-group-discount-connector": "^2.0.0",
