@@ -21,12 +21,19 @@ class ShipmentHandler
      */
     protected $shipmentClient;
 
+    /** @var string */
+    protected $noShipmentMethodName;
+
     /**
      * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
+     * @param string $noShipmentMethodName
      */
-    public function __construct(ShipmentClientInterface $shipmentClient)
-    {
+    public function __construct(
+        ShipmentClientInterface $shipmentClient,
+        $noShipmentMethodName
+    ) {
         $this->shipmentClient = $shipmentClient;
+        $this->noShipmentMethodName = $noShipmentMethodName;
     }
 
     /**
@@ -39,7 +46,7 @@ class ShipmentHandler
     {
         $shipmentTransfer = $quoteTransfer->getShipment();
 
-        $shipmentMethodTransfer = $this->getShipmentMethodById($quoteTransfer);
+        $shipmentMethodTransfer = $this->getShipmentMethod($quoteTransfer);
         $shipmentTransfer->setMethod($shipmentMethodTransfer);
 
         $shipmentExpenseTransfer = $this->createShippingExpenseTransfer($shipmentMethodTransfer, $quoteTransfer->getPriceMode());
@@ -51,15 +58,50 @@ class ShipmentHandler
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
+     * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer|\Generated\Shared\Transfer\ShipmentMethodTransfer
+     */
+    protected function getShipmentMethod(QuoteTransfer $quoteTransfer)
+    {
+        $selectedShipmentMethod = $quoteTransfer->getShipment()->getShipmentSelection();
+
+        if ($this->noShipmentMethodName && $selectedShipmentMethod === $this->noShipmentMethodName) {
+            return $this->getShipmentMethodByName($quoteTransfer, $selectedShipmentMethod);
+        }
+
+        return $this->getShipmentMethodById($quoteTransfer, (int)$selectedShipmentMethod);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param int $idShipmentMethod
+     *
      * @return \Generated\Shared\Transfer\ShipmentMethodTransfer|null
      */
-    protected function getShipmentMethodById(QuoteTransfer $quoteTransfer)
+    protected function getShipmentMethodById(QuoteTransfer $quoteTransfer, $idShipmentMethod)
     {
         $shipmentMethodsTransfer = $this->getAvailableShipmentMethods($quoteTransfer);
-        $idShipmentMethod = $quoteTransfer->getShipment()->getShipmentSelection();
 
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodsTransfer) {
             if ($shipmentMethodsTransfer->getIdShipmentMethod() === $idShipmentMethod) {
+                return $shipmentMethodsTransfer;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param string $nameShipmentMethod
+     *
+     * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer|\Generated\Shared\Transfer\ShipmentMethodTransfer
+     */
+    protected function getShipmentMethodByName(QuoteTransfer $quoteTransfer, $nameShipmentMethod)
+    {
+        $shipmentMethodsTransfer = $this->getAvailableShipmentMethods($quoteTransfer);
+
+        foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodsTransfer) {
+            if ($shipmentMethodsTransfer->getName() === $nameShipmentMethod) {
                 return $shipmentMethodsTransfer;
             }
         }

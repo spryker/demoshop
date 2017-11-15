@@ -10,6 +10,9 @@ use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
 
+/**
+ * @method \Pyz\Yves\Shipment\ShipmentConfig getConfig()
+ */
 class ShipmentFactory extends AbstractFactory
 {
     /**
@@ -38,7 +41,10 @@ class ShipmentFactory extends AbstractFactory
      */
     public function createShipmentHandler()
     {
-        return new ShipmentHandler($this->getShipmentClient());
+        return new ShipmentHandler(
+            $this->getShipmentClient(),
+            $this->getConfig()->getNoShipmentMethodName()
+        );
     }
 
     /**

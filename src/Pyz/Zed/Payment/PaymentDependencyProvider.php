@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Payment;
 
 use Spryker\Shared\GiftCard\GiftCardConfig;
-use Spryker\Shared\GiftCard\GiftCardConstants;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderSaverPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPreCheckPlugin;
