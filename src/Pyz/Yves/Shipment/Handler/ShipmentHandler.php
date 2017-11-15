@@ -13,6 +13,7 @@ use Spryker\Client\Shipment\ShipmentClientInterface;
 use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
+use Exception;
 
 class ShipmentHandler
 {
@@ -65,7 +66,7 @@ class ShipmentHandler
         $selectedShipmentMethod = $quoteTransfer->getShipment()->getShipmentSelection();
 
         if ($this->noShipmentMethodName && $selectedShipmentMethod === $this->noShipmentMethodName) {
-            return $this->getShipmentMethodByName($quoteTransfer, $selectedShipmentMethod);
+            return $this->getShipmentMethodNoShipment($quoteTransfer);
         }
 
         return $this->getShipmentMethodById($quoteTransfer, (int)$selectedShipmentMethod);
@@ -92,21 +93,22 @@ class ShipmentHandler
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $nameShipmentMethod
+     *
+     * @throws \Exception
      *
      * @return \Generated\Shared\Transfer\ShipmentMethodsTransfer|\Generated\Shared\Transfer\ShipmentMethodTransfer
      */
-    protected function getShipmentMethodByName(QuoteTransfer $quoteTransfer, $nameShipmentMethod)
+    protected function getShipmentMethodNoShipment(QuoteTransfer $quoteTransfer)
     {
         $shipmentMethodsTransfer = $this->getAvailableShipmentMethods($quoteTransfer);
 
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodsTransfer) {
-            if ($shipmentMethodsTransfer->getName() === $nameShipmentMethod) {
+            if ($shipmentMethodsTransfer->getName() === $this->noShipmentMethodName) {
                 return $shipmentMethodsTransfer;
             }
         }
 
-        return null;
+        throw new Exception(sprintf('Please create a default no-shipment method with defined name "%s"', $this->noShipmentMethodName));
     }
 
     /**
