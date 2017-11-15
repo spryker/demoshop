@@ -42,12 +42,44 @@ class GiftCardCodeHandler implements CodeHandlerInterface
      */
     public function removeCode(QuoteTransfer $quoteTransfer, $code)
     {
+        $this->removeGiftCard($quoteTransfer, $code);
+        $this->removeGiftCardPayment($quoteTransfer, $code);
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     * @param string $code
+     *
+     * @return QuoteTransfer
+     */
+    protected function removeGiftCard(QuoteTransfer $quoteTransfer, $code)
+    {
         $giftCardTransferCollection = $quoteTransfer->getGiftCards();
+
         foreach ($giftCardTransferCollection as $index => $giftCardTransfer) {
             if ($giftCardTransfer->getCode() === $code) {
                 $giftCardTransferCollection->offsetUnset($index);
             }
         }
+
+        return $quoteTransfer;
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     * @param string $code
+     *
+     * @return QuoteTransfer
+     */
+    protected function removeGiftCardPayment(QuoteTransfer $quoteTransfer, $code)
+    {
+        foreach ($quoteTransfer->getPayments() as $index => $payment) {
+            if ($payment->getGiftCard() && $payment->getGiftCard()->getCode() === $code) {
+                $quoteTransfer->getPayments()->offsetUnset($index);
+            }
+        }
+
+        return $quoteTransfer;
     }
 
     /**
