@@ -72,6 +72,7 @@ class ShipmentFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(ShipmentDependencyProvider::PLUGIN_MONEY);
     }
+
     /**
      * @return \Spryker\Client\Price\PriceClientInterface
      */

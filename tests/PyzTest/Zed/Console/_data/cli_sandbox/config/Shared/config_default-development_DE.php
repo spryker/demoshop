@@ -7,7 +7,6 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\Queue\QueueConstants;

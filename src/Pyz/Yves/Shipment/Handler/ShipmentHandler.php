@@ -11,8 +11,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Spryker\Client\Price\PriceClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
-use Spryker\Shared\Price\PriceConfig;
-use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
 

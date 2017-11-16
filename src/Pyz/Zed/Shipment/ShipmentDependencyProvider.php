@@ -9,7 +9,6 @@ namespace Pyz\Zed\Shipment;
 
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Money\Communication\Plugin\Form\MoneyCollectionFormTypePlugin;
-use Spryker\Zed\Money\Communication\Plugin\Form\MoneyFormTypePlugin;
 use Spryker\Zed\Shipment\ShipmentDependencyProvider as SprykerShipmentDependencyProvider;
 
 class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
@@ -52,15 +51,5 @@ class ShipmentDependencyProvider extends SprykerShipmentDependencyProvider
     protected function createMoneyCollectionFormTypePlugin(Container $container)
     {
         return new MoneyCollectionFormTypePlugin();
-    }
-
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
-     */
-    protected function createMoneyFormTypePlugin(Container $container)
-    {
-        return new MoneyFormTypePlugin();
     }
 }

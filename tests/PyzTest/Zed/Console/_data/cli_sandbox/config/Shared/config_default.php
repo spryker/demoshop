@@ -18,7 +18,6 @@ use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\PriceProduct\PriceProductConstants;
-use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
