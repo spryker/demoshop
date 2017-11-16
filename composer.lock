@@ -4,7 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
+=======
+<<<<<<< HEAD
+    "content-hash": "5768a1aef55ae569b402007522cec331",
+=======
+    "content-hash": "84b5ff9cf12d700abe00eec0de19a99d",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1859,11 +1867,19 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2271-fix-sniffer-and-dependency-checker-for-sdk-and-eco",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "ead6aaf91ddf6342ef2cf2184be99d2b9b5c31d5"
+=======
+<<<<<<< HEAD
+                "reference": "661cc6968538d83f15545930f9dc15f884a16fc1"
+=======
+                "reference": "3f19cdfbab798b1ab6d7cc1454c7643cc7bdc3db"
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2079,15 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-12-11T13:01:16+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-29T16:06:58+00:00"
+=======
+            "time": "2017-11-16T05:34:20+00:00"
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2311,7 +2335,15 @@
         },
         {
             "name": "symfony/debug",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -2427,7 +2459,15 @@
         },
         {
             "name": "symfony/filesystem",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -2476,7 +2516,15 @@
         },
         {
             "name": "symfony/finder",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -2525,7 +2573,12 @@
         },
         {
             "name": "symfony/form",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
@@ -2533,8 +2586,25 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/form/zipball/2549e9dbb1ef295a3cca37b072a29ba32961e65a",
                 "reference": "2549e9dbb1ef295a3cca37b072a29ba32961e65a",
+=======
+                "url": "https://api.github.com/repos/symfony/form/zipball/4ad117621980bac8908b5567150342749a439ec4",
+                "reference": "4ad117621980bac8908b5567150342749a439ec4",
+=======
+            "version": "v2.8.30",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/form.git",
+                "reference": "6b6e1e382faf45541fe17808daeea7f94221bba5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/form/zipball/6b6e1e382faf45541fe17808daeea7f94221bba5",
+                "reference": "6b6e1e382faf45541fe17808daeea7f94221bba5",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
                 "shasum": ""
             },
             "require": {
@@ -2596,7 +2666,15 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-11-29T09:33:18+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-16T15:20:19+00:00"
+=======
+            "time": "2017-11-13T18:11:59+00:00"
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
         },
         {
             "name": "symfony/http-foundation",
@@ -2737,7 +2815,11 @@
         },
         {
             "name": "symfony/intl",
+<<<<<<< HEAD
             "version": "v3.2.14",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -2812,7 +2894,15 @@
         },
         {
             "name": "symfony/options-resolver",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -3264,7 +3354,15 @@
         },
         {
             "name": "symfony/process",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -3313,7 +3411,11 @@
         },
         {
             "name": "symfony/property-access",
+<<<<<<< HEAD
             "version": "v3.0.9",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -3373,7 +3475,15 @@
         },
         {
             "name": "symfony/routing",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
@@ -3448,7 +3558,15 @@
         },
         {
             "name": "symfony/security",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
@@ -3592,7 +3710,15 @@
         },
         {
             "name": "symfony/serializer",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -3670,7 +3796,11 @@
         },
         {
             "name": "symfony/translation",
+<<<<<<< HEAD
             "version": "v3.0.9",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -3734,7 +3864,15 @@
         },
         {
             "name": "symfony/twig-bridge",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
@@ -3819,7 +3957,15 @@
         },
         {
             "name": "symfony/validator",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
@@ -3892,7 +4038,15 @@
         },
         {
             "name": "symfony/yaml",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -6770,7 +6924,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6909,6 +7063,7 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
+<<<<<<< HEAD
             "autoload-dev": {
                 "psr-4": {
                     "SprykerTest\\": "tests/SprykerTest/"
@@ -6921,6 +7076,15 @@
                 ],
                 "cs-fix": [
                     "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/code-generator/vendor/,/templates/ ./"
+=======
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+>>>>>>> core-2271 update composer.lock
                 ]
             },
             "license": [
@@ -6931,7 +7095,11 @@
                 "source": "https://github.com/spryker/code-generator/tree/master",
                 "issues": "https://github.com/spryker/code-generator/issues"
             },
+<<<<<<< HEAD
             "time": "2017-12-01T13:53:50+00:00"
+=======
+            "time": "2017-10-17T11:12:00+00:00"
+>>>>>>> core-2271 update composer.lock
         },
         {
             "name": "spryker/code-sniffer",
@@ -7138,7 +7306,15 @@
         },
         {
             "name": "symfony/browser-kit",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v3.3.12",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -7195,7 +7371,15 @@
         },
         {
             "name": "symfony/css-selector",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v3.3.12",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -7319,7 +7503,15 @@
         },
         {
             "name": "symfony/dom-crawler",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v3.3.12",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -7430,7 +7622,15 @@
         },
         {
             "name": "symfony/stopwatch",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -7479,7 +7679,15 @@
         },
         {
             "name": "symfony/var-dumper",
+<<<<<<< HEAD
             "version": "v4.0.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v3.3.12",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -7548,7 +7756,15 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
+<<<<<<< HEAD
             "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2271 update composer.lock
+>>>>>>> core-2271 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",

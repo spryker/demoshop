@@ -25,6 +25,16 @@ class DevelopmentConfig extends SprykerDevelopmentConfig
     }
 
     /**
+     * @project Only needed in Project, not in demoshop
+     *
+     * @return string
+     */
+    public function getPathToShop()
+    {
+        return $this->getPathToRoot() . 'vendor/spryker-shop/Bundles/';
+    }
+
+    /**
      * @return string
      */
     public function getCodingStandard()
