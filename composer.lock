@@ -1873,8 +1873,11 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "ead6aaf91ddf6342ef2cf2184be99d2b9b5c31d5"
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 =======
 >>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
@@ -1887,6 +1890,11 @@
 =======
 =======
                 "reference": "3391baf2166957d2a2175b9c046b106b60779b8a"
+>>>>>>> core-2271 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "92ffef355b6b4448da272c5381450126c156e4d1"
 >>>>>>> core-2271 update spryker/spryker
 >>>>>>> core-2271 update spryker/spryker
             },
@@ -2090,8 +2098,11 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-11T13:01:16+00:00"
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 =======
 >>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
@@ -2104,6 +2115,11 @@
 =======
 =======
             "time": "2017-11-16T09:01:38+00:00"
+>>>>>>> core-2271 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-11-16T10:03:56+00:00"
 >>>>>>> core-2271 update spryker/spryker
 >>>>>>> core-2271 update spryker/spryker
         },
