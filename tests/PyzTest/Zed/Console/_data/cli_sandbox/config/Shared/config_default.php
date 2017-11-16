@@ -100,7 +100,6 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
  * In production you probably use a CDN for static content
  */
 $config[ApplicationConstants::HOST_YVES]
-    = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]

@@ -28,7 +28,6 @@ $config[PropelConstants::ZED_DB_ENGINE]
 
 $yvesHost = 'www.de.project.local';
 $config[ApplicationConstants::HOST_YVES]
-    = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
