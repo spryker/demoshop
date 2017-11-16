@@ -112,14 +112,25 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             return $pimplePlugin->getApplication();
         };
 
-        $container[self::CODE_HANDLER_PLUGINS] = function () {
+        $container = $this->provideCodeHandlePlugins($container);
+        $container = $this->extendPaymentMethodHandler($container);
+
+        return $container;
+    }
+
+    /**
+     * @param Container $container
+     *
+     * @return Container
+     */
+    protected function provideCodeHandlePlugins(Container $container)
+    {
+        $container[static::CODE_HANDLER_PLUGINS] = function () {
             return [
                 new VoucherCodeHandler(),
                 new GiftCardCodeHandler(),
             ];
         };
-
-        $container = $this->extendPaymentMethodHandler($container);
 
         return $container;
     }

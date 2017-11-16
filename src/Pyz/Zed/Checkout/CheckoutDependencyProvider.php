@@ -13,6 +13,7 @@ use Spryker\Zed\Customer\Communication\Plugin\CustomerPreConditionCheckerPlugin;
 use Spryker\Zed\Customer\Communication\Plugin\OrderCustomerSavePlugin;
 use Spryker\Zed\Discount\Communication\Plugin\Sales\DiscountOrderSavePlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderItemSaverPlugin;
+use Spryker\Zed\GiftCardMailConnector\Communication\Plugin\Checkout\SendEmailToGiftCardUser;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Oms\Communication\Plugin\Checkout\OmsPostSaveHookPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentPostCheckPlugin;
@@ -29,7 +30,7 @@ use Spryker\Zed\Shipment\Communication\Plugin\OrderShipmentSavePlugin;
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
     /**
-     * @param \Spryker\Zed\Kernel\Container $container ’
+     * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPreConditionInterface[]
      */
@@ -73,6 +74,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             new OmsPostSaveHookPlugin(),
             new PaymentPostCheckPlugin(),
+            new SendEmailToGiftCardUser()
         ];
     }
 

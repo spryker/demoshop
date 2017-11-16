@@ -845,6 +845,8 @@ mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich 
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
 mail.giftCard.delivery.subject,Your Gift card!,en_US
 mail.giftCard.delivery.subject,Deine Geschenkkarte!,de_DE
+mail.giftCard.usage.subject,Thank you for using a Gift Card!,en_US
+mail.giftCard.usage.subject,Vielen Dank dass Sie ein Geschenkgutschein benutzt haben.,de_DE
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
 mail.newsletter.subscribed.subject,Welcome to Spryker newsletter,en_US
 mail.newsletter.subscribed.text,"Wir freuen uns, dass du dich für unseren Newsletter registriert hast. Wir werden unser bestes geben, um dich mich relevanten und spannenden News und Updates zu versorgen.",de_DE
