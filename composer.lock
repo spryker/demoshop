@@ -1874,8 +1874,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "ead6aaf91ddf6342ef2cf2184be99d2b9b5c31d5"
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 =======
 >>>>>>> core-2271 update spryker/spryker
 =======
@@ -1895,6 +1898,11 @@
 =======
 =======
                 "reference": "92ffef355b6b4448da272c5381450126c156e4d1"
+>>>>>>> core-2271 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "eecbc4d2e5ce27988697362d7e86285419d00b08"
 >>>>>>> core-2271 update spryker/spryker
 >>>>>>> core-2271 update spryker/spryker
             },
@@ -2099,8 +2107,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-11T13:01:16+00:00"
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 =======
 >>>>>>> core-2271 update spryker/spryker
 =======
@@ -2120,6 +2131,11 @@
 =======
 =======
             "time": "2017-11-16T10:03:56+00:00"
+>>>>>>> core-2271 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-11-17T05:30:51+00:00"
 >>>>>>> core-2271 update spryker/spryker
 >>>>>>> core-2271 update spryker/spryker
         },
@@ -2238,7 +2254,15 @@
         },
         {
             "name": "symfony/config",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v3.2.14",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -2300,7 +2324,15 @@
         },
         {
             "name": "symfony/console",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+<<<<<<< HEAD
+            "version": "v3.3.13",
+=======
+            "version": "v3.2.14",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -2370,14 +2402,23 @@
         {
             "name": "symfony/debug",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -2494,14 +2535,23 @@
         {
             "name": "symfony/filesystem",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -2551,14 +2601,23 @@
         {
             "name": "symfony/finder",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -2608,8 +2667,11 @@
         {
             "name": "symfony/form",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.31",
 >>>>>>> core-2271 update composer.lock
@@ -2628,17 +2690,28 @@
                 "reference": "4ad117621980bac8908b5567150342749a439ec4",
 =======
             "version": "v2.8.30",
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "6b6e1e382faf45541fe17808daeea7f94221bba5"
+                "reference": "4ad117621980bac8908b5567150342749a439ec4"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/form/zipball/6b6e1e382faf45541fe17808daeea7f94221bba5",
                 "reference": "6b6e1e382faf45541fe17808daeea7f94221bba5",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/form/zipball/4ad117621980bac8908b5567150342749a439ec4",
+                "reference": "4ad117621980bac8908b5567150342749a439ec4",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -2701,14 +2774,23 @@
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-29T09:33:18+00:00"
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-11-16T15:20:19+00:00"
 =======
             "time": "2017-11-13T18:11:59+00:00"
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "time": "2017-11-16T15:20:19+00:00"
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
         },
         {
             "name": "symfony/http-foundation",
@@ -2850,6 +2932,7 @@
         {
             "name": "symfony/intl",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.2.14",
 =======
             "version": "v2.8.30",
@@ -2863,6 +2946,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/intl/zipball/3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
                 "reference": "3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
+=======
+            "version": "v2.8.31",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "ae2802c8fb076af5ca04c9d5a30992ddb64874f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
+                "reference": "ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
+>>>>>>> core-2271 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -2924,6 +3019,7 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
             "time": "2017-11-16T17:55:54+00:00"
         },
         {
@@ -2936,7 +3032,17 @@
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "time": "2017-11-16T15:20:19+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -3389,14 +3495,23 @@
         {
             "name": "symfony/process",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -3446,10 +3561,14 @@
         {
             "name": "symfony/property-access",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.0.9",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -3510,14 +3629,23 @@
         {
             "name": "symfony/routing",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.31",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
@@ -3745,14 +3873,23 @@
         {
             "name": "symfony/serializer",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -3831,10 +3968,14 @@
         {
             "name": "symfony/translation",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.0.9",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -3899,14 +4040,23 @@
         {
             "name": "symfony/twig-bridge",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.31",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
@@ -3992,14 +4142,23 @@
         {
             "name": "symfony/validator",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.31",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
@@ -4073,14 +4232,23 @@
         {
             "name": "symfony/yaml",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -7341,14 +7509,23 @@
         {
             "name": "symfony/browser-kit",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v3.3.12",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v3.3.13",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -7406,14 +7583,23 @@
         {
             "name": "symfony/css-selector",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v3.3.12",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v3.3.13",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -7538,14 +7724,23 @@
         {
             "name": "symfony/dom-crawler",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v3.3.12",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v3.3.13",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -7657,14 +7852,23 @@
         {
             "name": "symfony/stopwatch",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.31",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -7714,14 +7918,23 @@
         {
             "name": "symfony/var-dumper",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.1",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.3.13",
 =======
             "version": "v3.3.12",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v3.3.13",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -7791,14 +8004,23 @@
         {
             "name": "symfony/web-profiler-bundle",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
+=======
+>>>>>>> core-2271 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.31",
 =======
             "version": "v2.8.30",
 >>>>>>> core-2271 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2271 update composer.lock
+=======
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2271 update spryker/spryker
+>>>>>>> core-2271 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
