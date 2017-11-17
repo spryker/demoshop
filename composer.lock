@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
+    "content-hash": "85fb57620c6654ba8688b22c4c07d39b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1935,11 +1935,23 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2265-log-module-needs-to-use-plugin-for-loggers-and-also-needs-to-migrate-from-shared-to-client",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
+=======
+<<<<<<< HEAD
+                "reference": "2e925ddfcd4d8cee09418aa7c53b6952ec67c670"
+=======
+<<<<<<< HEAD
+                "reference": "20b2dbe0c2473a1e80dc50aa6fe183b90cb08a41"
+=======
+                "reference": "72549e6b5267aa148596037e9ff0bec5bbf38fb4"
+>>>>>>> core-2265 added rabbitmq service, update rabbit credentials for travis
+>>>>>>> core-2265 added rabbitmq service, update rabbit credentials for travis
+>>>>>>> core-2265 added rabbitmq service, update rabbit credentials for travis
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2137,7 +2149,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2017-12-20T14:44:28+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-20T14:01:21+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-20T12:19:14+00:00"
+=======
+            "time": "2017-12-20T05:23:43+00:00"
+>>>>>>> core-2265 added rabbitmq service, update rabbit credentials for travis
+>>>>>>> core-2265 added rabbitmq service, update rabbit credentials for travis
+>>>>>>> core-2265 added rabbitmq service, update rabbit credentials for travis
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6903,7 +6927,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],

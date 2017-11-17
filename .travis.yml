@@ -52,6 +52,7 @@ services:
   - postgresql
   - mysql
   - redis
+  - rabbitmq
 
 sudo: required
 
@@ -83,14 +84,14 @@ before_script:
   - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
   - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
 
-  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_local.php
 
   - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
   - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/install DE -r testing ; fi
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/install DE -r testing -vv; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend -vv; fi
 
 script:
   - vendor/bin/phantomjs --webdriver=4444 &
