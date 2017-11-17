@@ -31,12 +31,12 @@ class ProductOptionPriceWriterStep extends TouchAwareStep implements DataImportS
     /**
      * @var int[] Keys are store names
      */
-    protected static $idStoreCache = [];
+    protected static $idStoreBuffer = [];
 
     /**
      * @var int[] Keys are currency codes.
      */
-    protected static $idCurrencyCache = [];
+    protected static $idCurrencyBuffer = [];
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -104,12 +104,12 @@ class ProductOptionPriceWriterStep extends TouchAwareStep implements DataImportS
             return null;
         }
 
-        if (!isset(static::$idStoreCache[$storeName])) {
+        if (!isset(static::$idStoreBuffer[$storeName])) {
             $storeEntity = SpyStoreQuery::create()->findOneByName($storeName);
-            static::$idStoreCache[$storeName] = $storeEntity === null ? null : $storeEntity->getIdStore();
+            static::$idStoreBuffer[$storeName] = $storeEntity === null ? null : $storeEntity->getIdStore();
         }
 
-        return static::$idStoreCache[$storeName];
+        return static::$idStoreBuffer[$storeName];
     }
 
     /**
@@ -119,13 +119,13 @@ class ProductOptionPriceWriterStep extends TouchAwareStep implements DataImportS
      */
     protected function getIdCurrency($currencyIsoCode)
     {
-        if (!isset(static::$idCurrencyCache[$currencyIsoCode])) {
-            static::$idCurrencyCache[$currencyIsoCode] = SpyCurrencyQuery::create()
+        if (!isset(static::$idCurrencyBuffer[$currencyIsoCode])) {
+            static::$idCurrencyBuffer[$currencyIsoCode] = SpyCurrencyQuery::create()
                 ->findOneByCode($currencyIsoCode)
                 ->getIdCurrency();
         }
 
-        return static::$idCurrencyCache[$currencyIsoCode];
+        return static::$idCurrencyBuffer[$currencyIsoCode];
     }
 
     /**
