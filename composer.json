@@ -87,7 +87,7 @@
   },
   "autoload": {
     "psr-0": {
-      "": "src"
+      "": "src/"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
@@ -95,8 +95,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "PyzTest\\": "tests/PyzTest",
-      "PhpStan\\": "tests/PhpStan"
+      "PyzTest\\": "tests/PyzTest/",
+      "PhpStan\\": "tests/PhpStan/"
     },
     "files": [
       "test-autoload.php"
