@@ -32,6 +32,4 @@ sudo service apache2 restart
 # node 6 is required
 # installed by '- nvm install 6' in .travis.yml
 
-# setupFrontendForTest
-
 wget https://raw.github.com/Codeception/c3/2.0/c3.php
