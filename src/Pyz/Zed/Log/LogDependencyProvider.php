@@ -8,24 +8,17 @@
 namespace Pyz\Zed\Log;
 
 use Pyz\Zed\Log\Communication\Plugin\FilebeatLogListenerPlugin;
-use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Log\LogDependencyProvider as SprykerLogDependencyProvider;
 
 class LogDependencyProvider extends SprykerLogDependencyProvider
 {
     /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
+     * @return array
      */
-    protected function addLogListener(Container $container)
+    protected function getLogListeners()
     {
-        $container[static::LOG_LISTENER] = function () {
-            return [
-                new FilebeatLogListenerPlugin(),
-            ];
-        };
-
-        return $container;
+        return [
+            new FilebeatLogListenerPlugin(),
+        ];
     }
 }
