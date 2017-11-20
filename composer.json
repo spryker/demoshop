@@ -55,12 +55,12 @@
     "ext-readline": "*",
     "ext-redis": "*",
     "spryker/rabbit-mq": "dev-master",
-    "league/flysystem": "^1.0"
+    "league/flysystem": "^1.0",
+    "egulias/email-validator": "^2.1.2"
   },
   "require-dev": {
     "codeception/codeception": "^2.3.5",
     "phpunit/phpunit": "^5.0",
-    "codeception/c3": "2.0.12",
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
@@ -87,7 +87,7 @@
   },
   "autoload": {
     "psr-0": {
-      "": "src"
+      "": "src/"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
@@ -95,8 +95,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "PyzTest\\": "tests/PyzTest",
-      "PhpStan\\": "tests/PhpStan"
+      "PyzTest\\": "tests/PyzTest/",
+      "PhpStan\\": "tests/PhpStan/"
     },
     "files": [
       "test-autoload.php"
