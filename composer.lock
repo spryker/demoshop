@@ -387,6 +387,7 @@
         },
         {
             "name": "filp/whoops",
+<<<<<<< HEAD
             "version": "2.1.14",
             "source": {
                 "type": "git",
@@ -397,6 +398,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/filp/whoops/zipball/c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
                 "reference": "c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
+=======
+            "version": "2.1.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "9f640a4f129e57d3537887f840380109a4dd182b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/9f640a4f129e57d3537887f840380109a4dd182b",
+                "reference": "9f640a4f129e57d3537887f840380109a4dd182b",
+>>>>>>> core-2247 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -444,7 +457,11 @@
                 "throwable",
                 "whoops"
             ],
+<<<<<<< HEAD
             "time": "2017-11-23T18:22:44+00:00"
+=======
+            "time": "2017-11-17T08:15:51+00:00"
+>>>>>>> core-2247 update spryker/spryker
         },
         {
             "name": "fzaninotto/faker",
@@ -1913,6 +1930,7 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "82a5a43d28df54d32fd4476608b2c1a57230c639"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
@@ -1920,6 +1938,11 @@
 =======
 =======
                 "reference": "2136c8e20e5df77ba29eb8ab8c0170b74e581070"
+>>>>>>> core-2247 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "3dda2f20c87c919218fd7bb9e89b3a9f724979c6"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
@@ -2126,8 +2149,11 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
+=======
+>>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
@@ -2135,14 +2161,20 @@
 =======
 =======
 >>>>>>> core-2247 update spryker/spryker
+=======
+>>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-12T18:20:05+00:00"
 =======
 =======
 >>>>>>> core-2247 update spryker/spryker
+=======
+>>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-11T13:01:16+00:00"
 =======
+=======
+>>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
@@ -2158,6 +2190,11 @@
 =======
 =======
             "time": "2017-11-14T07:14:24+00:00"
+>>>>>>> core-2247 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-11-20T13:56:58+00:00"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
@@ -2279,7 +2316,11 @@
         },
         {
             "name": "symfony/config",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+            "version": "v3.2.14",
+>>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -2341,7 +2382,11 @@
         },
         {
             "name": "symfony/console",
+<<<<<<< HEAD
             "version": "v3.4.1",
+=======
+            "version": "v3.2.14",
+>>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -2411,9 +2456,13 @@
         {
             "name": "symfony/debug",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -2531,9 +2580,13 @@
         {
             "name": "symfony/filesystem",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -2584,9 +2637,13 @@
         {
             "name": "symfony/finder",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -2637,6 +2694,7 @@
         {
             "name": "symfony/form",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
             "source": {
                 "type": "git",
@@ -2649,15 +2707,23 @@
                 "reference": "2549e9dbb1ef295a3cca37b072a29ba32961e65a",
 =======
             "version": "v2.8.30",
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "6b6e1e382faf45541fe17808daeea7f94221bba5"
+                "reference": "4ad117621980bac8908b5567150342749a439ec4"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/form/zipball/6b6e1e382faf45541fe17808daeea7f94221bba5",
                 "reference": "6b6e1e382faf45541fe17808daeea7f94221bba5",
+>>>>>>> core-2247 update spryker/spryker
+=======
+                "url": "https://api.github.com/repos/symfony/form/zipball/4ad117621980bac8908b5567150342749a439ec4",
+                "reference": "4ad117621980bac8908b5567150342749a439ec4",
 >>>>>>> core-2247 update spryker/spryker
                 "shasum": ""
             },
@@ -2721,9 +2787,13 @@
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-29T09:33:18+00:00"
 =======
             "time": "2017-11-13T18:11:59+00:00"
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "time": "2017-11-16T15:20:19+00:00"
 >>>>>>> core-2247 update spryker/spryker
         },
         {
@@ -2866,6 +2936,7 @@
         {
             "name": "symfony/intl",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.2.14",
 =======
             "version": "v2.8.30",
@@ -2879,6 +2950,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/intl/zipball/3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
                 "reference": "3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
+=======
+            "version": "v2.8.31",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "ae2802c8fb076af5ca04c9d5a30992ddb64874f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
+                "reference": "ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
+>>>>>>> core-2247 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -2940,6 +3023,7 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
             "time": "2017-11-16T17:55:54+00:00"
         },
         {
@@ -2948,6 +3032,13 @@
             "version": "v2.8.32",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "time": "2017-11-16T15:20:19+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3401,9 +3492,13 @@
         {
             "name": "symfony/process",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3454,9 +3549,13 @@
         {
             "name": "symfony/property-access",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.0.9",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3518,9 +3617,13 @@
         {
             "name": "symfony/routing",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3745,9 +3848,13 @@
         {
             "name": "symfony/serializer",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3827,9 +3934,13 @@
         {
             "name": "symfony/translation",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.0.9",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3895,9 +4006,13 @@
         {
             "name": "symfony/twig-bridge",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -3984,9 +4099,13 @@
         {
             "name": "symfony/validator",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -4061,9 +4180,13 @@
         {
             "name": "symfony/yaml",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -7339,12 +7462,20 @@
         {
             "name": "symfony/browser-kit",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.1",
 =======
+=======
+>>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v3.3.12",
+>>>>>>> core-2247 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v3.3.13",
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
             "source": {
@@ -7404,12 +7535,20 @@
         {
             "name": "symfony/css-selector",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.1",
 =======
+=======
+>>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v3.3.12",
+>>>>>>> core-2247 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v3.3.13",
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
             "source": {
@@ -7536,12 +7675,20 @@
         {
             "name": "symfony/dom-crawler",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.1",
 =======
+=======
+>>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
             "version": "v3.4.1",
 =======
             "version": "v3.3.12",
+>>>>>>> core-2247 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "version": "v3.3.13",
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
             "source": {
@@ -7655,9 +7802,13 @@
         {
             "name": "symfony/stopwatch",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -7708,9 +7859,13 @@
         {
             "name": "symfony/var-dumper",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.1",
 =======
             "version": "v3.3.12",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v3.3.13",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
@@ -7781,9 +7936,13 @@
         {
             "name": "symfony/web-profiler-bundle",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.32",
 =======
             "version": "v2.8.30",
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "version": "v2.8.31",
 >>>>>>> core-2247 update spryker/spryker
             "source": {
                 "type": "git",
