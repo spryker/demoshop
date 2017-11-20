@@ -1902,6 +1902,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -3037,6 +3038,11 @@
 =======
                 "reference": "744e2b14480508042043a84b60b716e170b02908"
 >>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "46d6a6fb413560339e16b029dd1286de4eb1c2c4"
+>>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
             },
             "require": {
@@ -3269,6 +3275,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3331,6 +3338,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 make build break when score goes below actual score
+=======
+>>>>>>> core-2001 update spryker/spryker
 =======
 >>>>>>> core-2001 update spryker/spryker
 <<<<<<< HEAD
@@ -4635,6 +4644,11 @@
 =======
 =======
             "time": "2017-11-20T11:34:17+00:00"
+>>>>>>> core-2001 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-11-20T12:18:38+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
         },
