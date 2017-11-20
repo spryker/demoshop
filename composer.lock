@@ -1900,6 +1900,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "6648ab584452366cf0d332a1e17d53a71be2f879"
 =======
 =======
@@ -3023,7 +3024,13 @@
 =======
                 "reference": "55c3b79e5de75c7e8332cac1245847182f90c0fe"
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+=======
+=======
+                "reference": "d83092ab16cdf5c23340d36b55747d4cfc7bf8fa"
+>>>>>>> core-2001 make build break when score goes below actual score
+>>>>>>> core-2001 make build break when score goes below actual score
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3253,6 +3260,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
 =======
@@ -3313,6 +3321,8 @@
 >>>>>>> core-2001 update composer.lock
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 make build break when score goes below actual score
 <<<<<<< HEAD
             "time": "2017-11-22T10:11:43+00:00"
 =======
@@ -4604,7 +4614,13 @@
 =======
             "time": "2017-11-17T14:45:18+00:00"
 >>>>>>> core-2001 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2001 update composer.lock
+=======
+=======
+            "time": "2017-11-20T10:39:02+00:00"
+>>>>>>> core-2001 make build break when score goes below actual score
+>>>>>>> core-2001 make build break when score goes below actual score
         },
         {
             "name": "swiftmailer/swiftmailer",

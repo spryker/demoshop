@@ -8,3 +8,6 @@ build:
     tests:
         override:
             - true # disable test execution on scrutinizer
+
+build_failure_conditions:
+    - 'project.metric("scrutinizer.quality", < 9.59)'
