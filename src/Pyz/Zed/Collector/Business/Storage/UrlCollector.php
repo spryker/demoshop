@@ -95,7 +95,7 @@ class UrlCollector extends AbstractStoragePdoCollector
             ];
         }
 
-        return false;
+        return [];
     }
 
     /**
