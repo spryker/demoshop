@@ -35,3 +35,48 @@ services:
         class: PhpStan\DynamicType\ServiceDynamicTypeExtension
         tags:
             - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ConfigDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ClientDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\YvesControllerDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\YvesPluginDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ClientPluginDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\YvesFormTypeDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ZedFormTypeDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\YvesFactoryDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ZedFactoryDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
