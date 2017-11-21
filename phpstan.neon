@@ -47,16 +47,6 @@ services:
             - phpstan.broker.dynamicMethodReturnTypeExtension
 
     -
-        class: PhpStan\DynamicType\YvesControllerDynamicTypeExtension
-        tags:
-            - phpstan.broker.dynamicMethodReturnTypeExtension
-
-    -
-        class: PhpStan\DynamicType\YvesPluginDynamicTypeExtension
-        tags:
-            - phpstan.broker.dynamicMethodReturnTypeExtension
-
-    -
         class: PhpStan\DynamicType\ClientPluginDynamicTypeExtension
         tags:
             - phpstan.broker.dynamicMethodReturnTypeExtension
