@@ -131,7 +131,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
     {
         $productLabelFacetTransfer = (new FacetConfigTransfer())
             ->setName(static::LABEL_FACET_NAME)
-            ->setParameterName('Som')
+            ->setParameterName(static::LABEL_FACET_NAME)
             ->setFieldName(PageIndexMap::STRING_FACET)
             ->setType(SearchConfig::FACET_TYPE_ENUMERATION)
             ->setIsMultiValued(true)

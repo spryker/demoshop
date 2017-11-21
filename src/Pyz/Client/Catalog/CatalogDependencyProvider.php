@@ -13,6 +13,7 @@ use Spryker\Client\Catalog\CatalogDependencyProvider as SprykerCatalogDependency
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
 use Spryker\Client\CatalogPriceProductConnector\Plugin\CurrencyAwareCatalogSearchResultFormatterPlugin;
 use Spryker\Client\CatalogPriceProductConnector\Plugin\CurrencyAwareSuggestionByTypeResultFormatter;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\ProductPriceQueryExpanderPlugin;
 use Spryker\Client\Kernel\Container;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\CompletionQueryExpanderPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\QueryExpander\FacetQueryExpanderPlugin;
@@ -31,7 +32,6 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\PaginatedResultFo
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SortedResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SpellingSuggestionResultFormatterPlugin;
 use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionByTypeResultFormatterPlugin;
-use Spryker\Client\CatalogPriceProductConnector\Plugin\ProductPriceQueryExpanderPlugin;
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
@@ -54,9 +54,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 
         $container = $this->provideFeatureProductsResultFormatterPlugins($container);
         $container = $this->provideFeatureProductsQueryExpanderPlugins($container);
-        $container = $this->addCurrencyClient($container);
-        $container = $this->addPriceClient($container);
-        $container = $this->addPriceProductClient($container);
         $container = $this->addCatalogPriceProductConnectorClient($container);
 
         return $container;
@@ -71,34 +68,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
     {
         $container[static::CLIENT_PRICE] = function (Container $container) {
             return $container->getLocator()->price()->client();
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
-    protected function addCurrencyClient(Container $container)
-    {
-        $container[static::CLIENT_CURRENCY] = function (Container $container) {
-            return $container->getLocator()->currency()->client();
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
-    protected function addPriceProductClient(Container $container)
-    {
-        $container[static::CLIENT_PRICE_PRODUCT] = function (Container $container) {
-            return $container->getLocator()->priceProduct()->client();
         };
 
         return $container;

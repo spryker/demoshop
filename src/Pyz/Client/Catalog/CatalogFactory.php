@@ -50,28 +50,4 @@ class CatalogFactory extends SprykerCatalogFactory
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS);
     }
-
-    /**
-     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
-     */
-    public function getPriceProductClient()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_PRICE_PRODUCT);
-    }
-
-    /**
-     * @return \Spryker\Client\Price\PriceClientInterface
-     */
-    public function getPriceClient()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_PRICE);
-    }
-
-    /**
-     * @return \Spryker\Client\Currency\CurrencyClientInterface
-     */
-    public function getCurrencyClient()
-    {
-        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_CURRENCY);
-    }
 }

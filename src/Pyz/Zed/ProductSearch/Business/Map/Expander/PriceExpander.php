@@ -10,7 +10,6 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
@@ -33,8 +32,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
     public function __construct(
         PriceProductFacadeInterface $priceProductFacade,
         CatalogPriceProductConnectorClientInterface $catalogPriceProductConnectorClient
-    )
-    {
+    ) {
         $this->priceProductFacade = $priceProductFacade;
         $this->catalogPriceProductConnectorClient = $catalogPriceProductConnectorClient;
     }
@@ -54,7 +52,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
         LocaleTransfer $localeTransfer
     ) {
 
-        $price = (int)$this->priceProductFacade->getPriceBySku($productData['abstract_sku']);
+        $price = (int)$this->priceProductFacade->findPriceBySku($productData['abstract_sku']);
 
         $pageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)

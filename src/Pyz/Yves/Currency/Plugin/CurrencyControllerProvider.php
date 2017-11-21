@@ -31,6 +31,5 @@ class CurrencyControllerProvider extends AbstractYvesControllerProvider
             'index'
         )->assert('currency', $allowedLocalesPattern . 'currency|currency')
         ->value('currency', 'currency');
-
     }
 }
