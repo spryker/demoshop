@@ -94,7 +94,7 @@ class ProductOptionPriceWriterStep extends TouchAwareStep implements DataImportS
     }
 
     /**
-     * @param string $storeName
+     * @param string|null $storeName
      *
      * @return int|null
      */
@@ -129,7 +129,7 @@ class ProductOptionPriceWriterStep extends TouchAwareStep implements DataImportS
     }
 
     /**
-     * @param int $price
+     * @param string|int|null $price
      *
      * @return int|null
      */
