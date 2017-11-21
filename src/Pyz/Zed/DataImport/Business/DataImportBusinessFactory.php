@@ -74,6 +74,7 @@ use Spryker\Zed\Discount\DiscountConfig;
 /**
  * @method \Pyz\Zed\DataImport\DataImportConfig getConfig()
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  */
 class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 {
