@@ -7022,7 +7022,11 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Sullivan SENECHAL",
+=======
+                    "name": "Sullivan Sénéchal",
+>>>>>>> core-2275 update lock
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7120,12 +7124,48 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
+<<<<<<< HEAD
             "notification-url": "https://packagist.org/downloads/",
+=======
+<<<<<<< HEAD
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
+                }
+            },
+=======
+>>>>>>> core-2275 update lock
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/code-generator/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/code-generator/vendor/,/templates/ ./"
+                ]
+            },
+>>>>>>> core-2275 update lock
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
+<<<<<<< HEAD
             "time": "2018-01-24T15:10:19+00:00"
+=======
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/master",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
+<<<<<<< HEAD
+            "time": "2017-12-01T13:53:50+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-01T13:24:46+00:00"
+=======
+            "time": "2017-10-17T11:12:00+00:00"
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
         },
         {
             "name": "spryker/code-sniffer",
