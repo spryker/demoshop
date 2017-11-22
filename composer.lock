@@ -4,7 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "376e98b31171171edf6a557b938dbf86",
+=======
+<<<<<<< HEAD
+    "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
+=======
+<<<<<<< HEAD
+    "content-hash": "d284e38cad2782342ac2106498a67c42",
+=======
+<<<<<<< HEAD
+    "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
+=======
+<<<<<<< HEAD
+    "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
+=======
+<<<<<<< HEAD
+    "content-hash": "5768a1aef55ae569b402007522cec331",
+=======
+    "content-hash": "62651b2fe0c6dea7878fb6924ce311fa",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -367,6 +391,7 @@
         },
         {
             "name": "filp/whoops",
+<<<<<<< HEAD
             "version": "2.1.14",
             "source": {
                 "type": "git",
@@ -377,6 +402,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/filp/whoops/zipball/c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
                 "reference": "c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
+=======
+            "version": "2.1.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "9f640a4f129e57d3537887f840380109a4dd182b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/9f640a4f129e57d3537887f840380109a4dd182b",
+                "reference": "9f640a4f129e57d3537887f840380109a4dd182b",
+>>>>>>> core-2275 updated constraints
                 "shasum": ""
             },
             "require": {
@@ -424,7 +461,11 @@
                 "throwable",
                 "whoops"
             ],
+<<<<<<< HEAD
             "time": "2017-11-23T18:22:44+00:00"
+=======
+            "time": "2017-11-17T08:15:51+00:00"
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "fzaninotto/faker",
@@ -656,48 +697,6 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
-        },
-        {
-            "name": "ircmaxell/password-compat",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/password.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
-            "homepage": "https://github.com/ircmaxell/password_compat",
-            "keywords": [
-                "hashing",
-                "password"
-            ],
-            "time": "2014-11-20T16:49:30+00:00"
         },
         {
             "name": "league/csv",
@@ -1891,11 +1890,71 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2275-full-compatibility-to-symfony-28-and-then-30",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
+=======
+<<<<<<< HEAD
+                "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
+=======
+<<<<<<< HEAD
+                "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
+=======
+<<<<<<< HEAD
+                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
+=======
+<<<<<<< HEAD
+                "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
+=======
+<<<<<<< HEAD
+                "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
+=======
+<<<<<<< HEAD
+                "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
+=======
+<<<<<<< HEAD
+                "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
+=======
+<<<<<<< HEAD
+                "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
+=======
+<<<<<<< HEAD
+                "reference": "e483e2438184e6281c1a19f6670f0661b41e424a"
+=======
+<<<<<<< HEAD
+                "reference": "636901fbd5bafaefa5f40f8ac442ce237361a64a"
+=======
+<<<<<<< HEAD
+                "reference": "fdf43d21845a02ac23f9b48df21adb21a3ff29ed"
+=======
+<<<<<<< HEAD
+                "reference": "6bb4bf2bdeadc21ad2fea12dfe447c60c65eb196"
+=======
+<<<<<<< HEAD
+                "reference": "c06531e2b2a869ee57579801079043617631b93d"
+=======
+<<<<<<< HEAD
+                "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
+=======
+                "reference": "e2aad36a2090f9ab6865931c1a7697183e46a4ee"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,7 +2189,52 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-02-02T14:03:25+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-29T17:32:14+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-26T14:28:54+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-26T13:11:30+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-25T17:41:45+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-22T11:47:58+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-21T11:37:00+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-20T14:44:28+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-19T17:36:45+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-19T09:36:43+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-18T17:36:21+00:00"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2176,6 +2280,21 @@
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
             "time": "2017-11-13T10:53:51+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-18T11:32:25+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-01T11:38:14+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-28T10:14:45+00:00"
+=======
+            "time": "2017-11-22T11:40:57+00:00"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2635,7 +2754,28 @@
         },
         {
             "name": "symfony/form",
+<<<<<<< HEAD
             "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
@@ -2643,32 +2783,73 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/form/zipball/b88b4b6c206201673cda2b919300e825bfda4cdc",
                 "reference": "b88b4b6c206201673cda2b919300e825bfda4cdc",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/form/zipball/61c21209e29f3a3fbe325f5844e59b7809367ce4",
+                "reference": "61c21209e29f3a3fbe325f5844e59b7809367ce4",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/form/zipball/b88b4b6c206201673cda2b919300e825bfda4cdc",
+                "reference": "b88b4b6c206201673cda2b919300e825bfda4cdc",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/form/zipball/61c21209e29f3a3fbe325f5844e59b7809367ce4",
+                "reference": "61c21209e29f3a3fbe325f5844e59b7809367ce4",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/form/zipball/2549e9dbb1ef295a3cca37b072a29ba32961e65a",
+                "reference": "2549e9dbb1ef295a3cca37b072a29ba32961e65a",
+=======
+                "url": "https://api.github.com/repos/symfony/form/zipball/4ad117621980bac8908b5567150342749a439ec4",
+                "reference": "4ad117621980bac8908b5567150342749a439ec4",
+=======
+            "version": "v3.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/form.git",
+                "reference": "7c728458818dd00024f1900716166a4b6fa6c5fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/form/zipball/7c728458818dd00024f1900716166a4b6fa6c5fa",
+                "reference": "7c728458818dd00024f1900716166a4b6fa6c5fa",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/event-dispatcher": "~2.1|~3.0.0",
-                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
-                "symfony/options-resolver": "~2.6",
+                "php": ">=5.5.9",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/intl": "^2.8.18|^3.2.5",
+                "symfony/options-resolver": "~2.8|~3.0",
                 "symfony/polyfill-mbstring": "~1.0",
-                "symfony/property-access": "~2.3|~3.0.0"
+                "symfony/property-access": "~2.8|~3.0"
             },
             "conflict": {
                 "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/dependency-injection": "<3.3",
                 "symfony/doctrine-bridge": "<2.7",
                 "symfony/framework-bundle": "<2.7",
-                "symfony/twig-bridge": "<2.7"
+                "symfony/twig-bridge": "<2.7",
+                "symfony/var-dumper": "<3.3"
             },
             "require-dev": {
                 "doctrine/collections": "~1.0",
-                "symfony/dependency-injection": "~2.7|~3.0.0",
-                "symfony/http-foundation": "~2.2|~3.0.0",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/security-csrf": "~2.4|~3.0.0",
-                "symfony/translation": "^2.0.5|~3.0.0",
-                "symfony/validator": "^2.8.18|~3.2.5"
+                "symfony/config": "~2.7|~3.0",
+                "symfony/dependency-injection": "~3.3",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0",
+                "symfony/security-csrf": "~2.8|~3.0",
+                "symfony/translation": "~2.8|~3.0",
+                "symfony/validator": "^2.8.18|^3.2.5",
+                "symfony/var-dumper": "~3.3"
             },
             "suggest": {
                 "symfony/framework-bundle": "For templating with PHP.",
@@ -2679,7 +2860,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -2706,7 +2887,31 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-01-29T08:58:04+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T07:36:31+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-29T08:58:04+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T07:36:31+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-29T09:33:18+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-16T15:20:19+00:00"
+=======
+            "time": "2017-06-24T09:29:48+00:00"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "symfony/http-foundation",
@@ -2844,7 +3049,65 @@
             "time": "2016-07-30T09:10:37+00:00"
         },
         {
+            "name": "symfony/inflector",
+            "version": "v3.3.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/inflector.git",
+                "reference": "0474dc4d867c7efefd44017f7903465a7f368b6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/inflector/zipball/0474dc4d867c7efefd44017f7903465a7f368b6b",
+                "reference": "0474dc4d867c7efefd44017f7903465a7f368b6b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Inflector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Inflector Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string",
+                "symfony",
+                "words"
+            ],
+            "time": "2017-07-29T21:54:42+00:00"
+        },
+        {
             "name": "symfony/intl",
+<<<<<<< HEAD
             "version": "v3.2.14",
             "source": {
                 "type": "git",
@@ -2859,6 +3122,22 @@
             },
             "require": {
                 "php": ">=5.5.9",
+=======
+            "version": "v3.3.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "4336045f131d5141c6bf0c055299546fc63639ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/4336045f131d5141c6bf0c055299546fc63639ad",
+                "reference": "4336045f131d5141c6bf0c055299546fc63639ad",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+>>>>>>> core-2275 updated constraints
                 "symfony/polyfill-intl-icu": "~1.0"
             },
             "require-dev": {
@@ -2870,7 +3149,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "3.2-dev"
+=======
+                    "dev-master": "3.3-dev"
+>>>>>>> core-2275 updated constraints
                 }
             },
             "autoload": {
@@ -2916,7 +3199,11 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
             "time": "2017-11-16T17:55:54+00:00"
+=======
+            "time": "2017-11-16T15:24:32+00:00"
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "symfony/options-resolver",
@@ -3090,6 +3377,71 @@
             "time": "2018-01-30T19:27:44+00:00"
         },
         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            "name": "symfony/polyfill-php54",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php54.git",
+                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
+                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php54\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 5.4+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2017-10-11T12:05:26+00:00"
+        },
+        {
+=======
+<<<<<<< HEAD
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             "name": "symfony/polyfill-php55",
             "version": "v1.7.0",
             "source": {
@@ -3146,6 +3498,8 @@
             "time": "2018-01-30T19:27:44+00:00"
         },
         {
+=======
+>>>>>>> core-2275 updated constraints
             "name": "symfony/polyfill-php56",
             "version": "v1.7.0",
             "source": {
@@ -3363,6 +3717,7 @@
         },
         {
             "name": "symfony/property-access",
+<<<<<<< HEAD
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -3377,11 +3732,39 @@
             },
             "require": {
                 "php": ">=5.5.9"
+=======
+            "version": "v3.3.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/property-access.git",
+                "reference": "abfaa3b9785eb4d6e7afb231915ad6c3d17471eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/abfaa3b9785eb4d6e7afb231915ad6c3d17471eb",
+                "reference": "abfaa3b9785eb4d6e7afb231915ad6c3d17471eb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/inflector": "~3.1",
+                "symfony/polyfill-php70": "~1.0"
+            },
+            "require-dev": {
+                "symfony/cache": "~3.1"
+            },
+            "suggest": {
+                "psr/cache-implementation": "To cache access methods."
+>>>>>>> core-2275 updated constraints
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "3.0-dev"
+=======
+                    "dev-master": "3.3-dev"
+>>>>>>> core-2275 updated constraints
                 }
             },
             "autoload": {
@@ -3419,11 +3802,29 @@
                 "property path",
                 "reflection"
             ],
+<<<<<<< HEAD
             "time": "2016-07-30T07:22:48+00:00"
         },
         {
             "name": "symfony/routing",
+<<<<<<< HEAD
             "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.32",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
@@ -3431,24 +3832,63 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/routing/zipball/627ea100720dac15d8165648caac57456dda84aa",
                 "reference": "627ea100720dac15d8165648caac57456dda84aa",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/routing/zipball/e0aada430641d074571dbd4b103a07b523494a89",
+                "reference": "e0aada430641d074571dbd4b103a07b523494a89",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/routing/zipball/627ea100720dac15d8165648caac57456dda84aa",
+                "reference": "627ea100720dac15d8165648caac57456dda84aa",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/routing/zipball/e0aada430641d074571dbd4b103a07b523494a89",
+                "reference": "e0aada430641d074571dbd4b103a07b523494a89",
+=======
+                "url": "https://api.github.com/repos/symfony/routing/zipball/fa8f982682a3b65d87858be7dbf84f7f03feb616",
+                "reference": "fa8f982682a3b65d87858be7dbf84f7f03feb616",
+=======
+            "version": "v2.8.31",
+=======
+            "time": "2017-11-05T15:47:03+00:00"
+        },
+        {
+            "name": "symfony/routing",
+            "version": "v3.0.9",
+>>>>>>> core-2275 updated constraints
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/routing.git",
+                "reference": "9038984bd9c05ab07280121e9e10f61a7231457b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/9038984bd9c05ab07280121e9e10f61a7231457b",
+                "reference": "9038984bd9c05ab07280121e9e10f61a7231457b",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "conflict": {
-                "symfony/config": "<2.7"
+                "symfony/config": "<2.8"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
                 "doctrine/common": "~2.2",
                 "psr/log": "~1.0",
-                "symfony/config": "~2.7|~3.0.0",
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/http-foundation": "~2.3|~3.0.0",
-                "symfony/yaml": "^2.0.5|~3.0.0"
+                "symfony/config": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/yaml": "~2.8|~3.0"
             },
             "suggest": {
                 "doctrine/annotations": "For using the annotation loader",
@@ -3461,7 +3901,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -3494,11 +3934,56 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
             "time": "2018-01-16T18:00:04+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-04T14:58:28+00:00"
         },
         {
             "name": "symfony/security",
             "version": "v2.8.30",
+=======
+<<<<<<< HEAD
+            "time": "2018-01-16T18:00:04+00:00"
+        },
+        {
+            "name": "symfony/security",
+            "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "time": "2018-01-04T14:58:28+00:00"
+>>>>>>> core-2275 updated constraints
+        },
+        {
+            "name": "symfony/security",
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.30",
+=======
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "time": "2017-11-19T19:05:05+00:00"
+        },
+        {
+            "name": "symfony/security",
+            "version": "v2.8.32",
+=======
+            "time": "2016-06-29T05:40:00+00:00"
+        },
+        {
+            "name": "symfony/security",
+<<<<<<< HEAD
+            "version": "v2.8.31",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
@@ -3516,11 +4001,29 @@
                 "symfony/http-foundation": "~2.1|~3.0.0",
                 "symfony/http-kernel": "~2.4|~3.0.0",
                 "symfony/polyfill-php55": "~1.0",
+=======
+            "version": "v3.2.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/security.git",
+                "reference": "3f6e39f1918f009524e36a56f1609cf74a8cd47c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/security/zipball/3f6e39f1918f009524e36a56f1609cf74a8cd47c",
+                "reference": "3f6e39f1918f009524e36a56f1609cf74a8cd47c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0",
+>>>>>>> core-2275 updated constraints
                 "symfony/polyfill-php56": "~1.0",
                 "symfony/polyfill-php70": "~1.0",
                 "symfony/polyfill-util": "~1.0",
-                "symfony/property-access": "~2.3|~3.0.0",
-                "symfony/security-acl": "~2.7|~3.0.0"
+                "symfony/property-access": "~2.8|~3.0"
             },
             "replace": {
                 "symfony/security-core": "self.version",
@@ -3530,12 +4033,12 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/expression-language": "~2.6|~3.0.0",
-                "symfony/finder": "~2.3|~3.0.0",
-                "symfony/ldap": "~2.8|~3.0.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/ldap": "~3.1",
                 "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/validator": "~2.7.25|^2.8.18|~3.2.5"
+                "symfony/routing": "~2.8|~3.0",
+                "symfony/validator": "^2.8.18|^3.2.5"
             },
             "suggest": {
                 "symfony/expression-language": "For using the expression voter",
@@ -3547,7 +4050,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -3574,7 +4077,28 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-11-07T14:08:47+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-18T13:56:23+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T17:12:09+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-07T14:08:47+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T17:12:09+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-16T16:08:43+00:00"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "symfony/security-acl",
@@ -3635,7 +4159,14 @@
             ],
             "description": "Symfony Security Component - ACL (Access Control List)",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2017-07-21T06:01:18+00:00"
+=======
+            "time": "2015-12-28T09:39:46+00:00"
+=======
+            "time": "2017-07-29T21:27:41+00:00"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "symfony/serializer",
@@ -3717,6 +4248,7 @@
         },
         {
             "name": "symfony/translation",
+<<<<<<< HEAD
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -3735,12 +4267,38 @@
             },
             "conflict": {
                 "symfony/config": "<2.8"
+=======
+            "version": "v3.3.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation.git",
+                "reference": "373e553477e55cd08f8b86b74db766c75b987fdb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/373e553477e55cd08f8b86b74db766c75b987fdb",
+                "reference": "373e553477e55cd08f8b86b74db766c75b987fdb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony/config": "<2.8",
+                "symfony/yaml": "<3.3"
+>>>>>>> core-2275 updated constraints
             },
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~2.8|~3.0",
+<<<<<<< HEAD
                 "symfony/intl": "~2.8|~3.0",
                 "symfony/yaml": "~2.8|~3.0"
+=======
+                "symfony/intl": "^2.8.18|^3.2.5",
+                "symfony/yaml": "~3.3"
+>>>>>>> core-2275 updated constraints
             },
             "suggest": {
                 "psr/log": "To use logging capability in translator",
@@ -3750,7 +4308,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "3.0-dev"
+=======
+                    "dev-master": "3.3-dev"
+>>>>>>> core-2275 updated constraints
                 }
             },
             "autoload": {
@@ -3777,11 +4339,29 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2016-07-30T07:22:48+00:00"
         },
         {
             "name": "symfony/twig-bridge",
+<<<<<<< HEAD
             "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.32",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
@@ -3789,34 +4369,60 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/efdc8b39b5a05def32824e578ccf3fcdec8190cc",
                 "reference": "efdc8b39b5a05def32824e578ccf3fcdec8190cc",
+=======
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/611c7994abf119adec844fdbc28721c3e3629d4e",
+                "reference": "611c7994abf119adec844fdbc28721c3e3629d4e",
+=======
+            "version": "v2.8.31",
+=======
+            "time": "2017-11-07T14:12:55+00:00"
+        },
+        {
+            "name": "symfony/twig-bridge",
+            "version": "v3.3.13",
+>>>>>>> core-2275 updated constraints
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/twig-bridge.git",
+                "reference": "87305530dee22d66c92756df2d4aec576d882fb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/87305530dee22d66c92756df2d4aec576d882fb9",
+                "reference": "87305530dee22d66c92756df2d4aec576d882fb9",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": "^5.5.9|>=7.0.8",
                 "twig/twig": "~1.34|~2.4"
             },
             "conflict": {
-                "symfony/form": "<2.8.23"
+                "symfony/form": "<3.2.10|~3.3,<3.3.3"
             },
             "require-dev": {
-                "symfony/asset": "~2.7|~3.0.0",
-                "symfony/console": "~2.8|~3.0.0",
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/finder": "~2.3|~3.0.0",
-                "symfony/form": "^2.8.23",
-                "symfony/http-foundation": "^2.8.29|~3.0.0",
-                "symfony/http-kernel": "~2.8|~3.0.0",
+                "fig/link-util": "^1.0",
+                "symfony/asset": "~2.8|~3.0",
+                "symfony/console": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/form": "^3.2.10|^3.3.3",
+                "symfony/http-foundation": "^3.3.11",
+                "symfony/http-kernel": "~3.2",
                 "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/security": "~2.6|~3.0.0",
-                "symfony/security-acl": "~2.6|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0",
-                "symfony/templating": "~2.1|~3.0.0",
-                "symfony/translation": "~2.7|~3.0.0",
-                "symfony/var-dumper": "~2.7.16|~2.8.9|~3.0.9",
-                "symfony/yaml": "^2.0.5|~3.0.0"
+                "symfony/routing": "~2.8|~3.0",
+                "symfony/security": "~2.8|~3.0",
+                "symfony/security-acl": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0",
+                "symfony/templating": "~2.8|~3.0",
+                "symfony/translation": "~2.8|~3.0",
+                "symfony/var-dumper": "~2.8.10|~3.1.4|~3.2",
+                "symfony/web-link": "~3.3",
+                "symfony/yaml": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/asset": "For using the AssetExtension",
@@ -3830,12 +4436,13 @@
                 "symfony/templating": "For using the TwigEngine",
                 "symfony/translation": "For using the TranslationExtension",
                 "symfony/var-dumper": "For using the DumpExtension",
+                "symfony/web-link": "For using the WebLinkExtension",
                 "symfony/yaml": "For using the YamlExtension"
             },
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -3862,7 +4469,12 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-04T19:58:03+00:00"
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "symfony/validator",
@@ -3874,41 +4486,87 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/validator/zipball/71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
                 "reference": "71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/validator/zipball/e6da867bf86ba5009381d59718071329359ddbff",
+                "reference": "e6da867bf86ba5009381d59718071329359ddbff",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/validator/zipball/71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
+                "reference": "71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/validator/zipball/e6da867bf86ba5009381d59718071329359ddbff",
+                "reference": "e6da867bf86ba5009381d59718071329359ddbff",
+=======
+                "url": "https://api.github.com/repos/symfony/validator/zipball/d3f8bf19db07dde2ed3f4c43907bb18eb876a0c1",
+                "reference": "d3f8bf19db07dde2ed3f4c43907bb18eb876a0c1",
+=======
+            "time": "2017-11-07T11:58:40+00:00"
+        },
+        {
+            "name": "symfony/validator",
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v3.3.13",
+>>>>>>> core-2275 updated constraints
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/validator.git",
+                "reference": "ec0739539e4913177e37a43a8e8da091b8f7188d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/ec0739539e4913177e37a43a8e8da091b8f7188d",
+                "reference": "ec0739539e4913177e37a43a8e8da091b8f7188d",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/polyfill-mbstring": "~1.0",
-                "symfony/translation": "~2.4|~3.0.0"
+                "symfony/translation": "~2.8|~3.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/dependency-injection": "<3.3",
+                "symfony/yaml": "<3.3"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
                 "doctrine/cache": "~1.0",
-                "egulias/email-validator": "^1.2.1",
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/http-foundation": "~2.3|~3.0.0",
-                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
-                "symfony/property-access": "~2.3|~3.0.0",
-                "symfony/yaml": "^2.0.5|~3.0.0"
+                "egulias/email-validator": "^1.2.8|~2.0",
+                "symfony/cache": "~3.1",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/dependency-injection": "~3.3",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/intl": "^2.8.18|^3.2.5",
+                "symfony/yaml": "~3.3"
             },
             "suggest": {
                 "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
                 "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
                 "egulias/email-validator": "Strict (RFC compliant) email validation",
+                "psr/cache-implementation": "For using the metadata cache.",
                 "symfony/config": "",
-                "symfony/expression-language": "For using the 2.4 Expression validator",
+                "symfony/expression-language": "For using the Expression validator",
                 "symfony/http-foundation": "",
                 "symfony/intl": "",
-                "symfony/property-access": "For using the 2.4 Validator API",
                 "symfony/yaml": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -3935,7 +4593,27 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-01-29T08:54:45+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T17:12:09+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-29T08:54:45+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T17:12:09+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-04T12:15:49+00:00"
+=======
+            "time": "2017-11-10T19:02:53+00:00"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "symfony/yaml",
@@ -6851,23 +7529,23 @@
         },
         {
             "name": "silex/web-profiler",
-            "version": "v1.0.8",
+            "version": "1.0.x-dev",
             "target-dir": "Silex/Provider",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex-WebProfiler.git",
-                "reference": "3b767e6c9006a542cac737474f02671bdf2909cb"
+                "reference": "2c5df830c864bec709307e706176771b57440be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/3b767e6c9006a542cac737474f02671bdf2909cb",
-                "reference": "3b767e6c9006a542cac737474f02671bdf2909cb",
+                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/2c5df830c864bec709307e706176771b57440be5",
+                "reference": "2c5df830c864bec709307e706176771b57440be5",
                 "shasum": ""
             },
             "require": {
                 "silex/silex": "~1.1",
-                "symfony/stopwatch": "~2.2",
-                "symfony/web-profiler-bundle": "~2.4"
+                "symfony/stopwatch": "~2.2|3.0.*",
+                "symfony/web-profiler-bundle": "~2.4|3.0.*"
             },
             "type": "library",
             "extra": {
@@ -6892,7 +7570,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2016-01-10T11:39:13+00:00"
+            "time": "2016-05-04T16:32:42+00:00"
         },
         {
             "name": "site5/phantoman",
@@ -7660,7 +8338,20 @@
         },
         {
             "name": "symfony/stopwatch",
+<<<<<<< HEAD
             "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -7670,15 +8361,35 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/stopwatch/zipball/57021208ad9830f8f8390c1a9d7bb390f32be89e",
                 "reference": "57021208ad9830f8f8390c1a9d7bb390f32be89e",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v3.0.9",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/stopwatch.git",
+                "reference": "49c0ea2f3d3a779df4780927671332edc406ea84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/49c0ea2f3d3a779df4780927671332edc406ea84",
+                "reference": "49c0ea2f3d3a779df4780927671332edc406ea84",
+>>>>>>> core-2275 updated constraints
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -7705,7 +8416,11 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-01-03T07:36:31+00:00"
+=======
+            "time": "2016-06-29T05:40:00+00:00"
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "symfony/var-dumper",
@@ -7778,7 +8493,20 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
+<<<<<<< HEAD
             "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.34",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.33",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
@@ -7786,27 +8514,61 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/344fd9da9942523054d145d85a939c5196fce5ac",
                 "reference": "344fd9da9942523054d145d85a939c5196fce5ac",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/33f9db67f34e98eae75263b2b495356ca9241d21",
+                "reference": "33f9db67f34e98eae75263b2b495356ca9241d21",
+=======
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/344fd9da9942523054d145d85a939c5196fce5ac",
+                "reference": "344fd9da9942523054d145d85a939c5196fce5ac",
+=======
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/33f9db67f34e98eae75263b2b495356ca9241d21",
+                "reference": "33f9db67f34e98eae75263b2b495356ca9241d21",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v3.0.9",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/web-profiler-bundle.git",
+                "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
+                "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/twig-bridge": "~2.7|~3.0.0",
-                "twig/twig": "~1.34|~2.4"
+                "php": ">=5.5.9",
+                "symfony/http-kernel": "~2.8|~3.0",
+                "symfony/routing": "~2.8|~3.0",
+                "symfony/twig-bridge": "~2.8|~3.0"
             },
             "require-dev": {
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/console": "~2.3|~3.0.0",
-                "symfony/dependency-injection": "~2.2|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0"
+                "symfony/config": "~2.8|~3.0",
+                "symfony/console": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -7833,7 +8595,23 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-01-07T17:01:19+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T07:36:31+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-07T17:01:19+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T07:36:31+00:00"
+=======
+            "time": "2016-07-26T08:03:56+00:00"
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
+>>>>>>> core-2275 updated constraints
         },
         {
             "name": "theseer/fdomdocument",
