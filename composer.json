@@ -216,20 +216,20 @@
   },
   "autoload": {
     "psr-0": {
-      "": "src",
-      "Unit": "tests",
-      "YvesUnit": "tests",
-      "Functional": "tests",
-      "Acceptance": "tests"
+      "": "src/",
+      "Unit": "tests/",
+      "YvesUnit": "tests/",
+      "Functional": "tests/",
+      "Acceptance": "tests/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "PyzTest\\": "tests/PyzTest",
-      "PhpStan\\": "tests/PhpStan",
+      "PyzTest\\": "tests/PyzTest/",
+      "PhpStan\\": "tests/PhpStan/",
       "Acceptance\\Auth\\": "vendor/spryker/auth/tests/",
-      "Application\\Module\\": "vendor/spryker/application/tests/_support/Module",
-      "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module"
+      "Application\\Module\\": "vendor/spryker/application/tests/_support/Module/",
+      "Auth\\Module\\": "vendor/spryker/auth/tests/_support/Module/"
     },
     "files": [
       "test-autoload.php"
