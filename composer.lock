@@ -2547,29 +2547,31 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.0.9",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
+                "reference": "984fa8301472a2857b1b2397f7ad1126fb83b229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
-                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/984fa8301472a2857b1b2397f7ad1126fb83b229",
+                "reference": "984fa8301472a2857b1b2397f7ad1126fb83b229",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "symfony/polyfill-mbstring": "~1.1"
+                "php": ">=5.3.9",
+                "symfony/polyfill-mbstring": "~1.1",
+                "symfony/polyfill-php54": "~1.0",
+                "symfony/polyfill-php55": "~1.0"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.8|~3.0"
+                "symfony/expression-language": "~2.4|~3.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -2596,7 +2598,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-17T13:54:30+00:00"
+            "time": "2017-11-13T18:11:59+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -3394,22 +3396,22 @@
         },
         {
             "name": "symfony/security",
-            "version": "v2.8.30",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d"
+                "reference": "35624b8617d75eb58bb5bf1c5b75cab5604bf948"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/87807daa2b5192dd3573ade1353fa0b497582f2d",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d",
+                "url": "https://api.github.com/repos/symfony/security/zipball/35624b8617d75eb58bb5bf1c5b75cab5604bf948",
+                "reference": "35624b8617d75eb58bb5bf1c5b75cab5604bf948",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
                 "symfony/event-dispatcher": "~2.2|~3.0.0",
-                "symfony/http-foundation": "~2.1|~3.0.0",
+                "symfony/http-foundation": "^2.7.38|~3.3.13",
                 "symfony/http-kernel": "~2.4|~3.0.0",
                 "symfony/polyfill-php55": "~1.0",
                 "symfony/polyfill-php56": "~1.0",
@@ -3417,6 +3419,9 @@
                 "symfony/polyfill-util": "~1.0",
                 "symfony/property-access": "~2.3|~3.0.0",
                 "symfony/security-acl": "~2.7|~3.0.0"
+            },
+            "conflict": {
+                "symfony/http-foundation": "~2.8,<2.8.31|~3.4,<3.4-beta5"
             },
             "replace": {
                 "symfony/security-core": "self.version",
@@ -3470,7 +3475,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:08:47+00:00"
+            "time": "2017-11-16T16:08:43+00:00"
         },
         {
             "name": "symfony/security-acl",
@@ -6906,12 +6911,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
+                "reference": "3380144509a8d8850c4af602d9649c1de8099e0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1f8241790a7bdc1da3de294ecce45addc8dde34e",
-                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/3380144509a8d8850c4af602d9649c1de8099e0a",
+                "reference": "3380144509a8d8850c4af602d9649c1de8099e0a",
                 "shasum": ""
             },
             "require": {
@@ -6949,7 +6954,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-11-07T15:24:39+00:00"
+            "time": "2017-11-21T13:26:10+00:00"
         },
         {
             "name": "spryker/git-hook",
