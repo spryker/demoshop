@@ -43,10 +43,13 @@ class CatalogController extends AbstractController
             ->getLocaleClient()
             ->getCurrentLocale();
 
-        $searchResults[FacetResultFormatterPlugin::NAME] = $this
-            ->getFactory()
-            ->getProductCategoryFilterClient()
-            ->updateFacetsByCategory($searchResults[FacetResultFormatterPlugin::NAME], $parameters[PageIndexMap::CATEGORY], $currentLocale);
+        $productCategoryFilterClient = $this->getFactory()->getProductCategoryFilterClient();
+
+        $searchResults[FacetResultFormatterPlugin::NAME] = $productCategoryFilterClient
+            ->updateFacetsByCategory(
+                $searchResults[FacetResultFormatterPlugin::NAME],
+                $productCategoryFilterClient->getProductCategoryFiltersForCategoryByLocale($parameters[PageIndexMap::CATEGORY], $currentLocale)
+            );
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
         $metaAttributes = [
