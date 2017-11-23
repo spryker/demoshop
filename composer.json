@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-bugfix/core-2310-move-db-dependency-from-console",
     "spryker-eco/loggly": "dev-master as 1.0.0",
 
     "php": ">=5.6.0",
