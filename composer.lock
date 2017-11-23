@@ -4,7 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "ac86b348866807ac795907a89b66449b",
+=======
+<<<<<<< HEAD
+    "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
+=======
+<<<<<<< HEAD
+    "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
+=======
+<<<<<<< HEAD
+    "content-hash": "5768a1aef55ae569b402007522cec331",
+=======
+<<<<<<< HEAD
+    "content-hash": "56f15b90fca47922776f36208b871f8d",
+=======
+    "content-hash": "58086a0de3f361348614d3bd6803949a",
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1906,11 +1926,63 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2275-full-compatibility-to-symfony-28-and-then-30",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "585c48f08ebad36082c6d2d7a42837de9e72ce8f"
+=======
+<<<<<<< HEAD
+                "reference": "2698c8b7d6da803f2941a1ccc927c0d898f12078"
+=======
+<<<<<<< HEAD
+                "reference": "8b384c28ad979dd741a450fa1ee746cef276e207"
+=======
+<<<<<<< HEAD
+                "reference": "079a764fde2f66a2c0fc4b59cab5110762e4c8cd"
+=======
+<<<<<<< HEAD
+                "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
+=======
+<<<<<<< HEAD
+                "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
+=======
+<<<<<<< HEAD
+                "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
+=======
+<<<<<<< HEAD
+                "reference": "e483e2438184e6281c1a19f6670f0661b41e424a"
+=======
+<<<<<<< HEAD
+                "reference": "6bb4bf2bdeadc21ad2fea12dfe447c60c65eb196"
+=======
+<<<<<<< HEAD
+                "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
+=======
+<<<<<<< HEAD
+                "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
+=======
+<<<<<<< HEAD
+                "reference": "c5b430d6c49db8aeb654d910934d6f6f990d27d4"
+=======
+<<<<<<< HEAD
+                "reference": "ad7d2b4997b4a4b672a5e7caffc49c72dca03168"
+=======
+                "reference": "350fa29c8f08cc4343d28da9abe0ddeec8498064"
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2145,7 +2217,36 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2018-01-25T12:37:32+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-24T10:59:32+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-17T16:50:48+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-03T14:49:34+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-22T11:47:58+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-21T11:37:00+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-20T14:44:28+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-19T17:36:45+00:00"
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2191,6 +2292,29 @@
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
             "time": "2017-11-13T10:53:51+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-18T11:32:25+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-12-13T17:03:22+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-28T10:14:45+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-27T09:55:56+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-22T10:11:43+00:00"
+=======
+            "time": "2017-11-23T06:31:14+00:00"
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3575,7 +3699,19 @@
         },
         {
             "name": "symfony/security",
+<<<<<<< HEAD
             "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.32",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.31",
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
+>>>>>>> core-2275 with old constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
