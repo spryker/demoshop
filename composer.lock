@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2e5400e2bf246985226c4ff63085a2e",
+    "content-hash": "a45cd4eaba974e2f17d788d79a85f9a0",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1817,11 +1817,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-2097-category-filters",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d99b9d86ed675c51089f2501bc8e86a8444b35f3"
+                "reference": "5994977424ac06500d55e41e8cffd862bd6eb8cb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2021,7 +2021,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-13T15:33:34+00:00"
+            "time": "2017-11-20T09:01:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6752,7 +6752,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7556,8 +7556,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spryker/spryker": 20,
         "spryker-eco/loggly": 20,
+        "spryker/spryker": 20,
         "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
