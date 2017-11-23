@@ -401,12 +401,6 @@ $config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|/de)?/customer|^(/en|/de)?/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
 
-// ---------- Price product
-$config[PriceProductConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
-
-// ---------- Price
-$config[PriceConstants::DEFAULT_PRICE_MODE] = PriceConfig::PRICE_MODE_GROSS;
-
 // ---------- Taxes
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 

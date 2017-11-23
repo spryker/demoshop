@@ -187,9 +187,6 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 $config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
 
-$config[PriceProductConstants::DEFAULT_PRICE_TYPE] =
-    $config[PriceProductConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
-
 $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
 ];
