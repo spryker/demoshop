@@ -17,7 +17,6 @@ class ZedFactoryDynamicTypeExtension extends AbstractSprykerDynamicTypeExtension
      */
     protected $methodResolves = [
         'getQueryContainer' => true,
-        'getConfig' => true,
         'getFacade' => true,
     ];
 
