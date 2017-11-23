@@ -47,6 +47,7 @@ use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelRelationUpdaterConsole;
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelValidityConsole;
 use Spryker\Zed\ProductRelation\Communication\Console\ProductRelationUpdaterConsole;
+use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
 use Spryker\Zed\Search\Communication\Console\GenerateIndexMapConsole;
@@ -204,5 +205,18 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
         }
 
         return $eventSubscriber;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Silex\ServiceProviderInterface[]
+     */
+    public function getServiceProviders(Container $container)
+    {
+        $serviceProviders = parent::getServiceProviders($container);
+        $serviceProviders[] = new PropelServiceProvider();
+
+        return $serviceProviders;
     }
 }
