@@ -1896,75 +1896,104 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "e483e2438184e6281c1a19f6670f0661b41e424a"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "636901fbd5bafaefa5f40f8ac442ce237361a64a"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "fdf43d21845a02ac23f9b48df21adb21a3ff29ed"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "6bb4bf2bdeadc21ad2fea12dfe447c60c65eb196"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "c06531e2b2a869ee57579801079043617631b93d"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
                 "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
 =======
@@ -1975,20 +2004,65 @@
 =======
                 "reference": "1ad5c7a2d0f37707bf690741226333f35072a817"
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "350fa29c8f08cc4343d28da9abe0ddeec8498064"
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2225,60 +2299,83 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2018-01-29T17:32:14+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2018-01-26T14:28:54+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2018-01-26T13:11:30+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2018-01-25T17:41:45+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-22T11:47:58+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-21T11:37:00+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-20T14:44:28+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-19T17:36:45+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-19T09:36:43+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-18T17:36:21+00:00"
 >>>>>>> core-2275 updated constraints
@@ -2340,16 +2437,22 @@
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-18T11:32:25+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-12-01T11:38:14+00:00"
 =======
 =======
 >>>>>>> core-2275 updated constraints
+=======
+>>>>>>> core-2275 added form refactor tool
 <<<<<<< HEAD
             "time": "2017-11-28T10:14:45+00:00"
 =======
@@ -2360,9 +2463,21 @@
 =======
             "time": "2017-11-22T14:44:31+00:00"
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+=======
+=======
+=======
+=======
+            "time": "2017-11-23T06:31:14+00:00"
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
+>>>>>>> core-2275 added form refactor tool
         },
         {
             "name": "swiftmailer/swiftmailer",
