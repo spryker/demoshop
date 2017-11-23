@@ -1958,11 +1958,26 @@
                 "reference": "6bb4bf2bdeadc21ad2fea12dfe447c60c65eb196"
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
 =======
+=======
+=======
+>>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update lock
+<<<<<<< HEAD
+                "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
+=======
+=======
+>>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
 <<<<<<< HEAD
                 "reference": "c5b430d6c49db8aeb654d910934d6f6f990d27d4"
 =======
@@ -1981,8 +1996,26 @@
 >>>>>>> core-2275 with old constraints
 >>>>>>> core-2275 with old constraints
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+=======
+=======
+=======
+=======
+=======
+                "reference": "b557c2debcd66e4a71a9a141977bcc51b97525d0"
+>>>>>>> core-2275 update lock
+<<<<<<< HEAD
+=======
+=======
+                "reference": "ee475c01405fc1fcf25d1c29bf8b07c77cc14fac"
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2297,11 +2330,26 @@
             "time": "2017-12-18T11:32:25+00:00"
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-28T10:14:45+00:00"
 =======
+=======
+=======
+>>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update lock
+<<<<<<< HEAD
+            "time": "2017-11-28T10:14:45+00:00"
+=======
+=======
+>>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
 <<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
@@ -2314,7 +2362,22 @@
 >>>>>>> core-2275 with old constraints
 >>>>>>> core-2275 with old constraints
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+=======
+=======
+=======
+=======
+            "time": "2017-11-23T07:57:36+00:00"
+>>>>>>> core-2275 update lock
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-11-23T14:14:05+00:00"
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2851,7 +2914,16 @@
         },
         {
             "name": "symfony/http-foundation",
+<<<<<<< HEAD
             "version": "v2.8.33",
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> core-2275 update lock
+            "version": "v2.8.32",
+>>>>>>> core-2275 update lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
@@ -2859,8 +2931,36 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/adf79b0558604c04753576235d39bd9577a5f0c8",
                 "reference": "adf79b0558604c04753576235d39bd9577a5f0c8",
+=======
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/8eb1d3609a13ec6fdde68b1a5b908d6cefdbef54",
+                "reference": "8eb1d3609a13ec6fdde68b1a5b908d6cefdbef54",
+<<<<<<< HEAD
+=======
+=======
+            "version": "v3.0.9",
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2275 update lock
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "984fa8301472a2857b1b2397f7ad1126fb83b229"
+            },
+            "dist": {
+                "type": "zip",
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
+>>>>>>> core-2275 update lock
+=======
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/984fa8301472a2857b1b2397f7ad1126fb83b229",
+                "reference": "984fa8301472a2857b1b2397f7ad1126fb83b229",
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
                 "shasum": ""
             },
             "require": {
@@ -2902,7 +3002,23 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2017-11-29T09:33:18+00:00"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            "time": "2017-11-29T09:33:18+00:00"
+=======
+            "time": "2016-07-17T13:54:30+00:00"
+>>>>>>> core-2275 update lock
+=======
+            "time": "2017-11-13T18:11:59+00:00"
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
         },
         {
             "name": "symfony/http-kernel",
@@ -3700,9 +3816,17 @@
         {
             "name": "symfony/security",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.33",
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
             "version": "v2.8.32",
 =======
 <<<<<<< HEAD
@@ -3711,7 +3835,19 @@
             "version": "v2.8.30",
 >>>>>>> core-2275 with old constraints
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+=======
+<<<<<<< HEAD
+=======
+=======
+            "version": "v2.8.30",
+>>>>>>> core-2275 update lock
+=======
+            "version": "v2.8.31",
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
+>>>>>>> core-2275 update lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
