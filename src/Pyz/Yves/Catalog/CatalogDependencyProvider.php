@@ -27,7 +27,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addSearchClient($container);
         $container = $this->addCategoryClient($container);
         $container = $this->addLocaleClient($container);
-        $container = $this->addProductCategoryFilter($container);
+        $container = $this->addProductCategoryFilterClient($container);
 
         return $container;
     }
@@ -79,7 +79,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
      *
      * @return \Spryker\Yves\Kernel\Container
      */
-    protected function addProductCategoryFilter(Container $container)
+    protected function addProductCategoryFilterClient(Container $container)
     {
         $container[static::CLIENT_PRODUCT_CATEGORY_FILTER] = function (Container $container) {
             return $container->getLocator()->productCategoryFilter()->client();
