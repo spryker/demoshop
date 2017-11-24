@@ -367,16 +367,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.1.13",
+            "version": "2.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "9f640a4f129e57d3537887f840380109a4dd182b"
+                "reference": "c6081b8838686aa04f1e83ba7e91f78b7b2a23e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/9f640a4f129e57d3537887f840380109a4dd182b",
-                "reference": "9f640a4f129e57d3537887f840380109a4dd182b",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
+                "reference": "c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
                 "shasum": ""
             },
             "require": {
@@ -424,7 +424,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2017-11-17T08:15:51+00:00"
+            "time": "2017-11-23T18:22:44+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -1843,6 +1843,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1866,10 +1867,13 @@
 >>>>>>> core-2001 review changes
 =======
 >>>>>>> core-2001 update composer.lock
+=======
+>>>>>>> core-2001 update spryker/spryker
             "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i-new-commands",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3044,6 +3048,9 @@
                 "reference": "46d6a6fb413560339e16b029dd1286de4eb1c2c4"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+=======
+                "reference": "4276a0e6756db1095fc0e5b1ce3c304a6b9bb885"
+>>>>>>> core-2001 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3243,6 +3250,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4651,6 +4659,9 @@
             "time": "2017-11-20T12:18:38+00:00"
 >>>>>>> core-2001 update spryker/spryker
 >>>>>>> core-2001 update spryker/spryker
+=======
+            "time": "2017-11-24T04:56:40+00:00"
+>>>>>>> core-2001 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4767,31 +4778,7 @@
         },
         {
             "name": "symfony/config",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v3.2.14",
-=======
-            "version": "3.2.x-dev",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.2.13",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.3.10",
->>>>>>> core-2001 update composer.lock
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -4853,31 +4840,7 @@
         },
         {
             "name": "symfony/console",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v3.2.14",
-=======
-            "version": "3.2.x-dev",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.2.13",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.3.10",
->>>>>>> core-2001 update composer.lock
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -4945,49 +4908,7 @@
         },
         {
             "name": "symfony/debug",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update composer.lock
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "version": "v2.8.29",
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/debug.git",
-                "reference": "a0a29e9867debabdace779a20a9385c623a23bbd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/a0a29e9867debabdace779a20a9385c623a23bbd",
-                "reference": "a0a29e9867debabdace779a20a9385c623a23bbd",
-=======
-            "version": "2.8.x-dev",
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.3.10",
->>>>>>> core-2001 update composer.lock
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -5103,49 +5024,7 @@
         },
         {
             "name": "symfony/filesystem",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-=======
->>>>>>> core-2001 udpate spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.29",
-=======
-            "version": "2.8.x-dev",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-            "version": "v2.8.29",
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
->>>>>>> core-2001 update deploy configs
-=======
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 udpate spryker/spryker
->>>>>>> core-2001 udpate spryker/spryker
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -5194,51 +5073,7 @@
         },
         {
             "name": "symfony/finder",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update composer.lock
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "version": "v2.8.29",
-=======
-            "version": "2.8.x-dev",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/finder.git",
-                "reference": "efeceae6a05a9b2fcb3391333f1d4a828ff44ab8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/efeceae6a05a9b2fcb3391333f1d4a828ff44ab8",
-                "reference": "efeceae6a05a9b2fcb3391333f1d4a828ff44ab8",
-=======
-            "version": "v3.3.10",
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -5283,46 +5118,6 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-05T15:25:56+00:00"
-=======
-            "time": "2017-10-02T06:42:24+00:00"
->>>>>>> core-2001 update composer.lock
-        },
-        {
-            "name": "symfony/form",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.29",
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/form.git",
-                "reference": "4ad117621980bac8908b5567150342749a439ec4"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/form/zipball/4ad117621980bac8908b5567150342749a439ec4",
-                "reference": "4ad117621980bac8908b5567150342749a439ec4",
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/1be8d65b0ae9dfa63d1d5376bb36252619e28249",
-                "reference": "1be8d65b0ae9dfa63d1d5376bb36252619e28249",
-=======
-            "version": "2.8.x-dev",
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
->>>>>>> core-2001 review changes
             "time": "2017-11-05T15:47:03+00:00"
         },
         {
@@ -5335,35 +5130,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/form/zipball/e6dfd3496527c0a64807c93df3b7d23d53d3a577",
-                "reference": "e6dfd3496527c0a64807c93df3b7d23d53d3a577",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/4d876095289700f13274bc6d80f1c4e535397a46",
-                "reference": "4d876095289700f13274bc6d80f1c4e535397a46",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/1be8d65b0ae9dfa63d1d5376bb36252619e28249",
-                "reference": "1be8d65b0ae9dfa63d1d5376bb36252619e28249",
->>>>>>> core-2001 update deploy configs
->>>>>>> core-2001 update deploy configs
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/6b6e1e382faf45541fe17808daeea7f94221bba5",
-                "reference": "6b6e1e382faf45541fe17808daeea7f94221bba5",
->>>>>>> core-2001 review changes
-=======
                 "url": "https://api.github.com/repos/symfony/form/zipball/4ad117621980bac8908b5567150342749a439ec4",
                 "reference": "4ad117621980bac8908b5567150342749a439ec4",
->>>>>>> core-2001 removed migration files
                 "shasum": ""
             },
             "require": {
@@ -5425,47 +5193,11 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-11-16T15:20:19+00:00"
         },
         {
             "name": "symfony/http-foundation",
             "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "time": "2017-11-07T14:08:47+00:00"
-=======
-            "time": "2017-10-10T07:42:03+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-            "time": "2017-10-01T21:00:16+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-            "time": "2017-11-07T14:08:47+00:00"
->>>>>>> core-2001 update deploy configs
-=======
-            "time": "2017-11-13T18:11:59+00:00"
->>>>>>> core-2001 review changes
-=======
-            "time": "2017-11-16T15:20:19+00:00"
->>>>>>> core-2001 removed migration files
-        },
-        {
-            "name": "symfony/http-foundation",
-<<<<<<< HEAD
-            "version": "3.0.x-dev",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.0.9",
->>>>>>> core-2001 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
@@ -5602,55 +5334,7 @@
         },
         {
             "name": "symfony/intl",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-=======
->>>>>>> core-2001 udpate spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.29",
-=======
-            "version": "2.8.x-dev",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-            "version": "v2.8.29",
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
->>>>>>> core-2001 update deploy configs
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/intl.git",
-                "reference": "ae2802c8fb076af5ca04c9d5a30992ddb64874f7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
-                "reference": "ae2802c8fb076af5ca04c9d5a30992ddb64874f7",
-=======
-=======
-=======
->>>>>>> core-2001 review changes
-            "version": "v3.2.13",
-=======
             "version": "v3.2.14",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -5658,14 +5342,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/intl/zipball/801796ace3769266cc9e8380fc65707249096a39",
-                "reference": "801796ace3769266cc9e8380fc65707249096a39",
->>>>>>> core-2001 udpate spryker/spryker
-=======
                 "url": "https://api.github.com/repos/symfony/intl/zipball/3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
                 "reference": "3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
->>>>>>> core-2001 removed migration files
                 "shasum": ""
             },
             "require": {
@@ -5729,6 +5407,7 @@
             ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-11-16T15:20:19+00:00"
 =======
             "time": "2017-06-01T21:00:24+00:00"
@@ -5768,12 +5447,13 @@
             "version": "v2.8.30",
 >>>>>>> core-2001 review changes
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
             "time": "2017-11-16T17:55:54+00:00"
         },
         {
             "name": "symfony/options-resolver",
             "version": "v2.8.31",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -5936,6 +5616,64 @@
             "keywords": [
                 "compatibility",
                 "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2017-10-11T12:05:26+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php54",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php54.git",
+                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
+                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php54\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 5.4+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
                 "polyfill",
                 "portable",
                 "shim"
@@ -6167,51 +5905,7 @@
         },
         {
             "name": "symfony/process",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update setup
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "version": "v2.8.29",
-=======
-            "version": "2.8.x-dev",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/process.git",
-                "reference": "d25449e031f600807949aab7cadbf267712f4eee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d25449e031f600807949aab7cadbf267712f4eee",
-                "reference": "d25449e031f600807949aab7cadbf267712f4eee",
-=======
-            "version": "v3.3.10",
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -6256,57 +5950,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-05T15:25:56+00:00"
-=======
-            "time": "2017-10-02T06:42:24+00:00"
->>>>>>> core-2001 update setup
-        },
-        {
-            "name": "symfony/property-access",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.29",
-=======
-            "version": "2.8.x-dev",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-            "time": "2017-11-05T15:47:03+00:00"
-        },
-        {
-            "name": "symfony/property-access",
-<<<<<<< HEAD
-            "version": "v2.8.29",
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
->>>>>>> core-2001 update deploy configs
-=======
-=======
-            "version": "v3.0.9",
->>>>>>> core-2001 udpate spryker/spryker
->>>>>>> core-2001 udpate spryker/spryker
-=======
             "time": "2017-11-13T15:31:11+00:00"
         },
         {
             "name": "symfony/property-access",
             "version": "v3.0.9",
->>>>>>> core-2001 review changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -6366,43 +6014,7 @@
         },
         {
             "name": "symfony/routing",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "version": "v2.8.29",
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/routing.git",
-                "reference": "67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
-                "reference": "67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
-=======
-            "version": "2.8.x-dev",
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v2.8.29",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v2.8.30",
->>>>>>> core-2001 review changes
-=======
-            "version": "v2.8.31",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
@@ -6473,10 +6085,6 @@
                 "uri",
                 "url"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-11-07T14:08:47+00:00"
         },
         {
@@ -6489,56 +6097,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/security/zipball/35624b8617d75eb58bb5bf1c5b75cab5604bf948",
                 "reference": "35624b8617d75eb58bb5bf1c5b75cab5604bf948",
-=======
-                "url": "https://api.github.com/repos/symfony/security/zipball/87807daa2b5192dd3573ade1353fa0b497582f2d",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d",
-=======
-            "time": "2017-10-10T07:42:03+00:00"
-=======
-            "time": "2017-10-01T21:00:16+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
->>>>>>> core-2001 review changes
-            "time": "2017-11-07T14:08:47+00:00"
-        },
-        {
-            "name": "symfony/security",
-            "version": "v2.8.30",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security.git",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/security/zipball/84776a61269891b539872623886bdd6b28f99b37",
-                "reference": "84776a61269891b539872623886bdd6b28f99b37",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/security/zipball/824b292fc929a126897d4d59306fc1a39b0769f3",
-                "reference": "824b292fc929a126897d4d59306fc1a39b0769f3",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/security/zipball/87807daa2b5192dd3573ade1353fa0b497582f2d",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d",
->>>>>>> core-2001 update deploy configs
->>>>>>> core-2001 update deploy configs
-=======
-                "url": "https://api.github.com/repos/symfony/security/zipball/87807daa2b5192dd3573ade1353fa0b497582f2d",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d",
->>>>>>> core-2001 review changes
                 "shasum": ""
             },
             "require": {
@@ -6608,36 +6168,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-11-16T16:08:43+00:00"
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "time": "2017-11-07T14:08:47+00:00"
-=======
-            "time": "2017-10-10T07:42:03+00:00"
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-10-01T21:00:16+00:00"
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-            "time": "2017-11-07T14:08:47+00:00"
->>>>>>> core-2001 update deploy configs
->>>>>>> core-2001 update deploy configs
-=======
-            "time": "2017-11-07T14:08:47+00:00"
->>>>>>> core-2001 review changes
         },
         {
             "name": "symfony/security-acl",
@@ -6707,6 +6238,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.31",
 =======
 =======
@@ -6742,8 +6274,9 @@
             "version": "v3.3.12",
 >>>>>>> core-2001 review changes
 =======
+=======
+>>>>>>> core-2001 update spryker/spryker
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -6821,42 +6354,6 @@
         },
         {
             "name": "symfony/translation",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-=======
->>>>>>> core-2001 udpate spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.29",
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/translation.git",
-                "reference": "0c63d56516c4c4c323228ca6348eadb7c91b1daf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/0c63d56516c4c4c323228ca6348eadb7c91b1daf",
-                "reference": "0c63d56516c4c4c323228ca6348eadb7c91b1daf",
-=======
-            "version": "2.8.x-dev",
-=======
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v2.8.29",
->>>>>>> core-2001 update deploy configs
-=======
-=======
->>>>>>> core-2001 review changes
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -6917,36 +6414,6 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-07T14:08:47+00:00"
-        },
-        {
-            "name": "symfony/twig-bridge",
-            "version": "v2.8.31",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "65dd18c34c5eef8bb159106aef10c1028fc1f95f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/65dd18c34c5eef8bb159106aef10c1028fc1f95f",
-                "reference": "65dd18c34c5eef8bb159106aef10c1028fc1f95f",
-=======
-            "time": "2017-10-13T13:30:20+00:00"
-=======
-            "time": "2017-10-01T21:00:16+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-            "time": "2017-11-07T14:08:47+00:00"
->>>>>>> core-2001 update deploy configs
-=======
-=======
->>>>>>> core-2001 review changes
             "time": "2016-07-30T07:22:48+00:00"
         },
         {
@@ -7032,32 +6499,6 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-07T11:56:23+00:00"
-        },
-        {
-            "name": "symfony/validator",
-            "version": "v2.8.31",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/validator.git",
-                "reference": "2c5ae6fa983b65c58cb7c4481cd54871a3bfd10a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/2c5ae6fa983b65c58cb7c4481cd54871a3bfd10a",
-                "reference": "2c5ae6fa983b65c58cb7c4481cd54871a3bfd10a",
-=======
-            "time": "2017-10-10T07:42:03+00:00"
-=======
-            "time": "2017-10-01T21:00:16+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
->>>>>>> core-2001 review changes
             "time": "2017-11-07T11:56:23+00:00"
         },
         {
@@ -7131,59 +6572,11 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-11-10T18:59:36+00:00"
         },
         {
             "name": "symfony/yaml",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-            "version": "v2.8.29",
-=======
-            "time": "2017-10-13T13:30:20+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "2.8.x-dev",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-10-01T21:00:16+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-<<<<<<< HEAD
-            "version": "v2.8.28",
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-=======
             "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "d819bf267e901727141fe828ae888486fd21236e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d819bf267e901727141fe828ae888486fd21236e",
-                "reference": "d819bf267e901727141fe828ae888486fd21236e",
-=======
-            "version": "v3.3.10",
-=======
-=======
->>>>>>> core-2001 review changes
-            "time": "2017-11-10T18:59:36+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v3.3.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -9056,10 +8449,6 @@
         },
         {
             "name": "phpunit/phpunit",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "5.7.25",
             "source": {
                 "type": "git",
@@ -9070,42 +8459,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4b1c822a68ae6577df38a59eb49b046712ec0f6a",
                 "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a",
-=======
-            "version": "5.7.x-dev",
-=======
-            "version": "5.7.23",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "5.7.24",
->>>>>>> core-2001 review changes
-=======
-            "version": "5.7.25",
->>>>>>> core-2001 update spryker/deploy
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ab4cdd85dd2e52e45a6279cf89c0777960598b3b",
-                "reference": "ab4cdd85dd2e52e45a6279cf89c0777960598b3b",
->>>>>>> core-2001 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/78532d5269d984660080d8e0f4c99c5c2ea65ffe",
-                "reference": "78532d5269d984660080d8e0f4c99c5c2ea65ffe",
->>>>>>> core-2001 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f0b07fbcb0c563eae088736dd0c81acba1d31ac3",
-                "reference": "f0b07fbcb0c563eae088736dd0c81acba1d31ac3",
->>>>>>> core-2001 review changes
-=======
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4b1c822a68ae6577df38a59eb49b046712ec0f6a",
-                "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a",
->>>>>>> core-2001 update spryker/deploy
                 "shasum": ""
             },
             "require": {
@@ -9174,23 +8527,7 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-11-14T14:50:51+00:00"
-=======
-            "time": "2017-10-16T12:41:57+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-            "time": "2017-10-15T06:13:55+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-            "time": "2017-11-14T07:52:47+00:00"
->>>>>>> core-2001 review changes
-=======
-            "time": "2017-11-14T14:50:51+00:00"
->>>>>>> core-2001 update spryker/deploy
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -10280,48 +9617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/3380144509a8d8850c4af602d9649c1de8099e0a",
                 "reference": "3380144509a8d8850c4af602d9649c1de8099e0a",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update setup
-=======
->>>>>>> core-2001 update composer.lock
-=======
->>>>>>> renamed setup
-<<<<<<< HEAD
-=======
->>>>>>> core-2001 review changes
-                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1f8241790a7bdc1da3de294ecce45addc8dde34e",
-                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e",
                 "shasum": ""
             },
             "require": {
@@ -10341,113 +9642,6 @@
                     "Spryker\\": "Spryker"
                 }
             },
-<<<<<<< HEAD
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/bc1d3178a7ff36af360360ace5fee9229a2af93b",
-                "reference": "bc1d3178a7ff36af360360ace5fee9229a2af93b",
->>>>>>> core-2001 update dependencies
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-=======
-=======
-=======
-=======
-=======
-                "reference": "de5678d0fd9d862f76027a4957661e4c79e14907"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/de5678d0fd9d862f76027a4957661e4c79e14907",
-                "reference": "de5678d0fd9d862f76027a4957661e4c79e14907",
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f0764f8e3c76dcbf053a55a009b83096dbf82039",
-                "reference": "f0764f8e3c76dcbf053a55a009b83096dbf82039",
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/80f56b7fb0725ab02535b890d1f95f135c87f0b7",
-                "reference": "80f56b7fb0725ab02535b890d1f95f135c87f0b7",
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-                "reference": "aaff9fa8728bb6a58f7e7e1454e569875d106a24"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/aaff9fa8728bb6a58f7e7e1454e569875d106a24",
-                "reference": "aaff9fa8728bb6a58f7e7e1454e569875d106a24",
->>>>>>> core-2001 update setup
-<<<<<<< HEAD
->>>>>>> core-2001 update setup
-=======
-=======
-=======
->>>>>>> renamed setup
-                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1f8241790a7bdc1da3de294ecce45addc8dde34e",
-                "reference": "1f8241790a7bdc1da3de294ecce45addc8dde34e",
-<<<<<<< HEAD
->>>>>>> core-2001 update composer.lock
->>>>>>> core-2001 update composer.lock
-=======
->>>>>>> renamed setup
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0",
-                "slevomat/coding-standard": "^4.0",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "<5.0"
-            },
-            "bin": [
-                "bin/tokenize"
-            ],
-            "type": "phpcodesniffer-standard",
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "Spryker"
-                }
-            },
-=======
->>>>>>> core-2001 review changes
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -10466,144 +9660,7 @@
                 "phpcs",
                 "standards"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-11-21T13:26:10+00:00"
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update setup
-=======
->>>>>>> core-2001 update composer.lock
-=======
->>>>>>> renamed setup
-<<<<<<< HEAD
-            "time": "2017-11-07T15:24:39+00:00"
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update setup
-=======
->>>>>>> core-2001 update composer.lock
-<<<<<<< HEAD
-            "time": "2017-11-07T12:05:04+00:00"
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-10-17T11:04:08+00:00"
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-10-16T09:26:46+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-10-12T10:11:22+00:00"
-=======
-            "time": "2017-10-10T17:07:04+00:00"
->>>>>>> core-2001 update dependencies
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-<<<<<<< HEAD
->>>>>>> core-2001 update dependencies
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-10-12T10:51:30+00:00"
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-10-12T13:20:45+00:00"
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-10-16T09:26:46+00:00"
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-10-17T11:04:08+00:00"
->>>>>>> core-2001 update spryker/spryker
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-10-17T11:04:08+00:00"
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
-=======
-            "time": "2017-11-07T15:18:58+00:00"
->>>>>>> core-2001 update setup
-<<<<<<< HEAD
->>>>>>> core-2001 update setup
-<<<<<<< HEAD
->>>>>>> core-2001 update setup
-=======
-=======
-=======
-            "time": "2017-11-07T15:24:39+00:00"
->>>>>>> core-2001 update composer.lock
->>>>>>> core-2001 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2001 update composer.lock
-=======
-=======
-            "time": "2017-11-07T15:24:39+00:00"
->>>>>>> renamed setup
->>>>>>> renamed setup
-=======
-            "time": "2017-11-07T15:24:39+00:00"
->>>>>>> core-2001 review changes
         },
         {
             "name": "spryker/git-hook",
@@ -10611,23 +9668,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/git-hook.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
-=======
-                "reference": "99066c271bb770db9684e24e162fe4808d5b4c7b"
->>>>>>> core-2001 update composer.lock
-=======
-                "reference": "5b9398bf1f995876f2a13bdaa78f54f7e82915f7"
->>>>>>> core-2001 update deploy configs
-=======
-                "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
->>>>>>> core-2001 update spryker/spryker, update travis
-=======
-                "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
->>>>>>> core-2001 review changes
             },
             "require": {
                 "php": ">=5.4.16",
@@ -10775,43 +9816,7 @@
         },
         {
             "name": "symfony/browser-kit",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.13",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "version": "v3.3.11",
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "03f957cd24bf939524f07b8b910c89cfcad722a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/03f957cd24bf939524f07b8b910c89cfcad722a8",
-                "reference": "03f957cd24bf939524f07b8b910c89cfcad722a8",
-=======
-            "version": "3.4.x-dev",
-=======
-            "version": "v3.3.10",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
-            "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -10868,15 +9873,7 @@
         },
         {
             "name": "symfony/css-selector",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.13",
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
-            "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -10999,43 +9996,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.13",
-=======
-=======
->>>>>>> core-2001 update spryker/spryker
-=======
->>>>>>> core-2001 update deploy configs
-<<<<<<< HEAD
-            "version": "v3.3.11",
->>>>>>> core-2001 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "cebe3c068867956e012d9135282ba6a05d8a259e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/cebe3c068867956e012d9135282ba6a05d8a259e",
-                "reference": "cebe3c068867956e012d9135282ba6a05d8a259e",
-=======
-            "version": "3.4.x-dev",
-=======
-            "version": "v3.3.10",
->>>>>>> core-2001 update spryker/spryker
-=======
-            "version": "v3.3.11",
->>>>>>> core-2001 update deploy configs
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
-            "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -11087,32 +10048,6 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-05T15:47:03+00:00"
-        },
-        {
-            "name": "symfony/stopwatch",
-            "version": "v2.8.31",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "533bb9d7c2da1c6d2da163ecf0f22043ea98f59b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/533bb9d7c2da1c6d2da163ecf0f22043ea98f59b",
-                "reference": "533bb9d7c2da1c6d2da163ecf0f22043ea98f59b",
-=======
-            "time": "2017-10-02T06:49:52+00:00"
-=======
-            "time": "2017-10-02T06:42:24+00:00"
->>>>>>> core-2001 update spryker/spryker
-=======
-=======
->>>>>>> core-2001 review changes
             "time": "2017-11-05T15:47:03+00:00"
         },
         {
@@ -11166,15 +10101,7 @@
         },
         {
             "name": "symfony/var-dumper",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.3.13",
-=======
-            "version": "v3.3.12",
->>>>>>> core-2001 review changes
-=======
-            "version": "v3.3.13",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -11242,15 +10169,7 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v2.8.31",
-=======
-            "version": "v2.8.30",
->>>>>>> core-2001 review changes
-=======
-            "version": "v2.8.31",
->>>>>>> core-2001 removed migration files
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
