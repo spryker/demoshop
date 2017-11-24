@@ -5,202 +5,190 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-use Zend\Filter\FilterChain;
-use Zend\Filter\StringToUpper;
-use Zend\Filter\Word\CamelCaseToUnderscore;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Finder\SplFileInfo;
 
-require_once __DIR__ . '/vendor/autoload.php';
-
-$refactorer = new class
+// FORM REFACTORER
+$finder = new class
 {
     /**
-     * @param string $constructorArguments
+     * @var array
+     */
+    protected $refactoredModules = [
+    ];
+
+    /**
+     * @var string
+     */
+    protected $pathToZedForms = __DIR__ . '/vendor/spryker/spryker/Bundles/*/src/Spryker/Zed/';
+
+    /**
+     * @var string
+     */
+    protected $moduleRoot = __DIR__ . '/vendor/spryker/spryker/Bundles/';
+
+    /**
+     * @return void
+     */
+    public function printModuleNames()
+    {
+        $moduleNames = [];
+        foreach ($this->getFinder($this->pathToZedForms) as $file) {
+            $relPathNameParts = explode(DIRECTORY_SEPARATOR, $file->getRelativePathname());
+            $module = array_shift($relPathNameParts);
+            if (!isset($moduleNames[$module])) {
+                echo $module . PHP_EOL;
+                $moduleNames[$module] = $module;
+            }
+        }
+    }
+
+    /**
+     * @param string $module
      *
      * @return void
      */
-    public function build($constructorArguments)
+    public function refactorZedFormsInCoreModule(string $module)
     {
-        $extracted = $this->extract($constructorArguments);
-        $constants = $this->buildConstants($extracted);
-        $setRequired = $this->buildSetRequiredMethod($extracted);
-        $setAllowed = $this->buildSetAllowedTypesMethod($extracted);
-        $injectFromOptions = $this->buildInjectFromOptionsMethod($extracted);
-
-        echo PHP_EOL . PHP_EOL . PHP_EOL;
-        echo $constants . PHP_EOL . PHP_EOL . PHP_EOL;
-        echo $setRequired . PHP_EOL . PHP_EOL . PHP_EOL;
-        echo $setAllowed . PHP_EOL . PHP_EOL . PHP_EOL;
-        echo $injectFromOptions . PHP_EOL . PHP_EOL . PHP_EOL;
-    }
-
-    /**
-     * @param mixed $constructorArguments
-     *
-     * @return array
-     */
-    protected function extract($constructorArguments)
-    {
-        $variablesAndTypes = explode(',', $constructorArguments);
-        $variableAndTypeMap = [];
-
-        foreach ($variablesAndTypes as $variableAndType) {
-            $type = null;
-            $variable = $variableAndType;
-
-            $variableAndType = trim($variableAndType);
-            if (strpos($variableAndType, ' ') !== false) {
-                list($type, $variable) = explode(' ', $variableAndType);
+        foreach ($this->getFinder($this->pathToZedForms . $module) as $file) {
+            $form = str_replace('.php', '', $file->getFilename());
+            $content = $file->getContents();
+            if (!$this->validateZedFormInCore($module, $form, $content)) {
+                $this->refactorForm($file);
             }
 
-            $variableAndTypeMap[$variable] = $type;
+            $content = $file->getContents();
+
+            echo $file->getPathName() . PHP_EOL;
+            $searchAndReplace = [
+                'use Symfony\Component\Form\AbstractType;' => 'use Spryker\Zed\Kernel\Communication\Form\AbstractType',
+                'new Select2ComboBoxType()' => 'Select2ComboBoxType::class',
+            ];
+            $replacedContent = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $content);
+            $replacedContent = preg_replace('/add\((.*), \'text\'/', 'add($1, TextType::class', $replacedContent);
+
+            echo '<pre>' . PHP_EOL . \Symfony\Component\VarDumper\VarDumper::dump($replacedContent) . PHP_EOL . 'Line: ' . __LINE__ . PHP_EOL . 'File: ' . __FILE__ . die();
         }
-
-        return $variableAndTypeMap;
     }
 
     /**
-     * @param string $variableName
+     * @param \Symfony\Component\Finder\SplFileInfo $file
      *
-     * @return string
+     * @return void
      */
-    protected function variableNameToConst($variableName)
+    protected function refactorForm(SplFileInfo $file)
     {
-        $variableName = str_replace('$', '', trim($variableName));
-        $filterChain = new FilterChain();
-        $filterChain->attach(new CamelCaseToUnderscore());
-        $filterChain->attach(new StringToUpper());
+        $content = $file->getContents();
+        $searchAndReplace = [
+            'use Symfony\Component\Form\AbstractType;' => 'use Spryker\Zed\Kernel\Communication\Form\AbstractType;',
+            'new Select2ComboBoxType()' => 'Select2ComboBoxType::class',
+        ];
+        $replacedContent = str_replace(array_keys($searchAndReplace), array_values($searchAndReplace), $content);
+        $replacedContent = preg_replace('/add\((.*), \'text\'/', 'add($1, TextType::class', $replacedContent);
+        $replacedContent = preg_replace('/add\((.*), \'textarea\'/', 'add($1, TextareaType::class', $replacedContent);
+        $replacedContent = preg_replace('/add\((.*), \'hidden\'/', 'add($1, HiddenType::class', $replacedContent);
+        $replacedContent = preg_replace('/add\((.*), \'checkbox\'/', 'add($1, CheckboxType::class', $replacedContent);
+        $replacedContent = preg_replace('/add\((.*), \'money\'/', 'add($1, MoneyType::class', $replacedContent);
 
-        return $filterChain->filter($variableName);
+        $filesystem = new Filesystem();
+        $filesystem->dumpFile($file->getPathname(), $replacedContent);
     }
 
     /**
-     * @param array $extracted
-     *
-     * @return string
-     */
-    protected function buildConstants(array $extracted)
-    {
-        $constants = [];
-
-        foreach ($extracted as $variableName => $type) {
-            $constants[] = sprintf('    const OPTION_%1$s = \'%1$s\';', $this->variableNameToConst($variableName));
-        }
-
-        return implode(PHP_EOL, $constants);
-    }
-
-    /**
-     * @param array $extracted
-     *
-     * @return string
-     */
-    protected function buildSetRequiredMethod(array $extracted)
-    {
-        $setRequired = '
-/**
- * @param OptionResolver $optionResolver
- *
- * @return void
- */
-protected function setRequired(OptionResolver $optionResolver)
-{
-    $optionResolver->setRequired([
-';
-        foreach ($extracted as $variable => $type) {
-            $setRequired .= '        static::OPTION_' . $this->variableNameToConst($variable) . ',' . PHP_EOL;
-        }
-
-        $setRequired .= '    ]);' . PHP_EOL;
-        $setRequired .= '}';
-
-        return $setRequired;
-    }
-
-    /**
-     * @param array $extracted
-     *
-     * @return string
-     */
-    protected function buildSetAllowedTypesMethod(array $extracted)
-    {
-        $setAllowedTypes = '
-/**
- * @param OptionResolver $optionResolver
- *
- * @return void
- */
-protected function setAllowedTypes(OptionResolver $optionResolver)
-{
-';
-        foreach ($extracted as $variableName => $type) {
-            if ($type === null) {
-                continue;
-            }
-            $constName = $this->variableNameToConst($variableName);
-            $normalized = sprintf('\'%s\'', $type);
-            if ($this->isClassOrInterface($type)) {
-                $normalized = $type . '::class';
-            }
-            $setAllowedTypes .= sprintf('    $optionResolver->setAllowedTypes(static::OPTION_%s, %s);', $constName, $normalized) . PHP_EOL;
-        }
-
-        $setAllowedTypes .= '}';
-
-        return $setAllowedTypes;
-    }
-
-    /**
-     * @param string $type
+     * @param string $module
+     * @param string $form
+     * @param string $content
      *
      * @return bool
      */
-    protected function isClassOrInterface($type)
+    public function validateZedFormInCore(string $module, string $form, string $content)
     {
-        $types = [
-            'string',
-            'array',
-            'int',
-            'callable',
-            'iterator',
-            'bool',
-        ];
+        $isValid = true;
+        if (!$this->validateFactoryContainsNoNewForm($module, $form)) {
+            $isValid = false;
+        }
+        if (!$this->validateFormContainsNoGetName($form, $content)) {
+            $isValid = false;
+        }
 
-        return !isset($types[$type]);
+        return $isValid;
     }
 
     /**
-     * @param array $extracted
+     * @param string $module
+     * @param string $form
      *
-     * @return string
+     * @return bool
      */
-    protected function buildInjectFromOptionsMethod(array $extracted)
+    protected function validateFactoryContainsNoNewForm($module, $form)
     {
-        $injectFromOptions = '
-/**
- * @param array $options
- *
- * @return void
- */
-protected function injectFromOptions(array $options)
-{
-';
-        foreach ($extracted as $variableName => $type) {
-            $memberName = str_replace('$', '', $variableName);
-            $constName = $this->variableNameToConst($variableName);
-            $injectFromOptions .= sprintf('    $this->%s = $options[static::OPTION_%s;', $memberName, $constName) . PHP_EOL;
+        $isValid = true;
+        $pathToFactory = sprintf('%1$s%2$s/src/Spryker/Zed/%2$s/Communication/%2$sCommunicationFactory.php', $this->moduleRoot, $module);
+        $factoryContent = file_get_contents($pathToFactory);
+        $search = 'new ' . $form;
+        if (preg_match('/' . $search . '/', $factoryContent)) {
+            $factoryName = sprintf('%sCommunicationFactory', $module);
+            echo($factoryName . ' contains ' . $search) . PHP_EOL;
+
+            $isValid = false;
         }
 
-        $injectFromOptions .= '}';
-
-        return $injectFromOptions;
+        return $isValid;
     }
 
+    /**
+     * @param string $form
+     * @param string $content
+     *
+     * @return bool
+     */
+    protected function validateFormContainsNoGetName(string $form, string $content)
+    {
+        $isValid = true;
+        if (preg_match('/getName\(/', $content)) {
+            echo($form . ' contains getName() method, remove it.') . PHP_EOL;
+
+            $isValid = false;
+        }
+
+        return $isValid;
+    }
+
+    /**
+     * @param string $form
+     * @param string $content
+     *
+     * @return bool
+     */
+    protected function validateFormContainsNoConstruct(string $form, string $content)
+    {
+        $isValid = true;
+        if (preg_match('/__construct\(/', $content)) {
+            echo($form . ' contains getName() method, remove it.') . PHP_EOL;
+
+            $isValid = false;
+        }
+
+        return $isValid;
+    }
+
+    /**
+     * @param string $directory
+     *
+     * @return \Symfony\Component\Finder\Finder|\Symfony\Component\Finder\SplFileInfo[]
+     */
+    protected function getFinder($directory)
+    {
+        $symfonyFinder = new Finder();
+
+        return $symfonyFinder->in($directory)->name('*.php')->contains('/extends AbstractType/')->contains('/implements FormTypeInterface/');
+    }
 };
 
-$testCases = [
-    'array $foo',
-    '$foo, MyType $bar, $baz',
-    'MyType $foo, MyOtherType $bar',
-];
+//$finder->printModuleNames();
+$finder->refactorZedFormsInCoreModule('Acl');
 
-$refactorer->build($testCases[2]);
+// Run for Mudle test with coverage
+// If not fully covered, add test
+// If fully covered, refactor and validate
