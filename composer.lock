@@ -1959,6 +1959,7 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
 =======
 <<<<<<< HEAD
@@ -1970,6 +1971,8 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update
 <<<<<<< HEAD
                 "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
 =======
@@ -1977,7 +1980,12 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+=======
+=======
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
 <<<<<<< HEAD
                 "reference": "c5b430d6c49db8aeb654d910934d6f6f990d27d4"
 =======
@@ -2012,10 +2020,25 @@
 =======
                 "reference": "ee475c01405fc1fcf25d1c29bf8b07c77cc14fac"
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+=======
+=======
+=======
+=======
+=======
+                "reference": "7535d93545cc3103d6e9fe1949df9316b54cc4da"
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2331,6 +2354,7 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 <<<<<<< HEAD
@@ -2342,6 +2366,8 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update
 <<<<<<< HEAD
             "time": "2017-11-28T10:14:45+00:00"
 =======
@@ -2349,7 +2375,12 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+=======
+=======
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
 <<<<<<< HEAD
             "time": "2017-11-27T09:55:56+00:00"
 =======
@@ -2375,9 +2406,21 @@
 =======
             "time": "2017-11-23T14:14:05+00:00"
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+=======
+=======
+=======
+=======
+            "time": "2017-11-27T10:48:47+00:00"
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
+>>>>>>> core-2275 update
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6093,6 +6136,7 @@
         },
         {
             "name": "phpunit/php-file-iterator",
+<<<<<<< HEAD
             "version": "1.4.5",
             "source": {
                 "type": "git",
@@ -6103,6 +6147,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
                 "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
+=======
+            "version": "1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
+                "reference": "3d478c5f9e8bb02b484a3fdc82693a460d7ee268"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3d478c5f9e8bb02b484a3fdc82693a460d7ee268",
+                "reference": "3d478c5f9e8bb02b484a3fdc82693a460d7ee268",
+>>>>>>> core-2275 update
                 "shasum": ""
             },
             "require": {
@@ -6136,7 +6192,11 @@
                 "filesystem",
                 "iterator"
             ],
+<<<<<<< HEAD
             "time": "2017-11-27T13:52:08+00:00"
+=======
+            "time": "2017-11-27T07:49:00+00:00"
+>>>>>>> core-2275 update
         },
         {
             "name": "phpunit/php-text-template",

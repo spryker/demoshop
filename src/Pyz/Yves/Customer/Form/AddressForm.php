@@ -16,6 +16,11 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
+/**
+ * @method \Spryker\Zed\Customer\Business\CustomerFacadeInterface getFacade()
+ * @method \Spryker\Zed\Customer\Communication\CustomerCommunicationFactory getFactory()
+ * @method \Spryker\Zed\Customer\Persistence\CustomerQueryContainerInterface getQueryContainer()
+ */
 class AddressForm extends AbstractType
 {
     const FIELD_SALUTATION = 'salutation';
@@ -35,14 +40,6 @@ class AddressForm extends AbstractType
     const FIELD_FK_CUSTOMER = 'fk_customer';
 
     const OPTION_COUNTRY_CHOICES = 'country_choices';
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'addressForm';
-    }
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
