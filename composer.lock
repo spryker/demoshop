@@ -1777,7 +1777,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "44f363158047629d8fa6094d41c560f8d9036999",
+                "reference": "4f2336377a2d48c1298d726802edddcbdcd6ed14",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -1787,8 +1787,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/44f363158047629d8fa6094d41c560f8d9036999",
-                "reference": "44f363158047629d8fa6094d41c560f8d9036999",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/4f2336377a2d48c1298d726802edddcbdcd6ed14",
+                "reference": "4f2336377a2d48c1298d726802edddcbdcd6ed14",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1799,25 +1799,44 @@
             },
             "require": {
                 "php": ">=5.4.16",
-                "php-amqplib/php-amqplib": "^2.6"
+                "php-amqplib/php-amqplib": "^2.6",
+                "spryker/kernel": "^3.0.0",
+                "spryker/queue": "^1.0.0",
+                "spryker/transfer": "^3.3.4"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "RabbitMq\\": "src"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "RabbitMq\\Test\\": "tests"
+                    "Spryker\\Test\\": "tests"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1836,7 +1855,7 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-10-17T11:54:43+00:00"
+            "time": "2017-11-27T14:33:07+00:00"
         },
         {
             "name": "spryker/spryker",
