@@ -13,8 +13,12 @@
         <states>
             <state name="new" reserved="true"/>
             <state name="payment pending" reserved="true"/>
-            <state name="invalid"/>
-            <state name="cancelled"/>
+            <state name="invalid">
+                <flag>exclude from customer</flag>
+            </state>
+            <state name="cancelled">
+                <flag>exclude from customer</flag>
+            </state>
             <state name="paid" reserved="true"/>
             <state name="exported" reserved="true"/>
             <state name="shipped" reserved="true"/>
