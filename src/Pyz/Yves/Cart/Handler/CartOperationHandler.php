@@ -58,6 +58,8 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
      */
     public function add($sku, $quantity, $optionValueUsageIds = [])
     {
+        $quantity = $this->adjustQuantity($quantity);
+
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
         $itemTransfer->setQuantity($quantity);
@@ -155,5 +157,18 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
     protected function getIdDiscountPromotion()
     {
         return (int)$this->request->request->get(static::URL_PARAM_ID_DISCOUNT_PROMOTION);
+    }
+
+    /**
+     * @param int $quantity
+     *
+     * @return int
+     */
+    protected function adjustQuantity($quantity)
+    {
+        if (!$quantity || $quantity <= 0) {
+            $quantity = 1;
+        }
+        return $quantity;
     }
 }

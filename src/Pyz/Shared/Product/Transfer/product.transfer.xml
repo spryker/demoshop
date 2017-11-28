@@ -33,6 +33,7 @@
         <property name="images" type="StorageProductImage[]" singular="image" />
         <property name="idProductLabels" type="array" singular="idProductLabel" />
         <property name="colorCode" type="string" />
+        <property name="numberOfAvailableItems" type="int" />
     </transfer>
 
     <transfer name="StorageAttributeMap">
@@ -51,6 +52,10 @@
         <property name="idProductImage" type="int" />
         <property name="externalUrlSmall" type="string" />
         <property name="externalUrlLarge" type="string" />
+    </transfer>
+
+    <transfer name="StorageAvailability">
+        <property name="concreteProductQuantityItems" type="array" singular="concreteProductQuantityItem"/>
     </transfer>
 
 </transfers>

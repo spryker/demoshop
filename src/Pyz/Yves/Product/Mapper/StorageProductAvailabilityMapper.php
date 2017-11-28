@@ -45,6 +45,13 @@ class StorageProductAvailabilityMapper implements StorageProductAvailabilityMapp
             $storageProductTransfer->setAvailable($concreteProductAvailableItems[$storageProductTransfer->getSku()]);
         }
 
+        $concreteProductAvailableQuantityItems = $storageAvailabilityTransfer->getConcreteProductQuantityItems();
+        if (isset($concreteProductAvailableQuantityItems[$storageProductTransfer->getSku()])) {
+            $storageProductTransfer->setNumberOfAvailableItems(
+                $concreteProductAvailableQuantityItems[$storageProductTransfer->getSku()]
+            );
+        }
+
         return $storageProductTransfer;
     }
 }
