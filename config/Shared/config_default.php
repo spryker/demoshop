@@ -174,27 +174,27 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
 
 // ---------- Elasticsearch
 $ELASTICA_HOST = 'localhost';
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $ELASTICA_HOST;
+$config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ELASTICA_HOST;
 $config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ELASTICA_HOST;
 $ELASTICA_TRANSPORT_PROTOCOL = 'http';
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $ELASTICA_TRANSPORT_PROTOCOL;
+$config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ELASTICA_TRANSPORT_PROTOCOL;
 $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ELASTICA_TRANSPORT_PROTOCOL;
 $ELASTICA_PORT = '10005';
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
+$config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $ELASTICA_AUTH_HEADER = '';
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
+$config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
 $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
 $ELASTICA_INDEX_NAME = null;// Store related config
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $ELASTICA_DOCUMENT_TYPE = 'page';
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $ELASTICA_PARAMETER__EXTRA = [];
-$config[ApplicationConstants::ELASTICA_PARAMETER__EXTRA] = $ELASTICA_PARAMETER__EXTRA;
+$config[SearchConstants::ELASTICA_PARAMETER__EXTRA] = $ELASTICA_PARAMETER__EXTRA;
 $config[SearchConstants::ELASTICA_PARAMETER__EXTRA] = $ELASTICA_PARAMETER__EXTRA;
 
 // ---------- Page search
@@ -311,12 +311,12 @@ $config[LogConstants::LOGGER_CONFIG_ZED] = ZedLoggerConfigPlugin::class;
 $config[LogConstants::LOGGER_CONFIG_YVES] = YvesLoggerConfigPlugin::class;
 
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
-$config[LogConstants::LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/%s/application.log',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION
-);
+
+$baseLogFilePath = sprintf('%s/data/%s/logs', APPLICATION_ROOT_DIR, $CURRENT_STORE);
+
+$config[LogConstants::LOG_FILE_PATH_YVES] = $baseLogFilePath . '/YVES/application.log';
+$config[LogConstants::LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/application.log';
+
 $config[LogConstants::LOG_SANITIZE_FIELDS] = [
     'password',
 ];
