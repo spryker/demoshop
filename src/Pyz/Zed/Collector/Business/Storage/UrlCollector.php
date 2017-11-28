@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\LocaleTransfer;
+use RuntimeException;
 use Spryker\Service\UtilDataReader\Model\BatchIterator\CountableIteratorInterface;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
@@ -46,7 +47,7 @@ class UrlCollector extends AbstractStoragePdoCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        $resourceArguments = $this->findResourceArguments($collectItemData);
+        $resourceArguments = $this->getResourceArguments($collectItemData);
         $referenceKey = $this->generateResourceKey($resourceArguments, $this->locale->getLocaleName());
 
         return [
@@ -78,9 +79,11 @@ class UrlCollector extends AbstractStoragePdoCollector
     /**
      * @param array $data
      *
+     * @throws \RuntimeException
+     *
      * @return array
      */
-    protected function findResourceArguments(array $data)
+    protected function getResourceArguments(array $data)
     {
         foreach ($data as $columnName => $value) {
             if (!$this->isFkResourceUrl($columnName, $value)) {
@@ -95,7 +98,7 @@ class UrlCollector extends AbstractStoragePdoCollector
             ];
         }
 
-        return [];
+        throw new RuntimeException('Invalid $data array, no resource argument could be extracted.');
     }
 
     /**
