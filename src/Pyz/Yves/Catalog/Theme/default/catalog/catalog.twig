@@ -23,6 +23,8 @@
 
             {% include '@Catalog/catalog/partials/pagination.twig' %}
 
+            {% include '@Catalog/catalog/partials/catalog-view-mode.twig' %}
+
             <div class="row">
                 {% for product in products %}
                     {% include "@catalog/catalog/partials/product.twig" with {
