@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "56f15b90fca47922776f36208b871f8d",
+    "content-hash": "5768a1aef55ae569b402007522cec331",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1773,7 +1773,7 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "1.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
@@ -6766,7 +6766,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6907,23 +6907,11 @@
                     "Unit": "tests/"
                 }
             },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "scripts": {
-                "cs-check": [
-                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
-                ],
-                "cs-fix": [
-                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "support": {
-                "source": "https://github.com/spryker/code-generator/tree/master",
-                "issues": "https://github.com/spryker/code-generator/issues"
-            },
             "time": "2017-10-17T11:12:00+00:00"
         },
         {
@@ -7590,6 +7578,12 @@
             "package": "spryker-eco/loggly"
         },
         {
+            "alias": "1.1.0",
+            "alias_normalized": "1.1.0.0",
+            "version": "9999999-dev",
+            "package": "spryker/rabbit-mq"
+        },
+        {
             "alias": "1.0.0",
             "alias_normalized": "1.0.0.0",
             "version": "9999999-dev",
@@ -7600,6 +7594,7 @@
     "stability-flags": {
         "spryker/spryker": 20,
         "spryker-eco/loggly": 20,
+        "spryker/rabbit-mq": 20,
         "spryker/deploy": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
