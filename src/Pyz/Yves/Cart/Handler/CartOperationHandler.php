@@ -58,7 +58,7 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
      */
     public function add($sku, $quantity, $optionValueUsageIds = [])
     {
-        $quantity = $this->adjustQuantity($quantity);
+        $quantity = $this->normalizeQuantity($quantity);
 
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($sku);
@@ -164,7 +164,7 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
      *
      * @return int
      */
-    protected function adjustQuantity($quantity)
+    protected function normalizeQuantity($quantity)
     {
         if (!$quantity || $quantity <= 0) {
             $quantity = 1;
