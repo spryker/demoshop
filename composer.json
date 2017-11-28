@@ -3,9 +3,9 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i-new-commands",
+    "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master as 1.0.0",
-    "spryker/deploy": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i as 1.0.0",
+    "spryker/deploy": "dev-master as 1.0.0",
 
     "php": ">=5.6.0",
     "braintree/braintree_php": "~3.15.0",
@@ -57,7 +57,7 @@
     "ext-redis": "*",
     "league/flysystem": "^1.0",
     "egulias/email-validator": "^2.1.2",
-    "spryker/rabbit-mq": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i"
+    "spryker/rabbit-mq": " ^1.1.0"
   },
   "require-dev": {
     "codeception/codeception": "^2.3.5",

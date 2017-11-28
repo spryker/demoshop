@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "72385b66a4b85f25e8a912a7d0ddc4b3",
+    "content-hash": "56f15b90fca47922776f36208b871f8d",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1731,15 +1731,15 @@
         },
         {
             "name": "spryker/deploy",
-            "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/deploy.git",
-                "reference": "e066c799b7b6ede8c73dbd5604a693d884e27e65"
+                "reference": "64d2bef207a5835a625c1051647b66e5c47dd17c"
             },
             "require": {
                 "monolog/monolog": "^1.23",
-                "php": "~7.0",
+                "php": ">=7.0",
                 "symfony/console": "^3.0.0",
                 "symfony/process": "^3.0.0",
                 "symfony/yaml": "^3.0.0"
@@ -1769,15 +1769,15 @@
                 "MIT"
             ],
             "description": "Project",
-            "time": "2017-11-17T14:44:55+00:00"
+            "time": "2017-11-28T10:24:17+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "4f2336377a2d48c1298d726802edddcbdcd6ed14",
+                "reference": "168a944bd9a42e7224a581e88dca4c75b36f17ae",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -1787,8 +1787,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/4f2336377a2d48c1298d726802edddcbdcd6ed14",
-                "reference": "4f2336377a2d48c1298d726802edddcbdcd6ed14",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/168a944bd9a42e7224a581e88dca4c75b36f17ae",
+                "reference": "168a944bd9a42e7224a581e88dca4c75b36f17ae",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1855,15 +1855,15 @@
             "support": {
                 "source": "https://github.com/spryker/rabbit-mq"
             },
-            "time": "2017-11-27T14:33:07+00:00"
+            "time": "2017-11-28T10:26:10+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i-new-commands",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e392cf2c013f63830a8523dc9af19c4a7e3e627c"
+                "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2063,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-27T14:27:59+00:00"
+            "time": "2017-11-28T10:14:45+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4131,16 +4131,16 @@
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "c3036efb81f71bfa36cc9962ee5d4474f36581d0"
+                "reference": "0fa3d3cf588dde0850fff1efa60d44a7aa3c3ab7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/c3036efb81f71bfa36cc9962ee5d4474f36581d0",
-                "reference": "c3036efb81f71bfa36cc9962ee5d4474f36581d0",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/0fa3d3cf588dde0850fff1efa60d44a7aa3c3ab7",
+                "reference": "0fa3d3cf588dde0850fff1efa60d44a7aa3c3ab7",
                 "shasum": ""
             },
             "require": {
@@ -4172,7 +4172,7 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.3-dev",
-                    "dev-develop": "3.4-dev"
+                    "dev-develop": "4.0-dev"
                 }
             },
             "autoload": {
@@ -4190,7 +4190,7 @@
                 "servicemanager",
                 "zf"
             ],
-            "time": "2017-03-01T22:08:02+00:00"
+            "time": "2017-11-27T18:11:25+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -7592,7 +7592,7 @@
         {
             "alias": "1.0.0",
             "alias_normalized": "1.0.0.0",
-            "version": "dev-feature/core-2001-allow-to-run-only-parts-of-setup-i",
+            "version": "9999999-dev",
             "package": "spryker/deploy"
         }
     ],
@@ -7601,7 +7601,6 @@
         "spryker/spryker": 20,
         "spryker-eco/loggly": 20,
         "spryker/deploy": 20,
-        "spryker/rabbit-mq": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20,
