@@ -65,6 +65,7 @@
     "spryker/customer-user-connector": "^1.0.0",
     "spryker/customer-user-connector-gui": "^1.0.0",
     "spryker/data-import": "^1.0.0",
+    "spryker/deploy": "^0.1.0",
     "spryker/discount": "^5.0.0",
     "spryker/discount-calculation-connector": "^5.0.0",
     "spryker/discount-promotion": "^1.0.0",
@@ -248,6 +249,10 @@
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/deploy.git"
     }
   ],
   "scripts": {

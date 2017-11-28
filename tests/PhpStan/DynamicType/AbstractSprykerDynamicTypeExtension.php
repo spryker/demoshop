@@ -48,6 +48,11 @@ abstract class AbstractSprykerDynamicTypeExtension implements DynamicMethodRetur
     public function getTypeFromMethodCall(MethodReflection $methodReflection, MethodCall $methodCall, Scope $scope): Type
     {
         $docComment = $scope->getClassReflection()->getNativeReflection()->getDocComment();
+
+        if (!$docComment) {
+            throw new Exception('Please add PHPDoc block');
+        }
+
         preg_match_all('#@method\s+(?:(?P<IsStatic>static)\s+)?(?:(?P<Type>[^\(\*]+?)(?<!\|)\s+)?(?P<MethodName>[a-zA-Z0-9_]+)(?P<Parameters>(?:\([^\)]*\))?)#', $docComment, $matches, PREG_SET_ORDER);
 
         foreach ($matches as $match) {
