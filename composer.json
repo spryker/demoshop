@@ -5,6 +5,7 @@
   "require": {
     "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master as 1.0.0",
+    "spryker/rabbit-mq": "dev-master as 1.1.0",
     "spryker/deploy": "dev-master as 1.0.0",
 
     "php": ">=5.6.0",
@@ -56,10 +57,14 @@
     "ext-readline": "*",
     "ext-redis": "*",
     "league/flysystem": "^1.0",
-    "egulias/email-validator": "^2.1.2",
-    "spryker/rabbit-mq": " ^1.1.0"
+    "egulias/email-validator": "^2.1.2"
   },
   "require-dev": {
+    "spryker/architecture-sniffer": "dev-master",
+    "spryker/code-generator": "dev-master",
+    "spryker/code-sniffer": "dev-master",
+    "spryker/git-hook": "dev-master",
+
     "codeception/codeception": "^2.3.5",
     "phpunit/phpunit": "^5.0",
     "pdepend/pdepend": "^2.2.2",
@@ -74,10 +79,6 @@
     "sllh/composer-versions-check": "^2.0.2",
     "jakoch/phantomjs-installer": "^2.1.0",
     "doctrine/instantiator": "~1.0.5",
-    "spryker/architecture-sniffer": "dev-master",
-    "spryker/code-generator": "dev-master",
-    "spryker/code-sniffer": "dev-master",
-    "spryker/git-hook": "dev-master",
     "stecman/symfony-console-completion": "^0.7.0",
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
