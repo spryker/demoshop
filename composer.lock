@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.40.0",
+            "version": "3.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "04a19849652687e8c535217d0af4de6203107979"
+                "reference": "ff9d3bcdceec26067ae86eb621cb5899e7cb39af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/04a19849652687e8c535217d0af4de6203107979",
-                "reference": "04a19849652687e8c535217d0af4de6203107979",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ff9d3bcdceec26067ae86eb621cb5899e7cb39af",
+                "reference": "ff9d3bcdceec26067ae86eb621cb5899e7cb39af",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-11-27T09:20:45+00:00"
+            "time": "2017-11-29T05:42:28+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -5224,11 +5224,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "5.1.1",
+            "version": "5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Discount.git",
-                "reference": "3522954737900cc725ba9dc7a5ccc19341a9b809",
+                "reference": "a3db5cae71399897db2fcbc89fd35ed389ae2e8b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5238,8 +5238,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/3522954737900cc725ba9dc7a5ccc19341a9b809",
-                "reference": "3522954737900cc725ba9dc7a5ccc19341a9b809",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/a3db5cae71399897db2fcbc89fd35ed389ae2e8b",
+                "reference": "a3db5cae71399897db2fcbc89fd35ed389ae2e8b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5297,7 +5297,7 @@
             "support": {
                 "source": "https://github.com/spryker/Discount/tree/master"
             },
-            "time": "2017-11-27T14:09:37+00:00"
+            "time": "2017-11-29T13:58:19+00:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -9809,11 +9809,11 @@
         },
         {
             "name": "spryker/product-relation",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductRelation.git",
-                "reference": "1968da06f2cb598604f4c77cecc664ab6a829583",
+                "reference": "1d7d33e29e07ce1b555db9c36bb1cffa75c71ed9",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9823,8 +9823,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductRelation/zipball/1968da06f2cb598604f4c77cecc664ab6a829583",
-                "reference": "1968da06f2cb598604f4c77cecc664ab6a829583",
+                "url": "https://api.github.com/repos/spryker/ProductRelation/zipball/1d7d33e29e07ce1b555db9c36bb1cffa75c71ed9",
+                "reference": "1d7d33e29e07ce1b555db9c36bb1cffa75c71ed9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9890,9 +9890,9 @@
             ],
             "description": "ProductRelation module",
             "support": {
-                "source": "https://github.com/spryker/ProductRelation/tree/master"
+                "source": "https://github.com/spryker/ProductRelation/tree/1.1.2"
             },
-            "time": "2017-11-07T14:27:23+00:00"
+            "time": "2017-11-29T11:24:30+00:00"
         },
         {
             "name": "spryker/product-relation-collector",
@@ -13251,11 +13251,11 @@
         },
         {
             "name": "spryker/wishlist",
-            "version": "4.2.1",
+            "version": "4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Wishlist.git",
-                "reference": "63e28d0f39642a3fe940f479a679f8fe0e7a8a55",
+                "reference": "0df97a313357cf2b3edafb744e1b469caadf839a",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -13265,8 +13265,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Wishlist/zipball/63e28d0f39642a3fe940f479a679f8fe0e7a8a55",
-                "reference": "63e28d0f39642a3fe940f479a679f8fe0e7a8a55",
+                "url": "https://api.github.com/repos/spryker/Wishlist/zipball/0df97a313357cf2b3edafb744e1b469caadf839a",
+                "reference": "0df97a313357cf2b3edafb744e1b469caadf839a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -13314,7 +13314,7 @@
             "support": {
                 "source": "https://github.com/spryker/Wishlist/tree/master"
             },
-            "time": "2017-11-10T15:08:30+00:00"
+            "time": "2017-11-29T10:32:04+00:00"
         },
         {
             "name": "spryker/zed-navigation",
