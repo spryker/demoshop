@@ -37,6 +37,12 @@ cart.price.grand.total,Summe,de_DE
 cart.price.grand.total,Grand Total,en_US
 cart.total.tax_total,Mehrwertsteuer,de_DE
 cart.total.tax_total,Tax,en_US
+cart.total.price_to_pay,Zu bezahlender Betrag,de_DE
+cart.total.price_to_pay,Price to pay,en_US
+cart.giftcard.apply.successful,Code has been applied,en_US
+cart.giftcard.apply.successful,Gutscheincode wurde erfolgreich angewendet,de_DE
+cart.code.apply.failed,Code could not be applied,en_US
+cart.code.apply.failed,Gutscheincode konnte nicht angewendet werden,de_DE
 auth.login,Anmelden,de_DE
 auth.login,Sign up,en_US
 auth.password,Passwort,de_DE
