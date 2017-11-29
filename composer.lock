@@ -5,14 +5,21 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "ac86b348866807ac795907a89b66449b",
 =======
+=======
+>>>>>>> core-2275 update composer.lock and package-lock.json
 <<<<<<< HEAD
     "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
 =======
+=======
+>>>>>>> core-2275 update composer.lock and package-lock.json
 <<<<<<< HEAD
     "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
 =======
+=======
+>>>>>>> core-2275 update composer.lock and package-lock.json
 <<<<<<< HEAD
     "content-hash": "5768a1aef55ae569b402007522cec331",
 =======
@@ -22,9 +29,21 @@
     "content-hash": "58086a0de3f361348614d3bd6803949a",
 >>>>>>> core-2275 with old constraints
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+=======
+=======
+=======
+=======
+    "content-hash": "9f0700bcef417a50e8e9b34b2856b9e2",
+>>>>>>> core-2275 update composer.lock and package-lock.json
+>>>>>>> core-2275 update composer.lock and package-lock.json
+>>>>>>> core-2275 update composer.lock and package-lock.json
+>>>>>>> core-2275 update composer.lock and package-lock.json
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1961,6 +1980,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
 =======
 <<<<<<< HEAD
@@ -2060,8 +2080,17 @@
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/spryker
+=======
+=======
+=======
+                "reference": "14bbd46201eb02d15cadb4fc88c43671be6d0c49"
+>>>>>>> core-2275 update composer.lock and package-lock.json
+>>>>>>> core-2275 update composer.lock and package-lock.json
+>>>>>>> core-2275 update composer.lock and package-lock.json
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2379,6 +2408,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 <<<<<<< HEAD
@@ -2460,7 +2490,13 @@
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/spryker
+=======
+=======
+            "time": "2017-11-28T12:50:34+00:00"
+>>>>>>> core-2275 update composer.lock and package-lock.json
+>>>>>>> core-2275 update composer.lock and package-lock.json
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6176,8 +6212,6 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "1.4.5",
             "source": {
                 "type": "git",
@@ -6188,26 +6222,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
                 "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
-=======
-            "version": "1.4.4",
-=======
-            "version": "1.4.5",
->>>>>>> core-2275 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3d478c5f9e8bb02b484a3fdc82693a460d7ee268",
-                "reference": "3d478c5f9e8bb02b484a3fdc82693a460d7ee268",
->>>>>>> core-2275 update
-=======
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
-                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
->>>>>>> core-2275 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -6241,15 +6255,7 @@
                 "filesystem",
                 "iterator"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-11-27T13:52:08+00:00"
-=======
-            "time": "2017-11-27T07:49:00+00:00"
->>>>>>> core-2275 update
-=======
-            "time": "2017-11-27T13:52:08+00:00"
->>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "phpunit/php-text-template",
