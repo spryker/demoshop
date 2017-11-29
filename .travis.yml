@@ -85,27 +85,22 @@ before_script:
   - mkdir -p data/DE/logs -m 0777
   - chmod -R 777 data/
 
-  - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
   - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
 
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
-  - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
 
-  - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh ; fi
-  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
-  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
+  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/; fi
+  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f ; fi
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b ; fi
-
-  - vendor/bin/console twig:cache:warmer
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/deploy DE -r testing -vv; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/deploy DE -r testing -x frontend -vv; fi
 
 script:
-  - vendor/bin/phantomjs --webdriver=4444 > /dev/null &
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
+  - vendor/bin/phantomjs --webdriver=4444 &
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation -vvv ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation -vvv ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console transfer:validate ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console code:sniff:style ; fi
