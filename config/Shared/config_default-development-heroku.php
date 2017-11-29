@@ -4,14 +4,12 @@
  * This is the global runtime configuration for Yves and Generated_Yves_Zed in a development environment.
  */
 
-use Psr\Log\LogLevel;
-use Pyz\Shared\Application\Log\Config\HerokuLoggerConfig;
-use Pyz\Shared\Log\LogConstants;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\PropelOrm\PropelOrmConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -27,7 +25,7 @@ $config[KernelConstants::STORE_PREFIX] = 'DEV';
 
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = false;
-$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
+$config[PropelOrmConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = false;
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
 $ENV_DB_CONNECTION_DATA = parse_url(getenv(getenv('DATABASE_URL_NAME') ?: 'DATABASE_URL'));
 $config[PropelConstants::ZED_DB_ENGINE] = $config[PropelConstants::ZED_DB_ENGINE_PGSQL];
@@ -72,13 +70,13 @@ $ELASTICA_AUTH_HEADER = str_pad(
     STR_PAD_RIGHT
 );
 $ELASTICA_PORT = ($ENV_ELASTICA_CONNECTION_DATA['scheme'] == 'https' ? 443 : 80);
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
 $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $ENV_ELASTICA_CONNECTION_DATA['host'];
+$config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
 $config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ENV_ELASTICA_CONNECTION_DATA['host'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $ENV_ELASTICA_CONNECTION_DATA['scheme'];
+$config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ENV_ELASTICA_CONNECTION_DATA['host'];
 $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ENV_ELASTICA_CONNECTION_DATA['scheme'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
+$config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ENV_ELASTICA_CONNECTION_DATA['scheme'];
+$config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 
 // ---------- Jenkins
@@ -100,11 +98,5 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST][] = [
 
 // ---------- Error handling
 $config[ErrorHandlerConstants::DISPLAY_ERRORS] = true;
-
-// ---------- Logging
-$config[LogConstants::LOGGER_CONFIG] = HerokuLoggerConfig::class;
-$config[LogConstants::LOGZ_IO_TOKEN] = getenv('LOGZIO_API_KEY');
-$config[LogConstants::LOGZ_IO_UDP_CONNECTION_STRING] = 'udp://listener.logz.io:5050';
-$config[LogConstants::LOG_LEVEL] = LogLevel::INFO;
 
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;

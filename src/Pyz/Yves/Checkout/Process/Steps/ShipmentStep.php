@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
     /**
-     * @var \Spryker\Client\Calculation\CalculationClient
+     * @var \Spryker\Client\Calculation\CalculationClientInterface
      */
     protected $calculationClient;
 

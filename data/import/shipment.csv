@@ -1,7 +1,7 @@
-name,price,carrier,taxSetName
-Standard,490,Spryker Dummy Shipment,Shipment Taxes
-Express,590,Spryker Dummy Shipment,Shipment Taxes
-Air Standard,500,Spryker Drone Shipment,Shipment Taxes
-Air Sonic,1000,Spryker Drone Shipment,Shipment Taxes
-Air Light,1500,Spryker Drone Shipment,Shipment Taxes
-No shipment,0,No shipment,Tax Exempt
+shipment_method_key,name,carrier,taxSetName
+spryker_dummy_shipment-standard,Standard,Spryker Dummy Shipment,Shipment Taxes
+spryker_dummy_shipment-express,Express,Spryker Dummy Shipment,Shipment Taxes
+spryker_drone_shipment-air_standard,Air Standard,Spryker Drone Shipment,Shipment Taxes
+spryker_drone_shipment-air_sonic,Air Sonic,Spryker Drone Shipment,Shipment Taxes
+spryker_drone_shipment-air_light,Air Light,Spryker Drone Shipment,Shipment Taxes
+spryker_no_shipment,No shipment,0,No shipment,Tax Exempt

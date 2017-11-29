@@ -49,7 +49,7 @@ class LoginForm extends AbstractType
      */
     protected function addEmailField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_EMAIL, 'text', [
+        $builder->add(self::FIELD_EMAIL, 'email', [
             'label' => 'customer.login.email',
             'constraints' => [
                 new NotBlank(),

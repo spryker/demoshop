@@ -1,18 +1,19 @@
 <?php
 
 use Monolog\Logger;
-use Pyz\Shared\Log\LogConstants;
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use Pyz\Shared\WebProfiler\WebProfilerConstants;
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
@@ -92,13 +93,13 @@ $config[StorageConstants::STORAGE_REDIS_DATABASE] = 3;
 $ELASTICA_INDEX_NAME = 'de_search';
 $ELASTICA_DOCUMENT_TYPE = 'page';
 $ELASTICA_PORT = '9200';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
+$config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
@@ -173,6 +174,7 @@ $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
 
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::CRITICAL;
+$config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
 
 // ---------- EventBehavior
 $config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;

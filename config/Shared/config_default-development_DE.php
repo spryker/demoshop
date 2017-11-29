@@ -16,9 +16,8 @@ $config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[Appl
 
 // ---------- Elasticsearch
 $ELASTICA_INDEX_NAME = 'de_search';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
-$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 
 // ---------- Queue
 $config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 1000;

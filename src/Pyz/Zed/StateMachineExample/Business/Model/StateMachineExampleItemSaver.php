@@ -50,7 +50,6 @@ class StateMachineExampleItemSaver
     {
         $stateMachineExampleItemEntity = new PyzStateMachineExampleItem();
         $stateMachineExampleItemEntity->setName('Test item ' . rand(123, 321));
-        $stateMachineExampleItemEntity->save();
 
         $affectedRowCount = $stateMachineExampleItemEntity->save();
 

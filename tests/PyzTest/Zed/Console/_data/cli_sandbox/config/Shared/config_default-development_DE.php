@@ -30,10 +30,10 @@ $yvesHost = 'www.de.project.local';
 $config[ApplicationConstants::HOST_YVES]
     = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
-    = $config[NewsletterConstants::HOST_YVES]
-    = $config[CustomerConstants::HOST_YVES] = 'http://' . $yvesHost;
+    = $config[NewsletterConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
+$config[CustomerConstants::BASE_URL_YVES] = 'http://' . $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;

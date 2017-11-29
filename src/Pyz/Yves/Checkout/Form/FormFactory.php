@@ -227,7 +227,15 @@ class FormFactory extends SprykerFormFactory
      */
     protected function createGuestForm()
     {
-        return new GuestForm();
+        return new GuestForm($this->getUtilValidateService());
+    }
+
+    /**
+     * @return \Spryker\Service\UtilValidate\UtilValidateServiceInterface
+     */
+    protected function getUtilValidateService()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::SERVICE_UTIL_VALIDATE);
     }
 
     /**

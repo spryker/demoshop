@@ -60,6 +60,7 @@ use Pyz\Zed\DataImport\Business\Model\ProductSet\ProductSetImageExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\ProductSet\ProductSetWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductStock\ProductStockWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Shipment\ShipmentWriterStep;
+use Pyz\Zed\DataImport\Business\Model\ShipmentPrice\ShipmentPriceWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Stock\StockWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Store\StoreReader;
 use Pyz\Zed\DataImport\Business\Model\Store\StoreWriterStep;
@@ -92,6 +93,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createGlossaryImporter())
             ->addDataImporter($this->createTaxImporter())
             ->addDataImporter($this->createShipmentImporter())
+            ->addDataImporter($this->createShipmentPriceImporter())
             ->addDataImporter($this->createDiscountImporter())
             ->addDataImporter($this->createDiscountVoucherImporter())
             ->addDataImporter($this->createStockImporter())
@@ -553,6 +555,22 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataSetStepBroker
             ->addStep($this->createTaxSetNameToIdTaxSetStep())
             ->addStep(new ShipmentWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createShipmentPriceImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getShipmentPriceDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(ShipmentWriterStep::BULK_SIZE);
+        $dataSetStepBroker
+            ->addStep(new ShipmentPriceWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 

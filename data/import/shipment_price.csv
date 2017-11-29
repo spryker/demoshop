@@ -1,0 +1,11 @@
+shipment_method_key,store,currency,value_net,value_gross
+spryker_dummy_shipment-standard,DE,EUR,390,490
+spryker_dummy_shipment-express,DE,EUR,490,590
+spryker_drone_shipment-air_standard,DE,EUR,450,500
+spryker_drone_shipment-air_sonic,DE,EUR,800,1000
+spryker_drone_shipment-air_light,DE,EUR,1200,1500
+spryker_dummy_shipment-standard,DE,CHF,450,560
+spryker_dummy_shipment-express,DE,CHF,560,680
+spryker_drone_shipment-air_standard,DE,CHF,520,580
+spryker_drone_shipment-air_sonic,DE,CHF,920,1200
+spryker_drone_shipment-air_light,DE,CHF,1400,1700

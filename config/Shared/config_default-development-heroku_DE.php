@@ -70,7 +70,7 @@ $config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 
 // ---------- Elasticsearch
 $ELASTICA_INDEX_NAME = 'de_search';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 
