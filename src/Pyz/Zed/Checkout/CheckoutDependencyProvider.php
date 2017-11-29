@@ -74,7 +74,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             new OmsPostSaveHookPlugin(),
             new PaymentPostCheckPlugin(),
-            new SendEmailToGiftCardUser()
+            new SendEmailToGiftCardUser(),
         ];
     }
 

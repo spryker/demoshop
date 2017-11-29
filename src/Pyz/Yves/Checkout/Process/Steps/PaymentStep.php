@@ -192,8 +192,8 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     protected function containsPayment(PaymentMethodsTransfer $paymentMethodsTransfer, PaymentTransfer $paymentTransfer)
     {
-        foreach ($paymentMethodsTransfer->getAvailableMethods() as $paymentInformationTransfer) {
-            if ($paymentInformationTransfer->getMethod() === $paymentTransfer->getPaymentSelection()) {
+        foreach ($paymentMethodsTransfer->getMethods() as $paymentMethodTransfer) {
+            if ($paymentMethodTransfer->getMethodName() === $paymentTransfer->getPaymentSelection()) {
                 return true;
             }
         }

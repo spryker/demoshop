@@ -136,9 +136,9 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     }
 
     /**
-     * @param Container $container
+     * @param \Spryker\Yves\Kernel\Container $container
      *
-     * @return Container
+     * @return \Spryker\Yves\Kernel\Container
      */
     protected function provideCodeHandlePlugins(Container $container)
     {

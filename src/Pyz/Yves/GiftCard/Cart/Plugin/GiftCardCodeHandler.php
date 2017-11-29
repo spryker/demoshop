@@ -47,10 +47,10 @@ class GiftCardCodeHandler implements CodeHandlerInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $code
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function removeGiftCard(QuoteTransfer $quoteTransfer, $code)
     {
@@ -66,10 +66,10 @@ class GiftCardCodeHandler implements CodeHandlerInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $code
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function removeGiftCardPayment(QuoteTransfer $quoteTransfer, $code)
     {
