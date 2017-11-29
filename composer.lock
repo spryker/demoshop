@@ -1998,6 +1998,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
 =======
 <<<<<<< HEAD
@@ -2129,8 +2130,17 @@
 =======
                 "reference": "ce6ccb78c26ec30f3b4f262c388c764d69dada99"
 >>>>>>> core-2275 composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 composer.lock
+=======
+=======
+=======
+                "reference": "e6b6e379db96edd0799203e1034aaad0d3328c5c"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2452,6 +2462,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 <<<<<<< HEAD
@@ -2556,7 +2567,13 @@
 =======
             "time": "2017-11-29T12:40:01+00:00"
 >>>>>>> core-2275 composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 composer.lock
+=======
+=======
+            "time": "2017-11-29T13:23:29+00:00"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
