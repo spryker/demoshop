@@ -6,15 +6,20 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "ac86b348866807ac795907a89b66449b",
 =======
 =======
 >>>>>>> core-2275 update composer.lock and package-lock.json
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
 =======
 =======
 >>>>>>> core-2275 update composer.lock and package-lock.json
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
 =======
@@ -42,8 +47,17 @@
     "content-hash": "9f0700bcef417a50e8e9b34b2856b9e2",
 >>>>>>> core-2275 update composer.lock and package-lock.json
 >>>>>>> core-2275 update composer.lock and package-lock.json
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock and package-lock.json
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock and package-lock.json
+=======
+=======
+=======
+    "content-hash": "ac678647fa03c3a6512d1f721c1b37a8",
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1981,6 +1995,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
 =======
 <<<<<<< HEAD
@@ -2089,8 +2104,17 @@
 =======
                 "reference": "14bbd46201eb02d15cadb4fc88c43671be6d0c49"
 >>>>>>> core-2275 update composer.lock and package-lock.json
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock and package-lock.json
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock and package-lock.json
+=======
+=======
+=======
+                "reference": "1e0423df4440dd7beb00315ab8dd65a226a1dde3"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2409,6 +2433,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 <<<<<<< HEAD
@@ -2496,7 +2521,13 @@
 =======
             "time": "2017-11-28T12:50:34+00:00"
 >>>>>>> core-2275 update composer.lock and package-lock.json
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock and package-lock.json
+=======
+=======
+            "time": "2017-11-29T09:00:30+00:00"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7546,12 +7577,51 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
+<<<<<<< HEAD
             "notification-url": "https://packagist.org/downloads/",
+=======
+<<<<<<< HEAD
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/code-generator/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/code-generator/vendor/,/templates/ ./"
+=======
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+>>>>>>> core-2275 update spryker/spryker
+                ]
+            },
+>>>>>>> core-2275 update spryker/spryker
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
+<<<<<<< HEAD
             "time": "2018-01-10T11:55:09+00:00"
+=======
+            "support": {
+                "source": "https://github.com/spryker/code-generator/tree/master",
+                "issues": "https://github.com/spryker/code-generator/issues"
+            },
+<<<<<<< HEAD
+            "time": "2017-12-01T13:53:50+00:00"
+=======
+            "time": "2017-10-17T11:12:00+00:00"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "spryker/code-sniffer",
