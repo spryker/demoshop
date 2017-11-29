@@ -6,7 +6,7 @@
                     {{ payment.giftCard.name }}
                     <small><a href="{{ url('cart/voucher/remove', {'code': payment.giftCard.code}) }}"><span class="fa fa-remove"></span> {{ 'cart.voucher.remove' | trans }}</a></small>
                 </div>
-                <div class="small-4 columns text-right">- {{ payment.giftCard.value | money }}</div>
+                <div class="small-4 columns text-right">- {{ payment.amount | money }}</div>
             </div>
         </li>
     {% endif %}
