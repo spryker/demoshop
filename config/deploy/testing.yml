@@ -10,6 +10,9 @@ sections:
         generate-databuilder:
             command: "vendor/bin/console transfer:databuilder:generate"
 
+        codeception-build:
+            command: "vendor/bin/codecept build"
+
     cache:
         twig-cache-warmup:
             command: "vendor/bin/console twig:cache:warmer"
