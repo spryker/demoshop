@@ -119,7 +119,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addNewProductsResultFormatterPlugins(Container$container)
+    protected function addNewProductsResultFormatterPlugins(Container $container)
     {
         $container[self::NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function () {
             return [
@@ -140,7 +140,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addStore(Container$container)
+    protected function addStore(Container $container)
     {
         $container[self::STORE] = function () {
             return Store::getInstance();

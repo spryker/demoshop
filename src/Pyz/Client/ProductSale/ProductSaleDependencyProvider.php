@@ -119,7 +119,7 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addSaleSearchResultFormatterPlugins(Container$container)
+    protected function addSaleSearchResultFormatterPlugins(Container $container)
     {
         $container[self::SALE_SEARCH_RESULT_FORMATTER_PLUGINS] = function () {
             return [
@@ -140,7 +140,7 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addStore(Container$container)
+    protected function addStore(Container $container)
     {
         $container[self::STORE] = function () {
             return Store::getInstance();

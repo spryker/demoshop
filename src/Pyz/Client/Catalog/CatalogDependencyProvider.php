@@ -164,7 +164,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function provideFeatureProductsResultFormatterPlugins(Container$container)
+    protected function provideFeatureProductsResultFormatterPlugins(Container $container)
     {
         $container[self::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function () {
             return [
