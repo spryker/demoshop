@@ -17,6 +17,7 @@
     <exclude-pattern>*/tests/_helpers/*</exclude-pattern>
     <exclude-pattern>*/tests/_output/*</exclude-pattern>
     <exclude-pattern>./data/DE/*</exclude-pattern>
+    <exclude-pattern>./data/AT/*</exclude-pattern>
     <exclude-pattern>./data/EN/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
 
