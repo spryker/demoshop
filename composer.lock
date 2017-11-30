@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5768a1aef55ae569b402007522cec331",
+    "content-hash": "c417b068f66fb5fe828b2ef2b706f646",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1859,11 +1859,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2209-email-validation-on-newsletter-subscription-and-guest-form",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "661cc6968538d83f15545930f9dc15f884a16fc1"
+                "reference": "49e0fc74dc312ee35c9ce05b15fafc347e89ce57"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2063,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-29T16:06:58+00:00"
+            "time": "2017-11-30T12:42:41+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6766,7 +6766,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
