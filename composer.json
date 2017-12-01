@@ -8,7 +8,7 @@
     "spryker/rabbit-mq": "dev-master as 1.1.0",
     "spryker/deploy": "dev-master as 1.0.0",
 
-    "php": ">=5.6.0",
+    "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
     "guzzlehttp/guzzle": "^6.2.1",
     "league/csv": "^8.1.0",
