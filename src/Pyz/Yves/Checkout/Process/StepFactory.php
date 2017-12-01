@@ -19,6 +19,7 @@ use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Spryker\Shared\ShipmentCheckoutConnector\ShipmentCheckoutConnectorConfig;
 use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\StepEngine\Process\StepBreadcrumbGenerator;
@@ -166,6 +167,7 @@ class StepFactory extends SprykerStepFactory
             ApplicationControllerProvider::ROUTE_HOME,
             [
                 'payment failed' => CheckoutControllerProvider::CHECKOUT_PAYMENT,
+                ShipmentCheckoutConnectorConfig::ERROR_CODE_SHIPMENT_FAILED => CheckoutControllerProvider::CHECKOUT_SHIPMENT,
             ]
         );
     }

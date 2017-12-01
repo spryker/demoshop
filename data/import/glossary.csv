@@ -1025,3 +1025,5 @@ product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
 product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
+checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
+checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
