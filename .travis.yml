@@ -94,8 +94,8 @@ before_script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/deploy DE -r testing -x frontend ; fi
 
 script:
-  - vendor/bin/phantomjs --webdriver=4444 &
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/phantomjs --webdriver=4444 > /dev/null & ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console transfer:validate ; fi
