@@ -98,13 +98,13 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
 
-  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && PHPSTAN != 1 ]] ; then vendor/bin/console transfer:validate ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && PHPSTAN != 1 ]] ; then vendor/bin/console code:sniff:style ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console transfer:validate ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console code:sniff:style ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
 
   - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
   - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
