@@ -40,7 +40,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new ProductBundleAvailabilityCheckoutPreConditionPlugin(),
             new ProductsAvailableCheckoutPreConditionPlugin(),
             new PaymentPreCheckPlugin(),
-            new ShipmentCheckoutPreCheckPlugin()
+            new ShipmentCheckoutPreCheckPlugin(),
         ];
     }
 
