@@ -7,7 +7,8 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class NewsletterSubscriptionForm extends AbstractType
@@ -17,7 +18,7 @@ class NewsletterSubscriptionForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefixName()
     {
         return 'newsletterSubscriptionForm';
     }
@@ -40,7 +41,7 @@ class NewsletterSubscriptionForm extends AbstractType
      */
     protected function addSubscribeField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SUBSCRIBE, 'checkbox', [
+        $builder->add(self::FIELD_SUBSCRIBE, CheckboxType::class, [
             'label' => 'customer.newsletter.subscription_agreement',
             'required' => false,
         ]);

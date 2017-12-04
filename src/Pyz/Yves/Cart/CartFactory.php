@@ -139,11 +139,11 @@ class CartFactory extends AbstractFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\AbstractType
+     * @return string
      */
     protected function createVoucherFormType()
     {
-        return new VoucherForm();
+        return VoucherForm::class;
     }
 
     /**

@@ -23,10 +23,18 @@ class NewsletterFactory extends AbstractFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\AbstractType
+     * @return string
      */
     protected function createNewsletterSubscriptionFormType()
     {
-        return new NewsletterSubscriptionForm();
+        return NewsletterSubscriptionForm::class;
+    }
+
+    /**
+     * @return \Spryker\Service\UtilValidate\UtilValidateServiceInterface
+     */
+    public function getUtilValidateService()
+    {
+        return $this->getProvidedDependency(NewsletterDependencyProvider::SERVICE_UTIL_VALIDATE);
     }
 }

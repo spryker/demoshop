@@ -9,11 +9,11 @@ namespace Pyz\Yves\Checkout\Form\Steps;
 
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface;
 use Spryker\Yves\StepEngine\Dependency\Form\SubFormProviderNameInterface;
-use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
-use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,6 +21,9 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * @method \Pyz\Yves\Checkout\CheckoutFactory getFactory()
+ */
 class PaymentForm extends AbstractType
 {
     const PAYMENT_PROPERTY_PATH = QuoteTransfer::PAYMENT;
@@ -28,22 +31,9 @@ class PaymentForm extends AbstractType
     const PAYMENT_SELECTION_PROPERTY_PATH = self::PAYMENT_PROPERTY_PATH . '.' . self::PAYMENT_SELECTION;
 
     /**
-     * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
-     */
-    protected $paymentMethodSubFormPlugins;
-
-    /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $paymentMethodSubFormPlugins
-     */
-    public function __construct(SubFormPluginCollection $paymentMethodSubFormPlugins)
-    {
-        $this->paymentMethodSubFormPlugins = $paymentMethodSubFormPlugins;
-    }
-
-    /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'paymentForm';
     }
@@ -86,7 +76,7 @@ class PaymentForm extends AbstractType
     {
         $builder->add(
             self::PAYMENT_SELECTION,
-            'choice',
+            ChoiceType::class,
             [
                 'choices' => $paymentMethodChoices,
                 'label' => false,
@@ -135,7 +125,7 @@ class PaymentForm extends AbstractType
     {
         $paymentMethodSubForms = [];
 
-        foreach ($this->paymentMethodSubFormPlugins as $paymentMethodSubFormPlugin) {
+        foreach ($this->getFactory()->createPaymentMethodSubForms() as $paymentMethodSubFormPlugin) {
             $paymentMethodSubForms[] = $this->createSubForm($paymentMethodSubFormPlugin);
         }
 

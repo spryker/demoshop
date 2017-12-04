@@ -7,12 +7,16 @@
 
 namespace Pyz\Yves\Newsletter\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * @method \Pyz\Yves\Newsletter\NewsletterFactory getFactory()
+ */
 class NewsletterSubscriptionForm extends AbstractType
 {
     const FIELD_SUBSCRIBE = 'subscribe';
@@ -21,7 +25,7 @@ class NewsletterSubscriptionForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'newsletterSubscriptionForm';
     }
@@ -73,11 +77,18 @@ class NewsletterSubscriptionForm extends AbstractType
      */
     protected function addSubscribeField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SUBSCRIBE, 'email', [
+        $builder->add(self::FIELD_SUBSCRIBE, EmailType::class, [
             'label' => 'newsletter.subscribe',
             'required' => false,
             'constraints' => [
                 new NotBlank(),
+                new Callback([
+                    'callback' => function ($email, ExecutionContextInterface $context) {
+                        if (!$this->getFactory()->getUtilValidateService()->isEmailFormatValid($email)) {
+                            $context->buildViolation('customer.email.format.invalid')->addViolation();
+                        }
+                    },
+                ]),
             ],
         ]);
 

@@ -28,9 +28,7 @@ class FormFactory extends AbstractFactory
      */
     public function createAddressForm(array $formOptions = [])
     {
-        $addressFormType = new AddressForm();
-
-        return $this->getFormFactory()->create($addressFormType, null, $formOptions);
+        return $this->getFormFactory()->create(AddressForm::class, null, $formOptions);
     }
 
     /**
@@ -46,9 +44,7 @@ class FormFactory extends AbstractFactory
      */
     public function createRegisterForm()
     {
-        $registerFormType = new RegisterForm();
-
-        return $this->getFormFactory()->create($registerFormType);
+        return $this->getFormFactory()->create(RegisterForm::class);
     }
 
     /**
@@ -56,9 +52,7 @@ class FormFactory extends AbstractFactory
      */
     public function createLoginForm()
     {
-        $loginFormType = new LoginForm();
-
-        return $this->getFormFactory()->create($loginFormType);
+        return $this->getFormFactory()->create(LoginForm::class);
     }
 
     /**
@@ -66,9 +60,7 @@ class FormFactory extends AbstractFactory
      */
     public function createForgottenPasswordForm()
     {
-        $forgottenPasswordFormType = new ForgottenPasswordForm();
-
-        return $this->getFormFactory()->create($forgottenPasswordFormType);
+        return $this->getFormFactory()->create(ForgottenPasswordForm::class);
     }
 
     /**
@@ -76,9 +68,7 @@ class FormFactory extends AbstractFactory
      */
     public function createProfileForm()
     {
-        $profileFormType = new ProfileForm();
-
-        return $this->getFormFactory()->create($profileFormType);
+        return $this->getFormFactory()->create(ProfileForm::class);
     }
 
     /**
@@ -86,9 +76,7 @@ class FormFactory extends AbstractFactory
      */
     public function createFormRestorePassword()
     {
-        $restorePasswordFormType = new RestorePasswordForm();
-
-        return $this->getFormFactory()->create($restorePasswordFormType);
+        return $this->getFormFactory()->create(RestorePasswordForm::class);
     }
 
     /**
@@ -96,9 +84,7 @@ class FormFactory extends AbstractFactory
      */
     public function createPasswordForm()
     {
-        $passwordFormType = new PasswordForm();
-
-        return $this->getFormFactory()->create($passwordFormType);
+        return $this->getFormFactory()->create(PasswordForm::class);
     }
 
     /**
@@ -106,9 +92,7 @@ class FormFactory extends AbstractFactory
      */
     public function createNewsletterSubscriptionForm()
     {
-        $newsletterSubscriptionFormType = new NewsletterSubscriptionForm();
-
-        return $this->getFormFactory()->create($newsletterSubscriptionFormType);
+        return $this->getFormFactory()->create(NewsletterSubscriptionForm::class);
     }
 
     /**

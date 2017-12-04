@@ -5,14 +5,21 @@
  */
 namespace Pyz\Yves\Customer\Form;
 
-use Spryker\Service\UtilValidate\UtilValidateServiceInterface;
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ */
 class GuestForm extends AbstractType
 {
     const FIELD_SALUTATION = 'salutation';
@@ -23,22 +30,9 @@ class GuestForm extends AbstractType
     const FIELD_ACCEPT_TERMS = 'accept_terms';
 
     /**
-     * @var \Spryker\Service\UtilValidate\UtilValidateServiceInterface
-     */
-    protected $utilValidateService;
-
-    /**
-     * @param \Spryker\Service\UtilValidate\UtilValidateServiceInterface $utilValidateService
-     */
-    public function __construct(UtilValidateServiceInterface $utilValidateService)
-    {
-        $this->utilValidateService = $utilValidateService;
-    }
-
-    /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'guestForm';
     }
@@ -67,7 +61,7 @@ class GuestForm extends AbstractType
      */
     protected function addSalutationField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SALUTATION, 'choice', [
+        $builder->add(self::FIELD_SALUTATION, ChoiceType::class, [
             'choices' => [
                 'Mr' => 'customer.salutation.mr',
                 'Ms' => 'customer.salutation.ms',
@@ -90,7 +84,7 @@ class GuestForm extends AbstractType
      */
     protected function addFirstNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_FIRST_NAME, 'text', [
+        $builder->add(self::FIELD_FIRST_NAME, TextType::class, [
             'label' => 'customer.first_name',
             'constraints' => [
                 new NotBlank(),
@@ -107,7 +101,7 @@ class GuestForm extends AbstractType
      */
     protected function addLastNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_LAST_NAME, 'text', [
+        $builder->add(self::FIELD_LAST_NAME, TextType::class, [
             'label' => 'customer.last_name',
             'constraints' => [
                 new NotBlank(),
@@ -124,15 +118,13 @@ class GuestForm extends AbstractType
      */
     protected function addEmailField(FormBuilderInterface $builder)
     {
-        $utilValidateService = $this->utilValidateService;
-
-        $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
+        $builder->add(self::FIELD_EMAIL, EmailType::class, [
             'label' => 'auth.email',
             'constraints' => [
                 new NotBlank(),
                 new Callback([
-                    'callback' => function ($email, ExecutionContextInterface $context) use ($utilValidateService) {
-                        if (!$utilValidateService->isEmailFormatValid($email)) {
+                    'callback' => function ($email, ExecutionContextInterface $context) {
+                        if (!$this->getFactory()->getUtilValidateService()->isEmailFormatValid($email)) {
                             $context->buildViolation('customer.email.format.invalid')->addViolation();
                         }
                     },
@@ -150,7 +142,7 @@ class GuestForm extends AbstractType
      */
     protected function addIsGuestField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_IS_GUEST, 'hidden', [
+        $builder->add(self::FIELD_IS_GUEST, HiddenType::class, [
             'data' => true,
         ]);
 
@@ -166,7 +158,7 @@ class GuestForm extends AbstractType
      */
     protected function addAcceptTermsField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_ACCEPT_TERMS, 'checkbox', [
+        $builder->add(self::FIELD_ACCEPT_TERMS, CheckboxType::class, [
             'label' => 'forms.accept_terms',
             'mapped' => false,
             'constraints' => [

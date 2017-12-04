@@ -7,7 +7,10 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -22,7 +25,7 @@ class ProfileForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'profileForm';
     }
@@ -49,7 +52,7 @@ class ProfileForm extends AbstractType
      */
     public function addEmailField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
+        $builder->add(self::FIELD_EMAIL, EmailType::class, [
             'label' => 'customer.profile.email',
             'required' => true,
             'constraints' => [
@@ -68,7 +71,7 @@ class ProfileForm extends AbstractType
      */
     public function addLastNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_LAST_NAME, 'text', [
+        $builder->add(self::FIELD_LAST_NAME, TextType::class, [
             'label' => 'customer.profile.last_name',
             'required' => true,
             'constraints' => [
@@ -86,7 +89,7 @@ class ProfileForm extends AbstractType
      */
     public function addFirstNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_FIRST_NAME, 'text', [
+        $builder->add(self::FIELD_FIRST_NAME, TextType::class, [
             'label' => 'customer.profile.first_name',
             'required' => true,
             'constraints' => [
@@ -104,7 +107,7 @@ class ProfileForm extends AbstractType
      */
     public function addSalutationField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SALUTATION, 'choice', [
+        $builder->add(self::FIELD_SALUTATION, ChoiceType::class, [
             'choices' => [
                 'Mr' => 'customer.salutation.mr',
                 'Ms' => 'customer.salutation.ms',

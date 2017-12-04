@@ -7,7 +7,8 @@
 
 namespace Pyz\Yves\Shipment\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -25,7 +26,7 @@ class ShipmentForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'shipmentForm';
     }
@@ -71,7 +72,7 @@ class ShipmentForm extends AbstractType
      */
     protected function addShipmentMethods(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_ID_SHIPMENT_METHOD, 'choice', [
+        $builder->add(self::FIELD_ID_SHIPMENT_METHOD, ChoiceType::class, [
             'choices' => $options[self::OPTION_SHIPMENT_METHODS],
             'expanded' => true,
             'multiple' => false,
