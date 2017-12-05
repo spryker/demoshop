@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3e8a2b4e0e8f17cf2b1a8886a2e8aeb",
+    "content-hash": "6d702610bf5d128f8f0bac89289d5efc",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -4477,11 +4477,11 @@
         },
         {
             "name": "spryker/console",
-            "version": "3.2.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Console.git",
-                "reference": "aef52495cf267f15dd09263750e97563cd441ccd",
+                "reference": "6236226914f051bb40946d5c3861c54d2aca7a2e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4491,8 +4491,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Console/zipball/aef52495cf267f15dd09263750e97563cd441ccd",
-                "reference": "aef52495cf267f15dd09263750e97563cd441ccd",
+                "url": "https://api.github.com/repos/spryker/Console/zipball/6236226914f051bb40946d5c3861c54d2aca7a2e",
+                "reference": "6236226914f051bb40946d5c3861c54d2aca7a2e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4505,7 +4505,6 @@
                 "spryker/config": "^3.0.0",
                 "spryker/error-handler": "^2.0.0",
                 "spryker/kernel": "^3.0.0",
-                "spryker/propel": "^3.0.0",
                 "symfony/console": "^2.6.13 || ^3.0.0"
             },
             "require-dev": {
@@ -4545,7 +4544,7 @@
             "support": {
                 "source": "https://github.com/spryker/Console/tree/master"
             },
-            "time": "2017-11-27T14:09:44+00:00"
+            "time": "2017-11-29T17:42:02+00:00"
         },
         {
             "name": "spryker/country",
@@ -4695,11 +4694,11 @@
         },
         {
             "name": "spryker/customer",
-            "version": "7.0.0",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Customer.git",
-                "reference": "587c65ef475ed5ec40fe777409c0315e0e4524ff",
+                "reference": "9207a0b7e89a712f8f2e6564002b21ffe17447a6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4709,8 +4708,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Customer/zipball/587c65ef475ed5ec40fe777409c0315e0e4524ff",
-                "reference": "587c65ef475ed5ec40fe777409c0315e0e4524ff",
+                "url": "https://api.github.com/repos/spryker/Customer/zipball/9207a0b7e89a712f8f2e6564002b21ffe17447a6",
+                "reference": "9207a0b7e89a712f8f2e6564002b21ffe17447a6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4777,7 +4776,7 @@
             "support": {
                 "source": "https://github.com/spryker/Customer/tree/master"
             },
-            "time": "2017-11-13T15:25:07+00:00"
+            "time": "2017-11-30T12:42:41+00:00"
         },
         {
             "name": "spryker/customer-api",
@@ -5739,11 +5738,11 @@
         },
         {
             "name": "spryker/event-behavior",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/EventBehavior.git",
-                "reference": "15ccc25f4e0bed11a3c417708aa34a2b2cf5c630",
+                "reference": "34e23022fd48e753a9a964320b77bc572171d734",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5753,8 +5752,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/EventBehavior/zipball/15ccc25f4e0bed11a3c417708aa34a2b2cf5c630",
-                "reference": "15ccc25f4e0bed11a3c417708aa34a2b2cf5c630",
+                "url": "https://api.github.com/repos/spryker/EventBehavior/zipball/34e23022fd48e753a9a964320b77bc572171d734",
+                "reference": "34e23022fd48e753a9a964320b77bc572171d734",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5775,7 +5774,7 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/config": "^3.1.0",
-                "spryker/console": "^3.1.0",
+                "spryker/console": "^3.1.0 || ^4.0.0",
                 "spryker/propel": "^3.0.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/testify": "*"
@@ -5811,7 +5810,7 @@
             "support": {
                 "source": "https://github.com/spryker/EventBehavior/tree/master"
             },
-            "time": "2017-10-19T11:51:06+00:00"
+            "time": "2017-11-23T15:41:34+00:00"
         },
         {
             "name": "spryker/event-journal",
@@ -6669,11 +6668,11 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.14.1",
+            "version": "3.14.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Kernel.git",
-                "reference": "82b19589bf5ff80c1969887016c9af1d070da637",
+                "reference": "cc473ecfcfd2a46374d6861e1d4286816c4a0797",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6683,8 +6682,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/82b19589bf5ff80c1969887016c9af1d070da637",
-                "reference": "82b19589bf5ff80c1969887016c9af1d070da637",
+                "url": "https://api.github.com/repos/spryker/Kernel/zipball/cc473ecfcfd2a46374d6861e1d4286816c4a0797",
+                "reference": "cc473ecfcfd2a46374d6861e1d4286816c4a0797",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6706,7 +6705,7 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/console": "^3.0.0",
+                "spryker/console": "^3.0.0 || ^4.0.0",
                 "spryker/testify": "^3.3.0",
                 "spryker/transfer": "^3.0.0"
             },
@@ -6732,9 +6731,9 @@
             ],
             "description": "Kernel module",
             "support": {
-                "source": "https://github.com/spryker/Kernel/tree/3.14.1"
+                "source": "https://github.com/spryker/Kernel/tree/3.14.3"
             },
-            "time": "2017-11-21T16:22:39+00:00"
+            "time": "2017-11-30T10:21:47+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -7607,11 +7606,11 @@
         },
         {
             "name": "spryker/newsletter",
-            "version": "4.1.5",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Newsletter.git",
-                "reference": "f010466655f06bfef8d832a058ec34d653ddbed8",
+                "reference": "69c6ad8f8ec0255799e487a5ff3c93ff7fdfd1fd",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7621,8 +7620,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Newsletter/zipball/f010466655f06bfef8d832a058ec34d653ddbed8",
-                "reference": "f010466655f06bfef8d832a058ec34d653ddbed8",
+                "url": "https://api.github.com/repos/spryker/Newsletter/zipball/69c6ad8f8ec0255799e487a5ff3c93ff7fdfd1fd",
+                "reference": "69c6ad8f8ec0255799e487a5ff3c93ff7fdfd1fd",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7637,6 +7636,7 @@
                 "spryker/kernel": "^3.0.0",
                 "spryker/mail": "^4.0.0",
                 "spryker/util-text": "^1.1.0",
+                "spryker/util-validate": "^1.0.0",
                 "spryker/zed-request": "^3.0.0"
             },
             "require-dev": {
@@ -7674,7 +7674,7 @@
             "support": {
                 "source": "https://github.com/spryker/Newsletter/tree/master"
             },
-            "time": "2017-11-10T15:08:30+00:00"
+            "time": "2017-11-30T12:42:41+00:00"
         },
         {
             "name": "spryker/nopayment",
@@ -11837,11 +11837,11 @@
         },
         {
             "name": "spryker/step-engine",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/StepEngine.git",
-                "reference": "c5dbcbdb12b00ef4b473994c7b6affe49e377e7f",
+                "reference": "79c9e1707a6c02795f3b0e457697097d47b6f459",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11851,8 +11851,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/StepEngine/zipball/c5dbcbdb12b00ef4b473994c7b6affe49e377e7f",
-                "reference": "c5dbcbdb12b00ef4b473994c7b6affe49e377e7f",
+                "url": "https://api.github.com/repos/spryker/StepEngine/zipball/79c9e1707a6c02795f3b0e457697097d47b6f459",
+                "reference": "79c9e1707a6c02795f3b0e457697097d47b6f459",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11868,7 +11868,7 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/config": "^3.0.0",
-                "spryker/console": "^3.0.0",
+                "spryker/console": "^3.0.0 || ^4.0.0",
                 "spryker/messenger": "^3.0.0",
                 "spryker/testify": "*"
             },
@@ -11882,13 +11882,13 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -11899,7 +11899,7 @@
             "support": {
                 "source": "https://github.com/spryker/StepEngine/tree/master"
             },
-            "time": "2017-08-29T09:26:41+00:00"
+            "time": "2017-11-23T15:41:34+00:00"
         },
         {
             "name": "spryker/stock",
@@ -19100,7 +19100,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0",
+        "php": ">=7.1",
         "ext-bcmath": "*",
         "ext-curl": "*",
         "ext-gd": "*",
