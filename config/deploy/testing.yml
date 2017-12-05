@@ -95,9 +95,6 @@ sections:
 
 
     frontend:
-        install-package-manager:
-            command: "vendor/bin/console frontend:install:package-manager"
-
         dependencies-install:
             command: "vendor/bin/console frontend:project:install-dependencies"
 
