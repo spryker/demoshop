@@ -1,5 +1,9 @@
 {% extends "@application/layout/layout.twig" %}
 
+{% set maxQuantity = 10 %}
+{% set availability = product.numberOfAvailableItems | default(1) %}
+{% set quantityLimit = availability > maxQuantity ? maxQuantity : availability %}
+
 {% block page_title %}
     {% if product.metaTitle %}
         {{ product.metaTitle }}
@@ -99,19 +103,18 @@
                 
                 <div class="callout">
                     <div class="row align-bottom">
-                        <div class="small-5 medium-4 xlarge-3 columns __no-margin-bottom">
+                        <div class="small-4 xlarge-3 columns __no-margin-bottom">
                             <label>
                                 {{ 'cart.item_quantity' | trans }}
-                                <input 
-                                    type="number" 
-                                    class="__no-margin-bottom"
-                                    name="quantity" 
-                                    min="1" 
-                                    max="{{ product.numberOfAvailableItems }}"/>
+                                <select name="quantity" class="__no-margin-bottom">
+                                    {% for quantityIndex in 1..quantityLimit %}
+                                        <option value="{{quantityIndex}}">{{quantityIndex}}</option>
+                                    {% endfor %}
+                                </select>
                             </label>
                         </div>
 
-                        <div class="small-7 medium-8 xlarge-9 columns">
+                        <div class="small-8 xlarge-9 columns">
                             <button type="submit" class="button expanded success __no-margin-bottom js-add-to-cart-button" {{ (not product.isVariant or not product.available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
                                 <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
                             </button>
