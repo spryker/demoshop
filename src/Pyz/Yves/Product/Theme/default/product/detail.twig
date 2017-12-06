@@ -96,25 +96,27 @@
 
             <form method="POST" action="{{ path('cart/add', {'sku': product.sku }) }}">
                 {% include '@Product/product/partials/product-options.twig' %}
-                <div>
+                
+                <div class="callout">
+                    <div class="row align-bottom">
+                        <div class="small-5 medium-4 xlarge-3 columns __no-margin-bottom">
+                            <label>
+                                {{ 'cart.item_quantity' | trans }}
+                                <input 
+                                    type="number" 
+                                    class="__no-margin-bottom"
+                                    name="quantity" 
+                                    min="1" 
+                                    max="{{ product.numberOfAvailableItems }}"/>
+                            </label>
+                        </div>
 
-                    <label>
-                        <strong>{{ 'cart.item_quantity' | trans }}</strong>
-                        <span class="input-group __no-margin-bottom">
-
-                            <input class="input-group-field" type="number" name="quantity" min="1" max="{{ product.numberOfAvailableItems }}"/>
-
-                            <span class="input-group-button">
-                                <button type="submit" class="button expanded success js-add-to-cart-button" {{ (not product.isVariant or not product.available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
-                                    <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                                </button>
-                            </span>
-                        </span>
-                    </label>
-
-                    <br />
-
-                    <div class="small-12 columns"></div>
+                        <div class="small-7 medium-8 xlarge-9 columns">
+                            <button type="submit" class="button expanded success __no-margin-bottom js-add-to-cart-button" {{ (not product.isVariant or not product.available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                                <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
 
