@@ -1,11 +1,16 @@
-<div class="callout text-center">
+<div class="callout">
     <div class="row align-middle">
-        <a href="{{ path('change-view-mode', {mode : 'grid', 'referer-url' : app.request.requestUri }) }}">
-            <i class="fa fa-th" aria-hidden="true">Grid</i>
-        </a>
-
-        <a href="{{ path('change-view-mode', {mode : 'list', 'referer-url' : app.request.requestUri }) }}">
-            <i class="fa fa-list" aria-hidden="true">List</i>
-        </a>
+        <ul class="menu align-justify">
+            <li>
+                <a href="{{ path('change-view-mode', {mode : 'grid', 'referer-url' : app.request.requestUri }) }}">
+                    <i class="fa fa-th" aria-hidden="true"></i> Grid
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('change-view-mode', {mode : 'list', 'referer-url' : app.request.requestUri }) }}">
+                    <i class="fa fa-list" aria-hidden="true"></i> List
+                </a>
+            </li>
+        </ul>   
     </div>
 </div>
