@@ -1,0 +1,111 @@
+env:
+    APPLICATION_ENV: devtest
+
+sections:
+
+    generate:
+        generate-transfers:
+            command: "vendor/bin/console transfer:generate"
+
+        generate-databuilder:
+            command: "vendor/bin/console transfer:databuilder:generate"
+
+        codeception-build:
+            command: "vendor/bin/codecept build"
+
+    cache:
+        twig-cache-warmup:
+            command: "vendor/bin/console twig:cache:warmer"
+
+        navigation-cache-warmup:
+            command: "vendor/bin/console navigation:build-cache"
+
+
+    database-flush:
+        delete-migration-files:
+            command: "vendor/bin/console propel:migration:delete"
+
+
+    database-migrate:
+        propel-config:
+            command: "vendor/bin/console propel:config:convert"
+
+        propel-create:
+            command: "vendor/bin/console propel:database:create"
+
+        propel-postgres-compatibility:
+            command: "vendor/bin/console propel:pg-sql-compat"
+
+        propel-copy-schema:
+            command: "vendor/bin/console propel:schema:copy"
+
+        propel-build:
+            command: "vendor/bin/console propel:model:build"
+
+        propel-diff:
+            command: "vendor/bin/console propel:diff"
+
+        propel-migrate:
+            command: "vendor/bin/console propel:migrate"
+
+        init-database:
+            command: "vendor/bin/console setup:init-db"
+
+        setup-search:
+            command: "vendor/bin/console setup:search"
+
+
+    demodata:
+        import:
+            command: "vendor/bin/console data:import"
+
+        update-product-labels:
+            command: "vendor/bin/console product-label:relations:update"
+
+        search-collector:
+            command: "vendor/bin/console collector:search:export"
+
+        storage-collector:
+            command: "vendor/bin/console collector:storage:export"
+
+    backup:
+        backup-database:
+            command: "vendor/bin/console propel:database:export data/db.backup"
+
+
+    restore:
+        excluded: true
+        drop-database:
+            command: "vendor/bin/console propel:database:drop"
+
+        create-database:
+            command: "vendor/bin/console propel:database:create"
+
+        restore-database:
+            command: "vendor/bin/console propel:database:import data/db.backup"
+
+
+    collectors:
+        excluded: true
+        search-collector:
+            command: "vendor/bin/console collector:search:export"
+
+        storage-collector:
+            command: "vendor/bin/console collector:storage:export"
+
+
+    frontend:
+        dependencies-install:
+            command: "vendor/bin/console frontend:project:install-dependencies"
+
+        yves-install-dependencies:
+            command: "vendor/bin/console frontend:yves:install-dependencies"
+
+        yves-build-frontend:
+            command: "vendor/bin/console frontend:yves:build"
+
+        zed-install-dependencies:
+            command: "vendor/bin/console frontend:zed:install-dependencies"
+
+        zed-build-frontend:
+            command: "vendor/bin/console frontend:zed:build"
