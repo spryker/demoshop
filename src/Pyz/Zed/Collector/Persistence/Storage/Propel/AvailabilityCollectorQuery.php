@@ -11,6 +11,7 @@ use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
+use Spryker\Zed\Store\Business\StoreFacade;
 
 class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
 {
@@ -23,6 +24,8 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
      */
     protected function prepareQuery()
     {
+        $currentStoreTransfer = (new StoreFacade())->getCurrentStore();
+
         $this->touchQuery->addJoin(
             SpyTouchTableMap::COL_ITEM_ID,
             SpyAvailabilityAbstractTableMap::COL_ID_AVAILABILITY_ABSTRACT,
@@ -30,8 +33,14 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
         );
 
         $this->touchQuery->addJoin(
-            SpyAvailabilityAbstractTableMap::COL_ABSTRACT_SKU,
-            SpyProductAbstractTableMap::COL_SKU,
+            [
+                SpyAvailabilityAbstractTableMap::COL_ABSTRACT_SKU,
+                SpyAvailabilityAbstractTableMap::COL_FK_STORE
+            ],
+            [
+                SpyProductAbstractTableMap::COL_SKU,
+                $currentStoreTransfer->getIdStore()
+            ],
             Criteria::INNER_JOIN
         );
 

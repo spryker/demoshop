@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/core-2300-product-availability-per-store",
     "spryker-eco/loggly": "dev-master as 1.0.0",
     "spryker/rabbit-mq": "dev-master as 1.1.0",
     "spryker/deploy": "dev-master as 1.0.0",

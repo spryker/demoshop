@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5768a1aef55ae569b402007522cec331",
+    "content-hash": "dc460abdeeaf57451bcf98a2b710387a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1859,11 +1859,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2300-product-availability-per-store",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c06531e2b2a869ee57579801079043617631b93d"
+                "reference": "5e622bb4fe1f10685659347fdb81ca044836911f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2063,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-01T11:38:14+00:00"
+            "time": "2017-12-06T14:08:30+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6770,7 +6770,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7680,7 +7680,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0",
+        "php": ">=7.1",
         "ext-bcmath": "*",
         "ext-curl": "*",
         "ext-gd": "*",
