@@ -117,6 +117,16 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     }
 
     /**
+     * @param array $collectItemData
+     *
+     * @return bool
+     */
+    protected function isStorable(array $collectItemData)
+    {
+        return $collectItemData['fk_store_connected'] !== null;
+    }
+
+    /**
      * @param string $touchKey
      * @param array $collectItemData
      *

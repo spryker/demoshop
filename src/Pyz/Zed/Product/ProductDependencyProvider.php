@@ -23,6 +23,8 @@ use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as I
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
+use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductAbstractReadPlugin as ProductManagementStoreConnectorProductAbstractReadPlugin;
+use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ProductManagementStoreConnectorProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteReadPlugin;
@@ -70,6 +72,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductAbstractReadPlugin(),
             new TaxSetProductAbstractReadPlugin(),
             new PriceProductAbstractReadPlugin(),
+            new ProductManagementStoreConnectorProductAbstractReadPlugin(),
         ];
     }
 
@@ -94,6 +97,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductAbstractAfterUpdatePlugin(),
             new TaxSetProductAbstractAfterUpdatePlugin(),
             new PriceProductAbstractAfterUpdatePlugin(),
+            new ProductManagementStoreConnectorProductAbstractAfterUpdatePlugin(),
         ];
     }
 
