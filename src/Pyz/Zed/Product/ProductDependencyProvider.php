@@ -23,6 +23,7 @@ use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as I
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
+use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductAbstractAfterCreatePlugin as ProductManagementStoreConnectorProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ProductManagementStoreConnectorProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductAbstractReadPlugin as ProductManagementStoreConnectorProductAbstractReadPlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterCreatePlugin;
@@ -58,6 +59,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductAbstractAfterCreatePlugin(),
             new TaxSetProductAbstractAfterCreatePlugin(),
             new PriceProductAbstractAfterCreatePlugin(),
+            new ProductManagementStoreConnectorProductAbstractAfterCreatePlugin(),
         ];
     }
 
