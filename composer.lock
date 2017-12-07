@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1da1d976b1c0174590aea4fbb51335d8",
+    "content-hash": "be7d693a04623f5029ab12a30940225d",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1859,11 +1859,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1765-multi-store-product-abstract",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f560e329b66224580a58959ed993da279096caef"
+                "reference": "27a62bda60b467cd031cc3389271814cb6fef6a7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1981,6 +1981,7 @@
                 "spryker/product-label-discount-connector": "*",
                 "spryker/product-label-gui": "*",
                 "spryker/product-management": "*",
+                "spryker/product-management-store-connector": "*",
                 "spryker/product-new": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
@@ -2063,7 +2064,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-06T14:10:00+00:00"
+            "time": "2017-12-07T16:16:23+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6770,7 +6771,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
