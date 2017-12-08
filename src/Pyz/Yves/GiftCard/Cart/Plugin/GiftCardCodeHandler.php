@@ -16,6 +16,9 @@ use Pyz\Yves\Cart\Plugin\CodeHandlerInterface;
 
 class GiftCardCodeHandler implements CodeHandlerInterface
 {
+    const CART_GIFT_CARD_APPLY_SUCCESSFUL = 'cart.giftcard.apply.successful';
+    const CART_GIFT_CARD_APPLY_FAILED = 'cart.giftcard.apply.failed';
+
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $code
@@ -105,8 +108,7 @@ class GiftCardCodeHandler implements CodeHandlerInterface
         foreach ($quoteTransfer->getNotApplicableGiftCardCodes() as $giftCardCode) {
             if ($giftCardCode === $code) {
                 $errorTransfer = new CodeCalculationErrorTransfer();
-                //TODO translate
-                $errorTransfer->setMessage('cart.giftcard.apply.non_applicable');
+                $errorTransfer->setMessage(static::CART_GIFT_CARD_APPLY_FAILED);
 
                 $result->addError($errorTransfer);
 
@@ -135,8 +137,7 @@ class GiftCardCodeHandler implements CodeHandlerInterface
      */
     public function getSuccessMessage(QuoteTransfer $quoteTransfer, $code)
     {
-        //TODO translate
-        return 'cart.giftcard.apply.successful';
+        return static::CART_GIFT_CARD_APPLY_SUCCESSFUL;
     }
 
     /**

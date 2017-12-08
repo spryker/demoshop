@@ -138,7 +138,8 @@ class StepFactory extends SprykerStepFactory
             $this->createPaymentMethodHandler(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
             ApplicationControllerProvider::ROUTE_HOME,
-            $this->getFlashMessenger()
+            $this->getFlashMessenger(),
+            $this->getCalculationClient()
         );
     }
 

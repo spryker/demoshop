@@ -11,6 +11,7 @@ use ArrayObject;
 use Generated\Shared\Transfer\PaymentMethodsTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Payment\PaymentClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Shared\Nopayment\NopaymentConfig;
@@ -37,6 +38,9 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     private $paymentClient;
 
+    /** @var  CalculationClientInterface */
+    protected $calculationClient;
+
     /**
      * @param \Spryker\Client\Payment\PaymentClientInterface $paymentClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $paymentPlugins
@@ -49,13 +53,15 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
         StepHandlerPluginCollection $paymentPlugins,
         $stepRoute,
         $escapeRoute,
-        FlashMessengerInterface $flashMessenger
+        FlashMessengerInterface $flashMessenger,
+        CalculationClientInterface $calculationClient
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->paymentPlugins = $paymentPlugins;
         $this->flashMessenger = $flashMessenger;
         $this->paymentClient = $paymentClient;
+        $this->calculationClient = $calculationClient;
     }
 
     /**
@@ -66,12 +72,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     public function requireInput(AbstractTransfer $quoteTransfer)
     {
         $totals = $quoteTransfer->getTotals();
-
-        if (!$totals) {
-            return true;
-        }
-
-        return $totals->getPriceToPay() > 0;
+        return !$totals || $totals->getPriceToPay() > 0;
     }
 
     /**
@@ -93,7 +94,9 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
             if ($paymentHandler instanceof StepHandlerPluginWithMessengerInterface) {
                 $paymentHandler->setFlashMessenger($this->flashMessenger);
             }
+
             $paymentHandler->addToDataClass($request, $quoteTransfer);
+            $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
         }
 
         return $quoteTransfer;
@@ -106,14 +109,14 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     protected function getPaymentSelectionWithFallback(QuoteTransfer $quoteTransfer)
     {
-        $payment = $quoteTransfer->getPayment();
-
         if ($quoteTransfer->getTotals()->getPriceToPay() === 0) {
             return NopaymentConfig::PAYMENT_PROVIDER_NAME;
         }
 
-        if ($payment) {
-            return $payment->getPaymentSelection();
+        $paymentTransfer = $quoteTransfer->getPayment();
+
+        if ($paymentTransfer) {
+            return $paymentTransfer->getPaymentSelection();
         }
 
         return null;
@@ -126,12 +129,6 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        $totals = $quoteTransfer->getTotals();
-
-        if (!$totals) {
-            return false;
-        }
-
         $paymentCollection = $this->getPaymentCollection($quoteTransfer);
 
         if ($paymentCollection->count() === 0) {
@@ -158,7 +155,6 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
         $singlePayment = $quoteTransfer->getPayment();
 
         if ($singlePayment) {
-            $singlePayment->setAmount($quoteTransfer->getTotals()->getPriceToPay());
             $result[] = $singlePayment;
         }
 

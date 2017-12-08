@@ -11,20 +11,17 @@
         </states>
 
         <transitions>
-            <transition happy="true">
+            <transition>
                 <source>gift card replacement pending</source>
                 <target>gift card replacement completed</target>
                 <event>replace giftcards</event>
             </transition>
-
         </transitions>
 
         <events>
-            <!-- TODO enable the second line if you want to replace gift cards -->
-            <event name="replace giftcards" onEnter="true" />
-            <!--<event name="replace giftcards" onEnter="true" command="GiftCard/ReplaceGiftCards" />-->
+            <event name="start giftcard replacement" manual="true" onEnter="true"/>
+            <event name="replace giftcards" onEnter="true" command="GiftCard/ReplaceGiftCards" />
             <event name="complete giftcard replacement" onEnter="true" />
-            <event name="start giftcard replacement" onEnter="true" />
         </events>
     </process>
 </statemachine>

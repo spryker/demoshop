@@ -15,33 +15,12 @@ use Spryker\Zed\GiftCardBalance\Communication\Plugin\GiftCardBalanceValueProvide
 
 class GiftCardDependencyProvider extends SprykerGiftCardDependencyProvider
 {
-    //TODO evaluate strategies: replace gift card vs balance approach
-    //balance: requires module GiftCardBalance, otherwise leave as is
-    //replacement: GiftCardBalance not needed, uncomment lines below, see RecreateGiftCards process
-
-    /**
-     * @return \Spryker\Zed\GiftCard\Dependency\Plugin\GiftCardDecisionRulePluginInterface[]
-     */
-    protected function getDecisionRulePlugins()
-    {
-        return [
-            new GiftCardIsActiveDecisionRulePlugin(),
-            new BalanceCheckerApplicabilityPlugin(),
-        ];
-
-        // for replacement:
-        // return $this->getRecreateDecisionRulePlugins();
-    }
-
     /**
      * @return \Spryker\Zed\GiftCard\Dependency\Plugin\GiftCardValueProviderPluginInterface
      */
     protected function getValueProviderPlugin()
     {
         return new GiftCardBalanceValueProviderPlugin();
-
-        // for replacement:
-        // return new GiftCardRecreateValueProviderPlugin();
     }
 
     /**
