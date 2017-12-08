@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1da1d976b1c0174590aea4fbb51335d8",
+    "content-hash": "3b0137df8fb61828680e3a5d516c9fd1",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1730,29 +1730,29 @@
             "time": "2017-10-24T10:37:10+00:00"
         },
         {
-            "name": "spryker/deploy",
+            "name": "spryker/install",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/deploy.git",
-                "reference": "64d2bef207a5835a625c1051647b66e5c47dd17c"
+                "url": "git@github.com:spryker/install.git",
+                "reference": "4977af4332edce1e7607cd2fe436565dfb9ea484"
             },
             "require": {
                 "monolog/monolog": "^1.23",
-                "php": ">=7.0",
+                "php": ">=7.1",
                 "symfony/console": "^3.0.0",
                 "symfony/process": "^3.0.0",
                 "symfony/yaml": "^3.0.0"
             },
             "require-dev": {
-                "codeception/codeception": "^2.2.10",
+                "codeception/codeception": "*",
                 "php-coveralls/php-coveralls": "^1.0",
                 "phpstan/phpstan": "^0.8.5",
                 "spryker/code-sniffer": "dev-master as 1.0.0",
                 "symfony/var-dumper": "^3.0.0"
             },
             "bin": [
-                "bin/deploy"
+                "bin/install"
             ],
             "type": "library",
             "autoload": {
@@ -1769,7 +1769,7 @@
                 "MIT"
             ],
             "description": "Project",
-            "time": "2017-11-28T10:24:17+00:00"
+            "time": "2017-12-08T15:52:16+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1863,7 +1863,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f560e329b66224580a58959ed993da279096caef"
+                "reference": "f5b0bf396f1daa5cfd96dddf5d3d5af55c0a44b9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2063,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-06T14:10:00+00:00"
+            "time": "2017-12-07T10:34:27+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5194,26 +5194,26 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "0c50874333149c0dad5a2877801aed148f2767ff"
+                "reference": "9392319cbed95b12756945354c8b22be314b9c2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/0c50874333149c0dad5a2877801aed148f2767ff",
-                "reference": "0c50874333149c0dad5a2877801aed148f2767ff",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/9392319cbed95b12756945354c8b22be314b9c2b",
+                "reference": "9392319cbed95b12756945354c8b22be314b9c2b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.7",
-                "symfony/config": "^2.3.0|^3",
-                "symfony/dependency-injection": "^2.3.0|^3",
-                "symfony/filesystem": "^2.3.0|^3"
+                "symfony/config": "^2.3.0|^3|^4",
+                "symfony/dependency-injection": "^2.3.0|^3|^4",
+                "symfony/filesystem": "^2.3.0|^3|^4"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.4.0,<4.8",
+                "phpunit/phpunit": "^4.8|^5.7",
                 "squizlabs/php_codesniffer": "^2.0.0"
             },
             "bin": [
@@ -5230,7 +5230,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-01-19T14:23:36+00:00"
+            "time": "2017-12-06T21:23:07+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -6789,7 +6789,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "2621122211a37dfa1500f12d10a4850a70297859",
+                "reference": "44ca169341da400d3552ba7c18eb842ed9616339",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6799,8 +6799,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/2621122211a37dfa1500f12d10a4850a70297859",
-                "reference": "2621122211a37dfa1500f12d10a4850a70297859",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/44ca169341da400d3552ba7c18eb842ed9616339",
+                "reference": "44ca169341da400d3552ba7c18eb842ed9616339",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6820,12 +6820,12 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "ArchitectureSniffer\\": "src"
+                    "ArchitectureSniffer\\": "src/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "ArchitectureSniffer\\Test\\": "tests"
+                    "ArchitectureSniffer\\Test\\": "tests/"
                 }
             },
             "notification-url": "https://code.spryker.com/repo/private/downloads/",
@@ -6861,7 +6861,7 @@
                 "source": "https://github.com/spryker/architecture-sniffer",
                 "issues": "https://github.com/spryker/architecture-sniffer/issues"
             },
-            "time": "2017-11-07T13:29:11+00:00"
+            "time": "2017-12-07T14:54:26+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -7248,25 +7248,25 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.4.1",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "27810742895ad89e706ba5028e4f8fe425792b50"
+                "reference": "652d10dbeabeb6f1cd5b8872dd28a33b045f2f12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/27810742895ad89e706ba5028e4f8fe425792b50",
-                "reference": "27810742895ad89e706ba5028e4f8fe425792b50",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/652d10dbeabeb6f1cd5b8872dd28a33b045f2f12",
+                "reference": "652d10dbeabeb6f1cd5b8872dd28a33b045f2f12",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^7.1.3",
                 "psr/container": "^1.0"
             },
             "conflict": {
-                "symfony/config": "<3.3.1",
-                "symfony/finder": "<3.3",
+                "symfony/config": "<3.4",
+                "symfony/finder": "<3.4",
                 "symfony/proxy-manager-bridge": "<3.4",
                 "symfony/yaml": "<3.4"
             },
@@ -7274,8 +7274,8 @@
                 "psr/container-implementation": "1.0"
             },
             "require-dev": {
-                "symfony/config": "~3.3|~4.0",
-                "symfony/expression-language": "~2.8|~3.0|~4.0",
+                "symfony/config": "~3.4|~4.0",
+                "symfony/expression-language": "~3.4|~4.0",
                 "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
@@ -7288,7 +7288,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -7315,7 +7315,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-04T19:20:32+00:00"
+            "time": "2017-12-04T20:15:30+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -7663,7 +7663,7 @@
             "alias": "1.0.0",
             "alias_normalized": "1.0.0.0",
             "version": "9999999-dev",
-            "package": "spryker/deploy"
+            "package": "spryker/install"
         }
     ],
     "minimum-stability": "dev",
@@ -7671,7 +7671,7 @@
         "spryker/spryker": 20,
         "spryker-eco/loggly": 20,
         "spryker/rabbit-mq": 20,
-        "spryker/deploy": 20,
+        "spryker/install": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20,
