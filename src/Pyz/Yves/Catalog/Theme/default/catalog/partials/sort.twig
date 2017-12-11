@@ -8,7 +8,6 @@
         <div class="small-12 medium-2 xlarge-2 columns">
             <label>
                 <select name="ipp" class="__no-margin-bottom" data-default-value="{{ pagination.config.defaultItemsPerPage }}" >
-                    <option value="">{{ 'catalog.limit' | trans }}</option>
                     {% for limit in pagination.config.validItemsPerPageOptions %}
                         <option value="{{ limit }}" {% if limit == pagination.currentItemsPerPage %}selected{% endif %}>{{ limit }}</option>
                     {% endfor %}
