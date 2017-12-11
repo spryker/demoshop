@@ -31,7 +31,7 @@ class DevelopmentConfig extends SprykerDevelopmentConfig
      */
     public function getPathToShop()
     {
-        return $this->getPathToRoot() . 'vendor/spryker-shop/Bundles/';
+        return $this->getPathToRoot() . 'vendor/spryker/spryker-shop/Bundles/';
     }
 
     /**
