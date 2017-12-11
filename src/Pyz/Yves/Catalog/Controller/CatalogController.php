@@ -41,7 +41,8 @@ class CatalogController extends AbstractController
             ->catalogSearch($searchString, $parameters);
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
-        $viewMode = $this->getFactory()->createCatalogViewModePersistence()->getViewMode($request);
+        $viewMode = $this->getClient()->getCatalogViewMode($request);
+
         $metaAttributes = [
             'idCategory' => $parameters['category'],
             'category' => $categoryNode,
@@ -88,9 +89,7 @@ class CatalogController extends AbstractController
 
         $response = $this->redirectResponseExternal($refererUrl);
 
-        return $this->getFactory()
-            ->createCatalogViewModePersistence()
-            ->setViewMode($viewMode, $response);
+        return $this->getClient()->setCatalogViewMode($viewMode, $response);
     }
 
     /**

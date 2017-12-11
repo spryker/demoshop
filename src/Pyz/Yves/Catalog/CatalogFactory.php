@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Catalog;
 
 use Pyz\Yves\Catalog\ActiveSearchFilter\UrlGenerator;
-use Pyz\Yves\Catalog\Listing\CatalogViewModePersistence;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class CatalogFactory extends AbstractFactory
@@ -35,14 +34,6 @@ class CatalogFactory extends AbstractFactory
     public function getLocaleClient()
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_LOCALE);
-    }
-
-    /**
-     * @return \Pyz\Yves\Catalog\Listing\CatalogViewModePersistence
-     */
-    public function createCatalogViewModePersistence()
-    {
-        return new CatalogViewModePersistence();
     }
 
     /**
