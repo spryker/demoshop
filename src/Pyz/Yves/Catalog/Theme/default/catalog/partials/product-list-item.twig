@@ -1,0 +1,58 @@
+{# mandatory #}
+{% set name = name %}
+{% set detailsUrl = detailsUrl %}
+{% set priceValue = priceValue %}
+
+{# optional #}
+{% set class = class | default('') %}
+{% set imageUrl = imageUrl | default('') %}
+{% set productLabels = productLabels | default(null) %}
+{% set idProductAbstract = idProductAbstract | default(null) %}
+{% set originalPrice = originalPrice | default(null) %}
+{% set averageRating = averageRating | default(null) %}
+
+<div class="{{ class }} js-product-container">
+    <div class="callout">
+        <div class="row">
+            <div class="small-3 medium-2 columns">
+                <a href="{{ detailsUrl }}" class="thumbnail __preview-image __preview-image--small __no-margin-bottom">
+                    <img src="{{ imageUrl }}">
+                </a>
+            </div>
+            <div class="small-6 medium-7 xlarge-8 columns">
+                {% if productLabels %}
+                    {{ productLabels | raw }}
+                {% endif %}
+                {% if idProductAbstract %}
+                    {% block productGroups %}
+                        {{ spyProductGroupItems(idProductAbstract, '@ProductGroup/partials/product-group-items.twig') }}
+                    {% endblock %}
+                {% endif %}
+
+                <p class="__no-margin-bottom">
+                    <strong>{{ name  }}</strong>
+                </p>
+
+                {% if averageRating %}
+                    {% include '@ProductReview/partials/read-only-rating.twig' with {'rating': averageRating } %}
+                {% elseif idProductAbstract %}
+                    {% block productReview %}
+                        {{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}
+                    {% endblock %}
+                {% endif %}
+
+                <p>
+                    {% if originalPrice %}
+                        <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
+                        <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
+                    {% else %}
+                        {{ priceValue | money }}
+                    {% endif %}
+                </p>
+            </div>
+            <div class="small-3 xlarge-2 columns align-self-bottom">
+                <a class="button small expanded __no-margin-bottom" href="{{ detailsUrl }}">{{ 'product.view' | trans }} &raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>

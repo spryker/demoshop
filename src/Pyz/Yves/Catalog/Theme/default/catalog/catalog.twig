@@ -1,18 +1,35 @@
+{% set isViewModeEnabled = view_mode is defined %}
+{% set isGridViewMode = isViewModeEnabled ? view_mode == 'grid' : true %}
+
 <form method="GET" data-component="catalog-filter-form">
     <div class="row">
 
         {% include '@Catalog/catalog/partials/spelling-suggestion.twig' %}
 
         <div class="small-12 medium-12 large-4 xlarge-3 columns">
+            {% if isViewModeEnabled %}
+                <div class="show-for-large">
+                    {% include '@Catalog/catalog/partials/catalog-view-mode.twig' %}
+                </div>
+            {% endif %}
+
             <input id="catalog-filters" type="checkbox" class="__toggler __no-margin-bottom hide" checked>
+            
             <div class="callout hide-for-large">
                 <label for="catalog-filters" class="button hollow expanded __no-margin-bottom">
                     <i class="fa fa-filter"></i> Show/Hide filters
                 </label>
             </div>
+            
             <div class="__toggler-target">
                 {% include '@Catalog/catalog/partials/filters.twig' %}
             </div>
+
+            {% if isViewModeEnabled %}
+                <div class="hide-for-large">
+                    {% include '@Catalog/catalog/partials/catalog-view-mode.twig' %}
+                </div>
+            {% endif %}
         </div>
 
         <div class="small-12 medium-12 large-8 xlarge-9 columns">
@@ -23,21 +40,33 @@
 
             {% include '@Catalog/catalog/partials/pagination.twig' %}
 
-            {% include '@Catalog/catalog/partials/catalog-view-mode.twig' %}
-
             <div class="row">
                 {% for product in products %}
-                    {% include "@catalog/catalog/partials/product.twig" with {
-                        class: 'small-12 medium-6 large-6 xlarge-4 columns',
-                        idProductAbstract: product.id_product_abstract,
-                        detailsUrl: product.url,
-                        name: product.abstract_name,
-                        priceValue: product.price,
-                        originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null),
-                        imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
-                        productLabels: spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig'),
-                        averageRating: (product.rating is defined ? product.rating : null)
-                    } %}
+                    {% if isGridViewMode %}
+                        {% include "@catalog/catalog/partials/product.twig" with {
+                            class: 'small-12 medium-6 large-6 xlarge-4 columns',
+                            idProductAbstract: product.id_product_abstract,
+                            detailsUrl: product.url,
+                            name: product.abstract_name,
+                            priceValue: product.price,
+                            originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null),
+                            imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
+                            productLabels: spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig'),
+                            averageRating: (product.rating is defined ? product.rating : null)
+                        } %}
+                    {% else %}
+                        {% include "@catalog/catalog/partials/product-list-item.twig" with {
+                            class: 'small-12 columns',
+                            idProductAbstract: product.id_product_abstract,
+                            detailsUrl: product.url,
+                            name: product.abstract_name,
+                            priceValue: product.price,
+                            originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null),
+                            imageUrl: (product.images|length ? product.images.0.external_url_small : ''),
+                            productLabels: spyProductLabels(product.id_product_labels, '@Catalog/catalog/partials/product-labels.twig'),
+                            averageRating: (product.rating is defined ? product.rating : null)
+                        } %}
+                    {% endif %}
                 {% endfor %}
             </div>
 
