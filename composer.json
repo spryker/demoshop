@@ -65,7 +65,6 @@
     "spryker/customer-user-connector": "^1.0.0",
     "spryker/customer-user-connector-gui": "^1.0.0",
     "spryker/data-import": "^1.0.0",
-    "spryker/deploy": "^0.1.0",
     "spryker/discount": "^5.0.0",
     "spryker/discount-calculation-connector": "^5.0.0",
     "spryker/discount-promotion": "^1.0.0",
@@ -87,6 +86,7 @@
     "spryker/gui": "^3.0.0",
     "spryker/guzzle": "^2.0.0",
     "spryker/heartbeat": "^3.0.0",
+    "spryker/install": "^0.1.0",
     "spryker/installer": "^4.0.0",
     "spryker/invoice": "^2.0.0",
     "spryker/kernel": "^3.0.0",
@@ -253,7 +253,7 @@
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/deploy.git"
+      "url": "git@github.com:spryker/install.git"
     }
   ],
   "scripts": {
