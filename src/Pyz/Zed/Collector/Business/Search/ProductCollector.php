@@ -58,7 +58,7 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function isStorable(array $collectItemData)
     {
-        return $collectItemData['fk_store_connected'] !== null;
+        return $collectItemData['is_in_store'] !== null;
     }
 
     /**

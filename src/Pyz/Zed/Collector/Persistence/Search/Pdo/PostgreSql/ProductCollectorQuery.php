@@ -43,7 +43,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', cast(spy_product_search.is_searchable as TEXT))) AS product_searchable_status_aggregation,
                 AVG(spy_product_review.rating)                                  AS average_rating,
                 COUNT(spy_product_review.fk_product_abstract)                   AS review_count,
-                spy_product_abstract_store.fk_store                             AS fk_store_connected,
+                spy_product_abstract_store.fk_store                             AS is_in_store,
                 spy_touch.id_touch                                              AS %s,
                 spy_touch.item_id                                               AS %s,
                 spy_touch_search.id_touch_search                                AS %s
