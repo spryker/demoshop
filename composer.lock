@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d702610bf5d128f8f0bac89289d5efc",
+    "content-hash": "8df4d9b6ae2fe490e2d41f249ac642e5",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.45.1",
+            "version": "3.45.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "30c021958edfbe267d062e3b6356c7f8a94d1ea0"
+                "reference": "d0abb0b1194fa64973b135191f56df991bc5787c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/30c021958edfbe267d062e3b6356c7f8a94d1ea0",
-                "reference": "30c021958edfbe267d062e3b6356c7f8a94d1ea0",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d0abb0b1194fa64973b135191f56df991bc5787c",
+                "reference": "d0abb0b1194fa64973b135191f56df991bc5787c",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-12-06T21:44:04+00:00"
+            "time": "2017-12-08T21:36:50+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -2021,11 +2021,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "3.8.1",
+            "version": "3.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "d7a16625d54c291e29fc93f17521b5acc8109c9c",
+                "reference": "13e36985249abd4094552db2dd9907922d70855f",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2035,8 +2035,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/d7a16625d54c291e29fc93f17521b5acc8109c9c",
-                "reference": "d7a16625d54c291e29fc93f17521b5acc8109c9c",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/13e36985249abd4094552db2dd9907922d70855f",
+                "reference": "13e36985249abd4094552db2dd9907922d70855f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2088,7 +2088,7 @@
             "support": {
                 "source": "https://github.com/spryker/Application/tree/master"
             },
-            "time": "2017-11-30T10:15:46+00:00"
+            "time": "2017-12-11T08:03:04+00:00"
         },
         {
             "name": "spryker/assertion",
@@ -5180,48 +5180,6 @@
             "time": "2017-09-18T07:58:07+00:00"
         },
         {
-            "name": "spryker/deploy",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/deploy.git",
-                "reference": "64d2bef207a5835a625c1051647b66e5c47dd17c"
-            },
-            "require": {
-                "monolog/monolog": "^1.23",
-                "php": ">=7.0",
-                "symfony/console": "^3.0.0",
-                "symfony/process": "^3.0.0",
-                "symfony/yaml": "^3.0.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "^2.2.10",
-                "php-coveralls/php-coveralls": "^1.0",
-                "phpstan/phpstan": "^0.8.5",
-                "spryker/code-sniffer": "dev-master as 1.0.0",
-                "symfony/var-dumper": "^3.0.0"
-            },
-            "bin": [
-                "bin/deploy"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Project",
-            "time": "2017-11-28T10:24:17+00:00"
-        },
-        {
             "name": "spryker/discount",
             "version": "5.1.2",
             "source": {
@@ -6557,6 +6515,48 @@
                 "source": "https://github.com/spryker/Heartbeat/tree/3.2.0"
             },
             "time": "2017-08-10T13:34:30+00:00"
+        },
+        {
+            "name": "spryker/install",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/install.git",
+                "reference": "4977af4332edce1e7607cd2fe436565dfb9ea484"
+            },
+            "require": {
+                "monolog/monolog": "^1.23",
+                "php": ">=7.1",
+                "symfony/console": "^3.0.0",
+                "symfony/process": "^3.0.0",
+                "symfony/yaml": "^3.0.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "*",
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpstan/phpstan": "^0.8.5",
+                "spryker/code-sniffer": "dev-master as 1.0.0",
+                "symfony/var-dumper": "^3.0.0"
+            },
+            "bin": [
+                "bin/install"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Project",
+            "time": "2017-12-08T15:52:16+00:00"
         },
         {
             "name": "spryker/installer",
