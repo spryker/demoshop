@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1da1d976b1c0174590aea4fbb51335d8",
+    "content-hash": "9acfdca8f52752ab321f714109d434e3",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1859,11 +1859,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-1752-multi-currency-product-options",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f560e329b66224580a58959ed993da279096caef"
+                "reference": "4e7531af86720e686e7dc102d39e5efb09fcaaa8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1888,6 +1888,7 @@
                 "spryker/cart-currency-connector": "*",
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
+                "spryker/catalog-price-product-connector": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
@@ -1965,6 +1966,7 @@
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
+                "spryker/price-product": "*",
                 "spryker/product": "*",
                 "spryker/product-attribute": "*",
                 "spryker/product-attribute-gui": "*",
@@ -2010,6 +2012,7 @@
                 "spryker/session": "*",
                 "spryker/setup": "*",
                 "spryker/shipment": "*",
+                "spryker/shipment-cart-connector": "*",
                 "spryker/silex": "*",
                 "spryker/sql-criteria-builder": "*",
                 "spryker/state-machine": "*",
@@ -2063,7 +2066,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-06T14:10:00+00:00"
+            "time": "2017-12-11T09:27:03+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6770,7 +6773,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
