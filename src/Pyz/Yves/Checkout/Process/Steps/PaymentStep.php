@@ -38,7 +38,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     private $paymentClient;
 
-    /** @var  CalculationClientInterface */
+    /** @var \Spryker\Client\Calculation\CalculationClientInterface */
     protected $calculationClient;
 
     /**
