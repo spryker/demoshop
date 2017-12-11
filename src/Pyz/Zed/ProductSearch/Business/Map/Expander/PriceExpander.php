@@ -77,7 +77,7 @@ class PriceExpander implements ProductPageMapExpanderInterface
         array $productData
     ) {
 
-        $pricesGrouped = $this->priceProductFacade->findPricesBySkuGrouped($productData['abstract_sku']);
+        $pricesGrouped = $this->priceProductFacade->findPricesBySkuGroupedForCurrentStore($productData['abstract_sku']);
 
         foreach ($pricesGrouped as $currencyIsoCode => $pricesByPriceMode) {
             foreach ($pricesByPriceMode as $priceMode => $pricesByType) {

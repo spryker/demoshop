@@ -185,7 +185,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function getPrices($sku)
     {
-        return $this->priceProductFacade->findPricesBySkuGrouped($sku);
+        return $this->priceProductFacade->findPricesBySkuGroupedForCurrentStore($sku);
     }
 
     /**
