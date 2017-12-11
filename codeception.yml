@@ -4,6 +4,7 @@ actor: Tester
 include:
     - tests/PyzTest/*/*
     - vendor/spryker/spryker/Bundles/*/*
+    - vendor/spryker/rabbit-mq
 
 paths:
     tests: tests
