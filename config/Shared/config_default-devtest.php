@@ -72,6 +72,9 @@ $config[TwigConstants::YVES_TWIG_OPTIONS] = [
     'cache' => false,
 ];
 
+// ---------- Logging
+$config[LogConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/logs';
+
 // ---------- Jenkins
 $config[SetupConstants::JENKINS_BASE_URL] = 'http://localhost:10007/';
 $config[SetupConstants::JENKINS_DIRECTORY] = '/data/shop/development/shared/data/common/jenkins';
