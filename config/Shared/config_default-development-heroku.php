@@ -70,13 +70,9 @@ $ELASTICA_AUTH_HEADER = str_pad(
     STR_PAD_RIGHT
 );
 $ELASTICA_PORT = ($ENV_ELASTICA_CONNECTION_DATA['scheme'] == 'https' ? 443 : 80);
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
 $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $ENV_ELASTICA_CONNECTION_DATA['host'];
 $config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ENV_ELASTICA_CONNECTION_DATA['host'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $ENV_ELASTICA_CONNECTION_DATA['scheme'];
 $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ENV_ELASTICA_CONNECTION_DATA['scheme'];
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 
 // ---------- Jenkins

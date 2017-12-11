@@ -3,7 +3,7 @@
   "description": "Demoshop",
   "license": "MIT",
   "require": {
-    "php": ">=5.6.0",
+    "php": ">=7.1",
     "ext-bcmath": "*",
     "ext-curl": "*",
     "ext-gd": "*",
@@ -55,7 +55,7 @@
     "spryker/collector-search-connector": "^1.0.0",
     "spryker/collector-storage-connector": "^1.0.0",
     "spryker/config": "^3.0.0",
-    "spryker/console": "^3.0.0",
+    "spryker/console": "^4.0.0",
     "spryker/country": "^3.0.0",
     "spryker/currency": "^3.0.0",
     "spryker/customer": "^7.0.0",
@@ -86,6 +86,7 @@
     "spryker/gui": "^3.0.0",
     "spryker/guzzle": "^2.0.0",
     "spryker/heartbeat": "^3.0.0",
+    "spryker/install": "^0.1.0",
     "spryker/installer": "^4.0.0",
     "spryker/invoice": "^2.0.0",
     "spryker/kernel": "^3.0.0",
@@ -159,6 +160,7 @@
     "spryker/sequence-number": "^3.0.0",
     "spryker/session": "^3.0.0",
     "spryker/setup": "^4.0.0",
+    "spryker/setup-frontend": "^1.0.0",
     "spryker/shipment": "^6.0.0",
     "spryker/shipment-discount-connector": "^1.0.0",
     "spryker/silex": "^2.0.0",
@@ -248,6 +250,10 @@
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/install.git"
     }
   ],
   "scripts": {

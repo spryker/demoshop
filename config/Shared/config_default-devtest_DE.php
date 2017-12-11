@@ -6,11 +6,13 @@
 
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
@@ -64,7 +66,9 @@ $config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_devtest_zed';
 
 // ---------- Elasticsearch
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = 'de_search_devtest';
+$config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME]
+    = 'de_search_devtest';
 
 // ---------- RabbitMq
 $config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';

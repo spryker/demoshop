@@ -2,12 +2,9 @@
 
 use Pyz\Yves\Application\YvesBootstrap;
 use Spryker\Shared\Config\Application\Environment;
-
 use Spryker\Shared\ErrorHandler\ErrorHandlerEnvironment;
 
-if (extension_loaded('newrelic')) {
-    newrelic_start_transaction(getenv('NEW_RELIC_APP_NAME'), getenv('NEW_RELIC_LICENSE_KEY'));
-}
+require __DIR__ . '/maintenance/maintenance.php';
 
 define('APPLICATION', 'YVES');
 defined('APPLICATION_ROOT_DIR') || define('APPLICATION_ROOT_DIR', realpath(__DIR__ . '/../..'));
