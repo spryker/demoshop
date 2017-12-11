@@ -1,9 +1,5 @@
 {% extends "@application/layout/layout.twig" %}
 
-{% set maxQuantity = 10 %}
-{% set availability = product.numberOfAvailableItems | default(1) %}
-{% set quantityLimit = availability > maxQuantity ? maxQuantity : availability %}
-
 {% block page_title %}
     {% if product.metaTitle %}
         {{ product.metaTitle }}
@@ -100,17 +96,13 @@
 
             <form method="POST" action="{{ path('cart/add', {'sku': product.sku }) }}">
                 {% include '@Product/product/partials/product-options.twig' %}
-                
+
                 <div class="callout">
                     <div class="row align-bottom">
                         <div class="small-4 xlarge-3 columns __no-margin-bottom">
                             <label>
                                 {{ 'cart.item_quantity' | trans }}
-                                <select name="quantity" class="__no-margin-bottom">
-                                    {% for quantityIndex in 1..quantityLimit %}
-                                        <option value="{{quantityIndex}}">{{quantityIndex}}</option>
-                                    {% endfor %}
-                                </select>
+                                <input type="number" name="quantity" value="1" class="__no-margin-bottom" />
                             </label>
                         </div>
 

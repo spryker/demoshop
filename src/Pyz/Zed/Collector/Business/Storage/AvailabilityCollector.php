@@ -9,7 +9,6 @@ namespace Pyz\Zed\Collector\Business\Storage;
 use Generated\Shared\Transfer\StorageAvailabilityTransfer;
 use Orm\Zed\Availability\Persistence\Base\SpyAvailabilityQuery;
 use Orm\Zed\Availability\Persistence\SpyAvailability;
-use Propel\Runtime\Collection\ObjectCollection;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery;
 use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
@@ -24,55 +23,32 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function collectItem($touchKey, array $collectItemData)
     {
-        $productConcreteAvailability = $this->findProductAvailabilityByIdAvailabilityAbstract($collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]);
-        $concreteProductsAvailability = $this->getConcreteProductsAvailability($productConcreteAvailability);
+        $concreteProductsAvailability = $this->getConcreteProductsAvailability(
+            $collectItemData[AvailabilityCollectorQuery::ID_AVAILABILITY_ABSTRACT]
+        );
 
         return [
             StorageAvailabilityTransfer::IS_ABSTRACT_PRODUCT_AVAILABLE => $this->isProductAbstractAvailable($concreteProductsAvailability),
             StorageAvailabilityTransfer::CONCRETE_PRODUCT_AVAILABLE_ITEMS => $concreteProductsAvailability,
-            StorageAvailabilityTransfer::CONCRETE_PRODUCT_QUANTITY_ITEMS => $this->getConcreteProductsQuantity($productConcreteAvailability),
         ];
     }
 
     /**
-     * @param \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\Availability\Persistence\SpyAvailability[] $productConcreteAvailability
+     * @param int $idAvailabilityAbstact
      *
      * @return array
      */
-    protected function getConcreteProductsAvailability(ObjectCollection $productConcreteAvailability)
+    protected function getConcreteProductsAvailability($idAvailabilityAbstact)
     {
+        $productConcreteAvailability = SpyAvailabilityQuery::create()
+            ->findByFkAvailabilityAbstract($idAvailabilityAbstact);
+
         $concreteProductStock = [];
         foreach ($productConcreteAvailability as $availabilityEntity) {
             $concreteProductStock[$availabilityEntity->getSku()] = $this->isProductConcreteAvailable($availabilityEntity);
         }
 
         return $concreteProductStock;
-    }
-
-    /**
-     * @param \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\Availability\Persistence\SpyAvailability[] $productConcreteAvailability
-     *
-     * @return array
-     */
-    protected function getConcreteProductsQuantity(ObjectCollection $productConcreteAvailability)
-    {
-        $concreteProductStock = [];
-        foreach ($productConcreteAvailability as $availabilityEntity) {
-            $concreteProductStock[$availabilityEntity->getSku()] = $availabilityEntity->getQuantity();
-        }
-
-        return $concreteProductStock;
-    }
-
-    /**
-     * @param int $idAvailabilityAbstract
-     *
-     * @return \Orm\Zed\Availability\Persistence\SpyAvailability[]
-     */
-    protected function findProductAvailabilityByIdAvailabilityAbstract($idAvailabilityAbstract)
-    {
-        return SpyAvailabilityQuery::create()
-            ->findByFkAvailabilityAbstract($idAvailabilityAbstract);
     }
 
     /**
