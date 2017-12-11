@@ -46,6 +46,7 @@ use Pyz\Zed\DataImport\Business\Model\ProductLabel\Hook\ProductLabelAfterImportT
 use Pyz\Zed\DataImport\Business\Model\ProductLabel\ProductLabelWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute\ProductManagementAttributeWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductManagementAttribute\ProductManagementLocalizedAttributesExtractorStep;
+use Pyz\Zed\DataImport\Business\Model\ProductManagementStoreConnector\ProductAbstractStoreWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductOption\ProductOptionWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductPrice\ProductPriceWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductRelation\Hook\ProductRelationAfterImportHook;
@@ -98,6 +99,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createProductAttributeKeyImporter())
             ->addDataImporter($this->createProductManagementAttributeImporter())
             ->addDataImporter($this->createProductAbstractImporter())
+            ->addDataImporter($this->createProductAbstractStoreImporter())
             ->addDataImporter($this->createProductConcreteImporter())
             ->addDataImporter($this->createProductImageImporter())
             ->addDataImporter($this->createProductStockImporter())
@@ -684,6 +686,25 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
                 $this->createProductRepository(),
                 $this->getTouchFacade(),
                 ProductAbstractWriterStep::BULK_SIZE
+            ));
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createProductAbstractStoreImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getProductAbstractStoreDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(ProductAbstractStoreWriterStep::BULK_SIZE);
+        $dataSetStepBroker
+            ->addStep(new ProductAbstractStoreWriterStep(
+                $this->getTouchFacade(),
+                ProductAbstractStoreWriterStep::BULK_SIZE
             ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
