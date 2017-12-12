@@ -1899,6 +1899,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "82a5a43d28df54d32fd4476608b2c1a57230c639"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
@@ -1928,8 +1929,17 @@
 =======
                 "reference": "fc456f44ade0912f401fa046b661678949de18f5"
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+<<<<<<< HEAD
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+<<<<<<< HEAD
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+=======
+=======
+=======
+                "reference": "33997ce5e2a8200d1d891773553e4ebd55105086"
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2134,6 +2144,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 =======
@@ -2144,6 +2155,8 @@
 >>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+=======
+>>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-13T14:23:45+00:00"
 =======
@@ -2155,6 +2168,8 @@
 >>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+=======
+>>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-12T18:20:05+00:00"
 =======
@@ -2204,8 +2219,17 @@
 =======
             "time": "2017-12-12T09:51:37+00:00"
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+<<<<<<< HEAD
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+<<<<<<< HEAD
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+=======
+=======
+=======
+            "time": "2017-12-12T11:04:41+00:00"
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
+>>>>>>> core-2247 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
