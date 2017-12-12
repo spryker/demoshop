@@ -40,7 +40,6 @@ class ProductAbstractStoreWriterStep extends TouchAwareStep implements DataImpor
      */
     public function execute(DataSetInterface $dataSet)
     {
-        // TODO: bulk insert
         $relation = new SpyProductAbstractStore();
         $relation->setFkProductAbstract($this->getIdProductAbstractBySku($dataSet[static::KEY_PRODUCT_ABSTRACT_SKU]));
         $relation->setFkStore($this->getIdStoreByName($dataSet[static::KEY_STORE_NAME]));
