@@ -1900,6 +1900,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "82a5a43d28df54d32fd4476608b2c1a57230c639"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
@@ -1937,6 +1938,11 @@
 =======
 =======
                 "reference": "33997ce5e2a8200d1d891773553e4ebd55105086"
+>>>>>>> core-2247 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "c04393dec8b39d07238fb90c8ebfaa025f0cdd3d"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
@@ -2145,6 +2151,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 =======
@@ -2155,6 +2162,8 @@
 >>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+=======
+>>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
@@ -2168,6 +2177,8 @@
 >>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 added PropelSchemaValidatorConsole
+=======
+>>>>>>> core-2247 update spryker/spryker
 =======
 >>>>>>> core-2247 update spryker/spryker
 <<<<<<< HEAD
@@ -2227,6 +2238,11 @@
 =======
 =======
             "time": "2017-12-12T11:04:41+00:00"
+>>>>>>> core-2247 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-12-12T11:13:25+00:00"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
