@@ -3,8 +3,9 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker-eco/loggly": "dev-master as 1.0.0",
-    "spryker/rabbit-mq": "dev-master as 1.1.0",
+    "spryker-eco/loggly": "dev-master",
+    "spryker/rabbit-mq": "dev-master",
+    "spryker/install": "dev-master",
     "spryker/deploy": "dev-master as 1.0.0",
     "spryker/spryker": "dev-feature/CORE-2097-category-filters",
 
@@ -120,7 +121,7 @@
     },
     {
       "type": "git",
-      "url": "git@github.com:spryker/deploy.git"
+      "url": "git@github.com:spryker/install.git"
     },
     {
       "type": "composer",

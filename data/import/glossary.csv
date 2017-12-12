@@ -565,6 +565,8 @@ newsletter.unsubscription.success,You successfully unsubscribed from the newslet
 newsletter.unsubscription.success,Sie wurden erfolgreich für den Newsletter abgemeldet,de_DE
 newsletter.subscription.already_subscribed,You are already subscribed to the newsletter,en_US
 newsletter.subscription.already_subscribed,Sie sind bereits für den Newsletter angemeldet,de_DE
+newsletter.subscription.email_format_invalid,Invalid Email address format,en_US
+newsletter.subscription.email_format_invalid,Ungültiges E-Mail-Adressformat,de_DE
 customer.authentication.failed,Authentication failed,en_US
 customer.authentication.failed,Authentifizierung fehlgeschlagen,de_DE
 customer.email.invalid,Email address is invalid,en_US
