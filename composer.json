@@ -3,11 +3,10 @@
   "description": "Project",
   "license": "MIT",
   "require": {
+    "spryker/spryker": "dev-feature/CORE-2097-category-filters",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/install": "dev-master",
-    "spryker/deploy": "dev-master as 1.0.0",
-    "spryker/spryker": "dev-feature/CORE-2097-category-filters",
 
     "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
