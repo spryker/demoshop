@@ -3,14 +3,14 @@
         <ul class="menu">
             <li>
                 <a href="{{ path('change-view-mode', {mode : 'grid', 'referer-url' : app.request.requestUri }) }}">
-                    <i class="fa fa-th" aria-hidden="true"></i> Grid
+                    <i class="fa fa-th" aria-hidden="true"></i> {{ 'catalog.view.mode.grid' | trans }}
                 </a>
             </li>
             <li>
                 <a href="{{ path('change-view-mode', {mode : 'list', 'referer-url' : app.request.requestUri }) }}">
-                    <i class="fa fa-list" aria-hidden="true"></i> List
+                    <i class="fa fa-list" aria-hidden="true"></i> {{ 'catalog.view.mode.list' | trans }}
                 </a>
             </li>
-        </ul>   
+        </ul>
     </div>
 </div>
