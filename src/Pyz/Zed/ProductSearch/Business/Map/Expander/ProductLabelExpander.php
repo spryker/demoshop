@@ -59,6 +59,6 @@ class ProductLabelExpander implements ProductPageMapExpanderInterface
      */
     protected function getProductLabels($idProductAbstract)
     {
-        return $this->productLabelFacade->findLabelIdsByIdProductAbstract($idProductAbstract);
+        return $this->productLabelFacade->findActiveLabelIdsByIdProductAbstract($idProductAbstract);
     }
 }

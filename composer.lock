@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ad42a813f3dd1d2bdc3334561383b74",
+    "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1859,11 +1859,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-2271-fix-sniffer-and-dependency-checker-for-sdk-and-eco",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "948253ac6cf795eeccce8265b0923df745577482"
+                "reference": "639f8d42fc8cf1aa4cbd074772c2f84504a3cece"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2063,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-12T12:17:01+00:00"
+            "time": "2017-12-12T11:13:24+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6772,7 +6772,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
