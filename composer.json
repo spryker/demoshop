@@ -23,7 +23,7 @@
     "spryker/assertion": "^3.0.0",
     "spryker/auth": "^3.0.0",
     "spryker/auth-mail-connector": "^3.0.0",
-    "spryker/availability": "^5.0.0",
+    "spryker/availability": "hotfix/promotion-availability-fix as ^5.0.0",
     "spryker/availability-cart-connector": "^4.0.0",
     "spryker/availability-data-feed": "^0.1.0",
     "spryker/availability-gui": "^2.0.0",
@@ -248,6 +248,10 @@
     {
       "type": "composer",
       "url": "https://code.spryker.com/repo/private"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/DiscountPromotion.git"
     }
   ],
   "scripts": {
