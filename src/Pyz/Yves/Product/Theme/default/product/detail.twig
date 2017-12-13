@@ -102,7 +102,12 @@
                         <div class="small-4 xlarge-3 columns __no-margin-bottom">
                             <label>
                                 {{ 'cart.item_quantity' | trans }}
-                                <input type="number" name="quantity" value="1" class="__no-margin-bottom" />
+                                <select name="quantity" class="__no-margin-bottom">
+                                    {% for index in 1..10 %}
+                                        <option value="{{ index }}">{{ index }}</option>
+                                    {% endfor %}
+
+                                </select>
                             </label>
                         </div>
 

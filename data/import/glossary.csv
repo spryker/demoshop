@@ -1031,5 +1031,5 @@ catalog.view.mode.grid,Grid,en_US
 catalog.view.mode.grid,Gitter,de_DE
 catalog.view.mode.list,List,en_US
 catalog.view.mode.list,Liste,de_DE
-cart.quantity.adjusted,Requested item quantity adjusted.,en_US
-cart.quantity.adjusted,Angeforderte Artikelmenge angepasst.,de_DE
+cart.quantity.adjusted,Requested item quantity was adjusted as far as selected quantity is not available.,en_US
+cart.quantity.adjusted,"Die angeforderte Artikelmenge wurde angepasst, soweit die ausgewählte Menge nicht verfügbar ist.",de_DE
