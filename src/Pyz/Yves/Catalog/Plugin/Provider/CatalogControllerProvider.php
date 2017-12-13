@@ -14,6 +14,7 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
 {
     const ROUTE_SEARCH = 'search';
     const ROUTE_SUGGESTION = 'search/suggestion';
+    const ROUTER_CHANGE_VIEW_MODE = 'change-view-mode';
 
     /**
      * @param \Silex\Application $app
@@ -24,12 +25,16 @@ class CatalogControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createController('/{search}', self::ROUTE_SEARCH, 'Catalog', 'Catalog', 'fulltextSearch')
+        $this->createController('/{search}', static::ROUTE_SEARCH, 'Catalog', 'Catalog', 'fulltextSearch')
             ->assert('search', $allowedLocalesPattern . 'search|search')
             ->value('search', 'search');
 
-        $this->createController('/{search}/suggestion', self::ROUTE_SUGGESTION, 'Catalog', 'Suggestion', 'index')
+        $this->createController('/{search}/suggestion', static::ROUTE_SUGGESTION, 'Catalog', 'Suggestion', 'index')
             ->assert('search', $allowedLocalesPattern . 'search|search')
             ->value('search', 'search');
+
+        $this->createController('/{catalog}/change-view-mode', static::ROUTER_CHANGE_VIEW_MODE, 'Catalog', 'Catalog', 'changeViewMode')
+            ->assert('catalog', $allowedLocalesPattern . 'catalog|catalog')
+            ->value('catalog', 'catalog');
     }
 }
