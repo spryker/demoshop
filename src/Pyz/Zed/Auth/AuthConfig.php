@@ -17,6 +17,7 @@ class AuthConfig extends SprykerAuthConfig
     public function getIgnorable()
     {
         $this->addIgnorable('heartbeat', 'index', 'index');
+        $this->addIgnorable('application', 'api', 'index');
         $this->addIgnorable('_profiler', 'wdt', '*');
 
         return parent::getIgnorable();

@@ -136,6 +136,12 @@ $config[AclConstants::ACL_DEFAULT_RULES] = [
         'action' => 'index',
         'type' => 'allow',
     ],
+    [
+        'bundle' => 'application',
+        'controller' => 'api',
+        'action' => 'index',
+        'type' => 'allow',
+    ],
 ];
 // ACL: Allow or disallow of urls for Zed Admin GUI
 $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
@@ -154,6 +160,12 @@ $config[AclConstants::ACL_USER_RULE_WHITELIST] = [
     [
         'bundle' => 'heartbeat',
         'controller' => 'heartbeat',
+        'action' => 'index',
+        'type' => 'allow',
+    ],
+    [
+        'bundle' => 'application',
+        'controller' => 'api',
         'action' => 'index',
         'type' => 'allow',
     ],

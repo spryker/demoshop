@@ -29,4 +29,4 @@ extensions:
         - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\Phantoman:
-            suites: ['Presentation']
+            suites: ['Presentation']nn
