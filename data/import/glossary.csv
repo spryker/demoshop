@@ -1031,3 +1031,5 @@ catalog.view.mode.grid,Grid,en_US
 catalog.view.mode.grid,Gitter,de_DE
 catalog.view.mode.list,List,en_US
 catalog.view.mode.list,Liste,de_DE
+cart.quantity.adjusted,Requested item quantity adjusted.,en_US
+cart.quantity.adjusted,Angeforderte Artikelmenge angepasst.,de_DE
