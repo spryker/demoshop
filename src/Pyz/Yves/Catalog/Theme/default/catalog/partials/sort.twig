@@ -1,10 +1,21 @@
 <div class="callout">
     <div class="row align-middle">
 
-        <div class="small-12 large-4 xlarge-6 columns show-for-large">
+        <div class="large-12 xlarge-4 columns show-for-large">
             <strong>{{ pagination.numFound }}</strong> {{ "catalog.itemsFound"|trans }}
         </div>
-        <div class="small-8 large-5 xlarge-4 columns">
+
+        <div class="small-12 medium-2 xlarge-2 columns">
+            <label>
+                <select name="ipp" class="__no-margin-bottom" data-default-value="{{ pagination.config.defaultItemsPerPage }}" >
+                    {% for limit in pagination.config.validItemsPerPageOptions %}
+                        <option value="{{ limit }}" {% if limit == pagination.currentItemsPerPage %}selected{% endif %}>{{ limit }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+
+        <div class="small-8 medium-7 xlarge-4 columns">
             <label>
                 <select name="sort" class="__no-margin-bottom" data-default-value="">
                     <option value="">{{ 'catalog.sort.relevance' | trans }}</option>
@@ -14,7 +25,7 @@
                 </select>
             </label>
         </div>
-        <div class="small-4 large-3 xlarge-2 columns">
+        <div class="small-4 medium-3 xlarge-2 columns">
             <button type="submit" class="button hollow expanded __no-margin-bottom">
                 <i class="fa fa-sort"></i> Sort
             </button>
