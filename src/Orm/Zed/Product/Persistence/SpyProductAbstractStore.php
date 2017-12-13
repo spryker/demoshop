@@ -5,9 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\ProductManagementStoreConnector\Persistence;
+namespace Orm\Zed\Product\Persistence;
 
-use Spryker\Zed\ProductManagementStoreConnector\Persistence\Propel\SpyProductAbstractStore as BaseSpyProductAbstractStore;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductAbstractStore as BaseSpyProductAbstractStore;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_abstract_store' table.

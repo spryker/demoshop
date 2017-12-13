@@ -32,6 +32,7 @@ use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
+use Spryker\Shared\Store\StoreConstants;
 use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\User\UserConstants;
@@ -404,3 +405,6 @@ $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
 $config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';
+
+// ---------- Store
+$config[StoreConstants::ENABLE_MULTI_STORE_PER_INSTANCE] = true;

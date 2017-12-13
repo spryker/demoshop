@@ -13,6 +13,9 @@ use Spryker\Zed\Price\Communication\Plugin\ProductAbstract\PriceProductAbstractR
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterCreatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Price\Communication\Plugin\ProductConcrete\PriceProductConcreteReadPlugin;
+use Spryker\Zed\Product\Communication\Plugin\StoreRelationProductAbstractAfterCreatePlugin;
+use Spryker\Zed\Product\Communication\Plugin\StoreRelationProductAbstractAfterUpdatePlugin;
+use Spryker\Zed\Product\Communication\Plugin\StoreRelationProductAbstractReadPlugin;
 use Spryker\Zed\Product\ProductDependencyProvider as SprykerProductDependencyProvider;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterUpdatePlugin;
@@ -23,9 +26,6 @@ use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as I
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterCreatePlugin as ImageSetProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteAfterUpdatePlugin as ImageSetProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductConcreteReadPlugin as ImageSetProductConcreteReadPlugin;
-use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductAbstractAfterCreatePlugin as ProductManagementStoreConnectorProductAbstractAfterCreatePlugin;
-use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ProductManagementStoreConnectorProductAbstractAfterUpdatePlugin;
-use Spryker\Zed\ProductManagementStoreConnector\Communication\Plugin\ProductAbstractReadPlugin as ProductManagementStoreConnectorProductAbstractReadPlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductSearch\Communication\Plugin\ProductConcrete\ProductSearchProductConcreteReadPlugin;
@@ -59,7 +59,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductAbstractAfterCreatePlugin(),
             new TaxSetProductAbstractAfterCreatePlugin(),
             new PriceProductAbstractAfterCreatePlugin(),
-            new ProductManagementStoreConnectorProductAbstractAfterCreatePlugin(),
+            new StoreRelationProductAbstractAfterCreatePlugin(),
         ];
     }
 
@@ -74,7 +74,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductAbstractReadPlugin(),
             new TaxSetProductAbstractReadPlugin(),
             new PriceProductAbstractReadPlugin(),
-            new ProductManagementStoreConnectorProductAbstractReadPlugin(),
+            new StoreRelationProductAbstractReadPlugin(),
         ];
     }
 
@@ -99,7 +99,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ImageSetProductAbstractAfterUpdatePlugin(),
             new TaxSetProductAbstractAfterUpdatePlugin(),
             new PriceProductAbstractAfterUpdatePlugin(),
-            new ProductManagementStoreConnectorProductAbstractAfterUpdatePlugin(),
+            new StoreRelationProductAbstractAfterUpdatePlugin(),
         ];
     }
 
