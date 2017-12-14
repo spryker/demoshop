@@ -791,8 +791,8 @@ pagination.previous,Previous,en_US
 pagination.previous,Zurück,de_DE
 pagination.next,Next,en_US
 pagination.next,Vor,de_DE
-product.attribute.iso_en,ISO,en_US
-product.attribute.iso_en,ISO,de_DE
+product.attribute.iso,ISO,en_US
+product.attribute.iso,ISO,de_DE
 product.attribute.waterproof_up_to,Waterproof up to,en_US
 product.attribute.waterproof_up_to,Wasserdicht bis,de_DE
 product.attribute.width,Width,en_US
@@ -1031,3 +1031,7 @@ catalog.view.mode.grid,Grid,en_US
 catalog.view.mode.grid,Gitter,de_DE
 catalog.view.mode.list,List,en_US
 catalog.view.mode.list,Liste,de_DE
+catalog.sale,Sale,en_US
+catalog.sale,Sale,de_DE
+catalog.new,New,en_US
+catalog.new,Neu,de_DE
