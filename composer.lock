@@ -1909,6 +1909,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "82a5a43d28df54d32fd4476608b2c1a57230c639"
 >>>>>>> core-2247 update spryker/spryker
 >>>>>>> core-2247 update spryker/spryker
@@ -1961,6 +1962,9 @@
 >>>>>>> core-2247 update spryker/spryker
 =======
                 "reference": "0a552789661b7286de9a1eeaf94d91e193210055"
+>>>>>>> core-2247 update spryker/spryker
+=======
+                "reference": "a41eebff94a3a3bf3478fe516393d40174bce4e8"
 >>>>>>> core-2247 update spryker/spryker
             },
             "require": {
@@ -2170,6 +2174,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-13T17:03:22+00:00"
 =======
 =======
@@ -2273,6 +2278,9 @@
 >>>>>>> core-2247 update spryker/spryker
 =======
             "time": "2017-12-14T07:36:03+00:00"
+>>>>>>> core-2247 update spryker/spryker
+=======
+            "time": "2017-12-14T13:19:49+00:00"
 >>>>>>> core-2247 update spryker/spryker
         },
         {
