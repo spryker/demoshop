@@ -639,8 +639,8 @@ customer.newsletter.subscribed,Newsletter subscribed,en_US
 customer.newsletter.subscribed,Newsletter abonniert,de_DE
 validator.constraints.password.do_not_match,Passwords don't match,en_US
 validator.constraints.password.do_not_match,Passwörter stimmen nicht überein,de_DE
-discount.successfully.applied,The discount "display_name" has been successfully applied,en_US
-discount.successfully.applied,Der Rabatt "display_name" wurde erfolgreich angewendet,de_DE
+discount.successfully.applied,"The discount ""display_name"" has been successfully applied",en_US
+discount.successfully.applied,"Der Rabatt ""display_name"" wurde erfolgreich angewendet",de_DE
 product.unavailable,Product is out of stock,en_US
 product.unavailable,Keine Produkte mehr auf Lager,de_DE
 product.attribute.slug,slug,en_US
