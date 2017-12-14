@@ -17,6 +17,8 @@ use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
+    const COL_IS_IN_STORE = 'is_in_store';
+
     /**
      * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface
      */
@@ -58,7 +60,7 @@ class ProductCollector extends AbstractSearchPdoCollector
      */
     protected function isStorable(array $collectItemData)
     {
-        return $collectItemData['is_in_store'] !== null;
+        return $collectItemData[static::COL_IS_IN_STORE] !== null;
     }
 
     /**

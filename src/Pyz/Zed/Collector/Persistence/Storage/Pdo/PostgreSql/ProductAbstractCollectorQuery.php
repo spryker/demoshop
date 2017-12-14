@@ -13,6 +13,8 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductAbstractCollectorQuery extends AbstractPdoCollectorQuery
 {
+    const COL_IS_IN_STORE = 'is_in_store';
+
     /**
      * @return void
      */
@@ -31,7 +33,7 @@ SELECT
   spy_product_abstract_localized_attributes.meta_title AS meta_title,
   spy_product_abstract_localized_attributes.meta_keywords AS meta_keywords,
   spy_product_abstract_localized_attributes.meta_description AS meta_description,
-  spy_product_abstract_store.fk_store AS is_in_store,
+  spy_product_abstract_store.fk_store AS ' . static::COL_IS_IN_STORE . ',
   t.id_touch AS %s,
   t.item_id AS %s,
   spy_touch_storage.id_touch_storage AS %s

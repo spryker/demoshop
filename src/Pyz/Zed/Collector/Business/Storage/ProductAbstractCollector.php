@@ -46,6 +46,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     const META_TITLE = 'meta_title';
     const META_DESCRIPTION = 'meta_description';
     const SUPER_ATTRIBUTES_DEFINITION = 'super_attributes_definition';
+    const COL_IS_IN_STORE = 'is_in_store';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -123,7 +124,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function isStorable(array $collectItemData)
     {
-        return $collectItemData['is_in_store'] !== null;
+        return $collectItemData[static::COL_IS_IN_STORE] !== null;
     }
 
     /**

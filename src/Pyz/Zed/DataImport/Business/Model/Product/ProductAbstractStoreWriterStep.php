@@ -8,7 +8,7 @@
 namespace Pyz\Zed\DataImport\Business\Model\Product;
 
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
-use Orm\Zed\Product\Persistence\SpyProductAbstractStore;
+use Orm\Zed\Product\Persistence\SpyProductAbstractStoreQuery;
 use Orm\Zed\Store\Persistence\SpyStoreQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
@@ -40,10 +40,11 @@ class ProductAbstractStoreWriterStep extends TouchAwareStep implements DataImpor
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $relation = new SpyProductAbstractStore();
-        $relation->setFkProductAbstract($this->getIdProductAbstractBySku($dataSet[static::KEY_PRODUCT_ABSTRACT_SKU]));
-        $relation->setFkStore($this->getIdStoreByName($dataSet[static::KEY_STORE_NAME]));
-        $relation->save();
+        (new SpyProductAbstractStoreQuery())
+            ->filterByFkProductAbstract($this->getIdProductAbstractBySku($dataSet[static::KEY_PRODUCT_ABSTRACT_SKU]))
+            ->filterByFkStore($this->getIdStoreByName($dataSet[static::KEY_STORE_NAME]))
+            ->findOneOrCreate()
+            ->save();
     }
 
     /**
