@@ -1859,113 +1859,11 @@
         },
         {
             "name": "spryker/spryker",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
-=======
-<<<<<<< HEAD
-                "reference": "7d02745dc13e6b9c45c725500678b684711cebd7"
-=======
-<<<<<<< HEAD
-                "reference": "8d96e0ab920bc95b4a72d62343954748c9154fd2"
-=======
-<<<<<<< HEAD
-                "reference": "ead6aaf91ddf6342ef2cf2184be99d2b9b5c31d5"
-=======
-                "reference": "f560e329b66224580a58959ed993da279096caef"
-=======
-<<<<<<< HEAD
-            "version": "dev-bugfix/core-791-case-sensitive-propel-plan-D",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:spryker/spryker.git",
-                "reference": "1ce73963ac420f7354feeb2a0844068d95511904"
-=======
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
             "version": "dev-feature/core-2247-allow-to-change-the-type-of-table-column-from-project-code",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "82a5a43d28df54d32fd4476608b2c1a57230c639"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "2136c8e20e5df77ba29eb8ab8c0170b74e581070"
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "3dda2f20c87c919218fd7bb9e89b3a9f724979c6"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "9f5fb94e67e75991958b8237664a2213608ca8c3"
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2247 update spryker/spryker
-=======
-=======
-=======
-                "reference": "fc456f44ade0912f401fa046b661678949de18f5"
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-<<<<<<< HEAD
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-<<<<<<< HEAD
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-=======
-=======
-=======
-                "reference": "33997ce5e2a8200d1d891773553e4ebd55105086"
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "c04393dec8b39d07238fb90c8ebfaa025f0cdd3d"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "a00022b04254214d8450540b026d404eadd15883"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-=======
-                "reference": "0a552789661b7286de9a1eeaf94d91e193210055"
->>>>>>> core-2247 update spryker/spryker
-=======
                 "reference": "a41eebff94a3a3bf3478fe516393d40174bce4e8"
->>>>>>> core-2247 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2165,123 +2063,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-12-13T17:03:22+00:00"
-=======
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-13T14:23:45+00:00"
-=======
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-12T18:20:05+00:00"
-=======
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-11T13:01:16+00:00"
-=======
-=======
->>>>>>> core-2247 update spryker/spryker
-=======
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-06T14:10:00+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-11-13T14:44:42+00:00"
-=======
-            "time": "2017-11-13T16:34:57+00:00"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-11-14T07:14:24+00:00"
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-11-20T13:56:58+00:00"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-11T13:02:29+00:00"
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2247 update spryker/spryker
-=======
-=======
-=======
-            "time": "2017-12-12T09:51:37+00:00"
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-<<<<<<< HEAD
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-<<<<<<< HEAD
->>>>>>> core-2247 added PropelSchemaValidatorConsole
-=======
-=======
-=======
-            "time": "2017-12-12T11:04:41+00:00"
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-12T11:13:25+00:00"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-13T05:21:22+00:00"
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-=======
-            "time": "2017-12-14T07:36:03+00:00"
->>>>>>> core-2247 update spryker/spryker
-=======
             "time": "2017-12-14T13:19:49+00:00"
->>>>>>> core-2247 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2398,16 +2180,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "1de51a6c76359897ab32c309934b93d036bccb60"
+                "reference": "e57211b88aa889fefac1cb36866db04100b0f21c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/1de51a6c76359897ab32c309934b93d036bccb60",
-                "reference": "1de51a6c76359897ab32c309934b93d036bccb60",
+                "url": "https://api.github.com/repos/symfony/config/zipball/e57211b88aa889fefac1cb36866db04100b0f21c",
+                "reference": "e57211b88aa889fefac1cb36866db04100b0f21c",
                 "shasum": ""
             },
             "require": {
@@ -2456,20 +2238,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-19T20:09:36+00:00"
+            "time": "2017-12-14T19:40:10+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "2cdef78de8f54f68ff16a857e710e7302b47d4c7"
+                "reference": "9f21adfb92a9315b73ae2ed43138988ee4913d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/2cdef78de8f54f68ff16a857e710e7302b47d4c7",
-                "reference": "2cdef78de8f54f68ff16a857e710e7302b47d4c7",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9f21adfb92a9315b73ae2ed43138988ee4913d4e",
+                "reference": "9f21adfb92a9315b73ae2ed43138988ee4913d4e",
                 "shasum": ""
             },
             "require": {
@@ -2525,20 +2307,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-02T18:20:11+00:00"
+            "time": "2017-12-14T19:40:10+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "fb2001e5d85f95d8b6ab94ae3be5d2672df128fd"
+                "reference": "543deab3ffff94402440b326fc94153bae2dfa7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/fb2001e5d85f95d8b6ab94ae3be5d2672df128fd",
-                "reference": "fb2001e5d85f95d8b6ab94ae3be5d2672df128fd",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/543deab3ffff94402440b326fc94153bae2dfa7a",
+                "reference": "543deab3ffff94402440b326fc94153bae2dfa7a",
                 "shasum": ""
             },
             "require": {
@@ -2581,7 +2363,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-21T09:01:46+00:00"
+            "time": "2017-12-12T08:27:14+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2645,16 +2427,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "de56eee71e0a128d8c54ccc1909cdefd574bad0f"
+                "reference": "25b135bea251829e3db6a77d773643408b575ed4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/de56eee71e0a128d8c54ccc1909cdefd574bad0f",
-                "reference": "de56eee71e0a128d8c54ccc1909cdefd574bad0f",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/25b135bea251829e3db6a77d773643408b575ed4",
+                "reference": "25b135bea251829e3db6a77d773643408b575ed4",
                 "shasum": ""
             },
             "require": {
@@ -2690,11 +2472,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-19T18:59:05+00:00"
+            "time": "2017-12-14T19:40:10+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -3482,16 +3264,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "db25e810fd5e124085e3777257d0cf4ae533d0ea"
+                "reference": "bb3ef65d493a6d57297cad6c560ee04e2a8f5098"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/db25e810fd5e124085e3777257d0cf4ae533d0ea",
-                "reference": "db25e810fd5e124085e3777257d0cf4ae533d0ea",
+                "url": "https://api.github.com/repos/symfony/process/zipball/bb3ef65d493a6d57297cad6c560ee04e2a8f5098",
+                "reference": "bb3ef65d493a6d57297cad6c560ee04e2a8f5098",
                 "shasum": ""
             },
             "require": {
@@ -3527,7 +3309,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-22T12:18:49+00:00"
+            "time": "2017-12-14T19:40:10+00:00"
         },
         {
             "name": "symfony/property-access",
@@ -3810,16 +3592,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "ac3e016189682e7d388e00d5c5cd0e84f1c9e55c"
+                "reference": "64506ebefd1ee31cdc9331e72d586c1338786183"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/ac3e016189682e7d388e00d5c5cd0e84f1c9e55c",
-                "reference": "ac3e016189682e7d388e00d5c5cd0e84f1c9e55c",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/64506ebefd1ee31cdc9331e72d586c1338786183",
+                "reference": "64506ebefd1ee31cdc9331e72d586c1338786183",
                 "shasum": ""
             },
             "require": {
@@ -3884,7 +3666,7 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-29T13:28:14+00:00"
+            "time": "2017-12-08T15:24:53+00:00"
         },
         {
             "name": "symfony/translation",
@@ -4110,16 +3892,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f6a99b95b338799645fe9f7880d7d4ca1bf79cc1"
+                "reference": "afe0cd38486505c9703707707d91450cfc1bd536"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f6a99b95b338799645fe9f7880d7d4ca1bf79cc1",
-                "reference": "f6a99b95b338799645fe9f7880d7d4ca1bf79cc1",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/afe0cd38486505c9703707707d91450cfc1bd536",
+                "reference": "afe0cd38486505c9703707707d91450cfc1bd536",
                 "shasum": ""
             },
             "require": {
@@ -4164,7 +3946,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-04T18:15:22+00:00"
+            "time": "2017-12-11T20:38:23+00:00"
         },
         {
             "name": "twig/twig",
@@ -6990,37 +6772,7 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                     "name": "Sullivan Sénéchal",
-=======
-=======
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-                    "name": "Sullivan Senechal",
-=======
-=======
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-                    "name": "Sullivan Sénéchal",
-=======
-<<<<<<< HEAD
-                    "name": "Sullivan SENECHAL",
-=======
-                    "name": "Sullivan Sénéchal",
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                    "name": "Sullivan Sénéchal",
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
->>>>>>> core-2247 update spryker/spryker
-=======
-                    "name": "Sullivan Sénéchal",
->>>>>>> core-2247 update spryker/spryker
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7388,16 +7140,16 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "3fcf2f6a67c8c10c8667b16bbd62189b9605618b"
+                "reference": "67359d6a03f96f9d15b956013fade2bd271de75a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/3fcf2f6a67c8c10c8667b16bbd62189b9605618b",
-                "reference": "3fcf2f6a67c8c10c8667b16bbd62189b9605618b",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/67359d6a03f96f9d15b956013fade2bd271de75a",
+                "reference": "67359d6a03f96f9d15b956013fade2bd271de75a",
                 "shasum": ""
             },
             "require": {
@@ -7441,20 +7193,20 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:45:01+00:00"
+            "time": "2017-12-12T08:41:51+00:00"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "4d007264ba31da78685a92f49aa13b62cbbd89b4"
+                "reference": "2b71219bf15530f293f6a9262de841d0ca90b11c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/4d007264ba31da78685a92f49aa13b62cbbd89b4",
-                "reference": "4d007264ba31da78685a92f49aa13b62cbbd89b4",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/2b71219bf15530f293f6a9262de841d0ca90b11c",
+                "reference": "2b71219bf15530f293f6a9262de841d0ca90b11c",
                 "shasum": ""
             },
             "require": {
@@ -7494,20 +7246,20 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:45:01+00:00"
+            "time": "2017-12-14T19:48:22+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "652d10dbeabeb6f1cd5b8872dd28a33b045f2f12"
+                "reference": "d2fa088b5fd7d429974a36bf1a9846b912d9d124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/652d10dbeabeb6f1cd5b8872dd28a33b045f2f12",
-                "reference": "652d10dbeabeb6f1cd5b8872dd28a33b045f2f12",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d2fa088b5fd7d429974a36bf1a9846b912d9d124",
+                "reference": "d2fa088b5fd7d429974a36bf1a9846b912d9d124",
                 "shasum": ""
             },
             "require": {
@@ -7565,20 +7317,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-04T20:15:30+00:00"
+            "time": "2017-12-14T19:48:22+00:00"
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "d260a4e14ff4fb82eff98c88494396814962bf77"
+                "reference": "9f207697b4aa664823f43b6568797c48316b621a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/d260a4e14ff4fb82eff98c88494396814962bf77",
-                "reference": "d260a4e14ff4fb82eff98c88494396814962bf77",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/9f207697b4aa664823f43b6568797c48316b621a",
+                "reference": "9f207697b4aa664823f43b6568797c48316b621a",
                 "shasum": ""
             },
             "require": {
@@ -7621,7 +7373,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-15T14:17:34+00:00"
+            "time": "2017-12-14T19:48:22+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -7729,16 +7481,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "1a9d9c2f7229ff8e3d75adba75968b659dd5c0d0"
+                "reference": "0991597a40f062bab7203efc2cc6cee9b3d44ed6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/1a9d9c2f7229ff8e3d75adba75968b659dd5c0d0",
-                "reference": "1a9d9c2f7229ff8e3d75adba75968b659dd5c0d0",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/0991597a40f062bab7203efc2cc6cee9b3d44ed6",
+                "reference": "0991597a40f062bab7203efc2cc6cee9b3d44ed6",
                 "shasum": ""
             },
             "require": {
@@ -7794,7 +7546,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-11-30T15:11:43+00:00"
+            "time": "2017-12-12T08:41:51+00:00"
         },
         {
             "name": "symfony/web-profiler-bundle",
