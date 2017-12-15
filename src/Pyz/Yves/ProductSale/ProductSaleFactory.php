@@ -26,4 +26,12 @@ class ProductSaleFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(ProductSaleDependencyProvider::PLUGIN_CATEGORY_READER);
     }
+
+    /**
+     * @return \Spryker\Client\Catalog\CatalogClientInterface
+     */
+    public function getCatalogClient()
+    {
+        return $this->getProvidedDependency(ProductSaleDependencyProvider::CLIENT_CATALOG);
+    }
 }

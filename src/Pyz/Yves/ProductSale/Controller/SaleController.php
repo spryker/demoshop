@@ -42,6 +42,9 @@ class SaleController extends AbstractController
 
         $searchResults['category'] = $categoryNode;
         $searchResults['filterPath'] = ProductSaleControllerProvider::ROUTE_SALE;
+        $searchResults['view_mode'] = $this->getFactory()
+            ->getCatalogClient()
+            ->getCatalogViewMode($request);
 
         return $this->viewResponse($searchResults);
     }
