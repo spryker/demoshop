@@ -8,6 +8,8 @@
 namespace Pyz\Zed\DataImport\Business\Model\ProductStock;
 
 use Orm\Zed\Stock\Persistence\SpyStockProductQuery;
+use Orm\Zed\Stock\Persistence\SpyStockProductStore;
+use Orm\Zed\Stock\Persistence\SpyStockProductStoreQuery;
 use Orm\Zed\Stock\Persistence\SpyStockQuery;
 use Orm\Zed\Store\Persistence\SpyStoreQuery;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
@@ -85,7 +87,6 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
         $stockProductEntity = SpyStockProductQuery::create()
             ->filterByFkProduct($idProduct)
             ->filterByFkStock($stockEntity->getIdStock())
-            ->filterByFkStore($storeEntity->getIdStore())
             ->findOneOrCreate();
 
         $stockProductEntity
@@ -93,6 +94,13 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
             ->setIsNeverOutOfStock($dataSet[static::KEY_IS_NEVER_OUT_OF_STOCK]);
 
         $stockProductEntity->save();
+
+        $stockProductStoreEntity = SpyStockProductStoreQuery::create()
+            ->filterByFkStore($storeEntity->getIdStore())
+            ->filterByFkStockProduct($stockProductEntity->getIdStockProduct())
+            ->findOneOrCreate();
+
+        $stockProductStoreEntity->save();
 
         $this->addMainTouchable(StockConfig::TOUCH_STOCK_PRODUCT, $stockProductEntity->getIdStockProduct());
 
