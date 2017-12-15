@@ -4,10 +4,7 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/core-2275-full-compatibility-to-symfony-28-and-then-30",
-<<<<<<< HEAD
-
-=======
->>>>>>> core-2275 update spryker/spryker
+    
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -66,7 +63,7 @@
     "egulias/email-validator": "^2.1.2"
   },
   "require-dev": {
-    "spryker/architecture-sniffer": "dev-master",
+    "spryker/architecture-sniffer": "dev-feature/ignore-deprecated-methods-in-factories",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
     "spryker/git-hook": "dev-master",
@@ -88,7 +85,7 @@
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
     "phpdocumentor/reflection-docblock": "^2.0",
-    "squizlabs/php_codesniffer": "^3.0"
+    "squizlabs/php_codesniffer": "3.1"
   },
   "autoload": {
     "psr-4": {
