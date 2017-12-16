@@ -1,5 +1,11 @@
 {% extends "@application/layout/layout.twig" %}
 
+{% block page %}
+    <div itemscope itemtype="http://schema.org/Product" >
+        {{ parent() }}
+    </div>
+{% endblock %}
+
 {% block page_title %}
     {% if product.metaTitle %}
         {{ product.metaTitle }}
@@ -12,13 +18,14 @@
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
     {% if productCategories|length %}
         {% for category in productCategories %}
-            <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+            <li><a href="{{ category.url }}"><span itemprop="category">{{ category.name }}</span></a></li>
         {% endfor %}
     {% endif %}
 {% endblock %}
 
 {% block title %}
-    <h3>{{ product.name }}</h3>
+    <h3 itemprop="name">{{ product.name }}</h3>
+    <link itemprop="url" href="{{ product.url }}" />
 {% endblock %}
 
 {% block outside %}
@@ -46,7 +53,7 @@
                             {% for image in product.images %}
                                 <div data-viewer-id="{{ image.externalUrlLarge }}" {% if loop.first %}data-viewer-default{% endif %}>
                                     <span class="thumbnail __preview-image __preview-image--large">
-                                        <img src="{{ image.externalUrlLarge }}">
+                                        <img itemprop="image" src="{{ image.externalUrlLarge }}">
                                     </span>
                                 </div>
                             {% endfor %}
@@ -84,7 +91,7 @@
                     {% endif %}
 
                     <br/>
-                    <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
+                    <small>{{ 'product.attribute.sku' | trans }}: <span itemprop="sku">{{ product.sku }}</span></small>
                 </p>
 
                 {{ spyProductAbstractReview(product.idProductAbstract, '@Product/product/partials/product-rating.twig') }}
@@ -125,9 +132,9 @@
                 <div class="row">
                     {% for attributeName, attributeValue in product.attributes if attributeName  %}
 
-                        <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
-                            <strong>{{ ('product.attribute.'~attributeName) | trans }} </strong><br>
-                            {{ attributeValue }}
+                        <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                            <strong itemprop="name">{{ ('product.attribute.'~attributeName) | trans }} </strong><br />
+                            <span itemprop="value">{{ attributeValue }}</span>
                         </p>
                     {% endfor %}
                 </div>
