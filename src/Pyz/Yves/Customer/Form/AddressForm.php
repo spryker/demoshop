@@ -42,6 +42,14 @@ class AddressForm extends AbstractType
     const OPTION_COUNTRY_CHOICES = 'country_choices';
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'addressForm';
+    }
+
+    /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
      *
      * @return void
