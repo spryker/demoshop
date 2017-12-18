@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "ac86b348866807ac795907a89b66449b",
 =======
 =======
@@ -73,6 +74,9 @@
 =======
     "content-hash": "f702701f88a6071d402845078e69f4db",
 >>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+=======
+    "content-hash": "d134fd6f81c66923a215dca6bf89d331",
 >>>>>>> core-2275 update spryker/spryker
     "packages": [
         {
@@ -1985,8 +1989,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "585c48f08ebad36082c6d2d7a42837de9e72ce8f"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2010,9 +2017,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "8b384c28ad979dd741a450fa1ee746cef276e207"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2036,9 +2047,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2265,6 +2280,11 @@
 =======
 =======
                 "reference": "c739a08cb469b9f0312de88df463ef2ccb4afdcf"
+>>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "9d80429b72933f0309291d521bfd9f1c2379d83f"
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
             },
@@ -2507,8 +2527,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-25T12:37:32+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2532,9 +2555,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-17T16:50:48+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2558,9 +2585,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-22T11:47:58+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2601,11 +2632,29 @@
             "time": "2017-12-19T17:36:45+00:00"
 >>>>>>> core-2275 with old constraints
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 with old constraints
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-12-21T06:01:26+00:00"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2651,155 +2700,6 @@
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
             "time": "2017-11-13T10:53:51+00:00"
-=======
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-18T11:32:25+00:00"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-12-13T17:03:22+00:00"
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-28T10:14:45+00:00"
-=======
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-11-28T10:14:45+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
->>>>>>> core-2275 update
->>>>>>> core-2275 update
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-11-27T09:55:56+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-11-22T10:11:43+00:00"
-=======
-            "time": "2017-11-23T06:31:14+00:00"
->>>>>>> core-2275 with old constraints
->>>>>>> core-2275 with old constraints
->>>>>>> core-2275 with old constraints
->>>>>>> core-2275 with old constraints
->>>>>>> core-2275 with old constraints
-<<<<<<< HEAD
->>>>>>> core-2275 with old constraints
-=======
-=======
-=======
-=======
-            "time": "2017-11-23T07:57:36+00:00"
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-11-23T14:14:05+00:00"
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-            "time": "2017-11-27T10:48:47+00:00"
->>>>>>> core-2275 update
-<<<<<<< HEAD
->>>>>>> core-2275 update
-<<<<<<< HEAD
->>>>>>> core-2275 update
-<<<<<<< HEAD
->>>>>>> core-2275 update
-=======
-=======
-=======
-=======
-            "time": "2017-11-28T12:44:38+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-            "time": "2017-11-28T12:50:34+00:00"
->>>>>>> core-2275 update composer.lock and package-lock.json
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock and package-lock.json
-=======
-=======
-            "time": "2017-11-29T09:00:30+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-11-29T09:52:19+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-            "time": "2017-11-29T12:40:01+00:00"
->>>>>>> core-2275 composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 composer.lock
-=======
-=======
-            "time": "2017-11-29T13:23:29+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-=======
-            "time": "2017-12-15T09:28:51+00:00"
->>>>>>> core-2275 update spryker/spryker
-=======
-            "time": "2017-12-15T13:58:37+00:00"
->>>>>>> core-2275 update spryker/spryker
-=======
-            "time": "2017-12-15T15:27:27+00:00"
->>>>>>> core-2275 update spryker/spryker
-=======
-            "time": "2017-12-18T05:33:58+00:00"
->>>>>>> core-2275 update spryker/spryker
-=======
-            "time": "2017-12-18T07:48:59+00:00"
->>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3338,6 +3238,7 @@
             "name": "symfony/http-foundation",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.33",
 =======
 =======
@@ -3347,6 +3248,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
             "version": "v2.8.32",
@@ -3364,6 +3267,7 @@
 =======
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/8eb1d3609a13ec6fdde68b1a5b908d6cefdbef54",
                 "reference": "8eb1d3609a13ec6fdde68b1a5b908d6cefdbef54",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -3393,6 +3297,8 @@
 =======
 =======
 >>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+=======
 >>>>>>> core-2275 update spryker/spryker
                 "shasum": ""
             },
@@ -3437,6 +3343,7 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
 =======
 =======
@@ -3460,6 +3367,9 @@
 =======
             "time": "2017-11-29T09:33:18+00:00"
 >>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+=======
+            "time": "2017-11-29T09:33:18+00:00"
 >>>>>>> core-2275 update spryker/spryker
         },
         {
@@ -4260,6 +4170,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.33",
 =======
 <<<<<<< HEAD
@@ -4299,6 +4210,9 @@
 =======
             "version": "v2.8.32",
 >>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+=======
+            "version": "v2.8.32",
 >>>>>>> core-2275 update spryker/spryker
             "source": {
                 "type": "git",
@@ -7781,7 +7695,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -8056,26 +7970,6 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-<<<<<<< HEAD
-            "version": "3.2.2",
-=======
-<<<<<<< HEAD
-            "version": "3.2.1",
->>>>>>> core-2275 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "d7c00c3000ac0ce79c96fcbfef86b49a71158cd1"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d7c00c3000ac0ce79c96fcbfef86b49a71158cd1",
-                "reference": "d7c00c3000ac0ce79c96fcbfef86b49a71158cd1",
-=======
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/4064632daf602552d40dcff30a1658ab76fc1621",
-                "reference": "4064632daf602552d40dcff30a1658ab76fc1621",
-=======
             "version": "3.1.0",
             "source": {
                 "type": "git",
@@ -8086,8 +7980,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/3c2d0a0fe39684ba0c1eb842a6a775d0b938d699",
                 "reference": "3c2d0a0fe39684ba0c1eb842a6a775d0b938d699",
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -8125,15 +8017,7 @@
                 "phpcs",
                 "standards"
             ],
-<<<<<<< HEAD
-            "time": "2017-12-19T21:44:46+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-12-18T00:24:01+00:00"
-=======
             "time": "2017-09-19T22:47:14+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "stecman/symfony-console-completion",
