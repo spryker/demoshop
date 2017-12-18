@@ -40,9 +40,33 @@ class ProductController extends AbstractController
             'page_keywords' => $storageProductTransfer->getMetaKeywords(),
             'page_description' => $storageProductTransfer->getMetaDescription(),
             'productOptionGroups' => $productOptionGroupsTransfer,
+            'productUrl' => $this->getProductUrl($storageProductTransfer),
         ];
 
         return $productData;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
+     *
+     * @return string
+     */
+    protected function getProductUrl(StorageProductTransfer $storageProductTransfer)
+    {
+        if ($storageProductTransfer->getIsVariant() !== true) {
+            return $storageProductTransfer->getUrl();
+        }
+
+        $variantUriParams = [];
+        foreach ($storageProductTransfer->getSelectedAttributes() as $attributeKey => $attributeValue) {
+            $variantUriParams[] = sprintf('attribute[%s]=%s', $attributeKey, $attributeValue);
+        }
+
+        return sprintf(
+            '%s?%s',
+            $storageProductTransfer->getUrl(),
+            urlencode(implode('&', $variantUriParams))
+        );
     }
 
     /**
