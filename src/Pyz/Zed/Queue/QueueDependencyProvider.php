@@ -14,6 +14,7 @@ use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Queue\QueueDependencyProvider as SprykerDependencyProvider;
 use SprykerEco\Shared\Loggly\LogglyConstants;
 use SprykerEco\Zed\Loggly\Communication\Plugin\LogglyLoggerQueueMessageProcessorPlugin;
+use SprykerEco\Zed\Loggly\LogglyConfig;
 
 class QueueDependencyProvider extends SprykerDependencyProvider
 {
@@ -26,7 +27,7 @@ class QueueDependencyProvider extends SprykerDependencyProvider
     {
         return [
             EventConstants::EVENT_QUEUE => new EventQueueMessageProcessorPlugin(),
-            Config::get(LogglyConstants::QUEUE_NAME) => new LogglyLoggerQueueMessageProcessorPlugin(),
+            Config::get(LogglyConstants::QUEUE_NAME, LogglyConfig::DEFAULT_QUEUE_NAME) => new LogglyLoggerQueueMessageProcessorPlugin(),
         ];
     }
 }
