@@ -21,13 +21,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
 /**
-<<<<<<< HEAD
- * @method \Spryker\Zed\Customer\Business\CustomerFacadeInterface getFacade()
- * @method \Spryker\Zed\Customer\Communication\CustomerCommunicationFactory getFactory()
- * @method \Spryker\Zed\Customer\Persistence\CustomerQueryContainerInterface getQueryContainer()
-=======
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
->>>>>>> core-2275 refactored all project forms
  */
 class AddressForm extends AbstractType
 {

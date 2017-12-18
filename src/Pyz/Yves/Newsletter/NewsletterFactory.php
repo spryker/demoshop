@@ -29,12 +29,4 @@ class NewsletterFactory extends AbstractFactory
     {
         return NewsletterSubscriptionForm::class;
     }
-
-    /**
-     * @return \Spryker\Service\UtilValidate\UtilValidateServiceInterface
-     */
-    public function getUtilValidateService()
-    {
-        return $this->getProvidedDependency(NewsletterDependencyProvider::SERVICE_UTIL_VALIDATE);
-    }
 }

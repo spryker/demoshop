@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "376e98b31171171edf6a557b938dbf86",
 =======
 =======
@@ -16,6 +17,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
     "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
 =======
@@ -25,6 +28,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
     "content-hash": "d284e38cad2782342ac2106498a67c42",
 =======
@@ -34,6 +39,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
     "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
 =======
@@ -103,9 +110,21 @@
     "content-hash": "a4d5c612322ab369360f0c2bf9e08c04",
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+=======
+=======
+    "content-hash": "864bcc12a0dd336dab4a357edb8024e7",
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2005,6 +2024,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2023,6 +2043,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -2042,6 +2064,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 =======
@@ -2061,6 +2085,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
 =======
@@ -2080,6 +2106,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
 =======
@@ -2099,6 +2127,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
 =======
@@ -2118,6 +2148,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
 =======
@@ -2137,6 +2169,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
 =======
@@ -2156,6 +2190,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
 =======
@@ -2175,6 +2211,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "e483e2438184e6281c1a19f6670f0661b41e424a"
 =======
@@ -2194,6 +2232,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "636901fbd5bafaefa5f40f8ac442ce237361a64a"
 =======
@@ -2213,6 +2253,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
                 "reference": "fdf43d21845a02ac23f9b48df21adb21a3ff29ed"
 =======
@@ -2541,17 +2583,53 @@
                 "reference": "e6b6e379db96edd0799203e1034aaad0d3328c5c"
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "a89eebdd35dd52e3253f4adb8fe18f69bfc57876"
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2795,6 +2873,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
@@ -2813,6 +2892,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 =======
@@ -2832,6 +2913,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-29T17:32:14+00:00"
 =======
@@ -2851,6 +2934,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-26T14:28:54+00:00"
 =======
@@ -2870,6 +2955,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-26T13:11:30+00:00"
 =======
@@ -2889,6 +2976,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-25T17:41:45+00:00"
 =======
@@ -2908,6 +2997,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2017-12-22T11:47:58+00:00"
 =======
@@ -2927,6 +3018,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2017-12-21T11:37:00+00:00"
 =======
@@ -2946,6 +3039,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2017-12-20T14:44:28+00:00"
 =======
@@ -2965,6 +3060,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2017-12-19T17:36:45+00:00"
 =======
@@ -2984,6 +3081,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2017-12-19T09:36:43+00:00"
 =======
@@ -3003,6 +3102,8 @@
 >>>>>>> core-2275 refactored all project forms
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2017-12-18T17:36:21+00:00"
 >>>>>>> core-2275 updated constraints
@@ -3189,6 +3290,9 @@
             "time": "2017-11-29T13:23:29+00:00"
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+=======
+            "time": "2017-12-18T13:10:53+00:00"
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3307,20 +3411,27 @@
             "name": "symfony/config",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.4",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v3.4.3",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v3.4.4",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v3.4.3",
 =======
@@ -3364,6 +3475,8 @@
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
             "version": "v3.2.14",
             "source": {
                 "type": "git",
@@ -3435,20 +3548,27 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-21T19:06:11+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-21T19:05:02+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -3498,6 +3618,8 @@
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
             "time": "2017-04-12T14:13:17+00:00"
         },
         {
@@ -3563,20 +3685,27 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T09:03:43+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-29T09:03:43+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -3632,18 +3761,21 @@
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
             "time": "2017-07-29T21:27:41+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "a0a29e9867debabdace779a20a9385c623a23bbd"
+                "reference": "e72a0340dc2e273b3c4398d8eef9157ba51d8b95"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/debug/zipball/a0a29e9867debabdace779a20a9385c623a23bbd",
                 "reference": "a0a29e9867debabdace779a20a9385c623a23bbd",
 <<<<<<< HEAD
@@ -3662,7 +3794,14 @@
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/debug/zipball/e72a0340dc2e273b3c4398d8eef9157ba51d8b95",
+                "reference": "e72a0340dc2e273b3c4398d8eef9157ba51d8b95",
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -3718,20 +3857,27 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-18T22:16:57+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T17:14:19+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-18T22:16:57+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T17:14:19+00:00"
 =======
@@ -3762,13 +3908,25 @@
             "time": "2017-10-24T13:48:52+00:00"
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+=======
+=======
+            "time": "2017-11-19T19:05:05+00:00"
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -3830,20 +3988,27 @@
             "name": "symfony/filesystem",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.4",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v3.4.3",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v3.4.4",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v3.4.3",
 =======
@@ -3880,13 +4045,17 @@
 =======
 >>>>>>> core-2275 WIP
             "version": "v2.8.31",
+=======
+            "version": "v2.8.32",
+>>>>>>> core-2275 update constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "10507c5f24577b0ad971b0d22097c823b2b45dd3"
+                "reference": "15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/filesystem/zipball/10507c5f24577b0ad971b0d22097c823b2b45dd3",
                 "reference": "10507c5f24577b0ad971b0d22097c823b2b45dd3",
 <<<<<<< HEAD
@@ -3898,6 +4067,10 @@
 =======
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+=======
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b",
+                "reference": "15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b",
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -3933,6 +4106,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
@@ -3971,6 +4145,13 @@
         {
             "name": "symfony/finder",
             "version": "v2.8.31",
+=======
+            "time": "2017-11-19T18:39:05+00:00"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v2.8.32",
+>>>>>>> core-2275 update constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -4039,12 +4220,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
@@ -4052,6 +4236,8 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.34",
 =======
@@ -4059,6 +4245,8 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
@@ -4112,6 +4300,8 @@
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
             "version": "v3.2.14",
             "source": {
                 "type": "git",
@@ -4120,6 +4310,7 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/form/zipball/7c728458818dd00024f1900716166a4b6fa6c5fa",
@@ -4162,9 +4353,22 @@
                 "reference": "fcf9d0775af281d16577f90c96b9620c983f812b",
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+=======
+=======
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/form/zipball/fcf9d0775af281d16577f90c96b9620c983f812b",
+                "reference": "fcf9d0775af281d16577f90c96b9620c983f812b",
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -4230,12 +4434,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T08:58:04+00:00"
 =======
 =======
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:36:31+00:00"
 =======
@@ -4243,6 +4450,8 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-29T08:58:04+00:00"
 =======
@@ -4250,6 +4459,8 @@
 >>>>>>> core-2275 update lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:36:31+00:00"
 =======
@@ -4302,9 +4513,21 @@
             "time": "2017-11-16T17:55:54+00:00"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+=======
+=======
+=======
+=======
+            "time": "2017-11-16T17:55:54+00:00"
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "symfony/http-foundation",
@@ -4361,16 +4584,16 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "5f099c72654b4a18e82679a10a1a23bbfa75d87e"
+                "reference": "aedc53f4473ec9b66e901ac8611c33560357afcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/5f099c72654b4a18e82679a10a1a23bbfa75d87e",
-                "reference": "5f099c72654b4a18e82679a10a1a23bbfa75d87e",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/aedc53f4473ec9b66e901ac8611c33560357afcd",
+                "reference": "aedc53f4473ec9b66e901ac8611c33560357afcd",
                 "shasum": ""
             },
             "require": {
@@ -4440,11 +4663,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-16T17:43:55+00:00"
+            "time": "2017-12-04T22:02:14+00:00"
         },
         {
             "name": "symfony/inflector",
-            "version": "v4.0.0",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/inflector.git",
@@ -4501,16 +4724,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v3.4.0",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "1759b9944e45c09e05683ccf172e2bcb58a35893"
+                "reference": "8c4e3daf9df173f6a978756c2598b151d40177cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/1759b9944e45c09e05683ccf172e2bcb58a35893",
-                "reference": "1759b9944e45c09e05683ccf172e2bcb58a35893",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/8c4e3daf9df173f6a978756c2598b151d40177cf",
+                "reference": "8c4e3daf9df173f6a978756c2598b151d40177cf",
                 "shasum": ""
             },
             "require": {
@@ -4572,26 +4795,33 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2017-11-19T18:41:20+00:00"
+            "time": "2017-12-14T19:40:10+00:00"
         },
         {
             "name": "symfony/options-resolver",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 >>>>>>> core-2275 update lock
@@ -4617,13 +4847,17 @@
 =======
             "version": "v3.4.0",
 >>>>>>> core-2275 WIP
+=======
+            "version": "v3.4.2",
+>>>>>>> core-2275 update constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "08748edfe6982f4d878cc42b8325b19a276fb1cf"
+                "reference": "4576693efc58c022c3fe9f144aa61d204c86ad2c"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/options-resolver/zipball/623d9c210a137205f7e6e98166105625402cbb2f",
                 "reference": "623d9c210a137205f7e6e98166105625402cbb2f",
@@ -4632,6 +4866,10 @@
                 "url": "https://api.github.com/repos/symfony/options-resolver/zipball/08748edfe6982f4d878cc42b8325b19a276fb1cf",
                 "reference": "08748edfe6982f4d878cc42b8325b19a276fb1cf",
 >>>>>>> core-2275 WIP
+=======
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/4576693efc58c022c3fe9f144aa61d204c86ad2c",
+                "reference": "4576693efc58c022c3fe9f144aa61d204c86ad2c",
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -4674,6 +4912,7 @@
             ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-03T07:36:31+00:00"
 =======
             "time": "2017-11-05T15:47:03+00:00"
@@ -4681,6 +4920,9 @@
 =======
             "time": "2017-11-05T16:10:10+00:00"
 >>>>>>> core-2275 WIP
+=======
+            "time": "2017-12-14T19:40:10+00:00"
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -5199,7 +5441,7 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v3.4.0",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -5263,26 +5505,32 @@
                 "property path",
                 "reflection"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-07-30T07:22:48+00:00"
+            "time": "2017-11-19T18:41:20+00:00"
         },
         {
             "name": "symfony/routing",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
+=======
+>>>>>>> core-2275 update constraints
+<<<<<<< HEAD
+            "version": "v2.8.33",
+=======
+=======
+>>>>>>> core-2275 update constraints
+<<<<<<< HEAD
+            "version": "v2.8.34",
+=======
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
 <<<<<<< HEAD
-            "version": "v2.8.34",
 =======
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-<<<<<<< HEAD
+>>>>>>> core-2275 update constraints
             "version": "v2.8.32",
 >>>>>>> core-2275 updated constraints
 >>>>>>> core-2275 updated constraints
@@ -5313,6 +5561,7 @@
 =======
                 "url": "https://api.github.com/repos/symfony/routing/zipball/fa8f982682a3b65d87858be7dbf84f7f03feb616",
                 "reference": "fa8f982682a3b65d87858be7dbf84f7f03feb616",
+<<<<<<< HEAD
 =======
             "version": "v2.8.31",
 =======
@@ -5354,9 +5603,20 @@
                 "reference": "67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
 >>>>>>> core-2275 update lock
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+=======
+=======
+=======
+=======
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -5420,10 +5680,13 @@
             ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-16T18:00:04+00:00"
 =======
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-04T14:58:28+00:00"
         },
@@ -5433,6 +5696,8 @@
 =======
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-16T18:00:04+00:00"
         },
@@ -5442,6 +5707,8 @@
 =======
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-04T14:58:28+00:00"
 >>>>>>> core-2275 updated constraints
@@ -5504,6 +5771,12 @@
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+            "time": "2017-11-19T19:05:05+00:00"
+        },
+        {
+            "name": "symfony/security",
+>>>>>>> core-2275 update constraints
             "version": "v2.7.8",
             "source": {
                 "type": "git",
@@ -5743,6 +6016,7 @@
         {
             "name": "symfony/serializer",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.2",
 =======
 <<<<<<< HEAD
@@ -5774,6 +6048,9 @@
                 "symfony/yaml": "<3.4"
 =======
             "version": "v2.8.31",
+=======
+            "version": "v2.8.32",
+>>>>>>> core-2275 update constraints
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -5855,20 +6132,27 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-19T11:19:37+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-19T11:19:37+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -5899,13 +6183,25 @@
             "time": "2017-11-07T14:08:47+00:00"
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+=======
+=======
+            "time": "2017-11-07T14:08:47+00:00"
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "symfony/translation",
-            "version": "v3.3.13",
+            "version": "v3.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -5968,6 +6264,7 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-30T07:22:48+00:00"
         },
         {
@@ -6008,22 +6305,29 @@
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
             "time": "2017-11-07T14:12:55+00:00"
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v3.3.13",
+            "version": "v3.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "87305530dee22d66c92756df2d4aec576d882fb9"
+                "reference": "0c98ad092fc7b9ba796dc704b41b4e9fead95d2c"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/87305530dee22d66c92756df2d4aec576d882fb9",
                 "reference": "87305530dee22d66c92756df2d4aec576d882fb9",
 >>>>>>> core-2275 updated constraints
 >>>>>>> core-2275 updated constraints
+=======
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/0c98ad092fc7b9ba796dc704b41b4e9fead95d2c",
+                "reference": "0c98ad092fc7b9ba796dc704b41b4e9fead95d2c",
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -6099,6 +6403,7 @@
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
 =======
 <<<<<<< HEAD
@@ -6135,6 +6440,9 @@
                 "reference": "d3f8bf19db07dde2ed3f4c43907bb18eb876a0c1",
 =======
             "time": "2017-11-07T11:58:40+00:00"
+=======
+            "time": "2017-12-04T19:58:26+00:00"
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "symfony/validator",
@@ -6146,6 +6454,7 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/validator/zipball/ec0739539e4913177e37a43a8e8da091b8f7188d",
                 "reference": "ec0739539e4913177e37a43a8e8da091b8f7188d",
@@ -6167,9 +6476,22 @@
                 "reference": "39244fbf580e01acc3f5df01238a8f69b1b3e46f",
 >>>>>>> core-2275 update lock
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update lock
+=======
+=======
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/validator/zipball/39244fbf580e01acc3f5df01238a8f69b1b3e46f",
+                "reference": "39244fbf580e01acc3f5df01238a8f69b1b3e46f",
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -6234,20 +6556,27 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T08:54:45+00:00"
 =======
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
 =======
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-29T08:54:45+00:00"
 =======
 =======
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
 =======
@@ -6336,9 +6665,34 @@
                 "reference": "0938408c4faa518d95230deabb5f595bf0de31b9",
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+=======
+=======
+            "time": "2017-07-26T06:34:07+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v3.3.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "36353762fdca3a0ecdce4640764efc885df979f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/36353762fdca3a0ecdce4640764efc885df979f6",
+                "reference": "36353762fdca3a0ecdce4640764efc885df979f6",
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
                 "shasum": ""
             },
             "require": {
@@ -6381,14 +6735,21 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-21T19:05:02+00:00"
 =======
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-21T19:05:02+00:00"
 =======
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -6398,9 +6759,21 @@
             "time": "2017-11-10T18:26:04+00:00"
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+=======
+=======
+            "time": "2017-12-04T14:51:35+00:00"
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "twig/twig",
@@ -9564,9 +9937,8 @@
                 "source": "https://github.com/spryker/code-generator/tree/master",
                 "issues": "https://github.com/spryker/code-generator/issues"
             },
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2017-12-01T13:53:50+00:00"
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             "time": "2017-12-01T13:24:46+00:00"
@@ -9581,6 +9953,8 @@
             "time": "2017-12-01T13:53:50+00:00"
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "spryker/code-sniffer",
@@ -9931,20 +10305,27 @@
             "name": "symfony/dependency-injection",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.4",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v4.0.3",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v4.0.4",
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v4.0.3",
 =======
@@ -10005,6 +10386,8 @@
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
             "version": "v3.2.14",
             "source": {
                 "type": "git",
@@ -10021,24 +10404,6 @@
                 "php": ">=5.5.9"
             },
             "conflict": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "symfony/config": "<3.3.1",
-                "symfony/finder": "<3.3",
->>>>>>> core-2275 update lock
-                "symfony/proxy-manager-bridge": "<3.4",
-                "symfony/yaml": "<3.4"
-            },
-            "provide": {
-                "psr/container-implementation": "1.0"
-            },
-            "require-dev": {
-                "symfony/config": "~3.4|~4.0",
-                "symfony/expression-language": "~3.4|~4.0",
-                "symfony/yaml": "~3.4|~4.0"
-=======
-=======
->>>>>>> core-2275 WIP
                 "symfony/yaml": "<3.2"
             },
             "require-dev": {
@@ -10055,19 +10420,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "dev-master": "4.0-dev"
-=======
-<<<<<<< HEAD
-                    "dev-master": "3.4-dev"
-=======
                     "dev-master": "3.2-dev"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-=======
-                    "dev-master": "3.2-dev"
->>>>>>> core-2275 WIP
                 }
             },
             "autoload": {
@@ -10096,20 +10449,27 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T09:29:16+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-04T15:52:56+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-29T09:29:16+00:00"
 =======
 =======
 >>>>>>> core-2275 WIP
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "time": "2018-01-04T15:52:56+00:00"
 =======
@@ -10140,9 +10500,21 @@
             "time": "2017-07-28T15:22:55+00:00"
 >>>>>>> core-2275 WIP
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+<<<<<<< HEAD
 >>>>>>> core-2275 WIP
+=======
+=======
+=======
+=======
+            "time": "2017-07-28T15:22:55+00:00"
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
+>>>>>>> core-2275 update constraints
         },
         {
             "name": "symfony/dom-crawler",
@@ -10259,20 +10631,27 @@
             "name": "symfony/stopwatch",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 >>>>>>> core-2275 updated constraints
@@ -10300,8 +10679,9 @@
 >>>>>>> core-2275 updated constraints
 >>>>>>> core-2275 updated constraints
 =======
+=======
+>>>>>>> core-2275 update constraints
             "version": "v3.0.9",
->>>>>>> core-2275 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -10426,20 +10806,27 @@
             "name": "symfony/web-profiler-bundle",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update constraints
 <<<<<<< HEAD
             "version": "v2.8.33",
 >>>>>>> core-2275 updated constraints
@@ -10475,12 +10862,9 @@
 <<<<<<< HEAD
             "version": "v2.8.31",
 =======
-            "version": "v3.0.9",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
 =======
+>>>>>>> core-2275 update constraints
             "version": "v3.0.9",
->>>>>>> core-2275 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",

@@ -11,7 +11,6 @@ use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
@@ -45,18 +44,6 @@ class NewsletterSubscriptionForm extends AbstractType
     }
 
     /**
-     * @deprecated Use `configureOptions()` instead.
-     *
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-     *
-     * @return void
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
-    }
-
-    /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
@@ -82,13 +69,6 @@ class NewsletterSubscriptionForm extends AbstractType
             'required' => false,
             'constraints' => [
                 new NotBlank(),
-                new Callback([
-                    'callback' => function ($email, ExecutionContextInterface $context) {
-                        if (!$this->getFactory()->getUtilValidateService()->isEmailFormatValid($email)) {
-                            $context->buildViolation('customer.email.format.invalid')->addViolation();
-                        }
-                    },
-                ]),
             ],
         ]);
 
