@@ -1984,8 +1984,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "585c48f08ebad36082c6d2d7a42837de9e72ce8f"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2005,9 +2008,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "8b384c28ad979dd741a450fa1ee746cef276e207"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2027,9 +2034,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2049,6 +2060,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
 =======
@@ -2060,9 +2073,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "e483e2438184e6281c1a19f6670f0661b41e424a"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2243,6 +2260,11 @@
 =======
 =======
                 "reference": "a1775f4cdd5aff3cc002cac0e29c94a7fad43df2"
+>>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "c739a08cb469b9f0312de88df463ef2ccb4afdcf"
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
             },
@@ -2484,8 +2506,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-25T12:37:32+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2505,9 +2530,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-17T16:50:48+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2527,9 +2556,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-22T11:47:58+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2549,9 +2582,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-20T14:44:28+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2615,6 +2652,8 @@
             },
             "time": "2017-11-13T10:53:51+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2757,6 +2796,9 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
             "time": "2017-12-18T05:33:58+00:00"
+>>>>>>> core-2275 update spryker/spryker
+=======
+            "time": "2017-12-18T07:48:59+00:00"
 >>>>>>> core-2275 update spryker/spryker
         },
         {
