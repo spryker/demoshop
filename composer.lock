@@ -1939,7 +1939,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "aff704b0c41b9c3e24d11c00f9fb5a60369e2f54"
+                "reference": "c66bd3dc010d233eda968dcf0f79824a247a0c44"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2137,7 +2137,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-19T13:03:14+00:00"
+            "time": "2017-12-19T13:10:47+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6827,27 +6827,27 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "bab653d0f7f2e3ed13796f7803067d252f00a25a"
+                "reference": "3992f968313fdd42fd174210731dd949b3487148"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/bab653d0f7f2e3ed13796f7803067d252f00a25a",
-                "reference": "bab653d0f7f2e3ed13796f7803067d252f00a25a",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/3992f968313fdd42fd174210731dd949b3487148",
+                "reference": "3992f968313fdd42fd174210731dd949b3487148",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0",
+                "php": "^7.1",
                 "squizlabs/php_codesniffer": "^3.0.1"
             },
             "require-dev": {
                 "jakub-onderka/php-parallel-lint": "0.9.2",
                 "phing/phing": "2.16",
-                "phpstan/phpstan": "0.8.4",
-                "phpunit/phpunit": "6.3.0"
+                "phpstan/phpstan": "0.9.1",
+                "phpunit/phpunit": "6.5.5"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -6860,7 +6860,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2017-09-15T17:47:36+00:00"
+            "time": "2017-12-19T12:51:07+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
