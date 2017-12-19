@@ -81,7 +81,7 @@ class AddressFormDataProvider extends AbstractAddressFormDataProvider
         $countries = [];
 
         foreach ($this->store->getCountries() as $iso2Code) {
-            $countries[$iso2Code] = self::COUNTRY_GLOSSARY_PREFIX . $iso2Code;
+            $countries[$iso2Code] = self::COUNTRY_GLOSSARY_PREFIX . $iso2Code . 'FOoBar';
         }
 
         return $countries;

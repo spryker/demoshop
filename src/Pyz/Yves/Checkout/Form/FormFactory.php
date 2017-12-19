@@ -151,16 +151,8 @@ class FormFactory extends SprykerFormFactory
     protected function getAddressFormTypes()
     {
         return [
-            $this->createCheckoutAddressCollectionForm(),
+            CheckoutAddressCollectionForm::class,
         ];
-    }
-
-    /**
-     * @return \Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm
-     */
-    protected function createCheckoutAddressCollectionForm()
-    {
-        return new CheckoutAddressCollectionForm();
     }
 
     /**

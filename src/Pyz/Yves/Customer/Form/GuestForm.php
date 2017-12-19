@@ -31,6 +31,14 @@ class GuestForm extends AbstractType
     const BLOCK_PREFIX = 'guestForm';
 
     /**
+     * @return string
+     */
+    public function getBlockPrefix()
+    {
+        return static::BLOCK_PREFIX;
+    }
+
+    /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
@@ -56,10 +64,10 @@ class GuestForm extends AbstractType
     {
         $builder->add(self::FIELD_SALUTATION, ChoiceType::class, [
             'choices' => [
-                'Mr' => 'customer.salutation.mr',
-                'Ms' => 'customer.salutation.ms',
-                'Mrs' => 'customer.salutation.mrs',
-                'Dr' => 'customer.salutation.dr',
+                'customer.salutation.mr' => 'Mr',
+                'customer.salutation.ms' => 'Ms',
+                'customer.salutation.mrs' => 'Mrs',
+                'customer.salutation.dr' => 'Dr',
             ],
             'label' => 'address.salutation',
             'constraints' => [
