@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
+    "content-hash": "b71b1667b0c53235c098a8f5cf2a38b6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1935,11 +1935,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-777-gift-cards",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "636901fbd5bafaefa5f40f8ac442ce237361a64a"
+                "reference": "53e75de1004c027eafd4dfb2a6f554d565be2b49"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2009,6 +2009,7 @@
                 "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
+                "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
@@ -2137,7 +2138,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-19T09:36:43+00:00"
+            "time": "2017-12-19T10:48:54+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5331,12 +5332,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "9daf26d0368d4a12bed1cacae1a9f3a6f0adf239"
+                "reference": "4388d7ba40ffc371520a7e2d754c55a66bcdb8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/9daf26d0368d4a12bed1cacae1a9f3a6f0adf239",
-                "reference": "9daf26d0368d4a12bed1cacae1a9f3a6f0adf239",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/4388d7ba40ffc371520a7e2d754c55a66bcdb8dc",
+                "reference": "4388d7ba40ffc371520a7e2d754c55a66bcdb8dc",
                 "shasum": ""
             },
             "require": {
