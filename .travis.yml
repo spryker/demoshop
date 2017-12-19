@@ -88,6 +88,7 @@ script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
 
+  - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console propel:schema:validate ; fi
   - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console transfer:validate ; fi
   - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console code:sniff:style ; fi
   - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
