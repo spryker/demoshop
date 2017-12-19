@@ -24,6 +24,8 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     const CLIENT_CART = 'CLIENT_CART';
     const STORE = 'STORE';
 
+    const SERVICE_UTIL_VALIDATE = 'SERVICE_UTIL_VALIDATE';
+
     const PLUGIN_CUSTOMER_STEP_HANDLER = 'PLUGIN_CUSTOMER_STEP_HANDLER';
     const PLUGIN_SHIPMENT_STEP_HANDLER = 'PLUGIN_SHIPMENT_STEP_HANDLER';
     const PLUGIN_SHIPMENT_HANDLER = 'PLUGIN_SHIPMENT_HANDLER';
@@ -39,6 +41,21 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
         $container = $this->provideStore($container);
+        $container = $this->addUtilValidateService($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addUtilValidateService(Container $container)
+    {
+        $container[static::SERVICE_UTIL_VALIDATE] = function (Container $container) {
+            return $container->getLocator()->utilValidate()->service();
+        };
 
         return $container;
     }

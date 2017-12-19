@@ -104,13 +104,13 @@ $config[ApplicationConstants::HOST_YVES]
     = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
-    = $config[CustomerConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_STATIC_MEDIA]
     = $config[ApplicationConstants::HOST_SSL_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
     = 'www.de.project.local';
+$config[CustomerConstants::BASE_URL_YVES] = 'www.de.project.local';
 
 /**
  * Hostname(s) for Zed - Shop frontend
@@ -374,7 +374,6 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
 $config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = APPLICATION_VENDOR_DIR . '/*/*/src/*/Zed/*/Persistence/Propel/Schema/';
-$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [

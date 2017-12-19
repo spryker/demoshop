@@ -565,10 +565,14 @@ newsletter.unsubscription.success,You successfully unsubscribed from the newslet
 newsletter.unsubscription.success,Sie wurden erfolgreich für den Newsletter abgemeldet,de_DE
 newsletter.subscription.already_subscribed,You are already subscribed to the newsletter,en_US
 newsletter.subscription.already_subscribed,Sie sind bereits für den Newsletter angemeldet,de_DE
+newsletter.subscription.email_format_invalid,Invalid Email address format,en_US
+newsletter.subscription.email_format_invalid,Ungültiges E-Mail-Adressformat,de_DE
 customer.authentication.failed,Authentication failed,en_US
 customer.authentication.failed,Authentifizierung fehlgeschlagen,de_DE
 customer.email.invalid,Email address is invalid,en_US
 customer.email.invalid,E-Mail Adresse ist ungültig,de_DE
+customer.email.format.invalid,Invalid Email address format,en_US
+customer.email.format.invalid,Ungültiges E-Mail-Adressformat,de_DE
 customer.password.recovery.mail.sent,"If there is an account associated with this email address, you will receive an email with further instructions",en_US
 customer.password.recovery.mail.sent,"Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen",de_DE
 customer.address.number,Number,en_US
@@ -1023,3 +1027,7 @@ product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
 product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
+catalog.view.mode.grid,Grid,en_US
+catalog.view.mode.grid,Gitter,de_DE
+catalog.view.mode.list,List,en_US
+catalog.view.mode.list,Liste,de_DE

@@ -20,6 +20,9 @@ class CatalogController extends AbstractController
 {
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
+    const URL_PARAM_VIEW_MODE = 'mode';
+    const URL_PARAM_REFERER_URL = 'referer-url';
+
     /**
      * @param array $categoryNode
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -38,6 +41,8 @@ class CatalogController extends AbstractController
             ->catalogSearch($searchString, $parameters);
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
+        $viewMode = $this->getClient()->getCatalogViewMode($request);
+
         $metaAttributes = [
             'idCategory' => $parameters['category'],
             'category' => $categoryNode,
@@ -45,6 +50,7 @@ class CatalogController extends AbstractController
             'page_description' => $categoryNode['meta_description'],
             'page_keywords' => $categoryNode['meta_keywords'],
             'searchString' => $searchString,
+            'view_mode' => $viewMode,
         ];
 
         $searchResults = array_merge($searchResults, $metaAttributes);
@@ -67,8 +73,24 @@ class CatalogController extends AbstractController
 
         $searchResults['searchString'] = $searchString;
         $searchResults['idCategory'] = null;
+        $searchResults['view_mode'] = $this->getClient()->getCatalogViewMode($request);
 
         return $this->viewResponse($searchResults);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function changeViewModeAction(Request $request)
+    {
+        $viewMode = $request->query->get(static::URL_PARAM_VIEW_MODE);
+        $refererUrl = $request->query->get(static::URL_PARAM_REFERER_URL);
+
+        $response = $this->redirectResponseExternal($refererUrl);
+
+        return $this->getClient()->setCatalogViewMode($viewMode, $response);
     }
 
     /**
