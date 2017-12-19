@@ -28,14 +28,7 @@ class GuestForm extends AbstractType
     const FIELD_EMAIL = 'email';
     const FIELD_IS_GUEST = 'is_guest';
     const FIELD_ACCEPT_TERMS = 'accept_terms';
-
-    /**
-     * @return string
-     */
-    public function getBlockPrefix()
-    {
-        return 'guestForm';
-    }
+    const BLOCK_PREFIX = 'guestForm';
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder

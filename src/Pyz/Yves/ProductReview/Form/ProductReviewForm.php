@@ -20,6 +20,7 @@ use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
 /**
  * @method \Pyz\Yves\ProductReview\ProductReviewFactory getFactory()
+ * @method \Spryker\Client\ProductReview\ProductReviewClientInterface getClient()
  */
 class ProductReviewForm extends AbstractType
 {
@@ -100,7 +101,7 @@ class ProductReviewForm extends AbstractType
     protected function getRatingFieldChoices()
     {
         $unselectedChoice = [static::UNSELECTED_RATING => 'product_review.submit.rating.none'];
-        $choices = range(static::MINIMUM_RATING, $this->productReviewClient->getMaximumRating());
+        $choices = range(static::MINIMUM_RATING, $this->getClient()->getMaximumRating());
         $choices = $unselectedChoice + array_combine($choices, $choices);
 
         return $choices;

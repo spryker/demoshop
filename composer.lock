@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "376e98b31171171edf6a557b938dbf86",
 =======
 =======
@@ -19,6 +20,8 @@
 >>>>>>> core-2275 WIP
 =======
 >>>>>>> core-2275 update constraints
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
     "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
 =======
@@ -30,6 +33,8 @@
 >>>>>>> core-2275 WIP
 =======
 >>>>>>> core-2275 update constraints
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
     "content-hash": "d284e38cad2782342ac2106498a67c42",
 =======
@@ -123,8 +128,17 @@
     "content-hash": "864bcc12a0dd336dab4a357edb8024e7",
 >>>>>>> core-2275 update constraints
 >>>>>>> core-2275 update constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 update constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 update constraints
+=======
+=======
+=======
+    "content-hash": "8f13cbbb724fbfb580a452f076ff120b",
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2026,6 +2040,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2048,6 +2063,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -2071,6 +2088,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 =======
@@ -2094,6 +2113,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
 =======
@@ -2117,6 +2138,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
 =======
@@ -2140,6 +2163,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
 =======
@@ -2163,6 +2188,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
 =======
@@ -2186,6 +2213,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
 =======
@@ -2209,6 +2238,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
 =======
@@ -2232,6 +2263,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "e483e2438184e6281c1a19f6670f0661b41e424a"
 =======
@@ -2255,6 +2288,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
                 "reference": "636901fbd5bafaefa5f40f8ac442ce237361a64a"
 =======
@@ -2679,16 +2714,49 @@
                 "reference": "0e873e807a9dc2c33be0003c22b42c5e2daa5018"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "0e873e807a9dc2c33be0003c22b42c5e2daa5018"
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2934,6 +3002,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
@@ -2956,6 +3025,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 =======
@@ -2979,6 +3050,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2018-01-29T17:32:14+00:00"
 =======
@@ -3002,6 +3075,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2018-01-26T14:28:54+00:00"
 =======
@@ -3025,6 +3100,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2018-01-26T13:11:30+00:00"
 =======
@@ -3048,6 +3125,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2018-01-25T17:41:45+00:00"
 =======
@@ -3071,6 +3150,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2017-12-22T11:47:58+00:00"
 =======
@@ -3094,6 +3175,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2017-12-21T11:37:00+00:00"
 =======
@@ -3117,6 +3200,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2017-12-20T14:44:28+00:00"
 =======
@@ -3140,6 +3225,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2017-12-19T17:36:45+00:00"
 =======
@@ -3163,6 +3250,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
 <<<<<<< HEAD
             "time": "2017-12-19T09:36:43+00:00"
 =======
@@ -3189,16 +3278,49 @@
 <<<<<<< HEAD
             "time": "2017-12-18T17:36:21+00:00"
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-12-19T06:19:19+00:00"
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+>>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3244,140 +3366,6 @@
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
             "time": "2017-11-13T10:53:51+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "time": "2017-12-18T11:32:25+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
-            "time": "2017-12-01T11:38:14+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2017-11-28T10:14:45+00:00"
-=======
-            "time": "2017-11-22T11:40:57+00:00"
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-11-22T14:44:31+00:00"
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-            "time": "2017-11-23T06:31:14+00:00"
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-=======
-=======
-=======
-=======
-            "time": "2017-11-23T14:14:05+00:00"
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-            "time": "2017-11-29T09:52:19+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-=======
-=======
-            "time": "2017-11-29T11:29:31+00:00"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-11-29T12:40:01+00:00"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-            "time": "2017-11-29T13:23:29+00:00"
->>>>>>> core-2275 refactored all project forms
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-=======
-=======
-            "time": "2017-11-29T13:23:29+00:00"
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-=======
-            "time": "2017-12-18T13:10:53+00:00"
->>>>>>> core-2275 update constraints
-=======
-            "time": "2017-12-19T06:19:19+00:00"
->>>>>>> core-2275 update composer.lock
         },
         {
             "name": "swiftmailer/swiftmailer",

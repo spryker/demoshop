@@ -12,9 +12,12 @@ use Silex\Provider\TwigServiceProvider as SilexTwigServiceProvider;
 use Spryker\Shared\Config\Config;
 use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Yves\Application\Routing\Helper;
+use Symfony\Bridge\Twig\Extension\HttpKernelRuntime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
+use Symfony\Component\HttpKernel\Fragment\FragmentHandler;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Twig\RuntimeLoader\FactoryRuntimeLoader;
 use Twig_Loader_Chain;
 use Twig_Loader_Filesystem;
 
@@ -173,6 +176,17 @@ class TwigServiceProvider extends SilexTwigServiceProvider
                     foreach ($app['twig.global.variables'] as $name => $value) {
                         $twig->addGlobal($name, $value);
                     }
+
+                    $callback = function () use ($app) {
+                        $fragmentHandler = new FragmentHandler($app['request_stack'], $app['fragment.renderers']);
+
+                        return new HttpKernelRuntime($fragmentHandler);
+                    };
+                    $factoryLoader = new FactoryRuntimeLoader([HttpKernelRuntime::class => $callback]);
+                    $twig->addRuntimeLoader($factoryLoader);
+
+                //                    $twig->addExtension(new HttpKernelExtension());
+                //                    $twig->addExtension(new TranslationExtension($app['translator']));
 
                     return $twig;
                 }

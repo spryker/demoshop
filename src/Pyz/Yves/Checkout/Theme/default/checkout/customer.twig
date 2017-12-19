@@ -8,6 +8,7 @@
 
 {% block content %}
 
+    {#{{ dump() }}#}
     {% set isGuest = (guestForm.vars.value and (guestForm.vars.value.customer and guestForm.vars.value.customer.isGuest)) %}
 
     <div class="row small-unstack" data-component="viewer">

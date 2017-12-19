@@ -27,16 +27,6 @@ class CustomerCheckoutForm extends AbstractType
     }
 
     /**
-     * @return string The name of this type
-     */
-    public function getBlockPrefix()
-    {
-        // Check how to get name of subform
-
-        return $this->subFormType->getBlockPrefix();
-    }
-
-    /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *

@@ -84,10 +84,9 @@ class FormFactory extends SprykerFormFactory
     public function createPaymentFormCollection()
     {
         $createPaymentSubForms = $this->createPaymentMethodSubForms();
-        $paymentFormType = $this->createPaymentForm();
         $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
 
-        return $this->createSubFormCollection($paymentFormType, $subFormDataProvider);
+        return $this->createSubFormCollection(PaymentForm::class, $subFormDataProvider);
     }
 
     /**
@@ -115,8 +114,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function getVoucherForm()
     {
-        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
-            ->create($this->createVoucherFormType());
+        return $this->getFormFactory()->create(VoucherForm::class);
     }
 
     /**
@@ -125,20 +123,22 @@ class FormFactory extends SprykerFormFactory
     protected function getCustomerFormTypes()
     {
         return [
-            $this->createLoginForm(),
-            $this->createCustomerCheckoutForm($this->createRegisterForm()),
-            $this->createCustomerCheckoutForm($this->createGuestForm()),
+            LoginForm::class,
+            $this->getCustomerCheckoutForm(RegisterForm::class, RegisterForm::BLOCK_PREFIX),
+            $this->getCustomerCheckoutForm(GuestForm::class, GuestForm::BLOCK_PREFIX),
         ];
     }
 
     /**
      * @param string $subForm
+     * @param string $blockPrefix
      *
      * @return \Pyz\Yves\Customer\Form\CustomerCheckoutForm|\Symfony\Component\Form\FormInterface
      */
-    protected function createCustomerCheckoutForm($subForm)
+    protected function getCustomerCheckoutForm($subForm, $blockPrefix)
     {
-        return $this->getFormFactory()->create(
+        return $this->getFormFactory()->createNamed(
+            $blockPrefix,
             CustomerCheckoutForm::class,
             null,
             [CustomerCheckoutForm::SUB_FORM => $subForm]
@@ -172,38 +172,14 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\FormTypeInterface[]
+     * @return string[]
      */
     protected function createSummaryFormTypes()
     {
         return [
-            $this->createSummaryForm(),
-            $this->createVoucherFormType(),
+            SummaryForm::class,
+            VoucherForm::class,
         ];
-    }
-
-    /**
-     * @return string
-     */
-    protected function createVoucherFormType()
-    {
-        return VoucherForm::class;
-    }
-
-    /**
-     * @return string
-     */
-    protected function createPaymentForm()
-    {
-        return PaymentForm::class;
-    }
-
-    /**
-     * @return string
-     */
-    protected function createSummaryForm()
-    {
-        return SummaryForm::class;
     }
 
     /**
@@ -266,22 +242,6 @@ class FormFactory extends SprykerFormFactory
     protected function createLoginForm()
     {
         return LoginForm::class;
-    }
-
-    /**
-     * @return string
-     */
-    protected function createRegisterForm()
-    {
-        return RegisterForm::class;
-    }
-
-    /**
-     * @return \Pyz\Yves\Customer\Form\GuestForm
-     */
-    protected function createGuestForm()
-    {
-        return new GuestForm($this->getUtilValidateService());
     }
 
     /**
