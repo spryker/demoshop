@@ -45,6 +45,7 @@ use Spryker\Zed\GiftCard\GiftCardConfig;
 use Spryker\Zed\Log\Communication\Plugin\ZedLoggerConfigPlugin;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
+use SprykerEco\Shared\Loggly\LogglyConstants;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
@@ -400,6 +401,9 @@ $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
         QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
     ],
 ];
+
+$config[LogglyConstants::QUEUE_NAME] = 'loggly-log-queue';
+$config[LogglyConstants::ERROR_QUEUE_NAME] = 'loggly-log-queue.error';
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = false;

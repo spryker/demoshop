@@ -1039,3 +1039,7 @@ product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
 product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
+catalog.view.mode.grid,Grid,en_US
+catalog.view.mode.grid,Gitter,de_DE
+catalog.view.mode.list,List,en_US
+catalog.view.mode.list,Liste,de_DE
