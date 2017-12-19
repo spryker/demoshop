@@ -565,6 +565,8 @@ customer.email.already.used,Email already used,en_US
 customer.email.already.used,E-Mail bereits vergeben,de_DE
 general.back.button,Back,en_US
 general.back.button,Zurück,de_DE
+general.next.button,Next,en_US
+general.next.button,Weiter,de_DE
 general.edit.button,Edit,en_US
 general.edit.button,Bearbeiten,de_DE
 newsletter.subscription.success,You successfully subscribed to the newsletter,en_US
@@ -707,6 +709,8 @@ product.attribute.image_small,Image small,en_US
 product.attribute.image_small,Bild klein,de_DE
 product.attribute.license,License,en_US
 product.attribute.license,Lizenz,de_DE
+product.attribute.value,Value,en_US
+product.attribute.value,Der Wert,de_DE
 product.product_options,Product Options,en_US
 product.product_options,Produktoptionen,de_DE
 product.sets,Product Sets,en_US
