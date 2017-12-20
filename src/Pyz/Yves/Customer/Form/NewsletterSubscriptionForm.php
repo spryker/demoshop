@@ -18,7 +18,7 @@ class NewsletterSubscriptionForm extends AbstractType
     /**
      * @return string
      */
-    public function getBlockPrefixName()
+    public function getBlockPrefix()
     {
         return 'newsletterSubscriptionForm';
     }

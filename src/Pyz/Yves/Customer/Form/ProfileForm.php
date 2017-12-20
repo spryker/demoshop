@@ -109,10 +109,10 @@ class ProfileForm extends AbstractType
     {
         $builder->add(self::FIELD_SALUTATION, ChoiceType::class, [
             'choices' => [
-                'Mr' => 'customer.salutation.mr',
-                'Ms' => 'customer.salutation.ms',
-                'Mrs' => 'customer.salutation.mrs',
-                'Dr' => 'customer.salutation.dr',
+                'customer.salutation.mr' => 'Mr',
+                'customer.salutation.ms' => 'Ms',
+                'customer.salutation.mrs' => 'Mrs',
+                'customer.salutation.dr' => 'Dr',
             ],
             'label' => 'profile.form.salutation',
             'required' => false,
