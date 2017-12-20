@@ -2044,6 +2044,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2068,6 +2069,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -2105,6 +2108,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 =======
@@ -2130,6 +2135,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -2167,6 +2174,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
                 "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
 =======
@@ -2192,6 +2201,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -2229,6 +2240,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
                 "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
 =======
@@ -2260,6 +2273,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
                 "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
 =======
@@ -2285,6 +2300,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -2846,6 +2863,11 @@
                 "reference": "17b192f34c63067bc0d1abd4e7a18fd5fcc50b2c"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
+=======
+=======
+                "reference": "17b192f34c63067bc0d1abd4e7a18fd5fcc50b2c"
+>>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
@@ -3103,6 +3125,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
@@ -3127,6 +3150,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -3164,6 +3189,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
             "time": "2018-01-29T17:32:14+00:00"
 =======
@@ -3189,6 +3216,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -3226,6 +3255,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
             "time": "2018-01-26T13:11:30+00:00"
 =======
@@ -3251,6 +3282,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -3288,6 +3321,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
             "time": "2017-12-22T11:47:58+00:00"
 =======
@@ -3319,6 +3354,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
             "time": "2017-12-21T11:37:00+00:00"
 =======
@@ -3344,6 +3381,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -3506,6 +3545,11 @@
 =======
             "time": "2017-12-20T08:29:38+00:00"
 >>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-12-20T08:29:38+00:00"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
