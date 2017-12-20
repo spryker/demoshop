@@ -106,7 +106,7 @@ class PaymentForm extends AbstractType
         foreach ($paymentMethodSubForms as $paymentMethodSubForm) {
             $builder->add(
                 $paymentMethodSubForm->getName(),
-                $paymentMethodSubForm,
+                get_class($paymentMethodSubForm),
                 [
                     'property_path' => self::PAYMENT_PROPERTY_PATH . '.' . $paymentMethodSubForm->getPropertyPath(),
                     'error_bubbling' => true,
@@ -145,7 +145,7 @@ class PaymentForm extends AbstractType
             $subFormName = ucfirst($paymentMethodSubForm->getName());
 
             if (!$paymentMethodSubForm instanceof SubFormProviderNameInterface) {
-                $choices[$paymentMethodSubForm->getPropertyPath()] = $subFormName;
+                $choices[$subFormName] = $paymentMethodSubForm->getPropertyPath();
                 continue;
             }
 
@@ -153,7 +153,7 @@ class PaymentForm extends AbstractType
                 $choices[$paymentMethodSubForm->getProviderName()] = [];
             }
 
-            $choices[$paymentMethodSubForm->getProviderName()][$paymentMethodSubForm->getPropertyPath()] = $subFormName;
+            $choices[$paymentMethodSubForm->getProviderName()][$subFormName] = $paymentMethodSubForm->getPropertyPath();
         }
 
         return $choices;
@@ -166,12 +166,12 @@ class PaymentForm extends AbstractType
      */
     protected function createSubForm(SubFormPluginInterface $paymentMethodSubForm)
     {
-        $subForm = $paymentMethodSubForm->createSubForm();
-        if (!is_string($subForm)) {
-            $subForm = get_class($subForm);
-        }
-
-        return $subForm;
+        return $paymentMethodSubForm->createSubForm();
+//        if (!is_string($subForm)) {
+//            $subForm = get_class($subForm);
+//        }
+//
+//        return $subForm;
     }
 
     /**
