@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc056042e668f246d19c8303e9a4fd2b",
+    "content-hash": "885292bc49fe19a182a93f2f66519b27",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -8334,11 +8334,11 @@
         },
         {
             "name": "spryker/product",
-            "version": "5.3.1",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Product.git",
-                "reference": "0fcaedbb6e0673bf56a5715e128f9305940bae4b",
+                "reference": "71a07f1e43ab0636a0a27fb4db0aa2ac72b1975b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -8348,8 +8348,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Product/zipball/0fcaedbb6e0673bf56a5715e128f9305940bae4b",
-                "reference": "0fcaedbb6e0673bf56a5715e128f9305940bae4b",
+                "url": "https://api.github.com/repos/spryker/Product/zipball/71a07f1e43ab0636a0a27fb4db0aa2ac72b1975b",
+                "reference": "71a07f1e43ab0636a0a27fb4db0aa2ac72b1975b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8402,7 +8402,7 @@
             "support": {
                 "source": "https://github.com/spryker/Product/tree/master"
             },
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2017-12-07T11:01:16+00:00"
         },
         {
             "name": "spryker/product-abstract-data-feed",
@@ -8897,6 +8897,196 @@
                 "source": "https://github.com/spryker/ProductCategory/tree/master"
             },
             "time": "2017-11-07T14:27:23+00:00"
+        },
+        {
+            "name": "spryker/product-category-filter",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductCategoryFilter.git",
+                "reference": "dc79f0b4498fad0b6db9a5f56d189aa7c7e7cbc6",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductCategoryFilter/zipball/dc79f0b4498fad0b6db9a5f56d189aa7c7e7cbc6",
+                "reference": "dc79f0b4498fad0b6db9a5f56d189aa7c7e7cbc6",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/category": "^4.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/key-builder": "^1.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/storage": "^3.0.0",
+                "spryker/touch": "^3.0.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SprykerTest\\": "tests/SprykerTest/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductCategoryFilter module",
+            "support": {
+                "source": "https://github.com/spryker/ProductCategoryFilter/tree/1.0.0"
+            },
+            "time": "2017-12-20T09:31:07+00:00"
+        },
+        {
+            "name": "spryker/product-category-filter-collector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductCategoryFilterCollector.git",
+                "reference": "9af53d105b9ce6756aa6c0e3701d22ecfcb7b453",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductCategoryFilterCollector/zipball/9af53d105b9ce6756aa6c0e3701d22ecfcb7b453",
+                "reference": "9af53d105b9ce6756aa6c0e3701d22ecfcb7b453",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/collector": "^5.1.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product-category-filter": "^1.0.0",
+                "spryker/propel-orm": "^1.1.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/touch": "^3.0.0",
+                "spryker/util-data-reader": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductCategoryFilterCollector module",
+            "support": {
+                "source": "https://github.com/spryker/ProductCategoryFilterCollector/tree/1.0.0"
+            },
+            "time": "2017-12-20T09:31:07+00:00"
+        },
+        {
+            "name": "spryker/product-category-filter-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/ProductCategoryFilterGui.git",
+                "reference": "1e7f758b0795a4d5c82cf5655f4061590648d04b",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/ProductCategoryFilterGui/zipball/1e7f758b0795a4d5c82cf5655f4061590648d04b",
+                "reference": "1e7f758b0795a4d5c82cf5655f4061590648d04b",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "spryker/catalog": "^5.0.0",
+                "spryker/category": "^4.0.0",
+                "spryker/gui": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/product": "^5.0.0",
+                "spryker/product-category": "^4.0.0",
+                "spryker/product-category-filter": "^1.0.0",
+                "spryker/product-search": "^5.3.0",
+                "spryker/search": "^6.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductCategoryFilterGui module",
+            "support": {
+                "source": "https://github.com/spryker/ProductCategoryFilterGui/tree/1.0.0"
+            },
+            "time": "2017-12-20T14:43:07+00:00"
         },
         {
             "name": "spryker/product-discount-connector",
@@ -10164,11 +10354,11 @@
         },
         {
             "name": "spryker/product-search",
-            "version": "5.2.2",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductSearch.git",
-                "reference": "64a0646534bd9a984dce313f2421b8832c30228c",
+                "reference": "fad3fcaeca2edd4ff2d71f24c880d99502670a2c",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10178,8 +10368,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductSearch/zipball/64a0646534bd9a984dce313f2421b8832c30228c",
-                "reference": "64a0646534bd9a984dce313f2421b8832c30228c",
+                "url": "https://api.github.com/repos/spryker/ProductSearch/zipball/fad3fcaeca2edd4ff2d71f24c880d99502670a2c",
+                "reference": "fad3fcaeca2edd4ff2d71f24c880d99502670a2c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10233,7 +10423,7 @@
             "support": {
                 "source": "https://github.com/spryker/ProductSearch/tree/master"
             },
-            "time": "2017-12-12T16:05:28+00:00"
+            "time": "2017-12-14T09:19:00+00:00"
         },
         {
             "name": "spryker/product-set",
@@ -11177,11 +11367,11 @@
         },
         {
             "name": "spryker/search",
-            "version": "6.9.0",
+            "version": "6.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Search.git",
-                "reference": "a58390e2a4ad0bcb4f24f89440e1fb2750b15275",
+                "reference": "a9771937f29fa154ef9e8919bab2325ed135b4bf",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -11191,8 +11381,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Search/zipball/a58390e2a4ad0bcb4f24f89440e1fb2750b15275",
-                "reference": "a58390e2a4ad0bcb4f24f89440e1fb2750b15275",
+                "url": "https://api.github.com/repos/spryker/Search/zipball/a9771937f29fa154ef9e8919bab2325ed135b4bf",
+                "reference": "a9771937f29fa154ef9e8919bab2325ed135b4bf",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -11245,7 +11435,7 @@
             "support": {
                 "source": "https://github.com/spryker/Search/tree/master"
             },
-            "time": "2017-11-27T14:09:46+00:00"
+            "time": "2017-12-20T09:31:07+00:00"
         },
         {
             "name": "spryker/sequence-number",
