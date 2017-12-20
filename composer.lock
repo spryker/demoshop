@@ -1941,6 +1941,7 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
 =======
 =======
@@ -1961,6 +1962,9 @@
                 "reference": "b194c27d5ecef154cbf9976565a3295bef111d89"
 >>>>>>> core-2265 update composer.lock
 >>>>>>> core-2265 update composer.lock
+=======
+                "reference": "534fccbaddefe78f3ae210b02dc98add76a2e3fb"
+>>>>>>> core-2265 update
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2160,6 +2164,7 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2017-12-20T14:44:28+00:00"
 =======
 =======
@@ -2180,6 +2185,9 @@
             "time": "2017-12-20T13:36:19+00:00"
 >>>>>>> core-2265 update composer.lock
 >>>>>>> core-2265 update composer.lock
+=======
+            "time": "2017-12-20T14:49:58+00:00"
+>>>>>>> core-2265 update
         },
         {
             "name": "spryker/synchronization-behavior",
