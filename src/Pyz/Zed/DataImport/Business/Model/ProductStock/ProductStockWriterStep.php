@@ -95,13 +95,6 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
 
         $stockProductEntity->save();
 
-        $stockProductStoreEntity = SpyStockProductStoreQuery::create()
-            ->filterByFkStore($storeEntity->getIdStore())
-            ->filterByFkStockProduct($stockProductEntity->getIdStockProduct())
-            ->findOneOrCreate();
-
-        $stockProductStoreEntity->save();
-
         $this->addMainTouchable(StockConfig::TOUCH_STOCK_PRODUCT, $stockProductEntity->getIdStockProduct());
 
         $this->availabilityFacade->updateAvailability($dataSet[static::KEY_CONCRETE_SKU]);
