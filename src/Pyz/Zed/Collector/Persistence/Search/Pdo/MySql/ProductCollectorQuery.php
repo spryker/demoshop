@@ -8,8 +8,6 @@
 namespace Pyz\Zed\Collector\Persistence\Search\Pdo\MySql;
 
 use Orm\Zed\ProductReview\Persistence\Map\SpyProductReviewTableMap;
-use Orm\Zed\Store\Persistence\SpyStoreQuery;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductCollectorQuery extends AbstractPdoCollectorQuery
@@ -101,19 +99,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
             ')
             ->setParameter(':id_locale', $this->locale->getIdLocale())
             ->setParameter(':review_status', $this->getApprovedReviewStatus())
-            ->setParameter(':id_store', $this->getCurrentIdStore());
-    }
-
-    /**
-     * @return int
-     */
-    protected function getCurrentIdStore()
-    {
-        // TODO: use StoreFacade after CORE-1752 is released
-        $currentStoreName = Store::getInstance()->getStoreName();
-        $currentIdStore = SpyStoreQuery::create()->findOneByName($currentStoreName)->getIdStore();
-
-        return $currentIdStore;
+            ->setParameter(':id_store', $this->store->getIdStore());
     }
 
     /**

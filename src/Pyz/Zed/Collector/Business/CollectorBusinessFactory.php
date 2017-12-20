@@ -46,6 +46,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getSearchFacade()
         );
 
+        $searchProductCollector->setStoreFacade(
+            $this->getStoreFacade()
+        );
+
         $searchProductCollector->setTouchQueryContainer(
             $this->getTouchQueryContainer()
         );
@@ -140,6 +144,10 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getProductFacade(),
             $this->getPriceFacade(),
             $this->getProductImageFacade()
+        );
+
+        $storageProductCollector->setStoreFacade(
+            $this->getStoreFacade()
         );
 
         $storageProductCollector->setTouchQueryContainer(

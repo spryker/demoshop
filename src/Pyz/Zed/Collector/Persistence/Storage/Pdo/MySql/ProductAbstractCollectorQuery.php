@@ -7,8 +7,6 @@
 
 namespace Pyz\Zed\Collector\Persistence\Storage\Pdo\MySql;
 
-use Orm\Zed\Store\Persistence\SpyStoreQuery;
-use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductAbstractCollectorQuery extends AbstractPdoCollectorQuery
@@ -52,17 +50,6 @@ WHERE
         $this->criteriaBuilder
             ->sql($sql)
             ->setParameter('fk_locale_1', $this->locale->getIdLocale())
-            ->setParameter('id_store', $this->getCurrentIdStore());
-    }
-
-    /**
-     * @return int
-     */
-    protected function getCurrentIdStore()
-    {
-        $currentStoreName = Store::getInstance()->getStoreName();
-        $currentIdStore = SpyStoreQuery::create()->findOneByName($currentStoreName)->getIdStore();
-
-        return $currentIdStore;
+            ->setParameter('id_store', $this->store->getIdStore());
     }
 }
