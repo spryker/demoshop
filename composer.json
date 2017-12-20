@@ -6,6 +6,8 @@
     "spryker/spryker": "dev-feature/CORE-2097-category-filters",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
+    "spryker/event-behavior": "dev-master",
+    "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
 
     "php": ">=7.1",

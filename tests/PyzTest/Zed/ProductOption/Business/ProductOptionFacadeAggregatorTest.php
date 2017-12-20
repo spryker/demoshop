@@ -58,10 +58,10 @@ class ProductOptionFacadeAggregatorTest extends Test
         $salesOrderItemOptionEntity = SpySalesOrderItemOptionQuery::create()
             ->findOneByFkSalesOrderItem($orderTransfer->getItems()[0]->getIdSalesOrderItem());
 
-        $prductOptionTransfer = $orderTransfer->getItems()[0]->getProductOptions()[0];
+        $productOptionTransfer = $orderTransfer->getItems()[0]->getProductOptions()[0];
 
         $this->assertNotEmpty($salesOrderItemOptionEntity);
-        $this->assertSame($salesOrderItemOptionEntity->getGrossPrice(), $prductOptionTransfer->getUnitGrossPrice());
+        $this->assertSame($salesOrderItemOptionEntity->getGrossPrice(), $productOptionTransfer->getUnitGrossPrice());
     }
 
     /**
