@@ -1038,15 +1038,15 @@ product.filter.price-default-eur-net_mode,Price range,en_US
 product.filter.price-default-eur-gross_mode,Preisspanne,de_DE
 product.filter.price-default-eur-gross_mode,Price range,en_US
 price.mode.gross_mode,Gross prices,en_US
-price.mode.gross_mode,Gross prices,de_DE
+price.mode.gross_mode,Bruttopreise,de_DE
 price.mode.net_mode,Net prices,en_US
-price.mode.net_mode,Net prices,de_DE
+price.mode.net_mode,Nettopreise,de_DE
 cart.pre.check.price.failed,"Price not found for added to cart product with sku '%sku%'. Please remove the product from cart to change the currency.",en_US
 cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%' im Warenkorb. Bitte entfernen Sie das Produkt aus dem Warenkorb, um die Währung zu ändern.",de_DE
 price.mode.switch.error,"Can't switch price mode when there are items in the cart.",en_US
 price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
 cart.pre.check.shipment.failed,"Can't apply these changes. The shipment method not found. Please select another shipment method.",en_US
-cart.pre.check.shipment.failed,"Diese Änderungen können nicht angewendet werden. Die Versandart nicht gefunden. Bitte wählen Sie eine andere Versandart.",de_DE
+cart.pre.check.shipment.failed,"Diese Änderungen können nicht angewendet werden. Die Versandart wurde nicht gefunden. Bitte wählen Sie eine andere Versandart.",de_DE
 catalog.view.mode.grid,Grid,en_US
 catalog.view.mode.grid,Gitter,de_DE
 catalog.view.mode.list,List,en_US
