@@ -6,6 +6,8 @@
     "spryker/spryker": "dev-feature/core-1752-multi-currency-product-options",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
+    "spryker/event-behavior": "dev-master",
+    "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
 
     "php": ">=7.1",

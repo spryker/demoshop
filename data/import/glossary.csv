@@ -1047,3 +1047,9 @@ price.mode.switch.error,"Can't switch price mode when there are items in the car
 price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
 cart.pre.check.shipment.failed,"Can't apply these changes. The shipment method not found. Please select another shipment method.",en_US
 cart.pre.check.shipment.failed,"Diese Änderungen können nicht angewendet werden. Die Versandart nicht gefunden. Bitte wählen Sie eine andere Versandart.",de_DE
+catalog.view.mode.grid,Grid,en_US
+catalog.view.mode.grid,Gitter,de_DE
+catalog.view.mode.list,List,en_US
+catalog.view.mode.list,Liste,de_DE
+cart.quantity.adjusted,Requested item quantity was adjusted as far as selected quantity is not available.,en_US
+cart.quantity.adjusted,"Die angeforderte Artikelmenge wurde angepasst, soweit die ausgewählte Menge nicht verfügbar ist.",de_DE
