@@ -10,6 +10,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "376e98b31171171edf6a557b938dbf86",
 =======
 =======
@@ -22,6 +23,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
 =======
@@ -35,6 +38,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
     "content-hash": "d284e38cad2782342ac2106498a67c42",
 =======
@@ -137,8 +142,17 @@
 =======
     "content-hash": "8f13cbbb724fbfb580a452f076ff120b",
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+<<<<<<< HEAD
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+<<<<<<< HEAD
 >>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
+=======
+=======
+=======
+    "content-hash": "3da561cdccfd57c2973e47bce1bd5ae4",
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2047,6 +2061,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2083,6 +2098,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -2120,6 +2137,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 =======
@@ -2157,6 +2176,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
 =======
@@ -2194,6 +2215,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
 =======
@@ -2231,6 +2254,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
 =======
@@ -2268,6 +2293,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
 =======
@@ -2953,12 +2980,33 @@
                 "reference": "9d80429b72933f0309291d521bfd9f1c2379d83f"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+                "reference": "960825e2b515ca9588dd303d46dff2ffb88ae595"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3211,6 +3259,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
@@ -3247,6 +3296,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 =======
@@ -3284,6 +3335,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-29T17:32:14+00:00"
 =======
@@ -3321,6 +3374,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-26T14:28:54+00:00"
 =======
@@ -3358,6 +3413,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-26T13:11:30+00:00"
 =======
@@ -3395,6 +3452,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-25T17:41:45+00:00"
 =======
@@ -3432,6 +3491,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2017-12-22T11:47:58+00:00"
 =======
@@ -3719,12 +3780,33 @@
             "time": "2017-12-21T06:01:26+00:00"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+=======
+=======
+=======
+=======
+=======
+=======
+=======
+            "time": "2017-12-21T13:20:09+00:00"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -10298,10 +10380,11 @@
         },
         {
             "name": "spryker/architecture-sniffer",
-            "version": "dev-master",
+            "version": "dev-feature/ignore-deprecated-methods-in-factories",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
+<<<<<<< HEAD
                 "reference": "0479d9e92130d60aa117e7b7600d7e1ed1806c78"
             },
             "dist": {
@@ -10309,6 +10392,27 @@
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/0479d9e92130d60aa117e7b7600d7e1ed1806c78",
                 "reference": "0479d9e92130d60aa117e7b7600d7e1ed1806c78",
                 "shasum": ""
+=======
+                "reference": "ee444398b260e8949fc552848484ae852bf984b9",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/ee444398b260e8949fc552848484ae852bf984b9",
+                "reference": "ee444398b260e8949fc552848484ae852bf984b9",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+>>>>>>> core-2275 update spryker/spryker
             },
             "require": {
                 "php": ">=5.4.16",
@@ -10345,7 +10449,15 @@
                 "sniffer",
                 "standards"
             ],
+<<<<<<< HEAD
             "time": "2018-01-10T11:56:59+00:00"
+=======
+            "support": {
+                "source": "https://github.com/spryker/architecture-sniffer",
+                "issues": "https://github.com/spryker/architecture-sniffer/issues"
+            },
+            "time": "2017-12-15T12:55:45+00:00"
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "spryker/code-generator",
