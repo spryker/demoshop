@@ -22,7 +22,7 @@ use Spryker\Client\Search\Model\Elasticsearch\Aggregation\CategoryFacetAggregati
 use Spryker\Shared\Search\SearchConfig;
 
 /**
- * @method \Spryker\Client\Catalog\CatalogFactory getFactory()
+ * @method \Pyz\Client\Catalog\CatalogFactory getFactory()
  */
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
@@ -107,8 +107,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addPriceFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
+
         $priceFacet = (new FacetConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifier)
             ->setParameterName('price')
             ->setFieldName(PageIndexMap::INTEGER_FACET)
             ->setType(SearchConfig::FACET_TYPE_PRICE_RANGE);
@@ -217,8 +221,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addAscendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
+
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifier)
             ->setParameterName('price_asc')
             ->setFieldName(PageIndexMap::INTEGER_SORT);
 
@@ -234,8 +242,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addDescendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
+
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifier)
             ->setParameterName('price_desc')
             ->setFieldName(PageIndexMap::INTEGER_SORT)
             ->setIsDescending(true);

@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\Price\Persistence;
+namespace Orm\Zed\PriceProduct\Persistence;
 
-use Spryker\Zed\Price\Persistence\Propel\AbstractSpyPriceProductQuery as BaseSpyPriceProductQuery;
+use Spryker\Zed\PriceProduct\Persistence\Propel\AbstractSpyPriceProduct as BaseSpyPriceProduct;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'spy_price_product' table.
+ * Skeleton subclass for representing a row from the 'spy_price_product' table.
  *
  *
  *
@@ -18,6 +18,6 @@ use Spryker\Zed\Price\Persistence\Propel\AbstractSpyPriceProductQuery as BaseSpy
  * application requirements. This class will only be generated as
  * long as it does not already exist in the output directory.
  */
-class SpyPriceProductQuery extends BaseSpyPriceProductQuery
+class SpyPriceProduct extends BaseSpyPriceProduct
 {
 }

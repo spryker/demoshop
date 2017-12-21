@@ -9,7 +9,6 @@ namespace Pyz\Yves\Cart\Handler;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductConcreteAvailabilityRequestTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
-use Spryker\Client\Availability\AvailabilityClient;
 use Spryker\Client\Availability\AvailabilityClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
@@ -209,6 +208,5 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
         }
 
         return $quantity;
-
     }
 }

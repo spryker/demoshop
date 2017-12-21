@@ -1,0 +1,11 @@
+product_option_sku,store,currency,value_net,value_gross
+OP_1_year_waranty,DE,EUR,0,0
+OP_2_year_waranty,DE,EUR,800,1000
+OP_3_year_waranty,DE,EUR,1800,2000
+OP_insurance,DE,EUR,8000,10000
+OP_gift_wrapping,DE,EUR,400,500
+OP_1_year_waranty,DE,CHF,0,0
+OP_2_year_waranty,DE,CHF,900,1200
+OP_3_year_waranty,DE,CHF,2000,2300
+OP_insurance,DE,CHF,9000,12000
+OP_gift_wrapping,DE,CHF,500,600
