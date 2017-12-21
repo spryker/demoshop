@@ -11,7 +11,9 @@ use ArrayObject;
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
+use Generated\Shared\Transfer\MoneyValueTransfer;
 use Generated\Shared\Transfer\PriceProductTransfer;
+use Generated\Shared\Transfer\PriceTypeTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductImageSetTransfer;
@@ -25,9 +27,10 @@ use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Pyz\Zed\Product\Business\ProductBusinessFactory;
 use Spryker\Service\UtilEncoding\UtilEncodingService;
 use Spryker\Service\UtilText\UtilTextService;
+use Spryker\Zed\Currency\Business\CurrencyFacade;
 use Spryker\Zed\Locale\Business\LocaleFacade;
-use Spryker\Zed\Price\Business\PriceFacade;
-use Spryker\Zed\Price\Persistence\PriceQueryContainer;
+use Spryker\Zed\PriceProduct\Business\PriceProductFacade;
+use Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainer;
 use Spryker\Zed\Product\Business\Product\ProductManager;
 use Spryker\Zed\Product\Business\Product\Url\ProductUrlManager;
 use Spryker\Zed\Product\Business\ProductFacade;
@@ -36,6 +39,7 @@ use Spryker\Zed\Product\Dependency\Facade\ProductToTouchBridge;
 use Spryker\Zed\Product\Dependency\Facade\ProductToUrlBridge;
 use Spryker\Zed\Product\Persistence\ProductQueryContainer;
 use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainer;
+use Spryker\Zed\Store\Business\StoreFacade;
 use Spryker\Zed\Tax\Persistence\TaxQueryContainer;
 use Spryker\Zed\Touch\Business\TouchFacade;
 use Spryker\Zed\Touch\Persistence\TouchQueryContainer;
@@ -70,6 +74,7 @@ abstract class ProductTestAbstract extends Unit
     const IMAGE_URL_SMALL = 'small';
     const PRICE = 1234;
     const STOCK_QUANTITY = 99;
+    const CURRENCY_ISO_CODE = 'EUR';
 
     /**
      * @var \Generated\Shared\Transfer\LocaleTransfer[]
@@ -87,9 +92,9 @@ abstract class ProductTestAbstract extends Unit
     protected $productImageQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
+     * @var \Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface
      */
-    protected $priceQueryContainer;
+    protected $priceProductQueryContainer;
 
     /**
      * @var \Spryker\Zed\Touch\Persistence\TouchQueryContainerInterface
@@ -107,9 +112,9 @@ abstract class ProductTestAbstract extends Unit
     protected $productFacade;
 
     /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
      */
-    protected $priceFacade;
+    protected $priceProductFacade;
 
     /**
      * @var \Spryker\Zed\Locale\Business\LocaleFacadeInterface
@@ -167,11 +172,36 @@ abstract class ProductTestAbstract extends Unit
     protected $utilEncodingService;
 
     /**
+     * @var \Spryker\Zed\Currency\Business\CurrencyFacadeInterface
+     */
+    protected $currencyFacade;
+
+    /**
+     * @var \Spryker\Zed\Store\Business\StoreFacadeInterface
+     */
+    protected $storeFacade;
+
+    /**
      * @return void
      */
     protected function setUp()
     {
         parent::setUp();
+
+        $this->localeFacade = new LocaleFacade();
+        $this->productFacade = new ProductFacade();
+        $this->urlFacade = new UrlFacade();
+        $this->priceProductFacade = new PriceProductFacade();
+        $this->touchFacade = new TouchFacade();
+        $this->utilTextService = new UtilTextService();
+        $this->productQueryContainer = new ProductQueryContainer();
+        $this->touchQueryContainer = new TouchQueryContainer();
+        $this->priceProductQueryContainer = new PriceProductQueryContainer();
+        $this->productImageQueryContainer = new ProductImageQueryContainer();
+        $this->taxQueryContainer = new TaxQueryContainer();
+        $this->utilEncodingService = new UtilEncodingService();
+        $this->currencyFacade = new CurrencyFacade();
+        $this->storeFacade = new StoreFacade();
 
         $this->setupLocales();
         $this->setupProductAbstract();
@@ -180,19 +210,6 @@ abstract class ProductTestAbstract extends Unit
         $this->setupPluginPrices();
         $this->setupAbstractPluginData();
         $this->setupConcretePluginData();
-
-        $this->localeFacade = new LocaleFacade();
-        $this->productFacade = new ProductFacade();
-        $this->urlFacade = new UrlFacade();
-        $this->priceFacade = new PriceFacade();
-        $this->touchFacade = new TouchFacade();
-        $this->utilTextService = new UtilTextService();
-        $this->productQueryContainer = new ProductQueryContainer();
-        $this->touchQueryContainer = new TouchQueryContainer();
-        $this->priceQueryContainer = new PriceQueryContainer();
-        $this->productImageQueryContainer = new ProductImageQueryContainer();
-        $this->taxQueryContainer = new TaxQueryContainer();
-        $this->utilEncodingService = new UtilEncodingService();
 
         $productBusinessFactory = new ProductBusinessFactory();
         $urlBridge = new ProductToUrlBridge($this->urlFacade);
@@ -337,11 +354,32 @@ abstract class ProductTestAbstract extends Unit
      */
     protected function setupPluginPrices()
     {
-        $price = (new PriceProductTransfer())
-            ->setPrice(self::PRICE);
+        $currencyTransfer = $this->currencyFacade->fromIsoCode(static::CURRENCY_ISO_CODE);
+        $storeTransfer = $this->storeFacade->getCurrentStore();
 
-        $this->productAbstractTransfer->setPrice($price);
-        $this->productConcreteTransfer->setPrice($price);
+        $moneyValueTransfer = (new MoneyValueTransfer())
+            ->setGrossAmount(static::PRICE)
+            ->setNetAmount(static::PRICE)
+            ->setCurrency($currencyTransfer)
+            ->setFkStore($storeTransfer->getIdStore())
+            ->setFkCurrency($currencyTransfer->getIdCurrency());
+
+        $priceTypeTransfer = new PriceTypeTransfer();
+        $priceTypeTransfer->setName($this->priceProductFacade->getDefaultPriceTypeName());
+
+        $priceProductTransfer = (new PriceProductTransfer())
+            ->setSkuProductAbstract($this->productAbstractTransfer->getSku())
+            ->setSkuProduct($this->productConcreteTransfer->getSku())
+            ->setPriceType($priceTypeTransfer)
+            ->setPriceTypeName($priceTypeTransfer->getName())
+            ->setMoneyValue($moneyValueTransfer);
+
+        $this->productAbstractTransfer->addPrice($priceProductTransfer);
+
+        $priceProductTransfer2 = new PriceProductTransfer();
+        $priceProductTransfer2->fromArray($priceProductTransfer->toArray(), true);
+
+        $this->productConcreteTransfer->addPrice($priceProductTransfer2);
     }
 
     /**

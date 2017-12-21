@@ -32,6 +32,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_SET = 'product-set';
     const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
     const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
+    const IMPORT_TYPE_PRODUCT_OPTION_PRICE = 'product-option-price';
     const IMPORT_TYPE_PRODUCT_IMAGE = 'product-image';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP = 'product-search-attribute-map';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE = 'product-search-attribute';
@@ -264,6 +265,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductOptionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_option.csv', static::IMPORT_TYPE_PRODUCT_OPTION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductOptionPriceDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_option_price.csv', static::IMPORT_TYPE_PRODUCT_OPTION_PRICE);
     }
 
     /**

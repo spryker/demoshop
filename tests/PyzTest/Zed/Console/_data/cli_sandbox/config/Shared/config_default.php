@@ -17,9 +17,6 @@ use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\Price\PriceConstants;
-use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
-use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
@@ -101,7 +98,6 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
  * In production you probably use a CDN for static content
  */
 $config[ApplicationConstants::HOST_YVES]
-    = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]
@@ -189,9 +185,6 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 $config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
-
-$config[PriceConstants::DEFAULT_PRICE_TYPE] =
-    $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
 
 $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
