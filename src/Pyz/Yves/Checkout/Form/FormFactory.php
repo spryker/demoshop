@@ -58,16 +58,8 @@ class FormFactory extends SprykerFormFactory
     protected function getShipmentFormTypes()
     {
         return [
-            $this->createShipmentForm(),
+            ShipmentForm::class,
         ];
-    }
-
-    /**
-     * @return string
-     */
-    protected function createShipmentForm()
-    {
-        return ShipmentForm::class;
     }
 
     /**
@@ -106,7 +98,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function createSummaryFormCollection()
     {
-        return $this->createFormCollection($this->createSummaryFormTypes());
+        return $this->createFormCollection($this->getSummaryFormTypes());
     }
 
     /**
@@ -166,7 +158,7 @@ class FormFactory extends SprykerFormFactory
     /**
      * @return string[]
      */
-    protected function createSummaryFormTypes()
+    protected function getSummaryFormTypes()
     {
         return [
             SummaryForm::class,
@@ -226,14 +218,6 @@ class FormFactory extends SprykerFormFactory
     protected function getCustomerClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CUSTOMER);
-    }
-
-    /**
-     * @return string
-     */
-    protected function createLoginForm()
-    {
-        return LoginForm::class;
     }
 
     /**

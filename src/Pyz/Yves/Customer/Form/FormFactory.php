@@ -26,7 +26,7 @@ class FormFactory extends AbstractFactory
      *
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createAddressForm(array $formOptions = [])
+    public function getAddressForm(array $formOptions = [])
     {
         return $this->getFormFactory()->create(AddressForm::class, null, $formOptions);
     }
@@ -42,7 +42,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createRegisterForm()
+    public function getRegisterForm()
     {
         return $this->getFormFactory()->create(RegisterForm::class);
     }
@@ -50,7 +50,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createLoginForm()
+    public function getLoginForm()
     {
         return $this->getFormFactory()->create(LoginForm::class);
     }
@@ -58,7 +58,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createForgottenPasswordForm()
+    public function getForgottenPasswordForm()
     {
         return $this->getFormFactory()->create(ForgottenPasswordForm::class);
     }
@@ -66,7 +66,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createProfileForm()
+    public function getProfileForm()
     {
         return $this->getFormFactory()->create(ProfileForm::class);
     }
@@ -74,7 +74,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormRestorePassword()
+    public function getFormRestorePassword()
     {
         return $this->getFormFactory()->create(RestorePasswordForm::class);
     }
@@ -82,7 +82,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createPasswordForm()
+    public function getPasswordForm()
     {
         return $this->getFormFactory()->create(PasswordForm::class);
     }
@@ -90,7 +90,7 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createNewsletterSubscriptionForm()
+    public function getNewsletterSubscriptionForm()
     {
         return $this->getFormFactory()->create(NewsletterSubscriptionForm::class);
     }
