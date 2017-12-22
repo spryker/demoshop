@@ -126,11 +126,11 @@ class ProductAbstractManagerTest extends ProductTestAbstract
      */
     protected function assertProductPrice(ProductAbstractTransfer $productAbstractTransfer)
     {
-        $priceProduct = $productAbstractTransfer->getPrice();
-        $this->assertInstanceOf(PriceProductTransfer::class, $priceProduct);
-        $this->assertEquals(self::PRICE, $priceProduct->getPrice());
-        $this->assertNotNull($priceProduct->getIdProductAbstract());
-        $this->assertNotNull($priceProduct->getPriceTypeName());
+        foreach ($productAbstractTransfer->getPrices() as $priceProductTransfer) {
+            $this->assertInstanceOf(PriceProductTransfer::class, $priceProductTransfer);
+            $this->assertNotNull($priceProductTransfer->getMoneyValue()->getGrossAmount());
+            $this->assertNotNull($priceProductTransfer->getPriceTypeName());
+        }
     }
 
     /**

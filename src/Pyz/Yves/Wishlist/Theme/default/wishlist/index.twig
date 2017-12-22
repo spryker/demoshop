@@ -17,7 +17,6 @@
                 <div class="row">
                     <div class="small-12 columns">
                         <h4 class="float-left">{{ wishlistName }}</h4>
-
                         {% if availability|length %}
                             {{ form_start(addAllAvailableProductsToCartForm, {action: path('wishlist/move-all-available-to-cart', { wishlistName: wishlistName })}) }}
                                 <button type="submit" class="button float-right"><i class="fa fa-shopping-cart"></i>{{ 'customer.account.wishlist.add_all_available_to_cart' | trans }}</button>
@@ -56,10 +55,14 @@
                                         {% endif %}
                                     </td>
                                     <td nowrap="nowrap">
-                                        {% if item.product.prices.ORIGINAL is defined %}
-                                            <span class="catalog-price__price-reduced">{{ item.product.price | money }}</span> <span class="catalog-price__price-original">{{ item.product.prices.ORIGINAL | money }}</span>
+                                        {% if item.product.price is not null %}
+                                            {% if item.product.prices.ORIGINAL is defined %}
+                                                <span class="catalog-price__price-reduced">{{ item.product.price | default(0) | money }}</span> <span class="catalog-price__price-original">{{ item.product.prices.ORIGINAL | money }}</span>
+                                            {% else %}
+                                                {{ item.product.price | default(0) | money }}
+                                            {% endif %}
                                         {% else %}
-                                            {{ item.product.price | money }}
+                                            N/A
                                         {% endif %}
                                     </td>
                                     <td>
@@ -79,9 +82,9 @@
                                         {% endif %}
                                     </td>
                                     <td>
-                                        {% if availability[item.sku] is defined and availability[item.sku] %}
+                                        {% if availability[item.sku] is defined and availability[item.sku] and item.product.price is not null %}
                                             <form id="addToCart_{{ loop.index }}" class="float-left" method="POST" action="{{ path('wishlist/move-to-cart', {sku: item.product.sku, 'wishlist-name': wishlistName}) }}">
-                                                <a title="{{ 'customer.account.wishlist.add-to-cart' | trans }}" onclick="document.getElementById('addToCart_{{ loop.index }}').submit()">
+                                                <a title="{{ 'customer.account.wishlist.add-to-cart' | trans }}" disabled="disabled" onclick="document.getElementById('addToCart_{{ loop.index }}').submit()">
                                                     <i class="fa fa-shopping-cart"></i>
                                                 </a>
                                             </form>
