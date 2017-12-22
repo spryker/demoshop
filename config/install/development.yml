@@ -30,7 +30,7 @@ sections:
 
     composer:
         install-dependencies:
-            command: "php composer.phar install --prefer-dist"
+            command: "if [ ! -f ./composer.phar ]; then composer install --prefer-dist; else php composer.phar install --prefer-dist; fi"
 
 
     clear:
