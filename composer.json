@@ -224,11 +224,7 @@
   },
   "autoload": {
     "psr-0": {
-      "": "src/",
-      "Unit": "tests/",
-      "YvesUnit": "tests/",
-      "Functional": "tests/",
-      "Acceptance": "tests/"
+      "": "src/"
     }
   },
   "autoload-dev": {

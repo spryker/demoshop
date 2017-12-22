@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.48.3",
+            "version": "3.48.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "50e6d4ef81f0d3ff667f8b3815a94aef6e4fbb8f"
+                "reference": "ffcb011ac0fbd839cdad1a10f0a86c5b7669f594"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/50e6d4ef81f0d3ff667f8b3815a94aef6e4fbb8f",
-                "reference": "50e6d4ef81f0d3ff667f8b3815a94aef6e4fbb8f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ffcb011ac0fbd839cdad1a10f0a86c5b7669f594",
+                "reference": "ffcb011ac0fbd839cdad1a10f0a86c5b7669f594",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-12-20T22:32:41+00:00"
+            "time": "2017-12-21T23:06:20+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -10196,13 +10196,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductRelationCollector.git",
-                "reference": "28a1a780a981105c8499f5c8379356f70901e213"
+                "reference": "28a1a780a981105c8499f5c8379356f70901e213",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/ProductRelationCollector/zipball/28a1a780a981105c8499f5c8379356f70901e213",
                 "reference": "28a1a780a981105c8499f5c8379356f70901e213",
-                "shasum": ""
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "spryker/collector": "^5.1.1",
@@ -10234,11 +10246,14 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "ProductRelationCollector module",
+            "support": {
+                "source": "https://github.com/spryker/ProductRelationCollector/tree/master"
+            },
             "time": "2017-12-21T15:47:06+00:00"
         },
         {
