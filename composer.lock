@@ -2021,11 +2021,11 @@
         },
         {
             "name": "spryker/application",
-            "version": "3.8.2",
+            "version": "3.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Application.git",
-                "reference": "13e36985249abd4094552db2dd9907922d70855f",
+                "reference": "e959b8bb2575a85ec702f86fe23f102324945518",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -2035,8 +2035,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Application/zipball/13e36985249abd4094552db2dd9907922d70855f",
-                "reference": "13e36985249abd4094552db2dd9907922d70855f",
+                "url": "https://api.github.com/repos/spryker/Application/zipball/e959b8bb2575a85ec702f86fe23f102324945518",
+                "reference": "e959b8bb2575a85ec702f86fe23f102324945518",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2088,7 +2088,7 @@
             "support": {
                 "source": "https://github.com/spryker/Application/tree/master"
             },
-            "time": "2017-12-11T08:03:04+00:00"
+            "time": "2017-12-21T05:13:25+00:00"
         },
         {
             "name": "spryker/assertion",
@@ -6905,11 +6905,11 @@
         },
         {
             "name": "spryker/log",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Log.git",
-                "reference": "348b438fe54b2936a40dea9d75d6933ecebe9c45",
+                "reference": "0b7204b3f6788d56ddc6927f19e3a6b5535ad67b",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6919,8 +6919,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Log/zipball/348b438fe54b2936a40dea9d75d6933ecebe9c45",
-                "reference": "348b438fe54b2936a40dea9d75d6933ecebe9c45",
+                "url": "https://api.github.com/repos/spryker/Log/zipball/0b7204b3f6788d56ddc6927f19e3a6b5535ad67b",
+                "reference": "0b7204b3f6788d56ddc6927f19e3a6b5535ad67b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6935,7 +6935,8 @@
                 "spryker/kernel": "^3.8.0",
                 "spryker/monolog": "^2.0.0",
                 "spryker/queue": "^0.3.0 || ^1.0.0",
-                "spryker/symfony": "^3.0.0"
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-network": "^1.0.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
@@ -6969,7 +6970,7 @@
             "support": {
                 "source": "https://github.com/spryker/Log/tree/master"
             },
-            "time": "2017-11-27T14:09:45+00:00"
+            "time": "2017-12-21T05:13:26+00:00"
         },
         {
             "name": "spryker/mail",
@@ -10738,11 +10739,11 @@
         },
         {
             "name": "spryker/propel",
-            "version": "3.4.0",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Propel.git",
-                "reference": "eaea787dce575c457aa8a66e320819b8891121bd",
+                "reference": "c539b5b88e66d3f821a827a33f3dd86a63b8ce80",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -10752,8 +10753,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Propel/zipball/eaea787dce575c457aa8a66e320819b8891121bd",
-                "reference": "eaea787dce575c457aa8a66e320819b8891121bd",
+                "url": "https://api.github.com/repos/spryker/Propel/zipball/c539b5b88e66d3f821a827a33f3dd86a63b8ce80",
+                "reference": "c539b5b88e66d3f821a827a33f3dd86a63b8ce80",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10766,6 +10767,7 @@
                 "php": ">=7.1",
                 "spryker/config": "^3.0.0",
                 "spryker/kernel": "^3.0.0",
+                "spryker/log": "^3.0.0",
                 "spryker/monolog": "^2.0.0",
                 "spryker/propel-orm": "^1.4.0",
                 "spryker/symfony": "^3.0.0",
@@ -10803,9 +10805,9 @@
             ],
             "description": "Propel module",
             "support": {
-                "source": "https://github.com/spryker/Propel/tree/3.4.0"
+                "source": "https://github.com/spryker/Propel/tree/master"
             },
-            "time": "2017-12-14T07:36:03+00:00"
+            "time": "2017-12-21T05:13:27+00:00"
         },
         {
             "name": "spryker/propel-orm",
