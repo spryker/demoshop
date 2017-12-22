@@ -1993,8 +1993,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "585c48f08ebad36082c6d2d7a42837de9e72ce8f"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2034,6 +2037,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "8b384c28ad979dd741a450fa1ee746cef276e207"
 =======
@@ -2055,9 +2060,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "079a764fde2f66a2c0fc4b59cab5110762e4c8cd"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2328,6 +2337,11 @@
 =======
                 "reference": "d274b3b0c2132af442951ff51e48ddfabae50d84"
 >>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "e155a47dadcaa4d00e6c0add12d3ae12d1a5a49e"
+>>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
             },
             "require": {
@@ -2573,8 +2587,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-25T12:37:32+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2614,6 +2631,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-17T16:50:48+00:00"
 =======
@@ -2635,9 +2654,13 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-03T14:49:34+00:00"
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2734,6 +2757,11 @@
 =======
 =======
             "time": "2017-12-22T07:46:01+00:00"
+>>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2017-12-22T10:45:22+00:00"
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
