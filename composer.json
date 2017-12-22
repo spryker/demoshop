@@ -68,7 +68,6 @@
     "spryker/git-hook": "dev-master",
 
     "codeception/codeception": "^2.3.5",
-    "phpunit/phpunit": "^5.0",
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
@@ -84,7 +83,6 @@
     "stecman/symfony-console-completion": "^0.7.0",
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
-    "phpunit/php-token-stream": "^1.4.11",
     "phpdocumentor/reflection-docblock": "^2.0",
     "squizlabs/php_codesniffer": "^3.0"
   },
