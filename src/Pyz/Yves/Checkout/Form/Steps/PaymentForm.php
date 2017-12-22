@@ -167,11 +167,6 @@ class PaymentForm extends AbstractType
     protected function createSubForm(SubFormPluginInterface $paymentMethodSubForm)
     {
         return $paymentMethodSubForm->createSubForm();
-//        if (!is_string($subForm)) {
-//            $subForm = get_class($subForm);
-//        }
-//
-//        return $subForm;
     }
 
     /**
