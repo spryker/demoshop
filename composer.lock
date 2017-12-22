@@ -1863,7 +1863,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "822825bb5c6cee0e8a7758f947c17d654156b757"
+                "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1888,6 +1888,7 @@
                 "spryker/cart-currency-connector": "*",
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
+                "spryker/catalog-price-product-connector": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
@@ -1927,7 +1928,6 @@
                 "spryker/elastica": "*",
                 "spryker/error-handler": "*",
                 "spryker/event": "*",
-                "spryker/event-behavior": "*",
                 "spryker/event-journal": "*",
                 "spryker/file-system": "*",
                 "spryker/flysystem": "*",
@@ -1965,6 +1965,7 @@
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
+                "spryker/price-product": "*",
                 "spryker/product": "*",
                 "spryker/product-attribute": "*",
                 "spryker/product-attribute-gui": "*",
@@ -2010,6 +2011,7 @@
                 "spryker/session": "*",
                 "spryker/setup": "*",
                 "spryker/shipment": "*",
+                "spryker/shipment-cart-connector": "*",
                 "spryker/silex": "*",
                 "spryker/sql-criteria-builder": "*",
                 "spryker/state-machine": "*",
@@ -2020,7 +2022,6 @@
                 "spryker/store": "*",
                 "spryker/symfony": "*",
                 "spryker/synchronization": "*",
-                "spryker/synchronization-behavior": "*",
                 "spryker/tax": "*",
                 "spryker/tax-product-connector": "*",
                 "spryker/testify": "*",
@@ -2063,7 +2064,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-13T17:03:22+00:00"
+            "time": "2017-12-22T11:47:58+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
