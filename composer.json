@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-2265-log-module-needs-to-use-plugin-for-loggers-and-also-needs-to-migrate-from-shared-to-client",
+    "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
