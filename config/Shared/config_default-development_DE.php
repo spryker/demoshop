@@ -11,7 +11,7 @@ use Spryker\Shared\Search\SearchConstants;
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 
-// ---------- Email
+// ---------- MailCatcher
 $config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[ApplicationConstants::HOST_ZED]);
 
 // ---------- Elasticsearch
@@ -27,6 +27,3 @@ $config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE_NAME] = 'data/DE/logs/ZED/queue
 // ---------- RabbitMQ
 $config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
 $config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
-
-// ---------- MailCatcher
-$config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[ApplicationConstants::HOST_ZED]);

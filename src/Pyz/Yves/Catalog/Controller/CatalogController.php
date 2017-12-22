@@ -9,6 +9,7 @@ namespace Pyz\Yves\Catalog\Controller;
 
 use Generated\Shared\Search\PageIndexMap;
 use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\FacetResultFormatterPlugin;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -39,6 +40,19 @@ class CatalogController extends AbstractController
         $searchResults = $this
             ->getClient()
             ->catalogSearch($searchString, $parameters);
+
+        $currentLocale = $this
+            ->getFactory()
+            ->getLocaleClient()
+            ->getCurrentLocale();
+
+        $productCategoryFilterClient = $this->getFactory()->getProductCategoryFilterClient();
+
+        $searchResults[FacetResultFormatterPlugin::NAME] = $productCategoryFilterClient
+            ->updateFacetsByCategory(
+                $searchResults[FacetResultFormatterPlugin::NAME],
+                $productCategoryFilterClient->getProductCategoryFiltersForCategoryByLocale($parameters[PageIndexMap::CATEGORY], $currentLocale)
+            );
 
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
         $viewMode = $this->getClient()->getCatalogViewMode($request);

@@ -19,10 +19,12 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 {
     const CLIENT_CALCULATION = 'calculation client';
     const CLIENT_CART = 'cart client';
+    const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
+    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+
     const PLUGIN_APPLICATION = 'application plugin';
     const PLUGIN_CHECKOUT_BREADCRUMB = 'PLUGIN_CHECKOUT_BREADCRUMB';
     const PLUGIN_CART_VARIANT = 'PLUGIN_CART_VARIANT';
-    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
     const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
     const PLUGIN_PROMOTION_PRODUCT_MAPPER = 'PLUGIN_PROMOTION_PRODUCT_MAPPER';
 
@@ -56,6 +58,10 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::CLIENT_PRODUCT] = function (Container $container) {
             return $container->getLocator()->product()->client();
+        };
+
+        $container[static::CLIENT_AVAILABILITY] = function (Container $container) {
+            return $container->getLocator()->availability()->client();
         };
 
         return $container;
