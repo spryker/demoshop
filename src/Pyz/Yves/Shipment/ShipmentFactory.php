@@ -38,7 +38,7 @@ class ShipmentFactory extends AbstractFactory
      */
     public function createShipmentHandler()
     {
-        return new ShipmentHandler($this->getShipmentClient());
+        return new ShipmentHandler($this->getShipmentClient(), $this->getPriceClient());
     }
 
     /**
@@ -71,5 +71,13 @@ class ShipmentFactory extends AbstractFactory
     protected function getMoneyPlugin()
     {
         return $this->getProvidedDependency(ShipmentDependencyProvider::PLUGIN_MONEY);
+    }
+
+    /**
+     * @return \Spryker\Client\Price\PriceClientInterface
+     */
+    protected function getPriceClient()
+    {
+        return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_PRICE);
     }
 }

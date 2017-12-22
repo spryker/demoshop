@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "85fb57620c6654ba8688b22c4c07d39b",
+    "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1935,11 +1935,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-2265-log-module-needs-to-use-plugin-for-loggers-and-also-needs-to-migrate-from-shared-to-client",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1299e48bb2fa9b02b5e2becf9933f23899a4d483"
+                "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1964,6 +1964,7 @@
                 "spryker/cart-currency-connector": "*",
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
+                "spryker/catalog-price-product-connector": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
                 "spryker/checkout": "*",
@@ -2040,6 +2041,7 @@
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
+                "spryker/price-product": "*",
                 "spryker/product": "*",
                 "spryker/product-attribute": "*",
                 "spryker/product-attribute-gui": "*",
@@ -2085,6 +2087,7 @@
                 "spryker/session": "*",
                 "spryker/setup": "*",
                 "spryker/shipment": "*",
+                "spryker/shipment-cart-connector": "*",
                 "spryker/silex": "*",
                 "spryker/sql-criteria-builder": "*",
                 "spryker/state-machine": "*",
@@ -2137,7 +2140,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-21T05:13:27+00:00"
+            "time": "2017-12-21T11:37:00+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6903,7 +6906,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
