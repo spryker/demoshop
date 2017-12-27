@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
+    "content-hash": "2cc304d8084eef90d53cdd24e9ad8ba1",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1935,11 +1935,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/CORE-2375-navigation-nodes-deactivation",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
+                "reference": "493152a7186a623278f8f42ed63437e438c6528a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2140,7 +2140,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-12-22T11:47:58+00:00"
+            "time": "2017-12-22T15:37:28+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
