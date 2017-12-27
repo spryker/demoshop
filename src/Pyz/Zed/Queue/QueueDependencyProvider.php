@@ -9,6 +9,7 @@ namespace Pyz\Zed\Queue;
 
 use Spryker\Shared\Config\Config;
 use Spryker\Shared\Event\EventConstants;
+use Spryker\Shared\Log\LogConstants;
 use Spryker\Zed\Event\Communication\Plugin\Queue\EventQueueMessageProcessorPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Queue\QueueDependencyProvider as SprykerDependencyProvider;
