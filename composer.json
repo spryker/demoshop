@@ -226,7 +226,8 @@
     "psr-4": {
       "Generated\\": "src/Generated/",
       "Orm\\": "src/Orm/",
-      "Pyz\\": "src/Pyz/"
+      "Pyz\\": "src/Pyz/",
+      "Install\\": "src/Install/"
     }
   },
   "autoload-dev": {
