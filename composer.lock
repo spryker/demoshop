@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.48.5",
+            "version": "3.48.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e72f243a122f6a46c731450547e5e4d32c4b5d34"
+                "reference": "1f272175777111bb5b18831a9048e3aa113c4538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e72f243a122f6a46c731450547e5e4d32c4b5d34",
-                "reference": "e72f243a122f6a46c731450547e5e4d32c4b5d34",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f272175777111bb5b18831a9048e3aa113c4538",
+                "reference": "1f272175777111bb5b18831a9048e3aa113c4538",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-12-22T20:53:25+00:00"
+            "time": "2018-01-02T21:47:08+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -3648,11 +3648,11 @@
         },
         {
             "name": "spryker/cms-block-gui",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsBlockGui.git",
-                "reference": "505c0920fdd64dfea72616e9b7418b93ee3209bd",
+                "reference": "1b853f97721c70421a3a4e9f734c07be51848255",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -3662,8 +3662,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsBlockGui/zipball/505c0920fdd64dfea72616e9b7418b93ee3209bd",
-                "reference": "505c0920fdd64dfea72616e9b7418b93ee3209bd",
+                "url": "https://api.github.com/repos/spryker/CmsBlockGui/zipball/1b853f97721c70421a3a4e9f734c07be51848255",
+                "reference": "1b853f97721c70421a3a4e9f734c07be51848255",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3711,7 +3711,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsBlockGui/tree/master"
             },
-            "time": "2017-12-12T16:05:28+00:00"
+            "time": "2018-01-02T17:23:49+00:00"
         },
         {
             "name": "spryker/cms-block-product-connector",
@@ -4131,11 +4131,11 @@
         },
         {
             "name": "spryker/cms-gui",
-            "version": "4.3.3",
+            "version": "4.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsGui.git",
-                "reference": "892d3c6b5b16bf18c5bc6adee04141487e89490c",
+                "reference": "227b9dbdd64fa6d14f7144dc0d70e29d78ec05d4",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -4145,8 +4145,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/892d3c6b5b16bf18c5bc6adee04141487e89490c",
-                "reference": "892d3c6b5b16bf18c5bc6adee04141487e89490c",
+                "url": "https://api.github.com/repos/spryker/CmsGui/zipball/227b9dbdd64fa6d14f7144dc0d70e29d78ec05d4",
+                "reference": "227b9dbdd64fa6d14f7144dc0d70e29d78ec05d4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4199,7 +4199,7 @@
             "support": {
                 "source": "https://github.com/spryker/CmsGui/tree/master"
             },
-            "time": "2017-12-12T16:05:28+00:00"
+            "time": "2018-01-02T17:23:49+00:00"
         },
         {
             "name": "spryker/cms-user-connector",
@@ -5224,11 +5224,11 @@
         },
         {
             "name": "spryker/discount",
-            "version": "5.2.0",
+            "version": "5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Discount.git",
-                "reference": "8ad6f1da14795ccd08c22b32ac499b572bfa2bb2",
+                "reference": "1feeca4b22c41c5ea21e44542e8339e657c314a6",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -5238,8 +5238,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Discount/zipball/8ad6f1da14795ccd08c22b32ac499b572bfa2bb2",
-                "reference": "8ad6f1da14795ccd08c22b32ac499b572bfa2bb2",
+                "url": "https://api.github.com/repos/spryker/Discount/zipball/1feeca4b22c41c5ea21e44542e8339e657c314a6",
+                "reference": "1feeca4b22c41c5ea21e44542e8339e657c314a6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5297,7 +5297,7 @@
             "support": {
                 "source": "https://github.com/spryker/Discount/tree/master"
             },
-            "time": "2017-12-19T13:09:56+00:00"
+            "time": "2018-01-02T17:23:49+00:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -6380,11 +6380,11 @@
         },
         {
             "name": "spryker/gui",
-            "version": "3.12.1",
+            "version": "3.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Gui.git",
-                "reference": "da433408cb28cd21d12abc8bb18d3b22135c5fed",
+                "reference": "b561315c652ed21c9f10262a5da31bbba0d66775",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -6394,8 +6394,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Gui/zipball/da433408cb28cd21d12abc8bb18d3b22135c5fed",
-                "reference": "da433408cb28cd21d12abc8bb18d3b22135c5fed",
+                "url": "https://api.github.com/repos/spryker/Gui/zipball/b561315c652ed21c9f10262a5da31bbba0d66775",
+                "reference": "b561315c652ed21c9f10262a5da31bbba0d66775",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6445,7 +6445,7 @@
             "support": {
                 "source": "https://github.com/spryker/Gui/tree/master"
             },
-            "time": "2017-11-27T14:09:41+00:00"
+            "time": "2018-01-02T17:26:35+00:00"
         },
         {
             "name": "spryker/guzzle",
@@ -7462,11 +7462,11 @@
         },
         {
             "name": "spryker/navigation-gui",
-            "version": "2.0.3",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/NavigationGui.git",
-                "reference": "fbee826e35aa763df3a0c592861bd39b54cdecb8",
+                "reference": "8014f8383072622265dcc88ff029cd3c4449c07e",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -7476,8 +7476,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/fbee826e35aa763df3a0c592861bd39b54cdecb8",
-                "reference": "fbee826e35aa763df3a0c592861bd39b54cdecb8",
+                "url": "https://api.github.com/repos/spryker/NavigationGui/zipball/8014f8383072622265dcc88ff029cd3c4449c07e",
+                "reference": "8014f8383072622265dcc88ff029cd3c4449c07e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7489,7 +7489,7 @@
             "require": {
                 "spryker/category": "^3.0.0 || ^4.0.0",
                 "spryker/cms": "^4.0.0 || ^5.0.0 || ^6.0.0",
-                "spryker/gui": "^3.7.0",
+                "spryker/gui": "^3.13.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
                 "spryker/navigation": "^2.0.0",
@@ -7523,7 +7523,7 @@
             "support": {
                 "source": "https://github.com/spryker/NavigationGui/tree/master"
             },
-            "time": "2017-11-07T14:27:23+00:00"
+            "time": "2018-01-03T14:49:15+00:00"
         },
         {
             "name": "spryker/new-relic",
@@ -9740,11 +9740,11 @@
         },
         {
             "name": "spryker/product-label-gui",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductLabelGui.git",
-                "reference": "fbfbcc68258c202a19a88cabbf383a6065c5d5ab",
+                "reference": "a7979365b3b816f8a67afb7eeb0ff7dd9e30f1be",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9754,8 +9754,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductLabelGui/zipball/fbfbcc68258c202a19a88cabbf383a6065c5d5ab",
-                "reference": "fbfbcc68258c202a19a88cabbf383a6065c5d5ab",
+                "url": "https://api.github.com/repos/spryker/ProductLabelGui/zipball/a7979365b3b816f8a67afb7eeb0ff7dd9e30f1be",
+                "reference": "a7979365b3b816f8a67afb7eeb0ff7dd9e30f1be",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9802,17 +9802,17 @@
             ],
             "description": "ProductLabelGui module",
             "support": {
-                "source": "https://github.com/spryker/ProductLabelGui/tree/2.0.1"
+                "source": "https://github.com/spryker/ProductLabelGui/tree/master"
             },
-            "time": "2017-12-21T14:15:14+00:00"
+            "time": "2018-01-02T17:23:49+00:00"
         },
         {
             "name": "spryker/product-management",
-            "version": "0.9.1",
+            "version": "0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/ProductManagement.git",
-                "reference": "6203d9e6d2dff752cc662109ddcf92650043c50a",
+                "reference": "fb3411bab598860ea70dfdafa64eec7adf13b312",
                 "mirrors": [
                     {
                         "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
@@ -9822,8 +9822,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/6203d9e6d2dff752cc662109ddcf92650043c50a",
-                "reference": "6203d9e6d2dff752cc662109ddcf92650043c50a",
+                "url": "https://api.github.com/repos/spryker/ProductManagement/zipball/fb3411bab598860ea70dfdafa64eec7adf13b312",
+                "reference": "fb3411bab598860ea70dfdafa64eec7adf13b312",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -9882,9 +9882,9 @@
             ],
             "description": "ProductManagement module",
             "support": {
-                "source": "https://github.com/spryker/ProductManagement/tree/0.9.1"
+                "source": "https://github.com/spryker/ProductManagement/tree/master"
             },
-            "time": "2017-12-21T15:12:24+00:00"
+            "time": "2018-01-02T17:23:49+00:00"
         },
         {
             "name": "spryker/product-new",
@@ -15303,27 +15303,27 @@
         },
         {
             "name": "symfony/security-acl",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-acl.git",
-                "reference": "053b49bf4aa333a392c83296855989bcf88ddad1"
+                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/053b49bf4aa333a392c83296855989bcf88ddad1",
-                "reference": "053b49bf4aa333a392c83296855989bcf88ddad1",
+                "url": "https://api.github.com/repos/symfony/security-acl/zipball/ab4dfe2d95e038cd367dd04604487b0a3359bcff",
+                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.9",
-                "symfony/security-core": "~2.8|~3.0"
+                "symfony/security-core": "~2.8|~3.0|~4.0"
             },
             "require-dev": {
                 "doctrine/common": "~2.2",
                 "doctrine/dbal": "~2.2",
                 "psr/log": "~1.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0"
+                "symfony/phpunit-bridge": "~2.8|~3.0|~4.0"
             },
             "suggest": {
                 "doctrine/dbal": "For using the built-in ACL implementation",
@@ -15360,7 +15360,7 @@
             ],
             "description": "Symfony Security Component - ACL (Access Control List)",
             "homepage": "https://symfony.com",
-            "time": "2015-12-28T09:39:46+00:00"
+            "time": "2017-07-21T06:01:18+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -18529,21 +18529,21 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "3992f968313fdd42fd174210731dd949b3487148"
+                "reference": "accf5e3e049327bf43f0782caeced520217f2a8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/3992f968313fdd42fd174210731dd949b3487148",
-                "reference": "3992f968313fdd42fd174210731dd949b3487148",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/accf5e3e049327bf43f0782caeced520217f2a8b",
+                "reference": "accf5e3e049327bf43f0782caeced520217f2a8b",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1",
-                "squizlabs/php_codesniffer": "^3.0.1"
+                "squizlabs/php_codesniffer": "^3.0.2"
             },
             "require-dev": {
                 "jakub-onderka/php-parallel-lint": "0.9.2",
@@ -18562,7 +18562,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2017-12-19T12:51:07+00:00"
+            "time": "2018-01-04T08:03:27+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
