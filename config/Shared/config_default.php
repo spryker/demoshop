@@ -40,6 +40,7 @@ use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Log\Communication\Plugin\ZedLoggerConfigPlugin;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
+use SprykerEco\Shared\Econda\EcondaConstants;
 use SprykerEco\Shared\Loggly\LogglyConstants;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
@@ -408,3 +409,12 @@ $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
 $config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';
+
+$config[EcondaConstants::ECONDA_CSV_FOLDER_PATH] = APPLICATION_ROOT_DIR . '/data/export';
+
+$config[AclConstants::ACL_DEFAULT_RULES][] = [
+    'bundle' => 'econda',
+    'controller' => 'index',
+    'action' => '*',
+    'type' => 'allow',
+];

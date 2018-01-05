@@ -92,6 +92,7 @@ use Spryker\Zed\Transfer\Communication\Console\GeneratorConsole;
 use Spryker\Zed\Transfer\Communication\Console\ValidatorConsole;
 use Spryker\Zed\Twig\Communication\Console\CacheWarmerConsole;
 use Spryker\Zed\ZedNavigation\Communication\Console\BuildNavigationConsole;
+use SprykerEco\Zed\Econda\Communication\Console\EcondaFileExportConsole;
 use Stecman\Component\Symfony\Console\BashCompletion\CompletionCommand;
 
 /**
@@ -212,6 +213,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 
             new MaintenanceEnableConsole(),
             new MaintenanceDisableConsole(),
+
+            new EcondaFileExportConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
