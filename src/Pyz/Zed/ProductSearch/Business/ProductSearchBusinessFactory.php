@@ -47,11 +47,11 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @return \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
      */
-    public function getPriceFacade()
+    public function getPriceProductFacade()
     {
-        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRICE);
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRICE_PRODUCT);
     }
 
     /**
@@ -79,6 +79,14 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
+     */
+    protected function getPriceFacade()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRICE);
+    }
+
+    /**
      * @return \Pyz\Zed\ProductSearch\Business\Map\Expander\ProductPageMapExpanderInterface[]
      */
     protected function getProductPageMapExpanders()
@@ -97,7 +105,7 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
      */
     protected function createPriceExpander()
     {
-        return new PriceExpander($this->getPriceFacade());
+        return new PriceExpander($this->getPriceProductFacade(), $this->getCatalogPriceProductConnectorClient());
     }
 
     /**
@@ -141,5 +149,13 @@ class ProductSearchBusinessFactory extends SprykerProductSearchBusinessFactory
     protected function getProductLabelFacade()
     {
         return $this->getProvidedDependency(ProductSearchDependencyProvider::FACADE_PRODUCT_LABEL);
+    }
+
+    /**
+     * @return \Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface
+     */
+    protected function getCatalogPriceProductConnectorClient()
+    {
+        return $this->getProvidedDependency(ProductSearchDependencyProvider::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT);
     }
 }

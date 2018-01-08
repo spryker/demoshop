@@ -6,6 +6,8 @@
     "spryker/spryker": "dev-feature/core-2300-product-availability-per-store",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
+    "spryker/event-behavior": "dev-master",
+    "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
 
     "php": ">=7.1",
@@ -87,8 +89,10 @@
     "squizlabs/php_codesniffer": "^3.0"
   },
   "autoload": {
-    "psr-0": {
-      "": "src/"
+    "psr-4": {
+      "Generated\\": "src/Generated/",
+      "Orm\\": "src/Orm/",
+      "Pyz\\": "src/Pyz/"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
@@ -144,7 +148,7 @@
       "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ],
     "phpstan": [
-      "php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
+      "php -d memory_limit=1024M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
     ],
     "phpstan-core": [
       "php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1"

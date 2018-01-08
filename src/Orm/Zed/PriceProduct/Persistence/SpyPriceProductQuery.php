@@ -5,9 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\Price\Persistence;
+namespace Orm\Zed\PriceProduct\Persistence;
 
-use Spryker\Zed\Price\Persistence\Propel\AbstractSpyPriceProductQuery as BaseSpyPriceProductQuery;
+use Spryker\Zed\PriceProduct\Persistence\Propel\AbstractSpyPriceProductQuery as BaseSpyPriceProductQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_price_product' table.
