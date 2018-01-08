@@ -1053,3 +1053,7 @@ catalog.view.mode.list,List,en_US
 catalog.view.mode.list,Liste,de_DE
 cart.quantity.adjusted,Requested item quantity was adjusted as far as selected quantity is not available.,en_US
 cart.quantity.adjusted,"Die angeforderte Artikelmenge wurde angepasst, soweit die ausgewählte Menge nicht verfügbar ist.",de_DE
+catalog.sale,Sale,en_US
+catalog.sale,Sale,de_DE
+catalog.new,New,en_US
+catalog.new,Neu,de_DE
