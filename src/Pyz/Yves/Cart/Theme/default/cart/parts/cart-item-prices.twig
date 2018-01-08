@@ -5,7 +5,7 @@
         {% if cartItem.productOptions|length > 0 %}
             {% for productOption in cartItem.productOptions %}
                 <li>+ {{ productOption.value | trans }}
-                    <span class="float-right">{{ productOption.unitGrossPrice | money }}</span>
+                    <span class="float-right">{{ productOption.unitPrice | money }}</span>
                 </li>
             {% endfor %}
         {% endif %}

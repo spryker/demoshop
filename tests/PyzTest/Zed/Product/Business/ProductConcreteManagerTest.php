@@ -68,7 +68,7 @@ class ProductConcreteManagerTest extends ProductTestAbstract
     /**
      * @return void
      */
-    public function testgetConcreteProductsByAbstractProductIdShouldReturnFullyLoadedTransferObject()
+    public function testGetConcreteProductsByAbstractProductIdShouldReturnFullyLoadedTransferObject()
     {
         $this->setupDefaultProducts();
 
@@ -145,11 +145,11 @@ class ProductConcreteManagerTest extends ProductTestAbstract
      */
     protected function assertProductPrice(ProductConcreteTransfer $productConcreteTransfer)
     {
-        $priceProduct = $productConcreteTransfer->getPrice();
-        $this->assertInstanceOf(PriceProductTransfer::class, $priceProduct);
-        $this->assertEquals(self::PRICE, $priceProduct->getPrice());
-        $this->assertNotNull($priceProduct->getIdProduct());
-        $this->assertNotNull($priceProduct->getPriceTypeName());
+        foreach ($productConcreteTransfer->getPrices() as $priceProductTransfer) {
+            $this->assertInstanceOf(PriceProductTransfer::class, $priceProductTransfer);
+            $this->assertNotNull($priceProductTransfer->getIdProduct());
+            $this->assertNotNull($priceProductTransfer->getPriceTypeName());
+        }
     }
 
     /**

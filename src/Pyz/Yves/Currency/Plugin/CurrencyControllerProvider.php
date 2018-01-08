@@ -21,12 +21,15 @@ class CurrencyControllerProvider extends AbstractYvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
+        $allowedLocalesPattern = $this->getAllowedLocalesPattern();
+
         $this->createController(
-            '/currency-switch',
+            '/{currency}/switch',
             static::ROUTE_CART,
             'Currency',
             'CurrencySwitch',
             'index'
-        );
+        )->assert('currency', $allowedLocalesPattern . 'currency|currency')
+        ->value('currency', 'currency');
     }
 }

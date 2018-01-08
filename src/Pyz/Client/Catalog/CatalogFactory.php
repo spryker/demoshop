@@ -28,6 +28,14 @@ class CatalogFactory extends SprykerCatalogFactory
     }
 
     /**
+     * @return \Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface
+     */
+    public function getCatalogPriceProductConnectorClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT);
+    }
+
+    /**
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface[]
      */
     protected function getFeaturedProductsQueryExpanderPlugins()

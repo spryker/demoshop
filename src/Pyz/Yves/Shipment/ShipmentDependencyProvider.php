@@ -16,8 +16,9 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 {
     const CLIENT_SHIPMENT = 'shipment client';
     const CLIENT_GLOSSARY = 'glossary client';
-    const PLUGIN_MONEY = 'money plugin';
+    const CLIENT_PRICE = 'client price';
 
+    const PLUGIN_MONEY = 'money plugin';
     const STORE = 'store';
 
     /**
@@ -27,22 +28,77 @@ class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideDependencies(Container $container)
     {
-        $container[self::CLIENT_SHIPMENT] = function (Container $container) {
-            return $container->getLocator()->shipment()->client();
-        };
+        $container = $this->addShipmentClient($container);
+        $container = $this->addGlossaryClient($container);
+        $container = $this->addPriceClient($container);
+        $container = $this->addStore($container);
+        $container = $this->addMoneyPlugin($container);
 
-        $container[self::CLIENT_GLOSSARY] = function (Container $container) {
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addPriceClient(Container $container)
+    {
+        $container[static::CLIENT_PRICE] = function (Container $container) {
+            return $container->getLocator()->price()->client();
+        };
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addGlossaryClient(Container $container)
+    {
+        $container[static::CLIENT_GLOSSARY] = function (Container $container) {
             return $container->getLocator()->glossary()->client();
         };
+        return $container;
+    }
 
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addShipmentClient(Container $container)
+    {
+        $container[static::CLIENT_SHIPMENT] = function (Container $container) {
+            return $container->getLocator()->shipment()->client();
+        };
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addStore(Container $container)
+    {
         $container[static::STORE] = function () {
             return Store::getInstance();
         };
+        return $container;
+    }
 
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addMoneyPlugin(Container $container)
+    {
         $container[static::PLUGIN_MONEY] = function () {
             return new MoneyPlugin();
         };
-
         return $container;
     }
 }
