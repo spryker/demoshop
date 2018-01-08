@@ -57,15 +57,12 @@ class ProductController extends AbstractController
             return $storageProductTransfer->getUrl();
         }
 
-        $variantUriParams = [];
-        foreach ($storageProductTransfer->getSelectedAttributes() as $attributeKey => $attributeValue) {
-            $variantUriParams[] = sprintf('attribute[%s]=%s', $attributeKey, $attributeValue);
-        }
+        $variantUriParams['attribute'] = $storageProductTransfer->getSelectedAttributes();
 
         return sprintf(
             '%s?%s',
             $storageProductTransfer->getUrl(),
-            urlencode(implode('&', $variantUriParams))
+            http_build_query($variantUriParams)
         );
     }
 
