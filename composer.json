@@ -253,10 +253,6 @@
   },
   "repositories": [
     {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
-    },
-    {
       "type": "git",
       "url": "https://github.com/spryker/install.git"
     }
