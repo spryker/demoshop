@@ -115,18 +115,6 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/git-hook.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/install.git"
-    },
-    {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
     }
   ],
   "scripts": {
