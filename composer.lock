@@ -1939,7 +1939,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "123af599b648a34abfb1796e7162323ebab34edf"
+                "reference": "649e1c22902ba5478e95c3071c2c330b185cafc1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2140,7 +2140,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-03T17:52:07+00:00"
+            "time": "2018-01-09T10:18:27+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5366,7 +5366,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -6906,7 +6906,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
