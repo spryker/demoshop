@@ -104,10 +104,10 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
             return [
                 new StoreQueryExpanderPlugin(),
                 new LocalizedQueryExpanderPlugin(),
+                new ProductPriceQueryExpanderPlugin(),
                 new FacetQueryExpanderPlugin(),
                 new SortedQueryExpanderPlugin(),
                 new PaginatedQueryExpanderPlugin(),
-                new ProductPriceQueryExpanderPlugin(),
             ];
         };
 
