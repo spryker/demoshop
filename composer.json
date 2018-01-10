@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-1765-multi-store-product-abstract",
+    "spryker/spryker": "dev-feature/core-1799-cms-block-per-store",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
