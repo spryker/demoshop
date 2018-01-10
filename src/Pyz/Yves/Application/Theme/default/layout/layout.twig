@@ -27,6 +27,7 @@
         <a class="close-button">&times;</a>
     </div>
 
+    {% block page %}
     <div class="__page" tabindex="-1">
         {% block page_start %}{% endblock %}
         <header>
@@ -94,6 +95,7 @@
 
         </footer>
     </div>
+    {% endblock %}
 
     <script src="/assets/default/js/vendor.js"></script>
     <script src="/assets/default/js/app.js"></script>
