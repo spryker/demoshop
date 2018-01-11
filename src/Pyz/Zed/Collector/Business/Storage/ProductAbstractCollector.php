@@ -23,6 +23,8 @@ use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
+use Spryker\Zed\Collector\Business\Collector\StoreAwareCollectorInterface;
+use Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
@@ -32,7 +34,7 @@ use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class ProductAbstractCollector extends AbstractStoragePdoCollector
+class ProductAbstractCollector extends AbstractStoragePdoCollector implements StoreAwareCollectorInterface
 {
     const ID_CATEGORY_NODE = 'id_category_node';
     const SKU = 'sku';
@@ -84,6 +86,11 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected $productFacade;
 
     /**
+     * @var \Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface
+     */
+    protected $storeFacade;
+
+    /**
      * @var array
      */
     protected $superAttributes;
@@ -96,6 +103,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
      * @param \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface $productImageFacade
+     * @param \Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface $storeFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
@@ -104,7 +112,8 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         ProductImageQueryContainerInterface $productImageQueryContainer,
         ProductFacadeInterface $productFacade,
         PriceProductFacadeInterface $priceProductFacade,
-        ProductImageFacadeInterface $productImageFacade
+        ProductImageFacadeInterface $productImageFacade,
+        CollectorToStoreFacadeInterface $storeFacade
     ) {
         parent::__construct($utilDataReaderService);
 
@@ -115,6 +124,15 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         $this->categoryCacheCollection = new Collection([]);
         $this->productFacade = $productFacade;
         $this->productImageFacade = $productImageFacade;
+        $this->storeFacade = $storeFacade;
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\StoreTransfer
+     */
+    public function getCurrentStore()
+    {
+        return $this->storeFacade->getCurrentStore();
     }
 
     /**
