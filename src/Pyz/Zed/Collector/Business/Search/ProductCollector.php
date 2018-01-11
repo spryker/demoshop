@@ -11,11 +11,13 @@ use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
+use Spryker\Zed\Collector\Business\Collector\StoreAwareCollectorInterface;
 use Spryker\Zed\Collector\CollectorConfig;
+use Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface;
 use Spryker\Zed\Search\Business\SearchFacadeInterface;
 use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
-class ProductCollector extends AbstractSearchPdoCollector
+class ProductCollector extends AbstractSearchPdoCollector implements StoreAwareCollectorInterface
 {
     const COL_IS_IN_STORE = 'is_in_store';
 
@@ -30,19 +32,35 @@ class ProductCollector extends AbstractSearchPdoCollector
     protected $searchFacade;
 
     /**
+     * @var \Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface
+     */
+    protected $storeFacade;
+
+    /**
      * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
      * @param \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface $productDataPageMapPlugin
      * @param \Spryker\Zed\Search\Business\SearchFacadeInterface $searchFacade
+     * @param \Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface $storeFacade
      */
     public function __construct(
         UtilDataReaderServiceInterface $utilDataReaderService,
         PageMapInterface $productDataPageMapPlugin,
-        SearchFacadeInterface $searchFacade
+        SearchFacadeInterface $searchFacade,
+        CollectorToStoreFacadeInterface $storeFacade
     ) {
         parent::__construct($utilDataReaderService);
 
         $this->productDataPageMapPlugin = $productDataPageMapPlugin;
         $this->searchFacade = $searchFacade;
+        $this->storeFacade = $storeFacade;
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\StoreTransfer
+     */
+    public function getCurrentStore()
+    {
+        return $this->storeFacade->getCurrentStore();
     }
 
     /**

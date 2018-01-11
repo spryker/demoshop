@@ -43,10 +43,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $searchProductCollector = new SearchProductCollector(
             $this->getUtilDataReaderService(),
             $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_DATA_PAGE_MAP),
-            $this->getSearchFacade()
-        );
-
-        $searchProductCollector->setStoreFacade(
+            $this->getSearchFacade(),
             $this->getStoreFacade()
         );
 
@@ -143,10 +140,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getProductImageQueryContainer(),
             $this->getProductFacade(),
             $this->getPriceProductFacade(),
-            $this->getProductImageFacade()
-        );
-
-        $storageProductCollector->setStoreFacade(
+            $this->getProductImageFacade(),
             $this->getStoreFacade()
         );
 
