@@ -65,9 +65,8 @@ class CmsGuiCreatePageCest
 
         $i->see(CmsEditPage::PAGE_PUBLISH_SUCCESS_MESSAGE);
 
-        $i->runCollectors();
-
         // TODO re-enable
+//        $i->runCollectors();
 //        $yvesTester = $i->haveFriend('yvesTester', YvesAcceptanceTester::class);
 //
 //        $yvesTester->does(function (YvesAcceptanceTester $i) {

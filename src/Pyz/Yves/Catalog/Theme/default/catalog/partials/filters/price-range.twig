@@ -4,7 +4,7 @@
             <div class="small-6 columns">
                 <label>
                     {{ "catalog.filter.pricerangeFrom" | trans }}
-                    <input type="number" name="{{ filter.name }}[min]" data-default-value="{{ (filter.min | default(0)) | moneyRaw | floor }}"
+                    <input type="number" name="{{ filter.config.parameterName }}[min]" data-default-value="{{ (filter.min | default(0)) | moneyRaw | floor }}"
                            value="{{ (filter.activeMin | default(0)) | moneyRaw | floor }}"
                            required="required"
                            min="{{ (filter.min | default(0)) | moneyRaw | floor }}"
@@ -15,7 +15,7 @@
             <div class="small-6 columns">
                 <label>
                     {{ "catalog.filter.pricerangeTo" | trans }}
-                    <input type="number" name="{{ filter.name }}[max]" data-default-value="{{ (filter.max | default(0)) | moneyRaw | ceil }}"
+                    <input type="number" name="{{ filter.config.parameterName }}[max]" data-default-value="{{ (filter.max | default(0)) | moneyRaw | ceil }}"
                            value="{{ (filter.activeMax | default(0)) | moneyRaw | ceil }}"
                            required="required"
                            min="{{ (filter.min | default(0)) | moneyRaw | floor }}"

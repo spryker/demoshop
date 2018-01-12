@@ -21,10 +21,9 @@ use Spryker\Zed\Collector\Communication\Console\CollectorStorageExportConsole;
 use Spryker\Zed\Console\Communication\Plugin\ConsoleLogPlugin;
 use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyProvider;
 use Spryker\Zed\DataImport\Communication\Console\DataImportConsole;
-use Spryker\Zed\Development\Communication\Console\BundleCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodeArchitectureSnifferConsole;
-use Spryker\Zed\Development\Communication\Console\CodeCreateConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
+use Spryker\Zed\Development\Communication\Console\CodePhpstanConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
 use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
@@ -35,6 +34,8 @@ use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConso
 use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateYvesIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\ModuleBridgeCreateConsole;
+use Spryker\Zed\Development\Communication\Console\ModuleCreateConsole;
 use Spryker\Zed\EventBehavior\Communication\Console\EventBehaviorTriggerTimeoutConsole;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
@@ -54,6 +55,7 @@ use Spryker\Zed\Propel\Communication\Console\DatabaseDropConsole;
 use Spryker\Zed\Propel\Communication\Console\DatabaseExportConsole;
 use Spryker\Zed\Propel\Communication\Console\DatabaseImportConsole;
 use Spryker\Zed\Propel\Communication\Console\DeleteMigrationFilesConsole;
+use Spryker\Zed\Propel\Communication\Console\PropelSchemaValidatorConsole;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
@@ -159,6 +161,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_GROUP),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_OPTION),
+            new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_OPTION_PRICE),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_RELATION),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_REVIEW),
             new DataImportConsole(DataImportConsole::DEFAULT_NAME . ':' . DataImportConfig::IMPORT_TYPE_PRODUCT_LABEL),
@@ -226,8 +229,9 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleSnifferConsole();
             $commands[] = new CodeArchitectureSnifferConsole();
-            $commands[] = new CodeCreateConsole();
-            $commands[] = new BundleCreateConsole();
+            $commands[] = new CodePhpstanConsole();
+            $commands[] = new ModuleBridgeCreateConsole();
+            $commands[] = new ModuleCreateConsole();
             $commands[] = new CodePhpMessDetectorConsole();
             $commands[] = new DependencyTreeBuilderConsole();
             $commands[] = new DependencyTreeDependencyViolationConsole();
@@ -248,6 +252,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new DataBuilderGeneratorConsole();
             $commands[] = new CompletionCommand();
             $commands[] = new DataBuilderGeneratorConsole();
+            $commands[] = new PropelSchemaValidatorConsole();
         }
 
         return $commands;

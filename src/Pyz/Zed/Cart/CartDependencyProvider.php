@@ -13,7 +13,9 @@ use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardMetadataExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PaymentCartConnector\Communication\Plugin\Cart\RemovePaymentCartPostSavePlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
+use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePreCheckPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartBundleAvailabilityPreCheckPlugin;
+use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartBundleItemsPreReloadPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartItemWithBundleGroupKeyExpanderPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\CartPostSaveUpdateBundlesPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\ExpandBundleItemsPlugin;
@@ -24,6 +26,9 @@ use Spryker\Zed\ProductImageCartConnector\Communication\Plugin\ProductImageCartP
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOptionQuantityPlugin;
+use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ProductOptionValuePriceExistsCartPreCheckPlugin;
+use Spryker\Zed\ShipmentCartConnector\Communication\Plugin\Cart\CartShipmentExpanderPlugin;
+use Spryker\Zed\ShipmentCartConnector\Communication\Plugin\Cart\CartShipmentPreCheckPlugin;
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
@@ -45,6 +50,7 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new CartItemWithBundleGroupKeyExpanderPlugin(),
             new ProductImageCartPlugin(),
             new CartGroupPromotionItems(),
+            new CartShipmentExpanderPlugin(),
             new GiftCardMetadataExpanderPlugin(),
         ];
     }
@@ -58,7 +64,10 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
     {
         return [
             new ProductExistsCartPreCheckPlugin(),
+            new CartItemPricePreCheckPlugin(),
+            new ProductOptionValuePriceExistsCartPreCheckPlugin(),
             new CartBundleAvailabilityPreCheckPlugin(),
+            new CartShipmentPreCheckPlugin(),
         ];
     }
 
@@ -73,6 +82,18 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new ChangeProductOptionQuantityPlugin(),
             new CartPostSaveUpdateBundlesPlugin(),
             new RemovePaymentCartPostSavePlugin(),
+        ];
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Cart\Dependency\PreReloadItemsPluginInterface[]
+     */
+    protected function getPreReloadPlugins(Container $container)
+    {
+        return [
+           new CartBundleItemsPreReloadPlugin(),
         ];
     }
 }

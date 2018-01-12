@@ -68,7 +68,6 @@
     "spryker/git-hook": "dev-master",
 
     "codeception/codeception": "^2.3.5",
-    "phpunit/phpunit": "^5.0",
     "pdepend/pdepend": "^2.2.2",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "^2.4",
@@ -84,13 +83,14 @@
     "stecman/symfony-console-completion": "^0.7.0",
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
-    "phpunit/php-token-stream": "^1.4.11",
     "phpdocumentor/reflection-docblock": "^2.0",
     "squizlabs/php_codesniffer": "^3.0"
   },
   "autoload": {
-    "psr-0": {
-      "": "src/"
+    "psr-4": {
+      "Generated\\": "src/Generated/",
+      "Orm\\": "src/Orm/",
+      "Pyz\\": "src/Pyz/"
     },
     "files": [
       "vendor/spryker/spryker/autoload.php"
@@ -115,18 +115,6 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/git-hook.git"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:spryker/install.git"
-    },
-    {
-      "type": "composer",
-      "url": "https://code.spryker.com/repo/private"
     }
   ],
   "scripts": {
@@ -146,7 +134,7 @@
       "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ],
     "phpstan": [
-      "php -d memory_limit=512M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
+      "php -d memory_limit=1024M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
     ],
     "phpstan-core": [
       "php -d memory_limit=2048M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1"

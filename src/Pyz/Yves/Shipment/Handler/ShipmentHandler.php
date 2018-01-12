@@ -10,8 +10,8 @@ use Exception;
 use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
+use Spryker\Client\Price\PriceClientInterface;
 use Spryker\Client\Shipment\ShipmentClientInterface;
-use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,18 +22,26 @@ class ShipmentHandler
      */
     protected $shipmentClient;
 
+    /**
+     * @var \Spryker\Client\Price\PriceClientInterface
+     */
+    protected $priceClient;
+
     /** @var string */
     protected $noShipmentMethodName;
 
     /**
      * @param \Spryker\Client\Shipment\ShipmentClientInterface $shipmentClient
+     * @param \Spryker\Client\Price\PriceClientInterface $priceClient
      * @param string $noShipmentMethodName
      */
     public function __construct(
         ShipmentClientInterface $shipmentClient,
+        PriceClientInterface $priceClient,
         $noShipmentMethodName
     ) {
         $this->shipmentClient = $shipmentClient;
+        $this->priceClient = $priceClient;
         $this->noShipmentMethodName = $noShipmentMethodName;
     }
 
@@ -147,7 +155,7 @@ class ShipmentHandler
      */
     protected function setPrice(ExpenseTransfer $shipmentExpenseTransfer, $price, $priceMode)
     {
-        if ($priceMode === PriceMode::PRICE_MODE_NET) {
+        if ($priceMode === $this->priceClient->getNetPriceModeIdentifier()) {
             $shipmentExpenseTransfer->setUnitGrossPrice(0);
             $shipmentExpenseTransfer->setUnitNetPrice($price);
             return;
