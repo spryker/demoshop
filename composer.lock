@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ff634ec3f33df420b9fdd68768fe718",
+    "content-hash": "46309630d703e95fe09f004717e13870",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1913,11 +1913,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1765-multi-store-product-abstract",
+            "version": "dev-feature/core-1799-cms-block-per-store",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8068f9d6087a00ec14cba86132edd804576d9374"
+                "reference": "7a5ec9571cba90c8d6cdbfa9f9e1ba35d49442e4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2151,7 +2151,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-12T13:04:44+00:00"
+            "time": "2018-01-12T13:19:32+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7074,25 +7074,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "44ca169341da400d3552ba7c18eb842ed9616339",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "44ca169341da400d3552ba7c18eb842ed9616339"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/44ca169341da400d3552ba7c18eb842ed9616339",
                 "reference": "44ca169341da400d3552ba7c18eb842ed9616339",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
@@ -7154,25 +7142,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "53a061b20ea355ea49b77cb44fd66ab0531d8af9",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com:/repo/private/mirrors/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "53a061b20ea355ea49b77cb44fd66ab0531d8af9"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-generator/zipball/53a061b20ea355ea49b77cb44fd66ab0531d8af9",
                 "reference": "53a061b20ea355ea49b77cb44fd66ab0531d8af9",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://code.spryker.com/repo/private/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
