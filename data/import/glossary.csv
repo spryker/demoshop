@@ -41,8 +41,10 @@ cart.total.price_to_pay,Zu bezahlender Betrag,de_DE
 cart.total.price_to_pay,Price to pay,en_US
 cart.giftcard.apply.failed,The gift card is not applicable,en_US
 cart.giftcard.apply.failed,Geschenkgutschein konnte nicht angewendet werden,de_DE
-cart.giftcard.apply.successful,Code has been applied,en_US
-cart.giftcard.apply.successful,Gutscheincode wurde erfolgreich angewendet,de_DE
+cart.giftcard.apply.successful,"Your gift card code has been applied",en_US
+cart.giftcard.apply.successful,"Ihr Geschenkgutschein wurde angewendet",de_DE
+cart.voucher.apply.successful,"Your voucher code has been applied",en_US
+cart.voucher.apply.successful,"Ihr Gutscheincode wurde angewendet",de_DE
 cart.code.apply.failed,Code could not be applied,en_US
 cart.code.apply.failed,Gutscheincode konnte nicht angewendet werden,de_DE
 auth.login,Anmelden,de_DE
@@ -861,6 +863,8 @@ mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich 
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
 mail.giftCard.delivery.subject,Your Gift card!,en_US
 mail.giftCard.delivery.subject,Deine Geschenkkarte!,de_DE
+mail.giftCard.delivery.text,"Sehr geehrter Kunde, vielen Dank für den Kauf einer Geschenkgutschein in unserem Shop. Ihr Gutscheincode lautet: ",de_DE
+mail.giftCard.delivery.text,"Dear customer, thank you for buying a gift card at our shop. Your gift card code is: ",en_US
 mail.giftCard.usage.subject,Thank you for using a Gift Card!,en_US
 mail.giftCard.usage.subject,Vielen Dank dass Sie ein Geschenkgutschein benutzt haben.,de_DE
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
