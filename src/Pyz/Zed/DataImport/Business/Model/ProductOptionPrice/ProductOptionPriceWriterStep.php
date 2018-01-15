@@ -51,7 +51,9 @@ class ProductOptionPriceWriterStep extends TouchAwareStep implements DataImportS
             ->findOneBySku($dataSet[static::KEY_PRODUCT_OPTION_SKU]);
 
         if ($productOptionValueEntity === null) {
-            throw new InvalidDataException('Product option SKU (%s) not found in permanent storage.', $dataSet[static::KEY_PRODUCT_OPTION_SKU]);
+            throw new InvalidDataException(
+                sprintf('Product option SKU (%s) not found in permanent storage.', $dataSet[static::KEY_PRODUCT_OPTION_SKU])
+            );
         }
 
         $priceEntity = SpyProductOptionValuePriceQuery::create()
