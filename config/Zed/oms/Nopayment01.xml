@@ -7,10 +7,6 @@
 
     <process name="Nopayment01" main="true">
 
-        <subprocesses>
-            <process>ReplaceGiftCard</process>
-        </subprocesses>
-
         <states>
             <state name="new" reserved="true"/>
             <state name="waiting for payment"/>
@@ -41,7 +37,7 @@
                 <event>paid</event>
             </transition>
 
-            <transition happy="true">
+            <transition>
                 <source>waiting for payment</source>
                 <target>underpaid</target>
                 <event>paid</event>
@@ -53,21 +49,15 @@
                 <event>forward</event>
             </transition>
 
-            <transition happy="true">
-                <source>payment done</source>
-                <target>gift card replacement pending</target>
-                <event>start giftcard replacement</event>
-            </transition>
-
-            <transition happy="true">
-                <source>gift card replacement completed</source>
-                <target>start shipment</target>
-                <event>complete giftcard replacement</event>
-            </transition>
-
             <transition>
                 <source>waiting for payment</source>
                 <target>canceled</target>
+                <event>cancel</event>
+            </transition>
+            <transition happy="true">
+                <source>payment done</source>
+                <target>start shipment</target>
+                <event>pick</event>
             </transition>
             <transition happy="true">
                 <source>start shipment</source>
@@ -93,10 +83,10 @@
             <event name="ship" manual="true" />
             <event name="forward" onEnter="true" />
             <event name="close" manual="true" />
+            <event name="cancel" manual="true" />
             <event name="return" manual="true" />
         </events>
 
     </process>
 
-    <process name="ReplaceGiftCard" file="GiftCardSubprocess/ReplaceGiftCard01.xml"/>
 </statemachine>
