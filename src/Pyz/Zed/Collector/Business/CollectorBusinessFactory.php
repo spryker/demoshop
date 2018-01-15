@@ -302,7 +302,8 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageAvailabilityCollector()
     {
         $storageAvailabilityCollector = new AvailabilityCollector(
-            $this->getUtilDataReaderService()
+            $this->getUtilDataReaderService(),
+            $this->getStoreFacade()
         );
 
         $storageAvailabilityCollector->setTouchQueryContainer(
@@ -373,7 +374,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     public function createStorageAvailabilityCollectorPropelQuery()
     {
-        return new StorageAvailabilityCollectorPropelQuery();
+        return new StorageAvailabilityCollectorPropelQuery($this->getStoreFacade());
     }
 
     /**
@@ -409,6 +410,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $factoryWorker = $factory->getWorkerByName('CriteriaBuilderFactoryWorker');
 
         return $factoryWorker->buildCriteriaBuilder();
+    }
+
+    /**
+     * @return \Spryker\Zed\Store\Business\StoreFacadeInterface
+     */
+    protected function getStoreFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_STORE);
     }
 
     /**

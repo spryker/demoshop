@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\Stock\Persistence;
+namespace Orm\Zed\Oms\Persistence;
 
-use Orm\Zed\Stock\Persistence\Base\SpyStockProductStore as BaseSpyStockProductStore;
+use Spryker\Zed\Oms\Persistence\Propel\AbstractSpyOmsProductReservationStore as BaseSpyOmsProductReservationStore;
 
 /**
- * Skeleton subclass for representing a row from the 'spy_stock_product_store' table.
+ * Skeleton subclass for representing a row from the 'spy_oms_product_reservation_store' table.
  *
  *
  *
@@ -19,6 +19,6 @@ use Orm\Zed\Stock\Persistence\Base\SpyStockProductStore as BaseSpyStockProductSt
  * long as it does not already exist in the output directory.
  *
  */
-class SpyStockProductStore extends BaseSpyStockProductStore
+class SpyOmsProductReservationStore extends BaseSpyOmsProductReservationStore
 {
 }

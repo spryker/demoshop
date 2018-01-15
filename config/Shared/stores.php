@@ -37,9 +37,15 @@ $stores['DE'] = [
     // internal and shop
     'currencyIsoCode' => 'EUR',
     'currencyIsoCodes' => ['EUR', 'CHF'],
+    'sharedPersistenceWithStores' => ['AT'],
 ];
 
-$stores['AT'] = $stores['DE'];
+$stores['AT'] = array_merge(
+    $stores['DE'],
+    [
+        'sharedPersistenceWithStores' => ['DE'],
+    ]
+);
 $stores['US'] = $stores['DE'];
 
 return $stores;

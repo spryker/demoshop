@@ -8,10 +8,7 @@
 namespace Pyz\Zed\DataImport\Business\Model\ProductStock;
 
 use Orm\Zed\Stock\Persistence\SpyStockProductQuery;
-use Orm\Zed\Stock\Persistence\SpyStockProductStore;
-use Orm\Zed\Stock\Persistence\SpyStockProductStoreQuery;
 use Orm\Zed\Stock\Persistence\SpyStockQuery;
-use Orm\Zed\Store\Persistence\SpyStoreQuery;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Zed\Availability\Business\AvailabilityFacadeInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -53,8 +50,13 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
      * @param int|null $bulkSize
      */
-    public function __construct(ProductRepository $productRepository, AvailabilityFacadeInterface $availabilityFacade, ProductBundleFacadeInterface $productBundleFacade, DataImportToTouchInterface $touchFacade, $bulkSize = null)
-    {
+    public function __construct(
+        ProductRepository $productRepository,
+        AvailabilityFacadeInterface $availabilityFacade,
+        ProductBundleFacadeInterface $productBundleFacade,
+        DataImportToTouchInterface $touchFacade,
+        $bulkSize = null
+    ) {
         parent::__construct($touchFacade, $bulkSize);
 
         $this->productRepository = $productRepository;
@@ -74,11 +76,6 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
             ->findOneOrCreate();
 
         $stockEntity->save();
-
-        $storeEntity = SpyStoreQuery::create()
-            ->filterByName($dataSet[static::KEY_STORE])
-            ->findOne();
-
 
         $this->addSubTouchable(StockConfig::TOUCH_STOCK_TYPE, $stockEntity->getIdStock());
 

@@ -10,11 +10,35 @@ use Generated\Shared\Transfer\StorageAvailabilityTransfer;
 use Orm\Zed\Availability\Persistence\Base\SpyAvailabilityQuery;
 use Orm\Zed\Availability\Persistence\SpyAvailability;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
+use Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface;
 
 class AvailabilityCollector extends AbstractStoragePropelCollector
 {
+    /**
+     * @var \Generated\Shared\Transfer\StoreTransfer
+     */
+    protected static $currentStoreTransfer;
+
+    /**
+     * @var \Spryker\Zed\Store\Business\StoreFacadeInterface
+     */
+    protected $storeFacade;
+
+    /**
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
+     * @param \Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface $storeFacade
+     */
+    public function __construct(
+        UtilDataReaderServiceInterface $utilDataReaderService,
+        CollectorToStoreFacadeInterface $storeFacade
+    ) {
+        parent::__construct($utilDataReaderService);
+        $this->storeFacade = $storeFacade;
+    }
+
     /**
      * @param string $touchKey
      * @param array $collectItemData
@@ -34,14 +58,17 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     }
 
     /**
-     * @param int $idAvailabilityAbstact
+     * @param int $idAvailabilityAbstract
      *
      * @return array
      */
-    protected function getConcreteProductsAvailability($idAvailabilityAbstact)
+    protected function getConcreteProductsAvailability($idAvailabilityAbstract)
     {
+        $currentStoreTransfer = $this->getCurrentStore();
+
         $productConcreteAvailability = SpyAvailabilityQuery::create()
-            ->findByFkAvailabilityAbstract($idAvailabilityAbstact);
+            ->filterByFkStore($currentStoreTransfer->getIdStore())
+            ->findByFkAvailabilityAbstract($idAvailabilityAbstract);
 
         $concreteProductStock = [];
         foreach ($productConcreteAvailability as $availabilityEntity) {
@@ -95,5 +122,16 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     protected function isProductConcreteAvailable(SpyAvailability $availabilityEntity)
     {
         return $availabilityEntity->getQuantity() > 0 || $availabilityEntity->getIsNeverOutOfStock();
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\StoreTransfer
+     */
+    protected function getCurrentStore()
+    {
+        if (!static::$currentStoreTransfer) {
+            static::$currentStoreTransfer = $this->storeFacade->getCurrentStore();
+        }
+        return static::$currentStoreTransfer;
     }
 }
