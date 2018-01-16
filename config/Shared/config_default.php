@@ -411,4 +411,4 @@ $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::F
 $config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';
 
 // ---------- Store
-$config[StoreConstants::ENABLE_MULTI_STORE_PER_INSTANCE] = true;
+$config[StoreConstants::ENABLE_MULTI_STORE_PER_ZED] = true;
