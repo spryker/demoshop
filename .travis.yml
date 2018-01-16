@@ -58,7 +58,6 @@ before_install:
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
-  - composer self-update && composer --version
   - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
@@ -85,6 +84,9 @@ before_script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend; fi
 
 script:
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
+
   - vendor/bin/phantomjs --webdriver=4444 &
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
@@ -93,9 +95,6 @@ script:
   - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console transfer:validate ; fi
   - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console code:sniff:style ; fi
   - if [[ $PHPSTAN != 1 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
-
-  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
-  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
 
 notifications:
   email: false

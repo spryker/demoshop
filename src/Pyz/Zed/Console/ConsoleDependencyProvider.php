@@ -23,6 +23,7 @@ use Spryker\Zed\Console\ConsoleDependencyProvider as SprykerConsoleDependencyPro
 use Spryker\Zed\DataImport\Communication\Console\DataImportConsole;
 use Spryker\Zed\Development\Communication\Console\CodeArchitectureSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodePhpMessDetectorConsole;
+use Spryker\Zed\Development\Communication\Console\CodePhpstanConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateClientIdeAutoCompletionConsole;
@@ -221,6 +222,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new CodeTestConsole();
             $commands[] = new CodeStyleSnifferConsole();
             $commands[] = new CodeArchitectureSnifferConsole();
+            $commands[] = new CodePhpstanConsole();
             $commands[] = new CodePhpMessDetectorConsole();
             $commands[] = new ProductTouchConsole();
             $commands[] = new ValidatorConsole();

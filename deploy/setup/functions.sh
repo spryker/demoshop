@@ -238,6 +238,10 @@ function resetDevelopmentState {
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
 
+    labelText "Generating Entity Transfer Objects"
+    $CONSOLE transfer:generate --no-post
+    writeErrorMessage "Generating Entity Transfer Objects failed"
+
     labelText "Initializing DB"
     $CONSOLE setup:init-db $VERBOSITY
     writeErrorMessage "DB setup failed"
