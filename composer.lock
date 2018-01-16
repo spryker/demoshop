@@ -4562,16 +4562,16 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/DummyPayment.git",
-                "reference": "11437f5b6456ec86beca1d9df07351534b75d3fa"
+                "url": "https://github.com/spryker/dummy-payment.git",
+                "reference": "87635c5838e9f14d35a527198d1ceb3a72aa1afb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DummyPayment/zipball/11437f5b6456ec86beca1d9df07351534b75d3fa",
-                "reference": "11437f5b6456ec86beca1d9df07351534b75d3fa",
+                "url": "https://api.github.com/repos/spryker/dummy-payment/zipball/87635c5838e9f14d35a527198d1ceb3a72aa1afb",
+                "reference": "87635c5838e9f14d35a527198d1ceb3a72aa1afb",
                 "shasum": ""
             },
             "require": {
@@ -4606,7 +4606,7 @@
                 "proprietary"
             ],
             "description": "DummyPayment module",
-            "time": "2018-01-10T11:31:54+00:00"
+            "time": "2018-01-16T11:39:33+00:00"
         },
         {
             "name": "spryker/egulias",
