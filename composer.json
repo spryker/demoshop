@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-bugfix/phpstan-fixes",
+    "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
