@@ -36,6 +36,7 @@ class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterfa
 {
     const BULK_SIZE = 100;
 
+    const KEY_BLOCK_KEY = 'block_key';
     const KEY_BLOCK_NAME = 'block_name';
     const KEY_BLOCK_TYPE = 'type';
     const KEY_BLOCK_VALUE = 'value';
@@ -123,10 +124,12 @@ class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterfa
     {
         $cmsBlockEntity = SpyCmsBlockQuery::create()
             ->filterByFkTemplate($templateEntity->getIdCmsBlockTemplate())
-            ->filterByName($dataSet[static::KEY_BLOCK_NAME])
+            ->filterByCmsBlockKey($dataSet[static::KEY_BLOCK_KEY])
             ->findOneOrCreate();
 
-        $cmsBlockEntity->setIsActive($dataSet[static::KEY_ACTIVE]);
+        $cmsBlockEntity
+            ->setName($dataSet[static::KEY_BLOCK_NAME])
+            ->setIsActive($dataSet[static::KEY_ACTIVE]);
 
         if ($cmsBlockEntity->isNew() || $cmsBlockEntity->isModified()) {
             $cmsBlockEntity->save();
