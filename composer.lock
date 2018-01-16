@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.48.13",
+            "version": "3.48.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e083a4dae6f460df1d02dcd827cf547592f5dc29"
+                "reference": "22f5faa06b5ca1a9f375ba02f5164b64fd4f37f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e083a4dae6f460df1d02dcd827cf547592f5dc29",
-                "reference": "e083a4dae6f460df1d02dcd827cf547592f5dc29",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/22f5faa06b5ca1a9f375ba02f5164b64fd4f37f5",
+                "reference": "22f5faa06b5ca1a9f375ba02f5164b64fd4f37f5",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-01-12T21:20:32+00:00"
+            "time": "2018-01-15T23:32:14+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -4724,16 +4724,16 @@
         },
         {
             "name": "spryker/event",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Event.git",
-                "reference": "104ba34fc3ad717e8d9c4d69df97fccc6a53df83"
+                "url": "https://github.com/spryker/event.git",
+                "reference": "bb42f9ba633c13a9adf3203eb0f57764b32030c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Event/zipball/104ba34fc3ad717e8d9c4d69df97fccc6a53df83",
-                "reference": "104ba34fc3ad717e8d9c4d69df97fccc6a53df83",
+                "url": "https://api.github.com/repos/spryker/event/zipball/bb42f9ba633c13a9adf3203eb0f57764b32030c4",
+                "reference": "bb42f9ba633c13a9adf3203eb0f57764b32030c4",
                 "shasum": ""
             },
             "require": {
@@ -4767,7 +4767,7 @@
                 "proprietary"
             ],
             "description": "Event module",
-            "time": "2018-01-09T17:26:38+00:00"
+            "time": "2018-01-16T09:39:17+00:00"
         },
         {
             "name": "spryker/event-behavior",
@@ -5356,11 +5356,17 @@
         },
         {
             "name": "spryker/install",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "4977af4332edce1e7607cd2fe436565dfb9ea484"
+                "reference": "09694843c44983caa0c5c1bb85782fce48a971f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/install/zipball/09694843c44983caa0c5c1bb85782fce48a971f2",
+                "reference": "09694843c44983caa0c5c1bb85782fce48a971f2",
+                "shasum": ""
             },
             "require": {
                 "monolog/monolog": "^1.23",
@@ -5385,16 +5391,12 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Project",
-            "time": "2017-12-08T15:52:16+00:00"
+            "time": "2018-01-16T13:12:55+00:00"
         },
         {
             "name": "spryker/installer",
@@ -6476,16 +6478,16 @@
         },
         {
             "name": "spryker/payolution",
-            "version": "4.0.7",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Payolution.git",
-                "reference": "632bda64cec14906fe4cd6c7b36d019c44a0f6f9"
+                "url": "https://github.com/spryker/payolution.git",
+                "reference": "a153cfc8971d10aef69d4cd5df58ed255d0804dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Payolution/zipball/632bda64cec14906fe4cd6c7b36d019c44a0f6f9",
-                "reference": "632bda64cec14906fe4cd6c7b36d019c44a0f6f9",
+                "url": "https://api.github.com/repos/spryker/payolution/zipball/a153cfc8971d10aef69d4cd5df58ed255d0804dd",
+                "reference": "a153cfc8971d10aef69d4cd5df58ed255d0804dd",
                 "shasum": ""
             },
             "require": {
@@ -6533,7 +6535,7 @@
                 "proprietary"
             ],
             "description": "Payolution module",
-            "time": "2017-12-19T17:36:45+00:00"
+            "time": "2018-01-16T13:35:38+00:00"
         },
         {
             "name": "spryker/pimple",
@@ -10014,16 +10016,16 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "3.5.2",
+            "version": "3.5.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Transfer.git",
-                "reference": "b5f512aa7f654526a31082317c7b1ed9d34c734f"
+                "url": "https://github.com/spryker/transfer.git",
+                "reference": "bba75431f579a45cc82fcaccb7b03b5ecb27389c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Transfer/zipball/b5f512aa7f654526a31082317c7b1ed9d34c734f",
-                "reference": "b5f512aa7f654526a31082317c7b1ed9d34c734f",
+                "url": "https://api.github.com/repos/spryker/transfer/zipball/bba75431f579a45cc82fcaccb7b03b5ecb27389c",
+                "reference": "bba75431f579a45cc82fcaccb7b03b5ecb27389c",
                 "shasum": ""
             },
             "require": {
@@ -10055,7 +10057,7 @@
                 "proprietary"
             ],
             "description": "Transfer module",
-            "time": "2018-01-10T11:31:54+00:00"
+            "time": "2018-01-16T09:39:17+00:00"
         },
         {
             "name": "spryker/twig",
