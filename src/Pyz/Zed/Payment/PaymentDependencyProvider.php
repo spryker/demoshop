@@ -12,7 +12,9 @@ use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPreCheckPlugin;
 use Spryker\Zed\GiftCard\GiftCardConfig as SprykerGiftCardConfig;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Nopayment\Communication\Plugin\Checkout\NopaymentPreCheckPlugin;
 use Spryker\Zed\Nopayment\Communication\Plugin\Payment\PriceToPayPaymentMethodFilterPlugin;
+use Spryker\Shared\Nopayment\NopaymentConfig as SprykerNopaymentConfig;
 use Spryker\Zed\Payment\Dependency\Plugin\Checkout\CheckoutPluginCollectionInterface;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
 
@@ -61,6 +63,12 @@ class PaymentDependencyProvider extends SprykerPaymentDependencyProvider
                 $pluginCollection->add(
                     new GiftCardOrderSaverPlugin(),
                     SprykerGiftCardConfig::PROVIDER_NAME,
+                    PaymentDependencyProvider::CHECKOUT_ORDER_SAVER_PLUGINS
+                );
+
+                $pluginCollection->add(
+                    new NopaymentPreCheckPlugin(),
+                    SprykerNopaymentConfig::PAYMENT_PROVIDER_NAME,
                     PaymentDependencyProvider::CHECKOUT_ORDER_SAVER_PLUGINS
                 );
 
