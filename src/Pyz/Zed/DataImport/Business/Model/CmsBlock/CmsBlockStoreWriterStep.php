@@ -21,7 +21,7 @@ class CmsBlockStoreWriterStep implements DataImportStepInterface
     const KEY_STORE_NAME = 'store_name';
 
     /**
-     * @var int[] Keys are CMS Block keys, values are product abstract ids.
+     * @var int[] Keys are CMS Block keys, values are CMS Block IDs.
      */
     protected static $idCmsBlockBuffer;
 
