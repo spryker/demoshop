@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.48.11",
+            "version": "3.48.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4159562ee5c2b2d322cfcccd2401d90bfaceaf1d"
+                "reference": "e083a4dae6f460df1d02dcd827cf547592f5dc29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4159562ee5c2b2d322cfcccd2401d90bfaceaf1d",
-                "reference": "4159562ee5c2b2d322cfcccd2401d90bfaceaf1d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e083a4dae6f460df1d02dcd827cf547592f5dc29",
+                "reference": "e083a4dae6f460df1d02dcd827cf547592f5dc29",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-01-09T22:01:13+00:00"
+            "time": "2018-01-12T21:20:32+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -3368,16 +3368,16 @@
         },
         {
             "name": "spryker/cms-content-widget",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/CmsContentWidget.git",
-                "reference": "f17f94137aac335faea39c02d4f3d5415741b657"
+                "reference": "58cf2fba38c68b4567bcfbf1cb8f88b3826b172b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CmsContentWidget/zipball/f17f94137aac335faea39c02d4f3d5415741b657",
-                "reference": "f17f94137aac335faea39c02d4f3d5415741b657",
+                "url": "https://api.github.com/repos/spryker/CmsContentWidget/zipball/58cf2fba38c68b4567bcfbf1cb8f88b3826b172b",
+                "reference": "58cf2fba38c68b4567bcfbf1cb8f88b3826b172b",
                 "shasum": ""
             },
             "require": {
@@ -3392,6 +3392,7 @@
                 "spryker/cms": "*",
                 "spryker/cms-block-collector": "*",
                 "spryker/cms-block-gui": "*",
+                "spryker/cms-block-storage": "*",
                 "spryker/cms-collector": "*",
                 "spryker/cms-gui": "*",
                 "spryker/code-sniffer": "*",
@@ -3404,6 +3405,7 @@
                 "spryker/cms": "If you want to use CmsPageParameterMapExpanderPlugin plugin.",
                 "spryker/cms-block-collector": "If you want to expand CMS block collector with content widget mapping, provides plugin.",
                 "spryker/cms-block-gui": "If you want to use content widgets with CMS blocks.",
+                "spryker/cms-block-storage": "If you want to use CmsBlockStorage plugins, minimum required version: 1.2.0.",
                 "spryker/cms-collector": "If you want to expand cms pages collector with content widget mapping, provides plugin.",
                 "spryker/cms-gui": "If you want to use content widgets with CMS pages.",
                 "spryker/silex": "Needed to get Twig environment for content widget service provider."
@@ -3424,7 +3426,7 @@
                 "proprietary"
             ],
             "description": "CmsContentWidget module",
-            "time": "2017-10-23T13:07:57+00:00"
+            "time": "2018-01-10T16:15:51+00:00"
         },
         {
             "name": "spryker/cms-content-widget-product-connector",
@@ -4769,16 +4771,16 @@
         },
         {
             "name": "spryker/event-behavior",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/EventBehavior.git",
-                "reference": "34e23022fd48e753a9a964320b77bc572171d734"
+                "url": "https://github.com/spryker/event-behavior.git",
+                "reference": "6adb7b3fe4620fde88dd73729eddf986994e8664"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/EventBehavior/zipball/34e23022fd48e753a9a964320b77bc572171d734",
-                "reference": "34e23022fd48e753a9a964320b77bc572171d734",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/6adb7b3fe4620fde88dd73729eddf986994e8664",
+                "reference": "6adb7b3fe4620fde88dd73729eddf986994e8664",
                 "shasum": ""
             },
             "require": {
@@ -4821,7 +4823,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2017-11-23T15:41:34+00:00"
+            "time": "2018-01-10T11:57:45+00:00"
         },
         {
             "name": "spryker/event-journal",
@@ -14731,16 +14733,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f"
+                "reference": "11c07feade1d65453e06df3b3b90171d6d982087"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
-                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/11c07feade1d65453e06df3b3b90171d6d982087",
+                "reference": "11c07feade1d65453e06df3b3b90171d6d982087",
                 "shasum": ""
             },
             "require": {
@@ -14791,7 +14793,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-12-22T14:50:35+00:00"
+            "time": "2018-01-12T06:34:42+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -15751,16 +15753,16 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.5.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/Development.git",
-                "reference": "183337541c5611576e0ee645a68e894f4b1fb0fd"
+                "reference": "0a35270545a1c26b9fc951a9f5c65e613f0b9b7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Development/zipball/183337541c5611576e0ee645a68e894f4b1fb0fd",
-                "reference": "183337541c5611576e0ee645a68e894f4b1fb0fd",
+                "url": "https://api.github.com/repos/spryker/Development/zipball/0a35270545a1c26b9fc951a9f5c65e613f0b9b7f",
+                "reference": "0a35270545a1c26b9fc951a9f5c65e613f0b9b7f",
                 "shasum": ""
             },
             "require": {
@@ -15793,7 +15795,7 @@
                 "proprietary"
             ],
             "description": "Development module",
-            "time": "2018-01-10T11:59:45+00:00"
+            "time": "2018-01-10T13:15:10+00:00"
         },
         {
             "name": "spryker/testify",
