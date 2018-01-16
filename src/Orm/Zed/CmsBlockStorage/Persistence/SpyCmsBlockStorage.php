@@ -1,8 +1,13 @@
 <?php
 
+/**
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Orm\Zed\CmsBlockStorage\Persistence;
 
-use Orm\Zed\CmsBlockStorage\Persistence\Base\SpyCmsBlockStorage as BaseSpyCmsBlockStorage;
+use Spryker\Zed\CmsBlockStorage\Persistence\Propel\AbstractSpyCmsBlockStorage as BaseSpyCmsBlockStorage;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_cms_block_storage' table.
@@ -10,11 +15,10 @@ use Orm\Zed\CmsBlockStorage\Persistence\Base\SpyCmsBlockStorage as BaseSpyCmsBlo
  *
  *
  * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
+ * application requirements. This class will only be generated as
  * long as it does not already exist in the output directory.
  *
  */
 class SpyCmsBlockStorage extends BaseSpyCmsBlockStorage
 {
-
 }
