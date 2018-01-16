@@ -175,6 +175,11 @@ sections:
                 - elastic
 
 
+    generate-entity-transfer:
+        generate-transfers:
+            command: "vendor/bin/console transfer:generate"
+
+
     demodata:
         import:
             command: "vendor/bin/console data:import"
