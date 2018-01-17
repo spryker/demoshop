@@ -72,12 +72,17 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
     protected function createMoveAvailableItemsToCartRequestCollection($wishlistName, $wishlistItemMetaTransferCollection)
     {
         $wishlistMoveToCartRequestCollectionTransfer = new WishlistMoveToCartRequestCollectionTransfer();
+        $availabilityBySku = $this->availabilityReader->getAvailability($wishlistItemMetaTransferCollection);
 
         foreach ($wishlistItemMetaTransferCollection as $wishlistItemMetaTransfer) {
             $wishlistMoveToCartRequestTransfer = $this->createWishlistMoveToCartRequestTransfer(
                 $wishlistName,
                 $wishlistItemMetaTransfer
             );
+
+            if (!($availabilityBySku[$wishlistItemMetaTransfer->getSku()]) ?? false) {
+                continue;
+            }
 
             $wishlistMoveToCartRequestCollectionTransfer->addRequest($wishlistMoveToCartRequestTransfer);
         }
