@@ -34,11 +34,11 @@ use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationWriterStep;
 use Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeValidityDatesStep;
 use Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Product\AttributesExtractorStep;
-use Pyz\Zed\DataImport\Business\Model\Product\ProductAbstractStoreWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Pyz\Zed\DataImport\Business\Model\ProductAbstract\AddProductAbstractSkusStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAbstract\ProductAbstractWriterStep;
+use Pyz\Zed\DataImport\Business\Model\ProductAbstractStore\ProductAbstractStoreWriterStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\AddProductAttributeKeysStep;
 use Pyz\Zed\DataImport\Business\Model\ProductAttributeKey\ProductAttributeKeyWriter;
 use Pyz\Zed\DataImport\Business\Model\ProductConcrete\ProductConcreteWriter;
@@ -738,12 +738,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getProductAbstractStoreDataImporterConfiguration());
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(ProductAbstractStoreWriterStep::BULK_SIZE);
-        $dataSetStepBroker
-            ->addStep(new ProductAbstractStoreWriterStep(
-                $this->getTouchFacade(),
-                ProductAbstractStoreWriterStep::BULK_SIZE
-            ));
-
+        $dataSetStepBroker->addStep(new ProductAbstractStoreWriterStep());
+        
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
         return $dataImporter;
