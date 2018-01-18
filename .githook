@@ -7,7 +7,6 @@ config:
 
 preCommitFileCommands:
   - GitHook\Command\FileCommand\PreCommit\CodeStyleCheckCommand
-  - GitHook\Command\FileCommand\PreCommit\PhpMdCheckCommand
   - GitHook\Command\FileCommand\PreCommit\PhpStanCheckCommand
   - GitHook\Command\FileCommand\PreCommit\ArchitectureCheckCommand
   - GitHook\Command\FileCommand\PreCommit\DependencyViolationCheckCommand
