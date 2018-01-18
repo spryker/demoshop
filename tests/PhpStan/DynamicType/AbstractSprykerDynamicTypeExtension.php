@@ -61,6 +61,6 @@ abstract class AbstractSprykerDynamicTypeExtension implements DynamicMethodRetur
             }
         }
 
-        throw new Exception();
+        throw new Exception('Invalid PHPDoc block line for method ' . $methodCall->name);
     }
 }
