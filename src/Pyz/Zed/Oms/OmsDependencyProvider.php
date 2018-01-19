@@ -13,7 +13,6 @@ use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderConfirmationPlugin
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderShippedPlugin;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\ReservationHandler\ReservationVersionHandlerPlugin;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\ReservationImport\ReservationExportPlugin;
-use Spryker\Zed\Oms\Communication\Plugin\Oms\ReservationSynchronization\SynchronizeReservationWithStorePlugin;
 use Spryker\Zed\Oms\Dependency\Plugin\Command\CommandCollectionInterface;
 use Spryker\Zed\Oms\OmsDependencyProvider as SprykerOmsDependencyProvider;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Oms\ProductBundleAvailabilityHandlerPlugin;
@@ -49,16 +48,6 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             new AvailabilityHandlerPlugin(),
             new ProductBundleAvailabilityHandlerPlugin(),
             new ReservationVersionHandlerPlugin(),
-        ];
-    }
-
-    /**
-     * @return \Spryker\Zed\Oms\Dependency\Plugin\ReservationSynchronizationPluginInterface[]
-     */
-    protected function getReservationSynchronizationPlugins()
-    {
-        return [
-            new SynchronizeReservationWithStorePlugin(),
         ];
     }
 
