@@ -44,7 +44,7 @@ class CmsBlockGuiDependencyProvider extends CmsBlockGuiCmsBlockGuiDependencyProv
     /**
      * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
      */
-    protected function createStoreRelationFormTypePlugin()
+    protected function getStoreRelationFormTypePlugin()
     {
         return new StoreRelationToggleFormTypePlugin();
     }

@@ -1,19 +1,19 @@
-block_key,store_name
-block_1,DE
-block_1,AT
-block_1,US
-block_2,DE
-block_2,AT
-block_2,US
-block_3,DE
-block_3,AT
-block_3,US
-block_4,DE
-block_4,AT
-block_4,US
-block_5,DE
-block_5,AT
-block_5,US
-block_6,DE
-block_6,AT
-block_6,US
+block_name,store_name
+Teaser for home page,DE
+Teaser for home page,AT
+Teaser for home page,US
+Product SEO content,DE
+Product SEO content,AT
+Product SEO content,US
+Category CMS page showcase for Top position,DE
+Category CMS page showcase for Top position,AT
+Category CMS page showcase for Top position,US
+Category CMS page showcase for Middle position,DE
+Category CMS page showcase for Middle position,AT
+Category CMS page showcase for Middle position,US
+Category CMS page showcase for Bottom position,DE
+Category CMS page showcase for Bottom position,AT
+Category CMS page showcase for Bottom position,US
+CMS block for category Computers,DE
+CMS block for category Computers,AT
+CMS block for category Computers,US
