@@ -43,8 +43,6 @@ WHERE
   t.item_event = :spy_touch_item_event
   AND t.touched >= :spy_touch_touched
   AND t.item_type = :spy_touch_item_type
-  AND (valid.valid_from IS NULL OR valid.valid_from > now())
-  AND (valid.valid_to IS NULL OR valid.valid_to < now())
 ';
         $this->criteriaBuilder
             ->sql($sql)
