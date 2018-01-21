@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "78798a51d647bb942a6bc14b252a1489",
+    "content-hash": "9ff634ec3f33df420b9fdd68768fe718",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1906,11 +1906,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1759-discount-per-store",
+            "version": "dev-feature/core-1765-multi-store-product-abstract",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "cf5dbd565e630bcd3c1e609e7134a692074e4dbf"
+                "reference": "7ef1eb2998ec72d5d7db59fcedf62bc5a5b14a1e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2144,7 +2144,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-18T15:56:42+00:00"
+            "time": "2018-01-19T13:41:00+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
