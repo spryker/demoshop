@@ -39,6 +39,15 @@ $jobs[] = [
     'stores' => $allStores,
 ];
 
+$jobs[] = [
+    'name' => 'check-product-validity',
+    'command' => '$PHP_BIN vendor/bin/console product:validity',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
 /* Collectors */
 $jobs[] = [
     'name' => 'export-kv',
