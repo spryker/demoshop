@@ -3,8 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
-
+    "spryker/spryker": "dev-feature/core-1747-php-7-2-compatibility",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -21,7 +20,7 @@
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
     "predis/predis": "^1.1.1",
-    "propel/propel": "2.0.0-alpha7",
+    "propel/propel": "dev-master",
     "psr/log": "^1.0.0",
     "ruflin/elastica": "^3.2.0",
     "silex/silex": "^1.3.5",
@@ -115,6 +114,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:cristianoc72/Propel2.git"
     }
   ],
   "scripts": {

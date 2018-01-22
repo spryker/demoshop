@@ -23,6 +23,8 @@ use PyzTest\Yves\Product\PageObject\ProductDetailPage;
 class AvailabilityAddToCartCest
 {
     /**
+     * @skip Re-enable the test when VM with PHP 7.2 is available.
+     *
      * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
      *
      * @return void

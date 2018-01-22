@@ -26,6 +26,8 @@ use PyzTest\Zed\Sales\PageObject\OrderListPage;
 class CheckoutAvailabilityCest
 {
     /**
+     * @skip Re-enable the test when VM with PHP 7.2 is available.
+     *
      * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
      *
      * @return void
@@ -55,14 +57,10 @@ class CheckoutAvailabilityCest
 
         $reservedProductsBefore = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
 
-        codecept_debug('Reserved Products before: ' . $reservedProductsBefore);
-
         $i->amOnPage(OrderListPage::ORDER_LIST_URL);
         $i->wait(2);
 
         $idSalesOrder = $i->grabTextFrom('//*[@class="dataTables_scrollBody"]/table/tbody/tr[1]/td[1]');
-
-        codecept_debug('ID Sales order: ' . $idSalesOrder);
 
         $i->amOnPage(sprintf(OrderDetailPage::ORDER_DETAIL_PAGE_URL, $idSalesOrder));
 
