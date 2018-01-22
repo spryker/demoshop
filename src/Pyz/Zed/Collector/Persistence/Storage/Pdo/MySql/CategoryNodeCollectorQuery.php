@@ -81,6 +81,6 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
             ->setParameter('fk_locale_1', $this->locale->getIdLocale())
             ->setParameter('fk_locale_2', $this->locale->getIdLocale())
             ->setParameter('fk_locale_3', $this->locale->getIdLocale())
-            ->setParameter('id_store', $this->idStore);
+            ->setParameter('id_store', $this->storeTransfer->getIdStore());
     }
 }

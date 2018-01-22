@@ -50,6 +50,6 @@ WHERE
         $this->criteriaBuilder
             ->sql($sql)
             ->setParameter('fk_locale_1', $this->locale->getIdLocale())
-            ->setParameter('id_store', $this->idStore);
+            ->setParameter('id_store', $this->storeTransfer->getIdStore());
     }
 }

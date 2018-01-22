@@ -38,6 +38,6 @@ spy_touch_storage.id_touch_storage
         $this->criteriaBuilder
             ->sql($sql)
             ->setParameter('fk_storage_locale', $this->getLocale()->requireIdLocale()->getIdLocale())
-            ->setParameter('id_store', $this->idStore);
+            ->setParameter('id_store', $this->storeTransfer->getIdStore());
     }
 }

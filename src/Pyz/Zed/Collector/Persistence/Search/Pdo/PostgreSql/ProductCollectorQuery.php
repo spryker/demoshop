@@ -101,7 +101,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
             ')
             ->setParameter(':id_locale', $this->locale->getIdLocale())
             ->setParameter(':review_status', $this->getApprovedReviewStatus())
-            ->setParameter(':id_store', $this->idStore);
+            ->setParameter(':id_store', $this->storeTransfer->getIdStore());
     }
 
     /**
