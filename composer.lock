@@ -1865,10 +1865,23 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Spryker\\Test\\": "tests"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -1886,6 +1899,9 @@
                 "rabbit-mq",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/spryker/rabbit-mq"
+            },
             "time": "2017-11-28T10:26:10+00:00"
         },
         {
@@ -1894,7 +1910,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e029a854acad0f554dbb42c0f11be38fa935a2b3"
+                "reference": "f0d28cbeb699d2a7888985a44a79fa4991b1692a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2128,7 +2144,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-21T18:04:26+00:00"
+            "time": "2018-01-22T09:21:35+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2165,11 +2181,14 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
+            "support": {
+                "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
+            },
             "time": "2017-11-13T10:53:51+00:00"
         },
         {
@@ -4660,16 +4679,16 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "1.0.3",
+            "version": "1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "3c8487fdd6c750ff3f10c32ddfdd2a7803c1d461"
+                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/3c8487fdd6c750ff3f10c32ddfdd2a7803c1d461",
-                "reference": "3c8487fdd6c750ff3f10c32ddfdd2a7803c1d461",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/d457344b6a035ef99236bdda4729ad7eeb233f54",
+                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54",
                 "shasum": ""
             },
             "require": {
@@ -4680,6 +4699,11 @@
                 "phpunit/phpunit": "^6.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Jean85\\": "src/"
@@ -4697,9 +4721,12 @@
             ],
             "description": "A wrapper for ocramius/pretty-package-versions to get pretty versions strings",
             "keywords": [
-                "package versions"
+                "composer",
+                "package",
+                "release",
+                "versions"
             ],
-            "time": "2017-11-30T22:02:29+00:00"
+            "time": "2018-01-21T13:54:22+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5339,7 +5366,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6953,16 +6980,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0"
+                "reference": "823ba04bdcfe642ec2b912e4650d6e33d48c2ef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0",
-                "reference": "52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
+                "reference": "823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
                 "shasum": ""
             },
             "require": {
@@ -6986,7 +7013,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-01-08T08:07:32+00:00"
+            "time": "2018-01-21T20:33:49+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -7029,7 +7056,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
