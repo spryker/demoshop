@@ -1865,10 +1865,23 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Spryker\\Test\\": "tests"
+                }
+            },
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "include-path": [
                 "src/"
             ],
+            "scripts": {
+                "cs-check": [
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ],
+                "cs-fix": [
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -1886,6 +1899,9 @@
                 "rabbit-mq",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/spryker/rabbit-mq"
+            },
             "time": "2017-11-28T10:26:10+00:00"
         },
         {
@@ -1894,7 +1910,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0e758d77f0acef97a4539013bbcd9c7cc062c471"
+                "reference": "4bb9547b304d4329637ac1a7df883654b3077122"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2128,7 +2144,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-22T13:47:13+00:00"
+            "time": "2018-01-22T16:42:15+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2165,11 +2181,14 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
+            "support": {
+                "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
+            },
             "time": "2017-11-13T10:53:51+00:00"
         },
         {
@@ -5339,7 +5358,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7029,7 +7048,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
