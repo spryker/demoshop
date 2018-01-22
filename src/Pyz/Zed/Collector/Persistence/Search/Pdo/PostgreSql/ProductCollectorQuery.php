@@ -75,7 +75,8 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                   ON (spy_product.id_product = spy_stock_product.fk_product)
                 LEFT JOIN spy_touch_search 
                   ON (spy_touch_search.fk_touch = spy_touch.id_touch AND
-                      spy_touch_search.fk_locale = spy_locale.id_locale)
+                      spy_touch_search.fk_locale = spy_locale.id_locale AND
+                      spy_touch_search.fk_store = :id_store)
                 LEFT JOIN spy_product_image_set 
                   ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract AND (
                   spy_product_image_set.fk_locale = spy_locale.id_locale OR spy_product_image_set.fk_locale IS NULL))
@@ -100,7 +101,7 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
             ')
             ->setParameter(':id_locale', $this->locale->getIdLocale())
             ->setParameter(':review_status', $this->getApprovedReviewStatus())
-            ->setParameter(':id_store', $this->storeTransfer->getIdStore());
+            ->setParameter(':id_store', $this->idStore);
     }
 
     /**

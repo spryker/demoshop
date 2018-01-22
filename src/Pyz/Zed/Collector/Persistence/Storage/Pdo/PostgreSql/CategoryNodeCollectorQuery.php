@@ -66,7 +66,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
         AND t.touched >= :spy_touch_touched
         AND t.item_type = :spy_touch_item_type
     )
-    LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_3
+    LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_3 AND spy_touch_storage.fk_store = :id_store
 ';
         $this->criteriaBuilder
             ->sql($sql)
@@ -76,6 +76,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
             ])
             ->setParameter('fk_locale_1', $this->locale->getIdLocale())
             ->setParameter('fk_locale_2', $this->locale->getIdLocale())
-            ->setParameter('fk_locale_3', $this->locale->getIdLocale());
+            ->setParameter('fk_locale_3', $this->locale->getIdLocale())
+            ->setParameter('id_store', $this->idStore);
     }
 }
