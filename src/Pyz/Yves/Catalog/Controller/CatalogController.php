@@ -49,7 +49,7 @@ class CatalogController extends AbstractController
         $productCategoryFilterClient = $this->getFactory()->getProductCategoryFilterClient();
 
         $searchResults[FacetResultFormatterPlugin::NAME] = $productCategoryFilterClient
-            ->updateFacetsByCategory(
+            ->updateFacetsByProductCategoryFilterTransfer(
                 $searchResults[FacetResultFormatterPlugin::NAME],
                 $productCategoryFilterClient->getProductCategoryFiltersForCategoryByLocale($parameters[PageIndexMap::CATEGORY], $currentLocale)
             );
