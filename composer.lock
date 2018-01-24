@@ -1910,13 +1910,14 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "32c309fc1dd05f1b37d3759bcad81a68b70d926c"
+                "reference": "366cecfe7b01634bf16df929d7d939653e89d3cd"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
                 "fzaninotto/faker": "^1.6",
                 "moneyphp/money": "^3.0.0",
                 "paragonie/random_compat": "^2.0.10",
+                "php": ">=7.1",
                 "phpdocumentor/graphviz": "^1.0.4"
             },
             "replace": {
@@ -2144,7 +2145,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-24T11:50:32+00:00"
+            "time": "2018-01-24T16:08:49+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",

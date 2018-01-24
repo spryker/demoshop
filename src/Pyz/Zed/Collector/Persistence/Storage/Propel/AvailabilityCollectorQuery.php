@@ -55,7 +55,7 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
             ],
             [
                 SpyProductAbstractTableMap::COL_SKU,
-                $this->getCurrentStore()->getIdStore(),
+                $this->getStoreTransfer()->getIdStore(),
             ],
             Criteria::INNER_JOIN
         );
@@ -65,14 +65,4 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, self::ID_PRODUCT_ABSTRACT);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
-    protected function getCurrentStore()
-    {
-        if (!static::$currentStoreTransfer) {
-            static::$currentStoreTransfer = $this->storeFacade->getCurrentStore();
-        }
-        return static::$currentStoreTransfer;
-    }
 }

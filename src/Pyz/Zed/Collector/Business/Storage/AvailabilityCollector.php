@@ -64,10 +64,8 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
      */
     protected function getConcreteProductsAvailability($idAvailabilityAbstract)
     {
-        $currentStoreTransfer = $this->getCurrentStore();
-
         $productConcreteAvailability = SpyAvailabilityQuery::create()
-            ->filterByFkStore($currentStoreTransfer->getIdStore())
+            ->filterByFkStore($this->getCurrentStore()->getIdStore())
             ->findByFkAvailabilityAbstract($idAvailabilityAbstract);
 
         $concreteProductStock = [];
@@ -124,14 +122,4 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
         return $availabilityEntity->getQuantity() > 0 || $availabilityEntity->getIsNeverOutOfStock();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
-    protected function getCurrentStore()
-    {
-        if (!static::$currentStoreTransfer) {
-            static::$currentStoreTransfer = $this->storeFacade->getCurrentStore();
-        }
-        return static::$currentStoreTransfer;
-    }
 }
