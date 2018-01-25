@@ -1841,6 +1841,7 @@
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "258c1d2eba854913da250565c58e72dcdde61757"
             },
             "dist": {
@@ -1855,6 +1856,14 @@
                 "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/35dfa44bfe5915a1223449a961b3b27da2596de9",
                 "reference": "35dfa44bfe5915a1223449a961b3b27da2596de9",
 >>>>>>> removed ext-mcrypt requirement
+=======
+                "reference": "258c1d2eba854913da250565c58e72dcdde61757"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/258c1d2eba854913da250565c58e72dcdde61757",
+                "reference": "258c1d2eba854913da250565c58e72dcdde61757",
+>>>>>>> update spryker/rabbit-mq
                 "shasum": ""
             },
             "require": {
@@ -1900,10 +1909,14 @@
                 "standards"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-25T15:03:22+00:00"
 =======
             "time": "2018-01-24T15:05:38+00:00"
 >>>>>>> removed ext-mcrypt requirement
+=======
+            "time": "2018-01-25T15:03:22+00:00"
+>>>>>>> update spryker/rabbit-mq
         },
         {
             "name": "spryker/spryker",
