@@ -40,7 +40,7 @@
             {% if originalPrice %}
                 <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
                 <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
-            {% else %}
+            {% elseif priceValue %}
                 {{ priceValue | money }}
             {% endif %}
         </p>
