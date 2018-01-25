@@ -1836,16 +1836,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "168a944bd9a42e7224a581e88dca4c75b36f17ae"
+                "reference": "35dfa44bfe5915a1223449a961b3b27da2596de9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/168a944bd9a42e7224a581e88dca4c75b36f17ae",
-                "reference": "168a944bd9a42e7224a581e88dca4c75b36f17ae",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/35dfa44bfe5915a1223449a961b3b27da2596de9",
+                "reference": "35dfa44bfe5915a1223449a961b3b27da2596de9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.16",
+                "php": ">=7.1",
                 "php-amqplib/php-amqplib": "^2.6",
                 "spryker/kernel": "^3.0.0",
                 "spryker/queue": "^1.0.0",
@@ -1865,30 +1865,17 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Spryker\\Test\\": "tests"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "src/"
             ],
-            "scripts": {
-                "cs-check": [
-                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
-                ],
-                "cs-fix": [
-                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/vendor/,/templates/ ./"
-                ]
-            },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Spryker",
-                    "homepage": "http://spryker.com"
+                    "homepage": "https://spryker.com"
                 }
             ],
             "description": "Spryker RabbitMq adapter",
@@ -1899,10 +1886,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/spryker/rabbit-mq"
-            },
-            "time": "2017-11-28T10:26:10+00:00"
+            "time": "2018-01-24T15:05:38+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -1910,6 +1894,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1960,6 +1945,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2369,6 +2356,9 @@
 =======
                 "reference": "afbbdbdb665113dcf59ff888b279aa859367d85d"
 >>>>>>> core-2275 update spryker/spryker
+=======
+                "reference": "4f80fa9201ddae6d1f30a2c76fb57c778b298380"
+>>>>>>> core-2275 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2623,6 +2613,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-25T12:37:32+00:00"
 =======
 =======
@@ -2653,6 +2644,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 update spryker/spryker
 =======
@@ -2909,6 +2902,11 @@
 =======
 =======
             "time": "2018-01-23T08:05:42+00:00"
+>>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2018-01-25T09:29:43+00:00"
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
         },
@@ -5283,34 +5281,40 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "1.3.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c"
+                "reference": "86b5ca2f67173c9d34340845dd690149c886a605"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/77300c4ab2025d4316635f592ec849ca7323bd8c",
-                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/86b5ca2f67173c9d34340845dd690149c886a605",
+                "reference": "86b5ca2f67173c9d34340845dd690149c886a605",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "php": "^5.5 || ~7.0",
-                "symfony/process": "^2.8 || ^3.1"
+                "ext-zip": "*",
+                "php": "^5.6 || ~7.0",
+                "symfony/process": "^2.8 || ^3.1 || ^4.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.11",
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "guzzle/guzzle": "^3.4.1",
+                "php-coveralls/php-coveralls": "^1.0.2",
                 "php-mock/php-mock-phpunit": "^1.1",
-                "phpunit/phpunit": "4.6.* || ~5.0",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.6"
-            },
-            "suggest": {
-                "phpdocumentor/phpdocumentor": "2.*"
+                "phpunit/phpunit": "^5.7",
+                "sebastian/environment": "^1.3.4 || ^2.0 || ^3.0",
+                "squizlabs/php_codesniffer": "^2.6",
+                "symfony/var-dumper": "^3.3 || ^4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-community": "1.5-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Facebook\\WebDriver\\": "lib/"
@@ -5320,7 +5324,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "description": "A PHP client for WebDriver",
+            "description": "A PHP client for Selenium WebDriver",
             "homepage": "https://github.com/facebook/php-webdriver",
             "keywords": [
                 "facebook",
@@ -5328,7 +5332,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2017-01-13T15:48:08+00:00"
+            "time": "2017-11-15T11:08:09+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -7882,16 +7886,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "c2aa1853c2038addfcf5c9541e50eaeb389ec26a"
+                "reference": "d26bbf237d629fdbefd5a337b75cdefe8c816e98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/c2aa1853c2038addfcf5c9541e50eaeb389ec26a",
-                "reference": "c2aa1853c2038addfcf5c9541e50eaeb389ec26a",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/d26bbf237d629fdbefd5a337b75cdefe8c816e98",
+                "reference": "d26bbf237d629fdbefd5a337b75cdefe8c816e98",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0",
+                "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
                 "zendframework/zend-filter": "*"
             },
@@ -7915,7 +7919,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-01-10T11:55:09+00:00"
+            "time": "2018-01-24T15:10:19+00:00"
         },
         {
             "name": "spryker/code-sniffer",
