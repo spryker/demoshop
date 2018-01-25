@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use Orm\Zed\Product\Persistence\Base\SpyProductValidityQuery as BaseSpyProductValidityQuery;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductValidityQuery as BaseSpyProductValidityQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_validity' table.

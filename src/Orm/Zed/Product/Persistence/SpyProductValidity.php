@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\Product\Persistence;
 
-use Orm\Zed\Product\Persistence\Base\SpyProductValidity as BaseSpyProductValidity;
+use Spryker\Zed\Product\Persistence\Propel\AbstractSpyProductValidity as BaseSpyProductValidity;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_validity' table.
