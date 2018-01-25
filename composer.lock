@@ -1915,6 +1915,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "585c48f08ebad36082c6d2d7a42837de9e72ce8f"
 =======
 =======
@@ -2357,8 +2358,9 @@
                 "reference": "afbbdbdb665113dcf59ff888b279aa859367d85d"
 >>>>>>> core-2275 update spryker/spryker
 =======
-                "reference": "4f80fa9201ddae6d1f30a2c76fb57c778b298380"
+=======
 >>>>>>> core-2275 update spryker/spryker
+                "reference": "4f80fa9201ddae6d1f30a2c76fb57c778b298380"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2593,6 +2595,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2908,6 +2911,9 @@
 =======
             "time": "2018-01-25T09:29:43+00:00"
 >>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+=======
+            "time": "2018-01-25T09:29:43+00:00"
 >>>>>>> core-2275 update spryker/spryker
         },
         {
@@ -7687,19 +7693,7 @@
         },
         {
             "name": "slevomat/coding-standard",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "4.3.1",
-=======
-<<<<<<< HEAD
-=======
->>>>>>> core-2275 update spryker/spryker
-            "version": "4.3.0",
->>>>>>> core-2275 update spryker/spryker
-=======
-            "version": "4.3.1",
->>>>>>> core-2275 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
@@ -7707,33 +7701,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
                 "reference": "823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0",
-                "reference": "52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0",
-<<<<<<< HEAD
-=======
-            "version": "4.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "998b5e96ce36a55d7821d17f39d296a17c05b481"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/998b5e96ce36a55d7821d17f39d296a17c05b481",
-                "reference": "998b5e96ce36a55d7821d17f39d296a17c05b481",
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
-                "reference": "823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
->>>>>>> core-2275 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7757,23 +7726,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-21T20:33:49+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-01-08T08:07:32+00:00"
-=======
-            "time": "2018-01-04T14:00:21+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-=======
-            "time": "2018-01-08T08:07:32+00:00"
->>>>>>> core-2275 update spryker/spryker
-=======
-            "time": "2018-01-21T20:33:49+00:00"
->>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "sllh/composer-versions-check",
