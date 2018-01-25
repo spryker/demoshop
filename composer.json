@@ -54,7 +54,6 @@
     "ext-gmp": "*",
     "ext-intl": "*",
     "ext-json": "*",
-    "ext-mcrypt": "*",
     "ext-pdo_pgsql": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
