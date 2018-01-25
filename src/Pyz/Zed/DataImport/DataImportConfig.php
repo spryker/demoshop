@@ -22,6 +22,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_PRICE = 'product-price';
     const IMPORT_TYPE_PRODUCT_STOCK = 'product-stock';
     const IMPORT_TYPE_PRODUCT_ABSTRACT = 'product-abstract';
+    const IMPORT_TYPE_PRODUCT_ABSTRACT_STORE = 'product-abstract-store';
     const IMPORT_TYPE_PRODUCT_CONCRETE = 'product-concrete';
     const IMPORT_TYPE_PRODUCT_ATTRIBUTE_KEY = 'product-attribute-key';
     const IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE = 'product-management-attribute';
@@ -186,6 +187,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductAbstractDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_abstract.csv', static::IMPORT_TYPE_PRODUCT_ABSTRACT);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductAbstractStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_abstract_store.csv', static::IMPORT_TYPE_PRODUCT_ABSTRACT_STORE);
     }
 
     /**

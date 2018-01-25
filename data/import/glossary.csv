@@ -651,8 +651,8 @@ customer.newsletter.subscribed,Newsletter subscribed,en_US
 customer.newsletter.subscribed,Newsletter abonniert,de_DE
 validator.constraints.password.do_not_match,Passwords don't match,en_US
 validator.constraints.password.do_not_match,Passwörter stimmen nicht überein,de_DE
-discount.successfully.applied,The discount "display_name" has been successfully applied,en_US
-discount.successfully.applied,Der Rabatt "display_name" wurde erfolgreich angewendet,de_DE
+discount.successfully.applied,"The discount ""display_name"" has been successfully applied",en_US
+discount.successfully.applied,"Der Rabatt ""display_name"" wurde erfolgreich angewendet",de_DE
 product.unavailable,Product is out of stock,en_US
 product.unavailable,Keine Produkte mehr auf Lager,de_DE
 product.attribute.slug,slug,en_US
@@ -1073,3 +1073,7 @@ catalog.view.mode.list,List,en_US
 catalog.view.mode.list,Liste,de_DE
 cart.quantity.adjusted,Requested item quantity was adjusted as far as selected quantity is not available.,en_US
 cart.quantity.adjusted,"Die angeforderte Artikelmenge wurde angepasst, soweit die ausgewählte Menge nicht verfügbar ist.",de_DE
+catalog.sale,Sale,en_US
+catalog.sale,Sale,de_DE
+catalog.new,New,en_US
+catalog.new,Neu,de_DE

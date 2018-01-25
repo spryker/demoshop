@@ -64,7 +64,6 @@ before_install:
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
-  - composer self-update && composer --version
   - if [[ -d 'vendor/spryker/spryker' ]] ; then cd vendor/spryker/spryker && git clean -f -d && cd - ; fi
   - composer remove --dev spryker/git-hook
   - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan:"^0.8.5" ; fi
@@ -94,6 +93,10 @@ before_script:
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend; fi
 
 script:
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-core ; fi
+
   - vendor/bin/phantomjs --webdriver=4444 &
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
@@ -106,10 +109,6 @@ script:
   - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
-
-  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
-  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
-  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-core ; fi
 
 notifications:
   email: false
