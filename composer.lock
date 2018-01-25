@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7170a4adcc9af4ab1b83c000a9572237",
+    "content-hash": "ac86b348866807ac795907a89b66449b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1906,11 +1906,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/CORE-777-gift-cards",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c752b99cc2cbe2ae33db6e5c053083d496259299"
+                "reference": "e23374ed5109e06487dc4bc333fe8afc121aafcb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1989,7 +1989,6 @@
                 "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
-                "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
                 "spryker/graph": "*",
@@ -2145,7 +2144,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-15T18:29:17+00:00"
+            "time": "2018-01-15T10:51:22+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7160,12 +7159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "09a1f6fe2ad1152c858824e7091ad88fea4425f2"
+                "reference": "0c361fef8514a749b544890c4212e058fe2a24cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/09a1f6fe2ad1152c858824e7091ad88fea4425f2",
-                "reference": "09a1f6fe2ad1152c858824e7091ad88fea4425f2",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/0c361fef8514a749b544890c4212e058fe2a24cb",
+                "reference": "0c361fef8514a749b544890c4212e058fe2a24cb",
                 "shasum": ""
             },
             "require": {
@@ -7203,7 +7202,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-01-15T19:21:29+00:00"
+            "time": "2017-11-30T15:55:47+00:00"
         },
         {
             "name": "spryker/git-hook",
