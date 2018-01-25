@@ -884,16 +884,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "ec7a460336f3c4c22510b90d6ed38ebf3e2eafe2"
+                "reference": "fbf11e97b7f557b9d8fa7df03d98e727965e0385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/ec7a460336f3c4c22510b90d6ed38ebf3e2eafe2",
-                "reference": "ec7a460336f3c4c22510b90d6ed38ebf3e2eafe2",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/fbf11e97b7f557b9d8fa7df03d98e727965e0385",
+                "reference": "fbf11e97b7f557b9d8fa7df03d98e727965e0385",
                 "shasum": ""
             },
             "require": {
@@ -959,7 +959,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2018-01-10T11:50:15+00:00"
+            "time": "2018-01-19T09:05:35+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1910,13 +1910,14 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8b384c28ad979dd741a450fa1ee746cef276e207"
+                "reference": "2698c8b7d6da803f2941a1ccc927c0d898f12078"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
                 "fzaninotto/faker": "^1.6",
                 "moneyphp/money": "^3.0.0",
                 "paragonie/random_compat": "^2.0.10",
+                "php": ">=7.1",
                 "phpdocumentor/graphviz": "^1.0.4"
             },
             "replace": {
@@ -2144,7 +2145,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-17T16:50:48+00:00"
+            "time": "2018-01-24T10:59:32+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2193,16 +2194,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.8",
+            "version": "v5.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
+                "reference": "7ffc1ea296ed14bf8260b6ef11b80208dbadba91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9a06dc570a0367850280eefd3f1dc2da45aef517",
-                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/7ffc1ea296ed14bf8260b6ef11b80208dbadba91",
+                "reference": "7ffc1ea296ed14bf8260b6ef11b80208dbadba91",
                 "shasum": ""
             },
             "require": {
@@ -2237,13 +2238,13 @@
                 }
             ],
             "description": "Swiftmailer, free feature-rich PHP mailer",
-            "homepage": "http://swiftmailer.org",
+            "homepage": "https://swiftmailer.symfony.com",
             "keywords": [
                 "email",
                 "mail",
                 "mailer"
             ],
-            "time": "2017-05-01T15:54:03+00:00"
+            "time": "2018-01-23T07:37:21+00:00"
         },
         {
             "name": "symfony-cmf/routing",
@@ -4679,16 +4680,16 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "1.0.3",
+            "version": "1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "3c8487fdd6c750ff3f10c32ddfdd2a7803c1d461"
+                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/3c8487fdd6c750ff3f10c32ddfdd2a7803c1d461",
-                "reference": "3c8487fdd6c750ff3f10c32ddfdd2a7803c1d461",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/d457344b6a035ef99236bdda4729ad7eeb233f54",
+                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54",
                 "shasum": ""
             },
             "require": {
@@ -4699,6 +4700,11 @@
                 "phpunit/phpunit": "^6.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Jean85\\": "src/"
@@ -4716,9 +4722,12 @@
             ],
             "description": "A wrapper for ocramius/pretty-package-versions to get pretty versions strings",
             "keywords": [
-                "package versions"
+                "composer",
+                "package",
+                "release",
+                "versions"
             ],
-            "time": "2017-11-30T22:02:29+00:00"
+            "time": "2018-01-21T13:54:22+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6972,16 +6981,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0"
+                "reference": "823ba04bdcfe642ec2b912e4650d6e33d48c2ef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0",
-                "reference": "52f3c79c5fc0d575a8a763c54a16c96e7a7e41b0",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
+                "reference": "823ba04bdcfe642ec2b912e4650d6e33d48c2ef7",
                 "shasum": ""
             },
             "require": {
@@ -7005,7 +7014,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-01-08T08:07:32+00:00"
+            "time": "2018-01-21T20:33:49+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
