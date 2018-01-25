@@ -17,6 +17,8 @@ use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
+    const COL_IS_IN_STORE = 'is_in_store';
+
     /**
      * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface
      */
@@ -49,6 +51,16 @@ class ProductCollector extends AbstractSearchPdoCollector
     protected function collectResourceType()
     {
         return ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT;
+    }
+
+    /**
+     * @param array $collectItemData
+     *
+     * @return bool
+     */
+    protected function isStorable(array $collectItemData)
+    {
+        return $collectItemData[static::COL_IS_IN_STORE] !== null;
     }
 
     /**

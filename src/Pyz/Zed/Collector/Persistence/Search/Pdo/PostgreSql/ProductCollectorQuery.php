@@ -14,6 +14,8 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
 {
     const CONCAT_DELIMITER = "':'";
 
+    const COL_IS_IN_STORE = 'is_in_store';
+
     /**
      * @return void
      */
@@ -41,12 +43,15 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                 GROUP_CONCAT(DISTINCT CONCAT(spy_product.sku, ' . static::CONCAT_DELIMITER . ', cast(spy_product_search.is_searchable as TEXT))) AS product_searchable_status_aggregation,
                 AVG(spy_product_review.rating)                                  AS average_rating,
                 COUNT(spy_product_review.fk_product_abstract)                   AS review_count,
+                spy_product_abstract_store.fk_store                             AS ' . static::COL_IS_IN_STORE . ',
                 spy_touch.id_touch                                              AS %s,
                 spy_touch.item_id                                               AS %s,
                 spy_touch_search.id_touch_search                                AS %s
             FROM spy_touch
                 INNER JOIN spy_product_abstract 
                   ON (spy_touch.item_id = spy_product_abstract.id_product_abstract)
+                LEFT JOIN spy_product_abstract_store
+                  ON (spy_product_abstract.id_product_abstract = spy_product_abstract_store.fk_product_abstract AND spy_product_abstract_store.fk_store = :id_store)
                 INNER JOIN spy_product
                   ON (spy_product_abstract.id_product_abstract = spy_product.fk_product_abstract AND spy_product.is_active)
                 INNER JOIN spy_product_abstract_localized_attributes
@@ -70,7 +75,8 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
                   ON (spy_product.id_product = spy_stock_product.fk_product)
                 LEFT JOIN spy_touch_search 
                   ON (spy_touch_search.fk_touch = spy_touch.id_touch AND
-                      spy_touch_search.fk_locale = spy_locale.id_locale)
+                      spy_touch_search.fk_locale = spy_locale.id_locale AND
+                      spy_touch_search.fk_store = :id_store)
                 LEFT JOIN spy_product_image_set 
                   ON (spy_product_image_set.fk_product_abstract = spy_product_abstract.id_product_abstract AND (
                   spy_product_image_set.fk_locale = spy_locale.id_locale OR spy_product_image_set.fk_locale IS NULL))
@@ -90,10 +96,12 @@ class ProductCollectorQuery extends AbstractPdoCollectorQuery
             ->setGroupBy('
                 spy_touch.id_touch,
                 spy_touch_search.id_touch_search,
-                spy_product_image_set.id_product_image_set
+                spy_product_image_set.id_product_image_set,
+                spy_product_abstract_store.fk_store
             ')
             ->setParameter(':id_locale', $this->locale->getIdLocale())
-            ->setParameter(':review_status', $this->getApprovedReviewStatus());
+            ->setParameter(':review_status', $this->getApprovedReviewStatus())
+            ->setParameter(':id_store', $this->storeTransfer->getIdStore());
     }
 
     /**
