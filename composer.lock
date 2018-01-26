@@ -12,6 +12,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "376e98b31171171edf6a557b938dbf86",
 =======
 =======
@@ -28,6 +29,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
     "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
 =======
@@ -161,7 +164,13 @@
 =======
     "content-hash": "e42f28efdcc43e3f27e089573a6aa0ed",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+    "content-hash": "e60539cd930676111e6b9f198ce47385",
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -10678,16 +10687,16 @@
         },
         {
             "name": "spryker/architecture-sniffer",
-            "version": "dev-feature/ignore-deprecated-methods-in-factories",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "ee444398b260e8949fc552848484ae852bf984b9"
+                "reference": "0479d9e92130d60aa117e7b7600d7e1ed1806c78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/ee444398b260e8949fc552848484ae852bf984b9",
-                "reference": "ee444398b260e8949fc552848484ae852bf984b9",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/0479d9e92130d60aa117e7b7600d7e1ed1806c78",
+                "reference": "0479d9e92130d60aa117e7b7600d7e1ed1806c78",
                 "shasum": ""
             },
             "require": {
@@ -10725,7 +10734,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2017-12-15T12:55:45+00:00"
+            "time": "2018-01-10T11:56:59+00:00"
         },
         {
             "name": "spryker/code-generator",
