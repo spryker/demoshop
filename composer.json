@@ -4,6 +4,7 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/CORE-2466_ttl_for_products",
+
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -53,7 +54,6 @@
     "ext-gmp": "*",
     "ext-intl": "*",
     "ext-json": "*",
-    "ext-mcrypt": "*",
     "ext-pdo_pgsql": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
@@ -84,7 +84,7 @@
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
     "phpdocumentor/reflection-docblock": "^2.0",
-    "squizlabs/php_codesniffer": "^3.0"
+    "squizlabs/php_codesniffer": "~3.1.0"
   },
   "autoload": {
     "psr-4": {
@@ -109,7 +109,7 @@
   "prefer-stable": true,
   "config": {
     "use-include-path": true,
-    "process-timeout": 600
+    "process-timeout": 1200
   },
   "repositories": [
     {
