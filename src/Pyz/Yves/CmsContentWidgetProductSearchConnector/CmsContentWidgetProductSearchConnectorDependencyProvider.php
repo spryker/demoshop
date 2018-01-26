@@ -24,10 +24,21 @@ class CmsContentWidgetProductSearchConnectorDependencyProvider extends SprykerCm
     {
         $container = parent::provideDependencies($container);
 
+        $container = $this->addProductMapperPlugin($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addProductMapperPlugin(Container $container): Container
+    {
         $container[static::STORAGE_PRODUCT_MAPPER_PLUGIN] = function (Container $container) {
             return new StorageProductMapperPlugin();
         };
-
         return $container;
     }
 }
