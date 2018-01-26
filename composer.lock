@@ -2049,6 +2049,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2101,6 +2102,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -2154,6 +2157,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 =======
@@ -2207,6 +2212,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
                 "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
 =======
@@ -3110,9 +3117,21 @@
                 "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+=======
+=======
+                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3373,7 +3392,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-02-02T14:03:25+00:00"
+>>>>>>> core-2275 update composer.lock
 =======
 =======
 >>>>>>> core-2275 updated constraints
@@ -3425,6 +3449,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 =======
@@ -3478,6 +3504,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
             "time": "2018-01-29T17:32:14+00:00"
 =======
@@ -4038,9 +4066,21 @@
             "time": "2018-01-25T17:41:45+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+=======
+=======
+            "time": "2018-01-26T14:28:54+00:00"
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5302,6 +5342,26 @@
         },
         {
             "name": "symfony/http-foundation",
+<<<<<<< HEAD
+            "version": "v3.0.9",
+=======
+<<<<<<< HEAD
+            "version": "v2.8.34",
+>>>>>>> core-2275 update composer.lock
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
+            },
+            "dist": {
+                "type": "zip",
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
+=======
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
+                "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
+=======
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -5312,6 +5372,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
                 "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
                 "shasum": ""
             },
             "require": {
@@ -5351,7 +5413,15 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2016-07-17T13:54:30+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-01-29T08:54:45+00:00"
+=======
+            "time": "2016-07-17T13:54:30+00:00"
+>>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
         },
         {
             "name": "symfony/http-kernel",
@@ -5801,6 +5871,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> core-2275 update lock
@@ -5958,6 +6029,8 @@
 =======
             "name": "symfony/polyfill-php54",
 >>>>>>> core-2275 update lock
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 =======
@@ -6485,6 +6558,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-16T18:00:04+00:00"
 =======
 =======
@@ -6493,6 +6567,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
@@ -6508,6 +6584,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
@@ -6552,10 +6630,13 @@
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update composer.lock
             "time": "2016-06-29T05:40:00+00:00"
         },
         {
             "name": "symfony/security",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -6588,6 +6669,8 @@
 =======
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
             "version": "v3.2.13",
@@ -6664,6 +6747,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -6801,6 +6885,8 @@
 =======
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
             "time": "2017-07-29T21:27:41+00:00"
