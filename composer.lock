@@ -1836,12 +1836,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "258c1d2eba854913da250565c58e72dcdde61757"
+                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/258c1d2eba854913da250565c58e72dcdde61757",
-                "reference": "258c1d2eba854913da250565c58e72dcdde61757",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
+                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
                 "shasum": ""
             },
             "require": {
@@ -1886,7 +1886,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-25T15:03:22+00:00"
+            "time": "2018-01-26T13:26:48+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -1894,7 +1894,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
+                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2129,7 +2129,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-26T13:11:30+00:00"
+            "time": "2018-01-26T14:28:54+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7041,7 +7041,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
