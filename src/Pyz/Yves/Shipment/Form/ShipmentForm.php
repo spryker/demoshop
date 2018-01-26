@@ -11,7 +11,6 @@ use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ShipmentForm extends AbstractType
@@ -39,18 +38,6 @@ class ShipmentForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setRequired(static::OPTION_SHIPMENT_METHODS);
-    }
-
-    /**
-     * @deprecated Use `configureOptions()` instead.
-     *
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-     *
-     * @return void
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 
     /**

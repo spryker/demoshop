@@ -11,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraint;
 
 class CheckoutAddressCollectionForm extends AbstractType
@@ -57,18 +56,6 @@ class CheckoutAddressCollectionForm extends AbstractType
 
         $resolver->setDefined(self::OPTION_ADDRESS_CHOICES);
         $resolver->setRequired(self::OPTION_COUNTRY_CHOICES);
-    }
-
-    /**
-     * @deprecated Use `configureOptions()` instead.
-     *
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-     *
-     * @return void
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 
     /**
