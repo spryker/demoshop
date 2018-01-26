@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "d284e38cad2782342ac2106498a67c42",
-=======
-    "content-hash": "ce0a405dabe3eb62219fdf2f5065f30f",
->>>>>>> removed ext-mcrypt requirement
+    "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1840,30 +1836,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "258c1d2eba854913da250565c58e72dcdde61757"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/258c1d2eba854913da250565c58e72dcdde61757",
                 "reference": "258c1d2eba854913da250565c58e72dcdde61757",
-=======
-                "reference": "35dfa44bfe5915a1223449a961b3b27da2596de9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/35dfa44bfe5915a1223449a961b3b27da2596de9",
-                "reference": "35dfa44bfe5915a1223449a961b3b27da2596de9",
->>>>>>> removed ext-mcrypt requirement
-=======
-                "reference": "258c1d2eba854913da250565c58e72dcdde61757"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/258c1d2eba854913da250565c58e72dcdde61757",
-                "reference": "258c1d2eba854913da250565c58e72dcdde61757",
->>>>>>> update spryker/rabbit-mq
                 "shasum": ""
             },
             "require": {
@@ -1908,15 +1886,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-25T15:03:22+00:00"
-=======
-            "time": "2018-01-24T15:05:38+00:00"
->>>>>>> removed ext-mcrypt requirement
-=======
-            "time": "2018-01-25T15:03:22+00:00"
->>>>>>> update spryker/rabbit-mq
         },
         {
             "name": "spryker/spryker",
@@ -4581,23 +4551,32 @@
         },
         {
             "name": "jakoch/phantomjs-installer",
-            "version": "2.1.1",
+            "version": "2.1.1-p09",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85"
+                "reference": "41c9fc2608adbc3905338c60829d6e4dd3b739bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
-                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/41c9fc2608adbc3905338c60829d6e4dd3b739bf",
+                "reference": "41c9fc2608adbc3905338c60829d6e4dd3b739bf",
                 "shasum": ""
             },
             "require": {
-                "ext-openssl": "*"
+                "ext-bz2": "*",
+                "ext-openssl": "*",
+                "php": ">5.3"
+            },
+            "require-dev": {
+                "composer/composer": "^1.2",
+                "phpunit/phpunit": "^4.8"
             },
             "type": "custom-installer",
             "autoload": {
+                "psr-4": {
+                    "PhantomInstaller\\Test\\": "tests/"
+                },
                 "psr-0": {
                     "PhantomInstaller\\": "src/"
                 }
@@ -4618,7 +4597,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2016-01-25T16:30:30+00:00"
+            "time": "2017-08-16T08:57:05+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
@@ -5173,16 +5152,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda"
+                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/579f4ce846734a1cf55d6a531d00ca07a43e3cda",
-                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e57b3a09784f846411aa7ed664eedb73e3399078",
+                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078",
                 "shasum": ""
             },
             "require": {
@@ -5220,7 +5199,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-12-26T14:43:21+00:00"
+            "time": "2018-01-25T21:31:33+00:00"
         },
         {
             "name": "ocramius/package-versions",
