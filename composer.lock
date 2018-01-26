@@ -2050,6 +2050,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2102,6 +2103,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
@@ -2157,6 +2160,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
@@ -3130,6 +3135,11 @@
                 "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
+=======
+=======
+                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
+>>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
             },
@@ -3393,8 +3403,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
+=======
+>>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 >>>>>>> core-2275 update composer.lock
@@ -3449,6 +3462,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
 <<<<<<< HEAD
@@ -4078,6 +4093,11 @@
 =======
             "time": "2018-01-26T14:28:54+00:00"
 >>>>>>> core-2275 update composer.lock
+>>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
+=======
+=======
+            "time": "2018-01-26T14:28:54+00:00"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
