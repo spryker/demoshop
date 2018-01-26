@@ -9,7 +9,6 @@ namespace Pyz\Zed\CmsContentWidget;
 
 use Spryker\Shared\CmsContentWidgetProductConnector\ContentWidgetConfigurationProvider\CmsProductContentWidgetConfigurationProvider;
 use Spryker\Shared\CmsContentWidgetProductGroupConnector\ContentWidgetConfigurationProvider\CmsProductGroupContentWidgetConfigurationProvider;
-use Spryker\Shared\CmsContentWidgetProductSearchConnector\ContentWidgetConfigurationProvider\CmsProductSearchContentWidgetConfigurationProvider;
 use Spryker\Shared\CmsContentWidgetProductSetConnector\ContentWidgetConfigurationProvider\CmsProductSetContentWidgetConfigurationProvider;
 use Spryker\Zed\CmsContentWidget\CmsContentWidgetDependencyProvider as SprykerCmsContentWidgetDependencyProvider;
 use Spryker\Zed\CmsContentWidgetProductConnector\Communication\Plugin\Cms\CmsProductSkuMapperPlugin;
@@ -31,8 +30,6 @@ class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependen
             CmsProductContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSkuMapperPlugin(),
             CmsProductSetContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSetKeyMapperPlugin(),
             CmsProductGroupContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSkuMapperPlugin(),
-            //@TODO ask Aurimus
-            CmsProductSearchContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSkuMapperPlugin(),
         ];
     }
 }
