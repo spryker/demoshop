@@ -15,11 +15,9 @@ use Spryker\Yves\CmsContentWidgetProductSearchConnector\Plugin\CmsProductSearchC
 class CmsProductSearchWidgetPlugin extends SprykerCmsProductSearchContentWidgetPlugin
 {
     /**
-     * @param array $productData
-     *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     * {@inheritdoc}
      */
-    protected function mapProductStorageTransfer(array $productData)
+    protected function hydrateProductStorageTransfer(array $productData)
     {
         return $this->getFactory()
             ->getStorageProductMapperPlugin()
