@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-bugfix/CORE-2425_add_not_valid_products_from_wishlist_to_cart",
 
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
