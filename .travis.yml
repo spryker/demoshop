@@ -43,11 +43,6 @@ addons:
     - zed.de.spryker.test
     - www.de.spryker.test
 
-cache:
-  directories:
-    - vendor
-    - $HOME/.composer/cache
-
 services:
   - postgresql
   - mysql
