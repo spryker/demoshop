@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "582570d4c73569f42832ab9eec5b6f1f",
+    "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1836,12 +1836,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f"
+                "reference": "258c1d2eba854913da250565c58e72dcdde61757"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/258c1d2eba854913da250565c58e72dcdde61757",
+                "reference": "258c1d2eba854913da250565c58e72dcdde61757",
                 "shasum": ""
             },
             "require": {
@@ -1886,15 +1886,15 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26T13:26:48+00:00"
+            "time": "2018-01-25T15:03:22+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/CORE-2465-elastic-cms-widget",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4d4f3fb4980d599784bdf0d52e3d66ca0196a7b9"
+                "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2129,7 +2129,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-26T14:57:37+00:00"
+            "time": "2018-01-25T17:41:45+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2166,11 +2166,14 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
+            "support": {
+                "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
+            },
             "time": "2017-11-13T10:53:51+00:00"
         },
         {
@@ -5285,7 +5288,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6975,7 +6978,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
