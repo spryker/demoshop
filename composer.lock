@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "582570d4c73569f42832ab9eec5b6f1f",
+    "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1890,11 +1890,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/CORE-2465-elastic-cms-widget",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3c9aaf7bc6ef46c49e95ba38585339541115986e"
+                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2129,7 +2129,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-28T12:20:44+00:00"
+            "time": "2018-01-26T14:28:54+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2166,11 +2166,14 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://code.spryker.com/repo/private/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
+            "support": {
+                "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
+            },
             "time": "2017-11-13T10:53:51+00:00"
         },
         {
@@ -5348,7 +5351,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7038,7 +7041,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
