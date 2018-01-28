@@ -62,7 +62,7 @@ sections:
 
     demodata:
         import:
-            command: "vendor/bin/console data:import -vvv"
+            command: "vendor/bin/console data:import"
 
         update-product-labels:
             command: "vendor/bin/console product-label:relations:update"
