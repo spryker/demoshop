@@ -103,6 +103,7 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
         return [
             new StoreQueryExpanderPlugin(),
             new LocalizedQueryExpanderPlugin(),
+            new ProductPriceQueryExpanderPlugin(),
             new FacetQueryExpanderPlugin(),
             new SortedQueryExpanderPlugin(),
             new SortedCategoryQueryExpanderPlugin(CatalogSearchConfigBuilder::CATEGORY_FACET_PARAM_NAME),
@@ -110,7 +111,6 @@ class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
             new SpellingSuggestionQueryExpanderPlugin(),
             new IsActiveQueryExpanderPlugin(),
             new IsActiveInDateRangeQueryExpanderPlugin(),
-            new ProductPriceQueryExpanderPlugin(),
         ];
     }
 
