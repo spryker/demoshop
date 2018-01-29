@@ -41,7 +41,7 @@ $jobs[] = [
 
 $jobs[] = [
     'name' => 'check-product-validity',
-    'command' => '$PHP_BIN vendor/bin/console product:validity',
+    'command' => '$PHP_BIN vendor/bin/console product:check-validity',
     'schedule' => '* * * * *',
     'enable' => true,
     'run_on_non_production' => true,
