@@ -2052,6 +2052,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2110,6 +2111,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -2169,6 +2172,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 =======
@@ -3150,8 +3155,17 @@
 =======
                 "reference": "489fdc3d2d00d90400f3e5978a9fdafbb354a026"
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+=======
+=======
+=======
+                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3415,12 +3429,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 >>>>>>> core-2275 update composer.lock
@@ -3481,6 +3498,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 =======
@@ -4119,8 +4138,17 @@
 =======
             "time": "2018-01-28T11:06:43+00:00"
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
+=======
+=======
+=======
+            "time": "2018-01-26T14:28:54+00:00"
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7246,7 +7274,7 @@
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v3.3.15",
+            "version": "v3.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
@@ -7335,11 +7363,16 @@
         {
             "name": "symfony/validator",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "version": "v2.8.34",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
@@ -7429,18 +7462,32 @@
 =======
 =======
             "version": "v3.3.15",
+=======
+            "version": "v3.3.16",
+>>>>>>> core-2275 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "76d2774fbff6585372d0fd29d68bf24e624177b4"
+                "reference": "4656103eb72c9f1f77a7435340fcca687b764200"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/validator/zipball/76d2774fbff6585372d0fd29d68bf24e624177b4",
                 "reference": "76d2774fbff6585372d0fd29d68bf24e624177b4",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/validator/zipball/4656103eb72c9f1f77a7435340fcca687b764200",
+                "reference": "4656103eb72c9f1f77a7435340fcca687b764200",
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
+>>>>>>> core-2275 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7510,6 +7557,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T08:54:45+00:00"
 =======
 =======
@@ -7518,6 +7566,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
 =======
@@ -7527,6 +7577,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-01-29T08:54:45+00:00"
 =======
@@ -7590,6 +7642,9 @@
 =======
 =======
             "time": "2018-01-03T17:13:53+00:00"
+=======
+            "time": "2018-01-21T19:04:48+00:00"
+>>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "symfony/yaml",
