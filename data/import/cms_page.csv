@@ -362,4 +362,4 @@ static full page,1,1,1,page_6,/de/demo-landing-page,/en/demo-landing-page,Demo L
 {{ product_set(['2_sony_set']) }}
 
 <p></p><p><br></p><p><span style=""color: rgb(0, 0, 0); font-family: "" open="""" sans"",="""" arial,="""" sans-serif;="""" font-size:="""" 14px;="""" text-align:="""" justify;""="""">Curabitur ipsum nulla, mollis vel tellus a, tristique tempor sapien. Mauris ut urna molestie, cursus nunc eget, lacinia erat. Donec efficitur, nisl a porta dapibus, nisi ipsum efficitur ipsum, eu auctor turpis ipsum vel sapien. Maecenas molestie risus odio. Suspendisse lobortis dapibus nisi non accumsan. Ut mattis tincidunt odio eu convallis. Nulla leo neque, scelerisque eu sagittis vitae, consectetur vel lacus. Aliquam erat volutpat. Nam euismod aliquet urna eget congue.</span></p><p><br></p><p><b>This a product search in a CMS page:</b></p>
-{{ product_search('is-active:false AND locale:de_DE') }}",
+{{ product_search('is-active:false AND locale:de_DE') }}"
