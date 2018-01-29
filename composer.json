@@ -6,7 +6,6 @@
     "spryker/spryker": "dev-feature/CORE-2465-elastic-cms-widget",
 
     "spryker-eco/loggly": "dev-master",
-    "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
     "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
