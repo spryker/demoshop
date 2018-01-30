@@ -29,7 +29,11 @@ class CustomerWriterStep implements DataImportStepInterface
             ->filterByCustomerReference($dataSet[self::COL_CUSTOMER_REFERENCE])
             ->findOneOrCreate();
 
-        $customerEntity->fromArray($dataSet->getArrayCopy());
+        $filteredData = array_map(function ($value) {
+            return (!empty($value)) ? $value : null;
+        }, $dataSet->getArrayCopy());
+
+        $customerEntity->fromArray($filteredData);
         $customerEntity->save();
 
         $sequenceNumberEntity = SpySequenceNumberQuery::create()
