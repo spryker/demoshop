@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "376e98b31171171edf6a557b938dbf86",
 =======
 =======
@@ -175,6 +176,9 @@
 =======
     "content-hash": "63710bad6ec7837070d8e28448448917",
 >>>>>>> core-2275 update composer.lock
+=======
+    "content-hash": "800e211a9dc85904fbf3349f6479d956",
+>>>>>>> core-2275 update spryker/sprykerr
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2019,10 +2023,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2275-full-compatibility-to-symfony-28-and-then-30-2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2116,6 +2121,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+=======
+>>>>>>> core-2275 update spryker/sprykerr
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -3174,7 +3181,13 @@
 =======
                 "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+<<<<<<< HEAD
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+=======
+=======
+                "reference": "adbd41ab46ec8f163e98208da78d50312400d69a"
+>>>>>>> core-2275 update spryker/sprykerr
+>>>>>>> core-2275 update spryker/sprykerr
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3440,6 +3453,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
@@ -3450,6 +3464,8 @@
 >>>>>>> core-2275 update spryker/spryker
 =======
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+=======
+>>>>>>> core-2275 update spryker/sprykerr
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 >>>>>>> core-2275 update composer.lock
@@ -4166,7 +4182,13 @@
 =======
             "time": "2018-01-29T17:32:14+00:00"
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+<<<<<<< HEAD
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+=======
+=======
+            "time": "2018-01-30T12:26:41+00:00"
+>>>>>>> core-2275 update spryker/sprykerr
+>>>>>>> core-2275 update spryker/sprykerr
         },
         {
             "name": "spryker/synchronization-behavior",
