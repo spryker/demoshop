@@ -2059,6 +2059,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2123,6 +2124,8 @@
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 =======
 >>>>>>> core-2275 update spryker/sprykerr
+=======
+>>>>>>> core-2275 updated spryker/spryker
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -3187,7 +3190,13 @@
 =======
                 "reference": "adbd41ab46ec8f163e98208da78d50312400d69a"
 >>>>>>> core-2275 update spryker/sprykerr
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/sprykerr
+=======
+=======
+                "reference": "9a2a5cc52fe1cffa9383aa58fa8c84c851034204"
+>>>>>>> core-2275 updated spryker/spryker
+>>>>>>> core-2275 updated spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3454,6 +3463,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
@@ -3466,6 +3476,8 @@
 >>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 =======
 >>>>>>> core-2275 update spryker/sprykerr
+=======
+>>>>>>> core-2275 updated spryker/spryker
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 >>>>>>> core-2275 update composer.lock
@@ -4188,7 +4200,13 @@
 =======
             "time": "2018-01-30T12:26:41+00:00"
 >>>>>>> core-2275 update spryker/sprykerr
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/sprykerr
+=======
+=======
+            "time": "2018-01-30T13:01:51+00:00"
+>>>>>>> core-2275 updated spryker/spryker
+>>>>>>> core-2275 updated spryker/spryker
         },
         {
             "name": "spryker/synchronization-behavior",
