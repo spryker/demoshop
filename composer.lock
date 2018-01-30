@@ -2053,6 +2053,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
@@ -2113,6 +2114,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
@@ -3165,7 +3168,13 @@
                 "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/spryker
+=======
+=======
+                "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3430,6 +3439,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
@@ -3438,6 +3448,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 >>>>>>> core-2275 update composer.lock
@@ -4148,7 +4160,13 @@
             "time": "2018-01-26T14:28:54+00:00"
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/spryker
+=======
+=======
+            "time": "2018-01-29T17:32:14+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4314,6 +4332,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.4",
 =======
 =======
@@ -4322,6 +4341,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v3.4.3",
 =======
@@ -4361,7 +4382,13 @@
             "version": "v3.4.3",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "version": "v3.4.4",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -4459,6 +4486,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-21T19:06:11+00:00"
 =======
 =======
@@ -4467,6 +4495,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -4506,7 +4536,13 @@
             "time": "2018-01-03T07:37:34+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "time": "2018-01-21T19:05:02+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/console",
@@ -4579,6 +4615,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T09:03:43+00:00"
 =======
 =======
@@ -4587,6 +4624,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -4626,7 +4665,13 @@
             "time": "2018-01-03T07:37:34+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "time": "2018-01-29T09:03:43+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/debug",
@@ -4640,6 +4685,7 @@
                 "type": "zip",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/debug/zipball/53f6af2805daf52a43b393b93d2f24925d35c937",
                 "reference": "53f6af2805daf52a43b393b93d2f24925d35c937",
                 "shasum": ""
@@ -4649,6 +4695,8 @@
 =======
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/debug/zipball/603b95dda8b00020e4e6e60dc906e7b715b1c245",
                 "reference": "603b95dda8b00020e4e6e60dc906e7b715b1c245",
@@ -4717,6 +4765,10 @@
                 "url": "https://api.github.com/repos/symfony/debug/zipball/603b95dda8b00020e4e6e60dc906e7b715b1c245",
                 "reference": "603b95dda8b00020e4e6e60dc906e7b715b1c245",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+                "url": "https://api.github.com/repos/symfony/debug/zipball/53f6af2805daf52a43b393b93d2f24925d35c937",
+                "reference": "53f6af2805daf52a43b393b93d2f24925d35c937",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -4782,6 +4834,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-18T22:16:57+00:00"
 =======
 =======
@@ -4790,6 +4843,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T17:14:19+00:00"
 =======
@@ -4859,7 +4914,13 @@
             "time": "2018-01-03T17:14:19+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "time": "2018-01-18T22:16:57+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4927,6 +4988,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.4",
 =======
 =======
@@ -4935,6 +4997,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v3.4.3",
 =======
@@ -4974,7 +5038,13 @@
             "version": "v3.4.3",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "version": "v3.4.4",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -5077,6 +5147,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
@@ -5087,6 +5158,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
@@ -5158,6 +5231,8 @@
 =======
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.3.4",
             "source": {
                 "type": "git",
@@ -5169,6 +5244,7 @@
                 "url": "https://api.github.com/repos/symfony/form/zipball/7c728458818dd00024f1900716166a4b6fa6c5fa",
                 "reference": "7c728458818dd00024f1900716166a4b6fa6c5fa",
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
 <<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
@@ -5230,7 +5306,12 @@
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -5301,6 +5382,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T08:58:04+00:00"
 =======
 =======
@@ -5311,6 +5393,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T07:36:31+00:00"
 =======
@@ -5430,6 +5514,12 @@
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
                 "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
 =======
+=======
+            "time": "2017-06-24T09:29:48+00:00"
+        },
+        {
+            "name": "symfony/http-foundation",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -5440,8 +5530,11 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
                 "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
+<<<<<<< HEAD
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -5482,6 +5575,7 @@
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-17T13:54:30+00:00"
 =======
 <<<<<<< HEAD
@@ -5490,6 +5584,9 @@
             "time": "2016-07-17T13:54:30+00:00"
 >>>>>>> core-2275 update composer.lock
 >>>>>>> core-2275 update composer.lock
+=======
+            "time": "2016-07-17T13:54:30+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/http-kernel",
@@ -5575,7 +5672,7 @@
         },
         {
             "name": "symfony/inflector",
-            "version": "v4.0.3",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/inflector.git",
@@ -5632,7 +5729,7 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v3.4.3",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -5711,6 +5808,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
@@ -5719,6 +5817,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
@@ -5766,15 +5866,18 @@
 =======
             "version": "v3.4.3",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+            "version": "v3.4.4",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "f31f4d3ce4eaf7597abc41bd5ba53d634c2fdb0e"
+                "reference": "f3109a6aedd20e35c3a33190e932c2b063b7b50e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/f31f4d3ce4eaf7597abc41bd5ba53d634c2fdb0e",
-                "reference": "f31f4d3ce4eaf7597abc41bd5ba53d634c2fdb0e",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/f3109a6aedd20e35c3a33190e932c2b063b7b50e",
+                "reference": "f3109a6aedd20e35c3a33190e932c2b063b7b50e",
                 "shasum": ""
             },
             "require": {
@@ -5815,7 +5918,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2018-01-03T07:37:34+00:00"
+            "time": "2018-01-11T07:56:07+00:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -6372,7 +6475,7 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v3.4.3",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -6436,6 +6539,7 @@
                 "property path",
                 "reflection"
             ],
+<<<<<<< HEAD
 <<<<<<< HEAD
             "time": "2017-11-19T18:41:20+00:00"
         },
@@ -6504,8 +6608,9 @@
             "time": "2017-11-19T18:41:20+00:00"
 >>>>>>> core-2275 WIP
 =======
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "time": "2018-01-03T07:37:34+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
         },
         {
             "name": "symfony/routing",
@@ -6519,6 +6624,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/routing/zipball/9038984bd9c05ab07280121e9e10f61a7231457b",
                 "reference": "9038984bd9c05ab07280121e9e10f61a7231457b",
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
 <<<<<<< HEAD
@@ -6560,6 +6666,8 @@
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -6627,6 +6735,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-16T18:00:04+00:00"
 =======
 =======
@@ -6639,6 +6748,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-04T14:58:28+00:00"
         },
@@ -6700,10 +6811,13 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "time": "2016-06-29T05:40:00+00:00"
         },
         {
             "name": "symfony/security",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -6741,6 +6855,8 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.2.13",
             "source": {
                 "type": "git",
@@ -6815,6 +6931,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -6957,13 +7074,18 @@
 >>>>>>> core-2275 update composer.lock
 =======
 >>>>>>> core-2275 update composer.lock
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "time": "2017-07-29T21:27:41+00:00"
         },
         {
             "name": "symfony/serializer",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v3.4.4",
 =======
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v3.4.3",
 =======
@@ -6998,7 +7120,13 @@
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "version": "v3.4.4",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -7076,6 +7204,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-19T11:19:37+00:00"
 =======
 =======
@@ -7084,6 +7213,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -7153,20 +7284,26 @@
             "time": "2018-01-03T07:37:34+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "time": "2018-01-19T11:19:37+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/translation",
-            "version": "v3.4.3",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "17b5962d252b2d6d1d37a2485ebb7ddc5b2bef0a"
+                "reference": "10b32cf0eae28b9b39fe26c456c42b19854c4b84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/17b5962d252b2d6d1d37a2485ebb7ddc5b2bef0a",
-                "reference": "17b5962d252b2d6d1d37a2485ebb7ddc5b2bef0a",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/10b32cf0eae28b9b39fe26c456c42b19854c4b84",
+                "reference": "10b32cf0eae28b9b39fe26c456c42b19854c4b84",
                 "shasum": ""
             },
             "require": {
@@ -7225,6 +7362,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2016-07-30T07:22:48+00:00"
         },
         {
@@ -7271,6 +7409,9 @@
 =======
             "time": "2018-01-03T07:37:34+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+            "time": "2018-01-18T22:16:57+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/twig-bridge",
@@ -7364,10 +7505,13 @@
             "name": "symfony/validator",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
@@ -7463,8 +7607,9 @@
 =======
             "version": "v3.3.15",
 =======
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.3.16",
->>>>>>> core-2275 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
@@ -7472,6 +7617,7 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/validator/zipball/76d2774fbff6585372d0fd29d68bf24e624177b4",
                 "reference": "76d2774fbff6585372d0fd29d68bf24e624177b4",
@@ -7487,7 +7633,14 @@
                 "reference": "4656103eb72c9f1f77a7435340fcca687b764200",
 >>>>>>> core-2275 update spryker/spryker
 >>>>>>> core-2275 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2275 update spryker/spryker
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/validator/zipball/4656103eb72c9f1f77a7435340fcca687b764200",
+                "reference": "4656103eb72c9f1f77a7435340fcca687b764200",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -7558,6 +7711,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T08:54:45+00:00"
 =======
 =======
@@ -7568,6 +7722,8 @@
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 =======
 >>>>>>> core-2275 update spryker/spryker
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T17:12:09+00:00"
 =======
@@ -7643,15 +7799,23 @@
 =======
             "time": "2018-01-03T17:13:53+00:00"
 =======
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "time": "2018-01-21T19:04:48+00:00"
->>>>>>> core-2275 update spryker/spryker
         },
         {
             "name": "symfony/yaml",
+<<<<<<< HEAD
             "version": "v3.4.3",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "version": "v3.4.4",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -7661,11 +7825,14 @@
                 "type": "zip",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
                 "reference": "eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
 =======
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/25c192f25721a74084272671f658797d9e0e0146",
                 "reference": "25c192f25721a74084272671f658797d9e0e0146",
@@ -7732,7 +7899,14 @@
                 "reference": "25c192f25721a74084272671f658797d9e0e0146",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
+                "reference": "eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -7780,12 +7954,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-21T19:05:02+00:00"
 =======
 =======
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T07:37:34+00:00"
 =======
@@ -7830,7 +8007,13 @@
             "time": "2018-01-03T07:37:34+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "time": "2018-01-21T19:05:02+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "twig/twig",
@@ -11281,6 +11464,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v4.0.4",
 =======
 =======
@@ -11289,6 +11473,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v4.0.3",
 =======
@@ -11328,7 +11514,13 @@
             "version": "v4.0.3",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "version": "v4.0.4",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -11338,11 +11530,14 @@
                 "type": "zip",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f78ca49c6360c710ca8e316511e71a23b10e3bf2",
                 "reference": "f78ca49c6360c710ca8e316511e71a23b10e3bf2",
 =======
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/67bf5e4f4da85624f30a5e43b7f43225c8b71959",
                 "reference": "67bf5e4f4da85624f30a5e43b7f43225c8b71959",
@@ -11373,7 +11568,14 @@
                 "reference": "67bf5e4f4da85624f30a5e43b7f43225c8b71959",
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f78ca49c6360c710ca8e316511e71a23b10e3bf2",
+                "reference": "f78ca49c6360c710ca8e316511e71a23b10e3bf2",
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -11435,6 +11637,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-29T09:29:16+00:00"
 =======
 =======
@@ -11443,6 +11646,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-04T15:52:56+00:00"
 =======
@@ -11512,7 +11717,13 @@
             "time": "2018-01-04T15:52:56+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "time": "2018-01-29T09:29:16+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/dom-crawler",
@@ -11631,6 +11842,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
@@ -11639,6 +11851,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
@@ -11686,6 +11900,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -11808,6 +12024,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "v2.8.34",
 =======
 =======
@@ -11816,6 +12033,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "version": "v2.8.33",
 =======
@@ -11871,6 +12090,8 @@
 >>>>>>> core-2275 update constraints
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -11882,6 +12103,7 @@
                 "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
                 "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> core-2275 updated constraints
 >>>>>>> core-2275 updated constraints
 <<<<<<< HEAD
@@ -11893,7 +12115,12 @@
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -11940,10 +12167,13 @@
             "homepage": "https://symfony.com",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-01-07T17:01:19+00:00"
 =======
 =======
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
 <<<<<<< HEAD
             "time": "2018-01-03T07:36:31+00:00"
 =======
@@ -11968,7 +12198,13 @@
             "time": "2016-07-26T08:03:56+00:00"
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+<<<<<<< HEAD
 >>>>>>> core-2275 updated all constraints to allow symfony/* 3
+=======
+=======
+            "time": "2016-07-26T08:03:56+00:00"
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
+>>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "theseer/fdomdocument",
