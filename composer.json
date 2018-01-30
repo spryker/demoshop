@@ -59,7 +59,8 @@
     "ext-readline": "*",
     "ext-redis": "*",
     "league/flysystem": "^1.0",
-    "egulias/email-validator": "^2.1.2"
+    "egulias/email-validator": "^2.1.2",
+    "phpstan/phpstan": "dev-master as 0.8"
   },
   "require-dev": {
     "spryker/architecture-sniffer": "dev-master",
