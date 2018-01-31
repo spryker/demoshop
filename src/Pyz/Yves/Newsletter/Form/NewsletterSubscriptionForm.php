@@ -11,7 +11,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class NewsletterSubscriptionForm extends AbstractType
@@ -74,12 +73,11 @@ class NewsletterSubscriptionForm extends AbstractType
      */
     protected function addSubscribeField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SUBSCRIBE, 'text', [
+        $builder->add(self::FIELD_SUBSCRIBE, 'email', [
             'label' => 'newsletter.subscribe',
             'required' => false,
             'constraints' => [
                 new NotBlank(),
-                new Email(),
             ],
         ]);
 

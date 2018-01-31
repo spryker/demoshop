@@ -9,6 +9,8 @@ namespace Pyz\Client\ProductSale;
 
 use Pyz\Client\ProductSale\Plugin\Elasticsearch\Query\SaleSearchQueryPlugin;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\CurrencyAwareCatalogSearchResultFormatterPlugin;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\ProductPriceQueryExpanderPlugin;
 use Spryker\Client\Kernel\AbstractDependencyProvider;
 use Spryker\Client\Kernel\Container;
 use Spryker\Client\ProductLabel\ProductLabelClient;
@@ -102,6 +104,7 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
             return [
                 new StoreQueryExpanderPlugin(),
                 new LocalizedQueryExpanderPlugin(),
+                new ProductPriceQueryExpanderPlugin(),
                 new FacetQueryExpanderPlugin(),
                 new SortedQueryExpanderPlugin(),
                 new PaginatedQueryExpanderPlugin(),
@@ -116,14 +119,16 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addSaleSearchResultFormatterPlugins(Container$container)
+    protected function addSaleSearchResultFormatterPlugins(Container $container)
     {
         $container[self::SALE_SEARCH_RESULT_FORMATTER_PLUGINS] = function () {
             return [
                 new FacetResultFormatterPlugin(),
                 new SortedResultFormatterPlugin(),
                 new PaginatedResultFormatterPlugin(),
-                new RawCatalogSearchResultFormatterPlugin(),
+                new CurrencyAwareCatalogSearchResultFormatterPlugin(
+                    new RawCatalogSearchResultFormatterPlugin()
+                ),
             ];
         };
 
@@ -135,7 +140,7 @@ class ProductSaleDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addStore(Container$container)
+    protected function addStore(Container $container)
     {
         $container[self::STORE] = function () {
             return Store::getInstance();

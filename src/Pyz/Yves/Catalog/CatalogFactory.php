@@ -37,6 +37,14 @@ class CatalogFactory extends AbstractFactory
     }
 
     /**
+     * @return \Spryker\Client\ProductCategoryFilter\ProductCategoryFilterClientInterface
+     */
+    public function getProductCategoryFilterClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_PRODUCT_CATEGORY_FILTER);
+    }
+
+    /**
      * @return \Spryker\Client\Search\SearchClientInterface
      */
     protected function getSearchClient()

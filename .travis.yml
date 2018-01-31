@@ -11,14 +11,6 @@ dist: precise
 matrix:
   fast_finish: true
   include:
-     - php: "5.6"
-       env:
-          - TEST_GROUP=without-acceptance
-          - ON_EVENTS=cron,push
-     - php: "7.0"
-       env:
-          - TEST_GROUP=without-acceptance
-          - ON_EVENTS=cron,push
      - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
@@ -29,14 +21,6 @@ matrix:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
           - DB=mysql
-     - php: "5.6"
-       env:
-          - TEST_GROUP=acceptance
-          - ON_EVENTS=cron
-     - php: "7.0"
-       env:
-          - TEST_GROUP=acceptance
-          - ON_EVENTS=cron
      - php: "7.1"
        env:
           - TEST_GROUP=acceptance
@@ -68,6 +52,7 @@ services:
   - postgresql
   - mysql
   - redis
+  - rabbitmq
 
 sudo: required
 
@@ -79,11 +64,9 @@ before_install:
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
-  - composer self-update && composer --version
-  - cd vendor/spryker/spryker/ && git reset --hard && cd ../../..
-  - composer remove --dev phpstan/phpstan spryker/git-hook spryker/code-sniffer
-  - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan ; fi
-  - if [[ $TRAVIS_PHP_VERSION != 5.6 && $PHPSTAN != 1 ]] ; then composer require --dev spryker/code-sniffer:dev-master ; fi
+  - if [[ -d 'vendor/spryker/spryker' ]] ; then cd vendor/spryker/spryker && git clean -f -d && cd - ; fi
+  - composer remove --dev spryker/git-hook
+  - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan:"^0.8.5" ; fi
   - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
@@ -97,39 +80,35 @@ before_script:
   - mkdir -p data/DE/logs -m 0777
   - chmod -R 777 data/
 
-  - mv config/Zed/propel.ci.yml config/Zed/propel.yml
   - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
   - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
 
-  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_default-devtest_DE.php
-  - cp config/Shared/ci/travis/params_test_env.sh deploy/setup/params_test_env.sh
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_local.php
 
-  - if [[ $DB == 'mysql' ]]; then cp config/Shared/ci/travis/params_test_mysql_env.sh deploy/setup/params_test_env.sh ; fi
   - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
   - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then ./setup_test -f ; fi
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then ./setup_test -b ; fi
-
-  - vendor/bin/console twig:cache:warmer
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/install DE -r testing ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend ; fi
 
 script:
-  - vendor/bin/phantomjs --webdriver=4444 > /dev/null &
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
-
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console transfer:validate ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console code:sniff:style ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
-  - if [[ $TRAVIS_PHP_VERSION == 7.0 && $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
-
   - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
   - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
   - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-core ; fi
+
+  - vendor/bin/phantomjs --webdriver=4444 &
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
+
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console propel:schema:validate ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console transfer:validate ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console code:sniff:style ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
 
 notifications:
   email: false

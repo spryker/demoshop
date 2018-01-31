@@ -8,6 +8,7 @@ use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\DummyPayment\DummyPaymentConfig;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\EventJournal\EventJournalConstants;
@@ -17,9 +18,6 @@ use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\Price\PriceConstants;
-use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
-use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
@@ -32,7 +30,6 @@ use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
-use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
 
@@ -101,16 +98,15 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
  * In production you probably use a CDN for static content
  */
 $config[ApplicationConstants::HOST_YVES]
-    = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
-    = $config[CustomerConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_STATIC_MEDIA]
     = $config[ApplicationConstants::HOST_SSL_YVES]
     = $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA]
     = 'www.de.project.local';
+$config[CustomerConstants::BASE_URL_YVES] = 'www.de.project.local';
 
 /**
  * Hostname(s) for Zed - Shop frontend
@@ -189,9 +185,6 @@ $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_PREFIX] = 'media';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTP] = '';
 $config[ApplicationConstants::CLOUD_CDN_STATIC_MEDIA_HTTPS] = '';
 $config[ApplicationConstants::CLOUD_CDN_PRODUCT_IMAGES_PATH_NAME] = '/images/products/';
-
-$config[PriceConstants::DEFAULT_PRICE_TYPE] =
-    $config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = 'DEFAULT';
 
 $config[UserConstants::USER_SYSTEM_USERS] = [
     'yves_system',
@@ -374,7 +367,6 @@ $config[PropelConstants::ZED_DB_SUPPORTED_ENGINES] = [
     PropelConfig::DB_ENGINE_PGSQL => 'PostgreSql',
 ];
 $config[PropelConstants::SCHEMA_FILE_PATH_PATTERN] = APPLICATION_VENDOR_DIR . '/*/*/src/*/Zed/*/Persistence/Propel/Schema/';
-$config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = true;
 
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [

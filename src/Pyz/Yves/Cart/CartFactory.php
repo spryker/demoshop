@@ -53,7 +53,13 @@ class CartFactory extends AbstractFactory
      */
     public function createCartOperationHandler()
     {
-        return new CartOperationHandler($this->getCartClient(), $this->getLocale(), $this->getFlashMessenger(), $this->getRequest());
+        return new CartOperationHandler(
+            $this->getCartClient(),
+            $this->getLocale(),
+            $this->getFlashMessenger(),
+            $this->getRequest(),
+            $this->getAvailabilityClient()
+        );
     }
 
     /**
@@ -197,5 +203,13 @@ class CartFactory extends AbstractFactory
     public function getProductPromotionMapperPlugin()
     {
         return $this->getProvidedDependency(CartDependencyProvider::PLUGIN_PROMOTION_PRODUCT_MAPPER);
+    }
+
+    /**
+     * @return \Spryker\Client\Availability\AvailabilityClientInterface
+     */
+    protected function getAvailabilityClient()
+    {
+        return $this->getProvidedDependency(CartDependencyProvider::CLIENT_AVAILABILITY);
     }
 }

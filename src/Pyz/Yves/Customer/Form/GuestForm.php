@@ -5,10 +5,13 @@
  */
 namespace Pyz\Yves\Customer\Form;
 
+use Spryker\Service\UtilValidate\UtilValidateServiceInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class GuestForm extends AbstractType
 {
@@ -18,6 +21,19 @@ class GuestForm extends AbstractType
     const FIELD_EMAIL = 'email';
     const FIELD_IS_GUEST = 'is_guest';
     const FIELD_ACCEPT_TERMS = 'accept_terms';
+
+    /**
+     * @var \Spryker\Service\UtilValidate\UtilValidateServiceInterface
+     */
+    protected $utilValidateService;
+
+    /**
+     * @param \Spryker\Service\UtilValidate\UtilValidateServiceInterface $utilValidateService
+     */
+    public function __construct(UtilValidateServiceInterface $utilValidateService)
+    {
+        $this->utilValidateService = $utilValidateService;
+    }
 
     /**
      * @return string
@@ -108,10 +124,19 @@ class GuestForm extends AbstractType
      */
     protected function addEmailField(FormBuilderInterface $builder)
     {
+        $utilValidateService = $this->utilValidateService;
+
         $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
             'label' => 'auth.email',
             'constraints' => [
                 new NotBlank(),
+                new Callback([
+                    'callback' => function ($email, ExecutionContextInterface $context) use ($utilValidateService) {
+                        if (!$utilValidateService->isEmailFormatValid($email)) {
+                            $context->buildViolation('customer.email.format.invalid')->addViolation();
+                        }
+                    },
+                ]),
             ],
         ]);
 

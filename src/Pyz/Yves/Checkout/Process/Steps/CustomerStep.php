@@ -80,7 +80,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
