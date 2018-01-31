@@ -46,6 +46,9 @@ use Spryker\Zed\Glossary\Business\Translation\TranslationManager;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\NavigationCollector\Communication\Plugin\NavigationMenuCollectorStoragePlugin;
 use Spryker\Zed\ProductCategoryFilterCollector\Communication\Plugin\ProductCategoryFilterCollectorPlugin;
+use Spryker\Zed\ProductCustomerPermission\ProductCustomerPermissionConfig;
+use Spryker\Zed\ProductCustomerPermissionCollector\Communication\Plugin\ProductCustomerPermissionCollectorSearchPlugin;
+use Spryker\Zed\ProductCustomerPermissionCollector\Communication\Plugin\ProductCustomerPermissionCollectorStoragePlugin;
 use Spryker\Zed\ProductGroupCollector\Communication\Plugin\ProductAbstractGroupsCollectorStoragePlugin;
 use Spryker\Zed\ProductGroupCollector\Communication\Plugin\ProductGroupCollectorStoragePlugin;
 use Spryker\Zed\ProductLabelCollector\Communication\Plugin\ProductLabelDictionaryCollectorStoragePlugin;
@@ -126,6 +129,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorSearchPlugin(),
                 ProductSetConfig::RESOURCE_TYPE_PRODUCT_SET => new ProductSetCollectorSearchPlugin(),
                 ProductReviewConfig::RESOURCE_TYPE_PRODUCT_REVIEW => new ProductReviewCollectorSearchPlugin(),
+                ProductCustomerPermissionConfig::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION => new ProductCustomerPermissionCollectorSearchPlugin(),
             ];
         };
 
@@ -155,6 +159,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 ProductSetConfig::RESOURCE_TYPE_PRODUCT_SET => new ProductSetCollectorStoragePlugin(),
                 ProductReviewConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_REVIEW => new ProductAbstractReviewCollectorStoragePlugin(),
                 ProductCategoryFilterConfig::RESOURCE_TYPE_PRODUCT_CATEGORY_FILTER => new ProductCategoryFilterCollectorPlugin(),
+                ProductCustomerPermissionConfig::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION => new ProductCustomerPermissionCollectorStoragePlugin(),
             ];
         };
 

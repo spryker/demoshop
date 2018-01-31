@@ -629,6 +629,8 @@ checkout.step.success.title,Your order has been placed successfully!,en_US
 checkout.step.success.title,Ihre Bestellung wurde erfolgreich durchgeführt!,de_DE
 checkout.step.success.text,Thank you for shopping with us!,en_US
 checkout.step.success.text,Danke für ihren Einkauf!,de_DE
+checkout.step.error.no-product-permission,"You are not allowed to buy all products from your cart",en_US
+checkout.step.error.no-product-permission,"Sie dürfen nicht alle Produkte aus Ihrem Warenkorb kaufen",de_DE
 checkout.step.error.title,Your order has not been placed.,en_US
 checkout.step.error.title,Ihre Bestellung konnte leider nicht durchgeführt werden.,de_DE
 checkout.step.error.text,Something went wrong. Sorry.,en_US
@@ -1025,6 +1027,8 @@ product-cart.validation.error.abstract-product-exists,Product not found,en_US
 product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
 product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
+product-cart.validation.error.no-product-permission,"Sorry, You are not allowed to buy this product.",en_US
+product-cart.validation.error.no-product-permission,"Entschuldigung, Sie dürfen dieses Produkt nicht kaufen.",de_DE
 product-cart.validation.error.product-option-value-price-exists,"Product option price not found for product '%sku%'.",en_US
 product-cart.validation.error.product-option-value-price-exists,"Produktoptionspreis nicht gefunden für Produkt '%sku%'.",de_DE
 product.filter.label,Product Labels,en_US
