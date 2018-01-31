@@ -22,6 +22,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_PRICE = 'product-price';
     const IMPORT_TYPE_PRODUCT_STOCK = 'product-stock';
     const IMPORT_TYPE_PRODUCT_ABSTRACT = 'product-abstract';
+    const IMPORT_TYPE_PRODUCT_ABSTRACT_STORE = 'product-abstract-store';
     const IMPORT_TYPE_PRODUCT_CONCRETE = 'product-concrete';
     const IMPORT_TYPE_PRODUCT_ATTRIBUTE_KEY = 'product-attribute-key';
     const IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE = 'product-management-attribute';
@@ -31,6 +32,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_SET = 'product-set';
     const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
     const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
+    const IMPORT_TYPE_PRODUCT_OPTION_PRICE = 'product-option-price';
     const IMPORT_TYPE_PRODUCT_IMAGE = 'product-image';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP = 'product-search-attribute-map';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE = 'product-search-attribute';
@@ -172,6 +174,14 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
+    public function getProductAbstractStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_abstract_store.csv', static::IMPORT_TYPE_PRODUCT_ABSTRACT_STORE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
     public function getProductConcreteDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_concrete.csv', static::IMPORT_TYPE_PRODUCT_CONCRETE);
@@ -255,6 +265,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductOptionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_option.csv', static::IMPORT_TYPE_PRODUCT_OPTION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductOptionPriceDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_option_price.csv', static::IMPORT_TYPE_PRODUCT_OPTION_PRICE);
     }
 
     /**

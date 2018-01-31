@@ -13,6 +13,6 @@
             {% endfor %}
         </ul>
 
-        <input type="hidden" name="{{ filter.name }}[min]" value="{{ filterValue }}" data-default-value="" class="js-rating-filter-input" />
+        <input type="hidden" name="{{ filter.config.parameterName }}[min]" value="{{ filterValue }}" data-default-value="" class="js-rating-filter-input" />
     </div>
 </div>

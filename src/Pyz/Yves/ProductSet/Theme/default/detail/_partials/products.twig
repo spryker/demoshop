@@ -6,7 +6,9 @@
             <div class="row">
                 <div class="small-5 columns">
                     <a href="{{ storageProduct.url }}" class="thumbnail __preview-image __no-margin-bottom">
-                        <img src="{{ storageProduct.images.0.externalUrlSmall }}">
+                        {% if storageProduct.images|length > 0 %}
+                            <img src="{{ storageProduct.images.0.externalUrlSmall }}">
+                        {% endif %}
                     </a>
                 </div>
                 <div class="small-7 columns">
