@@ -15,7 +15,7 @@ $config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 $config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[ApplicationConstants::HOST_ZED]);
 
 // ---------- Elasticsearch
-$ELASTICA_INDEX_NAME = 'de_search';
+$ELASTICA_INDEX_NAME = 'at_search';
 $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 
@@ -25,8 +25,8 @@ $config[QueueConstants::QUEUE_WORKER_LOG_ACTIVE] = false;
 $config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE_NAME] = 'data/AT/logs/ZED/queue.out';
 
 // ---------- RabbitMQ
-$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
-$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
+$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'AT_development';
+$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/AT_development_zed';
 
 // ---------- MailCatcher
 $config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[ApplicationConstants::HOST_ZED]);

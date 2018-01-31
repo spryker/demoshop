@@ -69,49 +69,37 @@ sections:
     queue-flush:
         set-permissions:
             command: "vendor/bin/console queue:permission:set"
-            stores:
-                - US
-                - DE
+            stores: true
 
         purge-all-queues:
             command: "vendor/bin/console queue:queue:purge-all"
-            stores:
-                - US
-                - DE
+            stores: true
 
         delete-all-queues:
             command: "vendor/bin/console queue:queue:delete-all"
-            stores:
-                - US
-                - DE
+            stores: true
 
         delete-all-exchanges:
             command: "vendor/bin/console queue:exchanges:delete-all"
-            stores:
-                - US
-                - DE
+            stores: true
 
 
     database-flush:
         delete-elastic-search-index:
             command: "vendor/bin/console search:index:delete"
-            stores:
-                - US
-                - DE
+            stores: true
             groups:
                 - elastic
 
         delete-storage:
             command: "vendor/bin/console storage:delete"
-            stores:
-                - US
-                - DE
+            stores: true
             groups:
                 - redis
 
         drop-database:
-            pre: "hidden/maintenance-zed-on"
             command: "vendor/bin/console propel:database:drop"
+            pre: "hidden/maintenance-zed-on"
             stores:
                 - US
                 - DE
@@ -209,9 +197,7 @@ sections:
 
         setup-search:
             command: "vendor/bin/console setup:search"
-            stores:
-                - US
-                - DE
+            stores: true
             groups:
                 - elastic
 
@@ -236,15 +222,11 @@ sections:
 
         search-collector:
             command: "vendor/bin/console collector:search:export"
-            stores:
-                - US
-                - DE
+            stores: true
 
         storage-collector:
             command: "vendor/bin/console collector:storage:export"
-            stores:
-                - US
-                - DE
+            stores: true
 
 
     jenkins-up:
