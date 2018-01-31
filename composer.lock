@@ -1807,6 +1807,7 @@
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
             },
             "dist": {
@@ -1814,6 +1815,8 @@
                 "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
 =======
+=======
+>>>>>>> core-2447 updated spryker/install, updated development.yml
 <<<<<<< HEAD
                 "reference": "9c36dc95668da724b393251424bc47604c64704c"
             },
@@ -1829,7 +1832,18 @@
                 "url": "https://api.github.com/repos/spryker/install/zipball/3eefc17c7f28123b03f2a098d59763a5cfd5ef9b",
                 "reference": "3eefc17c7f28123b03f2a098d59763a5cfd5ef9b",
 >>>>>>> core-2447 update spryker/install
+<<<<<<< HEAD
 >>>>>>> core-2447 update spryker/install
+=======
+=======
+                "reference": "0ceff098cd2726fe6852f0a9da9a47f88f1b06f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/install/zipball/0ceff098cd2726fe6852f0a9da9a47f88f1b06f8",
+                "reference": "0ceff098cd2726fe6852f0a9da9a47f88f1b06f8",
+>>>>>>> core-2447 updated spryker/install, updated development.yml
+>>>>>>> core-2447 updated spryker/install, updated development.yml
                 "shasum": ""
             },
             "require": {
@@ -1867,9 +1881,16 @@
             "time": "2018-02-06T08:26:04+00:00"
 =======
             "description": "Project",
+<<<<<<< HEAD
             "time": "2018-01-31T11:02:31+00:00"
 >>>>>>> core-2447 update spryker/install
+<<<<<<< HEAD
 >>>>>>> core-2447 update spryker/install
+=======
+=======
+            "time": "2018-01-31T14:08:58+00:00"
+>>>>>>> core-2447 updated spryker/install, updated development.yml
+>>>>>>> core-2447 updated spryker/install, updated development.yml
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1935,7 +1956,19 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "680bcd1e3ae9fc9d08f26d34cc35818c2d5d921a"
+=======
+<<<<<<< HEAD
+                "reference": "5405e466d1002e152aee026a9a4d2ed469a622c0"
+=======
+<<<<<<< HEAD
+                "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
+=======
+                "reference": "0e6ad3f610ca75fa4b2f16c087a8300c58073caf"
+>>>>>>> core-2447 updated spryker/install, updated development.yml
+>>>>>>> core-2447 updated spryker/install, updated development.yml
+>>>>>>> core-2447 updated spryker/install, updated development.yml
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2173,7 +2206,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2018-02-23T14:32:52+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-02-16T13:20:18+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-02-07T10:09:57+00:00"
+=======
+            "time": "2018-01-31T13:51:58+00:00"
+>>>>>>> core-2447 updated spryker/install, updated development.yml
+>>>>>>> core-2447 updated spryker/install, updated development.yml
+>>>>>>> core-2447 updated spryker/install, updated development.yml
         },
         {
             "name": "spryker/synchronization-behavior",

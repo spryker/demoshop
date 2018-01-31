@@ -112,7 +112,9 @@ sections:
         drop-database:
             pre: "hidden/maintenance-zed-on"
             command: "vendor/bin/console propel:database:drop"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
