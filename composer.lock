@@ -1863,7 +1863,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8a2247fe7d0d849c380a8cd81ed024cc1eb5bb48"
+                "reference": "78bb02ccfc0d6cc523d060ba485af9adc9bd6e99"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2063,7 +2063,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2017-11-30T09:04:29+00:00"
+            "time": "2018-01-31T09:36:38+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6970,8 +6970,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spryker/git-hook.git",
+                "url": "https://github.com/spryker/git-hook.git",
                 "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/git-hook/zipball/7e9daf8a0af18a923bf84f331de49228fd4ec164",
+                "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.4.16",
@@ -6991,14 +6997,7 @@
                     "GitHook": "src"
                 }
             },
-            "scripts": {
-                "post-install-cmd": [
-                    "GitHook\\Composer\\Scripts\\HookInstaller::installGitHook"
-                ],
-                "post-update-cmd": [
-                    "GitHook\\Composer\\Scripts\\HookInstaller::installGitHook"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7016,9 +7015,6 @@
                 "sniffer",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/spryker/git-hook"
-            },
             "time": "2017-11-13T13:27:04+00:00"
         },
         {
