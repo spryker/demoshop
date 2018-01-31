@@ -4,7 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "81e3e86da11bbf76ba3189a75baa3b69",
+=======
+<<<<<<< HEAD
+    "content-hash": "f60733627e91db144bbe2dab92a1bdef",
+=======
+<<<<<<< HEAD
+    "content-hash": "376e98b31171171edf6a557b938dbf86",
+=======
+    "content-hash": "41887db2e7cd7fcd9ad6f7066161dd40",
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1790,16 +1802,34 @@
         },
         {
             "name": "spryker/install",
-            "version": "dev-master",
+            "version": "dev-feature/core-2447-configure-at-and-de-stores-as-single-instance-stores",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
+<<<<<<< HEAD
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
+=======
+<<<<<<< HEAD
+                "reference": "9c36dc95668da724b393251424bc47604c64704c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/install/zipball/9c36dc95668da724b393251424bc47604c64704c",
+                "reference": "9c36dc95668da724b393251424bc47604c64704c",
+=======
+                "reference": "3eefc17c7f28123b03f2a098d59763a5cfd5ef9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/install/zipball/3eefc17c7f28123b03f2a098d59763a5cfd5ef9b",
+                "reference": "3eefc17c7f28123b03f2a098d59763a5cfd5ef9b",
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
                 "shasum": ""
             },
             "require": {
@@ -1829,8 +1859,17 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "description": "Spryker install tool",
+<<<<<<< HEAD
             "time": "2018-02-12T12:57:05+00:00"
+=======
+            "time": "2018-02-06T08:26:04+00:00"
+=======
+            "description": "Project",
+            "time": "2018-01-31T11:02:31+00:00"
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2296,6 +2335,7 @@
         },
         {
             "name": "symfony/config",
+<<<<<<< HEAD
             "version": "v4.0.4",
             "source": {
                 "type": "git",
@@ -2306,6 +2346,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/config/zipball/ecd917899167922086ddb3247aa43eb1c418fcb2",
                 "reference": "ecd917899167922086ddb3247aa43eb1c418fcb2",
+=======
+            "version": "v3.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "72689b934d6c6ecf73eca874e98933bf055313c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/72689b934d6c6ecf73eca874e98933bf055313c9",
+                "reference": "72689b934d6c6ecf73eca874e98933bf055313c9",
+>>>>>>> core-2447 update spryker/install
                 "shasum": ""
             },
             "require": {
@@ -2352,7 +2404,11 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2018-01-21T19:06:11+00:00"
+=======
+            "time": "2018-01-21T19:05:02+00:00"
+>>>>>>> core-2447 update spryker/install
         },
         {
             "name": "symfony/console",
@@ -6056,7 +6112,12 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD
             "version": "6.5.7",
+=======
+<<<<<<< HEAD
+            "version": "6.5.6",
+>>>>>>> core-2447 update spryker/install
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
@@ -6064,8 +6125,25 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6bd77b57707c236833d2b57b968e403df060c9d9",
                 "reference": "6bd77b57707c236833d2b57b968e403df060c9d9",
+=======
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3330ef26ade05359d006041316ed0fa9e8e3cefe",
+                "reference": "3330ef26ade05359d006041316ed0fa9e8e3cefe",
+=======
+            "version": "6.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "83d27937a310f2984fd575686138597147bdc7df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/83d27937a310f2984fd575686138597147bdc7df",
+                "reference": "83d27937a310f2984fd575686138597147bdc7df",
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
                 "shasum": ""
             },
             "require": {
@@ -6136,7 +6214,15 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
             "time": "2018-02-26T07:01:09+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-02-01T05:57:37+00:00"
+=======
+            "time": "2017-12-17T06:31:19+00:00"
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6984,7 +7070,12 @@
         },
         {
             "name": "slevomat/coding-standard",
+<<<<<<< HEAD
             "version": "4.4.6",
+=======
+<<<<<<< HEAD
+            "version": "4.4.2",
+>>>>>>> core-2447 update spryker/install
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
@@ -6992,8 +7083,25 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/861e7b55d348c81a9dd0b3655dbbc83076d60c05",
                 "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05",
+=======
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
+                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
+=======
+            "version": "4.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slevomat/coding-standard.git",
+                "reference": "872ecd4782be157706a97d72a0a763675c303dd8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/872ecd4782be157706a97d72a0a763675c303dd8",
+                "reference": "872ecd4782be157706a97d72a0a763675c303dd8",
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
                 "shasum": ""
             },
             "require": {
@@ -7020,7 +7128,15 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+<<<<<<< HEAD
             "time": "2018-02-15T17:13:28+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-02-06T21:21:14+00:00"
+=======
+            "time": "2018-01-28T21:06:07+00:00"
+>>>>>>> core-2447 update spryker/install
+>>>>>>> core-2447 update spryker/install
         },
         {
             "name": "sllh/composer-versions-check",
