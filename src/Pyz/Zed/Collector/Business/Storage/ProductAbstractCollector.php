@@ -23,7 +23,7 @@ use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface;
 use Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface;
@@ -46,6 +46,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     const META_TITLE = 'meta_title';
     const META_DESCRIPTION = 'meta_description';
     const SUPER_ATTRIBUTES_DEFINITION = 'super_attributes_definition';
+    const COL_IS_IN_STORE = 'is_in_store';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -58,9 +59,9 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     protected $productCategoryQueryContainer;
 
     /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
      */
-    protected $priceFacade;
+    protected $priceProductFacade;
 
     /**
      * @var \Everon\Component\Collection\CollectionInterface
@@ -80,7 +81,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
      */
-    private $productFacade;
+    protected $productFacade;
 
     /**
      * @var array
@@ -93,7 +94,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      * @param \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface $productCategoryQueryContainer
      * @param \Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface $productImageQueryContainer
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
      * @param \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface $productImageFacade
      */
     public function __construct(
@@ -102,7 +103,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         ProductCategoryQueryContainerInterface $productCategoryQueryContainer,
         ProductImageQueryContainerInterface $productImageQueryContainer,
         ProductFacadeInterface $productFacade,
-        PriceFacadeInterface $priceFacade,
+        PriceProductFacadeInterface $priceProductFacade,
         ProductImageFacadeInterface $productImageFacade
     ) {
         parent::__construct($utilDataReaderService);
@@ -110,10 +111,20 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
         $this->categoryQueryContainer = $categoryQueryContainer;
         $this->productCategoryQueryContainer = $productCategoryQueryContainer;
         $this->productImageQueryContainer = $productImageQueryContainer;
-        $this->priceFacade = $priceFacade;
+        $this->priceProductFacade = $priceProductFacade;
         $this->categoryCacheCollection = new Collection([]);
         $this->productFacade = $productFacade;
         $this->productImageFacade = $productImageFacade;
+    }
+
+    /**
+     * @param array $collectItemData
+     *
+     * @return bool
+     */
+    protected function isStorable(array $collectItemData)
+    {
+        return $collectItemData[static::COL_IS_IN_STORE] !== null;
     }
 
     /**
@@ -133,7 +144,6 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
             StorageProductTransfer::SKU => $collectItemData[self::SKU],
             StorageProductTransfer::URL => $collectItemData[self::URL],
             StorageProductTransfer::COLOR_CODE => $collectItemData[self::COLOR_CODE],
-            StorageProductTransfer::PRICE => $this->getPriceBySku($collectItemData[self::SKU]),
             StorageProductTransfer::PRICES => $this->getPrices($collectItemData[self::SKU]),
             StorageProductTransfer::CATEGORIES => $this->generateCategories($collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID]),
             StorageProductTransfer::IMAGE_SETS => $this->generateProductAbstractImageSets(
@@ -182,28 +192,11 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     /**
      * @param string $sku
      *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceFacade->getPriceBySku($sku);
-    }
-
-    /**
-     * @param string $sku
-     *
      * @return array
      */
     protected function getPrices($sku)
     {
-        $priceProductTransfers = $this->priceFacade->findPricesBySku($sku);
-
-        $prices = [];
-        foreach ($priceProductTransfers as $priceProductTransfer) {
-            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
-        }
-
-        return $prices;
+        return $this->priceProductFacade->findPricesBySkuGroupedForCurrentStore($sku);
     }
 
     /**

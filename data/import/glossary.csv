@@ -565,6 +565,8 @@ newsletter.unsubscription.success,You successfully unsubscribed from the newslet
 newsletter.unsubscription.success,Sie wurden erfolgreich für den Newsletter abgemeldet,de_DE
 newsletter.subscription.already_subscribed,You are already subscribed to the newsletter,en_US
 newsletter.subscription.already_subscribed,Sie sind bereits für den Newsletter angemeldet,de_DE
+newsletter.subscription.email_format_invalid,Invalid Email address format,en_US
+newsletter.subscription.email_format_invalid,Ungültiges E-Mail-Adressformat,de_DE
 customer.authentication.failed,Authentication failed,en_US
 customer.authentication.failed,Authentifizierung fehlgeschlagen,de_DE
 customer.email.invalid,Email address is invalid,en_US
@@ -637,8 +639,8 @@ customer.newsletter.subscribed,Newsletter subscribed,en_US
 customer.newsletter.subscribed,Newsletter abonniert,de_DE
 validator.constraints.password.do_not_match,Passwords don't match,en_US
 validator.constraints.password.do_not_match,Passwörter stimmen nicht überein,de_DE
-discount.successfully.applied,The discount "display_name" has been successfully applied,en_US
-discount.successfully.applied,Der Rabatt "display_name" wurde erfolgreich angewendet,de_DE
+discount.successfully.applied,"The discount ""display_name"" has been successfully applied",en_US
+discount.successfully.applied,"Der Rabatt ""display_name"" wurde erfolgreich angewendet",de_DE
 product.unavailable,Product is out of stock,en_US
 product.unavailable,Keine Produkte mehr auf Lager,de_DE
 product.attribute.slug,slug,en_US
@@ -805,8 +807,8 @@ product.attribute.usb_version,USB version,en_US
 product.attribute.usb_version,USB-Version,de_DE
 product.attribute.thermal_design_power,Thermal design power,en_US
 product.attribute.thermal_design_power,Thermal Design Power,de_DE
-product.attribute.processor_boost,Processor Boost,en_US
-product.attribute.processor_boost,Prozessor Boost-Taktung,de_DE
+product.attribute.processor_boost_frequency,Processor Boost,en_US
+product.attribute.processor_boost_frequency,Prozessor Boost-Taktung,de_DE
 product.attribute.touch_technology,Touch technology,en_US
 product.attribute.touch_technology,Touch-Technologie,de_DE
 product.attribute.video_recording_modes,Video recording modes,en_US
@@ -1023,7 +1025,37 @@ product-cart.validation.error.abstract-product-exists,Product not found,en_US
 product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
 product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
+product-cart.validation.error.product-option-value-price-exists,"Product option price not found for product '%sku%'.",en_US
+product-cart.validation.error.product-option-value-price-exists,"Produktoptionspreis nicht gefunden für Produkt '%sku%'.",de_DE
 product.filter.label,Product Labels,en_US
 product.filter.label,Product Labels,de_DE
+product.filter.price-default-chf-gross_mode,Preisspanne,de_DE
+product.filter.price-default-chf-gross_mode,Price range,en_US
+product.filter.price-default-chf-net_mode,Preisspanne,de_DE
+product.filter.price-default-chf-net_mode,Price range,en_US
+product.filter.price-default-eur-net_mode,Preisspanne,de_DE
+product.filter.price-default-eur-net_mode,Price range,en_US
+product.filter.price-default-eur-gross_mode,Preisspanne,de_DE
+product.filter.price-default-eur-gross_mode,Price range,en_US
+price.mode.gross_mode,Gross prices,en_US
+price.mode.gross_mode,Bruttopreise,de_DE
+price.mode.net_mode,Net prices,en_US
+price.mode.net_mode,Nettopreise,de_DE
+cart.pre.check.price.failed,"Price not found for added to cart product with sku '%sku%'. Please remove the product from cart to change the currency.",en_US
+cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%' im Warenkorb. Bitte entfernen Sie das Produkt aus dem Warenkorb, um die Währung zu ändern.",de_DE
+price.mode.switch.error,"Can't switch price mode when there are items in the cart.",en_US
+price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
+cart.pre.check.shipment.failed,"Can't apply these changes. The shipment method not found. Please select another shipment method.",en_US
+cart.pre.check.shipment.failed,"Diese Änderungen können nicht angewendet werden. Die Versandart wurde nicht gefunden. Bitte wählen Sie eine andere Versandart.",de_DE
+catalog.view.mode.grid,Grid,en_US
+catalog.view.mode.grid,Gitter,de_DE
+catalog.view.mode.list,List,en_US
+catalog.view.mode.list,Liste,de_DE
+cart.quantity.adjusted,Requested item quantity was adjusted as far as selected quantity is not available.,en_US
+cart.quantity.adjusted,"Die angeforderte Artikelmenge wurde angepasst, soweit die ausgewählte Menge nicht verfügbar ist.",de_DE
+catalog.sale,Sale,en_US
+catalog.sale,Sale,de_DE
+catalog.new,New,en_US
+catalog.new,Neu,de_DE
 checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE

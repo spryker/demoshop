@@ -1,5 +1,11 @@
 {% extends "@application/layout/layout.twig" %}
 
+{% block page %}
+    <div itemscope itemtype="http://schema.org/Product" >
+        {{ parent() }}
+    </div>
+{% endblock %}
+
 {% block page_title %}
     {% if product.metaTitle %}
         {{ product.metaTitle }}
@@ -12,13 +18,14 @@
     <li><a href="/">{{ 'global.home' | trans }}</a></li>
     {% if productCategories|length %}
         {% for category in productCategories %}
-            <li><a href="{{ category.url }}">{{ category.name }}</a></li>
+            <li><a href="{{ category.url }}"><span itemprop="category">{{ category.name }}</span></a></li>
         {% endfor %}
     {% endif %}
 {% endblock %}
 
 {% block title %}
-    <h3>{{ product.name }}</h3>
+    <h3 itemprop="name">{{ product.name }}</h3>
+    <link itemprop="url" href="{{ productUrl }}" />
 {% endblock %}
 
 {% block outside %}
@@ -46,7 +53,7 @@
                             {% for image in product.images %}
                                 <div data-viewer-id="{{ image.externalUrlLarge }}" {% if loop.first %}data-viewer-default{% endif %}>
                                     <span class="thumbnail __preview-image __preview-image--large">
-                                        <img src="{{ image.externalUrlLarge }}">
+                                        <img itemprop="image" src="{{ image.externalUrlLarge }}">
                                     </span>
                                 </div>
                             {% endfor %}
@@ -76,16 +83,18 @@
             <div class="callout">
                 {% if product.attributes.brand is defined %}<h5><small>{{ 'page.product.by' | trans }}</small> {{ product.attributes.brand }}</h5>{% endif %}
                 <p>
-
-                    {% if product.prices.ORIGINAL is defined %}
-                        <span class="stat catalog-price__price-reduced">{{ product.price | money }}</span> <span class="catalog-price__price-original">{{ product.prices.ORIGINAL | money }}</span>
+                {% if product.price is not null %}
+                    {% if product.prices.ORIGINAL is defined and product.prices.ORIGINAL %}
+                        <span class="stat catalog-price__price-reduced">
+                            {{ product.price | money }}</span> <span class="catalog-price__price-original">{{ product.prices.ORIGINAL | money }}
+                        </span>
                     {% else %}
                         <span class="stat">{{ product.price | money }}</span>
                     {% endif %}
-
                     <br/>
-                    <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
+                {% endif %}
                 </p>
+                <small>{{ 'product.attribute.sku' | trans }}: {{ product.sku }}</small>
 
                 {{ spyProductAbstractReview(product.idProductAbstract, '@Product/product/partials/product-rating.twig') }}
 
@@ -96,12 +105,27 @@
 
             <form method="POST" action="{{ path('cart/add', {'sku': product.sku }) }}">
                 {% include '@Product/product/partials/product-options.twig' %}
-                <div>
-                    <button type="submit" class="button expanded success js-add-to-cart-button" {{ (not product.isVariant or not product.available) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
-                        <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
-                    </button>
 
-                    <div class="small-12 columns"></div>
+                <div class="callout">
+                    <div class="row align-bottom">
+                        <div class="small-4 xlarge-3 columns __no-margin-bottom">
+                            <label>
+                                {{ 'cart.item_quantity' | trans }}
+                                <select name="quantity" class="__no-margin-bottom">
+                                    {% for index in 1..10 %}
+                                        <option value="{{ index }}">{{ index }}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="small-8 xlarge-9 columns">
+                            <button type="submit" class="button expanded success __no-margin-bottom js-add-to-cart-button" {{ (not product.isVariant or not product.available or product.price is null) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                                <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
 
@@ -125,9 +149,9 @@
                 <div class="row">
                     {% for attributeName, attributeValue in product.attributes if attributeName  %}
 
-                        <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns">
-                            <strong>{{ ('product.attribute.'~attributeName) | trans }} </strong><br>
-                            {{ attributeValue }}
+                        <p class="small-12 medium-6 xlarge-4 xxlarge-3 columns" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
+                            <strong itemprop="name">{{ ('product.attribute.'~attributeName) | trans }} </strong><br />
+                            <span itemprop="value">{{ attributeValue }}</span>
                         </p>
                     {% endfor %}
                 </div>
