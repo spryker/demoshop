@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "33c8377ac4b408db01c800e922a4221d",
+    "content-hash": "9ba1ced8bc608c6699d68e09188ca6a2",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3509,6 +3509,55 @@
             ],
             "description": "CmsContentWidgetProductGroupConnector module",
             "time": "2017-07-11T09:55:44+00:00"
+        },
+        {
+            "name": "spryker/cms-content-widget-product-search-connector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/cms-content-widget-product-search-connector.git",
+                "reference": "a40b98e919d22586b15b50e07ae5eeaf2ac9a96b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/cms-content-widget-product-search-connector/zipball/a40b98e919d22586b15b50e07ae5eeaf2ac9a96b",
+                "reference": "a40b98e919d22586b15b50e07ae5eeaf2ac9a96b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/cms-content-widget": "^1.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product": "^5.0.0 || ^6.0.0",
+                "spryker/search": "^7.2.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*",
+                "spryker/twig": "*"
+            },
+            "suggest": {
+                "spryker/twig": "Required by Yves Twig function."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CmsContentWidgetProductSearchConnector module",
+            "time": "2018-01-29T17:32:14+00:00"
         },
         {
             "name": "spryker/cms-content-widget-product-set-connector",
@@ -14831,21 +14880,21 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "11c07feade1d65453e06df3b3b90171d6d982087"
+                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/11c07feade1d65453e06df3b3b90171d6d982087",
-                "reference": "11c07feade1d65453e06df3b3b90171d6d982087",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/34369daee48eafb2651bea869b4b15d75ccc35f9",
+                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "sebastian/diff": "^2.0",
+                "sebastian/diff": "^2.0 || ^3.0",
                 "sebastian/exporter": "^3.1"
             },
             "require-dev": {
@@ -14891,7 +14940,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-01-12T06:34:42+00:00"
+            "time": "2018-02-01T13:46:46+00:00"
         },
         {
             "name": "sebastian/diff",

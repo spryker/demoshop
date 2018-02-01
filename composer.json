@@ -48,6 +48,7 @@
     "spryker/cms-content-widget": "^1.0.0",
     "spryker/cms-content-widget-product-connector": "^1.0.0",
     "spryker/cms-content-widget-product-group-connector": "^1.0.0",
+    "spryker/cms-content-widget-product-search-connector": "^1.0.0",
     "spryker/cms-content-widget-product-set-connector": "^1.0.0",
     "spryker/cms-gui": "^4.0.0",
     "spryker/cms-user-connector": "^1.0.0",
