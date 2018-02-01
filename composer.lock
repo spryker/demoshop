@@ -1905,8 +1905,11 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1d50f3e2bf83ea52217d4c6b522f0371a589c08a"
 =======
+=======
+>>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
@@ -1914,14 +1917,20 @@
 =======
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
                 "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
 =======
+=======
+>>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
@@ -1947,6 +1956,11 @@
 =======
 =======
                 "reference": "ebba2710bca930e6d99a436123ffc3f09e24afc3"
+>>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+                "reference": "43c89754c0e4620936004fc06e03c5c181ca1d61"
 >>>>>>> core-2913 update spryker/spryker
 >>>>>>> core-2913 update spryker/spryker
 >>>>>>> core-2913 update spryker/spryker
@@ -2190,8 +2204,11 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-13T10:23:50+00:00"
 =======
+=======
+>>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
@@ -2199,14 +2216,20 @@
 =======
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
             "time": "2018-02-02T14:03:25+00:00"
 =======
+=======
+>>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
 <<<<<<< HEAD
@@ -2232,6 +2255,11 @@
 =======
 =======
             "time": "2018-01-30T12:17:27+00:00"
+>>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
+=======
+=======
+            "time": "2018-02-01T12:46:04+00:00"
 >>>>>>> core-2913 update spryker/spryker
 >>>>>>> core-2913 update spryker/spryker
 >>>>>>> core-2913 update spryker/spryker
