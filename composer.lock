@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ba1ced8bc608c6699d68e09188ca6a2",
+    "content-hash": "11eb319223eede57aafcca33ab0ed3a9",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1212,16 +1212,16 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "f48748546e398d846134c594dfca9070c4c3b356"
+                "reference": "39ff84e893676d5fc677f9c4843f1d4466d83d30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/f48748546e398d846134c594dfca9070c4c3b356",
-                "reference": "f48748546e398d846134c594dfca9070c4c3b356",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/39ff84e893676d5fc677f9c4843f1d4466d83d30",
+                "reference": "39ff84e893676d5fc677f9c4843f1d4466d83d30",
                 "shasum": ""
             },
             "require": {
@@ -1233,6 +1233,7 @@
                 "videlalvaro/php-amqplib": "self.version"
             },
             "require-dev": {
+                "phpdocumentor/phpdocumentor": "^2.9",
                 "phpunit/phpunit": "^4.8",
                 "scrutinizer/ocular": "^1.1",
                 "squizlabs/php_codesniffer": "^2.5"
@@ -1253,7 +1254,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-2.1"
+                "LGPL-2.1-or-later"
             ],
             "authors": [
                 {
@@ -1278,7 +1279,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2017-08-03T22:06:21+00:00"
+            "time": "2018-02-01T16:31:07+00:00"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -7732,16 +7733,16 @@
         },
         {
             "name": "spryker/product-label-gui",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-label-gui.git",
-                "reference": "3be321fc95da67c34bfc8ac84b2f6890f565549d"
+                "reference": "8165b5a4c9935696d1a61693baa8604d3c121260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-label-gui/zipball/3be321fc95da67c34bfc8ac84b2f6890f565549d",
-                "reference": "3be321fc95da67c34bfc8ac84b2f6890f565549d",
+                "url": "https://api.github.com/repos/spryker/product-label-gui/zipball/8165b5a4c9935696d1a61693baa8604d3c121260",
+                "reference": "8165b5a4c9935696d1a61693baa8604d3c121260",
                 "shasum": ""
             },
             "require": {
@@ -7755,7 +7756,7 @@
                 "spryker/price-product": "^1.0.0",
                 "spryker/product": "^5.1.0 || ^6.0.0",
                 "spryker/product-label": "^1.0.0 || ^2.0.0",
-                "spryker/product-management": "^0.6.0 || ^0.7.0 || ^0.8.0 || ^0.9.0 || ^0.10.0",
+                "spryker/product-management": "^0.6.0 || ^0.7.0 || ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0",
                 "spryker/propel-orm": "^1.1.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-text": "^1.1.0"
@@ -7782,7 +7783,7 @@
                 "proprietary"
             ],
             "description": "ProductLabelGui module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-02T14:22:14+00:00"
         },
         {
             "name": "spryker/product-label-storage",
@@ -7839,16 +7840,16 @@
         },
         {
             "name": "spryker/product-management",
-            "version": "0.10.3",
+            "version": "0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-management.git",
-                "reference": "986fd100ac59fe7d73509c64ba5f21ae89a8ba47"
+                "reference": "035fec5a78924cad66c789afcca2a739fc908560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-management/zipball/986fd100ac59fe7d73509c64ba5f21ae89a8ba47",
-                "reference": "986fd100ac59fe7d73509c64ba5f21ae89a8ba47",
+                "url": "https://api.github.com/repos/spryker/product-management/zipball/035fec5a78924cad66c789afcca2a739fc908560",
+                "reference": "035fec5a78924cad66c789afcca2a739fc908560",
                 "shasum": ""
             },
             "require": {
@@ -7868,6 +7869,7 @@
                 "spryker/product-bundle": "^2.0.0 || ^3.0.0 || ^4.0.0",
                 "spryker/product-group": "^1.0.0",
                 "spryker/product-image": "^3.0.0",
+                "spryker/product-validity": "^1.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/stock": "^4.0.4",
                 "spryker/symfony": "^3.0.0",
@@ -7896,7 +7898,7 @@
                 "proprietary"
             ],
             "description": "ProductManagement module",
-            "time": "2018-01-31T12:07:44+00:00"
+            "time": "2018-02-02T10:47:21+00:00"
         },
         {
             "name": "spryker/product-new",
@@ -8553,6 +8555,49 @@
             ],
             "description": "ProductSetGui module",
             "time": "2018-01-25T09:08:12+00:00"
+        },
+        {
+            "name": "spryker/product-validity",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-validity.git",
+                "reference": "b5b4b81d8170fe4461c91d8d753e799abbf378ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-validity/zipball/b5b4b81d8170fe4461c91d8d753e799abbf378ff",
+                "reference": "b5b4b81d8170fe4461c91d8d753e799abbf378ff",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.13.0",
+                "spryker/product": "^6.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/symfony": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductValidity module",
+            "time": "2018-02-01T18:50:14+00:00"
         },
         {
             "name": "spryker/propel",
