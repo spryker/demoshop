@@ -7,6 +7,7 @@
 
 namespace Pyz\Client\Quote;
 
+use Spryker\Client\Kernel\Container;
 use Spryker\Client\Quote\QuoteDependencyProvider as SprykerQuoteDependencyProvider;
 use Spryker\Client\Store\Plugin\StoreQuoteTransferExpanderPlugin;
 
@@ -17,7 +18,7 @@ class QuoteDependencyProvider extends SprykerQuoteDependencyProvider
      *
      * @return \Spryker\Client\Quote\Dependency\Plugin\QuoteTransferExpanderPluginInterface[]
      */
-    protected function getQuoteTransferExpanderPlugins($container)
+    protected function getQuoteTransferExpanderPlugins(Container $container)
     {
         return [
             new StoreQuoteTransferExpanderPlugin(),
