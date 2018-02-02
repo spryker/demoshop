@@ -43,6 +43,8 @@ addons:
     - zed.de.spryker.test
     - www.de.spryker.test
 
+jdk: oraclejdk8
+
 cache:
   directories:
     - vendor
