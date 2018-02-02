@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
+    "content-hash": "1cd4675bfc788c22730ab45070b68f3c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1792,12 +1792,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "09694843c44983caa0c5c1bb85782fce48a971f2"
+                "reference": "532ee18be671f46b24e1b4d3177c0ff9db67f1cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/09694843c44983caa0c5c1bb85782fce48a971f2",
-                "reference": "09694843c44983caa0c5c1bb85782fce48a971f2",
+                "url": "https://api.github.com/repos/spryker/install/zipball/532ee18be671f46b24e1b4d3177c0ff9db67f1cb",
+                "reference": "532ee18be671f46b24e1b4d3177c0ff9db67f1cb",
                 "shasum": ""
             },
             "require": {
@@ -1828,7 +1828,7 @@
                 "MIT"
             ],
             "description": "Project",
-            "time": "2018-01-16T13:12:55+00:00"
+            "time": "2018-02-01T14:32:02+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1890,11 +1890,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-2297-Language-switcher",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
+                "reference": "3f43125edf4c93f866e2fc837cfe9261f5494abf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2129,7 +2129,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-02T14:03:25+00:00"
+            "time": "2018-02-01T16:44:26+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2166,14 +2166,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "support": {
-                "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
-            },
             "time": "2017-11-13T10:53:51+00:00"
         },
         {
@@ -5288,7 +5285,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6978,7 +6975,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7140,16 +7137,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/git-hook.git",
-                "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164"
+                "reference": "ff15891fbf603f30b5be575ac42b3caefcdd9a60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/git-hook/zipball/7e9daf8a0af18a923bf84f331de49228fd4ec164",
-                "reference": "7e9daf8a0af18a923bf84f331de49228fd4ec164",
+                "url": "https://api.github.com/repos/spryker/git-hook/zipball/ff15891fbf603f30b5be575ac42b3caefcdd9a60",
+                "reference": "ff15891fbf603f30b5be575ac42b3caefcdd9a60",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.16",
+                "php": ">=7.1",
                 "phpmd/phpmd": "^2.6",
                 "phpstan/phpstan": "^0.8",
                 "symfony/yaml": "^2.8|^3"
@@ -7184,7 +7181,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2017-11-13T13:27:04+00:00"
+            "time": "2018-01-26T16:00:16+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
