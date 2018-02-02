@@ -32,7 +32,7 @@ class AvailabilityAddToCartCest
     public function testAddToCartWhenBiggerQuantityIsUsed(AvailabilityPresentationTester $i, Scenario $scenario)
     {
         if (version_compare(PHP_VERSION, '7.2', '>=')) {
-            //$scenario->skip('Re-enable the test when VM with PHP 7.2 is available.');
+            $scenario->skip('Re-enable the test when VM with PHP 7.2 is available.');
         }
 
         $i->wantTo('Open product page, and add item to cart with larger quantity than available');
