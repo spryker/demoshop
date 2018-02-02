@@ -25,7 +25,7 @@ matrix:
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
-     - php: "7.1"
+     - php: "7.2"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
@@ -89,7 +89,7 @@ before_script:
   - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
-  
+
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/install DE -r testing ; fi
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend ; fi
 
