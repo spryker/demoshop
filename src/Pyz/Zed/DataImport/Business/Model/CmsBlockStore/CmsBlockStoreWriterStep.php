@@ -23,12 +23,12 @@ class CmsBlockStoreWriterStep implements DataImportStepInterface
     /**
      * @var int[] Keys are CMS Block names, values are CMS Block IDs.
      */
-    protected static $idCmsBlockBuffer;
+    protected static $idCmsBlockBuffer = [];
 
     /**
      * @var int[] Keys are store names, values are store ids.
      */
-    protected static $idStoreBuffer;
+    protected static $idStoreBuffer = [];
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

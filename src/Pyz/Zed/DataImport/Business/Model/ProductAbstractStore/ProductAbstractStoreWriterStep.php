@@ -25,12 +25,12 @@ class ProductAbstractStoreWriterStep implements DataImportStepInterface
     /**
      * @var int[] Keys are SKUs, values are product abstract ids.
      */
-    protected static $idProductAbstractBuffer;
+    protected static $idProductAbstractBuffer = [];
 
     /**
      * @var int[] Keys are store names, values are store ids.
      */
-    protected static $idStoreBuffer;
+    protected static $idStoreBuffer = [];
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
