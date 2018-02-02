@@ -11,7 +11,7 @@ dist: precise
 matrix:
   fast_finish: true
   include:
-     - php: "7.2"
+     - php: "7.1"
        env:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
@@ -21,11 +21,11 @@ matrix:
           - TEST_GROUP=without-acceptance
           - ON_EVENTS=cron,push
           - DB=mysql
-     - php: "7.2"
+     - php: "7.1"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
-     - php: "7.2"
+     - php: "7.1"
        env:
           - TEST_GROUP=acceptance
           - ON_EVENTS=push,cron
@@ -100,7 +100,7 @@ script:
 
   - vendor/bin/phantomjs --webdriver=4444 &
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation -vvv; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
 
   - if [[ $TRAVIS_PHP_VERSION == 7.2 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console propel:schema:validate ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.2 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console transfer:validate ; fi
