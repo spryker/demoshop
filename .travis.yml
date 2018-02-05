@@ -7,6 +7,8 @@ env:
 
 dist: precise
 
+jdk: oraclejdk8
+
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
   fast_finish: true
@@ -42,9 +44,6 @@ addons:
   hosts:
     - zed.de.spryker.test
     - www.de.spryker.test
-
-jdk:
-  - oraclejdk8
 
 cache:
   directories:
