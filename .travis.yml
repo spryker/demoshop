@@ -1,6 +1,36 @@
 language: php
 
+env:
+  global:
+    - APPLICATION_ENV=devtest
+    - APPLICATION_STORE=DE
+    - JAVA_HOME=/usr
+
 dist: precise
+
+#Possible travis events (push, pull_request, cron, or api)
+matrix:
+  fast_finish: true
+  include:
+     - php: "7.1"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+          - PHPSTAN=1
+     - php: "7.1"
+       env:
+          - TEST_GROUP=without-acceptance
+          - ON_EVENTS=cron,push
+          - DB=mysql
+     - php: "7.1"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=push,cron
+     - php: "7.1"
+       env:
+          - TEST_GROUP=acceptance
+          - ON_EVENTS=push,cron
+          - DB=mysql
 
 addons:
   postgresql: 9.4
@@ -9,6 +39,16 @@ addons:
   apt:
     packages:
       - graphviz
+      - oracle-java8-set-default
+
+  hosts:
+    - zed.de.spryker.test
+    - www.de.spryker.test
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 services:
   - postgresql
@@ -18,12 +58,60 @@ services:
 
 sudo: required
 
-env:
-  global:
-    - JAVA_HOME=/usr
+before_install:
+  - sudo apt-get update && sudo apt-get install oracle-java8-installer && sudo apt-get install oracle-java8-set-default
+  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit ; fi
+  - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/* ; fi
+  - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh ; fi
 
 install:
-  - java -version
-  - sudo apt-get update && sudo apt-get install oracle-java8-installer && sudo apt-get install oracle-java8-set-default
-  - java -version
+  - chmod -R a+x config/Shared/ci/travis/
+  - if [[ -d 'vendor/spryker/spryker' ]] ; then cd vendor/spryker/spryker && git clean -f -d && cd - ; fi
+  - composer remove --dev spryker/git-hook
+  - if [[ $PHPSTAN == 1 ]] ; then composer require --dev phpstan/phpstan:"^0.8.5" ; fi
+  - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
+
+before_script:
+  - nvm install 6
+
+  - mkdir -p shared/data/common/jenkins
+  - mkdir -p shared/data/common/jenkins/jobs
+  - mkdir -p data/DE/cache/Yves/twig -m 0777
+  - mkdir -p data/DE/cache/Zed/twig -m 0777
+  - mkdir -p data/DE/logs -m 0777
+  - chmod -R 777 data/
+
+  - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
+  - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
+
+  - cp config/Shared/ci/travis/config_ci.php config/Shared/config_local.php
+
+  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
+  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
+
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/install DE -r testing ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend ; fi
+
+script:
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-setup ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan ; fi
+  - if [[ $PHPSTAN == 1 ]] ; then composer phpstan-core ; fi
+
+  - vendor/bin/phantomjs --webdriver=4444 &
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
+
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console propel:schema:validate ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console transfer:validate ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console code:sniff:style ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
+  - if [[ $TRAVIS_PHP_VERSION == 7.1 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
+
+notifications:
+  email: false
