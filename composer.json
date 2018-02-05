@@ -3,7 +3,7 @@
   "description": "Project",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-beta/CORE-2343_product_restrictions_per_customer",
+    "spryker/spryker": "dev-beta/core-2343-product-restrictions-per-customer",
 
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
