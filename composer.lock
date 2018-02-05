@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
+    "content-hash": "4d21ad43aeb22675710d4956bf656554",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1890,11 +1890,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-beta/CORE-2343_product_restrictions_per_customer",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
+                "reference": "aa3109594bf36ef4a95b42ada6df4f8635e10fcf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2023,6 +2023,8 @@
                 "spryker/product-category-filter-gui": "*",
                 "spryker/product-category-filter-storage": "*",
                 "spryker/product-category-storage": "*",
+                "spryker/product-customer-permission": "*",
+                "spryker/product-customer-permission-collector": "*",
                 "spryker/product-discount-connector": "*",
                 "spryker/product-group": "*",
                 "spryker/product-group-collector": "*",
@@ -2129,7 +2131,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-02T14:03:25+00:00"
+            "time": "2018-02-02T12:47:49+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
