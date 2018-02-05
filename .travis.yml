@@ -18,6 +18,10 @@ services:
 
 sudo: required
 
+env:
+  global:
+    - JAVA_HOME=/usr
+
 install:
   - java -version
   - sudo apt-get update && sudo apt-get install oracle-java8-installer && sudo apt-get install oracle-java8-set-default
