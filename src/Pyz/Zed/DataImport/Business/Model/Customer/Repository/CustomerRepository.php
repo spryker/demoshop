@@ -12,12 +12,10 @@ use Pyz\Zed\DataImport\Business\Exception\EntityNotFoundException;
 
 class CustomerRepository implements CustomerRepositoryInterface
 {
-    const ID_CUSTOMER = 'idCustomer';
-
     /**
-     * @var array
+     * @var int[] Keys are customer references, values are customer IDs.
      */
-    protected static $resolved = [];
+    protected static $idCustomerBuffer = [];
 
     /**
      * @param string $reference
@@ -26,11 +24,11 @@ class CustomerRepository implements CustomerRepositoryInterface
      */
     public function getIdByCustomerReference($reference)
     {
-        if (!isset(static::$resolved[$reference])) {
+        if (!isset(static::$idCustomerBuffer[$reference])) {
             $this->resolveCustomerByReference($reference);
         }
 
-        return static::$resolved[$reference][static::ID_CUSTOMER];
+        return static::$idCustomerBuffer[$reference];
     }
 
     /**
@@ -49,8 +47,6 @@ class CustomerRepository implements CustomerRepositoryInterface
             throw new EntityNotFoundException(sprintf('Customer by reference "%s" not found.', $reference));
         }
 
-        static::$resolved[$reference] = [
-            static::ID_CUSTOMER => $customerEntity->getIdCustomer(),
-        ];
+        static::$idCustomerBuffer[$reference] = $customerEntity->getIdCustomer();
     }
 }

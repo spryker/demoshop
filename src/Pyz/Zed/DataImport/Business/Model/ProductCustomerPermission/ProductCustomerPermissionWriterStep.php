@@ -10,15 +10,12 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductCustomerPermission;
 use Orm\Zed\ProductCustomerPermission\Persistence\SpyProductCustomerPermissionQuery;
 use Pyz\Zed\DataImport\Business\Model\Customer\Repository\CustomerRepositoryInterface;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface;
+use Spryker\Shared\ProductCustomerPermission\ProductCustomerPermissionConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
-use Spryker\Zed\ProductCustomerPermission\ProductCustomerPermissionConfig;
 
-/**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- */
 class ProductCustomerPermissionWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
     const BULK_SIZE = 1000;
@@ -61,23 +58,23 @@ class ProductCustomerPermissionWriterStep extends TouchAwareStep implements Data
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $customerId = $this->customerRepository
+        $idCustomer = $this->customerRepository
             ->getIdByCustomerReference($dataSet[static::KEY_CUSTOMER_REFERENCE]);
-        $productId = $this->productRepository
+        $idProduct = $this->productRepository
             ->getIdProductAbstractByAbstractSku($dataSet[static::KEY_PRODUCT_ABSTRACT_SKU]);
 
         $productCustomerPermissionEntity = SpyProductCustomerPermissionQuery::create()
-            ->filterByFkCustomer($customerId)
-            ->filterByFkProductAbstract($productId)
+            ->filterByFkCustomer($idCustomer)
+            ->filterByFkProductAbstract($idProduct)
             ->findOneOrCreate();
 
-        if ($productCustomerPermissionEntity->isNew() || $productCustomerPermissionEntity->isModified()) {
+        if ($productCustomerPermissionEntity->isNew()) {
             $productCustomerPermissionEntity->save();
-        }
 
-        $this->addMainTouchable(
-            ProductCustomerPermissionConfig::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION,
-            $productCustomerPermissionEntity->getIdProductCustomerPermission()
-        );
+            $this->addMainTouchable(
+                ProductCustomerPermissionConfig::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION,
+                $productCustomerPermissionEntity->getIdProductCustomerPermission()
+            );
+        }
     }
 }

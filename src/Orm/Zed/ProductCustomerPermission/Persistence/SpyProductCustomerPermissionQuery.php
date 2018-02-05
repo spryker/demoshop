@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ProductCustomerPermission\Persistence;
 
-use Orm\Zed\ProductCustomerPermission\Persistence\Base\SpyProductCustomerPermissionQuery as BaseSpyProductCustomerPermissionQuery;
+use Spryker\Zed\ProductCustomerPermission\Persistence\Propel\AbstractSpyProductCustomerPermissionQuery as BaseSpyProductCustomerPermissionQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_customer_permission' table.

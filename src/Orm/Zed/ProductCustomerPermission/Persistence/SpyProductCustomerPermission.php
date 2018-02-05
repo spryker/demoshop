@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ProductCustomerPermission\Persistence;
 
-use Orm\Zed\ProductCustomerPermission\Persistence\Base\SpyProductCustomerPermission as BaseSpyProductCustomerPermission;
+use Spryker\Zed\ProductCustomerPermission\Persistence\Propel\AbstractSpyProductCustomerPermission as BaseSpyProductCustomerPermission;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_customer_permission' table.
