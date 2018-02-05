@@ -4,181 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "376e98b31171171edf6a557b938dbf86",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-    "content-hash": "1a6867c8d0edeb3db2bcb5a9d48e4cbc",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-    "content-hash": "d284e38cad2782342ac2106498a67c42",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-    "content-hash": "03f6ab4ce78c61d646c6ce9a5d9d4433",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-    "content-hash": "1ee2e5ac050dbd8ca47ad3e4f9125846",
-=======
-=======
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
-    "content-hash": "5768a1aef55ae569b402007522cec331",
-=======
-    "content-hash": "62651b2fe0c6dea7878fb6924ce311fa",
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-=======
-    "content-hash": "eacb8830c9b5c998da57e57a2466282a",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-=======
-    "content-hash": "5af816d2ab36b6637b6193d77fb914e8",
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-=======
-    "content-hash": "a4d5c612322ab369360f0c2bf9e08c04",
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-=======
-    "content-hash": "864bcc12a0dd336dab4a357edb8024e7",
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-    "content-hash": "8f13cbbb724fbfb580a452f076ff120b",
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
-=======
-=======
-    "content-hash": "3da561cdccfd57c2973e47bce1bd5ae4",
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-    "content-hash": "e42f28efdcc43e3f27e089573a6aa0ed",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-    "content-hash": "e60539cd930676111e6b9f198ce47385",
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-=======
-    "content-hash": "63710bad6ec7837070d8e28448448917",
->>>>>>> core-2275 update composer.lock
-=======
-    "content-hash": "800e211a9dc85904fbf3349f6479d956",
->>>>>>> core-2275 update spryker/sprykerr
+    "content-hash": "e0f111ac99453a50ad78c9ff0daaaae9",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -830,6 +656,48 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "ircmaxell/password-compat",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ircmaxell/password_compat.git",
+                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
+                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/password.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Ferrara",
+                    "email": "ircmaxell@php.net",
+                    "homepage": "http://blog.ircmaxell.com"
+                }
+            ],
+            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
+            "homepage": "https://github.com/ircmaxell/password_compat",
+            "keywords": [
+                "hashing",
+                "password"
+            ],
+            "time": "2014-11-20T16:49:30+00:00"
         },
         {
             "name": "league/csv",
@@ -2023,1180 +1891,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-2275-full-compatibility-to-symfony-28-and-then-30-2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-=======
->>>>>>> core-2275 update spryker/sprykerr
-=======
->>>>>>> core-2275 updated spryker/spryker
-<<<<<<< HEAD
-                "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-                "reference": "24677fc4a6b14077ba33cefa46bb5d180e647eea"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "b4b8871482bb7ed8d98e3df10f48fd47369438b9"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-                "reference": "147a1af901dcc865f47ffebd6df43de3ca3d7e9d"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "b6b90d78b592594b6f989b77f4321cfa9b8942c5"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-                "reference": "e483e2438184e6281c1a19f6670f0661b41e424a"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
-                "reference": "636901fbd5bafaefa5f40f8ac442ce237361a64a"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-                "reference": "fdf43d21845a02ac23f9b48df21adb21a3ff29ed"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-                "reference": "6bb4bf2bdeadc21ad2fea12dfe447c60c65eb196"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
-                "reference": "c06531e2b2a869ee57579801079043617631b93d"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-                "reference": "a01d028ac50680da4f2e378525268bcd764f7e97"
-=======
-                "reference": "e2aad36a2090f9ab6865931c1a7697183e46a4ee"
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
-=======
-=======
-                "reference": "1ad5c7a2d0f37707bf690741226333f35072a817"
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "350fa29c8f08cc4343d28da9abe0ddeec8498064"
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-<<<<<<< HEAD
->>>>>>> core-2275 added form refactor tool
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "ee475c01405fc1fcf25d1c29bf8b07c77cc14fac"
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "2ff869f41e9d66ddb0d17961ffbcb0000ec5d16b"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "15b746579c69ff2bc844def6141b810b6c7d5c2c"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-                "reference": "ce6ccb78c26ec30f3b4f262c388c764d69dada99"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "e6b6e379db96edd0799203e1034aaad0d3328c5c"
->>>>>>> core-2275 refactored all project forms
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-<<<<<<< HEAD
->>>>>>> core-2275 refactored all project forms
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "e6b6e379db96edd0799203e1034aaad0d3328c5c"
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "a89eebdd35dd52e3253f4adb8fe18f69bfc57876"
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "0e873e807a9dc2c33be0003c22b42c5e2daa5018"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "0e873e807a9dc2c33be0003c22b42c5e2daa5018"
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "8ad68bb2cb95e69e860d97d6f34660350d438c1f"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-                "reference": "86339be0016d1099a7d7c347bd3ef4e93675e737"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-                "reference": "17b192f34c63067bc0d1abd4e7a18fd5fcc50b2c"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-                "reference": "17b192f34c63067bc0d1abd4e7a18fd5fcc50b2c"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "94ed2d97f2d22a48a26b0e201a81eb1022909cef"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "9d80429b72933f0309291d521bfd9f1c2379d83f"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-                "reference": "960825e2b515ca9588dd303d46dff2ffb88ae595"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "d274b3b0c2132af442951ff51e48ddfabae50d84"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "e0b8f6a1b630e07e3bc2c3c2386017f29bcee65e"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "0f06f58dde596c1a37d6b77baff2b3cc9797e49b"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "8a7b87b85a2e0117a456aa335e620e754181ab63"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "7e0e4b79597b29faedd25c0afdcbd42afcd56115"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "04e98650fa2d68eca8f74088ce7a5fd8a5e55d55"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-=======
-=======
-=======
-                "reference": "f326a6f92d6f539f8b39673715200f33dc5d2da8"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-=======
-=======
-                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-                "reference": "489fdc3d2d00d90400f3e5978a9fdafbb354a026"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-                "reference": "7f2a4496603c978da1e064c3e3fdebb8c6542ed5"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-                "reference": "6d3a872be38ae144d3ba580a3f1769c4572ae193"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-=======
-=======
-                "reference": "adbd41ab46ec8f163e98208da78d50312400d69a"
->>>>>>> core-2275 update spryker/sprykerr
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/sprykerr
-=======
-=======
-                "reference": "9a2a5cc52fe1cffa9383aa58fa8c84c851034204"
->>>>>>> core-2275 updated spryker/spryker
->>>>>>> core-2275 updated spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -3431,782 +2130,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-=======
->>>>>>> core-2275 update spryker/sprykerr
-=======
->>>>>>> core-2275 updated spryker/spryker
-<<<<<<< HEAD
-            "time": "2018-02-02T14:03:25+00:00"
->>>>>>> core-2275 update composer.lock
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2018-02-02T14:03:25+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-01-29T17:32:14+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-26T14:28:54+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-26T13:11:30+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2018-01-25T17:41:45+00:00"
-=======
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-22T11:47:58+00:00"
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-22T11:47:58+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2017-12-21T11:37:00+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2017-12-20T14:44:28+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2017-12-19T17:36:45+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
-            "time": "2017-12-19T09:36:43+00:00"
-=======
-=======
->>>>>>> core-2275 updated constraints
-=======
->>>>>>> core-2275 added form refactor tool
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 refactored all project forms
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2017-12-18T17:36:21+00:00"
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-12-19T06:19:19+00:00"
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-<<<<<<< HEAD
->>>>>>> core-2275 update forms, CustomerCheckoutForm and Factory
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-12-19T10:49:09+00:00"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-20T05:39:26+00:00"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-20T08:29:38+00:00"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-20T08:29:38+00:00"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-12-20T12:33:06+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-12-21T06:01:26+00:00"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-12-21T13:20:09+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-22T07:46:01+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-22T11:38:30+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-22T12:54:32+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-22T13:02:11+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-22T15:35:59+00:00"
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2017-12-22T19:16:19+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-=======
-=======
-=======
-            "time": "2018-01-25T17:41:45+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-=======
-=======
-            "time": "2018-01-26T14:28:54+00:00"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-            "time": "2018-01-26T14:28:54+00:00"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-=======
-=======
-            "time": "2018-01-28T11:06:43+00:00"
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-            "time": "2018-01-26T14:28:54+00:00"
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-            "time": "2018-01-29T17:32:14+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-=======
-=======
-            "time": "2018-01-30T12:26:41+00:00"
->>>>>>> core-2275 update spryker/sprykerr
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/sprykerr
-=======
-=======
-            "time": "2018-01-30T13:01:51+00:00"
->>>>>>> core-2275 updated spryker/spryker
->>>>>>> core-2275 updated spryker/spryker
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4368,67 +2292,7 @@
         },
         {
             "name": "symfony/config",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v4.0.4",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v3.4.3",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "version": "v3.4.4",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v3.4.3",
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "version": "v3.4.2",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.0",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-            "version": "v3.4.3",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "version": "v3.4.4",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -4441,7 +2305,6 @@
                 "shasum": ""
             },
             "require": {
-<<<<<<< HEAD
                 "php": "^7.1.3",
                 "symfony/filesystem": "~3.4|~4.0"
             },
@@ -4451,27 +2314,6 @@
             "require-dev": {
                 "symfony/finder": "~3.4|~4.0",
                 "symfony/yaml": "~3.4|~4.0"
-=======
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/filesystem": "~2.8|~3.0|~4.0"
-            },
-            "conflict": {
-                "symfony/dependency-injection": "<3.3",
-                "symfony/finder": "<3.3"
-            },
-            "require-dev": {
-<<<<<<< HEAD
-                "symfony/yaml": "~3.0"
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 WIP
-=======
-                "symfony/dependency-injection": "~3.3|~4.0",
-                "symfony/finder": "~3.3|~4.0",
-                "symfony/yaml": "~3.0|~4.0"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
             },
             "suggest": {
                 "symfony/yaml": "To use the yaml reference dumper"
@@ -4479,23 +2321,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                     "dev-master": "4.0-dev"
-=======
-<<<<<<< HEAD
-                    "dev-master": "3.4-dev"
-=======
-                    "dev-master": "3.2-dev"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-=======
-                    "dev-master": "3.2-dev"
->>>>>>> core-2275 WIP
-=======
-                    "dev-master": "3.4-dev"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
                 }
             },
             "autoload": {
@@ -4522,67 +2348,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-21T19:06:11+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-21T19:05:02+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "time": "2017-12-14T19:40:10+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-11-19T20:09:36+00:00"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-            "time": "2018-01-03T07:37:34+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "time": "2018-01-21T19:05:02+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/console",
@@ -4651,67 +2417,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-29T09:03:43+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-29T09:03:43+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "time": "2017-12-14T19:40:10+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-11-29T13:28:14+00:00"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-            "time": "2018-01-03T07:37:34+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "time": "2018-01-29T09:03:43+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/debug",
@@ -4723,122 +2429,19 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/debug/zipball/53f6af2805daf52a43b393b93d2f24925d35c937",
                 "reference": "53f6af2805daf52a43b393b93d2f24925d35c937",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/debug/zipball/603b95dda8b00020e4e6e60dc906e7b715b1c245",
-                "reference": "603b95dda8b00020e4e6e60dc906e7b715b1c245",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/debug/zipball/53f6af2805daf52a43b393b93d2f24925d35c937",
-                "reference": "53f6af2805daf52a43b393b93d2f24925d35c937",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/debug/zipball/603b95dda8b00020e4e6e60dc906e7b715b1c245",
-                "reference": "603b95dda8b00020e4e6e60dc906e7b715b1c245",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/debug/zipball/543deab3ffff94402440b326fc94153bae2dfa7a",
-                "reference": "543deab3ffff94402440b326fc94153bae2dfa7a",
-=======
-                "url": "https://api.github.com/repos/symfony/debug/zipball/fb2001e5d85f95d8b6ab94ae3be5d2672df128fd",
-                "reference": "fb2001e5d85f95d8b6ab94ae3be5d2672df128fd",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-            "time": "2017-07-29T21:27:41+00:00"
-        },
-        {
-            "name": "symfony/debug",
-            "version": "v2.8.32",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/debug.git",
-                "reference": "e72a0340dc2e273b3c4398d8eef9157ba51d8b95"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/debug/zipball/a0a29e9867debabdace779a20a9385c623a23bbd",
-                "reference": "a0a29e9867debabdace779a20a9385c623a23bbd",
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/debug/zipball/e72a0340dc2e273b3c4398d8eef9157ba51d8b95",
-                "reference": "e72a0340dc2e273b3c4398d8eef9157ba51d8b95",
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-=======
-                "url": "https://api.github.com/repos/symfony/debug/zipball/603b95dda8b00020e4e6e60dc906e7b715b1c245",
-                "reference": "603b95dda8b00020e4e6e60dc906e7b715b1c245",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-                "url": "https://api.github.com/repos/symfony/debug/zipball/53f6af2805daf52a43b393b93d2f24925d35c937",
-                "reference": "53f6af2805daf52a43b393b93d2f24925d35c937",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-                "shasum": ""
-            },
-            "require": {
-<<<<<<< HEAD
-                "php": ">=5.3.9",
->>>>>>> core-2275 update lock
-=======
-                "php": "^5.5.9|>=7.0.8",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
                 "psr/log": "~1.0"
             },
             "conflict": {
                 "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
             },
             "require-dev": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
                 "symfony/http-kernel": "~2.8|~3.0|~4.0"
-=======
-=======
->>>>>>> core-2275 WIP
-                "symfony/class-loader": "~2.2|~3.0.0",
-                "symfony/http-kernel": "~2.3.24|~2.5.9|^2.6.2|~3.0.0"
-=======
-                "symfony/http-kernel": "~2.8|~3.0|~4.0"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
             },
             "type": "library",
             "extra": {
@@ -4870,97 +2473,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-18T22:16:57+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T17:14:19+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-18T22:16:57+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-03T17:14:19+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "time": "2017-12-12T08:27:14+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-11-21T09:01:46+00:00"
-=======
-            "time": "2017-10-24T13:48:52+00:00"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-10-24T13:48:52+00:00"
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-=======
-            "time": "2017-11-19T19:05:05+00:00"
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-            "time": "2018-01-03T17:14:19+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "time": "2018-01-18T22:16:57+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/event-dispatcher",
@@ -5024,67 +2537,7 @@
         },
         {
             "name": "symfony/filesystem",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.4.4",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v3.4.3",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "version": "v3.4.4",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v3.4.3",
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "version": "v3.4.2",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.0",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-            "version": "v3.4.3",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "version": "v3.4.4",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -5182,97 +2635,6 @@
         },
         {
             "name": "symfony/form",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "version": "v2.8.32",
-=======
-=======
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
-            "version": "v2.8.31",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/form.git",
-                "reference": "b88b4b6c206201673cda2b919300e825bfda4cdc"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/form/zipball/b88b4b6c206201673cda2b919300e825bfda4cdc",
-                "reference": "b88b4b6c206201673cda2b919300e825bfda4cdc",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/form/zipball/61c21209e29f3a3fbe325f5844e59b7809367ce4",
-                "reference": "61c21209e29f3a3fbe325f5844e59b7809367ce4",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/form/zipball/b88b4b6c206201673cda2b919300e825bfda4cdc",
-                "reference": "b88b4b6c206201673cda2b919300e825bfda4cdc",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/form/zipball/61c21209e29f3a3fbe325f5844e59b7809367ce4",
-                "reference": "61c21209e29f3a3fbe325f5844e59b7809367ce4",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/form/zipball/2549e9dbb1ef295a3cca37b072a29ba32961e65a",
-                "reference": "2549e9dbb1ef295a3cca37b072a29ba32961e65a",
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/4ad117621980bac8908b5567150342749a439ec4",
-                "reference": "4ad117621980bac8908b5567150342749a439ec4",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.3.4",
             "source": {
                 "type": "git",
@@ -5283,75 +2645,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/form/zipball/7c728458818dd00024f1900716166a4b6fa6c5fa",
                 "reference": "7c728458818dd00024f1900716166a4b6fa6c5fa",
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/fcf9d0775af281d16577f90c96b9620c983f812b",
-                "reference": "fcf9d0775af281d16577f90c96b9620c983f812b",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/fcf9d0775af281d16577f90c96b9620c983f812b",
-                "reference": "fcf9d0775af281d16577f90c96b9620c983f812b",
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/form/zipball/fcf9d0775af281d16577f90c96b9620c983f812b",
-                "reference": "fcf9d0775af281d16577f90c96b9620c983f812b",
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -5417,177 +2710,35 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-01-29T08:58:04+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T07:36:31+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-29T08:58:04+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-03T07:36:31+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2017-11-29T09:33:18+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
-            "time": "2017-11-16T15:20:19+00:00"
-=======
             "time": "2017-06-24T09:29:48+00:00"
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-11-16T17:55:54+00:00"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-11-16T17:55:54+00:00"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
-=======
-=======
-=======
-=======
-            "time": "2017-11-16T17:55:54+00:00"
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-            "time": "2017-06-24T09:29:48+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
         },
         {
             "name": "symfony/http-foundation",
-<<<<<<< HEAD
-            "version": "v3.0.9",
-=======
-<<<<<<< HEAD
             "version": "v2.8.34",
->>>>>>> core-2275 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
+                "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb"
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
-                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
-=======
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
                 "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
-=======
-=======
-            "time": "2017-06-24T09:29:48+00:00"
-        },
-        {
-            "name": "symfony/http-foundation",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-            "version": "v3.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
-                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
-<<<<<<< HEAD
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "symfony/polyfill-mbstring": "~1.1"
+                "php": ">=5.3.9",
+                "symfony/polyfill-mbstring": "~1.1",
+                "symfony/polyfill-php54": "~1.0",
+                "symfony/polyfill-php55": "~1.0"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.8|~3.0"
+                "symfony/expression-language": "~2.4|~3.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -5614,19 +2765,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-07-17T13:54:30+00:00"
-=======
-<<<<<<< HEAD
             "time": "2018-01-29T08:54:45+00:00"
-=======
-            "time": "2016-07-17T13:54:30+00:00"
->>>>>>> core-2275 update composer.lock
->>>>>>> core-2275 update composer.lock
-=======
-            "time": "2016-07-17T13:54:30+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/http-kernel",
@@ -5844,71 +2983,7 @@
         },
         {
             "name": "symfony/options-resolver",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v2.8.33",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "7b627d71e038f65c58702ad2540d0452cf53cf67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/7b627d71e038f65c58702ad2540d0452cf53cf67",
-                "reference": "7b627d71e038f65c58702ad2540d0452cf53cf67",
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "version": "v2.8.32",
-=======
-            "version": "v3.3.13",
->>>>>>> core-2275 update lock
-=======
-            "version": "v3.4.0",
->>>>>>> core-2275 WIP
-=======
-            "version": "v3.4.2",
->>>>>>> core-2275 update constraints
-=======
-            "version": "v3.4.3",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
             "version": "v3.4.4",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -6078,30 +3153,17 @@
             "time": "2018-01-30T19:27:44+00:00"
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
             "name": "symfony/polyfill-php54",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php54.git",
-                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc"
+                "reference": "84e2b616c197ef400c6d0556a0606cee7c9e21d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
-                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
+                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/84e2b616c197ef400c6d0556a0606cee7c9e21d5",
+                "reference": "84e2b616c197ef400c6d0556a0606cee7c9e21d5",
                 "shasum": ""
             },
             "require": {
@@ -6110,7 +3172,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -6146,25 +3208,9 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2018-01-30T19:27:44+00:00"
         },
         {
-=======
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
             "name": "symfony/polyfill-php55",
             "version": "v1.7.0",
             "source": {
@@ -6221,11 +3267,7 @@
             "time": "2018-01-30T19:27:44+00:00"
         },
         {
-=======
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
             "name": "symfony/polyfill-php56",
-<<<<<<< HEAD
             "version": "v1.7.0",
             "source": {
                 "type": "git",
@@ -6236,33 +3278,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/ebc999ce5f14204c5150b9bd15f8f04e621409d8",
                 "reference": "ebc999ce5f14204c5150b9bd15f8f04e621409d8",
-=======
-=======
-            "name": "symfony/polyfill-php54",
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-            "name": "symfony/polyfill-php56",
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php56.git",
-                "reference": "265fc96795492430762c29be291a371494ba3a5b"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
-                "reference": "d7810a14b2c6c1aff415e1bb755f611b3d5327bc",
->>>>>>> core-2275 update lock
-=======
-                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/265fc96795492430762c29be291a371494ba3a5b",
-                "reference": "265fc96795492430762c29be291a371494ba3a5b",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
                 "shasum": ""
             },
             "require": {
@@ -6308,8 +3323,6 @@
             "time": "2018-01-30T19:27:44+00:00"
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             "name": "symfony/polyfill-php70",
             "version": "v1.7.0",
             "source": {
@@ -6321,27 +3334,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/3532bfcd8f933a7816f3a0a59682fc404776600f",
                 "reference": "3532bfcd8f933a7816f3a0a59682fc404776600f",
-=======
-            "name": "symfony/polyfill-php55",
-=======
-            "name": "symfony/polyfill-php70",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/b64e7f0c37ecf144ecc16668936eef94e628fbfd",
-                "reference": "b64e7f0c37ecf144ecc16668936eef94e628fbfd",
->>>>>>> core-2275 update lock
-=======
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
-                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
                 "shasum": ""
             },
             "require": {
@@ -6390,8 +3382,6 @@
             "time": "2018-01-30T19:27:44+00:00"
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             "name": "symfony/polyfill-util",
             "version": "v1.7.0",
             "source": {
@@ -6403,27 +3393,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/e17c808ec4228026d4f5a8832afa19be85979563",
                 "reference": "e17c808ec4228026d4f5a8832afa19be85979563",
-=======
-            "name": "symfony/polyfill-php70",
-=======
-            "name": "symfony/polyfill-util",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-util.git",
-                "reference": "6e719200c8e540e0c0effeb31f96bdb344b94176"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
-                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
->>>>>>> core-2275 update lock
-=======
-                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/6e719200c8e540e0c0effeb31f96bdb344b94176",
-                "reference": "6e719200c8e540e0c0effeb31f96bdb344b94176",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
                 "shasum": ""
             },
             "require": {
@@ -6579,77 +3548,6 @@
                 "property path",
                 "reflection"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-19T18:41:20+00:00"
-        },
-        {
-            "name": "symfony/routing",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-<<<<<<< HEAD
-=======
->>>>>>> core-2275 update constraints
-            "version": "v2.8.32",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/routing.git",
-                "reference": "627ea100720dac15d8165648caac57456dda84aa"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/routing/zipball/627ea100720dac15d8165648caac57456dda84aa",
-                "reference": "627ea100720dac15d8165648caac57456dda84aa",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/routing/zipball/e0aada430641d074571dbd4b103a07b523494a89",
-                "reference": "e0aada430641d074571dbd4b103a07b523494a89",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/routing/zipball/627ea100720dac15d8165648caac57456dda84aa",
-                "reference": "627ea100720dac15d8165648caac57456dda84aa",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/routing/zipball/e0aada430641d074571dbd4b103a07b523494a89",
-                "reference": "e0aada430641d074571dbd4b103a07b523494a89",
-=======
-                "url": "https://api.github.com/repos/symfony/routing/zipball/fa8f982682a3b65d87858be7dbf84f7f03feb616",
-                "reference": "fa8f982682a3b65d87858be7dbf84f7f03feb616",
-<<<<<<< HEAD
-=======
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-            "time": "2017-11-05T15:47:03+00:00"
-=======
-            "time": "2017-11-19T18:41:20+00:00"
->>>>>>> core-2275 WIP
-=======
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "time": "2018-01-03T07:37:34+00:00"
         },
         {
@@ -6664,50 +3562,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/routing/zipball/9038984bd9c05ab07280121e9e10f61a7231457b",
                 "reference": "9038984bd9c05ab07280121e9e10f61a7231457b",
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/routing/zipball/67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
-                "reference": "67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -6769,150 +3623,26 @@
                 "uri",
                 "url"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-01-16T18:00:04+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-04T14:58:28+00:00"
-        },
-        {
-            "name": "symfony/security",
-            "version": "v2.8.30",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-01-16T18:00:04+00:00"
-        },
-        {
-            "name": "symfony/security",
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-01-04T14:58:28+00:00"
->>>>>>> core-2275 updated constraints
-        },
-        {
-            "name": "symfony/security",
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.30",
-=======
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
-            "time": "2017-11-19T19:05:05+00:00"
-        },
-        {
-            "name": "symfony/security",
-            "version": "v2.8.32",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "time": "2016-06-29T05:40:00+00:00"
         },
         {
             "name": "symfony/security",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.31",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
+            "version": "v3.2.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d"
+                "reference": "9f41ec7293a6539b44c3a6b3ae5f1c02f752bf77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/87807daa2b5192dd3573ade1353fa0b497582f2d",
-                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/event-dispatcher": "~2.2|~3.0.0",
-                "symfony/http-foundation": "~2.1|~3.0.0",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/polyfill-php55": "~1.0",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-            "version": "v3.2.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security.git",
-                "reference": "3f6e39f1918f009524e36a56f1609cf74a8cd47c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/3f6e39f1918f009524e36a56f1609cf74a8cd47c",
-                "reference": "3f6e39f1918f009524e36a56f1609cf74a8cd47c",
+                "url": "https://api.github.com/repos/symfony/security/zipball/9f41ec7293a6539b44c3a6b3ae5f1c02f752bf77",
+                "reference": "9f41ec7293a6539b44c3a6b3ae5f1c02f752bf77",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.9",
                 "symfony/event-dispatcher": "~2.8|~3.0",
-                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8.31|~3.2.14",
                 "symfony/http-kernel": "~2.8|~3.0",
                 "symfony/polyfill-php56": "~1.0",
                 "symfony/polyfill-php70": "~1.0",
@@ -6971,202 +3701,11 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            "version": "v3.4.2",
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2017-11-07T14:08:47+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-01-18T13:56:23+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-01-03T17:12:09+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2017-11-07T14:08:47+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-01-03T17:12:09+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
-            "time": "2017-11-16T16:08:43+00:00"
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-        },
-        {
-            "name": "symfony/security-acl",
-            "version": "v3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-acl.git",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "shasum": ""
-            },
-            "require": {
-<<<<<<< HEAD
-                "php": ">=5.5.9",
-                "symfony/security-core": "~2.8|~3.0|~4.0"
-=======
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "conflict": {
-                "phpdocumentor/type-resolver": "<0.2.1",
-                "symfony/dependency-injection": "<3.2",
-                "symfony/property-access": ">=3.0,<3.0.4|>=2.8,<2.8.4",
-                "symfony/property-info": "<3.1",
-                "symfony/yaml": "<3.4"
-=======
-=======
->>>>>>> core-2275 WIP
-            "version": "v2.8.31",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/serializer.git",
-                "reference": "13362647299108bd7565756bff3f05f7dc1d4ab5"
->>>>>>> core-2275 WIP
-            },
-            "require-dev": {
-                "doctrine/common": "~2.2",
-                "doctrine/dbal": "~2.2",
-                "psr/log": "~1.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0|~4.0"
-            },
-<<<<<<< HEAD
-            "suggest": {
-                "doctrine/dbal": "For using the built-in ACL implementation",
-                "symfony/class-loader": "For using the ACL generateSql script",
-                "symfony/finder": "For using the ACL generateSql script"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Acl\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - ACL (Access Control List)",
-            "homepage": "https://symfony.com",
-<<<<<<< HEAD
-            "time": "2017-07-21T06:01:18+00:00"
-=======
-            "time": "2015-12-28T09:39:46+00:00"
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-            "time": "2017-07-29T21:27:41+00:00"
+            "time": "2017-11-16T17:55:54+00:00"
         },
         {
             "name": "symfony/serializer",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v3.4.4",
-=======
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v3.4.3",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.4",
-=======
-            "version": "v3.4.3",
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> core-2275 update composer.lock
-            "time": "2015-12-23T18:13:52+00:00"
-        },
-        {
-            "name": "symfony/serializer",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v3.4.2",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.0",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "version": "v3.4.4",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
@@ -7240,97 +3779,7 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-19T11:19:37+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-19T11:19:37+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "time": "2017-12-08T15:24:53+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-11-29T13:28:14+00:00"
-=======
-            "time": "2017-11-07T14:08:47+00:00"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-11-07T14:08:47+00:00"
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-=======
-            "time": "2017-11-07T14:08:47+00:00"
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-            "time": "2018-01-03T07:37:34+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "time": "2018-01-19T11:19:37+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/translation",
@@ -7398,60 +3847,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2016-07-30T07:22:48+00:00"
-        },
-        {
-            "name": "symfony/twig-bridge",
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.32",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "efdc8b39b5a05def32824e578ccf3fcdec8190cc"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/efdc8b39b5a05def32824e578ccf3fcdec8190cc",
-                "reference": "efdc8b39b5a05def32824e578ccf3fcdec8190cc",
-=======
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/611c7994abf119adec844fdbc28721c3e3629d4e",
-                "reference": "611c7994abf119adec844fdbc28721c3e3629d4e",
-=======
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-            "time": "2017-11-07T14:12:55+00:00"
-=======
-            "time": "2018-01-03T07:37:34+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
             "time": "2018-01-18T22:16:57+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/twig-bridge",
@@ -7543,112 +3939,6 @@
         },
         {
             "name": "symfony/validator",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "version": "v2.8.34",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/validator.git",
-                "reference": "71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/validator/zipball/71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
-                "reference": "71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/validator/zipball/e6da867bf86ba5009381d59718071329359ddbff",
-                "reference": "e6da867bf86ba5009381d59718071329359ddbff",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/validator/zipball/71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
-                "reference": "71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/validator/zipball/e6da867bf86ba5009381d59718071329359ddbff",
-                "reference": "e6da867bf86ba5009381d59718071329359ddbff",
-=======
-                "url": "https://api.github.com/repos/symfony/validator/zipball/d3f8bf19db07dde2ed3f4c43907bb18eb876a0c1",
-                "reference": "d3f8bf19db07dde2ed3f4c43907bb18eb876a0c1",
-=======
-            "time": "2017-11-07T11:58:40+00:00"
-=======
-            "time": "2017-12-04T19:58:26+00:00"
->>>>>>> core-2275 update constraints
-        },
-        {
-            "name": "symfony/validator",
-            "version": "v3.2.14",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/validator.git",
-                "reference": "39244fbf580e01acc3f5df01238a8f69b1b3e46f"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/validator/zipball/ec0739539e4913177e37a43a8e8da091b8f7188d",
-                "reference": "ec0739539e4913177e37a43a8e8da091b8f7188d",
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/validator/zipball/39244fbf580e01acc3f5df01238a8f69b1b3e46f",
-                "reference": "39244fbf580e01acc3f5df01238a8f69b1b3e46f",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/validator/zipball/39244fbf580e01acc3f5df01238a8f69b1b3e46f",
-                "reference": "39244fbf580e01acc3f5df01238a8f69b1b3e46f",
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-            "version": "v3.3.15",
-=======
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.3.16",
             "source": {
                 "type": "git",
@@ -7657,30 +3947,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/validator/zipball/76d2774fbff6585372d0fd29d68bf24e624177b4",
-                "reference": "76d2774fbff6585372d0fd29d68bf24e624177b4",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-=======
                 "url": "https://api.github.com/repos/symfony/validator/zipball/4656103eb72c9f1f77a7435340fcca687b764200",
                 "reference": "4656103eb72c9f1f77a7435340fcca687b764200",
->>>>>>> core-2275 update spryker/spryker
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2275 update spryker/spryker
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/validator/zipball/4656103eb72c9f1f77a7435340fcca687b764200",
-                "reference": "4656103eb72c9f1f77a7435340fcca687b764200",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -7746,116 +4014,11 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-01-29T08:54:45+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update spryker/spryker
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T17:12:09+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2018-01-29T08:54:45+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-03T17:12:09+00:00"
-=======
-=======
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
-            "time": "2017-12-04T12:15:49+00:00"
-=======
-            "time": "2017-11-10T19:02:53+00:00"
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-07-26T06:34:07+00:00"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-        },
-        {
-            "name": "symfony/yaml",
-<<<<<<< HEAD
-            "version": "v3.4.4",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.3",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.4",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.3",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.2",
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-            "time": "2018-01-03T17:13:53+00:00"
-=======
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "time": "2018-01-21T19:04:48+00:00"
         },
         {
             "name": "symfony/yaml",
-<<<<<<< HEAD
-            "version": "v3.4.3",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
             "version": "v3.4.4",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -7863,90 +4026,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
                 "reference": "eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/25c192f25721a74084272671f658797d9e0e0146",
-                "reference": "25c192f25721a74084272671f658797d9e0e0146",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
-                "reference": "eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/25c192f25721a74084272671f658797d9e0e0146",
-                "reference": "25c192f25721a74084272671f658797d9e0e0146",
-=======
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/afe0cd38486505c9703707707d91450cfc1bd536",
-                "reference": "afe0cd38486505c9703707707d91450cfc1bd536",
-=======
-            "version": "v3.3.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "0938408c4faa518d95230deabb5f595bf0de31b9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/0938408c4faa518d95230deabb5f595bf0de31b9",
-                "reference": "0938408c4faa518d95230deabb5f595bf0de31b9",
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-=======
-            "time": "2017-07-26T06:34:07+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v3.3.14",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "36353762fdca3a0ecdce4640764efc885df979f6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/36353762fdca3a0ecdce4640764efc885df979f6",
-                "reference": "36353762fdca3a0ecdce4640764efc885df979f6",
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/25c192f25721a74084272671f658797d9e0e0146",
-                "reference": "25c192f25721a74084272671f658797d9e0e0146",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
-                "reference": "eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -7991,69 +4072,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-21T19:05:02+00:00"
-=======
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-21T19:05:02+00:00"
-=======
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-03T07:37:34+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-12-11T20:38:23+00:00"
-=======
-            "time": "2017-11-10T18:26:04+00:00"
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-=======
-            "time": "2017-12-04T14:51:35+00:00"
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-            "time": "2018-01-03T07:37:34+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "time": "2018-01-21T19:05:02+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "twig/twig",
@@ -10997,16 +7016,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.2",
+            "version": "4.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72"
+                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
-                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
+                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
                 "shasum": ""
             },
             "require": {
@@ -11033,7 +7052,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-06T21:21:14+00:00"
+            "time": "2018-02-07T10:52:36+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -11076,15 +7095,7 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    "name": "Sullivan SENECHAL",
-=======
-                    "name": "Sullivan Sénéchal",
->>>>>>> core-2275 update lock
-=======
                     "name": "Sullivan Senechal",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -11500,67 +7511,7 @@
         },
         {
             "name": "symfony/dependency-injection",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "v4.0.4",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v4.0.3",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "version": "v4.0.4",
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v4.0.3",
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "version": "v4.0.2",
-=======
-<<<<<<< HEAD
-            "version": "v3.4.0",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-            "version": "v4.0.3",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "version": "v4.0.4",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -11568,54 +7519,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f78ca49c6360c710ca8e316511e71a23b10e3bf2",
                 "reference": "f78ca49c6360c710ca8e316511e71a23b10e3bf2",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/67bf5e4f4da85624f30a5e43b7f43225c8b71959",
-                "reference": "67bf5e4f4da85624f30a5e43b7f43225c8b71959",
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f78ca49c6360c710ca8e316511e71a23b10e3bf2",
-                "reference": "f78ca49c6360c710ca8e316511e71a23b10e3bf2",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/67bf5e4f4da85624f30a5e43b7f43225c8b71959",
-                "reference": "67bf5e4f4da85624f30a5e43b7f43225c8b71959",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d2fa088b5fd7d429974a36bf1a9846b912d9d124",
-                "reference": "d2fa088b5fd7d429974a36bf1a9846b912d9d124",
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/67bf5e4f4da85624f30a5e43b7f43225c8b71959",
-                "reference": "67bf5e4f4da85624f30a5e43b7f43225c8b71959",
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f78ca49c6360c710ca8e316511e71a23b10e3bf2",
-                "reference": "f78ca49c6360c710ca8e316511e71a23b10e3bf2",
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -11673,97 +7578,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-01-29T09:29:16+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-04T15:52:56+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-29T09:29:16+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "time": "2018-01-04T15:52:56+00:00"
-=======
-=======
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
-            "time": "2017-12-14T19:48:22+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2017-11-29T16:42:20+00:00"
-=======
-            "time": "2017-07-28T15:22:55+00:00"
->>>>>>> core-2275 update lock
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-<<<<<<< HEAD
->>>>>>> core-2275 update lock
-=======
-=======
-=======
-=======
-=======
-            "time": "2017-07-28T15:22:55+00:00"
->>>>>>> core-2275 WIP
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-<<<<<<< HEAD
->>>>>>> core-2275 WIP
-=======
-=======
-=======
-=======
-            "time": "2017-07-28T15:22:55+00:00"
->>>>>>> core-2275 update constraints
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
->>>>>>> core-2275 update constraints
-=======
-=======
-=======
-            "time": "2018-01-04T15:52:56+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "time": "2018-01-29T09:29:16+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "symfony/dom-crawler",
@@ -11878,70 +7693,6 @@
         },
         {
             "name": "symfony/stopwatch",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v2.8.33",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "57021208ad9830f8f8390c1a9d7bb390f32be89e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/57021208ad9830f8f8390c1a9d7bb390f32be89e",
-                "reference": "57021208ad9830f8f8390c1a9d7bb390f32be89e",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "version": "v2.8.32",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-            "version": "v3.0.9",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-=======
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -12060,78 +7811,6 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "version": "v2.8.33",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "version": "v2.8.34",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-=======
->>>>>>> core-2275 update constraints
-<<<<<<< HEAD
-            "version": "v2.8.33",
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "344fd9da9942523054d145d85a939c5196fce5ac"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/344fd9da9942523054d145d85a939c5196fce5ac",
-                "reference": "344fd9da9942523054d145d85a939c5196fce5ac",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/33f9db67f34e98eae75263b2b495356ca9241d21",
-                "reference": "33f9db67f34e98eae75263b2b495356ca9241d21",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/344fd9da9942523054d145d85a939c5196fce5ac",
-                "reference": "344fd9da9942523054d145d85a939c5196fce5ac",
-=======
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/33f9db67f34e98eae75263b2b495356ca9241d21",
-                "reference": "33f9db67f34e98eae75263b2b495356ca9241d21",
-=======
-=======
->>>>>>> core-2275 update composer.lock
-<<<<<<< HEAD
-            "version": "v2.8.32",
-=======
-<<<<<<< HEAD
-            "version": "v2.8.31",
-=======
-=======
->>>>>>> core-2275 update constraints
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
             "version": "v3.0.9",
             "source": {
                 "type": "git",
@@ -12142,25 +7821,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
                 "reference": "27f53ac86d85d6eeb3fbe08be026d7b447ad86d7",
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
                 "shasum": ""
             },
             "require": {
@@ -12205,46 +7865,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-01-07T17:01:19+00:00"
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
-<<<<<<< HEAD
-            "time": "2018-01-03T07:36:31+00:00"
-=======
-=======
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
-            "time": "2018-01-07T17:01:19+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-01-03T07:36:31+00:00"
-=======
             "time": "2016-07-26T08:03:56+00:00"
->>>>>>> core-2275 updated constraints
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-<<<<<<< HEAD
->>>>>>> core-2275 updated constraints
-=======
-=======
-=======
-            "time": "2016-07-26T08:03:56+00:00"
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-<<<<<<< HEAD
->>>>>>> core-2275 updated all constraints to allow symfony/* 3
-=======
-=======
-            "time": "2016-07-26T08:03:56+00:00"
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
->>>>>>> core-2275 use TokenStorageInterface instead of SecurityContext
         },
         {
             "name": "theseer/fdomdocument",
