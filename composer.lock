@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "376e98b31171171edf6a557b938dbf86",
+    "content-hash": "87f205d461a3bd45b1e0e6d40fdc9766",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1404,7 +1404,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2018-01-27 02:17:16"
+            "time": "2018-01-27T02:17:16+00:00"
         },
         {
             "name": "psr/container",
@@ -1729,7 +1729,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2017-10-24 10:37:10"
+            "time": "2017-10-24T10:37:10+00:00"
         },
         {
             "name": "spryker/event-behavior",
@@ -1785,7 +1785,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-01-10 11:57:45"
+            "time": "2018-01-10T11:57:45+00:00"
         },
         {
             "name": "spryker/install",
@@ -1829,7 +1829,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-06 08:26:04"
+            "time": "2018-02-06T08:26:04+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1887,15 +1887,15 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26 13:26:48"
+            "time": "2018-01-26T13:26:48+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-2417_re_order",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "76dfb5c33fa27116f3c9657c683434d36c9f60c8"
+                "reference": "de61bb248711aaa21855155c490385ec0e339ee2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,7 +2130,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-06 10:18:03"
+            "time": "2018-02-06T16:49:47+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2167,15 +2167,12 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "support": {
-                "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
-            },
-            "time": "2017-11-13 10:53:51"
+            "time": "2017-11-13T10:53:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5392,7 +5389,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7147,7 +7144,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-10 11:56:59"
+            "time": "2018-01-10T11:56:59+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -7188,7 +7185,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-01-24 15:10:19"
+            "time": "2018-01-24T15:10:19+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7239,7 +7236,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-01-15 19:21:29"
+            "time": "2018-01-15T19:21:29+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -7291,7 +7288,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-26 16:00:16"
+            "time": "2018-01-26T16:00:16+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
