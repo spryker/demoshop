@@ -1801,12 +1801,30 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
+<<<<<<< HEAD
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
+=======
+<<<<<<< HEAD
+                "reference": "9c36dc95668da724b393251424bc47604c64704c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/install/zipball/9c36dc95668da724b393251424bc47604c64704c",
+                "reference": "9c36dc95668da724b393251424bc47604c64704c",
+=======
+                "reference": "532ee18be671f46b24e1b4d3177c0ff9db67f1cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/install/zipball/532ee18be671f46b24e1b4d3177c0ff9db67f1cb",
+                "reference": "532ee18be671f46b24e1b4d3177c0ff9db67f1cb",
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
                 "shasum": ""
             },
             "require": {
@@ -1836,8 +1854,21 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "description": "Spryker install tool",
+<<<<<<< HEAD
             "time": "2018-02-12T12:57:05+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2018-02-06 08:26:04"
+=======
+            "time": "2018-02-06T08:26:04+00:00"
+=======
+            "description": "Project",
+            "time": "2018-02-01T14:32:02+00:00"
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1907,6 +1938,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "1d50f3e2bf83ea52217d4c6b522f0371a589c08a"
 =======
 =======
@@ -1915,6 +1947,8 @@
 >>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
                 "reference": "f5b3b1be0e409f2a20dd6f4c8b4c058f896902a9"
 =======
@@ -1924,6 +1958,8 @@
 >>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 =======
@@ -1976,8 +2012,17 @@
                 "reference": "43c89754c0e4620936004fc06e03c5c181ca1d61"
 >>>>>>> core-2913 update spryker/spryker
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+=======
+=======
+=======
+                "reference": "520b05df65312735ccdeaf5691e92767e0994618"
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2218,6 +2263,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-13T10:23:50+00:00"
 =======
 =======
@@ -2226,6 +2272,8 @@
 >>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
             "time": "2018-02-08 10:12:29"
 =======
@@ -2235,6 +2283,8 @@
 >>>>>>> core-2913 update spryker/spryker
 =======
 >>>>>>> core-2913 update spryker/spryker
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
             "time": "2018-02-07T10:09:57+00:00"
 =======
@@ -2287,8 +2337,17 @@
             "time": "2018-02-01T12:46:04+00:00"
 >>>>>>> core-2913 update spryker/spryker
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+=======
+=======
+=======
+            "time": "2018-02-06T05:46:15+00:00"
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7198,11 +7257,16 @@
         {
             "name": "slevomat/coding-standard",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "4.4.5",
 =======
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
             "version": "4.4.3",
 =======
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
             "version": "4.4.2",
 >>>>>>> core-2913 update spryker/spryker
@@ -7226,18 +7290,32 @@
                 "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
 =======
             "version": "4.3.2",
+=======
+            "version": "4.4.0",
+>>>>>>> core-2913 update composer.lock
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "872ecd4782be157706a97d72a0a763675c303dd8"
+                "reference": "d91220bb5389be4a51a37c8400cdff3d3872f618"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/872ecd4782be157706a97d72a0a763675c303dd8",
                 "reference": "872ecd4782be157706a97d72a0a763675c303dd8",
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+=======
+=======
+=======
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/d91220bb5389be4a51a37c8400cdff3d3872f618",
+                "reference": "d91220bb5389be4a51a37c8400cdff3d3872f618",
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
                 "shasum": ""
             },
             "require": {
@@ -7265,18 +7343,32 @@
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-09T21:17:33+00:00"
 =======
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
             "time": "2018-02-07T10:52:36+00:00"
 =======
+=======
+>>>>>>> core-2913 update composer.lock
 <<<<<<< HEAD
             "time": "2018-02-06T21:21:14+00:00"
 =======
             "time": "2018-01-28T21:06:07+00:00"
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+<<<<<<< HEAD
 >>>>>>> core-2913 update spryker/spryker
+=======
+=======
+=======
+            "time": "2018-02-05T21:17:40+00:00"
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
+>>>>>>> core-2913 update composer.lock
         },
         {
             "name": "sllh/composer-versions-check",
