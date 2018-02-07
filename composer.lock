@@ -1404,7 +1404,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2018-01-27 02:17:16"
+            "time": "2018-01-27T02:17:16+00:00"
         },
         {
             "name": "psr/container",
@@ -1729,7 +1729,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2017-10-24 10:37:10"
+            "time": "2017-10-24T10:37:10+00:00"
         },
         {
             "name": "spryker/event-behavior",
@@ -1785,7 +1785,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-01-10 11:57:45"
+            "time": "2018-01-10T11:57:45+00:00"
         },
         {
             "name": "spryker/install",
@@ -1829,7 +1829,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-06 08:26:04"
+            "time": "2018-02-06T08:26:04+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1887,7 +1887,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26 13:26:48"
+            "time": "2018-01-26T13:26:48+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -1895,7 +1895,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "76dfb5c33fa27116f3c9657c683434d36c9f60c8"
+                "reference": "f537f6bad7535eb47f1bb2d505aabebf76474353"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,7 +2130,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-06 10:18:03"
+            "time": "2018-02-07T08:48:28+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2175,7 +2175,7 @@
             "support": {
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
-            "time": "2017-11-13 10:53:51"
+            "time": "2017-11-13T10:53:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2710,31 +2710,29 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.8.34",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb"
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
-                "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/polyfill-mbstring": "~1.1",
-                "symfony/polyfill-php54": "~1.0",
-                "symfony/polyfill-php55": "~1.0"
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.4|~3.0.0"
+                "symfony/expression-language": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -2761,7 +2759,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:54:45+00:00"
+            "time": "2016-07-17T13:54:30+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -3085,64 +3083,6 @@
             "keywords": [
                 "compatibility",
                 "mbstring",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2018-01-30T19:27:44+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php54",
-            "version": "v1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php54.git",
-                "reference": "84e2b616c197ef400c6d0556a0606cee7c9e21d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/84e2b616c197ef400c6d0556a0606cee7c9e21d5",
-                "reference": "84e2b616c197ef400c6d0556a0606cee7c9e21d5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php54\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 5.4+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
                 "polyfill",
                 "portable",
                 "shim"
@@ -3558,22 +3498,22 @@
         },
         {
             "name": "symfony/security",
-            "version": "v2.8.34",
+            "version": "v2.8.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097"
+                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
+                "url": "https://api.github.com/repos/symfony/security/zipball/87807daa2b5192dd3573ade1353fa0b497582f2d",
+                "reference": "87807daa2b5192dd3573ade1353fa0b497582f2d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
                 "symfony/event-dispatcher": "~2.2|~3.0.0",
-                "symfony/http-foundation": "^2.7.38|~3.3.13",
+                "symfony/http-foundation": "~2.1|~3.0.0",
                 "symfony/http-kernel": "~2.4|~3.0.0",
                 "symfony/polyfill-php55": "~1.0",
                 "symfony/polyfill-php56": "~1.0",
@@ -3581,9 +3521,6 @@
                 "symfony/polyfill-util": "~1.0",
                 "symfony/property-access": "~2.3|~3.0.0",
                 "symfony/security-acl": "~2.7|~3.0.0"
-            },
-            "conflict": {
-                "symfony/http-foundation": "~2.8,<2.8.31|~3.4,<3.4-beta5"
             },
             "replace": {
                 "symfony/security-core": "self.version",
@@ -3637,7 +3574,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-18T13:56:23+00:00"
+            "time": "2017-11-07T14:08:47+00:00"
         },
         {
             "name": "symfony/security-acl",
@@ -5112,16 +5049,16 @@
         },
         {
             "name": "nette/robot-loader",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/robot-loader.git",
-                "reference": "b703b4f5955831b0bcaacbd2f6af76021b056826"
+                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/b703b4f5955831b0bcaacbd2f6af76021b056826",
-                "reference": "b703b4f5955831b0bcaacbd2f6af76021b056826",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
+                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
                 "shasum": ""
             },
             "require": {
@@ -5173,20 +5110,20 @@
                 "nette",
                 "trait"
             ],
-            "time": "2017-07-18T00:09:56+00:00"
+            "time": "2017-09-26T13:42:21+00:00"
         },
         {
             "name": "nette/utils",
-            "version": "v2.4.8",
+            "version": "v2.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "f1584033b5af945b470533b466b81a789d532034"
+                "reference": "1e08eb4c9d26ae5aedced8260e8b4ed951ee4aa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/f1584033b5af945b470533b466b81a789d532034",
-                "reference": "f1584033b5af945b470533b466b81a789d532034",
+                "url": "https://api.github.com/repos/nette/utils/zipball/1e08eb4c9d26ae5aedced8260e8b4ed951ee4aa6",
+                "reference": "1e08eb4c9d26ae5aedced8260e8b4ed951ee4aa6",
                 "shasum": ""
             },
             "require": {
@@ -5252,7 +5189,7 @@
                 "utility",
                 "validation"
             ],
-            "time": "2017-08-20T17:32:29+00:00"
+            "time": "2018-02-06T15:40:36+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -7006,16 +6943,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.0",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "d91220bb5389be4a51a37c8400cdff3d3872f618"
+                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/d91220bb5389be4a51a37c8400cdff3d3872f618",
-                "reference": "d91220bb5389be4a51a37c8400cdff3d3872f618",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
+                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
                 "shasum": ""
             },
             "require": {
@@ -7042,7 +6979,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-05T21:17:40+00:00"
+            "time": "2018-02-06T21:21:14+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -7147,7 +7084,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-10 11:56:59"
+            "time": "2018-01-10T11:56:59+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -7188,7 +7125,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-01-24 15:10:19"
+            "time": "2018-01-24T15:10:19+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7239,7 +7176,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-01-15 19:21:29"
+            "time": "2018-01-15T19:21:29+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -7291,7 +7228,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-26 16:00:16"
+            "time": "2018-01-26T16:00:16+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
