@@ -40,12 +40,10 @@ $stores['DE'] = [
     'sharedPersistenceWithStores' => ['AT'],
 ];
 
-$stores['AT'] = array_merge(
-    $stores['DE'],
-    [
-        'sharedPersistenceWithStores' => ['DE'],
-    ]
-);
+$stores['AT'] = [
+        'sharedPersistenceWithStores' => ['DE']
+    ] + $stores['DE'];
+
 $stores['US'] = $stores['DE'];
 
 return $stores;

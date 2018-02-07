@@ -15,27 +15,9 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
 {
-    /**
-     * @var \Generated\Shared\Transfer\StoreTransfer
-     */
-    protected static $currentStoreTransfer;
-
     const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
     const ID_AVAILABILITY_ABSTRACT = 'id_availability_abstract';
     const QUANTITY = 'quantity';
-
-    /**
-     * @var \Spryker\Zed\Store\Business\StoreFacadeInterface
-     */
-    protected $storeFacade;
-
-    /**
-     * @param \Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface $storeFacade
-     */
-    public function __construct(CollectorToStoreFacadeInterface $storeFacade)
-    {
-        $this->storeFacade = $storeFacade;
-    }
 
     /**
      * @return void

@@ -18,28 +18,6 @@ use Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface;
 class AvailabilityCollector extends AbstractStoragePropelCollector
 {
     /**
-     * @var \Generated\Shared\Transfer\StoreTransfer
-     */
-    protected static $currentStoreTransfer;
-
-    /**
-     * @var \Spryker\Zed\Store\Business\StoreFacadeInterface
-     */
-    protected $storeFacade;
-
-    /**
-     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
-     * @param \Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface $storeFacade
-     */
-    public function __construct(
-        UtilDataReaderServiceInterface $utilDataReaderService,
-        CollectorToStoreFacadeInterface $storeFacade
-    ) {
-        parent::__construct($utilDataReaderService);
-        $this->storeFacade = $storeFacade;
-    }
-
-    /**
      * @param string $touchKey
      * @param array $collectItemData
      *
