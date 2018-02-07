@@ -51,7 +51,7 @@ class CatalogController extends AbstractController
         $searchResults[FacetResultFormatterPlugin::NAME] = $productCategoryFilterClient
             ->updateCategoryFacets(
                 $searchResults[FacetResultFormatterPlugin::NAME],
-                $parameters[PageIndexMap::CATEGORY],
+                $categoryNode['id_category'],
                 $currentLocale
             );
 

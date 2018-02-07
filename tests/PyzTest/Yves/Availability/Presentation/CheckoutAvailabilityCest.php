@@ -7,6 +7,7 @@
 
 namespace PyzTest\Yves\Availability\Presentation;
 
+use Codeception\Scenario;
 use PyzTest\Yves\Availability\AvailabilityPresentationTester;
 use PyzTest\Yves\Cart\PageObject\CartListPage;
 use PyzTest\Yves\Product\PageObject\ProductDetailPage;
@@ -27,11 +28,16 @@ class CheckoutAvailabilityCest
 {
     /**
      * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
+     * @param \Codeception\Scenario $scenario
      *
      * @return void
      */
-    public function testCheckoutItemWithAvailability(AvailabilityPresentationTester $i)
+    public function testCheckoutItemWithAvailability(AvailabilityPresentationTester $i, Scenario $scenario)
     {
+        if (version_compare(PHP_VERSION, '7.2', '>=')) {
+            $scenario->skip('Re-enable the test when VM with PHP 7.2 is available.');
+        }
+
         $i->wantTo('Checkout item with stock');
         $i->expectTo('Availability changed during SM processing.');
 
@@ -55,14 +61,10 @@ class CheckoutAvailabilityCest
 
         $reservedProductsBefore = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
 
-        codecept_debug('Reserved Products before: ' . $reservedProductsBefore);
-
         $i->amOnPage(OrderListPage::ORDER_LIST_URL);
         $i->wait(2);
 
         $idSalesOrder = $i->grabTextFrom('//*[@class="dataTables_scrollBody"]/table/tbody/tr[1]/td[1]');
-
-        codecept_debug('ID Sales order: ' . $idSalesOrder);
 
         $i->amOnPage(sprintf(OrderDetailPage::ORDER_DETAIL_PAGE_URL, $idSalesOrder));
 
