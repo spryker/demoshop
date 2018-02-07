@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ba1ced8bc608c6699d68e09188ca6a2",
+    "content-hash": "2dae69c279bcf2600223fb2b267e9ff3",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.52.2",
+            "version": "3.52.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "69ba4e07288a532fe7635f7cdd73cffa6509f538"
+                "reference": "6dd007c30d377cf859f27238d07c87ff29a74b24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/69ba4e07288a532fe7635f7cdd73cffa6509f538",
-                "reference": "69ba4e07288a532fe7635f7cdd73cffa6509f538",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6dd007c30d377cf859f27238d07c87ff29a74b24",
+                "reference": "6dd007c30d377cf859f27238d07c87ff29a74b24",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-01-26T22:17:57+00:00"
+            "time": "2018-02-06T22:01:12+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -735,48 +735,6 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
-            "name": "ircmaxell/password-compat",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/password.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
-            "homepage": "https://github.com/ircmaxell/password_compat",
-            "keywords": [
-                "hashing",
-                "password"
-            ],
-            "time": "2014-11-20T16:49:30+00:00"
-        },
-        {
             "name": "league/flysystem",
             "version": "1.0.42",
             "source": {
@@ -1212,16 +1170,16 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "f48748546e398d846134c594dfca9070c4c3b356"
+                "reference": "39ff84e893676d5fc677f9c4843f1d4466d83d30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/f48748546e398d846134c594dfca9070c4c3b356",
-                "reference": "f48748546e398d846134c594dfca9070c4c3b356",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/39ff84e893676d5fc677f9c4843f1d4466d83d30",
+                "reference": "39ff84e893676d5fc677f9c4843f1d4466d83d30",
                 "shasum": ""
             },
             "require": {
@@ -1233,6 +1191,7 @@
                 "videlalvaro/php-amqplib": "self.version"
             },
             "require-dev": {
+                "phpdocumentor/phpdocumentor": "^2.9",
                 "phpunit/phpunit": "^4.8",
                 "scrutinizer/ocular": "^1.1",
                 "squizlabs/php_codesniffer": "^2.5"
@@ -1253,7 +1212,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-2.1"
+                "LGPL-2.1-or-later"
             ],
             "authors": [
                 {
@@ -1278,7 +1237,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2017-08-03T22:06:21+00:00"
+            "time": "2018-02-01T16:31:07+00:00"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -1419,30 +1378,29 @@
         },
         {
             "name": "propel/propel",
-            "version": "2.0.0-alpha7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d"
+                "reference": "80cda8a38c6bcd26aae7d26140a4e8cd5e3c0588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/dc55788dd4a7945b8ddef4391474efaca06b067d",
-                "reference": "dc55788dd4a7945b8ddef4391474efaca06b067d",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/80cda8a38c6bcd26aae7d26140a4e8cd5e3c0588",
+                "reference": "80cda8a38c6bcd26aae7d26140a4e8cd5e3c0588",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5",
                 "psr/log": "~1.0",
-                "symfony/config": "~2.3||~3.0",
-                "symfony/console": "~2.3||~3.0",
-                "symfony/filesystem": "~2.3||~3.0",
-                "symfony/finder": "~2.3||~3.0",
-                "symfony/validator": "~2.3||~3.0",
-                "symfony/yaml": "~2.3||~3.0"
+                "symfony/config": "~2.3||~3.0||~4.0",
+                "symfony/console": "~2.3||~3.0||~4.0",
+                "symfony/filesystem": "~2.3||~3.0||~4.0",
+                "symfony/finder": "~2.3||~3.0||~4.0",
+                "symfony/validator": "~2.3||~3.0.0||~3.1.0||^3.2.4||~4.0",
+                "symfony/yaml": "~2.3||~3.0||~4.0"
             },
             "require-dev": {
-                "behat/behat": "~2.4",
                 "monolog/monolog": "~1.3",
                 "phpunit/phpunit": "~4.0||~5.0"
             },
@@ -1480,7 +1438,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-01-03T15:55:52+00:00"
+            "time": "2018-02-07T15:57:51+00:00"
         },
         {
             "name": "psr/container",
@@ -2073,16 +2031,16 @@
         },
         {
             "name": "spryker/auth",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/auth.git",
-                "reference": "b45473a511bc295e305b47a4a22692398a6eb9c7"
+                "reference": "f5d8fa4613edb677dbb7af0cd52ae426cad1b964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/auth/zipball/b45473a511bc295e305b47a4a22692398a6eb9c7",
-                "reference": "b45473a511bc295e305b47a4a22692398a6eb9c7",
+                "url": "https://api.github.com/repos/spryker/auth/zipball/f5d8fa4613edb677dbb7af0cd52ae426cad1b964",
+                "reference": "f5d8fa4613edb677dbb7af0cd52ae426cad1b964",
                 "shasum": ""
             },
             "require": {
@@ -2119,7 +2077,7 @@
                 "proprietary"
             ],
             "description": "Auth module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-06T15:40:01+00:00"
         },
         {
             "name": "spryker/auth-mail-connector",
@@ -2319,16 +2277,16 @@
         },
         {
             "name": "spryker/availability-gui",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/availability-gui.git",
-                "reference": "15f3cf4fff05fdcc7ac65463b31c85ab6a890e79"
+                "reference": "8b00ef90f4facec049f26fc6655c43d48e69555c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/availability-gui/zipball/15f3cf4fff05fdcc7ac65463b31c85ab6a890e79",
-                "reference": "15f3cf4fff05fdcc7ac65463b31c85ab6a890e79",
+                "url": "https://api.github.com/repos/spryker/availability-gui/zipball/8b00ef90f4facec049f26fc6655c43d48e69555c",
+                "reference": "8b00ef90f4facec049f26fc6655c43d48e69555c",
                 "shasum": ""
             },
             "require": {
@@ -2366,7 +2324,7 @@
                 "proprietary"
             ],
             "description": "AvailabilityGui module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/braintree",
@@ -2778,16 +2736,16 @@
         },
         {
             "name": "spryker/category",
-            "version": "4.3.2",
+            "version": "4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/category.git",
-                "reference": "01a3ed5d2d03e989fc87d9f0fdd119b3a2e41599"
+                "reference": "9c5831667b408e16be084860a302b08e27bf5e59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/category/zipball/01a3ed5d2d03e989fc87d9f0fdd119b3a2e41599",
-                "reference": "01a3ed5d2d03e989fc87d9f0fdd119b3a2e41599",
+                "url": "https://api.github.com/repos/spryker/category/zipball/9c5831667b408e16be084860a302b08e27bf5e59",
+                "reference": "9c5831667b408e16be084860a302b08e27bf5e59",
                 "shasum": ""
             },
             "require": {
@@ -2828,7 +2786,7 @@
                 "proprietary"
             ],
             "description": "Category module",
-            "time": "2018-01-25T09:08:35+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/category-data-feed",
@@ -2985,16 +2943,16 @@
         },
         {
             "name": "spryker/cms",
-            "version": "6.4.2",
+            "version": "6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms.git",
-                "reference": "5f9ed2a58a77ac12e60b4b2fbdfd406f2f16279d"
+                "reference": "180a0beb56c3d3c456ea80d5a46ba52120cf24fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms/zipball/5f9ed2a58a77ac12e60b4b2fbdfd406f2f16279d",
-                "reference": "5f9ed2a58a77ac12e60b4b2fbdfd406f2f16279d",
+                "url": "https://api.github.com/repos/spryker/cms/zipball/180a0beb56c3d3c456ea80d5a46ba52120cf24fb",
+                "reference": "180a0beb56c3d3c456ea80d5a46ba52120cf24fb",
                 "shasum": ""
             },
             "require": {
@@ -3040,7 +2998,7 @@
                 "proprietary"
             ],
             "description": "Cms module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/cms-block",
@@ -3099,16 +3057,16 @@
         },
         {
             "name": "spryker/cms-block-category-connector",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms-block-category-connector.git",
-                "reference": "205a05cb6928de0765f4aeb2872afdc19e7573e3"
+                "reference": "6dfc2b1f076ffb54d7daa0549c16c4f5fe16e81a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms-block-category-connector/zipball/205a05cb6928de0765f4aeb2872afdc19e7573e3",
-                "reference": "205a05cb6928de0765f4aeb2872afdc19e7573e3",
+                "url": "https://api.github.com/repos/spryker/cms-block-category-connector/zipball/6dfc2b1f076ffb54d7daa0549c16c4f5fe16e81a",
+                "reference": "6dfc2b1f076ffb54d7daa0549c16c4f5fe16e81a",
                 "shasum": ""
             },
             "require": {
@@ -3151,7 +3109,7 @@
                 "proprietary"
             ],
             "description": "CmsBlockCategoryConnector module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-05T10:03:03+00:00"
         },
         {
             "name": "spryker/cms-block-collector",
@@ -3203,16 +3161,16 @@
         },
         {
             "name": "spryker/cms-block-gui",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms-block-gui.git",
-                "reference": "bb60b0796cc07e0200eef5e5d7ddb4a98fb4cb5d"
+                "reference": "b4785f57a219cf9873c6ee73f19003bb101bb662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms-block-gui/zipball/bb60b0796cc07e0200eef5e5d7ddb4a98fb4cb5d",
-                "reference": "bb60b0796cc07e0200eef5e5d7ddb4a98fb4cb5d",
+                "url": "https://api.github.com/repos/spryker/cms-block-gui/zipball/b4785f57a219cf9873c6ee73f19003bb101bb662",
+                "reference": "b4785f57a219cf9873c6ee73f19003bb101bb662",
                 "shasum": ""
             },
             "require": {
@@ -3247,7 +3205,7 @@
                 "proprietary"
             ],
             "description": "CmsBlockGui module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/cms-block-product-connector",
@@ -3611,16 +3569,16 @@
         },
         {
             "name": "spryker/cms-gui",
-            "version": "4.3.5",
+            "version": "4.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms-gui.git",
-                "reference": "42383a1092662fe159de150ac1da955b5095071a"
+                "reference": "f82570b3c4f953651ecb5a9d27daa9498b07b9c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms-gui/zipball/42383a1092662fe159de150ac1da955b5095071a",
-                "reference": "42383a1092662fe159de150ac1da955b5095071a",
+                "url": "https://api.github.com/repos/spryker/cms-gui/zipball/f82570b3c4f953651ecb5a9d27daa9498b07b9c1",
+                "reference": "f82570b3c4f953651ecb5a9d27daa9498b07b9c1",
                 "shasum": ""
             },
             "require": {
@@ -3660,7 +3618,7 @@
                 "proprietary"
             ],
             "description": "CmsGui module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/cms-user-connector",
@@ -4065,16 +4023,16 @@
         },
         {
             "name": "spryker/customer",
-            "version": "7.4.1",
+            "version": "7.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/customer.git",
-                "reference": "dd181ae9c617bfe8f236ae79c075f207c692800e"
+                "reference": "63dd95e2b69c8f061dfddc1bf1b5fe2803ed9aa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/customer/zipball/dd181ae9c617bfe8f236ae79c075f207c692800e",
-                "reference": "dd181ae9c617bfe8f236ae79c075f207c692800e",
+                "url": "https://api.github.com/repos/spryker/customer/zipball/63dd95e2b69c8f061dfddc1bf1b5fe2803ed9aa3",
+                "reference": "63dd95e2b69c8f061dfddc1bf1b5fe2803ed9aa3",
                 "shasum": ""
             },
             "require": {
@@ -4128,7 +4086,7 @@
                 "proprietary"
             ],
             "description": "Customer module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-06T15:40:01+00:00"
         },
         {
             "name": "spryker/customer-api",
@@ -4190,16 +4148,16 @@
         },
         {
             "name": "spryker/customer-group",
-            "version": "2.2.5",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/customer-group.git",
-                "reference": "d7f0417d08c5537254178fb457ea76bbc2ea3a2c"
+                "reference": "bbb57158ac74a72c2c93089a9929e6c300539b12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/customer-group/zipball/d7f0417d08c5537254178fb457ea76bbc2ea3a2c",
-                "reference": "d7f0417d08c5537254178fb457ea76bbc2ea3a2c",
+                "url": "https://api.github.com/repos/spryker/customer-group/zipball/bbb57158ac74a72c2c93089a9929e6c300539b12",
+                "reference": "bbb57158ac74a72c2c93089a9929e6c300539b12",
                 "shasum": ""
             },
             "require": {
@@ -4239,25 +4197,26 @@
                 "proprietary"
             ],
             "description": "CustomerGroup module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/customer-group-discount-connector",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/CustomerGroupDiscountConnector.git",
-                "reference": "075a293ae2d19a4b39873e310ceb47596dfcf0a0"
+                "url": "https://github.com/spryker/customer-group-discount-connector.git",
+                "reference": "906fb8f914ba28466aaffbe66e0907d6bc3124ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/CustomerGroupDiscountConnector/zipball/075a293ae2d19a4b39873e310ceb47596dfcf0a0",
-                "reference": "075a293ae2d19a4b39873e310ceb47596dfcf0a0",
+                "url": "https://api.github.com/repos/spryker/customer-group-discount-connector/zipball/906fb8f914ba28466aaffbe66e0907d6bc3124ea",
+                "reference": "906fb8f914ba28466aaffbe66e0907d6bc3124ea",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/customer-group": "^2.0.0",
-                "spryker/discount": "^4.0.0 || ^5.0.0",
+                "spryker/discount": "^4.0.0 || ^5.0.0 || ^6.0.0",
                 "spryker/kernel": "^3.0.0"
             },
             "require-dev": {
@@ -4274,29 +4233,16 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                },
                 "psr-4": {
-                    "CustomerGroup\\Module\\": "tests/"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-0": {
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.foo.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "CustomerGroupDiscountConnector module",
-            "support": {
-                "source": "https://github.com/spryker/CustomerGroupDiscountConnector/tree/master"
-            },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2018-01-26T13:20:18+00:00"
         },
         {
             "name": "spryker/customer-user-connector",
@@ -4438,16 +4384,16 @@
         },
         {
             "name": "spryker/discount",
-            "version": "5.2.2",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/discount.git",
-                "reference": "f2276cefd62da371990ab96c4751767e644521bf"
+                "reference": "6f091255b86eb713e0d5877e5d8855a8a419b4df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/discount/zipball/f2276cefd62da371990ab96c4751767e644521bf",
-                "reference": "f2276cefd62da371990ab96c4751767e644521bf",
+                "url": "https://api.github.com/repos/spryker/discount/zipball/6f091255b86eb713e0d5877e5d8855a8a419b4df",
+                "reference": "6f091255b86eb713e0d5877e5d8855a8a419b4df",
                 "shasum": ""
             },
             "require": {
@@ -4473,7 +4419,8 @@
                 "spryker/transfer": "*"
             },
             "suggest": {
-                "spryker/checkout": "If you want to use Checkout plugins."
+                "spryker/checkout": "If you want to use Checkout plugins.",
+                "spryker/store": "StoreQuoteTransferExpander plugin can help to populate current Store into Quote, minimum required version: 1.4.0"
             },
             "type": "library",
             "extra": {
@@ -4492,24 +4439,25 @@
                 "proprietary"
             ],
             "description": "Discount module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-07T10:09:57+00:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
-            "version": "5.0.1",
+            "version": "5.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/DiscountCalculationConnector.git",
-                "reference": "a1106863ac67792b3b1cb1de7d9af9fd53d11ddc"
+                "url": "https://github.com/spryker/discount-calculation-connector.git",
+                "reference": "a848d1b3b965228b0fbd602c783b70c78801c447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/DiscountCalculationConnector/zipball/a1106863ac67792b3b1cb1de7d9af9fd53d11ddc",
-                "reference": "a1106863ac67792b3b1cb1de7d9af9fd53d11ddc",
+                "url": "https://api.github.com/repos/spryker/discount-calculation-connector/zipball/a848d1b3b965228b0fbd602c783b70c78801c447",
+                "reference": "a848d1b3b965228b0fbd602c783b70c78801c447",
                 "shasum": ""
             },
             "require": {
-                "spryker/discount": "^4.0.0 || ^5.0.0",
+                "php": ">=7.1",
+                "spryker/discount": "^4.0.0 || ^5.0.0 || ^6.0.0",
                 "spryker/kernel": "^3.0.0"
             },
             "require-dev": {
@@ -4527,44 +4475,35 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.foo.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "DiscountCalculationConnector module",
-            "support": {
-                "source": "https://github.com/spryker/DiscountCalculationConnector/tree/master"
-            },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2018-01-26T13:20:18+00:00"
         },
         {
             "name": "spryker/discount-promotion",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/discount-promotion.git",
-                "reference": "ee58353b67e29c4fd489bbd4e81b8e743e5984ee"
+                "reference": "b1fc6d6a1b3f237936615d28c87df35717666adb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/discount-promotion/zipball/ee58353b67e29c4fd489bbd4e81b8e743e5984ee",
-                "reference": "ee58353b67e29c4fd489bbd4e81b8e743e5984ee",
+                "url": "https://api.github.com/repos/spryker/discount-promotion/zipball/b1fc6d6a1b3f237936615d28c87df35717666adb",
+                "reference": "b1fc6d6a1b3f237936615d28c87df35717666adb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/availability": "^5.0.3",
-                "spryker/discount": "^4.5.0 || ^5.0.0",
+                "spryker/discount": "^4.5.0 || ^5.0.0 || ^6.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
                 "spryker/product": "^5.0.0 || ^6.0.0",
@@ -4600,7 +4539,7 @@
                 "proprietary"
             ],
             "description": "DiscountPromotion module",
-            "time": "2018-01-31T08:35:21+00:00"
+            "time": "2018-02-07T10:09:57+00:00"
         },
         {
             "name": "spryker/dummy-payment",
@@ -5131,16 +5070,16 @@
         },
         {
             "name": "spryker/glossary",
-            "version": "3.3.2",
+            "version": "3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/glossary.git",
-                "reference": "2c93da385eaa49cd4fc83d407dbc5c5f410f3a1a"
+                "reference": "be5a73d13ca49247f8cd8fa2157451cde0bdd132"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/glossary/zipball/2c93da385eaa49cd4fc83d407dbc5c5f410f3a1a",
-                "reference": "2c93da385eaa49cd4fc83d407dbc5c5f410f3a1a",
+                "url": "https://api.github.com/repos/spryker/glossary/zipball/be5a73d13ca49247f8cd8fa2157451cde0bdd132",
+                "reference": "be5a73d13ca49247f8cd8fa2157451cde0bdd132",
                 "shasum": ""
             },
             "require": {
@@ -5184,7 +5123,7 @@
                 "proprietary"
             ],
             "description": "Glossary module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/graph",
@@ -5401,16 +5340,16 @@
         },
         {
             "name": "spryker/install",
-            "version": "0.1.1",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "09694843c44983caa0c5c1bb85782fce48a971f2"
+                "reference": "9c36dc95668da724b393251424bc47604c64704c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/09694843c44983caa0c5c1bb85782fce48a971f2",
-                "reference": "09694843c44983caa0c5c1bb85782fce48a971f2",
+                "url": "https://api.github.com/repos/spryker/install/zipball/9c36dc95668da724b393251424bc47604c64704c",
+                "reference": "9c36dc95668da724b393251424bc47604c64704c",
                 "shasum": ""
             },
             "require": {
@@ -5440,8 +5379,8 @@
             "license": [
                 "MIT"
             ],
-            "description": "Project",
-            "time": "2018-01-16T13:12:55+00:00"
+            "description": "Spryker install tool",
+            "time": "2018-02-06T08:26:04+00:00"
         },
         {
             "name": "spryker/installer",
@@ -5890,16 +5829,16 @@
         },
         {
             "name": "spryker/money",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/money.git",
-                "reference": "059b2843426edbacd4f3cd27f842d772d2d93f6f"
+                "reference": "f8e8eb964337369c234a71f9119c7f3f403232a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/money/zipball/059b2843426edbacd4f3cd27f842d772d2d93f6f",
-                "reference": "059b2843426edbacd4f3cd27f842d772d2d93f6f",
+                "url": "https://api.github.com/repos/spryker/money/zipball/f8e8eb964337369c234a71f9119c7f3f403232a6",
+                "reference": "f8e8eb964337369c234a71f9119c7f3f403232a6",
                 "shasum": ""
             },
             "require": {
@@ -5937,7 +5876,7 @@
                 "proprietary"
             ],
             "description": "Money module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-01T09:02:49+00:00"
         },
         {
             "name": "spryker/monolog",
@@ -6072,16 +6011,16 @@
         },
         {
             "name": "spryker/navigation-gui",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/navigation-gui.git",
-                "reference": "781871a7b33865c0592b5757a899253c57f47d1b"
+                "reference": "971171e4737501bc180a5ed4dfafc750de71f2cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/navigation-gui/zipball/781871a7b33865c0592b5757a899253c57f47d1b",
-                "reference": "781871a7b33865c0592b5757a899253c57f47d1b",
+                "url": "https://api.github.com/repos/spryker/navigation-gui/zipball/971171e4737501bc180a5ed4dfafc750de71f2cf",
+                "reference": "971171e4737501bc180a5ed4dfafc750de71f2cf",
                 "shasum": ""
             },
             "require": {
@@ -6119,7 +6058,7 @@
                 "proprietary"
             ],
             "description": "NavigationGui module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/new-relic",
@@ -6360,20 +6299,21 @@
         },
         {
             "name": "spryker/oms-discount-connector",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/OmsDiscountConnector.git",
-                "reference": "eeccdcb03cd9be3011252cc75d6eafec7e53795b"
+                "url": "https://github.com/spryker/oms-discount-connector.git",
+                "reference": "6e9fab0f23363fdaa6b92fd3b8ec6ae937198aa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/OmsDiscountConnector/zipball/eeccdcb03cd9be3011252cc75d6eafec7e53795b",
-                "reference": "eeccdcb03cd9be3011252cc75d6eafec7e53795b",
+                "url": "https://api.github.com/repos/spryker/oms-discount-connector/zipball/6e9fab0f23363fdaa6b92fd3b8ec6ae937198aa5",
+                "reference": "6e9fab0f23363fdaa6b92fd3b8ec6ae937198aa5",
                 "shasum": ""
             },
             "require": {
-                "spryker/discount": "^4.0.0 || ^5.0.0",
+                "php": ">=7.1",
+                "spryker/discount": "^4.0.0 || ^5.0.0 || ^6.0.0",
                 "spryker/kernel": "^3.0.0"
             },
             "require-dev": {
@@ -6393,24 +6333,16 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.foo.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "OmsDiscountConnector module",
-            "support": {
-                "source": "https://github.com/spryker/OmsDiscountConnector/tree/master"
-            },
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2018-01-26T13:20:18+00:00"
         },
         {
             "name": "spryker/payment",
@@ -7148,16 +7080,16 @@
         },
         {
             "name": "spryker/product-category",
-            "version": "4.5.2",
+            "version": "4.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-category.git",
-                "reference": "82772b1fdd63addc1680ce221e410922794b5ec6"
+                "reference": "55f73a76f4dd49094ce291b75b2c547b7541f945"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-category/zipball/82772b1fdd63addc1680ce221e410922794b5ec6",
-                "reference": "82772b1fdd63addc1680ce221e410922794b5ec6",
+                "url": "https://api.github.com/repos/spryker/product-category/zipball/55f73a76f4dd49094ce291b75b2c547b7541f945",
+                "reference": "55f73a76f4dd49094ce291b75b2c547b7541f945",
                 "shasum": ""
             },
             "require": {
@@ -7197,20 +7129,20 @@
                 "proprietary"
             ],
             "description": "ProductCategory module",
-            "time": "2018-01-25T09:03:47+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/product-category-filter",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-category-filter.git",
-                "reference": "3f74803ca4cf3b8f32c9544301be9a71d39b50ba"
+                "reference": "096ab03cf2ad2c3f003c448675a5464e4bd87ac2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-category-filter/zipball/3f74803ca4cf3b8f32c9544301be9a71d39b50ba",
-                "reference": "3f74803ca4cf3b8f32c9544301be9a71d39b50ba",
+                "url": "https://api.github.com/repos/spryker/product-category-filter/zipball/096ab03cf2ad2c3f003c448675a5464e4bd87ac2",
+                "reference": "096ab03cf2ad2c3f003c448675a5464e4bd87ac2",
                 "shasum": ""
             },
             "require": {
@@ -7244,7 +7176,7 @@
                 "proprietary"
             ],
             "description": "ProductCategoryFilter module",
-            "time": "2018-01-25T12:37:32+00:00"
+            "time": "2018-02-05T13:51:35+00:00"
         },
         {
             "name": "spryker/product-category-filter-collector",
@@ -7294,16 +7226,16 @@
         },
         {
             "name": "spryker/product-category-filter-gui",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-category-filter-gui.git",
-                "reference": "480b253980512b5d97dd3b4f03c689d7e0d125b3"
+                "reference": "efb042b79ecb18bc4bbec406a986ac619e101380"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-category-filter-gui/zipball/480b253980512b5d97dd3b4f03c689d7e0d125b3",
-                "reference": "480b253980512b5d97dd3b4f03c689d7e0d125b3",
+                "url": "https://api.github.com/repos/spryker/product-category-filter-gui/zipball/efb042b79ecb18bc4bbec406a986ac619e101380",
+                "reference": "efb042b79ecb18bc4bbec406a986ac619e101380",
                 "shasum": ""
             },
             "require": {
@@ -7341,25 +7273,25 @@
                 "proprietary"
             ],
             "description": "ProductCategoryFilterGui module",
-            "time": "2018-01-25T17:41:45+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/product-discount-connector",
-            "version": "3.2.1",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-discount-connector.git",
-                "reference": "2641b0ed2cc32da2a8ceec140f7ebd9b5af61115"
+                "reference": "f5660f22bbb39413e228807524e3556dbe3abdc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-discount-connector/zipball/2641b0ed2cc32da2a8ceec140f7ebd9b5af61115",
-                "reference": "2641b0ed2cc32da2a8ceec140f7ebd9b5af61115",
+                "url": "https://api.github.com/repos/spryker/product-discount-connector/zipball/f5660f22bbb39413e228807524e3556dbe3abdc9",
+                "reference": "f5660f22bbb39413e228807524e3556dbe3abdc9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/discount": "^4.0.0 || ^5.0.0",
+                "spryker/discount": "^4.0.0 || ^5.0.0 || ^6.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/locale": "^3.0.0",
                 "spryker/product": "^5.0.0 || ^6.0.0"
@@ -7388,7 +7320,7 @@
                 "proprietary"
             ],
             "description": "ProductDiscountConnector module",
-            "time": "2018-01-24T11:43:27+00:00"
+            "time": "2018-01-26T13:20:18+00:00"
         },
         {
             "name": "spryker/product-group",
@@ -7690,20 +7622,21 @@
         },
         {
             "name": "spryker/product-label-discount-connector",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ProductLabelDiscountConnector.git",
-                "reference": "b5f0adb0c73623ebaa48f64569e7bef44aa68d7d"
+                "url": "https://github.com/spryker/product-label-discount-connector.git",
+                "reference": "8ab73e0c207495b305baac6741524e416132d425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ProductLabelDiscountConnector/zipball/b5f0adb0c73623ebaa48f64569e7bef44aa68d7d",
-                "reference": "b5f0adb0c73623ebaa48f64569e7bef44aa68d7d",
+                "url": "https://api.github.com/repos/spryker/product-label-discount-connector/zipball/8ab73e0c207495b305baac6741524e416132d425",
+                "reference": "8ab73e0c207495b305baac6741524e416132d425",
                 "shasum": ""
             },
             "require": {
-                "spryker/discount": "^4.2.0 || ^5.0.0",
+                "php": ">=7.1",
+                "spryker/discount": "^4.2.0 || ^5.0.0 || ^6.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/product-label": "^1.1.0 || ^2.0.0"
             },
@@ -7719,8 +7652,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Spryker\\": "src/Spryker/",
-                    "SprykerTest\\Zed\\ProductLabelDiscountConnector\\": "tests/SprykerTest/Zed/ProductLabelDiscountConnector/_support/"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -7728,20 +7660,20 @@
                 "proprietary"
             ],
             "description": "ProductLabelDiscountConnector module",
-            "time": "2017-10-06T12:43:41+00:00"
+            "time": "2018-01-26T13:20:18+00:00"
         },
         {
             "name": "spryker/product-label-gui",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-label-gui.git",
-                "reference": "3be321fc95da67c34bfc8ac84b2f6890f565549d"
+                "reference": "8165b5a4c9935696d1a61693baa8604d3c121260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-label-gui/zipball/3be321fc95da67c34bfc8ac84b2f6890f565549d",
-                "reference": "3be321fc95da67c34bfc8ac84b2f6890f565549d",
+                "url": "https://api.github.com/repos/spryker/product-label-gui/zipball/8165b5a4c9935696d1a61693baa8604d3c121260",
+                "reference": "8165b5a4c9935696d1a61693baa8604d3c121260",
                 "shasum": ""
             },
             "require": {
@@ -7755,7 +7687,7 @@
                 "spryker/price-product": "^1.0.0",
                 "spryker/product": "^5.1.0 || ^6.0.0",
                 "spryker/product-label": "^1.0.0 || ^2.0.0",
-                "spryker/product-management": "^0.6.0 || ^0.7.0 || ^0.8.0 || ^0.9.0 || ^0.10.0",
+                "spryker/product-management": "^0.6.0 || ^0.7.0 || ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0",
                 "spryker/propel-orm": "^1.1.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-text": "^1.1.0"
@@ -7782,7 +7714,7 @@
                 "proprietary"
             ],
             "description": "ProductLabelGui module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-02T14:22:14+00:00"
         },
         {
             "name": "spryker/product-label-storage",
@@ -7839,16 +7771,16 @@
         },
         {
             "name": "spryker/product-management",
-            "version": "0.10.3",
+            "version": "0.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-management.git",
-                "reference": "986fd100ac59fe7d73509c64ba5f21ae89a8ba47"
+                "reference": "71ed52ba3264d951067c498b1b3ac8299f2d654b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-management/zipball/986fd100ac59fe7d73509c64ba5f21ae89a8ba47",
-                "reference": "986fd100ac59fe7d73509c64ba5f21ae89a8ba47",
+                "url": "https://api.github.com/repos/spryker/product-management/zipball/71ed52ba3264d951067c498b1b3ac8299f2d654b",
+                "reference": "71ed52ba3264d951067c498b1b3ac8299f2d654b",
                 "shasum": ""
             },
             "require": {
@@ -7868,6 +7800,7 @@
                 "spryker/product-bundle": "^2.0.0 || ^3.0.0 || ^4.0.0",
                 "spryker/product-group": "^1.0.0",
                 "spryker/product-image": "^3.0.0",
+                "spryker/product-validity": "^1.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/stock": "^4.0.4",
                 "spryker/symfony": "^3.0.0",
@@ -7896,7 +7829,7 @@
                 "proprietary"
             ],
             "description": "ProductManagement module",
-            "time": "2018-01-31T12:07:44+00:00"
+            "time": "2018-02-06T15:40:01+00:00"
         },
         {
             "name": "spryker/product-new",
@@ -7950,16 +7883,16 @@
         },
         {
             "name": "spryker/product-option",
-            "version": "6.1.3",
+            "version": "6.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-option.git",
-                "reference": "2a0f066dc76151ec210c427f91f0762afdf65b24"
+                "reference": "1b81f59356ba347c2d658b09fb84dc42987cf769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-option/zipball/2a0f066dc76151ec210c427f91f0762afdf65b24",
-                "reference": "2a0f066dc76151ec210c427f91f0762afdf65b24",
+                "url": "https://api.github.com/repos/spryker/product-option/zipball/1b81f59356ba347c2d658b09fb84dc42987cf769",
+                "reference": "1b81f59356ba347c2d658b09fb84dc42987cf769",
                 "shasum": ""
             },
             "require": {
@@ -8014,7 +7947,7 @@
                 "proprietary"
             ],
             "description": "ProductOption module",
-            "time": "2018-01-25T09:08:35+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/product-option-cart-connector",
@@ -8066,16 +7999,16 @@
         },
         {
             "name": "spryker/product-relation",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-relation.git",
-                "reference": "31c42596cdf4d7dc2ba51720d4cee4a26f4adbc0"
+                "reference": "1735b3f236117ac325474240353d3afa36a4610d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-relation/zipball/31c42596cdf4d7dc2ba51720d4cee4a26f4adbc0",
-                "reference": "31c42596cdf4d7dc2ba51720d4cee4a26f4adbc0",
+                "url": "https://api.github.com/repos/spryker/product-relation/zipball/1735b3f236117ac325474240353d3afa36a4610d",
+                "reference": "1735b3f236117ac325474240353d3afa36a4610d",
                 "shasum": ""
             },
             "require": {
@@ -8130,7 +8063,7 @@
                 "proprietary"
             ],
             "description": "ProductRelation module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/product-relation-collector",
@@ -8344,16 +8277,16 @@
         },
         {
             "name": "spryker/product-search",
-            "version": "5.4.3",
+            "version": "5.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-search.git",
-                "reference": "44a7d046143bcb8d5d090d635bc85b6f453c04ca"
+                "reference": "ee40fb7a8e44cb2a4d3a2b96ca3e024cf8d9e823"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-search/zipball/44a7d046143bcb8d5d090d635bc85b6f453c04ca",
-                "reference": "44a7d046143bcb8d5d090d635bc85b6f453c04ca",
+                "url": "https://api.github.com/repos/spryker/product-search/zipball/ee40fb7a8e44cb2a4d3a2b96ca3e024cf8d9e823",
+                "reference": "ee40fb7a8e44cb2a4d3a2b96ca3e024cf8d9e823",
                 "shasum": ""
             },
             "require": {
@@ -8395,7 +8328,7 @@
                 "proprietary"
             ],
             "description": "ProductSearch module",
-            "time": "2018-01-25T09:08:35+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/product-set",
@@ -8503,16 +8436,16 @@
         },
         {
             "name": "spryker/product-set-gui",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-set-gui.git",
-                "reference": "cdcea1fd24942fedcad221258a92a63a838fefe2"
+                "reference": "d45cfc9e453229536d52b6c148163033807ce19c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-set-gui/zipball/cdcea1fd24942fedcad221258a92a63a838fefe2",
-                "reference": "cdcea1fd24942fedcad221258a92a63a838fefe2",
+                "url": "https://api.github.com/repos/spryker/product-set-gui/zipball/d45cfc9e453229536d52b6c148163033807ce19c",
+                "reference": "d45cfc9e453229536d52b6c148163033807ce19c",
                 "shasum": ""
             },
             "require": {
@@ -8552,7 +8485,50 @@
                 "proprietary"
             ],
             "description": "ProductSetGui module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
+        },
+        {
+            "name": "spryker/product-validity",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-validity.git",
+                "reference": "b5b4b81d8170fe4461c91d8d753e799abbf378ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-validity/zipball/b5b4b81d8170fe4461c91d8d753e799abbf378ff",
+                "reference": "b5b4b81d8170fe4461c91d8d753e799abbf378ff",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.13.0",
+                "spryker/product": "^6.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/symfony": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductValidity module",
+            "time": "2018-02-01T18:50:14+00:00"
         },
         {
             "name": "spryker/propel",
@@ -8608,20 +8584,21 @@
         },
         {
             "name": "spryker/propel-orm",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/PropelOrm.git",
-                "reference": "2ba5d310f7e18aa5b87576c5433727bc986d7af1"
+                "url": "https://github.com/spryker/propel-orm.git",
+                "reference": "b0b8090d9852f2dd6cb327913c52ddddd49e56af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/PropelOrm/zipball/2ba5d310f7e18aa5b87576c5433727bc986d7af1",
-                "reference": "2ba5d310f7e18aa5b87576c5433727bc986d7af1",
+                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/b0b8090d9852f2dd6cb327913c52ddddd49e56af",
+                "reference": "b0b8090d9852f2dd6cb327913c52ddddd49e56af",
                 "shasum": ""
             },
             "require": {
-                "propel/propel": "2.0.0-alpha7",
+                "php": ">=7.1",
+                "propel/propel": "dev-master#1f6557d1a6f436b6bb08099238878246362028ca",
                 "spryker/config": "^3.0.0",
                 "spryker/error-handler": "^2.0.0"
             },
@@ -8641,7 +8618,7 @@
                 "proprietary"
             ],
             "description": "PropelOrm module",
-            "time": "2017-11-08T18:39:37+00:00"
+            "time": "2018-02-01T09:03:13+00:00"
         },
         {
             "name": "spryker/propel-query-builder",
@@ -8728,19 +8705,20 @@
         },
         {
             "name": "spryker/quote",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Quote.git",
-                "reference": "5135b9f2e748b1e60b68fdf8fa82f5d176197aed"
+                "url": "https://github.com/spryker/quote.git",
+                "reference": "618b1a98b9ec525816e6dd3c1e3ec168ca543bb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Quote/zipball/5135b9f2e748b1e60b68fdf8fa82f5d176197aed",
-                "reference": "5135b9f2e748b1e60b68fdf8fa82f5d176197aed",
+                "url": "https://api.github.com/repos/spryker/quote/zipball/618b1a98b9ec525816e6dd3c1e3ec168ca543bb9",
+                "reference": "618b1a98b9ec525816e6dd3c1e3ec168ca543bb9",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/currency": "^2.0.0 || ^3.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/session": "^3.0.0",
@@ -8757,24 +8735,16 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-0": {
-                    "Functional": "tests/"
-                }
-            },
-            "notification-url": "https://code.foo.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Quote module",
-            "support": {
-                "source": "https://github.com/spryker/Quote/tree/1.1.0"
-            },
-            "time": "2017-09-19T11:56:53+00:00"
+            "time": "2018-02-07T10:09:57+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -8927,16 +8897,16 @@
         },
         {
             "name": "spryker/sales",
-            "version": "8.5.2",
+            "version": "8.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/sales.git",
-                "reference": "7763f9251d278843a36644cfddbd401ae147981d"
+                "reference": "a80e3a2aafa10b00e28130f7ad52fdae0f8e0735"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/sales/zipball/7763f9251d278843a36644cfddbd401ae147981d",
-                "reference": "7763f9251d278843a36644cfddbd401ae147981d",
+                "url": "https://api.github.com/repos/spryker/sales/zipball/a80e3a2aafa10b00e28130f7ad52fdae0f8e0735",
+                "reference": "a80e3a2aafa10b00e28130f7ad52fdae0f8e0735",
                 "shasum": ""
             },
             "require": {
@@ -8989,7 +8959,7 @@
                 "proprietary"
             ],
             "description": "Sales module",
-            "time": "2018-01-31T16:14:35+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/sales-product-connector",
@@ -9042,16 +9012,16 @@
         },
         {
             "name": "spryker/sales-split",
-            "version": "3.0.4",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/sales-split.git",
-                "reference": "b6964f4534b760d3602d3ab0c64f1bc02d32c2d4"
+                "reference": "18d6a56c3ad9cc3911337288d172a3d02480d24c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/sales-split/zipball/b6964f4534b760d3602d3ab0c64f1bc02d32c2d4",
-                "reference": "b6964f4534b760d3602d3ab0c64f1bc02d32c2d4",
+                "url": "https://api.github.com/repos/spryker/sales-split/zipball/18d6a56c3ad9cc3911337288d172a3d02480d24c",
+                "reference": "18d6a56c3ad9cc3911337288d172a3d02480d24c",
                 "shasum": ""
             },
             "require": {
@@ -9082,7 +9052,7 @@
                 "proprietary"
             ],
             "description": "SalesSplit module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/search",
@@ -9315,16 +9285,16 @@
         },
         {
             "name": "spryker/shipment",
-            "version": "6.2.1",
+            "version": "6.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/shipment.git",
-                "reference": "e8bb8fef7a893b5135c06a0b3d167618459825b9"
+                "reference": "8bfa13c2beb43899e69cc4c730a98591d92d354f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/shipment/zipball/e8bb8fef7a893b5135c06a0b3d167618459825b9",
-                "reference": "e8bb8fef7a893b5135c06a0b3d167618459825b9",
+                "url": "https://api.github.com/repos/spryker/shipment/zipball/8bfa13c2beb43899e69cc4c730a98591d92d354f",
+                "reference": "8bfa13c2beb43899e69cc4c730a98591d92d354f",
                 "shasum": ""
             },
             "require": {
@@ -9372,7 +9342,7 @@
                 "proprietary"
             ],
             "description": "Shipment module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/shipment-cart-connector",
@@ -9419,20 +9389,21 @@
         },
         {
             "name": "spryker/shipment-discount-connector",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/ShipmentDiscountConnector.git",
-                "reference": "58fc7385a367ed674707a6679c4dbd68d3881d3a"
+                "url": "https://github.com/spryker/shipment-discount-connector.git",
+                "reference": "0f108c960f0720d5a25f506edee72015a67837ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/ShipmentDiscountConnector/zipball/58fc7385a367ed674707a6679c4dbd68d3881d3a",
-                "reference": "58fc7385a367ed674707a6679c4dbd68d3881d3a",
+                "url": "https://api.github.com/repos/spryker/shipment-discount-connector/zipball/0f108c960f0720d5a25f506edee72015a67837ea",
+                "reference": "0f108c960f0720d5a25f506edee72015a67837ea",
                 "shasum": ""
             },
             "require": {
-                "spryker/discount": "^4.3.0 || ^5.0.0",
+                "php": ">=7.1",
+                "spryker/discount": "^4.3.0 || ^5.0.0 || ^6.0.0",
                 "spryker/kernel": "^3.0.0",
                 "spryker/money": "^2.0.0",
                 "spryker/shipment": "^5.1.0 || ^6.0.0"
@@ -9460,7 +9431,7 @@
                 "proprietary"
             ],
             "description": "ShipmentDiscountConnector module",
-            "time": "2017-10-23T09:38:23+00:00"
+            "time": "2018-01-26T13:20:18+00:00"
         },
         {
             "name": "spryker/silex",
@@ -9588,16 +9559,16 @@
         },
         {
             "name": "spryker/step-engine",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/step-engine.git",
-                "reference": "5d8909f22d3f07ffb329e090505f42dbaacbe5b0"
+                "reference": "12e996937afc581852188f1d1cba7717aaffeeec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/step-engine/zipball/5d8909f22d3f07ffb329e090505f42dbaacbe5b0",
-                "reference": "5d8909f22d3f07ffb329e090505f42dbaacbe5b0",
+                "url": "https://api.github.com/repos/spryker/step-engine/zipball/12e996937afc581852188f1d1cba7717aaffeeec",
+                "reference": "12e996937afc581852188f1d1cba7717aaffeeec",
                 "shasum": ""
             },
             "require": {
@@ -9631,7 +9602,7 @@
                 "proprietary"
             ],
             "description": "StepEngine module",
-            "time": "2018-01-25T09:08:13+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/stock",
@@ -9773,16 +9744,16 @@
         },
         {
             "name": "spryker/store",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/store.git",
-                "reference": "c112de9985d06dc29c55f4fbdda829c27a046a24"
+                "reference": "ce326c1729a155e79fe5061ac87e013aa2e80fb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/store/zipball/c112de9985d06dc29c55f4fbdda829c27a046a24",
-                "reference": "c112de9985d06dc29c55f4fbdda829c27a046a24",
+                "url": "https://api.github.com/repos/spryker/store/zipball/ce326c1729a155e79fe5061ac87e013aa2e80fb5",
+                "reference": "ce326c1729a155e79fe5061ac87e013aa2e80fb5",
                 "shasum": ""
             },
             "require": {
@@ -9794,9 +9765,13 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/propel": "*",
+                "spryker/quote": "*",
                 "spryker/testify": "*",
                 "spryker/transfer": "*",
                 "spryker/twig": "*"
+            },
+            "suggest": {
+                "spryker/quote": "If you want to use StoreQuoteTransferExpander plugin, minimum required version: 1.2.0"
             },
             "type": "library",
             "extra": {
@@ -9814,20 +9789,20 @@
                 "proprietary"
             ],
             "description": "Store module",
-            "time": "2018-01-24T11:43:27+00:00"
+            "time": "2018-02-07T10:09:57+00:00"
         },
         {
             "name": "spryker/symfony",
-            "version": "3.1.3",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/symfony.git",
-                "reference": "5d09731d1862c113fed6e021fe56c09535d7740f"
+                "reference": "351679d8e5b641ecd5d731fe46412a8c24a0e3fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/symfony/zipball/5d09731d1862c113fed6e021fe56c09535d7740f",
-                "reference": "5d09731d1862c113fed6e021fe56c09535d7740f",
+                "url": "https://api.github.com/repos/spryker/symfony/zipball/351679d8e5b641ecd5d731fe46412a8c24a0e3fc",
+                "reference": "351679d8e5b641ecd5d731fe46412a8c24a0e3fc",
                 "shasum": ""
             },
             "require": {
@@ -9836,18 +9811,18 @@
                 "symfony/debug": "^2.6.13 || ^3.0.0",
                 "symfony/filesystem": "^2.6.13 || ^3.0.0",
                 "symfony/finder": "^2.6.13 || ^3.0.0",
-                "symfony/form": "^2.7.0",
+                "symfony/form": "^2.7.0 || ^3.0.0",
                 "symfony/http-kernel": "^2.6.13 || ^3.0.0",
                 "symfony/intl": "^2.8.8 || ^3.0.0",
                 "symfony/options-resolver": "^2.6.13 || ^3.0.0",
                 "symfony/process": "^2.6.13 || ^3.0.0",
                 "symfony/property-access": "^2.6.13 || ^3.0.0",
                 "symfony/routing": "^2.6.13 || ^3.0.0",
-                "symfony/security": "^2.6.13",
+                "symfony/security": "^2.6.13 || ^3.0.0",
                 "symfony/serializer": "^2.6.13 || ^3.0.0",
                 "symfony/translation": "^2.6.13 || ^3.0.0",
-                "symfony/twig-bridge": "^2.7.0",
-                "symfony/validator": "^2.6.13",
+                "symfony/twig-bridge": "^2.7.0 || ^3.0.0",
+                "symfony/validator": "^2.6.13 || ^3.0.0",
                 "symfony/yaml": "^2.6.13 || ^3.0.0"
             },
             "require-dev": {
@@ -9870,7 +9845,7 @@
                 "proprietary"
             ],
             "description": "Symfony module",
-            "time": "2018-01-25T09:08:11+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/synchronization",
@@ -9963,16 +9938,16 @@
         },
         {
             "name": "spryker/tax",
-            "version": "5.1.5",
+            "version": "5.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/tax.git",
-                "reference": "c5b1e4fe724d49d78899cd438b70054818a95b59"
+                "reference": "1069673c38e1336a389035e7d9170a8f6a790d0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/tax/zipball/c5b1e4fe724d49d78899cd438b70054818a95b59",
-                "reference": "c5b1e4fe724d49d78899cd438b70054818a95b59",
+                "url": "https://api.github.com/repos/spryker/tax/zipball/1069673c38e1336a389035e7d9170a8f6a790d0a",
+                "reference": "1069673c38e1336a389035e7d9170a8f6a790d0a",
                 "shasum": ""
             },
             "require": {
@@ -10011,7 +9986,7 @@
                 "proprietary"
             ],
             "description": "Tax module",
-            "time": "2018-01-25T09:08:35+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/tax-product-connector",
@@ -10256,16 +10231,16 @@
         },
         {
             "name": "spryker/user",
-            "version": "3.1.4",
+            "version": "3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/user.git",
-                "reference": "91b6f60ef2abd53198f674839ad6ee15f156e207"
+                "reference": "320b0efa48abfc0257deec9aa6de815d1f4b7016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/user/zipball/91b6f60ef2abd53198f674839ad6ee15f156e207",
-                "reference": "91b6f60ef2abd53198f674839ad6ee15f156e207",
+                "url": "https://api.github.com/repos/spryker/user/zipball/320b0efa48abfc0257deec9aa6de815d1f4b7016",
+                "reference": "320b0efa48abfc0257deec9aa6de815d1f4b7016",
                 "shasum": ""
             },
             "require": {
@@ -10306,7 +10281,7 @@
                 "proprietary"
             ],
             "description": "User module",
-            "time": "2018-01-25T09:08:35+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/util-data-reader",
@@ -10464,19 +10439,20 @@
         },
         {
             "name": "spryker/util-sanitize",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/UtilSanitize.git",
-                "reference": "5db0ebb8a445aeb2a475d98cafaf95294b0bc546"
+                "url": "https://github.com/spryker/util-sanitize.git",
+                "reference": "a494e19199349491a762c7c8f0450bf64fdf5e53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/UtilSanitize/zipball/5db0ebb8a445aeb2a475d98cafaf95294b0bc546",
-                "reference": "5db0ebb8a445aeb2a475d98cafaf95294b0bc546",
+                "url": "https://api.github.com/repos/spryker/util-sanitize/zipball/a494e19199349491a762c7c8f0450bf64fdf5e53",
+                "reference": "a494e19199349491a762c7c8f0450bf64fdf5e53",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/kernel": "^3.0.0"
             },
             "type": "library",
@@ -10490,20 +10466,12 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.foo.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "UtilSanitize module",
-            "support": {
-                "source": "https://github.com/spryker/UtilSanitize/tree/master"
-            },
-            "time": "2017-10-24T13:32:31+00:00"
+            "time": "2018-02-05T11:41:16+00:00"
         },
         {
             "name": "spryker/util-text",
@@ -10894,30 +10862,28 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.4",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "72689b934d6c6ecf73eca874e98933bf055313c9"
+                "reference": "ecd917899167922086ddb3247aa43eb1c418fcb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/72689b934d6c6ecf73eca874e98933bf055313c9",
-                "reference": "72689b934d6c6ecf73eca874e98933bf055313c9",
+                "url": "https://api.github.com/repos/symfony/config/zipball/ecd917899167922086ddb3247aa43eb1c418fcb2",
+                "reference": "ecd917899167922086ddb3247aa43eb1c418fcb2",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/filesystem": "~2.8|~3.0|~4.0"
+                "php": "^7.1.3",
+                "symfony/filesystem": "~3.4|~4.0"
             },
             "conflict": {
-                "symfony/dependency-injection": "<3.3",
-                "symfony/finder": "<3.3"
+                "symfony/finder": "<3.4"
             },
             "require-dev": {
-                "symfony/dependency-injection": "~3.3|~4.0",
-                "symfony/finder": "~3.3|~4.0",
-                "symfony/yaml": "~3.0|~4.0"
+                "symfony/finder": "~3.4|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
                 "symfony/yaml": "To use the yaml reference dumper"
@@ -10925,7 +10891,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -10952,7 +10918,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-21T19:05:02+00:00"
+            "time": "2018-01-21T19:06:11+00:00"
         },
         {
             "name": "symfony/console",
@@ -11239,40 +11205,44 @@
         },
         {
             "name": "symfony/form",
-            "version": "v2.8.34",
+            "version": "v3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "b88b4b6c206201673cda2b919300e825bfda4cdc"
+                "reference": "7c728458818dd00024f1900716166a4b6fa6c5fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/b88b4b6c206201673cda2b919300e825bfda4cdc",
-                "reference": "b88b4b6c206201673cda2b919300e825bfda4cdc",
+                "url": "https://api.github.com/repos/symfony/form/zipball/7c728458818dd00024f1900716166a4b6fa6c5fa",
+                "reference": "7c728458818dd00024f1900716166a4b6fa6c5fa",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/event-dispatcher": "~2.1|~3.0.0",
-                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
-                "symfony/options-resolver": "~2.6",
+                "php": ">=5.5.9",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/intl": "^2.8.18|^3.2.5",
+                "symfony/options-resolver": "~2.8|~3.0",
                 "symfony/polyfill-mbstring": "~1.0",
-                "symfony/property-access": "~2.3|~3.0.0"
+                "symfony/property-access": "~2.8|~3.0"
             },
             "conflict": {
                 "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/dependency-injection": "<3.3",
                 "symfony/doctrine-bridge": "<2.7",
                 "symfony/framework-bundle": "<2.7",
-                "symfony/twig-bridge": "<2.7"
+                "symfony/twig-bridge": "<2.7",
+                "symfony/var-dumper": "<3.3"
             },
             "require-dev": {
                 "doctrine/collections": "~1.0",
-                "symfony/dependency-injection": "~2.7|~3.0.0",
-                "symfony/http-foundation": "~2.2|~3.0.0",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/security-csrf": "~2.4|~3.0.0",
-                "symfony/translation": "^2.0.5|~3.0.0",
-                "symfony/validator": "^2.8.18|~3.2.5"
+                "symfony/config": "~2.7|~3.0",
+                "symfony/dependency-injection": "~3.3",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0",
+                "symfony/security-csrf": "~2.8|~3.0",
+                "symfony/translation": "~2.8|~3.0",
+                "symfony/validator": "^2.8.18|^3.2.5",
+                "symfony/var-dumper": "~3.3"
             },
             "suggest": {
                 "symfony/framework-bundle": "For templating with PHP.",
@@ -11283,7 +11253,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -11310,35 +11280,33 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:58:04+00:00"
+            "time": "2017-06-24T09:29:48+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.8.34",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb"
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
-                "reference": "686464910bbe58a2b38eb1f898aa45dc6c4de0cb",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/49ba00f8ede742169cb6b70abe33243f4d673f82",
+                "reference": "49ba00f8ede742169cb6b70abe33243f4d673f82",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/polyfill-mbstring": "~1.1",
-                "symfony/polyfill-php54": "~1.0",
-                "symfony/polyfill-php55": "~1.0"
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.4|~3.0.0"
+                "symfony/expression-language": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -11365,7 +11333,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:54:45+00:00"
+            "time": "2016-07-17T13:54:30+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -11450,25 +11418,82 @@
             "time": "2016-07-30T09:10:37+00:00"
         },
         {
-            "name": "symfony/intl",
-            "version": "v3.2.14",
+            "name": "symfony/inflector",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/intl.git",
-                "reference": "3fd98dde8e7d1c34c974d65b09e9c32abe88dafe"
+                "url": "https://github.com/symfony/inflector.git",
+                "reference": "da634a9968162f7c5c94f8d6949a4ede86085304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
-                "reference": "3fd98dde8e7d1c34c974d65b09e9c32abe88dafe",
+                "url": "https://api.github.com/repos/symfony/inflector/zipball/da634a9968162f7c5c94f8d6949a4ede86085304",
+                "reference": "da634a9968162f7c5c94f8d6949a4ede86085304",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Inflector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Inflector Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string",
+                "symfony",
+                "words"
+            ],
+            "time": "2018-01-03T17:15:19+00:00"
+        },
+        {
+            "name": "symfony/intl",
+            "version": "v3.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "d0f39d59bf1278e76545af555eb07ffc9565597e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/d0f39d59bf1278e76545af555eb07ffc9565597e",
+                "reference": "d0f39d59bf1278e76545af555eb07ffc9565597e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/polyfill-intl-icu": "~1.0"
             },
             "require-dev": {
-                "symfony/filesystem": "~2.8|~3.0"
+                "symfony/filesystem": "~2.8|~3.0|~4.0"
             },
             "suggest": {
                 "ext-intl": "to use the component with locales other than \"en\""
@@ -11476,7 +11501,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -11522,29 +11547,29 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2017-11-16T17:55:54+00:00"
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v2.8.34",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "7b627d71e038f65c58702ad2540d0452cf53cf67"
+                "reference": "f3109a6aedd20e35c3a33190e932c2b063b7b50e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/7b627d71e038f65c58702ad2540d0452cf53cf67",
-                "reference": "7b627d71e038f65c58702ad2540d0452cf53cf67",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/f3109a6aedd20e35c3a33190e932c2b063b7b50e",
+                "reference": "f3109a6aedd20e35c3a33190e932c2b063b7b50e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -11576,7 +11601,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2018-01-03T07:36:31+00:00"
+            "time": "2018-01-11T07:56:07+00:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -11689,120 +11714,6 @@
             "keywords": [
                 "compatibility",
                 "mbstring",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2018-01-30T19:27:44+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php54",
-            "version": "v1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php54.git",
-                "reference": "84e2b616c197ef400c6d0556a0606cee7c9e21d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/84e2b616c197ef400c6d0556a0606cee7c9e21d5",
-                "reference": "84e2b616c197ef400c6d0556a0606cee7c9e21d5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php54\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 5.4+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2018-01-30T19:27:44+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php55",
-            "version": "v1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php55.git",
-                "reference": "168371cb3dfb10e0afde96e7c2688be02470d143"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/168371cb3dfb10e0afde96e7c2688be02470d143",
-                "reference": "168371cb3dfb10e0afde96e7c2688be02470d143",
-                "shasum": ""
-            },
-            "require": {
-                "ircmaxell/password-compat": "~1.0",
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php55\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 5.5+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
                 "polyfill",
                 "portable",
                 "shim"
@@ -12027,25 +11938,33 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v3.0.9",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "a4f1a668d0a269a65790f07d9ab2a97dd060fccb"
+                "reference": "a6e8c778b220dfd5cd5f5dcb09f87ee232dd608a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/a4f1a668d0a269a65790f07d9ab2a97dd060fccb",
-                "reference": "a4f1a668d0a269a65790f07d9ab2a97dd060fccb",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/a6e8c778b220dfd5cd5f5dcb09f87ee232dd608a",
+                "reference": "a6e8c778b220dfd5cd5f5dcb09f87ee232dd608a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/inflector": "~3.1|~4.0",
+                "symfony/polyfill-php70": "~1.0"
+            },
+            "require-dev": {
+                "symfony/cache": "~3.1|~4.0"
+            },
+            "suggest": {
+                "psr/cache-implementation": "To cache access methods."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -12083,7 +12002,7 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2016-07-30T07:22:48+00:00"
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "symfony/routing",
@@ -12162,32 +12081,27 @@
         },
         {
             "name": "symfony/security",
-            "version": "v2.8.34",
+            "version": "v3.2.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097"
+                "reference": "3f6e39f1918f009524e36a56f1609cf74a8cd47c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
+                "url": "https://api.github.com/repos/symfony/security/zipball/3f6e39f1918f009524e36a56f1609cf74a8cd47c",
+                "reference": "3f6e39f1918f009524e36a56f1609cf74a8cd47c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/event-dispatcher": "~2.2|~3.0.0",
-                "symfony/http-foundation": "^2.7.38|~3.3.13",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/polyfill-php55": "~1.0",
+                "php": ">=5.5.9",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/http-kernel": "~2.8|~3.0",
                 "symfony/polyfill-php56": "~1.0",
                 "symfony/polyfill-php70": "~1.0",
                 "symfony/polyfill-util": "~1.0",
-                "symfony/property-access": "~2.3|~3.0.0",
-                "symfony/security-acl": "~2.7|~3.0.0"
-            },
-            "conflict": {
-                "symfony/http-foundation": "~2.8,<2.8.31|~3.4,<3.4-beta5"
+                "symfony/property-access": "~2.8|~3.0"
             },
             "replace": {
                 "symfony/security-core": "self.version",
@@ -12197,12 +12111,12 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/expression-language": "~2.6|~3.0.0",
-                "symfony/finder": "~2.3|~3.0.0",
-                "symfony/ldap": "~2.8|~3.0.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/ldap": "~3.1",
                 "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/validator": "~2.7.25|^2.8.18|~3.2.5"
+                "symfony/routing": "~2.8|~3.0",
+                "symfony/validator": "^2.8.18|^3.2.5"
             },
             "suggest": {
                 "symfony/expression-language": "For using the expression voter",
@@ -12214,7 +12128,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -12241,68 +12155,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-18T13:56:23+00:00"
-        },
-        {
-            "name": "symfony/security-acl",
-            "version": "v3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-acl.git",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/security-core": "~2.8|~3.0|~4.0"
-            },
-            "require-dev": {
-                "doctrine/common": "~2.2",
-                "doctrine/dbal": "~2.2",
-                "psr/log": "~1.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0|~4.0"
-            },
-            "suggest": {
-                "doctrine/dbal": "For using the built-in ACL implementation",
-                "symfony/class-loader": "For using the ACL generateSql script",
-                "symfony/finder": "For using the ACL generateSql script"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Acl\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - ACL (Access Control List)",
-            "homepage": "https://symfony.com",
-            "time": "2017-07-21T06:01:18+00:00"
+            "time": "2017-07-29T21:27:41+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -12384,30 +12237,34 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v3.0.9",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "eee6c664853fd0576f21ae25725cfffeafe83f26"
+                "reference": "10b32cf0eae28b9b39fe26c456c42b19854c4b84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/eee6c664853fd0576f21ae25725cfffeafe83f26",
-                "reference": "eee6c664853fd0576f21ae25725cfffeafe83f26",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/10b32cf0eae28b9b39fe26c456c42b19854c4b84",
+                "reference": "10b32cf0eae28b9b39fe26c456c42b19854c4b84",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
-                "symfony/config": "<2.8"
+                "symfony/config": "<2.8",
+                "symfony/dependency-injection": "<3.4",
+                "symfony/yaml": "<3.4"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/intl": "~2.8|~3.0",
-                "symfony/yaml": "~2.8|~3.0"
+                "symfony/config": "~2.8|~3.0|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/finder": "~2.8|~3.0|~4.0",
+                "symfony/intl": "^2.8.18|^3.2.5|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
                 "psr/log": "To use logging capability in translator",
@@ -12417,7 +12274,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -12444,46 +12301,42 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30T07:22:48+00:00"
+            "time": "2018-01-18T22:16:57+00:00"
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v2.8.34",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "efdc8b39b5a05def32824e578ccf3fcdec8190cc"
+                "reference": "34ddcc46f09f6564f03cb61134ee51f3b309aa58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/efdc8b39b5a05def32824e578ccf3fcdec8190cc",
-                "reference": "efdc8b39b5a05def32824e578ccf3fcdec8190cc",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/34ddcc46f09f6564f03cb61134ee51f3b309aa58",
+                "reference": "34ddcc46f09f6564f03cb61134ee51f3b309aa58",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "twig/twig": "~1.34|~2.4"
-            },
-            "conflict": {
-                "symfony/form": "<2.8.23"
+                "php": ">=5.5.9",
+                "twig/twig": "~1.23|~2.0"
             },
             "require-dev": {
-                "symfony/asset": "~2.7|~3.0.0",
-                "symfony/console": "~2.8|~3.0.0",
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/finder": "~2.3|~3.0.0",
-                "symfony/form": "^2.8.23",
-                "symfony/http-foundation": "^2.8.29|~3.0.0",
-                "symfony/http-kernel": "~2.8|~3.0.0",
+                "symfony/asset": "~2.8|~3.0",
+                "symfony/console": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/form": "~3.0.4",
+                "symfony/http-kernel": "~2.8|~3.0",
                 "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.2|~3.0.0",
-                "symfony/security": "~2.6|~3.0.0",
-                "symfony/security-acl": "~2.6|~3.0.0",
-                "symfony/stopwatch": "~2.2|~3.0.0",
-                "symfony/templating": "~2.1|~3.0.0",
-                "symfony/translation": "~2.7|~3.0.0",
-                "symfony/var-dumper": "~2.7.16|~2.8.9|~3.0.9",
-                "symfony/yaml": "^2.0.5|~3.0.0"
+                "symfony/routing": "~2.8|~3.0",
+                "symfony/security": "~2.8|~3.0",
+                "symfony/security-acl": "~2.8|~3.0",
+                "symfony/stopwatch": "~2.8|~3.0",
+                "symfony/templating": "~2.8|~3.0",
+                "symfony/translation": "~2.8|~3.0",
+                "symfony/var-dumper": "~2.8.9|~3.0.9|~3.1.3|~3.2",
+                "symfony/yaml": "~2.8|~3.0"
             },
             "suggest": {
                 "symfony/asset": "For using the AssetExtension",
@@ -12502,7 +12355,7 @@
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -12529,53 +12382,59 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T17:12:09+00:00"
+            "time": "2016-07-28T11:13:34+00:00"
         },
         {
             "name": "symfony/validator",
-            "version": "v2.8.34",
+            "version": "v3.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a"
+                "reference": "4656103eb72c9f1f77a7435340fcca687b764200"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
-                "reference": "71f4e46ff4ca3c8fee09cc1a3a1b90a06cde5e2a",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/4656103eb72c9f1f77a7435340fcca687b764200",
+                "reference": "4656103eb72c9f1f77a7435340fcca687b764200",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/polyfill-mbstring": "~1.0",
-                "symfony/translation": "~2.4|~3.0.0"
+                "symfony/translation": "~2.8|~3.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+                "symfony/dependency-injection": "<3.3",
+                "symfony/yaml": "<3.3"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
                 "doctrine/cache": "~1.0",
-                "egulias/email-validator": "^1.2.1",
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/expression-language": "~2.4|~3.0.0",
-                "symfony/http-foundation": "~2.3|~3.0.0",
-                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
-                "symfony/property-access": "~2.3|~3.0.0",
-                "symfony/yaml": "^2.0.5|~3.0.0"
+                "egulias/email-validator": "^1.2.8|~2.0",
+                "symfony/cache": "~3.1",
+                "symfony/config": "~2.8|~3.0",
+                "symfony/dependency-injection": "~3.3",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/http-foundation": "~2.8|~3.0",
+                "symfony/intl": "^2.8.18|^3.2.5",
+                "symfony/yaml": "~3.3"
             },
             "suggest": {
                 "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
                 "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
                 "egulias/email-validator": "Strict (RFC compliant) email validation",
+                "psr/cache-implementation": "For using the metadata cache.",
                 "symfony/config": "",
-                "symfony/expression-language": "For using the 2.4 Expression validator",
+                "symfony/expression-language": "For using the Expression validator",
                 "symfony/http-foundation": "",
                 "symfony/intl": "",
-                "symfony/property-access": "For using the 2.4 Validator API",
                 "symfony/yaml": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -12602,7 +12461,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:54:45+00:00"
+            "time": "2018-01-21T19:04:48+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -13204,34 +13063,40 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "1.3.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c"
+                "reference": "86b5ca2f67173c9d34340845dd690149c886a605"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/77300c4ab2025d4316635f592ec849ca7323bd8c",
-                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/86b5ca2f67173c9d34340845dd690149c886a605",
+                "reference": "86b5ca2f67173c9d34340845dd690149c886a605",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "php": "^5.5 || ~7.0",
-                "symfony/process": "^2.8 || ^3.1"
+                "ext-zip": "*",
+                "php": "^5.6 || ~7.0",
+                "symfony/process": "^2.8 || ^3.1 || ^4.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.11",
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "guzzle/guzzle": "^3.4.1",
+                "php-coveralls/php-coveralls": "^1.0.2",
                 "php-mock/php-mock-phpunit": "^1.1",
-                "phpunit/phpunit": "4.6.* || ~5.0",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.6"
-            },
-            "suggest": {
-                "phpdocumentor/phpdocumentor": "2.*"
+                "phpunit/phpunit": "^5.7",
+                "sebastian/environment": "^1.3.4 || ^2.0 || ^3.0",
+                "squizlabs/php_codesniffer": "^2.6",
+                "symfony/var-dumper": "^3.3 || ^4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-community": "1.5-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Facebook\\WebDriver\\": "lib/"
@@ -13241,7 +13106,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "description": "A PHP client for WebDriver",
+            "description": "A PHP client for Selenium WebDriver",
             "homepage": "https://github.com/facebook/php-webdriver",
             "keywords": [
                 "facebook",
@@ -13249,7 +13114,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2017-01-13T15:48:08+00:00"
+            "time": "2017-11-15T11:08:09+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -13710,16 +13575,16 @@
         },
         {
             "name": "nette/robot-loader",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/robot-loader.git",
-                "reference": "b703b4f5955831b0bcaacbd2f6af76021b056826"
+                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/b703b4f5955831b0bcaacbd2f6af76021b056826",
-                "reference": "b703b4f5955831b0bcaacbd2f6af76021b056826",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
+                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
                 "shasum": ""
             },
             "require": {
@@ -13771,20 +13636,20 @@
                 "nette",
                 "trait"
             ],
-            "time": "2017-07-18T00:09:56+00:00"
+            "time": "2017-09-26T13:42:21+00:00"
         },
         {
             "name": "nette/utils",
-            "version": "v2.4.8",
+            "version": "v2.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "f1584033b5af945b470533b466b81a789d532034"
+                "reference": "1e08eb4c9d26ae5aedced8260e8b4ed951ee4aa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/f1584033b5af945b470533b466b81a789d532034",
-                "reference": "f1584033b5af945b470533b466b81a789d532034",
+                "url": "https://api.github.com/repos/nette/utils/zipball/1e08eb4c9d26ae5aedced8260e8b4ed951ee4aa6",
+                "reference": "1e08eb4c9d26ae5aedced8260e8b4ed951ee4aa6",
                 "shasum": ""
             },
             "require": {
@@ -13850,7 +13715,7 @@
                 "utility",
                 "validation"
             ],
-            "time": "2017-08-20T17:32:29+00:00"
+            "time": "2018-02-06T15:40:36+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -13905,27 +13770,27 @@
         },
         {
             "name": "ocramius/package-versions",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/PackageVersions.git",
-                "reference": "ad8a245decad4897cc6b432743913dad0d69753c"
+                "reference": "4489d5002c49d55576fa0ba786f42dbb009be46f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/ad8a245decad4897cc6b432743913dad0d69753c",
-                "reference": "ad8a245decad4897cc6b432743913dad0d69753c",
+                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/4489d5002c49d55576fa0ba786f42dbb009be46f",
+                "reference": "4489d5002c49d55576fa0ba786f42dbb009be46f",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
-                "php": "~7.0"
+                "composer-plugin-api": "^1.0.0",
+                "php": "^7.1.0"
             },
             "require-dev": {
-                "composer/composer": "^1.3",
+                "composer/composer": "^1.6.3",
                 "ext-zip": "*",
-                "humbug/humbug": "dev-master",
-                "phpunit/phpunit": "^6.4"
+                "infection/infection": "^0.7.1",
+                "phpunit/phpunit": "^7.0.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -13950,7 +13815,7 @@
                 }
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2017-11-24T11:07:03+00:00"
+            "time": "2018-02-05T13:05:30+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -15666,16 +15531,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.3.2",
+            "version": "4.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "872ecd4782be157706a97d72a0a763675c303dd8"
+                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/872ecd4782be157706a97d72a0a763675c303dd8",
-                "reference": "872ecd4782be157706a97d72a0a763675c303dd8",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
+                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
                 "shasum": ""
             },
             "require": {
@@ -15685,8 +15550,11 @@
             "require-dev": {
                 "jakub-onderka/php-parallel-lint": "0.9.2",
                 "phing/phing": "2.16",
-                "phpstan/phpstan": "0.9.1",
-                "phpunit/phpunit": "6.5.5"
+                "phpstan/phpstan": "0.9.2",
+                "phpstan/phpstan-phpunit": "0.9.4",
+                "phpstan/phpstan-strict-rules": "0.9",
+                "phpunit/php-code-coverage": "6.0.1",
+                "phpunit/phpunit": "7.0.0"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -15699,7 +15567,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-01-28T21:06:07+00:00"
+            "time": "2018-02-07T10:52:36+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -15900,16 +15768,16 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.6.2",
+            "version": "3.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/development.git",
-                "reference": "27648c96b96a8dfde1e574cd07f9c595e211132d"
+                "reference": "7dd3b49563b2bd0aba7d5233e8b5890ae7f76e77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/development/zipball/27648c96b96a8dfde1e574cd07f9c595e211132d",
-                "reference": "27648c96b96a8dfde1e574cd07f9c595e211132d",
+                "url": "https://api.github.com/repos/spryker/development/zipball/7dd3b49563b2bd0aba7d5233e8b5890ae7f76e77",
+                "reference": "7dd3b49563b2bd0aba7d5233e8b5890ae7f76e77",
                 "shasum": ""
             },
             "require": {
@@ -15942,24 +15810,25 @@
                 "proprietary"
             ],
             "description": "Development module",
-            "time": "2018-01-25T09:08:14+00:00"
+            "time": "2018-02-05T06:01:59+00:00"
         },
         {
             "name": "spryker/testify",
-            "version": "3.4.2",
+            "version": "3.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Testify.git",
-                "reference": "ababf852d2d0237f40b61bc50197b368073fbd0c"
+                "url": "https://github.com/spryker/testify.git",
+                "reference": "e9b0460e0fbf10530adeda33f733f74353f51724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Testify/zipball/ababf852d2d0237f40b61bc50197b368073fbd0c",
-                "reference": "ababf852d2d0237f40b61bc50197b368073fbd0c",
+                "url": "https://api.github.com/repos/spryker/testify/zipball/e9b0460e0fbf10530adeda33f733f74353f51724",
+                "reference": "e9b0460e0fbf10530adeda33f733f74353f51724",
                 "shasum": ""
             },
             "require": {
                 "codeception/codeception": "^2.3.5",
+                "php": ">=7.1",
                 "spryker/config": "^3.0.0",
                 "spryker/error-handler": "^2.0.0",
                 "spryker/kernel": "^3.0.0",
@@ -15989,7 +15858,7 @@
                 "proprietary"
             ],
             "description": "Testify module",
-            "time": "2017-11-20T13:06:10+00:00"
+            "time": "2018-02-02T13:46:53+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
