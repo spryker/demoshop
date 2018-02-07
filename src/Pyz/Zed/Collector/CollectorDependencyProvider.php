@@ -29,7 +29,7 @@ use Spryker\Shared\CmsBlockProductConnector\CmsBlockProductConnectorConstants;
 use Spryker\Shared\Navigation\NavigationConfig;
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Shared\ProductCategoryFilter\ProductCategoryFilterConfig;
-use Spryker\Shared\ProductCustomerPermission\ProductCustomerPermissionConfig;
+use Spryker\Shared\ProductCustomerPermission\ProductCustomerPermissionConstants;
 use Spryker\Shared\ProductGroup\ProductGroupConfig;
 use Spryker\Shared\ProductLabel\ProductLabelConstants;
 use Spryker\Shared\ProductRelation\ProductRelationConstants;
@@ -129,7 +129,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 CmsConstants::RESOURCE_TYPE_PAGE => new CmsVersionPageCollectorSearchPlugin(),
                 ProductSetConfig::RESOURCE_TYPE_PRODUCT_SET => new ProductSetCollectorSearchPlugin(),
                 ProductReviewConfig::RESOURCE_TYPE_PRODUCT_REVIEW => new ProductReviewCollectorSearchPlugin(),
-                ProductCustomerPermissionConfig::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION => new ProductCustomerPermissionCollectorSearchPlugin(),
+                ProductCustomerPermissionConstants::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION => new ProductCustomerPermissionCollectorSearchPlugin(),
             ];
         };
 
@@ -159,7 +159,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 ProductSetConfig::RESOURCE_TYPE_PRODUCT_SET => new ProductSetCollectorStoragePlugin(),
                 ProductReviewConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_REVIEW => new ProductAbstractReviewCollectorStoragePlugin(),
                 ProductCategoryFilterConfig::RESOURCE_TYPE_PRODUCT_CATEGORY_FILTER => new ProductCategoryFilterCollectorPlugin(),
-                ProductCustomerPermissionConfig::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION => new ProductCustomerPermissionCollectorStoragePlugin(),
+                ProductCustomerPermissionConstants::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION => new ProductCustomerPermissionCollectorStoragePlugin(),
             ];
         };
 
