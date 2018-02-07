@@ -40,6 +40,10 @@
                 </div>
             {% endfor %}
 
+            {% if cartItem.idDiscountPromotion %}
+                <input type="hidden" value="{{ cartItem.idDiscountPromotion }}" name="idDiscountPromotion">
+            {% endif %}
+
             <input type="hidden" value="{{ cartItem.groupKey }}" name="groupKey">
             <input type="hidden" value="{{ cartItem.quantity }}" name="quantity">
 
