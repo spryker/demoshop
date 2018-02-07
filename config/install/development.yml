@@ -28,10 +28,6 @@ sections:
         maintenance-yves-off:
             command: "vendor/bin/console maintenance:disable yves"
 
-    composer:
-        install-dependencies:
-            command: "if [ ! -f ./composer.phar ]; then composer install --prefer-dist; else php composer.phar install --prefer-dist; fi"
-
 
     clear:
         remove-logs:
