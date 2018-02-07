@@ -8,7 +8,7 @@
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
     "spryker/synchronization-behavior": "dev-master",
-    "spryker/install": "dev-feature/core-2447-configure-at-and-de-stores-as-single-instance-stores",
+    "spryker/install": "dev-master",
 
     "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
