@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "376e98b31171171edf6a557b938dbf86",
+    "content-hash": "20d5e61904e411b0bffdd12d4a0e82d0",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1404,7 +1404,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2018-01-27 02:17:16"
+            "time": "2018-01-27T02:17:16+00:00"
         },
         {
             "name": "psr/container",
@@ -1729,7 +1729,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2017-10-24 10:37:10"
+            "time": "2017-10-24T10:37:10+00:00"
         },
         {
             "name": "spryker/event-behavior",
@@ -1785,7 +1785,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-02-08 09:02:11"
+            "time": "2018-02-08T09:02:11+00:00"
         },
         {
             "name": "spryker/install",
@@ -1829,7 +1829,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-06 08:26:04"
+            "time": "2018-02-06T08:26:04+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1887,15 +1887,15 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26 13:26:48"
+            "time": "2018-01-26T13:26:48+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-974-beta-release",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3dcc5e2b1dca579bc66515587d2ce2ed08fb4d67"
+                "reference": "6dbabd52f1c85ab68d11f603a99dbed9b611c351"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,7 +2130,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-08 08:21:50"
+            "time": "2018-02-08T11:06:45+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2175,7 +2175,7 @@
             "support": {
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
-            "time": "2017-11-13 10:53:51"
+            "time": "2017-11-13T10:53:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4537,40 +4537,34 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "1.5.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "86b5ca2f67173c9d34340845dd690149c886a605"
+                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/86b5ca2f67173c9d34340845dd690149c886a605",
-                "reference": "86b5ca2f67173c9d34340845dd690149c886a605",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/77300c4ab2025d4316635f592ec849ca7323bd8c",
+                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "ext-zip": "*",
-                "php": "^5.6 || ~7.0",
-                "symfony/process": "^2.8 || ^3.1 || ^4.0"
+                "php": "^5.5 || ~7.0",
+                "symfony/process": "^2.8 || ^3.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "guzzle/guzzle": "^3.4.1",
-                "php-coveralls/php-coveralls": "^1.0.2",
+                "friendsofphp/php-cs-fixer": "^1.11",
                 "php-mock/php-mock-phpunit": "^1.1",
-                "phpunit/phpunit": "^5.7",
-                "sebastian/environment": "^1.3.4 || ^2.0 || ^3.0",
-                "squizlabs/php_codesniffer": "^2.6",
-                "symfony/var-dumper": "^3.3 || ^4.0"
+                "phpunit/phpunit": "4.6.* || ~5.0",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.6"
+            },
+            "suggest": {
+                "phpdocumentor/phpdocumentor": "2.*"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-community": "1.5-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Facebook\\WebDriver\\": "lib/"
@@ -4580,7 +4574,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "description": "A PHP client for Selenium WebDriver",
+            "description": "A PHP client for WebDriver",
             "homepage": "https://github.com/facebook/php-webdriver",
             "keywords": [
                 "facebook",
@@ -4588,7 +4582,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2017-11-15T11:08:09+00:00"
+            "time": "2017-01-13T15:48:08+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -7022,7 +7016,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7084,7 +7078,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-10 11:56:59"
+            "time": "2018-01-10T11:56:59+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -7125,7 +7119,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-01-24 15:10:19"
+            "time": "2018-01-24T15:10:19+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7176,7 +7170,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-01-15 19:21:29"
+            "time": "2018-01-15T19:21:29+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -7228,7 +7222,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-26 16:00:16"
+            "time": "2018-01-26T16:00:16+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
