@@ -8584,16 +8584,16 @@
         },
         {
             "name": "spryker/propel-orm",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/propel-orm.git",
-                "reference": "b0b8090d9852f2dd6cb327913c52ddddd49e56af"
+                "reference": "223fda11be26d1aa9dbe89022407a9b45b63b594"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/b0b8090d9852f2dd6cb327913c52ddddd49e56af",
-                "reference": "b0b8090d9852f2dd6cb327913c52ddddd49e56af",
+                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/223fda11be26d1aa9dbe89022407a9b45b63b594",
+                "reference": "223fda11be26d1aa9dbe89022407a9b45b63b594",
                 "shasum": ""
             },
             "require": {
@@ -8618,7 +8618,7 @@
                 "proprietary"
             ],
             "description": "PropelOrm module",
-            "time": "2018-02-01T09:03:13+00:00"
+            "time": "2018-02-08T10:12:29+00:00"
         },
         {
             "name": "spryker/propel-query-builder",
