@@ -68,6 +68,7 @@ class AddressFormDataProvider extends AbstractAddressFormDataProvider
     protected function getDefaultAddressData(CustomerTransfer $customerTransfer)
     {
         return [
+            AddressForm::FIELD_SALUTATION => $customerTransfer->getSalutation(),
             AddressForm::FIELD_FIRST_NAME => $customerTransfer->getFirstName(),
             AddressForm::FIELD_LAST_NAME => $customerTransfer->getLastName(),
         ];
