@@ -78,6 +78,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
     protected function formatCategoryNode(array $collectItemData)
     {
         return [
+            'id_category' => (int)$collectItemData['id_category'],
             'node_id' => (int)$collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'name' => $collectItemData['name'],
             'url' => $collectItemData['url'],
