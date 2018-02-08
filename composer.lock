@@ -1737,12 +1737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "6adb7b3fe4620fde88dd73729eddf986994e8664"
+                "reference": "9bf8998ae9f4033064d36663aa773254f09b0b04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/6adb7b3fe4620fde88dd73729eddf986994e8664",
-                "reference": "6adb7b3fe4620fde88dd73729eddf986994e8664",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/9bf8998ae9f4033064d36663aa773254f09b0b04",
+                "reference": "9bf8998ae9f4033064d36663aa773254f09b0b04",
                 "shasum": ""
             },
             "require": {
@@ -1785,7 +1785,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-01-10T11:57:45+00:00"
+            "time": "2018-02-08T09:02:11+00:00"
         },
         {
             "name": "spryker/install",
@@ -1895,7 +1895,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "45194a33a520d207a86154614229a57d29a13702"
+                "reference": "ac0f6a7225df1de58ca1e4fce1150977ba73aae4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,7 +2130,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-07T09:34:50+00:00"
+            "time": "2018-02-08T10:41:19+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6934,16 +6934,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.2",
+            "version": "4.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72"
+                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
-                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
+                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
                 "shasum": ""
             },
             "require": {
@@ -6970,7 +6970,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-06T21:21:14+00:00"
+            "time": "2018-02-07T10:52:36+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
