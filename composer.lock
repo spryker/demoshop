@@ -1866,6 +1866,7 @@
             ],
             "description": "Spryker install tool",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-12T12:57:05+00:00"
 =======
 <<<<<<< HEAD
@@ -1884,6 +1885,9 @@
 =======
 >>>>>>> core-2913 update sprkyer/spryker
 >>>>>>> core-2913 update sprkyer/spryker
+=======
+            "time": "2018-02-06T08:26:04+00:00"
+>>>>>>> core-2913 update spryker/spryker
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1949,6 +1953,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2047,6 +2052,9 @@
                 "reference": "520b05df65312735ccdeaf5691e92767e0994618"
 >>>>>>> core-2913 update sprkyer/spryker
 >>>>>>> core-2913 update sprkyer/spryker
+=======
+                "reference": "4b61239a6b56e51fc7ce15e716e164bf468c11a4"
+>>>>>>> core-2913 update spryker/spryker
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2289,6 +2297,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-13T10:23:50+00:00"
 =======
 =======
@@ -2381,6 +2390,9 @@
             "time": "2018-02-06T05:46:15+00:00"
 >>>>>>> core-2913 update sprkyer/spryker
 >>>>>>> core-2913 update sprkyer/spryker
+=======
+            "time": "2018-02-08T13:54:11+00:00"
+>>>>>>> core-2913 update spryker/spryker
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7358,6 +7370,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "version": "4.4.5",
 =======
 =======
@@ -7373,6 +7386,9 @@
             "version": "4.4.2",
 >>>>>>> core-2913 update spryker/spryker
 >>>>>>> core-2913 update spryker/spryker
+=======
+            "version": "4.4.3",
+>>>>>>> core-2913 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
@@ -7380,6 +7396,7 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/2a24b1ba0c68a834fa4fc6b28cc8233119590717",
                 "reference": "2a24b1ba0c68a834fa4fc6b28cc8233119590717",
@@ -7429,6 +7446,10 @@
                 "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
 >>>>>>> core-2913 update sprkyer/spryker
 >>>>>>> core-2913 update sprkyer/spryker
+=======
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
+                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
+>>>>>>> core-2913 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7455,6 +7476,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -7491,6 +7513,9 @@
             "time": "2018-02-07T10:52:36+00:00"
 >>>>>>> core-2913 update sprkyer/spryker
 >>>>>>> core-2913 update sprkyer/spryker
+=======
+            "time": "2018-02-07T10:52:36+00:00"
+>>>>>>> core-2913 update spryker/spryker
         },
         {
             "name": "sllh/composer-versions-check",
@@ -7595,7 +7620,11 @@
                 "sniffer",
                 "standards"
             ],
+<<<<<<< HEAD
             "time": "2018-02-12T13:54:28+00:00"
+=======
+            "time": "2018-01-10T11:56:59+00:00"
+>>>>>>> core-2913 update spryker/spryker
         },
         {
             "name": "spryker/code-generator",
