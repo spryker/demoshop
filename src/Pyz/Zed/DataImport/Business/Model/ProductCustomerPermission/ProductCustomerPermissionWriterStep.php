@@ -10,7 +10,7 @@ namespace Pyz\Zed\DataImport\Business\Model\ProductCustomerPermission;
 use Orm\Zed\ProductCustomerPermission\Persistence\SpyProductCustomerPermissionQuery;
 use Pyz\Zed\DataImport\Business\Model\Customer\Repository\CustomerRepositoryInterface;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface;
-use Spryker\Shared\ProductCustomerPermission\ProductCustomerPermissionConstants;
+use Spryker\Shared\ProductCustomerPermission\ProductCustomerPermissionConfig;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\TouchAwareStep;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -72,7 +72,7 @@ class ProductCustomerPermissionWriterStep extends TouchAwareStep implements Data
             $productCustomerPermissionEntity->save();
 
             $this->addMainTouchable(
-                ProductCustomerPermissionConstants::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION,
+                ProductCustomerPermissionConfig::RESOURCE_TYPE_PRODUCT_CUSTOMER_PERMISSION,
                 $productCustomerPermissionEntity->getIdProductCustomerPermission()
             );
         }
