@@ -30,7 +30,7 @@ class CustomerWriterStep implements DataImportStepInterface
             ->findOneOrCreate();
 
         $filteredData = array_map(function ($value) {
-            return (!empty($value)) ? $value : null;
+            return $value ?: null;
         }, $dataSet->getArrayCopy());
 
         $customerEntity->fromArray($filteredData);
