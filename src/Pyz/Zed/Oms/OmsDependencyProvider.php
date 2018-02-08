@@ -47,17 +47,6 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
         return [
             new AvailabilityHandlerPlugin(),
             new ProductBundleAvailabilityHandlerPlugin(),
-            new ReservationVersionHandlerPlugin(),
-        ];
-    }
-
-    /**
-     * @return \Spryker\Zed\Oms\Dependency\Plugin\ReservationExportPluginInterface[]
-     */
-    protected function getReservationExportPlugins()
-    {
-        return [
-            new ReservationExportPlugin(),
         ];
     }
 }
