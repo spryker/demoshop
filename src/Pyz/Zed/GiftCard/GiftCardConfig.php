@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\GiftCard;
 
-use Spryker\Zed\DummyPayment\DummyPaymentConfig;
+use Spryker\Shared\DummyPayment\DummyPaymentConfig;
 use Spryker\Zed\GiftCard\GiftCardConfig as SprykerGiftCardConfig;
 
 class GiftCardConfig extends SprykerGiftCardConfig
