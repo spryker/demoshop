@@ -40,9 +40,11 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_CMS_TEMPLATE = 'cms-template';
     const IMPORT_TYPE_CMS_PAGE = 'cms-page';
     const IMPORT_TYPE_CMS_BLOCK = 'cms-block';
+    const IMPORT_TYPE_CMS_BLOCK_STORE = 'cms-block-store';
     const IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION = 'cms-block-category-position';
     const IMPORT_TYPE_CMS_BLOCK_CATEGORY = 'cms-block-category';
     const IMPORT_TYPE_DISCOUNT = 'discount';
+    const IMPORT_TYPE_DISCOUNT_STORE = 'discount-store';
     const IMPORT_TYPE_DISCOUNT_AMOUNT = 'discount-amount';
     const IMPORT_TYPE_DISCOUNT_VOUCHER = 'discount-voucher';
     const IMPORT_TYPE_SHIPMENT = 'shipment';
@@ -311,6 +313,14 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
+    public function getCmsBlockStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('cms_block_store.csv', static::IMPORT_TYPE_CMS_BLOCK_STORE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
     public function getCmsBlockCategoryPositionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('cms_block_category_position.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION);
@@ -330,6 +340,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getDiscountDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('discount.csv', static::IMPORT_TYPE_DISCOUNT);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getDiscountStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('discount_store.csv', static::IMPORT_TYPE_DISCOUNT_STORE);
     }
 
     /**
