@@ -10,10 +10,8 @@ use Generated\Shared\Transfer\StorageAvailabilityTransfer;
 use Orm\Zed\Availability\Persistence\Base\SpyAvailabilityQuery;
 use Orm\Zed\Availability\Persistence\SpyAvailability;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery;
-use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollector;
-use Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface;
 
 class AvailabilityCollector extends AbstractStoragePropelCollector
 {
@@ -99,5 +97,4 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     {
         return $availabilityEntity->getQuantity() > 0 || $availabilityEntity->getIsNeverOutOfStock();
     }
-
 }

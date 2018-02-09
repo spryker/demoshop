@@ -42,7 +42,7 @@ $stores['DE'] = [
 ];
 
 $stores['AT'] = [
-        'sharedPersistenceWithStores' => ['DE']
+        'sharedPersistenceWithStores' => ['DE'],
     ] + $stores['DE'];
 
 $stores['US'] = $stores['DE'];

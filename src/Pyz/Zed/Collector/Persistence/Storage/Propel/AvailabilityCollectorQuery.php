@@ -10,7 +10,6 @@ use Orm\Zed\Availability\Persistence\Map\SpyAvailabilityAbstractTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
 use Orm\Zed\Touch\Persistence\Map\SpyTouchTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-use Spryker\Zed\Collector\Dependency\Facade\CollectorToStoreFacadeInterface;
 use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
@@ -46,5 +45,4 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
         $this->touchQuery->withColumn(SpyAvailabilityAbstractTableMap::COL_ID_AVAILABILITY_ABSTRACT, self::ID_AVAILABILITY_ABSTRACT);
         $this->touchQuery->withColumn(SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT, self::ID_PRODUCT_ABSTRACT);
     }
-
 }
