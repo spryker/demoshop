@@ -29,6 +29,7 @@ use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\Ship
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentCarrierPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentMethodPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentPricePlugin;
+use Spryker\Zed\Store\Communication\Plugin\Form\StoreRelationToggleFormTypePlugin;
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
@@ -150,5 +151,13 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
         return [
            new DiscountPromotionFilterApplicableItemsPlugin(),
         ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
+     */
+    protected function getStoreRelationFormTypePlugin()
+    {
+        return new StoreRelationToggleFormTypePlugin();
     }
 }

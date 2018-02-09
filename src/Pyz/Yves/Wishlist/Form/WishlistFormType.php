@@ -8,7 +8,7 @@
 namespace Pyz\Yves\Wishlist\Form;
 
 use Generated\Shared\Transfer\WishlistTransfer;
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

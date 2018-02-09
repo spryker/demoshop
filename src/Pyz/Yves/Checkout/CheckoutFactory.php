@@ -10,9 +10,9 @@ namespace Pyz\Yves\Checkout;
 use Pyz\Yves\Cart\Handler\CodeHandler;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Process\StepFactory;
-use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\Checkout\CheckoutFactory as SprykerCheckoutFactory;
 
-class CheckoutFactory extends AbstractFactory
+class CheckoutFactory extends SprykerCheckoutFactory
 {
     /**
      * @return \Spryker\Yves\StepEngine\Process\StepEngineInterface

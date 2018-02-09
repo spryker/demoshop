@@ -26,7 +26,7 @@ class ProfileController extends AbstractCustomerController
         $profileForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createProfileForm()
+            ->getProfileForm()
             ->handleRequest($request);
 
         if ($profileForm->isSubmitted() === false) {
@@ -46,7 +46,7 @@ class ProfileController extends AbstractCustomerController
         $passwordForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createPasswordForm()
+            ->getPasswordForm()
             ->handleRequest($request);
 
         if ($passwordForm->isValid() && $this->processPasswordUpdate($passwordForm->getData()) === true) {

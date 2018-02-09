@@ -62,7 +62,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     public function getActiveProcesses()
     {
         return [
-            'Invoice01',
+            'Nopayment01',
         ];
     }
 
@@ -78,7 +78,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     public function getInitialStateForProcess($processName)
     {
         switch ($processName) {
-            case 'Invoice01':
+            case 'Nopayment01':
                 return 'new';
         }
 

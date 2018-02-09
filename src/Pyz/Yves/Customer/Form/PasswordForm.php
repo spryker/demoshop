@@ -7,7 +7,9 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class PasswordForm extends AbstractType
@@ -18,7 +20,7 @@ class PasswordForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'passwordForm';
     }
@@ -43,10 +45,10 @@ class PasswordForm extends AbstractType
      */
     protected function addNewPasswordField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_NEW_PASSWORD, 'repeated', [
+        $builder->add(self::FIELD_NEW_PASSWORD, RepeatedType::class, [
             'first_name' => self::FIELD_PASSWORD,
             'second_name' => 'confirm',
-            'type' => self::FIELD_PASSWORD,
+            'type' => PasswordType::class,
             'invalid_message' => 'validator.constraints.password.do_not_match',
             'required' => true,
             'first_options' => [
@@ -69,7 +71,7 @@ class PasswordForm extends AbstractType
      */
     protected function addPasswordField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
+        $builder->add(self::FIELD_PASSWORD, PasswordType::class, [
             'label' => 'customer.password.old_password',
             'required' => true,
             'attr' => [

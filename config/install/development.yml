@@ -28,10 +28,6 @@ sections:
         maintenance-yves-off:
             command: "vendor/bin/console maintenance:disable yves"
 
-    composer:
-        install-dependencies:
-            command: "if [ ! -f ./composer.phar ]; then composer install --prefer-dist; else php composer.phar install --prefer-dist; fi"
-
 
     clear:
         remove-logs:
@@ -66,15 +62,21 @@ sections:
 
 
     queue-flush:
+        set-permissions:
+            command: "vendor/bin/console queue:permission:set"
+            stores: true
+
         purge-all-queues:
             command: "vendor/bin/console queue:queue:purge-all"
             stores: true
 
         delete-all-queues:
             command: "vendor/bin/console queue:queue:delete-all"
+            stores: true
 
         delete-all-exchanges:
             command: "vendor/bin/console queue:exchanges:delete-all"
+            stores: true
 
 
     database-flush:

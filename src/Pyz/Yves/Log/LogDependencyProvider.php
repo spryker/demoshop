@@ -10,7 +10,6 @@ namespace Pyz\Yves\Log;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Log\LogDependencyProvider as SprykerLogDependencyProvider;
 use Spryker\Yves\Log\Plugin\Handler\ExceptionStreamHandlerPlugin;
-use Spryker\Yves\Log\Plugin\Handler\QueueHandlerPlugin;
 use Spryker\Yves\Log\Plugin\Handler\StreamHandlerPlugin;
 use Spryker\Yves\Log\Plugin\Processor\EnvironmentProcessorPlugin;
 use Spryker\Yves\Log\Plugin\Processor\GuzzleBodyProcessorPlugin;
@@ -32,7 +31,6 @@ class LogDependencyProvider extends SprykerLogDependencyProvider
             return [
                 new StreamHandlerPlugin(),
                 new ExceptionStreamHandlerPlugin(),
-                new QueueHandlerPlugin(),
             ];
         };
 

@@ -20,7 +20,7 @@
     "nesbot/carbon": "~1.13.0",
     "pimple/pimple": "~1.1.1",
     "predis/predis": "^1.1.1",
-    "propel/propel": "2.0.0-alpha7",
+    "propel/propel": "dev-master#1f6557d1a6f436b6bb08099238878246362028ca",
     "psr/log": "^1.0.0",
     "ruflin/elastica": "^3.2.0",
     "silex/silex": "^1.3.5",
@@ -29,21 +29,21 @@
     "symfony/debug": "^2.6.13 || ^3.0.0",
     "symfony/filesystem": "^2.6.13 || ^3.0.0",
     "symfony/finder": "^2.6.13 || ^3.0.0",
-    "symfony/form": "^2.7.0",
+    "symfony/form": "^2.7.0 || ^3.0.0",
     "symfony/http-kernel": "^2.6.13 || ^3.0.0",
     "symfony/intl": "^2.8.8 || ^3.0.0",
     "symfony/options-resolver": "^2.6.13 || ^3.0.0",
     "symfony/process": "^2.6.13 || ^3.0.0",
     "symfony/property-access": "^2.6.13 || ^3.0.0",
-    "symfony/routing": "^2.6.13",
-    "symfony/security": "^2.6.13",
+    "symfony/routing": "^2.6.13 || ^3.0.0",
+    "symfony/security": "^2.6.13 || ^3.0.0",
     "symfony/serializer": "^2.6.13 || ^3.0.0",
     "symfony/translation": "^2.6.13 || ^3.0.0",
-    "symfony/twig-bridge": "^2.7.0",
-    "symfony/validator": "^2.6.13",
+    "symfony/twig-bridge": "^2.7.0 || ^3.0.0",
+    "symfony/validator": "^2.6.13 || ^3.0.0",
     "symfony/yaml": "^2.6.13 || ^3.0.0",
     "swiftmailer/swiftmailer": "^5.4.5",
-    "twig/twig": "^1.20.0",
+    "twig/twig": "^1.30.0",
     "zendframework/zend-config": "^3.1.0",
     "zendframework/zend-filter": "^2.5.1",
     "zendframework/zend-servicemanager": "^3.3",
@@ -53,7 +53,6 @@
     "ext-gmp": "*",
     "ext-intl": "*",
     "ext-json": "*",
-    "ext-mcrypt": "*",
     "ext-pdo_pgsql": "*",
     "ext-pgsql": "*",
     "ext-readline": "*",
@@ -73,7 +72,7 @@
     "phpmd/phpmd": "^2.4",
     "sebastian/phpcpd": "^2.0.2",
     "sensiolabs/security-checker": "^3.0.2",
-    "silex/web-profiler": "^1.0.8",
+    "silex/web-profiler": "*",
     "symfony/web-profiler-bundle": "*",
     "symfony/var-dumper": "*",
     "site5/phantoman": "^1.1",
@@ -84,7 +83,7 @@
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
     "phpdocumentor/reflection-docblock": "^2.0",
-    "squizlabs/php_codesniffer": "^3.0"
+    "squizlabs/php_codesniffer": "~3.1.0"
   },
   "autoload": {
     "psr-4": {
@@ -109,7 +108,7 @@
   "prefer-stable": true,
   "config": {
     "use-include-path": true,
-    "process-timeout": 600
+    "process-timeout": 1200
   },
   "repositories": [
     {
