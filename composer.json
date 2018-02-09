@@ -4,13 +4,11 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-beta/core-2343-product-restrictions-per-customer",
-
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
     "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
-
     "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
     "guzzlehttp/guzzle": "^6.2.1",
