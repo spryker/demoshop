@@ -8,9 +8,11 @@
 namespace Pyz\Yves\CmsContentWidget;
 
 use Pyz\Yves\CmsContentWidgetProductConnector\Plugin\CmsProductContentWidgetPlugin;
+use Pyz\Yves\CmsContentWidgetProductSearchConnector\Plugin\CmsProductSearchWidgetPlugin;
 use Pyz\Yves\CmsContentWidgetProductSetConnector\Plugin\CmsProductSetContentWidgetPlugin;
 use Spryker\Shared\CmsContentWidgetProductConnector\ContentWidgetConfigurationProvider\CmsProductContentWidgetConfigurationProvider;
 use Spryker\Shared\CmsContentWidgetProductGroupConnector\ContentWidgetConfigurationProvider\CmsProductGroupContentWidgetConfigurationProvider;
+use Spryker\Shared\CmsContentWidgetProductSearchConnector\ContentWidgetConfigurationProvider\CmsProductSearchContentWidgetConfigurationProvider;
 use Spryker\Shared\CmsContentWidgetProductSetConnector\ContentWidgetConfigurationProvider\CmsProductSetContentWidgetConfigurationProvider;
 use Spryker\Yves\CmsContentWidget\CmsContentWidgetDependencyProvider as SprykerCmsContentWidgetDependencyProvider;
 
@@ -32,6 +34,9 @@ class CmsContentWidgetDependencyProvider extends SprykerCmsContentWidgetDependen
             ),
             CmsProductGroupContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductContentWidgetPlugin(
                 new CmsProductGroupContentWidgetConfigurationProvider()
+            ),
+            CmsProductSearchContentWidgetConfigurationProvider::FUNCTION_NAME => new CmsProductSearchWidgetPlugin(
+                new CmsProductSearchContentWidgetConfigurationProvider()
             ),
         ];
     }
