@@ -209,7 +209,7 @@
     "phpunit/php-token-stream": "^1.4.11",
     "sebastian/phpcpd": "^2.0.2",
     "sensiolabs/security-checker": "^3.0.2",
-    "silex/web-profiler": "^1.0.8",
+    "silex/web-profiler": "*",
     "site5/phantoman": "^1.1",
     "sllh/composer-versions-check": "^2.0.2",
     "spryker/architecture-sniffer": "^0.4.0",
