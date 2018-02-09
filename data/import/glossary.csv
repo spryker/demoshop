@@ -629,8 +629,8 @@ checkout.step.success.title,Your order has been placed successfully!,en_US
 checkout.step.success.title,Ihre Bestellung wurde erfolgreich durchgeführt!,de_DE
 checkout.step.success.text,Thank you for shopping with us!,en_US
 checkout.step.success.text,Danke für ihren Einkauf!,de_DE
-checkout.step.error.no-product-permission,"You are not allowed to buy all products from your cart",en_US
-checkout.step.error.no-product-permission,"Sie dürfen nicht alle Produkte aus Ihrem Warenkorb kaufen",de_DE
+checkout.step.error.no-product-permission,"You are not allowed to buy the following products from your cart",en_US
+checkout.step.error.no-product-permission,"Sie dürfen nicht die folgende Produkte aus Ihrem Warenkorb kaufen",de_DE
 checkout.step.error.title,Your order has not been placed.,en_US
 checkout.step.error.title,Ihre Bestellung konnte leider nicht durchgeführt werden.,de_DE
 checkout.step.error.text,Something went wrong. Sorry.,en_US
