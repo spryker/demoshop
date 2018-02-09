@@ -1895,7 +1895,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d68411377635d69dec116080fe81a3b84f7bae36"
+                "reference": "92d7a581aa341db17cde57019efae9b4776b6f57"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,7 +2130,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-08 16:50:48"
+            "time": "2018-02-09 12:03:48"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6943,16 +6943,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.3",
+            "version": "4.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2"
+                "reference": "01b9e8f0a26bce77eb576b747f0369e225b68cd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/01b9e8f0a26bce77eb576b747f0369e225b68cd9",
+                "reference": "01b9e8f0a26bce77eb576b747f0369e225b68cd9",
                 "shasum": ""
             },
             "require": {
@@ -6979,7 +6979,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-07T10:52:36+00:00"
+            "time": "2018-02-08T19:57:17+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
