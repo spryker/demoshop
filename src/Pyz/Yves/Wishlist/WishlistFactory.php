@@ -38,7 +38,7 @@ class WishlistFactory extends AbstractFactory
      */
     public function getWishlistForm(WishlistTransfer $data = null, array $options = [])
     {
-        return $this->getFormFactory()->create($this->createWishlistFormType(), $data, $options);
+        return $this->getFormFactory()->create($this->getWishlistFormType(), $data, $options);
     }
 
     /**
@@ -74,9 +74,9 @@ class WishlistFactory extends AbstractFactory
     /**
      * @return \Pyz\Yves\Wishlist\Form\WishlistFormType
      */
-    protected function createWishlistFormType()
+    protected function getWishlistFormType()
     {
-        return new WishlistFormType();
+        return WishlistFormType::class;
     }
 
     /**
