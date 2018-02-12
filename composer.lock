@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0f111ac99453a50ad78c9ff0daaaae9",
+    "content-hash": "1efeb9c06b3783695396a9173efb7f5c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1362,7 +1362,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2018-01-27 02:17:16"
+            "time": "2018-01-27T02:17:16+00:00"
         },
         {
             "name": "psr/container",
@@ -1687,7 +1687,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2017-10-24 10:37:10"
+            "time": "2017-10-24T10:37:10+00:00"
         },
         {
             "name": "spryker/event-behavior",
@@ -1743,7 +1743,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-02-08 12:16:03"
+            "time": "2018-02-08T12:16:03+00:00"
         },
         {
             "name": "spryker/install",
@@ -1787,7 +1787,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-06 08:26:04"
+            "time": "2018-02-06T08:26:04+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1845,15 +1845,15 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26 13:26:48"
+            "time": "2018-01-26T13:26:48+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-beta/core-2343-product-restrictions-per-customer",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "92d7a581aa341db17cde57019efae9b4776b6f57"
+                "reference": "e62b783351d330c2b752e5e8dc5d01ff80bc9e5c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1982,6 +1982,8 @@
                 "spryker/product-category-filter-gui": "*",
                 "spryker/product-category-filter-storage": "*",
                 "spryker/product-category-storage": "*",
+                "spryker/product-customer-permission": "*",
+                "spryker/product-customer-permission-collector": "*",
                 "spryker/product-discount-connector": "*",
                 "spryker/product-group": "*",
                 "spryker/product-group-collector": "*",
@@ -2088,7 +2090,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-09 12:03:48"
+            "time": "2018-02-12T13:38:45+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2133,7 +2135,7 @@
             "support": {
                 "source": "https://github.com/spryker/SynchronizationBehavior/tree/master"
             },
-            "time": "2017-11-13 10:53:51"
+            "time": "2017-11-13T10:53:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6943,7 +6945,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7005,7 +7007,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-10 11:56:59"
+            "time": "2018-01-10T11:56:59+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -7046,7 +7048,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-01-24 15:10:19"
+            "time": "2018-01-24T15:10:19+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7097,7 +7099,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-01-15 19:21:29"
+            "time": "2018-01-15T19:21:29+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -7149,7 +7151,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-26 16:00:16"
+            "time": "2018-01-26T16:00:16+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
