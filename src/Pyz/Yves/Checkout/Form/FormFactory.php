@@ -22,6 +22,7 @@ use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
+use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Form\FormCollectionHandler;
 
 class FormFactory extends SprykerFormFactory
@@ -86,7 +87,7 @@ class FormFactory extends SprykerFormFactory
      *
      * @return \Pyz\Yves\Checkout\Form\DataProvider\SubFormDataProviders
      */
-    protected function createSubFormDataProvider($subForms)
+    protected function createSubFormDataProvider(SubFormPluginCollection $subForms)
     {
         return new SubFormDataProviders($subForms);
     }

@@ -23,7 +23,7 @@
     "propel/propel": "dev-master#1f6557d1a6f436b6bb08099238878246362028ca",
     "psr/log": "^1.0.0",
     "ruflin/elastica": "^3.2.0",
-    "silex/silex": "*",
+    "silex/silex": "^1.3.5",
     "symfony-cmf/routing": "^1.3.0",
     "symfony/console": "^3.0.0",
     "symfony/debug": "^2.6.13 || ^3.0.0",
