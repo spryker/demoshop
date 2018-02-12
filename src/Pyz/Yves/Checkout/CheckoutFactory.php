@@ -91,4 +91,12 @@ class CheckoutFactory extends AbstractFactory
     {
         return $this->getApplication()['flash_messenger'];
     }
+
+    /**
+     * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
+     */
+    public function createPaymentMethodSubForms()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::PAYMENT_SUB_FORMS);
+    }
 }
