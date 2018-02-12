@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9350e6fa7356d40a4d0d4c8f835fced",
+    "content-hash": "ce6c97ad75f18f3fcb6c53d0ed7207fa",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1737,12 +1737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "9bf8998ae9f4033064d36663aa773254f09b0b04"
+                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/9bf8998ae9f4033064d36663aa773254f09b0b04",
-                "reference": "9bf8998ae9f4033064d36663aa773254f09b0b04",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/07ff85f9171772e2ad6ef44bce864e125ff1278a",
+                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a",
                 "shasum": ""
             },
             "require": {
@@ -1785,7 +1785,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-02-08T09:02:11+00:00"
+            "time": "2018-02-08T12:16:03+00:00"
         },
         {
             "name": "spryker/install",
@@ -1895,7 +1895,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4586ed4b63bd5eb63308b67ad0294a60473b1050"
+                "reference": "e667a0ca694e979e6c01e3feaae2c87da0465c8e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,7 +2130,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-08T08:44:12+00:00"
+            "time": "2018-02-08T13:02:40+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
