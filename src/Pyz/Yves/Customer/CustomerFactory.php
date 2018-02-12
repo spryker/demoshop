@@ -186,4 +186,12 @@ class CustomerFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::FLASH_MESSENGER);
     }
+
+    /**
+     * @return \Spryker\Service\UtilValidate\UtilValidateServiceInterface
+     */
+    public function getUtilValidateService()
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::SERVICE_UTIL_VALIDATE);
+    }
 }

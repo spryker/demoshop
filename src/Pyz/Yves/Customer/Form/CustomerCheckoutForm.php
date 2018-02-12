@@ -7,33 +7,23 @@
 namespace Pyz\Yves\Customer\Form;
 
 use Generated\Shared\Transfer\CustomerTransfer;
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CustomerCheckoutForm extends AbstractType
 {
     const SUB_FORM_CUSTOMER = 'customer';
+    const SUB_FORM = 'SUB_FORM';
 
     /**
-     * @var \Symfony\Component\Form\FormTypeInterface
+     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
+     *
+     * @return void
      */
-    protected $subFormType;
-
-    /**
-     * @param \Symfony\Component\Form\FormTypeInterface $subFormType
-     */
-    public function __construct(FormTypeInterface $subFormType)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $this->subFormType = $subFormType;
-    }
-
-    /**
-     * @return string The name of this type
-     */
-    public function getName()
-    {
-        return $this->subFormType->getName();
+        $resolver->setRequired(static::SUB_FORM);
     }
 
     /**
@@ -44,6 +34,6 @@ class CustomerCheckoutForm extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::SUB_FORM_CUSTOMER, $this->subFormType, ['data_class' => CustomerTransfer::class]);
+        $builder->add(self::SUB_FORM_CUSTOMER, $options[static::SUB_FORM], ['data_class' => CustomerTransfer::class, 'property_path' => 'customer']);
     }
 }
