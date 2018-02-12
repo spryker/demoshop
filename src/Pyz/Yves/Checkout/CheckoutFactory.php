@@ -95,7 +95,7 @@ class CheckoutFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection
      */
-    public function createPaymentMethodSubForms()
+    public function getPaymentMethodSubForms()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::PAYMENT_SUB_FORMS);
     }

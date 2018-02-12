@@ -124,7 +124,7 @@ class PaymentForm extends AbstractType
     {
         $paymentMethodSubForms = [];
 
-        foreach ($this->getFactory()->createPaymentMethodSubForms() as $paymentMethodSubFormPlugin) {
+        foreach ($this->getFactory()->getPaymentMethodSubForms() as $paymentMethodSubFormPlugin) {
             $paymentMethodSubForms[] = $this->createSubForm($paymentMethodSubFormPlugin);
         }
 

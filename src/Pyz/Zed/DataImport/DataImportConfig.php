@@ -36,6 +36,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_IMAGE = 'product-image';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP = 'product-search-attribute-map';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE = 'product-search-attribute';
+    const IMPORT_TYPE_PRODUCT_CUSTOMER_PERMISSION = 'product-customer-permission';
     const IMPORT_TYPE_CMS_TEMPLATE = 'cms-template';
     const IMPORT_TYPE_CMS_PAGE = 'cms-page';
     const IMPORT_TYPE_CMS_BLOCK = 'cms-block';
@@ -363,6 +364,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getDiscountVoucherDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('discount_voucher.csv', static::IMPORT_TYPE_DISCOUNT_VOUCHER);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductCustomerPermissionDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_customer_permission.csv', static::IMPORT_TYPE_PRODUCT_CUSTOMER_PERMISSION);
     }
 
     /**

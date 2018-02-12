@@ -121,6 +121,8 @@ function installDemoshop {
          composerInstall
     fi
 
+    resetDataStores
+
     installZed
     sleep 1
     installYves
