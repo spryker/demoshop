@@ -128,6 +128,8 @@
     "spryker/product-category-filter": "^1.0.0",
     "spryker/product-category-filter-collector": "^1.0.0",
     "spryker/product-category-filter-gui": "^1.0.0",
+    "spryker/product-customer-permission": "^1.0.0",
+    "spryker/product-customer-permission-collector": "^1.0.0",
     "spryker/product-discount-connector": "^3.0.0",
     "spryker/product-group": "^1.0.0",
     "spryker/product-group-collector": "^1.0.0",
