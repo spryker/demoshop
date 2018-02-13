@@ -1737,12 +1737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "6adb7b3fe4620fde88dd73729eddf986994e8664"
+                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/6adb7b3fe4620fde88dd73729eddf986994e8664",
-                "reference": "6adb7b3fe4620fde88dd73729eddf986994e8664",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/07ff85f9171772e2ad6ef44bce864e125ff1278a",
+                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a",
                 "shasum": ""
             },
             "require": {
@@ -1785,7 +1785,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-01-10T11:57:45+00:00"
+            "time": "2018-02-08T12:16:03+00:00"
         },
         {
             "name": "spryker/install",
@@ -1793,12 +1793,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "9c36dc95668da724b393251424bc47604c64704c"
+                "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/9c36dc95668da724b393251424bc47604c64704c",
-                "reference": "9c36dc95668da724b393251424bc47604c64704c",
+                "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
+                "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
                 "shasum": ""
             },
             "require": {
@@ -1829,7 +1829,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-06T08:26:04+00:00"
+            "time": "2018-02-12T12:57:05+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1895,7 +1895,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "de61bb248711aaa21855155c490385ec0e339ee2"
+                "reference": "f6a30ed5e13509d255159ef69134dc1461e52e78"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2024,6 +2024,8 @@
                 "spryker/product-category-filter-gui": "*",
                 "spryker/product-category-filter-storage": "*",
                 "spryker/product-category-storage": "*",
+                "spryker/product-customer-permission": "*",
+                "spryker/product-customer-permission-collector": "*",
                 "spryker/product-discount-connector": "*",
                 "spryker/product-group": "*",
                 "spryker/product-group-collector": "*",
@@ -2130,7 +2132,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-06T16:49:47+00:00"
+            "time": "2018-02-13T08:56:08+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7101,12 +7103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "0479d9e92130d60aa117e7b7600d7e1ed1806c78"
+                "reference": "8a68f360a859598bd3b10f7b2ad094271c641edc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/0479d9e92130d60aa117e7b7600d7e1ed1806c78",
-                "reference": "0479d9e92130d60aa117e7b7600d7e1ed1806c78",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/8a68f360a859598bd3b10f7b2ad094271c641edc",
+                "reference": "8a68f360a859598bd3b10f7b2ad094271c641edc",
                 "shasum": ""
             },
             "require": {
@@ -7144,7 +7146,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-01-10T11:56:59+00:00"
+            "time": "2018-02-12T13:54:28+00:00"
         },
         {
             "name": "spryker/code-generator",
