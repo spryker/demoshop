@@ -1853,7 +1853,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6b473aca87827c5f7d5eb2837e64f9e751472240"
+                "reference": "120b6e61e2cf565b38ba7f5ee85e2ad9ac350d72"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1982,6 +1982,8 @@
                 "spryker/product-category-filter-gui": "*",
                 "spryker/product-category-filter-storage": "*",
                 "spryker/product-category-storage": "*",
+                "spryker/product-customer-permission": "*",
+                "spryker/product-customer-permission-collector": "*",
                 "spryker/product-discount-connector": "*",
                 "spryker/product-group": "*",
                 "spryker/product-group-collector": "*",
@@ -2088,7 +2090,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-12T15:04:03+00:00"
+            "time": "2018-02-13T09:46:26+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
