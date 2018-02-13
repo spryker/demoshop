@@ -7,7 +7,8 @@
 
 namespace Pyz\Yves\Checkout\Form\Voucher;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class VoucherForm extends AbstractType
@@ -18,7 +19,7 @@ class VoucherForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return static::FORM_NAME;
     }
@@ -43,7 +44,7 @@ class VoucherForm extends AbstractType
      */
     protected function addVoucherCodeField(FormBuilderInterface $builder)
     {
-        $builder->add(static::FIELD_VOUCHER_DISCOUNTS, 'text', [
+        $builder->add(static::FIELD_VOUCHER_DISCOUNTS, TextType::class, [
             'label' => 'page.checkout.finalize.enter-voucher',
             'required' => true,
         ]);

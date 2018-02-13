@@ -29,6 +29,11 @@ sections:
             command: "vendor/bin/console maintenance:disable yves"
 
 
+    environment:
+        console-environment:
+            command: "if [ ! -f ./config/Shared/console_env_local.php ]; then cp ./config/Shared/console_env_local.dist.php ./config/Shared/console_env_local.php ; fi"
+
+
     clear:
         remove-logs:
             command: "vendor/bin/console log:clear"
