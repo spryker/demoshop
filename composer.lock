@@ -4,19 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "e0f111ac99453a50ad78c9ff0daaaae9",
-=======
-<<<<<<< HEAD
-    "content-hash": "376e98b31171171edf6a557b938dbf86",
-=======
-    "content-hash": "6fcdc92c4391e6742cd02a3a34e7fd57",
->>>>>>> core-2213 fixed Customer Data Importer
->>>>>>> core-2213 fixed Customer Data Importer
-=======
-    "content-hash": "db029c1b1981ccc6d12c9bd5a98f67a7",
->>>>>>> core-2913 update sprkyer/spryker
+    "content-hash": "b4bfaedbbf3b973095915f3c212bca2c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1805,36 +1793,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
-=======
-<<<<<<< HEAD
-=======
->>>>>>> core-2913 update sprkyer/spryker
-                "reference": "9c36dc95668da724b393251424bc47604c64704c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/9c36dc95668da724b393251424bc47604c64704c",
-                "reference": "9c36dc95668da724b393251424bc47604c64704c",
-<<<<<<< HEAD
-=======
-                "reference": "532ee18be671f46b24e1b4d3177c0ff9db67f1cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/532ee18be671f46b24e1b4d3177c0ff9db67f1cb",
-                "reference": "532ee18be671f46b24e1b4d3177c0ff9db67f1cb",
->>>>>>> core-2913 update composer.lock
->>>>>>> core-2913 update composer.lock
-=======
->>>>>>> core-2913 update sprkyer/spryker
                 "shasum": ""
             },
             "require": {
@@ -1865,29 +1829,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-02-12T12:57:05+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-02-06 08:26:04"
-=======
-            "time": "2018-02-06T08:26:04+00:00"
-<<<<<<< HEAD
-=======
-            "description": "Project",
-            "time": "2018-02-01T14:32:02+00:00"
->>>>>>> core-2913 update composer.lock
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2913 update composer.lock
-=======
-=======
->>>>>>> core-2913 update sprkyer/spryker
->>>>>>> core-2913 update sprkyer/spryker
-=======
-            "time": "2018-02-06T08:26:04+00:00"
->>>>>>> core-2913 update spryker/spryker
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1953,108 +1895,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "1d50f3e2bf83ea52217d4c6b522f0371a589c08a"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update composer.lock
-=======
->>>>>>> core-2913 update sprkyer/spryker
-<<<<<<< HEAD
-                "reference": "f5b3b1be0e409f2a20dd6f4c8b4c058f896902a9"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
-                "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "c96ba536ae6b3698e70463717a73d11445dea849"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "7a4649683093524a0e53d53acc417c3f668ac7dd"
-=======
-<<<<<<< HEAD
-                "reference": "da84ee6f139f46e47d542473ada99337c868b9b1"
-=======
-                "reference": "ebba2710bca930e6d99a436123ffc3f09e24afc3"
->>>>>>> core-2213 fixed Customer Data Importer
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-=======
-=======
-=======
-=======
-=======
-                "reference": "ebba2710bca930e6d99a436123ffc3f09e24afc3"
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "43c89754c0e4620936004fc06e03c5c181ca1d61"
->>>>>>> core-2913 update spryker/spryker
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-                "reference": "43c89754c0e4620936004fc06e03c5c181ca1d61"
->>>>>>> core-2913 update spryker/spryker
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-=======
-=======
-=======
-                "reference": "520b05df65312735ccdeaf5691e92767e0994618"
->>>>>>> core-2913 update composer.lock
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2913 update composer.lock
-=======
-=======
-                "reference": "520b05df65312735ccdeaf5691e92767e0994618"
->>>>>>> core-2913 update sprkyer/spryker
->>>>>>> core-2913 update sprkyer/spryker
-=======
-                "reference": "4b61239a6b56e51fc7ce15e716e164bf468c11a4"
->>>>>>> core-2913 update spryker/spryker
+                "reference": "427b98c7dbe16d675c8ca979fd0409bc2d84fb58"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2291,108 +2132,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-02-13T10:23:50+00:00"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update composer.lock
-=======
->>>>>>> core-2913 update sprkyer/spryker
-<<<<<<< HEAD
-            "time": "2018-02-08 10:12:29"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-02-07T10:09:57+00:00"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2018-02-02T14:03:25+00:00"
-=======
-=======
->>>>>>> core-2913 update spryker/spryker
-=======
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2018-02-01T10:15:03+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-01-31T10:28:54+00:00"
-=======
-            "time": "2018-01-30T12:17:27+00:00"
->>>>>>> core-2213 fixed Customer Data Importer
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-<<<<<<< HEAD
->>>>>>> core-2213 fixed Customer Data Importer
-=======
-=======
-=======
-=======
-=======
-            "time": "2018-01-30T12:17:27+00:00"
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2018-02-01T12:46:04+00:00"
->>>>>>> core-2913 update spryker/spryker
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
-=======
-=======
-            "time": "2018-02-01T12:46:04+00:00"
->>>>>>> core-2913 update spryker/spryker
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-=======
-=======
-=======
-            "time": "2018-02-06T05:46:15+00:00"
->>>>>>> core-2913 update composer.lock
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2913 update composer.lock
-=======
-=======
-            "time": "2018-02-06T05:46:15+00:00"
->>>>>>> core-2913 update sprkyer/spryker
->>>>>>> core-2913 update sprkyer/spryker
-=======
-            "time": "2018-02-08T13:54:11+00:00"
->>>>>>> core-2913 update spryker/spryker
+            "time": "2018-02-13T15:16:54+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3889,7 +3629,6 @@
         },
         {
             "name": "symfony/security",
-<<<<<<< HEAD
             "version": "v3.2.14",
             "source": {
                 "type": "git",
@@ -3907,33 +3646,10 @@
                 "symfony/event-dispatcher": "~2.8|~3.0",
                 "symfony/http-foundation": "~2.8.31|~3.2.14",
                 "symfony/http-kernel": "~2.8|~3.0",
-=======
-            "version": "v2.8.34",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security.git",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/event-dispatcher": "~2.2|~3.0.0",
-                "symfony/http-foundation": "^2.7.38|~3.3.13",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/polyfill-php55": "~1.0",
->>>>>>> core-2913 update sprkyer/spryker
                 "symfony/polyfill-php56": "~1.0",
                 "symfony/polyfill-php70": "~1.0",
                 "symfony/polyfill-util": "~1.0",
                 "symfony/property-access": "~2.8|~3.0"
-            },
-            "conflict": {
-                "symfony/http-foundation": "~2.8,<2.8.31|~3.4,<3.4-beta5"
             },
             "replace": {
                 "symfony/security-core": "self.version",
@@ -3987,72 +3703,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2017-11-16T17:55:54+00:00"
-=======
-            "time": "2018-01-18T13:56:23+00:00"
-        },
-        {
-            "name": "symfony/security-acl",
-            "version": "v3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-acl.git",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/security-core": "~2.8|~3.0|~4.0"
-            },
-            "require-dev": {
-                "doctrine/common": "~2.2",
-                "doctrine/dbal": "~2.2",
-                "psr/log": "~1.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0|~4.0"
-            },
-            "suggest": {
-                "doctrine/dbal": "For using the built-in ACL implementation",
-                "symfony/class-loader": "For using the ACL generateSql script",
-                "symfony/finder": "For using the ACL generateSql script"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Acl\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - ACL (Access Control List)",
-            "homepage": "https://symfony.com",
-            "time": "2017-07-21T06:01:18+00:00"
->>>>>>> core-2913 update sprkyer/spryker
         },
         {
             "name": "symfony/serializer",
@@ -7367,28 +7018,7 @@
         },
         {
             "name": "slevomat/coding-standard",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "4.4.5",
-=======
-=======
->>>>>>> core-2913 update composer.lock
-=======
->>>>>>> core-2913 update sprkyer/spryker
-<<<<<<< HEAD
-            "version": "4.4.3",
-=======
-=======
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
-            "version": "4.4.2",
->>>>>>> core-2913 update spryker/spryker
->>>>>>> core-2913 update spryker/spryker
-=======
-            "version": "4.4.3",
->>>>>>> core-2913 update spryker/spryker
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
@@ -7396,60 +7026,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/2a24b1ba0c68a834fa4fc6b28cc8233119590717",
                 "reference": "2a24b1ba0c68a834fa4fc6b28cc8233119590717",
-=======
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
-                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
-=======
-            "version": "4.3.2",
-=======
-            "version": "4.4.0",
->>>>>>> core-2913 update composer.lock
-=======
-            "version": "4.4.3",
->>>>>>> core-2913 update sprkyer/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/872ecd4782be157706a97d72a0a763675c303dd8",
-                "reference": "872ecd4782be157706a97d72a0a763675c303dd8",
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-=======
-=======
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/d91220bb5389be4a51a37c8400cdff3d3872f618",
-                "reference": "d91220bb5389be4a51a37c8400cdff3d3872f618",
->>>>>>> core-2913 update composer.lock
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2913 update composer.lock
-=======
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
->>>>>>> core-2913 update sprkyer/spryker
->>>>>>> core-2913 update sprkyer/spryker
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
->>>>>>> core-2913 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7476,46 +7054,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-02-09T21:17:33+00:00"
-=======
-=======
->>>>>>> core-2913 update composer.lock
-=======
->>>>>>> core-2913 update sprkyer/spryker
-<<<<<<< HEAD
-            "time": "2018-02-07T10:52:36+00:00"
-=======
-=======
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
-            "time": "2018-02-06T21:21:14+00:00"
-=======
-            "time": "2018-01-28T21:06:07+00:00"
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-<<<<<<< HEAD
->>>>>>> core-2913 update spryker/spryker
-=======
-=======
-=======
-            "time": "2018-02-05T21:17:40+00:00"
->>>>>>> core-2913 update composer.lock
->>>>>>> core-2913 update composer.lock
-<<<<<<< HEAD
->>>>>>> core-2913 update composer.lock
-=======
-=======
-            "time": "2018-02-07T10:52:36+00:00"
->>>>>>> core-2913 update sprkyer/spryker
->>>>>>> core-2913 update sprkyer/spryker
-=======
-            "time": "2018-02-07T10:52:36+00:00"
->>>>>>> core-2913 update spryker/spryker
         },
         {
             "name": "sllh/composer-versions-check",
@@ -7620,11 +7159,7 @@
                 "sniffer",
                 "standards"
             ],
-<<<<<<< HEAD
             "time": "2018-02-12T13:54:28+00:00"
-=======
-            "time": "2018-01-10T11:56:59+00:00"
->>>>>>> core-2913 update spryker/spryker
         },
         {
             "name": "spryker/code-generator",
