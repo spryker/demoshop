@@ -24,7 +24,6 @@ use Spryker\Yves\Checkout\Form\FormFactory as SprykerFormFactory;
 use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection;
 use Spryker\Yves\StepEngine\Form\FormCollectionHandler;
-use Symfony\Component\Form\FormTypeInterface;
 
 class FormFactory extends SprykerFormFactory
 {
@@ -60,16 +59,8 @@ class FormFactory extends SprykerFormFactory
     protected function getShipmentFormTypes()
     {
         return [
-            $this->createShipmentForm(),
+            ShipmentForm::class,
         ];
-    }
-
-    /**
-     * @return \Pyz\Yves\Shipment\Form\ShipmentForm
-     */
-    protected function createShipmentForm()
-    {
-        return new ShipmentForm();
     }
 
     /**
@@ -86,10 +77,9 @@ class FormFactory extends SprykerFormFactory
     public function createPaymentFormCollection()
     {
         $createPaymentSubForms = $this->createPaymentMethodSubForms();
-        $paymentFormType = $this->createPaymentForm($createPaymentSubForms);
         $subFormDataProvider = $this->createSubFormDataProvider($createPaymentSubForms);
 
-        return $this->createSubFormCollection($paymentFormType, $subFormDataProvider);
+        return $this->createSubFormCollection(PaymentForm::class, $subFormDataProvider);
     }
 
     /**
@@ -109,7 +99,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function createSummaryFormCollection()
     {
-        return $this->createFormCollection($this->createSummaryFormTypes());
+        return $this->createFormCollection($this->getSummaryFormTypes());
     }
 
     /**
@@ -117,8 +107,7 @@ class FormFactory extends SprykerFormFactory
      */
     public function getVoucherForm()
     {
-        return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
-            ->create($this->createVoucherFormType());
+        return $this->getFormFactory()->create(VoucherForm::class);
     }
 
     /**
@@ -127,20 +116,26 @@ class FormFactory extends SprykerFormFactory
     protected function getCustomerFormTypes()
     {
         return [
-            $this->createLoginForm(),
-            $this->createCustomerCheckoutForm($this->createRegisterForm()),
-            $this->createCustomerCheckoutForm($this->createGuestForm()),
+            LoginForm::class,
+            $this->getCustomerCheckoutForm(RegisterForm::class, RegisterForm::BLOCK_PREFIX),
+            $this->getCustomerCheckoutForm(GuestForm::class, GuestForm::BLOCK_PREFIX),
         ];
     }
 
     /**
-     * @param \Symfony\Component\Form\FormTypeInterface $subForm
+     * @param string $subForm
+     * @param string $blockPrefix
      *
-     * @return \Pyz\Yves\Customer\Form\CustomerCheckoutForm
+     * @return \Pyz\Yves\Customer\Form\CustomerCheckoutForm|\Symfony\Component\Form\FormInterface
      */
-    protected function createCustomerCheckoutForm(FormTypeInterface $subForm)
+    protected function getCustomerCheckoutForm($subForm, $blockPrefix)
     {
-        return new CustomerCheckoutForm($subForm);
+        return $this->getFormFactory()->createNamed(
+            $blockPrefix,
+            CustomerCheckoutForm::class,
+            null,
+            [CustomerCheckoutForm::SUB_FORM => $subForm]
+        );
     }
 
     /**
@@ -149,16 +144,8 @@ class FormFactory extends SprykerFormFactory
     protected function getAddressFormTypes()
     {
         return [
-            $this->createCheckoutAddressCollectionForm(),
+            CheckoutAddressCollectionForm::class,
         ];
-    }
-
-    /**
-     * @return \Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm
-     */
-    protected function createCheckoutAddressCollectionForm()
-    {
-        return new CheckoutAddressCollectionForm();
     }
 
     /**
@@ -170,40 +157,14 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\FormTypeInterface[]
+     * @return string[]
      */
-    protected function createSummaryFormTypes()
+    protected function getSummaryFormTypes()
     {
         return [
-            $this->createSummaryForm(),
-            $this->createVoucherFormType(),
+            SummaryForm::class,
+            VoucherForm::class,
         ];
-    }
-
-    /**
-     * @return \Pyz\Yves\Checkout\Form\Voucher\VoucherForm
-     */
-    protected function createVoucherFormType()
-    {
-        return new VoucherForm();
-    }
-
-    /**
-     * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginCollection $subForms
-     *
-     * @return \Pyz\Yves\Checkout\Form\Steps\PaymentForm
-     */
-    protected function createPaymentForm(SubFormPluginCollection $subForms)
-    {
-        return new PaymentForm($subForms);
-    }
-
-    /**
-     * @return \Pyz\Yves\Checkout\Form\Steps\SummaryForm
-     */
-    protected function createSummaryForm()
-    {
-        return new SummaryForm();
     }
 
     /**
@@ -218,7 +179,7 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Symfony\Component\Form\FormTypeInterface $formType
+     * @param string $formType
      * @param \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface $dataProvider
      *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
@@ -261,33 +222,9 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Pyz\Yves\Customer\Form\LoginForm
-     */
-    protected function createLoginForm()
-    {
-        return new LoginForm();
-    }
-
-    /**
-     * @return \Pyz\Yves\Customer\Form\RegisterForm
-     */
-    protected function createRegisterForm()
-    {
-        return new RegisterForm();
-    }
-
-    /**
-     * @return \Pyz\Yves\Customer\Form\GuestForm
-     */
-    protected function createGuestForm()
-    {
-        return new GuestForm($this->getUtilValidateService());
-    }
-
-    /**
      * @return \Spryker\Service\UtilValidate\UtilValidateServiceInterface
      */
-    protected function getUtilValidateService()
+    public function getUtilValidateService()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::SERVICE_UTIL_VALIDATE);
     }

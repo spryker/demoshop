@@ -26,11 +26,9 @@ class FormFactory extends AbstractFactory
      *
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createAddressForm(array $formOptions = [])
+    public function getAddressForm(array $formOptions = [])
     {
-        $addressFormType = new AddressForm();
-
-        return $this->getFormFactory()->create($addressFormType, null, $formOptions);
+        return $this->getFormFactory()->create(AddressForm::class, null, $formOptions);
     }
 
     /**
@@ -44,71 +42,57 @@ class FormFactory extends AbstractFactory
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createRegisterForm()
+    public function getRegisterForm()
     {
-        $registerFormType = new RegisterForm();
-
-        return $this->getFormFactory()->create($registerFormType);
+        return $this->getFormFactory()->create(RegisterForm::class);
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createLoginForm()
+    public function getLoginForm()
     {
-        $loginFormType = new LoginForm();
-
-        return $this->getFormFactory()->create($loginFormType);
+        return $this->getFormFactory()->create(LoginForm::class);
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createForgottenPasswordForm()
+    public function getForgottenPasswordForm()
     {
-        $forgottenPasswordFormType = new ForgottenPasswordForm();
-
-        return $this->getFormFactory()->create($forgottenPasswordFormType);
+        return $this->getFormFactory()->create(ForgottenPasswordForm::class);
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createProfileForm()
+    public function getProfileForm()
     {
-        $profileFormType = new ProfileForm();
-
-        return $this->getFormFactory()->create($profileFormType);
+        return $this->getFormFactory()->create(ProfileForm::class);
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createFormRestorePassword()
+    public function getFormRestorePassword()
     {
-        $restorePasswordFormType = new RestorePasswordForm();
-
-        return $this->getFormFactory()->create($restorePasswordFormType);
+        return $this->getFormFactory()->create(RestorePasswordForm::class);
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createPasswordForm()
+    public function getPasswordForm()
     {
-        $passwordFormType = new PasswordForm();
-
-        return $this->getFormFactory()->create($passwordFormType);
+        return $this->getFormFactory()->create(PasswordForm::class);
     }
 
     /**
      * @return \Symfony\Component\Form\FormInterface
      */
-    public function createNewsletterSubscriptionForm()
+    public function getNewsletterSubscriptionForm()
     {
-        $newsletterSubscriptionFormType = new NewsletterSubscriptionForm();
-
-        return $this->getFormFactory()->create($newsletterSubscriptionFormType);
+        return $this->getFormFactory()->create(NewsletterSubscriptionForm::class);
     }
 
     /**
