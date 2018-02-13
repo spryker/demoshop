@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "16f079e2f7d27380e47f34850b2a1c17",
+    "content-hash": "cd0a97ba2bb2a71c5c09b24cc7949e58",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3570,16 +3570,16 @@
         },
         {
             "name": "spryker/cms-gui",
-            "version": "4.3.6",
+            "version": "4.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms-gui.git",
-                "reference": "f82570b3c4f953651ecb5a9d27daa9498b07b9c1"
+                "reference": "f9a47eea3ab72c4475e242ca6f877fd3f1eb0fd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms-gui/zipball/f82570b3c4f953651ecb5a9d27daa9498b07b9c1",
-                "reference": "f82570b3c4f953651ecb5a9d27daa9498b07b9c1",
+                "url": "https://api.github.com/repos/spryker/cms-gui/zipball/f9a47eea3ab72c4475e242ca6f877fd3f1eb0fd5",
+                "reference": "f9a47eea3ab72c4475e242ca6f877fd3f1eb0fd5",
                 "shasum": ""
             },
             "require": {
@@ -3619,7 +3619,7 @@
                 "proprietary"
             ],
             "description": "CmsGui module",
-            "time": "2018-02-05T06:01:59+00:00"
+            "time": "2018-02-08T13:02:40+00:00"
         },
         {
             "name": "spryker/cms-user-connector",
@@ -5656,19 +5656,20 @@
         },
         {
             "name": "spryker/mail",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Mail.git",
-                "reference": "549a40e4bea615eaaf786b631061b7d7c7aed272"
+                "url": "https://github.com/spryker/mail.git",
+                "reference": "d17ceea63b847a1c1c99b608fd8089849bddc00d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Mail/zipball/549a40e4bea615eaaf786b631061b7d7c7aed272",
-                "reference": "549a40e4bea615eaaf786b631061b7d7c7aed272",
+                "url": "https://api.github.com/repos/spryker/mail/zipball/d17ceea63b847a1c1c99b608fd8089849bddc00d",
+                "reference": "d17ceea63b847a1c1c99b608fd8089849bddc00d",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/glossary": "^3.0.0",
                 "spryker/kernel": "^3.0.0"
             },
@@ -5678,7 +5679,7 @@
                 "spryker/twig": "*"
             },
             "suggest": {
-                "swiftmailer/swiftmailer": "Default Mailer"
+                "swiftmailer/swiftmailer": "Recommended to use this package as default mailer."
             },
             "type": "library",
             "extra": {
@@ -5687,29 +5688,16 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
-                },
                 "psr-4": {
-                    "Testify\\Module\\": "vendor/spryker/testify/tests/_support/Module",
-                    "Config\\Module\\": "vendor/spryker/config/tests/_support/Module",
-                    "Transfer\\Module\\": "vendor/spryker/transfer/tests/_support/Module"
+                    "Spryker\\": "src/Spryker/"
                 }
             },
-            "notification-url": "https://code.foo.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "Mail bundle",
-            "support": {
-                "source": "https://github.com/spryker/Mail/tree/4.0.1"
-            },
-            "time": "2017-05-22T08:59:37+00:00"
+            "description": "Mail module",
+            "time": "2018-02-07T09:40:41+00:00"
         },
         {
             "name": "spryker/maintenance",
@@ -7275,6 +7263,105 @@
             ],
             "description": "ProductCategoryFilterGui module",
             "time": "2018-02-05T06:01:59+00:00"
+        },
+        {
+            "name": "spryker/product-customer-permission",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-customer-permission.git",
+                "reference": "ddea65f219c78e3f59d48485b8f1625b30e45754"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-customer-permission/zipball/ddea65f219c78e3f59d48485b8f1625b30e45754",
+                "reference": "ddea65f219c78e3f59d48485b8f1625b30e45754",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/customer": "^6.0.0 || ^7.0.0",
+                "spryker/glossary": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/key-builder": "^1.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/product": "^5.0.0 || ^6.0.0",
+                "spryker/storage": "^3.0.0",
+                "spryker/touch": "^3.0.0 || ^4.0.0"
+            },
+            "require-dev": {
+                "spryker/cart": "*",
+                "spryker/checkout": "*",
+                "spryker/code-sniffer": "*",
+                "spryker/elastica": "*",
+                "spryker/propel": "*",
+                "spryker/search": "^6.0.0 || ^7.0.0"
+            },
+            "suggest": {
+                "spryker/cart": "*",
+                "spryker/checkout": "*",
+                "spryker/elastica": "*",
+                "spryker/search": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductCustomerPermission module",
+            "time": "2018-02-12T12:34:36+00:00"
+        },
+        {
+            "name": "spryker/product-customer-permission-collector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-customer-permission-collector.git",
+                "reference": "885ed7ee810445f81803385d0aea3210df747902"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-customer-permission-collector/zipball/885ed7ee810445f81803385d0aea3210df747902",
+                "reference": "885ed7ee810445f81803385d0aea3210df747902",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/collector": "^5.0.0 || ^6.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product": "^5.0.0 || ^6.0.0",
+                "spryker/product-customer-permission": "^1.0.0",
+                "spryker/propel-orm": "^1.4.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/touch": "^3.0.0 || ^4.0.0",
+                "spryker/util-data-reader": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/propel": "^3.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductCustomerPermissionCollector module",
+            "time": "2018-02-12T13:38:45+00:00"
         },
         {
             "name": "spryker/product-discount-connector",
