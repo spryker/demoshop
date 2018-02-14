@@ -21,6 +21,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
       tree AS
     (
       SELECT
+        n.fk_category as id_category,
         n.id_category_node,
         n.fk_parent_category_node,
         n.fk_category,
@@ -33,6 +34,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
       UNION
 
       SELECT
+        n.fk_category as id_category,
         n.id_category_node,
         n.fk_parent_category_node,
         n.fk_category,

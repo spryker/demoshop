@@ -135,15 +135,15 @@ class CartFactory extends AbstractFactory
     public function getVoucherForm()
     {
         return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
-            ->create($this->createVoucherFormType());
+            ->create($this->getVoucherFormType());
     }
 
     /**
-     * @return \Symfony\Component\Form\AbstractType
+     * @return string
      */
-    protected function createVoucherFormType()
+    protected function getVoucherFormType()
     {
-        return new VoucherForm();
+        return VoucherForm::class;
     }
 
     /**
