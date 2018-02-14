@@ -57,9 +57,9 @@ class CheckoutAvailabilityCest
 
         $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
-        $i->waitForElementVisible('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
+        $i->waitForElementVisible(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH);
 
-        $reservedProductsBefore = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
+        $reservedProductsBefore = $i->grabTextFrom(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH);
 
         $i->amOnPage(OrderListPage::ORDER_LIST_URL);
         $i->wait(2);
