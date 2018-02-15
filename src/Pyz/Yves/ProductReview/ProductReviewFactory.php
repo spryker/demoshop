@@ -54,11 +54,11 @@ class ProductReviewFactory extends SprykerProductReviewFactory
      */
     public function createProductReviewForm($idProductAbstract)
     {
-        $dataProvier = $this->createProductReviewFormDataProvider();
+        $dataProvider = $this->createProductReviewFormDataProvider();
         $form = $this->getFormFactory()->create(
-            new ProductReviewForm($this->getProductReviewClient()),
-            $dataProvier->getData($idProductAbstract),
-            $dataProvier->getOptions()
+            ProductReviewForm::class,
+            $dataProvider->getData($idProductAbstract),
+            $dataProvider->getOptions()
         );
 
         return $form;

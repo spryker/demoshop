@@ -6,11 +6,11 @@
 namespace Pyz\Yves\Customer\Form;
 
 use Generated\Shared\Transfer\AddressTransfer;
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraint;
 
 class CheckoutAddressCollectionForm extends AbstractType
@@ -28,7 +28,7 @@ class CheckoutAddressCollectionForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'addressesForm';
     }
@@ -56,18 +56,6 @@ class CheckoutAddressCollectionForm extends AbstractType
 
         $resolver->setDefined(self::OPTION_ADDRESS_CHOICES);
         $resolver->setRequired(self::OPTION_COUNTRY_CHOICES);
-    }
-
-    /**
-     * @deprecated Use `configureOptions()` instead.
-     *
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-     *
-     * @return void
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 
     /**
@@ -107,7 +95,7 @@ class CheckoutAddressCollectionForm extends AbstractType
             CheckoutAddressForm::OPTION_COUNTRY_CHOICES => $options[self::OPTION_COUNTRY_CHOICES],
         ];
 
-        $builder->add(self::FIELD_SHIPPING_ADDRESS, new CheckoutAddressForm(), $options);
+        $builder->add(self::FIELD_SHIPPING_ADDRESS, CheckoutAddressForm::class, $options);
 
         return $this;
     }
@@ -121,7 +109,7 @@ class CheckoutAddressCollectionForm extends AbstractType
     {
         $builder->add(
             self::FIELD_BILLING_SAME_AS_SHIPPING,
-            'checkbox',
+            CheckboxType::class,
             [
                 'required' => false,
             ]
@@ -157,7 +145,7 @@ class CheckoutAddressCollectionForm extends AbstractType
             CheckoutAddressForm::OPTION_COUNTRY_CHOICES => $options[self::OPTION_COUNTRY_CHOICES],
         ];
 
-        $builder->add(self::FIELD_BILLING_ADDRESS, new CheckoutAddressForm(), $options);
+        $builder->add(self::FIELD_BILLING_ADDRESS, CheckoutAddressForm::class, $options);
 
         return $this;
     }
