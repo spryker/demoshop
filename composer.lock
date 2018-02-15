@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd0a97ba2bb2a71c5c09b24cc7949e58",
+    "content-hash": "644cc55497f4f3c8144935f824e45ff7",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.52.7",
+            "version": "3.52.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4abee976c5884b1bc376b8388dd1ac53b4643bb6"
+                "reference": "0deaf5d0bdb6d50cba51e22838f2a99ad1195954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4abee976c5884b1bc376b8388dd1ac53b4643bb6",
-                "reference": "4abee976c5884b1bc376b8388dd1ac53b4643bb6",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0deaf5d0bdb6d50cba51e22838f2a99ad1195954",
+                "reference": "0deaf5d0bdb6d50cba51e22838f2a99ad1195954",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-02-12T21:48:20+00:00"
+            "time": "2018-02-14T23:26:04+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1767,16 +1767,16 @@
         },
         {
             "name": "spryker/acl",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/acl.git",
-                "reference": "ed56ded66e399b90a6a2ab77b8db1c7cc1e78bd5"
+                "reference": "7813f91a42ed22a674c951619e168315afddd353"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/acl/zipball/ed56ded66e399b90a6a2ab77b8db1c7cc1e78bd5",
-                "reference": "ed56ded66e399b90a6a2ab77b8db1c7cc1e78bd5",
+                "url": "https://api.github.com/repos/spryker/acl/zipball/7813f91a42ed22a674c951619e168315afddd353",
+                "reference": "7813f91a42ed22a674c951619e168315afddd353",
                 "shasum": ""
             },
             "require": {
@@ -1817,7 +1817,7 @@
                 "proprietary"
             ],
             "description": "Acl module",
-            "time": "2018-01-25T09:08:12+00:00"
+            "time": "2018-02-08T09:21:55+00:00"
         },
         {
             "name": "spryker/api",
@@ -5466,16 +5466,16 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.16.0",
+            "version": "3.17.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Kernel.git",
-                "reference": "a15ad4c94c92191b2245c044c07aaea60ca92b4c"
+                "url": "https://github.com/spryker/kernel.git",
+                "reference": "e3d30ef85552b8de290db63faffccbdf53006ed3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Kernel/zipball/a15ad4c94c92191b2245c044c07aaea60ca92b4c",
-                "reference": "a15ad4c94c92191b2245c044c07aaea60ca92b4c",
+                "url": "https://api.github.com/repos/spryker/kernel/zipball/e3d30ef85552b8de290db63faffccbdf53006ed3",
+                "reference": "e3d30ef85552b8de290db63faffccbdf53006ed3",
                 "shasum": ""
             },
             "require": {
@@ -5483,7 +5483,7 @@
                 "php": ">=5.6.0",
                 "spryker/config": "^3.0.0",
                 "spryker/error-handler": "^2.0.0",
-                "spryker/propel-orm": "^1.0.0",
+                "spryker/propel-orm": "^1.6.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/util-encoding": "^2.0.0",
@@ -5493,7 +5493,7 @@
                 "spryker/code-sniffer": "*",
                 "spryker/console": "^3.0.0 || ^4.0.0",
                 "spryker/testify": "^3.3.0",
-                "spryker/transfer": "^3.0.0"
+                "spryker/transfer": "^3.6.0"
             },
             "type": "library",
             "extra": {
@@ -5511,7 +5511,7 @@
                 "proprietary"
             ],
             "description": "Kernel module",
-            "time": "2018-01-10T11:31:54+00:00"
+            "time": "2018-02-15T16:10:37+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -7215,16 +7215,16 @@
         },
         {
             "name": "spryker/product-category-filter-gui",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-category-filter-gui.git",
-                "reference": "efb042b79ecb18bc4bbec406a986ac619e101380"
+                "reference": "91ebe61094610c1e81ea03b47607fc5c86fd20ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-category-filter-gui/zipball/efb042b79ecb18bc4bbec406a986ac619e101380",
-                "reference": "efb042b79ecb18bc4bbec406a986ac619e101380",
+                "url": "https://api.github.com/repos/spryker/product-category-filter-gui/zipball/91ebe61094610c1e81ea03b47607fc5c86fd20ea",
+                "reference": "91ebe61094610c1e81ea03b47607fc5c86fd20ea",
                 "shasum": ""
             },
             "require": {
@@ -7262,7 +7262,7 @@
                 "proprietary"
             ],
             "description": "ProductCategoryFilterGui module",
-            "time": "2018-02-05T06:01:59+00:00"
+            "time": "2018-02-14T14:51:12+00:00"
         },
         {
             "name": "spryker/product-customer-permission",
@@ -8672,23 +8672,24 @@
         },
         {
             "name": "spryker/propel-orm",
-            "version": "1.5.2",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/propel-orm.git",
-                "reference": "223fda11be26d1aa9dbe89022407a9b45b63b594"
+                "reference": "0c966f45f85b6ca88dc7a01c5aa10271c9b79349"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/223fda11be26d1aa9dbe89022407a9b45b63b594",
-                "reference": "223fda11be26d1aa9dbe89022407a9b45b63b594",
+                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/0c966f45f85b6ca88dc7a01c5aa10271c9b79349",
+                "reference": "0c966f45f85b6ca88dc7a01c5aa10271c9b79349",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "propel/propel": "dev-master#1f6557d1a6f436b6bb08099238878246362028ca",
                 "spryker/config": "^3.0.0",
-                "spryker/error-handler": "^2.0.0"
+                "spryker/error-handler": "^2.0.0",
+                "spryker/kernel": "^3.17.0"
             },
             "type": "library",
             "extra": {
@@ -8706,7 +8707,7 @@
                 "proprietary"
             ],
             "description": "PropelOrm module",
-            "time": "2018-02-08T10:12:29+00:00"
+            "time": "2018-02-15T09:52:45+00:00"
         },
         {
             "name": "spryker/propel-query-builder",
@@ -9239,16 +9240,16 @@
         },
         {
             "name": "spryker/session",
-            "version": "3.2.3",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/session.git",
-                "reference": "04bc0f1c28ebadba72021db9400021096b9fdbe8"
+                "reference": "7dccbccb303b3ae25a7e1f160f5ebd05e8235d09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/session/zipball/04bc0f1c28ebadba72021db9400021096b9fdbe8",
-                "reference": "04bc0f1c28ebadba72021db9400021096b9fdbe8",
+                "url": "https://api.github.com/repos/spryker/session/zipball/7dccbccb303b3ae25a7e1f160f5ebd05e8235d09",
+                "reference": "7dccbccb303b3ae25a7e1f160f5ebd05e8235d09",
                 "shasum": ""
             },
             "require": {
@@ -9281,7 +9282,7 @@
                 "proprietary"
             ],
             "description": "Session module",
-            "time": "2018-02-08T07:46:06+00:00"
+            "time": "2018-02-13T15:22:24+00:00"
         },
         {
             "name": "spryker/setup",
@@ -10176,21 +10177,22 @@
         },
         {
             "name": "spryker/transfer",
-            "version": "3.5.3",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/transfer.git",
-                "reference": "bba75431f579a45cc82fcaccb7b03b5ecb27389c"
+                "reference": "7843e6ac01a90fee139dabe7b7e5d2eca6c0883d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/transfer/zipball/bba75431f579a45cc82fcaccb7b03b5ecb27389c",
-                "reference": "bba75431f579a45cc82fcaccb7b03b5ecb27389c",
+                "url": "https://api.github.com/repos/spryker/transfer/zipball/7843e6ac01a90fee139dabe7b7e5d2eca6c0883d",
+                "reference": "7843e6ac01a90fee139dabe7b7e5d2eca6c0883d",
                 "shasum": ""
             },
             "require": {
                 "fzaninotto/faker": "^1.6",
-                "spryker/kernel": "^3.10.0",
+                "php": ">=7.1",
+                "spryker/kernel": "^3.17.0",
                 "spryker/log": "^3.0.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/twig": "^3.0.0",
@@ -10217,7 +10219,7 @@
                 "proprietary"
             ],
             "description": "Transfer module",
-            "time": "2018-01-16T09:39:17+00:00"
+            "time": "2018-02-15T16:10:37+00:00"
         },
         {
             "name": "spryker/twig",
@@ -14340,37 +14342,88 @@
             "time": "2018-02-11T18:49:29+00:00"
         },
         {
-            "name": "phpstan/phpstan",
-            "version": "0.8.5",
+            "name": "phpstan/phpdoc-parser",
+            "version": "0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "0dfb4f00959c53378cf15e32a79a254acada35d7"
+                "url": "https://github.com/phpstan/phpdoc-parser.git",
+                "reference": "02f909f134fe06f0cd4790d8627ee24efbe84d6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0dfb4f00959c53378cf15e32a79a254acada35d7",
-                "reference": "0dfb4f00959c53378cf15e32a79a254acada35d7",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/02f909f134fe06f0cd4790d8627ee24efbe84d6a",
+                "reference": "02f909f134fe06f0cd4790d8627ee24efbe84d6a",
                 "shasum": ""
             },
             "require": {
-                "jean85/pretty-package-versions": "^1.0.2",
-                "nette/bootstrap": "^2.4 || ^3.0",
-                "nette/di": "^2.4 || ^3.0",
-                "nette/robot-loader": "^3.0.1",
-                "nette/utils": "^2.4 || ^3.0",
-                "nikic/php-parser": "^3.0.2",
-                "php": "~7.0",
-                "symfony/console": "~2.7 || ~3.0",
-                "symfony/finder": "~2.7 || ~3.0"
+                "php": "~7.0"
             },
             "require-dev": {
                 "consistence/coding-standard": "^2.0.0",
                 "jakub-onderka/php-parallel-lint": "^0.9.2",
                 "phing/phing": "^2.16.0",
+                "phpstan/phpstan": "^0.9",
                 "phpunit/phpunit": "^6.3",
-                "satooshi/php-coveralls": "^1.0",
-                "slevomat/coding-standard": "^3.1.1"
+                "slevomat/coding-standard": "^3.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\PhpDocParser\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPDoc parser with support for nullable, intersection and generic types",
+            "time": "2018-01-13T18:19:41+00:00"
+        },
+        {
+            "name": "phpstan/phpstan",
+            "version": "0.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "e59541bcc7cac9b35ca54db6365bf377baf4a488"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e59541bcc7cac9b35ca54db6365bf377baf4a488",
+                "reference": "e59541bcc7cac9b35ca54db6365bf377baf4a488",
+                "shasum": ""
+            },
+            "require": {
+                "jean85/pretty-package-versions": "^1.0.3",
+                "nette/bootstrap": "^2.4 || ^3.0",
+                "nette/di": "^2.4.7 || ^3.0",
+                "nette/robot-loader": "^3.0.1",
+                "nette/utils": "^2.4.5 || ^3.0",
+                "nikic/php-parser": "^3.1",
+                "php": "~7.0",
+                "phpstan/phpdoc-parser": "^0.2",
+                "symfony/console": "~3.2 || ~4.0",
+                "symfony/finder": "~3.2 || ~4.0"
+            },
+            "require-dev": {
+                "consistence/coding-standard": "2.2.1",
+                "ext-gd": "*",
+                "ext-intl": "*",
+                "ext-mysqli": "*",
+                "jakub-onderka/php-parallel-lint": "^0.9.2",
+                "phing/phing": "^2.16.0",
+                "phpstan/phpstan-php-parser": "^0.9",
+                "phpstan/phpstan-phpunit": "^0.9.3",
+                "phpstan/phpstan-strict-rules": "^0.9",
+                "phpunit/phpunit": "^6.5.4",
+                "slevomat/coding-standard": "4.0.0"
             },
             "bin": [
                 "bin/phpstan"
@@ -14378,12 +14431,15 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.8-dev"
+                    "dev-master": "0.9-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "PHPStan\\": "src/"
+                    "PHPStan\\": [
+                        "src/",
+                        "build/PHPStan"
+                    ]
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -14391,7 +14447,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2017-09-06T17:15:07+00:00"
+            "time": "2018-01-28T13:22:19+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -15619,16 +15675,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.5",
+            "version": "4.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "2a24b1ba0c68a834fa4fc6b28cc8233119590717"
+                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/2a24b1ba0c68a834fa4fc6b28cc8233119590717",
-                "reference": "2a24b1ba0c68a834fa4fc6b28cc8233119590717",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/861e7b55d348c81a9dd0b3655dbbc83076d60c05",
+                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05",
                 "shasum": ""
             },
             "require": {
@@ -15655,7 +15711,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-09T21:17:33+00:00"
+            "time": "2018-02-15T17:13:28+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
