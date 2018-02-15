@@ -76,7 +76,7 @@ class CheckoutAvailabilityCest
 
         $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
-        $reservedProductsAfter = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
+        $reservedProductsAfter = $i->grabTextFrom(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH);
 
         $i->assertEquals($reservedProductsAfter, $reservedProductsBefore - 1); //Reserved item returned back
     }
