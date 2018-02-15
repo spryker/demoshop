@@ -109,6 +109,7 @@ script:
   - if [[ $TRAVIS_PHP_VERSION == 7.2 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.2 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $TRAVIS_PHP_VERSION == 7.2 && $TEST_GROUP == 'without-acceptance' && $PHPSTAN != 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
+  - cd vendor/spryker/spryker && if [ -z "$(git add -n -A)" ]; then echo "no untracked files, all good"; else git add -n -A && exit 1; fi && cd -
 
 notifications:
   email: false
