@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a7681263395d0fe76d0a9723a88fb2c",
+    "content-hash": "c50617ed13395460287d32941359d97b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1891,11 +1891,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-2297-Language-switcher",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d726e5dab5919263ccccfac5ab9b6207bc421045"
+                "reference": "bed5de60590afb3d60482d9f5de38715e92b93bb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2132,7 +2132,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-15T12:06:25+00:00"
+            "time": "2018-02-15T15:37:24+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
