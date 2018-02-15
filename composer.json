@@ -207,7 +207,7 @@
     "phpdocumentor/reflection-docblock": "^2.0",
     "phploc/phploc": "^3.0.1",
     "phpmd/phpmd": "~2.4.3",
-    "phpstan/phpstan": "^0.8.5",
+    "phpstan/phpstan": "^0.9",
     "phpunit/php-token-stream": "^1.4.11",
     "sebastian/phpcpd": "^2.0.2",
     "sensiolabs/security-checker": "^3.0.2",
