@@ -19,7 +19,6 @@ use Pyz\Zed\Collector\Communication\Plugin\ProductConcreteCollectorPlugin;
 use Pyz\Zed\Collector\Communication\Plugin\ProductOptionCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\RedirectCollectorStoragePlugin;
 use Pyz\Zed\Collector\Communication\Plugin\TranslationCollectorStoragePlugin;
-use Pyz\Zed\Collector\Communication\Plugin\UrlCollectorStoragePlugin;
 use Pyz\Zed\ProductSearch\Communication\Plugin\ProductDataPageMapPlugin;
 use Spryker\Shared\Availability\AvailabilityConfig;
 use Spryker\Shared\Cms\CmsConstants;
@@ -58,10 +57,11 @@ use Spryker\Zed\ProductSearch\Communication\Plugin\ProductSearchConfigExtensionC
 use Spryker\Zed\ProductSetCollector\Communication\Plugin\ProductSetCollectorSearchPlugin;
 use Spryker\Zed\ProductSetCollector\Communication\Plugin\ProductSetCollectorStoragePlugin;
 use Spryker\Zed\Url\UrlConfig;
+use Spryker\Zed\UrlCollector\Communication\Plugin\UrlCollectorPlugin;
 
 class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
 {
-    const SERVICE_DATA = 'SERVICE_DATA';
+    const SERVICE_UTIL_DATA_READER = 'SERVICE_UTIL_DATA_READER';
 
     const FACADE_PROPEL = 'FACADE_PROPEL';
     const FACADE_PRICE_PRODUCT = 'FACADE_PRICE_PRODUCT';
@@ -87,39 +87,157 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
     {
         $container = parent::provideBusinessLayerDependencies($container);
 
+        $this->addPropelFacade($container);
+        $this->addSearchFacade($container);
+        $this->addProductFacade($container);
+        $this->addProductImageFacade($container);
+        $this->addPriceProductFacade($container);
+        $this->addProductOptionFacade($container);
+
+        $this->addCategoryQueryContainer($container);
+        $this->addProductCategoryQueryContainer($container);
+        $this->addProductImageQueryContainer($container);
+        $this->addProductOptionQueryContainer($container);
+
+        $this->addSearchPluginStack($container);
+        $this->addStoragePluginStack($container);
+
+        $this->getProductDataMapPlugin($container);
+        $this->getCategoryNodeDataPageMapPlugin($container);
+
+        $this->addUtilDataReaderService($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addPropelFacade(Container $container)
+    {
         $container[self::FACADE_PROPEL] = function (Container $container) {
             return $container->getLocator()->propel()->facade();
         };
+    }
 
-        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
-            return $container->getLocator()->category()->queryContainer();
-        };
-
-        $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
-            return $container->getLocator()->productCategory()->queryContainer();
-        };
-
-        $container[self::FACADE_SEARCH] = function (Container $container) {
-            return $container->getLocator()->search()->facade();
-        };
-
-        $container[self::FACADE_PRODUCT] = function (Container $container) {
-            return $container->getLocator()->product()->facade();
-        };
-
-        $container[static::FACADE_PRODUCT_IMAGE] = function (Container $container) {
-            return $container->getLocator()->productImage()->facade();
-        };
-
-        $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {
-            return $container->getLocator()->productImage()->queryContainer();
-        };
-
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addPriceProductFacade(Container $container)
+    {
         $container[self::FACADE_PRICE_PRODUCT] = function (Container $container) {
             return $container->getLocator()->priceProduct()->facade();
         };
+    }
 
-        $container[self::SEARCH_PLUGINS] = function (Container $container) {
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addSearchFacade(Container $container)
+    {
+        $container[self::FACADE_SEARCH] = function (Container $container) {
+            return $container->getLocator()->search()->facade();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addProductImageFacade(Container $container)
+    {
+        $container[static::FACADE_PRODUCT_IMAGE] = function (Container $container) {
+            return $container->getLocator()->productImage()->facade();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addProductFacade(Container $container)
+    {
+        $container[self::FACADE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addCategoryQueryContainer(Container $container)
+    {
+        $container[self::QUERY_CONTAINER_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->category()->queryContainer();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addProductCategoryQueryContainer(Container $container)
+    {
+        $container[self::QUERY_CONTAINER_PRODUCT_CATEGORY] = function (Container $container) {
+            return $container->getLocator()->productCategory()->queryContainer();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addProductImageQueryContainer(Container $container)
+    {
+        $container[self::QUERY_CONTAINER_PRODUCT_IMAGE] = function (Container $container) {
+            return $container->getLocator()->productImage()->queryContainer();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addProductOptionQueryContainer(Container $container)
+    {
+        $container[static::QUERY_CONTAINER_PRODUCT_OPTION] = function (Container $container) {
+            return $container->getLocator()->productOption()->queryContainer();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addProductOptionFacade(Container $container)
+    {
+        $container[static::FACADE_PRODUCT_OPTION] = function (Container $container) {
+            return $container->getLocator()->productOption()->facade();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addSearchPluginStack(Container $container)
+    {
+        $container[self::SEARCH_PLUGINS] = function () {
             return [
                 ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT => new ProductCollectorSearchPlugin(),
                 CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE => new CategoryNodeCollectorSearchPlugin(),
@@ -128,8 +246,16 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 ProductReviewConfig::RESOURCE_TYPE_PRODUCT_REVIEW => new ProductReviewCollectorSearchPlugin(),
             ];
         };
+    }
 
-        $container[self::STORAGE_PLUGINS] = function (Container $container) {
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addStoragePluginStack(Container $container)
+    {
+        $container[self::STORAGE_PLUGINS] = function () {
             return [
                 ProductConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT => new ProductAbstractCollectorStoragePlugin(),
                 ProductConfig::RESOURCE_TYPE_PRODUCT_CONCRETE => new ProductConcreteCollectorPlugin(),
@@ -144,7 +270,7 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 CmsBlockCategoryConnectorConfig::RESOURCE_TYPE_CMS_BLOCK_CATEGORY_CONNECTOR => new CmsBlockCategoryConnectorCollectorPlugin(),
                 CmsBlockProductConnectorConstants::RESOURCE_TYPE_CMS_BLOCK_PRODUCT_CONNECTOR => new CmsBlockProductConnectorCollectorPlugin(),
                 UrlConfig::RESOURCE_TYPE_REDIRECT => new RedirectCollectorStoragePlugin(),
-                UrlConfig::RESOURCE_TYPE_URL => new UrlCollectorStoragePlugin(),
+                UrlConfig::RESOURCE_TYPE_URL => new UrlCollectorPlugin(),
                 ProductSearchConfig::RESOURCE_TYPE_PRODUCT_SEARCH_CONFIG_EXTENSION => new ProductSearchConfigExtensionCollectorPlugin(),
                 ProductOptionConfig::RESOURCE_TYPE_PRODUCT_OPTION => new ProductOptionCollectorStoragePlugin(),
                 ProductRelationConstants::RESOURCE_TYPE_PRODUCT_RELATION => new ProductRelationCollectorPlugin(),
@@ -157,50 +283,41 @@ class CollectorDependencyProvider extends SprykerCollectorDependencyProvider
                 ProductCategoryFilterConfig::RESOURCE_TYPE_PRODUCT_CATEGORY_FILTER => new ProductCategoryFilterCollectorPlugin(),
             ];
         };
+    }
 
-        $container[self::PLUGIN_PRODUCT_DATA_PAGE_MAP] = function (Container $container) {
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function getProductDataMapPlugin(Container $container)
+    {
+        $container[self::PLUGIN_PRODUCT_DATA_PAGE_MAP] = function () {
             return new ProductDataPageMapPlugin();
         };
+    }
 
-        $container[self::PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP] = function (Container $container) {
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function getCategoryNodeDataPageMapPlugin(Container $container)
+    {
+        $container[self::PLUGIN_CATEGORY_NODE_DATA_PAGE_MAP] = function () {
             return new CategoryNodeDataPageMapPlugin();
         };
+    }
 
-        $container[static::SERVICE_DATA] = function (Container $container) {
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function addUtilDataReaderService(Container $container)
+    {
+        $container[static::SERVICE_UTIL_DATA_READER] = function (Container $container) {
             return $container->getLocator()->utilDataReader()->service();
         };
-
-        $container = $this->addProductOptionFacade($container);
-        $container = $this->addProductOptionQueryContainer($container);
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
-    protected function addProductOptionQueryContainer(Container $container)
-    {
-        $container[static::QUERY_CONTAINER_PRODUCT_OPTION] = function (Container $container) {
-            return $container->getLocator()->productOption()->queryContainer();
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
-    protected function addProductOptionFacade(Container $container)
-    {
-        $container[static::FACADE_PRODUCT_OPTION] = function (Container $container) {
-            return $container->getLocator()->productOption()->facade();
-        };
-
-        return $container;
     }
 }
