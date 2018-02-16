@@ -250,7 +250,9 @@
     "preferred-install": "dist",
     "use-include-path": true,
     "sort-packages": true,
-    "github-protocols": ["https"],
+    "github-protocols": [
+      "https"
+    ],
     "process-timeout": 1200
   },
   "scripts": {
