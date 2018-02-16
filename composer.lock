@@ -885,16 +885,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.1.2",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "1fe44543b947d459b88effc78c357738dba2b85b"
+                "reference": "5e6a3c98ba2cb190d48d35656967eacf30716034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/1fe44543b947d459b88effc78c357738dba2b85b",
-                "reference": "1fe44543b947d459b88effc78c357738dba2b85b",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/5e6a3c98ba2cb190d48d35656967eacf30716034",
+                "reference": "5e6a3c98ba2cb190d48d35656967eacf30716034",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +961,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2018-02-15T23:40:48+00:00"
+            "time": "2018-02-16T11:04:16+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1896,7 +1896,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fa2e1ec1a2672175d1289427625de9f6fcf1ed1c"
+                "reference": "5405e466d1002e152aee026a9a4d2ed469a622c0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2133,7 +2133,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-16T09:25:28+00:00"
+            "time": "2018-02-16T13:20:18+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
