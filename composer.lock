@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.52.9",
+            "version": "3.52.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "0deaf5d0bdb6d50cba51e22838f2a99ad1195954"
+                "reference": "2b0a537e6b772f090138a7c0ddbb384f08f8b4a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0deaf5d0bdb6d50cba51e22838f2a99ad1195954",
-                "reference": "0deaf5d0bdb6d50cba51e22838f2a99ad1195954",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2b0a537e6b772f090138a7c0ddbb384f08f8b4a5",
+                "reference": "2b0a537e6b772f090138a7c0ddbb384f08f8b4a5",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-02-14T23:26:04+00:00"
+            "time": "2018-02-15T20:17:27+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -910,16 +910,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.1.1",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "fbf11e97b7f557b9d8fa7df03d98e727965e0385"
+                "reference": "5e6a3c98ba2cb190d48d35656967eacf30716034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/fbf11e97b7f557b9d8fa7df03d98e727965e0385",
-                "reference": "fbf11e97b7f557b9d8fa7df03d98e727965e0385",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/5e6a3c98ba2cb190d48d35656967eacf30716034",
+                "reference": "5e6a3c98ba2cb190d48d35656967eacf30716034",
                 "shasum": ""
             },
             "require": {
@@ -927,15 +927,16 @@
             },
             "require-dev": {
                 "cache/taggable-cache": "^0.4.0",
+                "doctrine/instantiator": "^1.0.5",
                 "ext-bcmath": "*",
                 "ext-gmp": "*",
                 "ext-intl": "*",
                 "florianv/swap": "^3.0",
-                "henrikbjorn/phpspec-code-coverage": "^3",
+                "leanphp/phpspec-code-coverage": "^3.0 || ^4.0",
                 "moneyphp/iso-currencies": "^3.0",
                 "php-http/message": "^1.4",
                 "php-http/mock-client": "^0.3.3",
-                "phpspec/phpspec": "^3",
+                "phpspec/phpspec": "^3.0",
                 "phpunit/phpunit": "^5",
                 "psr/cache": "^1.0",
                 "sllh/php-cs-fixer-styleci-bridge": "^2.1",
@@ -985,7 +986,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2018-01-19T09:05:35+00:00"
+            "time": "2018-02-16T11:04:16+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1382,12 +1383,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "c64c0d61a36544c8f7cb9073c039715ba9cc343a"
+                "reference": "cd23d7384a15cfe203e23b3a835c8ab1d81d9246"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/c64c0d61a36544c8f7cb9073c039715ba9cc343a",
-                "reference": "c64c0d61a36544c8f7cb9073c039715ba9cc343a",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/cd23d7384a15cfe203e23b3a835c8ab1d81d9246",
+                "reference": "cd23d7384a15cfe203e23b3a835c8ab1d81d9246",
                 "shasum": ""
             },
             "require": {
@@ -1438,7 +1439,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2018-02-12T22:49:26+00:00"
+            "time": "2018-02-16T13:38:15+00:00"
         },
         {
             "name": "psr/container",
@@ -4024,16 +4025,16 @@
         },
         {
             "name": "spryker/customer",
-            "version": "7.5.0",
+            "version": "7.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/customer.git",
-                "reference": "9d7c7c8ac235e9e677540af457363f816df33636"
+                "reference": "e434b7b579deed1799eafa7e844cc69be9092dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/customer/zipball/9d7c7c8ac235e9e677540af457363f816df33636",
-                "reference": "9d7c7c8ac235e9e677540af457363f816df33636",
+                "url": "https://api.github.com/repos/spryker/customer/zipball/e434b7b579deed1799eafa7e844cc69be9092dfb",
+                "reference": "e434b7b579deed1799eafa7e844cc69be9092dfb",
                 "shasum": ""
             },
             "require": {
@@ -4087,7 +4088,7 @@
                 "proprietary"
             ],
             "description": "Customer module",
-            "time": "2018-02-08T10:31:32+00:00"
+            "time": "2018-02-13T15:16:54+00:00"
         },
         {
             "name": "spryker/customer-api",
@@ -4939,20 +4940,21 @@
         },
         {
             "name": "spryker/flysystem-aws3v3-file-system",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/FlysystemAws3v3FileSystem.git",
-                "reference": "ab906166c9f09f8cc873f18410fba28a1b6a76a8"
+                "url": "https://github.com/spryker/flysystem-aws3v3-file-system.git",
+                "reference": "b818d07dbae84d07a3f5ac41a1aa65b743b59ab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/FlysystemAws3v3FileSystem/zipball/ab906166c9f09f8cc873f18410fba28a1b6a76a8",
-                "reference": "ab906166c9f09f8cc873f18410fba28a1b6a76a8",
+                "url": "https://api.github.com/repos/spryker/flysystem-aws3v3-file-system/zipball/b818d07dbae84d07a3f5ac41a1aa65b743b59ab3",
+                "reference": "b818d07dbae84d07a3f5ac41a1aa65b743b59ab3",
                 "shasum": ""
             },
             "require": {
                 "league/flysystem-aws-s3-v3": "^1.0",
+                "php": ">=7.1",
                 "spryker/kernel": "^3.5.0"
             },
             "require-dev": {
@@ -4979,7 +4981,7 @@
                 "proprietary"
             ],
             "description": "FlysystemAws3v3FileSystem module",
-            "time": "2017-10-25T08:03:49+00:00"
+            "time": "2018-02-15T17:59:36+00:00"
         },
         {
             "name": "spryker/flysystem-ftp-file-system",

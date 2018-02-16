@@ -26,6 +26,12 @@ matrix:
           - TEST_GROUP=acceptance
           - DB=mysql
 
+  allow_failures:
+    - php: "7.2"
+      env:
+        - TEST_GROUP=acceptance
+        - DB=mysql
+
 addons:
   postgresql: 9.4
   mysql: 5.7
