@@ -3,8 +3,8 @@
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg)](https://php.net/)
 
 Project (internal)
-[![Build Status](https://travis-ci.com/spryker/project.svg?token=7jVDNZFJxpvBrFetYhbF&branch=master)](https://travis-ci.com/spryker/project)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spryker/project/badges/quality-score.png?b=master&s=7f0c1247303c81b5047867595714ff5d7db02a5a)](https://scrutinizer-ci.com/g/spryker/project/?branch=master)
+[![Build Status](https://travis-ci.com/spryker/demoshop-nonsplit.svg?token=7jVDNZFJxpvBrFetYhbF&branch=master)](https://travis-ci.com/spryker/demoshop-nonsplit)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spryker/demoshop-nonsplit/badges/quality-score.png?b=master&s=7f0c1247303c81b5047867595714ff5d7db02a5a)](https://scrutinizer-ci.com/g/spryker/demoshop-nonsplit/?branch=master)
 
 Core (internal)
 [![Build Status](https://travis-ci.com/spryker/spryker.svg?token=7jVDNZFJxpvBrFetYhbF&branch=master)](https://travis-ci.com/spryker/spryker)
