@@ -885,16 +885,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "fbf11e97b7f557b9d8fa7df03d98e727965e0385"
+                "reference": "1fe44543b947d459b88effc78c357738dba2b85b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/fbf11e97b7f557b9d8fa7df03d98e727965e0385",
-                "reference": "fbf11e97b7f557b9d8fa7df03d98e727965e0385",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/1fe44543b947d459b88effc78c357738dba2b85b",
+                "reference": "1fe44543b947d459b88effc78c357738dba2b85b",
                 "shasum": ""
             },
             "require": {
@@ -902,15 +902,16 @@
             },
             "require-dev": {
                 "cache/taggable-cache": "^0.4.0",
+                "doctrine/instantiator": "^1.0.5",
                 "ext-bcmath": "*",
                 "ext-gmp": "*",
                 "ext-intl": "*",
                 "florianv/swap": "^3.0",
-                "henrikbjorn/phpspec-code-coverage": "^3",
+                "leanphp/phpspec-code-coverage": "^3.0 || ^4.0",
                 "moneyphp/iso-currencies": "^3.0",
                 "php-http/message": "^1.4",
                 "php-http/mock-client": "^0.3.3",
-                "phpspec/phpspec": "^3",
+                "phpspec/phpspec": "^3.0",
                 "phpunit/phpunit": "^5",
                 "psr/cache": "^1.0",
                 "sllh/php-cs-fixer-styleci-bridge": "^2.1",
@@ -960,7 +961,7 @@
                 "money",
                 "vo"
             ],
-            "time": "2018-01-19T09:05:35+00:00"
+            "time": "2018-02-15T23:40:48+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1895,7 +1896,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9e2e2ffb7f73158c4b980476004cfb8c083b683e"
+                "reference": "fa2e1ec1a2672175d1289427625de9f6fcf1ed1c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2132,7 +2133,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-15T16:02:27+00:00"
+            "time": "2018-02-16T09:25:28+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7078,16 +7079,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.5",
+            "version": "4.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "2a24b1ba0c68a834fa4fc6b28cc8233119590717"
+                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/2a24b1ba0c68a834fa4fc6b28cc8233119590717",
-                "reference": "2a24b1ba0c68a834fa4fc6b28cc8233119590717",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/861e7b55d348c81a9dd0b3655dbbc83076d60c05",
+                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05",
                 "shasum": ""
             },
             "require": {
@@ -7114,7 +7115,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-09T21:17:33+00:00"
+            "time": "2018-02-15T17:13:28+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
