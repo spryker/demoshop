@@ -24,7 +24,7 @@ class YvesFormTypeDynamicTypeExtension extends AbstractSprykerDynamicTypeExtensi
     /**
      * @return string
      */
-    public static function getClass(): string
+    public function getClass(): string
     {
         return AbstractType::class;
     }

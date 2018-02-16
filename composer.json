@@ -1,6 +1,6 @@
 {
-  "name": "spryker/project",
-  "description": "Project",
+  "name": "spryker/demoshop-nonsplit",
+  "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/CORE-777-gift-cards",
@@ -83,7 +83,8 @@
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
     "phpdocumentor/reflection-docblock": "^2.0",
-    "squizlabs/php_codesniffer": "~3.1.0"
+    "squizlabs/php_codesniffer": "~3.1.0",
+    "phpstan/phpstan": "^0.9"
   },
   "autoload": {
     "psr-4": {

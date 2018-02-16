@@ -41,8 +41,6 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
-     *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
     public function createShipmentFormCollection()
@@ -69,8 +67,6 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer
-     *
      * @return \Spryker\Yves\StepEngine\Form\FormCollectionHandlerInterface
      */
     public function createSummaryFormCollection()
