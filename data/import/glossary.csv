@@ -39,6 +39,8 @@ cart.total.tax_total,Mehrwertsteuer,de_DE
 cart.total.tax_total,Tax,en_US
 cart.total.price_to_pay,Zu bezahlender Betrag,de_DE
 cart.total.price_to_pay,Price to pay,en_US
+cart.giftcard.label,"Gift card",en_US
+cart.giftcard.label,"Geschenkgutschein",de_DE
 cart.giftcard.apply.failed,The gift card is not applicable,en_US
 cart.giftcard.apply.failed,Geschenkgutschein konnte nicht angewendet werden,de_DE
 cart.giftcard.apply.successful,"Your gift card code has been applied",en_US
