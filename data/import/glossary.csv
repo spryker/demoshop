@@ -595,6 +595,8 @@ countries.iso.DE,Germany,en_US
 countries.iso.DE,Deutschland,de_DE
 customer.billingSameAsShipping,Billing address same as shipping address,en_US
 customer.billingSameAsShipping,Liefer- und Rechnungsadresse sind gleich,de_DE
+checkout.giftcard.label,"Gift card",en_US
+checkout.giftcard.label,"Geschenkgutschein",de_DE
 checkout.customer.proceed_as_user,Proceed as a registered user (sign up),en_US
 checkout.customer.proceed_as_user,Melden Sie sich mit Ihrem bereits vorhandenem Account an,de_DE
 checkout.customer.proceed_as_guest,Proceed as a guest,en_US
