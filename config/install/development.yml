@@ -28,9 +28,10 @@ sections:
         maintenance-yves-off:
             command: "vendor/bin/console maintenance:disable yves"
 
-    composer:
-        install-dependencies:
-            command: "if [ ! -f ./composer.phar ]; then composer install --prefer-dist; else php composer.phar install --prefer-dist; fi"
+
+    environment:
+        console-environment:
+            command: "if [ ! -f ./config/Shared/console_env_local.php ]; then cp ./config/Shared/console_env_local.dist.php ./config/Shared/console_env_local.php ; fi"
 
 
     clear:

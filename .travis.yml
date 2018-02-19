@@ -14,17 +14,23 @@ matrix:
        env:
           - TEST_GROUP=without-acceptance
           - PHPSTAN=1
-     - php: "7.1"
+     - php: "7.2"
        env:
           - TEST_GROUP=without-acceptance
           - DB=mysql
      - php: "7.1"
        env:
           - TEST_GROUP=acceptance
-     - php: "7.1"
+     - php: "7.2"
        env:
           - TEST_GROUP=acceptance
           - DB=mysql
+
+  allow_failures:
+    - php: "7.2"
+      env:
+        - TEST_GROUP=acceptance
+        - DB=mysql
 
 addons:
   postgresql: 9.4
@@ -80,6 +86,7 @@ before_script:
   - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]]; then config/Shared/ci/travis/acceptance_env.sh ; fi
+
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/install DE -r testing ; fi
   - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/install DE -r testing -x frontend ; fi
 
