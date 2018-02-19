@@ -47,6 +47,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      * @param string $stepRoute
      * @param string $escapeRoute
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      */
     public function __construct(
         PaymentClientInterface $paymentClient,
@@ -109,7 +110,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     protected function getPaymentSelectionWithFallback(QuoteTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getTotals()->getPriceToPay() === 0) {
+        if ($quoteTransfer->getTotals() && $quoteTransfer->getTotals()->getPriceToPay() === 0) {
             return NopaymentConfig::PAYMENT_PROVIDER_NAME;
         }
 

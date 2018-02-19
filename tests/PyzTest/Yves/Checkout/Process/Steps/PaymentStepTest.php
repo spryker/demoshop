@@ -11,6 +11,7 @@ use Codeception\Test\Unit;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Process\Steps\PaymentStep;
+use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Payment\PaymentClientInterface;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
@@ -71,7 +72,8 @@ class PaymentStepTest extends Unit
             $paymentPlugins,
             'payment',
             'escape_route',
-            $this->getFlashMessengerMock()
+            $this->getFlashMessengerMock(),
+            $this->getCalculationClientMock()
         );
     }
 
@@ -97,6 +99,14 @@ class PaymentStepTest extends Unit
     protected function getPaymentClientMock()
     {
         return $this->getMockBuilder(PaymentClientInterface::class)->getMock();
+    }
+
+    /**
+     * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Client\Calculation\CalculationClientInterface
+     */
+    protected function getCalculationClientMock()
+    {
+        return $this->getMockBuilder(CalculationClientInterface::class)->getMock();
     }
 
     /**

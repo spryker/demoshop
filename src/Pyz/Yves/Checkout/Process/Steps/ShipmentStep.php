@@ -117,7 +117,10 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     {
         $onlyPreselected = true;
         foreach ($quoteTransfer->getItems() as $item) {
-            $onlyPreselected &= $item->getGiftCardMetadata()->getIsGiftCard();
+            $isGiftCard = $item->getGiftCardMetadata() ?
+                $item->getGiftCardMetadata()->getIsGiftCard() : false;
+
+            $onlyPreselected &= $isGiftCard;
         }
 
         return (bool)$onlyPreselected;

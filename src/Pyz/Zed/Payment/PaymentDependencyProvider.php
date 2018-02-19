@@ -7,6 +7,7 @@
 
 namespace Pyz\Zed\Payment;
 
+use Spryker\Shared\Nopayment\NopaymentConfig as SprykerNopaymentConfig;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderSaverPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPaymentMethodFilterPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardPreCheckPlugin;
@@ -14,7 +15,6 @@ use Spryker\Zed\GiftCard\GiftCardConfig as SprykerGiftCardConfig;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Nopayment\Communication\Plugin\Checkout\NopaymentPreCheckPlugin;
 use Spryker\Zed\Nopayment\Communication\Plugin\Payment\PriceToPayPaymentMethodFilterPlugin;
-use Spryker\Shared\Nopayment\NopaymentConfig as SprykerNopaymentConfig;
 use Spryker\Zed\Payment\Dependency\Plugin\Checkout\CheckoutPluginCollectionInterface;
 use Spryker\Zed\Payment\PaymentDependencyProvider as SprykerPaymentDependencyProvider;
 
