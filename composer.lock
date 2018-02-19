@@ -1854,7 +1854,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "222b6cf3ffcadfc670515e39fd87d11eb15777f3"
+                "reference": "bf5fd654518c3af6b2ffaea2a9e21ac2e835c637"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2092,7 +2092,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-19T13:09:27+00:00"
+            "time": "2018-02-20T08:41:09+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5033,16 +5033,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "b7b7d583eb04d7a8fe787e40cf12e14cfa61520e"
+                "reference": "8a85ce76298c8a8941f912b8fa3ee93ca17d2ebc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/b7b7d583eb04d7a8fe787e40cf12e14cfa61520e",
-                "reference": "b7b7d583eb04d7a8fe787e40cf12e14cfa61520e",
+                "url": "https://api.github.com/repos/nette/utils/zipball/8a85ce76298c8a8941f912b8fa3ee93ca17d2ebc",
+                "reference": "8a85ce76298c8a8941f912b8fa3ee93ca17d2ebc",
                 "shasum": ""
             },
             "require": {
@@ -5111,7 +5111,7 @@
                 "utility",
                 "validation"
             ],
-            "time": "2018-02-17T17:33:12+00:00"
+            "time": "2018-02-19T14:42:42+00:00"
         },
         {
             "name": "nikic/php-parser",
