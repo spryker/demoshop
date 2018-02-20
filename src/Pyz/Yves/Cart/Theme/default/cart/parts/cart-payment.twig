@@ -1,0 +1,5 @@
+{% for payment in cart.payments %}
+    {% if payment.giftCard is null %}
+        <li>{{ payment.paymentMethod }} <span class="float-right">- {{ payment.amount | money }}</span></li>
+    {% endif %}
+{% endfor %}

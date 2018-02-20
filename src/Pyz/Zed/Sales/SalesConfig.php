@@ -48,6 +48,7 @@ class SalesConfig extends SprykerSalesConfig
     {
         $projectExternalBlocks = [
             'payments' => '/payment/sales/list',
+            'giftCards' => '/gift-card/sales/list',
             'shipment' => '/shipment/sales/list',
             'discount' => '/discount/sales/list',
             'refund' => '/refund/sales/list',
