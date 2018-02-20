@@ -94,6 +94,6 @@ class YvesBootstrap extends ApplicationYvesBootstrap
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
         $this->application->register(new PriceModeSwitcherServiceProvider());
         $this->application->register(new CurrencySwitcherServiceProvider());
-        $this->application->redirect(new LanguageSwitcherServiceProvider());
+        $this->application->register(new LanguageSwitcherServiceProvider());
     }
 }
