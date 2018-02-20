@@ -1,6 +1,5 @@
 category_key,parent_category_key,name.de_DE,name.en_US,meta_title.de_DE,meta_title.en_US,meta_description.de_DE,meta_description.en_US,meta_keywords.de_DE,meta_keywords.en_US,is_active,is_in_menu,is_clickable,is_searchable,is_root,is_main,node_order,template_name
 demoshop,,Demoshop,Demoshop,Demoshop,Demoshop,Deutsche Version des Demoshop,English version of Demoshop,Deutsche Version des Demoshop,English version of Demoshop,1,1,1,0,1,1,,Catalog (default)
-gift-cards,demoshop,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,1,0,0,1,0,1,150,Catalog (default)
 cameras-and-camcorder,demoshop,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,Kameras & Camcorders,Cameras & Camcorders,1,1,1,1,0,1,90,Catalog (default)
 camcorders,cameras-and-camcorder,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,Digitale Videokameras,Camcorders,1,1,1,1,0,1,90,Catalog (default)
 digital-cameras,cameras-and-camcorder,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,Digitale Kameras,Digital Cameras,1,1,1,1,0,1,100,Catalog (default)
@@ -14,3 +13,4 @@ telecom-and-navigation,demoshop,Telekommunikation & Navigation,Telecom & Navigat
 smartphones,telecom-and-navigation,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,Smartphones,1,1,1,1,0,1,80,Catalog + CMS Block
 product-bundles,demoshop,Product Bundles,Product Bundles,Product Bundles,Product Bundles,Hier findest du verschiedene Produkte zu einem Bündel kombiniert.,These are multiple products bundled to a new product.,Product Bundles,Product Bundles,1,0,1,1,0,1,60,Catalog (default)
 variant-showcase,demoshop,Variant Showcase,Variant Showcase,Variant Showcase,Variant Showcase,Diese Produkte haßben mehr als eine Variante.,These are products that have more than 1 variant.,Variant Showcase,Variant Showcase,1,0,1,1,0,1,50,Catalog (default)
+gift-cards,demoshop,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,1,0,0,1,0,1,150,Catalog (default)
