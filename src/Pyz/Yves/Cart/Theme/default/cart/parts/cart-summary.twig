@@ -24,6 +24,9 @@
         <li>{{ 'cart.price.grand.total' | trans }} <strong class="float-right">{{ cart.totals.grandTotal | money }}</strong></li>
 
         <li>{{ 'cart.total.tax_total' | trans }} <span class="float-right">{{ cart.totals.taxTotal.amount | money }}</span></li>
+            {% include '@cart/cart/parts/cart-payment-gift-card.twig' %}
+            {% include '@cart/cart/parts/cart-payment.twig' %}
+        <li>{{ 'cart.total.price_to_pay' | trans }}<span class="float-right">{{ cart.totals.priceToPay | money }}</span></li>
     </ul>
 
     {% if cart.items | length %}

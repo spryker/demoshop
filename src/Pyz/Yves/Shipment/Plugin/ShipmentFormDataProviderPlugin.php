@@ -23,7 +23,9 @@ class ShipmentFormDataProviderPlugin extends AbstractPlugin implements StepEngin
      */
     public function getData(AbstractTransfer $dataTransfer)
     {
-        return $this->getFactory()->createShipmentDataProvider()->getData($dataTransfer);
+        return $this->getFactory()
+            ->createShipmentDataProvider()
+            ->getData($dataTransfer);
     }
 
     /**
@@ -33,6 +35,8 @@ class ShipmentFormDataProviderPlugin extends AbstractPlugin implements StepEngin
      */
     public function getOptions(AbstractTransfer $dataTransfer)
     {
-        return $this->getFactory()->createShipmentDataProvider()->getOptions($dataTransfer);
+        return $this->getFactory()
+            ->createShipmentDataProvider()
+            ->getOptions($dataTransfer);
     }
 }

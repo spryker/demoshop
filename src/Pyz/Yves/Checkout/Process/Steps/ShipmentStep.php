@@ -6,7 +6,9 @@
 namespace Pyz\Yves\Checkout\Process\Steps;
 
 use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
+use Pyz\Yves\Shipment\ShipmentConfig;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Shared\Shipment\ShipmentConstants;
@@ -51,7 +53,7 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
      */
     public function requireInput(AbstractTransfer $quoteTransfer)
     {
-        return true;
+        return $this->hasOnlyNoShipmentItems($quoteTransfer) === false;
     }
 
     /**
@@ -62,6 +64,10 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
+        if (!$this->requireInput($quoteTransfer)) {
+            $quoteTransfer = $this->setDefaultNoShipmentMethod($quoteTransfer);
+        }
+
         $shipmentHandler = $this->shipmentPlugins->get(CheckoutDependencyProvider::PLUGIN_SHIPMENT_STEP_HANDLER);
         $shipmentHandler->addToDataClass($request, $quoteTransfer);
 
@@ -75,6 +81,10 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
      */
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
+        if ($this->hasOnlyNoShipmentItems($quoteTransfer)) {
+            return true;
+        }
+
         if (!$this->isShipmentSet($quoteTransfer)) {
             return false;
         }
@@ -91,11 +101,44 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     {
         foreach ($quoteTransfer->getExpenses() as $expenseTransfer) {
             if ($expenseTransfer->getType() === ShipmentConstants::SHIPMENT_EXPENSE_TYPE) {
-                return true;
+                return $quoteTransfer->getShipment()->getShipmentSelection() !== null;
             }
         }
 
         return false;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function hasOnlyNoShipmentItems(QuoteTransfer $quoteTransfer)
+    {
+        $onlyPreselected = true;
+        foreach ($quoteTransfer->getItems() as $item) {
+            $isGiftCard = $item->getGiftCardMetadata() ?
+                $item->getGiftCardMetadata()->getIsGiftCard() : false;
+
+            $onlyPreselected &= $isGiftCard;
+        }
+
+        return (bool)$onlyPreselected;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\QuoteTransfer
+     */
+    protected function setDefaultNoShipmentMethod(QuoteTransfer $quoteTransfer)
+    {
+        $shipmentTransfer = (new ShipmentTransfer())
+            ->setShipmentSelection(
+                (new ShipmentConfig)->getNoShipmentMethodName()
+            );
+
+        return $quoteTransfer->setShipment($shipmentTransfer);
     }
 
     /**

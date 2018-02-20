@@ -51,6 +51,8 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_SHIPMENT_PRICE = 'shipment-price';
     const IMPORT_TYPE_STOCK = 'stock';
     const IMPORT_TYPE_TAX = 'tax';
+    const IMPORT_TYPE_ABSTRACT_GIFT_CARD_CONFIGURATION = 'gift-card-abstract-configuration';
+    const IMPORT_TYPE_CONCRETE_GIFT_CARD_CONFIGURATION = 'gift-card-concrete-configuration';
     const IMPORT_TYPE_CURRENCY = 'currency';
     const IMPORT_TYPE_STORE = 'store';
 
@@ -156,6 +158,22 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getNavigationDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('navigation.csv', static::IMPORT_TYPE_NAVIGATION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getAbstractGiftCardProductConfigurationDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('gift_card_abstract_configuration.csv', static::IMPORT_TYPE_ABSTRACT_GIFT_CARD_CONFIGURATION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getConcreteGiftCardProductConfigurationDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('gift_card_concrete_configuration.csv', static::IMPORT_TYPE_CONCRETE_GIFT_CARD_CONFIGURATION);
     }
 
     /**
