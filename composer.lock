@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc0a1f1f8ff25cae0d0fef8e06fd83eb",
+    "content-hash": "f60733627e91db144bbe2dab92a1bdef",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1850,11 +1850,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/CORE-777-gift-cards",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "eab616cead521ae22dcbe5baf7d38db069a2a485"
+                "reference": "03b4a48fffef3ee3211c64446659346f717e54a7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2092,7 +2092,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-20T11:50:09+00:00"
+            "time": "2018-02-20T13:45:40+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6998,7 +6998,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
