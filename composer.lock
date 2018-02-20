@@ -6,6 +6,7 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "81e3e86da11bbf76ba3189a75baa3b69",
 =======
 =======
@@ -26,6 +27,9 @@
     "content-hash": "376e98b31171171edf6a557b938dbf86",
 >>>>>>> core-2447 update spryker/spryker
 >>>>>>> core-2447 update spryker/spryker
+=======
+    "content-hash": "f60733627e91db144bbe2dab92a1bdef",
+>>>>>>> core-2447 update spryker/sprkyer
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1815,50 +1819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
                 "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
-=======
-=======
->>>>>>> core-2447 updated spryker/install, updated development.yml
-<<<<<<< HEAD
-=======
->>>>>>> core-2447 update spryker/spryker
-                "reference": "9c36dc95668da724b393251424bc47604c64704c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/9c36dc95668da724b393251424bc47604c64704c",
-                "reference": "9c36dc95668da724b393251424bc47604c64704c",
-<<<<<<< HEAD
-=======
-                "reference": "3eefc17c7f28123b03f2a098d59763a5cfd5ef9b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/3eefc17c7f28123b03f2a098d59763a5cfd5ef9b",
-                "reference": "3eefc17c7f28123b03f2a098d59763a5cfd5ef9b",
->>>>>>> core-2447 update spryker/install
-<<<<<<< HEAD
->>>>>>> core-2447 update spryker/install
-=======
-=======
-                "reference": "0ceff098cd2726fe6852f0a9da9a47f88f1b06f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/0ceff098cd2726fe6852f0a9da9a47f88f1b06f8",
-                "reference": "0ceff098cd2726fe6852f0a9da9a47f88f1b06f8",
->>>>>>> core-2447 updated spryker/install, updated development.yml
->>>>>>> core-2447 updated spryker/install, updated development.yml
-=======
->>>>>>> core-2447 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -1889,25 +1855,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-<<<<<<< HEAD
             "time": "2018-02-12T12:57:05+00:00"
-=======
-            "time": "2018-02-06T08:26:04+00:00"
-<<<<<<< HEAD
-=======
-            "description": "Project",
-<<<<<<< HEAD
-            "time": "2018-01-31T11:02:31+00:00"
->>>>>>> core-2447 update spryker/install
-<<<<<<< HEAD
->>>>>>> core-2447 update spryker/install
-=======
-=======
-            "time": "2018-01-31T14:08:58+00:00"
->>>>>>> core-2447 updated spryker/install, updated development.yml
->>>>>>> core-2447 updated spryker/install, updated development.yml
-=======
->>>>>>> core-2447 update spryker/spryker
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1975,6 +1923,7 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "680bcd1e3ae9fc9d08f26d34cc35818c2d5d921a"
 =======
 =======
@@ -1995,6 +1944,9 @@
                 "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
 >>>>>>> core-2447 update spryker/spryker
 >>>>>>> core-2447 update spryker/spryker
+=======
+                "reference": "743ea097ea194eb74bb14ce53834a67e665c19cb"
+>>>>>>> core-2447 update spryker/sprkyer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2234,6 +2186,7 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-02-23T14:32:52+00:00"
 =======
 =======
@@ -2254,6 +2207,9 @@
             "time": "2018-02-07T10:09:57+00:00"
 >>>>>>> core-2447 update spryker/spryker
 >>>>>>> core-2447 update spryker/spryker
+=======
+            "time": "2018-02-20T09:30:40+00:00"
+>>>>>>> core-2447 update spryker/sprkyer
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3750,7 +3706,6 @@
         },
         {
             "name": "symfony/security",
-<<<<<<< HEAD
             "version": "v3.2.14",
             "source": {
                 "type": "git",
@@ -3768,33 +3723,10 @@
                 "symfony/event-dispatcher": "~2.8|~3.0",
                 "symfony/http-foundation": "~2.8.31|~3.2.14",
                 "symfony/http-kernel": "~2.8|~3.0",
-=======
-            "version": "v2.8.34",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security.git",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
-                "reference": "8f451ddc1c8c0985e130de1ed96a6dc35ae21097",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/event-dispatcher": "~2.2|~3.0.0",
-                "symfony/http-foundation": "^2.7.38|~3.3.13",
-                "symfony/http-kernel": "~2.4|~3.0.0",
-                "symfony/polyfill-php55": "~1.0",
->>>>>>> core-2447 update spryker/spryker
                 "symfony/polyfill-php56": "~1.0",
                 "symfony/polyfill-php70": "~1.0",
                 "symfony/polyfill-util": "~1.0",
                 "symfony/property-access": "~2.8|~3.0"
-            },
-            "conflict": {
-                "symfony/http-foundation": "~2.8,<2.8.31|~3.4,<3.4-beta5"
             },
             "replace": {
                 "symfony/security-core": "self.version",
@@ -3848,72 +3780,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2017-11-16T17:55:54+00:00"
-=======
-            "time": "2018-01-18T13:56:23+00:00"
-        },
-        {
-            "name": "symfony/security-acl",
-            "version": "v3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-acl.git",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "reference": "ab4dfe2d95e038cd367dd04604487b0a3359bcff",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/security-core": "~2.8|~3.0|~4.0"
-            },
-            "require-dev": {
-                "doctrine/common": "~2.2",
-                "doctrine/dbal": "~2.2",
-                "psr/log": "~1.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0|~4.0"
-            },
-            "suggest": {
-                "doctrine/dbal": "For using the built-in ACL implementation",
-                "symfony/class-loader": "For using the ACL generateSql script",
-                "symfony/finder": "For using the ACL generateSql script"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Acl\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - ACL (Access Control List)",
-            "homepage": "https://symfony.com",
-            "time": "2017-07-21T06:01:18+00:00"
->>>>>>> core-2447 update spryker/spryker
         },
         {
             "name": "symfony/serializer",
@@ -7226,13 +7093,7 @@
         },
         {
             "name": "slevomat/coding-standard",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "4.4.6",
-=======
-<<<<<<< HEAD
-            "version": "4.4.2",
->>>>>>> core-2447 update spryker/install
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
@@ -7240,33 +7101,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/861e7b55d348c81a9dd0b3655dbbc83076d60c05",
                 "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05",
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
-                "reference": "9c4c42a2943c45fdffc7c7b328eb23f7b984dd72",
-=======
-            "version": "4.3.2",
-=======
-            "version": "4.4.3",
->>>>>>> core-2447 update spryker/spryker
-            "source": {
-                "type": "git",
-                "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2"
-            },
-            "dist": {
-                "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/872ecd4782be157706a97d72a0a763675c303dd8",
-                "reference": "872ecd4782be157706a97d72a0a763675c303dd8",
->>>>>>> core-2447 update spryker/install
->>>>>>> core-2447 update spryker/install
-=======
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
-                "reference": "ea5fe6759e6a63d2b2a252535a9cf0ee5ec44ee2",
->>>>>>> core-2447 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -7293,19 +7129,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-02-15T17:13:28+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-02-06T21:21:14+00:00"
-=======
-            "time": "2018-01-28T21:06:07+00:00"
->>>>>>> core-2447 update spryker/install
->>>>>>> core-2447 update spryker/install
-=======
-            "time": "2018-02-07T10:52:36+00:00"
->>>>>>> core-2447 update spryker/spryker
         },
         {
             "name": "sllh/composer-versions-check",
