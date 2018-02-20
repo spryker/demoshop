@@ -1,6 +1,6 @@
 {
-  "name": "spryker/project",
-  "description": "Project",
+  "name": "spryker/demoshop-nonsplit",
+  "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/CORE-2297-Language-switcher",
