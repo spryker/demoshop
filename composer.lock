@@ -1854,7 +1854,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a10f51cd7702793dfe90e9d2c602534def00bdcf"
+                "reference": "7a06564d9570c03081af65878a188cfd352bde2e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1934,6 +1934,7 @@
                 "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
+                "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
                 "spryker/graph": "*",
@@ -2091,7 +2092,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-20T09:13:18+00:00"
+            "time": "2018-02-21T16:07:28+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
