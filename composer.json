@@ -3,11 +3,11 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/core-2977-adapt-multi-store-to-publish-synchronize",
     "spryker-eco/loggly": "dev-master",
-    "spryker/rabbit-mq": "dev-master",
+    "spryker/rabbit-mq": "dev-feature/core-2977-adapt-multi-store-to-publish-synchronize",
     "spryker/event-behavior": "dev-master",
-    "spryker/synchronization-behavior": "dev-master",
+    "spryker/synchronization-behavior": "dev-feature/core-2977-adapt-multi-store-to-publish-synchronize",
     "spryker/install": "dev-master",
 
     "php": ">=7.1",
