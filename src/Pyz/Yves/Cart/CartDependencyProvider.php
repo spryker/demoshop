@@ -8,6 +8,8 @@
 namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Checkout\Plugin\CheckoutBreadcrumbPlugin;
+use Pyz\Yves\Discount\Handler\VoucherCodeHandler;
+use Pyz\Yves\GiftCard\Cart\Plugin\GiftCardCodeHandler;
 use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPlugin;
 use Spryker\Yves\DiscountPromotion\Plugin\ProductPromotionMapperPlugin;
@@ -27,6 +29,7 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_CART_VARIANT = 'PLUGIN_CART_VARIANT';
     const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
     const PLUGIN_PROMOTION_PRODUCT_MAPPER = 'PLUGIN_PROMOTION_PRODUCT_MAPPER';
+    const CODE_HANDLER_PLUGINS = 'CODE_HANDLER_PLUGINS';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -94,6 +97,13 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::PLUGIN_PROMOTION_PRODUCT_MAPPER] = function () {
             return new ProductPromotionMapperPlugin();
+        };
+
+        $container[self::CODE_HANDLER_PLUGINS] = function () {
+            return [
+                new VoucherCodeHandler(),
+                new GiftCardCodeHandler(),
+            ];
         };
 
         return $container;

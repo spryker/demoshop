@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<statemachine
+        xmlns="spryker:oms-01"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
+
+    <process name="CreateGiftCard">
+        <states>
+            <state name="gift card purchased"/>
+            <state name="gift card created"/>
+            <state name="gift card shipped"/>
+        </states>
+
+        <transitions>
+            <transition happy="true">
+                <source>gift card purchased</source>
+                <target>gift card created</target>
+                <event>create giftcard</event>
+            </transition>
+
+            <transition happy="true">
+                <source>gift card created</source>
+                <target>gift card shipped</target>
+                <event>ship giftcard</event>
+            </transition>
+
+        </transitions>
+
+        <events>
+            <event name="check giftcard purchase" onEnter="true"/>
+            <event name="create giftcard" onEnter="true" command="GiftCard/CreateGiftCard" />
+            <event name="ship giftcard" onEnter="true" command="GiftCardMailConnector/ShipGiftCard" />
+            <event name="complete gift card creation" onEnter="true" />
+        </events>
+    </process>
+</statemachine>
