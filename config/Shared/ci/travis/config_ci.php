@@ -18,7 +18,7 @@ use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
-use Spryker\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\RabbitMq\RabbitMqEnv;
 use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
@@ -170,9 +170,18 @@ $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
 
 // ---------- RabbitMq
-$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'guest';
-$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'guest';
-$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/';
+$config[RabbitMqEnv::RABBITMQ_CONNECTIONS] = [
+    [
+        RabbitMqEnv::RABBITMQ_CONNECTION_NAME => 'DE-connection',
+        RabbitMqEnv::RABBITMQ_HOST => 'localhost',
+        RabbitMqEnv::RABBITMQ_PORT => '5672',
+        RabbitMqEnv::RABBITMQ_PASSWORD => 'guest',
+        RabbitMqEnv::RABBITMQ_USERNAME => 'guest',
+        RabbitMqEnv::RABBITMQ_VIRTUAL_HOST => '/',
+        RabbitMqEnv::RABBITMQ_STORE_NAMES => ['DE'],
+        RabbitMqEnv::RABBITMQ_DEFAULT_CONNECTION => true,
+    ],
+];
 
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::CRITICAL;
