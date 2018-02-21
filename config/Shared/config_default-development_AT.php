@@ -5,7 +5,7 @@ use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
-use Spryker\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\RabbitMq\RabbitMqEnv;
 use Spryker\Shared\Search\SearchConstants;
 
 // ---------- Propel
@@ -25,8 +25,8 @@ $config[QueueConstants::QUEUE_WORKER_LOG_ACTIVE] = false;
 $config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE_NAME] = 'data/AT/logs/ZED/queue.out';
 
 // ---------- RabbitMQ
-$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'AT_development';
-$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/AT_development_zed';
+$config[RabbitMqEnv::RABBITMQ_CONNECTIONS]['AT'][RabbitMqEnv::RABBITMQ_DEFAULT_CONNECTION] = true;
+$config[RabbitMqEnv::RABBITMQ_API_VIRTUAL_HOST] = '/AT_development_zed';
 
 // ---------- MailCatcher
 $config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[ApplicationConstants::HOST_ZED]);

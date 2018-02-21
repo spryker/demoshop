@@ -37,6 +37,7 @@ $stores['DE'] = [
     // internal and shop
     'currencyIsoCode' => 'EUR',
     'currencyIsoCodes' => ['EUR', 'CHF'],
+    'queuePools' => [],
 ];
 
 $stores['AT'] = $stores['DE'];

@@ -10,7 +10,7 @@ use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\Queue\QueueConstants;
-use Spryker\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\RabbitMq\RabbitMqEnv;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -69,11 +69,18 @@ $config[ApplicationConstants::ZED_RABBITMQ_VHOST] = '/DE_development_zed';
 
 $config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE_NAME] = 'data/DE/logs/ZED/queue.log';
 
-$config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
-$config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
-$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
-$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
-$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
+$config[RabbitMqEnv::RABBITMQ_CONNECTIONS] = [
+    [
+        RabbitMqEnv::RABBITMQ_CONNECTION_NAME => 'DE-connection',
+        RabbitMqEnv::RABBITMQ_HOST => 'localhost',
+        RabbitMqEnv::RABBITMQ_PORT => '5672',
+        RabbitMqEnv::RABBITMQ_PASSWORD => 'mate20mg',
+        RabbitMqEnv::RABBITMQ_USERNAME => 'DE_development',
+        RabbitMqEnv::RABBITMQ_VIRTUAL_HOST => '/DE_development_zed',
+        RabbitMqEnv::RABBITMQ_STORE_NAMES => ['DE'],
+        RabbitMqEnv::RABBITMQ_DEFAULT_CONNECTION => true,
+    ],
+];
 
 $config[EventJournalConstants::WRITER_OPTIONS] = [
     '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => ['log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/'],
