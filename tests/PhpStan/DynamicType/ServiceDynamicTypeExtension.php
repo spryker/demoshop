@@ -23,7 +23,7 @@ class ServiceDynamicTypeExtension extends AbstractSprykerDynamicTypeExtension im
     /**
      * @return string
      */
-    public static function getClass(): string
+    public function getClass(): string
     {
         return AbstractService::class;
     }

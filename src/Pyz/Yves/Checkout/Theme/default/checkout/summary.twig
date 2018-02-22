@@ -82,6 +82,12 @@
                         {{ 'checkout.step.summary.tax' | trans }}
                         <span class="float-right">{{ quoteTransfer.totals.taxtotal.amount | money }}</span>
                     </li>
+                    {% include '@checkout/checkout/partials/summary-payment.twig' %}
+                    {% include '@checkout/checkout/partials/summary-payment-gift-card.twig' %}
+                    <li>
+                      {{ 'cart.total.price_to_pay' | trans }}
+                      <span class="float-right">{{ quoteTransfer.totals.priceToPay | money }}</span>
+                    </li>
                 </ul>
             </div>
 

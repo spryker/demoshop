@@ -58,8 +58,8 @@ class YvesBootstrap extends ApplicationYvesBootstrap
     protected function registerServiceProviders()
     {
         $this->application->register(new StorageCacheServiceProvider());
-        $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new TwigServiceProvider());
+        $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
         $this->application->register(new SprykerSessionServiceProvider());

@@ -23,7 +23,7 @@ class YvesFactoryDynamicTypeExtension extends AbstractSprykerDynamicTypeExtensio
     /**
      * @return string
      */
-    public static function getClass(): string
+    public function getClass(): string
     {
         return AbstractFactory::class;
     }
