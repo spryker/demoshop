@@ -413,6 +413,9 @@ $config[LogglyConstants::ERROR_QUEUE_NAME] = 'loggly-log-queue.error';
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = false;
 
+// ---------- Collector
+$config[CollectorConstants::TOUCH_DELETE_CLEANUP_ACTIVE] = false;
+
 // ---------- EventBehavior
 $config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;
 
