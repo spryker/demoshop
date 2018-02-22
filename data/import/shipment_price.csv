@@ -9,6 +9,8 @@ spryker_dummy_shipment-express,DE,CHF,560,680
 spryker_drone_shipment-air_standard,DE,CHF,520,580
 spryker_drone_shipment-air_sonic,DE,CHF,920,1200
 spryker_drone_shipment-air_light,DE,CHF,1400,1700
+spryker_no_shipment,DE,EUR,0,0
+spryker_no_shipment,DE,CHF,0,0
 spryker_dummy_shipment-standard,AT,EUR,290,390
 spryker_dummy_shipment-express,AT,EUR,390,490
 spryker_drone_shipment-air_standard,AT,EUR,350,400
@@ -19,3 +21,5 @@ spryker_dummy_shipment-express,AT,CHF,460,580
 spryker_drone_shipment-air_standard,AT,CHF,420,480
 spryker_drone_shipment-air_sonic,AT,CHF,720,1100
 spryker_drone_shipment-air_light,AT,CHF,1300,1600
+spryker_no_shipment,AT,EUR,0,0
+spryker_no_shipment,AT,CHF,0,0
