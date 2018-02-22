@@ -35,7 +35,7 @@ class NewsletterController extends AbstractCustomerController
         $newsletterForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createNewsletterSubscriptionForm()
+            ->getNewsletterSubscriptionForm()
             ->handleRequest($request);
 
         if ($newsletterForm->isSubmitted() === false) {

@@ -32,6 +32,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
                 \'\' AS "parents"
                 FROM
                 (SELECT
+                      un.fk_category as id_category,
                       un.id_category_node,
                       un.fk_parent_category_node,
                       un.fk_category,
@@ -43,6 +44,7 @@ class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
                     UNION
                 
                     SELECT
+                      spy_category_node_rec.fk_category as id_category,
                       spy_category_node_rec.id_category_node,
                       spy_category_node_rec.fk_parent_category_node,
                       spy_category_node_rec.fk_category,
