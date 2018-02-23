@@ -10,7 +10,7 @@ use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
 // ---------- Yves host
-$config[ApplicationConstants::HOST_YVES] = 'www.at.project.local';
+$config[ApplicationConstants::HOST_YVES] = 'www.at.demoshop-nonsplit.local';
 $config[ApplicationConstants::PORT_YVES] = '';
 $config[ApplicationConstants::PORT_SSL_YVES] = '';
 $config[ApplicationConstants::BASE_URL_YVES] = sprintf(
@@ -29,7 +29,7 @@ $config[NewsletterConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE
 $config[CustomerConstants::BASE_URL_YVES] = $config[ApplicationConstants::BASE_URL_YVES];
 
 // ---------- Zed host
-$config[ApplicationConstants::HOST_ZED] = 'zed.at.project.local';
+$config[ApplicationConstants::HOST_ZED] = 'zed.at.demoshop-nonsplit.local';
 $config[ApplicationConstants::PORT_ZED] = '';
 $config[ApplicationConstants::PORT_SSL_ZED] = '';
 $config[ApplicationConstants::BASE_URL_ZED] = sprintf(
