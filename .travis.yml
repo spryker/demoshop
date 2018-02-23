@@ -4,9 +4,6 @@ env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
-    - JAVA_HOME=/usr
-
-dist: precise
 
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
@@ -33,13 +30,12 @@ matrix:
           - DB=mysql
 
 addons:
-  postgresql: 9.4
+  postgresql: 9.6
   mysql: 5.7
 
   apt:
     packages:
       - graphviz
-      - oracle-java8-set-default
 
   hosts:
     - zed.de.spryker.test
@@ -59,7 +55,6 @@ services:
 sudo: required
 
 before_install:
-  - sudo apt-get update && sudo apt-get install oracle-java8-installer && sudo apt-get install oracle-java8-set-default
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit ; fi
   - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/* ; fi
