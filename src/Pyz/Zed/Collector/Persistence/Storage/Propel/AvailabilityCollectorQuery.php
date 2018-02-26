@@ -30,8 +30,14 @@ class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
         );
 
         $this->touchQuery->addJoin(
-            SpyAvailabilityAbstractTableMap::COL_ABSTRACT_SKU,
-            SpyProductAbstractTableMap::COL_SKU,
+            [
+                SpyAvailabilityAbstractTableMap::COL_ABSTRACT_SKU,
+                SpyAvailabilityAbstractTableMap::COL_FK_STORE,
+            ],
+            [
+                SpyProductAbstractTableMap::COL_SKU,
+                $this->getStoreTransfer()->getIdStore(),
+            ],
             Criteria::INNER_JOIN
         );
 
