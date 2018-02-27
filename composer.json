@@ -201,6 +201,7 @@
     "swiftmailer/swiftmailer": "^5.4.5"
   },
   "require-dev": {
+    "codeception/codeception": "~2.3.8",
     "doctrine/instantiator": "~1.0.5",
     "fzaninotto/faker": "^1.6",
     "jakoch/phantomjs-installer": "^2.1.0",

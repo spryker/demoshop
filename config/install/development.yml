@@ -34,6 +34,11 @@ sections:
             command: "if [ ! -f ./config/Shared/console_env_local.php ]; then cp ./config/Shared/console_env_local.dist.php ./config/Shared/console_env_local.php ; fi"
 
 
+    jenkins-down:
+        jenkins-stop:
+            command: "vendor/bin/console setup:jenkins:disable"
+
+
     clear:
         remove-logs:
             command: "vendor/bin/console log:clear"
@@ -43,11 +48,6 @@ sections:
 
         remove-generated-files:
             command: "vendor/bin/console setup:empty-generated-directory"
-
-
-    jenkins-down:
-        jenkins-stop:
-            command: "vendor/bin/console setup:jenkins:disable"
 
 
     generate:
