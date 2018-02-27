@@ -58,7 +58,7 @@ class UrlGenerator implements UrlGeneratorInterface
         $params = $this->removePaginationFromParams($params);
 
         foreach ($facetFilters as $searchResultTransfer) {
-            if (!isset($params[$searchResultTransfer->getConfig()->getName()])) {
+            if (!isset($params[$searchResultTransfer->getConfig()->getParameterName()])) {
                 continue;
             }
 
