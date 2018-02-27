@@ -305,3 +305,4 @@ concrete_sku,name,quantity,is_never_out_of_stock,is_bundle
 215_131,Warehouse1,0,1,0
 215_132,Warehouse1,0,1,0
 215_133,Warehouse1,0,1,0
+214_123,Warehouse2,0,0,1
