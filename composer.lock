@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca9e2ee5b28e041bf2d42d4eb3ce8d84",
+    "content-hash": "7d47511fad5eae788eba309c33b0cd8e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1850,11 +1850,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-2417_re_order",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "235cf1b775633f1ccbd028fdace24c09ee28f937"
+                "reference": "44f34a24bebb7ce0371d83047203adfc9252bf8d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2092,19 +2092,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-23T11:32:37+00:00"
+            "time": "2018-02-26T19:13:43+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SynchronizationBehavior.git",
+                "url": "https://github.com/spryker/synchronization-behavior.git",
                 "reference": "841ef11cab52a331e26638d68e6acd80f1168046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SynchronizationBehavior/zipball/841ef11cab52a331e26638d68e6acd80f1168046",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/841ef11cab52a331e26638d68e6acd80f1168046",
                 "reference": "841ef11cab52a331e26638d68e6acd80f1168046",
                 "shasum": ""
             },
@@ -5248,7 +5248,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6896,7 +6896,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
