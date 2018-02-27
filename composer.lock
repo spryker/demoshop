@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "81e3e86da11bbf76ba3189a75baa3b69",
+    "content-hash": "f25ff7a5379d7aab0e6fcb10fb1dd091",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1345,16 +1345,16 @@
         },
         {
             "name": "propel/propel",
-            "version": "dev-master",
+            "version": "2.0.0-alpha8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "1f6557d1a6f436b6bb08099238878246362028ca"
+                "reference": "4c309e3e5adaba077f54c0fab93c34995d7c9b3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/1f6557d1a6f436b6bb08099238878246362028ca",
-                "reference": "1f6557d1a6f436b6bb08099238878246362028ca",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/4c309e3e5adaba077f54c0fab93c34995d7c9b3d",
+                "reference": "4c309e3e5adaba077f54c0fab93c34995d7c9b3d",
                 "shasum": ""
             },
             "require": {
@@ -1405,7 +1405,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2018-01-27T02:17:16+00:00"
+            "time": "2018-02-19T12:58:55+00:00"
         },
         {
             "name": "psr/container",
@@ -1892,11 +1892,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-3399-sql-inj-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "680bcd1e3ae9fc9d08f26d34cc35818c2d5d921a"
+                "reference": "18e73074702db4089d34340d088819afab911283"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2134,7 +2134,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-23T14:32:52+00:00"
+            "time": "2018-02-27T09:30:42+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7925,7 +7925,6 @@
         "spryker/event-behavior": 20,
         "spryker/synchronization-behavior": 20,
         "spryker/install": 20,
-        "propel/propel": 20,
         "spryker/architecture-sniffer": 20,
         "spryker/code-generator": 20,
         "spryker/code-sniffer": 20,
