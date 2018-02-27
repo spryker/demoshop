@@ -1896,7 +1896,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f7fb27780e7ede2945a6ef3972935548e5fbc9f6"
+                "reference": "44f34a24bebb7ce0371d83047203adfc9252bf8d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2134,19 +2134,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-22T11:46:50+00:00"
+            "time": "2018-02-26T19:13:43+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SynchronizationBehavior.git",
+                "url": "https://github.com/spryker/synchronization-behavior.git",
                 "reference": "841ef11cab52a331e26638d68e6acd80f1168046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SynchronizationBehavior/zipball/841ef11cab52a331e26638d68e6acd80f1168046",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/841ef11cab52a331e26638d68e6acd80f1168046",
                 "reference": "841ef11cab52a331e26638d68e6acd80f1168046",
                 "shasum": ""
             },
