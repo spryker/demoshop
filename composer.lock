@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b237e8e33e8f03dd68dda656a6b0e60",
+    "content-hash": "e02530cf6a6c21fffea5142b84dc0d47",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.52.17",
+            "version": "3.52.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b63aa5831954684a24e6c4583329c4a047e3ea61"
+                "reference": "becba2be9cfb22d6394c4d7e4d8cb70807c8a6b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b63aa5831954684a24e6c4583329c4a047e3ea61",
-                "reference": "b63aa5831954684a24e6c4583329c4a047e3ea61",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/becba2be9cfb22d6394c4d7e4d8cb70807c8a6b3",
+                "reference": "becba2be9cfb22d6394c4d7e4d8cb70807c8a6b3",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-02-26T23:54:37+00:00"
+            "time": "2018-02-27T21:06:51+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -558,16 +558,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.2.3",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "8d6c6cc55186db87b7dc5009827429ba4e9dc006"
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8d6c6cc55186db87b7dc5009827429ba4e9dc006",
-                "reference": "8d6c6cc55186db87b7dc5009827429ba4e9dc006",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
                 "shasum": ""
             },
             "require": {
@@ -577,8 +577,11 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.0",
+                "phpunit/phpunit": "^4.0 || ^5.0",
                 "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
             },
             "type": "library",
             "extra": {
@@ -616,7 +619,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-02-28T22:50:30+00:00"
+            "time": "2017-06-22T18:50:49+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1379,16 +1382,16 @@
         },
         {
             "name": "propel/propel",
-            "version": "dev-master",
+            "version": "2.0.0-alpha8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel2.git",
-                "reference": "6c4996fc130c7555d82d9dca04396c6f3eeef306"
+                "reference": "4c309e3e5adaba077f54c0fab93c34995d7c9b3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/6c4996fc130c7555d82d9dca04396c6f3eeef306",
-                "reference": "6c4996fc130c7555d82d9dca04396c6f3eeef306",
+                "url": "https://api.github.com/repos/propelorm/Propel2/zipball/4c309e3e5adaba077f54c0fab93c34995d7c9b3d",
+                "reference": "4c309e3e5adaba077f54c0fab93c34995d7c9b3d",
                 "shasum": ""
             },
             "require": {
@@ -1439,7 +1442,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2018-02-19T13:36:42+00:00"
+            "time": "2018-02-19T12:58:55+00:00"
         },
         {
             "name": "psr/container",
@@ -5327,20 +5330,21 @@
         },
         {
             "name": "spryker/guzzle",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/guzzle.git",
-                "reference": "30ef0cc03107950ecb7246ed109768d5f6200b57"
+                "reference": "617a11041763dd60738a5a978d54bbd5fc61513f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/guzzle/zipball/30ef0cc03107950ecb7246ed109768d5f6200b57",
-                "reference": "30ef0cc03107950ecb7246ed109768d5f6200b57",
+                "url": "https://api.github.com/repos/spryker/guzzle/zipball/617a11041763dd60738a5a978d54bbd5fc61513f",
+                "reference": "617a11041763dd60738a5a978d54bbd5fc61513f",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "~6.2.1"
+                "guzzlehttp/guzzle": "~6.3.0",
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
@@ -5352,8 +5356,8 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Guzzle bundle",
-            "time": "2016-08-19T08:27:58+00:00"
+            "description": "Guzzle module",
+            "time": "2018-02-27T11:21:15+00:00"
         },
         {
             "name": "spryker/heartbeat",
@@ -8721,21 +8725,21 @@
         },
         {
             "name": "spryker/propel-orm",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/propel-orm.git",
-                "reference": "0c966f45f85b6ca88dc7a01c5aa10271c9b79349"
+                "reference": "063fe29c81576d2d8e0c41fd5c72486ebb7ad140"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/0c966f45f85b6ca88dc7a01c5aa10271c9b79349",
-                "reference": "0c966f45f85b6ca88dc7a01c5aa10271c9b79349",
+                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/063fe29c81576d2d8e0c41fd5c72486ebb7ad140",
+                "reference": "063fe29c81576d2d8e0c41fd5c72486ebb7ad140",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "propel/propel": "dev-master#1f6557d1a6f436b6bb08099238878246362028ca",
+                "propel/propel": "2.0.0-alpha8",
                 "spryker/config": "^3.0.0",
                 "spryker/error-handler": "^2.0.0",
                 "spryker/kernel": "^3.17.0"
@@ -8756,7 +8760,7 @@
                 "proprietary"
             ],
             "description": "PropelOrm module",
-            "time": "2018-02-15T09:52:45+00:00"
+            "time": "2018-02-27T09:30:42+00:00"
         },
         {
             "name": "spryker/propel-query-builder",
@@ -13157,40 +13161,34 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "1.5.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "86b5ca2f67173c9d34340845dd690149c886a605"
+                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/86b5ca2f67173c9d34340845dd690149c886a605",
-                "reference": "86b5ca2f67173c9d34340845dd690149c886a605",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/77300c4ab2025d4316635f592ec849ca7323bd8c",
+                "reference": "77300c4ab2025d4316635f592ec849ca7323bd8c",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "ext-zip": "*",
-                "php": "^5.6 || ~7.0",
-                "symfony/process": "^2.8 || ^3.1 || ^4.0"
+                "php": "^5.5 || ~7.0",
+                "symfony/process": "^2.8 || ^3.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "guzzle/guzzle": "^3.4.1",
-                "php-coveralls/php-coveralls": "^1.0.2",
+                "friendsofphp/php-cs-fixer": "^1.11",
                 "php-mock/php-mock-phpunit": "^1.1",
-                "phpunit/phpunit": "^5.7",
-                "sebastian/environment": "^1.3.4 || ^2.0 || ^3.0",
-                "squizlabs/php_codesniffer": "^2.6",
-                "symfony/var-dumper": "^3.3 || ^4.0"
+                "phpunit/phpunit": "4.6.* || ~5.0",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.6"
+            },
+            "suggest": {
+                "phpdocumentor/phpdocumentor": "2.*"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-community": "1.5-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Facebook\\WebDriver\\": "lib/"
@@ -13200,7 +13198,7 @@
             "license": [
                 "Apache-2.0"
             ],
-            "description": "A PHP client for Selenium WebDriver",
+            "description": "A PHP client for WebDriver",
             "homepage": "https://github.com/facebook/php-webdriver",
             "keywords": [
                 "facebook",
@@ -13208,7 +13206,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2017-11-15T11:08:09+00:00"
+            "time": "2017-01-13T15:48:08+00:00"
         },
         {
             "name": "jakoch/phantomjs-installer",
@@ -15583,16 +15581,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.6",
+            "version": "4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05"
+                "reference": "43a8563b0191d8710cc225ed56ccfb4a37fac55e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/861e7b55d348c81a9dd0b3655dbbc83076d60c05",
-                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/43a8563b0191d8710cc225ed56ccfb4a37fac55e",
+                "reference": "43a8563b0191d8710cc225ed56ccfb4a37fac55e",
                 "shasum": ""
             },
             "require": {
@@ -15619,7 +15617,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-15T17:13:28+00:00"
+            "time": "2018-02-27T22:46:58+00:00"
         },
         {
             "name": "sllh/composer-versions-check",

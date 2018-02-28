@@ -98,15 +98,19 @@ sections:
                 - redis
 
         drop-database:
-            pre: "hidden/maintenance-zed-on"
             command: "vendor/bin/console propel:database:drop"
-            stores: true
+            pre: "hidden/maintenance-zed-on"
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
         delete-migration-files:
             command: "vendor/bin/console propel:migration:delete"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
@@ -114,25 +118,33 @@ sections:
     database-migrate:
         propel-config:
             command: "vendor/bin/console propel:config:convert"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
         propel-create:
             command: "vendor/bin/console propel:database:create"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
         propel-postgres-compatibility:
             command: "vendor/bin/console propel:pg-sql-compat"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
         propel-copy-schema:
             command: "vendor/bin/console propel:schema:copy"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
@@ -143,14 +155,18 @@ sections:
 
         propel-diff:
             command: "vendor/bin/console propel:diff"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
         propel-migration-check:
             command: "vendor/bin/console propel:migration:check"
             breakOnFailure: false
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
@@ -163,7 +179,9 @@ sections:
 
         propel-migrate:
             command: "vendor/bin/console propel:migrate"
-            stores: true
+            stores:
+                - US
+                - DE
             groups:
                 - propel
 
@@ -173,7 +191,9 @@ sections:
 
         init-database:
             command: "vendor/bin/console setup:init-db"
-            stores: true
+            stores:
+                - US
+                - DE
 
         setup-search:
             command: "vendor/bin/console setup:search"
@@ -190,11 +210,15 @@ sections:
     demodata:
         import:
             command: "vendor/bin/console data:import"
-            stores: true
+            stores:
+                - US
+                - DE
 
         update-product-labels:
             command: "vendor/bin/console product-label:relations:update"
-            stores: true
+            stores:
+                - US
+                - DE
 
         search-collector:
             command: "vendor/bin/console collector:search:export"
