@@ -12,7 +12,7 @@
 
     "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
-    "guzzlehttp/guzzle": "^6.2.1",
+    "guzzlehttp/guzzle": "~6.3.0",
     "league/csv": "^8.1.0",
     "filp/whoops": "^2.1",
     "mandrill/mandrill": "~1.0.55",
