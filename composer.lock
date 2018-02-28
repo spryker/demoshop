@@ -1894,7 +1894,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c404f77b1a90ffbc95e6b5d9f830f1231835617a"
+                "reference": "c0943329eb149e8d3c1691573781c1dd8cf5a0f1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1974,6 +1974,7 @@
                 "spryker/flysystem-aws3v3-filesystem": "*",
                 "spryker/flysystem-ftp-filesystem": "*",
                 "spryker/flysystem-local-filesystem": "*",
+                "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
                 "spryker/graph": "*",
@@ -2023,6 +2024,8 @@
                 "spryker/product-category-filter-gui": "*",
                 "spryker/product-category-filter-storage": "*",
                 "spryker/product-category-storage": "*",
+                "spryker/product-customer-permission": "*",
+                "spryker/product-customer-permission-collector": "*",
                 "spryker/product-discount-connector": "*",
                 "spryker/product-group": "*",
                 "spryker/product-group-collector": "*",
@@ -2129,19 +2132,19 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-01-28T19:18:16+00:00"
+            "time": "2018-02-27T15:08:06+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SynchronizationBehavior.git",
+                "url": "https://github.com/spryker/synchronization-behavior.git",
                 "reference": "841ef11cab52a331e26638d68e6acd80f1168046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SynchronizationBehavior/zipball/841ef11cab52a331e26638d68e6acd80f1168046",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/841ef11cab52a331e26638d68e6acd80f1168046",
                 "reference": "841ef11cab52a331e26638d68e6acd80f1168046",
                 "shasum": ""
             },
