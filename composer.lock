@@ -7656,16 +7656,16 @@
         },
         {
             "name": "spryker/product-label",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-label.git",
-                "reference": "d3f559a280df16219d3e417c1619e1c7263b0323"
+                "reference": "b97ede003cbdd29aa2f716cc92f587e44718d10f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-label/zipball/d3f559a280df16219d3e417c1619e1c7263b0323",
-                "reference": "d3f559a280df16219d3e417c1619e1c7263b0323",
+                "url": "https://api.github.com/repos/spryker/product-label/zipball/b97ede003cbdd29aa2f716cc92f587e44718d10f",
+                "reference": "b97ede003cbdd29aa2f716cc92f587e44718d10f",
                 "shasum": ""
             },
             "require": {
@@ -7711,7 +7711,7 @@
                 "proprietary"
             ],
             "description": "ProductLabel module",
-            "time": "2018-01-24T11:43:27+00:00"
+            "time": "2018-02-28T12:40:07+00:00"
         },
         {
             "name": "spryker/product-label-collector",
