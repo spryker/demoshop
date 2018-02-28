@@ -9,6 +9,7 @@ use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
 
 // ---------- Propel
+// The database is shared between DE and AT. In this case the AT shop uses the DE database.
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 
 // ---------- Email
