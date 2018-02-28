@@ -4,32 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "content-hash": "81e3e86da11bbf76ba3189a75baa3b69",
-=======
-=======
->>>>>>> core-2447 update spryker/spryker
-<<<<<<< HEAD
-    "content-hash": "f60733627e91db144bbe2dab92a1bdef",
-=======
-<<<<<<< HEAD
-    "content-hash": "376e98b31171171edf6a557b938dbf86",
-=======
-    "content-hash": "41887db2e7cd7fcd9ad6f7066161dd40",
->>>>>>> core-2447 update spryker/install
->>>>>>> core-2447 update spryker/install
-<<<<<<< HEAD
->>>>>>> core-2447 update spryker/install
-=======
-=======
-    "content-hash": "376e98b31171171edf6a557b938dbf86",
->>>>>>> core-2447 update spryker/spryker
->>>>>>> core-2447 update spryker/spryker
-=======
-    "content-hash": "f60733627e91db144bbe2dab92a1bdef",
->>>>>>> core-2447 update spryker/sprkyer
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1921,32 +1896,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 "reference": "680bcd1e3ae9fc9d08f26d34cc35818c2d5d921a"
-=======
-=======
->>>>>>> core-2447 update spryker/spryker
-<<<<<<< HEAD
-                "reference": "5405e466d1002e152aee026a9a4d2ed469a622c0"
-=======
-<<<<<<< HEAD
-                "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
-=======
-                "reference": "0e6ad3f610ca75fa4b2f16c087a8300c58073caf"
->>>>>>> core-2447 updated spryker/install, updated development.yml
->>>>>>> core-2447 updated spryker/install, updated development.yml
-<<<<<<< HEAD
->>>>>>> core-2447 updated spryker/install, updated development.yml
-=======
-=======
-                "reference": "daff2c3dd2e2ffcc2ecf17717cba7d17e9091f1f"
->>>>>>> core-2447 update spryker/spryker
->>>>>>> core-2447 update spryker/spryker
-=======
-                "reference": "743ea097ea194eb74bb14ce53834a67e665c19cb"
->>>>>>> core-2447 update spryker/sprkyer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2184,32 +2134,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-02-23T14:32:52+00:00"
-=======
-=======
->>>>>>> core-2447 update spryker/spryker
-<<<<<<< HEAD
-            "time": "2018-02-16T13:20:18+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-02-07T10:09:57+00:00"
-=======
-            "time": "2018-01-31T13:51:58+00:00"
->>>>>>> core-2447 updated spryker/install, updated development.yml
->>>>>>> core-2447 updated spryker/install, updated development.yml
-<<<<<<< HEAD
->>>>>>> core-2447 updated spryker/install, updated development.yml
-=======
-=======
-            "time": "2018-02-07T10:09:57+00:00"
->>>>>>> core-2447 update spryker/spryker
->>>>>>> core-2447 update spryker/spryker
-=======
-            "time": "2018-02-20T09:30:40+00:00"
->>>>>>> core-2447 update spryker/sprkyer
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6125,15 +6050,7 @@
         },
         {
             "name": "phpunit/phpunit",
-<<<<<<< HEAD
-<<<<<<< HEAD
             "version": "6.5.7",
-=======
-<<<<<<< HEAD
-=======
->>>>>>> core-2447 update spryker/spryker
-            "version": "6.5.6",
->>>>>>> core-2447 update spryker/install
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
@@ -6141,28 +6058,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6bd77b57707c236833d2b57b968e403df060c9d9",
                 "reference": "6bd77b57707c236833d2b57b968e403df060c9d9",
-=======
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3330ef26ade05359d006041316ed0fa9e8e3cefe",
-                "reference": "3330ef26ade05359d006041316ed0fa9e8e3cefe",
-<<<<<<< HEAD
-=======
-            "version": "6.5.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "83d27937a310f2984fd575686138597147bdc7df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/83d27937a310f2984fd575686138597147bdc7df",
-                "reference": "83d27937a310f2984fd575686138597147bdc7df",
->>>>>>> core-2447 update spryker/install
->>>>>>> core-2447 update spryker/install
-=======
->>>>>>> core-2447 update spryker/spryker
                 "shasum": ""
             },
             "require": {
@@ -6233,19 +6130,7 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2018-02-26T07:01:09+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2018-02-01T05:57:37+00:00"
-=======
-            "time": "2017-12-17T06:31:19+00:00"
->>>>>>> core-2447 update spryker/install
->>>>>>> core-2447 update spryker/install
-=======
-            "time": "2018-02-01T05:57:37+00:00"
->>>>>>> core-2447 update spryker/spryker
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -7093,16 +6978,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.6",
+            "version": "4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05"
+                "reference": "43a8563b0191d8710cc225ed56ccfb4a37fac55e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/861e7b55d348c81a9dd0b3655dbbc83076d60c05",
-                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/43a8563b0191d8710cc225ed56ccfb4a37fac55e",
+                "reference": "43a8563b0191d8710cc225ed56ccfb4a37fac55e",
                 "shasum": ""
             },
             "require": {
@@ -7129,7 +7014,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-15T17:13:28+00:00"
+            "time": "2018-02-27T22:46:58+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
