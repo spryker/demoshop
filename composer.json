@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/core-974-company-account-release",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
