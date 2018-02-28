@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f25ff7a5379d7aab0e6fcb10fb1dd091",
+    "content-hash": "f939ac2117208510b57daee9924af164",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1794,12 +1794,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
+                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
-                "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
+                "url": "https://api.github.com/repos/spryker/install/zipball/92fc9e416fb826f18836ecea06deb440c1f282db",
+                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db",
                 "shasum": ""
             },
             "require": {
@@ -1830,7 +1830,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-12T12:57:05+00:00"
+            "time": "2018-02-28T10:07:25+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1892,11 +1892,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-3399-sql-inj-fix",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "18e73074702db4089d34340d088819afab911283"
+                "reference": "79d2771c197a2bf6850b33bfaaca434cdb8ac045"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2134,7 +2134,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-02-27T09:30:42+00:00"
+            "time": "2018-02-28T10:20:53+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6984,16 +6984,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.4.6",
+            "version": "4.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05"
+                "reference": "43a8563b0191d8710cc225ed56ccfb4a37fac55e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/861e7b55d348c81a9dd0b3655dbbc83076d60c05",
-                "reference": "861e7b55d348c81a9dd0b3655dbbc83076d60c05",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/43a8563b0191d8710cc225ed56ccfb4a37fac55e",
+                "reference": "43a8563b0191d8710cc225ed56ccfb4a37fac55e",
                 "shasum": ""
             },
             "require": {
@@ -7020,7 +7020,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-02-15T17:13:28+00:00"
+            "time": "2018-02-27T22:46:58+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
