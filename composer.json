@@ -90,7 +90,7 @@
     "spryker/gui": "^3.0.0",
     "spryker/guzzle": "^2.0.0",
     "spryker/heartbeat": "^3.0.0",
-    "spryker/install": "^0.2.0",
+    "spryker/install": "^0.3.0",
     "spryker/installer": "^4.0.0",
     "spryker/invoice": "^2.0.0",
     "spryker/kernel": "^3.0.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e02530cf6a6c21fffea5142b84dc0d47",
+    "content-hash": "686c06cdce47e128b958110727dfd13f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -5408,16 +5408,16 @@
         },
         {
             "name": "spryker/install",
-            "version": "0.2.1",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a"
+                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/b9d2da9a843b389fa40afc72302cb0d1eb75456a",
-                "reference": "b9d2da9a843b389fa40afc72302cb0d1eb75456a",
+                "url": "https://api.github.com/repos/spryker/install/zipball/92fc9e416fb826f18836ecea06deb440c1f282db",
+                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db",
                 "shasum": ""
             },
             "require": {
@@ -5448,7 +5448,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-12T12:57:05+00:00"
+            "time": "2018-02-28T10:07:25+00:00"
         },
         {
             "name": "spryker/installer",
