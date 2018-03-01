@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "686c06cdce47e128b958110727dfd13f",
+    "content-hash": "7f223ca609fda2b8052202b51ca783a5",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2959,6 +2959,51 @@
             "time": "2018-02-21T16:07:28+00:00"
         },
         {
+            "name": "spryker/checkout-permission-connector",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/checkout-permission-connector.git",
+                "reference": "4859ed29fd6825109b8aedf94cdf3dc48f9cb1d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/checkout-permission-connector/zipball/4859ed29fd6825109b8aedf94cdf3dc48f9cb1d6",
+                "reference": "4859ed29fd6825109b8aedf94cdf3dc48f9cb1d6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/permission": "^0.0.4"
+            },
+            "require-dev": {
+                "spryker/checkout": "*",
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/checkout": "^4.0.0 If you want to use the permission plugin"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CheckoutPermissionConnector module",
+            "time": "2018-02-28T19:06:01+00:00"
+        },
+        {
             "name": "spryker/cms",
             "version": "6.4.3",
             "source": {
@@ -3837,6 +3882,283 @@
             ],
             "description": "CollectorStorageConnector module",
             "time": "2018-01-24T11:43:27+00:00"
+        },
+        {
+            "name": "spryker/company",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/company.git",
+                "reference": "72d3ea40cb89caf5ff84eeaffdc043e44ff36bb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/company/zipball/72d3ea40cb89caf5ff84eeaffdc043e44ff36bb4",
+                "reference": "72d3ea40cb89caf5ff84eeaffdc043e44ff36bb4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/store": "^1.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/mail": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/mail": "If you want to use mail plugins."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Company module",
+            "time": "2018-02-28T09:18:38+00:00"
+        },
+        {
+            "name": "spryker/company-business-unit",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/company-business-unit.git",
+                "reference": "130ea86d49f0045bddc68e6dc272d1423b7d9448"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/company-business-unit/zipball/130ea86d49f0045bddc68e6dc272d1423b7d9448",
+                "reference": "130ea86d49f0045bddc68e6dc272d1423b7d9448",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/company": "^0.0.3",
+                "spryker/kernel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/company-user": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/company-user": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CompanyBusinessUnit module",
+            "time": "2018-02-28T19:55:43+00:00"
+        },
+        {
+            "name": "spryker/company-gui",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/company-gui.git",
+                "reference": "0b191182d631c8c117cda83af82dc8e30798c249"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/company-gui/zipball/0b191182d631c8c117cda83af82dc8e30798c249",
+                "reference": "0b191182d631c8c117cda83af82dc8e30798c249",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/company": "^0.0.3",
+                "spryker/gui": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-text": "^1.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CompanyGui module",
+            "time": "2018-02-28T18:38:25+00:00"
+        },
+        {
+            "name": "spryker/company-role",
+            "version": "0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/company-role.git",
+                "reference": "429dce74d6d1cc5cdc7d1d79c73812a28dfe6731"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/company-role/zipball/429dce74d6d1cc5cdc7d1d79c73812a28dfe6731",
+                "reference": "429dce74d6d1cc5cdc7d1d79c73812a28dfe6731",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/company": "^0.0.3",
+                "spryker/company-user": "^0.0.4",
+                "spryker/customer": "^7.5.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/permission": "^0.0.4",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CompanyRole module",
+            "time": "2018-02-28T21:10:31+00:00"
+        },
+        {
+            "name": "spryker/company-unit-address",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/company-unit-address.git",
+                "reference": "058271a73d904c0ecb9c00de97630298ced3612a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/company-unit-address/zipball/058271a73d904c0ecb9c00de97630298ced3612a",
+                "reference": "058271a73d904c0ecb9c00de97630298ced3612a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/company": "^0.0.3",
+                "spryker/company-business-unit": "^0.0.3",
+                "spryker/country": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CompanyUnitAddress module",
+            "time": "2018-02-28T19:55:43+00:00"
+        },
+        {
+            "name": "spryker/company-user",
+            "version": "0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/company-user.git",
+                "reference": "a681a2eb13d02ff6747524b2f2b843026ffb6ead"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/company-user/zipball/a681a2eb13d02ff6747524b2f2b843026ffb6ead",
+                "reference": "a681a2eb13d02ff6747524b2f2b843026ffb6ead",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/company": "^0.0.3",
+                "spryker/customer": "^7.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/permission": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/permission": "Permission 0.0.* to have possibility use user permissions."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CompanyUser module",
+            "time": "2018-02-28T20:51:04+00:00"
         },
         {
             "name": "spryker/config",
@@ -6829,6 +7151,47 @@
             ],
             "description": "Payolution module",
             "time": "2018-02-19T12:41:14+00:00"
+        },
+        {
+            "name": "spryker/permission",
+            "version": "0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/permission.git",
+                "reference": "4978ed45469a7c9fad6712826e3238fa279b9db6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/permission/zipball/4978ed45469a7c9fad6712826e3238fa279b9db6",
+                "reference": "4978ed45469a7c9fad6712826e3238fa279b9db6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Permission module",
+            "time": "2018-02-28T18:38:25+00:00"
         },
         {
             "name": "spryker/pimple",
