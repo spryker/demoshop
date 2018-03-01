@@ -2448,19 +2448,20 @@
         },
         {
             "name": "spryker/calculation",
-            "version": "4.2.2",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Calculation.git",
-                "reference": "a422a933bacd0ed3609439ac03a0cfd07bdc86e9"
+                "url": "https://github.com/spryker/calculation.git",
+                "reference": "17d3ffdc6709528e62bc60b8cb59ff25728b504c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Calculation/zipball/a422a933bacd0ed3609439ac03a0cfd07bdc86e9",
-                "reference": "a422a933bacd0ed3609439ac03a0cfd07bdc86e9",
+                "url": "https://api.github.com/repos/spryker/calculation/zipball/17d3ffdc6709528e62bc60b8cb59ff25728b504c",
+                "reference": "17d3ffdc6709528e62bc60b8cb59ff25728b504c",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
                 "spryker/util-text": "^1.1.0",
                 "spryker/zed-request": "^3.0.0"
@@ -2484,20 +2485,12 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Calculation module",
-            "support": {
-                "source": "https://github.com/spryker/Calculation/tree/master"
-            },
-            "time": "2017-11-07T11:48:53+00:00"
+            "time": "2018-02-28T17:28:20+00:00"
         },
         {
             "name": "spryker/cart",
@@ -6888,16 +6881,16 @@
         },
         {
             "name": "spryker/oms",
-            "version": "8.0.0",
+            "version": "8.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/oms.git",
-                "reference": "1ff602024586cd07c669230502bf89cdf4341e68"
+                "reference": "70196d724e72d1c27498b27333afd0801889c2fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/oms/zipball/1ff602024586cd07c669230502bf89cdf4341e68",
-                "reference": "1ff602024586cd07c669230502bf89cdf4341e68",
+                "url": "https://api.github.com/repos/spryker/oms/zipball/70196d724e72d1c27498b27333afd0801889c2fa",
+                "reference": "70196d724e72d1c27498b27333afd0801889c2fa",
                 "shasum": ""
             },
             "require": {
@@ -6942,7 +6935,7 @@
                 "proprietary"
             ],
             "description": "Oms module",
-            "time": "2018-02-20T11:05:53+00:00"
+            "time": "2018-02-28T16:59:07+00:00"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -8574,16 +8567,16 @@
         },
         {
             "name": "spryker/product-management",
-            "version": "0.13.0",
+            "version": "0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-management.git",
-                "reference": "dbbd3da3a6eda5d9acadb6e8cbd108504b2e040b"
+                "reference": "fd2869daf9a5c203c699e91f04675b86ff4e0cdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-management/zipball/dbbd3da3a6eda5d9acadb6e8cbd108504b2e040b",
-                "reference": "dbbd3da3a6eda5d9acadb6e8cbd108504b2e040b",
+                "url": "https://api.github.com/repos/spryker/product-management/zipball/fd2869daf9a5c203c699e91f04675b86ff4e0cdd",
+                "reference": "fd2869daf9a5c203c699e91f04675b86ff4e0cdd",
                 "shasum": ""
             },
             "require": {
@@ -8632,7 +8625,7 @@
                 "proprietary"
             ],
             "description": "ProductManagement module",
-            "time": "2018-02-21T16:07:28+00:00"
+            "time": "2018-02-28T17:28:20+00:00"
         },
         {
             "name": "spryker/product-new",
