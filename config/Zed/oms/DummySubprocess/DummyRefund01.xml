@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<statemachine
+        xmlns="spryker:oms-01"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="spryker:oms-01 http://static.spryker.com/oms-01.xsd">
+
+    <process name="DummyRefund">
+
+        <states>
+            <state name="ready for return" />
+            <state name="returned"/>
+            <state name="refunded"/>
+        </states>
+
+        <transitions>
+            <transition>
+                <source>ready for return</source>
+                <target>returned</target>
+                <event>execute-return</event>
+            </transition>
+
+            <transition>
+                <source>returned</source>
+                <target>refunded</target>
+                <event>refund</event>
+            </transition>
+        </transitions>
+
+        <events>
+            <event name="execute-return" onEnter="true"/>
+            <event name="refund" manual="true" command="DummyPayment/Refund"/>
+        </events>
+    </process>
+
+</statemachine>

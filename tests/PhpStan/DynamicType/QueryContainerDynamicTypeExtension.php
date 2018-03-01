@@ -22,7 +22,7 @@ class QueryContainerDynamicTypeExtension extends AbstractSprykerDynamicTypeExten
     /**
      * @return string
      */
-    public static function getClass(): string
+    public function getClass(): string
     {
         return AbstractQueryContainer::class;
     }

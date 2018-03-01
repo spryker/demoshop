@@ -9,7 +9,8 @@ use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Search\SearchConstants;
 
 // ---------- Propel
-$config[PropelConstants::ZED_DB_DATABASE] = 'AT_development_zed';
+// The database is shared between DE and AT. In this case the AT shop uses the DE database.
+$config[PropelConstants::ZED_DB_DATABASE] = 'DE_development_zed';
 
 // ---------- Email
 $config[MailConstants::MAILCATCHER_GUI] = sprintf('http://%s:1080', $config[ApplicationConstants::HOST_ZED]);

@@ -4,3 +4,4 @@ spryker_dummy_shipment-express,Express,Spryker Dummy Shipment,Shipment Taxes
 spryker_drone_shipment-air_standard,Air Standard,Spryker Drone Shipment,Shipment Taxes
 spryker_drone_shipment-air_sonic,Air Sonic,Spryker Drone Shipment,Shipment Taxes
 spryker_drone_shipment-air_light,Air Light,Spryker Drone Shipment,Shipment Taxes
+spryker_no_shipment,No shipment,No shipment,Tax Exempt

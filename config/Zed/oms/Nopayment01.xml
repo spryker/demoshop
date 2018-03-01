@@ -12,8 +12,8 @@
             <state name="waiting for payment"/>
             <state name="payment done"/>
             <state name="underpaid"/>
-            <state name="start shippment"/>
-            <state name="end shippment"/>
+            <state name="start shipment"/>
+            <state name="end shipment"/>
             <state name="closed"/>
             <state name="returned"/>
             <state name="canceled"/>
@@ -37,7 +37,7 @@
                 <event>paid</event>
             </transition>
 
-            <transition happy="true">
+            <transition>
                 <source>waiting for payment</source>
                 <target>underpaid</target>
                 <event>paid</event>
@@ -52,24 +52,25 @@
             <transition>
                 <source>waiting for payment</source>
                 <target>canceled</target>
+                <event>cancel</event>
             </transition>
             <transition happy="true">
                 <source>payment done</source>
-                <target>start shippment</target>
+                <target>start shipment</target>
                 <event>pick</event>
             </transition>
             <transition happy="true">
-                <source>start shippment</source>
-                <target>end shippment</target>
+                <source>start shipment</source>
+                <target>end shipment</target>
                 <event>ship</event>
             </transition>
             <transition happy="true">
-                <source>end shippment</source>
+                <source>end shipment</source>
                 <target>closed</target>
                 <event>close</event>
             </transition>
             <transition happy="true">
-                <source>end shippment</source>
+                <source>end shipment</source>
                 <target>returned</target>
                 <event>return</event>
             </transition>
@@ -82,6 +83,7 @@
             <event name="ship" manual="true" />
             <event name="forward" onEnter="true" />
             <event name="close" manual="true" />
+            <event name="cancel" manual="true" />
             <event name="return" manual="true" />
         </events>
 
