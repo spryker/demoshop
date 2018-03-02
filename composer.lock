@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "17541c414ffbd313045a2d7fa99bf1ff",
+    "content-hash": "a74b07bedba4f02e982e8b1709dae7d6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1850,11 +1850,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/CORE-2425_add_not_valid_products_from_wishlist_to_cart",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e3e3842b6d3ebd022ec1b4a2d36fcaf5f0bb2a6b"
+                "reference": "505fc32234945a597cc412eeb3e63f49ef7aeae0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2092,7 +2092,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-01T15:04:55+00:00"
+            "time": "2018-03-02T15:43:34+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5251,7 +5251,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6899,7 +6899,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6969,12 +6969,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "d26bbf237d629fdbefd5a337b75cdefe8c816e98"
+                "reference": "550b9776d12991c8d354f37978ab70aaa227c49d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/d26bbf237d629fdbefd5a337b75cdefe8c816e98",
-                "reference": "d26bbf237d629fdbefd5a337b75cdefe8c816e98",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/550b9776d12991c8d354f37978ab70aaa227c49d",
+                "reference": "550b9776d12991c8d354f37978ab70aaa227c49d",
                 "shasum": ""
             },
             "require": {
@@ -7002,7 +7002,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-01-24T15:10:19+00:00"
+            "time": "2018-03-02T11:42:00+00:00"
         },
         {
             "name": "spryker/code-sniffer",
