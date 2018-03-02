@@ -10,6 +10,9 @@ namespace Pyz\Zed\Customer\Communication;
 use Pyz\Zed\Customer\CustomerDependencyProvider;
 use Spryker\Zed\Customer\Communication\CustomerCommunicationFactory as SprykerCustomerCommunicationFactory;
 
+/**
+ * @method \Pyz\Zed\Customer\CustomerConfig getConfig()
+ */
 class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
 {
     /**
