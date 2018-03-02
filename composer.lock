@@ -2294,16 +2294,16 @@
         },
         {
             "name": "spryker/availability-gui",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/availability-gui.git",
-                "reference": "54d3d1b811121c7fe8cdf515b5b32f1a78cad3b0"
+                "reference": "642f8cbf3c04fa0904defcdd7c79c70c0bfba19c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/availability-gui/zipball/54d3d1b811121c7fe8cdf515b5b32f1a78cad3b0",
-                "reference": "54d3d1b811121c7fe8cdf515b5b32f1a78cad3b0",
+                "url": "https://api.github.com/repos/spryker/availability-gui/zipball/642f8cbf3c04fa0904defcdd7c79c70c0bfba19c",
+                "reference": "642f8cbf3c04fa0904defcdd7c79c70c0bfba19c",
                 "shasum": ""
             },
             "require": {
@@ -2343,7 +2343,7 @@
                 "proprietary"
             ],
             "description": "AvailabilityGui module",
-            "time": "2018-02-20T11:05:53+00:00"
+            "time": "2018-02-28T16:40:28+00:00"
         },
         {
             "name": "spryker/braintree",
@@ -3217,16 +3217,16 @@
         },
         {
             "name": "spryker/cms-block-gui",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms-block-gui.git",
-                "reference": "98e3dfc9845e1ee721e4c74be2a5eba40f6215ba"
+                "reference": "66b7f0a10277027f910125d8a4c1d01f7521e8ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms-block-gui/zipball/98e3dfc9845e1ee721e4c74be2a5eba40f6215ba",
-                "reference": "98e3dfc9845e1ee721e4c74be2a5eba40f6215ba",
+                "url": "https://api.github.com/repos/spryker/cms-block-gui/zipball/66b7f0a10277027f910125d8a4c1d01f7521e8ef",
+                "reference": "66b7f0a10277027f910125d8a4c1d01f7521e8ef",
                 "shasum": ""
             },
             "require": {
@@ -3261,7 +3261,7 @@
                 "proprietary"
             ],
             "description": "CmsBlockGui module",
-            "time": "2018-02-09T12:03:48+00:00"
+            "time": "2018-02-27T13:46:33+00:00"
         },
         {
             "name": "spryker/cms-block-product-connector",
@@ -7654,16 +7654,16 @@
         },
         {
             "name": "spryker/product-bundle",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-bundle.git",
-                "reference": "af841ee25b1d1a654ca8c4a67964113ef69a7c61"
+                "reference": "0c5a16fab3f985839a9f2a1b925d50fa633e705e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-bundle/zipball/af841ee25b1d1a654ca8c4a67964113ef69a7c61",
-                "reference": "af841ee25b1d1a654ca8c4a67964113ef69a7c61",
+                "url": "https://api.github.com/repos/spryker/product-bundle/zipball/0c5a16fab3f985839a9f2a1b925d50fa633e705e",
+                "reference": "0c5a16fab3f985839a9f2a1b925d50fa633e705e",
                 "shasum": ""
             },
             "require": {
@@ -7714,7 +7714,7 @@
                 "proprietary"
             ],
             "description": "ProductBundle module",
-            "time": "2018-02-20T11:05:53+00:00"
+            "time": "2018-03-01T15:04:55+00:00"
         },
         {
             "name": "spryker/product-cart-connector",
@@ -11077,16 +11077,16 @@
         },
         {
             "name": "spryker/user",
-            "version": "3.1.5",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/user.git",
-                "reference": "320b0efa48abfc0257deec9aa6de815d1f4b7016"
+                "reference": "2e4dfaecbbee95c5a0613d7b6b3087310fa3d2c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/user/zipball/320b0efa48abfc0257deec9aa6de815d1f4b7016",
-                "reference": "320b0efa48abfc0257deec9aa6de815d1f4b7016",
+                "url": "https://api.github.com/repos/spryker/user/zipball/2e4dfaecbbee95c5a0613d7b6b3087310fa3d2c8",
+                "reference": "2e4dfaecbbee95c5a0613d7b6b3087310fa3d2c8",
                 "shasum": ""
             },
             "require": {
@@ -11127,7 +11127,7 @@
                 "proprietary"
             ],
             "description": "User module",
-            "time": "2018-02-05T06:01:59+00:00"
+            "time": "2018-02-26T10:10:54+00:00"
         },
         {
             "name": "spryker/util-data-reader",
@@ -16538,20 +16538,20 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "0.3.4",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "53a061b20ea355ea49b77cb44fd66ab0531d8af9"
+                "reference": "550b9776d12991c8d354f37978ab70aaa227c49d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/53a061b20ea355ea49b77cb44fd66ab0531d8af9",
-                "reference": "53a061b20ea355ea49b77cb44fd66ab0531d8af9",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/550b9776d12991c8d354f37978ab70aaa227c49d",
+                "reference": "550b9776d12991c8d354f37978ab70aaa227c49d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0",
+                "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
                 "zendframework/zend-filter": "*"
             },
@@ -16570,29 +16570,12 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
-            "scripts": {
-                "cs-check": [
-                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/code-generator/vendor/,/templates/ ./"
-                ],
-                "cs-fix": [
-                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/code-generator/vendor/,/templates/ ./"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "support": {
-                "source": "https://github.com/spryker/code-generator/tree/master",
-                "issues": "https://github.com/spryker/code-generator/issues"
-            },
-            "time": "2017-12-01T13:53:50+00:00"
+            "time": "2018-03-02T11:42:00+00:00"
         },
         {
             "name": "spryker/code-sniffer",
