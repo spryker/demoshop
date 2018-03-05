@@ -44,11 +44,11 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\Collector\Matcher\UrlMatcherInterface
+     * @return \Spryker\Client\Url\UrlClientInterface
      */
-    public function getUrlMatcher()
+    public function getUrlClient()
     {
-        return $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_COLLECTOR);
+        return $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_URL);
     }
 
     /**
