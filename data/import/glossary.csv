@@ -37,6 +37,18 @@ cart.price.grand.total,Summe,de_DE
 cart.price.grand.total,Grand Total,en_US
 cart.total.tax_total,Mehrwertsteuer,de_DE
 cart.total.tax_total,Tax,en_US
+cart.total.price_to_pay,Zu bezahlender Betrag,de_DE
+cart.total.price_to_pay,Price to pay,en_US
+cart.giftcard.label,"Gift card",en_US
+cart.giftcard.label,"Geschenkgutschein",de_DE
+cart.giftcard.apply.failed,The gift card is not applicable,en_US
+cart.giftcard.apply.failed,Geschenkgutschein konnte nicht angewendet werden,de_DE
+cart.giftcard.apply.successful,"Your gift card code has been applied",en_US
+cart.giftcard.apply.successful,"Ihr Geschenkgutschein wurde angewendet",de_DE
+cart.voucher.apply.successful,"Your voucher code has been applied",en_US
+cart.voucher.apply.successful,"Ihr Gutscheincode wurde angewendet",de_DE
+cart.code.apply.failed,Code could not be applied,en_US
+cart.code.apply.failed,Gutscheincode konnte nicht angewendet werden,de_DE
 auth.login,Anmelden,de_DE
 auth.login,Sign up,en_US
 auth.password,Passwort,de_DE
@@ -557,6 +569,8 @@ customer.email.already.used,Email already used,en_US
 customer.email.already.used,E-Mail bereits vergeben,de_DE
 general.back.button,Back,en_US
 general.back.button,Zurück,de_DE
+general.next.button,Next,en_US
+general.next.button,Weiter,de_DE
 general.edit.button,Edit,en_US
 general.edit.button,Bearbeiten,de_DE
 newsletter.subscription.success,You successfully subscribed to the newsletter,en_US
@@ -581,6 +595,8 @@ countries.iso.DE,Germany,en_US
 countries.iso.DE,Deutschland,de_DE
 customer.billingSameAsShipping,Billing address same as shipping address,en_US
 customer.billingSameAsShipping,Liefer- und Rechnungsadresse sind gleich,de_DE
+checkout.giftcard.label,"Gift card",en_US
+checkout.giftcard.label,"Geschenkgutschein",de_DE
 checkout.customer.proceed_as_user,Proceed as a registered user (sign up),en_US
 checkout.customer.proceed_as_user,Melden Sie sich mit Ihrem bereits vorhandenem Account an,de_DE
 checkout.customer.proceed_as_guest,Proceed as a guest,en_US
@@ -701,6 +717,8 @@ product.attribute.image_small,Image small,en_US
 product.attribute.image_small,Bild klein,de_DE
 product.attribute.license,License,en_US
 product.attribute.license,Lizenz,de_DE
+product.attribute.value,Value,en_US
+product.attribute.value,Der Wert,de_DE
 product.product_options,Product Options,en_US
 product.product_options,Produktoptionen,de_DE
 product.sets,Product Sets,en_US
@@ -849,6 +867,12 @@ mail.customer.restore_password_confirmation.subject,Ihr Passwort wurde erfolgrei
 mail.customer.restore_password_confirmation.subject,Your password was changed successfully!,en_US
 mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich geändert!,de_DE
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
+mail.giftCard.delivery.subject,Your Gift card!,en_US
+mail.giftCard.delivery.subject,Deine Geschenkkarte!,de_DE
+mail.giftCard.delivery.text,"Sehr geehrter Kunde, vielen Dank für den Kauf einer Geschenkgutschein in unserem Shop. Ihr Gutscheincode lautet: ",de_DE
+mail.giftCard.delivery.text,"Dear customer, thank you for buying a gift card at our shop. Your gift card code is: ",en_US
+mail.giftCard.usage.subject,Thank you for using a Gift Card!,en_US
+mail.giftCard.usage.subject,Vielen Dank dass Sie ein Geschenkgutschein benutzt haben.,de_DE
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
 mail.newsletter.subscribed.subject,Welcome to Spryker newsletter,en_US
 mail.newsletter.subscribed.text,"Wir freuen uns, dass du dich für unseren Newsletter registriert hast. Wir werden unser bestes geben, um dich mich relevanten und spannenden News und Updates zu versorgen.",de_DE
