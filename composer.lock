@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a74b07bedba4f02e982e8b1709dae7d6",
+    "content-hash": "5cdb2f38857fe3d9bdd2c7617d1b95fe",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1850,11 +1850,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-3519-crm1-customer-notes",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0229c0cd64b781db1ae7b387c489746f3fdbdefb"
+                "reference": "b662d513d029b0d58ec0c84ce4c62598d3cdf627"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1916,6 +1916,8 @@
                 "spryker/customer": "*",
                 "spryker/customer-group": "*",
                 "spryker/customer-group-discount-connector": "*",
+                "spryker/customer-note": "*",
+                "spryker/customer-note-gui": "*",
                 "spryker/customer-user-connector": "*",
                 "spryker/customer-user-connector-gui": "*",
                 "spryker/development": "*",
@@ -2092,7 +2094,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-05T09:50:19+00:00"
+            "time": "2018-03-05T10:58:22+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5251,7 +5253,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6899,7 +6901,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],

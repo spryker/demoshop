@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/CORE-3519-crm1-customer-notes",
 
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
