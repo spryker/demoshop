@@ -1854,7 +1854,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0229c0cd64b781db1ae7b387c489746f3fdbdefb"
+                "reference": "fb8a19e225b8a48ef02b09c88773c15f1e57716a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2092,7 +2092,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-05T09:50:19+00:00"
+            "time": "2018-03-06T14:22:59+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5251,7 +5251,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6899,7 +6899,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
