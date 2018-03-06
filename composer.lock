@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a74b07bedba4f02e982e8b1709dae7d6",
+    "content-hash": "5cdb2f38857fe3d9bdd2c7617d1b95fe",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1688,7 +1688,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2017-10-24T10:37:10+00:00"
+            "time": "2017-10-24 10:37:10"
         },
         {
             "name": "spryker/event-behavior",
@@ -1744,7 +1744,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-02-08T12:16:03+00:00"
+            "time": "2018-02-08 12:16:03"
         },
         {
             "name": "spryker/install",
@@ -1788,7 +1788,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-28T10:07:25+00:00"
+            "time": "2018-02-28 10:07:25"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -1846,15 +1846,15 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26T13:26:48+00:00"
+            "time": "2018-01-26 13:26:48"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-3519-crm1-customer-notes",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fb8a19e225b8a48ef02b09c88773c15f1e57716a"
+                "reference": "d1f64f037a611f5eafa42142e41463d622ead972"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -1916,6 +1916,8 @@
                 "spryker/customer": "*",
                 "spryker/customer-group": "*",
                 "spryker/customer-group-discount-connector": "*",
+                "spryker/customer-note": "*",
+                "spryker/customer-note-gui": "*",
                 "spryker/customer-user-connector": "*",
                 "spryker/customer-user-connector-gui": "*",
                 "spryker/development": "*",
@@ -2092,7 +2094,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-06T14:22:59+00:00"
+            "time": "2018-03-06 15:42:45"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2137,7 +2139,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-02-26T14:04:23+00:00"
+            "time": "2018-02-26 14:04:23"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6769,7 +6771,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2016-05-04T16:32:42+00:00"
+            "time": "2016-05-04 16:32:42"
         },
         {
             "name": "site5/phantoman",
@@ -6899,7 +6901,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -6961,7 +6963,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-02-12T13:54:28+00:00"
+            "time": "2018-02-12 13:54:28"
         },
         {
             "name": "spryker/code-generator",
@@ -7002,7 +7004,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-03-02T11:42:00+00:00"
+            "time": "2018-03-02 11:42:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -7053,7 +7055,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-02-21T20:15:59+00:00"
+            "time": "2018-02-21 20:15:59"
         },
         {
             "name": "spryker/git-hook",
@@ -7105,7 +7107,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-02-14T09:40:33+00:00"
+            "time": "2018-02-14 09:40:33"
         },
         {
             "name": "squizlabs/php_codesniffer",
