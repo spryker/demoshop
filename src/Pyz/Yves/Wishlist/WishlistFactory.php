@@ -112,7 +112,7 @@ class WishlistFactory extends AbstractFactory
      */
     public function createMoveToCartHandler()
     {
-        return new MoveToCartHandler($this->getClient(), $this->getCustomerClient(), $this->createAvailabilityReader());
+        return new MoveToCartHandler($this->getClient(), $this->getCustomerClient());
     }
 
     /**
