@@ -109,6 +109,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
+    "platform": {
+      "php": "7.1.0"
+    },
     "use-include-path": true,
     "process-timeout": 1200
   },
