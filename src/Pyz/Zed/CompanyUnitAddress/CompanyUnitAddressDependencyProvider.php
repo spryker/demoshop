@@ -8,14 +8,12 @@
 namespace Pyz\Zed\CompanyUnitAddress;
 
 use Spryker\Zed\CompanyUnitAddress\CompanyUnitAddressDependencyProvider as SprykerCompanyUnitAddressDependencyProvider;
-use Spryker\Zed\CompanyUnitAddressLabel\Communication\Plugin\CompanyUnitAddressPreUpdatePlugin;
-use Spryker\Zed\CompanyUnitAddressLabel\Communication\Plugin\CompanyUnitAddressTransferHydratorPlugin;
+use Spryker\Zed\CompanyUnitAddressLabel\Communication\Plugin\CompanyUnitAddressHydratingPlugin;
+use Spryker\Zed\CompanyUnitAddressLabel\Communication\Plugin\CompanyUnitAddressPostSavePlugin;
 use Spryker\Zed\Kernel\Container;
 
 class CompanyUnitAddressDependencyProvider extends SprykerCompanyUnitAddressDependencyProvider
 {
-    public const PLUGIN_ADDRESS_POST_UPDATE = 'PLUGIN_ADDRESS_POST_UPDATE';
-
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -31,22 +29,22 @@ class CompanyUnitAddressDependencyProvider extends SprykerCompanyUnitAddressDepe
     }
 
     /**
-     * @return \Spryker\Zed\CompanyUnitAddressExtension\Communication\Plugin\CompanyUnitAddressPreUpdatePluginInterface[]
+     * @return \Spryker\Zed\CompanyUnitAddressExtension\Dependency\Plugin\CompanyUnitAddressPostSavePluginInterface[]
      */
-    protected function getAddressPreUpdatePlugins(): array
+    protected function getCompanyUnitAddressPostSavePlugins(): array
     {
         return [
-            new CompanyUnitAddressPreUpdatePlugin(),
+            new CompanyUnitAddressPostSavePlugin(),
         ];
     }
 
     /**
-     * @return \Spryker\Zed\CompanyUnitAddressExtension\Communication\Plugin\CompanyUnitAddressTransferHydratorPluginInterface[]
+     * @return \Spryker\Zed\CompanyUnitAddressExtension\Dependency\Plugin\CompanyUnitAddressHydratingPluginInterface[]
      */
-    protected function getAddressTransferHydratorPlugins(): array
+    protected function getCompanyUnitAddressHydratingPlugins(): array
     {
         return [
-            new CompanyUnitAddressTransferHydratorPlugin(),
+            new CompanyUnitAddressHydratingPlugin(),
         ];
     }
 }
