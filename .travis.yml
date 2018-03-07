@@ -4,6 +4,7 @@ env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
+    - PROJECT=demoshop
 
 dist: precise
 
