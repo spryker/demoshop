@@ -6,7 +6,7 @@
     "spryker/spryker": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
-    "spryker/event-behavior": "dev-master",
+    "spryker/event-behavior": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
     "spryker/synchronization-behavior": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
     "spryker/install": "dev-master",
 

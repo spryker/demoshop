@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9dcf3d6ec17a20c3902ecf3883a42e1",
+    "content-hash": "8ee6959c3ed8681cd1a9b5cd553498fe",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1734,16 +1734,16 @@
         },
         {
             "name": "spryker/event-behavior",
-            "version": "dev-master",
+            "version": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a"
+                "reference": "17e17246d22b14a88e7ca55071048016f92374f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/07ff85f9171772e2ad6ef44bce864e125ff1278a",
-                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/17e17246d22b14a88e7ca55071048016f92374f1",
+                "reference": "17e17246d22b14a88e7ca55071048016f92374f1",
                 "shasum": ""
             },
             "require": {
@@ -1786,7 +1786,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-02-08T12:16:03+00:00"
+            "time": "2018-03-09T14:16:06+00:00"
         },
         {
             "name": "spryker/install",
