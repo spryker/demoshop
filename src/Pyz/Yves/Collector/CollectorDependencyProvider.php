@@ -26,7 +26,7 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
 
     const SERVICE_DATA = 'util data service';
 
-    const CLIENT_COLLECTOR = 'collector client';
+    const CLIENT_URL = 'CLIENT_URL';
     const CLIENT_CATALOG = 'client client';
     const PLUGIN_APPLICATION = 'application plugin';
     const PLUGIN_CATEGORY_RESOURCE_CREATOR = 'category resource plugin';
@@ -55,8 +55,8 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function provideClients(Container $container)
     {
-        $container[self::CLIENT_COLLECTOR] = function (Container $container) {
-            return $container->getLocator()->collector()->client();
+        $container[self::CLIENT_URL] = function (Container $container) {
+            return $container->getLocator()->url()->client();
         };
 
         $container[self::CLIENT_CATALOG] = function (Container $container) {

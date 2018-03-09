@@ -19,7 +19,6 @@ use Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductOptionCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
-use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
@@ -193,28 +192,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $storageTranslationCollector->setConfig($this->getConfig());
 
         return $storageTranslationCollector;
-    }
-
-    /**
-     * @return \Pyz\Zed\Collector\Business\Storage\UrlCollector
-     */
-    public function createStorageUrlCollector()
-    {
-        $storageUrlCollector = new UrlCollector(
-            $this->getUtilDataReaderService()
-        );
-
-        $storageUrlCollector->setTouchQueryContainer(
-            $this->getTouchQueryContainer()
-        );
-        $storageUrlCollector->setCriteriaBuilder(
-            $this->createCriteriaBuilder()
-        );
-        $storageUrlCollector->setQueryBuilder(
-            $this->createStoragePdoQueryAdapterByName('UrlCollectorQuery')
-        );
-
-        return $storageUrlCollector;
     }
 
     /**
@@ -496,7 +473,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     protected function getUtilDataReaderService()
     {
-        return $this->getProvidedDependency(CollectorDependencyProvider::SERVICE_DATA);
+        return $this->getProvidedDependency(CollectorDependencyProvider::SERVICE_UTIL_DATA_READER);
     }
 
     /**

@@ -4,6 +4,7 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/core-1569-elasticsearch-upgrade",
+
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -108,6 +109,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
+    "platform": {
+      "php": "7.1.11"
+    },
     "use-include-path": true,
     "process-timeout": 1200
   },
