@@ -139,9 +139,9 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createDiscountAmountImporter())
             ->addDataImporter($this->createProductCustomerPermissionImporter())
             ->addDataImporter($this->createCompanyImporter())
-            ->addDataImporter($this->createCompanyUnitAddressLabelImporter())
             ->addDataImporter($this->createCompanyBusinessUnitImporter())
-            ->addDataImporter($this->createCompanyUnitAddressImporter());
+            ->addDataImporter($this->createCompanyUnitAddressImporter())
+            ->addDataImporter($this->createCompanyUnitAddressLabelImporter());
 
         return $dataImporterCollection;
     }
