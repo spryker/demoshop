@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "82dd1ed718d479204e203436e118cb30",
+    "content-hash": "2c2d7100d3db0c8bea69d0df958ac68e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-1569-elasticsearch-upgrade",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "03f6a19c697bbac8a53c90a8242749a4c445be2e"
+                "reference": "5469a34d9d372855914f41a4c44778e3ab76a0a3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2295,7 +2295,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-09T07:57:08+00:00"
+            "time": "2018-03-09T09:48:41+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
