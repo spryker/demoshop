@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Product;
 
+use Spryker\Zed\CompanySupplier\Communication\Plugin\ProductConcreteManagerPersistEntityExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PriceProduct\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterCreatePlugin;
 use Spryker\Zed\PriceProduct\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterUpdatePlugin;
@@ -17,6 +18,7 @@ use Spryker\Zed\Product\ProductDependencyProvider as SprykerProductDependencyPro
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterCreatePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Product\ProductBundleProductConcreteReadPlugin;
+use Spryker\Zed\ProductExtension\Dependency\Plugin\ProductConcreteManagerPersistEntityExpanderPluginInterface;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterCreatePlugin as ImageSetProductAbstractAfterCreatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractAfterUpdatePlugin as ImageSetProductAbstractAfterUpdatePlugin;
 use Spryker\Zed\ProductImage\Communication\Plugin\ProductAbstractReadPlugin as ImageSetProductAbstractReadPlugin;
@@ -166,6 +168,16 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ProductSearchProductConcreteAfterUpdatePlugin(),
             new ProductBundleProductConcreteAfterUpdatePlugin(),
             new ProductValidityUpdatePlugin(),
+        ];
+    }
+
+    /**
+     * @return ProductConcreteManagerPersistEntityExpanderPluginInterface[]
+     */
+    protected function getPersistRelatedDataPlugins()
+    {
+        return [
+            new ProductConcreteManagerPersistEntityExpanderPlugin(),
         ];
     }
 }
