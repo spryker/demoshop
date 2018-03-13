@@ -8,7 +8,7 @@
 namespace Pyz\Zed\CompanyUnitAddress;
 
 use Spryker\Zed\CompanyUnitAddress\CompanyUnitAddressDependencyProvider as SprykerCompanyUnitAddressDependencyProvider;
-use Spryker\Zed\CompanyUnitAddressLabel\Communication\Plugin\CompanyUnitAddressHydratingPlugin;
+use Spryker\Zed\CompanyUnitAddressLabel\Communication\Plugin\CompanyUnitAddressHydratePlugin;
 use Spryker\Zed\CompanyUnitAddressLabel\Communication\Plugin\CompanyUnitAddressPostSavePlugin;
 use Spryker\Zed\Kernel\Container;
 
@@ -39,12 +39,12 @@ class CompanyUnitAddressDependencyProvider extends SprykerCompanyUnitAddressDepe
     }
 
     /**
-     * @return \Spryker\Zed\CompanyUnitAddressExtension\Dependency\Plugin\CompanyUnitAddressHydratingPluginInterface[]
+     * @return \Spryker\Zed\CompanyUnitAddressExtension\Dependency\Plugin\CompanyUnitAddressHydratePluginInterface[]
      */
-    protected function getCompanyUnitAddressHydratingPlugins(): array
+    protected function getCompanyUnitAddressHydratePlugins(): array
     {
         return [
-            new CompanyUnitAddressHydratingPlugin(),
+            new CompanyUnitAddressHydratePlugin(),
         ];
     }
 }
