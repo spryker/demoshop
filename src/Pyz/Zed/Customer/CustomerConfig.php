@@ -12,24 +12,21 @@ use Spryker\Zed\Customer\CustomerConfig as SprykerCustomerConfig;
 class CustomerConfig extends SprykerCustomerConfig
 {
     /**
-     * This method provides list of URLs to render blocks inside customer view page.
-     * URL defines path to external bundle controller.
+     * This method provides list of urls to render blocks inside customer detail page.
+     * URL defines path to external bundle controller. For example: /sales/customer/customer-orders would call sales bundle, customer controller, customerOrders action.
      * Action should return return array or redirect response.
      *
      * example:
      * [
-     *    'notes' => '/customer-note-gui/index/index',
+     *    'sales' => '/sales/customer/customer-orders',
      * ]
      *
      * @return array
      */
-    public function getCustomerViewExternalBlocksUrls()
+    public function getCustomerDetailExternalBlocksUrls()
     {
-        return array_merge(
-            parent::getCustomerViewExternalBlocksUrls(),
-            [
-                'notes' => '/customer-note-gui/index/index',
-            ]
-        );
+        return [
+            'sales' => '/sales/customer/customer-orders',
+        ];
     }
 }
