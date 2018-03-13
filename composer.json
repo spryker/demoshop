@@ -4,7 +4,6 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-master",
-
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
