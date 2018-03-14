@@ -6,8 +6,6 @@ env:
     - APPLICATION_STORE=DE
     - PROJECT=demoshop
 
-dist: precise
-
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
   fast_finish: true
@@ -33,7 +31,7 @@ matrix:
           - DB=mysql
 
 addons:
-  postgresql: 9.4
+  postgresql: 9.6
   mysql: 5.7
 
   apt:
