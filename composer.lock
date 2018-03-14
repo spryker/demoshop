@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c2d7100d3db0c8bea69d0df958ac68e",
+    "content-hash": "43531cff9f82730fdcab744a043073c1",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1895,16 +1895,16 @@
         },
         {
             "name": "spryker/event-behavior",
-            "version": "dev-master",
+            "version": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a"
+                "reference": "17e17246d22b14a88e7ca55071048016f92374f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/07ff85f9171772e2ad6ef44bce864e125ff1278a",
-                "reference": "07ff85f9171772e2ad6ef44bce864e125ff1278a",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/17e17246d22b14a88e7ca55071048016f92374f1",
+                "reference": "17e17246d22b14a88e7ca55071048016f92374f1",
                 "shasum": ""
             },
             "require": {
@@ -1947,7 +1947,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-02-08T12:16:03+00:00"
+            "time": "2018-03-09T14:16:06+00:00"
         },
         {
             "name": "spryker/install",
@@ -1995,23 +1995,24 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "dev-master",
+            "version": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f"
+                "reference": "186eada7744da79852573085c35e453be676cb06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/186eada7744da79852573085c35e453be676cb06",
+                "reference": "186eada7744da79852573085c35e453be676cb06",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "php-amqplib/php-amqplib": "^2.6",
                 "spryker/kernel": "^3.0.0",
-                "spryker/queue": "^1.0.0",
+                "spryker/queue": "^1.2.0",
+                "spryker/store": "^1.6.0",
                 "spryker/transfer": "^3.3.4"
             },
             "require-dev": {
@@ -2049,15 +2050,15 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26T13:26:48+00:00"
+            "time": "2018-03-06T10:17:47+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "66c95b7470c77a5249f53834eb5f9af6b4d02c9d"
+                "reference": "1f56883483ca4506fea79dedfdafa5064e00b3f5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2297,20 +2298,20 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-13T13:38:35+00:00"
+            "time": "2018-03-14T13:48:18+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
-            "version": "dev-master",
+            "version": "dev-merge/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "4729e470bd1c1c4b8aed3a94b0a44003485684d7"
+                "reference": "c91cca3b2f846959ed5c4090891b4e9e9dceec7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/4729e470bd1c1c4b8aed3a94b0a44003485684d7",
-                "reference": "4729e470bd1c1c4b8aed3a94b0a44003485684d7",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/c91cca3b2f846959ed5c4090891b4e9e9dceec7d",
+                "reference": "c91cca3b2f846959ed5c4090891b4e9e9dceec7d",
                 "shasum": ""
             },
             "require": {
@@ -2319,10 +2320,12 @@
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
+                "spryker/queue": "^1.2.0",
                 "spryker/synchronization": "^0.1.0 || ^0.2.0"
             },
             "suggest": {
-                "spryker/synchronization": "*"
+                "spryker/queue": "Generated classes are using spryker/queue module.",
+                "spryker/synchronization": "Generated classes are using spryker/synchronization module."
             },
             "type": "propel-behavior",
             "extra": {
@@ -2342,7 +2345,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-02-26T14:04:23+00:00"
+            "time": "2018-03-06T10:11:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
