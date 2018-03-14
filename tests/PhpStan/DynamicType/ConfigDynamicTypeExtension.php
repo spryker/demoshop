@@ -22,7 +22,7 @@ class ConfigDynamicTypeExtension extends AbstractSprykerDynamicTypeExtension imp
     /**
      * @return string
      */
-    public static function getClass(): string
+    public function getClass(): string
     {
         return AbstractBundleConfig::class;
     }

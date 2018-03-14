@@ -7,19 +7,20 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
 /**
- * @method \Spryker\Zed\Customer\Business\CustomerFacadeInterface getFacade()
- * @method \Spryker\Zed\Customer\Communication\CustomerCommunicationFactory getFactory()
- * @method \Spryker\Zed\Customer\Persistence\CustomerQueryContainerInterface getQueryContainer()
+ * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
  */
 class AddressForm extends AbstractType
 {
@@ -44,7 +45,7 @@ class AddressForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'addressForm';
     }
@@ -57,18 +58,6 @@ class AddressForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setRequired(self::OPTION_COUNTRY_CHOICES);
-    }
-
-    /**
-     * @deprecated Use `configureOptions()` instead.
-     *
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-     *
-     * @return void
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 
     /**
@@ -105,12 +94,12 @@ class AddressForm extends AbstractType
      */
     public function addSalutationField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_SALUTATION, 'choice', [
+        $builder->add(self::FIELD_SALUTATION, ChoiceType::class, [
             'choices' => [
-                'Mr' => 'customer.salutation.mr',
-                'Ms' => 'customer.salutation.ms',
-                'Mrs' => 'customer.salutation.mrs',
-                'Dr' => 'customer.salutation.dr',
+                'customer.salutation.mr' => 'Mr',
+                'customer.salutation.ms' => 'Ms',
+                'customer.salutation.mrs' => 'Mrs',
+                'customer.salutation.dr' => 'Dr',
             ],
             'label' => 'profile.form.salutation',
             'required' => true,
@@ -130,7 +119,7 @@ class AddressForm extends AbstractType
      */
     protected function addFirstNameField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_FIRST_NAME, 'text', [
+        $builder->add(self::FIELD_FIRST_NAME, TextType::class, [
             'label' => 'customer.address.first_name',
             'required' => true,
             'constraints' => [
@@ -150,7 +139,7 @@ class AddressForm extends AbstractType
      */
     protected function addLastNameField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_LAST_NAME, 'text', [
+        $builder->add(self::FIELD_LAST_NAME, TextType::class, [
             'label' => 'customer.address.last_name',
             'required' => true,
             'constraints' => [
@@ -170,7 +159,7 @@ class AddressForm extends AbstractType
      */
     protected function addCompanyField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_COMPANY, 'text', [
+        $builder->add(self::FIELD_COMPANY, TextType::class, [
             'label' => 'customer.address.company',
             'required' => false,
         ]);
@@ -186,7 +175,7 @@ class AddressForm extends AbstractType
      */
     protected function addAddress1Field(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_ADDRESS_1, 'text', [
+        $builder->add(self::FIELD_ADDRESS_1, TextType::class, [
             'label' => 'customer.address.address1',
             'required' => true,
             'constraints' => [
@@ -206,7 +195,7 @@ class AddressForm extends AbstractType
      */
     protected function addAddress2Field(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_ADDRESS_2, 'text', [
+        $builder->add(self::FIELD_ADDRESS_2, TextType::class, [
             'label' => 'customer.address.number',
             'required' => true,
             'constraints' => [
@@ -226,7 +215,7 @@ class AddressForm extends AbstractType
      */
     protected function addAddress3Field(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_ADDRESS_3, 'text', [
+        $builder->add(self::FIELD_ADDRESS_3, TextType::class, [
             'label' => 'customer.address.address3',
             'required' => false,
         ]);
@@ -242,7 +231,7 @@ class AddressForm extends AbstractType
      */
     protected function addZipCodeField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_ZIP_CODE, 'text', [
+        $builder->add(self::FIELD_ZIP_CODE, TextType::class, [
             'label' => 'customer.address.zip_code',
             'required' => true,
             'constraints' => [
@@ -262,7 +251,7 @@ class AddressForm extends AbstractType
      */
     protected function addCityField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_CITY, 'text', [
+        $builder->add(self::FIELD_CITY, TextType::class, [
             'label' => 'customer.address.city',
             'required' => true,
             'constraints' => [
@@ -282,7 +271,7 @@ class AddressForm extends AbstractType
      */
     protected function addIso2CodeField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_ISO_2_CODE, 'choice', [
+        $builder->add(self::FIELD_ISO_2_CODE, ChoiceType::class, [
             'label' => 'customer.address.country',
             'required' => true,
             'choices' => $options[self::OPTION_COUNTRY_CHOICES],
@@ -302,7 +291,7 @@ class AddressForm extends AbstractType
      */
     protected function addPhoneField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_PHONE, 'text', [
+        $builder->add(self::FIELD_PHONE, TextType::class, [
             'label' => 'customer.address.phone',
             'required' => false,
         ]);
@@ -318,7 +307,7 @@ class AddressForm extends AbstractType
      */
     protected function addIsDefaultShippingField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_IS_DEFAULT_SHIPPING, 'checkbox', [
+        $builder->add(self::FIELD_IS_DEFAULT_SHIPPING, CheckboxType::class, [
             'label' => 'customer.address.is_default_shipping',
             'required' => false,
         ]);
@@ -334,7 +323,7 @@ class AddressForm extends AbstractType
      */
     protected function addIsDefaultBillingField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_IS_DEFAULT_BILLING, 'checkbox', [
+        $builder->add(self::FIELD_IS_DEFAULT_BILLING, CheckboxType::class, [
             'label' => 'customer.address.is_default_billing',
             'required' => false,
         ]);
@@ -350,7 +339,7 @@ class AddressForm extends AbstractType
      */
     protected function addIdCustomerAddressField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_ID_CUSTOMER_ADDRESS, 'hidden');
+        $builder->add(self::FIELD_ID_CUSTOMER_ADDRESS, HiddenType::class);
 
         return $this;
     }
@@ -363,7 +352,7 @@ class AddressForm extends AbstractType
      */
     protected function addFkCustomerField(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(self::FIELD_FK_CUSTOMER, 'hidden');
+        $builder->add(self::FIELD_FK_CUSTOMER, HiddenType::class);
 
         return $this;
     }
