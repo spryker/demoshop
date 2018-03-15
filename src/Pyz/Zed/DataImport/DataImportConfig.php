@@ -55,6 +55,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_CONCRETE_GIFT_CARD_CONFIGURATION = 'gift-card-concrete-configuration';
     const IMPORT_TYPE_CURRENCY = 'currency';
     const IMPORT_TYPE_STORE = 'store';
+    const IMPORT_TYPE_COMPANY_TYPE = 'company-type';
 
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
@@ -390,6 +391,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductCustomerPermissionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_customer_permission.csv', static::IMPORT_TYPE_PRODUCT_CUSTOMER_PERMISSION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyTypeDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('company_type.csv', static::IMPORT_TYPE_COMPANY_TYPE);
     }
 
     /**

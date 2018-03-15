@@ -18,6 +18,7 @@ use Pyz\Zed\DataImport\Business\Model\CmsBlockStore\CmsBlockStoreWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\CmsPageWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\PlaceholderExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\CmsTemplate\CmsTemplateWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CompanyType\CompanyTypeWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository;
 use Pyz\Zed\DataImport\Business\Model\Currency\CurrencyWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Customer\CustomerWriterStep;
@@ -133,7 +134,8 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createConcreteGiftCardConfigurationImporter())
             ->addDataImporter($this->createNavigationNodeImporter())
             ->addDataImporter($this->createDiscountAmountImporter())
-            ->addDataImporter($this->createProductCustomerPermissionImporter());
+            ->addDataImporter($this->createProductCustomerPermissionImporter())
+            ->addDataImporter($this->createCompanyTypeImporter());
 
         return $dataImporterCollection;
     }
@@ -1090,6 +1092,22 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
                 $this->getTouchFacade(),
                 ProductCustomerPermissionWriterStep::BULK_SIZE
             ));
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createCompanyTypeImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyTypeDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker
+            ->addStep(new CompanyTypeWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
