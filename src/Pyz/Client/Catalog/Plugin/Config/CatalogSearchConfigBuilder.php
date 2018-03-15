@@ -28,7 +28,7 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
 {
     const DEFAULT_ITEMS_PER_PAGE = 48;
     const VALID_ITEMS_PER_PAGE_OPTIONS = [24, 36, 48];
-    const SIZE_UNLIMITED = 0;
+    const SIZE_UNLIMITED = 1000;
 
     const CATEGORY_FACET_PARAM_NAME = 'category';
     const LABEL_FACET_NAME = 'label';

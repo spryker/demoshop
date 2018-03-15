@@ -25,7 +25,7 @@ class BaseHandler
     }
 
     /**
-     * @param \Spryker\Client\Kernel\AbstractClient $client
+     * @param \Spryker\Client\Cart\CartClient|\Spryker\Client\Kernel\AbstractClient|\Spryker\Client\Cart\CartClientInterface $client
      *
      * @return void
      */
