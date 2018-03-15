@@ -59,6 +59,12 @@ before_install:
   - if [[ $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit ; fi
   - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/* ; fi
   - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh ; fi
+  # Merges travis-ci/stores.php into the general stores.php at the defined "travis hook" line. Uses temporary file during the process.
+  # - grabs all lines until the travis hook from stores.php (including that line)
+  # - grabs all lines after the 1st line in travis-ci/stores.php (php opening tag)
+  # - grabs the remaining lines from stores.php (including the hook line again)
+  # - uses temporary file to avoid content loss because of the partial output writing of the operating system
+  - ( awk '1;/@hook travis-ci/{exit}' config/Shared/stores.php ; awk 'NR>1' config/Shared/ci/travis/stores.php ; awk '/@hook travis-ci/,0' config/Shared/stores.php ) > config/Shared/stores_tmp.php ; mv config/Shared/stores_tmp.php config/Shared/stores.php
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
