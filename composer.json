@@ -72,6 +72,8 @@
     "spryker/customer-api": "^0.1.0",
     "spryker/customer-group": "^2.0.0",
     "spryker/customer-group-discount-connector": "^2.0.0",
+    "spryker/customer-note": "^1.0.0",
+    "spryker/customer-note-gui": "^1.0.0",
     "spryker/customer-user-connector": "^1.0.0",
     "spryker/customer-user-connector-gui": "^1.0.0",
     "spryker/data-import": "^1.0.0",
