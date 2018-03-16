@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a745a46d9b9b3b7723b829c81f15bc90f98d410e"
+                "reference": "760e31440c614f0f9ca4e0c66f161368ab564ab2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2168,6 +2168,8 @@
                 "spryker/new-relic-api": "*",
                 "spryker/newsletter": "*",
                 "spryker/nopayment": "*",
+                "spryker/offer": "*",
+                "spryker/offer-gui": "*",
                 "spryker/oms": "*",
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
@@ -2297,7 +2299,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-13T18:28:40+00:00"
+            "time": "2018-03-16T13:07:52+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
