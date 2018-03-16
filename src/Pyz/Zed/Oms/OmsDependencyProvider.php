@@ -13,6 +13,8 @@ use Spryker\Zed\GiftCard\Communication\Plugin\Oms\Command\ReplaceGiftCardsComman
 use Spryker\Zed\GiftCard\Communication\Plugin\Oms\Condition\IsGiftCardConditionPlugin;
 use Spryker\Zed\GiftCardMailConnector\Communication\Plugin\Oms\Command\ShipGiftCardByEmailCommandPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Offer\Communication\Plugin\Oms\Command\ConvertOfferToOrderCommandPlugin;
+use Spryker\Zed\Offer\Communication\Plugin\Oms\Condition\IsOfferConditionPlugin;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderConfirmationPlugin;
 use Spryker\Zed\Oms\Communication\Plugin\Oms\Command\SendOrderShippedPlugin;
 use Spryker\Zed\Oms\Dependency\Plugin\Command\CommandCollectionInterface;
@@ -62,6 +64,7 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             $commandCollection->add(new ShipGiftCardByEmailCommandPlugin(), 'GiftCardMailConnector/ShipGiftCard');
             $commandCollection->add(new CreateGiftCardCommandPlugin(), 'GiftCard/CreateGiftCard');
             $commandCollection->add(new ReplaceGiftCardsCommandPlugin(), 'GiftCard/ReplaceGiftCards');
+            $commandCollection->add(new ConvertOfferToOrderCommandPlugin(), 'Offer/ConvertOfferToOrder');
 
             return $commandCollection;
         });
@@ -78,7 +81,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     {
         $container->extend(OmsDependencyProvider::CONDITION_PLUGINS, function (ConditionCollectionInterface $conditionCollection) {
             $conditionCollection
-                ->add(new IsGiftCardConditionPlugin(), 'GiftCard/IsGiftCard');
+                ->add(new IsGiftCardConditionPlugin(), 'GiftCard/IsGiftCard')
+                ->add(new IsOfferConditionPlugin(), 'Offer/IsOffer');
 
             return $conditionCollection;
         });

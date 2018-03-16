@@ -9,6 +9,7 @@ namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Cart\Handler\CodeHandler;
 use Pyz\Yves\Checkout\Form\FormFactory;
+use Pyz\Yves\Checkout\Process\OfferStepFactory;
 use Pyz\Yves\Checkout\Process\StepFactory;
 use Spryker\Yves\Checkout\CheckoutFactory as SprykerCheckoutFactory;
 
@@ -25,11 +26,29 @@ class CheckoutFactory extends SprykerCheckoutFactory
     }
 
     /**
+     * @return \Spryker\Yves\StepEngine\Process\StepEngineInterface
+     */
+    public function createOfferCheckoutProcess()
+    {
+        return $this->createOfferStepFactory()->createStepEngine(
+            $this->createOfferStepFactory()->createStepCollection()
+        );
+    }
+
+    /**
      * @return \Pyz\Yves\Checkout\Process\StepFactory
      */
     public function createStepFactory()
     {
         return new StepFactory();
+    }
+
+    /**
+     * @return \Pyz\Yves\Checkout\Process\OfferStepFactory
+     */
+    public function createOfferStepFactory()
+    {
+        return new OfferStepFactory();
     }
 
     /**

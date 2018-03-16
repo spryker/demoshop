@@ -96,18 +96,20 @@
         </div>
     </div>
 
-    {{ form_start(summaryForm, {'attr': {'class': 'row'}}) }}
-        <div class="small-12 columns">
-            <div class="callout">
-                <div class="row align-right">
-                    <div class="small-12 medium-6 large-4 xlarge-3 columns">
-                        <a href="{{ previousStepUrl }}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
-                    </div>
-                    <div class="small-12 medium-6 large-4 xlarge-3 columns">
-                        <button type="submit" class="button success expanded __no-margin-bottom">{{ 'checkout.step.place.order' | trans }}</button>
+    {% block actions %}
+        {{ form_start(summaryForm, {'attr': {'class': 'row'}}) }}
+            <div class="small-12 columns">
+                <div class="callout">
+                    <div class="row align-right">
+                        <div class="small-12 medium-6 large-4 xlarge-3 columns">
+                            <a href="{{ previousStepUrl }}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
+                        </div>
+                        <div class="small-12 medium-6 large-4 xlarge-3 columns">
+                            <button type="submit" class="button success expanded __no-margin-bottom">{{ 'checkout.step.place.order' | trans }}</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    {{ form_end(summaryForm) }}
+        {{ form_end(summaryForm) }}
+    {% endblock %}
 {% endblock %}
