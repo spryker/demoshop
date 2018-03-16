@@ -10,23 +10,40 @@
         <subprocesses>
             <process>Offer</process>
             <process>Payment</process>
+            <process>DummyRefund</process>
+            <process>CreateGiftCard</process>
         </subprocesses>
 
+        <states>
+            <state name="new" reserved="true"/>
+        </states>
+
         <transitions>
+            <transition condition="Offer/IsOffer">
+                <source>new</source>
+                <target>offer</target>
+                <event>check offer</event>
+            </transition>
+
             <transition happy="true">
+                <source>new</source>
+                <target>payment start</target>
+                <event>check offer</event>
+            </transition>
+
+            <transition>
                 <source>offer</source>
-                <target>new</target>
+                <target>payment start</target>
                 <event>convert offer to order</event>
             </transition>
-        </transitions>
 
-        <events>
-            <event name="convert offer to order" manual="true"/>
-        </events>
+        </transitions>
 
     </process>
 
-    <process name="Offer" file="OfferSubprocess/Offer01.xml"/>
-    <process name="Payment" file="DummyPayment01.xml"/>
+    <process name="Offer" file="OrderSubprocess/Offer01.xml"/>
+    <process name="Payment" file="OrderSubprocess/Payment01.xml"/>
+    <process name="DummyRefund" file="DummySubprocess/DummyRefund01.xml"/>
+    <process name="CreateGiftCard" file="GiftCardSubprocess/CreateGiftCard01.xml"/>
 
 </statemachine>

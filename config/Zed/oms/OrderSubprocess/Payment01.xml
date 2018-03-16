@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<statemachine
+        xmlns="spryker:oms-01"
+        xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="spryker:oms-01 https://static.spryker.com/oms-01.xsd">
+
+    <process name="Payment01">
+
+        <states>
+            <state name="payment start" reserved="true"/>
+            <state name="payment pending" reserved="true"/>
+            <state name="invalid">
+                <flag>exclude from customer</flag>
+            </state>
+            <state name="cancelled">
+                <flag>exclude from customer</flag>
+            </state>
+            <state name="paid" reserved="true"/>
+            <state name="exported" reserved="true"/>
+            <state name="shipped" reserved="true"/>
+            <state name="delivered"/>
+            <state name="closed"/>
+        </states>
+
+        <transitions>
+            <transition happy="true" condition="DummyPayment/IsAuthorized">
+                <source>payment start</source>
+                <target>payment pending</target>
+                <event>authorize</event>
+            </transition>
+
+            <transition>
+                <source>payment start</source>
+                <target>invalid</target>
+                <event>authorize</event>
+            </transition>
+
+            <transition happy="true" condition="DummyPayment/IsPayed">
+                <source>payment pending</source>
+                <target>paid</target>
+                <event>pay</event>
+            </transition>
+
+            <transition>
+                <source>payment pending</source>
+                <target>cancelled</target>
+                <event>pay</event>
+            </transition>
+
+            <transition happy="true" condition="GiftCard/IsGiftCard">
+                <source>paid</source>
+                <target>gift card purchased</target>
+                <event>check giftcard purchase</event>
+            </transition>
+
+            <transition happy="true">
+                <source>paid</source>
+                <target>exported</target>
+                <event>check giftcard purchase</event>
+            </transition>
+
+            <transition happy="true">
+                <source>gift card shipped</source>
+                <target>closed</target>
+                <event>complete gift card creation</event>
+            </transition>
+
+            <transition happy="true">
+                <source>exported</source>
+                <target>shipped</target>
+                <event>ship</event>
+            </transition>
+
+            <transition happy="true">
+                <source>shipped</source>
+                <target>delivered</target>
+                <event>stock-update</event>
+            </transition>
+
+            <transition>
+                <source>delivered</source>
+                <target>ready for return</target>
+                <event>return</event>
+            </transition>
+
+            <transition happy="true">
+                <source>delivered</source>
+                <target>closed</target>
+                <event>close</event>
+            </transition>
+
+        </transitions>
+
+        <events>
+            <event name="authorize" onEnter="true"/>
+            <event name="pay" manual="true" timeout="1 hour" command="DummyPayment/Pay"/>
+            <event name="export" onEnter="true" manual="true" command="Oms/SendOrderConfirmation"/>
+            <event name="ship" manual="true" command="Oms/SendOrderShipped"/>
+            <event name="stock-update" manual="true"/>
+            <event name="close" manual="true" timeout="1 hour"/>
+            <event name="return" manual="true" />
+        </events>
+    </process>
+
+</statemachine>
