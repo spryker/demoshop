@@ -1,0 +1,26 @@
+<table class="stack">
+    <thead>
+        <tr class="active">
+            <th>{{ 'customer.offer.date' | trans }}</th>
+            <th class="text-right">{{ 'customer.offer.total' | trans }}</th>
+            <th class="text-right">{{ 'customer.table.actions' | trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for order in orderList %}
+        {% set dateTime = date(order.createdAt) %}
+        <tr>
+            <td>{{ dateTime | formatDateTime }}</td>
+            <td class="text-right">{{ order.totals.grandTotal | default(0) | money(true, order.currencyIsoCode) }}</td>
+            <td class="text-right">
+                <a href="{{ path('customer/offer/details', {'id': order.idSalesOrder}) }}">
+                    <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.view_offer' | trans }}</small>
+                </a>
+                <a href="{{ path('customer/offer/convert-offer', {'id': order.idSalesOrder}) }}">
+                    <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.convert_offer' | trans }}</small>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -12,6 +12,9 @@
     <li {% if active == 'order' %}class="active"{% endif %}>
         <a href="{{ path('customer/order') }}" data-id="sidebar-order">{{ 'customer.account.order_history' | trans }}</a>
     </li>
+    <li {% if active == 'offer' %}class="active"{% endif %}>
+        <a href="{{ path('customer/offer') }}" data-id="sidebar-order">{{ 'customer.account.offer_history' | trans }}</a>
+    </li>
     <li {% if active == 'newsletter' %}class="active"{% endif %}>
         <a href="{{ path('customer/newsletter') }}" data-id="sidebar-newsletter">{{ 'customer.account.newsletter' | trans }}</a>
     </li>

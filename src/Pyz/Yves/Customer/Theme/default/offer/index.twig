@@ -1,0 +1,33 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.offer_history' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'offer'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="callout">
+        {% if orderList | length %}
+            <h5>{{ 'customer.order.all_offers' | trans }}</h5>
+            <hr>
+
+            {% include "@customer/offer/partials/order-list.twig" %}
+
+            <div class="row align-center">
+                {% include '@Application/layout/partials/pagination.twig' with {
+                parameters: {},
+                currentPage: pagination.page,
+                paginationPath: 'customer/offer',
+                maxPage: pagination.lastPage,
+                showAlwaysFirstAndLast: true
+                } %}
+            </div>
+
+        {% else %}
+            <p>{{ 'customer.account.no_offers' | trans }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

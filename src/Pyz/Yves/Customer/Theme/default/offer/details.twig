@@ -1,0 +1,39 @@
+{% extends "@customer/layout.twig" %}
+
+{% block title %}
+    <h3>{{ 'customer.account.offer_history' | trans }}</h3>
+{% endblock %}
+
+{% block customerNavigation %}
+    {% include "@customer/partials/navigation.twig" with {'active': 'offer'} %}
+{% endblock %}
+
+{% block customerContent %}
+    <div class="callout">
+        <h5>{{ 'customer.profile.offer_details' | trans }}</h5>
+        <hr>
+
+        <p>
+            <strong>{{ 'customer.offer.date' | trans }}:</strong> {{ order.createdAt| formatDateTime }}
+        </p>
+
+        {% block offerItems %}
+            {% include "@customer/order/partials/order-items.twig" %}
+        {% endblock %}
+
+        <div class="row">
+            {% include "@customer/order/partials/details-sum.twig" %}
+        </div>
+    </div>
+
+
+    {% include "@customer/order/partials/details-personal-data.twig" %}
+
+    <div class="callout">
+        <div class="row align-right">
+            <div class="small-12 medium-6 large-4 columns align-bottom">
+                <a href="{{ url('customer/offer') }}" class="button expanded __no-margin-bottom">{{ 'general.back.button' | trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
