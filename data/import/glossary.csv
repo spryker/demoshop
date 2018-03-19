@@ -361,6 +361,8 @@ customer.registration.title,Create account,en_US
 customer.registration.title,Ich bin Neukunde,de_DE
 customer.account.no_order,No orders at the moment,en_US
 customer.account.no_order,Keine Bestellungen,de_DE
+customer.account.no_offers,No offers at the moment,en_US
+customer.account.no_offers,Keine Angebote im Moment,de_DE
 customer.account,Customer Account,en_US
 customer.account,Mein Konto,de_DE
 customer.account.contact,Contact,en_US
@@ -499,6 +501,10 @@ customer.offer.total,Total,en_US
 customer.offer.total,Summe,de_DE
 customer.offer.view_offer,View Offer,en_US
 customer.offer.view_offer,Zum Angebot,de_DE
+customer.offer.convert.success,Offer has been converted to order,en_US
+customer.offer.convert.success,Das Angebot wurde in Bestellung umgewandelt,de_DE
+customer.offer.convert.failure,Offer can not be converted to an order,en_US
+customer.offer.convert.failure,Das Angebot kann nicht in eine Bestellung umgewandelt werden,de_DE
 customer.newsletter.subscription,Newsletter settings,en_US
 customer.newsletter.subscription,Meine Newsletter Einstellungen,de_DE
 customer.newsletter.subscription_agreement,I agree to newsletter subscription,en_US

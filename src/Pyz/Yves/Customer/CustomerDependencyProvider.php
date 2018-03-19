@@ -21,6 +21,7 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_CUSTOMER = 'customer client';
     const CLIENT_NEWSLETTER = 'newsletter client';
     const CLIENT_SALES = 'client client';
+    const CLIENT_OFFER = 'client offer';
     const PLUGIN_APPLICATION = 'application plugin';
     const PLUGIN_AUTHENTICATION_HANDLER = 'authentication plugin';
     const PLUGIN_LOGIN_AUTHENTICATION_HANDLER = 'login authentication plugin';
@@ -62,6 +63,10 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::CLIENT_NEWSLETTER] = function (Container $container) {
             return $container->getLocator()->newsletter()->client();
+        };
+
+        $container[self::CLIENT_OFFER] = function (Container $container) {
+            return $container->getLocator()->offer()->client();
         };
 
         return $container;

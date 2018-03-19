@@ -16,7 +16,7 @@
                 <a href="{{ path('customer/offer/details', {'id': order.idSalesOrder}) }}">
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.view_offer' | trans }}</small>
                 </a>
-                <a href="{{ path('customer/offer/convert-offer', {'id': order.idSalesOrder}) }}">
+                <a href="{{ path('customer/offer/convert-offer', {'offerId': order.idSalesOrder}) }}">
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.convert_offer' | trans }}</small>
                 </a>
             </td>

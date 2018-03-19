@@ -194,4 +194,12 @@ class CustomerFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::SERVICE_UTIL_VALIDATE);
     }
+
+    /**
+     * @return \Spryker\Client\Offer\OfferClientInterface
+     */
+    public function getOfferClient()
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_OFFER);
+    }
 }

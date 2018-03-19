@@ -7,16 +7,35 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
+use Generated\Shared\Transfer\OfferToOrderConvertRequestTransfer;
+use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
 
 class OfferController extends OrderController
 {
     /**
-     * @return array
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function convertOfferAction()
+    public function convertOfferAction(Request $request)
     {
-        return [];
+        $offerId = $request->query->get('offerId');
+
+        $offerToOrderConvertRequestTransfer = new OfferToOrderConvertRequestTransfer();
+        $offerToOrderConvertRequestTransfer->setOfferId($offerId);
+
+        $response = $this->getFactory()
+            ->getOfferClient()
+            ->convertOfferToOrder($offerToOrderConvertRequestTransfer);
+
+        if ($response->getIsSuccessful()) {
+            $this->addSuccessMessage("customer.offer.convert.success");
+            return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OFFER);
+        }
+
+        $this->addErrorMessage("customer.offer.convert.failure");
+        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OFFER);
     }
 
     /**
