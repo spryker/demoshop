@@ -15,6 +15,8 @@ cart.total,Gesamt,de_DE
 cart.total,Total,en_US
 cart.checkout,Zur Kasse,de_DE
 cart.checkout,Checkout,en_US
+cart.checkout.offer,Mache mir ein Angebot,de_DE
+cart.checkout.offer,Make me an offer,en_US
 cart.empty,Der Warenkorb ist zur Zeit leer!,de_DE
 cart.empty,Your shopping cart is empty!,en_US
 cart.cart,Warenkorb,de_DE
@@ -371,6 +373,8 @@ customer.account.address,Addresses,en_US
 customer.account.address,Adressen,de_DE
 customer.account.order_history,Orders History,en_US
 customer.account.order_history,Bestellungen,de_DE
+customer.account.offer_history,Offer History,en_US
+customer.account.offer_history,Angebotsgeschichte,de_DE
 customer.account.newsletter,Newsletter,en_US
 customer.account.newsletter,Newsletter,de_DE
 customer.account.last_orders,Last Orders,en_US
@@ -487,6 +491,14 @@ customer.order.shipment_method,Versand,de_DE
 customer.order.shipment_method,Shipment,en_US
 customer.order.payment_method,Zahlungsmethode,de_DE
 customer.order.payment_method,Payment method,en_US
+customer.offer.convert_offer,In Bestellung konvertieren,de_DE
+customer.offer.convert_offer,Convert To Order,en_US
+customer.offer.date,Offer Date,en_US
+customer.offer.date,Datum,de_DE
+customer.offer.total,Total,en_US
+customer.offer.total,Summe,de_DE
+customer.offer.view_offer,View Offer,en_US
+customer.offer.view_offer,Zum Angebot,de_DE
 customer.newsletter.subscription,Newsletter settings,en_US
 customer.newsletter.subscription,Meine Newsletter Einstellungen,de_DE
 customer.newsletter.subscription_agreement,I agree to newsletter subscription,en_US
@@ -521,6 +533,8 @@ customer.profile.address.delete,Delete,en_US
 customer.profile.address.delete,Löschen,de_DE
 customer.profile.order_details,Bestellungs Details,de_DE
 customer.profile.order_details,Order Details,en_US
+customer.profile.offer_details,Angebotsdetails,de_DE
+customer.profile.offer_details,Offer Details,en_US
 customer.password.update,Change Password,en_US
 customer.password.update,Passwort ändern,de_DE
 customer.password.old_password,Old Password,en_US
@@ -639,10 +653,14 @@ checkout.step.summary.tax,Mehrwertsteuer,de_DE
 checkout.step.summary.tax,Tax,en_US
 checkout.step.place.order,Submit your order,en_US
 checkout.step.place.order,Jetzt kaufen,de_DE
+checkout.step.place.offer,Submit your offer,en_US
+checkout.step.place.offer,Reichen Sie Ihr Angebot ein,de_DE
 checkout.step.payment.must_be_older_than_18_years,You must be at least 18 years old.,en_US
 checkout.step.payment.must_be_older_than_18_years,Sie müssen mindestens 18 Jahre alt sein.,de_DE
 checkout.step.success.title,Your order has been placed successfully!,en_US
 checkout.step.success.title,Ihre Bestellung wurde erfolgreich durchgeführt!,de_DE
+checkout.step.success.offer.title,Your offer has been placed successfully!,en_US
+checkout.step.success.offer.title,Ihr Angebot wurde erfolgreich platziert!,de_DE
 checkout.step.success.text,Thank you for shopping with us!,en_US
 checkout.step.success.text,Danke für ihren Einkauf!,de_DE
 checkout.step.error.no-product-permission,"You are not allowed to buy the following products from your cart",en_US
