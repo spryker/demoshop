@@ -4,7 +4,6 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-feature/CORE-2417_re_order",
-
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
