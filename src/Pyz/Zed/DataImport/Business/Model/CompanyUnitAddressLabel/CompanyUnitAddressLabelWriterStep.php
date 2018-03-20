@@ -7,9 +7,7 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\CompanyUnitAddressLabel;
 
-use Orm\Zed\CompanyUnitAddress\Persistence\SpyCompanyUnitAddressQuery;
 use Orm\Zed\CompanyUnitAddressLabel\Persistence\SpyCompanyUnitAddressLabelQuery;
-use Orm\Zed\CompanyUnitAddressLabel\Persistence\SpyCompanyUnitAddressLabelToCompanyUnitAddressQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
@@ -24,20 +22,10 @@ class CompanyUnitAddressLabelWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $idCompanyUnitAddress = SpyCompanyUnitAddressQuery::create()
-            ->findOne()
-            ->getIdCompanyUnitAddress();
-
         $labelEntity = SpyCompanyUnitAddressLabelQuery::create()
             ->filterByName($dataSet[static::KEY_NAME])
             ->findOneOrCreate();
 
         $labelEntity->save();
-
-        SpyCompanyUnitAddressLabelToCompanyUnitAddressQuery::create()
-            ->filterByFkCompanyUnitAddress($idCompanyUnitAddress)
-            ->filterByFkCompanyUnitAddressLabel($labelEntity->getIdCompanyUnitAddressLabel())
-            ->findOneOrCreate()
-            ->save();
     }
 }
