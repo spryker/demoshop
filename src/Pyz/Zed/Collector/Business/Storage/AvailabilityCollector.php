@@ -34,14 +34,15 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     }
 
     /**
-     * @param int $idAvailabilityAbstact
+     * @param int $idAvailabilityAbstract
      *
      * @return array
      */
-    protected function getConcreteProductsAvailability($idAvailabilityAbstact)
+    protected function getConcreteProductsAvailability($idAvailabilityAbstract)
     {
         $productConcreteAvailability = SpyAvailabilityQuery::create()
-            ->findByFkAvailabilityAbstract($idAvailabilityAbstact);
+            ->filterByFkStore($this->getCurrentStore()->getIdStore())
+            ->findByFkAvailabilityAbstract($idAvailabilityAbstract);
 
         $concreteProductStock = [];
         foreach ($productConcreteAvailability as $availabilityEntity) {

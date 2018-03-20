@@ -37,9 +37,14 @@ $stores['DE'] = [
     // internal and shop
     'currencyIsoCode' => 'EUR',
     'currencyIsoCodes' => ['EUR', 'CHF'],
+    // the list of stores with which this store shares database, the value is store name.
+    'storesWithSharedPersistence' => ['AT'],
 ];
 
-$stores['AT'] = $stores['DE'];
+$stores['AT'] = [
+        'storesWithSharedPersistence' => ['DE'],
+    ] + $stores['DE'];
+
 $stores['US'] = $stores['DE'];
 
 return $stores;

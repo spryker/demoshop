@@ -135,10 +135,12 @@ class StepFactory extends SprykerStepFactory
     protected function createPaymentStep()
     {
         return new PaymentStep(
+            $this->getPaymentClient(),
             $this->createPaymentMethodHandler(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
             ApplicationControllerProvider::ROUTE_HOME,
-            $this->getFlashMessenger()
+            $this->getFlashMessenger(),
+            $this->getCalculationClient()
         );
     }
 
@@ -239,6 +241,14 @@ class StepFactory extends SprykerStepFactory
     public function getCartClient()
     {
         return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_CART);
+    }
+
+    /**
+     * @return \Spryker\Client\Payment\PaymentClientInterface
+     */
+    public function getPaymentClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_PAYMENT);
     }
 
     /**

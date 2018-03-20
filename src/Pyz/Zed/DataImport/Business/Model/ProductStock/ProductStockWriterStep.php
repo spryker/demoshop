@@ -26,6 +26,7 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
     const KEY_QUANTITY = 'quantity';
     const KEY_IS_NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
     const KEY_IS_BUNDLE = 'is_bundle';
+    const KEY_STORE = 'store';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
@@ -49,8 +50,13 @@ class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInt
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
      * @param int|null $bulkSize
      */
-    public function __construct(ProductRepository $productRepository, AvailabilityFacadeInterface $availabilityFacade, ProductBundleFacadeInterface $productBundleFacade, DataImportToTouchInterface $touchFacade, $bulkSize = null)
-    {
+    public function __construct(
+        ProductRepository $productRepository,
+        AvailabilityFacadeInterface $availabilityFacade,
+        ProductBundleFacadeInterface $productBundleFacade,
+        DataImportToTouchInterface $touchFacade,
+        $bulkSize = null
+    ) {
         parent::__construct($touchFacade, $bulkSize);
 
         $this->productRepository = $productRepository;

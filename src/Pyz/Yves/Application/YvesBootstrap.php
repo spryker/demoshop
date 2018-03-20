@@ -11,7 +11,6 @@ use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\LanguageServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Calculation\Plugin\Provider\CalculationControllerProvider;
 use Pyz\Yves\Cart\Plugin\Provider\CartControllerProvider;
@@ -66,6 +65,7 @@ use Spryker\Yves\ProductReview\Plugin\Provider\ProductAbstractReviewTwigServiceP
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
+use Spryker\Yves\Url\Plugin\LanguageSwitcherServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestHeaderServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
 
@@ -106,12 +106,12 @@ class YvesBootstrap
     {
         $this->application->register(new SslServiceProvider());
         $this->application->register(new StorageCacheServiceProvider());
-        $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new KernelLogServiceProvider());
         $this->application->register(new ZedRequestHeaderServiceProvider());
         $this->application->register(new ZedRequestLogServiceProvider());
 
         $this->application->register(new TwigServiceProvider());
+        $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
         $this->application->register(new SprykerSessionServiceProvider());
@@ -137,7 +137,6 @@ class YvesBootstrap
         $this->application->register(new YvesHstsServiceProvider());
         $this->application->register(new CartServiceProvider());
         $this->application->register(new FormFactoryServiceProvider());
-        $this->application->register(new LanguageServiceProvider());
         $this->application->register(new TwigMoneyServiceProvider());
         $this->application->register(new ProductRelationTwigServiceProvider());
         $this->application->register(new NavigationTwigServiceProvider());
@@ -147,6 +146,7 @@ class YvesBootstrap
         $this->application->register(new CurrencySwitcherServiceProvider());
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
         $this->application->register(new PriceModeSwitcherServiceProvider());
+        $this->application->register(new LanguageSwitcherServiceProvider());
     }
 
     /**

@@ -18,6 +18,7 @@ use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotio
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostCreatePlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostUpdatePlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionViewBlockProviderPlugin;
+use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardDiscountableItemFilterPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductAttributeCollectorPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\Collector\ProductLabelCollectorPlugin;
@@ -28,6 +29,7 @@ use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\Ship
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentCarrierPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentMethodPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentPricePlugin;
+use Spryker\Zed\Store\Communication\Plugin\Form\StoreRelationToggleFormTypePlugin;
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
@@ -67,6 +69,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     {
         return [
             new DiscountPromotionFilterCollectedItemsPlugin(),
+            new GiftCardDiscountableItemFilterPlugin(),
         ];
     }
 
@@ -148,5 +151,13 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
         return [
            new DiscountPromotionFilterApplicableItemsPlugin(),
         ];
+    }
+
+    /**
+     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
+     */
+    protected function getStoreRelationFormTypePlugin()
+    {
+        return new StoreRelationToggleFormTypePlugin();
     }
 }
