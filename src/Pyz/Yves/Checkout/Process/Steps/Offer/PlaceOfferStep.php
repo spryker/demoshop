@@ -21,7 +21,7 @@ class PlaceOfferStep extends PlaceOrderStep
      *
      * @return bool
      */
-    public function postCondition(AbstractTransfer $quoteTransfer)
+    public function postCondition(AbstractTransfer $quoteTransfer): bool
     {
         if (!$quoteTransfer->getCheckoutConfirmed()) {
             return false;
@@ -36,7 +36,7 @@ class PlaceOfferStep extends PlaceOrderStep
      *
      * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
-    public function execute(Request $request, AbstractTransfer $quoteTransfer)
+    public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
     {
         $quoteTransfer->setIsOffer(true);
 
@@ -48,7 +48,7 @@ class PlaceOfferStep extends PlaceOrderStep
      *
      * @return bool
      */
-    public function preCondition(AbstractTransfer $dataTransfer)
+    public function preCondition(AbstractTransfer $dataTransfer): bool
     {
         if ($this->isCartEmpty($dataTransfer)) {
             return false;
@@ -67,7 +67,7 @@ class PlaceOfferStep extends PlaceOrderStep
      *
      * @return bool
      */
-    protected function isCartEmpty(QuoteTransfer $quoteTransfer)
+    protected function isCartEmpty(QuoteTransfer $quoteTransfer): bool
     {
         return count($quoteTransfer->getItems()) === 0;
     }
@@ -77,7 +77,7 @@ class PlaceOfferStep extends PlaceOrderStep
      *
      * @return void
      */
-    protected function setCheckoutErrorMessages(CheckoutResponseTransfer $checkoutResponseTransfer)
+    protected function setCheckoutErrorMessages(CheckoutResponseTransfer $checkoutResponseTransfer): void
     {
         foreach ($checkoutResponseTransfer->getErrors() as $checkoutErrorTransfer) {
             $this->flashMessenger->addErrorMessage($checkoutErrorTransfer->getMessage());

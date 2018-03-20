@@ -7,15 +7,17 @@
 
 namespace Pyz\Yves\Checkout\Controller;
 
+use Spryker\Yves\StepEngine\Process\StepEngineInterface;
+
 /**
  * @method \Pyz\Yves\Checkout\CheckoutFactory getFactory()
  */
 class OfferCheckoutController extends CheckoutController
 {
     /**
-     * @return \Spryker\Yves\StepEngine\Process\StepEngine
+     * @return \Spryker\Yves\StepEngine\Process\StepEngineInterface
      */
-    protected function createStepProcess()
+    protected function createStepProcess(): StepEngineInterface
     {
         return $this->getFactory()->createOfferCheckoutProcess();
     }
