@@ -1105,7 +1105,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
      */
     protected function createCompanyImporter()
     {
