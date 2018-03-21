@@ -15,8 +15,8 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CompanyUnitAddressWriterStep implements DataImportStepInterface
 {
-    const KEY_FK_COUNTRY = 'fk_country';
-    const KEY_FK_COMPANY = 'fk_company';
+    const KEY_COUNTRY_CODE = 'country_code';
+    const KEY_COMPANY_NAME = 'company_name';
     const KEY_ADDRESS1 = 'address1';
     const KEY_ADDRESS2 = 'address2';
     const KEY_ADDRESS3 = 'address3';
@@ -32,24 +32,26 @@ class CompanyUnitAddressWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $countryId = SpyCountryQuery::create()
-            ->findOne()
-            ->getIdCountry();
-        $companyId = SpyCompanyQuery::create()
-            ->findOne()
-            ->getIdCompany();
+        $country = SpyCountryQuery::create()
+            ->filterByIso2Code($dataSet[static::KEY_COUNTRY_CODE])
+            ->findOne();
+
+        $company = SpyCompanyQuery::create()
+            ->filterByName($dataSet[static::KEY_COMPANY_NAME])
+            ->findOne();
 
         $entity = SpyCompanyUnitAddressQuery::create()
-            ->filterByFkCountry($countryId)
-            ->filterByFkCompany($companyId)
-            ->filterByAddress1($dataSet[static::KEY_ADDRESS1])
-            ->filterByAddress2($dataSet[static::KEY_ADDRESS2])
-            ->filterByAddress3($dataSet[static::KEY_ADDRESS3])
-            ->filterByCity($dataSet[static::KEY_CITY])
-            ->filterByZipCode($dataSet[static::KEY_ZIP_CODE])
-            ->filterByPhone($dataSet[static::KEY_PHONE])
-            ->filterByComment($dataSet[static::KEY_COMMENT])
+            ->filterByFkCountry($country->getIdCountry())
+            ->filterByFkCompany($company->getIdCompany())
             ->findOneOrCreate();
+        $entity
+            ->setAddress1($dataSet[static::KEY_ADDRESS1])
+            ->setAddress2($dataSet[static::KEY_ADDRESS2])
+            ->setAddress3($dataSet[static::KEY_ADDRESS3])
+            ->setCity($dataSet[static::KEY_CITY])
+            ->setZipCode($dataSet[static::KEY_ZIP_CODE])
+            ->setPhone($dataSet[static::KEY_PHONE])
+            ->setComment($dataSet[static::KEY_COMMENT]);
 
         $entity->save();
     }

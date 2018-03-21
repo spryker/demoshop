@@ -15,6 +15,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 class CompanyBusinessUnitWriterStep implements DataImportStepInterface
 {
     const KEY_NAME = 'name';
+    const KEY_COMPANY_NAME = 'company_name';
     const KEY_EMAIL = 'email';
     const KEY_PHONE = 'phone';
     const KEY_EXTERNAL_URL = 'external_url';
@@ -26,17 +27,20 @@ class CompanyBusinessUnitWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $idCompany = SpyCompanyQuery::create()
-            ->findOne()
-            ->getIdCompany();
-        $currencyEntity = SpyCompanyBusinessUnitQuery::create()
+        $company = SpyCompanyQuery::create()
+            ->filterByName($dataSet[static::KEY_COMPANY_NAME])
+            ->findOne();
+
+        $companyBusinessUnit = SpyCompanyBusinessUnitQuery::create()
             ->filterByName($dataSet[static::KEY_NAME])
-            ->filterByEmail($dataSet[static::KEY_EMAIL])
-            ->filterByPhone($dataSet[static::KEY_PHONE])
-            ->filterByExternalUrl($dataSet[static::KEY_EXTERNAL_URL])
-            ->filterByFkCompany($idCompany)
             ->findOneOrCreate();
 
-        $currencyEntity->save();
+        $companyBusinessUnit
+            ->setEmail($dataSet[static::KEY_EMAIL])
+            ->setPhone($dataSet[static::KEY_PHONE])
+            ->setExternalUrl($dataSet[static::KEY_EXTERNAL_URL])
+            ->setFkCompany($company->getIdCompany());
+
+        $companyBusinessUnit->save();
     }
 }

@@ -1,2 +1,2 @@
-name,email,phone,external_url
-Test business unit,test@spryker.com,1234567890,""
+name,company_name,email,phone,external_url
+Test business unit,Test Company,test@spryker.com,1234567890,""

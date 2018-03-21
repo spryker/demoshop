@@ -1,2 +1,2 @@
-address1,address2,address3,city,zip_code,phone,comment
-"Address1","Address2","Address3","Berlin",10115,1234567890,"Comment text..."
+country_code,company_name,address1,address2,address3,city,zip_code,phone,comment
+DE,Test Company,"Address1","Address2","Address3","Berlin",10115,1234567890,"Comment text..."
