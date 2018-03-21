@@ -12,7 +12,6 @@ use Spryker\Zed\ManualOrderEntryGui\ManualOrderEntryGuiDependencyProvider as Spr
 
 class ManualOrderEntryGuiDependencyProvider extends SprykerManualOrderEntryGuiDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\Payment\SubFormPluginInterface[]
      */
