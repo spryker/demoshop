@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\CompanyUnitAddressLabel\Persistence;
 
-use Orm\Zed\CompanyUnitAddressLabel\Persistence\Base\SpyCompanyUnitAddressLabelToCompanyUnitAddress as BaseSpyCompanyUnitAddressLabelToCompanyUnitAddress;
+use Spryker\Zed\CompanyUnitAddressLabel\Persistence\Propel\AbstractSpyCompanyUnitAddressLabelToCompanyUnitAddress as BaseSpyCompanyUnitAddressLabelToCompanyUnitAddress;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_company_unit_address_label_to_company_unit_address' table.

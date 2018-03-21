@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\CompanyUnitAddressLabel\Persistence;
 
-use Orm\Zed\CompanyUnitAddressLabel\Persistence\Base\SpyCompanyUnitAddressLabelQuery as BaseSpyCompanyUnitAddressLabelQuery;
+use Spryker\Zed\CompanyUnitAddressLabel\Persistence\Propel\AbstractSpyCompanyUnitAddressLabelQuery as BaseSpyCompanyUnitAddressLabelQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_company_unit_address_label' table.
