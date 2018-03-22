@@ -1508,7 +1508,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "29c4f4cebb7546f812f36a567d589b3d4be7dc3d"
+                "reference": "b2c480dc575053e51b8ce6280eba9220191a6492"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2244,6 +2244,7 @@
                 "spryker/setup": "*",
                 "spryker/shipment": "*",
                 "spryker/shipment-cart-connector": "*",
+                "spryker/shipment-checkout-connector": "*",
                 "spryker/silex": "*",
                 "spryker/sql-criteria-builder": "*",
                 "spryker/state-machine": "*",
@@ -2297,7 +2298,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-21T11:01:55+00:00"
+            "time": "2018-03-22T10:58:16+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5464,7 +5465,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7112,7 +7113,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
