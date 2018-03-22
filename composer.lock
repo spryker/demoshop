@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ba9b3435e797d70935022bafb562de2",
+    "content-hash": "2c2d7100d3db0c8bea69d0df958ac68e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-3520-customer-address-labels",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fd45bf6417ea9e2fec90af0657ff3c95b0f0127f"
+                "reference": "cdfc3d5a72b0fe09d850c7abcc26c749ee433934"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2303,7 +2303,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-22T17:33:42+00:00"
+            "time": "2018-03-22T17:44:36+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",

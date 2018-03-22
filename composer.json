@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/core-3520-customer-address-labels",
+    "spryker/spryker": "dev-master",
 
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
