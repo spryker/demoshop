@@ -7,18 +7,18 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ForgottenPasswordForm extends AbstractType
 {
-
     const FIELD_EMAIL = 'email';
 
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'forgottenPassword';
     }
@@ -41,11 +41,10 @@ class ForgottenPasswordForm extends AbstractType
      */
     protected function addEmailField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
+        $builder->add(self::FIELD_EMAIL, EmailType::class, [
             'label' => 'customer.forgotten_password.email',
         ]);
 
         return $this;
     }
-
 }

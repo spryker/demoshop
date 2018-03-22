@@ -7,12 +7,11 @@
 
 namespace Pyz\Yves\Checkout\Form\Steps;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class SummaryForm extends AbstractType
 {
-
     /**
      * Builds the form.
      *
@@ -35,9 +34,8 @@ class SummaryForm extends AbstractType
      *
      * @return string The name of this type
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'summaryForm';
     }
-
 }

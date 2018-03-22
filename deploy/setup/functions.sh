@@ -17,6 +17,7 @@ CURL=`which curl`
 NPM=`which npm`
 GIT=`which git`
 PHP=`which php`
+PG_VERSION=$(psql --version | awk '{print $3}' | cut -f1,2 -d'.')
 
 if [[ `echo "$@" | grep '\-v'` ]]; then
     VERBOSITY='-v'
@@ -29,6 +30,22 @@ fi
 if [[ `echo "$@" | grep '\-vvv'` ]]; then
     VERBOSITY='-vvv'
 fi
+
+function deleteDevelopmentQueues {
+    labelText "Deleting RabbitMQ Queues/Exchanges "
+    curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/ | grep -Po '"name":.*?[^\\]"' | awk  -F "\"" '{print $4}' | while read queue; do curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} -XDELETE http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/%2F${RABBITMQ_VHOST}/${queue};echo ${queue} queue has deleted.; done
+
+    for item in ${RABBITMQ_EXCHANGE[*]}
+    do
+        curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} -XDELETE http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/exchanges/%2F${RABBITMQ_VHOST}/$item | grep name || true
+    done
+}
+
+function purgeAllQueues {
+    labelText "Resetting RabbitMQ Queues"
+    curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/ | grep -Po '"name":.*?[^\\]"' | awk  -F "\"" '{print $4}' | while read queue; do curl -s -u ${RABBITMQ_USER}:${RABBITMQ_PASS} -XDELETE http://${RABBITMQ_HOST}:${RABBITMQ_WEB_PORT}/api/queues/%2F${RABBITMQ_VHOST}/${queue}/contents;echo ${queue} queue has purged.; done
+}
+
 
 function generateTwigCacheFiles {
     labelText "Generating twig cache files"
@@ -88,7 +105,7 @@ function dropAndRestoreDatabase {
         mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} -e "CREATE DATABASE ${DATABASE_NAME};"
         mysql -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${DATABASE_NAME} < ${DATABASE_BACKUP_PATH}
     else
-        sudo pg_ctlcluster 9.4 main restart --force
+        sudo pg_ctlcluster $PG_VERSION main restart --force
         sudo dropdb $DATABASE_NAME
         sudo createdb $DATABASE_NAME
         pg_restore -i -h 127.0.0.1 -p 5432 -U $DATABASE_USER -d $DATABASE_NAME -v $DATABASE_BACKUP_PATH
@@ -104,6 +121,8 @@ function installDemoshop {
          composerInstall
     fi
 
+    resetDataStores
+
     installZed
     sleep 1
     installYves
@@ -117,10 +136,12 @@ function installZed {
     setupText "Zed setup"
 
     labelText "Stopping jenkins"
-    $CONSOLE setup:jenkins:disable $VERBOSITY
+    $CONSOLE setup:jenkins:disable $VERBOSITY --no-post
     writeErrorMessage "Failed to stop jenkins"
 
     resetDataStores
+
+    deleteDevelopmentQueues
 
     dropDevelopmentDatabase
 
@@ -134,6 +155,9 @@ function installZed {
     labelText "Updating product label relations"
     $CONSOLE product-label:relations:update $VERBOSITY
     writeErrorMessage "Updating product label relations failed"
+
+    labelText "Purge All Queues"
+    purgeAllQueues
 
     labelText "Setting up data stores"
 
@@ -205,14 +229,20 @@ function resetDevelopmentState {
 
     resetDataStores
 
+    deleteDevelopmentQueues
+
     dropDevelopmentDatabase
 
     labelText "Generating Transfer Objects"
-    $CONSOLE transfer:generate
+    $CONSOLE transfer:generate --no-post
     writeErrorMessage "Generating Transfer Objects failed"
 
     $CONSOLE setup:install $VERBOSITY
     writeErrorMessage "Setup install failed"
+
+    labelText "Generating Entity Transfer Objects"
+    $CONSOLE transfer:generate --no-post
+    writeErrorMessage "Generating Entity Transfer Objects failed"
 
     labelText "Initializing DB"
     $CONSOLE setup:init-db $VERBOSITY
@@ -233,18 +263,18 @@ function dropDevelopmentDatabase {
             if [[ -f $PG_CTL_CLUSTER ]] && [[ -f $DROP_DB ]]; then
                 labelText "Deleting PostgreSql Database: ${DATABASE_NAME} "
                 labelText "Drop PostgresSQL database: ${DATABASE_NAME}"
-                sudo pg_ctlcluster 9.4 main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
+                sudo pg_ctlcluster $PG_VERSION main restart --force && sudo -u postgres dropdb $DATABASE_NAME 1>/dev/null
                 writeErrorMessage "Deleting DB command failed"
             fi
+        fi
 
-            MIGRATION_DIRECTORY=./src/Orm/Propel/DE/Migration_pgsql
-            if [ -d $MIGRATION_DIRECTORY ] && [ $(ls -A $MIGRATION_DIRECTORY) ]; then
-                labelText "Removing propel migration files for core development"
-                rm "$MIGRATION_DIRECTORY"/*
-                writeErrorMessage "Removing propel migration files command failed"
-            else
-                labelText "Migration directory does not exist or is empty"
-            fi
+        MIGRATION_DIRECTORY=./src/Orm/Propel/DE/Migration_pgsql
+        if [[ -d $MIGRATION_DIRECTORY ]] && [[ $(ls -A $MIGRATION_DIRECTORY) ]]; then
+            labelText "Removing propel migration files for core development"
+            rm "$MIGRATION_DIRECTORY"/*
+            writeErrorMessage "Removing propel migration files command failed"
+        else
+            labelText "Migration directory does not exist or is empty"
         fi
     fi
 

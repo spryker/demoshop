@@ -12,7 +12,6 @@ use Orm\Zed\Product\Persistence\SpyProductAbstract;
 
 interface ProductRepositoryInterface
 {
-
     /**
      * @param string $sku
      *
@@ -48,5 +47,4 @@ interface ProductRepositoryInterface
      * @return void
      */
     public function addProductConcrete(SpyProduct $productEntity, $abstractSku = null);
-
 }

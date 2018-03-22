@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SaleController extends AbstractController
 {
-
     /**
      * @param string $categoryPath
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -43,8 +42,10 @@ class SaleController extends AbstractController
 
         $searchResults['category'] = $categoryNode;
         $searchResults['filterPath'] = ProductSaleControllerProvider::ROUTE_SALE;
+        $searchResults['view_mode'] = $this->getFactory()
+            ->getCatalogClient()
+            ->getCatalogViewMode($request);
 
         return $this->viewResponse($searchResults);
     }
-
 }

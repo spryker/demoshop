@@ -14,7 +14,6 @@ use Spryker\Zed\Kernel\Container;
 
 class FlysystemDependencyProvider extends SprykerFlysystemDependencyProvider
 {
-
     /**
      * @param \Spryker\Service\Kernel\Container $container
      *
@@ -31,5 +30,4 @@ class FlysystemDependencyProvider extends SprykerFlysystemDependencyProvider
 
         return $container;
     }
-
 }

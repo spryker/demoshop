@@ -21,7 +21,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
  */
 class ProductFactory extends AbstractFactory
 {
-
     /**
      * @return ResourceCreator\ProductResourceCreator
      */
@@ -35,7 +34,10 @@ class ProductFactory extends AbstractFactory
      */
     public function createStorageProductMapper()
     {
-        return new StorageProductMapper($this->createAttributeVariantMapper());
+        return new StorageProductMapper(
+            $this->createAttributeVariantMapper(),
+            $this->getPriceProductClient()
+        );
     }
 
     /**
@@ -95,11 +97,18 @@ class ProductFactory extends AbstractFactory
     }
 
     /**
+     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
+     */
+    protected function getPriceProductClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRICE_PRODUCT);
+    }
+
+    /**
      * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
     public function createStorageProductMapperPlugin()
     {
         return new StorageProductMapperPlugin();
     }
-
 }

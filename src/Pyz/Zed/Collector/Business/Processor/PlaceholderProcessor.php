@@ -9,7 +9,6 @@ namespace Pyz\Zed\Collector\Business\Processor;
 
 class PlaceholderProcessor
 {
-
     /**
      * @var string
      */
@@ -54,5 +53,4 @@ class PlaceholderProcessor
 
         return $placeholderCollection;
     }
-
 }

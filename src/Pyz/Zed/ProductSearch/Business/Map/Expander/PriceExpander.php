@@ -9,23 +9,32 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
-use Spryker\Zed\Price\Business\PriceFacadeInterface;
+use Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface;
+use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 class PriceExpander implements ProductPageMapExpanderInterface
 {
+    /**
+     * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
+     */
+    protected $priceProductFacade;
 
     /**
-     * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
+     * @var \Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface
      */
-    protected $priceFacade;
+    protected $catalogPriceProductConnectorClient;
 
     /**
-     * @param \Spryker\Zed\Price\Business\PriceFacadeInterface $priceFacade
+     * @param \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface $priceProductFacade
+     * @param \Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface $catalogPriceProductConnectorClient
      */
-    public function __construct(PriceFacadeInterface $priceFacade)
-    {
-        $this->priceFacade = $priceFacade;
+    public function __construct(
+        PriceProductFacadeInterface $priceProductFacade,
+        CatalogPriceProductConnectorClientInterface $catalogPriceProductConnectorClient
+    ) {
+        $this->priceProductFacade = $priceProductFacade;
+        $this->catalogPriceProductConnectorClient = $catalogPriceProductConnectorClient;
     }
 
     /**
@@ -36,9 +45,14 @@ class PriceExpander implements ProductPageMapExpanderInterface
      *
      * @return \Generated\Shared\Transfer\PageMapTransfer
      */
-    public function expandProductPageMap(PageMapTransfer $pageMapTransfer, PageMapBuilderInterface $pageMapBuilder, array $productData, LocaleTransfer $localeTransfer)
-    {
-        $price = $this->getPriceBySku($productData['abstract_sku']);
+    public function expandProductPageMap(
+        PageMapTransfer $pageMapTransfer,
+        PageMapBuilderInterface $pageMapBuilder,
+        array $productData,
+        LocaleTransfer $localeTransfer
+    ) {
+
+        $price = (int)$this->priceProductFacade->findPriceBySku($productData['abstract_sku']);
 
         $pageMapBuilder
             ->addSearchResultData($pageMapTransfer, 'price', $price)
@@ -51,38 +65,30 @@ class PriceExpander implements ProductPageMapExpanderInterface
     }
 
     /**
-     * @param string $sku
-     *
-     * @return int
-     */
-    protected function getPriceBySku($sku)
-    {
-        return $this->priceFacade->getPriceBySku($sku);
-    }
-
-    /**
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param \Generated\Shared\Transfer\PageMapTransfer $pageMapTransfer
      * @param array $productData
      *
      * @return void
      */
-    protected function setPricesByType(PageMapBuilderInterface $pageMapBuilder, PageMapTransfer $pageMapTransfer, array $productData)
-    {
-        $priceProductTransfers = $this->priceFacade->findPricesBySku($productData['abstract_sku']);
+    protected function setPricesByType(
+        PageMapBuilderInterface $pageMapBuilder,
+        PageMapTransfer $pageMapTransfer,
+        array $productData
+    ) {
 
-        $prices = [];
-        foreach ($priceProductTransfers as $priceProductTransfer) {
-            $prices[$priceProductTransfer->getPriceTypeName()] = $priceProductTransfer->getPrice();
+        $pricesGrouped = $this->priceProductFacade->findPricesBySkuGroupedForCurrentStore($productData['abstract_sku']);
 
-            $pageMapBuilder->addIntegerFacet(
-                $pageMapTransfer,
-                sprintf('price.%s', $priceProductTransfer->getPriceTypeName()),
-                $priceProductTransfer->getPrice()
-            );
+        foreach ($pricesGrouped as $currencyIsoCode => $pricesByPriceMode) {
+            foreach ($pricesByPriceMode as $priceMode => $pricesByType) {
+                foreach ($pricesByType as $priceType => $price) {
+                    $facetName = $this->catalogPriceProductConnectorClient->buildPricedIdentifierFor($priceType, $currencyIsoCode, $priceMode);
+                    $pageMapBuilder->addIntegerFacet($pageMapTransfer, $facetName, $price);
+                    $pageMapBuilder->addIntegerSort($pageMapTransfer, $facetName, $price);
+                }
+            }
         }
 
-        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $prices);
+        $pageMapBuilder->addSearchResultData($pageMapTransfer, 'prices', $pricesGrouped);
     }
-
 }

@@ -9,7 +9,6 @@ namespace PyzTest\Zed\Tax\PageObject;
 
 class TaxRateListPage
 {
-
     const URL = '/tax/rate/list';
 
     const SELECTOR_DATA_TABLE = '.dataTables_wrapper';
@@ -19,5 +18,4 @@ class TaxRateListPage
     const SELECTOR_EDIT = 'i.fa.fa-pencil-square-o';
 
     const MESSAGE_EMPTY_TABLE = 'No matching records found';
-
 }

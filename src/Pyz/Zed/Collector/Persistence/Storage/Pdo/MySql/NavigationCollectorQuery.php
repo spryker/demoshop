@@ -11,7 +11,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class NavigationCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     /**
      * @return void
      */
@@ -75,7 +74,7 @@ AND     @pv := concat(@pv, \',\', spy_category_node_rec.id_category_node)) tree
   INNER JOIN spy_url u ON (u.fk_resource_categorynode = tree.id_category_node AND u.fk_locale = :fk_locale_1)
   INNER JOIN spy_category_attribute ca ON (ca.fk_category = tree.fk_category AND ca.fk_locale = :fk_locale_2)
   INNER JOIN spy_touch t ON (tree.id_category_node = t.item_id AND t.item_type = :itemType)
-  LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_3
+  LEFT JOIN spy_touch_storage ON spy_touch_storage.fk_touch = t.id_touch AND spy_touch_storage.fk_locale = :fk_locale_3 AND spy_touch_storage.fk_store = :id_store
 ';
         $this->criteriaBuilder
             ->sql($sql)
@@ -86,7 +85,7 @@ AND     @pv := concat(@pv, \',\', spy_category_node_rec.id_category_node)) tree
             ->setParameter('itemType', 'categorynode')
             ->setParameter('fk_locale_1', $this->locale->getIdLocale())
             ->setParameter('fk_locale_2', $this->locale->getIdLocale())
-            ->setParameter('fk_locale_3', $this->locale->getIdLocale());
+            ->setParameter('fk_locale_3', $this->locale->getIdLocale())
+            ->setParameter('id_store', $this->storeTransfer->getIdStore());
     }
-
 }

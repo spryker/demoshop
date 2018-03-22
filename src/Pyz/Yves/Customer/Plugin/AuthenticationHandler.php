@@ -16,7 +16,6 @@ use Spryker\Yves\Kernel\AbstractPlugin;
  */
 class AuthenticationHandler extends AbstractPlugin
 {
-
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
@@ -49,13 +48,12 @@ class AuthenticationHandler extends AbstractPlugin
     }
 
     /**
-     * @return mixed
+     * @return \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface
      */
     protected function getSecurityContext()
     {
         $application = $this->getFactory()->getApplication();
 
-        return $application['security'];
+        return $application['security.token_storage'];
     }
-
 }

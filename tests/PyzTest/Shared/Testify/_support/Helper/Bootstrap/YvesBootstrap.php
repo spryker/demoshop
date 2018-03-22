@@ -9,7 +9,6 @@ namespace PyzTest\Shared\Testify\Helper\Bootstrap;
 
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
-use Pyz\Yves\Application\Plugin\Provider\LanguageServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\YvesSecurityServiceProvider;
 use Pyz\Yves\Application\YvesBootstrap as ApplicationYvesBootstrap;
 use Pyz\Yves\Cart\Plugin\Provider\CartServiceProvider;
@@ -38,6 +37,7 @@ use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
 use Spryker\Yves\NewRelic\Plugin\ServiceProvider\NewRelicRequestTransactionServiceProvider;
+use Spryker\Yves\Price\Plugin\PriceModeSwitcherServiceProvider;
 use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
 use Spryker\Yves\ProductLabel\Plugin\Provider\ProductLabelTwigServiceProvider;
 use Spryker\Yves\ProductRelation\Plugin\ProductRelationTwigServiceProvider;
@@ -45,21 +45,21 @@ use Spryker\Yves\ProductReview\Plugin\Provider\ProductAbstractReviewTwigServiceP
 use Spryker\Yves\Session\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Yves\Storage\Plugin\Provider\StorageCacheServiceProvider;
 use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
+use Spryker\Yves\Url\Plugin\LanguageSwitcherServiceProvider;
 
 /**
  * This class can be removed when EventJournal Service Provider is removed from the extended one.
  */
 class YvesBootstrap extends ApplicationYvesBootstrap
 {
-
     /**
      * @return void
      */
     protected function registerServiceProviders()
     {
         $this->application->register(new StorageCacheServiceProvider());
-        $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new TwigServiceProvider());
+        $this->application->register(new SprykerTwigServiceProvider());
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
         $this->application->register(new SprykerSessionServiceProvider());
@@ -85,7 +85,6 @@ class YvesBootstrap extends ApplicationYvesBootstrap
         $this->application->register(new YvesHstsServiceProvider());
         $this->application->register(new CartServiceProvider());
         $this->application->register(new FormFactoryServiceProvider());
-        $this->application->register(new LanguageServiceProvider());
         $this->application->register(new TwigMoneyServiceProvider());
         $this->application->register(new ProductRelationTwigServiceProvider());
         $this->application->register(new NavigationTwigServiceProvider());
@@ -93,7 +92,8 @@ class YvesBootstrap extends ApplicationYvesBootstrap
         $this->application->register(new ProductLabelTwigServiceProvider());
         $this->application->register(new CmsContentWidgetServiceProvider());
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
+        $this->application->register(new PriceModeSwitcherServiceProvider());
         $this->application->register(new CurrencySwitcherServiceProvider());
+        $this->application->register(new LanguageSwitcherServiceProvider());
     }
-
 }

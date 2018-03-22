@@ -9,7 +9,6 @@ namespace PyzTest\Yves\Customer\PageObject;
 
 class CustomerProfilePage extends Customer
 {
-
     const URL = '/customer/profile';
 
     const FORM_FIELD_SELECTOR_SALUTATION = 'profileForm[salutation]';
@@ -36,5 +35,4 @@ class CustomerProfilePage extends Customer
 
     const SUCCESS_MESSAGE_CHANGE_PASSWORD = 'Password change successful';
     const ERROR_MESSAGE_CHANGE_PASSWORD = 'Passwords don\'t match';
-
 }

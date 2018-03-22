@@ -15,7 +15,6 @@ use Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginI
 
 class AttributeVariantsProvider
 {
-
     /**
      * @var \Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginInterface
      */
@@ -38,7 +37,6 @@ class AttributeVariantsProvider
     ) {
         $this->cartVariantAttributeMapperPlugin = $cartVariantAttributeMapperPlugin;
         $this->cartItemHandler = $cartItemHandler;
-
     }
 
     /**
@@ -49,6 +47,8 @@ class AttributeVariantsProvider
      */
     public function getItemsAttributes(QuoteTransfer $quoteTransfer, array $itemAttributes = null)
     {
+        $itemAttributes = $this->removeEmptyAttributes($itemAttributes);
+
         $itemAttributesBySku = $this->cartVariantAttributeMapperPlugin
             ->buildMap($quoteTransfer->getItems());
 
@@ -112,4 +112,15 @@ class AttributeVariantsProvider
         return $haystack;
     }
 
+    /**
+     * @param array $itemAttributes
+     *
+     * @return array
+     */
+    protected function removeEmptyAttributes(array $itemAttributes)
+    {
+        return array_filter($itemAttributes, function ($value) {
+            return !empty($value);
+        });
+    }
 }

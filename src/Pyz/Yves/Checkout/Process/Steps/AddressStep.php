@@ -17,14 +17,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
     /**
      * @var \Pyz\Client\Customer\CustomerClientInterface
      */
     protected $customerClient;
 
     /**
-     * @var \Spryker\Client\Calculation\CalculationClient
+     * @var \Spryker\Client\Calculation\CalculationClientInterface
      */
     protected $calculationClient;
 
@@ -188,5 +187,4 @@ class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     {
         return !$this->requireInput($dataTransfer);
     }
-
 }

@@ -7,14 +7,16 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProfileForm extends AbstractType
 {
-
     const FIELD_EMAIL = 'email';
     const FIELD_LAST_NAME = 'last_name';
     const FIELD_FIRST_NAME = 'first_name';
@@ -23,7 +25,7 @@ class ProfileForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'profileForm';
     }
@@ -50,7 +52,7 @@ class ProfileForm extends AbstractType
      */
     public function addEmailField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
+        $builder->add(self::FIELD_EMAIL, EmailType::class, [
             'label' => 'customer.profile.email',
             'required' => true,
             'constraints' => [
@@ -69,7 +71,7 @@ class ProfileForm extends AbstractType
      */
     public function addLastNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_LAST_NAME, 'text', [
+        $builder->add(self::FIELD_LAST_NAME, TextType::class, [
             'label' => 'customer.profile.last_name',
             'required' => true,
             'constraints' => [
@@ -87,7 +89,7 @@ class ProfileForm extends AbstractType
      */
     public function addFirstNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_FIRST_NAME, 'text', [
+        $builder->add(self::FIELD_FIRST_NAME, TextType::class, [
             'label' => 'customer.profile.first_name',
             'required' => true,
             'constraints' => [
@@ -105,12 +107,12 @@ class ProfileForm extends AbstractType
      */
     public function addSalutationField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SALUTATION, 'choice', [
+        $builder->add(self::FIELD_SALUTATION, ChoiceType::class, [
             'choices' => [
-                'Mr' => 'customer.salutation.mr',
-                'Ms' => 'customer.salutation.ms',
-                'Mrs' => 'customer.salutation.mrs',
-                'Dr' => 'customer.salutation.dr',
+                'customer.salutation.mr' => 'Mr',
+                'customer.salutation.ms' => 'Ms',
+                'customer.salutation.mrs' => 'Mrs',
+                'customer.salutation.dr' => 'Dr',
             ],
             'label' => 'profile.form.salutation',
             'required' => false,
@@ -121,5 +123,4 @@ class ProfileForm extends AbstractType
 
         return $this;
     }
-
 }

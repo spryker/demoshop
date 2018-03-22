@@ -15,7 +15,6 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
  */
 class AuthController extends AbstractCustomerController
 {
-
     /**
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -28,16 +27,15 @@ class AuthController extends AbstractCustomerController
         $loginForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createLoginForm();
+            ->getLoginForm();
         $registerForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createRegisterForm();
+            ->getRegisterForm();
 
         return [
             'loginForm' => $loginForm->createView(),
             'registerForm' => $registerForm->createView(),
         ];
     }
-
 }

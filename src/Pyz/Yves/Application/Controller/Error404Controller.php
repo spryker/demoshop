@@ -14,11 +14,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Error404Controller extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return array
      */
     public function indexAction(Request $request)
     {
@@ -46,5 +45,4 @@ class Error404Controller extends AbstractController
 
         return '';
     }
-
 }

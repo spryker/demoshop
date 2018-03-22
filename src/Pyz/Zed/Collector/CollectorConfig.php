@@ -27,7 +27,6 @@ use Spryker\Zed\Collector\CollectorConfig as SprykerCollectorConfig;
 
 class CollectorConfig extends SprykerCollectorConfig
 {
-
     /**
      * @param string $dbEngineName
      *
@@ -87,5 +86,4 @@ class CollectorConfig extends SprykerCollectorConfig
     {
         return true;
     }
-
 }

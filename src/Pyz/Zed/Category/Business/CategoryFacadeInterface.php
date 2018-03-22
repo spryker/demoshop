@@ -13,7 +13,6 @@ use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInt
 
 interface CategoryFacadeInterface extends SprykerCategoryFacadeInterface
 {
-
     /**
      * @param \Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface $pageMapBuilder
      * @param array $cmsData
@@ -22,5 +21,4 @@ interface CategoryFacadeInterface extends SprykerCategoryFacadeInterface
      * @return \Generated\Shared\Transfer\PageMapTransfer
      */
     public function buildPageMap(PageMapBuilderInterface $pageMapBuilder, array $cmsData, LocaleTransfer $locale);
-
 }

@@ -71,7 +71,7 @@
                     <li><strong>{{ 'checkout.step.summary.shipping' | trans }}</strong></li>
                     <li>
                         {{ quoteTransfer.shipment.method.name }}
-                        <span class="float-right">{{ quoteTransfer.shipment.method.defaultPrice | money }}</span>
+                        <span class="float-right">{{ quoteTransfer.shipment.method.storeCurrencyPrice | money }}</span>
                     </li>
                     <li><hr></li>
                     <li class="clearfix">
@@ -81,6 +81,12 @@
                     <li>
                         {{ 'checkout.step.summary.tax' | trans }}
                         <span class="float-right">{{ quoteTransfer.totals.taxtotal.amount | money }}</span>
+                    </li>
+                    {% include '@checkout/checkout/partials/summary-payment.twig' %}
+                    {% include '@checkout/checkout/partials/summary-payment-gift-card.twig' %}
+                    <li>
+                      {{ 'cart.total.price_to_pay' | trans }}
+                      <span class="float-right">{{ quoteTransfer.totals.priceToPay | money }}</span>
                     </li>
                 </ul>
             </div>

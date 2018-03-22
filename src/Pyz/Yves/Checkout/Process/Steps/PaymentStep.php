@@ -7,7 +7,14 @@
 
 namespace Pyz\Yves\Checkout\Process\Steps;
 
+use ArrayObject;
+use Generated\Shared\Transfer\PaymentMethodsTransfer;
+use Generated\Shared\Transfer\PaymentTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Payment\PaymentClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+use Spryker\Shared\Nopayment\NopaymentConfig;
 use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginWithMessengerInterface;
@@ -16,7 +23,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterface
 {
-
     /**
      * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection
      */
@@ -28,31 +34,46 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     protected $flashMessenger;
 
     /**
+     * @var \Spryker\Client\Payment\PaymentClientInterface
+     */
+    private $paymentClient;
+
+    /** @var \Spryker\Client\Calculation\CalculationClientInterface */
+    protected $calculationClient;
+
+    /**
+     * @param \Spryker\Client\Payment\PaymentClientInterface $paymentClient
      * @param \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection $paymentPlugins
      * @param string $stepRoute
      * @param string $escapeRoute
      * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      */
     public function __construct(
+        PaymentClientInterface $paymentClient,
         StepHandlerPluginCollection $paymentPlugins,
         $stepRoute,
         $escapeRoute,
-        FlashMessengerInterface $flashMessenger
+        FlashMessengerInterface $flashMessenger,
+        CalculationClientInterface $calculationClient
     ) {
         parent::__construct($stepRoute, $escapeRoute);
 
         $this->paymentPlugins = $paymentPlugins;
         $this->flashMessenger = $flashMessenger;
+        $this->paymentClient = $paymentClient;
+        $this->calculationClient = $calculationClient;
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
     public function requireInput(AbstractTransfer $quoteTransfer)
     {
-        return true;
+        $totals = $quoteTransfer->getTotals();
+        return !$totals || $totals->getPriceToPay() > 0;
     }
 
     /**
@@ -63,17 +84,43 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
-        $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
+        $paymentSelection = $this->getPaymentSelectionWithFallback($quoteTransfer);
+
+        if ($paymentSelection === null) {
+            return $quoteTransfer;
+        }
 
         if ($this->paymentPlugins->has($paymentSelection)) {
             $paymentHandler = $this->paymentPlugins->get($paymentSelection);
             if ($paymentHandler instanceof StepHandlerPluginWithMessengerInterface) {
                 $paymentHandler->setFlashMessenger($this->flashMessenger);
             }
+
             $paymentHandler->addToDataClass($request, $quoteTransfer);
+            $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
         }
 
         return $quoteTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return null|string
+     */
+    protected function getPaymentSelectionWithFallback(QuoteTransfer $quoteTransfer)
+    {
+        if ($quoteTransfer->getTotals() && $quoteTransfer->getTotals()->getPriceToPay() === 0) {
+            return NopaymentConfig::PAYMENT_PROVIDER_NAME;
+        }
+
+        $paymentTransfer = $quoteTransfer->getPayment();
+
+        if ($paymentTransfer) {
+            return $paymentTransfer->getPaymentSelection();
+        }
+
+        return null;
     }
 
     /**
@@ -83,12 +130,72 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     public function postCondition(AbstractTransfer $quoteTransfer)
     {
-        if ($quoteTransfer->getPayment() === null ||
-            $quoteTransfer->getPayment()->getPaymentProvider() === null) {
+        $paymentCollection = $this->getPaymentCollection($quoteTransfer);
+
+        if ($paymentCollection->count() === 0) {
             return false;
         }
 
+        return $this->isValidPaymentSelection($paymentCollection, $quoteTransfer);
+    }
+
+    /**
+     * @deprecated To be removed when the single payment property on the quote is removed
+     *
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\PaymentTransfer[]|\ArrayObject
+     */
+    protected function getPaymentCollection(QuoteTransfer $quoteTransfer)
+    {
+        $result = new ArrayObject();
+        foreach ($quoteTransfer->getPayments() as $payment) {
+            $result[] = $payment;
+        }
+
+        $singlePayment = $quoteTransfer->getPayment();
+
+        if ($singlePayment) {
+            $result[] = $singlePayment;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PaymentTransfer[]|\ArrayObject $paymentCollection
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return bool
+     */
+    protected function isValidPaymentSelection(ArrayObject $paymentCollection, AbstractTransfer $quoteTransfer)
+    {
+        $paymentMethods = $this->paymentClient->getAvailableMethods($quoteTransfer);
+
+        foreach ($paymentCollection as $candidatePayment) {
+            if (!$this->containsPayment($paymentMethods, $candidatePayment)) {
+                return false;
+            }
+        }
+
         return true;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\PaymentMethodsTransfer $paymentMethodsTransfer
+     * @param \Generated\Shared\Transfer\PaymentTransfer $paymentTransfer
+     *
+     * @return bool
+     */
+    protected function containsPayment(PaymentMethodsTransfer $paymentMethodsTransfer, PaymentTransfer $paymentTransfer)
+    {
+        foreach ($paymentMethodsTransfer->getMethods() as $paymentMethodTransfer) {
+            if ($paymentMethodTransfer->getMethodName() === $paymentTransfer->getPaymentSelection()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -118,5 +225,4 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     {
         return !$this->requireInput($dataTransfer);
     }
-
 }

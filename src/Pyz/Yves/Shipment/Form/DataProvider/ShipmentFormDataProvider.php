@@ -20,7 +20,6 @@ use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
 class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 {
-
     const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
 
     /**
@@ -102,9 +101,10 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
             if (!isset($shipmentMethods[$shipmentMethodTransfer->getCarrierName()])) {
                 $shipmentMethods[$shipmentMethodTransfer->getCarrierName()] = [];
             }
-            $shipmentMethods[$shipmentMethodTransfer->getCarrierName()][$shipmentMethodTransfer->getIdShipmentMethod()] = $this->getShipmentDescription(
+            $description = $this->getShipmentDescription(
                 $shipmentMethodTransfer
             );
+            $shipmentMethods[$shipmentMethodTransfer->getCarrierName()][$description] = $shipmentMethodTransfer->getIdShipmentMethod();
         }
 
         return $shipmentMethods;
@@ -179,13 +179,11 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
      */
     protected function getDeliveryTime(ShipmentMethodTransfer $method)
     {
-        $deliveryTime = 0;
-
-        if ($method->getDeliveryTime()) {
-            $deliveryTime = ($method->getDeliveryTime() / 3600);
+        if (!$method->getDeliveryTime()) {
+            return 0;
         }
 
-        return $deliveryTime;
+        return (int)($method->getDeliveryTime() / 86400);
     }
 
     /**
@@ -195,7 +193,8 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
      */
     protected function getFormattedShipmentPrice(ShipmentMethodTransfer $shipmentMethodTransfer)
     {
-        $moneyTransfer = $this->moneyPlugin->fromInteger($shipmentMethodTransfer->getDefaultPrice());
+        $moneyTransfer = $this->moneyPlugin
+            ->fromInteger($shipmentMethodTransfer->getStoreCurrencyPrice());
 
         return $this->moneyPlugin->formatWithSymbol($moneyTransfer);
     }
@@ -209,5 +208,4 @@ class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
     {
         return $this->glossaryClient->translate($translationKey, $this->store->getCurrentLocale());
     }
-
 }

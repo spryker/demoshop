@@ -14,7 +14,6 @@ use Twig_SimpleFunction;
 
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {
-
     const CMS_PREFIX_KEY = 'generated.cms';
 
     /**
@@ -50,7 +49,7 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
     /**
      * @param string $translation
      *
-     * @return string
+     * @return bool
      */
     protected function isGlossaryKey($translation)
     {
@@ -66,5 +65,4 @@ class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
     {
         return $application['translator'];
     }
-
 }

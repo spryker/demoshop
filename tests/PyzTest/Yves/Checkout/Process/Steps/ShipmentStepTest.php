@@ -9,6 +9,7 @@ namespace PyzTest\Yves\Checkout\Process\Steps;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\ExpenseTransfer;
+use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
 use Pyz\Yves\Checkout\CheckoutDependencyProvider;
@@ -31,7 +32,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ShipmentStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -74,7 +74,10 @@ class ShipmentStepTest extends Unit
     public function testShipmentRequireInputShouldReturnTrue()
     {
         $shipmentStep = $this->createShipmentStep(new StepHandlerPluginCollection());
-        $this->assertTrue($shipmentStep->requireInput(new QuoteTransfer()));
+        $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->addItem(new ItemTransfer());
+
+        $this->assertTrue($shipmentStep->requireInput($quoteTransfer));
     }
 
     /**
@@ -118,5 +121,4 @@ class ShipmentStepTest extends Unit
     {
         return $this->getMockBuilder(StepHandlerPluginInterface::class)->getMock();
     }
-
 }

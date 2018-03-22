@@ -21,7 +21,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductManagementAttributeWriter extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     /**
@@ -101,5 +100,4 @@ class ProductManagementAttributeWriter extends TouchAwareStep implements DataImp
             }
         }
     }
-
 }

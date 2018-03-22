@@ -1,21 +1,24 @@
 <?php
 
 use Monolog\Logger;
-use Pyz\Shared\Log\LogConstants;
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use Pyz\Shared\WebProfiler\WebProfilerConstants;
 use Pyz\Yves\Application\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Spryker\Shared\Application\ApplicationConstants;
+use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
@@ -88,18 +91,14 @@ $config[StorageConstants::STORAGE_REDIS_PASSWORD] = false;
 $config[StorageConstants::STORAGE_REDIS_DATABASE] = 3;
 
 // ---------- Elasticsearch
-$ELASTICA_INDEX_NAME = 'de_search';
+$ELASTICA_INDEX_NAME = 'de_search_devtest';
 $ELASTICA_DOCUMENT_TYPE = 'page';
 $ELASTICA_PORT = '9200';
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
-$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
-$config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
-$config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
+$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 
 // ---------- Session
 $config[SessionConstants::SESSION_IS_TEST] = (bool)getenv("SESSION_IS_TEST");
@@ -170,5 +169,21 @@ $config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
 
+// ---------- RabbitMq
+$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'guest';
+$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'guest';
+$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/';
+
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::CRITICAL;
+$config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
+
+// ---------- EventBehavior
+$config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;
+
+// ---------- Trusted hosts
+$config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [
+    $config[ApplicationConstants::HOST_YVES],
+    $config[ApplicationConstants::HOST_ZED],
+    'localhost',
+];

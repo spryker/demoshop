@@ -9,6 +9,8 @@ namespace Pyz\Client\ProductNew;
 
 use Pyz\Client\ProductNew\Plugin\Elasticsearch\Query\NewProductsQueryPlugin;
 use Spryker\Client\Catalog\Plugin\Elasticsearch\ResultFormatter\RawCatalogSearchResultFormatterPlugin;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\CurrencyAwareCatalogSearchResultFormatterPlugin;
+use Spryker\Client\CatalogPriceProductConnector\Plugin\ProductPriceQueryExpanderPlugin;
 use Spryker\Client\Kernel\AbstractDependencyProvider;
 use Spryker\Client\Kernel\Container;
 use Spryker\Client\ProductLabel\ProductLabelClient;
@@ -25,7 +27,6 @@ use Spryker\Shared\Kernel\Store;
 
 class ProductNewDependencyProvider extends AbstractDependencyProvider
 {
-
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const CLIENT_PRODUCT_LABEL = 'CLIENT_PRODUCT_LABEL';
     const NEW_PRODUCTS_QUERY_PLUGIN = 'NEW_PRODUCTS_QUERY_PLUGIN';
@@ -103,6 +104,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
             return [
                 new StoreQueryExpanderPlugin(),
                 new LocalizedQueryExpanderPlugin(),
+                new ProductPriceQueryExpanderPlugin(),
                 new FacetQueryExpanderPlugin(),
                 new SortedQueryExpanderPlugin(),
                 new PaginatedQueryExpanderPlugin(),
@@ -117,14 +119,16 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addNewProductsResultFormatterPlugins(Container$container)
+    protected function addNewProductsResultFormatterPlugins(Container $container)
     {
         $container[self::NEW_PRODUCTS_RESULT_FORMATTER_PLUGINS] = function () {
             return [
                 new FacetResultFormatterPlugin(),
                 new SortedResultFormatterPlugin(),
                 new PaginatedResultFormatterPlugin(),
-                new RawCatalogSearchResultFormatterPlugin(),
+                new CurrencyAwareCatalogSearchResultFormatterPlugin(
+                    new RawCatalogSearchResultFormatterPlugin()
+                ),
             ];
         };
 
@@ -136,7 +140,7 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addStore(Container$container)
+    protected function addStore(Container $container)
     {
         $container[self::STORE] = function () {
             return Store::getInstance();
@@ -144,5 +148,4 @@ class ProductNewDependencyProvider extends AbstractDependencyProvider
 
         return $container;
     }
-
 }

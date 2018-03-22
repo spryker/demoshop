@@ -12,7 +12,6 @@ namespace Pyz\Client\ProductNew;
  */
 interface ProductNewClientInterface
 {
-
     /**
      * Specification:
      * - A query based on the request parameters will be executed.
@@ -27,5 +26,4 @@ interface ProductNewClientInterface
      * @return array
      */
     public function findNewProducts(array $requestParameters);
-
 }

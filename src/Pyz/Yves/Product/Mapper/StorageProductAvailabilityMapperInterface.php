@@ -11,12 +11,10 @@ use Generated\Shared\Transfer\StorageProductTransfer;
 
 interface StorageProductAvailabilityMapperInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     public function mapAvailability(StorageProductTransfer $storageProductTransfer);
-
 }

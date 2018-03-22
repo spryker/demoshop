@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AddressController extends AbstractCustomerController
 {
-
     const KEY_DEFAULT_BILLING_ADDRESS = 'default_billing_address';
     const KEY_DEFAULT_SHIPPING_ADDRESS = 'default_shipping_address';
     const KEY_ADDRESSES = 'addresses';
@@ -57,7 +56,7 @@ class AddressController extends AbstractCustomerController
         $addressForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createAddressForm($dataProvider->getOptions())
+            ->getAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
 
         if ($addressForm->isSubmitted() === false) {
@@ -95,7 +94,7 @@ class AddressController extends AbstractCustomerController
         $addressForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createAddressForm($dataProvider->getOptions())
+            ->getAddressForm($dataProvider->getOptions())
             ->handleRequest($request);
 
         if ($addressForm->isSubmitted() === false) {
@@ -229,5 +228,4 @@ class AddressController extends AbstractCustomerController
 
         return $customerTransfer;
     }
-
 }

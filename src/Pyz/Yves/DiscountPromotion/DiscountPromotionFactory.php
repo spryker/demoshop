@@ -12,7 +12,6 @@ use Spryker\Yves\DiscountPromotion\DiscountPromotionFactory as SprykerDiscountPr
 
 class DiscountPromotionFactory extends SprykerDiscountPromotionFactory
 {
-
     /**
      * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
@@ -20,5 +19,4 @@ class DiscountPromotionFactory extends SprykerDiscountPromotionFactory
     {
         return new StorageProductMapperPlugin();
     }
-
 }

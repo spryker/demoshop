@@ -23,7 +23,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeInterface
 {
-
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
@@ -287,42 +286,6 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
      *
      * @return void
      */
-    public function runStorageUrlCollector(
-        SpyTouchQuery $baseQuery,
-        LocaleTransfer $localeTransfer,
-        BatchResultInterface $result,
-        ReaderInterface $dataReader,
-        WriterInterface $dataWriter,
-        TouchUpdaterInterface $touchUpdater,
-        OutputInterface $output
-    ) {
-
-        $collector = $this->getFactory()
-            ->createStorageUrlCollector();
-
-        $this->runCollector(
-            $collector,
-            $baseQuery,
-            $localeTransfer,
-            $result,
-            $dataReader,
-            $dataWriter,
-            $touchUpdater,
-            $output
-        );
-    }
-
-    /**
-     * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Spryker\Zed\Collector\Business\Model\BatchResultInterface $result
-     * @param \Spryker\Zed\Collector\Business\Exporter\Reader\ReaderInterface $dataReader
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\WriterInterface $dataWriter
-     * @param \Spryker\Zed\Collector\Business\Exporter\Writer\TouchUpdaterInterface $touchUpdater
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
-     */
     public function runStorageProductConcreteCollector(
         SpyTouchQuery $baseQuery,
         LocaleTransfer $localeTransfer,
@@ -451,5 +414,4 @@ class CollectorFacade extends SprykerCollectorFacade implements CollectorFacadeI
             $output
         );
     }
-
 }

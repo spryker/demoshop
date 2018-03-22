@@ -20,7 +20,6 @@ use Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationL
  */
 class CustomerSecurityServiceProvider extends AbstractServiceProvider
 {
-
     const FIREWALL_SECURED = 'secured';
     const ROLE_USER = 'ROLE_USER';
     const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';
@@ -61,7 +60,7 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
                 'anonymous' => true,
                 'pattern' => '^/',
                 'form' => [
-                    'login_path' => '/login',
+                    'login_path' => $this->buildLoginPath($selectedLanguage),
                     'check_path' => '/login_check',
                     'username_parameter' => LoginForm::FORM_NAME . '[' . LoginForm::FIELD_EMAIL . ']',
                     'password_parameter' => LoginForm::FORM_NAME . '[' . LoginForm::FIELD_PASSWORD . ']',
@@ -140,6 +139,20 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
     }
 
     /**
+     * @param string $prefixLocale
+     *
+     * @return string
+     */
+    protected function buildLoginPath($prefixLocale)
+    {
+        $loginPath = '/login';
+        if ($prefixLocale) {
+            $loginPath = '/' . $prefixLocale . $loginPath;
+        }
+        return $loginPath;
+    }
+
+    /**
      * @SuppressWarnings(PHPMD.Superglobals)
      *
      * @param \Silex\Application $app
@@ -173,5 +186,4 @@ class CustomerSecurityServiceProvider extends AbstractServiceProvider
         }
         return $logoutTarget;
     }
-
 }

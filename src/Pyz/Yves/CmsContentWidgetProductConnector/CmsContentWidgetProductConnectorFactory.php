@@ -11,13 +11,11 @@ use Spryker\Yves\CmsContentWidgetProductConnector\CmsContentWidgetProductConnect
 
 class CmsContentWidgetProductConnectorFactory extends SprykerCmsContentWidgetProductConnectorFactory
 {
-
     /**
-     * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface;
+     * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
     public function getStorageProductMapperPlugin()
     {
         return $this->getProvidedDependency(CmsContentWidgetProductConnectorDependencyProvider::STORAGE_PRODUCT_MAPPER_PLUGIN);
     }
-
 }

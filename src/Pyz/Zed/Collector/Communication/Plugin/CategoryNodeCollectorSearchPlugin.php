@@ -22,7 +22,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class CategoryNodeCollectorSearchPlugin extends AbstractCollectorPlugin
 {
-
     /**
      * @param \Orm\Zed\Touch\Persistence\SpyTouchQuery $baseQuery
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
@@ -46,5 +45,4 @@ class CategoryNodeCollectorSearchPlugin extends AbstractCollectorPlugin
         $this->getFacade()
             ->runSearchCategoryNodeCollector($baseQuery, $locale, $result, $dataReader, $dataWriter, $touchUpdater, $output);
     }
-
 }

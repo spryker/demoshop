@@ -12,10 +12,10 @@ use Spryker\Yves\Kernel\Container;
 
 class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_LOCALE = 'CLIENT_LOCALE';
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
     const CLIENT_CATEGORY = 'CLIENT_CATEGORY';
+    const CLIENT_PRODUCT_CATEGORY_FILTER = 'CLIENT_PRODUCT_CATEGORY_FILTER';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -27,6 +27,7 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->addSearchClient($container);
         $container = $this->addCategoryClient($container);
         $container = $this->addLocaleClient($container);
+        $container = $this->addProductCategoryFilterClient($container);
 
         return $container;
     }
@@ -73,4 +74,17 @@ class CatalogDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addProductCategoryFilterClient(Container $container)
+    {
+        $container[static::CLIENT_PRODUCT_CATEGORY_FILTER] = function (Container $container) {
+            return $container->getLocator()->productCategoryFilter()->client();
+        };
+
+        return $container;
+    }
 }

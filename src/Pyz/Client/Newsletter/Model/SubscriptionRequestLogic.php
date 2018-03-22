@@ -15,7 +15,6 @@ use Pyz\Shared\Newsletter\NewsletterConstants;
 
 class SubscriptionRequestLogic
 {
-
     /**
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
@@ -91,5 +90,4 @@ class SubscriptionRequestLogic
 
         $subscriptionRequest->addSubscriptionType($newsletterType);
     }
-
 }

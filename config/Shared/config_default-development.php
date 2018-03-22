@@ -16,12 +16,12 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Propel\PropelConstants;
+use Spryker\Shared\PropelOrm\PropelOrmConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\RabbitMq\RabbitMqConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
 use Spryker\Shared\Storage\StorageConstants;
-use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
 
@@ -40,7 +40,7 @@ $config[ApplicationConstants::YVES_SSL_ENABLED] = false;
 
 // ---------- Propel
 $config[PropelConstants::PROPEL_DEBUG] = true;
-$config[PropelConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
+$config[PropelOrmConstants::PROPEL_SHOW_EXTENDED_EXCEPTION] = true;
 $config[PropelConstants::ZED_DB_USERNAME] = 'development';
 $config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
 $config[PropelConstants::ZED_DB_HOST] = '127.0.0.1';
@@ -59,6 +59,11 @@ $config[StorageConstants::STORAGE_REDIS_DATABASE] = 0;
 $config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
 $config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
 $config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
+
+$config[RabbitMqConstants::RABBITMQ_API_HOST] = 'localhost';
+$config[RabbitMqConstants::RABBITMQ_API_PORT] = '15672';
+$config[RabbitMqConstants::RABBITMQ_API_USERNAME] = 'admin';
+$config[RabbitMqConstants::RABBITMQ_API_PASSWORD] = 'mate20mg';
 
 // ---------- Session
 $config[SessionConstants::YVES_SESSION_COOKIE_SECURE] = false;
@@ -84,24 +89,6 @@ $config[ZedRequestConstants::TRANSFER_DEBUG_SESSION_FORWARD_ENABLED] = true;
 $config[ZedRequestConstants::SET_REPEAT_DATA] = true;
 $config[ZedRequestConstants::YVES_REQUEST_REPEAT_DATA_PATH] = APPLICATION_ROOT_DIR . '/data/' . Store::getInstance()->getStoreName() . '/' . APPLICATION_ENV . '/yves-requests';
 
-// ---------- Twig
-$config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
-];
-$config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
-];
-$config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/cache/Yves/twig/.pathCache',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
-);
-$config[TwigConstants::ZED_PATH_CACHE_FILE] = sprintf(
-    '%s/data/%s/cache/Zed/twig/.pathCache',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE
-);
-
 // ---------- Navigation
 $config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
 
@@ -122,12 +109,11 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
 
 // ---------- Logging
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
-$config[LogConstants::EXCEPTION_LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/%s/exception.log',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION
-);
+
+$baseLogFilePath = sprintf('%s/data/%s/logs', APPLICATION_ROOT_DIR, $CURRENT_STORE);
+
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH_YVES] = $baseLogFilePath . '/YVES/exception.log';
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/exception.log';
 
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = true;

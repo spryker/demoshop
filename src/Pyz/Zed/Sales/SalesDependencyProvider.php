@@ -22,7 +22,6 @@ use Spryker\Zed\Shipment\Communication\Plugin\ShipmentOrderHydratePlugin;
 
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Sales\Dependency\Plugin\HydrateOrderPluginInterface[]
      */
@@ -42,5 +41,4 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new ProductOptionGroupIdHydratorPlugin(),
         ];
     }
-
 }

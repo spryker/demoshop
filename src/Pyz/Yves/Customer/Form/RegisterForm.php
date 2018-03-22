@@ -7,14 +7,20 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegisterForm extends AbstractType
 {
-
     const FIELD_SALUTATION = 'salutation';
     const FIELD_FIRST_NAME = 'first_name';
     const FIELD_LAST_NAME = 'last_name';
@@ -22,13 +28,14 @@ class RegisterForm extends AbstractType
     const FIELD_PASSWORD = 'password';
     const FIELD_ACCEPT_TERMS = 'accept_terms';
     const FIELD_IS_GUEST = 'is_guest';
+    const BLOCK_PREFIX = 'registerForm';
 
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
-        return 'registerForm';
+        return static::BLOCK_PREFIX;
     }
 
     /**
@@ -56,12 +63,12 @@ class RegisterForm extends AbstractType
      */
     protected function addSalutationField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_SALUTATION, 'choice', [
+        $builder->add(self::FIELD_SALUTATION, ChoiceType::class, [
             'choices' => [
-                'Mr' => 'customer.salutation.mr',
-                'Ms' => 'customer.salutation.ms',
-                'Mrs' => 'customer.salutation.mrs',
-                'Dr' => 'customer.salutation.dr',
+                'customer.salutation.mr' => 'Mr',
+                'customer.salutation.ms' => 'Ms',
+                'customer.salutation.mrs' => 'Mrs',
+                'customer.salutation.dr' => 'Dr',
             ],
             'required' => true,
             'label' => 'address.salutation',
@@ -80,7 +87,7 @@ class RegisterForm extends AbstractType
      */
     protected function addFirstNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_FIRST_NAME, 'text', [
+        $builder->add(self::FIELD_FIRST_NAME, TextType::class, [
             'label' => 'customer.first_name',
             'required' => true,
             'constraints' => [
@@ -98,7 +105,7 @@ class RegisterForm extends AbstractType
      */
     protected function addLastNameField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_LAST_NAME, 'text', [
+        $builder->add(self::FIELD_LAST_NAME, TextType::class, [
             'label' => 'customer.last_name',
             'required' => true,
             'constraints' => [
@@ -116,7 +123,7 @@ class RegisterForm extends AbstractType
      */
     protected function addEmailField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_EMAIL, self::FIELD_EMAIL, [
+        $builder->add(self::FIELD_EMAIL, EmailType::class, [
             'label' => 'auth.email',
             'required' => true,
             'constraints' => [
@@ -134,10 +141,10 @@ class RegisterForm extends AbstractType
      */
     protected function addPasswordField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_PASSWORD, 'repeated', [
+        $builder->add(self::FIELD_PASSWORD, RepeatedType::class, [
             'first_name' => 'pass',
             'second_name' => 'confirm',
-            'type' => 'password',
+            'type' => PasswordType::class,
             'invalid_message' => 'validator.constraints.password.do_not_match',
             'required' => true,
             'first_options' => [
@@ -163,7 +170,7 @@ class RegisterForm extends AbstractType
      */
     protected function addAcceptTermsField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_ACCEPT_TERMS, 'checkbox', [
+        $builder->add(self::FIELD_ACCEPT_TERMS, CheckboxType::class, [
             'label' => 'forms.accept_terms',
             'mapped' => false,
             'required' => true,
@@ -182,7 +189,7 @@ class RegisterForm extends AbstractType
      */
     protected function addIsGuestField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_IS_GUEST, 'hidden', [
+        $builder->add(self::FIELD_IS_GUEST, HiddenType::class, [
             'data' => false,
         ]);
 
@@ -207,5 +214,4 @@ class RegisterForm extends AbstractType
             }
         ));
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CategoryFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Category\ResourceCreator\CategoryResourceCreator
      */
@@ -44,5 +43,4 @@ class CategoryFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CategoryDependencyProvider::APPLICATION);
     }
-
 }

@@ -5,11 +5,11 @@
  *
  * - jobs[]['name'] must not contains spaces or any other characters, that have to be urlencode()'d
  * - jobs[]['role'] default value is 'admin'
- *
- * @TODO Use values from config/stores.php
  */
 
-$allStores = ['DE'];
+$stores = require(APPLICATION_ROOT_DIR . '/config/Shared/stores.php');
+
+$allStores = array_keys($stores);
 
 /* -- MAIL QUEUE -- */
 $jobs[] = [
@@ -33,6 +33,15 @@ $jobs[] = [
 $jobs[] = [
     'name' => 'update-product-label-relations',
     'command' => '$PHP_BIN vendor/bin/console product-label:relations:update -vvv',
+    'schedule' => '* * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
+    'name' => 'check-product-validity',
+    'command' => '$PHP_BIN vendor/bin/console product:check-validity',
     'schedule' => '* * * * *',
     'enable' => true,
     'run_on_non_production' => true,

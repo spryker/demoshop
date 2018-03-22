@@ -7,22 +7,53 @@
 
 namespace Pyz\Zed\Collector\Business\Storage;
 
+use ArrayObject;
+use Generated\Shared\Transfer\MoneyValueTransfer;
+use Generated\Shared\Transfer\ProductOptionValueStorePricesRequestTransfer;
 use Generated\Shared\Transfer\StorageProductOptionGroupTransfer;
 use Generated\Shared\Transfer\StorageProductOptionValueTransfer;
-use Orm\Zed\ProductOption\Persistence\Base\SpyProductOptionGroupQuery;
 use Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup;
+use Propel\Runtime\Collection\ObjectCollection;
+use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
 use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePdoCollector;
+use Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface;
+use Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface;
 use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 class ProductOptionCollector extends AbstractStoragePdoCollector
 {
-
     const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
 
     /**
      * @var array
      */
     protected $optionGroupCache = [];
+
+    /**
+     * @var \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface
+     */
+    protected $productOptionQueryContainer;
+
+    /**
+     * @var \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
+     */
+    protected $productOptionFacade;
+
+    /**
+     * @param \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface $productOptionQueryContainer
+     * @param \Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface $utilDataReaderService
+     * @param \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface $productOptionFacade
+     */
+    public function __construct(
+        ProductOptionQueryContainerInterface $productOptionQueryContainer,
+        UtilDataReaderServiceInterface $utilDataReaderService,
+        ProductOptionFacadeInterface $productOptionFacade
+    ) {
+        parent::__construct($utilDataReaderService);
+
+        $this->productOptionQueryContainer = $productOptionQueryContainer;
+        $this->productOptionFacade = $productOptionFacade;
+    }
 
     /**
      * @return string
@@ -61,7 +92,7 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
             return $this->optionGroupCache[$idProductOptionGroup];
         }
 
-        $optionGroupEntity = $this->getOptionGroupEntity($idProductOptionGroup);
+        $optionGroupEntity = $this->getOptionGroupEntityById($idProductOptionGroup);
         if (!$optionGroupEntity) {
             $this->optionGroupCache[$idProductOptionGroup] = [];
             return [];
@@ -85,7 +116,7 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
             $optionValues[] = [
                 StorageProductOptionValueTransfer::ID_PRODUCT_OPTION_VALUE => $optionValueEntity->getIdProductOptionValue(),
                 StorageProductOptionValueTransfer::SKU => $optionValueEntity->getSku(),
-                StorageProductOptionValueTransfer::PRICE => $optionValueEntity->getPrice(),
+                StorageProductOptionValueTransfer::PRICES => $this->getPrices($optionValueEntity->getProductOptionValuePrices()),
                 StorageProductOptionValueTransfer::VALUE => $optionValueEntity->getValue(),
             ];
         }
@@ -93,18 +124,52 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
     }
 
     /**
-     * @param int $idOptionGroup
+     * @param \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\ProductOption\Persistence\SpyProductOptionValuePrice[] $objectCollection
+     *
+     * @return array
+     */
+    protected function getPrices(ObjectCollection $objectCollection)
+    {
+        $moneyValueCollection = $this->transformPriceEntityCollectionToMoneyValueTransferCollection($objectCollection);
+
+        $priceResponse = $this->productOptionFacade->getProductOptionValueStorePrices(
+            (new ProductOptionValueStorePricesRequestTransfer())->setPrices($moneyValueCollection)
+        );
+
+        return $priceResponse->getStorePrices();
+    }
+
+    /**
+     * @param \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\ProductOption\Persistence\SpyProductOptionValuePrice[] $priceEntityCollection
+     *
+     * @return \ArrayObject|\Generated\Shared\Transfer\MoneyValueTransfer[]
+     */
+    protected function transformPriceEntityCollectionToMoneyValueTransferCollection(ObjectCollection $priceEntityCollection)
+    {
+        $moneyValueCollection = new ArrayObject();
+        foreach ($priceEntityCollection as $productOptionValuePriceEntity) {
+            $moneyValueCollection->append(
+                (new MoneyValueTransfer())
+                    ->fromArray($productOptionValuePriceEntity->toArray(), true)
+                    ->setNetAmount($productOptionValuePriceEntity->getNetPrice())
+                    ->setGrossAmount($productOptionValuePriceEntity->getGrossPrice())
+            );
+        }
+
+        return $moneyValueCollection;
+    }
+
+    /**
+     * @param int $idProductOptionGroup
      *
      * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup
      */
-    protected function getOptionGroupEntity($idOptionGroup)
+    protected function getOptionGroupEntityById($idProductOptionGroup)
     {
-        $optionGroupEntity = SpyProductOptionGroupQuery::create()
-            ->filterByIdProductOptionGroup($idOptionGroup)
-            ->filterByActive(true)
-            ->findOne();
+        $optionGroupCollection = $this->productOptionQueryContainer
+            ->queryActiveProductOptionGroupWithProductOptionValuesAndProductOptionValuePricesById($idProductOptionGroup)
+            ->find();
 
-        return $optionGroupEntity;
+        return $optionGroupCollection->getFirst();
     }
-
 }

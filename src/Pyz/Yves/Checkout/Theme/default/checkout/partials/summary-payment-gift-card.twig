@@ -1,0 +1,13 @@
+{% for payment in quoteTransfer.payments %}
+    {% if payment.giftCard is not null %}
+        <li>
+            <div class="row">
+                <div class="small-8 columns">
+                    {{ 'checkout.giftcard.label' | trans }}: {{ payment.giftCard.code }}
+                    <small><a href="{{ url('cart/voucher/remove', {'code': payment.giftCard.code}) }}"><span class="fa fa-remove"></span></a></small>
+                </div>
+                <div class="small-4 columns text-right">- {{ payment.amount | money }}</div>
+            </div>
+        </li>
+    {% endif %}
+{% endfor %}

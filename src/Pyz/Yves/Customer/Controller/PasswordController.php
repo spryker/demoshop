@@ -19,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class PasswordController extends AbstractCustomerController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -30,7 +29,7 @@ class PasswordController extends AbstractCustomerController
         $form = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createForgottenPasswordForm()
+            ->getForgottenPasswordForm()
             ->handleRequest($request);
 
         if ($form->isValid()) {
@@ -65,7 +64,7 @@ class PasswordController extends AbstractCustomerController
         $form = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createFormRestorePassword()
+            ->getFormRestorePassword()
             ->setData([
                 RestorePasswordForm::FIELD_RESTORE_PASSWORD_KEY => $request->query->get('token'),
             ])
@@ -103,5 +102,4 @@ class PasswordController extends AbstractCustomerController
         return $this->getClient()
             ->sendPasswordRestoreMail($customerTransfer);
     }
-
 }

@@ -18,7 +18,6 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 {
-
     const CLIENT_CUSTOMER = 'customer client';
     const CLIENT_NEWSLETTER = 'newsletter client';
     const CLIENT_SALES = 'client client';
@@ -27,6 +26,7 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
     const PLUGIN_LOGIN_AUTHENTICATION_HANDLER = 'login authentication plugin';
     const PLUGIN_GUEST_AUTHENTICATION_HANDLER = 'guest authentication plugin';
     const PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER = 'registration authentication plugin';
+    const SERVICE_UTIL_VALIDATE = 'validate service';
     const FLASH_MESSENGER = 'flash messenger';
     const STORE = 'store';
 
@@ -40,6 +40,7 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
         $container = $this->provideStore($container);
+        $container = $this->provideUtilValidateService($container);
 
         return $container;
     }
@@ -116,4 +117,17 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideUtilValidateService(Container $container)
+    {
+        $container[static::SERVICE_UTIL_VALIDATE] = function () use ($container) {
+            return $container->getLocator()->utilValidate()->service();
+        };
+
+        return $container;
+    }
 }

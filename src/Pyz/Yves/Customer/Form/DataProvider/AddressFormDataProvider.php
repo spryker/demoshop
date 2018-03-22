@@ -13,7 +13,6 @@ use Pyz\Yves\Customer\Form\AddressForm;
 
 class AddressFormDataProvider extends AbstractAddressFormDataProvider
 {
-
     /**
      * @param int|null $idCustomerAddress
      *
@@ -69,6 +68,7 @@ class AddressFormDataProvider extends AbstractAddressFormDataProvider
     protected function getDefaultAddressData(CustomerTransfer $customerTransfer)
     {
         return [
+            AddressForm::FIELD_SALUTATION => $customerTransfer->getSalutation(),
             AddressForm::FIELD_FIRST_NAME => $customerTransfer->getFirstName(),
             AddressForm::FIELD_LAST_NAME => $customerTransfer->getLastName(),
         ];
@@ -82,10 +82,9 @@ class AddressFormDataProvider extends AbstractAddressFormDataProvider
         $countries = [];
 
         foreach ($this->store->getCountries() as $iso2Code) {
-            $countries[$iso2Code] = self::COUNTRY_GLOSSARY_PREFIX . $iso2Code;
+            $countries[self::COUNTRY_GLOSSARY_PREFIX . $iso2Code] = $iso2Code;
         }
 
         return $countries;
     }
-
 }

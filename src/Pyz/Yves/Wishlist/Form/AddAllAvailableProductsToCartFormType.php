@@ -7,13 +7,12 @@
 
 namespace Pyz\Yves\Wishlist\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class AddAllAvailableProductsToCartFormType extends AbstractType
 {
-
     const WISHLIST_ITEM_META_COLLECTION = 'wishlistItemMetaCollection';
 
     /**
@@ -42,5 +41,4 @@ class AddAllAvailableProductsToCartFormType extends AbstractType
 
         return $this;
     }
-
 }

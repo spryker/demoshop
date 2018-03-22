@@ -9,6 +9,7 @@ namespace Pyz\Yves\Catalog\Controller;
 
 use Generated\Shared\Search\PageIndexMap;
 use Pyz\Yves\Application\Controller\AbstractController;
+use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\FacetResultFormatterPlugin;
 use Spryker\Shared\Storage\StorageConstants;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,8 +19,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CatalogController extends AbstractController
 {
-
     const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
+
+    const URL_PARAM_VIEW_MODE = 'mode';
+    const URL_PARAM_REFERER_URL = 'referer-url';
 
     /**
      * @param array $categoryNode
@@ -38,7 +41,23 @@ class CatalogController extends AbstractController
             ->getClient()
             ->catalogSearch($searchString, $parameters);
 
+        $currentLocale = $this
+            ->getFactory()
+            ->getLocaleClient()
+            ->getCurrentLocale();
+
+        $productCategoryFilterClient = $this->getFactory()->getProductCategoryFilterClient();
+
+        $searchResults[FacetResultFormatterPlugin::NAME] = $productCategoryFilterClient
+            ->updateCategoryFacets(
+                $searchResults[FacetResultFormatterPlugin::NAME],
+                $categoryNode['id_category'],
+                $currentLocale
+            );
+
         $pageTitle = ($categoryNode['meta_title']) ?: $categoryNode['name'];
+        $viewMode = $this->getClient()->getCatalogViewMode($request);
+
         $metaAttributes = [
             'idCategory' => $parameters['category'],
             'category' => $categoryNode,
@@ -46,6 +65,7 @@ class CatalogController extends AbstractController
             'page_description' => $categoryNode['meta_description'],
             'page_keywords' => $categoryNode['meta_keywords'],
             'searchString' => $searchString,
+            'view_mode' => $viewMode,
         ];
 
         $searchResults = array_merge($searchResults, $metaAttributes);
@@ -68,8 +88,24 @@ class CatalogController extends AbstractController
 
         $searchResults['searchString'] = $searchString;
         $searchResults['idCategory'] = null;
+        $searchResults['view_mode'] = $this->getClient()->getCatalogViewMode($request);
 
         return $this->viewResponse($searchResults);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function changeViewModeAction(Request $request)
+    {
+        $viewMode = $request->query->get(static::URL_PARAM_VIEW_MODE);
+        $refererUrl = $request->query->get(static::URL_PARAM_REFERER_URL);
+
+        $response = $this->redirectResponseExternal($refererUrl);
+
+        return $this->getClient()->setCatalogViewMode($viewMode, $response);
     }
 
     /**
@@ -107,5 +143,4 @@ class CatalogController extends AbstractController
 
         return $this->viewResponse($result);
     }
-
 }

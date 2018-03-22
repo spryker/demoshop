@@ -7,14 +7,13 @@
 
 namespace Pyz\Yves\Checkout;
 
+use Pyz\Yves\Cart\Handler\CodeHandler;
 use Pyz\Yves\Checkout\Form\FormFactory;
 use Pyz\Yves\Checkout\Process\StepFactory;
-use Pyz\Yves\Discount\Handler\VoucherHandler;
-use Spryker\Yves\Kernel\AbstractFactory;
+use Spryker\Yves\Checkout\CheckoutFactory as SprykerCheckoutFactory;
 
-class CheckoutFactory extends AbstractFactory
+class CheckoutFactory extends SprykerCheckoutFactory
 {
-
     /**
      * @return \Spryker\Yves\StepEngine\Process\StepEngineInterface
      */
@@ -42,15 +41,24 @@ class CheckoutFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Discount\Handler\VoucherHandler
+     * @return \Pyz\Yves\Cart\Handler\CodeHandler
      */
     public function createVoucherHandler()
     {
-        return new VoucherHandler(
+        return new CodeHandler(
             $this->getCalculationClient(),
             $this->getCartClient(),
-            $this->getFlashMessenger()
+            $this->getFlashMessenger(),
+            $this->getCodeHandlerPlugins()
         );
+    }
+
+    /**
+     * @return \Pyz\Yves\Cart\Plugin\CodeHandlerInterface[]
+     */
+    protected function getCodeHandlerPlugins()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CODE_HANDLER_PLUGINS);
     }
 
     /**
@@ -92,5 +100,4 @@ class CheckoutFactory extends AbstractFactory
     {
         return $this->getApplication()['flash_messenger'];
     }
-
 }

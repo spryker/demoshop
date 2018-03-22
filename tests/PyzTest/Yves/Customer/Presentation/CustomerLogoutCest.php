@@ -23,7 +23,6 @@ use PyzTest\Yves\Customer\PageObject\CustomerOverviewPage;
  */
 class CustomerLogoutCest
 {
-
     /**
      * @param \PyzTest\Yves\Customer\CustomerPresentationTester $i
      *
@@ -40,5 +39,4 @@ class CustomerLogoutCest
 
         $i->seeCurrentUrlEquals('/');
     }
-
 }

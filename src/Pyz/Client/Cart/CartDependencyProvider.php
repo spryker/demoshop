@@ -13,7 +13,6 @@ use Spryker\Client\ProductBundle\Plugin\Cart\ItemCountPlugin;
 
 class CartDependencyProvider extends SprykerCartDependencyProvider
 {
-
     /**
      * @param \Spryker\Client\Kernel\Container $container
      *
@@ -27,5 +26,4 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
 
         return $container;
     }
-
 }

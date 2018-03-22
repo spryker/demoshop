@@ -37,6 +37,18 @@ cart.price.grand.total,Summe,de_DE
 cart.price.grand.total,Grand Total,en_US
 cart.total.tax_total,Mehrwertsteuer,de_DE
 cart.total.tax_total,Tax,en_US
+cart.total.price_to_pay,Zu bezahlender Betrag,de_DE
+cart.total.price_to_pay,Price to pay,en_US
+cart.giftcard.label,"Gift card",en_US
+cart.giftcard.label,"Geschenkgutschein",de_DE
+cart.giftcard.apply.failed,The gift card is not applicable,en_US
+cart.giftcard.apply.failed,Geschenkgutschein konnte nicht angewendet werden,de_DE
+cart.giftcard.apply.successful,"Your gift card code has been applied",en_US
+cart.giftcard.apply.successful,"Ihr Geschenkgutschein wurde angewendet",de_DE
+cart.voucher.apply.successful,"Your voucher code has been applied",en_US
+cart.voucher.apply.successful,"Ihr Gutscheincode wurde angewendet",de_DE
+cart.code.apply.failed,Code could not be applied,en_US
+cart.code.apply.failed,Gutscheincode konnte nicht angewendet werden,de_DE
 auth.login,Anmelden,de_DE
 auth.login,Sign up,en_US
 auth.password,Passwort,de_DE
@@ -66,7 +78,7 @@ customer.password,Password,en_US
 password.confirm,Passwort bestätigen,de_DE
 password.confirm,Confirm passwort,en_US
 page.checkout.address.heading,1. Adressangaben,de_DE
-page.checkout.address.heading,1. Address Data ,en_US
+page.checkout.address.heading,1. Address Data,en_US
 page.checkout.address.name,Name,de_DE
 page.checkout.address.name,Name,en_US
 page.checkout.address.billing-address,Rechnungsadresse,de_DE
@@ -232,7 +244,7 @@ customer.email,E-Mail,en_US
 customer.phone,Telefonnummer,de_DE
 customer.phone,Telephone number,en_US
 customer.reset.password.error.already.loggedIn,"Kunde bereits eingeloggt. Bitte logge dich aus, um dein Kundenpasswort zurückzusetzen.",de_DE
-customer.reset.password.error.already.loggedIn,"Another customer already logged in. Please logout to reset your password.",en_US
+customer.reset.password.error.already.loggedIn,Another customer already logged in. Please logout to reset your password.,en_US
 payment.prepay,Vorkasse,de_DE
 payment.prepay,Prepayment,en_US
 payment.paypal,PayPal,de_DE
@@ -557,6 +569,8 @@ customer.email.already.used,Email already used,en_US
 customer.email.already.used,E-Mail bereits vergeben,de_DE
 general.back.button,Back,en_US
 general.back.button,Zurück,de_DE
+general.next.button,Next,en_US
+general.next.button,Weiter,de_DE
 general.edit.button,Edit,en_US
 general.edit.button,Bearbeiten,de_DE
 newsletter.subscription.success,You successfully subscribed to the newsletter,en_US
@@ -565,10 +579,14 @@ newsletter.unsubscription.success,You successfully unsubscribed from the newslet
 newsletter.unsubscription.success,Sie wurden erfolgreich für den Newsletter abgemeldet,de_DE
 newsletter.subscription.already_subscribed,You are already subscribed to the newsletter,en_US
 newsletter.subscription.already_subscribed,Sie sind bereits für den Newsletter angemeldet,de_DE
+newsletter.subscription.email_format_invalid,Invalid Email address format,en_US
+newsletter.subscription.email_format_invalid,Ungültiges E-Mail-Adressformat,de_DE
 customer.authentication.failed,Authentication failed,en_US
 customer.authentication.failed,Authentifizierung fehlgeschlagen,de_DE
 customer.email.invalid,Email address is invalid,en_US
 customer.email.invalid,E-Mail Adresse ist ungültig,de_DE
+customer.email.format.invalid,Invalid Email address format,en_US
+customer.email.format.invalid,Ungültiges E-Mail-Adressformat,de_DE
 customer.password.recovery.mail.sent,"If there is an account associated with this email address, you will receive an email with further instructions",en_US
 customer.password.recovery.mail.sent,"Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen",de_DE
 customer.address.number,Number,en_US
@@ -577,6 +595,8 @@ countries.iso.DE,Germany,en_US
 countries.iso.DE,Deutschland,de_DE
 customer.billingSameAsShipping,Billing address same as shipping address,en_US
 customer.billingSameAsShipping,Liefer- und Rechnungsadresse sind gleich,de_DE
+checkout.giftcard.label,"Gift card",en_US
+checkout.giftcard.label,"Geschenkgutschein",de_DE
 checkout.customer.proceed_as_user,Proceed as a registered user (sign up),en_US
 checkout.customer.proceed_as_user,Melden Sie sich mit Ihrem bereits vorhandenem Account an,de_DE
 checkout.customer.proceed_as_guest,Proceed as a guest,en_US
@@ -625,6 +645,8 @@ checkout.step.success.title,Your order has been placed successfully!,en_US
 checkout.step.success.title,Ihre Bestellung wurde erfolgreich durchgeführt!,de_DE
 checkout.step.success.text,Thank you for shopping with us!,en_US
 checkout.step.success.text,Danke für ihren Einkauf!,de_DE
+checkout.step.error.no-product-permission,"You are not allowed to buy the following products from your cart",en_US
+checkout.step.error.no-product-permission,"Sie dürfen nicht die folgende Produkte aus Ihrem Warenkorb kaufen",de_DE
 checkout.step.error.title,Your order has not been placed.,en_US
 checkout.step.error.title,Ihre Bestellung konnte leider nicht durchgeführt werden.,de_DE
 checkout.step.error.text,Something went wrong. Sorry.,en_US
@@ -635,8 +657,8 @@ customer.newsletter.subscribed,Newsletter subscribed,en_US
 customer.newsletter.subscribed,Newsletter abonniert,de_DE
 validator.constraints.password.do_not_match,Passwords don't match,en_US
 validator.constraints.password.do_not_match,Passwörter stimmen nicht überein,de_DE
-discount.successfully.applied,The discount "display_name" has been successfully applied,en_US
-discount.successfully.applied,Der Rabatt "display_name" wurde erfolgreich angewendet,de_DE
+discount.successfully.applied,"The discount ""display_name"" has been successfully applied",en_US
+discount.successfully.applied,"Der Rabatt ""display_name"" wurde erfolgreich angewendet",de_DE
 product.unavailable,Product is out of stock,en_US
 product.unavailable,Keine Produkte mehr auf Lager,de_DE
 product.attribute.slug,slug,en_US
@@ -695,6 +717,8 @@ product.attribute.image_small,Image small,en_US
 product.attribute.image_small,Bild klein,de_DE
 product.attribute.license,License,en_US
 product.attribute.license,Lizenz,de_DE
+product.attribute.value,Value,en_US
+product.attribute.value,Der Wert,de_DE
 product.product_options,Product Options,en_US
 product.product_options,Produktoptionen,de_DE
 product.sets,Product Sets,en_US
@@ -803,8 +827,8 @@ product.attribute.usb_version,USB version,en_US
 product.attribute.usb_version,USB-Version,de_DE
 product.attribute.thermal_design_power,Thermal design power,en_US
 product.attribute.thermal_design_power,Thermal Design Power,de_DE
-product.attribute.processor_boost,Processor Boost,en_US
-product.attribute.processor_boost,Prozessor Boost-Taktung,de_DE
+product.attribute.processor_boost_frequency,Processor Boost,en_US
+product.attribute.processor_boost_frequency,Prozessor Boost-Taktung,de_DE
 product.attribute.touch_technology,Touch technology,en_US
 product.attribute.touch_technology,Touch-Technologie,de_DE
 product.attribute.video_recording_modes,Video recording modes,en_US
@@ -825,7 +849,7 @@ product.detail.out_of_stock,This product is currently not available.,en_US
 product.detail.out_of_stock,Das Produkt ist zur Zeit nicht verfügbar.,de_DE
 product.groups,Product Groups,en_US
 product.groups,Produktgruppen,de_DE
-cart.pre.check.availability.failed.empty,Currently this product is not available. ,en_US
+cart.pre.check.availability.failed.empty,Currently this product is not available.,en_US
 cart.pre.check.availability.failed.empty,Das Produkt ist zurzeit nicht verfügbar.,de_DE
 mail.sender.name,Spryker demoshop,en_US
 mail.sender.name,Spryker demoshop,de_DE
@@ -843,6 +867,12 @@ mail.customer.restore_password_confirmation.subject,Ihr Passwort wurde erfolgrei
 mail.customer.restore_password_confirmation.subject,Your password was changed successfully!,en_US
 mail.customer.restore_password_confirmation.text,Ihr Passwort wurde erfolgreich geändert!,de_DE
 mail.customer.restore_password_confirmation.text,Your password was changed successfully!,en_US
+mail.giftCard.delivery.subject,Your Gift card!,en_US
+mail.giftCard.delivery.subject,Deine Geschenkkarte!,de_DE
+mail.giftCard.delivery.text,"Sehr geehrter Kunde, vielen Dank für den Kauf einer Geschenkgutschein in unserem Shop. Ihr Gutscheincode lautet: ",de_DE
+mail.giftCard.delivery.text,"Dear customer, thank you for buying a gift card at our shop. Your gift card code is: ",en_US
+mail.giftCard.usage.subject,Thank you for using a Gift Card!,en_US
+mail.giftCard.usage.subject,Vielen Dank dass Sie ein Geschenkgutschein benutzt haben.,de_DE
 mail.newsletter.subscribed.subject,Willkommen beim Spryker Newsletter,de_DE
 mail.newsletter.subscribed.subject,Welcome to Spryker newsletter,en_US
 mail.newsletter.subscribed.text,"Wir freuen uns, dass du dich für unseren Newsletter registriert hast. Wir werden unser bestes geben, um dich mich relevanten und spannenden News und Updates zu versorgen.",de_DE
@@ -1015,7 +1045,45 @@ cart.promotion.items,Promotional products,en_US
 cart.promotion.items,Werbeprodukte,de_DE
 checkout.payment.provider.DummyPayment,Dummy Payment,en_US
 checkout.payment.provider.DummyPayment,Beispiel-Zahlungsart,de_DE
-product-cart.validation.error.abstract-product-exists,"Product not found",en_US
-product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
-product-cart.validation.error.concrete-product-exists,"Product not found",en_US
-product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
+cms.preview.access_denied,You are not logged in or you do not have permission to access this page.,en_US
+cms.preview.access_denied,Du bist nicht eingeloggt oder hast keine Berechtigung diese Seite zu betreten.,de_DE
+product-cart.validation.error.abstract-product-exists,Product not found,en_US
+product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
+product-cart.validation.error.concrete-product-exists,Product not found,en_US
+product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
+product-cart.validation.error.no-product-permission,"Sorry, You are not allowed to buy this product.",en_US
+product-cart.validation.error.no-product-permission,"Entschuldigung, Sie dürfen dieses Produkt nicht kaufen.",de_DE
+product-cart.validation.error.product-option-value-price-exists,"Product option price not found for product '%sku%'.",en_US
+product-cart.validation.error.product-option-value-price-exists,"Produktoptionspreis nicht gefunden für Produkt '%sku%'.",de_DE
+product.filter.label,Product Labels,en_US
+product.filter.label,Product Labels,de_DE
+product.filter.price-default-chf-gross_mode,Preisspanne,de_DE
+product.filter.price-default-chf-gross_mode,Price range,en_US
+product.filter.price-default-chf-net_mode,Preisspanne,de_DE
+product.filter.price-default-chf-net_mode,Price range,en_US
+product.filter.price-default-eur-net_mode,Preisspanne,de_DE
+product.filter.price-default-eur-net_mode,Price range,en_US
+product.filter.price-default-eur-gross_mode,Preisspanne,de_DE
+product.filter.price-default-eur-gross_mode,Price range,en_US
+price.mode.gross_mode,Gross prices,en_US
+price.mode.gross_mode,Bruttopreise,de_DE
+price.mode.net_mode,Net prices,en_US
+price.mode.net_mode,Nettopreise,de_DE
+cart.pre.check.price.failed,"Price not found for added to cart product with sku '%sku%'. Please remove the product from cart to change the currency.",en_US
+cart.pre.check.price.failed,"Preis nicht gefunden für Produkt mit sku '%sku%' im Warenkorb. Bitte entfernen Sie das Produkt aus dem Warenkorb, um die Währung zu ändern.",de_DE
+price.mode.switch.error,"Can't switch price mode when there are items in the cart.",en_US
+price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
+cart.pre.check.shipment.failed,"Can't apply these changes. The shipment method not found. Please select another shipment method.",en_US
+cart.pre.check.shipment.failed,"Diese Änderungen können nicht angewendet werden. Die Versandart wurde nicht gefunden. Bitte wählen Sie eine andere Versandart.",de_DE
+catalog.view.mode.grid,Grid,en_US
+catalog.view.mode.grid,Gitter,de_DE
+catalog.view.mode.list,List,en_US
+catalog.view.mode.list,Liste,de_DE
+cart.quantity.adjusted,Requested item quantity was adjusted as far as selected quantity is not available.,en_US
+cart.quantity.adjusted,"Die angeforderte Artikelmenge wurde angepasst, soweit die ausgewählte Menge nicht verfügbar ist.",de_DE
+catalog.sale,Sale,en_US
+catalog.sale,Sale,de_DE
+catalog.new,New,en_US
+catalog.new,Neu,de_DE
+checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
+checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE

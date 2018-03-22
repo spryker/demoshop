@@ -13,7 +13,6 @@ use Spryker\Zed\Url\UrlDependencyProvider as SprykerUrlDependencyProvider;
 
 class UrlDependencyProvider extends SprykerUrlDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Url\Dependency\Plugin\UrlUpdatePluginInterface[]
      */
@@ -33,5 +32,4 @@ class UrlDependencyProvider extends SprykerUrlDependencyProvider
             new DetachNavigationUrlAfterUrlDeletePlugin(),
         ];
     }
-
 }

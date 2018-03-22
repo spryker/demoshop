@@ -8,14 +8,13 @@
 namespace Pyz\Yves\Wishlist\Form;
 
 use Generated\Shared\Transfer\WishlistItemMetaTransfer;
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class WishlistItemMetaFormType extends AbstractType
 {
-
     const FIELD_ID_PRODUCT_ABSTRACT = 'idProductAbstract';
     const FIELD_ID_PRODUCT = 'idProduct';
     const FIELD_SKU = 'sku';
@@ -87,5 +86,4 @@ class WishlistItemMetaFormType extends AbstractType
 
         return $this;
     }
-
 }

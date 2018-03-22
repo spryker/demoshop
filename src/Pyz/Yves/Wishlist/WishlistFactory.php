@@ -22,7 +22,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
  */
 class WishlistFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Client\Customer\CustomerClientInterface
      */
@@ -39,7 +38,7 @@ class WishlistFactory extends AbstractFactory
      */
     public function getWishlistForm(WishlistTransfer $data = null, array $options = [])
     {
-        return $this->getFormFactory()->create($this->createWishlistFormType(), $data, $options);
+        return $this->getFormFactory()->create($this->getWishlistFormType(), $data, $options);
     }
 
     /**
@@ -61,7 +60,11 @@ class WishlistFactory extends AbstractFactory
      */
     public function getAddAllAvailableProductsToCartForm(array $data, array $options = [])
     {
-        return $this->getFormFactory()->create($this->createAddAllAvailableProductsToCartFormType(), $data, $options);
+        return $this->getFormFactory()->create(
+            $this->getAddAllAvailableProductsToCartFormType(),
+            $data,
+            $options
+        );
     }
 
     /**
@@ -73,19 +76,19 @@ class WishlistFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Wishlist\Form\WishlistFormType
+     * @return string
      */
-    protected function createWishlistFormType()
+    protected function getWishlistFormType()
     {
-        return new WishlistFormType();
+        return WishlistFormType::class;
     }
 
     /**
-     * @return \Pyz\Yves\Wishlist\Form\AddAllAvailableProductsToCartFormType
+     * @return string
      */
-    protected function createAddAllAvailableProductsToCartFormType()
+    protected function getAddAllAvailableProductsToCartFormType()
     {
-        return new AddAllAvailableProductsToCartFormType();
+        return AddAllAvailableProductsToCartFormType::class;
     }
 
     /**
@@ -109,7 +112,7 @@ class WishlistFactory extends AbstractFactory
      */
     public function createMoveToCartHandler()
     {
-        return new MoveToCartHandler($this->getClient(), $this->getCustomerClient(), $this->createAvailabilityReader());
+        return new MoveToCartHandler($this->getClient(), $this->getCustomerClient());
     }
 
     /**
@@ -119,5 +122,4 @@ class WishlistFactory extends AbstractFactory
     {
         return new AvailabilityReader($this->getAvailabilityClient());
     }
-
 }

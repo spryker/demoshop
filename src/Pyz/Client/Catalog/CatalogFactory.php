@@ -12,7 +12,6 @@ use Spryker\Client\Catalog\CatalogFactory as SprykerCatalogFactory;
 
 class CatalogFactory extends SprykerCatalogFactory
 {
-
     /**
      * @param int $limit
      *
@@ -26,6 +25,14 @@ class CatalogFactory extends SprykerCatalogFactory
             $featuredProductsQueryPlugin,
             $this->getFeaturedProductsQueryExpanderPlugins()
         );
+    }
+
+    /**
+     * @return \Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface
+     */
+    public function getCatalogPriceProductConnectorClient()
+    {
+        return $this->getProvidedDependency(CatalogDependencyProvider::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT);
     }
 
     /**
@@ -43,5 +50,4 @@ class CatalogFactory extends SprykerCatalogFactory
     {
         return $this->getProvidedDependency(CatalogDependencyProvider::FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS);
     }
-
 }

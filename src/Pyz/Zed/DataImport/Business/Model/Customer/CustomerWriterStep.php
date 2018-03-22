@@ -16,7 +16,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CustomerWriterStep implements DataImportStepInterface
 {
-
     const COL_CUSTOMER_REFERENCE = 'customer_reference';
 
     /**
@@ -30,7 +29,11 @@ class CustomerWriterStep implements DataImportStepInterface
             ->filterByCustomerReference($dataSet[self::COL_CUSTOMER_REFERENCE])
             ->findOneOrCreate();
 
-        $customerEntity->fromArray($dataSet->getArrayCopy());
+        $filteredData = array_map(function ($value) {
+            return $value ?: null;
+        }, $dataSet->getArrayCopy());
+
+        $customerEntity->fromArray($filteredData);
         $customerEntity->save();
 
         $sequenceNumberEntity = SpySequenceNumberQuery::create()
@@ -62,5 +65,4 @@ class CustomerWriterStep implements DataImportStepInterface
 
         return (int)$matches[1];
     }
-
 }

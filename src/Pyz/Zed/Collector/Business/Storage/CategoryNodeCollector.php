@@ -15,7 +15,6 @@ use Spryker\Zed\Collector\CollectorConfig;
 
 class CategoryNodeCollector extends AbstractStoragePdoCollector
 {
-
     /**
      * @param array $collectedSet
      * @param \Generated\Shared\Transfer\LocaleTransfer $locale
@@ -79,6 +78,7 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
     protected function formatCategoryNode(array $collectItemData)
     {
         return [
+            'id_category' => (int)$collectItemData['id_category'],
             'node_id' => (int)$collectItemData[CollectorConfig::COLLECTOR_RESOURCE_ID],
             'name' => $collectItemData['name'],
             'url' => $collectItemData['url'],
@@ -140,5 +140,4 @@ class CategoryNodeCollector extends AbstractStoragePdoCollector
     {
         return CategoryConfig::RESOURCE_TYPE_CATEGORY_NODE;
     }
-
 }

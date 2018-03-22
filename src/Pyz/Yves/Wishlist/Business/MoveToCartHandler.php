@@ -16,7 +16,6 @@ use Spryker\Client\Wishlist\WishlistClientInterface;
 
 class MoveToCartHandler implements MoveToCartHandlerInterface
 {
-
     /**
      * @var \Spryker\Client\Wishlist\WishlistClientInterface
      */
@@ -28,20 +27,13 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
     protected $customerClient;
 
     /**
-     * @var \Pyz\Yves\Wishlist\Business\AvailabilityReaderInterface
-     */
-    protected $availabilityReader;
-
-    /**
      * @param \Spryker\Client\Wishlist\WishlistClientInterface $wishlistClient
      * @param \Spryker\Client\Customer\CustomerClientInterface $customerClient
-     * @param \Pyz\Yves\Wishlist\Business\AvailabilityReaderInterface $availabilityReader
      */
-    public function __construct(WishlistClientInterface $wishlistClient, CustomerClientInterface $customerClient, AvailabilityReaderInterface $availabilityReader)
+    public function __construct(WishlistClientInterface $wishlistClient, CustomerClientInterface $customerClient)
     {
         $this->wishlistClient = $wishlistClient;
         $this->customerClient = $customerClient;
-        $this->availabilityReader = $availabilityReader;
     }
 
     /**
@@ -79,7 +71,6 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
                 $wishlistName,
                 $wishlistItemMetaTransfer
             );
-
             $wishlistMoveToCartRequestCollectionTransfer->addRequest($wishlistMoveToCartRequestTransfer);
         }
 
@@ -116,5 +107,4 @@ class MoveToCartHandler implements MoveToCartHandlerInterface
             ->getCustomer()
             ->getIdCustomer();
     }
-
 }

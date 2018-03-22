@@ -16,7 +16,6 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
  */
 class StorageRouter extends AbstractRouter
 {
-
     const PARAMETER_PAGE = 'page';
 
     /**
@@ -25,7 +24,7 @@ class StorageRouter extends AbstractRouter
      */
     public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH)
     {
-        $urlMatcher = $this->getFactory()->getUrlMatcher();
+        $urlMatcher = $this->getFactory()->getUrlClient();
         if ($urlMatcher->matchUrl($name, $this->getApplication()['locale'])) {
             $request = $this->getRequest();
             $requestParameters = $request->query->all();
@@ -67,7 +66,7 @@ class StorageRouter extends AbstractRouter
         if ($pathinfo !== '/') {
             $urlMatcher = $this
                 ->getFactory()
-                ->getUrlMatcher();
+                ->getUrlClient();
             $urlDetails = $urlMatcher->matchUrl($pathinfo, $this->getApplication()['locale']);
 
             if ($urlDetails === false) {
@@ -107,5 +106,4 @@ class StorageRouter extends AbstractRouter
     {
         return $this->getFactory()->getApplication();
     }
-
 }

@@ -12,7 +12,6 @@ use Spryker\Client\Newsletter\NewsletterFactory as SprykerNewsletterFactory;
 
 class NewsletterFactory extends SprykerNewsletterFactory
 {
-
     /**
      * @return \Pyz\Client\Newsletter\Model\SubscriptionRequestLogic
      */
@@ -20,5 +19,4 @@ class NewsletterFactory extends SprykerNewsletterFactory
     {
         return new SubscriptionRequestLogic();
     }
-
 }

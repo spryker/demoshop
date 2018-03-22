@@ -13,11 +13,9 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
  * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface getQueryContainer()
- * @method
  */
 class StateMachineExampleBusinessFactory extends AbstractBusinessFactory
 {
-
     /**
      * @return \Pyz\Zed\StateMachineExample\Business\Model\StateMachineExampleItemSaver
      */
@@ -33,5 +31,4 @@ class StateMachineExampleBusinessFactory extends AbstractBusinessFactory
     {
         return new StateMachineExampleItemReader($this->getQueryContainer());
     }
-
 }

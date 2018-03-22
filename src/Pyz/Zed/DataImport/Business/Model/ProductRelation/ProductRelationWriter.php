@@ -14,7 +14,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductRelationWriter implements DataImportStepInterface
 {
-
     const KEY_RELATION_TYPE = 'relation_type';
     const KEY_RULE = 'rule';
     const KEY_IS_ACTIVE = 'is_active';
@@ -47,5 +46,4 @@ class ProductRelationWriter implements DataImportStepInterface
 
         $productRelationEntity->save();
     }
-
 }

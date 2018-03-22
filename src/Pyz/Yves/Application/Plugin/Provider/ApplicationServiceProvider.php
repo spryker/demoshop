@@ -21,7 +21,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ApplicationServiceProvider extends AbstractServiceProvider
 {
-
     const LOCALE = 'locale';
     const REQUEST_URI = 'REQUEST_URI';
 
@@ -131,5 +130,4 @@ class ApplicationServiceProvider extends AbstractServiceProvider
 
         return $requestUri;
     }
-
 }

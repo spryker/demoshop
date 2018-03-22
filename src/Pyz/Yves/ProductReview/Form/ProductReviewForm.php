@@ -8,8 +8,7 @@
 namespace Pyz\Yves\ProductReview\Form;
 
 use Generated\Shared\Transfer\ProductReviewRequestTransfer;
-use Spryker\Client\ProductReview\ProductReviewClientInterface;
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -19,9 +18,12 @@ use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 
+/**
+ * @method \Pyz\Yves\ProductReview\ProductReviewFactory getFactory()
+ * @method \Spryker\Client\ProductReview\ProductReviewClientInterface getClient()
+ */
 class ProductReviewForm extends AbstractType
 {
-
     const FIELD_RATING = ProductReviewRequestTransfer::RATING;
     const FIELD_SUMMARY = ProductReviewRequestTransfer::SUMMARY;
     const FIELD_DESCRIPTION = ProductReviewRequestTransfer::DESCRIPTION;
@@ -32,22 +34,9 @@ class ProductReviewForm extends AbstractType
     const MINIMUM_RATING = 1;
 
     /**
-     * @var \Spryker\Client\ProductReview\ProductReviewClientInterface
-     */
-    protected $productReviewClient;
-
-    /**
-     * @param \Spryker\Client\ProductReview\ProductReviewClientInterface $productReviewClient
-     */
-    public function __construct(ProductReviewClientInterface $productReviewClient)
-    {
-        $this->productReviewClient = $productReviewClient;
-    }
-
-    /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'productReviewForm';
     }
@@ -81,14 +70,15 @@ class ProductReviewForm extends AbstractType
             static::FIELD_RATING,
             ChoiceType::class,
             [
-                'choices' => $this->getRatingFieldChoices(),
+                'choices' => array_flip($this->getRatingFieldChoices()),
+                'choices_as_values' => true,
                 'label' => 'product_review.submit.rating',
                 'required' => true,
                 'expanded' => false,
                 'multiple' => false,
                 'constraints' => [
                     new GreaterThanOrEqual(['value' => static::MINIMUM_RATING]),
-                    new LessThanOrEqual(['value' => $this->productReviewClient->getMaximumRating()]),
+                    new LessThanOrEqual(['value' => $this->getFactory()->getProductReviewClient()->getMaximumRating()]),
                 ],
             ]
         );
@@ -112,7 +102,7 @@ class ProductReviewForm extends AbstractType
     protected function getRatingFieldChoices()
     {
         $unselectedChoice = [static::UNSELECTED_RATING => 'product_review.submit.rating.none'];
-        $choices = range(static::MINIMUM_RATING, $this->productReviewClient->getMaximumRating());
+        $choices = range(static::MINIMUM_RATING, $this->getClient()->getMaximumRating());
         $choices = $unselectedChoice + array_combine($choices, $choices);
 
         return $choices;
@@ -132,7 +122,7 @@ class ProductReviewForm extends AbstractType
                 'label' => 'product_review.submit.summary',
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1])
+                    new Length(['min' => 1]),
                 ],
             ]
         );
@@ -157,7 +147,7 @@ class ProductReviewForm extends AbstractType
                 ],
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1])
+                    new Length(['min' => 1]),
                 ],
             ]
         );
@@ -179,7 +169,7 @@ class ProductReviewForm extends AbstractType
                 'label' => 'product_review.submit.nickname',
                 'required' => true,
                 'constraints' => [
-                    new Length(['min' => 1, 'max' => 255])
+                    new Length(['min' => 1, 'max' => 255]),
                 ],
             ]
         );
@@ -204,5 +194,4 @@ class ProductReviewForm extends AbstractType
 
         return $this;
     }
-
 }

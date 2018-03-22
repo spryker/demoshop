@@ -27,7 +27,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CustomerStepTest extends Unit
 {
-
     /**
      * @return void
      */
@@ -69,11 +68,25 @@ class CustomerStepTest extends Unit
     /**
      * @return void
      */
-    public function testPostConditionWhenCustomerSetShouldReturnTrue()
+    public function testPostConditionWhenInvalidCustomerSetShouldReturnFalse()
     {
         $customerStep = $this->createCustomerStep();
         $quoteTransfer = new QuoteTransfer();
         $quoteTransfer->setCustomer(new CustomerTransfer());
+
+        $this->assertFalse($customerStep->postCondition($quoteTransfer));
+    }
+
+    /**
+     * @return void
+     */
+    public function testPostConditionWhenGuestCustomerSetShouldReturnTrue()
+    {
+        $customerStep = $this->createCustomerStep();
+        $quoteTransfer = new QuoteTransfer();
+        $customerTransfer = new CustomerTransfer();
+        $customerTransfer->setIsGuest(true);
+        $quoteTransfer->setCustomer($customerTransfer);
 
         $this->assertTrue($customerStep->postCondition($quoteTransfer));
     }
@@ -160,5 +173,4 @@ class CustomerStepTest extends Unit
     {
         return $this->getMockBuilder(CustomerClientInterface::class)->getMock();
     }
-
 }

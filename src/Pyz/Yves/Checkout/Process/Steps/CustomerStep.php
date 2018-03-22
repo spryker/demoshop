@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterface, StepWithExternalRedirectInterface
 {
-
     /**
      * @var \Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface
      */
@@ -81,7 +80,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
@@ -103,20 +102,24 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
             return false;
         }
 
-        if ($this->isGuestCustomerSelected($quoteTransfer) && $this->isCustomerLoggedIn()) {
-            // override guest user with logged in user
-            return false;
+        if ($this->isGuestCustomerSelected($quoteTransfer)) {
+            if ($this->isCustomerLoggedIn()) {
+                // override guest user with logged in user
+                return false;
+            }
+
+            return true;
         }
 
         $customerTransfer = $this->customerClient->getCustomer();
+        if (!$customerTransfer) {
+            return false;
+        }
 
-        if ($customerTransfer) {
-            $customerTransfer = $this->customerClient->findCustomerById($customerTransfer);
-
-            if (!$customerTransfer) {
-                $this->externalRedirect = $this->logoutRoute;
-                return false;
-            }
+        $customerTransfer = $this->customerClient->findCustomerById($customerTransfer);
+        if (!$customerTransfer) {
+            $this->externalRedirect = $this->logoutRoute;
+            return false;
         }
 
         return true;
@@ -187,5 +190,4 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     {
         return $this->externalRedirect;
     }
-
 }

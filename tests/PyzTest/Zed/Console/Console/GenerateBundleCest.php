@@ -21,7 +21,6 @@ use PyzTest\Zed\Console\Helper\ConsoleHelper;
  */
 class GenerateBundleCest
 {
-
     /**
      * @param \PyzTest\Zed\Console\ConsoleConsoleTester $i
      *
@@ -37,5 +36,4 @@ class GenerateBundleCest
         $i->seeFileFound('AcmeDependencyProvider.php', $bundleDir);
         $i->seeFileFound('AcmeFacade.php', $bundleDir . '/Business');
     }
-
 }

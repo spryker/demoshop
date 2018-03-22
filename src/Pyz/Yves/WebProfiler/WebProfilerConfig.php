@@ -12,7 +12,6 @@ use Spryker\Yves\Kernel\AbstractBundleConfig;
 
 class WebProfilerConfig extends AbstractBundleConfig
 {
-
     /**
      * @return bool
      */
@@ -20,5 +19,4 @@ class WebProfilerConfig extends AbstractBundleConfig
     {
         return $this->get(WebProfilerConstants::ENABLE_WEB_PROFILER, false);
     }
-
 }

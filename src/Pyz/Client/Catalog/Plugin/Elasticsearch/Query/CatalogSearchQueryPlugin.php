@@ -17,7 +17,6 @@ use Spryker\Client\Catalog\Plugin\Elasticsearch\Query\CatalogSearchQueryPlugin a
 
 class CatalogSearchQueryPlugin extends SprykerCatalogSearchQueryPlugin
 {
-
     /**
      * @param \Elastica\Query $baseQuery
      *
@@ -54,9 +53,8 @@ class CatalogSearchQueryPlugin extends SprykerCatalogSearchQueryPlugin
     protected function setSuggestion(Query $baseQuery)
     {
         $suggest = new Suggest();
-        $suggest->setGlobalText($this->getSearchString());
+        $suggest->setGlobalText((string)$this->getSearchString());
 
         $baseQuery->setSuggest($suggest);
     }
-
 }

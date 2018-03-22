@@ -8,7 +8,7 @@ namespace Pyz\Zed\Calculation;
 
 use Spryker\Zed\Calculation\CalculationDependencyProvider as SprykerCalculationDependencyProvider;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\CanceledTotalCalculationPlugin;
-use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountAmountAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountAmountAggregatorForGenericAmountPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\DiscountTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ExpenseTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\GrandTotalCalculatorPlugin;
@@ -17,6 +17,7 @@ use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemDiscountAmountFu
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemProductOptionPriceAggregatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemSubtotalAggregatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\ItemTaxAmountFullAggregatorPlugin;
+use Spryker\Zed\Calculation\Communication\Plugin\Calculator\NetTotalCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\OrderTaxTotalCalculationPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\PriceCalculatorPlugin;
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\PriceToPayAggregatorPlugin;
@@ -28,7 +29,9 @@ use Spryker\Zed\Calculation\Communication\Plugin\Calculator\SubtotalCalculatorPl
 use Spryker\Zed\Calculation\Communication\Plugin\Calculator\TaxTotalCalculatorPlugin;
 use Spryker\Zed\DiscountCalculationConnector\Communication\Plugin\DiscountCalculatorPlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Calculation\RemovePromotionItemsCalculatorPlugin;
+use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardCalculatorPlugin;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Payment\Communication\Plugin\Calculation\PaymentCalculatorPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Calculation\CalculateBundlePricePlugin;
 use Spryker\Zed\ProductOption\Communication\Plugin\ProductOptionTaxRateCalculatorPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\ShipmentTaxRateCalculatorPlugin;
@@ -39,7 +42,6 @@ use Spryker\Zed\TaxProductConnector\Communication\Plugin\ProductItemTaxRateCalcu
 
 class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 {
-
     /**
      * This calculator stack working with quote object which happens to be processed in cart/checkout
      *
@@ -84,7 +86,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      *    - Item.productOptions.calculatedDiscounts[].unitGrossAmount
      *    - Expense.calculatedDiscounts[].unitGrossAmount
      *
-     * DiscountAmountAggregatorPlugin - Sums all discounts for corresponding object
+     * DiscountAmountAggregatorForGenericAmountPlugin - Sums all discounts for corresponding object
      *    - Item.unitDiscountAmountAggregation
      *    - Item.sumDiscountAmountAggregation
      *    - Item.productOptions.unitDiscountAmountAggregation
@@ -164,6 +166,9 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      * TaxTotalCalculatorPlugin - Total tax amount
      *    - Totals.taxTotal.amount
      *
+     * NetTotalCalculatorPlugin - Calculate total amount before taxes
+     *   - Totals.netTotal
+     *
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Calculation\Dependency\Plugin\CalculationPluginInterface[]
@@ -185,9 +190,11 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new ProductOptionTaxRateCalculatorPlugin(),
             new ShipmentTaxRateCalculatorPlugin(),
 
+            new GiftCardCalculatorPlugin(),
+
             new InitialGrandTotalCalculatorPlugin(),
             new DiscountCalculatorPlugin(),
-            new DiscountAmountAggregatorPlugin(),
+            new DiscountAmountAggregatorForGenericAmountPlugin(),
             new ItemDiscountAmountFullAggregatorPlugin(),
 
             new TaxAmountCalculatorPlugin(),
@@ -206,7 +213,8 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new RefundTotalCalculatorPlugin(),
             new TaxTotalCalculatorPlugin(),
             new GrandTotalCalculatorPlugin(),
-
+            new NetTotalCalculatorPlugin(),
+            new PaymentCalculatorPlugin(),
         ];
     }
 
@@ -227,7 +235,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
 
             new SubtotalCalculatorPlugin(),
 
-            new DiscountAmountAggregatorPlugin(),
+            new DiscountAmountAggregatorForGenericAmountPlugin(),
             new ItemDiscountAmountFullAggregatorPlugin(),
 
             new TaxAmountCalculatorPlugin(),
@@ -245,7 +253,7 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new CanceledTotalCalculationPlugin(),
             new OrderTaxTotalCalculationPlugin(),
             new GrandTotalCalculatorPlugin(),
+            new NetTotalCalculatorPlugin(),
         ];
     }
-
 }

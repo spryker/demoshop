@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class VoucherController extends AbstractController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -30,12 +29,11 @@ class VoucherController extends AbstractController
             ->handleRequest($request);
 
         if ($form->isValid()) {
-            $voucherCode = $form->get(VoucherForm::FIELD_VOUCHER_CODE)->getData();
+            $code = $form->get(VoucherForm::FIELD_VOUCHER_CODE)->getData();
 
             $this->getFactory()
-                ->createCartVoucherHandler()
-                ->add($voucherCode);
-
+                ->createCartCodeHandler()
+                ->add($code);
         }
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
@@ -51,7 +49,7 @@ class VoucherController extends AbstractController
         $voucherCode = $request->query->get('code');
         if (!empty($voucherCode)) {
             $this->getFactory()
-                ->createCartVoucherHandler()
+                ->createCartCodeHandler()
                 ->remove($voucherCode);
         }
 
@@ -63,9 +61,8 @@ class VoucherController extends AbstractController
      */
     public function clearAction()
     {
-        $this->getFactory()->createCartVoucherHandler()->clear();
+        $this->getFactory()->createCartCodeHandler()->clear();
 
         return $this->redirectResponseInternal(CartControllerProvider::ROUTE_CART);
     }
-
 }

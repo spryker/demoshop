@@ -18,17 +18,17 @@ use Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SearchConfigBuilderInterface;
 use Spryker\Client\Search\Dependency\Plugin\SortConfigBuilderInterface;
+use Spryker\Client\Search\Model\Elasticsearch\Aggregation\CategoryFacetAggregation;
 use Spryker\Shared\Search\SearchConfig;
 
 /**
- * @method \Spryker\Client\Catalog\CatalogFactory getFactory()
+ * @method \Pyz\Client\Catalog\CatalogFactory getFactory()
  */
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
-
-    const DEFAULT_ITEMS_PER_PAGE = 12;
-    const VALID_ITEMS_PER_PAGE_OPTIONS = [12, 24, 36];
-    const SIZE_UNLIMITED = 0;
+    const DEFAULT_ITEMS_PER_PAGE = 48;
+    const VALID_ITEMS_PER_PAGE_OPTIONS = [24, 36, 48];
+    const SIZE_UNLIMITED = 1000;
 
     const CATEGORY_FACET_PARAM_NAME = 'category';
     const LABEL_FACET_NAME = 'label';
@@ -91,7 +91,9 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
             ->setParameterName(static::CATEGORY_FACET_PARAM_NAME)
             ->setFieldName(PageIndexMap::CATEGORY_ALL_PARENTS)
             ->setType(SearchConfig::FACET_TYPE_CATEGORY)
-            ->setSize(self::SIZE_UNLIMITED);
+            ->setAggregationParams([
+                CategoryFacetAggregation::AGGREGATION_PARAM_SIZE => static::SIZE_UNLIMITED,
+            ]);
 
         $facetConfigBuilder->addFacet($categoryFacet);
 
@@ -105,8 +107,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addPriceFacet(FacetConfigBuilderInterface $facetConfigBuilder)
     {
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
+
         $priceFacet = (new FacetConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifier)
             ->setParameterName('price')
             ->setFieldName(PageIndexMap::INTEGER_FACET)
             ->setType(SearchConfig::FACET_TYPE_PRICE_RANGE);
@@ -215,8 +221,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addAscendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
+
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifier)
             ->setParameterName('price_asc')
             ->setFieldName(PageIndexMap::INTEGER_SORT);
 
@@ -232,8 +242,12 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
      */
     protected function addDescendingPriceSort(SortConfigBuilderInterface $sortConfigBuilder)
     {
+        $priceIdentifier = $this->getFactory()
+            ->getCatalogPriceProductConnectorClient()
+            ->buildPriceIdentifierForCurrentCurrency();
+
         $priceSortConfig = (new SortConfigTransfer())
-            ->setName('price')
+            ->setName($priceIdentifier)
             ->setParameterName('price_desc')
             ->setFieldName(PageIndexMap::INTEGER_SORT)
             ->setIsDescending(true);
@@ -242,5 +256,4 @@ class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigB
 
         return $this;
     }
-
 }

@@ -11,7 +11,6 @@ use Spryker\Zed\Glossary\GlossaryConfig as SprykerGlossaryConfig;
 
 class GlossaryConfig extends SprykerGlossaryConfig
 {
-
     /**
      * @return array
      */
@@ -39,5 +38,4 @@ class GlossaryConfig extends SprykerGlossaryConfig
 
         return $paths;
     }
-
 }

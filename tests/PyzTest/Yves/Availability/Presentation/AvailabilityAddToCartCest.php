@@ -7,6 +7,7 @@
 
 namespace PyzTest\Yves\Availability\Presentation;
 
+use Codeception\Scenario;
 use PyzTest\Yves\Availability\AvailabilityPresentationTester;
 use PyzTest\Yves\Cart\PageObject\CartListPage;
 use PyzTest\Yves\Product\PageObject\ProductDetailPage;
@@ -22,14 +23,18 @@ use PyzTest\Yves\Product\PageObject\ProductDetailPage;
  */
 class AvailabilityAddToCartCest
 {
-
     /**
      * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
+     * @param \Codeception\Scenario $scenario
      *
      * @return void
      */
-    public function testAddToCartWhenBiggerQuantityIsUsed(AvailabilityPresentationTester $i)
+    public function testAddToCartWhenBiggerQuantityIsUsed(AvailabilityPresentationTester $i, Scenario $scenario)
     {
+        if (version_compare(PHP_VERSION, '7.2', '>=')) {
+            $scenario->skip('Re-enable the test when VM with PHP 7.2 is available.');
+        }
+
         $i->wantTo('Open product page, and add item to cart with larger quantity than available');
         $i->expectTo('Display error message');
 
@@ -44,5 +49,4 @@ class AvailabilityAddToCartCest
 
         $i->see(AvailabilityPresentationTester::CART_PRE_CHECK_AVAILABILITY_ERROR_MESSAGE);
     }
-
 }

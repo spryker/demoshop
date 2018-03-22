@@ -7,6 +7,7 @@
 
 namespace PyzTest\Yves\Availability\Presentation;
 
+use Codeception\Scenario;
 use PyzTest\Yves\Availability\AvailabilityPresentationTester;
 use PyzTest\Yves\Cart\PageObject\CartListPage;
 use PyzTest\Yves\Product\PageObject\ProductDetailPage;
@@ -25,14 +26,18 @@ use PyzTest\Zed\Sales\PageObject\OrderListPage;
  */
 class CheckoutAvailabilityCest
 {
-
     /**
      * @param \PyzTest\Yves\Availability\AvailabilityPresentationTester $i
+     * @param \Codeception\Scenario $scenario
      *
      * @return void
      */
-    public function testCheckoutItemWithAvailability(AvailabilityPresentationTester $i)
+    public function testCheckoutItemWithAvailability(AvailabilityPresentationTester $i, Scenario $scenario)
     {
+        if (version_compare(PHP_VERSION, '7.2', '>=')) {
+            $scenario->skip('Re-enable the test when VM with PHP 7.2 is available.');
+        }
+
         $i->wantTo('Checkout item with stock');
         $i->expectTo('Availability changed during SM processing.');
 
@@ -52,18 +57,13 @@ class CheckoutAvailabilityCest
 
         $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
-        $i->waitForElementVisible('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
-
-        $reservedProductsBefore = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
-
-        codecept_debug('Reserved Products before: ' . $reservedProductsBefore);
+        $i->waitForElementVisible(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH, 30);
+        $reservedProductsBefore = $i->grabTextFrom(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH);
 
         $i->amOnPage(OrderListPage::ORDER_LIST_URL);
-        $i->wait(2);
 
-        $idSalesOrder = $i->grabTextFrom('//*[@class="dataTables_scrollBody"]/table/tbody/tr[1]/td[1]');
-
-        codecept_debug('ID Sales order: ' . $idSalesOrder);
+        $i->waitForElementVisible(OrderDetailPage::ORDER_DETAIL_TABLE_FIRST_ORDER_ID_XPATH, 30);
+        $idSalesOrder = $i->grabTextFrom(OrderDetailPage::ORDER_DETAIL_TABLE_FIRST_ORDER_ID_XPATH);
 
         $i->amOnPage(sprintf(OrderDetailPage::ORDER_DETAIL_PAGE_URL, $idSalesOrder));
 
@@ -75,9 +75,9 @@ class CheckoutAvailabilityCest
 
         $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
-        $reservedProductsAfter = $i->grabTextFrom('//*[@id="page-wrapper"]/div[3]/div[2]/div/div/div[2]/div/div[5]/p[2]');
+        $i->waitForElementVisible(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH, 10);
+        $reservedProductsAfter = $i->grabTextFrom(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH);
 
         $i->assertEquals($reservedProductsAfter, $reservedProductsBefore - 1); //Reserved item returned back
     }
-
 }

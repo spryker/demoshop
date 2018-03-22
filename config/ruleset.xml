@@ -10,11 +10,16 @@
     <rule ref="vendor/spryker/code-sniffer/Spryker/ruleset.xml"/>
 
     <exclude-pattern>*/src/Generated/*</exclude-pattern>
-    <exclude-pattern>*/src/Orm/*</exclude-pattern>
+    <exclude-pattern>*/src/Orm/*/Base/</exclude-pattern>
+    <exclude-pattern>*/src/Orm/*/Map/</exclude-pattern>
+    <exclude-pattern>*/src/Orm/Propel/</exclude-pattern>
     <exclude-pattern>*/tests/_support/_generated/*</exclude-pattern>
     <exclude-pattern>*/tests/_helpers/*</exclude-pattern>
     <exclude-pattern>*/tests/_output/*</exclude-pattern>
     <exclude-pattern>./data/DE/*</exclude-pattern>
+    <exclude-pattern>./data/AT/*</exclude-pattern>
+    <exclude-pattern>./data/US/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
 
     <!-- Define your own sniffs here -->
 

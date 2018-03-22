@@ -7,14 +7,15 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class LoginForm extends AbstractType
 {
-
     const FORM_NAME = 'loginForm';
 
     const FIELD_EMAIL = 'email';
@@ -23,7 +24,7 @@ class LoginForm extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return self::FORM_NAME;
     }
@@ -50,7 +51,7 @@ class LoginForm extends AbstractType
      */
     protected function addEmailField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_EMAIL, 'text', [
+        $builder->add(self::FIELD_EMAIL, EmailType::class, [
             'label' => 'customer.login.email',
             'constraints' => [
                 new NotBlank(),
@@ -69,7 +70,7 @@ class LoginForm extends AbstractType
      */
     protected function addPasswordField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_PASSWORD, self::FIELD_PASSWORD, [
+        $builder->add(self::FIELD_PASSWORD, PasswordType::class, [
             'label' => 'customer.login.password',
             'constraints' => new NotBlank(),
             'mapped' => false,
@@ -78,5 +79,4 @@ class LoginForm extends AbstractType
 
         return $this;
     }
-
 }

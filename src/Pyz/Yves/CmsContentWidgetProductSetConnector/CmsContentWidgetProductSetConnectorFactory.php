@@ -8,11 +8,10 @@
 namespace Pyz\Yves\CmsContentWidgetProductSetConnector;
 
 use Pyz\Yves\CmsContentWidgetProductConnector\CmsContentWidgetProductConnectorDependencyProvider;
-use Spryker\Yves\CmsContentWidgetProductSetConnector\CmsContentWidgetProductSetConnectorConnectorFactory as SprykerCmsContentWidgetProductSetConnectorConnectorFactory;
+use Spryker\Yves\CmsContentWidgetProductSetConnector\CmsContentWidgetProductSetConnectorFactory as SprykerCmsContentWidgetProductSetConnectorFactory;
 
-class CmsContentWidgetProductSetConnectorFactory extends SprykerCmsContentWidgetProductSetConnectorConnectorFactory
+class CmsContentWidgetProductSetConnectorFactory extends SprykerCmsContentWidgetProductSetConnectorFactory
 {
-
     /**
      * @return \Pyz\Yves\Product\Dependency\Plugin\StorageProductMapperPluginInterface
      */
@@ -20,5 +19,4 @@ class CmsContentWidgetProductSetConnectorFactory extends SprykerCmsContentWidget
     {
         return $this->getProvidedDependency(CmsContentWidgetProductConnectorDependencyProvider::STORAGE_PRODUCT_MAPPER_PLUGIN);
     }
-
 }

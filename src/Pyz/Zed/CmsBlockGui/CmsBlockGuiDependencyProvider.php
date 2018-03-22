@@ -12,10 +12,10 @@ use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CmsBlockCategoryL
 use Spryker\Zed\CmsBlockGui\CmsBlockGuiDependencyProvider as CmsBlockGuiCmsBlockGuiDependencyProvider;
 use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductAbstractFormPlugin;
 use Spryker\Zed\CmsBlockProductConnector\Communication\Plugin\CmsBlockProductAbstractListViewPlugin;
+use Spryker\Zed\Store\Communication\Plugin\Form\StoreRelationToggleFormTypePlugin;
 
 class CmsBlockGuiDependencyProvider extends CmsBlockGuiCmsBlockGuiDependencyProvider
 {
-
     /**
      * @return array
      */
@@ -41,4 +41,11 @@ class CmsBlockGuiDependencyProvider extends CmsBlockGuiCmsBlockGuiDependencyProv
         ]);
     }
 
+    /**
+     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
+     */
+    protected function getStoreRelationFormTypePlugin()
+    {
+        return new StoreRelationToggleFormTypePlugin();
+    }
 }

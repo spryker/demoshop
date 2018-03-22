@@ -1,6 +1,72 @@
 parameters:
-  excludes_analyse:
-    - %rootDir%/../../../src/Generated/*
-    - %rootDir%/../../../src/Orm/*
+    excludes_analyse:
+        - %rootDir%/../../../src/Generated/*
+        - %rootDir%/../../../src/Orm/*
 
-  bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+    bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+
+services:
+    -
+        class: PhpStan\DynamicType\FacadeDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\QueryContainerDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ConsoleDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ControllerDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\PluginDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ServiceDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ConfigDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ClientDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ClientPluginDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\YvesFormTypeDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ZedFormTypeDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\YvesFactoryDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: PhpStan\DynamicType\ZedFactoryDynamicTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension

@@ -14,7 +14,6 @@ use Spryker\Shared\Product\ProductConfig;
 
 class AttributeVariantMapper implements AttributeVariantMapperInterface
 {
-
     /**
      * @var \Spryker\Client\Product\ProductClientInterface
      */
@@ -259,7 +258,7 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      * @param array $productConcrete
      *
-     * @return \Generated\Shared\Transfer\StorageProductTransfer;
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     protected function mapVariantStorageProductTransfer(StorageProductTransfer $storageProductTransfer, array $productConcrete)
     {
@@ -302,5 +301,4 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
 
         return $this->mapVariantStorageProductTransfer($storageProductTransfer, $productConcrete);
     }
-
 }

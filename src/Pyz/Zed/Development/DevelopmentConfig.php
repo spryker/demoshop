@@ -11,7 +11,6 @@ use Spryker\Zed\Development\DevelopmentConfig as SprykerDevelopmentConfig;
 
 class DevelopmentConfig extends SprykerDevelopmentConfig
 {
-
     /**
      * @project Only needed in Project, not in demoshop
      *
@@ -26,6 +25,16 @@ class DevelopmentConfig extends SprykerDevelopmentConfig
     }
 
     /**
+     * @project Only needed in Project, not in demoshop
+     *
+     * @return string
+     */
+    public function getPathToShop()
+    {
+        return $this->getPathToRoot() . 'vendor/spryker/spryker-shop/Bundles/';
+    }
+
+    /**
      * @return string
      */
     public function getCodingStandard()
@@ -34,5 +43,4 @@ class DevelopmentConfig extends SprykerDevelopmentConfig
 
         return $rootDir . 'config/ruleset.xml';
     }
-
 }

@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProfileController extends AbstractCustomerController
 {
-
     const MESSAGE_PROFILE_CHANGE_SUCCESS = 'customer.profile.change.success';
     const MESSAGE_PASSWORD_CHANGE_SUCCESS = 'customer.password.change.success';
 
@@ -27,7 +26,7 @@ class ProfileController extends AbstractCustomerController
         $profileForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createProfileForm()
+            ->getProfileForm()
             ->handleRequest($request);
 
         if ($profileForm->isSubmitted() === false) {
@@ -47,7 +46,7 @@ class ProfileController extends AbstractCustomerController
         $passwordForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createPasswordForm()
+            ->getPasswordForm()
             ->handleRequest($request);
 
         if ($passwordForm->isValid() && $this->processPasswordUpdate($passwordForm->getData()) === true) {
@@ -127,5 +126,4 @@ class ProfileController extends AbstractCustomerController
         $loggedInCustomerTransfer = $this->getLoggedInCustomerTransfer();
         $loggedInCustomerTransfer->fromArray($customerTransfer->modifiedToArray());
     }
-
 }

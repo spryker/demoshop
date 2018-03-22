@@ -4,14 +4,16 @@ use Monolog\Logger;
 use Spryker\Client\RabbitMq\Model\RabbitMqAdapter;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
-use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Auth\AuthConstants;
 use Spryker\Shared\Cms\CmsConstants;
+use Spryker\Shared\CmsGui\CmsGuiConstants;
 use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Customer\CustomerConstants;
+use Spryker\Shared\DummyPayment\DummyPaymentConfig;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
+use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Flysystem\FlysystemConstants;
@@ -20,9 +22,9 @@ use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
+use Spryker\Shared\Nopayment\NopaymentConfig;
+use Spryker\Shared\Nopayment\NopaymentConstants;
 use Spryker\Shared\Oms\OmsConstants;
-use Spryker\Shared\Price\PriceConstants;
-use Spryker\Shared\PriceCartConnector\PriceCartConnectorConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConfig;
 use Spryker\Shared\Queue\QueueConstants;
@@ -36,9 +38,12 @@ use Spryker\Shared\Twig\TwigConstants;
 use Spryker\Shared\User\UserConstants;
 use Spryker\Shared\ZedNavigation\ZedNavigationConstants;
 use Spryker\Shared\ZedRequest\ZedRequestConstants;
-use Spryker\Zed\DummyPayment\DummyPaymentConfig;
+use Spryker\Yves\Log\Plugin\YvesLoggerConfigPlugin;
+use Spryker\Zed\GiftCard\GiftCardConfig;
+use Spryker\Zed\Log\Communication\Plugin\ZedLoggerConfigPlugin;
 use Spryker\Zed\Oms\OmsConfig;
 use Spryker\Zed\Propel\PropelConfig;
+use SprykerEco\Shared\Loggly\LogglyConstants;
 
 $CURRENT_STORE = Store::getInstance()->getStoreName();
 
@@ -171,27 +176,20 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
 
 // ---------- Elasticsearch
 $ELASTICA_HOST = 'localhost';
-$config[ApplicationConstants::ELASTICA_PARAMETER__HOST] = $ELASTICA_HOST;
 $config[SearchConstants::ELASTICA_PARAMETER__HOST] = $ELASTICA_HOST;
 $ELASTICA_TRANSPORT_PROTOCOL = 'http';
-$config[ApplicationConstants::ELASTICA_PARAMETER__TRANSPORT] = $ELASTICA_TRANSPORT_PROTOCOL;
 $config[SearchConstants::ELASTICA_PARAMETER__TRANSPORT] = $ELASTICA_TRANSPORT_PROTOCOL;
 $ELASTICA_PORT = '10005';
-$config[ApplicationConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $config[SearchConstants::ELASTICA_PARAMETER__PORT] = $ELASTICA_PORT;
 $ELASTICA_AUTH_HEADER = '';
-$config[ApplicationConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
 $config[SearchConstants::ELASTICA_PARAMETER__AUTH_HEADER] = $ELASTICA_AUTH_HEADER;
 $ELASTICA_INDEX_NAME = null;// Store related config
-$config[ApplicationConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
-$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $config[SearchConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
+$config[CollectorConstants::ELASTICA_PARAMETER__INDEX_NAME] = $ELASTICA_INDEX_NAME;
 $ELASTICA_DOCUMENT_TYPE = 'page';
-$config[ApplicationConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
-$config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $config[SearchConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
+$config[CollectorConstants::ELASTICA_PARAMETER__DOCUMENT_TYPE] = $ELASTICA_DOCUMENT_TYPE;
 $ELASTICA_PARAMETER__EXTRA = [];
-$config[ApplicationConstants::ELASTICA_PARAMETER__EXTRA] = $ELASTICA_PARAMETER__EXTRA;
 $config[SearchConstants::ELASTICA_PARAMETER__EXTRA] = $ELASTICA_PARAMETER__EXTRA;
 
 // ---------- Page search
@@ -200,10 +198,24 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
 
 // ---------- Twig
 $config[TwigConstants::YVES_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Yves/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
+            '%s/data/%s/cache/Yves/twig',
+            APPLICATION_ROOT_DIR,
+            $CURRENT_STORE
+        ),
+        Twig_Cache_Filesystem::FORCE_BYTECODE_INVALIDATION
+    ),
 ];
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
-    'cache' => sprintf('%s/data/%s/cache/Zed/twig', APPLICATION_ROOT_DIR, $CURRENT_STORE),
+    'cache' => new Twig_Cache_Filesystem(
+        sprintf(
+            '%s/data/%s/cache/Zed/twig',
+            APPLICATION_ROOT_DIR,
+            $CURRENT_STORE
+        ),
+        Twig_Cache_Filesystem::FORCE_BYTECODE_INVALIDATION
+    ),
 ];
 $config[TwigConstants::YVES_PATH_CACHE_FILE] = sprintf(
     '%s/data/%s/cache/Yves/twig/.pathCache',
@@ -290,17 +302,26 @@ $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DE
 //$config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEPRECATED;
 
 // ---------- Logging
-$config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
+$config[LogConstants::LOGGER_CONFIG_ZED] = ZedLoggerConfigPlugin::class;
+$config[LogConstants::LOGGER_CONFIG_YVES] = YvesLoggerConfigPlugin::class;
+
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
-$config[LogConstants::LOG_FILE_PATH] = sprintf(
-    '%s/data/%s/logs/%s/application.log',
-    APPLICATION_ROOT_DIR,
-    $CURRENT_STORE,
-    APPLICATION
-);
+
+$baseLogFilePath = sprintf('%s/data/%s/logs', APPLICATION_ROOT_DIR, $CURRENT_STORE);
+
+$config[LogConstants::LOG_FILE_PATH_YVES] = $baseLogFilePath . '/YVES/application.log';
+$config[LogConstants::LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/application.log';
+
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH_YVES] = $baseLogFilePath . '/YVES/exception.log';
+$config[LogConstants::EXCEPTION_LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/exception.log';
+
 $config[LogConstants::LOG_SANITIZE_FIELDS] = [
-    'password'
+    'password',
 ];
+
+$config[LogConstants::LOG_QUEUE_NAME] = 'log-queue';
+$config[LogConstants::LOG_ERROR_QUEUE_NAME] = 'error-log-queue';
+
 /**
  * As long EventJournal is in ZedRequest bundle this needs to be disabled by hand
  */
@@ -315,28 +336,43 @@ $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_PROVIDER] = File::class;
 $config[KernelConstants::DEPENDENCY_INJECTOR_YVES] = [
     'Checkout' => [
         'DummyPayment',
+        NopaymentConfig::PAYMENT_PROVIDER_NAME,
     ],
 ];
+
 $config[KernelConstants::DEPENDENCY_INJECTOR_ZED] = [
     'Payment' => [
         'DummyPayment',
+        GiftCardConfig::PROVIDER_NAME,
+        NopaymentConfig::PAYMENT_PROVIDER_NAME,
     ],
     'Oms' => [
         'DummyPayment',
+        GiftCardConfig::PROVIDER_NAME,
     ],
+];
+
+$config[NopaymentConstants::NO_PAYMENT_METHODS] = [
+    NopaymentConfig::PAYMENT_PROVIDER_NAME,
+];
+
+$config[NopaymentConstants::WHITELIST_PAYMENT_METHODS] = [
+    GiftCardConfig::PROVIDER_NAME,
 ];
 
 // ---------- State machine (OMS)
 $config[OmsConstants::PROCESS_LOCATION] = [
     OmsConfig::DEFAULT_PROCESS_LOCATION,
-    $config[KernelConstants::SPRYKER_ROOT] . '/DummyPayment/config/Zed/Oms',
 ];
 $config[OmsConstants::ACTIVE_PROCESSES] = [
     'DummyPayment01',
+    'Nopayment01',
 ];
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     DummyPaymentConfig::PAYMENT_METHOD_INVOICE => 'DummyPayment01',
     DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'DummyPayment01',
+    GiftCardConfig::PROVIDER_NAME => 'DummyPayment01',
+    NopaymentConfig::PAYMENT_PROVIDER_NAME => 'Nopayment01',
 ];
 
 // ---------- NewRelic
@@ -344,8 +380,10 @@ $config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 // ---------- Queue
 $config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
-$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 10000;
+$config[QueueConstants::QUEUE_WORKER_INTERVAL_MILLISECONDS] = 1000;
 $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
+$config[QueueConstants::QUEUE_WORKER_LOG_ACTIVE] = false;
+
 /*
  * Queues can have different adapters and maximum worker number
  * QUEUE_ADAPTER_CONFIGURATION can have the array like this as an example:
@@ -357,7 +395,11 @@ $config[QueueConstants::QUEUE_WORKER_MAX_THRESHOLD_SECONDS] = 59;
  *
  *
  */
-$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [];
+$config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION_DEFAULT] = [
+    QueueConfig::CONFIG_QUEUE_ADAPTER => RabbitMqAdapter::class,
+    QueueConfig::CONFIG_MAX_WORKER_NUMBER => 1,
+];
+
 $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
     EventConstants::EVENT_QUEUE => [
         QueueConfig::CONFIG_QUEUE_ADAPTER => RabbitMqAdapter::class,
@@ -365,20 +407,25 @@ $config[QueueConstants::QUEUE_ADAPTER_CONFIGURATION] = [
     ],
 ];
 
+$config[LogglyConstants::QUEUE_NAME] = 'loggly-log-queue';
+$config[LogglyConstants::ERROR_QUEUE_NAME] = 'loggly-log-queue.error';
+
 // ---------- Events
 $config[EventConstants::LOGGER_ACTIVE] = false;
+
+// ---------- Collector
+$config[CollectorConstants::TOUCH_DELETE_CLEANUP_ACTIVE] = false;
+
+// ---------- EventBehavior
+$config[EventBehaviorConstants::EVENT_BEHAVIOR_TRIGGERING_ACTIVE] = false;
 
 // ---------- Customer
 $config[CustomerConstants::CUSTOMER_SECURED_PATTERN] = '(^/login_check$|^(/en|/de)?/customer|^(/en|/de)?/wishlist)';
 $config[CustomerConstants::CUSTOMER_ANONYMOUS_PATTERN] = '^/.*';
-
-// ---------- Price
-$DEFAULT_PRICE_TYPE = 'DEFAULT';
-$config[PriceConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
-$config[PriceCartConnectorConstants::DEFAULT_PRICE_TYPE] = $DEFAULT_PRICE_TYPE;
 
 // ---------- Taxes
 $config[TaxConstants::DEFAULT_TAX_RATE] = 19;
 
 $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
+$config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';

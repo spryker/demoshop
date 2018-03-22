@@ -15,7 +15,6 @@ use Spryker\Zed\Collector\Business\Collector\Storage\AbstractStoragePropelCollec
 
 class AvailabilityCollector extends AbstractStoragePropelCollector
 {
-
     /**
      * @param string $touchKey
      * @param array $collectItemData
@@ -35,14 +34,15 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     }
 
     /**
-     * @param int $idAvailabilityAbstact
+     * @param int $idAvailabilityAbstract
      *
      * @return array
      */
-    protected function getConcreteProductsAvailability($idAvailabilityAbstact)
+    protected function getConcreteProductsAvailability($idAvailabilityAbstract)
     {
         $productConcreteAvailability = SpyAvailabilityQuery::create()
-            ->findByFkAvailabilityAbstract($idAvailabilityAbstact);
+            ->filterByFkStore($this->getCurrentStore()->getIdStore())
+            ->findByFkAvailabilityAbstract($idAvailabilityAbstract);
 
         $concreteProductStock = [];
         foreach ($productConcreteAvailability as $availabilityEntity) {
@@ -97,5 +97,4 @@ class AvailabilityCollector extends AbstractStoragePropelCollector
     {
         return $availabilityEntity->getQuantity() > 0 || $availabilityEntity->getIsNeverOutOfStock();
     }
-
 }

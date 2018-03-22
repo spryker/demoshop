@@ -19,6 +19,7 @@ use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Spryker\Shared\ShipmentCheckoutConnector\ShipmentCheckoutConnectorConfig;
 use Spryker\Yves\Checkout\Process\StepFactory as SprykerStepFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\StepEngine\Process\StepBreadcrumbGenerator;
@@ -28,7 +29,6 @@ use Spryker\Yves\StepEngine\Process\StepEngine;
 
 class StepFactory extends SprykerStepFactory
 {
-
     /**
      * @param \Spryker\Yves\StepEngine\Process\StepCollectionInterface $stepCollection
      *
@@ -135,10 +135,12 @@ class StepFactory extends SprykerStepFactory
     protected function createPaymentStep()
     {
         return new PaymentStep(
+            $this->getPaymentClient(),
             $this->createPaymentMethodHandler(),
             CheckoutControllerProvider::CHECKOUT_PAYMENT,
             ApplicationControllerProvider::ROUTE_HOME,
-            $this->getFlashMessenger()
+            $this->getFlashMessenger(),
+            $this->getCalculationClient()
         );
     }
 
@@ -167,6 +169,7 @@ class StepFactory extends SprykerStepFactory
             ApplicationControllerProvider::ROUTE_HOME,
             [
                 'payment failed' => CheckoutControllerProvider::CHECKOUT_PAYMENT,
+                ShipmentCheckoutConnectorConfig::ERROR_CODE_SHIPMENT_FAILED => CheckoutControllerProvider::CHECKOUT_SHIPMENT,
             ]
         );
     }
@@ -241,11 +244,18 @@ class StepFactory extends SprykerStepFactory
     }
 
     /**
+     * @return \Spryker\Client\Payment\PaymentClientInterface
+     */
+    public function getPaymentClient()
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_PAYMENT);
+    }
+
+    /**
      * @return \Spryker\Yves\StepEngine\Process\StepBreadcrumbGeneratorInterface
      */
     public function createStepBreadcrumbGenerator()
     {
         return new StepBreadcrumbGenerator();
     }
-
 }

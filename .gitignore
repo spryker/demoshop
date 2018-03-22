@@ -19,6 +19,7 @@ GTAGS
 
 # Y&Z
 /config/Shared/config_local*
+!/config/Shared/config_local.dist.php
 /config/Shared/console_env_local.php
 /config/Shared/cubes.*
 /config/Zed/behat.local.yml
@@ -31,8 +32,8 @@ config/accumulated-config.json
 /deploy/setup/frontend/params_local.sh
 
 /src/Generated/
-/src/Orm/Propel/DE/Migration_pgsql/
-/src/Orm/Propel/DE/Migration_mysql/
+/src/Orm/Propel/*/Migration_pgsql/
+/src/Orm/Propel/*/Migration_mysql/
 /vendor/
 FOSS.md
 
@@ -85,3 +86,4 @@ npm-debug.log
 composer.phar
 c3.php
 .phpstorm.meta.php
+.githook_local

@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends AbstractCustomerController
 {
-
     const ORDER_LIST_LIMIT = 10;
     const ORDER_LIST_SORT_FIELD = 'created_at';
     const ORDER_LIST_SORT_DIRECTION = 'DESC';
@@ -132,5 +131,4 @@ class OrderController extends AbstractCustomerController
             'items' => $items,
         ];
     }
-
 }

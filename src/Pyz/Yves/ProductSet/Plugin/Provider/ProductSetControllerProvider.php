@@ -12,7 +12,6 @@ use Silex\Application;
 
 class ProductSetControllerProvider extends AbstractYvesControllerProvider
 {
-
     const ROUTE_PRODUCT_SETS = 'product-sets';
 
     /**
@@ -28,5 +27,4 @@ class ProductSetControllerProvider extends AbstractYvesControllerProvider
             ->assert('sets', $allowedLocalesPattern . 'product-sets|product-sets')
             ->value('sets', 'product-sets');
     }
-
 }

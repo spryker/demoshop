@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UrlGenerator implements UrlGeneratorInterface
 {
-
     /**
      * @var \Spryker\Client\Search\SearchClientInterface
      */
@@ -49,7 +48,7 @@ class UrlGenerator implements UrlGeneratorInterface
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Kernel\Transfer\TransferInterface[] $facetFilters
+     * @param array $facetFilters
      *
      * @return string
      */
@@ -59,7 +58,7 @@ class UrlGenerator implements UrlGeneratorInterface
         $params = $this->removePaginationFromParams($params);
 
         foreach ($facetFilters as $searchResultTransfer) {
-            if (!isset($params[$searchResultTransfer->getConfig()->getName()])) {
+            if (!isset($params[$searchResultTransfer->getConfig()->getParameterName()])) {
                 continue;
             }
 
@@ -108,15 +107,16 @@ class UrlGenerator implements UrlGeneratorInterface
      */
     protected function processFacetSearchResultTransfer(array $params, FacetSearchResultTransfer $searchResultTransfer, $filterValue = null)
     {
-        $param = $params[$searchResultTransfer->getName()];
+        $parameterName = $searchResultTransfer->getConfig()->getParameterName();
+        $param = $params[$parameterName];
         if (is_array($param) && $filterValue !== null) {
             $index = array_search($filterValue, $param);
-            unset($params[$searchResultTransfer->getName()][$index]);
+            unset($params[$parameterName][$index]);
 
             return $params;
         }
 
-        unset($params[$searchResultTransfer->getName()]);
+        unset($params[$parameterName]);
 
         return $params;
     }
@@ -129,7 +129,7 @@ class UrlGenerator implements UrlGeneratorInterface
      */
     protected function processRangeSearchResultTransfer(array $params, RangeSearchResultTransfer $searchResultTransfer)
     {
-        unset($params[$searchResultTransfer->getName()]);
+        unset($params[$searchResultTransfer->getConfig()->getParameterName()]);
 
         return $params;
     }
@@ -152,5 +152,4 @@ class UrlGenerator implements UrlGeneratorInterface
 
         return $params;
     }
-
 }

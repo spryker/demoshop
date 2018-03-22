@@ -16,7 +16,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductSearchAttributeMapWriter implements DataImportStepInterface
 {
-
     const KEY_TARGET_FIELD = 'target_field';
     const KEY_ATTRIBUTE_KEY = 'attribute_key';
     const KEY_SYNCED = 'synced';
@@ -52,5 +51,4 @@ class ProductSearchAttributeMapWriter implements DataImportStepInterface
         $productSearchAttributeMapEntity->setSynced((isset($dataSet[static::KEY_SYNCED])) ? $dataSet[static::KEY_SYNCED] : true);
         $productSearchAttributeMapEntity->save();
     }
-
 }

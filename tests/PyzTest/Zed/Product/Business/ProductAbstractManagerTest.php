@@ -23,7 +23,6 @@ use Generated\Shared\Transfer\ProductImageTransfer;
  */
 class ProductAbstractManagerTest extends ProductTestAbstract
 {
-
     /**
      * @return void
      */
@@ -127,11 +126,11 @@ class ProductAbstractManagerTest extends ProductTestAbstract
      */
     protected function assertProductPrice(ProductAbstractTransfer $productAbstractTransfer)
     {
-        $priceProduct = $productAbstractTransfer->getPrice();
-        $this->assertInstanceOf(PriceProductTransfer::class, $priceProduct);
-        $this->assertEquals(self::PRICE, $priceProduct->getPrice());
-        $this->assertNotNull($priceProduct->getIdProductAbstract());
-        $this->assertNotNull($priceProduct->getPriceTypeName());
+        foreach ($productAbstractTransfer->getPrices() as $priceProductTransfer) {
+            $this->assertInstanceOf(PriceProductTransfer::class, $priceProductTransfer);
+            $this->assertNotNull($priceProductTransfer->getMoneyValue()->getGrossAmount());
+            $this->assertNotNull($priceProductTransfer->getPriceTypeName());
+        }
     }
 
     /**
@@ -158,5 +157,4 @@ class ProductAbstractManagerTest extends ProductTestAbstract
         $this->assertEquals(self::IMAGE_URL_LARGE, $productImage->getExternalUrlLarge());
         $this->assertEquals(self::IMAGE_URL_SMALL, $productImage->getExternalUrlSmall());
     }
-
 }

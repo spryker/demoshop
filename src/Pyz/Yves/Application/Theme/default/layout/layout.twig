@@ -27,14 +27,16 @@
         <a class="close-button">&times;</a>
     </div>
 
+    {% block page %}
     <div class="__page" tabindex="-1">
+        {% block page_start %}{% endblock %}
         <header>
             <div class="row">
                 <div class="small-12 columns">
                     <div class="callout">
                         <div class="row align-middle align-justify">
                             <div class="small-7 large-5 xlarge-6 columns">
-                                <a href="/">
+                                <a href="{{ path('home') }}">
                                     <img src="/assets/default/img/logo.svg" />
                                 </a>
                             </div>
@@ -93,6 +95,7 @@
 
         </footer>
     </div>
+    {% endblock %}
 
     <script src="/assets/default/js/vendor.js"></script>
     <script src="/assets/default/js/app.js"></script>

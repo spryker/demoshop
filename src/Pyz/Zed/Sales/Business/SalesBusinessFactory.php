@@ -15,7 +15,6 @@ use Spryker\Zed\Sales\Business\SalesBusinessFactory as SprykerSalesBusinessFacto
  */
 class SalesBusinessFactory extends SprykerSalesBusinessFactory
 {
-
     /**
      * @return \Pyz\Zed\Sales\Business\Model\CustomerOrderReader
      */
@@ -23,8 +22,8 @@ class SalesBusinessFactory extends SprykerSalesBusinessFactory
     {
         return new CustomerOrderReader(
             $this->getQueryContainer(),
-            $this->createOrderHydrator()
+            $this->createOrderHydrator(),
+            $this->getOmsFacade()
         );
     }
-
 }

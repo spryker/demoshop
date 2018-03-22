@@ -7,19 +7,21 @@
 
 namespace Pyz\Yves\Customer\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Spryker\Yves\Kernel\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RestorePasswordForm extends AbstractType
 {
-
     const FIELD_RESTORE_PASSWORD_KEY = 'restore_password_key';
     const FIELD_PASSWORD = 'password';
 
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'restoreForm';
     }
@@ -44,7 +46,7 @@ class RestorePasswordForm extends AbstractType
      */
     protected function addRestorePasswordKeyField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_RESTORE_PASSWORD_KEY, 'hidden');
+        $builder->add(self::FIELD_RESTORE_PASSWORD_KEY, HiddenType::class);
 
         return $this;
     }
@@ -56,10 +58,10 @@ class RestorePasswordForm extends AbstractType
      */
     protected function addPasswordField(FormBuilderInterface $builder)
     {
-        $builder->add(self::FIELD_PASSWORD, 'repeated', [
+        $builder->add(self::FIELD_PASSWORD, RepeatedType::class, [
             'first_name' => 'pass',
             'second_name' => 'confirm',
-            'type' => 'password',
+            'type' => PasswordType::class,
             'invalid_message' => 'validator.constraints.password.do_not_match',
             'required' => true,
             'first_options' => [
@@ -72,5 +74,4 @@ class RestorePasswordForm extends AbstractType
 
         return $this;
     }
-
 }

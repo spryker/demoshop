@@ -13,14 +13,16 @@ use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider as SprykerProductS
 
 class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProvider
 {
-
     const FACADE_PRODUCT_SEARCH = 'product search facade';
+    const FACADE_PRICE_PRODUCT = 'price product facade';
     const FACADE_PRICE = 'price facade';
     const FACADE_PRODUCT_LABEL = 'FACADE_PRODUCT_LABEL';
 
     const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
     const QUERY_CONTAINER_CATEGORY = 'category query container';
     const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
+
+    const CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT = 'client price product connector client';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -31,13 +33,16 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
     {
         $container = parent::provideBusinessLayerDependencies($container);
 
-        $this->providePriceFacade($container);
+        $this->providePriceProductFacade($container);
         $this->provideProductSearchFacade($container);
         $this->provideProductLabelFacade($container);
+        $this->providerPriceFacade($container);
 
         $this->provideProductImageQueryContainer($container);
         $this->provideCategoryQueryContainer($container);
         $this->provideProductCategoryQueryContainer($container);
+
+        $this->provideCatalogPriceProductConnectorClient($container);
 
         return $container;
     }
@@ -71,10 +76,10 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
      *
      * @return void
      */
-    protected function providePriceFacade(Container $container)
+    protected function providePriceProductFacade(Container $container)
     {
-        $container[self::FACADE_PRICE] = function (Container $container) {
-            return $container->getLocator()->price()->facade();
+        $container[self::FACADE_PRICE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->priceProduct()->facade();
         };
     }
 
@@ -126,4 +131,29 @@ class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProv
         };
     }
 
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return void
+     */
+    protected function providerPriceFacade(Container $container)
+    {
+        $container[static::FACADE_PRICE] = function (Container $container) {
+            return $container->getLocator()->price()->facade();
+        };
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function provideCatalogPriceProductConnectorClient(Container $container)
+    {
+        $container[static::CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT] = function (Container $container) {
+            return $container->getLocator()->catalogPriceProductConnector()->client();
+        };
+
+        return $container;
+    }
 }

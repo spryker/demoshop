@@ -19,7 +19,6 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
  */
 class CustomerController extends AbstractCustomerController
 {
-
     const ORDER_LIST_LIMIT = 5;
     const ORDER_LIST_SORT_FIELD = 'created_at';
     const ORDER_LIST_SORT_DIRECTION = 'DESC';
@@ -127,5 +126,4 @@ class CustomerController extends AbstractCustomerController
 
         return $addresses;
     }
-
 }

@@ -29,7 +29,6 @@ use Spryker\Zed\ProductOption\ProductOptionConfig;
  */
 class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-
     const BULK_SIZE = 100;
 
     const KEY_ABSTRACT_PRODUCT_SKUS = 'abstract_product_skus';
@@ -37,7 +36,6 @@ class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepIn
     const KEY_IS_ACTIVE = 'is_active';
     const KEY_SKU = 'sku';
     const KEY_OPTION_NAME_TRANSLATION_KEY = 'option_name_translation_key';
-    const KEY_PRICE = 'price';
     const KEY_OPTION_NAME = 'option_name';
     const KEY_GROUP_NAME = 'group_name';
     const KEY_TAX_SET_NAME = 'tax_set_name';
@@ -65,7 +63,6 @@ class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepIn
 
         $productOptionValueEntity
             ->setValue($dataSet[self::KEY_OPTION_NAME_TRANSLATION_KEY])
-            ->setPrice((int)$dataSet[self::KEY_PRICE])
             ->save();
 
         if (!empty($dataSet[static::KEY_ABSTRACT_PRODUCT_SKUS])) {
@@ -134,5 +131,4 @@ class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepIn
 
         $this->addMainTouchable(GlossaryConfig::RESOURCE_TYPE_TRANSLATION, $glossaryTranslationEntity->getIdGlossaryTranslation());
     }
-
 }

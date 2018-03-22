@@ -13,7 +13,6 @@ use Spryker\Zed\Sales\SalesConfig as SprykerSalesConfig;
 
 class SalesConfig extends SprykerSalesConfig
 {
-
     /**
      * This method determines state machine process from the given quote transfer and order item.
      *
@@ -49,6 +48,7 @@ class SalesConfig extends SprykerSalesConfig
     {
         $projectExternalBlocks = [
             'payments' => '/payment/sales/list',
+            'giftCards' => '/gift-card/sales/list',
             'shipment' => '/shipment/sales/list',
             'discount' => '/discount/sales/list',
             'refund' => '/refund/sales/list',
@@ -58,5 +58,4 @@ class SalesConfig extends SprykerSalesConfig
 
         return array_merge($externalBlocks, $projectExternalBlocks);
     }
-
 }

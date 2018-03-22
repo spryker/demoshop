@@ -18,6 +18,7 @@ use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotio
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostCreatePlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionPostUpdatePlugin;
 use Spryker\Zed\DiscountPromotion\Communication\Plugin\Discount\DiscountPromotionViewBlockProviderPlugin;
+use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardDiscountableItemFilterPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\Collector\ProductAttributeCollectorPlugin;
 use Spryker\Zed\ProductDiscountConnector\Communication\Plugin\DecisionRule\ProductAttributeDecisionRulePlugin;
 use Spryker\Zed\ProductLabelDiscountConnector\Communication\Plugin\Collector\ProductLabelCollectorPlugin;
@@ -28,22 +29,22 @@ use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DecisionRule\Ship
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentCarrierPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentMethodPlugin;
 use Spryker\Zed\ShipmentDiscountConnector\Communication\Plugin\DiscountCollector\ItemByShipmentPricePlugin;
+use Spryker\Zed\Store\Communication\Plugin\Form\StoreRelationToggleFormTypePlugin;
 
 class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
 {
-
     /**
      * @return \Spryker\Zed\Discount\Dependency\Plugin\DecisionRulePluginInterface[]
      */
     protected function getDecisionRulePlugins()
     {
         return array_merge(parent::getDecisionRulePlugins(), [
-            new ProductAttributeDecisionRulePlugin(),
-            new CustomerGroupDecisionRulePlugin(),
-            new ProductLabelDecisionRulePlugin(),
             new ShipmentCarrierDecisionRulePlugin(),
             new ShipmentMethodDecisionRulePlugin(),
             new ShipmentPriceDecisionRulePlugin(),
+            new CustomerGroupDecisionRulePlugin(),
+            new ProductLabelDecisionRulePlugin(),
+            new ProductAttributeDecisionRulePlugin(),
         ]);
     }
 
@@ -53,11 +54,11 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     protected function getCollectorPlugins()
     {
         return array_merge(parent::getCollectorPlugins(), [
-            new ProductAttributeCollectorPlugin(),
             new ProductLabelCollectorPlugin(),
             new ItemByShipmentCarrierPlugin(),
             new ItemByShipmentMethodPlugin(),
             new ItemByShipmentPricePlugin(),
+            new ProductAttributeCollectorPlugin(),
         ]);
     }
 
@@ -68,6 +69,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     {
         return [
             new DiscountPromotionFilterCollectedItemsPlugin(),
+            new GiftCardDiscountableItemFilterPlugin(),
         ];
     }
 
@@ -151,4 +153,11 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
         ];
     }
 
+    /**
+     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
+     */
+    protected function getStoreRelationFormTypePlugin()
+    {
+        return new StoreRelationToggleFormTypePlugin();
+    }
 }

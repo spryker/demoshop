@@ -7,7 +7,6 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Payolution\PayolutionConstants;
-use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\PropelQueryBuilder\PropelQueryBuilderConstants;
 use Spryker\Shared\Queue\QueueConstants;
@@ -28,12 +27,11 @@ $config[PropelConstants::ZED_DB_ENGINE]
 
 $yvesHost = 'www.de.project.local';
 $config[ApplicationConstants::HOST_YVES]
-    = $config[ProductManagementConstants::HOST_YVES]
     = $config[PayolutionConstants::HOST_YVES]
-    = $config[NewsletterConstants::HOST_YVES]
-    = $config[CustomerConstants::HOST_YVES] = 'http://' . $yvesHost;
+    = $config[NewsletterConstants::HOST_YVES] = 'http://' . $yvesHost;
 $config[ApplicationConstants::HOST_STATIC_ASSETS] = $config[ApplicationConstants::HOST_STATIC_MEDIA] = $yvesHost;
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $yvesHost;
+$config[CustomerConstants::BASE_URL_YVES] = 'http://' . $yvesHost;
 
 $config[ApplicationConstants::HOST_SSL_YVES] = 'https://' . $yvesHost;
 $config[ApplicationConstants::HOST_SSL_STATIC_ASSETS] = $config[ApplicationConstants::HOST_SSL_STATIC_MEDIA] = $yvesHost;

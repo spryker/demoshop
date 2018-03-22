@@ -20,7 +20,6 @@ use Spryker\Zed\StateMachine\Dependency\Plugin\StateMachineHandlerInterface;
  */
 class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachineHandlerInterface
 {
-
     /**
      * List of command plugins for this state machine for all processes.
      *
@@ -63,7 +62,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     public function getActiveProcesses()
     {
         return [
-            'Invoice01',
+            'Nopayment01',
         ];
     }
 
@@ -79,7 +78,7 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     public function getInitialStateForProcess($processName)
     {
         switch ($processName) {
-            case 'Invoice01':
+            case 'Nopayment01':
                 return 'new';
         }
 
@@ -115,5 +114,4 @@ class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachi
     {
          return $this->getFacade()->getStateMachineExampleItemsByStateIds($stateIds);
     }
-
 }

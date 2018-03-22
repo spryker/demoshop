@@ -8,27 +8,35 @@
 namespace Pyz\Yves\Checkout;
 
 use Pyz\Yves\Customer\Plugin\CustomerStepHandler;
+use Pyz\Yves\Discount\Handler\VoucherCodeHandler;
+use Pyz\Yves\GiftCard\Cart\Plugin\GiftCardCodeHandler;
 use Pyz\Yves\Shipment\Plugin\ShipmentFormDataProviderPlugin;
 use Pyz\Yves\Shipment\Plugin\ShipmentHandlerPlugin;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\Nopayment\NopaymentConfig;
 use Spryker\Yves\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
+use Spryker\Yves\Nopayment\Plugin\NopaymentHandlerPlugin;
+use Spryker\Yves\Payment\Plugin\PaymentFormFilterPlugin;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 
 class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 {
-
     const CLIENT_CALCULATION = 'CLIENT_CALCULATION';
     const CLIENT_CHECKOUT = 'CLIENT_CHECKOUT';
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
     const CLIENT_CART = 'CLIENT_CART';
+    const CLIENT_PAYMENT = 'CLIENT_PAYMENT';
     const STORE = 'STORE';
+
+    const SERVICE_UTIL_VALIDATE = 'SERVICE_UTIL_VALIDATE';
 
     const PLUGIN_CUSTOMER_STEP_HANDLER = 'PLUGIN_CUSTOMER_STEP_HANDLER';
     const PLUGIN_SHIPMENT_STEP_HANDLER = 'PLUGIN_SHIPMENT_STEP_HANDLER';
     const PLUGIN_SHIPMENT_HANDLER = 'PLUGIN_SHIPMENT_HANDLER';
     const PLUGIN_SHIPMENT_FORM_DATA_PROVIDER = 'PLUGIN_SHIPMENT_FORM_DATA_PROVIDER';
+    const CODE_HANDLER_PLUGINS = 'CODE_HANDLER_PLUGINS';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -40,6 +48,21 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
         $container = $this->provideStore($container);
+        $container = $this->addUtilValidateService($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addUtilValidateService(Container $container)
+    {
+        $container[static::SERVICE_UTIL_VALIDATE] = function (Container $container) {
+            return $container->getLocator()->utilValidate()->service();
+        };
 
         return $container;
     }
@@ -67,6 +90,10 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 
         $container[self::CLIENT_CART] = function (Container $container) {
             return $container->getLocator()->cart()->client();
+        };
+
+        $container[self::CLIENT_PAYMENT] = function (Container $container) {
+            return $container->getLocator()->payment()->client();
         };
 
         return $container;
@@ -102,6 +129,42 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             return $pimplePlugin->getApplication();
         };
 
+        $container = $this->provideCodeHandlePlugins($container);
+        $container = $this->extendPaymentMethodHandler($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideCodeHandlePlugins(Container $container)
+    {
+        $container[static::CODE_HANDLER_PLUGINS] = function () {
+            return [
+                new VoucherCodeHandler(),
+                new GiftCardCodeHandler(),
+            ];
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function extendPaymentMethodHandler(Container $container)
+    {
+        $container->extend(CheckoutDependencyProvider::PAYMENT_METHOD_HANDLER, function (StepHandlerPluginCollection $paymentMethodHandler) {
+            $paymentMethodHandler->add(new NopaymentHandlerPlugin(), NopaymentConfig::PAYMENT_PROVIDER_NAME);
+
+            return $paymentMethodHandler;
+        });
+
         return $container;
     }
 
@@ -119,4 +182,13 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return $container;
     }
 
+    /**
+     * @return \Spryker\Yves\Checkout\Dependency\Plugin\Form\SubFormFilterPluginInterface[]
+     */
+    protected function getPaymentFormFilterPlugins()
+    {
+        return [
+            new PaymentFormFilterPlugin(),
+        ];
+    }
 }

@@ -13,7 +13,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CollectorFactory extends AbstractFactory
 {
-
     /**
      * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface[]
      */
@@ -45,11 +44,11 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return \Spryker\Client\Collector\Matcher\UrlMatcherInterface
+     * @return \Spryker\Client\Url\UrlClientInterface
      */
-    public function getUrlMatcher()
+    public function getUrlClient()
     {
-        return $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_COLLECTOR);
+        return $this->getProvidedDependency(CollectorDependencyProvider::CLIENT_URL);
     }
 
     /**
@@ -99,5 +98,4 @@ class CollectorFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_SET_RESOURCE_CREATOR);
     }
-
 }

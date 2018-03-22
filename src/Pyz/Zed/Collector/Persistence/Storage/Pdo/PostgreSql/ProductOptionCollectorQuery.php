@@ -11,7 +11,6 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductOptionCollectorQuery extends AbstractPdoCollectorQuery
 {
-
     const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
 
     /**
@@ -26,7 +25,7 @@ SELECT
   spy_touch.item_id                                                               AS %s,
   spy_touch_storage.id_touch_storage                                              AS %s
 FROM "spy_touch"
-  LEFT JOIN spy_touch_storage ON ("spy_touch"."id_touch" = "spy_touch_storage"."fk_touch" AND "spy_touch_storage"."fk_locale" = :fk_storage_locale)
+  LEFT JOIN spy_touch_storage ON ("spy_touch"."id_touch" = "spy_touch_storage"."fk_touch" AND "spy_touch_storage"."fk_locale" = :fk_storage_locale AND spy_touch_storage.fk_store = :id_store)
   INNER JOIN spy_product_abstract_product_option_group ON ("spy_touch"."item_id" = spy_product_abstract_product_option_group.fk_product_abstract)
 WHERE "spy_touch".item_event = :spy_touch_item_event
   AND "spy_touch".touched >= :spy_touch_touched
@@ -38,7 +37,7 @@ GROUP BY
 ';
         $this->criteriaBuilder
             ->sql($sql)
-            ->setParameter('fk_storage_locale', $this->getLocale()->requireIdLocale()->getIdLocale());
+            ->setParameter('fk_storage_locale', $this->getLocale()->requireIdLocale()->getIdLocale())
+            ->setParameter('id_store', $this->storeTransfer->getIdStore());
     }
-
 }

@@ -25,10 +25,10 @@ use ReflectionProperty;
 use Spryker\Client\Cart\CartClient;
 use Spryker\Client\Session\SessionClient;
 use Spryker\Client\ZedRequest\Client\HttpClient;
-use Spryker\Shared\Price\PriceMode;
+use Spryker\Shared\DummyPayment\DummyPaymentConfig;
+use Spryker\Shared\Price\PriceConfig;
 use Spryker\Shared\Shipment\ShipmentConstants;
 use Spryker\Yves\DummyPayment\Form\AbstractSubForm;
-use Spryker\Zed\DummyPayment\DummyPaymentConfig;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,7 +45,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
  */
 class CheckoutControllerTest extends Unit
 {
-
     const CUSTOMER_URL = '/checkout/customer';
     const CUSTOMER_ACTION = 'customerAction';
     const CUSTOMER_ROUTE = 'checkout-customer';
@@ -374,7 +373,7 @@ class CheckoutControllerTest extends Unit
     private function setQuoteForCustomer()
     {
         $quoteTransfer = new QuoteTransfer();
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
+        $quoteTransfer->setPriceMode(PriceConfig::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -389,7 +388,7 @@ class CheckoutControllerTest extends Unit
     private function setQuoteForAddress()
     {
         $quoteTransfer = new QuoteTransfer();
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
+        $quoteTransfer->setPriceMode(PriceConfig::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -408,7 +407,7 @@ class CheckoutControllerTest extends Unit
     private function setQuoteForShipment()
     {
         $quoteTransfer = new QuoteTransfer();
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
+        $quoteTransfer->setPriceMode(PriceConfig::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -442,7 +441,7 @@ class CheckoutControllerTest extends Unit
     private function setQuoteForPayment()
     {
         $quoteTransfer = new QuoteTransfer();
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
+        $quoteTransfer->setPriceMode(PriceConfig::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -488,7 +487,7 @@ class CheckoutControllerTest extends Unit
     private function setQuoteForSummary()
     {
         $quoteTransfer = new QuoteTransfer();
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
+        $quoteTransfer->setPriceMode(PriceConfig::PRICE_MODE_GROSS);
 
         $itemTransfer = new ItemTransfer();
         $quoteTransfer->addItem($itemTransfer);
@@ -579,5 +578,4 @@ class CheckoutControllerTest extends Unit
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue(null, 0);
     }
-
 }

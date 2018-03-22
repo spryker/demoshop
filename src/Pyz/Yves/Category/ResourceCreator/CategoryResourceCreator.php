@@ -9,13 +9,12 @@ namespace Pyz\Yves\Category\ResourceCreator;
 
 use Pyz\Yves\Collector\Creator\AbstractResourceCreator;
 use Silex\Application;
+use Spryker\Shared\Category\CategoryConfig;
 use Spryker\Yves\Kernel\BundleControllerAction;
 use Spryker\Yves\Kernel\Controller\BundleControllerActionRouteNameResolver;
-use Spryker\Zed\Category\CategoryConfig;
 
 class CategoryResourceCreator extends AbstractResourceCreator
 {
-
     /**
      * @return string
      */
@@ -43,5 +42,4 @@ class CategoryResourceCreator extends AbstractResourceCreator
             'categoryNode' => $data,
         ];
     }
-
 }

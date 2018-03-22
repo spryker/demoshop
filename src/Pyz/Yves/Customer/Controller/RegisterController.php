@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class RegisterController extends AbstractCustomerController
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -33,7 +32,7 @@ class RegisterController extends AbstractCustomerController
         $registerForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createRegisterForm()
+            ->getRegisterForm()
             ->handleRequest($request);
 
         if ($registerForm->isValid()) {
@@ -51,7 +50,7 @@ class RegisterController extends AbstractCustomerController
         $loginForm = $this
             ->getFactory()
             ->createCustomerFormFactory()
-            ->createLoginForm();
+            ->getLoginForm();
 
         return $this->viewResponse([
             'loginForm' => $loginForm->createView(),
@@ -76,5 +75,4 @@ class RegisterController extends AbstractCustomerController
 
         return $customerResponseTransfer;
     }
-
 }

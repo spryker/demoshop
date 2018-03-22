@@ -15,7 +15,6 @@ use Pyz\Yves\Application\Controller\AbstractController;
  */
 class DetailController extends AbstractController
 {
-
     const PARAM_ATTRIBUTE = 'attributes';
 
     /**
@@ -31,5 +30,4 @@ class DetailController extends AbstractController
             'storageProducts' => $storageProductTransfers,
         ]);
     }
-
 }
