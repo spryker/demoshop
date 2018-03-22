@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\CompanyUnitAddressLabel;
 
-use Orm\Zed\Company\Persistence\SpyCompanyQuery;
 use Orm\Zed\CompanyUnitAddress\Persistence\SpyCompanyUnitAddressQuery;
 use Orm\Zed\CompanyUnitAddressLabel\Persistence\SpyCompanyUnitAddressLabel;
 use Orm\Zed\CompanyUnitAddressLabel\Persistence\SpyCompanyUnitAddressLabelQuery;
@@ -39,13 +38,13 @@ class CompanyUnitAddressLabelWriterStep implements DataImportStepInterface
     }
 
     /**
-     * @param DataSetInterface $dataSet
+     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
+     * @param \Orm\Zed\CompanyUnitAddressLabel\Persistence\SpyCompanyUnitAddressLabel $companyUnitAddressLabelEntity
      *
-     * @param SpyCompanyUnitAddressLabel $companyUnitAddressLabelEntity
+     * @return void
      */
     protected function createRelation(DataSetInterface $dataSet, SpyCompanyUnitAddressLabel $companyUnitAddressLabelEntity)
     {
-
         $companyUnitAddressEntity = SpyCompanyUnitAddressQuery::create()
             ->filterByAddress1($dataSet[static::KEY_COMPANY_UNIT_ADDRESS_ADDRESS_1])
             ->findOne();
