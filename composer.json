@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/core-2293-sales-order-display-country",
 
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
