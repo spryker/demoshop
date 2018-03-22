@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "eb0c5a25f3aeef9df30033f7234f3c8387c1186a"
+                "reference": "09c1880e3165a466752c30bd725943c0ff09623c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2249,6 +2249,7 @@
                 "spryker/setup": "*",
                 "spryker/shipment": "*",
                 "spryker/shipment-cart-connector": "*",
+                "spryker/shipment-checkout-connector": "*",
                 "spryker/silex": "*",
                 "spryker/sql-criteria-builder": "*",
                 "spryker/state-machine": "*",
@@ -2302,7 +2303,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-22T09:17:04+00:00"
+            "time": "2018-03-22T10:05:02+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
