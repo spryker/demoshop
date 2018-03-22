@@ -1,0 +1,5 @@
+name,company_name,email,phone,external_url
+Test business unit 1,Test company 1,test@spryker.com,1234567890,""
+Test business unit 2,Test company 1,test@spryker.com,1234567890,""
+Test business unit 3,Test company 2,test@spryker.com,1234567890,""
+Test business unit 4,Test company 2,test@spryker.com,1234567890,""
