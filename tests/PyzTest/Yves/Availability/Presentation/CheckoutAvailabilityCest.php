@@ -57,12 +57,12 @@ class CheckoutAvailabilityCest
 
         $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
-        $i->waitForElementVisible(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH, 5);
+        $i->waitForElementVisible(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH, 30);
         $reservedProductsBefore = $i->grabTextFrom(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH);
 
         $i->amOnPage(OrderListPage::ORDER_LIST_URL);
 
-        $i->waitForElementVisible(OrderDetailPage::ORDER_DETAIL_TABLE_FIRST_ORDER_ID_XPATH, 5);
+        $i->waitForElementVisible(OrderDetailPage::ORDER_DETAIL_TABLE_FIRST_ORDER_ID_XPATH, 30);
         $idSalesOrder = $i->grabTextFrom(OrderDetailPage::ORDER_DETAIL_TABLE_FIRST_ORDER_ID_XPATH);
 
         $i->amOnPage(sprintf(OrderDetailPage::ORDER_DETAIL_PAGE_URL, $idSalesOrder));
@@ -75,7 +75,7 @@ class CheckoutAvailabilityCest
 
         $i->amOnPage(sprintf(AvailabilityViewPage::VIEW_PRODUCT_AVAILABILITY_URL, $idProductFujitsu));
 
-        $i->waitForElementVisible(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH, 5);
+        $i->waitForElementVisible(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH, 10);
         $reservedProductsAfter = $i->grabTextFrom(AvailabilityViewPage::AVAILABILITY_RESERVATION_XPATH);
 
         $i->assertEquals($reservedProductsAfter, $reservedProductsBefore - 1); //Reserved item returned back
