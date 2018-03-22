@@ -1,2 +1,5 @@
 country_code,company_name,address1,address2,address3,city,zip_code,phone,comment
-DE,Test Company,"Address1","Address2","Address3","Berlin",10115,1234567890,"Comment text..."
+DE,Test company 1,"Address1","Address5","Address1","Berlin",10115,1234567890,"Comment text..."
+DE,Test company 1,"Address2","Address6","Address2","Berlin",10115,1234567890,"Comment text..."
+DE,Test company 2,"Address3","Address7","Address3","Berlin",10115,1234567890,"Comment text..."
+DE,Test company 2,"Address4","Address8","Address4","Berlin",10115,1234567890,"Comment text..."

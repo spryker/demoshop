@@ -43,14 +43,15 @@ class CompanyUnitAddressWriterStep implements DataImportStepInterface
         $entity = SpyCompanyUnitAddressQuery::create()
             ->filterByFkCountry($country->getIdCountry())
             ->filterByFkCompany($company->getIdCompany())
+            ->filterByAddress1($dataSet[static::KEY_ADDRESS1])
+            ->filterByAddress2($dataSet[static::KEY_ADDRESS2])
+            ->filterByAddress3($dataSet[static::KEY_ADDRESS3])
+            ->filterByCity($dataSet[static::KEY_CITY])
+            ->filterByZipCode($dataSet[static::KEY_ZIP_CODE])
+            ->filterByPhone($dataSet[static::KEY_PHONE])
             ->findOneOrCreate();
+
         $entity
-            ->setAddress1($dataSet[static::KEY_ADDRESS1])
-            ->setAddress2($dataSet[static::KEY_ADDRESS2])
-            ->setAddress3($dataSet[static::KEY_ADDRESS3])
-            ->setCity($dataSet[static::KEY_CITY])
-            ->setZipCode($dataSet[static::KEY_ZIP_CODE])
-            ->setPhone($dataSet[static::KEY_PHONE])
             ->setComment($dataSet[static::KEY_COMMENT]);
 
         $entity->save();
