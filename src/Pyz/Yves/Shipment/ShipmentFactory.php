@@ -10,6 +10,9 @@ use Pyz\Yves\Shipment\Form\ShipmentForm;
 use Pyz\Yves\Shipment\Handler\ShipmentHandler;
 use Spryker\Yves\Kernel\AbstractFactory;
 
+/**
+ * @method \Pyz\Yves\Shipment\ShipmentConfig getConfig()
+ */
 class ShipmentFactory extends AbstractFactory
 {
     /**
@@ -38,7 +41,11 @@ class ShipmentFactory extends AbstractFactory
      */
     public function createShipmentHandler()
     {
-        return new ShipmentHandler($this->getShipmentClient());
+        return new ShipmentHandler(
+            $this->getShipmentClient(),
+            $this->getPriceClient(),
+            $this->getConfig()->getNoShipmentMethodName()
+        );
     }
 
     /**
@@ -71,5 +78,13 @@ class ShipmentFactory extends AbstractFactory
     protected function getMoneyPlugin()
     {
         return $this->getProvidedDependency(ShipmentDependencyProvider::PLUGIN_MONEY);
+    }
+
+    /**
+     * @return \Spryker\Client\Price\PriceClientInterface
+     */
+    protected function getPriceClient()
+    {
+        return $this->getProvidedDependency(ShipmentDependencyProvider::CLIENT_PRICE);
     }
 }

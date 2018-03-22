@@ -17,11 +17,13 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\StoreTransfer;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
 use Orm\Zed\Currency\Persistence\SpyCurrencyQuery;
 use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
 use Orm\Zed\Discount\Persistence\SpyDiscount;
 use Orm\Zed\Discount\Persistence\SpyDiscountAmount;
+use Orm\Zed\Discount\Persistence\SpyDiscountStore;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
 use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
 use Orm\Zed\Product\Persistence\SpyProductAbstract;
@@ -29,7 +31,6 @@ use Orm\Zed\Tax\Persistence\SpyTaxRate;
 use Orm\Zed\Tax\Persistence\SpyTaxSet;
 use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Spryker\Shared\Calculation\CalculationPriceMode;
-use Spryker\Shared\Price\PriceMode;
 use Spryker\Shared\Tax\TaxConstants;
 use Spryker\Zed\Calculation\Business\CalculationFacade;
 use Spryker\Zed\Discount\DiscountDependencyProvider;
@@ -189,7 +190,7 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $calculationFacade = $this->createCalculationFacade();
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_NET);
+        $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_NET);
 
         $discountAmount = 20;
         $voucherEntity = $this->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
@@ -257,7 +258,7 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $calculationFacade = $this->createCalculationFacade();
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_NET);
+        $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_NET);
 
         $recalculatedQuoteTransfer = $calculationFacade->recalculateQuote($quoteTransfer);
 
@@ -442,12 +443,13 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     protected function createFixtureDataForCalculation()
     {
         $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setStore($this->getCurrentStoreTransfer());
 
         $currencyTransfer = new CurrencyTransfer();
         $currencyTransfer->setCode('EUR');
         $quoteTransfer->setCurrency($currencyTransfer);
 
-        $quoteTransfer->setPriceMode(PriceMode::PRICE_MODE_GROSS);
+        $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_GROSS);
 
         $shippingAddressTransfer = new AddressTransfer();
         $shippingAddressTransfer->setIso2Code('DE');
@@ -510,6 +512,11 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
         $discountEntity->save();
 
+        (new SpyDiscountStore())
+            ->setFkDiscount($discountEntity->getIdDiscount())
+            ->setFkStore($this->getCurrentStoreTransfer()->getIdStore())
+            ->save();
+
         $discountAmountEntity = new SpyDiscountAmount();
         $currencyEntity = $this->getCurrency();
         $discountAmountEntity->setFkCurrency($currencyEntity->getIdCurrency());
@@ -523,6 +530,16 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $pool->getDiscountVouchers();
 
         return $discountVoucherEntity;
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\StoreTransfer
+     */
+    protected function getCurrentStoreTransfer()
+    {
+        return (new StoreTransfer())
+            ->setIdStore(1)
+            ->setName('DE');
     }
 
     /**

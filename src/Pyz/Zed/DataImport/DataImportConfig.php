@@ -22,6 +22,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_PRICE = 'product-price';
     const IMPORT_TYPE_PRODUCT_STOCK = 'product-stock';
     const IMPORT_TYPE_PRODUCT_ABSTRACT = 'product-abstract';
+    const IMPORT_TYPE_PRODUCT_ABSTRACT_STORE = 'product-abstract-store';
     const IMPORT_TYPE_PRODUCT_CONCRETE = 'product-concrete';
     const IMPORT_TYPE_PRODUCT_ATTRIBUTE_KEY = 'product-attribute-key';
     const IMPORT_TYPE_PRODUCT_MANAGEMENT_ATTRIBUTE = 'product-management-attribute';
@@ -31,21 +32,27 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_PRODUCT_SET = 'product-set';
     const IMPORT_TYPE_PRODUCT_GROUP = 'product-group';
     const IMPORT_TYPE_PRODUCT_OPTION = 'product-option';
+    const IMPORT_TYPE_PRODUCT_OPTION_PRICE = 'product-option-price';
     const IMPORT_TYPE_PRODUCT_IMAGE = 'product-image';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE_MAP = 'product-search-attribute-map';
     const IMPORT_TYPE_PRODUCT_SEARCH_ATTRIBUTE = 'product-search-attribute';
+    const IMPORT_TYPE_PRODUCT_CUSTOMER_PERMISSION = 'product-customer-permission';
     const IMPORT_TYPE_CMS_TEMPLATE = 'cms-template';
     const IMPORT_TYPE_CMS_PAGE = 'cms-page';
     const IMPORT_TYPE_CMS_BLOCK = 'cms-block';
+    const IMPORT_TYPE_CMS_BLOCK_STORE = 'cms-block-store';
     const IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION = 'cms-block-category-position';
     const IMPORT_TYPE_CMS_BLOCK_CATEGORY = 'cms-block-category';
     const IMPORT_TYPE_DISCOUNT = 'discount';
+    const IMPORT_TYPE_DISCOUNT_STORE = 'discount-store';
     const IMPORT_TYPE_DISCOUNT_AMOUNT = 'discount-amount';
     const IMPORT_TYPE_DISCOUNT_VOUCHER = 'discount-voucher';
     const IMPORT_TYPE_SHIPMENT = 'shipment';
     const IMPORT_TYPE_SHIPMENT_PRICE = 'shipment-price';
     const IMPORT_TYPE_STOCK = 'stock';
     const IMPORT_TYPE_TAX = 'tax';
+    const IMPORT_TYPE_ABSTRACT_GIFT_CARD_CONFIGURATION = 'gift-card-abstract-configuration';
+    const IMPORT_TYPE_CONCRETE_GIFT_CARD_CONFIGURATION = 'gift-card-concrete-configuration';
     const IMPORT_TYPE_CURRENCY = 'currency';
     const IMPORT_TYPE_STORE = 'store';
 
@@ -156,6 +163,22 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
+    public function getAbstractGiftCardProductConfigurationDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('gift_card_abstract_configuration.csv', static::IMPORT_TYPE_ABSTRACT_GIFT_CARD_CONFIGURATION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getConcreteGiftCardProductConfigurationDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('gift_card_concrete_configuration.csv', static::IMPORT_TYPE_CONCRETE_GIFT_CARD_CONFIGURATION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
     public function getNavigationNodeDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('navigation_node.csv', static::IMPORT_TYPE_NAVIGATION_NODE);
@@ -167,6 +190,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductAbstractDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_abstract.csv', static::IMPORT_TYPE_PRODUCT_ABSTRACT);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductAbstractStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_abstract_store.csv', static::IMPORT_TYPE_PRODUCT_ABSTRACT_STORE);
     }
 
     /**
@@ -260,6 +291,14 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
+    public function getProductOptionPriceDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_option_price.csv', static::IMPORT_TYPE_PRODUCT_OPTION_PRICE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
     public function getProductImageDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('icecat_biz_data' . DIRECTORY_SEPARATOR . 'product_image.csv', static::IMPORT_TYPE_PRODUCT_IMAGE);
@@ -292,6 +331,14 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
+    public function getCmsBlockStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('cms_block_store.csv', static::IMPORT_TYPE_CMS_BLOCK_STORE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
     public function getCmsBlockCategoryPositionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('cms_block_category_position.csv', static::IMPORT_TYPE_CMS_BLOCK_CATEGORY_POSITION);
@@ -316,6 +363,14 @@ class DataImportConfig extends SprykerDataImportConfig
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
      */
+    public function getDiscountStoreDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('discount_store.csv', static::IMPORT_TYPE_DISCOUNT_STORE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
     public function getDiscountAmountDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('discount_amount.csv', static::IMPORT_TYPE_DISCOUNT_AMOUNT);
@@ -327,6 +382,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getDiscountVoucherDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('discount_voucher.csv', static::IMPORT_TYPE_DISCOUNT_VOUCHER);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getProductCustomerPermissionDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('product_customer_permission.csv', static::IMPORT_TYPE_PRODUCT_CUSTOMER_PERMISSION);
     }
 
     /**

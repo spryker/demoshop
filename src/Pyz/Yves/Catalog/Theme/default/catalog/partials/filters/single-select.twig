@@ -4,7 +4,7 @@
             <div class="small-12 columns">
                 {% for filterValue in filter.values %}
                     <label>
-                        <input type="radio" name="{{ filter.name }}" value="{{ filterValue.value }}" {% if filter.activeValue == filterValue.value %}checked{% endif %} />
+                        <input type="radio" name="{{ filter.config.parameterName }}" value="{{ filterValue.value }}" {% if filter.activeValue == filterValue.value %}checked{% endif %} />
                         {{ filterValue.value }} ({{ filterValue.docCount }})
                     </label>
                 {% endfor %}

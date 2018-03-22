@@ -34,7 +34,10 @@ class ProductFactory extends AbstractFactory
      */
     public function createStorageProductMapper()
     {
-        return new StorageProductMapper($this->createAttributeVariantMapper());
+        return new StorageProductMapper(
+            $this->createAttributeVariantMapper(),
+            $this->getPriceProductClient()
+        );
     }
 
     /**
@@ -91,6 +94,14 @@ class ProductFactory extends AbstractFactory
     public function getProductGroupClient()
     {
         return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRODUCT_GROUP);
+    }
+
+    /**
+     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
+     */
+    protected function getPriceProductClient()
+    {
+        return $this->getProvidedDependency(ProductDependencyProvider::CLIENT_PRICE_PRODUCT);
     }
 
     /**

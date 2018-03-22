@@ -8,6 +8,8 @@
 namespace Pyz\Yves\Cart;
 
 use Pyz\Yves\Checkout\Plugin\CheckoutBreadcrumbPlugin;
+use Pyz\Yves\Discount\Handler\VoucherCodeHandler;
+use Pyz\Yves\GiftCard\Cart\Plugin\GiftCardCodeHandler;
 use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPlugin;
 use Spryker\Yves\DiscountPromotion\Plugin\ProductPromotionMapperPlugin;
@@ -19,12 +21,15 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 {
     const CLIENT_CALCULATION = 'calculation client';
     const CLIENT_CART = 'cart client';
+    const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
+    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+
     const PLUGIN_APPLICATION = 'application plugin';
     const PLUGIN_CHECKOUT_BREADCRUMB = 'PLUGIN_CHECKOUT_BREADCRUMB';
     const PLUGIN_CART_VARIANT = 'PLUGIN_CART_VARIANT';
-    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
     const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
     const PLUGIN_PROMOTION_PRODUCT_MAPPER = 'PLUGIN_PROMOTION_PRODUCT_MAPPER';
+    const CODE_HANDLER_PLUGINS = 'CODE_HANDLER_PLUGINS';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -58,6 +63,10 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
             return $container->getLocator()->product()->client();
         };
 
+        $container[static::CLIENT_AVAILABILITY] = function (Container $container) {
+            return $container->getLocator()->availability()->client();
+        };
+
         return $container;
     }
 
@@ -88,6 +97,13 @@ class CartDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[self::PLUGIN_PROMOTION_PRODUCT_MAPPER] = function () {
             return new ProductPromotionMapperPlugin();
+        };
+
+        $container[self::CODE_HANDLER_PLUGINS] = function () {
+            return [
+                new VoucherCodeHandler(),
+                new GiftCardCodeHandler(),
+            ];
         };
 
         return $container;

@@ -12,8 +12,7 @@ use Generated\Shared\Transfer\RabbitMqOptionTransfer;
 use Spryker\Client\RabbitMq\Model\Connection\Connection;
 use Spryker\Client\RabbitMq\RabbitMqConfig as SprykerRabbitMqConfig;
 use Spryker\Shared\Event\EventConstants;
-use SprykerEco\Shared\Loggly\LogglyConstants;
-use SprykerEco\Zed\Loggly\LogglyConfig;
+use Spryker\Shared\Log\LogConstants;
 
 class RabbitMqConfig extends SprykerRabbitMqConfig
 {
@@ -26,8 +25,8 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
         $queueOptionCollection->append($this->createQueueOption(EventConstants::EVENT_QUEUE, EventConstants::EVENT_QUEUE_ERROR));
         $queueOptionCollection->append(
             $this->createQueueOption(
-                $this->get(LogglyConstants::QUEUE_NAME, LogglyConfig::DEFAULT_QUEUE_NAME),
-                $this->get(LogglyConstants::ERROR_QUEUE_NAME, LogglyConfig::DEFAULT_ERROR_QUEUE_NAME)
+                $this->get(LogConstants::LOG_QUEUE_NAME),
+                $this->get(LogConstants::LOG_ERROR_QUEUE_NAME)
             )
         );
 

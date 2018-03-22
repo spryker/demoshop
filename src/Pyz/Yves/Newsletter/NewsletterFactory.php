@@ -19,22 +19,14 @@ class NewsletterFactory extends AbstractFactory
     public function getNewsletterSubscriptionForm()
     {
         return $this->getProvidedDependency(ApplicationConstants::FORM_FACTORY)
-            ->create($this->createNewsletterSubscriptionFormType());
+            ->create($this->getNewsletterSubscriptionFormType());
     }
 
     /**
-     * @return \Symfony\Component\Form\AbstractType
+     * @return string
      */
-    protected function createNewsletterSubscriptionFormType()
+    protected function getNewsletterSubscriptionFormType()
     {
-        return new NewsletterSubscriptionForm($this->getUtilValidateService());
-    }
-
-    /**
-     * @return \Spryker\Service\UtilValidate\UtilValidateServiceInterface
-     */
-    protected function getUtilValidateService()
-    {
-        return $this->getProvidedDependency(NewsletterDependencyProvider::SERVICE_UTIL_VALIDATE);
+        return NewsletterSubscriptionForm::class;
     }
 }

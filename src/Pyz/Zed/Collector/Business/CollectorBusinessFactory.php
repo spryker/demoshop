@@ -19,7 +19,6 @@ use Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector;
 use Pyz\Zed\Collector\Business\Storage\ProductOptionCollector;
 use Pyz\Zed\Collector\Business\Storage\RedirectCollector;
 use Pyz\Zed\Collector\Business\Storage\TranslationCollector;
-use Pyz\Zed\Collector\Business\Storage\UrlCollector;
 use Pyz\Zed\Collector\CollectorDependencyProvider;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AttributeMapCollectorQuery;
 use Pyz\Zed\Collector\Persistence\Storage\Propel\AvailabilityCollectorQuery as StorageAvailabilityCollectorPropelQuery;
@@ -138,7 +137,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
             $this->getProductCategoryQueryContainer(),
             $this->getProductImageQueryContainer(),
             $this->getProductFacade(),
-            $this->getPriceFacade(),
+            $this->getPriceProductFacade(),
             $this->getProductImageFacade()
         );
 
@@ -196,28 +195,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\Collector\Business\Storage\UrlCollector
-     */
-    public function createStorageUrlCollector()
-    {
-        $storageUrlCollector = new UrlCollector(
-            $this->getUtilDataReaderService()
-        );
-
-        $storageUrlCollector->setTouchQueryContainer(
-            $this->getTouchQueryContainer()
-        );
-        $storageUrlCollector->setCriteriaBuilder(
-            $this->createCriteriaBuilder()
-        );
-        $storageUrlCollector->setQueryBuilder(
-            $this->createStoragePdoQueryAdapterByName('UrlCollectorQuery')
-        );
-
-        return $storageUrlCollector;
-    }
-
-    /**
      * @return \Pyz\Zed\Collector\Business\Storage\ProductConcreteCollector
      */
     public function createStorageProductConcreteCollector()
@@ -225,7 +202,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
         $productConcreteCollector = new ProductConcreteCollector(
             $this->getUtilDataReaderService(),
             $this->getProductFacade(),
-            $this->getPriceFacade(),
+            $this->getPriceProductFacade(),
             $this->getProductImageQueryContainer(),
             $this->getProductImageFacade()
         );
@@ -276,7 +253,9 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     public function createStorageProductOptionCollector()
     {
         $productOptionCollector = new ProductOptionCollector(
-            $this->getUtilDataReaderService()
+            $this->getProductOptionQueryContainer(),
+            $this->getUtilDataReaderService(),
+            $this->getProductOptionFacade()
         );
 
         $productOptionCollector->setChunkSize(2);
@@ -426,14 +405,6 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
-     * @return \Spryker\Zed\Price\Persistence\PriceQueryContainerInterface
-     */
-    protected function getPriceQueryContainer()
-    {
-        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRICE);
-    }
-
-    /**
      * @return \Spryker\Zed\ProductCategory\Persistence\ProductCategoryQueryContainerInterface
      */
     protected function getProductCategoryQueryContainer()
@@ -450,19 +421,19 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\ProductOption\Persistence\ProductOptionQueryContainerInterface
+     */
+    protected function getProductOptionQueryContainer()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::QUERY_CONTAINER_PRODUCT_OPTION);
+    }
+
+    /**
      * @return \Spryker\Zed\Search\Business\SearchFacadeInterface
      */
     protected function getSearchFacade()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_SEARCH);
-    }
-
-    /**
-     * @return \Spryker\Zed\Price\Business\PriceFacadeInterface
-     */
-    protected function getPriceFacade()
-    {
-        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE);
     }
 
     /**
@@ -482,6 +453,14 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     }
 
     /**
+     * @return \Spryker\Zed\ProductOption\Business\ProductOptionFacadeInterface
+     */
+    protected function getProductOptionFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_OPTION);
+    }
+
+    /**
      * @return string
      */
     protected function getCurrentDatabaseEngineName()
@@ -494,7 +473,7 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
      */
     protected function getUtilDataReaderService()
     {
-        return $this->getProvidedDependency(CollectorDependencyProvider::SERVICE_DATA);
+        return $this->getProvidedDependency(CollectorDependencyProvider::SERVICE_UTIL_DATA_READER);
     }
 
     /**
@@ -503,5 +482,13 @@ class CollectorBusinessFactory extends SprykerCollectorBusinessFactory
     protected function getProductImageFacade()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRODUCT_IMAGE);
+    }
+
+    /**
+     * @return \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
+     */
+    protected function getPriceProductFacade()
+    {
+        return $this->getProvidedDependency(CollectorDependencyProvider::FACADE_PRICE_PRODUCT);
     }
 }
