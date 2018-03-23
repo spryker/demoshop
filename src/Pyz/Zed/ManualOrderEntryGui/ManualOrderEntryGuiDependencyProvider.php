@@ -11,6 +11,7 @@ use Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentInvoiceSu
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\AddressManualOrderEntryFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\CustomersListManualOrderEntryFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\ItemManualOrderEntryFormPlugin;
+use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\OrderSourceListFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\PaymentManualOrderEntryFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\ProductManualOrderEntryFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\ShipmentManualOrderEntryFormPlugin;
@@ -38,6 +39,7 @@ class ManualOrderEntryGuiDependencyProvider extends SprykerManualOrderEntryGuiDe
     {
         return [
             new CustomersListManualOrderEntryFormPlugin(),
+            new OrderSourceListFormPlugin(),
             new StoreManualOrderEntryFormPlugin(),
             new ProductManualOrderEntryFormPlugin(),
             new ItemManualOrderEntryFormPlugin(),
