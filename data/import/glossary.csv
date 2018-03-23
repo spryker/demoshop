@@ -1085,3 +1085,5 @@ catalog.sale,Sale,en_US
 catalog.sale,Sale,de_DE
 catalog.new,New,en_US
 catalog.new,Neu,de_DE
+checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
+checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
