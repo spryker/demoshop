@@ -91,7 +91,6 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
             ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        //TODO: clarify why we need to replace checkout variable with checkout word instead of just using the word itself.
         $this->createController('/{checkout}/offer', self::CHECKOUT_OFFER_INDEX, 'Checkout', 'OfferCheckout', 'index')
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout')
@@ -102,7 +101,6 @@ class CheckoutControllerProvider extends AbstractYvesControllerProvider
             ->value('checkout', 'checkout')
             ->method('GET|POST');
 
-        //TODO: probably rename placeOrder action to placeOffer
         $this->createController('/{checkout}/offer/place-offer', self::CHECKOUT_PLACE_OFFER, 'Checkout', 'OfferCheckout', 'placeOrder')
             ->assert('checkout', $allowedLocalesPattern . 'checkout|checkout')
             ->value('checkout', 'checkout')
