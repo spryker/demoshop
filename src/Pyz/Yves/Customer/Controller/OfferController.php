@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Customer\Controller;
 
 use Generated\Shared\Transfer\OfferToOrderConvertRequestTransfer;
+use Generated\Shared\Transfer\OrderTransfer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,7 +24,9 @@ class OfferController extends OrderController
         $offerId = $request->query->get('offerId');
 
         $offerToOrderConvertRequestTransfer = new OfferToOrderConvertRequestTransfer();
-        $offerToOrderConvertRequestTransfer->setOfferId($offerId);
+        $offerToOrderConvertRequestTransfer->setOrder(
+            (new OrderTransfer())->setIdSalesOrder($offerId)
+        );
 
         $response = $this->getFactory()
             ->getOfferClient()

@@ -46,7 +46,7 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
     /**
      * @return \Spryker\Zed\SalesExtension\Dependency\Plugin\PreSaveOrderPluginInterface[]
      */
-    protected function getPreSaveOrderHydrationPlugins(): array
+    protected function getPreSaveOrderPlugins(): array
     {
         return [
             new IsOfferPreSaveHydrateOrderPlugin(),
