@@ -200,6 +200,7 @@
     "spryker/setup-frontend": "^1.0.0",
     "spryker/shipment": "^6.0.0",
     "spryker/shipment-cart-connector": "^1.0.0",
+    "spryker/shipment-checkout-connector": "^1.0.0",
     "spryker/shipment-discount-connector": "^1.0.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",

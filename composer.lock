@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0e35c7b2c31d870c58d689ab894a4dc",
+    "content-hash": "60e3cbc13495c1a8aea5270a96759248",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -10909,6 +10909,51 @@
             ],
             "description": "ShipmentCartConnector module",
             "time": "2017-12-20T16:34:14+00:00"
+        },
+        {
+            "name": "spryker/shipment-checkout-connector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/shipment-checkout-connector.git",
+                "reference": "62046a36b5c44b8f807c9298f456d1249792bf53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/shipment-checkout-connector/zipball/62046a36b5c44b8f807c9298f456d1249792bf53",
+                "reference": "62046a36b5c44b8f807c9298f456d1249792bf53",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.14.0",
+                "spryker/shipment": "^6.4.0"
+            },
+            "require-dev": {
+                "spryker/checkout": "*",
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/checkout": "If you want to use Checkout plugins."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ShipmentCheckoutConnector module",
+            "time": "2018-03-21T09:32:22+00:00"
         },
         {
             "name": "spryker/shipment-discount-connector",
