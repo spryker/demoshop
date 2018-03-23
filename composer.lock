@@ -2127,16 +2127,16 @@
         },
         {
             "name": "spryker/application",
-            "version": "3.8.5",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/application.git",
-                "reference": "16ad44d84de36873f9f94d3efda546c8078e79dd"
+                "reference": "53b5f1b533352e3cb668dff179fc2cfaad34b39d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/application/zipball/16ad44d84de36873f9f94d3efda546c8078e79dd",
-                "reference": "16ad44d84de36873f9f94d3efda546c8078e79dd",
+                "url": "https://api.github.com/repos/spryker/application/zipball/53b5f1b533352e3cb668dff179fc2cfaad34b39d",
+                "reference": "53b5f1b533352e3cb668dff179fc2cfaad34b39d",
                 "shasum": ""
             },
             "require": {
@@ -2175,7 +2175,7 @@
                 "proprietary"
             ],
             "description": "Application module",
-            "time": "2018-01-25T09:08:11+00:00"
+            "time": "2018-03-22T10:58:16+00:00"
         },
         {
             "name": "spryker/assertion",
