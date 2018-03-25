@@ -18,7 +18,10 @@ use Pyz\Zed\DataImport\Business\Model\CmsBlockStore\CmsBlockStoreWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\CmsPageWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\PlaceholderExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\CmsTemplate\CmsTemplateWriterStep;
-use Pyz\Zed\DataImport\Business\Model\CompanyType\CompanyTypeWriterStep;
+use Pyz\Zed\DataImport\Business\Model\Company\CompanyWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CompanyBusinessUnit\CompanyBusinessUnitWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CompanyUnitAddress\CompanyUnitAddressWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CompanyUnitAddressLabel\CompanyUnitAddressLabelWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository;
 use Pyz\Zed\DataImport\Business\Model\Currency\CurrencyWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Customer\CustomerWriterStep;
@@ -135,7 +138,11 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createNavigationNodeImporter())
             ->addDataImporter($this->createDiscountAmountImporter())
             ->addDataImporter($this->createProductCustomerPermissionImporter())
-            ->addDataImporter($this->createCompanyTypeImporter());
+            ->addDataImporter($this->createProductCustomerPermissionImporter())
+            ->addDataImporter($this->createCompanyImporter())
+            ->addDataImporter($this->createCompanyBusinessUnitImporter())
+            ->addDataImporter($this->createCompanyUnitAddressImporter())
+            ->addDataImporter($this->createCompanyUnitAddressLabelImporter());
 
         return $dataImporterCollection;
     }
@@ -1101,13 +1108,57 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     /**
      * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
      */
-    protected function createCompanyTypeImporter()
+    protected function createCompanyImporter()
     {
-        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyTypeDataImporterConfiguration());
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyDataImporterConfiguration());
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
-        $dataSetStepBroker
-            ->addStep(new CompanyTypeWriterStep());
+        $dataSetStepBroker->addStep(new CompanyWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
+     */
+    protected function createCompanyUnitAddressLabelImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyUnitAddressLabelDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker->addStep(new CompanyUnitAddressLabelWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
+     */
+    protected function createCompanyBusinessUnitImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyBusinessUnitDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker->addStep(new CompanyBusinessUnitWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
+     */
+    protected function createCompanyUnitAddressImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyUnitAddressDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker->addStep(new CompanyUnitAddressWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
