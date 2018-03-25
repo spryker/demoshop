@@ -22,10 +22,10 @@ class CompanyTypeWriterStep implements DataImportStepInterface
      */
     public function execute(DataSetInterface $dataSet)
     {
-        $stockEntity = SpyCompanyTypeQuery::create()
+        $companyType = SpyCompanyTypeQuery::create()
             ->filterByName($dataSet[static::KEY_NAME])
             ->findOneOrCreate();
 
-        $stockEntity->save();
+        $companyType->save();
     }
 }
