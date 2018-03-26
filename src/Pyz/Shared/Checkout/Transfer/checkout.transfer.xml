@@ -6,6 +6,7 @@
     <transfer name="Quote">
         <property name="checkoutConfirmed" type="bool" />
         <property name="isOffer" type="bool" />
+        <property name="type" type="string" />
     </transfer>
 
 </transfers>

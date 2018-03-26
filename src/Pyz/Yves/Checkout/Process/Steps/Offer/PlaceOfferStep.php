@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
+use Spryker\Shared\Offer\OfferConfig;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOfferStep extends PlaceOrderStep
@@ -38,7 +39,7 @@ class PlaceOfferStep extends PlaceOrderStep
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
     {
-        $quoteTransfer->setIsOffer(true);
+        $quoteTransfer->setType(OfferConfig::ORDER_TYPE_OFFER);
 
         return parent::execute($request, $quoteTransfer);
     }
