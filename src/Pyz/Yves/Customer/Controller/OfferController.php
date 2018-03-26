@@ -10,6 +10,7 @@ namespace Pyz\Yves\Customer\Controller;
 use Generated\Shared\Transfer\OfferToOrderConvertRequestTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Spryker\Shared\Offer\OfferConfig;
 use Symfony\Component\HttpFoundation\Request;
 
 class OfferController extends OrderController
@@ -49,7 +50,7 @@ class OfferController extends OrderController
     protected function createOrderListTransfer(Request $request)
     {
         $orderListTransfer = parent::createOrderListTransfer($request);
-        $orderListTransfer->setIsOffer(true);
+        $orderListTransfer->setType(OfferConfig::ORDER_TYPE_OFFER);
 
         return $orderListTransfer;
     }

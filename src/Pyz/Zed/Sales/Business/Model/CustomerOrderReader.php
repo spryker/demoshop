@@ -26,8 +26,7 @@ class CustomerOrderReader extends SprykerCustomerOrderReader
             $orderListTransfer->getFilter()
         );
 
-        //TODO: attract special attention here.
-        $ordersQuery->filterByIsOffer((bool)$orderListTransfer->getIsOffer());
+        $ordersQuery->filterByType($orderListTransfer->getType());
 
         $orderCollection = $this->getOrderCollection($orderListTransfer, $ordersQuery);
 
