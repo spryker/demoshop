@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "973259cc0ee6eb2052e6808d6c6a1090",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1508,7 +1508,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c8409187b5d7c656302ed3fd693c0049eba33e75"
+                "reference": "eb1379145b64a4174e21d85c6ac387cd720fe890"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2305,7 +2305,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-26T10:11:07+00:00"
+            "time": "2018-03-26T14:57:29+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5466,7 +5466,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7114,7 +7114,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
