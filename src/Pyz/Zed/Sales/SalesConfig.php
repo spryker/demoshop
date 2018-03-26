@@ -25,7 +25,7 @@ class SalesConfig extends SprykerSalesConfig
     {
         $paymentMethodStatemachineMapping = $this->getPaymentMethodStatemachineMapping();
 
-        $payment = $quoteTransfer->getPayments()[0];
+        $payment = $quoteTransfer->getPayment();
         if (!array_key_exists($payment->getPaymentSelection(), $paymentMethodStatemachineMapping)) {
             return parent::determineProcessForOrderItem($quoteTransfer, $itemTransfer);
         }
