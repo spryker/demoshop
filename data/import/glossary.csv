@@ -502,7 +502,7 @@ customer.offer.total,Summe,de_DE
 customer.offer.view_offer,View Offer,en_US
 customer.offer.view_offer,Zum Angebot,de_DE
 customer.offer.convert.success,Offer has been converted to order,en_US
-customer.offer.convert.success,Das Angebot wurde in Bestellung umgewandelt,de_DE
+customer.offer.convert.success,Das Angebot wurde in eine Bestellung umgewandelt,de_DE
 customer.offer.convert.failure,Offer can not be converted to an order,en_US
 customer.offer.convert.failure,Das Angebot kann nicht in eine Bestellung umgewandelt werden,de_DE
 customer.newsletter.subscription,Newsletter settings,en_US
