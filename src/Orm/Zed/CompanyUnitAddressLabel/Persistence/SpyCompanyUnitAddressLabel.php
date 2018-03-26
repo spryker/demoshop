@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\Company\Persistence;
+namespace Orm\Zed\CompanyUnitAddressLabel\Persistence;
 
-use Spryker\Zed\Company\Persistence\Propel\AbstractSpyCompanyTypeQuery as BaseSpyCompanyTypeQuery;
+use Spryker\Zed\CompanyUnitAddressLabel\Persistence\Propel\AbstractSpyCompanyUnitAddressLabel as BaseSpyCompanyUnitAddressLabel;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'spy_company_type' table.
+ * Skeleton subclass for representing a row from the 'spy_company_unit_address_label' table.
  *
  *
  *
@@ -19,6 +19,6 @@ use Spryker\Zed\Company\Persistence\Propel\AbstractSpyCompanyTypeQuery as BaseSp
  * long as it does not already exist in the output directory.
  *
  */
-class SpyCompanyTypeQuery extends BaseSpyCompanyTypeQuery
+class SpyCompanyUnitAddressLabel extends BaseSpyCompanyUnitAddressLabel
 {
 }
