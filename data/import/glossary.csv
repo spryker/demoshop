@@ -499,6 +499,8 @@ customer.offer.convert_offer,In Bestellung konvertieren,de_DE
 customer.offer.convert_offer,Convert To Order,en_US
 customer.offer.date,Offer Date,en_US
 customer.offer.date,Datum,de_DE
+customer.offer.offer_id,Offer Id,en_US
+customer.offer.offer_id,Angebotnummer,de_DE
 customer.offer.total,Total,en_US
 customer.offer.total,Summe,de_DE
 customer.offer.view_offer,View Offer,en_US
