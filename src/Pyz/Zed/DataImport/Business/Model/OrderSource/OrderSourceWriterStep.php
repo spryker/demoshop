@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\OrderSource;
 
-use Orm\Zed\Currency\Persistence\SpyCurrencyQuery;
+use DateTime;
 use Orm\Zed\Sales\Persistence\SpyOrderSourceQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -25,8 +25,8 @@ class OrderSourceWriterStep implements DataImportStepInterface
     {
         $orderSource = SpyOrderSourceQuery::create()
             ->filterByOrderSourceName($dataSet[static::KEY_ORDER_SOURCE_NAME])
-            ->filterByCreatedAt(new \DateTime())
-            ->filterByUpdatedAt(new \DateTime())
+            ->filterByCreatedAt(new DateTime())
+            ->filterByUpdatedAt(new DateTime())
             ->findOneOrCreate();
 
         $orderSource->save();
