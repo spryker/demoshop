@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\SalesReclamation\Persistence;
 
-use Spryker\Zed\SalesReclamation\Persistence\Propel\SpySalesReclamationItem as BaseSpySalesReclamationItem;
+use Spryker\Zed\SalesReclamation\Persistence\Propel\AbstractSpySalesReclamationItem;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_sales_reclamation_item' table.
@@ -19,6 +19,6 @@ use Spryker\Zed\SalesReclamation\Persistence\Propel\SpySalesReclamationItem as B
  * long as it does not already exist in the output directory.
  *
  */
-class SpySalesReclamationItem extends BaseSpySalesReclamationItem
+class SpySalesReclamationItem extends AbstractSpySalesReclamationItem
 {
 }
