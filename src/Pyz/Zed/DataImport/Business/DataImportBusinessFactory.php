@@ -37,6 +37,7 @@ use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationKeyToIdNavigationStep
 use Pyz\Zed\DataImport\Business\Model\Navigation\NavigationWriterStep;
 use Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeValidityDatesStep;
 use Pyz\Zed\DataImport\Business\Model\NavigationNode\NavigationNodeWriterStep;
+use Pyz\Zed\DataImport\Business\Model\OrderSource\OrderSourceWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Product\AttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\ProductLocalizedAttributesExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
@@ -94,6 +95,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
         $dataImporterCollection
             ->addDataImporter($this->createStoreImporter())
             ->addDataImporter($this->createCurrencyImporter())
+            ->addDataImporter($this->createOrderSourceImporter())
             ->addDataImporter($this->createCategoryTemplateImporter())
             ->addDataImporter($this->createCategoryImporter())
             ->addDataImporter($this->createCustomerImporter())
@@ -147,6 +149,21 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker->addStep(new CurrencyWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
+     */
+    protected function createOrderSourceImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getOrderSourceDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker->addStep(new OrderSourceWriterStep());
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
