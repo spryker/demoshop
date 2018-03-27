@@ -56,6 +56,11 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_CURRENCY = 'currency';
     const IMPORT_TYPE_STORE = 'store';
     const IMPORT_TYPE_ORDER_SOURCE = 'order-source';
+    const IMPORT_TYPE_COMPANY = 'company';
+    const IMPORT_TYPE_COMPANY_BUSINESS_UNIT = 'company-business-unit';
+    const IMPORT_TYPE_COMPANY_UNIT_ADDRESS = 'company-unit-address';
+    const IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL = 'company-unit-address-label';
+    const IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL_TO_COMPANY_UNIT_ADDRESS = 'company-unit-address-label-to-company-unit-address';
 
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
@@ -399,6 +404,47 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductCustomerPermissionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_customer_permission.csv', static::IMPORT_TYPE_PRODUCT_CUSTOMER_PERMISSION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('company.csv', static::IMPORT_TYPE_COMPANY);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyBusinessUnitDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration(
+            'company_business_unit.csv',
+            static::IMPORT_TYPE_COMPANY_BUSINESS_UNIT
+        );
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyUnitAddressDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration(
+            'company_unit_address.csv',
+            static::IMPORT_TYPE_COMPANY_UNIT_ADDRESS
+        );
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyUnitAddressLabelDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration(
+            'company_unit_address_label.csv',
+            static::IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL
+        );
     }
 
     /**
