@@ -8,7 +8,9 @@
 namespace Pyz\Zed\DataImport\Business\Model\CompanyUnitAddress;
 
 use Orm\Zed\Company\Persistence\SpyCompanyQuery;
+use Orm\Zed\CompanyBusinessUnit\Persistence\SpyCompanyBusinessUnitQuery;
 use Orm\Zed\CompanyUnitAddress\Persistence\SpyCompanyUnitAddressQuery;
+use Orm\Zed\CompanyUnitAddress\Persistence\SpyCompanyUnitAddressToCompanyBusinessUnitQuery;
 use Orm\Zed\Country\Persistence\SpyCountryQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
@@ -40,6 +42,10 @@ class CompanyUnitAddressWriterStep implements DataImportStepInterface
             ->filterByName($dataSet[static::KEY_COMPANY_NAME])
             ->findOne();
 
+        $unit = SpyCompanyBusinessUnitQuery::create()
+            ->filterByFkCompany($company->getIdCompany())
+            ->findOne();
+
         $entity = SpyCompanyUnitAddressQuery::create()
             ->filterByFkCountry($country->getIdCountry())
             ->filterByFkCompany($company->getIdCompany())
@@ -55,5 +61,11 @@ class CompanyUnitAddressWriterStep implements DataImportStepInterface
             ->setComment($dataSet[static::KEY_COMMENT]);
 
         $entity->save();
+
+        $relation = SpyCompanyUnitAddressToCompanyBusinessUnitQuery::create()
+            ->filterByFkCompanyBusinessUnit($unit->getIdCompanyBusinessUnit())
+            ->filterByFkCompanyUnitAddress($entity->getIdCompanyUnitAddress())
+            ->findOneOrCreate();
+        $relation->save();
     }
 }

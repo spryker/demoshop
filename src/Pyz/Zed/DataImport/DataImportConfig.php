@@ -61,6 +61,7 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_COMPANY_UNIT_ADDRESS = 'company-unit-address';
     const IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL = 'company-unit-address-label';
     const IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL_TO_COMPANY_UNIT_ADDRESS = 'company-unit-address-label-to-company-unit-address';
+    const IMPORT_TYPE_COMPANY_SUPPLIER = 'company-supplier';
 
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
@@ -445,6 +446,14 @@ class DataImportConfig extends SprykerDataImportConfig
             'company_unit_address_label.csv',
             static::IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL
         );
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanySupplierDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('company_supplier.csv', static::IMPORT_TYPE_COMPANY_SUPPLIER);
     }
 
     /**
