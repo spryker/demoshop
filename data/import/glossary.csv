@@ -376,7 +376,7 @@ customer.account.address,Adressen,de_DE
 customer.account.order_history,Orders History,en_US
 customer.account.order_history,Bestellungen,de_DE
 customer.account.offer_history,Offers History,en_US
-customer.account.offer_history,Angebotsgeschichte,de_DE
+customer.account.offer_history,Angebotshistorie,de_DE
 customer.account.newsletter,Newsletter,en_US
 customer.account.newsletter,Newsletter,de_DE
 customer.account.last_orders,Last Orders,en_US
@@ -500,7 +500,7 @@ customer.offer.convert_offer,Convert To Order,en_US
 customer.offer.date,Offer Date,en_US
 customer.offer.date,Datum,de_DE
 customer.offer.offer_id,Offer Id,en_US
-customer.offer.offer_id,Angebotnummer,de_DE
+customer.offer.offer_id,Angebotsnummer,de_DE
 customer.offer.total,Total,en_US
 customer.offer.total,Summe,de_DE
 customer.offer.view_offer,View Offer,en_US
