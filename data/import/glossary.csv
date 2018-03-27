@@ -375,7 +375,7 @@ customer.account.address,Addresses,en_US
 customer.account.address,Adressen,de_DE
 customer.account.order_history,Orders History,en_US
 customer.account.order_history,Bestellungen,de_DE
-customer.account.offer_history,Offer History,en_US
+customer.account.offer_history,Offers History,en_US
 customer.account.offer_history,Angebotsgeschichte,de_DE
 customer.account.newsletter,Newsletter,en_US
 customer.account.newsletter,Newsletter,de_DE
@@ -461,6 +461,8 @@ customer.order.view_all,View All,en_US
 customer.order.view_all,Alle anzeigen,de_DE
 customer.order.all_orders,View orders,en_US
 customer.order.all_orders,Alle Bestellungen anzeigen,de_DE
+customer.order.all_offers,View offers,en_US
+customer.order.all_offers,Angebote ansehen,de_DE
 customer.order.total,Total,en_US
 customer.order.total,Summe,de_DE
 customer.order.view_order,View Order,en_US
