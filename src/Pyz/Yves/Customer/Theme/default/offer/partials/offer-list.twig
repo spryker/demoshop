@@ -19,6 +19,7 @@
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.view_offer' | trans }}</small>
                 </a>
                 <a href="{{ path('customer/offer/convert-offer', {'offerId': order.idSalesOrder}) }}">
+                    {# TODO: triggre event to move order to the next state using \Spryker\Zed\Oms\Business\OrderStateMachine\OrderStateMachineInterface::triggerEventForOrderItems #}
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.convert_offer' | trans }}</small>
                 </a>
             </td>
