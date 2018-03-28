@@ -7,7 +7,7 @@
 
 namespace Pyz\Zed\ManualOrderEntryGui;
 
-use Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentInvoiceSubFormPlugin;
+use Spryker\Zed\DummyPayment\Communication\Plugin\ManualOrderEntry\DummyPaymentInvoicePaymentSubFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\AddressManualOrderEntryFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\CustomersListManualOrderEntryFormPlugin;
 use Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\ItemManualOrderEntryFormPlugin;
@@ -23,12 +23,12 @@ use Spryker\Zed\ManualOrderEntryGui\ManualOrderEntryGuiDependencyProvider as Spr
 class ManualOrderEntryGuiDependencyProvider extends SprykerManualOrderEntryGuiDependencyProvider
 {
     /**
-     * @return \Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\Payment\SubFormPluginInterface[]
+     * @return \Spryker\Zed\ManualOrderEntryGuiExtension\Dependency\Plugin\PaymentSubFormPluginInterface[]
      */
     protected function getPaymentSubFormPlugins()
     {
         return [
-            new DummyPaymentInvoiceSubFormPlugin(),
+            new DummyPaymentInvoicePaymentSubFormPlugin(),
         ];
     }
 
