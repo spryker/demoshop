@@ -1,6 +1,7 @@
 <table class="stack">
     <thead>
         <tr class="active">
+            <th>{{ 'customer.offer.offer_id' | trans }}</th>
             <th>{{ 'customer.offer.date' | trans }}</th>
             <th class="text-right">{{ 'customer.offer.total' | trans }}</th>
             <th class="text-right">{{ 'customer.table.actions' | trans }}</th>
@@ -10,6 +11,7 @@
     {% for order in orderList %}
         {% set dateTime = date(order.createdAt) %}
         <tr>
+            <td>{{ order.orderReference }}</td>
             <td>{{ dateTime | formatDateTime }}</td>
             <td class="text-right">{{ order.totals.grandTotal | default(0) | money(true, order.currencyIsoCode) }}</td>
             <td class="text-right">
