@@ -15,11 +15,13 @@
 
         <p>
             <strong>{{ 'customer.offer.offer_id' | trans }}:</strong> {{ order.orderReference }}<br/>
-            <strong>{{ 'customer.offer.date' | trans }}:</strong> {{ order.createdAt| formatDateTime }}
+            <strong>{{ 'customer.offer.date' | trans }}:</strong> {{ order.createdAt| formatDateTime }} <br/>
+            <strong>{{ 'customer.offer.person_in_charge' | trans }}:</strong> {# TODO: add value after merge with offer management zed functionality #}<br/>
+            <strong>{{ 'customer.offer.status' | trans }}:</strong> {# TODO: add value after merge with offer management zed functionality #}
         </p>
 
         {% block offerItems %}
-            {% include "@customer/order/partials/order-items.twig" %}
+            {% include "@customer/offer/partials/offer-items.twig" %}
         {% endblock %}
 
         <div class="row">

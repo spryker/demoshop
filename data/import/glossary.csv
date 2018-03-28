@@ -509,6 +509,12 @@ customer.offer.convert.success,Offer has been converted to order,en_US
 customer.offer.convert.success,Das Angebot wurde in eine Bestellung umgewandelt,de_DE
 customer.offer.convert.failure,Offer can not be converted to an order,en_US
 customer.offer.convert.failure,Das Angebot kann nicht in eine Bestellung umgewandelt werden,de_DE
+customer.offer.saving,Saving,en_US
+customer.offer.saving,Speichern,de_DE
+customer.offer.person_in_charge,Person in charge,en_US
+customer.offer.person_in_charge,Verantwortlicher,de_DE
+customer.offer.status,Status,en_US
+customer.offer.status,Status,de_DE
 customer.newsletter.subscription,Newsletter settings,en_US
 customer.newsletter.subscription,Meine Newsletter Einstellungen,de_DE
 customer.newsletter.subscription_agreement,I agree to newsletter subscription,en_US

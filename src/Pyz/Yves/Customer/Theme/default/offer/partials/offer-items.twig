@@ -1,0 +1,43 @@
+<table>
+    <thead>
+        <tr>
+            <th class="text-left">{{ 'customer.order.item_sku' | trans }}</th>
+            <th class="text-left">{{ 'customer.order.product_name' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_price' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_quantity' | trans }}</th>
+            <th class="text-right">{{ 'customer.offer.saving' | trans }}</th>
+            <th class="text-right">{{ 'customer.order.item_sum' | trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for orderItem in items %}
+
+        {% if orderItem.bundleItems is defined  %}
+            {% include "@customer/order/partials/order-items-bundled.twig" %}
+        {% else %}
+            <tr>
+                <td class="text-left">
+                    {{ orderItem.sku }}
+                </td>
+                <td class="text-left">
+                    {{ orderItem.name }}
+                </td>
+                <td class="text-right">
+                    {{ orderItem.unitPrice | money(true, order.currencyIsoCode) }}
+                </td>
+                <td class="text-right">
+                    {{ orderItem.quantity }}
+                </td>
+                <td class="text-right">
+                    {# TODO: add saving value when merged witn offer management zed part #}
+                </td>
+                <td class="text-right">
+                    {{ orderItem.unitPriceToPayAggregation | money(true, order.currencyIsoCode) }}
+                </td>
+            </tr>
+            {% include "@customer/order/partials/order-items-options.twig" %}
+        {% endif %}
+
+    {% endfor %}
+    </tbody>
+</table>
