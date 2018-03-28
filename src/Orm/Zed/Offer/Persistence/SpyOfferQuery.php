@@ -2,7 +2,7 @@
 
 namespace Orm\Zed\Offer\Persistence;
 
-use Spryker\Zed\Offer\Persistence\Propel\AbstractSpyOffer as BaseSpyOfferQuery;
+use Spryker\Zed\Offer\Persistence\Propel\AbstractSpyOfferQuery as BaseSpyOfferQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_offer' table.
