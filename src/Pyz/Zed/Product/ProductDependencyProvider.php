@@ -174,7 +174,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     /**
      * @return ProductConcreteManagerPersistEntityExpanderPluginInterface[]
      */
-    protected function getPersistRelatedDataPlugins()
+    protected function getPersistRelatedDataPlugins(): array
     {
         return [
             new ProductConcreteManagerPersistEntityExpanderPlugin(),
