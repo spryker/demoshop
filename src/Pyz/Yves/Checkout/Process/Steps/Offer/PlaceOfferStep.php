@@ -8,11 +8,15 @@
 namespace Pyz\Yves\Checkout\Process\Steps\Offer;
 
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
+use Generated\Shared\Transfer\OfferResponseTransfer;
+use Generated\Shared\Transfer\OfferTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
+use Spryker\Client\Offer\OfferClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Shared\Offer\OfferConfig;
+use Spryker\Yves\Kernel\Locator;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOfferStep extends PlaceOrderStep
@@ -28,7 +32,13 @@ class PlaceOfferStep extends PlaceOrderStep
             return false;
         }
 
-        return parent::postCondition($quoteTransfer);
+        if ($this->checkoutResponseTransfer && !$this->checkoutResponseTransfer->getIsSuccess()) {
+            $this->setPostConditionErrorRoute($this->checkoutResponseTransfer);
+
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -41,7 +51,25 @@ class PlaceOfferStep extends PlaceOrderStep
     {
         $quoteTransfer->setType(OfferConfig::ORDER_TYPE_OFFER);
 
-        return parent::execute($request, $quoteTransfer);
+        /** @var OfferClientInterface $offerClient */
+        //todo: go through DP
+        $offerClient = Locator::getInstance()->offer()->client();
+
+        $offerTransfer = new OfferTransfer();
+        $offerTransfer->setQuote($quoteTransfer);
+
+        $offerResponse = $offerClient->placeOffer($offerTransfer);
+
+        if ($offerResponse->getIsSuccessful()) {
+            $this->setOfferInfoMessages($offerResponse);
+        } else {
+            $this->setOfferErrorMessages($offerResponse);
+        }
+
+        $this->checkoutResponseTransfer = (new CheckoutResponseTransfer())
+            ->setIsSuccess($offerResponse->getIsSuccessful());
+
+        return $quoteTransfer;
     }
 
     /**
@@ -74,14 +102,26 @@ class PlaceOfferStep extends PlaceOrderStep
     }
 
     /**
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
+     * @param OfferResponseTransfer $offerResponseTransfer
      *
      * @return void
      */
-    protected function setCheckoutErrorMessages(CheckoutResponseTransfer $checkoutResponseTransfer): void
+    protected function setOfferErrorMessages(OfferResponseTransfer $offerResponseTransfer): void
     {
-        foreach ($checkoutResponseTransfer->getErrors() as $checkoutErrorTransfer) {
-            $this->flashMessenger->addErrorMessage($checkoutErrorTransfer->getMessage());
+        foreach ($offerResponseTransfer->getMessages() as $responseMessageTransfer) {
+            $this->flashMessenger->addErrorMessage($responseMessageTransfer->getMessage());
+        }
+    }
+
+    /**
+     * @param OfferResponseTransfer $offerResponseTransfer
+     *
+     * @return void
+     */
+    protected function setOfferInfoMessages(OfferResponseTransfer $offerResponseTransfer): void
+    {
+        foreach ($offerResponseTransfer->getMessages() as $responseMessageTransfer) {
+            $this->flashMessenger->addInfoMessage($responseMessageTransfer->getMessage());
         }
     }
 }
