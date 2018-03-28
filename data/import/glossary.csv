@@ -512,7 +512,7 @@ customer.offer.convert.failure,Das Angebot kann nicht in eine Bestellung umgewan
 customer.offer.saving,Saving,en_US
 customer.offer.saving,Speichern,de_DE
 customer.offer.person_in_charge,Person in charge,en_US
-customer.offer.person_in_charge,Verantwortlicher,de_DE
+customer.offer.person_in_charge,Verantwortliche Person,de_DE
 customer.offer.status,Status,en_US
 customer.offer.status,Status,de_DE
 customer.newsletter.subscription,Newsletter settings,en_US
