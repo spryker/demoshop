@@ -120,6 +120,8 @@
     "spryker/mail": "^4.0.0",
     "spryker/maintenance": "^3.0.0",
     "spryker/mandrill": "^2.0.0",
+    "spryker/manual-order-entry-gui": "^0.1.0",
+    "spryker/manual-order-entry-gui-extension": "^1.0.0",
     "spryker/messenger": "^3.0.0",
     "spryker/money": "^2.0.0",
     "spryker/monolog": "^2.0.0",
