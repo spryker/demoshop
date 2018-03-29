@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "85ff7466d13fff0a3d789d17341114a9",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2095,11 +2095,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-3354-supplier-management",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6adfadff16de36817cfaef93ed9bd0368cbc0f5a"
+                "reference": "fe4b4d7921b6c0026ef6f16c9802e6a9c4f7c893"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2153,6 +2153,8 @@
                 "spryker/collector": "*",
                 "spryker/collector-search-connector": "*",
                 "spryker/collector-storage-connector": "*",
+                "spryker/company-supplier": "*",
+                "spryker/company-supplier-gui": "*",
                 "spryker/company-unit-address": "*",
                 "spryker/company-unit-address-extension": "*",
                 "spryker/company-unit-address-gui": "*",
@@ -2345,7 +2347,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-28T18:26:23+00:00"
+            "time": "2018-03-29T17:01:34+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
