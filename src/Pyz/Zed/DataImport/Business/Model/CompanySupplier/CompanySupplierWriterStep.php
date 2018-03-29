@@ -7,7 +7,6 @@
 
 namespace Pyz\Zed\DataImport\Business\Model\CompanySupplier;
 
-use Orm\Zed\Company\Persistence\SpyCompanyTypeQuery;
 use Orm\Zed\CompanySupplier\Persistence\SpyCompanySupplierToProductQuery;
 use Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
@@ -20,18 +19,18 @@ class CompanySupplierWriterStep implements DataImportStepInterface
     protected const KEY_PRODUCT_SKU = 'product_sku';
 
     /**
-     * @var ProductRepository
+     * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
      */
     protected $productRepository;
 
     /**
-     * @var CompanyRepository
+     * @var \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository
      */
     protected $companyRepository;
 
     /**
-     * @param ProductRepository $productRepository
-     * @param CompanyRepository $companyRepository
+     * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
+     * @param \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository $companyRepository
      */
     public function __construct(ProductRepository $productRepository, CompanyRepository $companyRepository)
     {

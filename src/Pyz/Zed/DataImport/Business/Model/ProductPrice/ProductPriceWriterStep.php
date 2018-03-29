@@ -59,7 +59,7 @@ class ProductPriceWriterStep implements DataImportStepInterface
 
     /**
      * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
-     * @param \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository
+     * @param \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository $companyRepository
      */
     public function __construct(ProductRepository $productRepository, CompanyRepository $companyRepository)
     {

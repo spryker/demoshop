@@ -14,8 +14,6 @@ use Spryker\Zed\CompanySupplierGui\Communication\Plugin\ProductFormTransferMappe
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Money\Communication\Plugin\Form\MoneyFormTypePlugin;
 use Spryker\Zed\ProductManagement\ProductManagementDependencyProvider as SprykerProductManagementDependencyProvider;
-use Spryker\Zed\ProductManagementExtension\Dependency\Plugin\ProductConcreteEditFormExpanderPluginInterface;
-use Spryker\Zed\ProductManagementExtension\Dependency\Plugin\ProductConcreteFormEditDataProviderExpanderPluginInterface;
 use Spryker\Zed\Store\Communication\Plugin\Form\StoreRelationToggleFormTypePlugin;
 
 class ProductManagementDependencyProvider extends SprykerProductManagementDependencyProvider
@@ -49,7 +47,7 @@ class ProductManagementDependencyProvider extends SprykerProductManagementDepend
     }
 
     /**
-     * @return ProductConcreteEditFormExpanderPluginInterface[]
+     * @return \Spryker\Zed\ProductManagementExtension\Dependency\Plugin\ProductConcreteEditFormExpanderPluginInterface[]
      */
     protected function getProductConcreteEditFormExpanderPlugins(): array
     {
@@ -59,7 +57,7 @@ class ProductManagementDependencyProvider extends SprykerProductManagementDepend
     }
 
     /**
-     * @return ProductConcreteFormEditDataProviderExpanderPluginInterface[]
+     * @return \Spryker\Zed\ProductManagementExtension\Dependency\Plugin\ProductConcreteFormEditDataProviderExpanderPluginInterface[]
      */
     protected function getProductConcreteFormEditDataProviderExpanderPlugins(): array
     {
@@ -69,7 +67,7 @@ class ProductManagementDependencyProvider extends SprykerProductManagementDepend
     }
 
     /**
-     * @return ProductConcreteFormEditDataProviderExpanderPluginInterface[]
+     * @return \Spryker\Zed\ProductManagementExtension\Dependency\Plugin\ProductConcreteFormEditDataProviderExpanderPluginInterface[]
      */
     protected function getProductFormTransferMapperExpanderPlugins(): array
     {

@@ -19,6 +19,7 @@ use Pyz\Zed\DataImport\Business\Model\CmsPage\CmsPageWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\PlaceholderExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\CmsTemplate\CmsTemplateWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Company\CompanyWriterStep;
+use Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository;
 use Pyz\Zed\DataImport\Business\Model\CompanyBusinessUnit\CompanyBusinessUnitWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CompanySupplier\CompanySupplierWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CompanyType\CompanyTypeWriterStep;
@@ -81,7 +82,6 @@ use Pyz\Zed\DataImport\Business\Model\Tax\TaxWriterStep;
 use Pyz\Zed\DataImport\DataImportDependencyProvider;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\ProductSearch\Code\KeyBuilder\FilterGlossaryKeyBuilder;
-use Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository;
 use Spryker\Zed\DataImport\Business\DataImportBusinessFactory as SprykerDataImportBusinessFactory;
 use Spryker\Zed\Discount\DiscountConfig;
 
@@ -852,7 +852,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     }
 
     /**
-     * @return CompanyRepository
+     * @return \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository
      */
     protected function createCompanyRepository(): CompanyRepository
     {
