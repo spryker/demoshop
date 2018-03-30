@@ -2099,7 +2099,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fe4b4d7921b6c0026ef6f16c9802e6a9c4f7c893"
+                "reference": "a736ede35b561e35bd241b793d8e415a9f8163dd"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2160,6 +2160,7 @@
                 "spryker/company-unit-address-gui": "*",
                 "spryker/company-unit-address-gui-extension": "*",
                 "spryker/company-unit-address-label": "*",
+                "spryker/company-unit-address-label-gui": "*",
                 "spryker/config": "*",
                 "spryker/console": "*",
                 "spryker/country": "*",
@@ -2347,7 +2348,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-29T17:01:34+00:00"
+            "time": "2018-03-30T15:22:15+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
