@@ -1,0 +1,16 @@
+{% if offerItem.productOptions|length > 0 %}
+    {% for productOption in offerItem.productOptions %}
+        <tr>
+            <td class="text-left">
+                &nbsp; + <small>{{ productOption.sku }}</small>
+            </td>
+            <td class="text-left">
+                <small>{{ productOption.value | trans }}</small>
+            </td>
+            <td class="text-right">
+                <small>{{ productOption.unitPrice | money(true, order.currencyIsoCode) }}</small>
+            </td>
+            <td class="text-right" colspan="2"></td>
+        </tr>
+    {% endfor %}
+{% endif %}

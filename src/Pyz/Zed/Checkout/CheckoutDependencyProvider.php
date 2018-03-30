@@ -15,6 +15,7 @@ use Spryker\Zed\Discount\Communication\Plugin\Checkout\DiscountOrderSavePlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderItemSaverPlugin;
 use Spryker\Zed\GiftCardMailConnector\Communication\Plugin\Checkout\SendEmailToGiftCardUser;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\Offer\Communication\Plugin\Checkout\ConvertOfferToOrderPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentOrderSaverPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentPostCheckPlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Checkout\PaymentPreCheckPlugin;
@@ -75,6 +76,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
         return [
             new PaymentPostCheckPlugin(),
             new SendEmailToGiftCardUser(),
+            new ConvertOfferToOrderPlugin(),
         ];
     }
 

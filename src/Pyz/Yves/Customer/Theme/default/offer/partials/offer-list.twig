@@ -8,17 +8,17 @@
         </tr>
     </thead>
     <tbody>
-    {% for order in orderList %}
-        {% set dateTime = date(order.createdAt) %}
+    {% for offer in offerList %}
+        {% set dateTime = date(offer.createdAt) %}
         <tr>
-            <td>{{ order.orderReference }}</td>
+            <td>{{ offer.idOffer }}</td>
             <td>{{ dateTime | formatDateTime }}</td>
-            <td class="text-right">{{ order.totals.grandTotal | default(0) | money(true, order.currencyIsoCode) }}</td>
+            <td class="text-right">{{ offer.quote.totals.grandTotal | default(0) | money(true, offer.quote.currency.code) }}</td>
             <td class="text-right">
-                <a href="{{ path('customer/offer/details', {'id': order.idSalesOrder}) }}">
+                <a href="{{ path('customer/offer/details', {'id': offer.idOffer}) }}">
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.view_offer' | trans }}</small>
                 </a>
-                <a href="{{ path('customer/offer/convert-offer', {'offerId': order.idSalesOrder}) }}">
+                <a href="{{ path('customer/offer/convert-offer', {'offerId': offer.idOffer}) }}">
                     {# TODO: triggre event to move order to the next state using \Spryker\Zed\Oms\Business\OrderStateMachine\OrderStateMachineInterface::triggerEventForOrderItems #}
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.convert_offer' | trans }}</small>
                 </a>

@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="small-12 large-6 columns">
+        <div class="callout">
+            <h5>{{ 'customer.order.shipping_address' | trans }}</h5>
+            <div>{{ offer.quote.shippingAddress.firstName }} {{ offer.quote.shippingAddress.lastName }}</div>
+            <div>{{ offer.quote.shippingAddress.address1 }} {{ offer.quote.shippingAddress.address2 }}</div>
+            {% if offer.quote.shippingAddress.address3 %}
+                <div>{{ offer.quote.shippingAddress.address3 }}</div>
+            {% endif %}
+            <div>{{ offer.quote.shippingAddress.zipCode }} {{ offer.quote.shippingAddress.city }}</div>
+            <div>{{ ('countries.iso.' ~ offer.quote.shippingAddress.iso2Code) | trans }}</div>
+        </div>
+    </div>
+
+    <div class="small-12 large-6 columns">
+        <div class="callout">
+            <h5>{{ 'customer.order.billing_address' | trans }}</h5>
+            <div>{{ offer.quote.billingAddress.firstName }} {{ offer.quote.billingAddress.lastName }}</div>
+            <div>{{ offer.quote.billingAddress.address1 }} {{ offer.quote.billingAddress.address2 }}</div>
+            {% if offer.quote.billingAddress.address3 %}
+                <div>{{ offer.quote.billingAddress.address3 }}</div>
+            {% endif %}
+            <div>{{ offer.quote.billingAddress.zipCode }} {{ offer.quote.billingAddress.city }}</div>
+            <div>{{ ('countries.iso.' ~ offer.quote.billingAddress.iso2Code) | trans }}</div>
+        </div>
+    </div>
+
+    <div class="small-12 large-6 columns">
+        <div class="callout">
+            <h5>{{ 'customer.order.shipment_method' | trans }}</h5>
+            <p>
+                {{ offer.quote.shipment.shipmentSelection }} <br />
+            </p>
+        </div>
+    </div>
+</div>

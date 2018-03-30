@@ -14,10 +14,10 @@
         <hr>
 
         <p>
-            <strong>{{ 'customer.offer.offer_id' | trans }}:</strong> {{ order.orderReference }}<br/>
-            <strong>{{ 'customer.offer.date' | trans }}:</strong> {{ order.createdAt| formatDateTime }} <br/>
-            <strong>{{ 'customer.offer.person_in_charge' | trans }}:</strong> {# TODO: add value after merge with offer management zed functionality #}<br/>
-            <strong>{{ 'customer.offer.status' | trans }}:</strong> {# TODO: add value after merge with offer management zed functionality #}
+            <strong>{{ 'customer.offer.offer_id' | trans }}:</strong> {{ offer.idOffer }}<br/>
+            <strong>{{ 'customer.offer.date' | trans }}:</strong> {{ offer.createdAt| formatDateTime }} <br/>
+            <strong>{{ 'customer.offer.person_in_charge' | trans }}:</strong> {{ offer.user }} <br/>
+            <strong>{{ 'customer.offer.status' | trans }}:</strong> {{ offer.status | replace('_', ' ') | capitalize }}
         </p>
 
         {% block offerItems %}
@@ -25,12 +25,12 @@
         {% endblock %}
 
         <div class="row">
-            {% include "@customer/order/partials/details-sum.twig" %}
+            {% include "@customer/offer/partials/details-sum.twig" %}
         </div>
     </div>
 
 
-    {% include "@customer/order/partials/details-personal-data.twig" %}
+    {% include "@customer/offer/partials/details-personal-data.twig" %}
 
     <div class="callout">
         <div class="row align-right">

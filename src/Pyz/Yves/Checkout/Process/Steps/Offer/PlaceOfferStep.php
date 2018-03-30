@@ -49,8 +49,6 @@ class PlaceOfferStep extends PlaceOrderStep
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
     {
-        $quoteTransfer->setType(OfferConfig::ORDER_TYPE_OFFER);
-
         /** @var OfferClientInterface $offerClient */
         //todo: go through DP
         $offerClient = Locator::getInstance()->offer()->client();

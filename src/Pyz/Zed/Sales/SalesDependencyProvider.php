@@ -49,7 +49,6 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
     protected function getPreSaveOrderPlugins(): array
     {
         return [
-            new IsOfferPreSaveHydrateOrderPlugin(),
         ];
     }
 }

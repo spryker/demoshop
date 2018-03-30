@@ -7,14 +7,73 @@
 
 namespace Pyz\Yves\Customer\Controller;
 
-use Generated\Shared\Transfer\OfferToOrderConvertRequestTransfer;
-use Generated\Shared\Transfer\OrderTransfer;
+use Generated\Shared\Transfer\FilterTransfer;
+use Generated\Shared\Transfer\OfferListTransfer;
+use Generated\Shared\Transfer\OfferTransfer;
+use Generated\Shared\Transfer\PaginationTransfer;
+use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
-use Spryker\Shared\Offer\OfferConfig;
 use Symfony\Component\HttpFoundation\Request;
 
-class OfferController extends OrderController
+class OfferController extends AbstractCustomerController
 {
+    const ORDER_LIST_LIMIT = 3;
+    const ORDER_LIST_SORT_FIELD = 'created_at';
+    const ORDER_LIST_SORT_DIRECTION = 'DESC';
+
+    const PARAM_PAGE = 'page';
+    const DEFAULT_PAGE = 1;
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function indexAction(Request $request)
+    {
+        $offerListTransfer = $this->createOfferListTransfer($request);
+
+        $offerListTransfer = $this->getFactory()
+            ->getOfferClient()
+            ->getOffers($offerListTransfer);
+
+        $offerList = $offerListTransfer->getOffers();
+
+        return $this->viewResponse([
+            'pagination' => $offerListTransfer->getPagination(),
+            'offerList' => $offerList,
+        ]);
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function detailsAction(Request $request)
+    {
+        $idOffer = $request->query->getInt('id');
+
+        $offerTransfer = $this->getFactory()
+            ->getOfferClient()
+            ->getOfferById(
+                (new OfferTransfer())
+                    ->setIdOffer($idOffer)
+            );
+
+        $bundleItemGrouper = $this->getFactory()->createProductBundleGroupper();
+        //TODO: use product bundle client
+        $items = $bundleItemGrouper->getGroupedBundleItems(
+            $offerTransfer->getQuote()->getItems(),
+            $offerTransfer->getQuote()->getBundleItems()
+        );
+
+        return $this->viewResponse([
+            'offer' => $offerTransfer,
+            'items' => $items,
+        ]);
+    }
+
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -22,36 +81,71 @@ class OfferController extends OrderController
      */
     public function convertOfferAction(Request $request)
     {
-        $offerId = $request->query->get('offerId');
-
-        $offerToOrderConvertRequestTransfer = new OfferToOrderConvertRequestTransfer();
-        $offerToOrderConvertRequestTransfer->setOrder(
-            (new OrderTransfer())->setIdSalesOrder($offerId)
-        );
-
-        $response = $this->getFactory()
+        $idOffer = $request->query->get('offerId');
+        $offerTransfer = $this->getFactory()
             ->getOfferClient()
-            ->convertOfferToOrder($offerToOrderConvertRequestTransfer);
+            ->getOfferById(
+                (new OfferTransfer())
+                    ->setIdOffer($idOffer)
+            );
 
-        if ($response->getIsSuccessful()) {
-            $this->addSuccessMessage("customer.offer.convert.success");
+        if (!$offerTransfer) {
+            $this->addErrorMessage("customer.offer.convert.failure");
+
             return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OFFER);
         }
 
-        $this->addErrorMessage("customer.offer.convert.failure");
-        return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_OFFER);
+        $this->getFactory()
+            ->getQuoteClient()
+            ->setQuote($offerTransfer->getQuote());
+
+        return $this->redirectResponseInternal(CheckoutControllerProvider::CHECKOUT_SUMMARY);
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return \Generated\Shared\Transfer\OrderListTransfer
+     * @return \Generated\Shared\Transfer\OfferListTransfer
      */
-    protected function createOrderListTransfer(Request $request)
+    protected function createOfferListTransfer(Request $request)
     {
-        $orderListTransfer = parent::createOrderListTransfer($request);
-        $orderListTransfer->setType(OfferConfig::ORDER_TYPE_OFFER);
+        $offerListTransfer = new OfferListTransfer();
 
-        return $orderListTransfer;
+        $customerTransfer = $this->getLoggedInCustomerTransfer();
+        $offerListTransfer->setCustomerReference($customerTransfer->getCustomerReference());
+
+        $filterTransfer = $this->createFilterTransfer();
+        $offerListTransfer->setFilter($filterTransfer);
+
+        $paginationTransfer = $this->createPaginationTransfer($request);
+        $offerListTransfer->setPagination($paginationTransfer);
+
+        return $offerListTransfer;
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Generated\Shared\Transfer\PaginationTransfer
+     */
+    protected function createPaginationTransfer(Request $request)
+    {
+        $paginationTransfer = new PaginationTransfer();
+        $paginationTransfer->setPage($request->query->getInt(static::PARAM_PAGE, static::DEFAULT_PAGE));
+        $paginationTransfer->setMaxPerPage(static::ORDER_LIST_LIMIT);
+
+        return $paginationTransfer;
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\FilterTransfer
+     */
+    protected function createFilterTransfer()
+    {
+        $filterTransfer = new FilterTransfer();
+        $filterTransfer->setOrderBy(static::ORDER_LIST_SORT_FIELD);
+        $filterTransfer->setOrderDirection(static::ORDER_LIST_SORT_DIRECTION);
+
+        return $filterTransfer;
     }
 }
