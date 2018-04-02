@@ -10,8 +10,8 @@
 
 {% block customerContent %}
     <div class="callout">
-        {% if orderList | length %}
-            <h5>{{ 'customer.order.all_offers' | trans }}</h5>
+        {% if offerList | length %}
+            <h5>{{ 'customer.offer.all_offers' | trans }}</h5>
             <hr>
 
             {% include "@customer/offer/partials/offer-list.twig" %}

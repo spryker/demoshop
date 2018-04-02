@@ -22,6 +22,8 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
     const CLIENT_NEWSLETTER = 'newsletter client';
     const CLIENT_SALES = 'client client';
     const CLIENT_OFFER = 'client offer';
+    const CLIENT_QUOTE = 'client quote';
+    const CLIENT_PRODUCT_BUNDLE = 'client product bundle';
     const PLUGIN_APPLICATION = 'application plugin';
     const PLUGIN_AUTHENTICATION_HANDLER = 'authentication plugin';
     const PLUGIN_LOGIN_AUTHENTICATION_HANDLER = 'login authentication plugin';
@@ -53,20 +55,28 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function provideClients(Container $container)
     {
-        $container[self::CLIENT_CUSTOMER] = function (Container $container) {
+        $container[static::CLIENT_CUSTOMER] = function (Container $container) {
             return $container->getLocator()->customer()->client();
         };
 
-        $container[self::CLIENT_SALES] = function (Container $container) {
+        $container[static::CLIENT_SALES] = function (Container $container) {
             return $container->getLocator()->sales()->client();
         };
 
-        $container[self::CLIENT_NEWSLETTER] = function (Container $container) {
+        $container[static::CLIENT_NEWSLETTER] = function (Container $container) {
             return $container->getLocator()->newsletter()->client();
         };
 
-        $container[self::CLIENT_OFFER] = function (Container $container) {
+        $container[static::CLIENT_OFFER] = function (Container $container) {
             return $container->getLocator()->offer()->client();
+        };
+
+        $container[static::CLIENT_QUOTE] = function (Container $container) {
+            return $container->getLocator()->quote()->client();
+        };
+
+        $container[static::CLIENT_PRODUCT_BUNDLE] = function (Container $container) {
+            return $container->getLocator()->productBundle()->client();
         };
 
         return $container;
@@ -79,30 +89,30 @@ class CustomerDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function providePlugins(Container $container)
     {
-        $container[self::PLUGIN_APPLICATION] = function () {
+        $container[static::PLUGIN_APPLICATION] = function () {
             $pimplePlugin = new Pimple();
 
             return $pimplePlugin->getApplication();
         };
 
-        $container[self::PLUGIN_AUTHENTICATION_HANDLER] = function () {
+        $container[static::PLUGIN_AUTHENTICATION_HANDLER] = function () {
             return new AuthenticationHandler();
         };
 
-        $container[self::PLUGIN_LOGIN_AUTHENTICATION_HANDLER] = function () {
+        $container[static::PLUGIN_LOGIN_AUTHENTICATION_HANDLER] = function () {
             return new LoginCheckoutAuthenticationHandlerPlugin();
         };
 
-        $container[self::PLUGIN_GUEST_AUTHENTICATION_HANDLER] = function () {
+        $container[static::PLUGIN_GUEST_AUTHENTICATION_HANDLER] = function () {
             return new GuestCheckoutAuthenticationHandlerPlugin();
         };
 
-        $container[self::PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER] = function () {
+        $container[static::PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER] = function () {
             return new RegistrationCheckoutAuthenticationHandlerPlugin();
         };
 
-        $container[self::FLASH_MESSENGER] = function (Container $container) {
-            return $container[self::PLUGIN_APPLICATION]['flash_messenger'];
+        $container[static::FLASH_MESSENGER] = function (Container $container) {
+            return $container[static::PLUGIN_APPLICATION]['flash_messenger'];
         };
 
         return $container;

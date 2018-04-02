@@ -91,8 +91,9 @@
                 </ul>
             </div>
 
-
-            {% include '@checkout/checkout/partials/voucher-form.twig' %}
+            {% block voucher %}
+                {% include '@checkout/checkout/partials/voucher-form.twig' %}
+            {% endblock %}
         </div>
     </div>
 

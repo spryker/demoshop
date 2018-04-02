@@ -13,14 +13,40 @@ use Generated\Shared\Transfer\OfferTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Checkout\Process\Steps\PlaceOrderStep;
+use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Client\Offer\OfferClientInterface;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
-use Spryker\Shared\Offer\OfferConfig;
-use Spryker\Yves\Kernel\Locator;
+use Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlaceOfferStep extends PlaceOrderStep
 {
+    /**
+     * @var \Spryker\Client\Offer\OfferClientInterface
+     */
+    protected $offerClient;
+
+    /**
+     * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
+     * @param \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface $flashMessenger
+     * @param \Spryker\Client\Offer\OfferClientInterface $offerClient
+     * @param string $stepRoute
+     * @param string $escapeRoute
+     * @param array $errorCodeToRouteMatching
+     */
+    public function __construct(
+        CheckoutClientInterface $checkoutClient,
+        FlashMessengerInterface $flashMessenger,
+        OfferClientInterface $offerClient,
+        string $stepRoute,
+        string $escapeRoute,
+        array $errorCodeToRouteMatching = []
+    ) {
+        parent::__construct($checkoutClient, $flashMessenger, $stepRoute, $escapeRoute, $errorCodeToRouteMatching);
+
+        $this->offerClient = $offerClient;
+    }
+
     /**
      * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -49,16 +75,10 @@ class PlaceOfferStep extends PlaceOrderStep
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
     {
-        $quoteTransfer->setType(OfferConfig::ORDER_TYPE_OFFER);
-
-        /** @var OfferClientInterface $offerClient */
-        //todo: go through DP
-        $offerClient = Locator::getInstance()->offer()->client();
-
         $offerTransfer = new OfferTransfer();
         $offerTransfer->setQuote($quoteTransfer);
 
-        $offerResponse = $offerClient->placeOffer($offerTransfer);
+        $offerResponse = $this->offerClient->placeOffer($offerTransfer);
 
         if ($offerResponse->getIsSuccessful()) {
             $this->setOfferInfoMessages($offerResponse);
@@ -102,7 +122,7 @@ class PlaceOfferStep extends PlaceOrderStep
     }
 
     /**
-     * @param OfferResponseTransfer $offerResponseTransfer
+     * @param \Generated\Shared\Transfer\OfferResponseTransfer $offerResponseTransfer
      *
      * @return void
      */
@@ -114,7 +134,7 @@ class PlaceOfferStep extends PlaceOrderStep
     }
 
     /**
-     * @param OfferResponseTransfer $offerResponseTransfer
+     * @param \Generated\Shared\Transfer\OfferResponseTransfer $offerResponseTransfer
      *
      * @return void
      */
