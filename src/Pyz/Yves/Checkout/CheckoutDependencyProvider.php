@@ -28,8 +28,8 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
     const CLIENT_CART = 'CLIENT_CART';
     const CLIENT_PAYMENT = 'CLIENT_PAYMENT';
-    const CLIENT_OFFER = 'CLIENT_OFFER';
     const STORE = 'STORE';
+    const CLIENT_OFFER = 'CLIENT_OFFER';
 
     const SERVICE_UTIL_VALIDATE = 'SERVICE_UTIL_VALIDATE';
 
@@ -95,6 +95,10 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
 
         $container[self::CLIENT_PAYMENT] = function (Container $container) {
             return $container->getLocator()->payment()->client();
+        };
+
+        $container[self::CLIENT_OFFER] = function (Container $container) {
+            return $container->getLocator()->offer()->client();
         };
 
         return $container;

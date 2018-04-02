@@ -17,8 +17,11 @@ class OfferDependencyProvider extends SprykerOfferDependencyProvider
      */
     protected function getOfferHydratorPlugins(): array
     {
-        return [
-            new OfferCustomerHydratorPlugin(),
-        ];
+        return array_merge(
+            parent::getOfferHydratorPlugins(),
+            [
+                new OfferCustomerHydratorPlugin(),
+            ]
+        );
     }
 }

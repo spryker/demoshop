@@ -461,8 +461,8 @@ customer.order.view_all,View All,en_US
 customer.order.view_all,Alle anzeigen,de_DE
 customer.order.all_orders,View orders,en_US
 customer.order.all_orders,Alle Bestellungen anzeigen,de_DE
-customer.order.all_offers,View offers,en_US
-customer.order.all_offers,Angebote ansehen,de_DE
+customer.offer.all_offers,View offers,en_US
+customer.offer.all_offers,Angebote ansehen,de_DE
 customer.order.total,Total,en_US
 customer.order.total,Summe,de_DE
 customer.order.view_order,View Order,en_US
