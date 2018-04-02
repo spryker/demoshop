@@ -15,6 +15,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Security\Customer;
 use Spryker\Client\Offer\OfferClientInterface;
+use Spryker\Client\ProductBundle\ProductBundleClientInterface;
 use Spryker\Client\Quote\QuoteClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
@@ -211,5 +212,13 @@ class CustomerFactory extends AbstractFactory
     public function getQuoteClient(): QuoteClientInterface
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_QUOTE);
+    }
+
+    /**
+     * @return \Spryker\Client\ProductBundle\ProductBundleClientInterface
+     */
+    public function getProductBundleClient(): ProductBundleClientInterface
+    {
+        $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_PRODUCT_BUNDLE);
     }
 }

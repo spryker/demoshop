@@ -61,9 +61,7 @@ class OfferController extends AbstractCustomerController
                     ->setIdOffer($idOffer)
             );
 
-        $bundleItemGrouper = $this->getFactory()->createProductBundleGroupper();
-        //TODO: use product bundle client
-        $items = $bundleItemGrouper->getGroupedBundleItems(
+        $items = $this->getFactory()->getProductBundleClient()->getGroupedBundleItems(
             $offerTransfer->getQuote()->getItems(),
             $offerTransfer->getQuote()->getBundleItems()
         );
