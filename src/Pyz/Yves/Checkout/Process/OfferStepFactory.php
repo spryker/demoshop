@@ -19,6 +19,7 @@ use Pyz\Yves\Checkout\Process\Steps\ShipmentStep;
 use Pyz\Yves\Checkout\Process\Steps\SuccessStep;
 use Pyz\Yves\Checkout\Process\Steps\SummaryStep;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
+use Spryker\Client\Offer\OfferClientInterface;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Spryker\Yves\StepEngine\Process\StepCollection;
 
@@ -150,6 +151,7 @@ class OfferStepFactory extends StepFactory
         return new PlaceOfferStep(
             $this->getCheckoutClient(),
             $this->getFlashMessenger(),
+            $this->getOfferClient(),
             CheckoutControllerProvider::CHECKOUT_PLACE_OFFER,
             ApplicationControllerProvider::ROUTE_HOME,
             [
@@ -169,5 +171,13 @@ class OfferStepFactory extends StepFactory
             CheckoutControllerProvider::CHECKOUT_OFFER_SUCCESS,
             ApplicationControllerProvider::ROUTE_HOME
         );
+    }
+
+    /**
+     * @return \Spryker\Client\Offer\OfferClientInterface
+     */
+    protected function getOfferClient(): OfferClientInterface
+    {
+        return $this->getProvidedDependency(CheckoutDependencyProvider::CLIENT_OFFER);
     }
 }
