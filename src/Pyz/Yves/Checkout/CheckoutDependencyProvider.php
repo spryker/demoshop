@@ -97,6 +97,10 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             return $container->getLocator()->payment()->client();
         };
 
+        $container[self::CLIENT_OFFER] = function (Container $container) {
+            return $container->getLocator()->offer()->client();
+        };
+
         return $container;
     }
 
