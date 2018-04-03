@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\Sales\Persistence;
+namespace Orm\Zed\ManualOrderEntry\Persistence;
 
-use Orm\Zed\Sales\Persistence\Base\SpyOrderSource as BaseSpyOrderSource;
+use Orm\Zed\ManualOrderEntry\Persistence\Base\SpyOrderSourceQuery as BaseSpyOrderSourceQuery;
 
 /**
- * Skeleton subclass for representing a row from the 'spy_order_source' table.
+ * Skeleton subclass for performing query and update operations on the 'spy_order_source' table.
  *
  *
  *
@@ -19,6 +19,6 @@ use Orm\Zed\Sales\Persistence\Base\SpyOrderSource as BaseSpyOrderSource;
  * long as it does not already exist in the output directory.
  *
  */
-class SpyOrderSource extends BaseSpyOrderSource
+class SpyOrderSourceQuery extends BaseSpyOrderSourceQuery
 {
 }
