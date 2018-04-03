@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "60e3cbc13495c1a8aea5270a96759248",
+    "content-hash": "b1ad699dc6accb1882b18e9deef7378e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2222,16 +2222,16 @@
         },
         {
             "name": "spryker/auth",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/auth.git",
-                "reference": "f5d8fa4613edb677dbb7af0cd52ae426cad1b964"
+                "reference": "42d8fabd73d6c61128ae50df1bacb9d4f71ec576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/auth/zipball/f5d8fa4613edb677dbb7af0cd52ae426cad1b964",
-                "reference": "f5d8fa4613edb677dbb7af0cd52ae426cad1b964",
+                "url": "https://api.github.com/repos/spryker/auth/zipball/42d8fabd73d6c61128ae50df1bacb9d4f71ec576",
+                "reference": "42d8fabd73d6c61128ae50df1bacb9d4f71ec576",
                 "shasum": ""
             },
             "require": {
@@ -2268,7 +2268,7 @@
                 "proprietary"
             ],
             "description": "Auth module",
-            "time": "2018-02-06T15:40:01+00:00"
+            "time": "2018-03-29T05:09:00+00:00"
         },
         {
             "name": "spryker/auth-mail-connector",
@@ -4864,19 +4864,20 @@
         },
         {
             "name": "spryker/config",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Config.git",
-                "reference": "bf10b692c48ef6c57a5cccd47838df4af4cd8fa4"
+                "url": "https://github.com/spryker/config.git",
+                "reference": "a3cc0b997c0a752ee2454b6244acbd383966343b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Config/zipball/bf10b692c48ef6c57a5cccd47838df4af4cd8fa4",
-                "reference": "bf10b692c48ef6c57a5cccd47838df4af4cd8fa4",
+                "url": "https://api.github.com/repos/spryker/config/zipball/a3cc0b997c0a752ee2454b6244acbd383966343b",
+                "reference": "a3cc0b997c0a752ee2454b6244acbd383966343b",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/kernel": "^3.8.0",
                 "spryker/symfony": "^3.0.0"
             },
@@ -4907,7 +4908,7 @@
                 "proprietary"
             ],
             "description": "Config module",
-            "time": "2017-10-25T13:22:17+00:00"
+            "time": "2018-03-22T16:25:55+00:00"
         },
         {
             "name": "spryker/console",
@@ -5672,22 +5673,23 @@
         },
         {
             "name": "spryker/dummy-payment",
-            "version": "2.2.3",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/dummy-payment.git",
-                "reference": "e55a886e52d0630c5693b1688254ad7a42ae49a5"
+                "reference": "8d61c55671f376beb01b21afb38b1dbfbc60148d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/dummy-payment/zipball/e55a886e52d0630c5693b1688254ad7a42ae49a5",
-                "reference": "e55a886e52d0630c5693b1688254ad7a42ae49a5",
+                "url": "https://api.github.com/repos/spryker/dummy-payment/zipball/8d61c55671f376beb01b21afb38b1dbfbc60148d",
+                "reference": "8d61c55671f376beb01b21afb38b1dbfbc60148d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/checkout": "^3.0.0 || ^4.0.0",
                 "spryker/kernel": "^3.0.0",
+                "spryker/manual-order-entry-gui-extension": "^1.0.0",
                 "spryker/oms": "^6.0.0 || ^7.0.0 || ^8.0.0",
                 "spryker/payment": "^3.0.0 || ^4.0.0",
                 "spryker/refund": "^4.0.0 || ^5.0.0",
@@ -5697,9 +5699,13 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/manual-order-entry-gui": "*",
                 "spryker/propel": "*",
                 "spryker/propel-orm": "*",
                 "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/manual-order-entry-gui": "*"
             },
             "type": "library",
             "extra": {
@@ -5717,7 +5723,7 @@
                 "proprietary"
             ],
             "description": "DummyPayment module",
-            "time": "2018-02-19T12:41:14+00:00"
+            "time": "2018-03-28T08:14:57+00:00"
         },
         {
             "name": "spryker/egulias",
@@ -7030,6 +7036,101 @@
             "time": "2016-04-01T13:06:05+00:00"
         },
         {
+            "name": "spryker/manual-order-entry-gui",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/manual-order-entry-gui.git",
+                "reference": "8fd590ae2cde4dab30f2a5e80fd0de7c8d1bde1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/manual-order-entry-gui/zipball/8fd590ae2cde4dab30f2a5e80fd0de7c8d1bde1f",
+                "reference": "8fd590ae2cde4dab30f2a5e80fd0de7c8d1bde1f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/calculation": "^4.2.2",
+                "spryker/cart": "^4.1.0",
+                "spryker/checkout": "^4.1.0",
+                "spryker/currency": "^3.1.0",
+                "spryker/customer": "^7.1.0",
+                "spryker/discount": "^6.1.0",
+                "spryker/gui": "^3.1.0",
+                "spryker/kernel": "^3.18.0",
+                "spryker/manual-order-entry-gui-extension": "^1.0.0",
+                "spryker/messenger": "^3.1.0",
+                "spryker/money": "^2.1.0",
+                "spryker/payment": "^4.1.0",
+                "spryker/product": "^6.0.0",
+                "spryker/sales": "^8.1.0",
+                "spryker/shipment": "^6.1.0",
+                "spryker/symfony": "^3.1.0",
+                "spryker/util-text": "^1.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ManualOrderEntryGui module",
+            "time": "2018-03-29T14:45:47+00:00"
+        },
+        {
+            "name": "spryker/manual-order-entry-gui-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/manual-order-entry-gui-extension.git",
+                "reference": "46efb708b7aba7b9e2c1b8a031ea6a6aaafc53e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/manual-order-entry-gui-extension/zipball/46efb708b7aba7b9e2c1b8a031ea6a6aaafc53e3",
+                "reference": "46efb708b7aba7b9e2c1b8a031ea6a6aaafc53e3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ManualOrderEntryGuiExtension module",
+            "time": "2018-03-27T17:57:59+00:00"
+        },
+        {
             "name": "spryker/messenger",
             "version": "3.1.0",
             "source": {
@@ -7915,19 +8016,20 @@
         },
         {
             "name": "spryker/price-cart-connector",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/PriceCartConnector.git",
-                "reference": "caa2614e2f679b9479c35fd9fc6b57d314742824"
+                "url": "https://github.com/spryker/price-cart-connector.git",
+                "reference": "8bd9ca3eb9c4fec3219db40997c8da3f44a62560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/PriceCartConnector/zipball/caa2614e2f679b9479c35fd9fc6b57d314742824",
-                "reference": "caa2614e2f679b9479c35fd9fc6b57d314742824",
+                "url": "https://api.github.com/repos/spryker/price-cart-connector/zipball/8bd9ca3eb9c4fec3219db40997c8da3f44a62560",
+                "reference": "8bd9ca3eb9c4fec3219db40997c8da3f44a62560",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
                 "spryker/price": "^5.0.0",
                 "spryker/price-product": "^1.0.0"
@@ -7957,7 +8059,7 @@
                 "proprietary"
             ],
             "description": "PriceCartConnector module",
-            "time": "2017-11-16T14:11:26+00:00"
+            "time": "2018-03-23T11:17:58+00:00"
         },
         {
             "name": "spryker/price-data-feed",
@@ -10419,16 +10521,16 @@
         },
         {
             "name": "spryker/sales",
-            "version": "8.8.0",
+            "version": "8.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/sales.git",
-                "reference": "55d4a1c8455d1bb6ca78e99c53ce90e40ede8845"
+                "reference": "71faf0c0a86dc0135e738908d31e5a854a4ab484"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/sales/zipball/55d4a1c8455d1bb6ca78e99c53ce90e40ede8845",
-                "reference": "55d4a1c8455d1bb6ca78e99c53ce90e40ede8845",
+                "url": "https://api.github.com/repos/spryker/sales/zipball/71faf0c0a86dc0135e738908d31e5a854a4ab484",
+                "reference": "71faf0c0a86dc0135e738908d31e5a854a4ab484",
                 "shasum": ""
             },
             "require": {
@@ -10443,6 +10545,7 @@
                 "spryker/oms": "^7.3.0 || ^8.0.0",
                 "spryker/propel": "^3.0.0",
                 "spryker/propel-orm": "^1.0.0",
+                "spryker/sales-extension": "^1.0.0",
                 "spryker/sales-split": "^3.0.0",
                 "spryker/sequence-number": "^3.0.0",
                 "spryker/symfony": "^3.0.0",
@@ -10481,7 +10584,46 @@
                 "proprietary"
             ],
             "description": "Sales module",
-            "time": "2018-03-22T12:54:05+00:00"
+            "time": "2018-03-29T17:20:54+00:00"
+        },
+        {
+            "name": "spryker/sales-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/sales-extension.git",
+                "reference": "77a395d3a1d252ee34376522b5ce6aa9829fe6e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/sales-extension/zipball/77a395d3a1d252ee34376522b5ce6aa9829fe6e4",
+                "reference": "77a395d3a1d252ee34376522b5ce6aa9829fe6e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "SalesExtension module",
+            "time": "2018-03-29T17:20:54+00:00"
         },
         {
             "name": "spryker/sales-product-connector",
@@ -10531,6 +10673,57 @@
             ],
             "description": "SalesProductConnector module",
             "time": "2018-01-24T11:43:27+00:00"
+        },
+        {
+            "name": "spryker/sales-reclamation",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/sales-reclamation.git",
+                "reference": "625c94ea5692a08435bdee5879c1cdb2cca93f90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/sales-reclamation/zipball/625c94ea5692a08435bdee5879c1cdb2cca93f90",
+                "reference": "625c94ea5692a08435bdee5879c1cdb2cca93f90",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/gui": "^3.7.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/manual-order-entry-gui": "*",
+                "spryker/sales": "^7.0.0 || ^8.0.0",
+                "spryker/sales-extension": "^1.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-date-time": "^1.0.0",
+                "spryker/util-text": "^1.1.0"
+            },
+            "require-dev": {
+                "spryker/checkout": "^3.0.0 || ^4.0.0",
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/checkout": "Used interfase for SaveOrder plugin. Version from 3.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "SalesReclamation module",
+            "time": "2018-03-29T17:20:54+00:00"
         },
         {
             "name": "spryker/sales-split",
@@ -11605,16 +11798,16 @@
         },
         {
             "name": "spryker/touch",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/touch.git",
-                "reference": "d734ae2bd981d9b9ac1cefd530e5e0070ebb5c33"
+                "reference": "71a7df3739ab8833dcadb50deeec700d7c8f890a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/touch/zipball/d734ae2bd981d9b9ac1cefd530e5e0070ebb5c33",
-                "reference": "d734ae2bd981d9b9ac1cefd530e5e0070ebb5c33",
+                "url": "https://api.github.com/repos/spryker/touch/zipball/71a7df3739ab8833dcadb50deeec700d7c8f890a",
+                "reference": "71a7df3739ab8833dcadb50deeec700d7c8f890a",
                 "shasum": ""
             },
             "require": {
@@ -11649,7 +11842,7 @@
                 "proprietary"
             ],
             "description": "Touch module",
-            "time": "2018-01-24T09:43:38+00:00"
+            "time": "2018-03-19T09:35:33+00:00"
         },
         {
             "name": "spryker/transfer",
@@ -17321,16 +17514,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "0.11.2",
+            "version": "0.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "09a1f6fe2ad1152c858824e7091ad88fea4425f2"
+                "reference": "69a56548308372339025107fd07cdab222cf3103"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/09a1f6fe2ad1152c858824e7091ad88fea4425f2",
-                "reference": "09a1f6fe2ad1152c858824e7091ad88fea4425f2",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/69a56548308372339025107fd07cdab222cf3103",
+                "reference": "69a56548308372339025107fd07cdab222cf3103",
                 "shasum": ""
             },
             "require": {
@@ -17368,7 +17561,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-01-15T19:21:29+00:00"
+            "time": "2018-03-26T15:17:53+00:00"
         },
         {
             "name": "spryker/development",
