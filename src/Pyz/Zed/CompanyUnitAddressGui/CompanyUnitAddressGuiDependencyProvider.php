@@ -14,7 +14,7 @@ use Spryker\Zed\CompanyUnitAddressLabelGui\Communication\Plugin\CompanyUnitAddre
 class CompanyUnitAddressGuiDependencyProvider extends SprykerCompanyUnitAddressGuiDependencyProvider
 {
     /**
-     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Communication\Plugin\CompanyUnitAddressEditFormExpanderPluginInterface[]
+     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Dependency\Plugin\CompanyUnitAddressEditFormExpanderPluginInterface[]
      */
     protected function getCompanyUnitAddressFormPlugins(): array
     {
@@ -24,7 +24,7 @@ class CompanyUnitAddressGuiDependencyProvider extends SprykerCompanyUnitAddressG
     }
 
     /**
-     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Communication\Plugin\CompanyUnitAddressTableExpanderInterface[]
+     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Dependency\Plugin\CompanyUnitAddressTableExpanderInterface[]
      */
     protected function getCompanyUnitAddressTableExpanderPlugins(): array
     {
