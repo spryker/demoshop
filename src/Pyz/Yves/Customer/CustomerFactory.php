@@ -14,6 +14,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Security\Customer;
+use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Offer\OfferClientInterface;
 use Spryker\Client\ProductBundle\ProductBundleClientInterface;
 use Spryker\Client\Quote\QuoteClientInterface;
@@ -219,6 +220,14 @@ class CustomerFactory extends AbstractFactory
      */
     public function getProductBundleClient(): ProductBundleClientInterface
     {
-        $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_PRODUCT_BUNDLE);
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_PRODUCT_BUNDLE);
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClientInterface
+     */
+    public function getCartClient(): CartClientInterface
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_CART);
     }
 }

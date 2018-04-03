@@ -29,7 +29,7 @@
                     {{ offerItem.quantity }}
                 </td>
                 <td class="text-right">
-                    {# TODO: add saving value when merged witn offer management zed part #}
+                    {{ offerItem.saving | money(true, offer.quote.currency.code) }}
                 </td>
                 <td class="text-right">
                     {{ offerItem.unitPriceToPayAggregation | money(true, offer.quote.currency.code) }}

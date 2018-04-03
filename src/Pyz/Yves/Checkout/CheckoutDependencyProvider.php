@@ -28,8 +28,8 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
     const CLIENT_CART = 'CLIENT_CART';
     const CLIENT_PAYMENT = 'CLIENT_PAYMENT';
-    const CLIENT_OFFER = 'CLIENT_OFFER';
     const STORE = 'STORE';
+    const CLIENT_OFFER = 'CLIENT_OFFER';
 
     const SERVICE_UTIL_VALIDATE = 'SERVICE_UTIL_VALIDATE';
 
