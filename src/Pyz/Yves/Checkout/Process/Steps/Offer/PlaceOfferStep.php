@@ -78,7 +78,7 @@ class PlaceOfferStep extends PlaceOrderStep
         $offerTransfer = new OfferTransfer();
         $offerTransfer->setQuote($quoteTransfer);
 
-        $offerResponse = $this->offerClient->placeOffer($offerTransfer);
+        $offerResponse = $this->offerClient->createOffer($offerTransfer);
 
         if ($offerResponse->getIsSuccessful()) {
             $this->setOfferInfoMessages($offerResponse);
