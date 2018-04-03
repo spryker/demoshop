@@ -25,9 +25,29 @@ class CompanyGuiDependencyProvider extends SprykerCompanyGuiDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\CompanyGuiExtension\Dependency\Plugin\CompanyTableExpanderInterface[]
+     * @return \Spryker\Zed\CompanyGuiExtension\Dependency\Plugin\CompanyTableConfigExpanderPluginInterface[]
      */
-    protected function getCompanyTableExpanderPlugins(): array
+    protected function getCompanyTableConfigExpanderPlugins(): array
+    {
+        return [
+            new CompanyTableCompanyTypePlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CompanyGuiExtension\Dependency\Plugin\CompanyTableHeaderExpanderPluginInterface[]
+     */
+    protected function getCompanyTableHeaderExpanderPlugins(): array
+    {
+        return [
+            new CompanyTableCompanyTypePlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CompanyGuiExtension\Dependency\Plugin\CompanyTableDataExpanderPluginInterface[]
+     */
+    protected function getCompanyTableDataExpanderPlugins(): array
     {
         return [
             new CompanyTableCompanyTypePlugin(),
