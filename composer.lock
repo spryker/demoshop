@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "85ff7466d13fff0a3d789d17341114a9",
+    "content-hash": "c2b0f39f23323b1c9769de0776328179",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2095,11 +2095,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-3354-supplier-management",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b55b47dbe67c4e08728e85eabb411e8d58940c8e"
+                "reference": "071c1356b5fff02259d0081483c136c0074b2060"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2153,14 +2153,11 @@
                 "spryker/collector": "*",
                 "spryker/collector-search-connector": "*",
                 "spryker/collector-storage-connector": "*",
-                "spryker/company-supplier": "*",
-                "spryker/company-supplier-gui": "*",
                 "spryker/company-unit-address": "*",
                 "spryker/company-unit-address-extension": "*",
                 "spryker/company-unit-address-gui": "*",
                 "spryker/company-unit-address-gui-extension": "*",
                 "spryker/company-unit-address-label": "*",
-                "spryker/company-unit-address-label-gui": "*",
                 "spryker/config": "*",
                 "spryker/console": "*",
                 "spryker/country": "*",
@@ -2348,7 +2345,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-03-30T16:12:21+00:00"
+            "time": "2018-04-03T06:40:13+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
