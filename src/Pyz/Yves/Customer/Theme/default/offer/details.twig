@@ -16,7 +16,7 @@
         <p>
             <strong>{{ 'customer.offer.offer_id' | trans }}:</strong> {{ offer.idOffer }}<br/>
             <strong>{{ 'customer.offer.date' | trans }}:</strong> {{ offer.createdAt| formatDateTime }} <br/>
-            <strong>{{ 'customer.offer.person_in_charge' | trans }}:</strong> {{ offer.user }} <br/>
+            <strong>{{ 'customer.offer.person_in_charge' | trans }}:</strong> {{ offer.user is not null ? [offer.user.firstName, offer.user.lastName].join(" ") : "-" }} <br/>
             <strong>{{ 'customer.offer.status' | trans }}:</strong> {{ offer.status | replace('_', ' ') | capitalize }}
         </p>
 
