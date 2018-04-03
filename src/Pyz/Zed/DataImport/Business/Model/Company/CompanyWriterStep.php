@@ -8,7 +8,7 @@
 namespace Pyz\Zed\DataImport\Business\Model\Company;
 
 use Orm\Zed\Company\Persistence\SpyCompanyQuery;
-use Orm\Zed\Company\Persistence\SpyCompanyTypeQuery;
+use Orm\Zed\CompanySupplier\Persistence\SpyCompanyTypeQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 

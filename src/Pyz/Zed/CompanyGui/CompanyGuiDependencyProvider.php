@@ -9,6 +9,7 @@ namespace Pyz\Zed\CompanyGui;
 
 use Spryker\Zed\CompanyGui\CompanyGuiDependencyProvider as SprykerCompanyGuiDependencyProvider;
 use Spryker\Zed\CompanySupplierGui\Communication\Plugin\CompanyTableActionViewSupplier;
+use Spryker\Zed\CompanySupplierGui\Communication\Plugin\CompanyTypeFieldPlugin;
 
 class CompanyGuiDependencyProvider extends SprykerCompanyGuiDependencyProvider
 {
@@ -19,6 +20,16 @@ class CompanyGuiDependencyProvider extends SprykerCompanyGuiDependencyProvider
     {
         return [
             new CompanyTableActionViewSupplier(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CompanyGuiExtension\Dependency\Plugin\CompanyFormExpanderPluginInterface[]
+     */
+    protected function getCompanyFormPlugins(): array
+    {
+        return [
+            new CompanyTypeFieldPlugin(),
         ];
     }
 }
