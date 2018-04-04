@@ -24,9 +24,29 @@ class CompanyUnitAddressGuiDependencyProvider extends SprykerCompanyUnitAddressG
     }
 
     /**
-     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Dependency\Plugin\CompanyUnitAddressTableExpanderInterface[]
+     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Dependency\Plugin\CompanyUnitAddressTableConfigExpanderPluginInterface[]
      */
-    protected function getCompanyUnitAddressTableExpanderPlugins(): array
+    protected function getCompanyUnitAddressTableConfigExpanderPlugins(): array
+    {
+        return [
+            new CompanyUnitAddressTableExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Dependency\Plugin\CompanyUnitAddressTableHeaderExpanderPluginInterface[]
+     */
+    protected function getCompanyUnitAddressTableHeaderExpanderPlugins(): array
+    {
+        return [
+            new CompanyUnitAddressTableExpanderPlugin(),
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CompanyUnitAddressGuiExtension\Dependency\Plugin\CompanyUnitAddressTableDataExpanderPluginInterface[]
+     */
+    protected function getCompanyUnitAddressTableDataExpanderPlugins(): array
     {
         return [
             new CompanyUnitAddressTableExpanderPlugin(),
