@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\CompanySupplier\Persistence;
 
-use Orm\Zed\CompanySupplier\Persistence\Base\SpyCompanySupplierToProduct as BaseSpyCompanySupplierToProduct;
+use Spryker\Zed\CompanySupplier\Persistence\Propel\AbstractSpyCompanySupplierToProduct as BaseSpyCompanySupplierToProduct;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_company_supplier_to_product' table.
