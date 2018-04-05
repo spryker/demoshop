@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9967fde71dc57eefa4d3d9b550815899",
+    "content-hash": "c2b0f39f23323b1c9769de0776328179",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-2345-measuring-units-per-product",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c202893337981a68c7c812e0cc9e5c68c2b80120"
+                "reference": "ddd219ef43a1854a5f0344388086b2594d66f117"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2312,7 +2312,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-05T11:21:55+00:00"
+            "time": "2018-04-05T12:39:13+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
