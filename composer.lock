@@ -1955,12 +1955,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db"
+                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/92fc9e416fb826f18836ecea06deb440c1f282db",
-                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db",
+                "url": "https://api.github.com/repos/spryker/install/zipball/6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
+                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
                 "shasum": ""
             },
             "require": {
@@ -1991,7 +1991,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-28T10:07:25+00:00"
+            "time": "2018-04-05T10:51:17+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ddd219ef43a1854a5f0344388086b2594d66f117"
+                "reference": "534e6c2aa17a421a54ef883e3bb5bdc22a1c69ce"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2312,7 +2312,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-05T12:39:13+00:00"
+            "time": "2018-04-05T15:15:54+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
