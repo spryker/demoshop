@@ -6,6 +6,7 @@
 
 namespace Pyz\Zed\Product;
 
+use Spryker\Zed\CompanySupplier\Communication\Plugin\SupplierProductConcreteAfterUpdatePlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PriceProduct\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterCreatePlugin;
 use Spryker\Zed\PriceProduct\Communication\Plugin\ProductAbstract\PriceProductAbstractAfterUpdatePlugin;
@@ -166,6 +167,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ProductSearchProductConcreteAfterUpdatePlugin(),
             new ProductBundleProductConcreteAfterUpdatePlugin(),
             new ProductValidityUpdatePlugin(),
+            new SupplierProductConcreteAfterUpdatePlugin(),
         ];
     }
 }
