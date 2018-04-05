@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "9967fde71dc57eefa4d3d9b550815899",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2345-measuring-units-per-product",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b5aeea0dcb8ba4087b3d644a0984c53d82747d7b"
+                "reference": "aea94043702f3495a4a1dab994e2e6dd26b86d5a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2213,12 +2213,17 @@
                 "spryker/product-label-search": "*",
                 "spryker/product-label-storage": "*",
                 "spryker/product-management": "*",
+                "spryker/product-measurement-unit": "*",
+                "spryker/product-measurement-unit-gui": "*",
+                "spryker/product-measurement-unit-storage": "*",
                 "spryker/product-new": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
                 "spryker/product-option-storage": "*",
                 "spryker/product-page-search": "*",
+                "spryker/product-quantity": "*",
+                "spryker/product-quantity-storage": "*",
                 "spryker/product-relation": "*",
                 "spryker/product-relation-collector": "*",
                 "spryker/product-relation-storage": "*",
@@ -2275,6 +2280,7 @@
                 "spryker/util-data-reader": "*",
                 "spryker/util-date-time": "*",
                 "spryker/util-encoding": "*",
+                "spryker/util-measurement-unit-conversion": "*",
                 "spryker/util-network": "*",
                 "spryker/util-sanitize": "*",
                 "spryker/util-text": "*",
@@ -2306,7 +2312,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-05T07:19:47+00:00"
+            "time": "2018-04-05T07:43:59+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
