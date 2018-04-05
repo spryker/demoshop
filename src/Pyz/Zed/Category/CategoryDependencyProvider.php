@@ -7,6 +7,7 @@
 namespace Pyz\Zed\Category;
 
 use Spryker\Zed\Category\CategoryDependencyProvider as SprykerDependencyProvider;
+use Spryker\Zed\CategoryNavigationConnector\Communication\Plugin\UpdateNavigationRelationPlugin;
 use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\CategoryFormPlugin;
 use Spryker\Zed\CmsBlockCategoryConnector\Communication\Plugin\ReadCmsBlockCategoryRelationsPlugin;
 use Spryker\Zed\ProductCategory\Communication\Plugin\ReadProductCategoryRelationPlugin;
@@ -39,6 +40,7 @@ class CategoryDependencyProvider extends SprykerDependencyProvider
             [
                 new UpdateProductCategoryRelationPlugin(),
                 new CategoryFormPlugin(),
+                new UpdateNavigationRelationPlugin(),
             ],
             parent::getRelationUpdatePluginStack()
         );
