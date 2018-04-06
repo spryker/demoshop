@@ -7,6 +7,7 @@
 namespace Pyz\Yves\AlexaBot\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException;
 
 /**
  * @method \Pyz\Yves\AlexaBot\AlexaBotFactory getFactory()
@@ -16,46 +17,27 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
 
     /**
      * @param int $abstractId
+     * @throws ContainerKeyNotFoundException
      * @return array
      */
     public function getConcreteListByAbstractId($abstractId)
     {
-        if ($abstractId === 1) {
-            return [
-                0 => 'sweet',
-                1 => 'salty',
-            ];
-        }
-
-        if ($abstractId === 2) {
-            return [
-                0 => 'salsa',
-                1 => 'cheese',
-            ];
-        }
-
-        if ($abstractId === 3) {
-            return [
-                0 => 'cola',
-                1 => 'fanta',
-            ];
-        }
-
-        return [];
+        $storageProductTransfer = $this->getStorageProduct($abstractId);
+        return $storageProductTransfer->getSuperAttributes()['variant'];
     }
 
     /**
      * @param int $abstractId
      * @param string $variantName
+     * @throws ContainerKeyNotFoundException
      * @return string
      */
     public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName)
     {
-        // I'll just loop into
-        $this->getConcretesByAbstractId($abstractId);
+        $selectedAttributes = ['variant' => $variantName];
 
-        // And select the right name
-        return "001-1";
+        $storageProductTransfer = $this->getStorageProduct($abstractId, $selectedAttributes);
+        return $storageProductTransfer->getSku();
     }
 
     /**
@@ -82,8 +64,25 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
 
     }
 
-    protected function getConcretesByAbstractId($abstractId)
+    /**
+     * @param $abstractId
+     * @param array $selectedAttributes
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     * @throws ContainerKeyNotFoundException
+     */
+    protected function getStorageProduct($abstractId, $selectedAttributes = [])
     {
+        $productData = $this
+            ->getFactory()
+            ->getProductClient()
+            ->getProductAbstractFromStorageByIdForCurrentLocale(
+                $abstractId
+            );
 
+        $storageProductTransfer = $this->getFactory()
+            ->createStorageProductMapper()
+            ->mapStorageProduct($productData, []);
+
+        return $storageProductTransfer;
     }
 }

@@ -14,6 +14,8 @@ class AlexaBotDependencyProvider extends AbstractBundleDependencyProvider
 {
     const CLIENT_CATALOG        = 'CLIENT_CATALOG';
     const PRODUCT_PLUGIN        = 'PRODUCT_PLUGIN';
+    const CLIENT_PRODUCT        = 'CLIENT_PRODUCT';
+    const CLIENT_PRICE_PRODUCT  = 'CLIENT_PRICE_PRODUCT';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container
@@ -24,6 +26,8 @@ class AlexaBotDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container = $this->addCatalogClient($container);
         $container = $this->addProductPlugin($container);
+        $container = $this->addProductClient($container);
+        $container = $this->addClientPriceProduct($container);
 
         return $container;
     }
@@ -55,5 +59,34 @@ class AlexaBotDependencyProvider extends AbstractBundleDependencyProvider
 
         return $container;
     }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addProductClient(Container $container)
+    {
+        $container[static::CLIENT_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->product()->client();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addClientPriceProduct(Container $container)
+    {
+        $container[static::CLIENT_PRICE_PRODUCT] = function (Container $container) {
+            return $container->getLocator()->priceProduct()->client();
+        };
+
+        return $container;
+    }
+
 
 }

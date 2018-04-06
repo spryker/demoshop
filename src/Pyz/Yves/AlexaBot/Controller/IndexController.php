@@ -30,10 +30,7 @@ class IndexController extends AbstractController
         $response = "Sorry, we are all out. What about some Nachos or Popcorn?";
         $myFood   = $request->get('food');
 
-        // Use this to find the SKU/ID
-        $catalogClient   = $this->getFactory()->getCatalogClient();
-        $catalogResponse = $catalogClient->catalogSuggestSearch($myFood);
-        $abstractId      = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
+        $abstractId = $this->getAbstractIdByName($myFood);
 
         // Find the list of Variants
         $variant = $this->getFactory()->getAlexaProductPlugin()->getConcreteListByAbstractId($abstractId);
@@ -41,12 +38,12 @@ class IndexController extends AbstractController
         if ($myFood && !empty($variant)) {
             switch(strtolower($myFood)) {
                 case 'popcorn':
-                    $response = "Would you like " . $variant[0]['name']
-                        . " or " . $variant[1]['name']  . " " . $myFood. "?";
+                    $response = "Would you like " . $variant[0]
+                        . " or " . $variant[1]  . " " . $myFood. "?";
                     break;
                 case 'nachos':
-                    $response = "Would you like"  . $myFood . " with "
-                        . $variant[0]['name'] . " or with " . $variant[1]['name']  . "?";
+                    $response = "Would you like "  . $myFood . " with "
+                        . $variant[0] . " or with " . $variant[1]  . "?";
                     break;
             }
         }
@@ -137,6 +134,7 @@ class IndexController extends AbstractController
     {
         $catalogClient   = $this->getFactory()->getCatalogClient();
         $catalogResponse = $catalogClient->catalogSuggestSearch($abstractName);
+//        echo "<pre>"; var_dump($catalogResponse); echo "</pre>"; die();
         $abstractId      = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
 
         return $abstractId;
