@@ -4,6 +4,7 @@ env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
+    - PROJECT=demoshop
 
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
