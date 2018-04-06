@@ -51,6 +51,10 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
      */
     public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName)
     {
+        // I'll just loop into
+        $this->getConcretesByAbstractId($abstractId);
+
+        // And select the right name
         return "001-1";
     }
 
@@ -78,4 +82,8 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
 
     }
 
+    protected function getConcretesByAbstractId($abstractId)
+    {
+
+    }
 }
