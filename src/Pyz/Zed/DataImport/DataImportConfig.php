@@ -11,6 +11,9 @@ use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Generated\Shared\Transfer\DataImporterReaderConfigurationTransfer;
 use Spryker\Zed\DataImport\DataImportConfig as SprykerDataImportConfig;
 
+/**
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
+ */
 class DataImportConfig extends SprykerDataImportConfig
 {
     const IMPORT_TYPE_CATEGORY_TEMPLATE = 'category-template';
