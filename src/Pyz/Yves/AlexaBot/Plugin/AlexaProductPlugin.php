@@ -34,6 +34,13 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
             ];
         }
 
+        if ($abstractId === 3) {
+            return [
+                0 => 'cola',
+                1 => 'fanta',
+            ];
+        }
+
         return [];
     }
 
@@ -55,7 +62,6 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
     {
         // Add the item and save the quote with session ID
         // \Spryker\Client\Cart\CartClientInterface::addItem
-        // \Spryker\Client\Cart\CartClient::storeQuote BY SESSION ID
 
         return true;
     }
