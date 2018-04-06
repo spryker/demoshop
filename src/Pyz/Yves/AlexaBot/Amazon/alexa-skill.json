@@ -1,0 +1,202 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "slot_food",
+        "values": [
+          {
+            "id": "1",
+            "name": {
+              "value": "popcorn",
+              "synonyms": [
+                "pop-corn"
+              ]
+            }
+          },
+          {
+            "id": "2",
+            "name": {
+              "value": "nachos",
+              "synonyms": [
+                "chips"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "slot_variant",
+        "values": [
+          {
+            "id": "2.1",
+            "name": {
+              "value": "salsa",
+              "synonyms": [
+                "spicy"
+              ]
+            }
+          },
+          {
+            "id": "2.2",
+            "name": {
+              "value": "cheese",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "1.1",
+            "name": {
+              "value": "sweet",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "1.2",
+            "name": {
+              "value": "salty",
+              "synonyms": [
+                "salt"
+              ]
+            }
+          },
+          {
+            "id": "1.3",
+            "name": {
+              "value": "caramel",
+              "synonyms": []
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": [
+          "cancel the order",
+          "please cancel the order"
+        ]
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": [
+          "I need help",
+          "How can I use this skill",
+          "Can you help me"
+        ]
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "fallback_one",
+        "samples": [
+          "I want to order",
+          "Bring me",
+          "I would like to eat",
+          "I want",
+          "I want to eat"
+        ],
+        "slots": []
+      },
+      {
+        "name": "fallback_two",
+        "samples": [
+          "I want salty and sweet",
+          "I want salsa and cheese",
+          "I want both",
+          "I want them both"
+        ],
+        "slots": []
+      },
+      {
+        "name": "payment",
+        "samples": [
+          "Yes I confirm",
+          "Order confirmed",
+          "Confirmed",
+          "I confirm",
+          "Yes I confirm the order"
+        ],
+        "slots": []
+      },
+      {
+        "name": "select_abstract",
+        "samples": [
+          "Bring me {food}",
+          "I want to eat {food}",
+          "I want {food}",
+          "I want to order {food}",
+          "I would like to eat {food}"
+        ],
+        "slots": [
+          {
+            "name": "food",
+            "type": "slot_food"
+          }
+        ]
+      },
+      {
+        "name": "select_concrete",
+        "samples": [
+          "I want {food} {variant}",
+          "I want {food} with {variant}",
+          "I want {variant} {food}"
+        ],
+        "slots": [
+          {
+            "name": "food",
+            "type": "slot_food"
+          },
+          {
+            "name": "variant",
+            "type": "slot_variant",
+            "samples": [
+              "I want variant {variant}"
+            ]
+          }
+        ]
+      }
+    ],
+    "invocationName": "fill my stomach"
+  },
+  "prompts": [
+    {
+      "id": "Elicit.Intent-select_concrete.IntentSlot-variant",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "You didn't specify which variant of {food} you want"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "select_concrete",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "food",
+            "type": "slot_food",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          },
+          {
+            "name": "variant",
+            "type": "slot_variant",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-select_concrete.IntentSlot-variant"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
