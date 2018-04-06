@@ -1203,16 +1203,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.11",
+            "version": "v2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
-                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
+                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
                 "shasum": ""
             },
             "require": {
@@ -1247,7 +1247,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-09-27T21:40:39+00:00"
+            "time": "2018-04-04T21:24:14+00:00"
         },
         {
             "name": "php-amqplib/php-amqplib",
@@ -1955,12 +1955,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db"
+                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/92fc9e416fb826f18836ecea06deb440c1f282db",
-                "reference": "92fc9e416fb826f18836ecea06deb440c1f282db",
+                "url": "https://api.github.com/repos/spryker/install/zipball/6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
+                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
                 "shasum": ""
             },
             "require": {
@@ -1991,7 +1991,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-02-28T10:07:25+00:00"
+            "time": "2018-04-05T10:51:17+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4393ff9ce343376a383732bc3a2da3430c42fc11"
+                "reference": "2b228cf076d777ea188f7ac84a7cf06daf8390b9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2111,11 +2111,14 @@
                 "spryker/collector": "*",
                 "spryker/collector-search-connector": "*",
                 "spryker/collector-storage-connector": "*",
+                "spryker/company-supplier": "*",
+                "spryker/company-supplier-gui": "*",
                 "spryker/company-unit-address": "*",
                 "spryker/company-unit-address-extension": "*",
                 "spryker/company-unit-address-gui": "*",
                 "spryker/company-unit-address-gui-extension": "*",
                 "spryker/company-unit-address-label": "*",
+                "spryker/company-unit-address-label-gui": "*",
                 "spryker/config": "*",
                 "spryker/console": "*",
                 "spryker/country": "*",
@@ -2210,12 +2213,17 @@
                 "spryker/product-label-search": "*",
                 "spryker/product-label-storage": "*",
                 "spryker/product-management": "*",
+                "spryker/product-measurement-unit": "*",
+                "spryker/product-measurement-unit-gui": "*",
+                "spryker/product-measurement-unit-storage": "*",
                 "spryker/product-new": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
                 "spryker/product-option-storage": "*",
                 "spryker/product-page-search": "*",
+                "spryker/product-quantity": "*",
+                "spryker/product-quantity-storage": "*",
                 "spryker/product-relation": "*",
                 "spryker/product-relation-collector": "*",
                 "spryker/product-relation-storage": "*",
@@ -2272,6 +2280,7 @@
                 "spryker/util-data-reader": "*",
                 "spryker/util-date-time": "*",
                 "spryker/util-encoding": "*",
+                "spryker/util-measurement-unit-conversion": "*",
                 "spryker/util-network": "*",
                 "spryker/util-sanitize": "*",
                 "spryker/util-text": "*",
@@ -2303,7 +2312,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-04T14:48:41+00:00"
+            "time": "2018-04-06T08:16:37+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
