@@ -19,6 +19,8 @@ class CompanyBusinessUnitWriterStep implements DataImportStepInterface
     const KEY_EMAIL = 'email';
     const KEY_PHONE = 'phone';
     const KEY_EXTERNAL_URL = 'external_url';
+    const KEY_IBAN = 'iban';
+    const KEY_BIC = 'bic';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -39,6 +41,8 @@ class CompanyBusinessUnitWriterStep implements DataImportStepInterface
             ->setEmail($dataSet[static::KEY_EMAIL])
             ->setPhone($dataSet[static::KEY_PHONE])
             ->setExternalUrl($dataSet[static::KEY_EXTERNAL_URL])
+            ->setIban($dataSet[static::KEY_IBAN])
+            ->setBic($dataSet[static::KEY_BIC])
             ->setFkCompany($company->getIdCompany());
 
         $companyBusinessUnit->save();

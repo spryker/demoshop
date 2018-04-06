@@ -19,7 +19,10 @@ use Pyz\Zed\DataImport\Business\Model\CmsPage\CmsPageWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CmsPage\PlaceholderExtractorStep;
 use Pyz\Zed\DataImport\Business\Model\CmsTemplate\CmsTemplateWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Company\CompanyWriterStep;
+use Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository;
 use Pyz\Zed\DataImport\Business\Model\CompanyBusinessUnit\CompanyBusinessUnitWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CompanySupplier\CompanySupplierWriterStep;
+use Pyz\Zed\DataImport\Business\Model\CompanyType\CompanyTypeWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CompanyUnitAddress\CompanyUnitAddressWriterStep;
 use Pyz\Zed\DataImport\Business\Model\CompanyUnitAddressLabel\CompanyUnitAddressLabelWriterStep;
 use Pyz\Zed\DataImport\Business\Model\Country\Repository\CountryRepository;
@@ -103,6 +106,11 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createCategoryTemplateImporter())
             ->addDataImporter($this->createCategoryImporter())
             ->addDataImporter($this->createCustomerImporter())
+            ->addDataImporter($this->createCompanyTypeImporter())
+            ->addDataImporter($this->createCompanyImporter())
+            ->addDataImporter($this->createCompanyBusinessUnitImporter())
+            ->addDataImporter($this->createCompanyUnitAddressImporter())
+            ->addDataImporter($this->createCompanyUnitAddressLabelImporter())
             ->addDataImporter($this->createGlossaryImporter())
             ->addDataImporter($this->createTaxImporter())
             ->addDataImporter($this->createShipmentImporter())
@@ -140,10 +148,7 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createNavigationNodeImporter())
             ->addDataImporter($this->createDiscountAmountImporter())
             ->addDataImporter($this->createProductCustomerPermissionImporter())
-            ->addDataImporter($this->createCompanyImporter())
-            ->addDataImporter($this->createCompanyBusinessUnitImporter())
-            ->addDataImporter($this->createCompanyUnitAddressImporter())
-            ->addDataImporter($this->createCompanyUnitAddressLabelImporter());
+            ->addDataImporter($this->createCompanySupplierImporter());
 
         return $dataImporterCollection;
     }
@@ -501,7 +506,10 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker(ProductPriceWriterStep::BULK_SIZE);
         $dataSetStepBroker
-            ->addStep(new ProductPriceWriterStep($this->createProductRepository()));
+            ->addStep(new ProductPriceWriterStep(
+                $this->createProductRepository(),
+                $this->createCompanyRepository()
+            ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
@@ -861,7 +869,15 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     }
 
     /**
-     * @return \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
+     * @return \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository
+     */
+    protected function createCompanyRepository(): CompanyRepository
+    {
+        return new CompanyRepository();
+    }
+
+    /**
+     * @return \Pyz\Zed\DataImport\Business\Model\Customer\Repository\CustomerRepositoryInterface
      */
     protected function createCustomerRepository()
     {
@@ -1124,6 +1140,21 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
     /**
      * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
      */
+    protected function createCompanyTypeImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyTypeDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker->addStep(new CompanyTypeWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
     protected function createCompanyImporter()
     {
         $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanyDataImporterConfiguration());
@@ -1175,6 +1206,24 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
 
         $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
         $dataSetStepBroker->addStep(new CompanyUnitAddressWriterStep());
+
+        $dataImporter->addDataSetStepBroker($dataSetStepBroker);
+
+        return $dataImporter;
+    }
+
+    /**
+     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface|\Spryker\Zed\DataImport\Business\Model\DataSet\DataSetStepBrokerAwareInterface
+     */
+    protected function createCompanySupplierImporter()
+    {
+        $dataImporter = $this->getCsvDataImporterFromConfig($this->getConfig()->getCompanySupplierDataImporterConfiguration());
+
+        $dataSetStepBroker = $this->createTransactionAwareDataSetStepBroker();
+        $dataSetStepBroker->addStep(new CompanySupplierWriterStep(
+            $this->createProductRepository(),
+            $this->createCompanyRepository()
+        ));
 
         $dataImporter->addDataSetStepBroker($dataSetStepBroker);
 
