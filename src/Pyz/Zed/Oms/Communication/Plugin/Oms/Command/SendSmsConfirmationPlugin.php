@@ -29,15 +29,16 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
     public function run(array $orderItems, SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
         // Your Account SID and Auth Token from twilio.com/console
-        $client = new Client($sid, $token);
+
+        $client = new Client(self::TWILLIO_SID, self::TWILLIO_TOKEN);
 
         // Use the client to do fun stuff like send text messages!
         $client->messages->create(
             // the number you'd like to send the message to
-            '+4915901009896',
+            self::NUMBER_RECIPIENT,
             [
                 // A Twilio phone number you purchased at twilio.com/console
-                'from' => '+15017250604',
+                'from' => self::TWILLIO_NUMBER,
                 // the body of the text message you'd like to send
                 'body' => 'User: ' . self::ALEXA_DEVICE
                                     // It should be field 'name' in 'spy_sales_order_item'
