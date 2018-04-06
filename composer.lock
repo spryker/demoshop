@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f3c67fab47660577596681ba9d3ebcacf94b0731"
+                "reference": "931917ccc6f675419baf426baa73e5437d13d6db"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2111,11 +2111,14 @@
                 "spryker/collector": "*",
                 "spryker/collector-search-connector": "*",
                 "spryker/collector-storage-connector": "*",
+                "spryker/company-supplier": "*",
+                "spryker/company-supplier-gui": "*",
                 "spryker/company-unit-address": "*",
                 "spryker/company-unit-address-extension": "*",
                 "spryker/company-unit-address-gui": "*",
                 "spryker/company-unit-address-gui-extension": "*",
                 "spryker/company-unit-address-label": "*",
+                "spryker/company-unit-address-label-gui": "*",
                 "spryker/config": "*",
                 "spryker/console": "*",
                 "spryker/country": "*",
@@ -2212,12 +2215,17 @@
                 "spryker/product-label-search": "*",
                 "spryker/product-label-storage": "*",
                 "spryker/product-management": "*",
+                "spryker/product-measurement-unit": "*",
+                "spryker/product-measurement-unit-gui": "*",
+                "spryker/product-measurement-unit-storage": "*",
                 "spryker/product-new": "*",
                 "spryker/product-option": "*",
                 "spryker/product-option-cart-connector": "*",
                 "spryker/product-option-discount-connector": "*",
                 "spryker/product-option-storage": "*",
                 "spryker/product-page-search": "*",
+                "spryker/product-quantity": "*",
+                "spryker/product-quantity-storage": "*",
                 "spryker/product-relation": "*",
                 "spryker/product-relation-collector": "*",
                 "spryker/product-relation-storage": "*",
@@ -2274,6 +2282,7 @@
                 "spryker/util-data-reader": "*",
                 "spryker/util-date-time": "*",
                 "spryker/util-encoding": "*",
+                "spryker/util-measurement-unit-conversion": "*",
                 "spryker/util-network": "*",
                 "spryker/util-sanitize": "*",
                 "spryker/util-text": "*",
@@ -2305,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-05T11:01:27+00:00"
+            "time": "2018-04-06T13:23:29+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
