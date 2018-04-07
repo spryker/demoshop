@@ -16,6 +16,10 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
 {
     // We should take session-id from the controller
     const ALEXA_DEVICE = "alexa-test";
+    const TWILLIO_SID  = '';
+    const TWILLIO_TOKEN = '';
+    const TWILLIO_NUMBER = '';
+    const NUMBER_RECIPIENT = '';
 
     /**
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrderItem[] $orderItems

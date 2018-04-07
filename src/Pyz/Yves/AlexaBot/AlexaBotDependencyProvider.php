@@ -13,6 +13,7 @@ use Spryker\Yves\Kernel\Container;
 class AlexaBotDependencyProvider extends AbstractBundleDependencyProvider
 {
     const CLIENT_CATALOG        = 'CLIENT_CATALOG';
+    const CLIENT_CART           = 'CLIENT_CART';
     const PRODUCT_PLUGIN        = 'PRODUCT_PLUGIN';
     const CLIENT_PRODUCT        = 'CLIENT_PRODUCT';
     const CLIENT_PRICE_PRODUCT  = 'CLIENT_PRICE_PRODUCT';
@@ -25,6 +26,7 @@ class AlexaBotDependencyProvider extends AbstractBundleDependencyProvider
     public function provideDependencies(Container $container)
     {
         $container = $this->addCatalogClient($container);
+        $container = $this->addCartClient($container);
         $container = $this->addProductPlugin($container);
         $container = $this->addProductClient($container);
         $container = $this->addClientPriceProduct($container);
@@ -41,6 +43,20 @@ class AlexaBotDependencyProvider extends AbstractBundleDependencyProvider
     {
         $container[self::CLIENT_CATALOG] = function (Container $container) {
             return $container->getLocator()->catalog()->client();
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addCartClient(Container $container)
+    {
+        $container[self::CLIENT_CART] = function (Container $container) {
+            return $container->getLocator()->cart()->client();
         };
 
         return $container;

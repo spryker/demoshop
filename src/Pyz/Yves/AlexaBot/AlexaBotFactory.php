@@ -25,6 +25,32 @@ class AlexaBotFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(AlexabotDependencyProvider::CLIENT_CATALOG);
     }
+    /**
+     * @throws ContainerKeyNotFoundException
+     * @return \Spryker\Client\Cart\CartClientInterface
+     */
+    public function getCartClient()
+    {
+        return $this->getProvidedDependency(AlexabotDependencyProvider::CLIENT_CART);
+    }
+
+    /**
+     * @throws ContainerKeyNotFoundException
+     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
+     */
+    protected function getPriceProductClient()
+    {
+        return $this->getProvidedDependency(AlexaBotDependencyProvider::CLIENT_PRICE_PRODUCT);
+    }
+
+    /**
+     * @throws ContainerKeyNotFoundException
+     * @return \Spryker\Client\Product\ProductClientInterface
+     */
+    public function getProductClient()
+    {
+        return $this->getProvidedDependency(AlexaBotDependencyProvider::CLIENT_PRODUCT);
+    }
 
     /**
      * @throws ContainerKeyNotFoundException
@@ -55,24 +81,5 @@ class AlexaBotFactory extends AbstractFactory
     {
         return new AttributeVariantMapper($this->getProductClient());
     }
-
-    /**
-     * @throws ContainerKeyNotFoundException
-     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
-     */
-    protected function getPriceProductClient()
-    {
-        return $this->getProvidedDependency(AlexaBotDependencyProvider::CLIENT_PRICE_PRODUCT);
-    }
-
-    /**
-     * @throws ContainerKeyNotFoundException
-     * @return \Spryker\Client\Product\ProductClientInterface
-     */
-    public function getProductClient()
-    {
-        return $this->getProvidedDependency(AlexaBotDependencyProvider::CLIENT_PRODUCT);
-    }
-
 
 }

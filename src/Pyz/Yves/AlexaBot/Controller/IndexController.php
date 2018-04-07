@@ -65,9 +65,11 @@ class IndexController extends AbstractController
      */
     public function concreteAction(Request $request)
     {
-        $myFood      = $request->get('food');
-        $myVariant   = $request->get('variant');
-        $response    = "I don't have " . $myVariant . ". Would you like to order something else?";
+        $myFood           = $request->get('food');
+        $myVariant        = $request->get('variant');
+        $mySession        = $request->get('session');
+
+        $response         = "I don't have " . $myVariant . ". Would you like to order something else?";
 
         $abstractId = $this->getAbstractIdByName(
             $myFood
@@ -78,12 +80,7 @@ class IndexController extends AbstractController
             $myVariant
         );
 
-        $addToCartSuccess = $this->getFactory()->getAlexaProductPlugin()->addConcreteToCartBySku(
-            $variantSku
-        );
-
-
-        if ($addToCartSuccess) {
+        if ($this->getFactory()->getAlexaProductPlugin()->addConcreteToCartBySku($variantSku)) {
             $response = "Your order is being shipped with same minute delivery. "
                 . "Your payment method is a smile. To confirm shout Yes Spryker. "
                 . "Do you confirm?";
@@ -102,17 +99,20 @@ class IndexController extends AbstractController
      * @param Request $request
      *
      * @throws ContainerKeyNotFoundException
+     * @throws \Twilio\Exceptions\ConfigurationException
      *
      * @return JsonResponse
      */
     public function paymentAction(Request $request)
     {
         $response    = "Sorry, it was impossible to complete the order. Could you try again?";
+        $mySession   = $request->get('session');
 
-        $checkoutSuccess = $this->getFactory()->getAlexaProductPlugin()->performCheckout();
+        $isSuccess = $this->getFactory()->getAlexaProductPlugin()->performCheckout();
 
-        if ($checkoutSuccess) {
-            $response = "Your order is being delivered. Remember to smile";
+        if ($isSuccess) {
+            $this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms();
+            $response = $isSuccess;
         }
 
         return new JsonResponse(
@@ -134,7 +134,6 @@ class IndexController extends AbstractController
     {
         $catalogClient   = $this->getFactory()->getCatalogClient();
         $catalogResponse = $catalogClient->catalogSuggestSearch($abstractName);
-//        echo "<pre>"; var_dump($catalogResponse); echo "</pre>"; die();
         $abstractId      = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
 
         return $abstractId;
