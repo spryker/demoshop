@@ -67,8 +67,6 @@ class IndexController extends AbstractController
     {
         $myFood           = $request->get('food');
         $myVariant        = $request->get('variant');
-        $mySession        = $request->get('session');
-
         $response         = "I don't have " . $myVariant . ". Would you like to order something else?";
 
         $abstractId = $this->getAbstractIdByName(
@@ -106,12 +104,11 @@ class IndexController extends AbstractController
     public function paymentAction(Request $request)
     {
         $response    = "Sorry, it was impossible to complete the order. Could you try again?";
-        $mySession   = $request->get('session');
 
         $isSuccess = $this->getFactory()->getAlexaProductPlugin()->performCheckout();
 
         if ($isSuccess) {
-            $this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms();
+            //$this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms();
             $response = $isSuccess;
         }
 

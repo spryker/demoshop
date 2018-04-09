@@ -25,6 +25,7 @@ class AlexaBotFactory extends AbstractFactory
     {
         return $this->getProvidedDependency(AlexabotDependencyProvider::CLIENT_CATALOG);
     }
+
     /**
      * @throws ContainerKeyNotFoundException
      * @return \Spryker\Client\Cart\CartClientInterface
@@ -32,6 +33,15 @@ class AlexaBotFactory extends AbstractFactory
     public function getCartClient()
     {
         return $this->getProvidedDependency(AlexabotDependencyProvider::CLIENT_CART);
+    }
+
+    /**
+     * @throws ContainerKeyNotFoundException
+     * @return \Spryker\Client\Checkout\CheckoutClientInterface
+     */
+    public function getCheckoutClient()
+    {
+        return $this->getProvidedDependency(AlexabotDependencyProvider::CLIENT_CHECKOUT);
     }
 
     /**
