@@ -8,6 +8,14 @@
 namespace Pyz\Zed\DataImport;
 
 use Spryker\Shared\Kernel\Store;
+use Spryker\Zed\CompanyBusinessUnitDataImport\Communication\Plugin\CompanyBusinessUnitDataImportPlugin;
+use Spryker\Zed\CompanyDataImport\Communication\Plugin\CompanyDataImportPlugin;
+use Spryker\Zed\CompanySupplierDataImport\Communication\Plugin\CompanySupplierDataImportPlugin;
+use Spryker\Zed\CompanySupplierDataImport\Communication\Plugin\CompanySupplierProductPriceDataImportPlugin;
+use Spryker\Zed\CompanySupplierDataImport\Communication\Plugin\CompanyTypeDataImportPlugin;
+use Spryker\Zed\CompanyUnitAddressDataImport\Communication\Plugin\CompanyUnitAddressDataImportPlugin;
+use Spryker\Zed\CompanyUnitAddressLabelDataImport\Communication\Plugin\CompanyUnitAddressLabelDataImportPlugin;
+use Spryker\Zed\CompanyUnitAddressLabelDataImport\Communication\Plugin\CompanyUnitAddressLabelRelationDataImportPlugin;
 use Spryker\Zed\DataImport\DataImportDependencyProvider as SprykerDataImportDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
@@ -109,5 +117,22 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $container[static::STORE] = function (Container $container) {
             return Store::getInstance();
         };
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImporterPlugins(): array
+    {
+        return [
+            new CompanyDataImportPlugin(),
+            new CompanyBusinessUnitDataImportPlugin(),
+            new CompanyUnitAddressDataImportPlugin(),
+            new CompanyUnitAddressLabelDataImportPlugin(),
+            new CompanyUnitAddressLabelRelationDataImportPlugin(),
+            new CompanyTypeDataImportPlugin(),
+            new CompanySupplierDataImportPlugin(),
+            new CompanySupplierProductPriceDataImportPlugin(),
+        ];
     }
 }

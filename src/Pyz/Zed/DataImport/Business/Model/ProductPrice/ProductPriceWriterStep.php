@@ -13,7 +13,6 @@ use Orm\Zed\PriceProduct\Persistence\SpyPriceProductQuery;
 use Orm\Zed\PriceProduct\Persistence\SpyPriceProductStoreQuery;
 use Orm\Zed\PriceProduct\Persistence\SpyPriceTypeQuery;
 use Orm\Zed\Store\Persistence\SpyStoreQuery;
-use Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository;
 use Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository;
 use Spryker\Zed\DataImport\Business\Exception\DataKeyNotFoundInDataSetException;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
@@ -35,8 +34,6 @@ class ProductPriceWriterStep implements DataImportStepInterface
     const KEY_PRICE_NET = 'value_net';
     const KEY_PRICE_GROSS = 'value_gross';
 
-    const KEY_COMPANY = 'company';
-
     /**
      * @var \Orm\Zed\Currency\Persistence\SpyCurrency[]
      */
@@ -53,18 +50,11 @@ class ProductPriceWriterStep implements DataImportStepInterface
     protected $productRepository;
 
     /**
-     * @var \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository
-     */
-    protected $companyRepository;
-
-    /**
      * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository $productRepository
-     * @param \Pyz\Zed\DataImport\Business\Model\Company\Repository\CompanyRepository $companyRepository
      */
-    public function __construct(ProductRepository $productRepository, CompanyRepository $companyRepository)
+    public function __construct(ProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
-        $this->companyRepository = $companyRepository;
     }
 
     /**
@@ -103,11 +93,6 @@ class ProductPriceWriterStep implements DataImportStepInterface
         } else {
             $idProduct = $this->productRepository->getIdProductByConcreteSku($dataSet[static::KEY_CONCRETE_SKU]);
             $query->filterByFkProduct($idProduct);
-        }
-
-        if (!empty($dataSet[static::KEY_COMPANY])) {
-            $idCompany = $this->companyRepository->getIdCompanyByName($dataSet[static::KEY_COMPANY]);
-            $query->filterByFkCompany($idCompany);
         }
 
         $productPriceEntity = $query->findOneOrCreate();
