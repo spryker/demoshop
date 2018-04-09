@@ -1,5 +1,3 @@
 navigation_key,node_key,parent_node_key,node_type,title.en_US,url.en_US,css_class.en_US,title.de_DE,url.de_DE,css_class.de_DE,valid_from,valid_to
-MAIN_NAVIGATION,node_key_1,,label,Top Categories,,,Top Kategorien,,,,
-MAIN_NAVIGATION,node_key_2,node_key_1,category,Notebooks,/en/computer/notebooks,,Notebooks,/de/computer/notebooks,,,
-MAIN_NAVIGATION,node_key_3,node_key_1,category,Tablets,/en/computer/tablets,,Tablets,/de/computer/tablets,,,
-MAIN_NAVIGATION,node_key_4,node_key_1,category,Smartphones,/en/telecom-&-navigation/smartphones,,Smartphones,/de/telekommunikation-&-navigation/smartphones,,,
+MAIN_NAVIGATION,node_key_1,,category,Food,/en/food,,Essen,/de/food,,,
+MAIN_NAVIGATION,node_key_2,,category,Drinks,/en/drinks,,Getränke,/de/drinks,,,
