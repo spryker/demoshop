@@ -1,5 +1,5 @@
 navigation_key,node_key,parent_node_key,node_type,title.en_US,url.en_US,css_class.en_US,title.de_DE,url.de_DE,css_class.de_DE,valid_from,valid_to
-MAIN_NAVIGATION,node_key_1,,category,Food,/en/food,,Essen,/de/food,,,
+MAIN_NAVIGATION,node_key_1,,category,Snacks,/en/snacks,,Snacks,/de/food,,,
 MAIN_NAVIGATION,node_key_2,,category,Drinks,/en/drinks,,Getränke,/de/drinks,,,
 FOOTER_NAVIGATION,node_key_27,,cms_page,Imprint,/en/imprint,,Impressum,/de/impressum,,,
 FOOTER_NAVIGATION,node_key_28,,cms_page,GTC,/en/gtc,,AGB,/de/agb,,,
