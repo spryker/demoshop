@@ -1,0 +1,21 @@
+header {
+    .header--flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .callout {
+        width: 100%;
+    }
+    .nav {
+        max-width: 50%;
+        background: $bg-gray;
+        &--left {
+            order: 1;
+        }
+        &--right {
+            order: 2;
+        }
+    }
+}
+
