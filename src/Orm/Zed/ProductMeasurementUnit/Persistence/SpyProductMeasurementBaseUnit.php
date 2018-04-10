@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ProductMeasurementUnit\Persistence;
 
-use Spryker\Zed\ProductMeasurementUnit\Persistence\Propel\AbstractSpyProductMeasurementBaseUnit;
+use Orm\Zed\ProductMeasurementUnit\Persistence\Base\SpyProductMeasurementBaseUnit as BaseSpyProductMeasurementBaseUnit;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_measurement_base_unit' table.
@@ -19,6 +19,6 @@ use Spryker\Zed\ProductMeasurementUnit\Persistence\Propel\AbstractSpyProductMeas
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductMeasurementBaseUnit extends AbstractSpyProductMeasurementBaseUnit
+class SpyProductMeasurementBaseUnit extends BaseSpyProductMeasurementBaseUnit
 {
 }

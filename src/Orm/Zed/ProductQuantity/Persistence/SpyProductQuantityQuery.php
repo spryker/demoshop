@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ProductQuantity\Persistence;
 
-use Spryker\Zed\ProductQuantity\Persistence\Propel\AbstractSpyProductQuantityQuery;
+use Orm\Zed\ProductQuantity\Persistence\Base\SpyProductQuantityQuery as BaseSpyProductQuantityQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_quantity' table.
@@ -19,6 +19,6 @@ use Spryker\Zed\ProductQuantity\Persistence\Propel\AbstractSpyProductQuantityQue
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductQuantityQuery extends AbstractSpyProductQuantityQuery
+class SpyProductQuantityQuery extends BaseSpyProductQuantityQuery
 {
 }
