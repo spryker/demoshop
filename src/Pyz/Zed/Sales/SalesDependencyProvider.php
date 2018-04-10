@@ -9,7 +9,7 @@ namespace Pyz\Zed\Sales;
 
 use Spryker\Zed\Customer\Communication\Plugin\Sales\CustomerOrderHydratePlugin;
 use Spryker\Zed\Discount\Communication\Plugin\Sales\DiscountOrderHydratePlugin;
-use Spryker\Zed\ManualOrderEntry\Communication\Plugin\OrderSourceHydratorPlugin;
+use Spryker\Zed\ManualOrderEntry\Communication\Plugin\OrderSourceExpanderPreSavePlugin;
 use Spryker\Zed\Payment\Communication\Plugin\Sales\PaymentOrderHydratePlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleIdHydratorPlugin;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Sales\ProductBundleOrderHydratePlugin;
@@ -25,12 +25,12 @@ use Spryker\Zed\Shipment\Communication\Plugin\ShipmentOrderHydratePlugin;
 class SalesDependencyProvider extends SprykerSalesDependencyProvider
 {
     /**
-     * @return \Spryker\Zed\Sales\Dependency\Plugin\PreSaveOrderHydratePluginInterface[]
+     * @return \Spryker\Zed\Sales\Dependency\Plugin\OrderExpanderPreSavePluginInterface[]
      */
-    protected function getPreSaveOrderHydrationPlugins()
+    protected function getOrderExpanderPreSavePlugins()
     {
         return [
-            new OrderSourceHydratorPlugin(),
+            new OrderSourceExpanderPreSavePlugin(),
         ];
     }
 
