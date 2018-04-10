@@ -68,6 +68,7 @@ class IndexController extends AbstractController
         $myFood           = $request->get('food');
         $myVariant        = $request->get('variant');
         $mySession        = $request->get('session');
+//        setcookie( 'www-de-demoshop-local', $mySession, 0, '/', 'www.de.demoshop.local');
 
         $response         = "I don't have " . $myVariant . ". Would you like to order something else?";
 
@@ -107,6 +108,7 @@ class IndexController extends AbstractController
     {
         $response    = "Sorry, it was impossible to complete the order. Could you try again?";
         $mySession   = $request->get('session');
+//        setcookie( 'www-de-demoshop-local', $mySession, 0, '/', 'www.de.demoshop.local');
 
         $isSuccess = $this->getFactory()->getAlexaProductPlugin()->performCheckout();
 
