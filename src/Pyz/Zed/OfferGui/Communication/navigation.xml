@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sales>
+        <pages>
+            <offer-list>
+                <label>Offers</label>
+                <title>Offers</title>
+                <bundle>offer-gui</bundle>
+                <controller>view</controller>
+                <action>list</action>
+
+
+                <!--<pages>-->
+                <!--<order-view>-->
+                <!--<label>Order Overview</label>-->
+                <!--<title>Order Overview</title>-->
+                <!--<bundle>sales</bundle>-->
+                <!--<controller>detail</controller>-->
+                <!--<action>index</action>-->
+                <!--<visible>0</visible>-->
+                <!--</order-view>-->
+                <!--<order-item>-->
+                <!--<label>Order Items</label>-->
+                <!--<title>Order Items</title>-->
+                <!--<bundle>sales</bundle>-->
+                <!--<controller>order</controller>-->
+                <!--<action>items</action>-->
+                <!--<visible>0</visible>-->
+                <!--</order-item>-->
+                <!--<edit-address>-->
+                <!--<label>Edit Address</label>-->
+                <!--<title>Edit Address</title>-->
+                <!--<bundle>sales</bundle>-->
+                <!--<controller>edit</controller>-->
+                <!--<action>address</action>-->
+                <!--<visible>0</visible>-->
+                <!--</edit-address>-->
+                <!--</pages>-->
+            </offer-list>
+        </pages>
+    </sales>
+</config>
