@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "298a9431aa51b85da3f0da4a1fd9bbd6",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1508,7 +1508,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-3784-offer-management-zed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "534e6c2aa17a421a54ef883e3bb5bdc22a1c69ce"
+                "reference": "c756aed309a5a025e29b338779fddf91eda15cad"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2176,6 +2176,8 @@
                 "spryker/new-relic-api": "*",
                 "spryker/newsletter": "*",
                 "spryker/nopayment": "*",
+                "spryker/offer": "*",
+                "spryker/offer-gui": "*",
                 "spryker/oms": "*",
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
@@ -2312,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-05T15:15:54+00:00"
+            "time": "2018-04-10T12:29:11+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5473,7 +5475,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7121,7 +7123,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
