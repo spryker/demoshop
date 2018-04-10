@@ -52,12 +52,4 @@ class SalesDependencyProvider extends SprykerSalesDependencyProvider
             new SalesTablePlugin(),
         ];
     }
-
-    /**
-     * @return \Spryker\Zed\SalesExtension\Dependency\Plugin\PreSaveOrderPluginInterface[]
-     */
-    protected function getPreSaveOrderPlugins(): array
-    {
-        return [];
-    }
 }
