@@ -24,13 +24,4 @@
             <div>{{ ('countries.iso.' ~ offer.quote.billingAddress.iso2Code) | trans }}</div>
         </div>
     </div>
-
-    <div class="small-12 large-6 columns">
-        <div class="callout">
-            <h5>{{ 'customer.order.shipment_method' | trans }}</h5>
-            <p>
-                {{ offer.quote.shipment.shipmentSelection }} <br />
-            </p>
-        </div>
-    </div>
 </div>

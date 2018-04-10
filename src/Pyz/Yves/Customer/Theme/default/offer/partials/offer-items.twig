@@ -13,7 +13,7 @@
     {% for offerItem in items %}
 
         {% if offerItem.bundleItems is defined  %}
-            {% include "@customer/order/partials/order-items-bundled.twig" %}
+            {% include "@customer/offer/partials/order-items-bundled.twig" %}
         {% else %}
             <tr>
                 <td class="text-left">
