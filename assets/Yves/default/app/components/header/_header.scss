@@ -8,14 +8,28 @@ header {
         width: 100%;
     }
     .nav {
-        max-width: 50%;
         background: $bg-gray;
         &--left {
             order: 1;
+            max-width: 30%;
         }
         &--right {
             order: 2;
+            max-width: 70%;
         }
+    }
+    .logo {
+        display: block;
+        max-width: 220px;
     }
 }
 
+@media screen and (max-width: 1024px){
+    header .nav {
+
+        &--left, &--right {
+            max-width: 100%;
+        }
+
+    }
+}
