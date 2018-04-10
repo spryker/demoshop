@@ -76,9 +76,16 @@ class PlaceOfferStep extends PlaceOrderStep
     public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
     {
         $offerTransfer = new OfferTransfer();
+        $customerTransfer = $quoteTransfer
+            ->requireCustomer()
+            ->getCustomer();
+
+        $offerTransfer->setCustomerReference(
+            $customerTransfer->getCustomerReference()
+        );
         $offerTransfer->setQuote($quoteTransfer);
 
-        $offerResponse = $this->offerClient->createOffer($offerTransfer);
+        $offerResponse = $this->offerClient->placeOffer($offerTransfer);
 
         if ($offerResponse->getIsSuccessful()) {
             $this->setOfferInfoMessages($offerResponse);
