@@ -68,7 +68,6 @@ class IndexController extends AbstractController
         $myFood           = $request->get('food');
         $myVariant        = $request->get('variant');
         $mySession        = $request->get('session');
-//        setcookie( 'www-de-demoshop-local', $mySession, 0, '/', 'www.de.demoshop.local');
 
         $response         = "I don't have " . $myVariant . ". Would you like to order something else?";
 
@@ -81,7 +80,7 @@ class IndexController extends AbstractController
             $myVariant
         );
 
-        if ($this->getFactory()->getAlexaProductPlugin()->addConcreteToCartBySku($variantSku)) {
+        if ($this->getFactory()->getAlexaProductPlugin()->addConcreteToCartBySku($variantSku, $mySession)) {
             $response = "Your order is being shipped with same minute delivery. "
                 . "Your payment method is a smile. To confirm shout Yes Spryker. "
                 . "Do you confirm?";
@@ -108,12 +107,11 @@ class IndexController extends AbstractController
     {
         $response    = "Sorry, it was impossible to complete the order. Could you try again?";
         $mySession   = $request->get('session');
-//        setcookie( 'www-de-demoshop-local', $mySession, 0, '/', 'www.de.demoshop.local');
 
-        $isSuccess = $this->getFactory()->getAlexaProductPlugin()->performCheckout();
+        $isSuccess = $this->getFactory()->getAlexaProductPlugin()->performCheckout($mySession);
 
         if ($isSuccess) {
-            $this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms();
+            $this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms($mySession);
             $response = $isSuccess;
         }
 

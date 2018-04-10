@@ -23,12 +23,14 @@ interface AlexaProductPluginInterface
 
     /**
      * @param string $concreteSku
+     * @param int $sessionId
      * @return bool
      */
-    public function addConcreteToCartBySku($concreteSku);
+    public function addConcreteToCartBySku($concreteSku, $sessionId);
 
     /**
+     * @param int $sessionId
      * @return bool
      */
-    public function performCheckout();
+    public function performCheckout($sessionId);
 }

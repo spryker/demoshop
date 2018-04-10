@@ -92,4 +92,12 @@ class AlexaBotFactory extends AbstractFactory
         return new AttributeVariantMapper($this->getProductClient());
     }
 
+    /**
+     * @return \Spryker\Client\Calculation\CalculationClientInterface
+     * @throws ContainerKeyNotFoundException
+     */
+    public function getCalculationClient()
+    {
+        return $this->getProvidedDependency(AlexaBotDependencyProvider::CLIENT_CALCULATION);
+    }
 }
