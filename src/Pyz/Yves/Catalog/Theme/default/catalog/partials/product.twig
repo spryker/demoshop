@@ -25,7 +25,7 @@
             {% endblock %}
         {% endif %}
         <p class="__no-margin-bottom">
-            <strong>{{ name  }}</strong>
+            <span>{{ name  }}</span>
         </p>
 
         {% if averageRating %}
@@ -41,7 +41,7 @@
                 <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
                 <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
             {% elseif priceValue %}
-                {{ priceValue | money }}
+                <div class="catalog-price__price-value">{{ priceValue | money }}</div>
             {% endif %}
         </p>
         <div class="product__action">
