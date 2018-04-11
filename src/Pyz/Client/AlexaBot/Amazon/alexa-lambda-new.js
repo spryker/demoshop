@@ -14,29 +14,36 @@
 
 
 let speechOutput;
+let speechReprompt;
 let reprompt;
-let welcomeOutput = "This is a placeholder welcome message. This skill includes 8 intents. Try one of your intent utterances to test the skill.";
-let welcomeReprompt = "sample re-prompt text";
+let welcomeOutput = "Would you like to order Spryker's Nachos or Spryker's Popcorn?";
+let welcomeReprompt = "You have not yet placed an order. Can Spryker bring you Nachos or Popcorn?";
 // 2. Skill Code =======================================================================================================
 "use strict";
 const Alexa = require('alexa-sdk');
-const APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
+const APP_ID = 'amzn1.ask.skill.6356877d-c23b-4ec8-aeb5-e813f03c7bd7';
+const globalHostname = 'spryker.eu.ngrok.io';
+const sessionId = 'alexatest';
+
+const http = require('http');
+const zlib = require('zlib');
+
 speechOutput = '';
 const handlers = {
     'LaunchRequest': function () {
         this.emit(':ask', welcomeOutput, welcomeReprompt);
     },
     'AMAZON.HelpIntent': function () {
-        speechOutput = 'Placeholder response for AMAZON.HelpIntent.';
-        reprompt = '';
-        this.emit(':ask', speechOutput, reprompt);
+        speechOutput = 'You can order Nachos or Popcorn. For example, just say: I want to eat Nachos';
+        this.emit(':ask', speechOutput, welcomeOutput);
     },
     'AMAZON.CancelIntent': function () {
-        speechOutput = 'Placeholder response for AMAZON.CancelIntent';
-        this.emit(':tell', speechOutput);
+        speechOutput = 'Ok, your order is canceled.';
+        speechReprompt = 'Do you want to order something else?';
+        this.emit(':ask', speechOutput, speechReprompt);
     },
     'AMAZON.StopIntent': function () {
-        speechOutput = 'Placeholder response for AMAZON.StopIntent.';
+        speechOutput = "Ok, I'll be here if you get hungry";
         this.emit(':tell', speechOutput);
     },
     'SessionEndedRequest': function () {
@@ -45,71 +52,139 @@ const handlers = {
         this.emit(':tell', speechOutput);
     },
     'fallback_one': function () {
-        speechOutput = '';
-
-        //any intent slot variables are listed here for convenience
-
-
-        //Your custom intent handling goes here
-        speechOutput = "This is a place holder response for the intent named fallback_one. This intent has no slots. Anything else?";
-        this.emit(":ask", speechOutput, speechOutput);
+        speechOutput = "I didn't understand your request. Would you like Nachos or Popcorn?";
+        this.emit(":ask", speechOutput, welcomeOutput);
     },
     'fallback_two': function () {
-        speechOutput = '';
-
-        //any intent slot variables are listed here for convenience
-
-
-        //Your custom intent handling goes here
-        speechOutput = "This is a place holder response for the intent named fallback_two. This intent has no slots. Anything else?";
-        this.emit(":ask", speechOutput, speechOutput);
+        speechOutput = "Please choose only one variant";
+        speechReprompt = "I didn't quite understand what you wanted. Can you repeat?";
+        this.emit(":ask", speechOutput, speechReprompt);
     },
     'payment': function () {
-        speechOutput = '';
+        speechOutput = "";
+        let self = this;
 
-        //any intent slot variables are listed here for convenience
+        // Request options
+        const options = {
+            hostname: globalHostname,
+            port: 80,
+            path: '/alexa/payment?session=' + sessionId,
+            method: 'GET',
+            headers: {
+                'Accept-Encoding': 'gzip, deflate',
+                'Set-Cookie': 'www-de-demoshop-local=' + sessionId
+            }
+        };
 
+        // Do the API call and parse Response
+        http.get(options, function (response) {
+            let str = '';
+            let gunzip = zlib.createGunzip();
 
-        //Your custom intent handling goes here
-        speechOutput = "This is a place holder response for the intent named payment. This intent has no slots. Anything else?";
-        this.emit(":ask", speechOutput, speechOutput);
+            response.pipe(gunzip);
+
+            gunzip.on('data', function (chunk) {
+                chunk = chunk.toString('utf-8');
+                str += chunk;
+            });
+
+            gunzip.on('end', function () {
+                let jsonResponse = JSON.parse(str);
+                speechOutput = jsonResponse.response;
+                let SpeechReprompt = "It will be with you in a minute";
+                self.emit(':ask', speechOutput, SpeechReprompt);
+            });
+        });
     },
     'select_abstract': function () {
         speechOutput = '';
-
-        //any intent slot variables are listed here for convenience
+        let self = this;
 
         let foodSlotRaw = this.event.request.intent.slots.food.value;
         console.log(foodSlotRaw);
         let foodSlot = resolveCanonical(this.event.request.intent.slots.food);
         console.log(foodSlot);
 
-        //Your custom intent handling goes here
-        speechOutput = "This is a place holder response for the intent named select_abstract. This intent has one slot, which is food. Anything else?";
-        this.emit(":ask", speechOutput, speechOutput);
+        // Request options
+        const options = {
+            hostname: globalHostname,
+            port: 80,
+            path: '/alexa/variant?food=' + foodSlot,
+            headers: {
+                'Accept-Encoding': 'gzip, deflate'
+            }
+        };
+
+        // Do the API call and parse Response
+        http.get(options, function (response) {
+            let str = '';
+            let gunzip = zlib.createGunzip();
+
+            response.pipe(gunzip);
+
+            gunzip.on('data', function (chunk) {
+                chunk = chunk.toString('utf-8');
+                str += chunk;
+            });
+
+            gunzip.on('end', function () {
+                let jsonResponse = JSON.parse(str);
+                speechOutput = jsonResponse.response;
+                let SpeechReprompt = "So, which variant would you like to order?";
+                self.emit(':ask', speechOutput, SpeechReprompt);
+            });
+        });
+
     },
     'select_concrete': function () {
-        //delegate to Alexa to collect all the required slot values
-        let filledSlots = delegateSlotCollection.call(this);
-        speechOutput = '';
-        //any intent slot variables are listed here for convenience
+        speechOutput = "";
+        let self = this;
 
         let foodSlotRaw = this.event.request.intent.slots.food.value;
         console.log(foodSlotRaw);
         let foodSlot = resolveCanonical(this.event.request.intent.slots.food);
         console.log(foodSlot);
+
         let variantSlotRaw = this.event.request.intent.slots.variant.value;
         console.log(variantSlotRaw);
         let variantSlot = resolveCanonical(this.event.request.intent.slots.variant);
         console.log(variantSlot);
 
-        //Your custom intent handling goes here
-        speechOutput = "This is a place holder response for the intent named select_concrete, which includes dialogs. This intent has 2 slots, which are food, and variant. Anything else?";
-        this.emit(':ask', speechOutput, speechOutput);
+        // Request options
+        const options = {
+            hostname: globalHostname,
+            port: 80,
+            path: '/alexa/concrete?food=' + foodSlot + '&variant=' + variantSlot + '&session=' + sessionId,
+            headers: {
+                'Accept-Encoding': 'gzip, deflate',
+                'Set-Cookie': 'www-de-demoshop-local=' + sessionId
+            }
+        };
+
+        // Do the API call and parse Response
+        http.get(options, function (response) {
+            let str = '';
+            let gunzip = zlib.createGunzip();
+
+            response.pipe(gunzip);
+
+            gunzip.on('data', function (chunk) {
+                chunk = chunk.toString('utf-8');
+                str += chunk;
+            });
+
+            gunzip.on('end', function () {
+                let jsonResponse = JSON.parse(str);
+                speechOutput = jsonResponse.response;
+                let SpeechReprompt = "It will be with you in a minute";
+                self.emit(':ask', speechOutput, SpeechReprompt);
+            });
+        });
     },
     'Unhandled': function () {
-        speechOutput = "The skill didn't quite understand what you wanted.  Do you want to try something else?";
-        this.emit(':ask', speechOutput, speechOutput);
+        speechOutput = "I didn't quite understand what you wanted. Can you repeat?";
+        speechReprompt = "Do you want Nachos or Popcorn?";
+        this.emit(':ask', speechOutput, speechReprompt);
     }
 };
 

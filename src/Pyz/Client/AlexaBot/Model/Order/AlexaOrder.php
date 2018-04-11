@@ -1,29 +1,33 @@
 <?php
 /**
- * Copyright © 2018-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\AlexaBot\Plugin;
+namespace Pyz\Client\AlexaBot\Model\Order;
 
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CountryTransfer;
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\DummyPaymentTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Generated\Shared\Transfer\ShipmentTransfer;
-use Spryker\Yves\Kernel\AbstractPlugin;
-use Spryker\Yves\Kernel\Exception\Container\ContainerKeyNotFoundException;
+use Generated\Shared\Transfer\TaxTotalTransfer;
+use Generated\Shared\Transfer\TotalsTransfer;
+use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
+use Spryker\Client\Calculation\CalculationClientInterface;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Client\Checkout\CheckoutClientInterface;
+use Spryker\Client\Kernel\AbstractPlugin;
+use Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException;
+use Spryker\Client\Product\ProductClientInterface;
 use Twilio\Rest\Client;
 
-/**
- * @method \Pyz\Yves\AlexaBot\AlexaBotFactory getFactory()
- */
-class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInterface
+class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 {
-
     const ALEXA_DEVICE = "alexa-test";
     const TWILLIO_SID  = '';
     const TWILLIO_TOKEN = '';
@@ -31,29 +35,53 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
     const NUMBER_RECIPIENT = '';
 
     /**
-     * @param int $abstractId
-     * @throws ContainerKeyNotFoundException
-     * @return array
+     * @var CartClientInterface
      */
-    public function getConcreteListByAbstractId($abstractId)
-    {
-        $storageProductTransfer = $this->getStorageProduct($abstractId);
-        return $storageProductTransfer->getSuperAttributes()['variant'];
-    }
+    private $cartClient;
 
     /**
-     * @param int $abstractId
-     * @param string $variantName
-     * @throws ContainerKeyNotFoundException
-     * @return string
+     * @var CheckoutClientInterface
      */
-    public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName)
-    {
-        $selectedAttributes = ['variant' => $variantName];
 
-        $storageProductTransfer = $this->getStorageProduct($abstractId, $selectedAttributes);
-        return $storageProductTransfer->getSku();
+    private $checkoutClient;
+    /**
+     * @var CalculationClientInterface
+     */
+
+    private $calculationClient;
+    /**
+     * @var ProductClientInterface
+     */
+
+    private $productClient;
+
+    /**
+     * @var StorageProductMapperInterface
+     */
+    private $storageProductMapper;
+
+    /**
+     * AlexaOrder constructor.
+     * @param CartClientInterface $cartClient
+     * @param CheckoutClientInterface $checkoutClient
+     * @param CalculationClientInterface $calculationClient
+     * @param ProductClientInterface $productClient
+     * @param StorageProductMapperInterface $storageProductMapper
+     */
+    public function __construct(
+        CartClientInterface $cartClient,
+        CheckoutClientInterface $checkoutClient,
+        CalculationClientInterface $calculationClient,
+        ProductClientInterface $productClient,
+        StorageProductMapperInterface $storageProductMapper
+    ) {
+        $this->cartClient = $cartClient;
+        $this->checkoutClient = $checkoutClient;
+        $this->calculationClient = $calculationClient;
+        $this->productClient = $productClient;
+        $this->storageProductMapper = $storageProductMapper;
     }
+
 
     /**
      * @param string $concreteSku
@@ -68,7 +96,7 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
         $itemTransfer->setQuantity(1);
         $itemTransfer->setIdDiscountPromotion(0);
 
-        $quoteTransfer = $this->getFactory()->getCartClient()->addItem($itemTransfer);
+        $quoteTransfer = $this->cartClient->addItem($itemTransfer);
 
         $quoteSerialised = serialize($quoteTransfer);
         $filePath = getcwd().DIRECTORY_SEPARATOR.$sessionId.".session";
@@ -104,8 +132,8 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
         $quoteTransfer = $this->hydratePayment($quoteTransfer);
         $quoteTransfer->setCheckoutConfirmed(true);
 
-        $quoteTransfer = $this->getFactory()->getCalculationClient()->recalculate($quoteTransfer);
-        $checkoutClient = $this->getFactory()->getCheckoutClient()->placeOrder($quoteTransfer);
+        $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
+        $checkoutClient = $this->checkoutClient->placeOrder($quoteTransfer);
 
         if (
             $checkoutClient->getIsSuccess() &&
@@ -130,52 +158,21 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
     }
 
     /**
-     * @param int $sessionId
-     * @throws \Twilio\Exceptions\ConfigurationException
-     */
-    public function sendConfirmationSms($sessionId)
-    {
-        $filePath = getcwd().DIRECTORY_SEPARATOR.$sessionId.".session";
-        $objData = file_get_contents($filePath);
-        /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
-        $quoteTransfer = unserialize($objData);
-
-        if (isset($quoteTransfer->getItems()[0])) {
-            $client = new Client(self::TWILLIO_SID, self::TWILLIO_TOKEN);
-
-            // Use the client to do fun stuff like send text messages!
-            $client->messages->create(
-            // the number you'd like to send the message to
-                self::NUMBER_RECIPIENT,
-                [
-                    // A Twilio phone number you purchased at twilio.com/console
-                    'from' => self::TWILLIO_NUMBER,
-                    // the body of the text message you'd like to send
-                    'body' => 'User: ' . self::ALEXA_DEVICE
-                        // It should be field 'name' in 'spy_sales_order_item'
-                        . ' ordered ' . $quoteTransfer->getItems()[0]->getName()
-                ]
-            );
-        }
-    }
-
-    /**
      * @param $abstractId
      * @param array $selectedAttributes
-     * @return \Generated\Shared\Transfer\StorageProductTransfer
+     *
      * @throws ContainerKeyNotFoundException
+     *
+     * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
     protected function getStorageProduct($abstractId, $selectedAttributes = [])
     {
         $productData = $this
-            ->getFactory()
-            ->getProductClient()
-            ->getProductAbstractFromStorageByIdForCurrentLocale(
-                $abstractId
-            );
+            ->productClient
+            ->getProductAbstractFromStorageByIdForCurrentLocale($abstractId);
 
-        $storageProductTransfer = $this->getFactory()
-            ->createStorageProductMapper()
+        $storageProductTransfer = $this
+            ->storageProductMapper
             ->mapStorageProduct($productData, $selectedAttributes);
 
         return $storageProductTransfer;
@@ -187,7 +184,7 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
      */
     protected function hydrateCustomer($quoteTransfer)
     {
-        $guestCustomer = new \Generated\Shared\Transfer\CustomerTransfer();
+        $guestCustomer = new CustomerTransfer();
         $guestCustomer->setIsGuest(true);
         $guestCustomer->setFirstName('Test');
         $guestCustomer->setLastName('User');
@@ -289,10 +286,10 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
         $paymentTransfer->setPaymentProvider('DummyPayment');
         $paymentTransfer->setPaymentMethod('invoice');
 
-        $taxTotalTransfer = new \Generated\Shared\Transfer\TaxTotalTransfer();
+        $taxTotalTransfer = new TaxTotalTransfer();
         $taxTotalTransfer->setAmount(191);
         $taxTotalTransfer->setTaxRate(1);
-        $totalsTransfer = new \Generated\Shared\Transfer\TotalsTransfer();
+        $totalsTransfer = new TotalsTransfer();
         $totalsTransfer->setExpenseTotal(599);
         $totalsTransfer->setSubtotal(599);
         $totalsTransfer->setDiscountTotal(0);
@@ -322,4 +319,33 @@ class AlexaProductPlugin extends AbstractPlugin implements AlexaProductPluginInt
         return $quoteTransfer;
     }
 
+    /**
+     * @param int $sessionId
+     * @throws \Twilio\Exceptions\ConfigurationException
+     */
+    public function sendConfirmationSms($sessionId)
+    {
+        $filePath = getcwd().DIRECTORY_SEPARATOR.$sessionId.".session";
+        $objData = file_get_contents($filePath);
+        /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
+        $quoteTransfer = unserialize($objData);
+
+        if (isset($quoteTransfer->getItems()[0])) {
+            $client = new Client(self::TWILLIO_SID, self::TWILLIO_TOKEN);
+
+            // Use the client to do fun stuff like send text messages!
+            $client->messages->create(
+            // the number you'd like to send the message to
+                self::NUMBER_RECIPIENT,
+                [
+                    // A Twilio phone number you purchased at twilio.com/console
+                    'from' => self::TWILLIO_NUMBER,
+                    // the body of the text message you'd like to send
+                    'body' => 'User: ' . self::ALEXA_DEVICE
+                        // It should be field 'name' in 'spy_sales_order_item'
+                        . ' ordered ' . $quoteTransfer->getItems()[0]->getName()
+                ]
+            );
+        }
+    }
 }
