@@ -23,19 +23,16 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
 
     /**
      * @param array $orderItems
-     * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $orderEntity
-     * @param \Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject $data
+     * @param SpySalesOrder $orderEntity
+     * @param ReadOnlyArrayObject $data
+     *
+     * @throws \Twilio\Exceptions\ConfigurationException
      *
      * @return array
      */
     public function run(array $orderItems, SpySalesOrder $orderEntity, ReadOnlyArrayObject $data)
     {
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . 'alexa-cart.session';
-        $objData = file_get_contents($filePath);
-        /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
-        $quoteTransfer = unserialize($objData);
-
-        if (isset($quoteTransfer->getItems()[0])) {
+        if (isset($orderItems[0])) {
             $client = new Client(self::TWILLIO_SID, self::TWILLIO_TOKEN);
 
             // Use the client to do fun stuff like send text messages!
@@ -46,9 +43,9 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
                     // A Twilio phone number you purchased at twilio.com/console
                     'from' => self::TWILLIO_NUMBER,
                     // the body of the text message you'd like to send
-                    'body' => 'User: ' . self::ALEXA_DEVICE
+                    'body' => 'User: ' . self::ALEXA_DEVICE . '-1'
                         // It should be field 'name' in 'spy_sales_order_item'
-                        . ' ordered ' . $quoteTransfer->getItems()[0]->getName(),
+                        . ' ordered ' . $orderItems[0],
                 ]
             );
         }

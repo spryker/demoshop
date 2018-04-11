@@ -19,6 +19,8 @@ class AlexaController extends AbstractController
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function productAction(Request $request)
