@@ -17,16 +17,14 @@ use Symfony\Component\HttpFoundation\Request;
 class AlexaController extends AbstractController
 {
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function productAction(Request $request)
     {
         $response = "Sorry, we are all out. What about some Nachos or Popcorn?";
-        $myFood   = $request->get('food');
+        $myFood = $request->get('food');
 
         $abstractId = $this->getClient()->getAbstractIdByAbstractName($myFood);
 
@@ -34,40 +32,38 @@ class AlexaController extends AbstractController
         $variant = $this->getClient()->getConcreteListByAbstractId($abstractId);
 
         if ($myFood && !empty($variant)) {
-            switch(strtolower($myFood)) {
+            switch (strtolower($myFood)) {
                 case 'popcorn':
                     $response = "Would you like " . $variant[0]
-                        . " or " . $variant[1]  . " " . $myFood. "?";
+                        . " or " . $variant[1] . " " . $myFood . "?";
                     break;
                 case 'nachos':
-                    $response = "Would you like "  . $myFood . " with "
-                        . $variant[0] . " or with " . $variant[1]  . "?";
+                    $response = "Would you like " . $myFood . " with "
+                        . $variant[0] . " or with " . $variant[1] . "?";
                     break;
             }
         }
 
         return new JsonResponse(
             [
-                'response' => $response
+                'response' => $response,
             ],
             200
         );
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function cartAction(Request $request)
     {
-        $myFood           = $request->get('food');
-        $myVariant        = $request->get('variant');
-        $mySession        = $request->get('session');
+        $myFood = $request->get('food');
+        $myVariant = $request->get('variant');
+        $mySession = $request->get('session');
 
-        $response         = "I don not have " . $myVariant . ". Would you like to order something else?";
+        $response = "I don not have " . $myVariant . ". Would you like to order something else?";
 
         $abstractId = $this->getClient()->getAbstractIdByAbstractName($myFood);
         $variantSku = $this->getClient()->getConcreteSkuByAbstractIdAndVariant(
@@ -85,24 +81,21 @@ class AlexaController extends AbstractController
 
         return new JsonResponse(
             [
-                'response' => $response
+                'response' => $response,
             ],
             200
         );
-
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function checkoutAndOrderAction(Request $request)
     {
-        $response    = "Sorry, it was impossible to complete the order. Could you try again?";
-        $mySession   = $request->get('session');
+        $response = "Sorry, it was impossible to complete the order. Could you try again?";
+        $mySession = $request->get('session');
 
         $isSuccess = $this->getClient()->performCheckout($mySession);
 
@@ -113,7 +106,7 @@ class AlexaController extends AbstractController
 
         return new JsonResponse(
             [
-                'response' => $response
+                'response' => $response,
             ],
             200
         );

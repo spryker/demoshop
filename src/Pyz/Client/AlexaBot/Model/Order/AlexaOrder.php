@@ -6,10 +6,12 @@
 
 namespace Pyz\Client\AlexaBot\Model\Order;
 
+use ArrayObject;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CountryTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\DummyPaymentTransfer;
+use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
@@ -22,20 +24,19 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Client\Kernel\AbstractPlugin;
-use Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException;
 use Spryker\Client\Product\ProductClientInterface;
 use Twilio\Rest\Client;
 
 class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 {
     const ALEXA_DEVICE = "alexa-test";
-    const TWILLIO_SID  = '';
+    const TWILLIO_SID = '';
     const TWILLIO_TOKEN = '';
     const TWILLIO_NUMBER = '';
     const NUMBER_RECIPIENT = '';
 
     /**
-     * @var CartClientInterface
+     * @var \Spryker\Client\Cart\CartClientInterface
      */
     private $cartClient;
 
@@ -44,11 +45,13 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
      */
 
     private $checkoutClient;
+
     /**
      * @var CalculationClientInterface
      */
 
     private $calculationClient;
+
     /**
      * @var ProductClientInterface
      */
@@ -56,17 +59,18 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     private $productClient;
 
     /**
-     * @var StorageProductMapperInterface
+     * @var \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
      */
     private $storageProductMapper;
 
     /**
      * AlexaOrder constructor.
-     * @param CartClientInterface $cartClient
-     * @param CheckoutClientInterface $checkoutClient
-     * @param CalculationClientInterface $calculationClient
-     * @param ProductClientInterface $productClient
-     * @param StorageProductMapperInterface $storageProductMapper
+     *
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
+     * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
+     * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
+     * @param \Spryker\Client\Product\ProductClientInterface $productClient
+     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
      */
     public function __construct(
         CartClientInterface $cartClient,
@@ -82,11 +86,10 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
         $this->storageProductMapper = $storageProductMapper;
     }
 
-
     /**
      * @param string $concreteSku
      * @param int $sessionId
-     * @throws ContainerKeyNotFoundException
+     *
      * @return bool
      */
     public function addConcreteToCartBySku($concreteSku, $sessionId)
@@ -99,7 +102,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
         $quoteTransfer = $this->cartClient->addItem($itemTransfer);
 
         $quoteSerialised = serialize($quoteTransfer);
-        $filePath = getcwd().DIRECTORY_SEPARATOR.$sessionId.".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
         $fp = fopen($filePath, "w");
         fwrite($fp, $quoteSerialised);
         fclose($fp);
@@ -114,17 +117,17 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 
     /**
      * @param int $sessionId
+     *
      * @return string|false
-     * @throws ContainerKeyNotFoundException
      */
     public function performCheckout($sessionId)
     {
-        $filePath = getcwd().DIRECTORY_SEPARATOR.$sessionId.".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
         $objData = file_get_contents($filePath);
         /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
         $quoteTransfer = unserialize($objData);
 
-        $itemsArray     = $quoteTransfer->getItems();
+        $itemsArray = $quoteTransfer->getItems();
 
         $quoteTransfer = $this->hydrateCustomer($quoteTransfer);
         $quoteTransfer = $this->hydrateAddress($quoteTransfer);
@@ -135,8 +138,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
         $quoteTransfer = $this->calculationClient->recalculate($quoteTransfer);
         $checkoutClient = $this->checkoutClient->placeOrder($quoteTransfer);
 
-        if (
-            $checkoutClient->getIsSuccess() &&
+        if ($checkoutClient->getIsSuccess() &&
             isset($itemsArray[0])
             && $itemsArray[0]->getName()
         ) {
@@ -147,21 +149,18 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
             // just get overwritten by next order
 
             return $response;
-        } else if ($checkoutClient->getErrors()->count()) {
+        } elseif ($checkoutClient->getErrors()->count()) {
             return "There was an error with your request. "
                 . "-" . $checkoutClient->getErrors()[0]->getMessage() . "-. "
                 . "Please try again later";
         }
 
         return false;
-
     }
 
     /**
      * @param $abstractId
      * @param array $selectedAttributes
-     *
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
@@ -180,6 +179,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function hydrateCustomer($quoteTransfer)
@@ -198,6 +198,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function hydrateAddress($quoteTransfer)
@@ -235,6 +236,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function hydrateShipment($quoteTransfer)
@@ -263,13 +265,13 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
         $shipmentTransfer->setMethod($shipmentMethodTransfer);
         $shipmentTransfer->setShipmentSelection('1');
 
-
         $quoteTransfer->setShipment($shipmentTransfer);
         return $quoteTransfer;
     }
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     protected function hydratePayment($quoteTransfer)
@@ -301,7 +303,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
         $totalsTransfer->setHash('c18a8ad752fb7e649161dcabed2d1fb96fa38265866c1e8d123ba292aa23f1de');
         $quoteTransfer->setTotals($totalsTransfer);
 
-        $expenseTransfer = new \Generated\Shared\Transfer\ExpenseTransfer();
+        $expenseTransfer = new ExpenseTransfer();
         $expenseTransfer->setType('SHIPMENT_EXPENSE_TYPE');
         $expenseTransfer->setUnitGrossPrice(599);
         $expenseTransfer->setSumGrossPrice(599);
@@ -314,18 +316,19 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
         $expenseTransfer->setUnitTaxAmount(95);
         $expenseTransfer->setSumTaxAmount(95);
 
-        $quoteTransfer->setExpenses(new \ArrayObject([ 0 => $expenseTransfer]));
+        $quoteTransfer->setExpenses(new ArrayObject([ 0 => $expenseTransfer]));
         $quoteTransfer->setPayment($paymentTransfer);
         return $quoteTransfer;
     }
 
     /**
      * @param int $sessionId
-     * @throws \Twilio\Exceptions\ConfigurationException
+     *
+     * @return void
      */
     public function sendConfirmationSms($sessionId)
     {
-        $filePath = getcwd().DIRECTORY_SEPARATOR.$sessionId.".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
         $objData = file_get_contents($filePath);
         /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
         $quoteTransfer = unserialize($objData);
@@ -335,7 +338,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 
             // Use the client to do fun stuff like send text messages!
             $client->messages->create(
-            // the number you'd like to send the message to
+                // the number you'd like to send the message to
                 self::NUMBER_RECIPIENT,
                 [
                     // A Twilio phone number you purchased at twilio.com/console
@@ -343,7 +346,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
                     // the body of the text message you'd like to send
                     'body' => 'User: ' . self::ALEXA_DEVICE
                         // It should be field 'name' in 'spy_sales_order_item'
-                        . ' ordered ' . $quoteTransfer->getItems()[0]->getName()
+                        . ' ordered ' . $quoteTransfer->getItems()[0]->getName(),
                 ]
             );
         }

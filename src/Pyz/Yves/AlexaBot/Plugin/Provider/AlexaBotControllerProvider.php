@@ -14,7 +14,7 @@ class AlexaBotControllerProvider extends AbstractYvesControllerProvider
 {
     const ALEXA_PRODUCT = 'alexa/variant';
     const ALEXA_CART = 'alexa/concrete';
-    const ALEXA_CHECKOUT_AND_ORDER  = 'alexa/payment';
+    const ALEXA_CHECKOUT_AND_ORDER = 'alexa/payment';
 
     /**
      * @param \Silex\Application $app

@@ -7,7 +7,6 @@
 namespace Pyz\Client\AlexaBot\Model\Product;
 
 use Pyz\Client\Catalog\CatalogClientInterface;
-use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\Product\ProductClientInterface;
@@ -15,24 +14,24 @@ use Spryker\Client\Product\ProductClientInterface;
 class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
 {
     /**
-     * @var ProductClientInterface
+     * @var \Spryker\Client\Product\ProductClientInterface
      */
     private $productClient;
 
     /**
-     * @var StorageProductMapper
+     * @var \Pyz\Yves\Product\Mapper\StorageProductMapper
      */
     private $storageProductMapper;
 
     /**
-     * @var CatalogClientInterface
+     * @var \Pyz\Client\Catalog\CatalogClientInterface
      */
     private $catalogClient;
 
     /**
-     * @param ProductClientInterface $productClient
-     * @param StorageProductMapperInterface $storageProductMapper
-     * @param CatalogClientInterface $catalogClient
+     * @param \Spryker\Client\Product\ProductClientInterface $productClient
+     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
+     * @param \Pyz\Client\Catalog\CatalogClientInterface $catalogClient
      */
     public function __construct(
         ProductClientInterface $productClient,
@@ -79,7 +78,7 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     public function getAbstractIdByName($abstractName)
     {
         $catalogResponse = $this->catalogClient->catalogSuggestSearch($abstractName);
-        $abstractId      = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
+        $abstractId = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
 
         return $abstractId;
     }

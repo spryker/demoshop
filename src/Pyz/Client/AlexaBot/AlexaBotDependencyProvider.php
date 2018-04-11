@@ -7,20 +7,18 @@
 
 namespace Pyz\Client\AlexaBot;
 
-use Pyz\Client\AlexaBot\Model\AlexaProductPlugin;
 use Spryker\Client\Kernel\AbstractDependencyProvider;
 use Spryker\Client\Kernel\Container;
 
 class AlexaBotDependencyProvider extends AbstractDependencyProvider
 {
-    const CLIENT_CATALOG        = 'CLIENT_CATALOG';
-    const CLIENT_PRODUCT        = 'CLIENT_PRODUCT';
-    const CLIENT_PRICE_PRODUCT  = 'CLIENT_PRICE_PRODUCT';
-    const CLIENT_CART           = 'CLIENT_CART';
-    const CLIENT_CHECKOUT       = 'CLIENT_CHECKOUT';
-    const CLIENT_CALCULATION    = 'CLIENT_CALCULATION';
-    const PRODUCT_PLUGIN        = 'PRODUCT_PLUGIN';
-
+    const CLIENT_CATALOG = 'CLIENT_CATALOG';
+    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+    const CLIENT_PRICE_PRODUCT = 'CLIENT_PRICE_PRODUCT';
+    const CLIENT_CART = 'CLIENT_CART';
+    const CLIENT_CHECKOUT = 'CLIENT_CHECKOUT';
+    const CLIENT_CALCULATION = 'CLIENT_CALCULATION';
+    const PRODUCT_PLUGIN = 'PRODUCT_PLUGIN';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container

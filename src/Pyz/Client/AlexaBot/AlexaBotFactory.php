@@ -12,14 +12,12 @@ use Pyz\Client\AlexaBot\Model\Product\AlexaProduct;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Client\Kernel\AbstractFactory;
-use Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException;
 
 class AlexaBotFactory extends AbstractFactory
 {
     /**
-     * @throws ContainerKeyNotFoundException
      *
-     * @return AlexaProduct
+     * @return \Pyz\Client\AlexaBot\Model\Product\AlexaProduct
      */
     public function createAlexaProduct()
     {
@@ -31,9 +29,8 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
-     * @return AlexaOrder
+     * @return \Pyz\Client\AlexaBot\Model\Order\AlexaOrder
      */
     public function createAlexaOrder()
     {
@@ -47,7 +44,6 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Pyz\Client\Catalog\CatalogClientInterface
      */
@@ -57,7 +53,6 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Spryker\Client\Product\ProductClientInterface
      */
@@ -67,7 +62,6 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
      */
@@ -77,7 +71,6 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Spryker\Client\Cart\CartClientInterface
      */
@@ -87,7 +80,6 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Spryker\Client\Checkout\CheckoutClientInterface
      */
@@ -97,7 +89,6 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
@@ -107,7 +98,6 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
      * @return \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
      */
@@ -120,9 +110,8 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @throws ContainerKeyNotFoundException
      *
-     * @return AttributeVariantMapper
+     * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapper
      */
     public function createAttributeVariantMapper()
     {

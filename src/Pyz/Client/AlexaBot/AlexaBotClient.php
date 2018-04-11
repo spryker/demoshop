@@ -17,8 +17,6 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     /**
      * @param $abstractName
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return int
      */
     public function getAbstractIdByAbstractName($abstractName)
@@ -30,8 +28,6 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
 
     /**
      * @param int $abstractId
-     *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return array
      */
@@ -46,8 +42,6 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
      * @param int $abstractId
      * @param string $variantName
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return string
      */
     public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName)
@@ -61,8 +55,6 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
      * @param string $concreteSku
      * @param int $sessionId
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
      * @return bool
      */
     public function addConcreteToCartBySku($concreteSku, $sessionId)
@@ -74,8 +66,6 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
 
     /**
      * @param int $sessionId
-     *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return bool|false|string
      */
