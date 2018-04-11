@@ -10,18 +10,18 @@ namespace Pyz\Client\AlexaBot;
 interface AlexaBotClientInterface
 {
     /**
-     * @param string $abstractName
+     * @param string $productName
      *
-     * @return string[]
+     * @return mixed
      */
-    public function getVariantsByProductName($abstractName);
+    public function getVariantsByProductName($productName);
 
     /**
      * @param string $variantName
      *
      * @return string
      */
-    public function addConcreteToCartByVariantName($variantName);
+    public function addVariantToCart($variantName);
 
     /**
      * @return bool

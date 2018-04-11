@@ -46,12 +46,13 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     }
 
     /**
-     * @param int $abstractId
+     * @param int $abstractName
      *
      * @return array
      */
-    public function getConcreteListByAbstractId($abstractId)
+    public function getConcreteListByAbstractId($abstractName)
     {
+        $abstractId = $this->getAbstractIdByName($abstractName);
         $storageProductTransfer = $this->getStorageProduct($abstractId);
 
         return $storageProductTransfer->getSuperAttributes()['variant'];

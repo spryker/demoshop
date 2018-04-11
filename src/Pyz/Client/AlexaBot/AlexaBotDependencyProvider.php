@@ -18,7 +18,6 @@ class AlexaBotDependencyProvider extends AbstractDependencyProvider
     const CLIENT_CART = 'CLIENT_CART';
     const CLIENT_CHECKOUT = 'CLIENT_CHECKOUT';
     const CLIENT_CALCULATION = 'CLIENT_CALCULATION';
-    const PRODUCT_PLUGIN = 'PRODUCT_PLUGIN';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container

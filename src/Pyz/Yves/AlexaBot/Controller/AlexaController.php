@@ -64,7 +64,7 @@ class AlexaController extends AbstractController
 
         $response = "I don not have " . $myVariant . ". Would you like to order something else?";
 
-        $result = $this->getClient()->addConcreteToCartByVariantName(
+        $result = $this->getClient()->addVariantToCart(
             $myVariant
         );
 

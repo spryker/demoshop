@@ -14,7 +14,6 @@ use Spryker\Client\Kernel\AbstractClient;
  */
 class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
 {
-
     /**
      * @param string $abstractName
      *
@@ -24,13 +23,9 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
      */
     public function getVariantsByProductName($abstractName)
     {
-        $abstractId = $this->getFactory()
-            ->createAlexaProduct()
-            ->getAbstractIdByName($abstractName);
-
         return $this->getFactory()
             ->createAlexaProduct()
-            ->getConcreteListByAbstractId($abstractId);
+            ->getConcreteListByAbstractId($abstractName);
     }
 
     /**
@@ -40,19 +35,11 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
      *
      * @return string
      */
-    public function addConcreteToCartByVariantName($variantName)
+    public function addVariantToCart($variantName)
     {
-        $abstractId = $this->getFactory()
-            ->createAlexaProduct()
-            ->getAbstractIdBySession();
-
-        $concreteSku = $this->getFactory()
-            ->createAlexaProduct()
-            ->getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
-
         return $this->getFactory()
-            ->createAlexaOrder()
-            ->addConcreteToCartBySku($concreteSku);
+            ->createAlexaCart()
+            ->addVariantToCart($variantName);
     }
 
     /**
@@ -64,6 +51,6 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     {
         return $this->getFactory()
             ->createAlexaOrder()
-            ->performCheckout();
+            ->checkoutAndPlaceOrder();
     }
 }
