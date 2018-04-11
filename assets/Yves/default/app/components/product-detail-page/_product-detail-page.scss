@@ -27,6 +27,29 @@ select.select--gray {
     &__switchers {
         padding-left: 0;
     }
+
+    .thumbnail {
+        box-shadow: none;
+        border: none;
+        background: $bg-gray;
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    .thumbnail.__preview-image--small {
+        height: 4.375rem;
+        &:hover {
+            background: $white;
+            box-shadow: 0 5px 5px $shadow-gray;
+            transition: box-shadow .2s ease;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    }
+
 }
 
 .row .__direction-column {
