@@ -25,13 +25,13 @@ class AlexaBotControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createGetController('/{alexa}/product', static::ALEXA_PRODUCT, 'AlexaBot', 'Alexa', 'product')
+        $this->createGetController('/{alexa}/product', static::ALEXA_PRODUCT, 'AlexaBot', 'AlexaBot', 'product')
             ->assert('alexa', $allowedLocalesPattern . 'alexa|alexa');
 
-        $this->createGetController('/{alexa}/cart', static::ALEXA_CART, 'AlexaBot', 'Alexa', 'cart')
+        $this->createGetController('/{alexa}/cart', static::ALEXA_CART, 'AlexaBot', 'AlexaBot', 'cart')
             ->assert('alexa', $allowedLocalesPattern . 'alexa|alexa');
 
-        $this->createGetController('/{alexa}/checkout-and-order', static::ALEXA_CHECKOUT_AND_ORDER, 'AlexaBot', 'Alexa', 'checkoutAndOrder')
+        $this->createGetController('/{alexa}/checkout-and-order', static::ALEXA_CHECKOUT_AND_ORDER, 'AlexaBot', 'AlexaBot', 'checkoutAndOrder')
             ->assert('alexa', $allowedLocalesPattern . 'alexa|alexa');
     }
 }

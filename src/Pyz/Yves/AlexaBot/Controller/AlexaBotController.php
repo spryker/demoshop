@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @method \Pyz\Client\AlexaBot\AlexaBotClient getClient()
  */
-class AlexaController extends AbstractController
+class AlexaBotController extends AbstractController
 {
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
