@@ -17,11 +17,12 @@ select.select--gray {
     }
     &__item--right {
         order: 2;
-        width: 80%;
+        width: 75%;
     }
     &__switch {
         max-width: 100%;
         padding-left: 0;
+        margin-bottom: .5rem;
     }
     &__switchers {
         padding-left: 0;

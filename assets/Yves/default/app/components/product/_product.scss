@@ -9,6 +9,9 @@
             box-shadow: 0 10px 10px $shadow-gray;
             transition: box-shadow .2s ease;
         }
+        a.thumbnail {
+            background: $white;
+        }
     }
 
     &__container {
@@ -50,7 +53,7 @@
     }
 }
 
-.thumbnail {
+a.thumbnail {
     box-shadow: none;
     border: none;
     background: $bg-gray;
@@ -59,3 +62,15 @@
     }
 }
 
+a.thumbnail.__preview-image--small {
+    height: 4.375rem;
+    &:hover {
+        background: $white;
+        box-shadow: 0 5px 5px $shadow-gray;
+        transition: box-shadow .2s ease;
+    }
+    img {
+        max-width: 90%;
+        max-height: 90%;
+    }
+}
