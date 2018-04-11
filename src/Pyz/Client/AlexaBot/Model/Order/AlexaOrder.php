@@ -35,6 +35,8 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     const TWILLIO_NUMBER = '';
     const NUMBER_RECIPIENT = '';
 
+    const ORDER_SESSION_NAME = 'alexa-order.session';
+
     /**
      * @var \Spryker\Client\Cart\CartClientInterface
      */
@@ -88,11 +90,10 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
 
     /**
      * @param string $concreteSku
-     * @param int $sessionId
      *
      * @return bool
      */
-    public function addConcreteToCartBySku($concreteSku, $sessionId)
+    public function addConcreteToCartBySku($concreteSku)
     {
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($concreteSku);
@@ -102,7 +103,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
         $quoteTransfer = $this->cartClient->addItem($itemTransfer);
 
         $quoteSerialised = serialize($quoteTransfer);
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::ORDER_SESSION_NAME;
         $fp = fopen($filePath, "w");
         fwrite($fp, $quoteSerialised);
         fclose($fp);
@@ -116,13 +117,11 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     }
 
     /**
-     * @param int $sessionId
-     *
      * @return string|false
      */
-    public function performCheckout($sessionId)
+    public function performCheckout()
     {
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::ORDER_SESSION_NAME;
         $objData = file_get_contents($filePath);
         /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
         $quoteTransfer = unserialize($objData);
@@ -145,8 +144,11 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
             $response = "You ordered " . $quoteTransfer->getItems()[0]->getName() . ". ";
             $response .= "Your order is being delivered. Remember to smile";
 
-            // Delete the session file, otherwise
-            // just get overwritten by next order
+            // Delete the session file
+            $filePath = getcwd() . DIRECTORY_SEPARATOR . self::ORDER_SESSION_NAME;
+            $fp = fopen($filePath, "w");
+            fwrite($fp, '');
+            fclose($fp);
 
             return $response;
         } elseif ($checkoutClient->getErrors()->count()) {
@@ -322,13 +324,12 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     }
 
     /**
-     * @param int $sessionId
-     *
+     * @throws \Twilio\Exceptions\ConfigurationException
      * @return void
      */
-    public function sendConfirmationSms($sessionId)
+    public function sendConfirmationSms()
     {
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::ORDER_SESSION_NAME;
         $objData = file_get_contents($filePath);
         /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
         $quoteTransfer = unserialize($objData);

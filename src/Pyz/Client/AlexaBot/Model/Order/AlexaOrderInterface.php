@@ -11,16 +11,13 @@ interface AlexaOrderInterface
 {
     /**
      * @param string $concreteSku
-     * @param int $sessionId
      *
      * @return bool
      */
-    public function addConcreteToCartBySku($concreteSku, $sessionId);
+    public function addConcreteToCartBySku($concreteSku);
 
     /**
-     * @param int $sessionId
-     *
      * @return bool
      */
-    public function performCheckout($sessionId);
+    public function performCheckout();
 }

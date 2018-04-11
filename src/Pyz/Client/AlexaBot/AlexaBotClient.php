@@ -14,75 +14,56 @@ use Spryker\Client\Kernel\AbstractClient;
  */
 class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
 {
-    /**
-     * @param $abstractName
-     *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return int
-     */
-    public function getAbstractIdByAbstractName($abstractName)
-    {
-        return $this->getFactory()
-            ->createAlexaProduct()
-            ->getAbstractIdByName($abstractName);
-    }
 
     /**
-     * @param int $abstractId
+     * @param string $abstractName
      *
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return string[]
      */
-    public function getVariantsByProductName($abstractId)
+    public function getVariantsByProductName($abstractName)
     {
+        $abstractId = $this->getFactory()
+            ->createAlexaProduct()
+            ->getAbstractIdByName($abstractName);
+
         return $this->getFactory()
             ->createAlexaProduct()
             ->getConcreteListByAbstractId($abstractId);
     }
 
     /**
-     * @param int $abstractId
      * @param string $variantName
      *
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return string
      */
-    public function getConcreteSkuByAbstractIdAndVariantName($abstractId, $variantName)
+    public function addConcreteToCartByVariantName($variantName)
     {
-        return $this->getFactory()
+        $abstractId = $this->getFactory()
+            ->createAlexaProduct()
+            ->getAbstractIdBySession();
+
+        $concreteSku = $this->getFactory()
             ->createAlexaProduct()
             ->getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
-    }
 
-    /**
-     * @param string $concreteSku
-     * @param int $sessionId
-     *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return bool
-     */
-    public function addConcreteToCartBySku($concreteSku, $sessionId)
-    {
         return $this->getFactory()
             ->createAlexaOrder()
-            ->addConcreteToCartBySku($concreteSku, $sessionId);
+            ->addConcreteToCartBySku($concreteSku);
     }
 
     /**
-     * @param int $sessionId
-     *
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return bool|false|string
      */
-    public function checkoutAndPlaceOrder($sessionId)
+    public function checkoutAndPlaceOrder()
     {
         return $this->getFactory()
             ->createAlexaOrder()
-            ->performCheckout($sessionId);
+            ->performCheckout();
     }
 }

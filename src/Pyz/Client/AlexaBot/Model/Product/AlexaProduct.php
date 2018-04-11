@@ -13,6 +13,8 @@ use Spryker\Client\Product\ProductClientInterface;
 
 class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
 {
+    const PRODUCT_SESSION_NAME = 'alexa-product.session';
+
     /**
      * @var \Spryker\Client\Product\ProductClientInterface
      */
@@ -79,6 +81,19 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     {
         $catalogResponse = $this->catalogClient->catalogSuggestSearch($abstractName);
         $abstractId = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
+
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::PRODUCT_SESSION_NAME;
+        $fp = fopen($filePath, "w");
+        fwrite($fp, $abstractId);
+        fclose($fp);
+
+        return $abstractId;
+    }
+
+    public function getAbstractIdBySession()
+    {
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::PRODUCT_SESSION_NAME;
+        $abstractId = file_get_contents($filePath);
 
         return $abstractId;
     }

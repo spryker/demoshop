@@ -12,9 +12,9 @@ use Silex\Application;
 
 class AlexaBotControllerProvider extends AbstractYvesControllerProvider
 {
-    const ALEXA_PRODUCT = 'alexa/variant';
-    const ALEXA_CART = 'alexa/concrete';
-    const ALEXA_CHECKOUT_AND_ORDER = 'alexa/payment';
+    const ALEXA_PRODUCT = 'alexa/product';
+    const ALEXA_CART = 'alexa/cart';
+    const ALEXA_CHECKOUT_AND_ORDER = 'alexa/checkout-and-order';
 
     /**
      * @param \Silex\Application $app
@@ -25,13 +25,13 @@ class AlexaBotControllerProvider extends AbstractYvesControllerProvider
     {
         $allowedLocalesPattern = $this->getAllowedLocalesPattern();
 
-        $this->createGetController('/{alexa}/variant', static::ALEXA_PRODUCT, 'AlexaBot', 'Alexa', 'product')
+        $this->createGetController('/{alexa}/product', static::ALEXA_PRODUCT, 'AlexaBot', 'Alexa', 'product')
             ->assert('alexa', $allowedLocalesPattern . 'alexa|alexa');
 
-        $this->createGetController('/{alexa}/concrete', static::ALEXA_CART, 'AlexaBot', 'Alexa', 'cart')
+        $this->createGetController('/{alexa}/cart', static::ALEXA_CART, 'AlexaBot', 'Alexa', 'cart')
             ->assert('alexa', $allowedLocalesPattern . 'alexa|alexa');
 
-        $this->createGetController('/{alexa}/payment', static::ALEXA_CHECKOUT_AND_ORDER, 'AlexaBot', 'Alexa', 'checkoutAndOrder')
+        $this->createGetController('/{alexa}/checkout-and-order', static::ALEXA_CHECKOUT_AND_ORDER, 'AlexaBot', 'Alexa', 'checkoutAndOrder')
             ->assert('alexa', $allowedLocalesPattern . 'alexa|alexa');
     }
 }

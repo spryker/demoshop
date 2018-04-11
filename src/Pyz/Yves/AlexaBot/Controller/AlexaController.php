@@ -28,9 +28,7 @@ class AlexaController extends AbstractController
         $response = "Sorry, we are all out. What about some Nachos or Popcorn?";
         $myFood = $request->get('food');
 
-        $abstractId = $this->getClient()->getAbstractIdByAbstractName($myFood);
-
-        $variants = $this->getClient()->getVariantsByProductName($abstractId);
+        $variants = $this->getClient()->getVariantsByProductName($myFood);
 
         if ($myFood && !empty($variants)) {
             switch (strtolower($myFood)) {
@@ -62,19 +60,13 @@ class AlexaController extends AbstractController
      */
     public function cartAction(Request $request)
     {
-        $myFood = $request->get('food');
         $myVariant = $request->get('variant');
-        $mySession = $request->get('session');
 
         $response = "I don not have " . $myVariant . ". Would you like to order something else?";
 
-        $abstractId = $this->getClient()->getAbstractIdByAbstractName($myFood);
-        $variantSku = $this->getClient()->getConcreteSkuByAbstractIdAndVariantName(
-            $abstractId,
+        $result = $this->getClient()->addConcreteToCartByVariantName(
             $myVariant
         );
-
-        $result = $this->getClient()->addConcreteToCartBySku($variantSku, $mySession);
 
         if ($result) {
             $response = "Your order will be shipped with same minute delivery. "
@@ -100,12 +92,12 @@ class AlexaController extends AbstractController
     public function checkoutAndOrderAction(Request $request)
     {
         $response = "Sorry, it was impossible to complete the order. Could you try again?";
-        $mySession = $request->get('session');
 
-        $isSuccess = $this->getClient()->checkoutAndPlaceOrder($mySession);
+        $isSuccess = $this->getClient()->checkoutAndPlaceOrder();
 
         if ($isSuccess) {
-//            $this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms($mySession);
+            //@todo to remove when moved in OMS
+            //$this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms($mySession);
             $response = $isSuccess;
         }
 
