@@ -8,7 +8,6 @@
 namespace Pyz\Client\AlexaBot\Model\Cart;
 
 use Generated\Shared\Transfer\ItemTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\AlexaBot\AlexaBotConfig;
 use Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface;
 use Pyz\Client\AlexaBot\Model\Product\AlexaProductInterface;
@@ -17,7 +16,7 @@ use Spryker\Client\Cart\CartClientInterface;
 class AlexaCart implements AlexaCartInterface
 {
     /**
-     * @var AlexaBotConfig
+     * @var \Pyz\Client\AlexaBot\AlexaBotConfig
      */
     private $alexaBotConfig;
 
@@ -27,21 +26,22 @@ class AlexaCart implements AlexaCartInterface
     private $cartClient;
 
     /**
-     * @var AlexaProductInterface
+     * @var \Pyz\Client\AlexaBot\Model\Product\AlexaProductInterface
      */
     private $alexaProduct;
 
     /**
-     * @var FileSessionInterface
+     * @var \Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface
      */
     private $fileSession;
 
     /**
      * AlexaCart constructor.
-     * @param AlexaBotConfig $alexaBotConfig
-     * @param CartClientInterface $cartClient
-     * @param AlexaProductInterface $alexaProduct
-     * @param FileSessionInterface $fileSession
+     *
+     * @param \Pyz\Client\AlexaBot\AlexaBotConfig $alexaBotConfig
+     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
+     * @param \Pyz\Client\AlexaBot\Model\Product\AlexaProductInterface $alexaProduct
+     * @param \Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface $fileSession
      */
     public function __construct(
         AlexaBotConfig $alexaBotConfig,
@@ -76,7 +76,7 @@ class AlexaCart implements AlexaCartInterface
     /**
      * @param string $variantName
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     private function addToCart($variantName)
     {
@@ -108,7 +108,7 @@ class AlexaCart implements AlexaCartInterface
     /**
      * @param string $variantSku
      *
-     * @return ItemTransfer
+     * @return \Generated\Shared\Transfer\ItemTransfer
      */
     private function HydrateItemTransfer($variantSku)
     {
@@ -121,7 +121,7 @@ class AlexaCart implements AlexaCartInterface
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return void
      */

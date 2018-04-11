@@ -6,8 +6,6 @@
 
 namespace Pyz\Client\AlexaBot\Model\CheckoutAndOrder;
 
-use Generated\Shared\Transfer\CheckoutResponseTransfer;
-use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\AlexaBot\AlexaBotConfig;
 use Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
@@ -15,10 +13,10 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Client\Product\ProductClientInterface;
 
-class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterface
+class AlexaCheckoutAndCheckoutAndOrder implements AlexaCheckoutAndOrderInterface
 {
     /**
-     * @var AlexaBotConfig
+     * @var \Pyz\Client\AlexaBot\AlexaBotConfig
      */
     private $alexaBotConfig;
 
@@ -35,7 +33,7 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
     private $calculationClient;
 
     /**
-     * @var ProductClientInterface
+     * @var \Spryker\Client\Product\ProductClientInterface
      */
     private $productClient;
 
@@ -45,23 +43,23 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
     private $storageProductMapper;
 
     /**
-     * @var OrderHydrator
+     * @var \Pyz\Client\AlexaBot\Model\CheckoutAndOrder\OrderHydrator
      */
     private $orderHydrator;
 
     /**
-     * @var FileSessionInterface
+     * @var \Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface
      */
     private $fileSession;
 
     /**
-     * @param AlexaBotConfig $alexaBotConfig
+     * @param \Pyz\Client\AlexaBot\AlexaBotConfig $alexaBotConfig
      * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
      * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
-     * @param OrderHydrator $orderHydrator
-     * @param FileSessionInterface $fileSession
+     * @param \Pyz\Client\AlexaBot\Model\CheckoutAndOrder\OrderHydrator $orderHydrator
+     * @param \Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface $fileSession
      */
     public function __construct(
         AlexaBotConfig $alexaBotConfig,
@@ -98,7 +96,7 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
     }
 
     /**
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     private function checkout()
     {
@@ -110,9 +108,9 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return CheckoutResponseTransfer
+     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
      */
     private function placeOrder($quoteTransfer)
     {
@@ -122,7 +120,7 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
     }
 
     /**
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     private function getQuoteTransferFromSession()
     {
@@ -132,9 +130,9 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
     }
 
     /**
-     * @param QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return QuoteTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     private function HydrateQuoteTransfer($quoteTransfer)
     {

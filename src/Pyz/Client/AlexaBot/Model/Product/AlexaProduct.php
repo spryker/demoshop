@@ -11,14 +11,13 @@ use Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface;
 use Pyz\Client\Catalog\CatalogClientInterface;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Client\Kernel\AbstractPlugin;
-use Spryker\Client\Product\ProductClientInterface;
 
 class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
 {
     const VARIANT_ATTRIBUTE_NAME = 'variant';
 
     /**
-     * @var AlexaBotConfig
+     * @var \Pyz\Client\AlexaBot\AlexaBotConfig
      */
     private $alexaBotConfig;
 
@@ -35,16 +34,16 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     private $storageProductMapper;
 
     /**
-     * @var FileSessionInterface
+     * @var \Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface
      */
     private $fileSession;
 
     /**
-     * @param AlexaBotConfig $alexaBotConfig
-     * @param CatalogClientInterface $catalogClient
+     * @param \Pyz\Client\AlexaBot\AlexaBotConfig $alexaBotConfig
+     * @param \Pyz\Client\Catalog\CatalogClientInterface $catalogClient
      * TODO Product-1: inject the product client.
-     * @param StorageProductMapperInterface $storageProductMapper
-     * @param FileSessionInterface $fileSession
+     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
+     * @param \Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface $fileSession
      */
     public function __construct(
         AlexaBotConfig $alexaBotConfig,

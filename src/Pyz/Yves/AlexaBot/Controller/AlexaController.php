@@ -17,11 +17,9 @@ use Symfony\Component\HttpFoundation\Request;
 class AlexaController extends AbstractController
 {
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function productAction(Request $request)
     {
@@ -34,18 +32,16 @@ class AlexaController extends AbstractController
 
         return new JsonResponse(
             [
-                'response' => '' // TODO Product-3: return the response.
+                'response' => '', // TODO Product-3: return the response.
             ],
             200
         );
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function cartAction(Request $request)
     {
@@ -66,11 +62,9 @@ class AlexaController extends AbstractController
     }
 
     /**
-     * @param Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
-     *
-     * @return JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function checkoutAndOrderAction(Request $request)
     {
@@ -82,7 +76,7 @@ class AlexaController extends AbstractController
 
         return new JsonResponse(
             [
-                'response' => $response
+                'response' => $response,
             ],
             200
         );

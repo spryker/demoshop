@@ -24,7 +24,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return AlexaProduct
+     * @return \Pyz\Client\AlexaBot\Model\Product\AlexaProduct
      */
     public function createAlexaProduct()
     {
@@ -40,7 +40,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return AlexaCart
+     * @return \Pyz\Client\AlexaBot\Model\Cart\AlexaCart
      */
     public function createAlexaCart()
     {
@@ -52,11 +52,10 @@ class AlexaBotFactory extends AbstractFactory
         );
     }
 
-
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return AlexaCheckoutAndCheckoutAndOrder
+     * @return \Pyz\Client\AlexaBot\Model\CheckoutAndOrder\AlexaCheckoutAndCheckoutAndOrder
      */
     public function createAlexaOrder()
     {
@@ -72,13 +71,16 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
-     * @return FileSession
+     * @return \Pyz\Client\AlexaBot\Model\FileSession\FileSession
      */
     public function createFileSession()
     {
         return new FileSession();
     }
 
+    /**
+     * @return \Pyz\Client\AlexaBot\Model\CheckoutAndOrder\OrderHydrator
+     */
     public function createOrderHydrator()
     {
         return new OrderHydrator();
@@ -87,7 +89,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return mixed
+     * @return \Pyz\Client\Catalog\CatalogClientInterface
      */
     public function getCatalogClient()
     {
@@ -97,7 +99,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return mixed
+     * @return \Spryker\Client\Product\ProductClientInterface
      */
     public function getProductClient()
     {
@@ -107,7 +109,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return mixed
+     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
      */
     protected function getPriceProductClient()
     {
@@ -117,7 +119,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return mixed
+     * @return \Spryker\Client\Cart\CartClientInterface
      */
     public function getCartClient()
     {
@@ -127,7 +129,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return mixed
+     * @return \Spryker\Client\Checkout\CheckoutClientInterface
      */
     public function getCheckoutClient()
     {
@@ -137,7 +139,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return mixed
+     * @return \Spryker\Client\Calculation\CalculationClientInterface
      */
     public function getCalculationClient()
     {
@@ -147,7 +149,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return StorageProductMapper
+     * @return \Pyz\Yves\Product\Mapper\StorageProductMapper
      */
     public function createStorageProductMapper()
     {
@@ -160,7 +162,7 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return AttributeVariantMapper
+     * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapper
      */
     public function createAttributeVariantMapper()
     {

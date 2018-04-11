@@ -16,17 +16,15 @@ use Twilio\Rest\Client;
 class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrderInterface
 {
     const ALEXA_DEVICE = "alexa-test";
-    const TWILLIO_SID  = 'AC96000d7e094ebbc905fec13be2baf015';
+    const TWILLIO_SID = 'AC96000d7e094ebbc905fec13be2baf015';
     const TWILLIO_TOKEN = 'd0b39e958c375a956a556ee3973296a2';
     const TWILLIO_NUMBER = '+33644609799';
     const NUMBER_RECIPIENT = '+4915901009896';
 
     /**
      * @param array $orderItems
-     * @param SpySalesOrder $orderEntity
-     * @param ReadOnlyArrayObject $data
-     *
-     * @throws \Twilio\Exceptions\ConfigurationException
+     * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $orderEntity
+     * @param \Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject $data
      *
      * @return array
      */
@@ -42,7 +40,7 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
 
             // Use the client to do fun stuff like send text messages!
             $client->messages->create(
-            // the number you'd like to send the message to
+                // the number you'd like to send the message to
                 self::NUMBER_RECIPIENT,
                 [
                     // A Twilio phone number you purchased at twilio.com/console
