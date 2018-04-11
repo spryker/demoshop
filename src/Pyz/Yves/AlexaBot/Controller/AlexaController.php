@@ -26,18 +26,18 @@ class AlexaController extends AbstractController
     public function productAction(Request $request)
     {
         $response = "Sorry, we are all out. What about some Nachos or Popcorn?";
-        $myFood = $request->get('food');
+        $mySnack = $request->get('snack');
 
-        $variants = $this->getClient()->getVariantsByProductName($myFood);
+        $variants = $this->getClient()->getVariantsByProductName($mySnack);
 
-        if ($myFood && !empty($variants)) {
-            switch (strtolower($myFood)) {
+        if ($mySnack && !empty($variants)) {
+            switch (strtolower($mySnack)) {
                 case 'popcorn':
                     $response = "Would you like " . $variants[0]
-                        . " or " . $variants[1] . " " . $myFood . "?";
+                        . " or " . $variants[1] . " " . $mySnack . "?";
                     break;
                 case 'nachos':
-                    $response = "Would you like " . $myFood . " with "
+                    $response = "Would you like " . $mySnack . " with "
                         . $variants[0] . " or with " . $variants[1] . "?";
                     break;
             }
