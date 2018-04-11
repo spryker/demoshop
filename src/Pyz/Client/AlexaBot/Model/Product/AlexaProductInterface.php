@@ -10,22 +10,17 @@ namespace Pyz\Client\AlexaBot\Model\Product;
 interface AlexaProductInterface
 {
     /**
-     * @param int $abstractId
+     * @param string $productName
      *
-     * @return array
+     * @return string[]
      */
-    public function getConcreteListByAbstractId($abstractId);
+    public function getVariantsByProductName($productName);
 
     /**
-     * @param int $abstractId
+     * @param int $abstractProductId
      * @param string $variantName
      *
-     * @return string
+     * @return mixed
      */
-    public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
-
-    /**
-     * @return int
-     */
-    public function getAbstractIdBySession();
+    public function getVariantSkuByAbstractProductIdAndVariantName($abstractProductId, $variantName);
 }

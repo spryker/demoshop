@@ -12,7 +12,7 @@ interface AlexaCartInterface
     /**
      * @param string $variantName
      *
-     * @return mixed
+     * @return bool
      */
     public function addVariantToCart($variantName);
 }

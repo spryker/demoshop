@@ -12,14 +12,14 @@ interface AlexaBotClientInterface
     /**
      * @param string $productName
      *
-     * @return mixed
+     * @return string[]
      */
     public function getVariantsByProductName($productName);
 
     /**
      * @param string $variantName
      *
-     * @return string
+     * @return bool
      */
     public function addVariantToCart($variantName);
 

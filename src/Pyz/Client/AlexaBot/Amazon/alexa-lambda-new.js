@@ -108,7 +108,7 @@ const handlers = {
         const options = {
             hostname: globalHostname,
             port: 80,
-            path: '/alexa/product?food=' + foodSlot,
+            path: '/alexa/product?snack=' + foodSlot,
             headers: {
                 'Accept-Encoding': 'gzip, deflate'
             }

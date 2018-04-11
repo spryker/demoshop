@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -7,12 +8,18 @@
 namespace Pyz\Client\AlexaBot\Model\Cart;
 
 use Generated\Shared\Transfer\ItemTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
+use Pyz\Client\AlexaBot\AlexaBotConfig;
+use Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface;
 use Pyz\Client\AlexaBot\Model\Product\AlexaProductInterface;
 use Spryker\Client\Cart\CartClientInterface;
 
 class AlexaCart implements AlexaCartInterface
 {
-    const CART_SESSION_NAME = 'alexa-cart.session';
+    /**
+     * @var AlexaBotConfig
+     */
+    private $alexaBotConfig;
 
     /**
      * @var \Spryker\Client\Cart\CartClientInterface
@@ -25,15 +32,27 @@ class AlexaCart implements AlexaCartInterface
     private $alexaProduct;
 
     /**
+     * @var FileSessionInterface
+     */
+    private $fileSession;
+
+    /**
+     * AlexaCart constructor.
+     * @param AlexaBotConfig $alexaBotConfig
      * @param CartClientInterface $cartClient
      * @param AlexaProductInterface $alexaProduct
+     * @param FileSessionInterface $fileSession
      */
     public function __construct(
+        AlexaBotConfig $alexaBotConfig,
         CartClientInterface $cartClient,
-        AlexaProductInterface $alexaProduct
+        AlexaProductInterface $alexaProduct,
+        FileSessionInterface $fileSession
     ) {
         $this->cartClient = $cartClient;
         $this->alexaProduct = $alexaProduct;
+        $this->alexaBotConfig = $alexaBotConfig;
+        $this->fileSession = $fileSession;
     }
 
     /**
@@ -43,31 +62,77 @@ class AlexaCart implements AlexaCartInterface
      */
     public function addVariantToCart($variantName)
     {
-        $abstractId = $this
-            ->alexaProduct
-            ->getAbstractIdBySession();
+        $quoteTransfer = $this->addToCart($variantName);
 
-        $concreteSku = $this->alexaProduct
-            ->getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
-
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($concreteSku);
-        $itemTransfer->setQuantity(1);
-        $itemTransfer->setIdDiscountPromotion(0);
-
-        $quoteTransfer = $this->cartClient->addItem($itemTransfer);
-
-        $quoteSerialised = serialize($quoteTransfer);
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::CART_SESSION_NAME;
-        $fp = fopen($filePath, "w");
-        fwrite($fp, $quoteSerialised);
-        fclose($fp);
-
-        $itemsArray = $quoteTransfer->getItems();
-        if (isset($itemsArray[0]) && $itemsArray[0]->getSku() === $concreteSku) {
+        $items = $quoteTransfer->getItems();
+        if (!empty($items)) {
+            $this->StoreCartIntoSession($quoteTransfer);
             return true;
         }
 
         return false;
+    }
+
+    /**
+     * @param string $variantName
+     *
+     * @return QuoteTransfer
+     */
+    private function addToCart($variantName)
+    {
+        $variantSku = $this->getVariantSku($variantName);
+        $itemTransfer = $this->HydrateItemTransfer($variantSku);
+        $quoteTransfer = $this->cartClient->addItem($itemTransfer);
+
+        return $quoteTransfer;
+    }
+
+    /**
+     * @param string $variantName
+     *
+     * @return string
+     */
+    private function getVariantSku($variantName)
+    {
+        $abstractProductId = $this
+            ->fileSession
+            ->read($this->alexaBotConfig->getProductSessionName());
+
+        $variantSku = $this
+            ->alexaProduct
+            ->getVariantSkuByAbstractProductIdAndVariantName($abstractProductId, $variantName);
+
+        return $variantSku;
+    }
+
+    /**
+     * @param string $variantSku
+     *
+     * @return ItemTransfer
+     */
+    private function HydrateItemTransfer($variantSku): ItemTransfer
+    {
+        $itemTransfer = new ItemTransfer();
+        $itemTransfer->setSku($variantSku);
+        $itemTransfer->setQuantity(1);
+        $itemTransfer->setIdDiscountPromotion(0);
+
+        return $itemTransfer;
+    }
+
+    /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return void
+     */
+    private function StoreCartIntoSession($quoteTransfer)
+    {
+        $quoteSerialised = serialize($quoteTransfer);
+
+        $this->fileSession
+            ->write(
+                $this->alexaBotConfig->getCartSessionName(),
+                $quoteSerialised
+            );
     }
 }
