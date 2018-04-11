@@ -3,5 +3,3 @@ concrete_sku,name,quantity,is_never_out_of_stock,is_bundle
 001_102,Warehouse1,10,1,0
 002_201,Warehouse1,10,1,0
 002_202,Warehouse1,10,1,0
-003_301,Warehouse1,10,1,0
-003_302,Warehouse1,10,1,0

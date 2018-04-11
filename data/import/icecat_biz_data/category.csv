@@ -1,4 +1,3 @@
 category_key,parent_category_key,name.de_DE,name.en_US,meta_title.de_DE,meta_title.en_US,meta_description.de_DE,meta_description.en_US,meta_keywords.de_DE,meta_keywords.en_US,is_active,is_in_menu,is_clickable,is_searchable,is_root,is_main,node_order,template_name
 demoshop,,Demoshop,Demoshop,Demoshop,Demoshop,Deutsche Version des Demoshop,English version of Demoshop,Deutsche Version des Demoshop,English version of Demoshop,1,1,1,0,1,1,,Catalog (default)
 snacks,demoshop,Snacks,Snacks,Snacks,Snacks,Snacks,Snacks,Snacks,Snacks,1,1,1,1,0,1,100,Catalog (default)
-drinks,demoshop,Drinks,Drinks,Drinks,Drinks,Drinks,Drinks,Drinks,Drinks,1,1,1,1,0,1,100,Catalog (default)

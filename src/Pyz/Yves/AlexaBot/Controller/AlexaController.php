@@ -25,27 +25,16 @@ class AlexaController extends AbstractController
      */
     public function productAction(Request $request)
     {
-        $response = "Sorry, we are all out. What about some Nachos or Popcorn?";
-        $mySnack = $request->get('snack');
+        $productName = $request->get('snack');
+        $variants = $this->getClient()->getVariantsByProductName($productName);
 
-        $variants = $this->getClient()->getVariantsByProductName($mySnack);
-
-        if ($mySnack && !empty($variants)) {
-            switch (strtolower($mySnack)) {
-                case 'popcorn':
-                    $response = "Would you like " . $variants[0]
-                        . " or " . $variants[1] . " " . $mySnack . "?";
-                    break;
-                case 'nachos':
-                    $response = "Would you like " . $mySnack . " with "
-                        . $variants[0] . " or with " . $variants[1] . "?";
-                    break;
-            }
-        }
+        $response = !empty($variants)
+            ? $response = "Would you like " . $variants[0] . " or " . $variants[1] . " " . $productName . "?"
+            : "Sorry, I could not find any " . $productName . "s. Try again!";
 
         return new JsonResponse(
             [
-                'response' => $response,
+                'response' => $response
             ],
             200
         );
@@ -60,19 +49,12 @@ class AlexaController extends AbstractController
      */
     public function cartAction(Request $request)
     {
-        $myVariant = $request->get('variant');
+        $variantName = $request->get('variant');
+        $isSuccess = $this->getClient()->addVariantToCart($variantName);
 
-        $response = "I don not have " . $myVariant . ". Would you like to order something else?";
-
-        $result = $this->getClient()->addVariantToCart(
-            $myVariant
-        );
-
-        if ($result) {
-            $response = "Your order will be shipped with same minute delivery. "
-                . "Your payment method is a smile. To confirm shout Yes Spryker, and smile :) "
-                . "Do you confirm?";
-        }
+        $response = $isSuccess
+            ? "Your order will be shipped with same minute delivery. Your payment method is a smile. To confirm shout Yes Spryker and smile. Do you confirm?"
+            : "I don not have . $variantName . Would you like to order something else?";
 
         return new JsonResponse(
             [
@@ -91,19 +73,15 @@ class AlexaController extends AbstractController
      */
     public function checkoutAndOrderAction(Request $request)
     {
-        $response = "Sorry, it was impossible to complete the order. Could you try again?";
+        $isSuccess =  $this->getClient()->checkoutAndPlaceOrder();
 
-        $isSuccess = $this->getClient()->checkoutAndPlaceOrder();
-
-        if ($isSuccess) {
-            //@todo to remove when moved in OMS
-            //$this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms($mySession);
-            $response = $isSuccess;
-        }
+        $response = $isSuccess
+            ? "Your order is on its way. Enjoy it and remember to smile!"
+            : "Sorry, I could not place your order, check your code and try again. I am here all day!";
 
         return new JsonResponse(
             [
-                'response' => $response,
+                'response' => $response
             ],
             200
         );

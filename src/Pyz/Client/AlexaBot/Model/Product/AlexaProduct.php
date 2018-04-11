@@ -6,6 +6,8 @@
 
 namespace Pyz\Client\AlexaBot\Model\Product;
 
+use Pyz\Client\AlexaBot\AlexaBotConfig;
+use Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface;
 use Pyz\Client\Catalog\CatalogClientInterface;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Client\Kernel\AbstractPlugin;
@@ -13,7 +15,17 @@ use Spryker\Client\Product\ProductClientInterface;
 
 class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
 {
-    const PRODUCT_SESSION_NAME = 'alexa-product.session';
+    const VARIANT_ATTRIBUTE_NAME = 'variant';
+
+    /**
+     * @var AlexaBotConfig
+     */
+    private $alexaBotConfig;
+
+    /**
+     * @var \Pyz\Client\Catalog\CatalogClientInterface
+     */
+    private $catalogClient;
 
     /**
      * @var \Spryker\Client\Product\ProductClientInterface
@@ -26,90 +38,90 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     private $storageProductMapper;
 
     /**
-     * @var \Pyz\Client\Catalog\CatalogClientInterface
+     * @var FileSessionInterface
      */
-    private $catalogClient;
+    private $fileSession;
 
     /**
-     * @param \Spryker\Client\Product\ProductClientInterface $productClient
-     * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
-     * @param \Pyz\Client\Catalog\CatalogClientInterface $catalogClient
+     * @param AlexaBotConfig $alexaBotConfig
+     * @param CatalogClientInterface $catalogClient
+     * @param ProductClientInterface $productClient
+     * @param StorageProductMapperInterface $storageProductMapper
+     * @param FileSessionInterface $fileSession
      */
     public function __construct(
+        AlexaBotConfig $alexaBotConfig,
+        CatalogClientInterface $catalogClient,
         ProductClientInterface $productClient,
         StorageProductMapperInterface $storageProductMapper,
-        CatalogClientInterface $catalogClient
+        FileSessionInterface $fileSession
     ) {
         $this->productClient = $productClient;
         $this->storageProductMapper = $storageProductMapper;
         $this->catalogClient = $catalogClient;
+        $this->alexaBotConfig = $alexaBotConfig;
+        $this->fileSession = $fileSession;
     }
 
     /**
-     * @param int $abstractName
+     * @param string $productName
      *
-     * @return array
+     * @return string[]
      */
-    public function getConcreteListByAbstractId($abstractName)
+    public function getVariantsByProductName($productName)
     {
-        $abstractId = $this->getAbstractIdByName($abstractName);
-        $storageProductTransfer = $this->getStorageProduct($abstractId);
+        $abstractProductId = $this->getAbstractIdByNameAndWriteToSession($productName);
+        $storageProductTransfer = $this->getStorageProduct($abstractProductId);
 
-        return $storageProductTransfer->getSuperAttributes()['variant'];
+        return $storageProductTransfer->getSuperAttributes()[static::VARIANT_ATTRIBUTE_NAME];
     }
 
     /**
-     * @param int $abstractId
+     * @param int $abstractProductId
      * @param string $variantName
      *
      * @return string
      */
-    public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName)
+    public function getVariantSkuByAbstractProductIdAndVariantName($abstractProductId, $variantName)
     {
-        $selectedAttributes = ['variant' => $variantName];
-
-        $storageProductTransfer = $this->getStorageProduct($abstractId, $selectedAttributes);
+        $selectedAttributes = [self::VARIANT_ATTRIBUTE_NAME => $variantName];
+        $storageProductTransfer = $this->getStorageProduct($abstractProductId, $selectedAttributes);
 
         return $storageProductTransfer->getSku();
     }
 
     /**
-     * @param string $abstractName
+     * @param string $productName
      *
      * @return int
      */
-    public function getAbstractIdByName($abstractName)
+    private function getAbstractIdByNameAndWriteToSession($productName)
     {
-        $catalogResponse = $this->catalogClient->catalogSuggestSearch($abstractName);
-        $abstractId = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
+        $catalogResponse = $this
+            ->catalogClient
+            ->catalogSuggestSearch($productName);
 
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::PRODUCT_SESSION_NAME;
-        $fp = fopen($filePath, "w");
-        fwrite($fp, $abstractId);
-        fclose($fp);
+        $abstractProductId = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
 
-        return $abstractId;
-    }
+        $this->fileSession->write(
+            $this->alexaBotConfig->getProductSessionName(),
+            $abstractProductId
+        );
 
-    public function getAbstractIdBySession()
-    {
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::PRODUCT_SESSION_NAME;
-        $abstractId = file_get_contents($filePath);
-
-        return $abstractId;
+        return $abstractProductId;
     }
 
     /**
-     * @param $abstractId
+     * @param int $abstractProductId
      * @param array $selectedAttributes
      *
      * @return \Generated\Shared\Transfer\StorageProductTransfer
      */
-    protected function getStorageProduct($abstractId, $selectedAttributes = [])
+    private function getStorageProduct($abstractProductId, $selectedAttributes = [])
     {
         $productData = $this
             ->productClient
-            ->getProductAbstractFromStorageByIdForCurrentLocale($abstractId);
+            ->getProductAbstractFromStorageByIdForCurrentLocale($abstractProductId);
 
         $storageProductTransfer = $this
             ->storageProductMapper

@@ -9,11 +9,16 @@ namespace Pyz\Client\AlexaBot;
 
 use Pyz\Client\AlexaBot\Model\Cart\AlexaCart;
 use Pyz\Client\AlexaBot\Model\CheckoutAndOrder\AlexaCheckoutAndCheckoutAndOrder;
+use Pyz\Client\AlexaBot\Model\CheckoutAndOrder\OrderHydrator;
+use Pyz\Client\AlexaBot\Model\FileSession\FileSession;
 use Pyz\Client\AlexaBot\Model\Product\AlexaProduct;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Spryker\Client\Kernel\AbstractFactory;
 
+/**
+ * @method \Pyz\Client\AlexaBot\AlexaBotConfig getConfig()
+ */
 class AlexaBotFactory extends AbstractFactory
 {
     /**
@@ -24,9 +29,11 @@ class AlexaBotFactory extends AbstractFactory
     public function createAlexaProduct()
     {
         return new AlexaProduct(
+            $this->getConfig(),
+            $this->getCatalogClient(),
             $this->getProductClient(),
             $this->createStorageProductMapper(),
-            $this->getCatalogClient()
+            $this->createFileSession()
         );
     }
 
@@ -38,8 +45,10 @@ class AlexaBotFactory extends AbstractFactory
     public function createAlexaCart()
     {
         return new AlexaCart(
+            $this->getConfig(),
             $this->getCartClient(),
-            $this->createAlexaProduct()
+            $this->createAlexaProduct(),
+            $this->createFileSession()
         );
     }
 
@@ -52,11 +61,27 @@ class AlexaBotFactory extends AbstractFactory
     public function createAlexaOrder()
     {
         return new AlexaCheckoutAndCheckoutAndOrder(
+            $this->getConfig(),
             $this->getCheckoutClient(),
             $this->getCalculationClient(),
             $this->getProductClient(),
-            $this->createStorageProductMapper()
+            $this->createStorageProductMapper(),
+            $this->createOrderHydrator(),
+            $this->createFileSession()
         );
+    }
+
+    /**
+     * @return FileSession
+     */
+    public function createFileSession()
+    {
+        return new FileSession();
+    }
+
+    public function createOrderHydrator()
+    {
+        return new OrderHydrator();
     }
 
     /**

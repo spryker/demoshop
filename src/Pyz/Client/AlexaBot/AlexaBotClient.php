@@ -15,17 +15,17 @@ use Spryker\Client\Kernel\AbstractClient;
 class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
 {
     /**
-     * @param string $abstractName
+     * @param string $productName
      *
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return string[]
      */
-    public function getVariantsByProductName($abstractName)
+    public function getVariantsByProductName($productName)
     {
         return $this->getFactory()
             ->createAlexaProduct()
-            ->getConcreteListByAbstractId($abstractName);
+            ->getVariantsByProductName($productName);
     }
 
     /**
@@ -33,7 +33,7 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
      *
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return string
+     * @return bool
      */
     public function addVariantToCart($variantName)
     {
@@ -45,7 +45,7 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return bool|false|string
+     * @return bool
      */
     public function checkoutAndPlaceOrder()
     {
