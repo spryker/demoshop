@@ -1,15 +1,17 @@
 <?php
+
 /**
- * Copyright © 2018-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\AlexaBot\Plugin;
+namespace Pyz\Client\AlexaBot;
 
-interface AlexaProductPluginInterface
+interface AlexaBotClientInterface
 {
     /**
      * @param int $abstractId
+     *
      * @return array
      */
     public function getConcreteListByAbstractId($abstractId);
@@ -17,18 +19,23 @@ interface AlexaProductPluginInterface
     /**
      * @param int $abstractId
      * @param string $variantName
+     *
      * @return string
      */
     public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
-
+    
     /**
      * @param string $concreteSku
+     * @param int $sessionId
+     *
      * @return bool
      */
-    public function addConcreteToCartBySku($concreteSku);
+    public function addConcreteToCartBySku($concreteSku, $sessionId);
 
     /**
+     * @param int $sessionId
+     *
      * @return bool
      */
-    public function performCheckout();
+    public function performCheckout($sessionId);
 }

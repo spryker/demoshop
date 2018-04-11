@@ -1,7 +1,8 @@
 <?php
+
 /**
- * Copyright © 2018-present Spryker Systems GmbH. All rights reserved.
- * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ * This file is part of the Spryker Demoshop.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Pyz\Zed\Oms\Communication\Plugin\Oms\Command;
@@ -16,7 +17,7 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
 {
     // We should take session-id from the controller
     const ALEXA_DEVICE = "alexa-test";
-    const TWILLIO_SID  = '';
+    const TWILLIO_SID = '';
     const TWILLIO_TOKEN = '';
     const TWILLIO_NUMBER = '';
     const NUMBER_RECIPIENT = '';
@@ -25,8 +26,6 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrderItem[] $orderItems
      * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $orderEntity
      * @param \Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject $data
-     *
-     * @throws \Twilio\Exceptions\ConfigurationException
      *
      * @return array
      */
@@ -46,7 +45,7 @@ class SendSmsConfirmationPlugin extends AbstractCommand implements CommandByOrde
                 // the body of the text message you'd like to send
                 'body' => 'User: ' . self::ALEXA_DEVICE
                                     // It should be field 'name' in 'spy_sales_order_item'
-                    . ' ordered ' . $orderItems[0]->getName()
+                    . ' ordered ' . $orderItems[0]->getName(),
             ]
         );
 
