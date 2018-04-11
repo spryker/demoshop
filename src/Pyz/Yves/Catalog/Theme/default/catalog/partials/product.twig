@@ -28,13 +28,13 @@
             <span>{{ name  }}</span>
         </p>
 
-        {% if averageRating %}
-            {% include '@ProductReview/partials/read-only-rating.twig' with {'rating': averageRating } %}
-        {% elseif idProductAbstract %}
-            {% block productReview %}
-                {{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}
-            {% endblock %}
-        {% endif %}
+        {#{% if averageRating %}#}
+            {#{% include '@ProductReview/partials/read-only-rating.twig' with {'rating': averageRating } %}#}
+        {#{% elseif idProductAbstract %}#}
+            {#{% block productReview %}#}
+                {#{{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}#}
+            {#{% endblock %}#}
+        {#{% endif %}#}
 
         <p>
             {% if originalPrice %}
@@ -45,7 +45,7 @@
             {% endif %}
         </p>
         <div class="product__action">
-            <a class="button expanded" href="{{ detailsUrl }}">{{ 'product.view' | trans }} &raquo;</a>
+            <a class="button expanded" href="{{ detailsUrl }}">{#{{ 'product.view' | trans }}#}Show details</a>
         </div>
     </div>
 </div>
