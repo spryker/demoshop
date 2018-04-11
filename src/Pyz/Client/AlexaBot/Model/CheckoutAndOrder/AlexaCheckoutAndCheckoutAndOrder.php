@@ -9,7 +9,6 @@ namespace Pyz\Client\AlexaBot\Model\CheckoutAndOrder;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Pyz\Client\AlexaBot\AlexaBotConfig;
-use Pyz\Client\AlexaBot\Exception\CheckoutAndOrderException;
 use Pyz\Client\AlexaBot\Model\FileSession\FileSessionInterface;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
@@ -111,6 +110,18 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
     }
 
     /**
+     * @param QuoteTransfer $quoteTransfer
+     *
+     * @return CheckoutResponseTransfer
+     */
+    private function placeOrder($quoteTransfer)
+    {
+        $checkoutClient = null; // TODO CheckoutAndOrder-3: call the placeOrder() method from the CheckoutClient.
+
+        return $checkoutClient;
+    }
+
+    /**
      * @return QuoteTransfer
      */
     private function getQuoteTransferFromSession()
@@ -127,24 +138,9 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
      */
     private function HydrateQuoteTransfer($quoteTransfer)
     {
-        $quoteTransfer = $this->orderHydrator->hydrateCustomer($quoteTransfer);
-        $quoteTransfer = $this->orderHydrator->hydrateAddress($quoteTransfer);
-        $quoteTransfer = $this->orderHydrator->hydrateShipment($quoteTransfer);
-        $quoteTransfer = $this->orderHydrator->hydratePayment($quoteTransfer);
+        $quoteTransfer = null; // TODO CheckoutAndOrder-2: hydrate the quoteTransfer with customer, address, shipment, and payment data using the OrderHydrator.
         $quoteTransfer->setCheckoutConfirmed(true);
 
         return $quoteTransfer;
-    }
-
-    /**
-     * @param QuoteTransfer $quoteTransfer
-     *
-     * @return CheckoutResponseTransfer
-     */
-    private function placeOrder($quoteTransfer)
-    {
-        $checkoutClient = $this->checkoutClient->placeOrder($quoteTransfer);
-
-        return $checkoutClient;
     }
 }

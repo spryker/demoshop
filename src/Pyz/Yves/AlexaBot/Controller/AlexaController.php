@@ -34,7 +34,7 @@ class AlexaController extends AbstractController
 
         return new JsonResponse(
             [
-                'response' => $response
+                'response' => '' // TODO Product-3: return the response.
             ],
             200
         );
@@ -50,7 +50,8 @@ class AlexaController extends AbstractController
     public function cartAction(Request $request)
     {
         $variantName = $request->get('variant');
-        $isSuccess = $this->getClient()->addVariantToCart($variantName);
+
+        $isSuccess = false; // TODO Cart-1: call the client to add to cart.
 
         $response = $isSuccess
             ? "Your order will be shipped with same minute delivery. Your payment method is a smile. To confirm your order say: Yes Spryker and smile. Do you confirm?"
@@ -73,7 +74,7 @@ class AlexaController extends AbstractController
      */
     public function checkoutAndOrderAction(Request $request)
     {
-        $isSuccess =  $this->getClient()->checkoutAndPlaceOrder();
+        $isSuccess = false; // TODO CheckoutAndOrder-1: call the client to checkout and place the order.
 
         $response = $isSuccess
             ? "Your order is on its way. Enjoy it, and remember to smile!"

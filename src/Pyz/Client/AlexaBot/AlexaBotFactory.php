@@ -31,7 +31,7 @@ class AlexaBotFactory extends AbstractFactory
         return new AlexaProduct(
             $this->getConfig(),
             $this->getCatalogClient(),
-            $this->getProductClient(),
+            // TODO Product-1: inject the product client.
             $this->createStorageProductMapper(),
             $this->createFileSession()
         );

@@ -27,10 +27,7 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
      */
     private $catalogClient;
 
-    /**
-     * @var \Spryker\Client\Product\ProductClientInterface
-     */
-    private $productClient;
+    // TODO Product-1: inject the product client.
 
     /**
      * @var \Pyz\Yves\Product\Mapper\StorageProductMapper
@@ -45,21 +42,21 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     /**
      * @param AlexaBotConfig $alexaBotConfig
      * @param CatalogClientInterface $catalogClient
-     * @param ProductClientInterface $productClient
+     * TODO Product-1: inject the product client.
      * @param StorageProductMapperInterface $storageProductMapper
      * @param FileSessionInterface $fileSession
      */
     public function __construct(
         AlexaBotConfig $alexaBotConfig,
         CatalogClientInterface $catalogClient,
-        ProductClientInterface $productClient,
+        // TODO Product-1: inject the product client.
         StorageProductMapperInterface $storageProductMapper,
         FileSessionInterface $fileSession
     ) {
-        $this->productClient = $productClient;
-        $this->storageProductMapper = $storageProductMapper;
-        $this->catalogClient = $catalogClient;
         $this->alexaBotConfig = $alexaBotConfig;
+        $this->catalogClient = $catalogClient;
+        // TODO Product-1: inject the product client.
+        $this->storageProductMapper = $storageProductMapper;
         $this->fileSession = $fileSession;
     }
 
@@ -103,10 +100,7 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
 
         $abstractProductId = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
 
-        $this->fileSession->write(
-            $this->alexaBotConfig->getProductSessionName(),
-            $abstractProductId
-        );
+        // TODO Product-2: write the abstract product ID to the file session to use it later by the add to cart action.
 
         return $abstractProductId;
     }

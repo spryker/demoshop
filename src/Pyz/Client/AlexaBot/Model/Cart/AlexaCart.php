@@ -82,7 +82,7 @@ class AlexaCart implements AlexaCartInterface
     {
         $variantSku = $this->getVariantSku($variantName);
         $itemTransfer = $this->HydrateItemTransfer($variantSku);
-        $quoteTransfer = $this->cartClient->addItem($itemTransfer);
+        $quoteTransfer = null; // TODO Cart-2: call the addItem() method in the CartClient.
 
         return $quoteTransfer;
     }
@@ -110,7 +110,7 @@ class AlexaCart implements AlexaCartInterface
      *
      * @return ItemTransfer
      */
-    private function HydrateItemTransfer($variantSku): ItemTransfer
+    private function HydrateItemTransfer($variantSku)
     {
         $itemTransfer = new ItemTransfer();
         $itemTransfer->setSku($variantSku);
@@ -129,10 +129,6 @@ class AlexaCart implements AlexaCartInterface
     {
         $quoteSerialised = serialize($quoteTransfer);
 
-        $this->fileSession
-            ->write(
-                $this->alexaBotConfig->getCartSessionName(),
-                $quoteSerialised
-            );
+        // TODO Cart-3: write the quote transfer to the file session to be used by the checkout and order action.
     }
 }
