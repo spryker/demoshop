@@ -1,5 +1,5 @@
 {% block variant %}
-    <label><strong>{#{{ ('product.attribute.' ~ attributeName) | trans }}#}Variants: </strong>
+    <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}</strong>
 
         {% if product.selectedAttributes[attributeName] is defined and product.selectedAttributes[attributeName] %}
             {{ product.selectedAttributes[attributeName] }}
