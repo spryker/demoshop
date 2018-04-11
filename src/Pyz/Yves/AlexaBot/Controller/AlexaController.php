@@ -53,7 +53,7 @@ class AlexaController extends AbstractController
         $isSuccess = $this->getClient()->addVariantToCart($variantName);
 
         $response = $isSuccess
-            ? "Your order will be shipped with same minute delivery. Your payment method is a smile. To confirm shout Yes Spryker and smile. Do you confirm?"
+            ? "Your order will be shipped with same minute delivery. Your payment method is a smile. To confirm your order say: Yes Spryker and smile. Do you confirm?"
             : "I don not have . $variantName . Would you like to order something else?";
 
         return new JsonResponse(
@@ -76,7 +76,7 @@ class AlexaController extends AbstractController
         $isSuccess =  $this->getClient()->checkoutAndPlaceOrder();
 
         $response = $isSuccess
-            ? "Your order is on its way. Enjoy it and remember to smile!"
+            ? "Your order is on its way. Enjoy it, and remember to smile!"
             : "Sorry, I could not place your order, check your code and try again. I am here all day!";
 
         return new JsonResponse(

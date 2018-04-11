@@ -90,7 +90,12 @@ class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterfac
         $quoteTransfer = $this->checkout();
         $checkoutClient = $this->placeOrder($quoteTransfer);
 
-        return $checkoutClient->getIsSuccess();
+        if ($checkoutClient->getIsSuccess()) {
+            $this->fileSession->delete($this->alexaBotConfig->getCartSessionName());
+            return true;
+        }
+
+        return false;
     }
 
     /**
