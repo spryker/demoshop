@@ -71,7 +71,7 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     }
 
     /**
-     * @param $abstractName
+     * @param string $abstractName
      *
      * @return int
      */

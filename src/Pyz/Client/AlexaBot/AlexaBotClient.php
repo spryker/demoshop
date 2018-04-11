@@ -17,6 +17,8 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     /**
      * @param $abstractName
      *
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return int
      */
     public function getAbstractIdByAbstractName($abstractName)
@@ -29,9 +31,11 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     /**
      * @param int $abstractId
      *
-     * @return array
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return string[]
      */
-    public function getConcreteListByAbstractId($abstractId)
+    public function getVariantsByProductName($abstractId)
     {
         return $this->getFactory()
             ->createAlexaProduct()
@@ -42,9 +46,11 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
      * @param int $abstractId
      * @param string $variantName
      *
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return string
      */
-    public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName)
+    public function getConcreteSkuByAbstractIdAndVariantName($abstractId, $variantName)
     {
         return $this->getFactory()
             ->createAlexaProduct()
@@ -54,6 +60,8 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     /**
      * @param string $concreteSku
      * @param int $sessionId
+     *
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return bool
      */
@@ -67,9 +75,11 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     /**
      * @param int $sessionId
      *
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
      * @return bool|false|string
      */
-    public function performCheckout($sessionId)
+    public function checkoutAndPlaceOrder($sessionId)
     {
         return $this->getFactory()
             ->createAlexaOrder()
