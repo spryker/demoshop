@@ -23,7 +23,6 @@ let welcomeReprompt = "You have not yet placed an order. Can Spryker bring you N
 const Alexa = require('alexa-sdk');
 const APP_ID = 'amzn1.ask.skill.6356877d-c23b-4ec8-aeb5-e813f03c7bd7';
 const globalHostname = 'spryker.eu.ngrok.io';
-const sessionId = 'alexatest';
 
 const http = require('http');
 const zlib = require('zlib');
@@ -68,11 +67,10 @@ const handlers = {
         const options = {
             hostname: globalHostname,
             port: 80,
-            path: '/alexa/payment?session=' + sessionId,
+            path: '/alexa/checkout-and-order',
             method: 'GET',
             headers: {
-                'Accept-Encoding': 'gzip, deflate',
-                'Set-Cookie': 'www-de-demoshop-local=' + sessionId
+                'Accept-Encoding': 'gzip, deflate'
             }
         };
 
@@ -89,6 +87,7 @@ const handlers = {
             });
 
             gunzip.on('end', function () {
+                console.log('API call done');
                 let jsonResponse = JSON.parse(str);
                 speechOutput = jsonResponse.response;
                 let SpeechReprompt = "It will be with you in a minute";
@@ -109,7 +108,7 @@ const handlers = {
         const options = {
             hostname: globalHostname,
             port: 80,
-            path: '/alexa/variant?food=' + foodSlot,
+            path: '/alexa/product?snack=' + foodSlot,
             headers: {
                 'Accept-Encoding': 'gzip, deflate'
             }
@@ -154,10 +153,9 @@ const handlers = {
         const options = {
             hostname: globalHostname,
             port: 80,
-            path: '/alexa/concrete?food=' + foodSlot + '&variant=' + variantSlot + '&session=' + sessionId,
+            path: '/alexa/cart?variant=' + variantSlot,
             headers: {
-                'Accept-Encoding': 'gzip, deflate',
-                'Set-Cookie': 'www-de-demoshop-local=' + sessionId
+                'Accept-Encoding': 'gzip, deflate'
             }
         };
 
@@ -174,9 +172,10 @@ const handlers = {
             });
 
             gunzip.on('end', function () {
-                let jsonResponse = JSON.parse(str);
+                console.log('API call done');
+                var jsonResponse = JSON.parse(str);
                 speechOutput = jsonResponse.response;
-                let SpeechReprompt = "It will be with you in a minute";
+                var SpeechReprompt = "It will be with you in a minute";
                 self.emit(':ask', speechOutput, SpeechReprompt);
             });
         });
