@@ -1,5 +1,5 @@
 {% block variant %}
-    <label><strong>{{ ('product.attribute.' ~ attributeName) | trans }}: </strong>
+    <label><strong>{#{{ ('product.attribute.' ~ attributeName) | trans }}#}Variants: </strong>
 
         {% if product.selectedAttributes[attributeName] is defined and product.selectedAttributes[attributeName] %}
             {{ product.selectedAttributes[attributeName] }}
@@ -16,7 +16,7 @@
             {% if product.availableAttributes[attributeName] is not defined and product.selectedAttributes|length > 0 %}
                 {{ 'product.attribute.not_available' | trans }}
             {% else %}
-                <select name="{{ attributeFieldName }}" onchange="this.form.submit()">
+                <select class="select--gray" name="{{ attributeFieldName }}" onchange="this.form.submit()">
                     <option value="">{{ 'product.attribute._none' | trans }}</option>
 
                     {% for attribute in attributes %}

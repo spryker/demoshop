@@ -30,18 +30,6 @@
         height: auto;
     }
 
-    .thumbnail {
-        box-shadow: none;
-        border: none;
-        &:hover {
-            box-shadow: none;
-        }
-    }
-
-    .product-group {
-        display: none;
-    }
-
     .catalog-price__price-value {
         font-weight: bold;
     }
@@ -52,13 +40,22 @@
 
         .button {
             background-color: transparent;
-            color: #000;
+            color: $black;
             padding: 0.2rem 0;
             &:hover {
                 color: $font-gray;
             }
         }
 
+    }
+}
+
+.thumbnail {
+    box-shadow: none;
+    border: none;
+    background: $bg-gray;
+    &:hover {
+        box-shadow: none;
     }
 }
 
