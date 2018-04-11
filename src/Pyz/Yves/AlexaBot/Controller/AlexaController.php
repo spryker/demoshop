@@ -28,7 +28,7 @@ class AlexaController extends AbstractController
         $response = "Sorry, we are all out. What about some Nachos or Popcorn?";
         $myFood = $request->get('food');
 
-        $abstr@actId = $this->getClient()->getAbstractIdByAbstractName($myFood);
+        $abstractId = $this->getClient()->getAbstractIdByAbstractName($myFood);
 
         $variants = $this->getClient()->getVariantsByProductName($abstractId);
 
