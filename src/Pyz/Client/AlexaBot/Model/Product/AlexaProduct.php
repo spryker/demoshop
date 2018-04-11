@@ -13,6 +13,8 @@ use Spryker\Client\Product\ProductClientInterface;
 
 class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
 {
+    const PRODUCT_SESSION_NAME = 'alexa-product.session';
+
     /**
      * @var \Spryker\Client\Product\ProductClientInterface
      */
@@ -44,12 +46,13 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     }
 
     /**
-     * @param int $abstractId
+     * @param int $abstractName
      *
      * @return array
      */
-    public function getConcreteListByAbstractId($abstractId)
+    public function getConcreteListByAbstractId($abstractName)
     {
+        $abstractId = $this->getAbstractIdByName($abstractName);
         $storageProductTransfer = $this->getStorageProduct($abstractId);
 
         return $storageProductTransfer->getSuperAttributes()['variant'];
@@ -71,7 +74,7 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     }
 
     /**
-     * @param $abstractName
+     * @param string $abstractName
      *
      * @return int
      */
@@ -79,6 +82,19 @@ class AlexaProduct extends AbstractPlugin implements AlexaProductInterface
     {
         $catalogResponse = $this->catalogClient->catalogSuggestSearch($abstractName);
         $abstractId = $catalogResponse['suggestionByType']['product_abstract'][0]['id_product_abstract'];
+
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::PRODUCT_SESSION_NAME;
+        $fp = fopen($filePath, "w");
+        fwrite($fp, $abstractId);
+        fclose($fp);
+
+        return $abstractId;
+    }
+
+    public function getAbstractIdBySession()
+    {
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::PRODUCT_SESSION_NAME;
+        $abstractId = file_get_contents($filePath);
 
         return $abstractId;
     }

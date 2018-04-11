@@ -18,7 +18,6 @@ class AlexaBotDependencyProvider extends AbstractDependencyProvider
     const CLIENT_CART = 'CLIENT_CART';
     const CLIENT_CHECKOUT = 'CLIENT_CHECKOUT';
     const CLIENT_CALCULATION = 'CLIENT_CALCULATION';
-    const PRODUCT_PLUGIN = 'PRODUCT_PLUGIN';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -33,7 +32,6 @@ class AlexaBotDependencyProvider extends AbstractDependencyProvider
         $container = $this->addCartClient($container);
         $container = $this->addCheckoutClient($container);
         $container = $this->addCalculationClient($container);
-        $container = $this->addProductPlugin($container);
 
         return $container;
     }
@@ -117,20 +115,6 @@ class AlexaBotDependencyProvider extends AbstractDependencyProvider
     {
         $container[self::CLIENT_CALCULATION] = function (Container $container) {
             return $container->getLocator()->calculation()->client();
-        };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
-    protected function addProductPlugin(Container $container)
-    {
-        $container[self::PRODUCT_PLUGIN] = function () {
-            return new AlexaProductPlugin();
         };
 
         return $container;

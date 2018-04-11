@@ -7,7 +7,8 @@
 
 namespace Pyz\Client\AlexaBot;
 
-use Pyz\Client\AlexaBot\Model\Order\AlexaOrder;
+use Pyz\Client\AlexaBot\Model\Cart\AlexaCart;
+use Pyz\Client\AlexaBot\Model\CheckoutAndOrder\AlexaCheckoutAndCheckoutAndOrder;
 use Pyz\Client\AlexaBot\Model\Product\AlexaProduct;
 use Pyz\Yves\Product\Mapper\AttributeVariantMapper;
 use Pyz\Yves\Product\Mapper\StorageProductMapper;
@@ -16,8 +17,9 @@ use Spryker\Client\Kernel\AbstractFactory;
 class AlexaBotFactory extends AbstractFactory
 {
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Pyz\Client\AlexaBot\Model\Product\AlexaProduct
+     * @return AlexaProduct
      */
     public function createAlexaProduct()
     {
@@ -29,13 +31,27 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Pyz\Client\AlexaBot\Model\Order\AlexaOrder
+     * @return AlexaCart
+     */
+    public function createAlexaCart()
+    {
+        return new AlexaCart(
+            $this->getCartClient(),
+            $this->createAlexaProduct()
+        );
+    }
+
+
+    /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return AlexaCheckoutAndCheckoutAndOrder
      */
     public function createAlexaOrder()
     {
-        return new AlexaOrder(
-            $this->getCartClient(),
+        return new AlexaCheckoutAndCheckoutAndOrder(
             $this->getCheckoutClient(),
             $this->getCalculationClient(),
             $this->getProductClient(),
@@ -44,8 +60,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Pyz\Client\Catalog\CatalogClientInterface
+     * @return mixed
      */
     public function getCatalogClient()
     {
@@ -53,8 +70,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Spryker\Client\Product\ProductClientInterface
+     * @return mixed
      */
     public function getProductClient()
     {
@@ -62,8 +80,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Spryker\Client\PriceProduct\PriceProductClientInterface
+     * @return mixed
      */
     protected function getPriceProductClient()
     {
@@ -71,8 +90,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Spryker\Client\Cart\CartClientInterface
+     * @return mixed
      */
     public function getCartClient()
     {
@@ -80,8 +100,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Spryker\Client\Checkout\CheckoutClientInterface
+     * @return mixed
      */
     public function getCheckoutClient()
     {
@@ -89,8 +110,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Spryker\Client\Calculation\CalculationClientInterface
+     * @return mixed
      */
     public function getCalculationClient()
     {
@@ -98,8 +120,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Pyz\Yves\Product\Mapper\StorageProductMapperInterface
+     * @return StorageProductMapper
      */
     public function createStorageProductMapper()
     {
@@ -110,8 +133,9 @@ class AlexaBotFactory extends AbstractFactory
     }
 
     /**
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Pyz\Yves\Product\Mapper\AttributeVariantMapper
+     * @return AttributeVariantMapper
      */
     public function createAttributeVariantMapper()
     {

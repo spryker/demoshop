@@ -23,4 +23,9 @@ interface AlexaProductInterface
      * @return string
      */
     public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
+
+    /**
+     * @return int
+     */
+    public function getAbstractIdBySession();
 }

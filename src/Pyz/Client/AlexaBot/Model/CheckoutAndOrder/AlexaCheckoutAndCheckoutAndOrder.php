@@ -4,7 +4,7 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Client\AlexaBot\Model\Order;
+namespace Pyz\Client\AlexaBot\Model\CheckoutAndOrder;
 
 use ArrayObject;
 use Generated\Shared\Transfer\AddressTransfer;
@@ -12,7 +12,6 @@ use Generated\Shared\Transfer\CountryTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\DummyPaymentTransfer;
 use Generated\Shared\Transfer\ExpenseTransfer;
-use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\PaymentTransfer;
 use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 use Generated\Shared\Transfer\ShipmentMethodTransfer;
@@ -21,13 +20,11 @@ use Generated\Shared\Transfer\TaxTotalTransfer;
 use Generated\Shared\Transfer\TotalsTransfer;
 use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
-use Spryker\Client\Cart\CartClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
-use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\Product\ProductClientInterface;
 use Twilio\Rest\Client;
 
-class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
+class AlexaCheckoutAndCheckoutAndOrder  implements AlexaCheckoutAndOrderInterface
 {
     const ALEXA_DEVICE = "alexa-test";
     const TWILLIO_SID = '';
@@ -35,10 +32,7 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     const TWILLIO_NUMBER = '';
     const NUMBER_RECIPIENT = '';
 
-    /**
-     * @var \Spryker\Client\Cart\CartClientInterface
-     */
-    private $cartClient;
+    const CART_SESSION_NAME = 'alexa-cart.session';
 
     /**
      * @var CheckoutClientInterface
@@ -55,7 +49,6 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     /**
      * @var ProductClientInterface
      */
-
     private $productClient;
 
     /**
@@ -64,22 +57,17 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     private $storageProductMapper;
 
     /**
-     * AlexaOrder constructor.
-     *
-     * @param \Spryker\Client\Cart\CartClientInterface $cartClient
      * @param \Spryker\Client\Checkout\CheckoutClientInterface $checkoutClient
      * @param \Spryker\Client\Calculation\CalculationClientInterface $calculationClient
      * @param \Spryker\Client\Product\ProductClientInterface $productClient
      * @param \Pyz\Yves\Product\Mapper\StorageProductMapperInterface $storageProductMapper
      */
     public function __construct(
-        CartClientInterface $cartClient,
         CheckoutClientInterface $checkoutClient,
         CalculationClientInterface $calculationClient,
         ProductClientInterface $productClient,
         StorageProductMapperInterface $storageProductMapper
     ) {
-        $this->cartClient = $cartClient;
         $this->checkoutClient = $checkoutClient;
         $this->calculationClient = $calculationClient;
         $this->productClient = $productClient;
@@ -87,42 +75,11 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     }
 
     /**
-     * @param string $concreteSku
-     * @param int $sessionId
-     *
-     * @return bool
-     */
-    public function addConcreteToCartBySku($concreteSku, $sessionId)
-    {
-        $itemTransfer = new ItemTransfer();
-        $itemTransfer->setSku($concreteSku);
-        $itemTransfer->setQuantity(1);
-        $itemTransfer->setIdDiscountPromotion(0);
-
-        $quoteTransfer = $this->cartClient->addItem($itemTransfer);
-
-        $quoteSerialised = serialize($quoteTransfer);
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
-        $fp = fopen($filePath, "w");
-        fwrite($fp, $quoteSerialised);
-        fclose($fp);
-
-        $itemsArray = $quoteTransfer->getItems();
-        if (isset($itemsArray[0]) && $itemsArray[0]->getSku() === $concreteSku) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param int $sessionId
-     *
      * @return string|false
      */
-    public function performCheckout($sessionId)
+    public function checkoutAndPlaceOrder()
     {
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::CART_SESSION_NAME;
         $objData = file_get_contents($filePath);
         /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
         $quoteTransfer = unserialize($objData);
@@ -145,8 +102,11 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
             $response = "You ordered " . $quoteTransfer->getItems()[0]->getName() . ". ";
             $response .= "Your order is being delivered. Remember to smile";
 
-            // Delete the session file, otherwise
-            // just get overwritten by next order
+            // Delete the session file
+            $filePath = getcwd() . DIRECTORY_SEPARATOR . self::CART_SESSION_NAME;
+            $fp = fopen($filePath, "w");
+            fwrite($fp, '');
+            fclose($fp);
 
             return $response;
         } elseif ($checkoutClient->getErrors()->count()) {
@@ -322,13 +282,12 @@ class AlexaOrder extends AbstractPlugin implements AlexaOrderInterface
     }
 
     /**
-     * @param int $sessionId
-     *
+     * @throws \Twilio\Exceptions\ConfigurationException
      * @return void
      */
-    public function sendConfirmationSms($sessionId)
+    public function sendConfirmationSms()
     {
-        $filePath = getcwd() . DIRECTORY_SEPARATOR . $sessionId . ".session";
+        $filePath = getcwd() . DIRECTORY_SEPARATOR . self::CART_SESSION_NAME;
         $objData = file_get_contents($filePath);
         /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
         $quoteTransfer = unserialize($objData);

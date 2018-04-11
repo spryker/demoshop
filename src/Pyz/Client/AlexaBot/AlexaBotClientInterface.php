@@ -10,32 +10,21 @@ namespace Pyz\Client\AlexaBot;
 interface AlexaBotClientInterface
 {
     /**
-     * @param int $abstractId
+     * @param string $productName
      *
-     * @return array
+     * @return mixed
      */
-    public function getConcreteListByAbstractId($abstractId);
+    public function getVariantsByProductName($productName);
 
     /**
-     * @param int $abstractId
      * @param string $variantName
      *
      * @return string
      */
-    public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
-    
-    /**
-     * @param string $concreteSku
-     * @param int $sessionId
-     *
-     * @return bool
-     */
-    public function addConcreteToCartBySku($concreteSku, $sessionId);
+    public function addVariantToCart($variantName);
 
     /**
-     * @param int $sessionId
-     *
      * @return bool
      */
-    public function performCheckout($sessionId);
+    public function checkoutAndPlaceOrder();
 }

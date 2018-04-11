@@ -17,29 +17,28 @@ use Symfony\Component\HttpFoundation\Request;
 class AlexaController extends AbstractController
 {
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return JsonResponse
      */
     public function productAction(Request $request)
     {
         $response = "Sorry, we are all out. What about some Nachos or Popcorn?";
-        $myFood = $request->get('food');
+        $mySnack = $request->get('snack');
 
-        $abstractId = $this->getClient()->getAbstractIdByAbstractName($myFood);
+        $variants = $this->getClient()->getVariantsByProductName($mySnack);
 
-        // Find the list of Variants
-        $variant = $this->getClient()->getConcreteListByAbstractId($abstractId);
-
-        if ($myFood && !empty($variant)) {
-            switch (strtolower($myFood)) {
+        if ($mySnack && !empty($variants)) {
+            switch (strtolower($mySnack)) {
                 case 'popcorn':
-                    $response = "Would you like " . $variant[0]
-                        . " or " . $variant[1] . " " . $myFood . "?";
+                    $response = "Would you like " . $variants[0]
+                        . " or " . $variants[1] . " " . $mySnack . "?";
                     break;
                 case 'nachos':
-                    $response = "Would you like " . $myFood . " with "
-                        . $variant[0] . " or with " . $variant[1] . "?";
+                    $response = "Would you like " . $mySnack . " with "
+                        . $variants[0] . " or with " . $variants[1] . "?";
                     break;
             }
         }
@@ -53,25 +52,21 @@ class AlexaController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return JsonResponse
      */
     public function cartAction(Request $request)
     {
-        $myFood = $request->get('food');
         $myVariant = $request->get('variant');
-        $mySession = $request->get('session');
 
         $response = "I don not have " . $myVariant . ". Would you like to order something else?";
 
-        $abstractId = $this->getClient()->getAbstractIdByAbstractName($myFood);
-        $variantSku = $this->getClient()->getConcreteSkuByAbstractIdAndVariant(
-            $abstractId,
+        $result = $this->getClient()->addVariantToCart(
             $myVariant
         );
-
-        $result = $this->getClient()->addConcreteToCartBySku($variantSku, $mySession);
 
         if ($result) {
             $response = "Your order will be shipped with same minute delivery. "
@@ -88,19 +83,21 @@ class AlexaController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return JsonResponse
      */
     public function checkoutAndOrderAction(Request $request)
     {
         $response = "Sorry, it was impossible to complete the order. Could you try again?";
-        $mySession = $request->get('session');
 
-        $isSuccess = $this->getClient()->performCheckout($mySession);
+        $isSuccess = $this->getClient()->checkoutAndPlaceOrder();
 
         if ($isSuccess) {
-//            $this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms($mySession);
+            //@todo to remove when moved in OMS
+            //$this->getFactory()->getAlexaProductPlugin()->sendConfirmationSms($mySession);
             $response = $isSuccess;
         }
 

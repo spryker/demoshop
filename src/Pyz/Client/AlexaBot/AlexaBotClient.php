@@ -15,64 +15,42 @@ use Spryker\Client\Kernel\AbstractClient;
 class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
 {
     /**
-     * @param $abstractName
+     * @param string $abstractName
      *
-     * @return int
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
+     *
+     * @return string[]
      */
-    public function getAbstractIdByAbstractName($abstractName)
+    public function getVariantsByProductName($abstractName)
     {
         return $this->getFactory()
             ->createAlexaProduct()
-            ->getAbstractIdByName($abstractName);
+            ->getConcreteListByAbstractId($abstractName);
     }
 
     /**
-     * @param int $abstractId
-     *
-     * @return array
-     */
-    public function getConcreteListByAbstractId($abstractId)
-    {
-        return $this->getFactory()
-            ->createAlexaProduct()
-            ->getConcreteListByAbstractId($abstractId);
-    }
-
-    /**
-     * @param int $abstractId
      * @param string $variantName
+     *
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return string
      */
-    public function getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName)
+    public function addVariantToCart($variantName)
     {
         return $this->getFactory()
-            ->createAlexaProduct()
-            ->getConcreteSkuByAbstractIdAndVariant($abstractId, $variantName);
+            ->createAlexaCart()
+            ->addVariantToCart($variantName);
     }
 
     /**
-     * @param string $concreteSku
-     * @param int $sessionId
-     *
-     * @return bool
-     */
-    public function addConcreteToCartBySku($concreteSku, $sessionId)
-    {
-        return $this->getFactory()
-            ->createAlexaOrder()
-            ->addConcreteToCartBySku($concreteSku, $sessionId);
-    }
-
-    /**
-     * @param int $sessionId
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
      * @return bool|false|string
      */
-    public function performCheckout($sessionId)
+    public function checkoutAndPlaceOrder()
     {
         return $this->getFactory()
             ->createAlexaOrder()
-            ->performCheckout($sessionId);
+            ->checkoutAndPlaceOrder();
     }
 }
