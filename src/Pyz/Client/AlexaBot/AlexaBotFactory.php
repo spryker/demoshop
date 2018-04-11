@@ -8,7 +8,7 @@
 namespace Pyz\Client\AlexaBot;
 
 use Pyz\Client\AlexaBot\Model\Cart\AlexaCart;
-use Pyz\Client\AlexaBot\Model\CheckoutAndOrder\AlexaCheckoutAndCheckoutAndOrder;
+use Pyz\Client\AlexaBot\Model\CheckoutAndOrder\AlexaCheckoutAndOrder;
 use Pyz\Client\AlexaBot\Model\CheckoutAndOrder\OrderHydrator;
 use Pyz\Client\AlexaBot\Model\FileSession\FileSession;
 use Pyz\Client\AlexaBot\Model\Product\AlexaProduct;
@@ -55,11 +55,11 @@ class AlexaBotFactory extends AbstractFactory
     /**
      * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      *
-     * @return \Pyz\Client\AlexaBot\Model\CheckoutAndOrder\AlexaCheckoutAndCheckoutAndOrder
+     * @return \Pyz\Client\AlexaBot\Model\CheckoutAndOrder\AlexaCheckoutAndOrder
      */
-    public function createAlexaOrder()
+    public function createAlexaCheckoutAndOrder()
     {
-        return new AlexaCheckoutAndCheckoutAndOrder(
+        return new AlexaCheckoutAndOrder(
             $this->getConfig(),
             $this->getCheckoutClient(),
             $this->getCalculationClient(),

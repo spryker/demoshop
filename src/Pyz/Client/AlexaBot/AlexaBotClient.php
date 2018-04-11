@@ -50,7 +50,7 @@ class AlexaBotClient extends AbstractClient implements AlexaBotClientInterface
     public function checkoutAndPlaceOrder()
     {
         return $this->getFactory()
-            ->createAlexaOrder()
+            ->createAlexaCheckoutAndOrder()
             ->checkoutAndPlaceOrder();
     }
 }

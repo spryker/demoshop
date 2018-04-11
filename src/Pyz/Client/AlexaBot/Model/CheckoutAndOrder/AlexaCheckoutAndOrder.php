@@ -13,7 +13,7 @@ use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Client\Product\ProductClientInterface;
 
-class AlexaCheckoutAndCheckoutAndOrder implements AlexaCheckoutAndOrderInterface
+class AlexaCheckoutAndOrder implements AlexaCheckoutAndOrderInterface
 {
     /**
      * @var \Pyz\Client\AlexaBot\AlexaBotConfig
