@@ -32,7 +32,7 @@ class AlexaController extends AbstractController
 
         $variants = $this->getClient()->getVariantsByProductName($abstractId);
 
-        if ($myFood && !empty($variant)) {
+        if ($myFood && !empty($variants)) {
             switch (strtolower($myFood)) {
                 case 'popcorn':
                     $response = "Would you like " . $variants[0]
