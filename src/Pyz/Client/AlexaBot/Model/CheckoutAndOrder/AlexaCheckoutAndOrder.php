@@ -12,6 +12,7 @@ use Pyz\Yves\Product\Mapper\StorageProductMapperInterface;
 use Spryker\Client\Calculation\CalculationClientInterface;
 use Spryker\Client\Checkout\CheckoutClientInterface;
 use Spryker\Client\Product\ProductClientInterface;
+use Twilio\Rest\Client;
 
 class AlexaCheckoutAndOrder implements AlexaCheckoutAndOrderInterface
 {
@@ -116,6 +117,8 @@ class AlexaCheckoutAndOrder implements AlexaCheckoutAndOrderInterface
     {
         $checkoutClient = null; // TODO CheckoutAndOrder-3: call the placeOrder() method from the CheckoutClient.
 
+        $this->SendSmsConfirmation($quoteTransfer);
+
         return $checkoutClient;
     }
 
@@ -140,5 +143,39 @@ class AlexaCheckoutAndOrder implements AlexaCheckoutAndOrderInterface
         $quoteTransfer->setCheckoutConfirmed(true);
 
         return $quoteTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @throws \Twilio\Exceptions\ConfigurationException
+     */
+    private function SendSmsConfirmation($quoteTransfer): void
+    {
+
+        $alexaDevice = "alexa-01";
+        $twillioSid = 'AC96000d7e094ebbc905fec13be2baf015';
+        $twillioToken = 'd0b39e958c375a956a556ee3973296a2';
+        $twillioNumber = '+33644609799';
+        $twillioRecipient = '+4915901009896';
+
+        if (isset($orderItems[0])) {
+            $client = new Client($twillioSid, $twillioToken);
+
+            // Use the client to do fun stuff like send text messages!
+            $client->messages->create(
+            // the number you'd like to send the message to
+                $twillioRecipient,
+                [
+                    // A Twilio phone number you purchased at twilio.com/console
+                    'from' => $twillioNumber,
+                    // the body of the text message you'd like to send
+                    'body' => 'User: ' . $alexaDevice . ' '
+                        // It should be field 'name' in 'spy_sales_order_item'
+                        . ' ordered ' . $quoteTransfer->getItems()[0]->getName(),
+                ]
+            );
+        }
+
+        return [];
     }
 }
