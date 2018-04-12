@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b63e4014e1a23e1d467bc566ea482a1",
+    "content-hash": "8091889ba35a55201bfd99b13c4d3eba",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.54.3",
+            "version": "3.54.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "00496aa6d1672347c774770b045f6b569faff495"
+                "reference": "6642a13df7ddcccf19e66c744c5bfae5b61e9e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/00496aa6d1672347c774770b045f6b569faff495",
-                "reference": "00496aa6d1672347c774770b045f6b569faff495",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6642a13df7ddcccf19e66c744c5bfae5b61e9e85",
+                "reference": "6642a13df7ddcccf19e66c744c5bfae5b61e9e85",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-04-09T22:18:00+00:00"
+            "time": "2018-04-10T22:11:31+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -220,16 +220,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.3",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "1bec00a10039b823cc94eef4eddd47dcd3b2ca04"
+                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/1bec00a10039b823cc94eef4eddd47dcd3b2ca04",
-                "reference": "1bec00a10039b823cc94eef4eddd47dcd3b2ca04",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/8790f594151ca6a2010c6218e09d96df67173ad3",
+                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3",
                 "shasum": ""
             },
             "require": {
@@ -238,7 +238,7 @@
             },
             "require-dev": {
                 "dominicsayers/isemail": "dev-master",
-                "phpunit/phpunit": "^4.8.35",
+                "phpunit/phpunit": "^4.8.35||^5.7||^6.0",
                 "satooshi/php-coveralls": "^1.0.1"
             },
             "suggest": {
@@ -273,7 +273,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2017-11-15T23:40:40+00:00"
+            "time": "2018-04-10T10:11:19+00:00"
         },
         {
             "name": "elasticsearch/elasticsearch",
@@ -5242,16 +5242,16 @@
         },
         {
             "name": "spryker/company-user",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-user.git",
-                "reference": "b9f44075633f56055b886db3bdb5a7badadbf065"
+                "reference": "0f4779b90d3683fa936d2a82c8f4d65edcb49257"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-user/zipball/b9f44075633f56055b886db3bdb5a7badadbf065",
-                "reference": "b9f44075633f56055b886db3bdb5a7badadbf065",
+                "url": "https://api.github.com/repos/spryker/company-user/zipball/0f4779b90d3683fa936d2a82c8f4d65edcb49257",
+                "reference": "0f4779b90d3683fa936d2a82c8f4d65edcb49257",
                 "shasum": ""
             },
             "require": {
@@ -5290,7 +5290,7 @@
                 "proprietary"
             ],
             "description": "CompanyUser module",
-            "time": "2018-04-06T13:22:44+00:00"
+            "time": "2018-04-10T09:37:20+00:00"
         },
         {
             "name": "spryker/company-user-extension",
@@ -8385,16 +8385,16 @@
         },
         {
             "name": "spryker/permission",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/permission.git",
-                "reference": "28f4caacb3b35cbb291733004ba5768e886ec1cc"
+                "reference": "f85a9913dba3468c85eb76da2eeb69fe1ad28507"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/permission/zipball/28f4caacb3b35cbb291733004ba5768e886ec1cc",
-                "reference": "28f4caacb3b35cbb291733004ba5768e886ec1cc",
+                "url": "https://api.github.com/repos/spryker/permission/zipball/f85a9913dba3468c85eb76da2eeb69fe1ad28507",
+                "reference": "f85a9913dba3468c85eb76da2eeb69fe1ad28507",
                 "shasum": ""
             },
             "require": {
@@ -8423,7 +8423,7 @@
                 "proprietary"
             ],
             "description": "Permission module",
-            "time": "2018-04-09T14:13:29+00:00"
+            "time": "2018-04-10T09:37:20+00:00"
         },
         {
             "name": "spryker/permission-extension",
@@ -11709,65 +11709,6 @@
             "time": "2017-12-05T14:21:09+00:00"
         },
         {
-            "name": "spryker/shared-cart",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/shared-cart.git",
-                "reference": "05df61fffc635cd382fc36a5a4f146fede7987c6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/shared-cart/zipball/05df61fffc635cd382fc36a5a4f146fede7987c6",
-                "reference": "05df61fffc635cd382fc36a5a4f146fede7987c6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "spryker/company-user": "^1.0.0",
-                "spryker/customer": "^7.0.0",
-                "spryker/kernel": "^3.19.0",
-                "spryker/messenger": "^3.0.0",
-                "spryker/multi-cart": "^0.1.0",
-                "spryker/permission": "^1.0.0",
-                "spryker/permission-extension": "^1.0.0",
-                "spryker/persistent-cart": "^0.1.0",
-                "spryker/persistent-cart-extension": "^1.0.0",
-                "spryker/propel-orm": "^1.6.0",
-                "spryker/quote": "^2.0.0",
-                "spryker/quote-extension": "^1.0.0",
-                "spryker/zed-request": "^3.0.0"
-            },
-            "require-dev": {
-                "spryker/cart": "*",
-                "spryker/code-sniffer": "*",
-                "spryker/installer": "*",
-                "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/cart": "If you want to use cart plugins.",
-                "spryker/installer": "If you want to use SharedCartPermissionInstallerPlugin. Minimum required version: 4.0.0."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/",
-                    "SprykerTest\\Shared\\SharedCart\\Helper\\": "tests/SprykerTest/Shared/SharedCart/_support/Helper/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "SharedCart module",
-            "time": "2018-04-10T14:40:01+00:00"
-        },
-        {
             "name": "spryker/shipment",
             "version": "6.4.1",
             "source": {
@@ -11999,41 +11940,46 @@
         },
         {
             "name": "spryker/sql-criteria-builder",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SqlCriteriaBuilder.git",
-                "reference": "eb13a52833f2badaaa2847446fb4a4e15464f743"
+                "url": "https://github.com/spryker/sql-criteria-builder.git",
+                "reference": "790478d256cc3e687bd67b8dcdd41c1ab97ae57e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SqlCriteriaBuilder/zipball/eb13a52833f2badaaa2847446fb4a4e15464f743",
-                "reference": "eb13a52833f2badaaa2847446fb4a4e15464f743",
+                "url": "https://api.github.com/repos/spryker/sql-criteria-builder/zipball/790478d256cc3e687bd67b8dcdd41c1ab97ae57e",
+                "reference": "790478d256cc3e687bd67b8dcdd41c1ab97ae57e",
                 "shasum": ""
             },
             "require": {
                 "everon/collection": "~1.0.3",
                 "everon/criteria-builder": "~1.1.5",
                 "everon/factory": "~1.1.4",
-                "everon/utils": "~1.0.4"
+                "everon/utils": "~1.0.4",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Spryker": "src/"
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
-            "description": "sql criteria builder bundle",
-            "time": "2016-04-01T13:06:05+00:00"
+            "description": "SqlCriteriaBuilder module",
+            "time": "2018-01-24T11:43:27+00:00"
         },
         {
             "name": "spryker/state-machine",
@@ -15263,29 +15209,32 @@
         },
         {
             "name": "zendframework/zend-filter",
-            "version": "2.7.2",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-filter.git",
-                "reference": "b8d0ff872f126631bf63a932e33aa2d22d467175"
+                "reference": "7b997dbe79459f1652deccc8786d7407fb66caa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/b8d0ff872f126631bf63a932e33aa2d22d467175",
-                "reference": "b8d0ff872f126631bf63a932e33aa2d22d467175",
+                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/7b997dbe79459f1652deccc8786d7407fb66caa9",
+                "reference": "7b997dbe79459f1652deccc8786d7407fb66caa9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-stdlib": "^2.7.7 || ^3.1"
+            },
+            "conflict": {
+                "zendframework/zend-validator": "<2.10.1"
             },
             "require-dev": {
-                "pear/archive_tar": "^1.4",
-                "phpunit/phpunit": "^6.0.10 || ^5.7.17",
+                "pear/archive_tar": "^1.4.3",
+                "phpunit/phpunit": "^5.7.23 || ^6.4.3",
                 "zendframework/zend-coding-standard": "~1.0.0",
-                "zendframework/zend-crypt": "^2.6 || ^3.0",
-                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
-                "zendframework/zend-uri": "^2.5"
+                "zendframework/zend-crypt": "^3.2.1",
+                "zendframework/zend-servicemanager": "^2.7.8 || ^3.3",
+                "zendframework/zend-uri": "^2.6"
             },
             "suggest": {
                 "zendframework/zend-crypt": "Zend\\Crypt component, for encryption filters",
@@ -15296,8 +15245,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev",
-                    "dev-develop": "2.8-dev"
+                    "dev-master": "2.8.x-dev",
+                    "dev-develop": "2.9.x-dev"
                 },
                 "zf": {
                     "component": "Zend\\Filter",
@@ -15314,12 +15263,12 @@
                 "BSD-3-Clause"
             ],
             "description": "provides a set of commonly needed data filters",
-            "homepage": "https://github.com/zendframework/zend-filter",
             "keywords": [
+                "ZendFramework",
                 "filter",
-                "zf2"
+                "zf"
             ],
-            "time": "2017-05-17T20:56:17+00:00"
+            "time": "2018-04-11T16:20:04+00:00"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -18335,16 +18284,16 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.7.1",
+            "version": "3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/development.git",
-                "reference": "2d486b0e03d0d2098b8ae16ec9fed213a4847faa"
+                "reference": "f573387e7021c2e504e2cf54856ff477606bbb2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/development/zipball/2d486b0e03d0d2098b8ae16ec9fed213a4847faa",
-                "reference": "2d486b0e03d0d2098b8ae16ec9fed213a4847faa",
+                "url": "https://api.github.com/repos/spryker/development/zipball/f573387e7021c2e504e2cf54856ff477606bbb2b",
+                "reference": "f573387e7021c2e504e2cf54856ff477606bbb2b",
                 "shasum": ""
             },
             "require": {
@@ -18377,7 +18326,7 @@
                 "proprietary"
             ],
             "description": "Development module",
-            "time": "2018-04-04T09:10:55+00:00"
+            "time": "2018-04-10T09:37:20+00:00"
         },
         {
             "name": "spryker/testify",

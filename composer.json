@@ -217,7 +217,6 @@
     "spryker/session": "^3.0.0",
     "spryker/setup": "^4.0.0",
     "spryker/setup-frontend": "^1.0.0",
-    "spryker/shared-cart": "^0.1.0",
     "spryker/shipment": "^6.0.0",
     "spryker/shipment-cart-connector": "^1.0.0",
     "spryker/shipment-checkout-connector": "^1.0.0",
