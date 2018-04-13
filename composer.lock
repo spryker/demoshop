@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "527e2043c6ed6d6e36ab24cf5bd6e0d4",
+    "content-hash": "c2b0f39f23323b1c9769de0776328179",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1951,16 +1951,16 @@
         },
         {
             "name": "spryker/install",
-            "version": "dev-feature/core-4307-configure-command-timeout",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "3f6bc218db7742edba7440749b934f89ed2914c5"
+                "reference": "8f840e76c0bed9c76761abad4ce995fc462f31fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/3f6bc218db7742edba7440749b934f89ed2914c5",
-                "reference": "3f6bc218db7742edba7440749b934f89ed2914c5",
+                "url": "https://api.github.com/repos/spryker/install/zipball/8f840e76c0bed9c76761abad4ce995fc462f31fe",
+                "reference": "8f840e76c0bed9c76761abad4ce995fc462f31fe",
                 "shasum": ""
             },
             "require": {
@@ -1991,7 +1991,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-04-12T14:51:59+00:00"
+            "time": "2018-04-13T12:29:30+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
