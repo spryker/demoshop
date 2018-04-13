@@ -7,9 +7,9 @@
 
 namespace Pyz\Zed\Offer;
 
+use Spryker\Zed\Availability\Communication\Plugin\Offer\OfferQuoteItemStockHydratorPlugin;
 use Spryker\Zed\Customer\Communication\Plugin\Offer\OfferCustomerHydratorPlugin;
 use Spryker\Zed\Offer\OfferDependencyProvider as SprykerOfferDependencyProvider;
-use Spryker\Zed\Availability\Communication\Plugin\Offer\OfferQuoteItemStockHydratorPlugin;
 
 class OfferDependencyProvider extends SprykerOfferDependencyProvider
 {
@@ -22,7 +22,7 @@ class OfferDependencyProvider extends SprykerOfferDependencyProvider
             parent::getOfferHydratorPlugins(),
             [
                 new OfferCustomerHydratorPlugin(),
-                new OfferQuoteItemStockHydratorPlugin()
+                new OfferQuoteItemStockHydratorPlugin(),
             ]
         );
     }

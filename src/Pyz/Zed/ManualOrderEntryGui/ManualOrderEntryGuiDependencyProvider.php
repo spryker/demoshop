@@ -40,7 +40,7 @@ class ManualOrderEntryGuiDependencyProvider extends SprykerManualOrderEntryGuiDe
     protected function getQuoteExpanderPlugins()
     {
         return [
-            new OfferQuoteExpanderPlugin()
+            new OfferQuoteExpanderPlugin(),
         ];
     }
 
