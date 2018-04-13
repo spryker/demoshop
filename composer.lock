@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "527e2043c6ed6d6e36ab24cf5bd6e0d4",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1951,16 +1951,16 @@
         },
         {
             "name": "spryker/install",
-            "version": "dev-master",
+            "version": "dev-feature/core-4307-configure-command-timeout",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4"
+                "reference": "3f6bc218db7742edba7440749b934f89ed2914c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
-                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
+                "url": "https://api.github.com/repos/spryker/install/zipball/3f6bc218db7742edba7440749b934f89ed2914c5",
+                "reference": "3f6bc218db7742edba7440749b934f89ed2914c5",
                 "shasum": ""
             },
             "require": {
@@ -1991,7 +1991,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-04-05T10:51:17+00:00"
+            "time": "2018-04-12T14:51:59+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -4400,16 +4400,16 @@
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "debedcfc373a293f9250cc9aa03cf121428c8e78"
+                "reference": "10ef03144902d1955f935fff5346ed52f7d99bcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/debedcfc373a293f9250cc9aa03cf121428c8e78",
-                "reference": "debedcfc373a293f9250cc9aa03cf121428c8e78",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/10ef03144902d1955f935fff5346ed52f7d99bcc",
+                "reference": "10ef03144902d1955f935fff5346ed52f7d99bcc",
                 "shasum": ""
             },
             "require": {
@@ -4418,7 +4418,7 @@
             "require-dev": {
                 "athletic/athletic": "~0.1",
                 "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "^2.6.2"
+                "zendframework/zend-coding-standard": "~1.0.0"
             },
             "type": "library",
             "extra": {
@@ -4441,7 +4441,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-09-13T14:38:50+00:00"
+            "time": "2018-04-12T16:05:42+00:00"
         }
     ],
     "packages-dev": [
@@ -5476,7 +5476,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7124,7 +7124,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
