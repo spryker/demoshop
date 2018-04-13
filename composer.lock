@@ -1955,12 +1955,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4"
+                "reference": "8f840e76c0bed9c76761abad4ce995fc462f31fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
-                "reference": "6026d5a56a1c38129148e8c36a6637c4fa8e76d4",
+                "url": "https://api.github.com/repos/spryker/install/zipball/8f840e76c0bed9c76761abad4ce995fc462f31fe",
+                "reference": "8f840e76c0bed9c76761abad4ce995fc462f31fe",
                 "shasum": ""
             },
             "require": {
@@ -1991,7 +1991,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-04-05T10:51:17+00:00"
+            "time": "2018-04-13T12:29:30+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "71472ce7161eef905cde9421aa96bedf27b4af91"
+                "reference": "a6af8b7d7ee577f171ce6a32d038cf0d215b57cc"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2314,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-12T14:39:05+00:00"
+            "time": "2018-04-13T14:05:43+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4402,16 +4402,16 @@
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "debedcfc373a293f9250cc9aa03cf121428c8e78"
+                "reference": "10ef03144902d1955f935fff5346ed52f7d99bcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/debedcfc373a293f9250cc9aa03cf121428c8e78",
-                "reference": "debedcfc373a293f9250cc9aa03cf121428c8e78",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/10ef03144902d1955f935fff5346ed52f7d99bcc",
+                "reference": "10ef03144902d1955f935fff5346ed52f7d99bcc",
                 "shasum": ""
             },
             "require": {
@@ -4420,7 +4420,7 @@
             "require-dev": {
                 "athletic/athletic": "~0.1",
                 "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "^2.6.2"
+                "zendframework/zend-coding-standard": "~1.0.0"
             },
             "type": "library",
             "extra": {
@@ -4443,7 +4443,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-09-13T14:38:50+00:00"
+            "time": "2018-04-12T16:05:42+00:00"
         }
     ],
     "packages-dev": [
