@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OfferController extends AbstractCustomerController
 {
-    const ORDER_LIST_LIMIT = 3;
+    const ORDER_LIST_LIMIT = 10;
     const ORDER_LIST_SORT_FIELD = 'created_at';
     const ORDER_LIST_SORT_DIRECTION = 'DESC';
 
