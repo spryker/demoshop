@@ -6,6 +6,8 @@ stores:
     - AT
     - US
 
+command-timeout: 3600
+
 sections:
 
     hidden:

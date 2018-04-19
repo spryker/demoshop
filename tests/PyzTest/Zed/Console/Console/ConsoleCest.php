@@ -7,7 +7,7 @@
 
 namespace PyzTest\Zed\Console\Console;
 
-use PHPUnit_Framework_Assert;
+use PHPUnit\Framework\Assert;
 use PyzTest\Zed\Console\ConsoleConsoleTester;
 
 /**
@@ -31,7 +31,7 @@ class ConsoleCest
         $i->wantTo('See that console is running');
 
         $output = $i->runConsoleApplication();
-        PHPUnit_Framework_Assert::assertRegExp('/Store/', $output);
-        PHPUnit_Framework_Assert::assertRegExp('/Environment/', $output);
+        Assert::assertRegExp('/Store/', $output);
+        Assert::assertRegExp('/Environment/', $output);
     }
 }
