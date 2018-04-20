@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ProductMeasurementUnitStorage\Persistence;
 
-use Orm\Zed\ProductMeasurementUnitStorage\Persistence\Base\SpyProductMeasurementUnitStorageQuery as BaseSpyProductMeasurementUnitStorageQuery;
+use Spryker\Zed\ProductMeasurementUnitStorage\Persistence\Propel\AbstractSpyProductMeasurementUnitStorageQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_measurement_unit_storage' table.
@@ -19,6 +19,6 @@ use Orm\Zed\ProductMeasurementUnitStorage\Persistence\Base\SpyProductMeasurement
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductMeasurementUnitStorageQuery extends BaseSpyProductMeasurementUnitStorageQuery
+class SpyProductMeasurementUnitStorageQuery extends AbstractSpyProductMeasurementUnitStorageQuery
 {
 }

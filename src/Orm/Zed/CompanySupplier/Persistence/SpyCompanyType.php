@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\CompanySupplier\Persistence;
 
-use Orm\Zed\CompanySupplier\Persistence\Base\SpyCompanyType as BaseSpyCompanyType;
+use Spryker\Zed\CompanySupplier\Persistence\Propel\AbstractSpyCompanyType as BaseSpyCompanyType;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_company_type' table.

@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ProductQuantity\Persistence;
 
-use Orm\Zed\ProductQuantity\Persistence\Base\SpyProductQuantity as BaseSpyProductQuantity;
+use Spryker\Zed\ProductQuantity\Persistence\Propel\AbstractSpyProductQuantity;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_product_quantity' table.
@@ -19,6 +19,6 @@ use Orm\Zed\ProductQuantity\Persistence\Base\SpyProductQuantity as BaseSpyProduc
  * long as it does not already exist in the output directory.
  *
  */
-class SpyProductQuantity extends BaseSpyProductQuantity
+class SpyProductQuantity extends AbstractSpyProductQuantity
 {
 }
