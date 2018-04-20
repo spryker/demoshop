@@ -8,7 +8,7 @@
 namespace Pyz\Zed\Offer;
 
 use Spryker\Zed\AvailabilityOfferConnector\Communication\Plugin\OfferQuoteItemStockHydratorPlugin;
-use Spryker\Zed\Customer\Communication\Plugin\Offer\OfferCustomerHydratorPlugin;
+use Spryker\Zed\CustomerOfferConnector\Communication\Plugin\OfferCustomerHydratorPlugin;
 use Spryker\Zed\Offer\OfferDependencyProvider as SprykerOfferDependencyProvider;
 
 class OfferDependencyProvider extends SprykerOfferDependencyProvider
