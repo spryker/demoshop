@@ -13,7 +13,7 @@
     {% for offerItem in items %}
 
         {% if offerItem.bundleItems is defined  %}
-            {% include "@customer/offer/partials/order-items-bundled.twig" %}
+            {% include "@customer/offer/partials/offer-items-bundled.twig" %}
         {% else %}
             <tr>
                 <td class="text-left">
@@ -29,7 +29,7 @@
                     {{ offerItem.quantity }}
                 </td>
                 <td class="text-right">
-                    {{ offerItem.saving | money(true, offer.quote.currency.code) }}
+                    {{ offerItem.savingAmount | money(true, offer.quote.currency.code) }}
                 </td>
                 <td class="text-right">
                     {{ offerItem.unitPriceToPayAggregation | money(true, offer.quote.currency.code) }}
