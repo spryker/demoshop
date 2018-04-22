@@ -62,7 +62,6 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             $commandCollection->add(new ShipGiftCardByEmailCommandPlugin(), 'GiftCardMailConnector/ShipGiftCard');
             $commandCollection->add(new CreateGiftCardCommandPlugin(), 'GiftCard/CreateGiftCard');
             $commandCollection->add(new ReplaceGiftCardsCommandPlugin(), 'GiftCard/ReplaceGiftCards');
-
             return $commandCollection;
         });
 
@@ -79,7 +78,6 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
         $container->extend(OmsDependencyProvider::CONDITION_PLUGINS, function (ConditionCollectionInterface $conditionCollection) {
             $conditionCollection
                 ->add(new IsGiftCardConditionPlugin(), 'GiftCard/IsGiftCard');
-
             return $conditionCollection;
         });
 
