@@ -110,12 +110,4 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
             return Store::getInstance();
         };
     }
-
-    /**
-     * @return array
-     */
-    protected function getDataImporterPlugins(): array
-    {
-        return [];
-    }
 }
