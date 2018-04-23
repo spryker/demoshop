@@ -29,6 +29,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     const CLIENT_CART = 'CLIENT_CART';
     const CLIENT_PAYMENT = 'CLIENT_PAYMENT';
     const STORE = 'STORE';
+    const CLIENT_OFFER = 'CLIENT_OFFER';
 
     const SERVICE_UTIL_VALIDATE = 'SERVICE_UTIL_VALIDATE';
 
@@ -76,24 +77,28 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     {
         $container = parent::provideClients($container);
 
-        $container[self::CLIENT_CALCULATION] = function (Container $container) {
+        $container[static::CLIENT_CALCULATION] = function (Container $container) {
             return $container->getLocator()->calculation()->client();
         };
 
-        $container[self::CLIENT_CHECKOUT] = function (Container $container) {
+        $container[static::CLIENT_CHECKOUT] = function (Container $container) {
             return $container->getLocator()->checkout()->client();
         };
 
-        $container[self::CLIENT_CUSTOMER] = function (Container $container) {
+        $container[static::CLIENT_CUSTOMER] = function (Container $container) {
             return $container->getLocator()->customer()->client();
         };
 
-        $container[self::CLIENT_CART] = function (Container $container) {
+        $container[static::CLIENT_CART] = function (Container $container) {
             return $container->getLocator()->cart()->client();
         };
 
-        $container[self::CLIENT_PAYMENT] = function (Container $container) {
+        $container[static::CLIENT_PAYMENT] = function (Container $container) {
             return $container->getLocator()->payment()->client();
+        };
+
+        $container[static::CLIENT_OFFER] = function (Container $container) {
+            return $container->getLocator()->offer()->client();
         };
 
         return $container;
@@ -108,22 +113,22 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
     {
         $container = parent::providePlugins($container);
 
-        $container[self::PLUGIN_CUSTOMER_STEP_HANDLER] = function () {
+        $container[static::PLUGIN_CUSTOMER_STEP_HANDLER] = function () {
             return new CustomerStepHandler();
         };
 
-        $container[self::PLUGIN_SHIPMENT_HANDLER] = function () {
+        $container[static::PLUGIN_SHIPMENT_HANDLER] = function () {
             $shipmentHandlerPlugins = new StepHandlerPluginCollection();
-            $shipmentHandlerPlugins->add(new ShipmentHandlerPlugin(), self::PLUGIN_SHIPMENT_STEP_HANDLER);
+            $shipmentHandlerPlugins->add(new ShipmentHandlerPlugin(), static::PLUGIN_SHIPMENT_STEP_HANDLER);
 
             return $shipmentHandlerPlugins;
         };
 
-        $container[self::PLUGIN_SHIPMENT_FORM_DATA_PROVIDER] = function () {
+        $container[static::PLUGIN_SHIPMENT_FORM_DATA_PROVIDER] = function () {
             return new ShipmentFormDataProviderPlugin();
         };
 
-        $container[self::PLUGIN_APPLICATION] = function () {
+        $container[static::PLUGIN_APPLICATION] = function () {
             $pimplePlugin = new Pimple();
 
             return $pimplePlugin->getApplication();

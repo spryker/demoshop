@@ -25,11 +25,12 @@ class SalesConfig extends SprykerSalesConfig
     {
         $paymentMethodStatemachineMapping = $this->getPaymentMethodStatemachineMapping();
 
-        if (!array_key_exists($quoteTransfer->getPayment()->getPaymentSelection(), $paymentMethodStatemachineMapping)) {
+        $payment = $quoteTransfer->getPayment();
+        if (!array_key_exists($payment->getPaymentSelection(), $paymentMethodStatemachineMapping)) {
             return parent::determineProcessForOrderItem($quoteTransfer, $itemTransfer);
         }
 
-        return $paymentMethodStatemachineMapping[$quoteTransfer->getPayment()->getPaymentSelection()];
+        return $paymentMethodStatemachineMapping[$payment->getPaymentSelection()];
     }
 
     /**
@@ -52,6 +53,7 @@ class SalesConfig extends SprykerSalesConfig
             'shipment' => '/shipment/sales/list',
             'discount' => '/discount/sales/list',
             'refund' => '/refund/sales/list',
+            'source' => '/manual-order-entry/sales/list',
         ];
 
         $externalBlocks = parent::getSalesDetailExternalBlocksUrls();

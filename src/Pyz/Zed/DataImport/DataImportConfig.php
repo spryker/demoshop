@@ -11,6 +11,9 @@ use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Generated\Shared\Transfer\DataImporterReaderConfigurationTransfer;
 use Spryker\Zed\DataImport\DataImportConfig as SprykerDataImportConfig;
 
+/**
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
+ */
 class DataImportConfig extends SprykerDataImportConfig
 {
     const IMPORT_TYPE_CATEGORY_TEMPLATE = 'category-template';
@@ -55,6 +58,14 @@ class DataImportConfig extends SprykerDataImportConfig
     const IMPORT_TYPE_CONCRETE_GIFT_CARD_CONFIGURATION = 'gift-card-concrete-configuration';
     const IMPORT_TYPE_CURRENCY = 'currency';
     const IMPORT_TYPE_STORE = 'store';
+    const IMPORT_TYPE_ORDER_SOURCE = 'order-source';
+    const IMPORT_TYPE_COMPANY_TYPE = 'company-type';
+    const IMPORT_TYPE_COMPANY = 'company';
+    const IMPORT_TYPE_COMPANY_BUSINESS_UNIT = 'company-business-unit';
+    const IMPORT_TYPE_COMPANY_UNIT_ADDRESS = 'company-unit-address';
+    const IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL = 'company-unit-address-label';
+    const IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL_TO_COMPANY_UNIT_ADDRESS = 'company-unit-address-label-to-company-unit-address';
+    const IMPORT_TYPE_COMPANY_SUPPLIER = 'company-supplier';
 
     /**
      * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
@@ -62,6 +73,14 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getCurrencyDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('currency.csv', static::IMPORT_TYPE_CURRENCY);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getOrderSourceDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('order_source.csv', static::IMPORT_TYPE_ORDER_SOURCE);
     }
 
     /**
@@ -390,6 +409,63 @@ class DataImportConfig extends SprykerDataImportConfig
     public function getProductCustomerPermissionDataImporterConfiguration()
     {
         return $this->buildImporterConfiguration('product_customer_permission.csv', static::IMPORT_TYPE_PRODUCT_CUSTOMER_PERMISSION);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyTypeDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('company_type.csv', static::IMPORT_TYPE_COMPANY_TYPE);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('company.csv', static::IMPORT_TYPE_COMPANY);
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyBusinessUnitDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration(
+            'company_business_unit.csv',
+            static::IMPORT_TYPE_COMPANY_BUSINESS_UNIT
+        );
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyUnitAddressDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration(
+            'company_unit_address.csv',
+            static::IMPORT_TYPE_COMPANY_UNIT_ADDRESS
+        );
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanyUnitAddressLabelDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration(
+            'company_unit_address_label.csv',
+            static::IMPORT_TYPE_COMPANY_UNIT_ADDRESS_LABEL
+        );
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
+     */
+    public function getCompanySupplierDataImporterConfiguration()
+    {
+        return $this->buildImporterConfiguration('company_supplier.csv', static::IMPORT_TYPE_COMPANY_SUPPLIER);
     }
 
     /**
