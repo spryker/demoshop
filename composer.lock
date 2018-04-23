@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "5d598a9cc8630f684a890cae1e3bb95f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-4382-add-supplier-management-feature",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9f96a95590baeb53e66e21be5a8a6721bed9a4e4"
+                "reference": "19460a455824cf7c0f228b3fbbe13318630a666d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2314,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-22T21:27:33+00:00"
+            "time": "2018-04-23T11:22:12+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
