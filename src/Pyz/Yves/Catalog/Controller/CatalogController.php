@@ -59,7 +59,7 @@ class CatalogController extends AbstractController
         $viewMode = $this->getClient()->getCatalogViewMode($request);
 
         $metaAttributes = [
-            'idCategory' => $parameters['category'],
+            'idCategory' => $categoryNode['id_category'],
             'category' => $categoryNode,
             'page_title' => $pageTitle,
             'page_description' => $categoryNode['meta_description'],

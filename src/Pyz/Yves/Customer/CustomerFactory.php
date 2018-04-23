@@ -14,6 +14,10 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerAuthenticationSuccessHandler;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerUserProvider;
 use Pyz\Yves\Customer\Security\Customer;
+use Spryker\Client\Cart\CartClientInterface;
+use Spryker\Client\Offer\OfferClientInterface;
+use Spryker\Client\ProductBundle\ProductBundleClientInterface;
+use Spryker\Client\Quote\QuoteClientInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 use Spryker\Yves\ProductBundle\Grouper\ProductBundleGrouper;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -193,5 +197,37 @@ class CustomerFactory extends AbstractFactory
     public function getUtilValidateService()
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::SERVICE_UTIL_VALIDATE);
+    }
+
+    /**
+     * @return \Spryker\Client\Offer\OfferClientInterface
+     */
+    public function getOfferClient(): OfferClientInterface
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_OFFER);
+    }
+
+    /**
+     * @return \Spryker\Client\Quote\QuoteClientInterface
+     */
+    public function getQuoteClient(): QuoteClientInterface
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_QUOTE);
+    }
+
+    /**
+     * @return \Spryker\Client\ProductBundle\ProductBundleClientInterface
+     */
+    public function getProductBundleClient(): ProductBundleClientInterface
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_PRODUCT_BUNDLE);
+    }
+
+    /**
+     * @return \Spryker\Client\Cart\CartClientInterface
+     */
+    public function getCartClient(): CartClientInterface
+    {
+        return $this->getProvidedDependency(CustomerDependencyProvider::CLIENT_CART);
     }
 }

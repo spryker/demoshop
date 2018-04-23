@@ -25,11 +25,14 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
     const ROUTE_CUSTOMER_DELETE_ADDRESS = 'customer/address/delete';
     const ROUTE_CUSTOMER_REFRESH_ADDRESS = 'customer/address/refresh';
     const ROUTE_CUSTOMER_ORDER = 'customer/order';
+    const ROUTE_CUSTOMER_OFFER = 'customer/offer';
     const ROUTE_CUSTOMER_ORDER_DETAILS = 'customer/order/details';
+    const ROUTE_CUSTOMER_OFFER_DETAILS = 'customer/offer/details';
     const ROUTE_CUSTOMER_NEWSLETTER = 'customer/newsletter';
     const ROUTE_CUSTOMER_NEWSLETTER_UNSUBSCRIBE = 'customer/newsletter/unsubscribe';
     const ROUTE_CUSTOMER_DELETE = 'customer/delete';
     const ROUTE_CUSTOMER_DELETE_CONFIRM = 'customer/delete/confirm';
+    const ROUTE_CUSTOMER_OFFER_CONVERT = 'customer/offer/convert-offer';
 
     /**
      * @param \Silex\Application $app
@@ -78,11 +81,19 @@ class CustomerControllerProvider extends AbstractYvesControllerProvider
         $this->createController('/{customer}/address/refresh', self::ROUTE_CUSTOMER_REFRESH_ADDRESS, 'Customer', 'Address', 'refresh')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
-
         $this->createController('/{customer}/order', self::ROUTE_CUSTOMER_ORDER, 'Customer', 'Order', 'index')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
+        $this->createController('/{customer}/offer', self::ROUTE_CUSTOMER_OFFER, 'Customer', 'Offer', 'index')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+            ->value('customer', 'customer');
         $this->createController('/{customer}/order/details', self::ROUTE_CUSTOMER_ORDER_DETAILS, 'Customer', 'Order', 'details')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+            ->value('customer', 'customer');
+        $this->createController('/{customer}/offer/details', self::ROUTE_CUSTOMER_OFFER_DETAILS, 'Customer', 'Offer', 'details')
+            ->assert('customer', $allowedLocalesPattern . 'customer|customer')
+            ->value('customer', 'customer');
+        $this->createController('/{customer}/offer/convert-offer', self::ROUTE_CUSTOMER_OFFER_CONVERT, 'Customer', 'Offer', 'convertOffer')
             ->assert('customer', $allowedLocalesPattern . 'customer|customer')
             ->value('customer', 'customer');
 

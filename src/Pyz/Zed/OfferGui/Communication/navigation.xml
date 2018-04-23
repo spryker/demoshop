@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sales>
+        <pages>
+            <offer-list>
+                <label>Offers</label>
+                <title>Offers</title>
+                <bundle>offer-gui</bundle>
+                <controller>view</controller>
+                <action>list</action>
+                <pages>
+                    <offer-view>
+                        <label>View Offer</label>
+                        <title>View Offer</title>
+                        <bundle>offer-gui</bundle>
+                        <controller>view</controller>
+                        <action>details</action>
+                        <visible>0</visible>
+                    </offer-view>
+                    <offer-create>
+                        <label>Create Offer</label>
+                        <title>Create Offer</title>
+                        <bundle>offer-gui</bundle>
+                        <controller>create</controller>
+                        <action>index</action>
+                        <visible>0</visible>
+                    </offer-create>
+                    <offer-edit>
+                        <label>Edit Offer</label>
+                        <title>Edit Offer</title>
+                        <bundle>offer-gui</bundle>
+                        <controller>edit</controller>
+                        <action>index</action>
+                        <visible>0</visible>
+                    </offer-edit>
+                </pages>
+            </offer-list>
+        </pages>
+    </sales>
+</config>

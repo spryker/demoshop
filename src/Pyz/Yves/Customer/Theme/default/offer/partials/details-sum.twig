@@ -1,0 +1,14 @@
+<div class="columns text-right">
+    {{ 'customer.order.subTotal' | trans }}: {{ offer.quote.totals.subtotal | money(true, offer.quote.currency.code) }}<br/>
+    {% for expense in offer.quote.expenses %}
+        {{ 'customer.order.shipment' | trans }} {{ expense.name }}: {{ expense.unitPrice | money(true, offer.quote.currency.code) }}<br/>
+    {% endfor %}
+
+    {{ 'customer.order.discount.total' | trans }}: -{{ offer.quote.totals.discountTotal | money(true, offer.quote.currency.code) }}<br/>
+
+    {% if offer.quote.totals.canceledTotal %}
+        {{ 'customer.order.canceledTotal' | trans }}: -{{ offer.quote.totals.canceledTotal | money(true, offer.quote.currency.code) }}<br/>
+    {% endif %}
+
+    <strong>{{ 'customer.order.grandTotal' | trans }}: {{ offer.quote.totals.grandTotal | money(true, offer.quote.currency.code) }}</strong>
+</div>
