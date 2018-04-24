@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-bugfix/cs",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -63,7 +63,7 @@
   "require-dev": {
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
-    "spryker/code-sniffer": "dev-master",
+    "spryker/code-sniffer": "dev-bugfix/nullable",
     "spryker/git-hook": "dev-master",
 
     "codeception/codeception": "~2.3.8",
