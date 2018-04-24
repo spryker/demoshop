@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.54.6",
+            "version": "3.55.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ea86c808c9c8a1cd39dab2baa1b9dd38e03323ec"
+                "reference": "d130bba2e7cae7cabb118a4a912b80cb505e97ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ea86c808c9c8a1cd39dab2baa1b9dd38e03323ec",
-                "reference": "ea86c808c9c8a1cd39dab2baa1b9dd38e03323ec",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d130bba2e7cae7cabb118a4a912b80cb505e97ff",
+                "reference": "d130bba2e7cae7cabb118a4a912b80cb505e97ff",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-04-20T18:14:14+00:00"
+            "time": "2018-04-23T19:32:26+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1933,12 +1933,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker-eco/loggly.git",
-                "reference": "7c30eb96c89c5d79b30832d20e7ee17a03f5751a"
+                "reference": "4e0bce8d31a810efcd50de81ee7c5de81e12fdc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker-eco/loggly/zipball/7c30eb96c89c5d79b30832d20e7ee17a03f5751a",
-                "reference": "7c30eb96c89c5d79b30832d20e7ee17a03f5751a",
+                "url": "https://api.github.com/repos/spryker-eco/loggly/zipball/4e0bce8d31a810efcd50de81ee7c5de81e12fdc6",
+                "reference": "4e0bce8d31a810efcd50de81ee7c5de81e12fdc6",
                 "shasum": ""
             },
             "require": {
@@ -1970,7 +1970,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2017-10-24T10:37:10+00:00"
+            "time": "2018-04-24T10:34:44+00:00"
         },
         {
             "name": "spryker/acl",
@@ -11960,19 +11960,20 @@
         },
         {
             "name": "spryker/setup-frontend",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SetupFrontend.git",
-                "reference": "f6d62026b8e4c06188e4204a42a2a6bb70ad07c6"
+                "url": "https://github.com/spryker/setup-frontend.git",
+                "reference": "b1af69f99eddea12d41d8598d4a5777242b1aaab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SetupFrontend/zipball/f6d62026b8e4c06188e4204a42a2a6bb70ad07c6",
-                "reference": "f6d62026b8e4c06188e4204a42a2a6bb70ad07c6",
+                "url": "https://api.github.com/repos/spryker/setup-frontend/zipball/b1af69f99eddea12d41d8598d4a5777242b1aaab",
+                "reference": "b1af69f99eddea12d41d8598d4a5777242b1aaab",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
                 "spryker/log": "^3.0.0",
                 "spryker/symfony": "^3.0.0"
@@ -11997,7 +11998,7 @@
                 "proprietary"
             ],
             "description": "SetupFrontend module",
-            "time": "2017-12-05T14:21:09+00:00"
+            "time": "2018-04-23T14:45:14+00:00"
         },
         {
             "name": "spryker/shipment",
