@@ -45,7 +45,7 @@ class AttributeVariantsProvider
      *
      * @return array
      */
-    public function getItemsAttributes(QuoteTransfer $quoteTransfer, array $itemAttributes = null)
+    public function getItemsAttributes(QuoteTransfer $quoteTransfer, ?array $itemAttributes = null)
     {
         $itemAttributes = $this->removeEmptyAttributes($itemAttributes);
 

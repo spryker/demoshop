@@ -146,7 +146,7 @@ class AddressStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      *
      * @return bool
      */
-    protected function isAddressEmpty(AddressTransfer $addressTransfer = null)
+    protected function isAddressEmpty(?AddressTransfer $addressTransfer = null)
     {
         if ($addressTransfer === null) {
             return true;
