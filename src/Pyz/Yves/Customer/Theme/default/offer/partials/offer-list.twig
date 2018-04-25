@@ -18,9 +18,11 @@
                 <a href="{{ path('customer/offer/details', {'id': offer.idOffer}) }}">
                     <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.view_offer' | trans }}</small>
                 </a>
-                <a href="{{ path('customer/offer/convert-offer', {'offerId': offer.idOffer}) }}">
-                    <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.convert_offer' | trans }}</small>
-                </a>
+                {% if offer.status != "Close" %}
+                    <a href="{{ path('customer/offer/convert-offer', {'offerId': offer.idOffer}) }}">
+                        <small><i class="fa fa-cart-arrow-down"></i> {{ 'customer.offer.convert_offer' | trans }}</small>
+                    </a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}

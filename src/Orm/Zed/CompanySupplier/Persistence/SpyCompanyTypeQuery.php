@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\CompanySupplier\Persistence;
 
-use Orm\Zed\CompanySupplier\Persistence\Base\SpyCompanyTypeQuery as BaseSpyCompanyTypeQuery;
+use Spryker\Zed\CompanySupplier\Persistence\Propel\AbstractSpyCompanyTypeQuery as BaseSpyCompanyTypeQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_company_type' table.

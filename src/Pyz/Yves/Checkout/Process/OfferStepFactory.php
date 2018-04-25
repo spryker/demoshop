@@ -43,7 +43,7 @@ class OfferStepFactory extends StepFactory
             ->addStep($this->createPaymentStep())
             ->addStep($this->createSummaryStep())
             ->addStep($this->createPlaceOfferStep())
-            ->addStep($this->createSuccessStep());
+            ->addStep($this->createOfferSuccessStep());
 
         return $stepCollection;
     }

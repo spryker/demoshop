@@ -8,7 +8,9 @@
                 <small>{{ productOption.value | trans }}</small>
             </td>
             <td class="text-right">
-                <small>{{ productOption.unitPrice | money(true, order.currencyIsoCode) }}</small>
+                {% if productOption.unitPrice is not empty %}
+                    <small>{{ productOption.unitPrice  | money(true, offer.quote.currency.code) }}</small>
+                {% endif %}
             </td>
             <td class="text-right" colspan="2"></td>
         </tr>
