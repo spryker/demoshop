@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4f9f89c1dcbb9b640a44b0129c5269a43debb596"
+                "reference": "eea19389a43c7351cc955d336edbd99e797d0271"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2314,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-25T14:42:55+00:00"
+            "time": "2018-04-30T13:46:27+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5139,16 +5139,16 @@
         },
         {
             "name": "nette/php-generator",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "78c898808d3a1018cc81f9d7108bc645129776c8"
+                "reference": "c1f6b2163c5471c4d94cd94b93362f12bceef183"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/78c898808d3a1018cc81f9d7108bc645129776c8",
-                "reference": "78c898808d3a1018cc81f9d7108bc645129776c8",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/c1f6b2163c5471c4d94cd94b93362f12bceef183",
+                "reference": "c1f6b2163c5471c4d94cd94b93362f12bceef183",
                 "shasum": ""
             },
             "require": {
@@ -5189,9 +5189,15 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "Nette PHP Generator",
+            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.1 features.",
             "homepage": "https://nette.org",
-            "time": "2017-07-14T07:06:27+00:00"
+            "keywords": [
+                "code",
+                "nette",
+                "php",
+                "scaffolding"
+            ],
+            "time": "2018-04-26T16:47:39+00:00"
         },
         {
             "name": "nette/robot-loader",
@@ -7145,12 +7151,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "8a68f360a859598bd3b10f7b2ad094271c641edc"
+                "reference": "6725dfab52743f5704549b4758fd2df3478b69ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/8a68f360a859598bd3b10f7b2ad094271c641edc",
-                "reference": "8a68f360a859598bd3b10f7b2ad094271c641edc",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/6725dfab52743f5704549b4758fd2df3478b69ec",
+                "reference": "6725dfab52743f5704549b4758fd2df3478b69ec",
                 "shasum": ""
             },
             "require": {
@@ -7188,7 +7194,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-02-12T13:54:28+00:00"
+            "time": "2018-04-26T09:44:47+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -7237,12 +7243,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "873f191feae7115e0fd6476a3f757fe2bbd04986"
+                "reference": "e91ea8020533ff6388981921151aa792a9dfc3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/873f191feae7115e0fd6476a3f757fe2bbd04986",
-                "reference": "873f191feae7115e0fd6476a3f757fe2bbd04986",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/e91ea8020533ff6388981921151aa792a9dfc3ce",
+                "reference": "e91ea8020533ff6388981921151aa792a9dfc3ce",
                 "shasum": ""
             },
             "require": {
@@ -7280,7 +7286,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-04-25T08:23:54+00:00"
+            "time": "2018-04-25T17:47:23+00:00"
         },
         {
             "name": "spryker/git-hook",
