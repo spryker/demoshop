@@ -2,9 +2,22 @@
     display: flex;
     flex-grow: 1;
 
+
+    &:hover {
+        .product__container {
+            background: #fff;
+            box-shadow: 0 10px 10px $shadow-gray;
+            transition: box-shadow .2s ease;
+        }
+        a.thumbnail {
+            background: $white;
+        }
+    }
+
     &__container {
         width: 100%;
         padding-bottom: 4rem;
+        background: $bg-gray;
     }
 
     &__action {
@@ -18,5 +31,46 @@
     &.slick-slide {
         display: flex;
         height: auto;
+    }
+
+    .catalog-price__price-value {
+        font-weight: bold;
+    }
+
+    .product__action {
+        left: 1rem;
+        right: unset;
+
+        .button {
+            background-color: transparent;
+            color: $black;
+            padding: 0.2rem 0;
+            &:hover {
+                color: $font-gray;
+            }
+        }
+
+    }
+}
+
+a.thumbnail {
+    box-shadow: none;
+    border: none;
+    background: $bg-gray;
+    &:hover {
+        box-shadow: none;
+    }
+}
+
+a.thumbnail.__preview-image--small {
+    height: 4.375rem;
+    &:hover {
+        background: $white;
+        box-shadow: 0 5px 5px $shadow-gray;
+        transition: box-shadow .2s ease;
+    }
+    img {
+        max-width: 90%;
+        max-height: 90%;
     }
 }

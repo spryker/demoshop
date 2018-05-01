@@ -1,6 +1,6 @@
 {% set modifier = productLabelTransfer.getFrontEndReference() | default(null) %}
 
-<span class="product-label-flag">
+<span class="product-label-flag no-display">
     <span class="product-label-flag__content {% if modifier %}product-label-flag__content--{{ modifier }}{% endif %}">
         {{ productLabelTransfer.getName() }}
     </span>

@@ -1,0 +1,60 @@
+.button.success.button--add-to-cart {
+    background-color: $btn-success;
+    color: $white;
+    border-radius: 3px;
+}
+
+select.select--gray {
+    background: $bg-light-gray;
+    border: none;
+    border-bottom: 2px solid #737373;
+}
+
+.viewer {
+    display: flex;
+    &__item--left {
+        width: 20%;
+    }
+    &__item--right {
+        order: 2;
+        width: 75%;
+    }
+    &__switch {
+        max-width: 100%;
+        padding-left: 0;
+        margin-bottom: .5rem;
+    }
+    &__switchers {
+        padding-left: 0;
+    }
+
+    .thumbnail {
+        box-shadow: none;
+        border: none;
+        background: $bg-gray;
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    .thumbnail.__preview-image--small {
+        height: 4.375rem;
+        &:hover {
+            background: $white;
+            box-shadow: 0 5px 5px $shadow-gray;
+            transition: box-shadow .2s ease;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    }
+
+}
+
+.row .__direction-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+    margin-left: 0;
+}

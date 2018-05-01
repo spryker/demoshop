@@ -15,6 +15,7 @@
 @import 'layout';
 @import 'nojs';
 @import 'preview-languages';
+@import 'foundation-reset';
 
 // components
 
@@ -33,3 +34,6 @@
 @import '../components/product-label/product-label';
 @import '../components/product/product';
 @import '../components/product-review/summary/product-review';
+@import "../components/header/header";
+@import "../components/main-page/main-page";
+@import "../components/product-detail-page/product-detail-page";

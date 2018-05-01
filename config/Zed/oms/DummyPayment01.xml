@@ -98,7 +98,7 @@
         <events>
             <event name="authorize" onEnter="true"/>
             <event name="pay" manual="true" timeout="1 hour" command="DummyPayment/Pay"/>
-            <event name="export" onEnter="true" manual="true" command="Oms/SendOrderConfirmation"/>
+            <event name="export" onEnter="true" manual="true" command="Oms/SendSmsConfirmation"/>
             <event name="ship" manual="true" command="Oms/SendOrderShipped"/>
             <event name="stock-update" manual="true"/>
             <event name="close" manual="true" timeout="1 hour"/>

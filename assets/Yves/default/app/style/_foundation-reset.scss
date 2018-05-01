@@ -1,0 +1,22 @@
+.callout {
+    border: none;
+}
+
+.__toggler-target {
+    .callout {
+        background: $bg-gray;
+    }
+}
+
+.no-display {
+    display: none !important;
+}
+
+.menu {
+    background: $bg-gray;
+}
+
+.thumbnail {
+    border: none;
+    box-shadow: none;
+}

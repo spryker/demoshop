@@ -32,12 +32,12 @@
         {% block page_start %}{% endblock %}
         <header>
             <div class="row">
-                <div class="small-12 columns">
+                <div class="small-12 columns header--flex">
                     <div class="callout">
                         <div class="row align-middle align-justify">
                             <div class="small-7 large-5 xlarge-6 columns">
-                                <a href="{{ path('home') }}">
-                                    <img src="/assets/default/img/logo.svg" />
+                                <a class="logo" href="{{ path('home') }}">
+                                    <img src="/assets/default/img/logo.png" />
                                 </a>
                             </div>
                             {% block header %}
@@ -85,11 +85,7 @@
                 {% endblock %}
 
                 <div class="small-12 columns text-center">
-                    <p class="callout">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                        <br>Aenean commodo ligula eget dolor. Aenean massa.
-                        <br>&copy; ACME Company
-                    </p>
+                    <p class="callout">&copy; Spryker Shop</p>
                 </div>
             </div>
 

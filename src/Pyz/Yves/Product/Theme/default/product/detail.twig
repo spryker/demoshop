@@ -45,9 +45,9 @@
 
 {% block content %}
     <div class="row">
-        <div class="small-12 medium-6 xlarge-7 xxlarge-8 columns">
-            <div class="callout text-center" data-component="viewer">
-                <div class="row show-for-xlarge">
+        <div class="small-12 medium-6 xlarge-6 xxlarge-6 columns">
+            <div class="text-center viewer viewer--horizontal" data-component="viewer">
+                <div class="row viewer__item viewer__item--right">
                     <div class="small-12 columns">
                         <div class="__image-viewer-inline">
                             {% for image in product.images %}
@@ -62,11 +62,11 @@
 
                     </div>
                 </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        <div class="row">
+                <div class="row viewer__item viewer__item--left">
+                    <div class="small-12 columns viewer__swithers">
+                        <div class="row __direction-column">
                             {% for image in product.images %}
-                                <a class="small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.externalUrlLarge }}" target="_blank" data-viewer-show="{{ image.externalUrlLarge }}">
+                                <a class="viewer__switch small-6 medium-6 large-6 xlarge-expand columns" href="{{ image.externalUrlLarge }}" target="_blank" data-viewer-show="{{ image.externalUrlLarge }}">
                                     <span class="thumbnail __preview-image __preview-image--small __no-margin-bottom">
                                         <img src="{{ image.externalUrlLarge }}">
                                     </span>
@@ -111,7 +111,7 @@
                         <div class="small-4 xlarge-3 columns __no-margin-bottom">
                             <label>
                                 {{ 'cart.item_quantity' | trans }}
-                                <select name="quantity" class="__no-margin-bottom">
+                                <select class="select--gray" name="quantity" class="__no-margin-bottom">
                                     {% for index in 1..10 %}
                                         <option value="{{ index }}">{{ index }}</option>
                                     {% endfor %}
@@ -121,7 +121,7 @@
                         </div>
 
                         <div class="small-8 xlarge-9 columns">
-                            <button type="submit" class="button expanded success __no-margin-bottom js-add-to-cart-button" {{ (not product.isVariant or not product.available or product.price is null) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
+                            <button type="submit" class="button button--add-to-cart expanded success js-add-to-cart-button" {{ (not product.isVariant or not product.available or product.price is null) ? 'disabled' : '' }} onclick="this.form.submit(); this.disabled='disabled'; return false;">
                                 <i class="fa fa-cart-plus"></i>{{ 'page.detail.add-to-cart' | trans }}
                             </button>
                         </div>

@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Application;
 
 use Pyz\Shared\Application\Business\Routing\SilexRouter;
+use Pyz\Yves\AlexaBot\Plugin\Provider\AlexaBotControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
@@ -202,6 +203,7 @@ class YvesBootstrap
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
+            new AlexaBotControllerProvider($isSsl),
         ];
     }
 }

@@ -25,27 +25,27 @@
             {% endblock %}
         {% endif %}
         <p class="__no-margin-bottom">
-            <strong>{{ name  }}</strong>
+            <span>{{ name  }}</span>
         </p>
 
-        {% if averageRating %}
-            {% include '@ProductReview/partials/read-only-rating.twig' with {'rating': averageRating } %}
-        {% elseif idProductAbstract %}
-            {% block productReview %}
-                {{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}
-            {% endblock %}
-        {% endif %}
+        {#{% if averageRating %}#}
+            {#{% include '@ProductReview/partials/read-only-rating.twig' with {'rating': averageRating } %}#}
+        {#{% elseif idProductAbstract %}#}
+            {#{% block productReview %}#}
+                {#{{ spyProductAbstractReview(idProductAbstract, '@ProductReview/partials/product-rating.twig') }}#}
+            {#{% endblock %}#}
+        {#{% endif %}#}
 
         <p>
             {% if originalPrice %}
                 <span class="catalog-price__price-original">{{ originalPrice | money }}</span>
                 <span class="catalog-price__price-reduced">{{ priceValue | money }}</span>
             {% elseif priceValue %}
-                {{ priceValue | money }}
+                <div class="catalog-price__price-value">{{ priceValue | money }}</div>
             {% endif %}
         </p>
         <div class="product__action">
-            <a class="button expanded" href="{{ detailsUrl }}">{{ 'product.view' | trans }} &raquo;</a>
+            <a class="button expanded" href="{{ detailsUrl }}">{#{{ 'product.view' | trans }}#}Show details</a>
         </div>
     </div>
 </div>
