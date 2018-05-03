@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "3be72b4bd44f703b80eac30589bfd33a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-249-multiple-shopping-lists",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "02d1b2bde13112f2bff55fd054a0dc1358960c75"
+                "reference": "0335d922984a56bff4ba2b2d838039657fdaad50"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2314,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-25T16:55:30+00:00"
+            "time": "2018-05-03T10:24:13+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5478,7 +5478,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7126,7 +7126,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7145,12 +7145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "8a68f360a859598bd3b10f7b2ad094271c641edc"
+                "reference": "6725dfab52743f5704549b4758fd2df3478b69ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/8a68f360a859598bd3b10f7b2ad094271c641edc",
-                "reference": "8a68f360a859598bd3b10f7b2ad094271c641edc",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/6725dfab52743f5704549b4758fd2df3478b69ec",
+                "reference": "6725dfab52743f5704549b4758fd2df3478b69ec",
                 "shasum": ""
             },
             "require": {
@@ -7188,7 +7188,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-02-12T13:54:28+00:00"
+            "time": "2018-04-26T09:44:47+00:00"
         },
         {
             "name": "spryker/code-generator",
@@ -7237,12 +7237,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "873f191feae7115e0fd6476a3f757fe2bbd04986"
+                "reference": "b67dfa098fb428c25b4262f88b02ce47f457b9f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/873f191feae7115e0fd6476a3f757fe2bbd04986",
-                "reference": "873f191feae7115e0fd6476a3f757fe2bbd04986",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b67dfa098fb428c25b4262f88b02ce47f457b9f3",
+                "reference": "b67dfa098fb428c25b4262f88b02ce47f457b9f3",
                 "shasum": ""
             },
             "require": {
@@ -7280,7 +7280,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-04-25T08:23:54+00:00"
+            "time": "2018-05-03T09:50:00+00:00"
         },
         {
             "name": "spryker/git-hook",
