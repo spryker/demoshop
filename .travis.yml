@@ -10,24 +10,24 @@ env:
 matrix:
   fast_finish: true
   include:
-     - php: "7.1"
-       env:
-          - TEST_GROUP=without-acceptance
-          - ON_EVENTS=cron,push
-     - php: "7.2"
-       env:
-          - TEST_GROUP=without-acceptance
-          - ON_EVENTS=cron,push
-          - DB=mysql
-     - php: "7.1"
-       env:
-          - TEST_GROUP=acceptance
-          - ON_EVENTS=push,cron
-     - php: "7.2"
-       env:
-          - TEST_GROUP=acceptance
-          - ON_EVENTS=push,cron
-          - DB=mysql
+    - php: "7.1"
+      env:
+        - TEST_GROUP=without-acceptance
+        - ON_EVENTS=cron,push
+    - php: "7.2"
+      env:
+        - TEST_GROUP=without-acceptance
+        - ON_EVENTS=cron,push
+        - DB=mysql
+    - php: "7.1"
+      env:
+        - TEST_GROUP=acceptance
+        - ON_EVENTS=push,cron
+    - php: "7.2"
+      env:
+        - TEST_GROUP=acceptance
+        - ON_EVENTS=push,cron
+        - DB=mysql
     - php: "7.2"
       env:
         - VALIDATION=1
