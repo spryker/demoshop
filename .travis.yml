@@ -116,7 +116,6 @@ script:
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
 
   - if [[ $VALIDATION == 1 ]] ; then ./tests/travis_check_untracked.sh ; fi
-  - if [[ $VALIDATION == 1 ]] ; then exit ; fi
 
   - vendor/bin/phantomjs --webdriver=4444 &
 
