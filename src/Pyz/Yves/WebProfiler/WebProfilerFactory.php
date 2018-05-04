@@ -12,7 +12,7 @@ use Spryker\Yves\Kernel\AbstractFactory;
 class WebProfilerFactory extends AbstractFactory
 {
     /**
-     * @return \Silex\ServiceProviderInterface[]|\Silex\ControllerProviderInterface[]
+     * @return \Silex\ServiceProviderInterface[]
      */
     public function getWebProfiler()
     {
