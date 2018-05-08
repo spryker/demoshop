@@ -872,16 +872,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.44",
+            "version": "1.0.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "168dbe519737221dc87d17385cde33073881fd02"
+                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/168dbe519737221dc87d17385cde33073881fd02",
-                "reference": "168dbe519737221dc87d17385cde33073881fd02",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
+                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
                 "shasum": ""
             },
             "require": {
@@ -952,7 +952,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-04-06T09:58:14+00:00"
+            "time": "2018-05-07T08:44:23+00:00"
         },
         {
             "name": "mandrill/mandrill",
@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "103f1edb635de7ca388826fa748d606b62111293"
+                "reference": "99ea58fca33a51641fb76fe3b64570a1d464e1c3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2314,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-02T07:02:24+00:00"
+            "time": "2018-05-08T08:26:37+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5267,16 +5267,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "8a85ce76298c8a8941f912b8fa3ee93ca17d2ebc"
+                "reference": "183069866dc477fcfbac393ed486aaa6d93d19a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/8a85ce76298c8a8941f912b8fa3ee93ca17d2ebc",
-                "reference": "8a85ce76298c8a8941f912b8fa3ee93ca17d2ebc",
+                "url": "https://api.github.com/repos/nette/utils/zipball/183069866dc477fcfbac393ed486aaa6d93d19a5",
+                "reference": "183069866dc477fcfbac393ed486aaa6d93d19a5",
                 "shasum": ""
             },
             "require": {
@@ -5345,7 +5345,7 @@
                 "utility",
                 "validation"
             ],
-            "time": "2018-02-19T14:42:42+00:00"
+            "time": "2018-05-02T17:16:08+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -7244,12 +7244,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "e91ea8020533ff6388981921151aa792a9dfc3ce"
+                "reference": "b67dfa098fb428c25b4262f88b02ce47f457b9f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/e91ea8020533ff6388981921151aa792a9dfc3ce",
-                "reference": "e91ea8020533ff6388981921151aa792a9dfc3ce",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b67dfa098fb428c25b4262f88b02ce47f457b9f3",
+                "reference": "b67dfa098fb428c25b4262f88b02ce47f457b9f3",
                 "shasum": ""
             },
             "require": {
@@ -7287,7 +7287,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-04-25T17:47:23+00:00"
+            "time": "2018-05-03T09:50:00+00:00"
         },
         {
             "name": "spryker/git-hook",
