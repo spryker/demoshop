@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "c76a8815b3c3cb8ebecbde8145b030f4",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,11 +2053,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-eco/remove-core-payolution",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5ed8342ce669d7e80432fdb5948d500471a75d70"
+                "reference": "8d553e9e57d6b4d7359b55f2a5c1c1bd5caf2eb7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2182,7 +2182,6 @@
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
                 "spryker/payment-cart-connector": "*",
-                "spryker/payolution": "*",
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
@@ -2315,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-09T13:09:48+00:00"
+            "time": "2018-05-14T10:04:16+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
