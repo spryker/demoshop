@@ -147,8 +147,10 @@ class DataImportBusinessFactory extends SprykerDataImportBusinessFactory
             ->addDataImporter($this->createConcreteGiftCardConfigurationImporter())
             ->addDataImporter($this->createNavigationNodeImporter())
             ->addDataImporter($this->createDiscountAmountImporter())
-            ->addDataImporter($this->createProductCustomerPermissionImporter())
-            ->addDataImporter($this->createCompanySupplierImporter());
+            ->addDataImporter($this->createCompanySupplierImporter())
+            ->addDataImporter($this->createProductCustomerPermissionImporter());
+
+        $dataImporterCollection->addDataImporterPlugins($this->getDataImporterPlugins());
 
         return $dataImporterCollection;
     }

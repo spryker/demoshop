@@ -57,7 +57,7 @@ class SubmitController extends AbstractController
      *
      * @return bool Returns true if the review was posted
      */
-    protected function processProductReviewForm(FormInterface $form, CustomerTransfer $customer = null)
+    protected function processProductReviewForm(FormInterface $form, ?CustomerTransfer $customer = null)
     {
         if (!$form->isSubmitted()) {
             return false;
