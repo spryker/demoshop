@@ -17,7 +17,7 @@ class AddAllAvailableProductsToCartFormDataProvider
      *
      * @return array
      */
-    public function getData(WishlistOverviewResponseTransfer $wishlistOverviewResponseTransfer = null)
+    public function getData(?WishlistOverviewResponseTransfer $wishlistOverviewResponseTransfer = null)
     {
         $data = [
             AddAllAvailableProductsToCartFormType::WISHLIST_ITEM_META_COLLECTION => $this->getWishlistItemMetaCollection($wishlistOverviewResponseTransfer),
@@ -31,7 +31,7 @@ class AddAllAvailableProductsToCartFormDataProvider
      *
      * @return \Generated\Shared\Transfer\WishlistItemMetaTransfer[]
      */
-    protected function getWishlistItemMetaCollection(WishlistOverviewResponseTransfer $wishlistOverviewResponseTransfer = null)
+    protected function getWishlistItemMetaCollection(?WishlistOverviewResponseTransfer $wishlistOverviewResponseTransfer = null)
     {
         if (!$wishlistOverviewResponseTransfer) {
             return [];

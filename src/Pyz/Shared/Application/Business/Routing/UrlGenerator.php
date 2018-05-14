@@ -32,7 +32,7 @@ class UrlGenerator extends SymfonyUrlGenerator
      * @param \Symfony\Component\Routing\RequestContext $context
      * @param \Psr\Log\LoggerInterface|null $logger
      */
-    public function __construct(Pimple $app, RouteCollection $routes, RequestContext $context, LoggerInterface $logger = null)
+    public function __construct(Pimple $app, RouteCollection $routes, RequestContext $context, ?LoggerInterface $logger = null)
     {
         parent::__construct($routes, $context, $logger);
 

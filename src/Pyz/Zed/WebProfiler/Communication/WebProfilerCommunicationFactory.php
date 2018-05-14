@@ -16,7 +16,7 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 class WebProfilerCommunicationFactory extends AbstractCommunicationFactory
 {
     /**
-     * @return \Silex\ServiceProviderInterface[]|\Silex\ControllerProviderInterface[]
+     * @return \Silex\ServiceProviderInterface[]
      */
     public function getWebProfiler()
     {
