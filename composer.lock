@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0c8502e22a0dd0b49d9276d7cd6797c",
+    "content-hash": "c7218f9611696b60c9f79e821496c495",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -52,6 +52,54 @@
             ],
             "description": "Braintree PHP Client Library",
             "time": "2016-07-18T21:55:50+00:00"
+        },
+        {
+            "name": "codeitnowin/barcode",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeitnowin/barcode-generator.git",
+                "reference": "6b9f5a7248912d63dd0770096b45319b97262acc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeitnowin/barcode-generator/zipball/6b9f5a7248912d63dd0770096b45319b97262acc",
+                "reference": "6b9f5a7248912d63dd0770096b45319b97262acc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CodeItNow\\": "CodeItNow/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akhtar Khan",
+                    "email": "er.akhtarkhan@gmail.com"
+                }
+            ],
+            "description": "Barcode & Qr Code generator library by http://www.codeitnow.in. You can use it with Custom PHP application or any PHP Framework such as Laravel, Cakephp, Yii, Codeigneter etc.",
+            "homepage": "http://www.codeitnow.in",
+            "keywords": [
+                "Symfony2",
+                "barcode",
+                "cakephp",
+                "code",
+                "generator",
+                "laravel",
+                "qr",
+                "qrcode",
+                "symfony"
+            ],
+            "time": "2018-03-08T11:07:09+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -2057,7 +2105,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2b61f7ad9159cae78920485d4cc702066d48079a"
+                "reference": "e06519f0fdad060235f91759b02295e634ed4011"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2302,7 +2350,8 @@
             "autoload": {
                 "files": [
                     "autoload.php",
-                    "Bundles/Config/src/Spryker/Shared/Config.php"
+                    "Bundles/Config/src/Spryker/Shared/Config.php",
+                    "Bundles/Development/tests/dd.php"
                 ]
             },
             "scripts": {
@@ -2314,7 +2363,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-06T21:03:25+00:00"
+            "time": "2018-05-14T09:19:33+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5478,7 +5527,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7126,7 +7175,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
