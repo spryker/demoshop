@@ -253,7 +253,7 @@ class WishlistController extends AbstractController
      *
      * @return \Symfony\Component\Form\FormInterface
      */
-    protected function createAddAllAvailableProductsToCartForm(WishlistOverviewResponseTransfer $wishlistOverviewResponse = null)
+    protected function createAddAllAvailableProductsToCartForm(?WishlistOverviewResponseTransfer $wishlistOverviewResponse = null)
     {
         $addAllAvailableProductsToCartFormDataProvider = $this->getFactory()->createAddAllAvailableProductsToCartFormDataProvider();
         $addAllAvailableProductsToCartForm = $this->getFactory()->getAddAllAvailableProductsToCartForm(

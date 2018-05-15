@@ -154,7 +154,7 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     public function narrowDownOptions(
         ArrayObject $items,
         array $itemAttributesBySku,
-        array $selectedAttributes = null
+        ?array $selectedAttributes = null
     ) {
 
         if (count($selectedAttributes) === 0) {

@@ -34,7 +34,6 @@ class ProductPriceWriterStep implements DataImportStepInterface
 
     const KEY_PRICE_NET = 'value_net';
     const KEY_PRICE_GROSS = 'value_gross';
-
     const KEY_COMPANY = 'company';
 
     /**
