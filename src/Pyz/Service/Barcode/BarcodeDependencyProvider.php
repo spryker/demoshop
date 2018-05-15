@@ -13,7 +13,7 @@ use Spryker\Service\CodeItNow\Plugin\Code128BarcodeGeneratorPlugin;
 class BarcodeDependencyProvider extends SprykerDependencyProvider
 {
     /**
-     * @return array
+     * @return \Spryker\Service\BarcodeExtension\Dependency\Plugin\BarcodeGeneratorPluginInterface[]
      */
     protected function getBarcodeGeneratorPlugins(): array
     {
