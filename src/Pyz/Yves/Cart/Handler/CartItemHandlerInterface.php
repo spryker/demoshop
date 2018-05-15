@@ -45,5 +45,5 @@ interface CartItemHandlerInterface
      *
      * @return array
      */
-    public function narrowDownOptions(ArrayObject $items, array $itemAttributesBySku, array $selectedAttributes = null);
+    public function narrowDownOptions(ArrayObject $items, array $itemAttributesBySku, ?array $selectedAttributes = null);
 }
