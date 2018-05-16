@@ -17,7 +17,6 @@ use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
-use Spryker\Shared\Payolution\PayolutionConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
@@ -98,7 +97,6 @@ $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '';
  * In production you probably use a CDN for static content
  */
 $config[ApplicationConstants::HOST_YVES]
-    = $config[PayolutionConstants::HOST_YVES]
     = $config[NewsletterConstants::HOST_YVES]
     = $config[ApplicationConstants::HOST_STATIC_ASSETS]
     = $config[ApplicationConstants::HOST_STATIC_MEDIA]
