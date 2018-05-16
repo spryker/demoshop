@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.56.0",
+            "version": "3.56.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ae1ee1d4c8a5c571afc6e33e210297e44c1ed2ea"
+                "reference": "933bc65b9f8e4d88e0bf4635d9476c2766eee743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ae1ee1d4c8a5c571afc6e33e210297e44c1ed2ea",
-                "reference": "ae1ee1d4c8a5c571afc6e33e210297e44c1ed2ea",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/933bc65b9f8e4d88e0bf4635d9476c2766eee743",
+                "reference": "933bc65b9f8e4d88e0bf4635d9476c2766eee743",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-05-14T21:08:08+00:00"
+            "time": "2018-05-15T18:32:36+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -8260,16 +8260,16 @@
         },
         {
             "name": "spryker/offer",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/offer.git",
-                "reference": "1f45141de2867fa5de7fefeeb4dc43f7707eb88c"
+                "reference": "5f79581e594ae1dcef432ec1acff1e2d1cae4b4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/offer/zipball/1f45141de2867fa5de7fefeeb4dc43f7707eb88c",
-                "reference": "1f45141de2867fa5de7fefeeb4dc43f7707eb88c",
+                "url": "https://api.github.com/repos/spryker/offer/zipball/5f79581e594ae1dcef432ec1acff1e2d1cae4b4d",
+                "reference": "5f79581e594ae1dcef432ec1acff1e2d1cae4b4d",
                 "shasum": ""
             },
             "require": {
@@ -8315,7 +8315,7 @@
                 "proprietary"
             ],
             "description": "Offer module",
-            "time": "2018-04-23T06:03:01+00:00"
+            "time": "2018-05-15T09:25:02+00:00"
         },
         {
             "name": "spryker/offer-extension",
@@ -8358,16 +8358,16 @@
         },
         {
             "name": "spryker/offer-gui",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/offer-gui.git",
-                "reference": "56852ccfd5175b2addfec4961c0dc65436216c8a"
+                "reference": "2f50be550c84ef50ff29ef0f232f4541efbbac02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/offer-gui/zipball/56852ccfd5175b2addfec4961c0dc65436216c8a",
-                "reference": "56852ccfd5175b2addfec4961c0dc65436216c8a",
+                "url": "https://api.github.com/repos/spryker/offer-gui/zipball/2f50be550c84ef50ff29ef0f232f4541efbbac02",
+                "reference": "2f50be550c84ef50ff29ef0f232f4541efbbac02",
                 "shasum": ""
             },
             "require": {
@@ -8416,7 +8416,7 @@
                 "proprietary"
             ],
             "description": "OfferGui module",
-            "time": "2018-04-23T06:10:58+00:00"
+            "time": "2018-05-15T10:45:44+00:00"
         },
         {
             "name": "spryker/oms",
