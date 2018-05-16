@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cf9866d979b01e663cb73913266b817",
+    "content-hash": "d77838a32cdb09f52713eb7281de7e28",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -8612,68 +8612,6 @@
             ],
             "description": "Payment cart connector module",
             "time": "2017-08-25T12:27:25+00:00"
-        },
-        {
-            "name": "spryker/payolution",
-            "version": "4.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/payolution.git",
-                "reference": "665b04401583541905aea2f30545608cff3363d2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/payolution/zipball/665b04401583541905aea2f30545608cff3363d2",
-                "reference": "665b04401583541905aea2f30545608cff3363d2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "spryker/checkout": "^3.0.0 || ^4.0.0",
-                "spryker/glossary": "^3.0.0",
-                "spryker/gui": "^3.0.0",
-                "spryker/guzzle": "^2.1.0",
-                "spryker/kernel": "^3.0.0",
-                "spryker/mail": "^4.0.0",
-                "spryker/money": "^2.0.0",
-                "spryker/oms": "^6.0.0 || ^7.0.0 || ^8.0.0",
-                "spryker/payment": "^3.0.0 || ^4.0.0",
-                "spryker/propel-orm": "^1.0.0",
-                "spryker/sales": "^6.0.0 || ^7.0.0 || ^8.0.0",
-                "spryker/session": "^3.0.0",
-                "spryker/step-engine": "^2.0.0 || ^3.0.0",
-                "spryker/symfony": "^3.0.0",
-                "spryker/util-text": "^1.1.0",
-                "spryker/zed-request": "^3.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/country": "*",
-                "spryker/customer": "*",
-                "spryker/propel": "*",
-                "spryker/silex": "*",
-                "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/sales": "If you want to use Oms command plugins."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "Payolution module",
-            "time": "2018-02-19T12:41:14+00:00"
         },
         {
             "name": "spryker/permission",
