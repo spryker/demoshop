@@ -68,7 +68,6 @@
     "spryker/git-hook": "dev-master",
 
     "codeception/codeception": "~2.3.8",
-    "codeception/stub": "1.0.2",
     "facebook/webdriver": "~1.3.0",
     "pdepend/pdepend": "^2.2.2",
     "phpmd/phpmd": "^2.4",
