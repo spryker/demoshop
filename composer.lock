@@ -2105,7 +2105,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9d1fded5a604cd3f59c4bfcfe48dbee320dcd1a4"
+                "reference": "5a6a61ff68c72a7350cb596d8b8aaed1ba7013fb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2362,7 +2362,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-16T13:13:51+00:00"
+            "time": "2018-05-17T08:36:00+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4651,16 +4651,16 @@
         },
         {
             "name": "codeception/stub",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Stub.git",
-                "reference": "95fb7a36b81890dd2e5163e7ab31310df6f1bb99"
+                "reference": "36981f59f7a29180aa8fecd0a4dc6250a2cc5fb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Stub/zipball/95fb7a36b81890dd2e5163e7ab31310df6f1bb99",
-                "reference": "95fb7a36b81890dd2e5163e7ab31310df6f1bb99",
+                "url": "https://api.github.com/repos/Codeception/Stub/zipball/36981f59f7a29180aa8fecd0a4dc6250a2cc5fb1",
+                "reference": "36981f59f7a29180aa8fecd0a4dc6250a2cc5fb1",
                 "shasum": ""
             },
             "require": {
@@ -4680,7 +4680,7 @@
                 "MIT"
             ],
             "description": "Flexible Stub wrapper for PHPUnit's Mock Builder",
-            "time": "2018-02-18T13:56:56+00:00"
+            "time": "2018-05-16T17:03:58+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -5533,7 +5533,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7181,7 +7181,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
