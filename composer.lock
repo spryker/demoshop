@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
+    "content-hash": "480b8f7884ae7f5480e39d6edc366bf8",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1556,7 +1556,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2101,11 +2101,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-169-offers-zed-suggest-offer-cache-issue",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5a6a61ff68c72a7350cb596d8b8aaed1ba7013fb"
+                "reference": "d1716c6cfc0e9f486973c6ca1f5a15fc7216753b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2230,6 +2230,7 @@
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
                 "spryker/payment-cart-connector": "*",
+                "spryker/payolution": "*",
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
@@ -2349,8 +2350,7 @@
             "autoload": {
                 "files": [
                     "autoload.php",
-                    "Bundles/Config/src/Spryker/Shared/Config.php",
-                    "Bundles/Development/tests/dd.php"
+                    "Bundles/Config/src/Spryker/Shared/Config.php"
                 ]
             },
             "scripts": {
@@ -2362,7 +2362,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-17T08:36:00+00:00"
+            "time": "2018-04-27T14:16:25+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4937,12 +4937,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/bootstrap.git",
-                "reference": "a64071253a70fb31ca31762763f993859ff0b691"
+                "reference": "268816e3f1bb7426c3a4ceec2bd38a036b532543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/bootstrap/zipball/a64071253a70fb31ca31762763f993859ff0b691",
-                "reference": "a64071253a70fb31ca31762763f993859ff0b691",
+                "url": "https://api.github.com/repos/nette/bootstrap/zipball/268816e3f1bb7426c3a4ceec2bd38a036b532543",
+                "reference": "268816e3f1bb7426c3a4ceec2bd38a036b532543",
                 "shasum": ""
             },
             "require": {
@@ -5005,7 +5005,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-16T11:51:51+00:00"
+            "time": "2018-05-17T12:52:20+00:00"
         },
         {
             "name": "nette/di",
@@ -7181,7 +7181,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
