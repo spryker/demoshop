@@ -2105,7 +2105,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d1716c6cfc0e9f486973c6ca1f5a15fc7216753b"
+                "reference": "d8b1b45919bf03f1d9982e4dccb1b16b8c04599b"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2230,7 +2230,6 @@
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
                 "spryker/payment-cart-connector": "*",
-                "spryker/payolution": "*",
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
@@ -2350,7 +2349,8 @@
             "autoload": {
                 "files": [
                     "autoload.php",
-                    "Bundles/Config/src/Spryker/Shared/Config.php"
+                    "Bundles/Config/src/Spryker/Shared/Config.php",
+                    "Bundles/Development/tests/dd.php"
                 ]
             },
             "scripts": {
@@ -2362,7 +2362,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-04-27T14:16:25+00:00"
+            "time": "2018-05-22T12:41:16+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
