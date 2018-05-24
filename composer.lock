@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
+    "content-hash": "949ddb395d406764a17a785c8caa4575",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1943,16 +1943,16 @@
         },
         {
             "name": "spryker/event-behavior",
-            "version": "dev-master",
+            "version": "dev-feature/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "fe7334cd79641006ca45fa360f7d1f0564321345"
+                "reference": "61d35622c02f620325bf340932e8a24c9d5836e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/fe7334cd79641006ca45fa360f7d1f0564321345",
-                "reference": "fe7334cd79641006ca45fa360f7d1f0564321345",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/61d35622c02f620325bf340932e8a24c9d5836e5",
+                "reference": "61d35622c02f620325bf340932e8a24c9d5836e5",
                 "shasum": ""
             },
             "require": {
@@ -1995,7 +1995,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-04-24T10:56:37+00:00"
+            "time": "2018-05-16T14:52:37+00:00"
         },
         {
             "name": "spryker/install",
@@ -2043,23 +2043,24 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "dev-master",
+            "version": "dev-feature/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f"
+                "reference": "186eada7744da79852573085c35e453be676cb06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/186eada7744da79852573085c35e453be676cb06",
+                "reference": "186eada7744da79852573085c35e453be676cb06",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "php-amqplib/php-amqplib": "^2.6",
                 "spryker/kernel": "^3.0.0",
-                "spryker/queue": "^1.0.0",
+                "spryker/queue": "^1.2.0",
+                "spryker/store": "^1.6.0",
                 "spryker/transfer": "^3.3.4"
             },
             "require-dev": {
@@ -2097,15 +2098,15 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26T13:26:48+00:00"
+            "time": "2018-03-06T10:17:47+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5a6a61ff68c72a7350cb596d8b8aaed1ba7013fb"
+                "reference": "b6c2b3def4dbbaa11a2757a7e125da89ff0c2c4a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2362,20 +2363,20 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-17T08:36:00+00:00"
+            "time": "2018-05-24T09:51:00+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
-            "version": "dev-master",
+            "version": "dev-feature/core-2793-2977-pub-and-syn-multi-store",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "4729e470bd1c1c4b8aed3a94b0a44003485684d7"
+                "reference": "c91cca3b2f846959ed5c4090891b4e9e9dceec7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/4729e470bd1c1c4b8aed3a94b0a44003485684d7",
-                "reference": "4729e470bd1c1c4b8aed3a94b0a44003485684d7",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/c91cca3b2f846959ed5c4090891b4e9e9dceec7d",
+                "reference": "c91cca3b2f846959ed5c4090891b4e9e9dceec7d",
                 "shasum": ""
             },
             "require": {
@@ -2384,10 +2385,12 @@
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
+                "spryker/queue": "^1.2.0",
                 "spryker/synchronization": "^0.1.0 || ^0.2.0"
             },
             "suggest": {
-                "spryker/synchronization": "*"
+                "spryker/queue": "Generated classes are using spryker/queue module.",
+                "spryker/synchronization": "Generated classes are using spryker/synchronization module."
             },
             "type": "propel-behavior",
             "extra": {
@@ -2407,7 +2410,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-02-26T14:04:23+00:00"
+            "time": "2018-03-06T10:11:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4937,12 +4940,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/bootstrap.git",
-                "reference": "a64071253a70fb31ca31762763f993859ff0b691"
+                "reference": "268816e3f1bb7426c3a4ceec2bd38a036b532543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/bootstrap/zipball/a64071253a70fb31ca31762763f993859ff0b691",
-                "reference": "a64071253a70fb31ca31762763f993859ff0b691",
+                "url": "https://api.github.com/repos/nette/bootstrap/zipball/268816e3f1bb7426c3a4ceec2bd38a036b532543",
+                "reference": "268816e3f1bb7426c3a4ceec2bd38a036b532543",
                 "shasum": ""
             },
             "require": {
@@ -5005,7 +5008,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-16T11:51:51+00:00"
+            "time": "2018-05-17T12:52:20+00:00"
         },
         {
             "name": "nette/di",
@@ -5501,12 +5504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "9daf26d0368d4a12bed1cacae1a9f3a6f0adf239"
+                "reference": "4388d7ba40ffc371520a7e2d754c55a66bcdb8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/9daf26d0368d4a12bed1cacae1a9f3a6f0adf239",
-                "reference": "9daf26d0368d4a12bed1cacae1a9f3a6f0adf239",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/4388d7ba40ffc371520a7e2d754c55a66bcdb8dc",
+                "reference": "4388d7ba40ffc371520a7e2d754c55a66bcdb8dc",
                 "shasum": ""
             },
             "require": {
@@ -5533,7 +5536,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7181,7 +7184,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
