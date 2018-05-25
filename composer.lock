@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
+    "content-hash": "32113ad7e5c3b26108c36a11c1d6b4a9",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2101,11 +2101,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/CORE-2663-Company-Invitation",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5a6a61ff68c72a7350cb596d8b8aaed1ba7013fb"
+                "reference": "e1ec3b47cdb4664c08cfa7907b7c01a09fbf50e8"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2362,7 +2362,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-17T08:36:00+00:00"
+            "time": "2018-05-24T15:47:05+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4937,12 +4937,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/bootstrap.git",
-                "reference": "a64071253a70fb31ca31762763f993859ff0b691"
+                "reference": "268816e3f1bb7426c3a4ceec2bd38a036b532543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/bootstrap/zipball/a64071253a70fb31ca31762763f993859ff0b691",
-                "reference": "a64071253a70fb31ca31762763f993859ff0b691",
+                "url": "https://api.github.com/repos/nette/bootstrap/zipball/268816e3f1bb7426c3a4ceec2bd38a036b532543",
+                "reference": "268816e3f1bb7426c3a4ceec2bd38a036b532543",
                 "shasum": ""
             },
             "require": {
@@ -5005,7 +5005,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-16T11:51:51+00:00"
+            "time": "2018-05-17T12:52:20+00:00"
         },
         {
             "name": "nette/di",
@@ -5533,7 +5533,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7181,7 +7181,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
