@@ -12,6 +12,7 @@
 
     "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
+    "codeitnowin/barcode": "^3.0.0",
     "guzzlehttp/guzzle": "~6.3.0",
     "league/csv": "^8.1.0",
     "filp/whoops": "^2.1",
@@ -139,9 +140,6 @@
     ],
     "phpstan": [
       "php -d memory_limit=1024M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
-    ],
-    "phpstan-core": [
-      "php -d memory_limit=3072M vendor/bin/phpstan analyze -c vendor/spryker/spryker/phpstan.neon vendor/spryker/spryker/Bundles/ -l 1"
     ],
     "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }

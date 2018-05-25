@@ -29,3 +29,5 @@ if (!function_exists('opcache_invalidate')) {
     {
     }
 }
+
+class_alias(\Pyz\Yves\Application\YvesBootstrap::class, 'Pyz\Yves\ShopApplication\YvesBootstrap');
