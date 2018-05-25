@@ -2057,7 +2057,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "658698cccb24c95b6c8526e61ba407ca815316b8"
+                "reference": "51ba70a153e8de1eec5fb026977f51dcf5f5b28c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2182,7 +2182,6 @@
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
                 "spryker/payment-cart-connector": "*",
-                "spryker/payolution": "*",
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
@@ -2315,7 +2314,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-21T07:45:59+00:00"
+            "time": "2018-05-25T10:57:30+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
