@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "32113ad7e5c3b26108c36a11c1d6b4a9",
+    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2101,11 +2101,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/CORE-2663-Company-Invitation",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c68a8b76f992d5ee21c56224c32f787465ec447e"
+                "reference": "7dba9b2d170dc59783311982107d02029c3d0857"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2263,6 +2263,7 @@
                 "spryker/product-label-storage": "*",
                 "spryker/product-management": "*",
                 "spryker/product-measurement-unit": "*",
+                "spryker/product-measurement-unit-data-import": "*",
                 "spryker/product-measurement-unit-gui": "*",
                 "spryker/product-measurement-unit-storage": "*",
                 "spryker/product-new": "*",
@@ -2272,6 +2273,7 @@
                 "spryker/product-option-storage": "*",
                 "spryker/product-page-search": "*",
                 "spryker/product-quantity": "*",
+                "spryker/product-quantity-data-import": "*",
                 "spryker/product-quantity-storage": "*",
                 "spryker/product-relation": "*",
                 "spryker/product-relation-collector": "*",
@@ -2362,7 +2364,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-28T09:18:18+00:00"
+            "time": "2018-05-28T13:42:29+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
