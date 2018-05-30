@@ -5,7 +5,7 @@ use Spryker\Shared\Collector\CollectorConstants;
 use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
-use Spryker\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\RabbitMq\RabbitMqEnv;
 use Spryker\Shared\Search\SearchConstants;
 
 // ---------- Propel
@@ -25,5 +25,5 @@ $config[QueueConstants::QUEUE_WORKER_LOG_ACTIVE] = false;
 $config[QueueConstants::QUEUE_WORKER_OUTPUT_FILE_NAME] = 'data/DE/logs/ZED/queue.out';
 
 // ---------- RabbitMQ
-$config[RabbitMqConstants::RABBITMQ_USERNAME] = 'DE_development';
-$config[RabbitMqConstants::RABBITMQ_VIRTUAL_HOST] = '/DE_development_zed';
+$config[RabbitMqEnv::RABBITMQ_CONNECTIONS]['DE'][RabbitMqEnv::RABBITMQ_DEFAULT_CONNECTION] = true;
+$config[RabbitMqEnv::RABBITMQ_API_VIRTUAL_HOST] = '/DE_development_zed';
