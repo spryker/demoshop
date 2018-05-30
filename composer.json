@@ -210,7 +210,7 @@
     "spryker/queue": "^1.0.0",
     "spryker/quote": "^2.0.0",
     "spryker/quote-extension": "^1.0.0",
-    "spryker/rabbit-mq": "^1.0.0",
+    "spryker/rabbit-mq": "^2.0.0",
     "spryker/redis": "^2.0.0",
     "spryker/refund": "^5.0.0",
     "spryker/sales": "^8.0.0",
