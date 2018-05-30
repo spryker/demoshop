@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
@@ -1598,7 +1598,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -1989,19 +1989,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "fe7334cd79641006ca45fa360f7d1f0564321345"
+                "reference": "9de73f7ebce77354f86b26ec1e2c5530b7120d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/fe7334cd79641006ca45fa360f7d1f0564321345",
-                "reference": "fe7334cd79641006ca45fa360f7d1f0564321345",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/9de73f7ebce77354f86b26ec1e2c5530b7120d7f",
+                "reference": "9de73f7ebce77354f86b26ec1e2c5530b7120d7f",
                 "shasum": ""
             },
             "require": {
                 "spryker/error-handler": "^2.1.2",
-                "spryker/event": "^2.0.0",
-                "spryker/kernel": "^3.12.0",
-                "spryker/propel-orm": "^1.0.0",
+                "spryker/event": "^2.1.0",
+                "spryker/kernel": "^3.20.0",
+                "spryker/propel-orm": "^1.6.0",
                 "spryker/symfony": "^3.1.0",
                 "spryker/util-encoding": "^2.0.0",
                 "spryker/zend": "^2.1.0"
@@ -2033,11 +2033,14 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
             "license": [
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-04-24T10:56:37+00:00"
+            "time": "2018-05-30T09:20:04+00:00"
         },
         {
             "name": "spryker/install",
@@ -2089,20 +2092,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f"
+                "reference": "0516e7c7d9be5eb11e6e9999a367f32670eecf90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
-                "reference": "3c84d57b244f9a36ada13a0b1f21ff7162d82c6f",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/0516e7c7d9be5eb11e6e9999a367f32670eecf90",
+                "reference": "0516e7c7d9be5eb11e6e9999a367f32670eecf90",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "php-amqplib/php-amqplib": "^2.6",
-                "spryker/kernel": "^3.0.0",
-                "spryker/queue": "^1.0.0",
-                "spryker/transfer": "^3.3.4"
+                "spryker/kernel": "^3.20.0",
+                "spryker/queue": "^1.1.0",
+                "spryker/store": "^1.6.0",
+                "spryker/transfer": "^3.6.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*"
@@ -2139,7 +2143,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-01-26T13:26:48+00:00"
+            "time": "2018-05-30T09:19:47+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2147,7 +2151,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7dba9b2d170dc59783311982107d02029c3d0857"
+                "reference": "7c719d9fd42016d9222b9823117d80b34af6fab7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2406,7 +2410,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-28T13:42:29+00:00"
+            "time": "2018-05-30T09:18:58+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2414,24 +2418,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "4729e470bd1c1c4b8aed3a94b0a44003485684d7"
+                "reference": "164e3761cba658720e1101d47815aa0ac6084e63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/4729e470bd1c1c4b8aed3a94b0a44003485684d7",
-                "reference": "4729e470bd1c1c4b8aed3a94b0a44003485684d7",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/164e3761cba658720e1101d47815aa0ac6084e63",
+                "reference": "164e3761cba658720e1101d47815aa0ac6084e63",
                 "shasum": ""
             },
             "require": {
-                "spryker/kernel": "^3.4.0",
-                "spryker/propel-orm": "^1.0.0",
+                "spryker/kernel": "^3.20.0",
+                "spryker/propel-orm": "^1.6.0",
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/queue": "^1.1.0",
                 "spryker/synchronization": "^0.1.0 || ^0.2.0"
             },
             "suggest": {
-                "spryker/synchronization": "*"
+                "spryker/queue": "Generated classes are using spryker/queue module.",
+                "spryker/synchronization": "Generated classes are using spryker/synchronization module."
             },
             "type": "propel-behavior",
             "extra": {
@@ -2447,11 +2454,14 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-02-26T14:04:23+00:00"
+            "time": "2018-05-30T09:19:55+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5721,12 +5731,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "9daf26d0368d4a12bed1cacae1a9f3a6f0adf239"
+                "reference": "4388d7ba40ffc371520a7e2d754c55a66bcdb8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/9daf26d0368d4a12bed1cacae1a9f3a6f0adf239",
-                "reference": "9daf26d0368d4a12bed1cacae1a9f3a6f0adf239",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/4388d7ba40ffc371520a7e2d754c55a66bcdb8dc",
+                "reference": "4388d7ba40ffc371520a7e2d754c55a66bcdb8dc",
                 "shasum": ""
             },
             "require": {
