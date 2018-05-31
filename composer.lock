@@ -2366,14 +2366,21 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "28e13cd4ae215ce41b84d541ef11f0d369c91b11"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
                 "reference": "0b65d87480fea50711d609d2433894ac922c8ef5"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
                 "reference": "5b79b55912e381e048da3d1852f2f22245b7402e"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
                 "reference": "a94d611894be62145980eb2350586364c72ff1ce"
 =======
@@ -2383,9 +2390,21 @@
                 "reference": "6caa24b25778840e065651867cc3f97a0321a307"
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+<<<<<<< HEAD
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+<<<<<<< HEAD
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+<<<<<<< HEAD
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+=======
+=======
+=======
+=======
+                "reference": "4aa2b6cdc9f343d24980729a13c2b686707d7f09"
+>>>>>>> core-4817 updated composer.lock
+>>>>>>> core-4817 updated composer.lock
+>>>>>>> core-4817 updated composer.lock
+>>>>>>> core-4817 updated composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2647,14 +2666,21 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-17T12:19:02+00:00"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
             "time": "2018-06-14T10:33:00+00:00"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
             "time": "2018-06-13T10:53:57+00:00"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
             "time": "2018-06-12T15:26:41+00:00"
 =======
@@ -2664,9 +2690,21 @@
             "time": "2018-05-29T14:10:25+00:00"
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+<<<<<<< HEAD
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+<<<<<<< HEAD
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+<<<<<<< HEAD
 >>>>>>> CORE-feature/4817-spryk-gui Composer lock
+=======
+=======
+=======
+=======
+            "time": "2018-05-31T05:00:05+00:00"
+>>>>>>> core-4817 updated composer.lock
+>>>>>>> core-4817 updated composer.lock
+>>>>>>> core-4817 updated composer.lock
+>>>>>>> core-4817 updated composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5311,6 +5349,7 @@
         },
         {
             "name": "myclabs/deep-copy",
+<<<<<<< HEAD
             "version": "1.8.1",
             "source": {
                 "type": "git",
@@ -5321,6 +5360,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+=======
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/myclabs/DeepCopy.git",
+                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/478465659fd987669df0bd8a9bf22a8710e5f1b6",
+                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
+>>>>>>> core-4817 updated composer.lock
                 "shasum": ""
             },
             "require": {
@@ -5355,7 +5406,11 @@
                 "object",
                 "object graph"
             ],
+<<<<<<< HEAD
             "time": "2018-06-11T23:09:50+00:00"
+=======
+            "time": "2018-05-29T17:25:09+00:00"
+>>>>>>> core-4817 updated composer.lock
         },
         {
             "name": "nette/bootstrap",
@@ -7620,7 +7675,15 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Sullivan Sénéchal",
+=======
+<<<<<<< HEAD
+                    "name": "Sullivan Senechal",
+=======
+                    "name": "Sullivan SENECHAL",
+>>>>>>> core-4817 updated composer.lock
+>>>>>>> core-4817 updated composer.lock
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
