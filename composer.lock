@@ -2367,8 +2367,11 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "28e13cd4ae215ce41b84d541ef11f0d369c91b11"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
@@ -2376,9 +2379,13 @@
 =======
 =======
 >>>>>>> core-4817 updated composer.lock
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
                 "reference": "5b79b55912e381e048da3d1852f2f22245b7402e"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
@@ -2401,6 +2408,11 @@
 =======
 =======
                 "reference": "4aa2b6cdc9f343d24980729a13c2b686707d7f09"
+>>>>>>> core-4817 updated composer.lock
+<<<<<<< HEAD
+=======
+=======
+                "reference": "6e094be9fdec67309e4bb13f75261e9b136afe55"
 >>>>>>> core-4817 updated composer.lock
 >>>>>>> core-4817 updated composer.lock
 >>>>>>> core-4817 updated composer.lock
@@ -2667,8 +2679,11 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-17T12:19:02+00:00"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
@@ -2676,9 +2691,13 @@
 =======
 =======
 >>>>>>> core-4817 updated composer.lock
+=======
+>>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
             "time": "2018-06-13T10:53:57+00:00"
 =======
+=======
+>>>>>>> core-4817 updated composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
 <<<<<<< HEAD
@@ -2701,6 +2720,11 @@
 =======
 =======
             "time": "2018-05-31T05:00:05+00:00"
+>>>>>>> core-4817 updated composer.lock
+<<<<<<< HEAD
+=======
+=======
+            "time": "2018-05-31T08:00:51+00:00"
 >>>>>>> core-4817 updated composer.lock
 >>>>>>> core-4817 updated composer.lock
 >>>>>>> core-4817 updated composer.lock
