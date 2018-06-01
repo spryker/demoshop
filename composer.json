@@ -191,7 +191,6 @@
     "spryker/product-new": "^1.1.1",
     "spryker/product-option": "^6.0.0",
     "spryker/product-option-cart-connector": "^5.0.0",
-    "spryker/product-quantity-data-import": "^0.1.0",
     "spryker/product-relation": "^2.0.0",
     "spryker/product-relation-collector": "^2.0.0",
     "spryker/product-review": "^2.0.0",
