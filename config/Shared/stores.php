@@ -39,12 +39,17 @@ $stores['DE'] = [
     'currencyIsoCodes' => ['EUR', 'CHF'],
     // the list of stores with which this store shares database, the value is store name.
     'storesWithSharedPersistence' => ['AT'],
+    'queuePools' => [],
 ];
 
 $stores['AT'] = [
         'storesWithSharedPersistence' => ['DE'],
     ] + $stores['DE'];
 
-$stores['US'] = $stores['DE'];
+$stores['US'] = [
+        'storesWithSharedPersistence' => [],
+    ] + $stores['DE'];
+
+// @hook travis-ci
 
 return $stores;
