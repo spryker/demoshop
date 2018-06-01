@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
+    "content-hash": "a096b50e24f5da0b9eaf87b967e86d01",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1598,7 +1598,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2147,11 +2147,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-730/master-merchant-concept",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "07e468da783794b0ef1c0be172c7d98d108cd5e6"
+                "reference": "380a3556de1c55250e30d256c4dcea0b0fbbaace"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2410,7 +2410,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-01T16:21:02+00:00"
+            "time": "2018-06-01T16:43:08+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5763,7 +5763,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7411,7 +7411,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
