@@ -12,10 +12,10 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 /**
  * @method \Pyz\Yves\Redirect\RedirectFactory getFactory()
  */
-class RedirectResourceCreator extends AbstractPlugin
+class RedirectResourcePlugin extends AbstractPlugin
 {
     /**
-     * @return \Pyz\Yves\Redirect\Plugin\RedirectResourceCreator
+     * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface
      */
     public function createRedirectResourceCreator()
     {

@@ -12,10 +12,10 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 /**
  * @method \Pyz\Yves\Category\CategoryFactory getFactory()
  */
-class CategoryResourceCreator extends AbstractPlugin
+class CategoryResourcePlugin extends AbstractPlugin
 {
     /**
-     * @return \Pyz\Yves\Category\Plugin\CategoryResourceCreator
+     * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface
      */
     public function createCategoryResourceCreator()
     {
