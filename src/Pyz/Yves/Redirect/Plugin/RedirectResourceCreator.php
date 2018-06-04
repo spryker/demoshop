@@ -15,7 +15,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 class RedirectResourceCreator extends AbstractPlugin
 {
     /**
-     * @return \Pyz\Yves\Redirect\Plugin\RedirectResourceCreator
+     * @return $this
      */
     public function createRedirectResourceCreator()
     {

@@ -15,7 +15,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 class CategoryResourceCreator extends AbstractPlugin
 {
     /**
-     * @return \Pyz\Yves\Category\Plugin\CategoryResourceCreator
+     * @return $this
      */
     public function createCategoryResourceCreator()
     {
