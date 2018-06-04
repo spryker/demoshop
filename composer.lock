@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a096b50e24f5da0b9eaf87b967e86d01",
+    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2105,11 +2105,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-730/master-merchant-concept",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "23554159aa966434e4a2661a2e53920cbd11ced0"
+                "reference": "45d7570c811aadfd261fbffbf11e2b7939a5fd65"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2368,7 +2368,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-04T08:15:21+00:00"
+            "time": "2018-06-04T10:52:16+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
