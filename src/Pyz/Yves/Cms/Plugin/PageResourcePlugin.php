@@ -5,20 +5,20 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\ProductSet\Plugin;
+namespace Pyz\Yves\Cms\Plugin;
 
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
- * @method \Pyz\Yves\ProductSet\ProductSetFactory getFactory()
+ * @method \Pyz\Yves\Cms\CmsFactory getFactory()
  */
-class ProductSetResourceCreatorPlugin extends AbstractPlugin
+class PageResourcePlugin extends AbstractPlugin
 {
     /**
      * @return \Pyz\Yves\Collector\Creator\ResourceCreatorInterface
      */
-    public function createProductSetResourceCreator()
+    public function createPageResourceCreator()
     {
-        return $this->getFactory()->createProductSetResourceCreator();
+        return $this->getFactory()->createPageResourceCreator();
     }
 }
