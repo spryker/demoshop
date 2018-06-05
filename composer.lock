@@ -1556,7 +1556,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2109,7 +2109,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "07e468da783794b0ef1c0be172c7d98d108cd5e6"
+                "reference": "c88fe7f4084d259d2c1bfbb734d7cb99d91443fd"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2368,7 +2368,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-01T16:21:02+00:00"
+            "time": "2018-06-05T21:21:50+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7256,7 +7256,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
