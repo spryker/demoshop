@@ -2109,7 +2109,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5a3a0a480701edf85d536687934cd63e82e32f1e"
+                "reference": "6518b8e0d30ed8a2a18ec162f093f3c2dc7ae1de"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2368,7 +2368,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-06T13:08:26+00:00"
+            "time": "2018-06-07T08:07:35+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5608,7 +5608,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7256,7 +7256,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7367,12 +7367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "e2eca7ee6188b0c354ff96d01d389fe8cd13b09a"
+                "reference": "5213f9bb5a2eff524e9e5a16c7e8b58dc7667617"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
-                "reference": "e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/5213f9bb5a2eff524e9e5a16c7e8b58dc7667617",
+                "reference": "5213f9bb5a2eff524e9e5a16c7e8b58dc7667617",
                 "shasum": ""
             },
             "require": {
@@ -7410,7 +7410,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-05-31T15:56:27+00:00"
+            "time": "2018-06-06T15:32:47+00:00"
         },
         {
             "name": "spryker/git-hook",
