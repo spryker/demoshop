@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b70213927dc3f9eeaf0cf7cd029d35b1",
+    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2105,11 +2105,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-4387-reintegration-manual-order-entry",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6538da6425643fd4f3548712f6edf46269ebeba3"
+                "reference": "6518b8e0d30ed8a2a18ec162f093f3c2dc7ae1de"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2368,7 +2368,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-05T08:33:28+00:00"
+            "time": "2018-06-07T08:07:35+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
