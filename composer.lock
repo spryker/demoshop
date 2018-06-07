@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e43eeee73f8064994dbb1db472aa942",
+    "content-hash": "29eb0cb09a9f865f684240ebedc3da84",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -7894,22 +7894,22 @@
         },
         {
             "name": "spryker/manual-order-entry-gui",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/manual-order-entry-gui.git",
-                "reference": "a59bebdf7f8fa17c8e71b868fe6dc7bf52d83909"
+                "reference": "ea10228ffb5a58f3aad18bce2d86671ebc4a0337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/manual-order-entry-gui/zipball/a59bebdf7f8fa17c8e71b868fe6dc7bf52d83909",
-                "reference": "a59bebdf7f8fa17c8e71b868fe6dc7bf52d83909",
+                "url": "https://api.github.com/repos/spryker/manual-order-entry-gui/zipball/ea10228ffb5a58f3aad18bce2d86671ebc4a0337",
+                "reference": "ea10228ffb5a58f3aad18bce2d86671ebc4a0337",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/calculation": "^4.2.2",
-                "spryker/cart": "^4.1.0 || ^5.0.0",
+                "spryker/cart": "^5.0.0",
                 "spryker/checkout": "^4.1.0",
                 "spryker/currency": "^3.1.0",
                 "spryker/customer": "^7.1.0",
@@ -7924,6 +7924,7 @@
                 "spryker/product": "^6.0.0",
                 "spryker/sales": "^8.1.0",
                 "spryker/shipment": "^6.1.0",
+                "spryker/store": "^1.0.0",
                 "spryker/symfony": "^3.1.0",
                 "spryker/util-text": "^1.1.0"
             },
@@ -7947,7 +7948,7 @@
                 "proprietary"
             ],
             "description": "ManualOrderEntryGui module",
-            "time": "2018-04-20T16:55:59+00:00"
+            "time": "2018-05-30T09:01:39+00:00"
         },
         {
             "name": "spryker/manual-order-entry-gui-extension",
@@ -11806,23 +11807,23 @@
         },
         {
             "name": "spryker/sales-reclamation",
-            "version": "0.2.1",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/sales-reclamation.git",
-                "reference": "8bbc3a0462453e9cbad3188aa1eff1e9ec033c88"
+                "reference": "1de516c900934ddd7fc96723b92bf5ee303776e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/sales-reclamation/zipball/8bbc3a0462453e9cbad3188aa1eff1e9ec033c88",
-                "reference": "8bbc3a0462453e9cbad3188aa1eff1e9ec033c88",
+                "url": "https://api.github.com/repos/spryker/sales-reclamation/zipball/1de516c900934ddd7fc96723b92bf5ee303776e8",
+                "reference": "1de516c900934ddd7fc96723b92bf5ee303776e8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/gui": "^3.7.0",
                 "spryker/kernel": "^3.0.0",
-                "spryker/manual-order-entry-gui": "^0.4.0",
+                "spryker/manual-order-entry-gui": "^0.5.0",
                 "spryker/sales": "^7.0.0 || ^8.0.0",
                 "spryker/sales-extension": "^1.0.0",
                 "spryker/symfony": "^3.0.0",
@@ -11853,7 +11854,7 @@
                 "proprietary"
             ],
             "description": "SalesReclamation module",
-            "time": "2018-05-08T11:59:13+00:00"
+            "time": "2018-06-04T10:26:58+00:00"
         },
         {
             "name": "spryker/sales-split",
