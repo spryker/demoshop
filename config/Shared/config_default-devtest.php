@@ -15,7 +15,7 @@ use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Propel\PropelConstants;
-use Spryker\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\RabbitMq\RabbitMqEnv;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -60,9 +60,17 @@ $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_devtest';
 
 // ---------- RabbitMq
-$config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
-$config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
-$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
+$config[RabbitMqEnv::RABBITMQ_CONNECTIONS] = [
+    'DE' => [
+        RabbitMqEnv::RABBITMQ_CONNECTION_NAME => 'DE-connection',
+        RabbitMqEnv::RABBITMQ_HOST => 'localhost',
+        RabbitMqEnv::RABBITMQ_PORT => '5672',
+        RabbitMqEnv::RABBITMQ_PASSWORD => 'mate20mg',
+        RabbitMqEnv::RABBITMQ_USERNAME => 'DE_devtest',
+        RabbitMqEnv::RABBITMQ_VIRTUAL_HOST => '/DE_devtest_zed',
+        RabbitMqEnv::RABBITMQ_STORE_NAMES => ['DE'],
+    ],
+];
 
 // ---------- Twig
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [

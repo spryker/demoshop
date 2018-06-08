@@ -19,11 +19,11 @@ class CollectorFactory extends AbstractFactory
     public function getResourceCreators()
     {
         return [
-            $this->getProductResourceCreator(),
-            $this->getCategoryResourceCreator(),
-            $this->getRedirectResourceCreator(),
-            $this->getPageResourceCreator(),
-            $this->getProductSetResourceCreator(),
+            $this->getProductResourceCreatorPlugin(),
+            $this->getCategoryResourceCreatorPlugin(),
+            $this->getRedirectResourceCreatorPlugin(),
+            $this->getPageResourceCreatorPlugin(),
+            $this->getProductSetResourceCreatorPlugin(),
         ];
     }
 
@@ -60,41 +60,41 @@ class CollectorFactory extends AbstractFactory
     }
 
     /**
-     * @return \Pyz\Yves\Product\Plugin\ProductResourceCreator
+     * @return \Pyz\Yves\Product\Plugin\ProductResourcePlugin
      */
-    protected function getProductResourceCreator()
+    protected function getProductResourceCreatorPlugin()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_RESOURCE_CREATOR);
     }
 
     /**
-     * @return \Pyz\Yves\Category\Plugin\CategoryResourceCreator
+     * @return \Pyz\Yves\Category\Plugin\CategoryResourcePlugin
      */
-    protected function getCategoryResourceCreator()
+    protected function getCategoryResourceCreatorPlugin()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_CATEGORY_RESOURCE_CREATOR);
     }
 
     /**
-     * @return \Pyz\Yves\Redirect\Plugin\RedirectResourceCreator
+     * @return \Pyz\Yves\Redirect\Plugin\RedirectResourcePlugin
      */
-    protected function getRedirectResourceCreator()
+    protected function getRedirectResourceCreatorPlugin()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_REDIRECT_RESOURCE_CREATOR);
     }
 
     /**
-     * @return \Pyz\Yves\Cms\Plugin\PageResourceCreator
+     * @return \Pyz\Yves\Cms\Plugin\PageResourcePlugin
      */
-    protected function getPageResourceCreator()
+    protected function getPageResourceCreatorPlugin()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PAGE_RESOURCE_CREATOR);
     }
 
     /**
-     * @return \Pyz\Yves\ProductSet\ResourceCreator\ProductSetResourceCreator
+     * @return \Pyz\Yves\ProductSet\Plugin\ProductSetResourcePlugin
      */
-    protected function getProductSetResourceCreator()
+    protected function getProductSetResourceCreatorPlugin()
     {
         return $this->getProvidedDependency(CollectorDependencyProvider::PLUGIN_PRODUCT_SET_RESOURCE_CREATOR);
     }
