@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ac105d92b4580ebdbc35e76b222d54f",
+    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1251,16 +1251,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.14",
+            "version": "v2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5"
+                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
-                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
+                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
                 "shasum": ""
             },
             "require": {
@@ -1292,11 +1292,10 @@
             "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
             "keywords": [
                 "csprng",
-                "polyfill",
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-06-06T17:40:22+00:00"
+            "time": "2018-04-04T21:24:14+00:00"
         },
         {
             "name": "php-amqplib/php-amqplib",
@@ -2106,11 +2105,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/PS-740/dev-business-unit-hierarchy",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f930dc3f1dcdfe53c6560bb4b234b27164be6391"
+                "reference": "5a3a0a480701edf85d536687934cd63e82e32f1e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2369,7 +2368,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-08T14:44:27+00:00"
+            "time": "2018-06-06T13:08:26+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5609,7 +5608,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7257,7 +7256,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7368,12 +7367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "ea667f75a9ef907cea1356742403f357ad53f075"
+                "reference": "e2eca7ee6188b0c354ff96d01d389fe8cd13b09a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/ea667f75a9ef907cea1356742403f357ad53f075",
-                "reference": "ea667f75a9ef907cea1356742403f357ad53f075",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
+                "reference": "e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
                 "shasum": ""
             },
             "require": {
@@ -7382,7 +7381,6 @@
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
-                "phpstan/phpstan-shim": "^0.9.2",
                 "phpunit/phpunit": "<5.0"
             },
             "bin": [
@@ -7412,7 +7410,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-06-08T08:21:01+00:00"
+            "time": "2018-05-31T15:56:27+00:00"
         },
         {
             "name": "spryker/git-hook",
