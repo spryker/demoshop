@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
+    "content-hash": "7ac105d92b4580ebdbc35e76b222d54f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2105,11 +2105,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/PS-740/dev-business-unit-hierarchy",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5a3a0a480701edf85d536687934cd63e82e32f1e"
+                "reference": "f930dc3f1dcdfe53c6560bb4b234b27164be6391"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2368,7 +2368,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-06T13:08:26+00:00"
+            "time": "2018-06-08T14:44:27+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5608,7 +5608,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7256,7 +7256,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
