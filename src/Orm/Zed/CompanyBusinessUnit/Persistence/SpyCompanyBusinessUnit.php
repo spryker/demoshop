@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\CompanyBusinessUnit\Persistence;
 
-use Orm\Zed\CompanyBusinessUnit\Persistence\Base\SpyCompanyBusinessUnit as BaseSpyCompanyBusinessUnit;
+use Spryker\Zed\CompanyBusinessUnit\Persistence\Propel\AbstractSpyCompanyBusinessUnit as BaseSpyCompanyBusinessUnit;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_company_business_unit' table.
