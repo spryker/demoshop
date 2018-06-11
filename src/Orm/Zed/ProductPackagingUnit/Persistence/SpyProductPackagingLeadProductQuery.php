@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\CompanyBusinessUnit\Persistence;
+namespace Orm\Zed\ProductPackagingUnit\Persistence;
 
-use Spryker\Zed\CompanyBusinessUnit\Persistence\Propel\AbstractSpyCompanyBusinessUnit as BaseSpyCompanyBusinessUnit;
+use Spryker\Zed\ProductPackagingUnit\Persistence\Propel\AbstractSpyProductPackagingLeadProductQuery;
 
 /**
- * Skeleton subclass for representing a row from the 'spy_company_business_unit' table.
+ * Skeleton subclass for representing a row from the 'spy_product_measurement_sales_unit' table.
  *
  *
  *
@@ -19,6 +19,6 @@ use Spryker\Zed\CompanyBusinessUnit\Persistence\Propel\AbstractSpyCompanyBusines
  * long as it does not already exist in the output directory.
  *
  */
-class SpyCompanyBusinessUnit extends BaseSpyCompanyBusinessUnit
+class SpyProductPackagingLeadProductQuery extends AbstractSpyProductPackagingLeadProductQuery
 {
 }
