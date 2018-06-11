@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db4180ac6974af6ea7d77f4cce166a14",
+    "content-hash": "cd904d7d59dec9dd27765ae672df148b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2110,7 +2110,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5d56b156b9cc0ca91266887021a6eb2385c07151"
+                "reference": "75b1b6f1df84db3dca7961b4c7384f687c9d37ea"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2369,7 +2369,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-08T07:48:00+00:00"
+            "time": "2018-06-11T00:50:49+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
