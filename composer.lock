@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "29eb0cb09a9f865f684240ebedc3da84",
+    "content-hash": "a897cc1861ed92aabcc827ffb1018c01",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.61.3",
+            "version": "3.61.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "82e0865e4d54333a10121ee68f4f496b48f6b51d"
+                "reference": "2c1ec9b0f39549eeb0fb37166e5b28a8f4392f1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/82e0865e4d54333a10121ee68f4f496b48f6b51d",
-                "reference": "82e0865e4d54333a10121ee68f4f496b48f6b51d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2c1ec9b0f39549eeb0fb37166e5b28a8f4392f1b",
+                "reference": "2c1ec9b0f39549eeb0fb37166e5b28a8f4392f1b",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-06-08T16:08:43+00:00"
+            "time": "2018-06-11T21:08:37+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -16371,16 +16371,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/478465659fd987669df0bd8a9bf22a8710e5f1b6",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "shasum": ""
             },
             "require": {
@@ -16415,7 +16415,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-05-29T17:25:09+00:00"
+            "time": "2018-06-11T23:09:50+00:00"
         },
         {
             "name": "nette/bootstrap",
