@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "755828e21be761ef33e0a669a1c3b315",
+    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2106,11 +2106,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-808/master-business-on-behalf",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "962111a5deb6f15703b117fee0b29819592dbb78"
+                "reference": "a94d611894be62145980eb2350586364c72ff1ce"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2131,6 +2131,8 @@
                 "spryker/availability-gui": "*",
                 "spryker/availability-storage": "*",
                 "spryker/braintree": "*",
+                "spryker/business-on-behalf": "*",
+                "spryker/business-on-behalf-data-import": "*",
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
@@ -2369,7 +2371,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-12T12:29:55+00:00"
+            "time": "2018-06-12T15:26:41+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
