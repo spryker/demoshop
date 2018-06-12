@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/PS-740/dev-business-unit-hierarchy",
+    "spryker/spryker": "dev-feature/ps-955/master-splittable-order-items",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
