@@ -2110,7 +2110,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "be2cbd09528e50aa8ab2bc6b9095cc3c039ba6d4"
+                "reference": "f75fde7f475925113f7e0991dc1c730699db31de"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2131,6 +2131,8 @@
                 "spryker/availability-gui": "*",
                 "spryker/availability-storage": "*",
                 "spryker/braintree": "*",
+                "spryker/business-on-behalf": "*",
+                "spryker/business-on-behalf-data-import": "*",
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
@@ -2369,7 +2371,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-12T14:31:11+00:00"
+            "time": "2018-06-13T07:18:09+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
