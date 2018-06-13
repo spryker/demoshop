@@ -2376,6 +2376,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "28e13cd4ae215ce41b84d541ef11f0d369c91b11"
 =======
 =======
@@ -2390,6 +2391,8 @@
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
                 "reference": "0b65d87480fea50711d609d2433894ac922c8ef5"
 =======
@@ -2405,6 +2408,8 @@
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
                 "reference": "5b79b55912e381e048da3d1852f2f22245b7402e"
 =======
@@ -2481,8 +2486,17 @@
                 "reference": "91c14c252ae51e670c4081e21d571c2f76d5f7b8"
 >>>>>>> core-4817 updated composer.lock
 >>>>>>> core-4817 updated composer.lock
+<<<<<<< HEAD
 >>>>>>> core-4817 updated composer.lock
+<<<<<<< HEAD
 >>>>>>> core-4817 updated composer.lock
+=======
+=======
+=======
+                "reference": "5bb977fd70c3b1155615b32ee30a323e559f636c"
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2750,6 +2764,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-17T12:19:02+00:00"
 =======
 =======
@@ -2764,6 +2779,8 @@
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
             "time": "2018-06-14T10:33:00+00:00"
 =======
@@ -2779,6 +2796,8 @@
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 updated composer.lock
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
             "time": "2018-06-13T10:53:57+00:00"
 =======
@@ -2855,8 +2874,17 @@
             "time": "2018-06-04T08:47:52+00:00"
 >>>>>>> core-4817 updated composer.lock
 >>>>>>> core-4817 updated composer.lock
+<<<<<<< HEAD
 >>>>>>> core-4817 updated composer.lock
+<<<<<<< HEAD
 >>>>>>> core-4817 updated composer.lock
+=======
+=======
+=======
+            "time": "2018-06-13T06:45:20+00:00"
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5501,7 +5529,6 @@
         },
         {
             "name": "myclabs/deep-copy",
-<<<<<<< HEAD
             "version": "1.8.1",
             "source": {
                 "type": "git",
@@ -5512,18 +5539,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
-=======
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/478465659fd987669df0bd8a9bf22a8710e5f1b6",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
->>>>>>> core-4817 updated composer.lock
                 "shasum": ""
             },
             "require": {
@@ -5558,11 +5573,7 @@
                 "object",
                 "object graph"
             ],
-<<<<<<< HEAD
             "time": "2018-06-11T23:09:50+00:00"
-=======
-            "time": "2018-05-29T17:25:09+00:00"
->>>>>>> core-4817 updated composer.lock
         },
         {
             "name": "nette/bootstrap",
@@ -8026,6 +8037,7 @@
             "authors": [
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "name": "Sullivan Sénéchal",
 =======
 <<<<<<< HEAD
@@ -8034,6 +8046,9 @@
                     "name": "Sullivan SENECHAL",
 >>>>>>> core-4817 updated composer.lock
 >>>>>>> core-4817 updated composer.lock
+=======
+                    "name": "Sullivan SENECHAL",
+>>>>>>> core-4817 update composer.lock
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -8145,6 +8160,7 @@
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "20811933e2e880f3e59541a111f3099b08b20fca"
             },
             "dist": {
@@ -8152,6 +8168,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/20811933e2e880f3e59541a111f3099b08b20fca",
                 "reference": "20811933e2e880f3e59541a111f3099b08b20fca",
 =======
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
                 "reference": "1887054d62ac4a9a952c833c37c72c9bbf8b0164"
             },
@@ -8160,6 +8178,8 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/1887054d62ac4a9a952c833c37c72c9bbf8b0164",
                 "reference": "1887054d62ac4a9a952c833c37c72c9bbf8b0164",
 =======
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
                 "reference": "74772135db70662d45836f61b72570a9f2ee3383"
             },
@@ -8183,6 +8203,16 @@
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
                 "reference": "e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
 >>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
+<<<<<<< HEAD
+=======
+=======
+                "reference": "74772135db70662d45836f61b72570a9f2ee3383"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/74772135db70662d45836f61b72570a9f2ee3383",
+                "reference": "74772135db70662d45836f61b72570a9f2ee3383",
 >>>>>>> core-4817 update composer.lock
 >>>>>>> core-4817 update composer.lock
 >>>>>>> core-4817 update composer.lock
@@ -8225,11 +8255,16 @@
                 "standards"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-16T10:45:40+00:00"
 =======
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
             "time": "2018-06-14T08:25:09+00:00"
 =======
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
             "time": "2018-06-12T21:23:05+00:00"
 =======
@@ -8238,6 +8273,11 @@
 =======
             "time": "2018-05-31T15:56:27+00:00"
 >>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
+<<<<<<< HEAD
+=======
+=======
+            "time": "2018-06-12T21:23:05+00:00"
 >>>>>>> core-4817 update composer.lock
 >>>>>>> core-4817 update composer.lock
 >>>>>>> core-4817 update composer.lock
@@ -8300,7 +8340,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "01ce860c296205f70165521dcf9405a5dc07b7b9"
+                "reference": "4436c7bc119a6355704619f9876e67cbfd01a221"
             },
             "require": {
                 "php": ">=7.1",
@@ -8351,7 +8391,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-06-01T09:06:00+00:00"
+            "time": "2018-06-13T05:16:36+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
