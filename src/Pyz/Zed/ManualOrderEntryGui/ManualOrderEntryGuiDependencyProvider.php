@@ -27,7 +27,7 @@ class ManualOrderEntryGuiDependencyProvider extends SprykerManualOrderEntryGuiDe
     /**
      * @return \Spryker\Zed\ManualOrderEntryGuiExtension\Dependency\Plugin\PaymentSubFormPluginInterface[]
      */
-    protected function getPaymentSubFormPlugins()
+    protected function getPaymentSubFormPlugins(): array
     {
         return [
             new DummyPaymentInvoicePaymentSubFormPlugin(),
@@ -37,7 +37,7 @@ class ManualOrderEntryGuiDependencyProvider extends SprykerManualOrderEntryGuiDe
     /**
      * @return array
      */
-    protected function getQuoteExpanderPlugins()
+    protected function getQuoteExpanderPlugins(): array
     {
         return [
             new OfferQuoteExpanderPlugin(),
@@ -47,7 +47,7 @@ class ManualOrderEntryGuiDependencyProvider extends SprykerManualOrderEntryGuiDe
     /**
      * @return \Spryker\Zed\ManualOrderEntryGui\Communication\Plugin\ManualOrderEntryFormPluginInterface[]
      */
-    protected function getManualOrderEntryFormPlugins()
+    protected function getManualOrderEntryFormPlugins(): array
     {
         return [
             new ReclamationOrderEntryFormPlugin(),

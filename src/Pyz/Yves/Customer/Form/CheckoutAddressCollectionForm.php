@@ -76,7 +76,7 @@ class CheckoutAddressCollectionForm extends AbstractType
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
-     * @return \Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm
+     * @return $this
      */
     protected function addShippingAddressSubForm(FormBuilderInterface $builder, array $options)
     {
@@ -103,7 +103,7 @@ class CheckoutAddressCollectionForm extends AbstractType
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      *
-     * @return \Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm
+     * @return $this
      */
     protected function addSameAsShipmentCheckbox(FormBuilderInterface $builder)
     {
@@ -122,7 +122,7 @@ class CheckoutAddressCollectionForm extends AbstractType
      * @param \Symfony\Component\Form\FormBuilderInterface $builder
      * @param array $options
      *
-     * @return \Pyz\Yves\Customer\Form\CheckoutAddressCollectionForm
+     * @return $this
      */
     protected function addBillingAddressSubForm(FormBuilderInterface $builder, array $options)
     {
