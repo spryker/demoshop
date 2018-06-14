@@ -2380,6 +2380,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "28e13cd4ae215ce41b84d541ef11f0d369c91b11"
 =======
 =======
@@ -2402,6 +2403,8 @@
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 update composer.json
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
                 "reference": "0b65d87480fea50711d609d2433894ac922c8ef5"
 =======
@@ -2530,7 +2533,13 @@
                 "reference": "739ca6d23f81515bcaa0075b0e96d0079d32d854"
 >>>>>>> core-4817 update composer.json
 >>>>>>> core-4817 update composer.json
+<<<<<<< HEAD
 >>>>>>> core-4817 update composer.json
+=======
+=======
+                "reference": "739ca6d23f81515bcaa0075b0e96d0079d32d854"
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2802,6 +2811,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-17T12:19:02+00:00"
 =======
 =======
@@ -2824,6 +2834,8 @@
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 update composer.json
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
             "time": "2018-06-14T10:33:00+00:00"
 =======
@@ -2952,7 +2964,13 @@
             "time": "2018-06-13T13:30:42+00:00"
 >>>>>>> core-4817 update composer.json
 >>>>>>> core-4817 update composer.json
+<<<<<<< HEAD
 >>>>>>> core-4817 update composer.json
+=======
+=======
+            "time": "2018-06-13T13:30:42+00:00"
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8230,6 +8248,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "20811933e2e880f3e59541a111f3099b08b20fca"
             },
             "dist": {
@@ -8241,6 +8260,8 @@
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 update composer.json
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
                 "reference": "1887054d62ac4a9a952c833c37c72c9bbf8b0164"
             },
@@ -8294,15 +8315,23 @@
 =======
 =======
 =======
+=======
+>>>>>>> core-4817 update composer.lock
                 "reference": "b03e0748eb3c5ea0d2b36981410f709e7fc02c07"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b03e0748eb3c5ea0d2b36981410f709e7fc02c07",
                 "reference": "b03e0748eb3c5ea0d2b36981410f709e7fc02c07",
+<<<<<<< HEAD
 >>>>>>> core-4817 update composer.json
 >>>>>>> core-4817 update composer.json
+<<<<<<< HEAD
 >>>>>>> core-4817 update composer.json
+=======
+=======
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
                 "shasum": ""
             },
             "require": {
@@ -8344,12 +8373,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-16T10:45:40+00:00"
 =======
 =======
 >>>>>>> core-4817 update composer.lock
 =======
 >>>>>>> core-4817 update composer.json
+=======
+>>>>>>> core-4817 update composer.lock
 <<<<<<< HEAD
             "time": "2018-06-14T08:25:09+00:00"
 =======
@@ -8381,7 +8413,13 @@
             "time": "2018-06-13T21:21:33+00:00"
 >>>>>>> core-4817 update composer.json
 >>>>>>> core-4817 update composer.json
+<<<<<<< HEAD
 >>>>>>> core-4817 update composer.json
+=======
+=======
+            "time": "2018-06-13T21:21:33+00:00"
+>>>>>>> core-4817 update composer.lock
+>>>>>>> core-4817 update composer.lock
         },
         {
             "name": "spryker/git-hook",
