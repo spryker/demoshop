@@ -10,7 +10,7 @@ namespace Orm\Zed\ProductPackagingUnit\Persistence;
 use Spryker\Zed\ProductPackagingUnit\Persistence\Propel\AbstractSpyProductPackagingLeadProduct;
 
 /**
- * Skeleton subclass for representing a row from the 'spy_product_measurement_sales_unit' table.
+ * Skeleton subclass for representing a row from the 'spy_product_packaging_lead_product' table.
  *
  *
  *
