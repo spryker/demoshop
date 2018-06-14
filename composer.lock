@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
+    "content-hash": "02ab537167ea36930a5e4e734aeb73fc",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1718,16 +1718,16 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.6.0",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "5e60e5596a5422287f9d2205f405bef2ae0cef4b"
+                "reference": "f4edc2581617431aea50430749db55cc3fc031b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/5e60e5596a5422287f9d2205f405bef2ae0cef4b",
-                "reference": "5e60e5596a5422287f9d2205f405bef2ae0cef4b",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/f4edc2581617431aea50430749db55cc3fc031b3",
+                "reference": "f4edc2581617431aea50430749db55cc3fc031b3",
                 "shasum": ""
             },
             "require": {
@@ -1760,7 +1760,7 @@
                 "promise",
                 "promises"
             ],
-            "time": "2018-06-11T11:05:43+00:00"
+            "time": "2018-06-13T15:59:06+00:00"
         },
         {
             "name": "ruflin/elastica",
@@ -2106,11 +2106,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2413-chart",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5b79b55912e381e048da3d1852f2f22245b7402e"
+                "reference": "068472f1b1853a1650942445228c6a8b83aeac34"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2371,7 +2371,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-13T10:53:57+00:00"
+            "time": "2018-06-13T11:48:46+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7370,12 +7370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "74772135db70662d45836f61b72570a9f2ee3383"
+                "reference": "b03e0748eb3c5ea0d2b36981410f709e7fc02c07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/74772135db70662d45836f61b72570a9f2ee3383",
-                "reference": "74772135db70662d45836f61b72570a9f2ee3383",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/b03e0748eb3c5ea0d2b36981410f709e7fc02c07",
+                "reference": "b03e0748eb3c5ea0d2b36981410f709e7fc02c07",
                 "shasum": ""
             },
             "require": {
@@ -7414,7 +7414,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-06-12T21:23:05+00:00"
+            "time": "2018-06-13T21:21:33+00:00"
         },
         {
             "name": "spryker/git-hook",
