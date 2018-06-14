@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "02ab537167ea36930a5e4e734aeb73fc",
+    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2106,11 +2106,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-2413-chart",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "068472f1b1853a1650942445228c6a8b83aeac34"
+                "reference": "5b79b55912e381e048da3d1852f2f22245b7402e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2371,7 +2371,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-13T11:48:46+00:00"
+            "time": "2018-06-13T10:53:57+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4912,16 +4912,16 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "1.1",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54"
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/d457344b6a035ef99236bdda4729ad7eeb233f54",
-                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/75c7effcf3f77501d0e0caa75111aff4daa0dd48",
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48",
                 "shasum": ""
             },
             "require": {
@@ -4952,14 +4952,14 @@
                     "email": "alessandro.lai85@gmail.com"
                 }
             ],
-            "description": "A wrapper for ocramius/pretty-package-versions to get pretty versions strings",
+            "description": "A wrapper for ocramius/package-versions to get pretty versions strings",
             "keywords": [
                 "composer",
                 "package",
                 "release",
                 "versions"
             ],
-            "time": "2018-01-21T13:54:22+00:00"
+            "time": "2018-06-13T13:22:40+00:00"
         },
         {
             "name": "myclabs/deep-copy",
