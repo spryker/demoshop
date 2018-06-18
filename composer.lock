@@ -2109,7 +2109,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4793a51b164dec1751ba3d08453282124bb9d1d7"
+                "reference": "ea44feb74e7d87799f13b04e3c59db30a2589dcf"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2130,6 +2130,8 @@
                 "spryker/availability-gui": "*",
                 "spryker/availability-storage": "*",
                 "spryker/braintree": "*",
+                "spryker/business-on-behalf": "*",
+                "spryker/business-on-behalf-data-import": "*",
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
@@ -2368,7 +2370,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-05T16:12:58+00:00"
+            "time": "2018-06-18T11:23:13+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7367,12 +7369,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "e2eca7ee6188b0c354ff96d01d389fe8cd13b09a"
+                "reference": "815ff043b800ac6e9a5916d91be227c2a5af03d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
-                "reference": "e2eca7ee6188b0c354ff96d01d389fe8cd13b09a",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/815ff043b800ac6e9a5916d91be227c2a5af03d7",
+                "reference": "815ff043b800ac6e9a5916d91be227c2a5af03d7",
                 "shasum": ""
             },
             "require": {
@@ -7381,6 +7383,7 @@
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
+                "phpstan/phpstan-shim": "^0.9.2",
                 "phpunit/phpunit": "<5.0"
             },
             "bin": [
@@ -7410,7 +7413,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-05-31T15:56:27+00:00"
+            "time": "2018-06-15T16:16:21+00:00"
         },
         {
             "name": "spryker/git-hook",
