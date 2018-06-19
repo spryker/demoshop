@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
+    "content-hash": "3b09b5e5cb4c3219cc34a72bfa4b39eb",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1557,7 +1557,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2106,11 +2106,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-2045-more-specific-availability-message-in-cart",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "22ec2c39e7be3105b1d740d8c02aa5d23721889f"
+                "reference": "363abc4a2ddaa2ead7b36c47d323bb6e2e1f99a3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2371,7 +2371,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-15T16:15:53+00:00"
+            "time": "2018-06-19T13:45:15+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5611,7 +5611,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7259,7 +7259,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7278,12 +7278,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "6725dfab52743f5704549b4758fd2df3478b69ec"
+                "reference": "4499601b98ca7a927b7c3d1ead766cf326031df2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/6725dfab52743f5704549b4758fd2df3478b69ec",
-                "reference": "6725dfab52743f5704549b4758fd2df3478b69ec",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/4499601b98ca7a927b7c3d1ead766cf326031df2",
+                "reference": "4499601b98ca7a927b7c3d1ead766cf326031df2",
                 "shasum": ""
             },
             "require": {
@@ -7321,7 +7321,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-04-26T09:44:47+00:00"
+            "time": "2018-06-19T11:58:57+00:00"
         },
         {
             "name": "spryker/code-generator",
