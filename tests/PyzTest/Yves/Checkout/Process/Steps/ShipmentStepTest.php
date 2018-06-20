@@ -69,7 +69,7 @@ class ShipmentStepTest extends Unit
     }
 
     /**
-     * @return bool
+     * @return void
      */
     public function testShipmentRequireInputShouldReturnTrue()
     {
