@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a74b7d310733b384bbf7ce8e8746cdbf",
+    "content-hash": "a6ba71a64a44dc457e6fec2b4d04611b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -863,46 +863,36 @@
         },
         {
             "name": "league/csv",
-            "version": "9.1.4",
+            "version": "8.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "9c8ad06fb5d747c149875beb6133566c00eaa481"
+                "reference": "d2aab1e7bde802582c3879acf03d92716577c76d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/9c8ad06fb5d747c149875beb6133566c00eaa481",
-                "reference": "9c8ad06fb5d747c149875beb6133566c00eaa481",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/d2aab1e7bde802582c3879acf03d92716577c76d",
+                "reference": "d2aab1e7bde802582c3879acf03d92716577c76d",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=7.0.10"
+                "php": ">=5.5.0"
             },
             "require-dev": {
-                "ext-curl": "*",
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "phpstan/phpstan": "^0.9.2",
-                "phpstan/phpstan-phpunit": "^0.9.4",
-                "phpstan/phpstan-strict-rules": "^0.9.0",
-                "phpunit/phpunit": "^6.0"
-            },
-            "suggest": {
-                "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters"
+                "friendsofphp/php-cs-fixer": "^1.9",
+                "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "9.x-dev"
+                    "dev-master": "8.2-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "League\\Csv\\": "src"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -926,7 +916,7 @@
                 "read",
                 "write"
             ],
-            "time": "2018-05-01T18:32:48+00:00"
+            "time": "2018-02-06T08:27:03+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1728,16 +1718,16 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.6.0",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "5e60e5596a5422287f9d2205f405bef2ae0cef4b"
+                "reference": "f4edc2581617431aea50430749db55cc3fc031b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/5e60e5596a5422287f9d2205f405bef2ae0cef4b",
-                "reference": "5e60e5596a5422287f9d2205f405bef2ae0cef4b",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/f4edc2581617431aea50430749db55cc3fc031b3",
+                "reference": "f4edc2581617431aea50430749db55cc3fc031b3",
                 "shasum": ""
             },
             "require": {
@@ -1770,7 +1760,7 @@
                 "promise",
                 "promises"
             ],
-            "time": "2018-06-11T11:05:43+00:00"
+            "time": "2018-06-13T15:59:06+00:00"
         },
         {
             "name": "ruflin/elastica",
@@ -2116,11 +2106,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/core-2413-dataset",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b08e9fe82ffebabbf609cda0fa3315ada152931b"
+                "reference": "22ec2c39e7be3105b1d740d8c02aa5d23721889f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2381,7 +2371,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-13T14:11:55+00:00"
+            "time": "2018-06-15T16:15:53+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7380,12 +7370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "74772135db70662d45836f61b72570a9f2ee3383"
+                "reference": "815ff043b800ac6e9a5916d91be227c2a5af03d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/74772135db70662d45836f61b72570a9f2ee3383",
-                "reference": "74772135db70662d45836f61b72570a9f2ee3383",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/815ff043b800ac6e9a5916d91be227c2a5af03d7",
+                "reference": "815ff043b800ac6e9a5916d91be227c2a5af03d7",
                 "shasum": ""
             },
             "require": {
@@ -7424,7 +7414,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-06-12T21:23:05+00:00"
+            "time": "2018-06-15T16:16:21+00:00"
         },
         {
             "name": "spryker/git-hook",
