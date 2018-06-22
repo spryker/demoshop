@@ -105,6 +105,15 @@ $jobs[] = [
 ];
 
 $jobs[] = [
+    'name' => 'event-trigger-timeout',
+    'command' => '$PHP_BIN vendor/bin/console event:trigger:timeout -vvv',
+    'schedule' => '*/5 * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
     'name' => 'product-relation-updater',
     'command' => '$PHP_BIN vendor/bin/console product-relation:update -vvv',
     'schedule' => '30 2 * * *',

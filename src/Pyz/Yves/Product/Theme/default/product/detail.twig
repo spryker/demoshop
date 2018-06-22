@@ -135,6 +135,12 @@
                 </p>
             {% endif %}
 
+            <div class="callout">
+                ADD WIDGET HERE
+                {#{{ _view }}#}
+                {{ widget('ShoppingListWidgetPlugin', product.sku, false) }}
+            </div>
+
             {% include '@Product/product/partials/add-to-wishlist.twig' %}
         </div>
     </div>

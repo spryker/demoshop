@@ -22,4 +22,8 @@
         <a href="{{ path('wishlist/overview') }}" data-id="sidebar-wishlist">{{ 'wishlist.wishlist' | trans }}</a>
         {% block wishlistSubmenu %}{% endblock %}
     </li>
+    <li {% if active == 'shopping-list' %}class="active"{% endif %}>
+        <a href="{{ path('shopping-list') }}" data-id="sidebar-wishlist">{{ 'customer.account.shopping_list' | trans }}</a>
+        {% block shoppingListSubmenu %}{% endblock %}
+    </li>
 </ul>

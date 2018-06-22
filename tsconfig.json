@@ -1,0 +1,26 @@
+{
+  "extends": "./node_modules/@spryker/suite-frontend-builder/tsconfig.suite",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "*"
+      ],
+      "ShopUi/*": [
+        "./vendor/spryker-shop/shop-ui/src/SprykerShop/Yves/ShopUi/Theme/default/*"
+      ]
+    }
+  },
+  "files": [
+    "./src/Pyz/Yves/ShopUi/Theme/default/app.ts",
+    "./src/Pyz/Yves/ShopUi/Theme/default/vendor.ts"
+  ],
+  "include": [
+    "./vendor/spryker-shop/**/*",
+    "./src/Pyz/Yves/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,95 @@
+{% extends model('component') %}
+
+{% define config = {
+    name: 'foo-bar',
+    tag: 'header'
+} %}
+
+{% define data = {
+    showSearchForm: true,
+    showNavigation: true
+} %}
+
+{% block body %}
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="callout">
+                <div class="row align-middle align-justify">
+                    <div class="small-7 large-5 xlarge-6 columns">
+                        <a href="{{ path('home') }}">
+                            <img src="/assets/default/img/logo.svg" />
+                        </a>
+                    </div>
+                    {% block header %}
+                        <div class="large-7 xlarge-6 columns show-for-large">
+                            {% include '@application/layout/partials/search-form.twig' %}
+                        </div>
+
+                        <a class="shrink columns text-right align-middle hide-for-large" href="#aside" data-aside-toggle>
+                            {% if app['cart.quantity'] > 0 %}
+                                <span class="warning badge">{{ app['cart.quantity'] }}</span>
+                            {% endif %}
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    {% endblock %}
+                </div>
+            </div>
+            {% block navigation %}
+                {% include "@application/layout/partials/navigation.twig" %}
+            {% endblock %}
+
+            {% block breadcrumb %}
+                <div class="callout">
+                    <nav role="navigation">
+                        <ul class="breadcrumbs __no-margin-bottom">
+                            {% block breadcrumbItems %}{% endblock %}
+                        </ul>
+                    </nav>
+                    {% block title %}{% endblock %}
+                </div>
+            {% endblock %}
+
+            {% include "@application/layout/partials/flash-messages.twig" %}
+        </div>
+    </div>
+
+
+
+    {#<div class="container">#}
+        {#<div class="{{config.name}}__row">#}
+            {#{% include organism('navigation-top') with {#}
+                {#class: 'is-hidden-sm-md text-right'#}
+            {#} only %}#}
+        {#</div>#}
+
+        {#<div class="{{config.name}}__row {{config.name}}__navigation-top grid grid--middle">#}
+            {#{% include molecule('logo') with {#}
+                {#class: 'col col--sm-8 col--lg-4'#}
+            {#} only %}#}
+
+            {#<div class="col col--sm-4 col--lg-8">#}
+                {#{% if data.showSearchForm %}#}
+                    {#{% include molecule('search-form') with {#}
+                        {#class: config.name ~ '__search-form is-hidden-sm-md'#}
+                    {#} only %}#}
+                {#{% endif %}#}
+
+                {#<div class="is-hidden-lg-xl text-right">#}
+                    {#{% block mobile %}{% endblock %}#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+
+        {#{% if data.showNavigation %}#}
+            {#<div class="{{config.name}}__row {{config.name}}__navigation-main is-hidden-sm-md">#}
+                {#{{ widgetGlobal('NavigationWidgetPlugin', 'MAIN_NAVIGATION', 'navigation-main') }}#}
+            {#</div>#}
+        {#{% endif %}#}
+
+        {#{% if data.showSearchForm %}#}
+            {#{% include molecule('search-form') with {#}
+                {#class: config.name ~ '__row' ~ config.name ~ '__search-form is-hidden-lg-xl'#}
+            {#} only %}#}
+        {#{% endif %}#}
+    {#</div>#}
+{% endblock %}

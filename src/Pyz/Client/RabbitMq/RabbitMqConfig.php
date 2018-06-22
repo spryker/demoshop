@@ -13,6 +13,7 @@ use Spryker\Client\RabbitMq\Model\Connection\Connection;
 use Spryker\Client\RabbitMq\RabbitMqConfig as SprykerRabbitMqConfig;
 use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\Log\LogConstants;
+use Spryker\Shared\PriceProductStorage\PriceProductStorageConstants;
 
 class RabbitMqConfig extends SprykerRabbitMqConfig
 {
@@ -23,6 +24,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
     {
         $queueOptionCollection = new ArrayObject();
         $queueOptionCollection->append($this->createQueueOption(EventConstants::EVENT_QUEUE, EventConstants::EVENT_QUEUE_ERROR));
+        $queueOptionCollection->append($this->createQueueOption(PriceProductStorageConstants::PRICE_SYNC_STORAGE_QUEUE, PriceProductStorageConstants::PRICE_SYNC_STORAGE_ERROR_QUEUE));
         $queueOptionCollection->append(
             $this->createQueueOption(
                 $this->get(LogConstants::LOG_QUEUE_NAME),

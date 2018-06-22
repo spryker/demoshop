@@ -7,7 +7,6 @@
 
 namespace Pyz\Yves\Application;
 
-use Pyz\Shared\Application\Business\Routing\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
@@ -19,7 +18,6 @@ use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Cms\Plugin\Provider\PreviewControllerProvider;
-use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\Currency\Plugin\CurrencyControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
@@ -70,6 +68,18 @@ use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigS
 use Spryker\Yves\Url\Plugin\LanguageSwitcherServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestHeaderServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
+use SprykerShop\Yves\CustomerPage\Plugin\Provider\CustomerPageControllerProvider;
+use SprykerShop\Yves\QuickOrderPage\Plugin\Provider\QuickOrderPageControllerProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopApplicationServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopControllerEventServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopTwigServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\WidgetServiceProvider;
+use SprykerShop\Yves\ShoppingListPage\Plugin\Provider\ShoppingListPageControllerProvider;
+use SprykerShop\Yves\ShoppingListWidget\Plugin\Provider\ShoppingListWidgetControllerProvider;
+use SprykerShop\Yves\ShopUi\Plugin\Provider\ShopUiTwigServiceProvider;
+use SprykerShop\Yves\ShopRouter\Plugin\Router\SilexRouter;
+use SprykerShop\Yves\ShopRouter\Plugin\Router\StorageRouter;
+
 
 class YvesBootstrap
 {
@@ -118,6 +128,15 @@ class YvesBootstrap
 
         $this->application->register(new TwigServiceProvider());
         $this->application->register(new SprykerTwigServiceProvider());
+
+        // SprykerShop related ServiceProvider
+        $this->application->register(new ShopApplicationServiceProvider());
+        $this->application->register(new ShopControllerEventServiceProvider());
+        $this->application->register(new ShopTwigServiceProvider());
+        $this->application->register(new WidgetServiceProvider());
+        $this->application->register(new ShopUiTwigServiceProvider());
+
+
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
         $this->application->register(new SprykerSessionServiceProvider());
@@ -161,7 +180,10 @@ class YvesBootstrap
     protected function registerRouters()
     {
         $this->application->addRouter((new StorageRouter())->setSsl(false));
-        $this->application->addRouter(new SilexRouter($this->application));
+        $this->application->addRouter((new \Pyz\Yves\Collector\Plugin\Router\StorageRouter())->setSsl(false));
+//        $this->application->addRouter(new \Pyz\Shared\Application\Business\Routing\SilexRouter($this->application));
+
+        $this->application->addRouter(new SilexRouter());
     }
 
     /**
@@ -189,6 +211,7 @@ class YvesBootstrap
             new ApplicationControllerProvider($isSsl),
             new CheckoutControllerProvider($isSsl),
             new CustomerControllerProvider($isSsl),
+            new CustomerPageControllerProvider($isSsl),
             new CartControllerProvider($isSsl),
             new WishlistControllerProvider($isSsl),
             new HeartbeatControllerProvider($isSsl),
@@ -202,6 +225,9 @@ class YvesBootstrap
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
+            new ShoppingListPageControllerProvider($isSsl),
+            new ShoppingListWidgetControllerProvider($isSsl),
+            new QuickOrderPageControllerProvider($isSsl),
         ];
     }
 }

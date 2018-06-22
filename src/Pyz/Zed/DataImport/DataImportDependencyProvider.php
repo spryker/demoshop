@@ -8,6 +8,8 @@
 namespace Pyz\Zed\DataImport;
 
 use Spryker\Shared\Kernel\Store;
+use Spryker\Zed\DataImport\Communication\Plugin\DataImportEventBehaviorPlugin;
+use Spryker\Zed\DataImport\Communication\Plugin\DataImportPublisherPlugin;
 use Spryker\Zed\DataImport\DataImportDependencyProvider as SprykerDataImportDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 
@@ -109,5 +111,26 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $container[static::STORE] = function (Container $container) {
             return Store::getInstance();
         };
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImportBeforeImportHookPlugins(): array
+    {
+        return [
+            new DataImportEventBehaviorPlugin(),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImportAfterImportHookPlugins(): array
+    {
+        return [
+            new DataImportEventBehaviorPlugin(),
+            new DataImportPublisherPlugin(),
+        ];
     }
 }
