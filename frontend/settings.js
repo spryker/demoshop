@@ -2,7 +2,7 @@ const path = require('path');
 
 // define the applicatin name
 // important: the name must be normalized
-const name = 'yves_default';
+const name = 'demoshop';
 
 // define the current theme
 const theme = 'default';
@@ -15,11 +15,14 @@ const paths = {
     // locate the typescript configuration json file
     tsConfig: './tsconfig.json',
 
+    // app
+    app: './frontend/app',
+
     // assets folder
     assets: './frontend/assets',
 
     // public folder
-    public: './public/Yves/assets',
+    public: './public/Yves/assets/default',
 
     // core folders
     core: {

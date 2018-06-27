@@ -23,13 +23,13 @@ module.exports = {
     },
 
     entry: {
-        'es6-polyfill': path.join(appSettings.context, appSettings.paths.project.shopUiModule, './es6-polyfill.ts'),
-        'vendor': path.join(appSettings.context, appSettings.paths.project.shopUiModule, './vendor.ts'),
+        'es6-polyfill': path.join(appSettings.context, appSettings.paths.app, './es6-polyfill.js'),
+        'vendor': path.join(appSettings.context, appSettings.paths.app, './vendor.js'),
         'app': [
-            path.join(appSettings.context, appSettings.paths.project.shopUiModule, './app.ts'),
-            path.join(appSettings.context, appSettings.paths.project.shopUiModule, './styles/basic.scss'),
+            path.join(appSettings.context, appSettings.paths.app, './app.js'),
+            path.join(appSettings.context, appSettings.paths.app, './styles/basic.scss'),
             ...finder.findComponentEntryPoints(),
-            path.join(appSettings.context, appSettings.paths.project.shopUiModule, './styles/util.scss')
+            path.join(appSettings.context, appSettings.paths.app, './styles/util.scss')
         ]
     },
 
@@ -50,6 +50,9 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loader: 'ts-loader',
+                exclude: [
+                    path.join(appSettings.context, 'node_modules')
+                ],
                 options: {
                     context: appSettings.context,
                     configFile: path.join(appSettings.context, appSettings.paths.tsConfig),
@@ -83,12 +86,31 @@ module.exports = {
                         loader: 'sass-resources-loader',
                         options: {
                             resources: [
-                                path.join(appSettings.context, appSettings.paths.project.shopUiModule, './styles/shared.scss'),
+                                path.join(appSettings.context, appSettings.paths.app, './styles/shared.scss'),
                                 ...finder.findComponentStyles()
                             ]
                         }
                     }
                 ]
+            }, {
+                test: /\.(png|jpg|gif)$/i,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '/img/vendor/[name].[ext]',
+                        publicPath: '/assets/default'
+                    }
+                }]
+            },
+            {
+                test: /\.(ttf|woff2?|eot|svg|otf)\??(\d*\w*=?\.?)+$/i,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '/fonts/[name].[ext]',
+                        publicPath: '/assets/default'
+                    }
+                }]
             }
         ]
     },
@@ -125,16 +147,22 @@ module.exports = {
 
         new CopyWebpackPlugin([
             {
-                from: `${appSettings.assets}/images/*`,
-                to: './images/[name].[ext]',
+                from: `${appSettings.paths.assets}/images`,
+                to: 'img',
                 ignore: ['*.gitkeep']
             }, {
-                from: `${appSettings.assets}/fonts/*`,
-                to: './fonts/[name].[ext]',
+                from: `${appSettings.paths.assets}/fonts`,
+                to: 'fonts',
                 ignore: ['*.gitkeep']
             }
         ], {
             context: appSettings.context
+        }),
+
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'jQuery': 'jquery',
+            'jquery': 'jquery'
         }),
 
         new MiniCssExtractPlugin({
