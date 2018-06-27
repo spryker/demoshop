@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "65ac4239c20d067a3114c3b9760e6822",
+    "content-hash": "c82644aa79657b6e1710344fe0e78af0",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1567,7 +1567,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-1853-bisness-unit-name-in-messages",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "4517752589e88a48b8390c496f3dc763330b0348"
+                "reference": "ac3ac808112a04c325ba0d2d63ebd9ed05b386e7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2381,7 +2381,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-20T15:16:53+00:00"
+            "time": "2018-06-25T13:25:37+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7269,7 +7269,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
