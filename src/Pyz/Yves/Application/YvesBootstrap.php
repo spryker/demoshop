@@ -7,7 +7,11 @@
 
 namespace Pyz\Yves\Application;
 
-use Pyz\Shared\Application\Business\Routing\SilexRouter;
+use Pyz\Yves\Collector\Plugin\Router\StorageRouter as LegacyStorageRouter;
+
+
+use SprykerShop\Yves\ShopRouter\Plugin\Router\SilexRouter;
+
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
 use Pyz\Yves\Application\Plugin\Provider\AutoloaderCacheServiceProvider;
@@ -19,7 +23,6 @@ use Pyz\Yves\Catalog\Plugin\Provider\CatalogControllerProvider;
 use Pyz\Yves\Category\Plugin\Provider\CategoryServiceProvider;
 use Pyz\Yves\Checkout\Plugin\Provider\CheckoutControllerProvider;
 use Pyz\Yves\Cms\Plugin\Provider\PreviewControllerProvider;
-use Pyz\Yves\Collector\Plugin\Router\StorageRouter;
 use Pyz\Yves\Currency\Plugin\CurrencyControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
@@ -70,6 +73,12 @@ use Spryker\Yves\Twig\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigS
 use Spryker\Yves\Url\Plugin\LanguageSwitcherServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestHeaderServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopApplicationServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopControllerEventServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopTwigServiceProvider;
+use SprykerShop\Yves\ShopApplication\Plugin\Provider\WidgetServiceProvider;
+use SprykerShop\Yves\ShopRouter\Plugin\Router\StorageRouter;
+use SprykerShop\Yves\ShopUi\Plugin\Provider\ShopUiTwigServiceProvider;
 
 class YvesBootstrap
 {
@@ -117,7 +126,16 @@ class YvesBootstrap
         $this->application->register(new ZedRequestLogServiceProvider());
 
         $this->application->register(new TwigServiceProvider());
+
+        $this->application->register(new ShopApplicationServiceProvider());
+        $this->application->register(new ShopControllerEventServiceProvider());
+        $this->application->register(new ShopTwigServiceProvider());
+        $this->application->register(new WidgetServiceProvider());
+        $this->application->register(new ShopUiTwigServiceProvider());
+        $this->application->register(new ProductLabelTwigServiceProvider()); // TODO Why do we need this one?
+
         $this->application->register(new SprykerTwigServiceProvider());
+
         $this->application->register(new ApplicationServiceProvider());
         $this->application->register(new SessionServiceProvider());
         $this->application->register(new SprykerSessionServiceProvider());
@@ -147,7 +165,7 @@ class YvesBootstrap
         $this->application->register(new ProductRelationTwigServiceProvider());
         $this->application->register(new NavigationTwigServiceProvider());
         $this->application->register(new ProductGroupTwigServiceProvider());
-        $this->application->register(new ProductLabelTwigServiceProvider());
+
         $this->application->register(new CmsContentWidgetServiceProvider());
         $this->application->register(new CurrencySwitcherServiceProvider());
         $this->application->register(new ProductAbstractReviewTwigServiceProvider());
@@ -160,7 +178,8 @@ class YvesBootstrap
      */
     protected function registerRouters()
     {
-        $this->application->addRouter((new StorageRouter())->setSsl(false));
+        $this->application->addRouter((new LegacyStorageRouter())->setSsl(false)); // Router from Demoshop
+//        $this->application->addRouter((new StorageRouter())->setSsl(false)); // This one can be used if you want to migrate to the new URL structure in Redis which is written by Publish&Synchronize
         $this->application->addRouter(new SilexRouter($this->application));
     }
 
