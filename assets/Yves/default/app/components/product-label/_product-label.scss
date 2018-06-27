@@ -1,7 +1,0 @@
-$product-label-sizing: $global-margin / 2;
-$product-label-shadow: 0 1px 3px rgba($black, .4);
-$product-label-highlight-color: map-get($foundation-palette, alert);
-
-@import './product-label-group';
-@import './product-label-flag';
-@import './product-label-tag';
