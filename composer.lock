@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "47dcf30497da7e950187b576f31ff02e",
+    "content-hash": "65ac4239c20d067a3114c3b9760e6822",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/ps-1854-swap-columns",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0f4e270e81553bbc1855a6380928afc7260a3ffb"
+                "reference": "b7016370f05f54f98ec13d09776e963e7f12043f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2381,7 +2381,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-28T08:05:53+00:00"
+            "time": "2018-06-28T09:02:38+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
