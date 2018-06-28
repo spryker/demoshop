@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/ps-1024/dev-product-packaging-units",
+    "spryker/spryker": "dev-feature/ps-1024/master-product-packaging-units",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -14,7 +14,7 @@
     "braintree/braintree_php": "~3.15.0",
     "codeitnowin/barcode": "^3.0.0",
     "guzzlehttp/guzzle": "~6.3.0",
-    "league/csv": "^8.1.0",
+    "league/csv": "^9.1",
     "filp/whoops": "^2.1",
     "mandrill/mandrill": "~1.0.55",
     "monolog/monolog": "^1.21.0",
