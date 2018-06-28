@@ -3,12 +3,11 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-'use strict';
-
 // add your custom common js here
 // and/or change the existing one
 
-var run = require('../lib/run');
+const app = require('ShopUi/app');
+const run = require('./lib/run');
 
 function setJsEnabledMode() {
     $('html')
@@ -16,7 +15,7 @@ function setJsEnabledMode() {
         .addClass('js');
 }
 
-$(function(){
+$(function () {
     setJsEnabledMode();
 
     run([
@@ -36,3 +35,5 @@ $(function(){
         require('./components/product-review/summary')
     ]);
 });
+
+app.bootstrap();
