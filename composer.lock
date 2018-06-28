@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "65ac4239c20d067a3114c3b9760e6822",
+    "content-hash": "e9381a44b97deb19046ac33a310f2e47",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1567,7 +1567,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2116,7 +2116,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-1024/master-product-packaging-units",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
@@ -7269,7 +7269,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
