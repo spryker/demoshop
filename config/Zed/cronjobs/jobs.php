@@ -99,8 +99,17 @@ $jobs[] = [
     'name' => 'queue-worker-start',
     'command' => '$PHP_BIN vendor/bin/console queue:worker:start -vvv',
     'schedule' => '* * * * *',
-    'enable' => false,
-    'run_on_non_production' => false,
+    'enable' => true,
+    'run_on_non_production' => true,
+    'stores' => $allStores,
+];
+
+$jobs[] = [
+    'name' => 'event-trigger-timeout',
+    'command' => '$PHP_BIN vendor/bin/console event:trigger:timeout -vvv',
+    'schedule' => '*/5 * * * *',
+    'enable' => true,
+    'run_on_non_production' => true,
     'stores' => $allStores,
 ];
 

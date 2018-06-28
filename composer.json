@@ -262,7 +262,7 @@
     "spryker/store": "^1.0.0",
     "spryker/symfony": "^3.0.0",
     "spryker/synchronization": "^0.2.0",
-    "spryker/synchronization-behavior": "^0.1.0",
+    "spryker/synchronization-behavior": "^1.0.0",
     "spryker/tax": "^5.0.0",
     "spryker/tax-product-connector": "^4.0.0",
     "spryker/touch": "^4.0.0",
