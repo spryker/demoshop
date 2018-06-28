@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "65ac4239c20d067a3114c3b9760e6822",
+    "content-hash": "8139e79b65f46aa9b256c628be4b9a46",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-1852-extend-business-unit-address-column",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b7016370f05f54f98ec13d09776e963e7f12043f"
+                "reference": "3e9aa6a51ec734a3fc74275d637a4ded3b38507c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2381,7 +2381,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-28T09:02:38+00:00"
+            "time": "2018-06-28T11:02:46+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
