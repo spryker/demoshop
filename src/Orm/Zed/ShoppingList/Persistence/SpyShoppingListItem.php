@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ShoppingList\Persistence;
 
-use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListItem as BaseSpyShoppingListItem;
+use Spryker\Zed\ShoppingList\Persistence\Propel\AbstractSpyShoppingListItem;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_shopping_list_item' table.
@@ -19,6 +19,6 @@ use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListItem as BaseSpyShopping
  * long as it does not already exist in the output directory.
  *
  */
-class SpyShoppingListItem extends BaseSpyShoppingListItem
+class SpyShoppingListItem extends AbstractSpyShoppingListItem
 {
 }

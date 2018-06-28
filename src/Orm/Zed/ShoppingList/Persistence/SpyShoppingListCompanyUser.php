@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ShoppingList\Persistence;
 
-use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListCompanyUser as BaseSpyShoppingListCompanyUser;
+use Spryker\Zed\ShoppingList\Persistence\Propel\AbstractSpyShoppingListCompanyUser;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_shopping_list_company_user' table.
@@ -19,6 +19,6 @@ use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListCompanyUser as BaseSpyS
  * long as it does not already exist in the output directory.
  *
  */
-class SpyShoppingListCompanyUser extends BaseSpyShoppingListCompanyUser
+class SpyShoppingListCompanyUser extends AbstractSpyShoppingListCompanyUser
 {
 }

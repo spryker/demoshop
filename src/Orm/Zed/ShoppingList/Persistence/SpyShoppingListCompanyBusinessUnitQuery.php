@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ShoppingList\Persistence;
 
-use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListCompanyBusinessUnitQuery as BaseSpyShoppingListCompanyBusinessUnitQuery;
+use Spryker\Zed\ShoppingList\Persistence\Propel\AbstractSpyShoppingListCompanyBusinessUnitQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_shopping_list_company_business_unit' table.
@@ -19,6 +19,6 @@ use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListCompanyBusinessUnitQuer
  * long as it does not already exist in the output directory.
  *
  */
-class SpyShoppingListCompanyBusinessUnitQuery extends BaseSpyShoppingListCompanyBusinessUnitQuery
+class SpyShoppingListCompanyBusinessUnitQuery extends AbstractSpyShoppingListCompanyBusinessUnitQuery
 {
 }
