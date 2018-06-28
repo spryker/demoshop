@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ShoppingList\Persistence;
 
-use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListPermissionGroupQuery as BaseSpyShoppingListPermissionGroupQuery;
+use Spryker\Zed\ShoppingList\Persistence\Propel\AbstractShoppingListPermissionGroupQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_shopping_list_permission_group' table.
@@ -19,6 +19,6 @@ use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListPermissionGroupQuery as
  * long as it does not already exist in the output directory.
  *
  */
-class SpyShoppingListPermissionGroupQuery extends BaseSpyShoppingListPermissionGroupQuery
+class SpyShoppingListPermissionGroupQuery extends AbstractShoppingListPermissionGroupQuery
 {
 }

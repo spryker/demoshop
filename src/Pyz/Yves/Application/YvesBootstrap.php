@@ -10,6 +10,10 @@ namespace Pyz\Yves\Application;
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter as LegacyStorageRouter;
 
 
+use SprykerShop\Yves\CartToShoppingListWidget\Plugin\Provider\CartToShoppingListWidgetControllerProvider;
+use SprykerShop\Yves\CompanyPage\Plugin\Provider\CompanyPageControllerProvider;
+use SprykerShop\Yves\ShoppingListPage\Plugin\Provider\ShoppingListPageControllerProvider;
+use SprykerShop\Yves\ShoppingListWidget\Plugin\Provider\ShoppingListWidgetControllerProvider;
 use SprykerShop\Yves\ShopRouter\Plugin\Router\SilexRouter;
 
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
@@ -179,7 +183,7 @@ class YvesBootstrap
     protected function registerRouters()
     {
         $this->application->addRouter((new LegacyStorageRouter())->setSsl(false)); // Router from Demoshop
-//        $this->application->addRouter((new StorageRouter())->setSsl(false)); // This one can be used if you want to migrate to the new URL structure in Redis which is written by Publish&Synchronize
+        // $this->application->addRouter((new StorageRouter())->setSsl(false)); // This one can be used if you want to migrate to the new URL structure in Redis which is written by Publish&Synchronize
         $this->application->addRouter(new SilexRouter($this->application));
     }
 
@@ -221,6 +225,10 @@ class YvesBootstrap
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
+            new ShoppingListPageControllerProvider($isSsl),
+            new CartToShoppingListWidgetControllerProvider($isSsl),
+            new ShoppingListWidgetControllerProvider($isSsl),
+            new CompanyPageControllerProvider($isSsl)
         ];
     }
 }
