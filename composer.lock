@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8c3fcdb84d550266df74ec5223bf67e",
+    "content-hash": "65ac4239c20d067a3114c3b9760e6822",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/ps-1861-fix-fields-naming",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "69c1fb62920221adb79bbe60e1ad2b80b06be293"
+                "reference": "926818abdfd1b0e02cc72605c6d2bfa96bece7d5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
@@ -2381,7 +2381,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-06-28T13:26:49+00:00"
+            "time": "2018-06-28T14:17:04+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
