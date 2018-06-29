@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/core-2414-upload-files",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "926818abdfd1b0e02cc72605c6d2bfa96bece7d5"
+                "reference": "482538f9472419fe0f9d576d2b2aa0c139dea1fc"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
