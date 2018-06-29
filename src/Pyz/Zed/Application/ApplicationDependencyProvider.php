@@ -35,6 +35,7 @@ use Spryker\Zed\Assertion\Communication\Plugin\ServiceProvider\AssertionServiceP
 use Spryker\Zed\Auth\Communication\Plugin\Bootstrap\AuthBootstrapProvider;
 use Spryker\Zed\Auth\Communication\Plugin\ServiceProvider\RedirectAfterLoginProvider;
 use Spryker\Zed\Currency\Communication\Plugin\ServiceProvider\TwigCurrencyServiceProvider;
+use Spryker\Zed\EventBehavior\Communication\Plugin\ServiceProvider\EventBehaviorServiceProvider;
 use Spryker\Zed\Gui\Communication\Plugin\ServiceProvider\GuiTwigExtensionServiceProvider;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Messenger\Communication\Plugin\ServiceProvider\MessengerServiceProvider;
@@ -122,6 +123,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new RedirectAfterLoginProvider(),
             new PropelServiceProvider(),
             new GuiTwigExtensionServiceProvider(),
+            new EventBehaviorServiceProvider(),
         ];
 
         if (Environment::isDevelopment()) {
@@ -149,6 +151,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new ApiServiceProviderPlugin,
             new ApiRoutingServiceProvider(),
             new PropelServiceProvider(),
+            new EventBehaviorServiceProvider(),
         ];
 
         if (Environment::isDevelopment()) {
@@ -180,6 +183,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new SubRequestServiceProvider(),
             new TwigServiceProvider(),
             new SprykerTwigServiceProvider(),
+            new EventBehaviorServiceProvider(),
         ];
     }
 
@@ -209,6 +213,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new SubRequestServiceProvider(),
             new TwigServiceProvider(),
             new SprykerTwigServiceProvider(),
+            new EventBehaviorServiceProvider(),
         ];
     }
 }
