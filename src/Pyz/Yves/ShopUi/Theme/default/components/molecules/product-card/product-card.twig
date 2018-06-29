@@ -1,0 +1,57 @@
+{% extends molecule('card') %}
+
+{% define config = {
+    name: 'product-card',
+    tag: 'article'
+} %}
+
+{% define data = {
+    name: required,
+    abstractId: required,
+    url: required,
+    imageUrl: required,
+    price: required,
+    originalPrice: null
+} %}
+
+{% block image %}
+    <a href="{{data.url}}">
+        {% include atom('thumbnail') with {
+            class: 'js-product-color-group__image-' ~ data.abstractId,
+            attributes: {
+                alt: data.name,
+                src: data.imageUrl,
+                title: data.name
+            }
+        } only %}
+    </a>
+{% endblock %}
+
+{% block content %}
+    {% block labels %}
+        {{ widget('ProductAbstractLabelWidgetPlugin', data.abstractId) }}
+    {% endblock %}
+
+    {% block groups %}
+        {{ widget('ProductGroupWidgetPlugin', data.abstractId) }}
+    {% endblock %}
+
+    {% block name %}
+        <strong>{{data.name}}</strong>
+    {% endblock %}
+
+    {% block rating %}
+        {{ widget('ProductAbstractReviewWidgetPlugin', data.abstractId) }}
+    {% endblock %}
+
+    {% block price %}
+        <p>
+            {% include molecule('price') with {
+                data: {
+                    amount: data.price | money,
+                    originalAmount: data.originalPrice is empty ? null : (data.originalPrice | money)
+                }
+            } only %}
+        </p>
+    {% endblock %}
+{% endblock %}

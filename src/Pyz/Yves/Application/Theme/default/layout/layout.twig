@@ -9,10 +9,11 @@
     <meta name="generator" content="spryker" />
     {% block page_meta %}{% endblock %}
 
-    <link rel="stylesheet" href="/assets/default/css/vendor.css" />
-    <link rel="stylesheet" href="/assets/default/css/app.css" />
+    <link rel="stylesheet" href="/assets/default/css/demoshop.vendor.css" />
+    <link rel="stylesheet" href="/assets/default/css/demoshop.app.css" />
     {% block stylesheets %}{% endblock %}
 
+    <script src="/assets/default/js/demoshop.runtime.js"></script>
     <title>{% block page_title %}{{ page_title | default('global.spryker.shop') | trans }}{% endblock %}</title>
 </head>
 
@@ -97,8 +98,9 @@
     </div>
     {% endblock %}
 
-    <script src="/assets/default/js/vendor.js"></script>
-    <script src="/assets/default/js/app.js"></script>
+    <script src="/assets/default/js/demoshop.es6-polyfill.js"></script>
+    <script src="/assets/default/js/demoshop.vendor.js"></script>
+    <script src="/assets/default/js/demoshop.app.js"></script>
     {% block javascript %}{% endblock %}
 </body>
 

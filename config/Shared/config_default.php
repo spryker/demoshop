@@ -64,6 +64,7 @@ $config[KernelConstants::PROJECT_NAMESPACES] = [
 $config[KernelConstants::CORE_NAMESPACES] = [
     'SprykerEco',
     'Spryker',
+    'SprykerShop'
 ];
 
 // ---------- Propel
