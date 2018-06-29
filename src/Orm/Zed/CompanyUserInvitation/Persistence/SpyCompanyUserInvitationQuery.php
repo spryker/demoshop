@@ -5,12 +5,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Orm\Zed\CompanyRole\Persistence;
+namespace Orm\Zed\CompanyUserInvitation\Persistence;
 
-use Spryker\Zed\CompanyRole\Persistence\Propel\AbstractSpyCompanyRoleToCompanyUserQuery as BaseSpyCompanyRoleToCompanyUserQuery;
+use Spryker\Zed\CompanyUserInvitation\Persistence\Propel\AbstractSpyCompanyUserInvitationQuery as BaseSpyCompanyUserInvitationQuery;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'spy_company_role_to_company_user' table.
+ * Skeleton subclass for performing query and update operations on the 'spy_company_user_invitation' table.
  *
  *
  *
@@ -19,6 +19,6 @@ use Spryker\Zed\CompanyRole\Persistence\Propel\AbstractSpyCompanyRoleToCompanyUs
  * long as it does not already exist in the output directory.
  *
  */
-class SpyCompanyRoleToCompanyUserQuery extends BaseSpyCompanyRoleToCompanyUserQuery
+class SpyCompanyUserInvitationQuery extends BaseSpyCompanyUserInvitationQuery
 {
 }

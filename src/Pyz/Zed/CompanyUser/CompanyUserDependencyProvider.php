@@ -16,7 +16,7 @@ class CompanyUserDependencyProvider extends SprykerCompanyUserDependencyProvider
     /**
      * @return \Spryker\Zed\CompanyUserExtension\Dependency\Plugin\CompanyUserPostCreatePluginInterface[]
      */
-    protected function getCompanyUserPostCreatePlugins(): array
+    protected function getCompanyUserPreSavePlugins(): array
     {
         return [
             new AssignDefaultBusinessUnitToCompanyUserPlugin()
