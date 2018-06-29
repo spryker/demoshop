@@ -4,10 +4,10 @@ use Propel\Generator\Manager\MigrationManager;
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1530028375.
- * Generated on 2018-06-26 15:52:55 by vagrant
+ * up to version 1530202602.
+ * Generated on 2018-06-28 16:16:42 by vagrant
  */
-class PropelMigration_1530028375
+class PropelMigration_1530202602
 {
     public $comment = '';
 
@@ -162,6 +162,26 @@ CREATE TABLE "spy_availability"
     CONSTRAINT "spy_availability-sku" UNIQUE ("sku","fk_store")
 );
 
+CREATE SEQUENCE "spy_availability_storage_pk_seq";
+
+CREATE TABLE "spy_availability_storage"
+(
+    "id_availability_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "fk_availability_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "store" VARCHAR(4),
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_availability_storage"),
+    CONSTRAINT "spy_availability_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_availability_storage-fk_product_abstract" ON "spy_availability_storage" ("fk_product_abstract");
+
+CREATE INDEX "spy_availability_storage-fk_availability_abstract" ON "spy_availability_storage" ("fk_availability_abstract");
+
 CREATE SEQUENCE "spy_payment_braintree_pk_seq";
 
 CREATE TABLE "spy_payment_braintree"
@@ -286,13 +306,30 @@ CREATE TABLE "spy_category_closure_table"
     PRIMARY KEY ("id_category_closure_table")
 );
 
+CREATE SEQUENCE "spy_category_node_page_search_pk_seq";
+
+CREATE TABLE "spy_category_node_page_search"
+(
+    "id_category_node_page_search" INT8 NOT NULL,
+    "fk_category_node" INTEGER NOT NULL,
+    "structured_data" TEXT NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_category_node_page_search"),
+    CONSTRAINT "spy_category_node_page_search-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_category_node_page_search-fk_category_node" ON "spy_category_node_page_search" ("fk_category_node");
+
 CREATE SEQUENCE "spy_category_tree_storage_pk_seq";
 
 CREATE TABLE "spy_category_tree_storage"
 (
-    "id_category_tree_storage" INTEGER NOT NULL,
+    "id_category_tree_storage" INT8 NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4) NOT NULL,
     "locale" VARCHAR(16) NOT NULL,
     "key" VARCHAR,
     "created_at" TIMESTAMP,
@@ -305,10 +342,9 @@ CREATE SEQUENCE "spy_category_node_storage_pk_seq";
 
 CREATE TABLE "spy_category_node_storage"
 (
-    "id_category_node_storage" INTEGER NOT NULL,
+    "id_category_node_storage" INT8 NOT NULL,
     "fk_category_node" INTEGER NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4) NOT NULL,
     "locale" VARCHAR(16) NOT NULL,
     "key" VARCHAR,
     "created_at" TIMESTAMP,
@@ -316,6 +352,8 @@ CREATE TABLE "spy_category_node_storage"
     PRIMARY KEY ("id_category_node_storage"),
     CONSTRAINT "spy_category_node_storage-unique-key" UNIQUE ("key")
 );
+
+CREATE INDEX "spy_category_node_storage-fk_category_node" ON "spy_category_node_storage" ("fk_category_node");
 
 CREATE SEQUENCE "spy_category_template_pk_seq";
 
@@ -487,6 +525,22 @@ CREATE TABLE "spy_cms_block_category_position"
     PRIMARY KEY ("id_cms_block_category_position")
 );
 
+CREATE SEQUENCE "spy_cms_block_category_storage_pk_seq";
+
+CREATE TABLE "spy_cms_block_category_storage"
+(
+    "id_cms_block_category_storage" INT8 NOT NULL,
+    "fk_category" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_cms_block_category_storage"),
+    CONSTRAINT "spy_cms_block_category_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_cms_block_category_storage-fk_category" ON "spy_cms_block_category_storage" ("fk_category");
+
 CREATE SEQUENCE "spy_cms_block_product_connector_pk_seq";
 
 CREATE TABLE "spy_cms_block_product_connector"
@@ -501,14 +555,66 @@ CREATE INDEX "spy_cms_block_product_connector-fk_cms_block" ON "spy_cms_block_pr
 
 CREATE INDEX "spy_cms_block_product_connector-fk_product_abstract" ON "spy_cms_block_product_connector" ("fk_product_abstract");
 
+CREATE SEQUENCE "spy_cms_block_product_storage_pk_seq";
+
+CREATE TABLE "spy_cms_block_product_storage"
+(
+    "id_cms_block_product_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_cms_block_product_storage"),
+    CONSTRAINT "spy_cms_block_product_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_cms_block_product_storage-fk_product_abstract" ON "spy_cms_block_product_storage" ("fk_product_abstract");
+
+CREATE SEQUENCE "spy_cms_block_storage_pk_seq";
+
+CREATE TABLE "spy_cms_block_storage"
+(
+    "id_cms_block_storage" INT8 NOT NULL,
+    "fk_cms_block" INTEGER NOT NULL,
+    "name" VARCHAR NOT NULL,
+    "data" TEXT,
+    "store" VARCHAR(4),
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_cms_block_storage"),
+    CONSTRAINT "spy_cms_block_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_cms_block_storage-fk_cms_block" ON "spy_cms_block_storage" ("fk_cms_block");
+
+CREATE SEQUENCE "spy_cms_page_search_pk_seq";
+
+CREATE TABLE "spy_cms_page_search"
+(
+    "id_cms_page_search" INT8 NOT NULL,
+    "fk_cms_page" INTEGER NOT NULL,
+    "structured_data" TEXT NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_cms_page_search"),
+    CONSTRAINT "spy_cms_page_search-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_cms_page_search-fk_cms_page" ON "spy_cms_page_search" ("fk_cms_page");
+
 CREATE SEQUENCE "spy_cms_page_storage_pk_seq";
 
 CREATE TABLE "spy_cms_page_storage"
 (
-    "id_cms_page_storage" INTEGER NOT NULL,
+    "id_cms_page_storage" INT8 NOT NULL,
     "fk_cms_page" INTEGER NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4) NOT NULL,
     "locale" VARCHAR(16) NOT NULL,
     "key" VARCHAR,
     "created_at" TIMESTAMP,
@@ -516,6 +622,8 @@ CREATE TABLE "spy_cms_page_storage"
     PRIMARY KEY ("id_cms_page_storage"),
     CONSTRAINT "spy_cms_page_storage-unique-key" UNIQUE ("key")
 );
+
+CREATE INDEX "spy_cms_page_storage-fk_cms_page" ON "spy_cms_page_storage" ("fk_cms_page");
 
 CREATE SEQUENCE "spy_company_pk_seq";
 
@@ -552,6 +660,7 @@ CREATE TABLE "spy_company_business_unit"
     "iban" VARCHAR(255),
     "bic" VARCHAR(255),
     "fk_company" INTEGER NOT NULL,
+    "fk_parent_company_business_unit" INTEGER,
     "default_billing_address" INTEGER,
     PRIMARY KEY ("id_company_business_unit")
 );
@@ -668,6 +777,7 @@ CREATE SEQUENCE "spy_company_user_pk_seq";
 
 CREATE TABLE "spy_company_user"
 (
+    "is_default" BOOLEAN DEFAULT \'f\' NOT NULL,
     "fk_company_business_unit" INTEGER,
     "id_company_user" INTEGER NOT NULL,
     "fk_company" INTEGER NOT NULL,
@@ -910,7 +1020,7 @@ CREATE SEQUENCE "spy_event_behavior_entity_change_pk_seq";
 
 CREATE TABLE "spy_event_behavior_entity_change"
 (
-    "id_event_behavior_entity_change" INTEGER NOT NULL,
+    "id_event_behavior_entity_change" INT8 NOT NULL,
     "data" VARCHAR,
     "process_id" VARCHAR,
     "created_at" TIMESTAMP,
@@ -1033,6 +1143,24 @@ CREATE INDEX "spy_glossary_translation-index-fk_locale" ON "spy_glossary_transla
 
 CREATE INDEX "spy_glossary_translation-is_active" ON "spy_glossary_translation" ("is_active");
 
+CREATE SEQUENCE "spy_glossary_storage_pk_seq";
+
+CREATE TABLE "spy_glossary_storage"
+(
+    "id_glossary_storage" INT8 NOT NULL,
+    "fk_glossary_key" INTEGER NOT NULL,
+    "glossary_key" VARCHAR NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_glossary_storage"),
+    CONSTRAINT "spy_glossary_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_glossary_storage-fk_glossary_key" ON "spy_glossary_storage" ("fk_glossary_key");
+
 CREATE SEQUENCE "spy_locale_pk_seq";
 
 CREATE TABLE "spy_locale"
@@ -1100,6 +1228,24 @@ CREATE TABLE "spy_navigation_node_localized_attributes"
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_navigation_node_localized_attributes")
 );
+
+CREATE SEQUENCE "spy_navigation_storage_pk_seq";
+
+CREATE TABLE "spy_navigation_storage"
+(
+    "id_navigation_storage" INT8 NOT NULL,
+    "fk_navigation" INTEGER NOT NULL,
+    "navigation_key" VARCHAR NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_navigation_storage"),
+    CONSTRAINT "spy_navigation_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_navigation_storage-fk_navigation" ON "spy_navigation_storage" ("fk_navigation");
 
 CREATE SEQUENCE "spy_newsletter_subscriber_pk_seq";
 
@@ -1435,6 +1581,40 @@ CREATE TABLE "spy_price_product_store"
     CONSTRAINT "spy_price_product_store-unique-price_product" UNIQUE ("fk_currency","fk_price_product","fk_store")
 );
 
+CREATE SEQUENCE "spy_price_product_abstract_storage_pk_seq";
+
+CREATE TABLE "spy_price_product_abstract_storage"
+(
+    "id_price_product_abstract_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "store" VARCHAR(4),
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_price_product_abstract_storage"),
+    CONSTRAINT "spy_price_product_abstract_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_price_product_abstract_storage-fk_product_abstract" ON "spy_price_product_abstract_storage" ("fk_product_abstract");
+
+CREATE SEQUENCE "spy_price_product_concrete_storage_pk_seq";
+
+CREATE TABLE "spy_price_product_concrete_storage"
+(
+    "id_price_product_concrete_storage" INT8 NOT NULL,
+    "fk_product" INTEGER NOT NULL,
+    "data" TEXT,
+    "store" VARCHAR(4),
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_price_product_concrete_storage"),
+    CONSTRAINT "spy_price_product_concrete_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_price_product_concrete_storage-fk_product" ON "spy_price_product_concrete_storage" ("fk_product");
+
 CREATE SEQUENCE "spy_product_abstract_pk_seq";
 
 CREATE TABLE "spy_product_abstract"
@@ -1625,6 +1805,39 @@ CREATE TABLE "spy_product_category_filter"
 
 CREATE INDEX "spy_product_category_filter_i_adaed7" ON "spy_product_category_filter" ("fk_category");
 
+CREATE SEQUENCE "spy_product_category_filter_storage_pk_seq";
+
+CREATE TABLE "spy_product_category_filter_storage"
+(
+    "id_product_category_filter_storage" INT8 NOT NULL,
+    "fk_category" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_category_filter_storage"),
+    CONSTRAINT "spy_product_category_filter_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_category_filter_storage-fk_category" ON "spy_product_category_filter_storage" ("fk_category");
+
+CREATE SEQUENCE "spy_product_abstract_category_storage_pk_seq";
+
+CREATE TABLE "spy_product_abstract_category_storage"
+(
+    "id_product_abstract_category_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_abstract_category_storage"),
+    CONSTRAINT "spy_product_abstract_category_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_abstract_category_storage-fk_product_abstract" ON "spy_product_abstract_category_storage" ("fk_product_abstract");
+
 CREATE SEQUENCE "spy_product_customer_permission_pk_seq";
 
 CREATE TABLE "spy_product_customer_permission"
@@ -1654,6 +1867,22 @@ CREATE TABLE "spy_product_abstract_group"
     "position" INTEGER DEFAULT 0 NOT NULL,
     PRIMARY KEY ("fk_product_group","fk_product_abstract")
 );
+
+CREATE SEQUENCE "spy_product_abstract_group_storage_pk_seq";
+
+CREATE TABLE "spy_product_abstract_group_storage"
+(
+    "id_product_abstract_group_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_abstract_group_storage"),
+    CONSTRAINT "spy_product_abstract_group_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_abstract_group_storage-fk_product_abstract" ON "spy_product_abstract_group_storage" ("fk_product_abstract");
 
 CREATE SEQUENCE "spy_product_image_set_pk_seq";
 
@@ -1700,6 +1929,40 @@ CREATE TABLE "spy_product_image_set_to_product_image"
     PRIMARY KEY ("id_product_image_set_to_product_image"),
     CONSTRAINT "fk_product_image_set-fk_product_image" UNIQUE ("fk_product_image_set","fk_product_image")
 );
+
+CREATE SEQUENCE "spy_product_abstract_image_storage_pk_seq";
+
+CREATE TABLE "spy_product_abstract_image_storage"
+(
+    "id_product_abstract_image_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_abstract_image_storage"),
+    CONSTRAINT "spy_product_abstract_image_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_abstract_image_storage-fk_product_abstract" ON "spy_product_abstract_image_storage" ("fk_product_abstract");
+
+CREATE SEQUENCE "spy_product_concrete_image_storage_pk_seq";
+
+CREATE TABLE "spy_product_concrete_image_storage"
+(
+    "id_product_concrete_image_storage" INT8 NOT NULL,
+    "fk_product" INTEGER NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_concrete_image_storage"),
+    CONSTRAINT "spy_product_concrete_image_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_concrete_image_storage-fk_product" ON "spy_product_concrete_image_storage" ("fk_product");
 
 CREATE SEQUENCE "spy_product_label_pk_seq";
 
@@ -1756,9 +2019,8 @@ CREATE SEQUENCE "spy_product_label_dictionary_storage_pk_seq";
 
 CREATE TABLE "spy_product_label_dictionary_storage"
 (
-    "id_product_label_dictionary_storage" INTEGER NOT NULL,
+    "id_product_label_dictionary_storage" INT8 NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4) NOT NULL,
     "locale" VARCHAR(16) NOT NULL,
     "key" VARCHAR,
     "created_at" TIMESTAMP,
@@ -1771,16 +2033,105 @@ CREATE SEQUENCE "spy_product_abstract_label_storage_pk_seq";
 
 CREATE TABLE "spy_product_abstract_label_storage"
 (
-    "id_product_abstract_label_storage" INTEGER NOT NULL,
+    "id_product_abstract_label_storage" INT8 NOT NULL,
     "fk_product_abstract" INTEGER NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4) NOT NULL,
     "key" VARCHAR,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_product_abstract_label_storage"),
     CONSTRAINT "spy_product_abstract_label_storage-unique-key" UNIQUE ("key")
 );
+
+CREATE INDEX "spy_product_abstract_label_storage-fk_product_abstract" ON "spy_product_abstract_label_storage" ("fk_product_abstract");
+
+CREATE SEQUENCE "id_product_measurement_unit_pk_seq";
+
+CREATE TABLE "spy_product_measurement_unit"
+(
+    "id_product_measurement_unit" INTEGER NOT NULL,
+    "default_precision" INTEGER NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "code" VARCHAR(255) NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_measurement_unit"),
+    CONSTRAINT "spy_product_measurement_unit-code" UNIQUE ("code")
+);
+
+CREATE SEQUENCE "id_product_measurement_base_unit_pk_seq";
+
+CREATE TABLE "spy_product_measurement_base_unit"
+(
+    "id_product_measurement_base_unit" INTEGER NOT NULL,
+    "fk_product_measurement_unit" INTEGER NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_measurement_base_unit")
+);
+
+CREATE SEQUENCE "id_product_measurement_sales_unit_pk_seq";
+
+CREATE TABLE "spy_product_measurement_sales_unit"
+(
+    "id_product_measurement_sales_unit" INTEGER NOT NULL,
+    "conversion" DOUBLE PRECISION,
+    "precision" INTEGER,
+    "is_displayed" BOOLEAN NOT NULL,
+    "is_default" BOOLEAN NOT NULL,
+    "key" VARCHAR(255),
+    "fk_product" INTEGER NOT NULL,
+    "fk_product_measurement_unit" INTEGER NOT NULL,
+    "fk_product_measurement_base_unit" INTEGER NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_measurement_sales_unit")
+);
+
+CREATE SEQUENCE "id_product_measurement_sales_unit_store_pk_seq";
+
+CREATE TABLE "spy_product_measurement_sales_unit_store"
+(
+    "id_product_measurement_sales_unit_store" INTEGER NOT NULL,
+    "fk_product_measurement_sales_unit" INTEGER NOT NULL,
+    "fk_store" INTEGER NOT NULL,
+    PRIMARY KEY ("id_product_measurement_sales_unit_store"),
+    CONSTRAINT "spy_product_measurement_sales_unit_store-sales_unit-store" UNIQUE ("fk_product_measurement_sales_unit","fk_store")
+);
+
+CREATE SEQUENCE "id_product_measurement_unit_storage_pk_seq";
+
+CREATE TABLE "spy_product_measurement_unit_storage"
+(
+    "id_product_measurement_unit_storage" INTEGER NOT NULL,
+    "fk_product_measurement_unit" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_measurement_unit_storage"),
+    CONSTRAINT "spy_product_measurement_unit_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_measurement_unit_storage-fk_product_measurement_uni" ON "spy_product_measurement_unit_storage" ("fk_product_measurement_unit");
+
+CREATE SEQUENCE "id_product_concrete_measurement_unit_storage_pk_seq";
+
+CREATE TABLE "spy_product_concrete_measurement_unit_storage"
+(
+    "id_product_concrete_measurement_unit_storage" INTEGER NOT NULL,
+    "fk_product" INTEGER NOT NULL,
+    "data" TEXT,
+    "store" VARCHAR NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_concrete_measurement_unit_storage"),
+    CONSTRAINT "spy_product_concrete_measurement_unit_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_concrete_measurement_unit_storage-fk_product" ON "spy_product_concrete_measurement_unit_storage" ("fk_product");
 
 CREATE SEQUENCE "spy_product_option_group_pk_seq";
 
@@ -1833,6 +2184,73 @@ CREATE TABLE "spy_product_option_value_price"
     CONSTRAINT "spy_product_option_value_price-fk_value-fk_store-fk_currency" UNIQUE ("fk_product_option_value","fk_store","fk_currency")
 );
 
+CREATE SEQUENCE "spy_product_abstract_option_storage_pk_seq";
+
+CREATE TABLE "spy_product_abstract_option_storage"
+(
+    "id_product_abstract_option_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "store" VARCHAR(4) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_abstract_option_storage"),
+    CONSTRAINT "spy_product_abstract_option_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_abstract_option_storage-fk_product_abstract" ON "spy_product_abstract_option_storage" ("fk_product_abstract");
+
+CREATE SEQUENCE "spy_product_abstract_page_search_pk_seq";
+
+CREATE TABLE "spy_product_abstract_page_search"
+(
+    "id_product_abstract_page_search" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "structured_data" TEXT NOT NULL,
+    "data" TEXT,
+    "store" VARCHAR(4) NOT NULL,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_abstract_page_search"),
+    CONSTRAINT "spy_product_abstract_page_search-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_abstract_page_search-fk_product_abstract" ON "spy_product_abstract_page_search" ("fk_product_abstract");
+
+CREATE SEQUENCE "id_product_quantity_pk_seq";
+
+CREATE TABLE "spy_product_quantity"
+(
+    "id_product_quantity" INTEGER NOT NULL,
+    "fk_product" INTEGER NOT NULL,
+    "quantity_min" INTEGER NOT NULL,
+    "quantity_max" INTEGER,
+    "quantity_interval" INTEGER NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_quantity"),
+    CONSTRAINT "spy_product_quantity-unique-fk_product" UNIQUE ("fk_product")
+);
+
+CREATE SEQUENCE "id_product_quantity_storage_pk_seq";
+
+CREATE TABLE "spy_product_quantity_storage"
+(
+    "id_product_quantity_storage" INTEGER NOT NULL,
+    "fk_product" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_quantity_storage"),
+    CONSTRAINT "spy_product_quantity_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_quantity_storage-fk_product" ON "spy_product_quantity_storage" ("fk_product");
+
 CREATE SEQUENCE "spy_product_relation_type_pk_seq";
 
 CREATE TABLE "spy_product_relation_type"
@@ -1873,6 +2291,22 @@ CREATE TABLE "spy_product_relation_product_abstract"
     PRIMARY KEY ("id_product_relation_product_abstract")
 );
 
+CREATE SEQUENCE "spy_product_abstract_relation_storage_pk_seq";
+
+CREATE TABLE "spy_product_abstract_relation_storage"
+(
+    "id_product_abstract_relation_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_abstract_relation_storage"),
+    CONSTRAINT "spy_product_abstract_relation_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_abstract_relation_storage-fk_product_abstract" ON "spy_product_abstract_relation_storage" ("fk_product_abstract");
+
 CREATE SEQUENCE "id_product_review_pk_seq";
 
 CREATE TABLE "spy_product_review"
@@ -1896,6 +2330,39 @@ CREATE INDEX "spy_product_review-fk_product_abstract" ON "spy_product_review" ("
 CREATE INDEX "spy_product_review-fk_locale" ON "spy_product_review" ("fk_locale");
 
 CREATE INDEX "spy_product_review-customer_reference" ON "spy_product_review" ("customer_reference");
+
+CREATE SEQUENCE "spy_product_review_search_pk_seq";
+
+CREATE TABLE "spy_product_review_search"
+(
+    "id_product_review_search" INT8 NOT NULL,
+    "fk_product_review" INTEGER NOT NULL,
+    "structured_data" TEXT NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_review_search"),
+    CONSTRAINT "spy_product_review_search-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_review_search-fk_product_review" ON "spy_product_review_search" ("fk_product_review");
+
+CREATE SEQUENCE "spy_product_abstract_review_storage_pk_seq";
+
+CREATE TABLE "spy_product_abstract_review_storage"
+(
+    "id_product_abstract_review_storage" INT8 NOT NULL,
+    "fk_product_abstract" INTEGER NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_abstract_review_storage"),
+    CONSTRAINT "spy_product_abstract_review_storage-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_abstract_review_storage-fk_product_abstract" ON "spy_product_abstract_review_storage" ("fk_product_abstract");
 
 CREATE SEQUENCE "spy_product_search_pk_seq";
 
@@ -1931,6 +2398,19 @@ CREATE TABLE "spy_product_search_attribute"
     "synced" BOOLEAN DEFAULT \'f\',
     PRIMARY KEY ("id_product_search_attribute"),
     CONSTRAINT "spy_product_search_attribute-unique-fk_product_attribute_key" UNIQUE ("fk_product_attribute_key")
+);
+
+CREATE SEQUENCE "spy_product_search_config_storage_pk_seq";
+
+CREATE TABLE "spy_product_search_config_storage"
+(
+    "id_product_search_config_storage" INT8 NOT NULL,
+    "data" TEXT,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_search_config_storage"),
+    CONSTRAINT "spy_product_search_config_storage-unique-key" UNIQUE ("key")
 );
 
 CREATE SEQUENCE "spy_product_set_pk_seq";
@@ -1985,14 +2465,31 @@ CREATE INDEX "spy_product_set_data-fk_product_set" ON "spy_product_set_data" ("f
 
 CREATE INDEX "spy_product_set_data-fk_locale" ON "spy_product_set_data" ("fk_locale");
 
+CREATE SEQUENCE "spy_product_set_page_search_pk_seq";
+
+CREATE TABLE "spy_product_set_page_search"
+(
+    "id_product_set_page_search" INT8 NOT NULL,
+    "fk_product_set" INTEGER NOT NULL,
+    "structured_data" TEXT NOT NULL,
+    "data" TEXT,
+    "locale" VARCHAR(16) NOT NULL,
+    "key" VARCHAR,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_product_set_page_search"),
+    CONSTRAINT "spy_product_set_page_search-unique-key" UNIQUE ("key")
+);
+
+CREATE INDEX "spy_product_set_page_search-fk_product_set" ON "spy_product_set_page_search" ("fk_product_set");
+
 CREATE SEQUENCE "spy_product_set_storage_pk_seq";
 
 CREATE TABLE "spy_product_set_storage"
 (
-    "id_product_set_storage" INTEGER NOT NULL,
+    "id_product_set_storage" INT8 NOT NULL,
     "fk_product_set" INTEGER NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4) NOT NULL,
     "locale" VARCHAR(16) NOT NULL,
     "key" VARCHAR,
     "created_at" TIMESTAMP,
@@ -2001,11 +2498,13 @@ CREATE TABLE "spy_product_set_storage"
     CONSTRAINT "spy_product_set_storage-unique-key" UNIQUE ("key")
 );
 
+CREATE INDEX "spy_product_set_storage-fk_product_set" ON "spy_product_set_storage" ("fk_product_set");
+
 CREATE SEQUENCE "spy_product_abstract_storage_pk_seq";
 
 CREATE TABLE "spy_product_abstract_storage"
 (
-    "id_product_abstract_storage" INTEGER NOT NULL,
+    "id_product_abstract_storage" INT8 NOT NULL,
     "fk_product_abstract" INTEGER NOT NULL,
     "data" TEXT,
     "store" VARCHAR(4) NOT NULL,
@@ -2017,14 +2516,15 @@ CREATE TABLE "spy_product_abstract_storage"
     CONSTRAINT "spy_product_abstract_storage-unique-key" UNIQUE ("key")
 );
 
+CREATE INDEX "spy_product_abstract_storage-fk_product_abstract" ON "spy_product_abstract_storage" ("fk_product_abstract");
+
 CREATE SEQUENCE "spy_product_concrete_storage_pk_seq";
 
 CREATE TABLE "spy_product_concrete_storage"
 (
-    "id_product_concrete_storage" INTEGER NOT NULL,
+    "id_product_concrete_storage" INT8 NOT NULL,
     "fk_product" INTEGER NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4) NOT NULL,
     "locale" VARCHAR(16) NOT NULL,
     "key" VARCHAR,
     "created_at" TIMESTAMP,
@@ -2032,6 +2532,8 @@ CREATE TABLE "spy_product_concrete_storage"
     PRIMARY KEY ("id_product_concrete_storage"),
     CONSTRAINT "spy_product_concrete_storage-unique-key" UNIQUE ("key")
 );
+
+CREATE INDEX "spy_product_concrete_storage-fk_product" ON "spy_product_concrete_storage" ("fk_product");
 
 CREATE SEQUENCE "spy_product_validity_pk_seq";
 
@@ -2138,6 +2640,13 @@ CREATE TABLE "spy_sales_order_item"
 (
     "cart_note" VARCHAR(255),
     "fk_sales_order_item_bundle" INTEGER,
+    "amount" INTEGER,
+    "amount_measurement_unit_name" VARCHAR(255),
+    "amount_measurement_unit_precision" INTEGER,
+    "amount_measurement_unit_conversion" DOUBLE PRECISION,
+    "quantity_measurement_unit_name" VARCHAR(255),
+    "quantity_measurement_unit_precision" INTEGER,
+    "quantity_measurement_unit_conversion" DOUBLE PRECISION,
     "id_sales_order_item" INTEGER NOT NULL,
     "fk_sales_order" INTEGER NOT NULL,
     "fk_oms_order_item_state" INTEGER NOT NULL,
@@ -2530,6 +3039,73 @@ CREATE TABLE "spy_shipment_method_price"
     CONSTRAINT "spy_shipment_method_price-fk_shipment_method-fk_currency-fk_sto" UNIQUE ("fk_shipment_method","fk_store","fk_currency")
 );
 
+CREATE SEQUENCE "spy_shopping_list_pk_seq";
+
+CREATE TABLE "spy_shopping_list"
+(
+    "id_shopping_list" INTEGER NOT NULL,
+    "customer_reference" VARCHAR(255) NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    "description" VARCHAR(255),
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_shopping_list")
+);
+
+CREATE SEQUENCE "spy_shopping_list_item_pk_seq";
+
+CREATE TABLE "spy_shopping_list_item"
+(
+    "id_shopping_list_item" INTEGER NOT NULL,
+    "fk_shopping_list" INTEGER NOT NULL,
+    "sku" VARCHAR(255),
+    "quantity" INTEGER DEFAULT 1 NOT NULL,
+    "created_at" TIMESTAMP,
+    "updated_at" TIMESTAMP,
+    PRIMARY KEY ("id_shopping_list_item")
+);
+
+CREATE SEQUENCE "spy_shopping_list_company_user_pk_seq";
+
+CREATE TABLE "spy_shopping_list_company_user"
+(
+    "id_shopping_list_company_user" INTEGER NOT NULL,
+    "fk_company_user" INTEGER NOT NULL,
+    "fk_shopping_list" INTEGER,
+    "fk_shopping_list_permission_group" INTEGER NOT NULL,
+    PRIMARY KEY ("id_shopping_list_company_user")
+);
+
+CREATE SEQUENCE "spy_shopping_list_company_business_unit_pk_seq";
+
+CREATE TABLE "spy_shopping_list_company_business_unit"
+(
+    "id_shopping_list_company_business_unit" INTEGER NOT NULL,
+    "fk_company_business_unit" INTEGER NOT NULL,
+    "fk_shopping_list" INTEGER NOT NULL,
+    "fk_shopping_list_permission_group" INTEGER NOT NULL,
+    PRIMARY KEY ("id_shopping_list_company_business_unit")
+);
+
+CREATE SEQUENCE "spy_shopping_list_permission_group_pk_seq";
+
+CREATE TABLE "spy_shopping_list_permission_group"
+(
+    "id_shopping_list_permission_group" INTEGER NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
+    PRIMARY KEY ("id_shopping_list_permission_group")
+);
+
+CREATE SEQUENCE "spy_shopping_list_permission_group_to_permission_pk_seq";
+
+CREATE TABLE "spy_shopping_list_permission_group_to_permission"
+(
+    "id_shopping_list_permission_group_to_permission" INTEGER NOT NULL,
+    "fk_shopping_list_permission_group" INTEGER NOT NULL,
+    "fk_permission" INTEGER NOT NULL,
+    PRIMARY KEY ("id_shopping_list_permission_group_to_permission")
+);
+
 CREATE SEQUENCE "spy_state_machine_transition_log_pk_seq";
 
 CREATE TABLE "spy_state_machine_transition_log"
@@ -2779,7 +3355,7 @@ CREATE SEQUENCE "spy_url_storage_pk_seq";
 
 CREATE TABLE "spy_url_storage"
 (
-    "id_url_storage" INTEGER NOT NULL,
+    "id_url_storage" INT8 NOT NULL,
     "url" VARCHAR NOT NULL,
     "fk_url" INTEGER NOT NULL,
     "fk_page" INTEGER,
@@ -2788,7 +3364,6 @@ CREATE TABLE "spy_url_storage"
     "fk_product_set" INTEGER,
     "fk_product_abstract" INTEGER,
     "data" TEXT,
-    "store" VARCHAR(4),
     "key" VARCHAR,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
@@ -2796,20 +3371,23 @@ CREATE TABLE "spy_url_storage"
     CONSTRAINT "spy_url_storage-unique-key" UNIQUE ("key")
 );
 
+CREATE INDEX "spy_url_storage-fk_url" ON "spy_url_storage" ("fk_url");
+
 CREATE SEQUENCE "spy_url_redirect_storage_pk_seq";
 
 CREATE TABLE "spy_url_redirect_storage"
 (
-    "id_url_redirect_storage" INTEGER NOT NULL,
-    "fk_url_redirect" INTEGER,
+    "id_url_redirect_storage" INT8 NOT NULL,
+    "fk_url_redirect" INTEGER NOT NULL,
     "data" TEXT,
-    "store" VARCHAR(4),
     "key" VARCHAR,
     "created_at" TIMESTAMP,
     "updated_at" TIMESTAMP,
     PRIMARY KEY ("id_url_redirect_storage"),
     CONSTRAINT "spy_url_redirect_storage-unique-key" UNIQUE ("key")
 );
+
+CREATE INDEX "spy_url_redirect_storage-fk_url_redirect" ON "spy_url_redirect_storage" ("fk_url_redirect");
 
 CREATE SEQUENCE "spy_user_pk_seq";
 
@@ -3147,14 +3725,18 @@ ALTER TABLE "spy_company_store" ADD CONSTRAINT "spy_company_store-fk_company"
     FOREIGN KEY ("fk_company")
     REFERENCES "spy_company" ("id_company");
 
-ALTER TABLE "spy_company_business_unit" ADD CONSTRAINT "spy_co_b_u-default_billing_address"
-    FOREIGN KEY ("default_billing_address")
-    REFERENCES "spy_company_unit_address" ("id_company_unit_address")
-    ON DELETE SET NULL;
+ALTER TABLE "spy_company_business_unit" ADD CONSTRAINT "spy_company_business_unit-fk_parent_company_business_unit"
+    FOREIGN KEY ("fk_parent_company_business_unit")
+    REFERENCES "spy_company_business_unit" ("id_company_business_unit");
 
 ALTER TABLE "spy_company_business_unit" ADD CONSTRAINT "spy_company_business_unit-fk_company"
     FOREIGN KEY ("fk_company")
     REFERENCES "spy_company" ("id_company");
+
+ALTER TABLE "spy_company_business_unit" ADD CONSTRAINT "spy_co_b_u-default_billing_address"
+    FOREIGN KEY ("default_billing_address")
+    REFERENCES "spy_company_unit_address" ("id_company_unit_address")
+    ON DELETE SET NULL;
 
 ALTER TABLE "spy_company_role" ADD CONSTRAINT "spy_company_role-fk_company"
     FOREIGN KEY ("fk_company")
@@ -3611,6 +4193,34 @@ ALTER TABLE "spy_product_label_product_abstract" ADD CONSTRAINT "spy_product_lab
     FOREIGN KEY ("fk_product_abstract")
     REFERENCES "spy_product_abstract" ("id_product_abstract");
 
+ALTER TABLE "spy_product_measurement_base_unit" ADD CONSTRAINT "spy_product_measurement_base_unit-fk_product_abstract"
+    FOREIGN KEY ("fk_product_abstract")
+    REFERENCES "spy_product_abstract" ("id_product_abstract");
+
+ALTER TABLE "spy_product_measurement_base_unit" ADD CONSTRAINT "spy_product_measurement_base_unit-fk_product_measurement_unit"
+    FOREIGN KEY ("fk_product_measurement_unit")
+    REFERENCES "spy_product_measurement_unit" ("id_product_measurement_unit");
+
+ALTER TABLE "spy_product_measurement_sales_unit" ADD CONSTRAINT "spy_product_measurement_sales_unit-fk_product"
+    FOREIGN KEY ("fk_product")
+    REFERENCES "spy_product" ("id_product");
+
+ALTER TABLE "spy_product_measurement_sales_unit" ADD CONSTRAINT "spy_product_measurement_sales_unit-fk_measurement_unit"
+    FOREIGN KEY ("fk_product_measurement_unit")
+    REFERENCES "spy_product_measurement_unit" ("id_product_measurement_unit");
+
+ALTER TABLE "spy_product_measurement_sales_unit" ADD CONSTRAINT "spy_product_measurement_sales_unit-fk_base_unit"
+    FOREIGN KEY ("fk_product_measurement_base_unit")
+    REFERENCES "spy_product_measurement_base_unit" ("id_product_measurement_base_unit");
+
+ALTER TABLE "spy_product_measurement_sales_unit_store" ADD CONSTRAINT "spy_product_measurement_sales_unit_store-fk_store"
+    FOREIGN KEY ("fk_store")
+    REFERENCES "spy_store" ("id_store");
+
+ALTER TABLE "spy_product_measurement_sales_unit_store" ADD CONSTRAINT "spy_product_measurement_sales_unit_store-fk_sales_unit"
+    FOREIGN KEY ("fk_product_measurement_sales_unit")
+    REFERENCES "spy_product_measurement_sales_unit" ("id_product_measurement_sales_unit");
+
 ALTER TABLE "spy_product_option_group" ADD CONSTRAINT "spy_product_option_group-fk_tax_set"
     FOREIGN KEY ("fk_tax_set")
     REFERENCES "spy_tax_set" ("id_tax_set")
@@ -3640,6 +4250,10 @@ ALTER TABLE "spy_product_option_value_price" ADD CONSTRAINT "spy_product_option_
     FOREIGN KEY ("fk_product_option_value")
     REFERENCES "spy_product_option_value" ("id_product_option_value")
     ON DELETE CASCADE;
+
+ALTER TABLE "spy_product_quantity" ADD CONSTRAINT "spy_product_quantity-fk_product"
+    FOREIGN KEY ("fk_product")
+    REFERENCES "spy_product" ("id_product");
 
 ALTER TABLE "spy_product_relation" ADD CONSTRAINT "spy_product-relation-fk_product_abstract"
     FOREIGN KEY ("fk_product_abstract")
@@ -3848,6 +4462,42 @@ ALTER TABLE "spy_shipment_method_price" ADD CONSTRAINT "spy_shipment_method_pric
     FOREIGN KEY ("fk_shipment_method")
     REFERENCES "spy_shipment_method" ("id_shipment_method");
 
+ALTER TABLE "spy_shopping_list_item" ADD CONSTRAINT "spy_shopping_list_item-fk_shopping_list"
+    FOREIGN KEY ("fk_shopping_list")
+    REFERENCES "spy_shopping_list" ("id_shopping_list");
+
+ALTER TABLE "spy_shopping_list_company_user" ADD CONSTRAINT "spy_shopping_list_company_user-fk_company_user"
+    FOREIGN KEY ("fk_company_user")
+    REFERENCES "spy_company_user" ("id_company_user");
+
+ALTER TABLE "spy_shopping_list_company_user" ADD CONSTRAINT "spy_shopping_list_company_user-fk_shopping_list"
+    FOREIGN KEY ("fk_shopping_list")
+    REFERENCES "spy_shopping_list" ("id_shopping_list");
+
+ALTER TABLE "spy_shopping_list_company_user" ADD CONSTRAINT "spy_shopping_list_company_user-fk_shopping_list_perm_grp"
+    FOREIGN KEY ("fk_shopping_list_permission_group")
+    REFERENCES "spy_shopping_list_permission_group" ("id_shopping_list_permission_group");
+
+ALTER TABLE "spy_shopping_list_company_business_unit" ADD CONSTRAINT "spy_shopping_list_business_unit-fk_company_business_unit"
+    FOREIGN KEY ("fk_company_business_unit")
+    REFERENCES "spy_company_business_unit" ("id_company_business_unit");
+
+ALTER TABLE "spy_shopping_list_company_business_unit" ADD CONSTRAINT "spy_shopping_list_company_business_unit-fk_shopping_list"
+    FOREIGN KEY ("fk_shopping_list")
+    REFERENCES "spy_shopping_list" ("id_shopping_list");
+
+ALTER TABLE "spy_shopping_list_company_business_unit" ADD CONSTRAINT "spy_shopping_list_business_unit-fk_shopping_list_perm_group"
+    FOREIGN KEY ("fk_shopping_list_permission_group")
+    REFERENCES "spy_shopping_list_permission_group" ("id_shopping_list_permission_group");
+
+ALTER TABLE "spy_shopping_list_permission_group_to_permission" ADD CONSTRAINT "spy_shopping_list_perm_grp_to_perm-fk_shopping_list_perm_grp"
+    FOREIGN KEY ("fk_shopping_list_permission_group")
+    REFERENCES "spy_shopping_list_permission_group" ("id_shopping_list_permission_group");
+
+ALTER TABLE "spy_shopping_list_permission_group_to_permission" ADD CONSTRAINT "spy_shopping_list_permission_group_to_permission-fk_permission"
+    FOREIGN KEY ("fk_permission")
+    REFERENCES "spy_permission" ("id_permission");
+
 ALTER TABLE "spy_state_machine_transition_log" ADD CONSTRAINT "spy_state_machine_transition_log-fk_state_machine_process"
     FOREIGN KEY ("fk_state_machine_process")
     REFERENCES "spy_state_machine_process" ("id_state_machine_process");
@@ -4012,6 +4662,10 @@ DROP TABLE IF EXISTS "spy_availability" CASCADE;
 
 DROP SEQUENCE "spy_availability_pk_seq";
 
+DROP TABLE IF EXISTS "spy_availability_storage" CASCADE;
+
+DROP SEQUENCE "spy_availability_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_payment_braintree" CASCADE;
 
 DROP SEQUENCE "spy_payment_braintree_pk_seq";
@@ -4041,6 +4695,10 @@ DROP SEQUENCE "spy_category_node_pk_seq";
 DROP TABLE IF EXISTS "spy_category_closure_table" CASCADE;
 
 DROP SEQUENCE "spy_category_closure_table_pk_seq";
+
+DROP TABLE IF EXISTS "spy_category_node_page_search" CASCADE;
+
+DROP SEQUENCE "spy_category_node_page_search_pk_seq";
 
 DROP TABLE IF EXISTS "spy_category_tree_storage" CASCADE;
 
@@ -4098,9 +4756,25 @@ DROP TABLE IF EXISTS "spy_cms_block_category_position" CASCADE;
 
 DROP SEQUENCE "spy_cms_block_category_position_pk_seq";
 
+DROP TABLE IF EXISTS "spy_cms_block_category_storage" CASCADE;
+
+DROP SEQUENCE "spy_cms_block_category_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_cms_block_product_connector" CASCADE;
 
 DROP SEQUENCE "spy_cms_block_product_connector_pk_seq";
+
+DROP TABLE IF EXISTS "spy_cms_block_product_storage" CASCADE;
+
+DROP SEQUENCE "spy_cms_block_product_storage_pk_seq";
+
+DROP TABLE IF EXISTS "spy_cms_block_storage" CASCADE;
+
+DROP SEQUENCE "spy_cms_block_storage_pk_seq";
+
+DROP TABLE IF EXISTS "spy_cms_page_search" CASCADE;
+
+DROP SEQUENCE "spy_cms_page_search_pk_seq";
 
 DROP TABLE IF EXISTS "spy_cms_page_storage" CASCADE;
 
@@ -4254,6 +4928,10 @@ DROP TABLE IF EXISTS "spy_glossary_translation" CASCADE;
 
 DROP SEQUENCE "spy_glossary_translation_pk_seq";
 
+DROP TABLE IF EXISTS "spy_glossary_storage" CASCADE;
+
+DROP SEQUENCE "spy_glossary_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_locale" CASCADE;
 
 DROP SEQUENCE "spy_locale_pk_seq";
@@ -4269,6 +4947,10 @@ DROP SEQUENCE "spy_navigation_pk_seq";
 DROP TABLE IF EXISTS "spy_navigation_node_localized_attributes" CASCADE;
 
 DROP SEQUENCE "spy_navigation_node_localized_attributes_pk_seq";
+
+DROP TABLE IF EXISTS "spy_navigation_storage" CASCADE;
+
+DROP SEQUENCE "spy_navigation_storage_pk_seq";
 
 DROP TABLE IF EXISTS "spy_newsletter_subscriber" CASCADE;
 
@@ -4352,6 +5034,14 @@ DROP TABLE IF EXISTS "spy_price_product_store" CASCADE;
 
 DROP SEQUENCE "spy_price_product_store_pk_seq";
 
+DROP TABLE IF EXISTS "spy_price_product_abstract_storage" CASCADE;
+
+DROP SEQUENCE "spy_price_product_abstract_storage_pk_seq";
+
+DROP TABLE IF EXISTS "spy_price_product_concrete_storage" CASCADE;
+
+DROP SEQUENCE "spy_price_product_concrete_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_product_abstract" CASCADE;
 
 DROP SEQUENCE "spy_product_abstract_pk_seq";
@@ -4404,6 +5094,14 @@ DROP TABLE IF EXISTS "spy_product_category_filter" CASCADE;
 
 DROP SEQUENCE "spy_product_category_filter_pk_seq";
 
+DROP TABLE IF EXISTS "spy_product_category_filter_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_category_filter_storage_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_abstract_category_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_abstract_category_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_product_customer_permission" CASCADE;
 
 DROP SEQUENCE "spy_product_customer_permission_pk_seq";
@@ -4413,6 +5111,10 @@ DROP TABLE IF EXISTS "spy_product_group" CASCADE;
 DROP SEQUENCE "spy_product_group_pk_seq";
 
 DROP TABLE IF EXISTS "spy_product_abstract_group" CASCADE;
+
+DROP TABLE IF EXISTS "spy_product_abstract_group_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_abstract_group_storage_pk_seq";
 
 DROP TABLE IF EXISTS "spy_product_image_set" CASCADE;
 
@@ -4425,6 +5127,14 @@ DROP SEQUENCE "spy_product_image_pk_seq";
 DROP TABLE IF EXISTS "spy_product_image_set_to_product_image" CASCADE;
 
 DROP SEQUENCE "spy_product_image_set_to_product_image_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_abstract_image_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_abstract_image_storage_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_concrete_image_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_concrete_image_storage_pk_seq";
 
 DROP TABLE IF EXISTS "spy_product_label" CASCADE;
 
@@ -4446,6 +5156,30 @@ DROP TABLE IF EXISTS "spy_product_abstract_label_storage" CASCADE;
 
 DROP SEQUENCE "spy_product_abstract_label_storage_pk_seq";
 
+DROP TABLE IF EXISTS "spy_product_measurement_unit" CASCADE;
+
+DROP SEQUENCE "id_product_measurement_unit_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_measurement_base_unit" CASCADE;
+
+DROP SEQUENCE "id_product_measurement_base_unit_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_measurement_sales_unit" CASCADE;
+
+DROP SEQUENCE "id_product_measurement_sales_unit_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_measurement_sales_unit_store" CASCADE;
+
+DROP SEQUENCE "id_product_measurement_sales_unit_store_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_measurement_unit_storage" CASCADE;
+
+DROP SEQUENCE "id_product_measurement_unit_storage_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_concrete_measurement_unit_storage" CASCADE;
+
+DROP SEQUENCE "id_product_concrete_measurement_unit_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_product_option_group" CASCADE;
 
 DROP SEQUENCE "spy_product_option_group_pk_seq";
@@ -4460,6 +5194,22 @@ DROP TABLE IF EXISTS "spy_product_option_value_price" CASCADE;
 
 DROP SEQUENCE "spy_product_option_value_price_pk_seq";
 
+DROP TABLE IF EXISTS "spy_product_abstract_option_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_abstract_option_storage_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_abstract_page_search" CASCADE;
+
+DROP SEQUENCE "spy_product_abstract_page_search_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_quantity" CASCADE;
+
+DROP SEQUENCE "id_product_quantity_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_quantity_storage" CASCADE;
+
+DROP SEQUENCE "id_product_quantity_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_product_relation_type" CASCADE;
 
 DROP SEQUENCE "spy_product_relation_type_pk_seq";
@@ -4472,9 +5222,21 @@ DROP TABLE IF EXISTS "spy_product_relation_product_abstract" CASCADE;
 
 DROP SEQUENCE "spy_product_rel_prod_abs_type_pk_seq";
 
+DROP TABLE IF EXISTS "spy_product_abstract_relation_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_abstract_relation_storage_pk_seq";
+
 DROP TABLE IF EXISTS "spy_product_review" CASCADE;
 
 DROP SEQUENCE "id_product_review_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_review_search" CASCADE;
+
+DROP SEQUENCE "spy_product_review_search_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_abstract_review_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_abstract_review_storage_pk_seq";
 
 DROP TABLE IF EXISTS "spy_product_search" CASCADE;
 
@@ -4485,6 +5247,10 @@ DROP TABLE IF EXISTS "spy_product_search_attribute_map" CASCADE;
 DROP TABLE IF EXISTS "spy_product_search_attribute" CASCADE;
 
 DROP SEQUENCE "spy_product_search_attribute_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_search_config_storage" CASCADE;
+
+DROP SEQUENCE "spy_product_search_config_storage_pk_seq";
 
 DROP TABLE IF EXISTS "spy_product_set" CASCADE;
 
@@ -4497,6 +5263,10 @@ DROP SEQUENCE "spy_product_abstract_set_pk_seq";
 DROP TABLE IF EXISTS "spy_product_set_data" CASCADE;
 
 DROP SEQUENCE "spy_product_set_data_pk_seq";
+
+DROP TABLE IF EXISTS "spy_product_set_page_search" CASCADE;
+
+DROP SEQUENCE "spy_product_set_page_search_pk_seq";
 
 DROP TABLE IF EXISTS "spy_product_set_storage" CASCADE;
 
@@ -4607,6 +5377,30 @@ DROP SEQUENCE "spy_shipment_method_pk_seq";
 DROP TABLE IF EXISTS "spy_shipment_method_price" CASCADE;
 
 DROP SEQUENCE "spy_shipment_method_price_pk_seq";
+
+DROP TABLE IF EXISTS "spy_shopping_list" CASCADE;
+
+DROP SEQUENCE "spy_shopping_list_pk_seq";
+
+DROP TABLE IF EXISTS "spy_shopping_list_item" CASCADE;
+
+DROP SEQUENCE "spy_shopping_list_item_pk_seq";
+
+DROP TABLE IF EXISTS "spy_shopping_list_company_user" CASCADE;
+
+DROP SEQUENCE "spy_shopping_list_company_user_pk_seq";
+
+DROP TABLE IF EXISTS "spy_shopping_list_company_business_unit" CASCADE;
+
+DROP SEQUENCE "spy_shopping_list_company_business_unit_pk_seq";
+
+DROP TABLE IF EXISTS "spy_shopping_list_permission_group" CASCADE;
+
+DROP SEQUENCE "spy_shopping_list_permission_group_pk_seq";
+
+DROP TABLE IF EXISTS "spy_shopping_list_permission_group_to_permission" CASCADE;
+
+DROP SEQUENCE "spy_shopping_list_permission_group_to_permission_pk_seq";
 
 DROP TABLE IF EXISTS "spy_state_machine_transition_log" CASCADE;
 

@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Customer;
 
 use Pyz\Shared\Newsletter\NewsletterConstants;
+use Spryker\Zed\CompanyUser\Communication\Plugin\Customer\CustomerTransferCompanyUserExpanderPlugin;
 use Spryker\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
 use Spryker\Zed\CustomerGroup\Communication\Plugin\CustomerAnonymizer\RemoveCustomerFromGroupPlugin;
 use Spryker\Zed\CustomerUserConnector\Communication\Plugin\CustomerTransferUsernameExpanderPlugin;
@@ -60,7 +61,8 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     {
         return [
             new CustomerTransferUsernameExpanderPlugin(),
-            new ShoppingListPermissionCustomerExpanderPlugin()
+            new ShoppingListPermissionCustomerExpanderPlugin(),
+            new CustomerTransferCompanyUserExpanderPlugin()
         ];
     }
 }
