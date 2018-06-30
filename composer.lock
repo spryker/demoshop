@@ -2120,7 +2120,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c7866928faab0dce4ed28669eef93777a86497f6"
+                "reference": "407ce1ad8f69c1f4e1057d07308091fe16c617f1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.0",
