@@ -133,10 +133,12 @@
                 </div>
             </form>
 
+            {% set isDisabled = product.idProductConcrete is empty or product.price is empty %}
+
             <div class="callout">
             {% if widgetExists('ShoppingListWidgetPlugin') %}
                 <hr />
-                {{ widget('ShoppingListWidgetPlugin', product.sku, false) }}
+                {{ widget('ShoppingListWidgetPlugin', product.sku, isDisabled) }}
             {% endif %}
             </div>
 
