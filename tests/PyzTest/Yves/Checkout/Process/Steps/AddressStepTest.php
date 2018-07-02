@@ -131,7 +131,7 @@ class AddressStepTest extends Unit
     }
 
     /**
-     * @return false
+     * @return void
      */
     public function testPostConditionIfShippingIsEmptyShouldReturnFalse()
     {
