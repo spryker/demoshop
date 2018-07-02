@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1082ecbf44d75632975ad30d2d1e85fe",
+    "content-hash": "3f9683660dbbff4b761b1d4a8ad6a89b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2385,6 +2385,48 @@
             "time": "2018-06-15T09:21:34+00:00"
         },
         {
+            "name": "spryker-shop/product-detail-page",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-shop/product-detail-page.git",
+                "reference": "032fc0804f81c52b863818fd70ab1b67e9ff193c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-shop/product-detail-page/zipball/032fc0804f81c52b863818fd70ab1b67e9ff193c",
+                "reference": "032fc0804f81c52b863818fd70ab1b67e9ff193c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker-shop/shop-application": "^1.0.0",
+                "spryker-shop/shop-router-extension": "^1.0.0",
+                "spryker-shop/shop-ui": "^1.0.0",
+                "spryker/kernel": "^3.16.0",
+                "spryker/product-storage": "^1.0.0",
+                "spryker/storage": "^3.4.0",
+                "spryker/symfony": "^3.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerShop\\": "src/SprykerShop/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductDetailPage module",
+            "time": "2018-06-15T09:21:34+00:00"
+        },
+        {
             "name": "spryker-shop/shop-application",
             "version": "1.0.0",
             "source": {
@@ -2521,6 +2563,44 @@
             ],
             "description": "ShopRouter module",
             "time": "2018-05-29T12:39:03+00:00"
+        },
+        {
+            "name": "spryker-shop/shop-router-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-shop/shop-router-extension.git",
+                "reference": "316515f09b3832be6d45b20a92da5dc8f2da2953"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-shop/shop-router-extension/zipball/316515f09b3832be6d45b20a92da5dc8f2da2953",
+                "reference": "316515f09b3832be6d45b20a92da5dc8f2da2953",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/symfony": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerShop\\": "src/SprykerShop/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ShopRouterExtension module",
+            "time": "2018-06-12T07:58:13+00:00"
         },
         {
             "name": "spryker-shop/shop-ui",
