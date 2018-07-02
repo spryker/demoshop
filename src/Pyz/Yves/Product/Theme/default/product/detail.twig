@@ -1,5 +1,9 @@
 {% extends "@application/layout/layout.twig" %}
 
+{% set product = _view.product %}
+{% set productCategories = _view.productCategories %}
+{% set productUrl = _view.productUrl %}
+
 {% block page %}
     <div itemscope itemtype="http://schema.org/Product" >
         {{ parent() }}
@@ -128,6 +132,13 @@
                     </div>
                 </div>
             </form>
+
+            <div class="callout">
+            {% if widgetExists('ShoppingListWidgetPlugin') %}
+                <hr />
+                {{ widget('ShoppingListWidgetPlugin', product.sku, false) }}
+            {% endif %}
+            </div>
 
             {% if not product.available %}
                 <p>

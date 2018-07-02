@@ -15,6 +15,7 @@ use Pyz\Yves\Product\Mapper\StorageProductMapper;
 use Pyz\Yves\Product\Plugin\StorageProductMapperPlugin;
 use Pyz\Yves\Product\ResourceCreator\ProductResourceCreator;
 use Spryker\Yves\Kernel\AbstractFactory;
+use SprykerShop\Yves\ProductDetailPage\ProductDetailPageDependencyProvider;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
@@ -110,5 +111,10 @@ class ProductFactory extends AbstractFactory
     public function createStorageProductMapperPlugin()
     {
         return new StorageProductMapperPlugin();
+    }
+
+    public function getProductDetailPageWidgetPlugins()
+    {
+        return $this->getProvidedDependency('PLUGIN_PRODUCT_DETAIL_PAGE_WIDGETS');
     }
 }

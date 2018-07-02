@@ -9,6 +9,7 @@ namespace Pyz\Yves\Product;
 
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
+use SprykerShop\Yves\ShoppingListWidget\Plugin\ProductDetailPage\ShoppingListWidgetPlugin;
 
 class ProductDependencyProvider extends AbstractBundleDependencyProvider
 {
@@ -25,6 +26,7 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
     public function provideDependencies(Container $container)
     {
         $container = $this->provideClients($container);
+        $container = $this->addProductDetailPageWidgetPlugins($container);
         return $container;
     }
 
@@ -49,6 +51,24 @@ class ProductDependencyProvider extends AbstractBundleDependencyProvider
 
         $container[static::CLIENT_PRICE_PRODUCT] = function (Container $container) {
             return $container->getLocator()->priceProduct()->client();
+        };
+
+        return $container;
+    }
+
+
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function addProductDetailPageWidgetPlugins(Container $container)
+    {
+        $container['PLUGIN_PRODUCT_DETAIL_PAGE_WIDGETS'] = function () {
+            return [
+                ShoppingListWidgetPlugin::class, #ShoppingListFeature
+//            AvailabilityWidgetPlugin::class
+            ];
         };
 
         return $container;
