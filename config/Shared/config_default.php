@@ -2,7 +2,6 @@
 
 use Monolog\Logger;
 use Spryker\Client\RabbitMq\Model\RabbitMqAdapter;
-use Spryker\Service\FlysystemLocalFileSystem\Plugin\Flysystem\LocalFilesystemBuilderPlugin;
 use Spryker\Shared\Acl\AclConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Auth\AuthConstants;
@@ -17,7 +16,6 @@ use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\EventBehavior\EventBehaviorConstants;
 use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\FileManager\FileManagerConstants;
-use Spryker\Shared\FileManagerGui\FileManagerGuiConstants;
 use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Flysystem\FlysystemConstants;
 use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File;
@@ -433,14 +431,6 @@ $config[FileSystemConstants::FILESYSTEM_SERVICE] = [];
 $config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
 $config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';
 
-$config[FileSystemConstants::FILESYSTEM_SERVICE] = [
-    'files' => [
-        'sprykerAdapterClass' => LocalFilesystemBuilderPlugin::class,
-        'root' => APPLICATION_ROOT_DIR . '/data/DE/media/',
-        'path' => 'files/',
-    ],
-];
-$config[FlysystemConstants::FILESYSTEM_SERVICE] = $config[FileSystemConstants::FILESYSTEM_SERVICE];
+// ---------- FileManager
 $config[FileManagerConstants::STORAGE_NAME] = 'files';
 $config[FileManagerConstants::FILE_NAME_VERSION_DELIMITER] = '-';
-$config[FileManagerGuiConstants::DEFAULT_FILE_MAX_SIZE] = '10M';
