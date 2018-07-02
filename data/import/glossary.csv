@@ -1253,3 +1253,124 @@ customer.account.print_shopping_list.title.shopping_list_id,Shopping List ID,en_
 customer.account.print_shopping_list.title.shopping_list_id,Einkaufslisten-ID,de_DE
 customer.account.print_shopping_list.title.shopping_list_name,Shopping List Name,en_US
 customer.account.print_shopping_list.title.shopping_list_name,Name der Einkaufsliste,de_DE
+company.account.address.edit,Edit,en_US
+company.account.address.edit,Adresse bearbeiten,de_DE
+company.account.address.delete,Delete,en_US
+company.account.address.delete,Löschen,de_DE
+company.account.shipping_address,Default Shipping Address,en_US
+company.account.shipping_address,Standard Lieferadresse,de_DE
+company.account.billing_address,Default Billing Address,en_US
+company.account.billing_address,Standard Rechnungsadresse,de_DE
+company.account.address.address1,Street,en_US
+company.account.address.address1,Straße,de_DE
+company.account.address.number,Number,en_US
+company.account.address.number,Nummer,de_DE
+company.account.address.address3,Addition to address,en_US
+company.account.address.address3,Adresszusatz,de_DE
+company.account.address.zip_code,Zip code,en_US
+company.account.address.zip_code,PLZ,de_DE
+company.account.address.city,City,en_US
+company.account.address.city,Stadt,de_DE
+company.account.address.country,Country,en_US
+company.account.address.country,Land,de_DE
+company.account.address.phone,Telephone number,en_US
+company.account.address.phone,Telefonnummer,de_DE
+company.account.address,Addresses,en_US
+company.account.address,Adressen,de_DE
+company.account.edit_address_information,Edit Address Information,en_US
+company.account.edit_address_information,Ändern,de_DE
+company.account.login.title,Access your account,en_US
+company.account.login.title,Ich bin bereits Kunde,de_DE
+company.account.login.email,Email,en_US
+company.account.login.email,E-mail,de_DE
+company.account.login.password,Password,en_US
+company.account.login.password,Passwort,de_DE
+company.account.registration.title,Create account,en_US
+company.account.registration.title,Ich bin Neukunde,de_DE
+company.user.first_name,Vorname,de_DE
+company.user.first_name,First Name,en_US
+company.user.last_name,Name,de_DE
+company.user.last_name,Name,en_US
+company.user.salutation.mr,Herr,de_DE
+company.user.salutation.mr,Mr.,en_US
+company.user.salutation.mrs,Frau,de_DE
+company.user.salutation.mrs,Mrs.,en_US
+company.user.salutation.ms,Frau,de_DE
+company.user.salutation.ms,Ms.,en_US
+company.user.salutation.dr,Dr.,en_US
+company.user.salutation.dr,Dr.,de_DE
+company.account.overview,Overview,en_US
+company.user.invitation.title.plural,Invitations,en_US
+company.user.invitation.title.plural,Einladungen,de_DE
+company.user.invitation.imported.title.plural,Imported invitations,en_US
+company.user.invitation.imported.title.plural,Importierte Einladungen,de_DE
+company.user.invitation.import.title,Import new invitations,en_US
+company.user.invitation.import.title,Importieren Sie neue Einladungen,de_DE
+company.user.invitation.import.download.errors.file,"Some invitations failed to be imported. Click <a href=""%link%"">here</a> to download the errors file",en_US
+company.user.invitation.import.download.errors.file,"Einige Einladungen konnten nicht importiert werden. Klicken Sie <a href=""%link%""> hier </a>, um die Fehlerdatei herunterzuladen",de_DE
+company.user.invitation.import.error.message,Invitations import failed,en_US
+company.user.invitation.import.error.message,Der Import von Einladungen ist fehlgeschlagen,de_DE
+company.user.invitation.file,Invitations file,en_US
+company.user.invitation.file,Einladungsdatei,de_DE
+company.user.invitation.first.name,First Name,en_US
+company.user.invitation.first.name,Vorname,de_DE
+company.user.invitation.last.name,Last Name,en_US
+company.user.invitation.last.name,Name,de_DE
+company.user.invitation.mail,Mail,en_US
+company.user.invitation.mail,Mail,de_DE
+company.user.invitation.business.unit,Business Unit,en_US
+company.user.invitation.business.unit,Geschäftsbereich,de_DE
+company.user.invitation.status,Status,en_US
+company.user.invitation.status,Status,de_DE
+company.user.invitation.actions,Actions,en_US
+company.user.invitation.actions,Aktionen,de_DE
+company.user.invitation.status.new,Not Sent,en_US
+company.user.invitation.status.new,Nicht gesendet,de_DE
+company.user.invitation.status.pending,Pending,en_US
+company.user.invitation.status.pending,Steht Aus,de_DE
+company.user.invitation.status.accepted,Accepted,en_US
+company.user.invitation.status.accepted,Akzeptiert Aus,de_DE
+company.user.invitation.not.found.message,Invitation not found,en_US
+company.user.invitation.not.found.message,Einladung nicht gefunden,de_DE
+company.user.invitation.send.button,Send,en_US
+company.user.invitation.send.button,Senden,de_DE
+company.user.invitation.sent.success.message,Invitation sent successfully,en_US
+company.user.invitation.sent.success.message,Einladung erfolgreich gesendet,de_DE
+company.user.invitation.sent.error.message,Invitation was not sent,en_US
+company.user.invitation.sent.error.message,Einladung wurde nicht gesendet,de_DE
+company.user.invitation.send.all.button,Send All,en_US
+company.user.invitation.send.all.button,Sende alle,de_DE
+company.user.invitation.sent.all.success.message,All invitations sent successfully,en_US
+company.user.invitation.sent.all.success.message,Alle Einladungen erfolgreich gesendet,de_DE
+company.user.invitation.sent.all.none.found.message,No invitations to send found,en_US
+company.user.invitation.sent.all.none.found.message,Keine Einladungen zum Senden gefunden,de_DE
+company.user.invitation.sent.all.error.message,Some invitations failed to be sent,en_US
+company.user.invitation.sent.all.error.message,Einige Einladungen wurden nicht gesendet,de_DE
+company.user.invitation.resend.title,Resend invitation,en_US
+company.user.invitation.resend.title,Einladung erneut versenden,de_DE
+company.user.invitation.resend.confirmation.question,Are you sure you want to resend the invitation?,en_US
+company.user.invitation.resend.confirmation.question,Möchten Sie die Einladung wirklich erneut senden?,de_DE
+company.user.invitation.resend.button,Resend,en_US
+company.user.invitation.resend.button,Erneut senden,de_DE
+company.user.invitation.resent.success.message,Invitation resent successfully,en_US
+company.user.invitation.resent.success.message,Einladung wird erfolgreich erneut gesendet,de_DE
+company.user.invitation.resent.error.message,Invitation was not resent,en_US
+company.user.invitation.resent.error.message,Die Einladung wurde nicht erneut gesendet,de_DE
+company.user.invitation.delete.title,Delete invitation,en_US
+company.user.invitation.delete.title,Einladung löschen,de_DE
+company.user.invitation.delete.confirmation.question,Are you sure you want to delete the invitation?,en_US
+company.user.invitation.delete.confirmation.question,Möchten Sie die Einladung wirklich löschen?,de_DE
+company.user.invitation.delete.button,Delete,en_US
+company.user.invitation.delete.button,Löschen,de_DE
+company.user.invitation.deleted.success.message,Invitation deleted successfully,en_US
+company.user.invitation.deleted.success.message,Die Einladung wurde erfolgreich gelöscht,de_DE
+company.user.invitation.deleted.error.message,Invitation was not deleted,en_US
+company.user.invitation.deleted.error.message,Die Einladung wurde nicht gelöscht,de_DE
+company.user.invitation.invalid,Your invitation is not valid,en_US
+company.user.invitation.invalid,Ihre Einladung ist nicht gültig,de_DE
+company.user.invitation.expired,Your invitation has expired,en_US
+company.user.invitation.expired,Ihre Einladung ist abgelaufen,de_DE
+company.user.invitation.accepted,Your invitation has already been used,en_US
+company.user.invitation.accepted,Ihre Einladung wurde bereits verwendet,de_DE
+company.user.invitation.import.file.invalid,The import file is not valid,en_US
+company.user.invitation.import.file.invalid,Die Importdatei ist nicht gültig,de_DE
