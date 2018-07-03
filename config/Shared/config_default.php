@@ -433,4 +433,3 @@ $config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';
 
 // ---------- FileManager
 $config[FileManagerConstants::STORAGE_NAME] = 'files';
-$config[FileManagerConstants::FILE_NAME_VERSION_DELIMITER] = '-';
