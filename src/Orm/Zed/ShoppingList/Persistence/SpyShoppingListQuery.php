@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This file is part of the Spryker Demoshop.
+ * This file is part of the Spryker Suite.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Orm\Zed\ShoppingList\Persistence;
 
-use Orm\Zed\ShoppingList\Persistence\Base\SpyShoppingListQuery as BaseSpyShoppingListQuery;
+use Spryker\Zed\ShoppingList\Persistence\Propel\AbstractSpyShoppingListQuery as BaseSpyShoppingListQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_shopping_list' table.

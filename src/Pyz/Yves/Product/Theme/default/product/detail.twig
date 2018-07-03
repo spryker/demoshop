@@ -135,6 +135,14 @@
                 </p>
             {% endif %}
 
+            <div class="callout">
+                <div class="row align-bottom">
+                    {% if widgetExists('ShoppingListWidgetPlugin') %}
+                        {{ widget('ShoppingListWidgetPlugin', product.sku, false) }}
+                    {% endif %}
+                </div>
+            </div>
+
             {% include '@Product/product/partials/add-to-wishlist.twig' %}
         </div>
     </div>

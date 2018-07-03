@@ -9,7 +9,9 @@ namespace Pyz\Yves\Application;
 
 use Pyz\Yves\Collector\Plugin\Router\StorageRouter as LegacyStorageRouter;
 
-
+use SprykerShop\Yves\CartToShoppingListWidget\Plugin\Provider\CartToShoppingListWidgetControllerProvider;
+use SprykerShop\Yves\ShoppingListPage\Plugin\Provider\ShoppingListPageControllerProvider;
+use SprykerShop\Yves\ShoppingListWidget\Plugin\Provider\ShoppingListWidgetControllerProvider;
 use SprykerShop\Yves\ShopRouter\Plugin\Router\SilexRouter;
 
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
@@ -221,6 +223,9 @@ class YvesBootstrap
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
+            new ShoppingListPageControllerProvider($isSsl),
+            new CartToShoppingListWidgetControllerProvider($isSsl),
+            new ShoppingListWidgetControllerProvider($isSsl),
         ];
     }
 }

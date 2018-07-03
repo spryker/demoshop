@@ -1121,3 +1121,143 @@ catalog.new,New,en_US
 catalog.new,Neu,de_DE
 checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
+shopping_list.shopping_list,Shopping list,en_US
+shopping_list.shopping_list,Einkaufsliste,de_DE
+shopping_list.item_quantity,Anzahl,de_DE
+shopping_list.item_quantity,Quantity,en_US
+customer.account.shopping_list,Shopping lists,en_US
+customer.account.shopping_list,Einkaufslisten,de_DE
+customer.account.shopping_list.create.success,"List '%name%' was created successfully.",en_US
+customer.account.shopping_list.create.success,"Einkaufsliste '%name%' wurde erfolgreich erstellt.",de_DE
+customer.account.shopping_list.create.failed,Shopping list creation failed.,en_US
+customer.account.shopping_list.create.failed,Erstellen der Einkaufsliste ist fehlgeschlagen,de_DE
+customer.account.shopping_list.overview.title,Manage Shopping Lists,en_US
+customer.account.shopping_list.overview.title,Einkaufslisten verwalten,de_DE
+customer.account.shopping_list.overview.enter_name,Enter name here,en_US
+customer.account.shopping_list.overview.enter_name,Name hier eingeben,de_DE
+customer.account.shopping_list.overview.add_new,Add new shopping list,en_US
+customer.account.shopping_list.overview.add_new,Neue Einkaufsliste hinzufügen,de_DE
+customer.account.shopping_list.overview.name,Name of List,en_US
+customer.account.shopping_list.overview.name,Name der Liste,de_DE
+customer.account.shopping_list.overview.item_count,Number of items,en_US
+customer.account.shopping_list.overview.item_count,Anzahl der Teile,de_DE
+customer.account.shopping_list.overview.modified_date,Date of last update,en_US
+customer.account.shopping_list.overview.modified_date,Datum der letzten Aktualisierung,de_DE
+customer.account.shopping_list.overview.created_date,Date created,en_US
+customer.account.shopping_list.overview.created_date,Hergestellt in,de_DE
+customer.account.shopping_list.overview.actions,Actions,en_US
+customer.account.shopping_list.overview.actions,Aktion,de_DE
+customer.account.shopping_list.overview.edit,Rename,en_US
+customer.account.shopping_list.overview.edit,Umbenennen,de_DE
+customer.account.shopping_list.overview.view,View,en_US
+customer.account.shopping_list.overview.view,Ansehen,de_DE
+customer.account.shopping_list.overview.form.new,Create new shopping list,en_US
+customer.account.shopping_list.overview.form.new,Erstellen Sie eine neue Einkaufsliste,de_DE
+customer.account.shopping_list.overview.delete,Delete,en_US
+customer.account.shopping_list.overview.delete,Löschen,de_DE
+customer.account.shopping_list.overview.empty,You do not have any shopping lists yet.,en_US
+customer.account.shopping_list.overview.empty,Du hast noch keine Einkaufslisten.,de_DE
+customer.account.shopping_list.overview.share,Share,en_US
+customer.account.shopping_list.overview.share,Teilen,de_DE
+customer.account.shopping_list.overview.print,Print,en_US
+customer.account.shopping_list.overview.print,Drucken,de_DE
+customer.account.shopping_list.share.from.share,Share,en_US
+customer.account.shopping_list.share.from.share,Teilen,de_DE
+customer.account.shopping_list.share.from.share_with,Share Shopping List with:,en_US
+customer.account.shopping_list.share.from.share_with,Einkaufsliste teilen mit:,de_DE
+customer.account.shopping_list.item.select_item,At least one product should be selected.,en_US
+customer.account.shopping_list.item.select_item,Mindestens ein Produkt sollte ausgewählt werden.,de_DE
+customer.account.shopping_list.item.add.success,Item %sku% was added to the List.,en_US
+customer.account.shopping_list.item.add.success,Artikel %sku% wurde zu der Liste hinzugefügt.,de_DE
+customer.account.shopping_list.item.add.failed,Item %sku% could not be added to the List.,en_US
+customer.account.shopping_list.item.add.failed,Artikel %sku% konnte der Liste nicht hinzugefügt werden.,de_DE
+customer.account.shopping_list.items.added_to_cart.select_list,At least one shopping list should be selected.,en_US
+customer.account.shopping_list.items.added_to_cart.select_list,Mindestens eine Einkaufsliste sollte ausgewählt werden.,de_DE
+customer.account.shopping_list.product,Product,en_US
+customer.account.shopping_list.product,Produkt,de_DE
+customer.account.shopping_list.price,Price,en_US
+customer.account.shopping_list.price,Preis,de_DE
+customer.account.shopping_list.overview.variant,Variant,en_US
+customer.account.shopping_list.overview.variant,Produktvariante,de_DE
+customer.account.shopping_list.availability,Availability,en_US
+customer.account.shopping_list.availability,Verfügbarkeit,de_DE
+customer.account.shopping_list.available,Available,en_US
+customer.account.shopping_list.available,Verfügbar,de_DE
+customer.account.shopping_list.not_available,Currently not available,en_US
+customer.account.shopping_list.not_available,Nicht verfügbar,de_DE
+customer.account.shopping_list.add-to-cart,Add to Cart,en_US
+customer.account.shopping_list.add-to-cart,In den Warenkorb,de_DE
+customer.account.shopping_list.empty,Currently there are no items in your shopping list.,en_US
+customer.account.shopping_list.empty,Zurzeit ist kein Produkt auf deiner Einkaufsliste.,de_DE
+customer.account.shopping_list.add_all_available_to_cart,Add all available products to cart,en_US
+customer.account.shopping_list.add_all_available_to_cart,Alle Produkte zum Warenkorb hinzufügen,de_DE
+customer.account.shopping_list.print_shopping_list,Print Shopping list,en_US
+customer.account.shopping_list.print_shopping_list,Einkaufsliste drucken,de_DE
+customer.account.shopping_list.item.not_added,Failed to add product to shopping list.,en_US
+customer.account.shopping_list.item.not_added,Hinzufügen zur Einkaufsliste fehlgeschlagen.,de_DE
+customer.account.shopping_list.item.remove.success,Product removed successfully.,en_US
+customer.account.shopping_list.item.remove.success,Produkt erfolgreich entfernt.,de_DE
+customer.account.shopping_list.item.remove.failed,Product was not removed from shopping list.,en_US
+customer.account.shopping_list.item.remove.failed,Artikel wurde nicht von der Einkaufsliste entfernt,de_DE
+customer.account.shopping_list.updated,Shopping list updated successfully,en_US
+customer.account.shopping_list.updated,Einkaufsliste erfolgreich aktualisiert.,de_DE
+customer.account.shopping_list.delete.success,Shopping list deleted successfully.,en_US
+customer.account.shopping_list.delete.success,Einkaufsliste erfolgreich gelöscht.,de_DE
+customer.account.shopping_list.delete.failed,Shopping list was not deleted.,en_US
+customer.account.shopping_list.delete.failed,Einkaufsliste konnte nicht gelöscht.,de_DE
+customer.account.shopping_list.quantity,Quantity,en_US
+customer.account.shopping_list.quantity,Anzahl,de_DE
+customer.account.shopping_list.remove,Remove,en_US
+customer.account.shopping_list.remove,Löschen,de_DE
+customer.account.shopping_list.item.added_to_cart.failed,Item was not added to cart.,en_US
+customer.account.shopping_list.item.added_to_cart.failed,Produkt konnte nicht in den Warenkorb gelegt werden.,de_DE
+customer.account.shopping_list.items.added_to_cart.not_found,There are no products available for adding to cart.,en_US
+customer.account.shopping_list.items.added_to_cart.not_found,Es sind keine Produkte zum Hinzufügen in den Warenkorb verfügbar.,de_DE
+customer.account.shopping_list.item.added_to_cart,Item added to cart successfully.,en_US
+customer.account.shopping_list.item.added_to_cart,Produkt erfolgreich in den Warenkorb gelegt.,de_DE
+customer.account.shopping_list.item.added_all_available_to_cart,Available items added to cart successfully.,en_US
+customer.account.shopping_list.item.added_all_available_to_cart,Verfügbare Produkte wurden erfolgreich in den Warenkorb gelegt.,de_DE
+customer.account.shopping_list.item.added_all_available_to_cart.failed,Not all items are added to cart successfully,en_US
+customer.account.shopping_list.item.added_all_available_to_cart.failed,Nicht alle Artikel konnten erfolgreich in den Warenkorb gelegt werden.,de_DE
+shopping_list.cart.items_add.failed,Items could not be added to the List,en_US
+shopping_list.cart.items_add.failed,Artikel konnten der Liste nicht hinzugefügt werden,de_DE
+shopping_list.cart.items_add.success,Items were added to the List,en_US
+shopping_list.cart.items_add.success,Artikel wurden zu der Liste hinzugefügt,de_DE
+page.detail.add-to-shopping-list,Add to Shopping list,en_US
+page.detail.add-to-shopping-list,In die Einkaufsliste,de_DE
+cart.add-to-shopping-list,Add to Shopping list,en_US
+cart.add-to-shopping-list,In die Einkaufsliste,de_DE
+cart.add-to-shopping-list.form,Save cart to a shopping list,en_US
+cart.add-to-shopping-list.form,Speichern Sie den Einkaufswagen in einer Einkaufsliste,de_DE
+cart.add-to-shopping-list.form.placeholder,Enter name of a new shopping list,en_US
+cart.add-to-shopping-list.form.placeholder,Geben Sie den Namen einer neuen Einkaufsliste ein,de_DE
+cart.add-to-shopping-list.form.add_new,Add new shopping list,en_US
+cart.add-to-shopping-list.form.add_new,Neue Einkaufsliste hinzufügen,de_DE
+cart.add-to-shopping-list.form.error.empty_name,"Please, enter shopping list name",en_US
+cart.add-to-shopping-list.form.error.empty_name,Bitte geben Sie den Namen der Einkaufsliste ein,de_DE
+customer.account.shopping_list.overview.add_shopping_list_to_cart,Add selected shopping lists to cart,en_US
+customer.account.shopping_list.overview.add_shopping_list_to_cart,Fügen Sie ausgewählte Einkaufslisten zum Warenkorb hinzu,de_DE
+customer.account.shopping_list.items.added_to_cart.failed,Items were not added to cart.,en_US
+customer.account.shopping_list.items.added_to_cart.failed,Produkte konnten nicht in den Warenkorb gelegt werden.,de_DE
+customer.account.shopping_list.items.added_to_cart,Items added to cart successfully.,en_US
+customer.account.shopping_list.items.added_to_cart,Produkte erfolgreich in den Warenkorb gelegen.,de_DE
+customer.account.shopping_list.add_selected_items_to_cart,Add selected items to cart,en_US
+customer.account.shopping_list.add_selected_items_to_cart,Ausgewählte Artikel in den Warenkorb legen,de_DE
+customer.account.shopping_list.share.select_company_user,Select customer,en_US
+customer.account.shopping_list.share.select_company_user,Wählen Sie den Kunden aus,de_DE
+customer.account.shopping_list.share.select_company_business_unit,Select business unit,en_US
+customer.account.shopping_list.share.select_company_business_unit,Wählen Sie die Geschäftseinheit aus,de_DE
+customer.account.shopping_list.share.select_permission,Select access level,en_US
+customer.account.shopping_list.share.select_permission,Wählen Sie die Zugriffsebene aus,de_DE
+customer.account.shopping_list.share.error.one_id_required,Please choose either customer or business unit to share the shopping list with,en_US
+customer.account.shopping_list.share.error.one_id_required,"Bitte wählen Sie entweder einen Kunden oder eine Geschäftseinheit aus, mit welchem Sie die Einkaufsliste teilen möchten.",de_DE
+customer.account.shopping_list.share.share_shopping_list_successful,Sharing shopping list was successful,en_US
+customer.account.shopping_list.share.share_shopping_list_successful,Einkaufsliste wurde erfolgreich geteilt,de_DE
+customer.account.shopping_list.share.share_shopping_list_fail,This shopping list has been shared before with this entity,en_US
+customer.account.shopping_list.share.share_shopping_list_fail,Diese Einkaufsliste wurde bereits mit dieser Entität geteilt,de_DE
+customer.account.shopping_list.overview.owner,User who created list,en_US
+customer.account.shopping_list.overview.owner,"Benutzer, der eine Liste erstellt hat",de_DE
+customer.account.shopping_list.error.duplicate_name,A shopping list with the same name already exists.,en_US
+customer.account.shopping_list.error.duplicate_name,Eine Einkaufsliste mit dem selben Namen existiert bereits.,de_DE
+customer.account.shopping_list.error.cannot_update,Cannot update shopping list.,en_US
+customer.account.shopping_list.error.cannot_update,Die Liste konnte nicht aktualisiert werden.,de_DE

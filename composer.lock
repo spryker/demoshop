@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "620eb763ef942278c523fcffb675533c",
+    "content-hash": "5b2452bbc3cf339ee7b7d4a2d5d90e18",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2041,6 +2041,98 @@
             "time": "2018-04-24T10:34:44+00:00"
         },
         {
+            "name": "spryker-shop/cart-to-shopping-list-widget",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-shop/cart-to-shopping-list-widget.git",
+                "reference": "a4ed75a44e2c32a3f1ad1629905d5dca08ac6e7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-shop/cart-to-shopping-list-widget/zipball/a4ed75a44e2c32a3f1ad1629905d5dca08ac6e7b",
+                "reference": "a4ed75a44e2c32a3f1ad1629905d5dca08ac6e7b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker-shop/shop-application": "^1.0.0",
+                "spryker-shop/shop-ui": "^1.0.0",
+                "spryker/application": "^3.8.0",
+                "spryker/customer": "^7.4.0",
+                "spryker/kernel": "^3.16.0",
+                "spryker/shopping-list": "^1.0.0",
+                "spryker/symfony": "^3.1.0"
+            },
+            "require-dev": {
+                "spryker-shop/cart-page": "*",
+                "spryker/silex": "*"
+            },
+            "suggest": {
+                "spryker-shop/cart-page": "If CartToShoppingListWidgetPlugin is to be used, minimum version is 0.5.2",
+                "spryker/silex": "Use this module when using plugins that need Silex dependencies."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerShop\\": "src/SprykerShop/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CartToShoppingListWidget module",
+            "time": "2018-06-15T09:21:34+00:00"
+        },
+        {
+            "name": "spryker-shop/product-detail-page",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-shop/product-detail-page.git",
+                "reference": "032fc0804f81c52b863818fd70ab1b67e9ff193c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-shop/product-detail-page/zipball/032fc0804f81c52b863818fd70ab1b67e9ff193c",
+                "reference": "032fc0804f81c52b863818fd70ab1b67e9ff193c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker-shop/shop-application": "^1.0.0",
+                "spryker-shop/shop-router-extension": "^1.0.0",
+                "spryker-shop/shop-ui": "^1.0.0",
+                "spryker/kernel": "^3.16.0",
+                "spryker/product-storage": "^1.0.0",
+                "spryker/storage": "^3.4.0",
+                "spryker/symfony": "^3.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerShop\\": "src/SprykerShop/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductDetailPage module",
+            "time": "2018-06-15T09:21:34+00:00"
+        },
+        {
             "name": "spryker-shop/shop-application",
             "version": "1.0.0",
             "source": {
@@ -2259,6 +2351,108 @@
             ],
             "description": "ShopUi module",
             "time": "2018-06-13T22:30:27+00:00"
+        },
+        {
+            "name": "spryker-shop/shopping-list-page",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-shop/shopping-list-page.git",
+                "reference": "34c5f542aba025230129037a63172cd0ba717d1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-shop/shopping-list-page/zipball/34c5f542aba025230129037a63172cd0ba717d1d",
+                "reference": "34c5f542aba025230129037a63172cd0ba717d1d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker-shop/shop-application": "^1.0.0",
+                "spryker-shop/shop-ui": "^1.0.0",
+                "spryker/application": "^3.8.0",
+                "spryker/company-business-unit": "^1.0.0 || ^2.0.0",
+                "spryker/company-user": "^1.0.0",
+                "spryker/customer": "^7.4.0",
+                "spryker/kernel": "^3.16.0",
+                "spryker/product-storage": "^1.0.0",
+                "spryker/shopping-list": "^1.0.0",
+                "spryker/symfony": "^3.1.0"
+            },
+            "require-dev": {
+                "spryker/silex": "*"
+            },
+            "suggest": {
+                "spryker/silex": "Use this module when using plugins that need Silex dependencies."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerShop\\": "src/SprykerShop/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ShoppingListPage module",
+            "time": "2018-06-15T09:21:34+00:00"
+        },
+        {
+            "name": "spryker-shop/shopping-list-widget",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-shop/shopping-list-widget.git",
+                "reference": "75b1b28684888f7d9956b984459de57e1f8c8c22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-shop/shopping-list-widget/zipball/75b1b28684888f7d9956b984459de57e1f8c8c22",
+                "reference": "75b1b28684888f7d9956b984459de57e1f8c8c22",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker-shop/shop-application": "^1.0.0",
+                "spryker-shop/shop-ui": "^1.0.0",
+                "spryker/customer": "^7.4.0",
+                "spryker/kernel": "^3.16.0",
+                "spryker/shopping-list": "^1.0.0",
+                "spryker/symfony": "^3.1.0"
+            },
+            "require-dev": {
+                "spryker-shop/customer-page": "*",
+                "spryker/product-detail-page": "*",
+                "spryker/silex": "*"
+            },
+            "suggest": {
+                "spryker-shop/customer-page": "Widget plugins are available for this module.",
+                "spryker/product-detail-page": "To use ShoppingListWidget plugin, ShoppingListWidgetPluginInterface from product-detail-page v0.2.2 is needed",
+                "spryker/silex": "Use this module when using plugins that need Silex dependencies."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerShop\\": "src/SprykerShop/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ShoppingListWidget module",
+            "time": "2018-06-15T09:21:34+00:00"
         },
         {
             "name": "spryker/acl",
@@ -9557,6 +9751,55 @@
             "time": "2018-03-14T10:13:27+00:00"
         },
         {
+            "name": "spryker/persistent-cart",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/persistent-cart.git",
+                "reference": "a05c0f6b099ece290644415c9639ca13625b13d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/persistent-cart/zipball/a05c0f6b099ece290644415c9639ca13625b13d4",
+                "reference": "a05c0f6b099ece290644415c9639ca13625b13d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/cart": "^5.0.0",
+                "spryker/cart-extension": "^1.3.0",
+                "spryker/customer": "^6.0.0 || ^7.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/messenger": "^3.0.0",
+                "spryker/persistent-cart-extension": "^1.0.0",
+                "spryker/price-extension": "^1.0.0",
+                "spryker/quote": "^2.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/silex": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "PersistentCart module",
+            "time": "2018-05-16T15:12:24+00:00"
+        },
+        {
             "name": "spryker/persistent-cart-extension",
             "version": "1.0.0",
             "source": {
@@ -13850,6 +14093,64 @@
             ],
             "description": "ShipmentDiscountConnector module",
             "time": "2018-01-26T13:20:18+00:00"
+        },
+        {
+            "name": "spryker/shopping-list",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/shopping-list.git",
+                "reference": "befc7c504535f3ae8dc92c62b2c502438b0e6933"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/shopping-list/zipball/befc7c504535f3ae8dc92c62b2c502438b0e6933",
+                "reference": "befc7c504535f3ae8dc92c62b2c502438b0e6933",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/cart": "^5.0.0",
+                "spryker/company-business-unit": "^1.0.0 || ^2.0.0",
+                "spryker/company-user": "^1.0.0",
+                "spryker/customer": "^7.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/messenger": "^3.0.0",
+                "spryker/permission": "^1.1.0",
+                "spryker/permission-extension": "^1.0.0",
+                "spryker/persistent-cart": "^0.1.0 || ^1.0.0",
+                "spryker/price-product": "^1.0.0",
+                "spryker/product": "^6.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/shopping-list-extension": "^1.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/installer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/installer": "If ShoppingListPermissionsInstallerPlugin is to be used, minimum version is 4.0.04"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Shared\\ShoppingList\\Helper\\": "tests/SprykerTest/Shared/ShoppingList/_support/Helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ShoppingList module",
+            "time": "2018-06-13T09:03:02+00:00"
         },
         {
             "name": "spryker/shopping-list-extension",
