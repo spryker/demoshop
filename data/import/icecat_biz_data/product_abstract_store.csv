@@ -214,6 +214,8 @@ product_abstract_sku,store_name
 213,DE
 214,DE
 215,DE
+216,DE
+217,DE
 001,US
 002,US
 003,US
@@ -429,6 +431,8 @@ product_abstract_sku,store_name
 213,US
 214,US
 215,US
+216,US
+217,US
 001,AT
 002,AT
 003,AT
@@ -644,3 +648,5 @@ product_abstract_sku,store_name
 213,AT
 214,AT
 215,AT
+216,AT
+217,AT

@@ -12,6 +12,7 @@ use Codeception\Test\Unit;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\LocalizedAttributesTransfer;
 use Generated\Shared\Transfer\MoneyValueTransfer;
+use Generated\Shared\Transfer\PriceProductDimensionTransfer;
 use Generated\Shared\Transfer\PriceProductTransfer;
 use Generated\Shared\Transfer\PriceTypeTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
@@ -27,6 +28,7 @@ use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Pyz\Zed\Product\Business\ProductBusinessFactory;
 use Spryker\Service\UtilEncoding\UtilEncodingService;
 use Spryker\Service\UtilText\UtilTextService;
+use Spryker\Shared\PriceProduct\PriceProductConstants;
 use Spryker\Zed\Currency\Business\CurrencyFacade;
 use Spryker\Zed\Locale\Business\LocaleFacade;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacade;
@@ -367,12 +369,17 @@ abstract class ProductTestAbstract extends Unit
         $priceTypeTransfer = new PriceTypeTransfer();
         $priceTypeTransfer->setName($this->priceProductFacade->getDefaultPriceTypeName());
 
+        $priceProductDimensionTransfer = (new PriceProductDimensionTransfer())
+            ->setType(PriceProductConstants::PRICE_DIMENSION_DEFAULT);
+
         $priceProductTransfer = (new PriceProductTransfer())
             ->setSkuProductAbstract($this->productAbstractTransfer->getSku())
             ->setSkuProduct($this->productConcreteTransfer->getSku())
             ->setPriceType($priceTypeTransfer)
             ->setPriceTypeName($priceTypeTransfer->getName())
-            ->setMoneyValue($moneyValueTransfer);
+            ->setMoneyValue($moneyValueTransfer)
+            ->setPriceDimension($priceProductDimensionTransfer);
+
 
         $this->productAbstractTransfer->addPrice($priceProductTransfer);
 

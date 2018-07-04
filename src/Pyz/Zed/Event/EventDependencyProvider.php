@@ -8,6 +8,7 @@
 namespace Pyz\Zed\Event;
 
 use Spryker\Zed\Event\EventDependencyProvider as SprykerEventDependencyProvider;
+use Spryker\Zed\PriceProductMerchantRelationshipStorage\Communication\Plugin\Event\Subscriber\PriceProductMerchantRelationshipStorageEventSubscriber;
 
 class EventDependencyProvider extends SprykerEventDependencyProvider
 {
@@ -25,6 +26,8 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
     public function getEventSubscriberCollection()
     {
         $eventSubscriberCollection = parent::getEventSubscriberCollection();
+
+        $eventSubscriberCollection->add(new PriceProductMerchantRelationshipStorageEventSubscriber());
 
         return $eventSubscriberCollection;
     }

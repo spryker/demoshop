@@ -10,6 +10,10 @@ namespace Pyz\Zed\DataImport;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\DataImport\DataImportDependencyProvider as SprykerDataImportDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\MerchantDataImport\Communication\Plugin\MerchantDataImportPlugin;
+use Spryker\Zed\MerchantRelationshipDataImport\Communication\Plugin\MerchantRelationshipDataImportPlugin;
+use Spryker\Zed\PriceProductDataImport\Communication\Plugin\PriceProductDataImportPlugin;
+use Spryker\Zed\PriceProductMerchantRelationshipDataImport\Communication\Plugin\PriceProductMerchantRelationshipDataImportPlugin;
 
 class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
 {
@@ -37,6 +41,16 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $this->addStore($container);
 
         return $container;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImporterPlugins(): array
+    {
+        return [
+            new PriceProductDataImportPlugin(),
+        ];
     }
 
     /**
