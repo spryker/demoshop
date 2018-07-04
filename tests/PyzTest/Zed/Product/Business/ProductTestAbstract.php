@@ -369,16 +369,12 @@ abstract class ProductTestAbstract extends Unit
         $priceTypeTransfer = new PriceTypeTransfer();
         $priceTypeTransfer->setName($this->priceProductFacade->getDefaultPriceTypeName());
 
-        $priceProductDimensionTransfer = (new PriceProductDimensionTransfer())
-            ->setType(PriceProductConstants::PRICE_DIMENSION_DEFAULT);
-
         $priceProductTransfer = (new PriceProductTransfer())
             ->setSkuProductAbstract($this->productAbstractTransfer->getSku())
             ->setSkuProduct($this->productConcreteTransfer->getSku())
             ->setPriceType($priceTypeTransfer)
             ->setPriceTypeName($priceTypeTransfer->getName())
-            ->setMoneyValue($moneyValueTransfer)
-            ->setPriceDimension($priceProductDimensionTransfer);
+            ->setMoneyValue($moneyValueTransfer);
 
 
         $this->productAbstractTransfer->addPrice($priceProductTransfer);

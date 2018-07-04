@@ -9,7 +9,6 @@ namespace Pyz\Client\Customer;
 
 use Spryker\Client\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
 use Spryker\Client\Kernel\Container;
-use Spryker\Client\PriceProductMerchantRelationship\Plugin\CustomerChangePriceUpdatePlugin;
 
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
@@ -29,15 +28,5 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
         };
 
         return $container;
-    }
-
-    /**
-     * @return \Spryker\Client\Customer\Dependency\Plugin\CustomerSessionGetPluginInterface[]
-     */
-    protected function getCustomerSessionSetPlugins()
-    {
-        return [
-            new CustomerChangePriceUpdatePlugin(), #PricesPerBusinessUnit
-        ];
     }
 }

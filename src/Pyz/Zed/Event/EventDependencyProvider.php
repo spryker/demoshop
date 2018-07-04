@@ -27,8 +27,6 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
     {
         $eventSubscriberCollection = parent::getEventSubscriberCollection();
 
-        $eventSubscriberCollection->add(new PriceProductMerchantRelationshipStorageEventSubscriber());
-
         return $eventSubscriberCollection;
     }
 }
