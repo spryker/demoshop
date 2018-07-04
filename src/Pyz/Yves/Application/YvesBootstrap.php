@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Application;
 
+use SprykerShop\Yves\CompanyPage\Plugin\Provider\CompanyPageControllerProvider;
 use SprykerShop\Yves\ShopRouter\Plugin\Router\SilexRouter;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationControllerProvider;
 use Pyz\Yves\Application\Plugin\Provider\ApplicationServiceProvider;
@@ -216,6 +217,7 @@ class YvesBootstrap
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
+            new CompanyPageControllerProvider($isSsl)
         ];
     }
 }
