@@ -249,6 +249,7 @@
     "spryker/shipment-cart-connector": "^1.0.0",
     "spryker/shipment-checkout-connector": "^1.0.0",
     "spryker/shipment-discount-connector": "^1.0.0",
+    "spryker/shopping-list": "^1.0",
     "spryker/silex": "^2.0.0",
     "spryker/sql-criteria-builder": "^1.0.0",
     "spryker/state-machine": "^2.0.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a94b5ab9c51ce7b8a1b17cc7888079e",
+    "content-hash": "2d192b8a84b44cee4908744dd973e358",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -13609,6 +13609,64 @@
             ],
             "description": "ShipmentDiscountConnector module",
             "time": "2018-01-26T13:20:18+00:00"
+        },
+        {
+            "name": "spryker/shopping-list",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/shopping-list.git",
+                "reference": "befc7c504535f3ae8dc92c62b2c502438b0e6933"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/shopping-list/zipball/befc7c504535f3ae8dc92c62b2c502438b0e6933",
+                "reference": "befc7c504535f3ae8dc92c62b2c502438b0e6933",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/cart": "^5.0.0",
+                "spryker/company-business-unit": "^1.0.0 || ^2.0.0",
+                "spryker/company-user": "^1.0.0",
+                "spryker/customer": "^7.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/messenger": "^3.0.0",
+                "spryker/permission": "^1.1.0",
+                "spryker/permission-extension": "^1.0.0",
+                "spryker/persistent-cart": "^0.1.0 || ^1.0.0",
+                "spryker/price-product": "^1.0.0",
+                "spryker/product": "^6.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/shopping-list-extension": "^1.0.0",
+                "spryker/zed-request": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/installer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/installer": "If ShoppingListPermissionsInstallerPlugin is to be used, minimum version is 4.0.04"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Shared\\ShoppingList\\Helper\\": "tests/SprykerTest/Shared/ShoppingList/_support/Helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ShoppingList module",
+            "time": "2018-06-13T09:03:02+00:00"
         },
         {
             "name": "spryker/shopping-list-extension",
