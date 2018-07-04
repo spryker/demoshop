@@ -175,7 +175,7 @@ class YvesBootstrap
     protected function registerRouters()
     {
         $this->application->addRouter((new StorageRouter())->setSsl(false));
-        $this->application->addRouter(new \Pyz\Shared\Application\Business\Routing\SilexRouter($this->application));
+        $this->application->addRouter(new SilexRouter($this->application));
     }
 
     /**
