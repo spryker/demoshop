@@ -5,7 +5,7 @@ namespace Pyz\Zed\Customer;
 use Spryker\Zed\CompanyUser\Communication\Plugin\Customer\CustomerTransferCompanyUserExpanderPlugin;
 use Spryker\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
 
-class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
+class CompanyUserDependencyProvider extends SprykerCustomerDependencyProvider
 {
 
     /**
