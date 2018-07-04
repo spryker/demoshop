@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This file is part of the Spryker Demoshop.
+ * This file is part of the Spryker Suite.
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
 namespace Orm\Zed\CompanyRole\Persistence;
 
-use Orm\Zed\CompanyRole\Persistence\Base\SpyCompanyRole as BaseSpyCompanyRole;
+use Spryker\Zed\CompanyRole\Persistence\Propel\AbstractSpyCompanyRole as BaseSpyCompanyRole;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_company_role' table.
