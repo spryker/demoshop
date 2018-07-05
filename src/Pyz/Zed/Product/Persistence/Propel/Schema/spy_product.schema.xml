@@ -4,6 +4,38 @@
     <table name="spy_product_abstract" idMethod="native" allowPkInsert="true" phpName="SpyProductAbstract">
         <column name="is_featured" type="BOOLEAN" default="0" />
         <column name="color_code" required="false" type="VARCHAR" default="NULL" size="8" />
+        <behavior name="event">
+            <parameter name="spy_product_abstract_all" column="*"/>
+        </behavior>
     </table>
 
+    <table name="spy_product_abstract_localized_attributes">
+        <behavior name="event">
+            <parameter name="spy_product_abstract_localized_attributes_all" column="*"/>
+        </behavior>
+    </table>
+
+    <table name="spy_product">
+        <behavior name="event">
+            <parameter name="spy_product_all" column="*"/>
+        </behavior>
+    </table>
+
+    <table name="spy_product_localized_attributes">
+        <behavior name="event">
+            <parameter name="spy_product_localized_attributes_all" column="*"/>
+        </behavior>
+    </table>
+
+    <table name="spy_product_attribute_key">
+        <behavior name="event">
+            <parameter name="spy_product_attribute_key_all" column="*"/>
+        </behavior>
+    </table>
+
+    <table name="spy_product_abstract_store">
+        <behavior name="event">
+            <parameter name="spy_product_abstract_store_all" column="*"/>
+        </behavior>
+    </table>
 </database>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed" namespace="Orm\Zed\Availability\Persistence" package="src.Orm.Zed.Availability.Persistence" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd">
+
+    <table name="spy_availability_abstract">
+        <behavior name="event">
+            <parameter name="spy_availability_storage_quantity" column="quantity" value="0" operator="==="/>
+        </behavior>
+    </table>
+
+    <table name="spy_availability">
+        <behavior name="event">
+            <parameter name="spy_availability_is_never_out_of_stock" column="is_never_out_of_stock" />
+        </behavior>
+    </table>
+</database>

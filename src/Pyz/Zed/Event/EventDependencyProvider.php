@@ -7,7 +7,11 @@
 
 namespace Pyz\Zed\Event;
 
+use Spryker\Zed\AvailabilityStorage\Communication\Plugin\Event\Subscriber\AvailabilityStorageEventSubscriber;
 use Spryker\Zed\Event\EventDependencyProvider as SprykerEventDependencyProvider;
+use Spryker\Zed\PriceProductStorage\Communication\Plugin\Event\Subscriber\PriceProductStorageEventSubscriber;
+use Spryker\Zed\ProductImageStorage\Communication\Plugin\Event\Subscriber\ProductImageStorageEventSubscriber;
+use Spryker\Zed\ProductStorage\Communication\Plugin\Event\Subscriber\ProductStorageEventSubscriber;
 
 class EventDependencyProvider extends SprykerEventDependencyProvider
 {
@@ -25,6 +29,10 @@ class EventDependencyProvider extends SprykerEventDependencyProvider
     public function getEventSubscriberCollection()
     {
         $eventSubscriberCollection = parent::getEventSubscriberCollection();
+        $eventSubscriberCollection->add(new AvailabilityStorageEventSubscriber());
+        $eventSubscriberCollection->add(new PriceProductStorageEventSubscriber());
+        $eventSubscriberCollection->add(new ProductStorageEventSubscriber());
+        $eventSubscriberCollection->add(new ProductImageStorageEventSubscriber());
 
         return $eventSubscriberCollection;
     }
