@@ -1,10 +1,14 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "e8cd32a56bc07fdc41cedf91f8a5032e",
+=======
+    "content-hash": "0d71ba8cedf6c331c7af53b1bef7d970",
+>>>>>>> Composer update
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1808,7 +1812,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2439,11 +2443,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-997-clear-install-log-files",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "a0b29680f7045b1ee29b7e87d3bddfd6d3553ed2"
+=======
+                "reference": "98598f8fa4af7bb470810e01b8fbe2d3e737fb77"
+>>>>>>> Composer update
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2708,7 +2716,11 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2018-07-30T10:52:24+00:00"
+=======
+            "time": "2018-07-05T14:53:19+00:00"
+>>>>>>> Composer update
         },
         {
             "name": "spryker/synchronization-behavior",
