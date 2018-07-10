@@ -1,20 +1,50 @@
 <?php
+namespace Pyz\Zed\CompanyUser;
 
-namespace Pyz\Zed\Customer;
+use Spryker\Zed\CompanyBusinessUnit\Communication\Plugin\CompanyUser\AssignDefaultBusinessUnitToCompanyUserPlugin;
+use Spryker\Zed\CompanyBusinessUnit\Communication\Plugin\CompanyUser\CompanyBusinessUnitHydratePlugin;
+use Spryker\Zed\CompanyRole\Communication\Plugin\CompanyUser\AssignDefaultCompanyUserRolePlugin;
+use Spryker\Zed\CompanyUser\CompanyUserDependencyProvider as SprykerCompanyUserDependencyProvider;
 
-use Spryker\Zed\CompanyUser\Communication\Plugin\Customer\CustomerTransferCompanyUserExpanderPlugin;
-use Spryker\Zed\Customer\CustomerDependencyProvider as SprykerCustomerDependencyProvider;
-
-class CompanyUserDependencyProvider extends SprykerCustomerDependencyProvider
+class CompanyUserDependencyProvider extends SprykerCompanyUserDependencyProvider
 {
 
     /**
-     * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerTransferExpanderPluginInterface[]
+     * @return \Spryker\Zed\CompanyUserExtension\Dependency\Plugin\CompanyUserPreSavePluginInterface[]
      */
-    protected function getCustomerTransferExpanderPlugins()
+    protected function getCompanyUserPreSavePlugins(): array
     {
         return [
-            new CustomerTransferCompanyUserExpanderPlugin()
+            new AssignDefaultBusinessUnitToCompanyUserPlugin()
         ];
     }
+
+    /**
+     * @return \Spryker\Zed\CompanyUserExtension\Dependency\Plugin\CompanyUserPostSavePluginInterface[]
+     */
+    protected function getCompanyUserPostSavePlugins(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return \Spryker\Zed\CompanyUserExtension\Dependency\Plugin\CompanyUserHydrationPluginInterface[]
+     */
+    protected function getCompanyUserHydrationPlugins(): array
+    {
+        return [
+            new CompanyBusinessUnitHydratePlugin()
+        ];
+    }
+
+    /**
+     * @return \Spryker\Zed\CompanyUserExtension\Dependency\Plugin\CompanyUserPostCreatePluginInterface[]
+     */
+    protected function getCompanyUserPostCreatePlugins(): array
+    {
+        return [
+            new AssignDefaultCompanyUserRolePlugin
+        ];
+    }
+
 }

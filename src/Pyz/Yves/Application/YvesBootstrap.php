@@ -76,9 +76,13 @@ use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopControllerEventServiceP
 use SprykerShop\Yves\ShopApplication\Plugin\Provider\ShopTwigServiceProvider;
 use SprykerShop\Yves\ShopApplication\Plugin\Provider\WidgetServiceProvider;
 use SprykerShop\Yves\ShopUi\Plugin\Provider\ShopUiTwigServiceProvider;
+use SprykerShop\Yves\ShopApplication\YvesBootstrap as SprykerYvesBootstrap;
+use SprykerShop\Yves\CartToShoppingListWidget\Plugin\Provider\CartToShoppingListWidgetControllerProvider;
+use SprykerShop\Yves\ShoppingListPage\Plugin\Provider\ShoppingListPageControllerProvider;
+use SprykerShop\Yves\ShoppingListWidget\Plugin\Provider\ShoppingListWidgetControllerProvider;
 
 
-class YvesBootstrap
+class YvesBootstrap extends SprykerYvesBootstrap
 {
     /**
      * @var \Spryker\Yves\Kernel\Application
@@ -217,7 +221,10 @@ class YvesBootstrap
             new CurrencyControllerProvider($isSsl),
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
-            new CompanyPageControllerProvider($isSsl)
+            new CompanyPageControllerProvider($isSsl),
+            new ShoppingListPageControllerProvider($isSsl),
+            new CartToShoppingListWidgetControllerProvider($isSsl),
+            new ShoppingListWidgetControllerProvider($isSsl),
         ];
     }
 }

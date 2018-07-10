@@ -10,6 +10,7 @@ namespace Pyz\Yves\Product\Controller;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Pyz\Yves\Application\Controller\AbstractController;
 use Spryker\Shared\Storage\StorageConstants;
+use SprykerShop\Yves\ShoppingListWidget\Plugin\ProductDetailPage\ShoppingListWidgetPlugin;
 
 /**
  * @method \Spryker\Client\Product\ProductClientInterface getClient()
@@ -22,7 +23,7 @@ class ProductController extends AbstractController
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer
      *
-     * @return array
+     * @return \Spryker\Yves\Kernel\View\View
      */
     public function detailAction(StorageProductTransfer $storageProductTransfer)
     {
@@ -42,6 +43,11 @@ class ProductController extends AbstractController
             'productOptionGroups' => $productOptionGroupsTransfer,
             'productUrl' => $this->getProductUrl($storageProductTransfer),
         ];
+
+        return $this->view(
+            $productData,
+            [ShoppingListWidgetPlugin::class]
+        );
 
         return $productData;
     }
