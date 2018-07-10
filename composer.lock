@@ -2448,7 +2448,11 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "a0b29680f7045b1ee29b7e87d3bddfd6d3553ed2"
+=======
+                "reference": "98598f8fa4af7bb470810e01b8fbe2d3e737fb77"
+>>>>>>> Composer update
 =======
                 "reference": "98598f8fa4af7bb470810e01b8fbe2d3e737fb77"
 >>>>>>> Composer update
@@ -2717,7 +2721,11 @@
             ],
             "description": "Spryker Framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-30T10:52:24+00:00"
+=======
+            "time": "2018-07-05T14:53:19+00:00"
+>>>>>>> Composer update
 =======
             "time": "2018-07-05T14:53:19+00:00"
 >>>>>>> Composer update
