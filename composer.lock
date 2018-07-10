@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcb5e513517f2a16c2a254ce4df654bd",
+    "content-hash": "8edccdf2660f3f9ada5cb39eeeff56ee",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/ps-2431-cms-page-in-zed-cannot-find-new-template-files",
+            "version": "dev-bugfix/ps-2523-manually-created-product-cannot-be-added-to-product-relations-and-labels",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d83fc896778b19d45e237164df3753dbf93f9300"
+                "reference": "48494db05f85efcaf921523dac1445cab73ebcbb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2380,7 +2380,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-09T08:40:59+00:00"
+            "time": "2018-07-09T09:17:00+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
