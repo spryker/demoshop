@@ -14,3 +14,5 @@ smartphones,telecom-and-navigation,Smartphones,Smartphones,Smartphones,Smartphon
 product-bundles,demoshop,Product Bundles,Product Bundles,Product Bundles,Product Bundles,Hier findest du verschiedene Produkte zu einem Bündel kombiniert.,These are multiple products bundled to a new product.,Product Bundles,Product Bundles,1,0,1,1,0,1,60,Catalog (default)
 variant-showcase,demoshop,Variant Showcase,Variant Showcase,Variant Showcase,Variant Showcase,Diese Produkte haßben mehr als eine Variante.,These are products that have more than 1 variant.,Variant Showcase,Variant Showcase,1,0,1,1,0,1,50,Catalog (default)
 gift-cards,demoshop,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,Geschenkgutscheine,Gift Cards,1,0,0,1,0,1,150,Catalog (default)
+cables,demoshop,Kabel,Cables,Kabel,Cables,Kabel,Cables,Kabel,Cables,1,1,1,1,0,1,80,Catalog + CMS Block
+food,demoshop,Essen,Food,Essen,Food,Essen,Food,Essen,Food,1,1,1,1,0,1,80,Catalog + CMS Block
