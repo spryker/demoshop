@@ -3610,16 +3610,16 @@
         },
         {
             "name": "spryker/cms",
-            "version": "6.5.1",
+            "version": "6.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms.git",
-                "reference": "98b4a8a096c8eb0f1341df8c7704721348ba9fc7"
+                "reference": "bd5e1c6ed97b34fd05b4c4d960da10c8bf7ce626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms/zipball/98b4a8a096c8eb0f1341df8c7704721348ba9fc7",
-                "reference": "98b4a8a096c8eb0f1341df8c7704721348ba9fc7",
+                "url": "https://api.github.com/repos/spryker/cms/zipball/bd5e1c6ed97b34fd05b4c4d960da10c8bf7ce626",
+                "reference": "bd5e1c6ed97b34fd05b4c4d960da10c8bf7ce626",
                 "shasum": ""
             },
             "require": {
@@ -3665,7 +3665,7 @@
                 "proprietary"
             ],
             "description": "Cms module",
-            "time": "2018-06-19T15:58:23+00:00"
+            "time": "2018-07-02T13:16:28+00:00"
         },
         {
             "name": "spryker/cms-block",
@@ -4237,16 +4237,16 @@
         },
         {
             "name": "spryker/cms-gui",
-            "version": "4.3.7",
+            "version": "4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/cms-gui.git",
-                "reference": "f9a47eea3ab72c4475e242ca6f877fd3f1eb0fd5"
+                "reference": "7a4f5ccb2dc45c1c13762dd2970fb0f8d59907b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/cms-gui/zipball/f9a47eea3ab72c4475e242ca6f877fd3f1eb0fd5",
-                "reference": "f9a47eea3ab72c4475e242ca6f877fd3f1eb0fd5",
+                "url": "https://api.github.com/repos/spryker/cms-gui/zipball/7a4f5ccb2dc45c1c13762dd2970fb0f8d59907b5",
+                "reference": "7a4f5ccb2dc45c1c13762dd2970fb0f8d59907b5",
                 "shasum": ""
             },
             "require": {
@@ -4286,7 +4286,7 @@
                 "proprietary"
             ],
             "description": "CmsGui module",
-            "time": "2018-02-08T13:02:40+00:00"
+            "time": "2018-07-02T13:40:41+00:00"
         },
         {
             "name": "spryker/cms-navigation-connector",
@@ -8800,16 +8800,16 @@
         },
         {
             "name": "spryker/oms",
-            "version": "8.1.0",
+            "version": "8.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/oms.git",
-                "reference": "037dc9e417c996a83c771212ba3d3fa4d22407b4"
+                "reference": "1b58dea35dfd36ee57aaef143e5777eb94701a16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/oms/zipball/037dc9e417c996a83c771212ba3d3fa4d22407b4",
-                "reference": "037dc9e417c996a83c771212ba3d3fa4d22407b4",
+                "url": "https://api.github.com/repos/spryker/oms/zipball/1b58dea35dfd36ee57aaef143e5777eb94701a16",
+                "reference": "1b58dea35dfd36ee57aaef143e5777eb94701a16",
                 "shasum": ""
             },
             "require": {
@@ -8854,7 +8854,7 @@
                 "proprietary"
             ],
             "description": "Oms module",
-            "time": "2018-06-06T13:08:26+00:00"
+            "time": "2018-06-28T14:04:02+00:00"
         },
         {
             "name": "spryker/oms-discount-connector",
