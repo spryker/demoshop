@@ -147,7 +147,6 @@ $config[LogConstants::EXCEPTION_LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/ex
 $config[EventConstants::LOGGER_ACTIVE] = true;
 
 // ----------- Glue Application
-$config[GlueApplicationConstants::GLUE_APPLICATION_DOMAIN] = 'http://glue.de.shop-suite.local';
 $config[GlueApplicationConstants::GLUE_APPLICATION_REST_DEBUG] = true;
 
 // ----------- OAUTH
