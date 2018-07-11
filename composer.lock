@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8edccdf2660f3f9ada5cb39eeeff56ee",
+    "content-hash": "65ac4239c20d067a3114c3b9760e6822",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/ps-2523-manually-created-product-cannot-be-added-to-product-relations-and-labels",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "48494db05f85efcaf921523dac1445cab73ebcbb"
+                "reference": "adcd995f1bfe61cbfb60ad6b72b76d8e1ae6cc43"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2380,7 +2380,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-09T09:17:00+00:00"
+            "time": "2018-07-10T15:17:23+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
