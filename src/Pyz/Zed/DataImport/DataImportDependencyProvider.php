@@ -10,6 +10,7 @@ namespace Pyz\Zed\DataImport;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\DataImport\DataImportDependencyProvider as SprykerDataImportDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\PriceProductDataImport\Communication\Plugin\PriceProductDataImportPlugin;
 
 class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
 {
@@ -37,6 +38,16 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $this->addStore($container);
 
         return $container;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImporterPlugins(): array
+    {
+        return [
+            new PriceProductDataImportPlugin(),
+        ];
     }
 
     /**

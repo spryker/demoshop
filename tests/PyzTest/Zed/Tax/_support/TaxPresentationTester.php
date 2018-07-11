@@ -46,7 +46,7 @@ class TaxPresentationTester extends Actor
     /**
      * @param string $taxRateName
      *
-     * @return $this
+     * @return void
      */
     public function createTaxRate($taxRateName)
     {
@@ -78,7 +78,7 @@ class TaxPresentationTester extends Actor
     /**
      * @param string $taxRateName
      *
-     * @return $this
+     * @return void
      */
     public function createTaxRateWithoutSaving($taxRateName)
     {
@@ -89,7 +89,7 @@ class TaxPresentationTester extends Actor
     /**
      * @param string $taxRateName
      *
-     * @return $this
+     * @return void
      */
     public function searchForTaxRate($taxRateName)
     {
@@ -101,7 +101,7 @@ class TaxPresentationTester extends Actor
     /**
      * @param string $taxRateName
      *
-     * @return $this
+     * @return void
      */
     public function deleteTaxRate($taxRateName)
     {
@@ -113,7 +113,7 @@ class TaxPresentationTester extends Actor
     }
 
     /**
-     * @return $this
+     * @return void
      */
     public function seeErrorMessages()
     {
@@ -127,7 +127,7 @@ class TaxPresentationTester extends Actor
     /**
      * @param string $taxRateName
      *
-     * @return $this
+     * @return void
      */
     public function createOneAndTheSameTaxRate($taxRateName)
     {
@@ -158,7 +158,7 @@ class TaxPresentationTester extends Actor
     /**
      * @param string $taxRateName
      *
-     * @return $this
+     * @return void
      */
     public function editTaxRateWithValidData($taxRateName)
     {
@@ -172,7 +172,7 @@ class TaxPresentationTester extends Actor
     }
 
     /**
-     * @return $this
+     * @return void
      */
     public function deleteTaxRateFromEditForm()
     {
