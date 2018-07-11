@@ -1567,7 +1567,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -5092,7 +5092,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-17T12:52:20+00:00"
+            "time": "2018-05-16T11:51:51+00:00"
         },
         {
             "name": "nette/di",
@@ -7281,7 +7281,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
