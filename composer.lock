@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "65ac4239c20d067a3114c3b9760e6822",
+    "content-hash": "9b66632257b8135f136670000f5347bc",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1567,7 +1567,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-2045-more-specific-availability-message-in-cart",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "adcd995f1bfe61cbfb60ad6b72b76d8e1ae6cc43"
+                "reference": "9fd1e69116b71b0c42fb10804609fcb3a640a6d0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2380,7 +2380,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-10T15:17:23+00:00"
+            "time": "2018-07-11T07:03:34+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5092,7 +5092,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-17T12:52:20+00:00"
+            "time": "2018-05-16T11:51:51+00:00"
         },
         {
             "name": "nette/di",
@@ -7281,7 +7281,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
