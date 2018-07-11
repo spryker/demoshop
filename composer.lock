@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.62.12",
+            "version": "3.62.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "53b59b0ab96c92aa6f5e52df00c4af1991c97c5d"
+                "reference": "528119675458b11f8eda2d43793cf5af3b27773c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/53b59b0ab96c92aa6f5e52df00c4af1991c97c5d",
-                "reference": "53b59b0ab96c92aa6f5e52df00c4af1991c97c5d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/528119675458b11f8eda2d43793cf5af3b27773c",
+                "reference": "528119675458b11f8eda2d43793cf5af3b27773c",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-07-10T00:18:49+00:00"
+            "time": "2018-07-10T21:10:32+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -10756,16 +10756,16 @@
         },
         {
             "name": "spryker/product-label-gui",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-label-gui.git",
-                "reference": "44596911e979a6aa052a06f5c3abb5e5fb5d5842"
+                "reference": "0d624040dea9c48d75662a8174eddcc07865841f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-label-gui/zipball/44596911e979a6aa052a06f5c3abb5e5fb5d5842",
-                "reference": "44596911e979a6aa052a06f5c3abb5e5fb5d5842",
+                "url": "https://api.github.com/repos/spryker/product-label-gui/zipball/0d624040dea9c48d75662a8174eddcc07865841f",
+                "reference": "0d624040dea9c48d75662a8174eddcc07865841f",
                 "shasum": ""
             },
             "require": {
@@ -10806,7 +10806,7 @@
                 "proprietary"
             ],
             "description": "ProductLabelGui module",
-            "time": "2018-07-04T16:15:53+00:00"
+            "time": "2018-07-09T09:17:00+00:00"
         },
         {
             "name": "spryker/product-label-storage",
@@ -11133,16 +11133,16 @@
         },
         {
             "name": "spryker/product-relation",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-relation.git",
-                "reference": "56e2f3d48e199b1c64be10a6f22c80b66e9e0687"
+                "reference": "51403673587aa669414bd8dd2180f7c89188289d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-relation/zipball/56e2f3d48e199b1c64be10a6f22c80b66e9e0687",
-                "reference": "56e2f3d48e199b1c64be10a6f22c80b66e9e0687",
+                "url": "https://api.github.com/repos/spryker/product-relation/zipball/51403673587aa669414bd8dd2180f7c89188289d",
+                "reference": "51403673587aa669414bd8dd2180f7c89188289d",
                 "shasum": ""
             },
             "require": {
@@ -11197,7 +11197,7 @@
                 "proprietary"
             ],
             "description": "ProductRelation module",
-            "time": "2018-07-04T16:15:53+00:00"
+            "time": "2018-07-09T09:17:00+00:00"
         },
         {
             "name": "spryker/product-relation-collector",
