@@ -1698,7 +1698,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -5831,16 +5831,16 @@
         },
         {
             "name": "spryker/customer",
-            "version": "7.10.0",
+            "version": "7.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/customer.git",
-                "reference": "0fc92b0cc05044883d53c0a15bd9f2bb597e4f9e"
+                "reference": "c319a306d74c604c5a2f5a9ab60da7e42aca2734"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/customer/zipball/0fc92b0cc05044883d53c0a15bd9f2bb597e4f9e",
-                "reference": "0fc92b0cc05044883d53c0a15bd9f2bb597e4f9e",
+                "url": "https://api.github.com/repos/spryker/customer/zipball/c319a306d74c604c5a2f5a9ab60da7e42aca2734",
+                "reference": "c319a306d74c604c5a2f5a9ab60da7e42aca2734",
                 "shasum": ""
             },
             "require": {
@@ -5895,7 +5895,7 @@
                 "proprietary"
             ],
             "description": "Customer module",
-            "time": "2018-06-08T14:08:21+00:00"
+            "time": "2018-06-27T14:04:24+00:00"
         },
         {
             "name": "spryker/customer-api",
@@ -17047,7 +17047,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-16T11:51:51+00:00"
+            "time": "2018-05-17T12:52:20+00:00"
         },
         {
             "name": "nette/di",
@@ -19298,7 +19298,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
