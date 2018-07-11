@@ -5,11 +5,10 @@
 
 'use strict';
 
-// es6 promise fix (webpack 2)
-require('es6-promise/auto');
-
-
 // vendor
 require('./vendor/style');
 require('./vendor/slick-carousel');
 require('./vendor');
+
+// add webcomponents polyfill
+require('@webcomponents/webcomponentsjs/webcomponents-bundle');

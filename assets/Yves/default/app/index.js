@@ -9,6 +9,7 @@
 // and/or change the existing one
 
 var run = require('../lib/run');
+var app = require('ShopUi/app');
 
 function setJsEnabledMode() {
     $('html')
@@ -36,3 +37,5 @@ $(function(){
         require('./components/product-review/summary')
     ]);
 });
+
+app.bootstrap();

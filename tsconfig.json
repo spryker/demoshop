@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "allowJs": true,
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "removeComments": true,
+        "target": "es5",
+        "lib": [
+            "dom",
+            "es5",
+            "es6",
+            "es7"
+        ],
+        "paths": {
+            "*": [
+                "*"
+            ],
+            "ShopUi/*": [
+                "./vendor/spryker-shop/shop-ui/src/SprykerShop/Yves/ShopUi/Theme/default/*"
+            ]
+        }
+    },
+    "files": [
+        "./assets/Yves/default/app.entry.js",
+        "./assets/Yves/default/vendor.entry.js",
+        "./assets/Yves/default/es6-polyfill.entry.js"
+    ],
+    "include": [
+        "./vendor/spryker-shop/**/*",
+        "./src/Pyz/Yves/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
