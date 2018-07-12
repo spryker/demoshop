@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3336547248abea2bf1eecd1d0e0e786",
+    "content-hash": "a19c7c3888a4c0f5e8b12e2951c6e98c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -12028,16 +12028,16 @@
         },
         {
             "name": "spryker/product-page-search",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-page-search.git",
-                "reference": "d724bd2cddd7ada57e39cd7535030243daf37d0c"
+                "reference": "632a5dd231d8c53b5d392d594d1489dc4240e989"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-page-search/zipball/d724bd2cddd7ada57e39cd7535030243daf37d0c",
-                "reference": "d724bd2cddd7ada57e39cd7535030243daf37d0c",
+                "url": "https://api.github.com/repos/spryker/product-page-search/zipball/632a5dd231d8c53b5d392d594d1489dc4240e989",
+                "reference": "632a5dd231d8c53b5d392d594d1489dc4240e989",
                 "shasum": ""
             },
             "require": {
@@ -12046,7 +12046,7 @@
                 "spryker/category": "^4.3.0",
                 "spryker/event-behavior": "^1.0.0",
                 "spryker/kernel": "^3.21.0",
-                "spryker/price-product": "^1.1.0",
+                "spryker/price-product": "^1.1.0 || ^2.0.0",
                 "spryker/product": "^5.5.0 || ^6.0.0",
                 "spryker/product-category": "^4.5.0",
                 "spryker/product-image": "^3.5.0",
@@ -12081,7 +12081,7 @@
                 "proprietary"
             ],
             "description": "ProductPageSearch module",
-            "time": "2018-05-24T09:51:00+00:00"
+            "time": "2018-07-04T16:15:53+00:00"
         },
         {
             "name": "spryker/product-quantity",
@@ -14707,25 +14707,31 @@
         },
         {
             "name": "spryker/synchronization-behavior",
-            "version": "0.1.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SynchronizationBehavior.git",
-                "reference": "5cfc5ddd48ff307ac71a33e25a2244c03eb8df84"
+                "url": "https://github.com/spryker/synchronization-behavior.git",
+                "reference": "164e3761cba658720e1101d47815aa0ac6084e63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SynchronizationBehavior/zipball/5cfc5ddd48ff307ac71a33e25a2244c03eb8df84",
-                "reference": "5cfc5ddd48ff307ac71a33e25a2244c03eb8df84",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/164e3761cba658720e1101d47815aa0ac6084e63",
+                "reference": "164e3761cba658720e1101d47815aa0ac6084e63",
                 "shasum": ""
             },
             "require": {
-                "spryker/kernel": "^3.4.0",
-                "spryker/propel-orm": "^1.0.0",
+                "spryker/kernel": "^3.20.0",
+                "spryker/propel-orm": "^1.6.0",
                 "spryker/zend": "^2.1.0"
             },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/queue": "^1.1.0",
+                "spryker/synchronization": "^0.1.0 || ^0.2.0"
+            },
             "suggest": {
-                "spryker/synchronizationBehavior": "^0.1.0"
+                "spryker/queue": "Generated classes are using spryker/queue module.",
+                "spryker/synchronization": "Generated classes are using spryker/synchronization module."
             },
             "type": "propel-behavior",
             "extra": {
@@ -14741,11 +14747,14 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2017-10-17T08:36:02+00:00"
+            "time": "2018-05-30T09:19:55+00:00"
         },
         {
             "name": "spryker/tax",

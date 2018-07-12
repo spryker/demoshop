@@ -33,6 +33,7 @@ use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompleti
 use Spryker\Zed\Development\Communication\Console\GenerateYvesIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateZedIdeAutoCompletionConsole;
 use Spryker\Zed\EventBehavior\Communication\Console\EventBehaviorTriggerTimeoutConsole;
+use Spryker\Zed\EventBehavior\Communication\Plugin\Console\EventBehaviorPostHookPlugin;
 use Spryker\Zed\Installer\Communication\Console\InitializeDatabaseConsole;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Log\Communication\Console\DeleteLogFilesConsole;
@@ -106,6 +107,15 @@ use Stecman\Component\Symfony\Console\BashCompletion\CompletionCommand;
  */
 class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 {
+
+    protected function getConsolePostRunHookPlugins(Container $container)
+    {
+        return [
+            new EventBehaviorPostHookPlugin()
+        ];
+    }
+
+
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
