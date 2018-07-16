@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45450d4bc8f48e4452bf09beebdf1bce",
+    "content-hash": "f613229dfeae8580be47f820bb0e433c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1808,7 +1808,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2357,11 +2357,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-2522-table-error-by-sorting-in-bundle-product",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "96a4d15ddfcb8eac05a1145a056bfcf305ff4d44"
+                "reference": "7172afb863c3ff677193f3efaf4a7896b16bb70e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2455,7 +2455,6 @@
                 "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
-                "spryker/glue-application": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
                 "spryker/gui": "*",
@@ -2622,7 +2621,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-13T09:45:39+00:00"
+            "time": "2018-07-10T14:47:40+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5387,7 +5386,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-16T11:51:51+00:00"
+            "time": "2018-05-17T12:52:20+00:00"
         },
         {
             "name": "nette/di",
@@ -5928,7 +5927,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7576,7 +7575,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
