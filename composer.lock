@@ -2361,7 +2361,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7172afb863c3ff677193f3efaf4a7896b16bb70e"
+                "reference": "d270e88c340175248c8f0473bfb1db661d73f214"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2455,6 +2455,7 @@
                 "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
+                "spryker/glue-application": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
                 "spryker/gui": "*",
@@ -2621,7 +2622,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-10T14:47:40+00:00"
+            "time": "2018-07-16T16:22:19+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
