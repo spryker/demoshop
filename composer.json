@@ -336,8 +336,7 @@
       "PhantomInstaller\\Installer::installPhantomJS"
     ],
     "post-update-cmd": [
-      "PhantomInstaller\\Installer::installPhantomJS",
-      "Install\\ComposerAdjuster::assertDemoshopGitUrls"
+      "PhantomInstaller\\Installer::installPhantomJS"
     ],
     "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }
