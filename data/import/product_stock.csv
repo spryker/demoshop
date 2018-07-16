@@ -308,6 +308,7 @@ concrete_sku,name,quantity,is_never_out_of_stock,is_bundle
 214_123,Warehouse2,0,0,1
 216_123,Warehouse1,0,1,0
 217_123,Warehouse1,0,1,0
+219_01,Warehouse1,100,1,0
 217_1231,Warehouse 1,0,1,0
 218_123,Warehouse 1,0,1,0
 218_1231,Warehouse 1,100,0,0
