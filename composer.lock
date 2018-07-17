@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "305793b2d8d213bcbcbe5d516ebe398e",
+    "content-hash": "4b61084d0ae719933df9ce6d3e671b69",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2357,11 +2357,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/ps-2557-support-208-zed-api-potential-logging-of-sensitive-data-included-in-apirequesttransfer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5b06e99685b2c395928908e8dcec2f8f797ff705"
+                "reference": "28e13cd4ae215ce41b84d541ef11f0d369c91b11"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2622,7 +2622,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-17T15:25:59+00:00"
+            "time": "2018-07-17T12:19:02+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
