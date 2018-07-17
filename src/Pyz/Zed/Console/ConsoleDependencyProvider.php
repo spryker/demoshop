@@ -31,6 +31,7 @@ use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
 use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
 use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolationConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateClientIdeAutoCompletionConsole;
+use Spryker\Zed\Development\Communication\Console\GenerateGlueIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateServiceIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateYvesIdeAutoCompletionConsole;
@@ -50,6 +51,7 @@ use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckCondi
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
 use Spryker\Zed\Oms\Communication\Console\ExportReservationConsole;
+use Spryker\Zed\PriceProduct\Communication\Console\PriceProductStoreOptimizeConsole;
 use Spryker\Zed\Product\Communication\Console\ProductTouchConsole;
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelRelationUpdaterConsole;
 use Spryker\Zed\ProductLabel\Communication\Console\ProductLabelValidityConsole;
@@ -239,6 +241,8 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 
             new MaintenanceEnableConsole(),
             new MaintenanceDisableConsole(),
+
+            new PriceProductStoreOptimizeConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
@@ -267,6 +271,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new GenerateClientIdeAutoCompletionConsole();
             $commands[] = new GenerateServiceIdeAutoCompletionConsole();
             $commands[] = new GenerateYvesIdeAutoCompletionConsole();
+            $commands[] = new GenerateGlueIdeAutoCompletionConsole();
             $commands[] = new GenerateIdeAutoCompletionConsole();
             $commands[] = new DataBuilderGeneratorConsole();
             $commands[] = new CompletionCommand();
