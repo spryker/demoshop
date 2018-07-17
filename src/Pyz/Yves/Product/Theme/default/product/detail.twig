@@ -136,9 +136,10 @@
             {% set isDisabled = product.idProductConcrete is empty or product.price is empty %}
 
             {% if widgetExists('ShoppingListWidgetPlugin') %}
-                <hr />
+            <div class="callout">
                 {{ widget('ShoppingListWidgetPlugin', product.sku, isDisabled) }}
             {% endif %}
+            </div>
 
             {% if not product.available %}
                 <p>

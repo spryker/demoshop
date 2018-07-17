@@ -3,50 +3,108 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-'use strict';
-
 const path = require('path');
-const argv = require('yargs').argv;
 
-// cli verbose arg can be invoked:
-// $ npm run script-name -- --verbose
-const isVerbose = !!argv.verbose;
+// define the applicatin name
+// important: the name must be normalized
+const name = 'demoshop';
 
-// demoshop theme name
-const themeName = 'default';
+// define the current theme
+const theme = 'default';
 
-// paths and directories
-const rootDir = process.cwd();
-const sourcePath = './assets/Yves/' + themeName;
-const publicPath = '/assets/' + themeName;
-const sourceDir = path.resolve(sourcePath);
-const publicDir = path.resolve(path.join('./public/Yves', publicPath));
+// define the current context (root)
+const context = process.cwd();
 
-const settings = {
-    // options: cli args
-    options: {
-        isProduction: !!argv.prod,
-        isWatching: !!argv.dev,
-        isVerbose
+// define project relative paths to context
+const paths = {
+    // locate the typescript configuration json file
+    tsConfig: './tsconfig.json',
+
+    // assets folder
+    assets: './assets/Yves/default',
+
+    // public folder
+    public: './public/Yves/assets/default',
+
+    // core folders
+    core: {
+        // all modules
+        modules: './vendor/spryker-shop',
+        // ShopUi source folder
+        shopUiModule: `./vendor/spryker-shop/shop-ui/src/SprykerShop/Yves/ShopUi/Theme/${theme}`
     },
 
-    // paths/dirs
-    paths: {
-        themeName,
-        sourcePath,
-        publicPath,
-        rootDir,
-        sourceDir,
-        publicDir
-    },
-
-    // oryx entry settings
-    entry: {
-        dirs: [path.resolve('vendor/spryker'), path.resolve('vendor/spryker-eco')],
-        patterns: ['**/Yves/**/*.entry.js'],
-        defineName: p => path.basename(p, '.entry.js'),
-        description: 'looking for entry points...'
+    // project folders
+    project: {
+        // all modules
+        modules: './src/Pyz/Yves',
+        // ShopUi source folder
+        shopUiModule: `./src/Pyz/Yves/ShopUi/Theme/${theme}`
     }
 };
 
-module.exports = settings;
+// define relative urls to site host (/)
+const urls = {
+    // assets base url
+    assets: '/assets'
+};
+
+// export settings
+module.exports = {
+    name,
+    theme,
+    context,
+    paths,
+    urls,
+
+    // define settings for suite-frontend-builder finder
+    find: {
+        // webpack entry points (components) finder settings
+        componentEntryPoints: {
+            // absolute dirs in which look for
+            dirs: [
+                path.join(context, paths.core.modules),
+                path.join(context, paths.project.modules)
+            ],
+            // files/dirs patterns
+            patterns: [
+                `**/Theme/${theme}/components/atoms/*/index.ts`,
+                `**/Theme/${theme}/components/molecules/*/index.ts`,
+                `**/Theme/${theme}/components/organisms/*/index.ts`,
+                `**/Theme/${theme}/templates/*/index.ts`,
+                `**/Theme/${theme}/views/*/index.ts`,
+                '!config',
+                '!data',
+                '!deploy',
+                '!node_modules',
+                '!public',
+                '!test'
+            ]
+        },
+
+        // core component styles finder settings
+        // important: this part is used in shared scss environment
+        // do not change unless necessary
+        componentStyles: {
+            // absolute dirs in which look for
+            dirs: [
+                path.join(context, paths.core.modules)
+            ],
+            // files/dirs patterns
+            patterns: [
+                `**/Theme/${theme}/components/atoms/*/*.scss`,
+                `**/Theme/${theme}/components/molecules/*/*.scss`,
+                `**/Theme/${theme}/components/organisms/*/*.scss`,
+                `**/Theme/${theme}/templates/*/*.scss`,
+                `**/Theme/${theme}/views/*/*.scss`,
+                `!**/Theme/${theme}/**/style.scss`,
+                '!config',
+                '!data',
+                '!deploy',
+                '!node_modules',
+                '!public',
+                '!test'
+            ]
+        }
+    }
+}

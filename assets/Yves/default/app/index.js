@@ -36,3 +36,6 @@ $(function(){
         require('./components/product-review/summary')
     ]);
 });
+
+var app = require('ShopUi/app');
+app.bootstrap();
