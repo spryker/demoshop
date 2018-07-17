@@ -153,3 +153,6 @@ $config[GlueApplicationConstants::GLUE_APPLICATION_REST_DEBUG] = true;
 $config[OauthConstants::PRIVATE_KEY_PATH] = 'file://' . APPLICATION_ROOT_DIR . '/config/Zed/dev_only_private.key';
 $config[OauthConstants::PUBLIC_KEY_PATH] = 'file://' . APPLICATION_ROOT_DIR . '/config/Zed/dev_only_public.key';
 $config[OauthConstants::ENCRYPTION_KEY] = 'lxZFUEsBCJ2Yb14IF2ygAHI5N4+ZAUXXaSeeJm6+twsUmIen';
+
+$config[\Spryker\Shared\Api\ApiConstants::SERVER_VARIABLE_FILTER_STRATEGY] = \Spryker\Shared\Api\ApiConstants::SERVER_VARIABLE_FILTER_STRATEGY_BLACKLIST;
+$config[\Spryker\Shared\Api\ApiConstants::SERVER_VARIABLE_BLACKLIST] = [];

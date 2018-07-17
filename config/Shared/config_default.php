@@ -441,3 +441,6 @@ $config[GlueApplicationConstants::GLUE_APPLICATION_REST_DEBUG] = false;
 $config[OauthConstants::PRIVATE_KEY_PATH] = 'file://';
 $config[OauthConstants::PUBLIC_KEY_PATH] = 'file://';
 $config[OauthConstants::ENCRYPTION_KEY] = '';
+
+$config[\Spryker\Shared\Api\ApiConstants::SERVER_VARIABLE_FILTER_STRATEGY] = \Spryker\Shared\Api\ApiConstants::SERVER_VARIABLE_FILTER_STRATEGY_WHITELIST;
+$config[\Spryker\Shared\Api\ApiConstants::SERVER_VARIABLE_WHITELIST] = ['REQUEST_URI'];
