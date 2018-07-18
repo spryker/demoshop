@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd3368659c98e2c01ce964b07989244f",
+    "content-hash": "cab5d47447bd9b2b0363cac96088fe72",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1808,7 +1808,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2357,11 +2357,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-1848/master-volume-prices",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d94023cbd69d58f602bbee566b008737d91ddf93"
+                "reference": "b1c0d053bfc21b8de371ba9acfd05ceee2e861a1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2622,7 +2622,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-18T07:19:10+00:00"
+            "time": "2018-07-18T16:03:35+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5928,7 +5928,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7774,7 +7774,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7888,12 +7888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "20811933e2e880f3e59541a111f3099b08b20fca"
+                "reference": "171edba2b7726e78783b5d23261a65d4846732ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/20811933e2e880f3e59541a111f3099b08b20fca",
-                "reference": "20811933e2e880f3e59541a111f3099b08b20fca",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/171edba2b7726e78783b5d23261a65d4846732ed",
+                "reference": "171edba2b7726e78783b5d23261a65d4846732ed",
                 "shasum": ""
             },
             "require": {
@@ -7932,7 +7932,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-07-16T10:45:40+00:00"
+            "time": "2018-07-18T13:54:50+00:00"
         },
         {
             "name": "spryker/git-hook",
