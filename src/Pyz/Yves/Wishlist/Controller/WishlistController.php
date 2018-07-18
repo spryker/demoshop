@@ -174,7 +174,7 @@ class WishlistController extends AbstractController
             ->createAddAllAvailableProductsToCartForm()
             ->handleRequest($request);
 
-        if ($addAllAvailableProductsToCartForm->isValid()) {
+        if ($addAllAvailableProductsToCartForm->isSubmitted() && $addAllAvailableProductsToCartForm->isValid()) {
             $wishlistItemMetaTransferCollection = $addAllAvailableProductsToCartForm
                 ->get(AddAllAvailableProductsToCartFormType::WISHLIST_ITEM_META_COLLECTION)
                 ->getData();
@@ -185,9 +185,12 @@ class WishlistController extends AbstractController
 
             if ($result->getRequests()->count()) {
                 $this->addErrorMessage('customer.account.wishlist.item.moved_all_available_to_cart.failed');
-                return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
-                    'wishlistName' => $wishlistName,
-                ]);
+
+                if ($result->getRequests()->count() === count($wishlistItemMetaTransferCollection)) {
+                    return $this->redirectResponseInternal(WishlistControllerProvider::ROUTE_WISHLIST_DETAILS, [
+                        'wishlistName' => $wishlistName,
+                    ]);
+                }
             }
 
             $this->addSuccessMessage('customer.account.wishlist.item.moved_all_available_to_cart');
