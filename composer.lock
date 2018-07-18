@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "651c90b22e77e0993eddfa44768a7c31",
@@ -3514,16 +3514,16 @@
         },
         {
             "name": "spryker/category",
-            "version": "4.4.1",
+            "version": "4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/category.git",
-                "reference": "a463e36f68a7f255a1801b8a8bc83bd5e948cc39"
+                "reference": "ea3f50ea925b53e62855bd431395b5b4e4b4338b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/category/zipball/a463e36f68a7f255a1801b8a8bc83bd5e948cc39",
-                "reference": "a463e36f68a7f255a1801b8a8bc83bd5e948cc39",
+                "url": "https://api.github.com/repos/spryker/category/zipball/ea3f50ea925b53e62855bd431395b5b4e4b4338b",
+                "reference": "ea3f50ea925b53e62855bd431395b5b4e4b4338b",
                 "shasum": ""
             },
             "require": {
@@ -3564,7 +3564,7 @@
                 "proprietary"
             ],
             "description": "Category module",
-            "time": "2018-05-07T08:19:44+00:00"
+            "time": "2018-07-17T09:07:37+00:00"
         },
         {
             "name": "spryker/category-data-feed",
@@ -10176,16 +10176,16 @@
         },
         {
             "name": "spryker/product",
-            "version": "6.1.0",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product.git",
-                "reference": "2a05e2d5fcdbedd3f4c0b8c3c593d5b4b027755d"
+                "reference": "83b7c73e1f3ff2d171c347381a927537c963e0f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product/zipball/2a05e2d5fcdbedd3f4c0b8c3c593d5b4b027755d",
-                "reference": "2a05e2d5fcdbedd3f4c0b8c3c593d5b4b027755d",
+                "url": "https://api.github.com/repos/spryker/product/zipball/83b7c73e1f3ff2d171c347381a927537c963e0f8",
+                "reference": "83b7c73e1f3ff2d171c347381a927537c963e0f8",
                 "shasum": ""
             },
             "require": {
@@ -10226,7 +10226,7 @@
                 "proprietary"
             ],
             "description": "Product module",
-            "time": "2018-06-13T09:03:02+00:00"
+            "time": "2018-07-17T09:07:37+00:00"
         },
         {
             "name": "spryker/product-abstract-data-feed",
@@ -11328,16 +11328,16 @@
         },
         {
             "name": "spryker/product-management",
-            "version": "0.14.0",
+            "version": "0.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-management.git",
-                "reference": "c42d7b1f7537e646675025e8871670fc61ffcf67"
+                "reference": "36154f070fb4a0a6baeebdc176bd360ebcdd761d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-management/zipball/c42d7b1f7537e646675025e8871670fc61ffcf67",
-                "reference": "c42d7b1f7537e646675025e8871670fc61ffcf67",
+                "url": "https://api.github.com/repos/spryker/product-management/zipball/36154f070fb4a0a6baeebdc176bd360ebcdd761d",
+                "reference": "36154f070fb4a0a6baeebdc176bd360ebcdd761d",
                 "shasum": ""
             },
             "require": {
@@ -11386,7 +11386,7 @@
                 "proprietary"
             ],
             "description": "ProductManagement module",
-            "time": "2018-07-04T16:15:53+00:00"
+            "time": "2018-07-17T12:19:02+00:00"
         },
         {
             "name": "spryker/product-management-extension",
@@ -12236,16 +12236,16 @@
         },
         {
             "name": "spryker/propel",
-            "version": "3.5.1",
+            "version": "3.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/propel.git",
-                "reference": "8e883b04c97b5733af47dea83ad8fd258ee3c48d"
+                "reference": "09e5f62f56e4139357c7e92683cbbb1f6ae41683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/propel/zipball/8e883b04c97b5733af47dea83ad8fd258ee3c48d",
-                "reference": "8e883b04c97b5733af47dea83ad8fd258ee3c48d",
+                "url": "https://api.github.com/repos/spryker/propel/zipball/09e5f62f56e4139357c7e92683cbbb1f6ae41683",
+                "reference": "09e5f62f56e4139357c7e92683cbbb1f6ae41683",
                 "shasum": ""
             },
             "require": {
@@ -12284,20 +12284,20 @@
                 "proprietary"
             ],
             "description": "Propel module",
-            "time": "2018-01-26T12:18:40+00:00"
+            "time": "2018-07-17T14:40:22+00:00"
         },
         {
             "name": "spryker/propel-orm",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/propel-orm.git",
-                "reference": "e257b90247b3ce5051adeb156909b3d6afd99df6"
+                "reference": "3d70e48019c0d7dd677b4c1f8586b7d1843a93e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/e257b90247b3ce5051adeb156909b3d6afd99df6",
-                "reference": "e257b90247b3ce5051adeb156909b3d6afd99df6",
+                "url": "https://api.github.com/repos/spryker/propel-orm/zipball/3d70e48019c0d7dd677b4c1f8586b7d1843a93e0",
+                "reference": "3d70e48019c0d7dd677b4c1f8586b7d1843a93e0",
                 "shasum": ""
             },
             "require": {
@@ -12323,7 +12323,7 @@
                 "proprietary"
             ],
             "description": "PropelOrm module",
-            "time": "2018-04-26T08:28:30+00:00"
+            "time": "2018-07-17T12:05:06+00:00"
         },
         {
             "name": "spryker/propel-query-builder",
@@ -19864,7 +19864,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
