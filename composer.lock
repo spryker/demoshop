@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd3368659c98e2c01ce964b07989244f",
+    "content-hash": "4a9a289d251f24d506064e29c88b749b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2357,11 +2357,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-2045-more-specific-availability-message-in-cart",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d94023cbd69d58f602bbee566b008737d91ddf93"
+                "reference": "61545fc9c0dd3714e85612256d785e924f6ce347"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2622,7 +2622,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-18T07:19:10+00:00"
+            "time": "2018-07-18T12:41:10+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5387,7 +5387,7 @@
                 "configurator",
                 "nette"
             ],
-            "time": "2018-05-17T12:52:20+00:00"
+            "time": "2018-05-16T11:51:51+00:00"
         },
         {
             "name": "nette/di",
@@ -5928,7 +5928,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7774,7 +7774,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
