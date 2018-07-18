@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b0f39f23323b1c9769de0776328179",
+    "content-hash": "41ffe4009c09528c406d73319c34af57",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2053,17 +2053,16 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-1848/master-volume-prices",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c7f05dfbca00d42fd0097f97ac27153ac1882868"
+                "reference": "b1c0d053bfc21b8de371ba9acfd05ceee2e861a1"
             },
             "require": {
-                "everon/criteria-builder": "^1.1.0",
+                "everon/criteria-builder": "^1.1.5",
                 "fzaninotto/faker": "^1.6",
                 "moneyphp/money": "^3.0.0",
-                "paragonie/random_compat": "^2.0.10",
                 "php": ">=7.1",
                 "phpdocumentor/graphviz": "^1.0.4"
             },
@@ -2078,6 +2077,8 @@
                 "spryker/availability-gui": "*",
                 "spryker/availability-storage": "*",
                 "spryker/braintree": "*",
+                "spryker/business-on-behalf": "*",
+                "spryker/business-on-behalf-data-import": "*",
                 "spryker/cache": "*",
                 "spryker/calculation": "*",
                 "spryker/cart": "*",
@@ -2150,6 +2151,7 @@
                 "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
+                "spryker/glue-application": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
                 "spryker/gui": "*",
@@ -2182,7 +2184,6 @@
                 "spryker/oms-discount-connector": "*",
                 "spryker/payment": "*",
                 "spryker/payment-cart-connector": "*",
-                "spryker/payolution": "*",
                 "spryker/pimple": "*",
                 "spryker/price": "*",
                 "spryker/price-cart-connector": "*",
@@ -2216,6 +2217,7 @@
                 "spryker/product-label-storage": "*",
                 "spryker/product-management": "*",
                 "spryker/product-measurement-unit": "*",
+                "spryker/product-measurement-unit-data-import": "*",
                 "spryker/product-measurement-unit-gui": "*",
                 "spryker/product-measurement-unit-storage": "*",
                 "spryker/product-new": "*",
@@ -2225,6 +2227,7 @@
                 "spryker/product-option-storage": "*",
                 "spryker/product-page-search": "*",
                 "spryker/product-quantity": "*",
+                "spryker/product-quantity-data-import": "*",
                 "spryker/product-quantity-storage": "*",
                 "spryker/product-relation": "*",
                 "spryker/product-relation-collector": "*",
@@ -2315,7 +2318,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-05-14T09:23:42+00:00"
+            "time": "2018-07-18T16:03:35+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
