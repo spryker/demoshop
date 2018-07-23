@@ -1808,7 +1808,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2199,12 +2199,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "9de73f7ebce77354f86b26ec1e2c5530b7120d7f"
+                "reference": "88f081e2c361ff7fe0fbf66a5abed3427b87e30b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/9de73f7ebce77354f86b26ec1e2c5530b7120d7f",
-                "reference": "9de73f7ebce77354f86b26ec1e2c5530b7120d7f",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/88f081e2c361ff7fe0fbf66a5abed3427b87e30b",
+                "reference": "88f081e2c361ff7fe0fbf66a5abed3427b87e30b",
                 "shasum": ""
             },
             "require": {
@@ -2250,7 +2250,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-05-30T09:20:04+00:00"
+            "time": "2018-07-23T08:13:08+00:00"
         },
         {
             "name": "spryker/install",
@@ -2302,12 +2302,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "6633ae4800ba557506cf2c34d8a2e7a3191d1ef4"
+                "reference": "8aa26ca00e6d4ae5d3d8bbccba9302a5b158afaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/6633ae4800ba557506cf2c34d8a2e7a3191d1ef4",
-                "reference": "6633ae4800ba557506cf2c34d8a2e7a3191d1ef4",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/8aa26ca00e6d4ae5d3d8bbccba9302a5b158afaa",
+                "reference": "8aa26ca00e6d4ae5d3d8bbccba9302a5b158afaa",
                 "shasum": ""
             },
             "require": {
@@ -2353,7 +2353,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-07-16T10:17:48+00:00"
+            "time": "2018-07-23T08:12:41+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2361,7 +2361,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7d68a94177de5dd1a3cd2b9efe347f9569e4608c"
+                "reference": "486bd16dd96460ee0093f6c4ff5d44f2720f1618"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2622,7 +2622,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-20T13:48:48+00:00"
+            "time": "2018-07-23T08:11:45+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2630,12 +2630,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "164e3761cba658720e1101d47815aa0ac6084e63"
+                "reference": "093e97fd047d359e901da40cb0fb5381c3a53e68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/164e3761cba658720e1101d47815aa0ac6084e63",
-                "reference": "164e3761cba658720e1101d47815aa0ac6084e63",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/093e97fd047d359e901da40cb0fb5381c3a53e68",
+                "reference": "093e97fd047d359e901da40cb0fb5381c3a53e68",
                 "shasum": ""
             },
             "require": {
@@ -2646,7 +2646,7 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/queue": "^1.1.0",
-                "spryker/synchronization": "^0.1.0 || ^0.2.0"
+                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0"
             },
             "suggest": {
                 "spryker/queue": "Generated classes are using spryker/queue module.",
@@ -2673,7 +2673,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-05-30T09:19:55+00:00"
+            "time": "2018-07-23T08:13:22+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7774,7 +7774,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7888,12 +7888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "171edba2b7726e78783b5d23261a65d4846732ed"
+                "reference": "55290e534acfc6db4fbf8b834496af0e588c0d1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/171edba2b7726e78783b5d23261a65d4846732ed",
-                "reference": "171edba2b7726e78783b5d23261a65d4846732ed",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/55290e534acfc6db4fbf8b834496af0e588c0d1c",
+                "reference": "55290e534acfc6db4fbf8b834496af0e588c0d1c",
                 "shasum": ""
             },
             "require": {
@@ -7932,7 +7932,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-07-18T13:54:50+00:00"
+            "time": "2018-07-23T07:42:49+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -7992,7 +7992,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "d5c32da3002bc5fd8467a99089e260659b3719c1"
+                "reference": "d0e2db1145317c616f1a53835e00347adc7a61e0"
             },
             "require": {
                 "php": ">=7.1",
@@ -8043,7 +8043,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-06-14T05:29:10+00:00"
+            "time": "2018-07-23T07:24:17+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
