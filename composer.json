@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/ps-974/master-discontinued-and-alternative-products",
+    "spryker/spryker": "dev-feature/ps-974/master-discontinued-and-alternative-products-rename",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
