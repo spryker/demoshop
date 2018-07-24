@@ -84,6 +84,8 @@ before_script:
   - mkdir -p data/DE/cache/Zed/twig -m 0777
   - mkdir -p data/DE/logs -m 0777
   - chmod -R 777 data/
+  - chmod -R 660 config/Zed/dev_only_private.key
+  - chmod -R 660 config/Zed/dev_only_public.key
 
   - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
   - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
