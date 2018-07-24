@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a9545d3995ff3df35eb7a3977d8e485",
+    "content-hash": "0c515b47f636c83e2fbf92a0cd121518",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1567,7 +1567,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2116,11 +2116,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-974/master-discontinued-and-alternative-products",
+            "version": "dev-feature/ps-974/master-discontinued-and-alternative-products-rename",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2bf310f5fe4b73a25dd81c2501eab62a47eab479"
+                "reference": "e4988e4588d8677923df20faaa88d658ef1346c0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2214,6 +2214,7 @@
                 "spryker/gift-card": "*",
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
+                "spryker/glue-application": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
                 "spryker/gui": "*",
@@ -2380,7 +2381,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-11T13:32:28+00:00"
+            "time": "2018-07-24T12:57:12+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7281,7 +7282,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
