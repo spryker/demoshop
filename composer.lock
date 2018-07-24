@@ -5,10 +5,14 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "e8cd32a56bc07fdc41cedf91f8a5032e",
 =======
     "content-hash": "0d71ba8cedf6c331c7af53b1bef7d970",
 >>>>>>> Composer update
+=======
+    "content-hash": "7676e7db00a28db20c15af875e3a5bd3",
+>>>>>>> PS-997 update composer loc
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2449,6 +2453,7 @@
                 "url": "git@github.com:spryker/spryker.git",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "a0b29680f7045b1ee29b7e87d3bddfd6d3553ed2"
 =======
                 "reference": "98598f8fa4af7bb470810e01b8fbe2d3e737fb77"
@@ -2456,6 +2461,9 @@
 =======
                 "reference": "98598f8fa4af7bb470810e01b8fbe2d3e737fb77"
 >>>>>>> Composer update
+=======
+                "reference": "dcba634a7282a7a9ffd0b6884e0cc1e59a11a7d1"
+>>>>>>> PS-997 update composer loc
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2722,6 +2730,7 @@
             "description": "Spryker Framework",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-30T10:52:24+00:00"
 =======
             "time": "2018-07-05T14:53:19+00:00"
@@ -2729,6 +2738,9 @@
 =======
             "time": "2018-07-05T14:53:19+00:00"
 >>>>>>> Composer update
+=======
+            "time": "2018-07-24T08:32:35+00:00"
+>>>>>>> PS-997 update composer loc
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7936,7 +7948,11 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Sullivan SENECHAL",
+=======
+                    "name": "Sullivan Sénéchal",
+>>>>>>> PS-997 update composer loc
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
