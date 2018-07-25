@@ -4,31 +4,29 @@ env:
   global:
     - APPLICATION_ENV=devtest
     - APPLICATION_STORE=DE
-    - PROJECT=suite
+    - PROJECT=demoshop
 
-#Possible travis events (push, pull_request, cron, or api)
 matrix:
   fast_finish: true
   include:
+    - php: "7.1"
+      env:
+        - TEST_GROUP=without-acceptance
+    - php: "7.2"
+      env:
+        - TEST_GROUP=without-acceptance
+        - DB=mysql
+    - php: "7.1"
+      env:
+        - TEST_GROUP=acceptance
+    - php: "7.2"
+      env:
+        - TEST_GROUP=acceptance
+        - DB=mysql
     - php: "7.2"
       env:
         - VALIDATION=1
-    - php: "7.1"
-      env:
-        - TEST_GROUP=without-acceptance
-        - ON_EVENTS=cron,push
-    - php: "7.2"
-      env:
-        - TEST_GROUP=without-acceptance
-        - ON_EVENTS=cron,push
-    - php: "7.1"
-      env:
-        - TEST_GROUP=acceptance
-        - ON_EVENTS=push,cron
-    - php: "7.2"
-      env:
-        - TEST_GROUP=acceptance
-        - ON_EVENTS=push,cron
+
 addons:
   postgresql: 9.6
   mysql: 5.7
@@ -42,8 +40,8 @@ addons:
     - www.de.spryker.test
 
 cache:
-    directories:
-        - $HOME/.composer/cache
+  directories:
+    - $HOME/.composer/cache
 
 services:
   - postgresql
@@ -54,9 +52,11 @@ services:
 sudo: required
 
 before_install:
+  - if [[ $VALIDATION != 1 && $ON_EVENTS != *$TRAVIS_EVENT_TYPE* ]]; then exit ; fi
+
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - if [[ $DB == 'mysql' ]] ; then chmod +x ./config/Shared/ci/travis/mysql/* ; fi
-  - if [[ $DB == 'mysql' ]] ; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh ; fi
+  - if [[ $DB == 'mysql' ]]; then chmod +x ./config/Shared/ci/travis/mysql/* ; fi
+  - if [[ $DB == 'mysql' ]]; then ./config/Shared/ci/travis/mysql/travis_mysql_5.7.sh ; fi
   # Merges travis-ci/stores.php into the general stores.php at the defined "travis hook" line. Uses temporary file during the process.
   # - grabs all lines until the travis hook from stores.php (including that line)
   # - grabs all lines after the 1st line in travis-ci/stores.php (php opening tag)
@@ -66,12 +66,12 @@ before_install:
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
-  - composer remove --dev spryker/git-hook
+  - COMPOSER_MEMORY_LIMIT=-1 composer remove --dev spryker/git-hook
   - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
 before_script:
-  - nvm install 8
+  - nvm install 6
 
   - mkdir -p shared/data/common/jenkins
   - mkdir -p shared/data/common/jenkins/jobs
@@ -82,17 +82,18 @@ before_script:
   - chmod -R 660 config/Zed/dev_only_private.key
   - chmod -R 660 config/Zed/dev_only_public.key
 
-  - if [[ -z $DB ]] ; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
-  - if [[ $DB == 'mysql' ]] ; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
+  - if [[ -z $DB ]]; then cat config/Shared/ci/travis/postgresql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
+  - if [[ $DB == 'mysql' ]]; then cat config/Shared/ci/travis/mysql_ci.config >> config/Shared/ci/travis/config_ci.php ; fi
 
   - cp config/Shared/ci/travis/config_ci.php config/Shared/config_local.php
 
-  - if [[ $DB == 'mysql' ]] ; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
-  - if [[ $DB == 'mysql' ]] ; then sudo service mysql restart ; fi
+  - if [[ $DB == 'mysql' ]]; then sudo cp config/Shared/ci/travis/mysql/my.cnf /etc/ ; fi
+  - if [[ $DB == 'mysql' ]]; then sudo service mysql restart ; fi
 
   - if [[ $TEST_GROUP == 'acceptance' ]] ; then config/Shared/ci/travis/acceptance_env.sh ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]] ; then vendor/bin/install DE -r testing -v ; fi
-  - if [[ $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/install DE -r testing -x frontend -v ; fi
+
+  - if [[ $TEST_GROUP == 'acceptance' ]] ; then vendor/bin/install DE -r testing ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/install DE -r testing -x frontend ; fi
 
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console transfer:generate ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console propel:install ; fi
@@ -103,27 +104,18 @@ before_script:
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console setup:search ; fi
 
 script:
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpstan analyze -c phpstan.neon -l 2 src/ ; fi
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console code:phpstan -m Spryker.all ; fi
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console code:phpstan -m SprykerShop.all ; fi
+  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
 
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console propel:schema:validate ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console transfer:validate ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console code:sniff:style ; fi
 
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
-
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
-
-  - if [[ $VALIDATION == 1 ]] ; then ./tests/travis_check_untracked.sh ; fi
 
   - vendor/bin/phantomjs --webdriver=4444 &
 
-  - if [[ $TEST_GROUP == 'without-acceptance' ]] ; then vendor/bin/codecept run -x Presentation ; fi
-  - if [[ $TEST_GROUP == 'acceptance' ]] ; then vendor/bin/codecept run -g Presentation ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
+  - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
 
 notifications:
   email: false
