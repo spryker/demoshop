@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0acd06b34c4209f46711105be6808ef",
+    "content-hash": "a1d7228d7b40171bc5bdbe6cffa16344",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -7611,55 +7611,6 @@
             "time": "2018-06-26T13:35:16+00:00"
         },
         {
-            "name": "spryker/glossary-storage",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/glossary-storage.git",
-                "reference": "db7eca05b036a82eeae8e292233c6050ff3f47d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/glossary-storage/zipball/db7eca05b036a82eeae8e292233c6050ff3f47d0",
-                "reference": "db7eca05b036a82eeae8e292233c6050ff3f47d0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "spryker/event-behavior": "^1.1.0",
-                "spryker/glossary": "^3.3.0",
-                "spryker/kernel": "^3.21.0",
-                "spryker/propel-orm": "^1.5.0",
-                "spryker/storage": "^3.4.0",
-                "spryker/synchronization": "^0.2.0 || ^1.0.0",
-                "spryker/synchronization-extension": "^1.0.0",
-                "spryker/util-sanitize": "^2.1.0"
-            },
-            "require-dev": {
-                "spryker/event": "*"
-            },
-            "suggest": {
-                "spryker/event": "If you want to use Event plugins, minimum required version: 2.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "GlossaryStorage module",
-            "time": "2018-07-17T18:22:31+00:00"
-        },
-        {
             "name": "spryker/glue-application",
             "version": "1.0.0",
             "source": {
@@ -10461,50 +10412,6 @@
             "time": "2018-07-24T13:51:15+00:00"
         },
         {
-            "name": "spryker/product-alternative-data-import",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/product-alternative-data-import.git",
-                "reference": "a87851be858325fe1a03e91d271fceb2431bf5a0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-alternative-data-import/zipball/a87851be858325fe1a03e91d271fceb2431bf5a0",
-                "reference": "a87851be858325fe1a03e91d271fceb2431bf5a0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "spryker/data-import": "^1.2.0",
-                "spryker/kernel": "^3.0.0",
-                "spryker/product": "^6.0.0",
-                "spryker/product-alternative": "^1.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/",
-                    "SprykerTest\\Zed\\ProductAlternativeDataImport\\Helper\\": "tests/SprykerTest/Zed/ProductAlternativeDataImport/_support/Helper/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "ProductAlternativeDataImport module",
-            "time": "2018-07-24T08:04:43+00:00"
-        },
-        {
             "name": "spryker/product-alternative-extension",
             "version": "1.0.0",
             "source": {
@@ -10637,56 +10544,6 @@
             ],
             "description": "ProductAlternativeProductLabelConnector module",
             "time": "2018-07-24T21:54:48+00:00"
-        },
-        {
-            "name": "spryker/product-alternative-storage",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/product-alternative-storage.git",
-                "reference": "31882b0ddd03d55cbc81c5045a343f873b859ffa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-alternative-storage/zipball/31882b0ddd03d55cbc81c5045a343f873b859ffa",
-                "reference": "31882b0ddd03d55cbc81c5045a343f873b859ffa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "spryker/event-behavior": "^1.0.0",
-                "spryker/kernel": "^3.21.0",
-                "spryker/product": "^6.0.0",
-                "spryker/product-alternative": "^1.0.0",
-                "spryker/product-alternative-storage-extension": "^1.0.0",
-                "spryker/product-storage": "^1.0.0",
-                "spryker/propel-orm": "^1.0.0",
-                "spryker/storage": "^3.4.0",
-                "spryker/synchronization": "^1.0.0"
-            },
-            "require-dev": {
-                "spryker/event": "*"
-            },
-            "suggest": {
-                "spryker/event": "If you want to use Event plugins, minimum required version: 2.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "ProductAlternativeStorage module",
-            "time": "2018-07-24T13:51:15+00:00"
         },
         {
             "name": "spryker/product-alternative-storage-extension",
@@ -11344,50 +11201,6 @@
             "time": "2018-07-24T14:18:13+00:00"
         },
         {
-            "name": "spryker/product-discontinued-data-import",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/product-discontinued-data-import.git",
-                "reference": "b2ad5b2966211e0addbfda91e6c4ba0c5b2af69e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-discontinued-data-import/zipball/b2ad5b2966211e0addbfda91e6c4ba0c5b2af69e",
-                "reference": "b2ad5b2966211e0addbfda91e6c4ba0c5b2af69e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "spryker/data-import": "^1.2.0",
-                "spryker/kernel": "^3.0.0",
-                "spryker/product": "^6.0.0",
-                "spryker/product-discontinued": "^1.0.0"
-            },
-            "require-dev": {
-                "spryker/code-sniffer": "*",
-                "spryker/testify": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/",
-                    "SprykerTest\\Zed\\ProductDiscontinuedDataImport\\Helper\\": "tests/SprykerTest/Zed/ProductDiscontinuedDataImport/_support/Helper/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "ProductDiscontinuedDataImport module",
-            "time": "2018-07-24T08:04:43+00:00"
-        },
-        {
             "name": "spryker/product-discontinued-extension",
             "version": "1.0.0",
             "source": {
@@ -11559,59 +11372,6 @@
             ],
             "description": "ProductDiscontinuedProductLabelConnector module",
             "time": "2018-07-24T21:54:48+00:00"
-        },
-        {
-            "name": "spryker/product-discontinued-storage",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spryker/product-discontinued-storage.git",
-                "reference": "860bbee61b6757b538e39f2e26e89499528339b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-discontinued-storage/zipball/860bbee61b6757b538e39f2e26e89499528339b6",
-                "reference": "860bbee61b6757b538e39f2e26e89499528339b6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "spryker/event-behavior": "^1.0.0",
-                "spryker/glossary-storage": "^1.0.0",
-                "spryker/kernel": "^3.21.0",
-                "spryker/locale": "^3.0.0",
-                "spryker/product-alternative-storage-extension": "^1.0.0",
-                "spryker/product-discontinued": "^1.0.0",
-                "spryker/storage": "^3.4.0",
-                "spryker/synchronization": "^1.0.0"
-            },
-            "require-dev": {
-                "spryker/event": "*",
-                "spryker/product-storage": "*",
-                "spryker/propel-orm": "*"
-            },
-            "suggest": {
-                "spryker/event": "If you want to use Event plugins, minimum required version: 2.1.0",
-                "spryker/product-storage": "If you want to use ProductStorage plugins, minimum required version: 0.1.0",
-                "spryker/propel-orm": "If you want to use transaction functionality, minimum required version: 1.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spryker\\": "src/Spryker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "description": "ProductDiscontinuedStorage module",
-            "time": "2018-07-24T13:51:15+00:00"
         },
         {
             "name": "spryker/product-discount-connector",
