@@ -12,10 +12,12 @@ use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\Config\ConfigConstants;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebExceptionErrorRenderer;
+use Spryker\Shared\GlueApplication\GlueApplicationConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
+use Spryker\Shared\Oauth\OauthConstants;
 use Spryker\Shared\Propel\PropelConstants;
-use Spryker\Shared\RabbitMq\RabbitMqConstants;
+use Spryker\Shared\RabbitMq\RabbitMqEnv;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -60,9 +62,17 @@ $config[SessionConstants::ZED_SESSION_REDIS_PASSWORD] = $config[SessionConstants
 $config[SearchConstants::SEARCH_INDEX_NAME_SUFFIX] = '_devtest';
 
 // ---------- RabbitMq
-$config[RabbitMqConstants::RABBITMQ_HOST] = 'localhost';
-$config[RabbitMqConstants::RABBITMQ_PORT] = '5672';
-$config[RabbitMqConstants::RABBITMQ_PASSWORD] = 'mate20mg';
+$config[RabbitMqEnv::RABBITMQ_CONNECTIONS] = [
+    'DE' => [
+        RabbitMqEnv::RABBITMQ_CONNECTION_NAME => 'DE-connection',
+        RabbitMqEnv::RABBITMQ_HOST => 'localhost',
+        RabbitMqEnv::RABBITMQ_PORT => '5672',
+        RabbitMqEnv::RABBITMQ_PASSWORD => 'mate20mg',
+        RabbitMqEnv::RABBITMQ_USERNAME => 'DE_devtest',
+        RabbitMqEnv::RABBITMQ_VIRTUAL_HOST => '/DE_devtest_zed',
+        RabbitMqEnv::RABBITMQ_STORE_NAMES => ['DE'],
+    ],
+];
 
 // ---------- Twig
 $config[TwigConstants::ZED_TWIG_OPTIONS] = [
@@ -89,3 +99,10 @@ $config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
 $config[WebProfilerConstants::ENABLE_WEB_PROFILER]
     = $config[ConfigConstants::ENABLE_WEB_PROFILER]
     = false;
+
+$config[GlueApplicationConstants::GLUE_APPLICATION_REST_DEBUG] = true;
+
+// ----------- OAUTH
+$config[OauthConstants::PRIVATE_KEY_PATH] = 'file://' . APPLICATION_ROOT_DIR . '/config/Zed/dev_only_private.key';
+$config[OauthConstants::PUBLIC_KEY_PATH] = 'file://' . APPLICATION_ROOT_DIR . '/config/Zed/dev_only_public.key';
+$config[OauthConstants::ENCRYPTION_KEY] = 'lxZFUEsBCJ2Yb14IF2ygAHI5N4+ZAUXXaSeeJm6+twsUmIen';

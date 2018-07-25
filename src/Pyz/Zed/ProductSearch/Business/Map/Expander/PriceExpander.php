@@ -11,6 +11,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
+use Spryker\Zed\ProductSearch\ProductSearchConfig;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
 class PriceExpander implements ProductPageMapExpanderInterface
@@ -81,6 +82,10 @@ class PriceExpander implements ProductPageMapExpanderInterface
 
         foreach ($pricesGrouped as $currencyIsoCode => $pricesByPriceMode) {
             foreach ($pricesByPriceMode as $priceMode => $pricesByType) {
+                if ($priceMode === ProductSearchConfig::PRICE_DATA) {
+                    continue;
+                }
+
                 foreach ($pricesByType as $priceType => $price) {
                     $facetName = $this->catalogPriceProductConnectorClient->buildPricedIdentifierFor($priceType, $currencyIsoCode, $priceMode);
                     $pageMapBuilder->addIntegerFacet($pageMapTransfer, $facetName, $price);

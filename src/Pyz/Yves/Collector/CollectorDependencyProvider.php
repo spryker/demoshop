@@ -7,11 +7,11 @@
 
 namespace Pyz\Yves\Collector;
 
-use Pyz\Yves\Category\Plugin\CategoryResourceCreator;
-use Pyz\Yves\Cms\Plugin\PageResourceCreator;
-use Pyz\Yves\Product\Plugin\ProductResourceCreator;
-use Pyz\Yves\ProductSet\Plugin\ProductSetResourceCreatorPlugin;
-use Pyz\Yves\Redirect\Plugin\RedirectResourceCreator;
+use Pyz\Yves\Category\Plugin\CategoryResourcePlugin;
+use Pyz\Yves\Cms\Plugin\PageResourcePlugin;
+use Pyz\Yves\Product\Plugin\ProductResourcePlugin;
+use Pyz\Yves\ProductSet\Plugin\ProductSetResourcePlugin;
+use Pyz\Yves\Redirect\Plugin\RedirectResourcePlugin;
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
@@ -80,31 +80,31 @@ class CollectorDependencyProvider extends AbstractBundleDependencyProvider
         };
 
         $container[self::PLUGIN_CATEGORY_RESOURCE_CREATOR] = function () {
-            $categoryResourceCreatorPlugin = new CategoryResourceCreator();
+            $categoryResourceCreatorPlugin = new CategoryResourcePlugin();
 
             return $categoryResourceCreatorPlugin->createCategoryResourceCreator();
         };
 
         $container[self::PLUGIN_REDIRECT_RESOURCE_CREATOR] = function () {
-            $redirectResourceCreatorPlugin = new RedirectResourceCreator();
+            $redirectResourceCreatorPlugin = new RedirectResourcePlugin();
 
             return $redirectResourceCreatorPlugin->createRedirectResourceCreator();
         };
 
         $container[self::PLUGIN_PAGE_RESOURCE_CREATOR] = function () {
-            $pageResourceCreatorPlugin = new PageResourceCreator();
+            $pageResourceCreatorPlugin = new PageResourcePlugin();
 
             return $pageResourceCreatorPlugin->createPageResourceCreator();
         };
 
         $container[self::PLUGIN_PRODUCT_RESOURCE_CREATOR] = function () {
-            $productResourceCreatorPlugin = new ProductResourceCreator();
+            $productResourceCreatorPlugin = new ProductResourcePlugin();
 
             return $productResourceCreatorPlugin->createProductResourceCreator();
         };
 
         $container[self::PLUGIN_PRODUCT_SET_RESOURCE_CREATOR] = function () {
-            $productResourceCreatorPlugin = new ProductSetResourceCreatorPlugin();
+            $productResourceCreatorPlugin = new ProductSetResourcePlugin();
 
             return $productResourceCreatorPlugin->createProductSetResourceCreator();
         };

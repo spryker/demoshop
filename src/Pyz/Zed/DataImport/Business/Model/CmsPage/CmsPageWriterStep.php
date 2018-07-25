@@ -173,7 +173,7 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
     /**
      * @param \Orm\Zed\Cms\Persistence\SpyCmsPage $cmsPageEntity
      *
-     * @return \Generated\Shared\Transfer\CmsVersionTransfer
+     * @return void
      */
     public function publishWithVersion(SpyCmsPage $cmsPageEntity)
     {
@@ -187,7 +187,7 @@ class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterfac
      * @param string $data
      * @param int $idCmsPage
      *
-     * @return \Generated\Shared\Transfer\CmsVersionTransfer
+     * @return void
      */
     protected function createCmsVersion($data, $idCmsPage)
     {
