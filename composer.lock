@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6bda6a4258d764e04d27a1dabd01fc95",
+    "content-hash": "cd3368659c98e2c01ce964b07989244f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2357,11 +2357,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-974/master-discontinued-and-alternative-products-rename",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ee339bbdd231159febc51c32cd7d49a3b7929eef"
+                "reference": "0f8d2b3f5bae7bcc25171f35a1425e191887c322"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2473,6 +2473,8 @@
                 "spryker/mandrill": "*",
                 "spryker/messenger": "*",
                 "spryker/money": "*",
+                "spryker/monitoring": "*",
+                "spryker/monitoring-extension": "*",
                 "spryker/monolog": "*",
                 "spryker/navigation": "*",
                 "spryker/navigation-collector": "*",
@@ -2622,7 +2624,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-24T21:54:48+00:00"
+            "time": "2018-07-25T09:51:14+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
