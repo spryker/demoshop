@@ -134,21 +134,21 @@
         },
         {
             "name": "defuse/php-encryption",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/defuse/php-encryption.git",
-                "reference": "0d4d27c368ca6798bc162469e43248c363c73495"
+                "reference": "0f407c43b953d571421e0020ba92082ed5fb7620"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/0d4d27c368ca6798bc162469e43248c363c73495",
-                "reference": "0d4d27c368ca6798bc162469e43248c363c73495",
+                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/0f407c43b953d571421e0020ba92082ed5fb7620",
+                "reference": "0f407c43b953d571421e0020ba92082ed5fb7620",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
-                "paragonie/random_compat": "~2.0",
+                "paragonie/random_compat": ">= 2",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -193,7 +193,7 @@
                 "security",
                 "symmetric key cryptography"
             ],
-            "time": "2018-04-23T19:33:40+00:00"
+            "time": "2018-07-24T23:27:56+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -2258,12 +2258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "67459be702edbe9c47c2f2450832ff04c74bd3e4"
+                "reference": "8c9c7d30e10c226de4729ee0211e7947c179fe30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/67459be702edbe9c47c2f2450832ff04c74bd3e4",
-                "reference": "67459be702edbe9c47c2f2450832ff04c74bd3e4",
+                "url": "https://api.github.com/repos/spryker/install/zipball/8c9c7d30e10c226de4729ee0211e7947c179fe30",
+                "reference": "8c9c7d30e10c226de4729ee0211e7947c179fe30",
                 "shasum": ""
             },
             "require": {
@@ -2294,7 +2294,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-04-24T10:56:06+00:00"
+            "time": "2018-07-26T07:36:01+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2361,7 +2361,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2d946220646424401df4008df8b9e738dce85c6a"
+                "reference": "ea78993ebe221740278b28b23685a097bb70f5ad"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2622,7 +2622,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-24T10:58:17+00:00"
+            "time": "2018-07-26T11:21:36+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
