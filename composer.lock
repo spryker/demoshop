@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cab5d47447bd9b2b0363cac96088fe72",
+    "content-hash": "cd3368659c98e2c01ce964b07989244f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1808,7 +1808,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2258,12 +2258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "67459be702edbe9c47c2f2450832ff04c74bd3e4"
+                "reference": "8c9c7d30e10c226de4729ee0211e7947c179fe30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/67459be702edbe9c47c2f2450832ff04c74bd3e4",
-                "reference": "67459be702edbe9c47c2f2450832ff04c74bd3e4",
+                "url": "https://api.github.com/repos/spryker/install/zipball/8c9c7d30e10c226de4729ee0211e7947c179fe30",
+                "reference": "8c9c7d30e10c226de4729ee0211e7947c179fe30",
                 "shasum": ""
             },
             "require": {
@@ -2294,7 +2294,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2018-04-24T10:56:06+00:00"
+            "time": "2018-07-26T07:36:01+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2357,11 +2357,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-1848/master-volume-prices",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d9625184ddebe616d90ec979f7495665ee9f5103"
+                "reference": "a6f92eb10387581239e823303f792f6aaee4cf57"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2624,7 +2624,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-25T11:40:46+00:00"
+            "time": "2018-07-26T09:40:59+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7776,7 +7776,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
