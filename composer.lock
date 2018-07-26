@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1d7228d7b40171bc5bdbe6cffa16344",
+    "content-hash": "39c69ccb9d96def2ce43f4dc95460a30",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.63.6",
+            "version": "3.63.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "344df6facb5b78f6666a346874b5b2d23a1154b0"
+                "reference": "2ee3abd69aac95fa8c687b429b105874a2babe14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/344df6facb5b78f6666a346874b5b2d23a1154b0",
-                "reference": "344df6facb5b78f6666a346874b5b2d23a1154b0",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2ee3abd69aac95fa8c687b429b105874a2babe14",
+                "reference": "2ee3abd69aac95fa8c687b429b105874a2babe14",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-07-24T21:53:37+00:00"
+            "time": "2018-07-25T21:25:54+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -2323,6 +2323,54 @@
             ],
             "description": "Loggly module",
             "time": "2018-04-24T10:34:44+00:00"
+        },
+        {
+            "name": "spryker-shop/price-product-volume-widget",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-shop/price-product-volume-widget.git",
+                "reference": "e3f0ef91e9d1242bcfb1b925a5750d55390066b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-shop/price-product-volume-widget/zipball/e3f0ef91e9d1242bcfb1b925a5750d55390066b8",
+                "reference": "e3f0ef91e9d1242bcfb1b925a5750d55390066b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/currency": "^3.4.0",
+                "spryker/kernel": "^3.16.0",
+                "spryker/price": "^5.3.0",
+                "spryker/price-product-storage": "^2.1.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker-shop/product-detail-page": "*",
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker-shop/product-detail-page": "Widget plugins are available for this module."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerShop\\": "src/SprykerShop/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "PriceProductVolumeWidget module",
+            "time": "2018-07-26T11:39:45+00:00"
         },
         {
             "name": "spryker/acl",
@@ -9754,16 +9802,16 @@
         },
         {
             "name": "spryker/price-cart-connector",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-cart-connector.git",
-                "reference": "3aa369604113f76be41e246179493deb6d84114d"
+                "reference": "3f21e13eb6b5025ea410202e67073ce1d58991bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-cart-connector/zipball/3aa369604113f76be41e246179493deb6d84114d",
-                "reference": "3aa369604113f76be41e246179493deb6d84114d",
+                "url": "https://api.github.com/repos/spryker/price-cart-connector/zipball/3f21e13eb6b5025ea410202e67073ce1d58991bb",
+                "reference": "3f21e13eb6b5025ea410202e67073ce1d58991bb",
                 "shasum": ""
             },
             "require": {
@@ -9797,7 +9845,7 @@
                 "proprietary"
             ],
             "description": "PriceCartConnector module",
-            "time": "2018-07-18T07:47:09+00:00"
+            "time": "2018-07-18T16:01:59+00:00"
         },
         {
             "name": "spryker/price-data-feed",
@@ -9884,16 +9932,16 @@
         },
         {
             "name": "spryker/price-product",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-product.git",
-                "reference": "ee07a8674260590ce6d245d3c399ffc3d3cc6970"
+                "reference": "bf10a7df515eb45d790d57298f615faa96a2e5ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-product/zipball/ee07a8674260590ce6d245d3c399ffc3d3cc6970",
-                "reference": "ee07a8674260590ce6d245d3c399ffc3d3cc6970",
+                "url": "https://api.github.com/repos/spryker/price-product/zipball/bf10a7df515eb45d790d57298f615faa96a2e5ea",
+                "reference": "bf10a7df515eb45d790d57298f615faa96a2e5ea",
                 "shasum": ""
             },
             "require": {
@@ -9902,7 +9950,7 @@
                 "spryker/kernel": "^3.0.0",
                 "spryker/price": "^5.0.0",
                 "spryker/price-product-extension": "^1.0.0",
-                "spryker/product": "^5.0.0 || ^6.0.0",
+                "spryker/product": "^5.6.0 || ^6.3.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/quote": "^2.1.0",
                 "spryker/store": "^1.0.0",
@@ -9933,20 +9981,20 @@
                 "proprietary"
             ],
             "description": "PriceProduct module",
-            "time": "2018-07-04T09:36:05+00:00"
+            "time": "2018-07-26T15:02:43+00:00"
         },
         {
             "name": "spryker/price-product-data-import",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-product-data-import.git",
-                "reference": "7a51ae53f8364c601a081c93e68b065fc1fea8bf"
+                "reference": "fb506082ce5977b56ba7d86dbd6722aacee9047e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-product-data-import/zipball/7a51ae53f8364c601a081c93e68b065fc1fea8bf",
-                "reference": "7a51ae53f8364c601a081c93e68b065fc1fea8bf",
+                "url": "https://api.github.com/repos/spryker/price-product-data-import/zipball/fb506082ce5977b56ba7d86dbd6722aacee9047e",
+                "reference": "fb506082ce5977b56ba7d86dbd6722aacee9047e",
                 "shasum": ""
             },
             "require": {
@@ -9980,20 +10028,20 @@
                 "MIT"
             ],
             "description": "PriceProductDataImport module",
-            "time": "2018-07-16T14:53:57+00:00"
+            "time": "2018-07-18T15:41:46+00:00"
         },
         {
             "name": "spryker/price-product-extension",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-product-extension.git",
-                "reference": "3977b2c164020b03e2232f65a144f102106ddd48"
+                "reference": "810886cd3e43fb8e36b847bd6b93efb75e287e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-product-extension/zipball/3977b2c164020b03e2232f65a144f102106ddd48",
-                "reference": "3977b2c164020b03e2232f65a144f102106ddd48",
+                "url": "https://api.github.com/repos/spryker/price-product-extension/zipball/810886cd3e43fb8e36b847bd6b93efb75e287e79",
+                "reference": "810886cd3e43fb8e36b847bd6b93efb75e287e79",
                 "shasum": ""
             },
             "require": {
@@ -10019,7 +10067,7 @@
                 "proprietary"
             ],
             "description": "PriceProductExtension module",
-            "time": "2018-07-04T09:36:05+00:00"
+            "time": "2018-07-17T14:57:28+00:00"
         },
         {
             "name": "spryker/price-product-merchant-relationship",
@@ -10122,16 +10170,16 @@
         },
         {
             "name": "spryker/price-product-merchant-relationship-storage",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-product-merchant-relationship-storage.git",
-                "reference": "70fe0e11eb1eb2c089b7704a6db1681a3f713ca6"
+                "reference": "b3f539f95db6f66b0b905a7d631e0d15d9232ac1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-product-merchant-relationship-storage/zipball/70fe0e11eb1eb2c089b7704a6db1681a3f713ca6",
-                "reference": "70fe0e11eb1eb2c089b7704a6db1681a3f713ca6",
+                "url": "https://api.github.com/repos/spryker/price-product-merchant-relationship-storage/zipball/b3f539f95db6f66b0b905a7d631e0d15d9232ac1",
+                "reference": "b3f539f95db6f66b0b905a7d631e0d15d9232ac1",
                 "shasum": ""
             },
             "require": {
@@ -10172,27 +10220,27 @@
                 "proprietary"
             ],
             "description": "PriceProductMerchantRelationshipStorage module",
-            "time": "2018-07-19T13:58:49+00:00"
+            "time": "2018-07-23T13:58:41+00:00"
         },
         {
             "name": "spryker/price-product-storage",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-product-storage.git",
-                "reference": "44113321573187b7105ba90afa4f946610aefe75"
+                "reference": "e33032e7f991f579bbd243f9fd49c765ef8ef51b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-product-storage/zipball/44113321573187b7105ba90afa4f946610aefe75",
-                "reference": "44113321573187b7105ba90afa4f946610aefe75",
+                "url": "https://api.github.com/repos/spryker/price-product-storage/zipball/e33032e7f991f579bbd243f9fd49c765ef8ef51b",
+                "reference": "e33032e7f991f579bbd243f9fd49c765ef8ef51b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/event-behavior": "^1.1.0",
                 "spryker/kernel": "^3.21.0",
-                "spryker/price-product": "^2.0.0",
+                "spryker/price-product": "^2.1.0",
                 "spryker/price-product-storage-extension": "^1.0.0",
                 "spryker/product": "^5.5.0 || ^6.0.0",
                 "spryker/propel-orm": "^1.5.0",
@@ -10225,20 +10273,20 @@
                 "proprietary"
             ],
             "description": "PriceProductStorage module",
-            "time": "2018-07-17T18:22:31+00:00"
+            "time": "2018-07-23T13:58:41+00:00"
         },
         {
             "name": "spryker/price-product-storage-extension",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-product-storage-extension.git",
-                "reference": "309fef176a452b2b05dbc0cfc4b08186bab770c6"
+                "reference": "8f8210e0992f6b6cf1eb54bca73950f13a621493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-product-storage-extension/zipball/309fef176a452b2b05dbc0cfc4b08186bab770c6",
-                "reference": "309fef176a452b2b05dbc0cfc4b08186bab770c6",
+                "url": "https://api.github.com/repos/spryker/price-product-storage-extension/zipball/8f8210e0992f6b6cf1eb54bca73950f13a621493",
+                "reference": "8f8210e0992f6b6cf1eb54bca73950f13a621493",
                 "shasum": ""
             },
             "require": {
@@ -10264,20 +10312,67 @@
                 "proprietary"
             ],
             "description": "PriceProductStorageExtension module",
-            "time": "2018-06-29T13:01:08+00:00"
+            "time": "2018-07-18T15:21:52+00:00"
         },
         {
-            "name": "spryker/product",
-            "version": "6.2.0",
+            "name": "spryker/price-product-volume",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/product.git",
-                "reference": "cdc9695666ec6eab1313830c1f3e7be03bb21498"
+                "url": "https://github.com/spryker/price-product-volume.git",
+                "reference": "2f08e38ccf88f4b789577333939084735c591ecb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product/zipball/cdc9695666ec6eab1313830c1f3e7be03bb21498",
-                "reference": "cdc9695666ec6eab1313830c1f3e7be03bb21498",
+                "url": "https://api.github.com/repos/spryker/price-product-volume/zipball/2f08e38ccf88f4b789577333939084735c591ecb",
+                "reference": "2f08e38ccf88f4b789577333939084735c591ecb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.21.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/price-product": "^2.1.0",
+                "spryker/price-product-extension": "^1.1.0",
+                "spryker/price-product-storage": "^2.1.0",
+                "spryker/price-product-storage-extension": "^1.1.0",
+                "spryker/product-storage": "^1.0.0",
+                "spryker/util-encoding": "^2.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "PriceProductVolume module",
+            "time": "2018-07-26T11:39:18+00:00"
+        },
+        {
+            "name": "spryker/product",
+            "version": "6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product.git",
+                "reference": "ae804fb9ecd7215e60b985d1752911304c1ecdd7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product/zipball/ae804fb9ecd7215e60b985d1752911304c1ecdd7",
+                "reference": "ae804fb9ecd7215e60b985d1752911304c1ecdd7",
                 "shasum": ""
             },
             "require": {
@@ -10318,7 +10413,7 @@
                 "proprietary"
             ],
             "description": "Product module",
-            "time": "2018-07-23T10:27:03+00:00"
+            "time": "2018-07-25T11:40:08+00:00"
         },
         {
             "name": "spryker/product-abstract-data-feed",
@@ -12139,6 +12234,64 @@
             ],
             "description": "ProductOptionCartConnector module",
             "time": "2018-06-15T09:56:31+00:00"
+        },
+        {
+            "name": "spryker/product-page-search",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-page-search.git",
+                "reference": "5ea7f04f99f756ba6d059f93d93da03f4ef02339"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-page-search/zipball/5ea7f04f99f756ba6d059f93d93da03f4ef02339",
+                "reference": "5ea7f04f99f756ba6d059f93d93da03f4ef02339",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/catalog-price-product-connector": "^1.1.0",
+                "spryker/category": "^4.3.0",
+                "spryker/event-behavior": "^1.1.0",
+                "spryker/kernel": "^3.21.0",
+                "spryker/price-product": "^1.1.0 || ^2.1.0",
+                "spryker/product": "^5.5.0 || ^6.0.0",
+                "spryker/product-category": "^4.5.0",
+                "spryker/product-image": "^3.5.0",
+                "spryker/product-search": "^5.4.0",
+                "spryker/propel-orm": "^1.5.0",
+                "spryker/search": "^7.0.0 || ^8.0.0",
+                "spryker/store": "^1.7.0",
+                "spryker/synchronization-extension": "^1.0.0",
+                "spryker/url": "^3.3.0",
+                "spryker/util-encoding": "^2.0.0",
+                "spryker/util-sanitize": "^2.1.0"
+            },
+            "require-dev": {
+                "spryker/event": "*"
+            },
+            "suggest": {
+                "spryker/event": "If you want to use Event plugins, minimum required version: 2.1.0",
+                "spryker/product": "If you want to use Event plugins, minimum required version: 6.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductPageSearch module",
+            "time": "2018-07-26T16:14:35+00:00"
         },
         {
             "name": "spryker/product-relation",
