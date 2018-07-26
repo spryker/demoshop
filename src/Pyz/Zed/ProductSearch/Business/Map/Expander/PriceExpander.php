@@ -10,6 +10,7 @@ namespace Pyz\Zed\ProductSearch\Business\Map\Expander;
 use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\PageMapTransfer;
 use Spryker\Client\CatalogPriceProductConnector\CatalogPriceProductConnectorClientInterface;
+use Spryker\Shared\ProductPageSearch\ProductPageSearchConfig as SharedProductPageSearchConfig;
 use Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface;
 use Spryker\Zed\Search\Business\Model\Elasticsearch\DataMapper\PageMapBuilderInterface;
 
@@ -80,8 +81,12 @@ class PriceExpander implements ProductPageMapExpanderInterface
         $pricesGrouped = $this->priceProductFacade->findPricesBySkuGroupedForCurrentStore($productData['abstract_sku']);
 
         foreach ($pricesGrouped as $currencyIsoCode => $pricesByPriceMode) {
-            foreach ($pricesByPriceMode as $priceMode => $pricesByType) {
-                foreach ($pricesByType as $priceType => $price) {
+            foreach (SharedProductPageSearchConfig::PRICE_MODES as $priceMode) {
+                if (!isset($pricesByPriceMode[$priceMode])) {
+                    continue;
+                }
+
+                foreach ($pricesByPriceMode[$priceMode] as $priceType => $price) {
                     $facetName = $this->catalogPriceProductConnectorClient->buildPricedIdentifierFor($priceType, $currencyIsoCode, $priceMode);
                     $pageMapBuilder->addIntegerFacet($pageMapTransfer, $facetName, $price);
                     $pageMapBuilder->addIntegerSort($pageMapTransfer, $facetName, $price);
