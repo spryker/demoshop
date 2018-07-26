@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd3368659c98e2c01ce964b07989244f",
+    "content-hash": "3462cacf9f0a641befefa18c885084c5",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1808,7 +1808,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2357,11 +2357,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/glue-165/master-key-issue-for-all-apis",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a6f92eb10387581239e823303f792f6aaee4cf57"
+                "reference": "8fd554dcf46f8b6cdbd2943c5cb78c68f1aaed70"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2555,6 +2555,7 @@
                 "spryker/propel-orm": "*",
                 "spryker/queue": "*",
                 "spryker/quote": "*",
+                "spryker/ramsey-uuid": "*",
                 "spryker/ratepay": "*",
                 "spryker/redis": "*",
                 "spryker/refund": "*",
@@ -2595,6 +2596,7 @@
                 "spryker/util-network": "*",
                 "spryker/util-sanitize": "*",
                 "spryker/util-text": "*",
+                "spryker/util-uuid-generator": "*",
                 "spryker/util-validate": "*",
                 "spryker/wishlist": "*",
                 "spryker/zed-navigation": "*",
@@ -2624,7 +2626,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-26T09:40:59+00:00"
+            "time": "2018-07-26T11:18:24+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5930,7 +5932,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7776,7 +7778,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
