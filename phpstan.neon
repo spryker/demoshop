@@ -5,9 +5,6 @@ parameters:
 
     bootstrap: %rootDir%/../../../phpstan-bootstrap.php
 
-    ignoreErrors:
-        - '#Call to an undefined method .+AbstractClient::getZedStub\(\).#'
-
 services:
     -
         class: PhpStan\DynamicType\FacadeDynamicTypeExtension
