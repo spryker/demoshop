@@ -89,7 +89,7 @@
     "nette/php-generator": "^2.6.1",
     "phpdocumentor/reflection-docblock": "^4.3",
     "squizlabs/php_codesniffer": "~3.1.0",
-    "phpstan/phpstan": "^0.9",
+    "phpstan/phpstan": "^0.10.2",
     "phpunit/phpunit": "<7.0.0"
   },
   "autoload": {
