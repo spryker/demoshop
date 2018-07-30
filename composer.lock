@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fed6fc51461dc8c9514da8f78544106c",
+    "content-hash": "0c2da60cd6b804f2334ae5cd21fee198",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -14636,25 +14636,31 @@
         },
         {
             "name": "spryker/synchronization-behavior",
-            "version": "0.1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/SynchronizationBehavior.git",
-                "reference": "5cfc5ddd48ff307ac71a33e25a2244c03eb8df84"
+                "url": "https://github.com/spryker/synchronization-behavior.git",
+                "reference": "093e97fd047d359e901da40cb0fb5381c3a53e68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/SynchronizationBehavior/zipball/5cfc5ddd48ff307ac71a33e25a2244c03eb8df84",
-                "reference": "5cfc5ddd48ff307ac71a33e25a2244c03eb8df84",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/093e97fd047d359e901da40cb0fb5381c3a53e68",
+                "reference": "093e97fd047d359e901da40cb0fb5381c3a53e68",
                 "shasum": ""
             },
             "require": {
-                "spryker/kernel": "^3.4.0",
-                "spryker/propel-orm": "^1.0.0",
+                "spryker/kernel": "^3.20.0",
+                "spryker/propel-orm": "^1.6.0",
                 "spryker/zend": "^2.1.0"
             },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/queue": "^1.1.0",
+                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0"
+            },
             "suggest": {
-                "spryker/synchronizationBehavior": "^0.1.0"
+                "spryker/queue": "Generated classes are using spryker/queue module.",
+                "spryker/synchronization": "Generated classes are using spryker/synchronization module."
             },
             "type": "propel-behavior",
             "extra": {
@@ -14670,11 +14676,14 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2017-10-17T08:36:02+00:00"
+            "time": "2018-07-23T08:13:22+00:00"
         },
         {
             "name": "spryker/synchronization-extension",
