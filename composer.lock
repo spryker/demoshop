@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c2da60cd6b804f2334ae5cd21fee198",
+    "content-hash": "d0e3e4cfe7de7da56e92d1e69d8e12aa",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -4947,16 +4947,16 @@
         },
         {
             "name": "spryker/company-business-unit",
-            "version": "1.4.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-business-unit.git",
-                "reference": "01824d76a2df03962e7e010b398713ce64c56a0a"
+                "reference": "2e7412b31a23b4a8edfeeac98f6d5e6d3b0cdb65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-business-unit/zipball/01824d76a2df03962e7e010b398713ce64c56a0a",
-                "reference": "01824d76a2df03962e7e010b398713ce64c56a0a",
+                "url": "https://api.github.com/repos/spryker/company-business-unit/zipball/2e7412b31a23b4a8edfeeac98f6d5e6d3b0cdb65",
+                "reference": "2e7412b31a23b4a8edfeeac98f6d5e6d3b0cdb65",
                 "shasum": ""
             },
             "require": {
@@ -4993,7 +4993,7 @@
                 "proprietary"
             ],
             "description": "CompanyBusinessUnit module",
-            "time": "2018-05-29T08:54:47+00:00"
+            "time": "2018-06-25T13:25:37+00:00"
         },
         {
             "name": "spryker/company-business-unit-extension",
@@ -5036,25 +5036,26 @@
         },
         {
             "name": "spryker/company-business-unit-gui",
-            "version": "1.0.0",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-business-unit-gui.git",
-                "reference": "5a48492620504b5774531575fc1c98cfc0675959"
+                "reference": "7129fa3b4fe4374f7979641f83e03447afe180ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-business-unit-gui/zipball/5a48492620504b5774531575fc1c98cfc0675959",
-                "reference": "5a48492620504b5774531575fc1c98cfc0675959",
+                "url": "https://api.github.com/repos/spryker/company-business-unit-gui/zipball/7129fa3b4fe4374f7979641f83e03447afe180ff",
+                "reference": "7129fa3b4fe4374f7979641f83e03447afe180ff",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/company": "^1.0.0",
-                "spryker/company-business-unit": "^1.0.0",
+                "spryker/company-business-unit": "^2.0.0",
                 "spryker/gui": "^3.13.0",
                 "spryker/kernel": "^3.0.0",
-                "spryker/symfony": "^3.0.0"
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-text": "^1.2.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
@@ -5076,7 +5077,7 @@
                 "proprietary"
             ],
             "description": "CompanyBusinessUnitGui module",
-            "time": "2018-04-03T16:51:40+00:00"
+            "time": "2018-06-28T11:02:46+00:00"
         },
         {
             "name": "spryker/company-business-unit-gui-extension",
