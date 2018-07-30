@@ -5974,7 +5974,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7832,7 +7832,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7998,12 +7998,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/git-hook.git",
-                "reference": "9842d3b64448548ae0a78b90e7d26f6bf3bf7378"
+                "reference": "bc83bcec548316c5e10c3faecca825aa8be40ac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/git-hook/zipball/9842d3b64448548ae0a78b90e7d26f6bf3bf7378",
-                "reference": "9842d3b64448548ae0a78b90e7d26f6bf3bf7378",
+                "url": "https://api.github.com/repos/spryker/git-hook/zipball/bc83bcec548316c5e10c3faecca825aa8be40ac6",
+                "reference": "bc83bcec548316c5e10c3faecca825aa8be40ac6",
                 "shasum": ""
             },
             "require": {
@@ -8042,7 +8042,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-07-19T16:43:08+00:00"
+            "time": "2018-07-30T09:51:34+00:00"
         },
         {
             "name": "spryker/spryk",
