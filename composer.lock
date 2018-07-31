@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8cd32a56bc07fdc41cedf91f8a5032e",
+    "content-hash": "1456e8cba39652fee6c53c9840ad70b5",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2439,11 +2439,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-3048-exception-in-yves-with-not-existing-order-id",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a0b29680f7045b1ee29b7e87d3bddfd6d3553ed2"
+                "reference": "f00f9a849a80a210e2deb43e62daaac6d4406ad2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2708,7 +2708,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-30T10:52:24+00:00"
+            "time": "2018-07-30T16:21:42+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
