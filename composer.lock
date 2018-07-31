@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "57c62ade00e0119eb851d2d3c6ac5908",
@@ -2443,7 +2443,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f39d8d145eac6ab5d489e997091e9170723c9481"
+                "reference": "4ebeb7964b676764220258ff30bd4b82448815e1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2708,7 +2708,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-07-30T23:31:54+00:00"
+            "time": "2018-07-31T16:47:36+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6058,7 +6058,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7916,7 +7916,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
