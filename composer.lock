@@ -6,6 +6,7 @@
     ],
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "e8cd32a56bc07fdc41cedf91f8a5032e",
 =======
     "content-hash": "0d71ba8cedf6c331c7af53b1bef7d970",
@@ -13,6 +14,9 @@
 =======
     "content-hash": "7676e7db00a28db20c15af875e3a5bd3",
 >>>>>>> PS-997 update composer loc
+=======
+    "content-hash": "cd3368659c98e2c01ce964b07989244f",
+>>>>>>> ps-997 update composer
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -833,16 +837,16 @@
         },
         {
             "name": "guzzlehttp/ringphp",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/RingPHP.git",
-                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
+                "reference": "5e2a174052995663dd68e6b5ad838afd47dd615b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
-                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/5e2a174052995663dd68e6b5ad838afd47dd615b",
+                "reference": "5e2a174052995663dd68e6b5ad838afd47dd615b",
                 "shasum": ""
             },
             "require": {
@@ -880,7 +884,7 @@
                 }
             ],
             "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
-            "time": "2015-05-20T03:37:09+00:00"
+            "time": "2018-07-31T13:22:33+00:00"
         },
         {
             "name": "guzzlehttp/streams",
@@ -2447,10 +2451,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-997-clear-install-log-files",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2464,6 +2469,9 @@
 =======
                 "reference": "dcba634a7282a7a9ffd0b6884e0cc1e59a11a7d1"
 >>>>>>> PS-997 update composer loc
+=======
+                "reference": "04223d08fecd67708fb4c5a11540f18d56ae9552"
+>>>>>>> ps-997 update composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2731,6 +2739,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-07-30T10:52:24+00:00"
 =======
             "time": "2018-07-05T14:53:19+00:00"
@@ -2741,6 +2750,9 @@
 =======
             "time": "2018-07-24T08:32:35+00:00"
 >>>>>>> PS-997 update composer loc
+=======
+            "time": "2018-08-01T08:16:42+00:00"
+>>>>>>> ps-997 update composer
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2795,6 +2807,7 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
+<<<<<<< HEAD
             "version": "v5.4.10",
             "source": {
                 "type": "git",
@@ -2805,6 +2818,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/dd71cc1638ed7aebbb33f2e2b0edd2cf6ea73d97",
                 "reference": "dd71cc1638ed7aebbb33f2e2b0edd2cf6ea73d97",
+=======
+            "version": "v5.4.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/181b89f18a90f8925ef805f950d47a7190e9b950",
+                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950",
+>>>>>>> ps-997 update composer
                 "shasum": ""
             },
             "require": {
@@ -2845,7 +2870,11 @@
                 "mail",
                 "mailer"
             ],
+<<<<<<< HEAD
             "time": "2018-07-27T08:58:59+00:00"
+=======
+            "time": "2018-07-31T09:26:32+00:00"
+>>>>>>> ps-997 update composer
         },
         {
             "name": "symfony-cmf/routing",
@@ -7949,10 +7978,14 @@
             "authors": [
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "name": "Sullivan SENECHAL",
 =======
                     "name": "Sullivan Sénéchal",
 >>>>>>> PS-997 update composer loc
+=======
+                    "name": "Sullivan SENECHAL",
+>>>>>>> ps-997 update composer
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
