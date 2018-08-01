@@ -316,6 +316,7 @@ $config[LogConstants::LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/application.
 
 $config[LogConstants::EXCEPTION_LOG_FILE_PATH_YVES] = $baseLogFilePath . '/YVES/exception.log';
 $config[LogConstants::EXCEPTION_LOG_FILE_PATH_ZED] = $baseLogFilePath . '/ZED/exception.log';
+$config[LogConstants::LOG_FOLDER_PATH_INSTALLATION] = sprintf('%s/data/install/logs', APPLICATION_ROOT_DIR);
 
 $config[LogConstants::LOG_SANITIZE_FIELDS] = [
     'password',
