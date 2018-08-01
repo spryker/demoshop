@@ -1,22 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "content-hash": "e8cd32a56bc07fdc41cedf91f8a5032e",
-=======
-    "content-hash": "0d71ba8cedf6c331c7af53b1bef7d970",
->>>>>>> Composer update
-=======
-    "content-hash": "7676e7db00a28db20c15af875e3a5bd3",
->>>>>>> PS-997 update composer loc
-=======
-    "content-hash": "cd3368659c98e2c01ce964b07989244f",
->>>>>>> ps-997 update composer
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1820,7 +1808,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2455,23 +2443,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "a0b29680f7045b1ee29b7e87d3bddfd6d3553ed2"
-=======
-                "reference": "98598f8fa4af7bb470810e01b8fbe2d3e737fb77"
->>>>>>> Composer update
-=======
-                "reference": "98598f8fa4af7bb470810e01b8fbe2d3e737fb77"
->>>>>>> Composer update
-=======
-                "reference": "dcba634a7282a7a9ffd0b6884e0cc1e59a11a7d1"
->>>>>>> PS-997 update composer loc
-=======
                 "reference": "04223d08fecd67708fb4c5a11540f18d56ae9552"
->>>>>>> ps-997 update composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2736,23 +2708,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-07-30T10:52:24+00:00"
-=======
-            "time": "2018-07-05T14:53:19+00:00"
->>>>>>> Composer update
-=======
-            "time": "2018-07-05T14:53:19+00:00"
->>>>>>> Composer update
-=======
-            "time": "2018-07-24T08:32:35+00:00"
->>>>>>> PS-997 update composer loc
-=======
             "time": "2018-08-01T08:16:42+00:00"
->>>>>>> ps-997 update composer
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2807,18 +2763,6 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-<<<<<<< HEAD
-            "version": "v5.4.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "dd71cc1638ed7aebbb33f2e2b0edd2cf6ea73d97"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/dd71cc1638ed7aebbb33f2e2b0edd2cf6ea73d97",
-                "reference": "dd71cc1638ed7aebbb33f2e2b0edd2cf6ea73d97",
-=======
             "version": "v5.4.12",
             "source": {
                 "type": "git",
@@ -2829,7 +2773,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/181b89f18a90f8925ef805f950d47a7190e9b950",
                 "reference": "181b89f18a90f8925ef805f950d47a7190e9b950",
->>>>>>> ps-997 update composer
                 "shasum": ""
             },
             "require": {
@@ -2870,11 +2813,7 @@
                 "mail",
                 "mailer"
             ],
-<<<<<<< HEAD
-            "time": "2018-07-27T08:58:59+00:00"
-=======
             "time": "2018-07-31T09:26:32+00:00"
->>>>>>> ps-997 update composer
         },
         {
             "name": "symfony-cmf/routing",
@@ -7013,16 +6952,16 @@
         },
         {
             "name": "roave/better-reflection",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/BetterReflection.git",
-                "reference": "ca0298b9ba44e54c66311cb47a9e558f7d9e6fcc"
+                "reference": "c022c6c998251a5af8a51ca9b8662c323a183bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/ca0298b9ba44e54c66311cb47a9e558f7d9e6fcc",
-                "reference": "ca0298b9ba44e54c66311cb47a9e558f7d9e6fcc",
+                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/c022c6c998251a5af8a51ca9b8662c323a183bf2",
+                "reference": "c022c6c998251a5af8a51ca9b8662c323a183bf2",
                 "shasum": ""
             },
             "require": {
@@ -7076,7 +7015,7 @@
                 }
             ],
             "description": "Better Reflection - an improved code reflection API",
-            "time": "2018-07-23T20:10:47+00:00"
+            "time": "2018-07-31T06:56:38+00:00"
         },
         {
             "name": "roave/signature",
@@ -7977,15 +7916,7 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     "name": "Sullivan SENECHAL",
-=======
-                    "name": "Sullivan Sénéchal",
->>>>>>> PS-997 update composer loc
-=======
-                    "name": "Sullivan SENECHAL",
->>>>>>> ps-997 update composer
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
