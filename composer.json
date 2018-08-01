@@ -33,7 +33,7 @@
     "spryker/calculation": "^4.0.0",
     "spryker/cart": "^5.0.0",
     "spryker/cart-currency-connector": "^1.0.0",
-    "spryker/cart-extension": "^1.0.0",
+    "spryker/cart-extension": "^2.0.0",
     "spryker/cart-note": "^0.1.0",
     "spryker/cart-note-extension": "^1.0.0",
     "spryker/cart-note-product-bundle-connector": "^0.1.0",
