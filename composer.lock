@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "63300a882105bf9bf3b3a34270b4c014",
@@ -1896,7 +1896,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2508,19 +2508,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Api module",
-            "support": {
-                "source": "https://github.com/spryker/Api/tree/master"
-            },
             "time": "2017-11-20T13:06:10+00:00"
         },
         {
@@ -2565,21 +2557,11 @@
                     "Spryker": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-0": {
-                    "Acceptance": "tests/",
-                    "Functional": "tests/",
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "ApiQueryBuilder bundle",
-            "support": {
-                "source": "https://github.com/spryker/ApiQueryBuilder/tree/0.1.0"
-            },
             "time": "2017-05-17T15:39:19+00:00"
         },
         {
@@ -2670,19 +2652,11 @@
                     "Spryker": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Assertion bundle",
-            "support": {
-                "source": "https://github.com/spryker/Assertion/tree/3.0.0"
-            },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
@@ -2771,19 +2745,11 @@
                     "Spryker": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-0": {
-                    "Unit": "tests/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "AuthMailConnector bundle",
-            "support": {
-                "source": "https://github.com/spryker/AuthMailConnector/tree/3.0.0"
-            },
             "time": "2017-02-22T12:08:46+00:00"
         },
         {
@@ -8152,16 +8118,16 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.22.0",
+            "version": "3.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/kernel.git",
-                "reference": "b88ba7b1e2e413b897b6c069f68a2978eeed4981"
+                "reference": "d0e8b0a8a583cf46bc5e0fc73900091e10174410"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/kernel/zipball/b88ba7b1e2e413b897b6c069f68a2978eeed4981",
-                "reference": "b88ba7b1e2e413b897b6c069f68a2978eeed4981",
+                "url": "https://api.github.com/repos/spryker/kernel/zipball/d0e8b0a8a583cf46bc5e0fc73900091e10174410",
+                "reference": "d0e8b0a8a583cf46bc5e0fc73900091e10174410",
                 "shasum": ""
             },
             "require": {
@@ -8197,7 +8163,7 @@
                 "proprietary"
             ],
             "description": "Kernel module",
-            "time": "2018-07-11T16:34:58+00:00"
+            "time": "2018-08-02T08:37:04+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -15247,19 +15213,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "UtilDataReader module",
-            "support": {
-                "source": "https://github.com/spryker/UtilDataReader/tree/master"
-            },
             "time": "2017-10-25T08:03:49+00:00"
         },
         {
@@ -15293,19 +15251,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "UtilDateTime module",
-            "support": {
-                "source": "https://github.com/spryker/UtilDateTime/tree/1.0.2"
-            },
             "time": "2017-10-24T13:32:31+00:00"
         },
         {
@@ -15336,19 +15286,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "UtilEncoding module",
-            "support": {
-                "source": "https://github.com/spryker/UtilEncoding/tree/master"
-            },
             "time": "2017-10-24T13:32:31+00:00"
         },
         {
@@ -15379,19 +15321,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "UtilNetwork module",
-            "support": {
-                "source": "https://github.com/spryker/UtilNetwork/tree/1.1.1"
-            },
             "time": "2017-10-24T13:32:31+00:00"
         },
         {
@@ -15458,19 +15392,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "UtilText module",
-            "support": {
-                "source": "https://github.com/spryker/UtilText/tree/master"
-            },
             "time": "2017-10-24T13:32:31+00:00"
         },
         {
@@ -15547,19 +15473,11 @@
                     "Spryker\\": "src/Spryker/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "UtilValidate module",
-            "support": {
-                "source": "https://github.com/spryker/UtilValidate/tree/1.0.0"
-            },
             "time": "2017-11-09T13:55:22+00:00"
         },
         {
@@ -15694,19 +15612,11 @@
                     "SprykerTest\\Zed\\ZedNavigation\\Helper\\": "tests/SprykerTest/Zed/ZedNavigation/_support/Helper/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "SprykerTest\\": "tests/SprykerTest/"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "ZedNavigation module",
-            "support": {
-                "source": "https://github.com/spryker/ZedNavigation/tree/master"
-            },
             "time": "2017-10-25T13:22:17+00:00"
         },
         {
@@ -15784,14 +15694,11 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Zend module",
-            "support": {
-                "source": "https://github.com/spryker/Zend/tree/2.1.0"
-            },
             "time": "2017-08-02T16:31:17+00:00"
         },
         {
@@ -18375,7 +18282,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2017-08-16T08:44:29+00:00"
+            "time": "2017-08-16T08:57:05+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
@@ -20848,23 +20755,10 @@
                     "ArchitectureSniffer\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "ArchitectureSniffer\\Test\\": "tests"
-                }
-            },
-            "notification-url": "https://code.spryker.com/repo/private/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "src/"
             ],
-            "scripts": {
-                "cs-check": [
-                    "vendor/bin/phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
-                ],
-                "cs-fix": [
-                    "vendor/bin/phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v --ignore=/architecture-sniffer/vendor/ ./"
-                ]
-            },
             "license": [
                 "MIT"
             ],
@@ -20882,10 +20776,6 @@
                 "sniffer",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/spryker/architecture-sniffer",
-                "issues": "https://github.com/spryker/architecture-sniffer/issues"
-            },
             "time": "2017-08-01T14:03:04+00:00"
         },
         {
