@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\ProductList\Persistence;
 
-use Orm\Zed\ProductList\Persistence\Base\SpyProductListQuery as BaseSpyProductListQuery;
+use Spryker\Zed\ProductList\Persistence\Propel\AbstractSpyProductListQuery as BaseSpyProductListQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_product_list' table.
