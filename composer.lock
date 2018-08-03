@@ -6745,16 +6745,16 @@
         },
         {
             "name": "spryker/discount",
-            "version": "6.3.1",
+            "version": "6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/discount.git",
-                "reference": "257aad4dbfe4f535fae90f5af57db18e05ef657e"
+                "reference": "017adb5814a792b3e61af8110e35ecb2dbcacca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/discount/zipball/257aad4dbfe4f535fae90f5af57db18e05ef657e",
-                "reference": "257aad4dbfe4f535fae90f5af57db18e05ef657e",
+                "url": "https://api.github.com/repos/spryker/discount/zipball/017adb5814a792b3e61af8110e35ecb2dbcacca8",
+                "reference": "017adb5814a792b3e61af8110e35ecb2dbcacca8",
                 "shasum": ""
             },
             "require": {
@@ -6767,6 +6767,7 @@
                 "spryker/log": "^3.0.0",
                 "spryker/messenger": "^3.0.0",
                 "spryker/money": "^2.0.0",
+                "spryker/product-option": "^6.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/sales": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
                 "spryker/store": "^1.1.0",
@@ -6802,7 +6803,7 @@
                 "proprietary"
             ],
             "description": "Discount module",
-            "time": "2018-07-30T12:46:42+00:00"
+            "time": "2018-08-03T12:00:35+00:00"
         },
         {
             "name": "spryker/discount-calculation-connector",
@@ -7483,21 +7484,22 @@
         },
         {
             "name": "spryker/gift-card",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/gift-card.git",
-                "reference": "49dd866912230bd68480729c2230a6484bc8fee0"
+                "reference": "6d3945e2ae4ec4bd664ba775fe0a7a216c59b5fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/gift-card/zipball/49dd866912230bd68480729c2230a6484bc8fee0",
-                "reference": "49dd866912230bd68480729c2230a6484bc8fee0",
+                "url": "https://api.github.com/repos/spryker/gift-card/zipball/6d3945e2ae4ec4bd664ba775fe0a7a216c59b5fd",
+                "reference": "6d3945e2ae4ec4bd664ba775fe0a7a216c59b5fd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
+                "spryker/payment": "^4.0.0",
                 "spryker/product": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0",
                 "spryker/propel-orm": "^1.5.0",
                 "spryker/sales": "^8.0.0",
@@ -7511,7 +7513,6 @@
                 "spryker/code-sniffer": "*",
                 "spryker/discount": "^5.0.0 || ^6.0.0",
                 "spryker/oms": "^7.0.0 || ^8.0.0",
-                "spryker/payment": "^4.0.0",
                 "spryker/propel": "^3.0.0",
                 "spryker/shipment": "^6.2.0",
                 "spryker/testify": "*"
@@ -7542,7 +7543,7 @@
                 "proprietary"
             ],
             "description": "GiftCard module",
-            "time": "2018-04-10T12:59:19+00:00"
+            "time": "2018-08-03T10:02:00+00:00"
         },
         {
             "name": "spryker/gift-card-balance",
@@ -9550,22 +9551,23 @@
         },
         {
             "name": "spryker/payment",
-            "version": "4.3.1",
+            "version": "4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/payment.git",
-                "reference": "69098ebf8627752d0fcc720a09bbe742b8e84f33"
+                "reference": "7961b2c94b92b2d7ac64f6d50255f283e85884ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/payment/zipball/69098ebf8627752d0fcc720a09bbe742b8e84f33",
-                "reference": "69098ebf8627752d0fcc720a09bbe742b8e84f33",
+                "url": "https://api.github.com/repos/spryker/payment/zipball/7961b2c94b92b2d7ac64f6d50255f283e85884ca",
+                "reference": "7961b2c94b92b2d7ac64f6d50255f283e85884ca",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
                 "spryker/propel-orm": "^1.0.0",
+                "spryker/sales": "^8.0.0",
                 "spryker/symfony": "^3.0.0",
                 "spryker/zed-request": "^3.0.0"
             },
@@ -9573,7 +9575,6 @@
                 "spryker/calculation": "*",
                 "spryker/checkout": "*",
                 "spryker/code-sniffer": "*",
-                "spryker/sales": "*",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -9597,7 +9598,7 @@
                 "proprietary"
             ],
             "description": "Payment module",
-            "time": "2018-03-07T15:33:06+00:00"
+            "time": "2018-08-03T10:02:00+00:00"
         },
         {
             "name": "spryker/payment-cart-connector",
@@ -12668,16 +12669,16 @@
         },
         {
             "name": "spryker/product-set",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-set.git",
-                "reference": "95ca8e8429c45164396c88e95add77f7b8f8c982"
+                "reference": "10220c08f319d323a989d506429bf758261d0664"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-set/zipball/95ca8e8429c45164396c88e95add77f7b8f8c982",
-                "reference": "95ca8e8429c45164396c88e95add77f7b8f8c982",
+                "url": "https://api.github.com/repos/spryker/product-set/zipball/10220c08f319d323a989d506429bf758261d0664",
+                "reference": "10220c08f319d323a989d506429bf758261d0664",
                 "shasum": ""
             },
             "require": {
@@ -12685,6 +12686,7 @@
                 "spryker/kernel": "^3.4.0",
                 "spryker/key-builder": "^1.0.0",
                 "spryker/locale": "^3.1.0",
+                "spryker/product": "^5.0.0 || ^6.0.0",
                 "spryker/product-image": "^3.3.0",
                 "spryker/propel-orm": "^1.1.0",
                 "spryker/search": "^6.0.0 || ^7.0.0 || ^8.0.0",
@@ -12718,7 +12720,7 @@
                 "proprietary"
             ],
             "description": "ProductSet module",
-            "time": "2018-07-17T10:01:23+00:00"
+            "time": "2018-08-03T10:02:01+00:00"
         },
         {
             "name": "spryker/product-set-collector",
@@ -14637,16 +14639,16 @@
         },
         {
             "name": "spryker/synchronization-behavior",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "093e97fd047d359e901da40cb0fb5381c3a53e68"
+                "reference": "82d3132c9c3fe887129d2a14ad016ec5c0ab7d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/093e97fd047d359e901da40cb0fb5381c3a53e68",
-                "reference": "093e97fd047d359e901da40cb0fb5381c3a53e68",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/82d3132c9c3fe887129d2a14ad016ec5c0ab7d48",
+                "reference": "82d3132c9c3fe887129d2a14ad016ec5c0ab7d48",
                 "shasum": ""
             },
             "require": {
@@ -14684,7 +14686,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-07-23T08:13:22+00:00"
+            "time": "2018-08-02T10:10:13+00:00"
         },
         {
             "name": "spryker/synchronization-extension",
@@ -20873,16 +20875,16 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.10.2",
+            "version": "3.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/development.git",
-                "reference": "194789a5258b368ef747da1db55164073c31fdf8"
+                "reference": "98cf369f792c41de959c8b840e5bc5fa410cf7a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/development/zipball/194789a5258b368ef747da1db55164073c31fdf8",
-                "reference": "194789a5258b368ef747da1db55164073c31fdf8",
+                "url": "https://api.github.com/repos/spryker/development/zipball/98cf369f792c41de959c8b840e5bc5fa410cf7a1",
+                "reference": "98cf369f792c41de959c8b840e5bc5fa410cf7a1",
                 "shasum": ""
             },
             "require": {
@@ -20918,7 +20920,7 @@
                 "proprietary"
             ],
             "description": "Development module",
-            "time": "2018-07-27T15:57:34+00:00"
+            "time": "2018-08-03T10:02:01+00:00"
         },
         {
             "name": "spryker/testify",
