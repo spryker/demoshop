@@ -293,7 +293,6 @@
     "jakoch/phantomjs-installer": "^2.1.0",
     "nette/php-generator": "^2.6.1",
     "pdepend/pdepend": "^2.2.4",
-    "php-mock/php-mock": "^1.0",
     "phpdocumentor/reflection-docblock": "^2.0",
     "phpmd/phpmd": "~2.4.3",
     "phpstan/phpstan": "^0.10.2",
