@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8134a7475d2b271aa0c059cb5247625",
+    "content-hash": "3b73c41ad70a89b6ff6750ebd1dec5e0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -7258,6 +7258,190 @@
             ],
             "description": "EventJournal bundle",
             "time": "2017-02-22T12:08:46+00:00"
+        },
+        {
+            "name": "spryker/file-manager",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/file-manager.git",
+                "reference": "30b299e0751370cb884594bbef7957b57af6f5ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/file-manager/zipball/30b299e0751370cb884594bbef7957b57af6f5ff",
+                "reference": "30b299e0751370cb884594bbef7957b57af6f5ff",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/file-system": "^1.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "FileManager module",
+            "time": "2018-08-08T13:44:50+00:00"
+        },
+        {
+            "name": "spryker/file-manager-data-import",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/file-manager-data-import.git",
+                "reference": "48fd2a3c2390061c9a2f3dd9a37a7f95a652c822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/file-manager-data-import/zipball/48fd2a3c2390061c9a2f3dd9a37a7f95a652c822",
+                "reference": "48fd2a3c2390061c9a2f3dd9a37a7f95a652c822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/data-import": "^1.3.0",
+                "spryker/file-manager": "^1.0.0",
+                "spryker/kernel": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/installer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Zed\\FileManagerDataImport\\Helper\\": "tests/SprykerTest/Zed/FileManagerDataImport/_support/Helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "FileManagerDataImport module",
+            "time": "2018-08-08T10:51:12+00:00"
+        },
+        {
+            "name": "spryker/file-manager-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/file-manager-gui.git",
+                "reference": "3b4ffe4ea281309e787bc750ad9d5caa3605c7ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/file-manager-gui/zipball/3b4ffe4ea281309e787bc750ad9d5caa3605c7ef",
+                "reference": "3b4ffe4ea281309e787bc750ad9d5caa3605c7ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/file-manager": "^1.0.0",
+                "spryker/file-system": "^1.0.0",
+                "spryker/gui": "^3.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-text": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "FileManagerGui module",
+            "time": "2018-08-01T10:53:28+00:00"
+        },
+        {
+            "name": "spryker/file-manager-storage",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/file-manager-storage.git",
+                "reference": "fadcc57a89f9500f935d0e90b769b2559ff73f41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/file-manager-storage/zipball/fadcc57a89f9500f935d0e90b769b2559ff73f41",
+                "reference": "fadcc57a89f9500f935d0e90b769b2559ff73f41",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/event-behavior": "^1.0.0",
+                "spryker/file-manager": "^1.0.0",
+                "spryker/kernel": "^3.0.0",
+                "spryker/locale": "^3.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/storage": "^3.0.0",
+                "spryker/synchronization": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/event": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/event": "If you want to use Event plugins, minimum required version: 2.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "FileManagerStorage module",
+            "time": "2018-08-01T14:24:30+00:00"
         },
         {
             "name": "spryker/file-system",
