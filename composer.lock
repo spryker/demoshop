@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b73c41ad70a89b6ff6750ebd1dec5e0",
+    "content-hash": "0bcfaf574f0d18b121ffb809f248f48e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -6318,6 +6318,53 @@
             "time": "2017-11-10T15:08:30+00:00"
         },
         {
+            "name": "spryker/customer-catalog",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/customer-catalog.git",
+                "reference": "f7c4ac835797956303e00c4b9ae2d1aee3783a21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/customer-catalog/zipball/f7c4ac835797956303e00c4b9ae2d1aee3783a21",
+                "reference": "f7c4ac835797956303e00c4b9ae2d1aee3783a21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/customer": "^7.0.0",
+                "spryker/kernel": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/elastica": "*",
+                "spryker/search": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/elastica": "If you want to use Elastica plugins.",
+                "spryker/search": "If you want to use Search plugins, minimum required version: 7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "CustomerCatalog module",
+            "time": "2018-08-06T14:30:50+00:00"
+        },
+        {
             "name": "spryker/customer-extension",
             "version": "1.0.0",
             "source": {
@@ -8868,6 +8915,146 @@
             ],
             "description": "MerchantRelationship module",
             "time": "2018-07-30T14:19:38+00:00"
+        },
+        {
+            "name": "spryker/merchant-relationship-product-list",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/merchant-relationship-product-list.git",
+                "reference": "19d148e98948d0e6a634a4f36bbbd32026c1a821"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/merchant-relationship-product-list/zipball/19d148e98948d0e6a634a4f36bbbd32026c1a821",
+                "reference": "19d148e98948d0e6a634a4f36bbbd32026c1a821",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.17.0",
+                "spryker/merchant-relationship": "^1.0.0",
+                "spryker/product-list": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/customer": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/customer": "If you want to use Customer plugins, minimum required version: 7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "MerchantRelationshipProductList module",
+            "time": "2018-08-06T14:30:50+00:00"
+        },
+        {
+            "name": "spryker/merchant-relationship-product-list-data-import",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/merchant-relationship-product-list-data-import.git",
+                "reference": "39066c2c6bf54735c3ac7b1f3cc2dd6e8f35e1cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/merchant-relationship-product-list-data-import/zipball/39066c2c6bf54735c3ac7b1f3cc2dd6e8f35e1cf",
+                "reference": "39066c2c6bf54735c3ac7b1f3cc2dd6e8f35e1cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/data-import": "^1.3.0",
+                "spryker/kernel": "^3.17.0",
+                "spryker/merchant-relationship": "^1.0.0",
+                "spryker/product-list": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Zed\\MerchantRelationshipProductListDataImport\\Helper\\": "tests/SprykerTest/Zed/MerchantRelationshipProductListDataImport/_support/Helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "MerchantRelationshipProductListDataImport module",
+            "time": "2018-08-09T12:02:19+00:00"
+        },
+        {
+            "name": "spryker/merchant-relationship-product-list-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/merchant-relationship-product-list-gui.git",
+                "reference": "9f5d5da0c05b8e8606e9517a98045319e3377c2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/merchant-relationship-product-list-gui/zipball/9f5d5da0c05b8e8606e9517a98045319e3377c2f",
+                "reference": "9f5d5da0c05b8e8606e9517a98045319e3377c2f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.17.0",
+                "spryker/merchant-relationship": "^1.2.0",
+                "spryker/product-list-gui-extension": "^1.0.0",
+                "spryker/symfony": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/gui": "*",
+                "spryker/product-list": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/gui": "If you want to use ProductListGui plugins. Minimum required version: ^1.0.0",
+                "spryker/product-list": "If you want to use Product List Gui plugins. Minimum required version: ^1.0.0",
+                "spryker/symfony": "Required to use form in plugin"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "MerchantRelationshipProductListGui module",
+            "time": "2018-08-06T14:30:50+00:00"
         },
         {
             "name": "spryker/messenger",
@@ -12226,6 +12413,149 @@
             "time": "2018-07-23T16:45:24+00:00"
         },
         {
+            "name": "spryker/product-list",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-list.git",
+                "reference": "1062de4491ee69ea62a4194fa5a992d6abe8b2a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-list/zipball/1062de4491ee69ea62a4194fa5a992d6abe8b2a2",
+                "reference": "1062de4491ee69ea62a4194fa5a992d6abe8b2a2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/cart-extension": "^1.5.0 || ^2.1.0",
+                "spryker/category": "^3.0.0 || ^4.0.0",
+                "spryker/kernel": "^3.17.0",
+                "spryker/messenger": "^3.0.0",
+                "spryker/product": "^5.0.0 || ^6.0.0",
+                "spryker/product-category": "^4.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/util-text": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/",
+                    "SprykerTest\\Zed\\ProductList\\Helper\\": "tests/SprykerTest/Zed/ProductList/_support/Helper/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductList module",
+            "time": "2018-08-06T14:30:50+00:00"
+        },
+        {
+            "name": "spryker/product-list-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-list-gui.git",
+                "reference": "820791276bf4d0821d994de9c5b9dd87f4b43f99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-list-gui/zipball/820791276bf4d0821d994de9c5b9dd87f4b43f99",
+                "reference": "820791276bf4d0821d994de9c5b9dd87f4b43f99",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/category": "^4.6.0",
+                "spryker/gui": "^3.13.0",
+                "spryker/kernel": "^3.17.0",
+                "spryker/locale": "^3.1.0",
+                "spryker/product": "^6.4.0",
+                "spryker/product-list": "^1.0.0",
+                "spryker/product-list-gui-extension": "^1.0.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/symfony": "^3.0.0",
+                "spryker/util-csv": "^1.0.0",
+                "spryker/util-text": "^1.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductListGui module",
+            "time": "2018-08-07T13:23:28+00:00"
+        },
+        {
+            "name": "spryker/product-list-gui-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/product-list-gui-extension.git",
+                "reference": "29af0ac4f516809b9309f86ca8ac22161b9a81c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/product-list-gui-extension/zipball/29af0ac4f516809b9309f86ca8ac22161b9a81c3",
+                "reference": "29af0ac4f516809b9309f86ca8ac22161b9a81c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/gui": "*",
+                "spryker/symfony": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/gui": "If you want to use ProductListGui plugins. Minimum required version: ^1.0.0",
+                "spryker/symfony": "Required to use form in plugin"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ProductListGuiExtension module",
+            "time": "2018-08-06T14:30:50+00:00"
+        },
+        {
             "name": "spryker/product-management",
             "version": "0.14.2",
             "source": {
@@ -15445,6 +15775,47 @@
             ],
             "description": "User module",
             "time": "2018-02-26T10:10:54+00:00"
+        },
+        {
+            "name": "spryker/util-csv",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/util-csv.git",
+                "reference": "b90e0453dd6555297eebba14923e0ee21d90d6f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/util-csv/zipball/b90e0453dd6555297eebba14923e0ee21d90d6f3",
+                "reference": "b90e0453dd6555297eebba14923e0ee21d90d6f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/symfony": "^3.1.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "UtilCsv module",
+            "time": "2018-07-10T12:34:02+00:00"
         },
         {
             "name": "spryker/util-data-reader",
