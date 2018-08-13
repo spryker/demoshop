@@ -7574,20 +7574,21 @@
         },
         {
             "name": "spryker/flysystem",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spryker/Flysystem.git",
-                "reference": "e83c1779acbc42c0d1e59d7b6a7c6b4b4bdfd000"
+                "url": "https://github.com/spryker/flysystem.git",
+                "reference": "afc7a133f7058bfaba1ae7578abaa763eb854b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/Flysystem/zipball/e83c1779acbc42c0d1e59d7b6a7c6b4b4bdfd000",
-                "reference": "e83c1779acbc42c0d1e59d7b6a7c6b4b4bdfd000",
+                "url": "https://api.github.com/repos/spryker/flysystem/zipball/afc7a133f7058bfaba1ae7578abaa763eb854b0c",
+                "reference": "afc7a133f7058bfaba1ae7578abaa763eb854b0c",
                 "shasum": ""
             },
             "require": {
                 "league/flysystem": "^1.0",
+                "php": ">=7.1",
                 "spryker/file-system": "^1.0.0",
                 "spryker/kernel": "^3.5.0"
             },
@@ -7617,7 +7618,7 @@
                 "proprietary"
             ],
             "description": "Flysystem module",
-            "time": "2017-10-25T08:03:49+00:00"
+            "time": "2018-08-13T09:56:14+00:00"
         },
         {
             "name": "spryker/flysystem-aws3v3-file-system",
