@@ -69,7 +69,6 @@ before_install:
 
 install:
   - chmod -R a+x config/Shared/ci/travis/
-  - composer remove --dev spryker/git-hook
   - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
 
