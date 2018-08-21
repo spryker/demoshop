@@ -2439,7 +2439,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "fe5582521122b13f84c81de62898b82ef80dc327"
+                "reference": "14478077276b5bfddc5a39f997fdf63e0fed566d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2454,11 +2454,11 @@
                 "spryker/assertion": "*",
                 "spryker/auth": "*",
                 "spryker/auth-mail-connector": "*",
+                "spryker/auth-rest-api": "*",
                 "spryker/availability": "*",
                 "spryker/availability-cart-connector": "*",
                 "spryker/availability-gui": "*",
                 "spryker/availability-storage": "*",
-                "spryker/braintree": "*",
                 "spryker/business-on-behalf": "*",
                 "spryker/business-on-behalf-data-import": "*",
                 "spryker/cache": "*",
@@ -2468,6 +2468,7 @@
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
                 "spryker/catalog-price-product-connector": "*",
+                "spryker/catalog-search-rest-api": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
                 "spryker/category-page-search": "*",
@@ -2514,6 +2515,7 @@
                 "spryker/customer-note-gui": "*",
                 "spryker/customer-user-connector": "*",
                 "spryker/customer-user-connector-gui": "*",
+                "spryker/customers-rest-api": "*",
                 "spryker/development": "*",
                 "spryker/discount": "*",
                 "spryker/discount-calculation-connector": "*",
@@ -2534,6 +2536,7 @@
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
                 "spryker/glue-application": "*",
+                "spryker/glue-application-extension": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
                 "spryker/gui": "*",
@@ -2562,6 +2565,9 @@
                 "spryker/new-relic-api": "*",
                 "spryker/newsletter": "*",
                 "spryker/nopayment": "*",
+                "spryker/oauth": "*",
+                "spryker/oauth-customer-connector": "*",
+                "spryker/oauth-extension": "*",
                 "spryker/offer": "*",
                 "spryker/offer-gui": "*",
                 "spryker/oms": "*",
@@ -2616,6 +2622,7 @@
                 "spryker/product-relation": "*",
                 "spryker/product-relation-collector": "*",
                 "spryker/product-relation-storage": "*",
+                "spryker/product-resource-alias-storage": "*",
                 "spryker/product-review": "*",
                 "spryker/product-review-collector": "*",
                 "spryker/product-review-gui": "*",
@@ -2629,6 +2636,7 @@
                 "spryker/product-set-page-search": "*",
                 "spryker/product-set-storage": "*",
                 "spryker/product-storage": "*",
+                "spryker/products-rest-api": "*",
                 "spryker/propel": "*",
                 "spryker/propel-orm": "*",
                 "spryker/queue": "*",
@@ -2704,7 +2712,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-08-13T14:15:57+00:00"
+            "time": "2018-08-21T11:17:20+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
