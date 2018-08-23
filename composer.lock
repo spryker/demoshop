@@ -1804,7 +1804,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2440,7 +2440,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5006390ff6b7a12f0539fd44e092a1bf7c29c543"
+                "reference": "d30d7a4240c07fd3ee3cea893fcbc17f40f6cf4f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-08-22T12:20:54+00:00"
+            "time": "2018-08-23T09:31:51+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7924,7 +7924,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -7997,12 +7997,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "28114f734c790cd7fc6d74db835cd936e434ad00"
+                "reference": "86c1c73b7635d3bc7e8f932ac9d24197f54bba59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/28114f734c790cd7fc6d74db835cd936e434ad00",
-                "reference": "28114f734c790cd7fc6d74db835cd936e434ad00",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/86c1c73b7635d3bc7e8f932ac9d24197f54bba59",
+                "reference": "86c1c73b7635d3bc7e8f932ac9d24197f54bba59",
                 "shasum": ""
             },
             "require": {
@@ -8030,7 +8030,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-08-17T09:43:42+00:00"
+            "time": "2018-08-22T14:28:34+00:00"
         },
         {
             "name": "spryker/code-sniffer",
