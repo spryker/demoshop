@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8cd32a56bc07fdc41cedf91f8a5032e",
+    "content-hash": "a66eab29ac3d15d168468afa3abeef7b",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1804,7 +1804,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2436,11 +2436,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/glue-18/master-registered-carts-api-2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "eb8214ff275f7a9ea99fc746762983d18bf29922"
+                "reference": "449a2c1483c87d192b33f22a95aacfc35dc60030"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2455,7 +2455,6 @@
                 "spryker/assertion": "*",
                 "spryker/auth": "*",
                 "spryker/auth-mail-connector": "*",
-                "spryker/auth-rest-api": "*",
                 "spryker/availability": "*",
                 "spryker/availability-cart-connector": "*",
                 "spryker/availability-gui": "*",
@@ -2469,7 +2468,6 @@
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
                 "spryker/catalog-price-product-connector": "*",
-                "spryker/catalog-search-rest-api": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
                 "spryker/category-page-search": "*",
@@ -2516,7 +2514,6 @@
                 "spryker/customer-note-gui": "*",
                 "spryker/customer-user-connector": "*",
                 "spryker/customer-user-connector-gui": "*",
-                "spryker/customers-rest-api": "*",
                 "spryker/development": "*",
                 "spryker/discount": "*",
                 "spryker/discount-calculation-connector": "*",
@@ -2537,7 +2534,6 @@
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
                 "spryker/glue-application": "*",
-                "spryker/glue-application-extension": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
                 "spryker/gui": "*",
@@ -2566,9 +2562,6 @@
                 "spryker/new-relic-api": "*",
                 "spryker/newsletter": "*",
                 "spryker/nopayment": "*",
-                "spryker/oauth": "*",
-                "spryker/oauth-customer-connector": "*",
-                "spryker/oauth-extension": "*",
                 "spryker/offer": "*",
                 "spryker/offer-gui": "*",
                 "spryker/oms": "*",
@@ -2713,7 +2706,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-08-23T13:24:37+00:00"
+            "time": "2018-08-28T08:20:30+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7924,7 +7917,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
