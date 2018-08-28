@@ -2440,7 +2440,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3b21e2951c9fcbe32ddc884d05163c990aad3172"
+                "reference": "652bbb8ee1737210c040f4528cddab0a734e4add"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2455,6 +2455,7 @@
                 "spryker/assertion": "*",
                 "spryker/auth": "*",
                 "spryker/auth-mail-connector": "*",
+                "spryker/auth-rest-api": "*",
                 "spryker/availability": "*",
                 "spryker/availability-cart-connector": "*",
                 "spryker/availability-gui": "*",
@@ -2468,6 +2469,7 @@
                 "spryker/cart-variant": "*",
                 "spryker/catalog": "*",
                 "spryker/catalog-price-product-connector": "*",
+                "spryker/catalog-search-rest-api": "*",
                 "spryker/category": "*",
                 "spryker/category-exporter": "*",
                 "spryker/category-page-search": "*",
@@ -2514,6 +2516,7 @@
                 "spryker/customer-note-gui": "*",
                 "spryker/customer-user-connector": "*",
                 "spryker/customer-user-connector-gui": "*",
+                "spryker/customers-rest-api": "*",
                 "spryker/development": "*",
                 "spryker/discount": "*",
                 "spryker/discount-calculation-connector": "*",
@@ -2534,6 +2537,7 @@
                 "spryker/glossary": "*",
                 "spryker/glossary-storage": "*",
                 "spryker/glue-application": "*",
+                "spryker/glue-application-extension": "*",
                 "spryker/graph": "*",
                 "spryker/graphviz": "*",
                 "spryker/gui": "*",
@@ -2562,6 +2566,9 @@
                 "spryker/new-relic-api": "*",
                 "spryker/newsletter": "*",
                 "spryker/nopayment": "*",
+                "spryker/oauth": "*",
+                "spryker/oauth-customer-connector": "*",
+                "spryker/oauth-extension": "*",
                 "spryker/offer": "*",
                 "spryker/offer-gui": "*",
                 "spryker/oms": "*",
@@ -2706,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-08-28T12:02:31+00:00"
+            "time": "2018-08-28T19:49:41+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
