@@ -53,7 +53,7 @@ class ProductSetWriterStep extends TouchAwareStep implements DataImportStepInter
     /**
      * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface $productRepository
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
-     * @param null|int $bulkSize
+     * @param int|null $bulkSize
      */
     public function __construct(ProductRepositoryInterface $productRepository, DataImportToTouchInterface $touchFacade, $bulkSize = null)
     {
