@@ -113,8 +113,7 @@ script:
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console transfer:validate ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console code:sniff:style ; fi
 
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:find-violations ; fi
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:build-tree ; fi
+  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:find ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
 
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
