@@ -2439,7 +2439,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6e5d7c8d4fecd21b4503de4eb8ae5a962a11e2c2"
+                "reference": "cda73cdf55c16943521439fc864308111da327e7"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2712,7 +2712,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-08-31T20:08:07+00:00"
+            "time": "2018-09-03T14:04:14+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2720,12 +2720,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "754ad795631657564797c7f7374afa580146cc1c"
+                "reference": "311673c36059437158eca999783698b93eddf547"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/754ad795631657564797c7f7374afa580146cc1c",
-                "reference": "754ad795631657564797c7f7374afa580146cc1c",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/311673c36059437158eca999783698b93eddf547",
+                "reference": "311673c36059437158eca999783698b93eddf547",
                 "shasum": ""
             },
             "require": {
@@ -2736,7 +2736,8 @@
             "require-dev": {
                 "spryker/code-sniffer": "*",
                 "spryker/queue": "^1.1.0",
-                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0"
+                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0",
+                "spryker/testify": "*"
             },
             "suggest": {
                 "spryker/queue": "Generated classes are using spryker/queue module.",
@@ -2763,7 +2764,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-08-17T09:01:55+00:00"
+            "time": "2018-09-03T08:13:05+00:00"
         },
         {
             "name": "spryker/uuid-behavior",
@@ -6110,7 +6111,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7967,7 +7968,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
