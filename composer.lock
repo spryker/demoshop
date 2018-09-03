@@ -2439,7 +2439,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e787482ade1efd7a2fd4dd9c5ba455815a9dcbf7"
+                "reference": "6e5d7c8d4fecd21b4503de4eb8ae5a962a11e2c2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2712,7 +2712,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-08-31T17:37:23+00:00"
+            "time": "2018-08-31T20:08:07+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5201,16 +5201,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.2.1",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "e37cbd80da64afe314c72de8d2d2fec0e40d9373"
+                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/e37cbd80da64afe314c72de8d2d2fec0e40d9373",
-                "reference": "e37cbd80da64afe314c72de8d2d2fec0e40d9373",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/b8e9745fb9b06ea6664d8872c4505fb16df4611c",
+                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c",
                 "shasum": ""
             },
             "require": {
@@ -5241,7 +5241,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-08-23T12:00:19+00:00"
+            "time": "2018-08-31T19:07:57+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -8186,7 +8186,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "cd82feba797bf11289ff90707827f422ba6880f7"
+                "reference": "5cb0cb410f976713615a7d7bb06031ebea300e27"
             },
             "require": {
                 "php": ">=7.1",
@@ -8205,8 +8205,8 @@
                 "phpstan/phpstan": "^0.9.0 || ^0.10.0",
                 "phpstan/phpstan-phpunit": "^0.9.0 || ^0.10.0",
                 "phpstan/phpstan-strict-rules": "^0.9.0 || ^0.10.0",
-                "spryker/code-sniffer": "dev-master as 1.0.0",
-                "spryker/git-hook": "dev-bugfix/core-4886-githook-broken",
+                "spryker/code-sniffer": "^0.12.0",
+                "spryker/git-hook": "dev-master",
                 "symfony/var-dumper": "^4.0.9"
             },
             "type": "library",
@@ -8242,7 +8242,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-08-29T09:59:43+00:00"
+            "time": "2018-08-31T19:36:34+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
