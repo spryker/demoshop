@@ -25,7 +25,7 @@ class TwigTranslator implements TranslatorInterface
 
     /**
      * @param \Spryker\Client\Glossary\GlossaryClientInterface $client
-     * @param null|string $localeName
+     * @param string|null $localeName
      */
     public function __construct(GlossaryClientInterface $client, $localeName = null)
     {

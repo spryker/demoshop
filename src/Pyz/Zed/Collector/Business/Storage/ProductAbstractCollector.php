@@ -284,7 +284,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     /**
      * @param int $idNode
      *
-     * @return null|string
+     * @return string|null
      */
     protected function generateUrl($idNode)
     {
