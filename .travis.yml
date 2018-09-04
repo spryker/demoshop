@@ -114,7 +114,8 @@ script:
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console code:sniff:style ; fi
 
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:find ; fi
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:dependency:update-composer-files -d -v ; fi
+  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:composer:update-json-files -d -v ; fi
+  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console dev:composer:validate-json-files ; fi
 
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/spryker/Bundles/Development/src/Spryker/Zed/Development/Business/PhpMd/ruleset.xml ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpmd src/ text vendor/spryker/architecture-sniffer/src/ruleset.xml --minimumpriority 2 ; fi
