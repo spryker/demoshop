@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "0bcfaf574f0d18b121ffb809f248f48e",
@@ -10779,16 +10779,16 @@
         },
         {
             "name": "spryker/product",
-            "version": "6.4.0",
+            "version": "6.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product.git",
-                "reference": "f7d786772f8926fd05573e729f4fbfc8e151f67b"
+                "reference": "88010948d565b6322c8f14c102020a3c31101a27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product/zipball/f7d786772f8926fd05573e729f4fbfc8e151f67b",
-                "reference": "f7d786772f8926fd05573e729f4fbfc8e151f67b",
+                "url": "https://api.github.com/repos/spryker/product/zipball/88010948d565b6322c8f14c102020a3c31101a27",
+                "reference": "88010948d565b6322c8f14c102020a3c31101a27",
                 "shasum": ""
             },
             "require": {
@@ -10807,9 +10807,7 @@
                 "spryker/util-text": "^1.1.0"
             },
             "require-dev": {
-                "spryker/code-sniffer": "*",
                 "spryker/propel": "*",
-                "spryker/silex": "*",
                 "spryker/testify": "*"
             },
             "type": "library",
@@ -10829,7 +10827,7 @@
                 "proprietary"
             ],
             "description": "Product module",
-            "time": "2018-08-08T10:15:01+00:00"
+            "time": "2018-09-03T16:56:39+00:00"
         },
         {
             "name": "spryker/product-abstract-data-feed",
@@ -21250,7 +21248,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -21316,22 +21314,22 @@
         },
         {
             "name": "spryker/code-generator",
-            "version": "0.3.6",
+            "version": "0.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "86c1c73b7635d3bc7e8f932ac9d24197f54bba59"
+                "reference": "c2638cde2e7886c876a9d6752875f5e2ced1a86d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/86c1c73b7635d3bc7e8f932ac9d24197f54bba59",
-                "reference": "86c1c73b7635d3bc7e8f932ac9d24197f54bba59",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/c2638cde2e7886c876a9d6752875f5e2ced1a86d",
+                "reference": "c2638cde2e7886c876a9d6752875f5e2ced1a86d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
-                "zendframework/zend-filter": "*"
+                "zendframework/zend-filter": "^2.8.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
@@ -21353,7 +21351,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-08-22T14:28:34+00:00"
+            "time": "2018-09-04T09:50:22+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -21409,16 +21407,16 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.10.5",
+            "version": "3.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/development.git",
-                "reference": "091e46b79e110b14a845d5fbbfaabd9697d87b0c"
+                "reference": "eb8b33f06e90cd1fb13aa9c265d4078186c20440"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/development/zipball/091e46b79e110b14a845d5fbbfaabd9697d87b0c",
-                "reference": "091e46b79e110b14a845d5fbbfaabd9697d87b0c",
+                "url": "https://api.github.com/repos/spryker/development/zipball/eb8b33f06e90cd1fb13aa9c265d4078186c20440",
+                "reference": "eb8b33f06e90cd1fb13aa9c265d4078186c20440",
                 "shasum": ""
             },
             "require": {
@@ -21432,6 +21430,7 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
                 "spryker/testify": "*"
             },
             "type": "library",
@@ -21454,7 +21453,7 @@
                 "proprietary"
             ],
             "description": "Development module",
-            "time": "2018-08-31T09:01:53+00:00"
+            "time": "2018-09-03T13:13:49+00:00"
         },
         {
             "name": "spryker/testify",
