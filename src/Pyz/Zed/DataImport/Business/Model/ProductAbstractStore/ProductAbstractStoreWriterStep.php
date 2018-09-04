@@ -13,8 +13,6 @@ use Orm\Zed\Store\Persistence\SpyStoreQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-/**
- */
 class ProductAbstractStoreWriterStep implements DataImportStepInterface
 {
     const BULK_SIZE = 100;
