@@ -2439,7 +2439,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "cda73cdf55c16943521439fc864308111da327e7"
+                "reference": "ac65a197fb8701a5a91fdbc4b8a9775db3172f0e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2712,7 +2712,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-03T14:04:14+00:00"
+            "time": "2018-09-04T09:49:24+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6111,7 +6111,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7890,16 +7890,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.7.2",
+            "version": "4.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "d6d531b47b81fda400f11dab30008e12703e7fee"
+                "reference": "360ed8f9ce03afbf07fc67d198fe187fc2543c32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/d6d531b47b81fda400f11dab30008e12703e7fee",
-                "reference": "d6d531b47b81fda400f11dab30008e12703e7fee",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/360ed8f9ce03afbf07fc67d198fe187fc2543c32",
+                "reference": "360ed8f9ce03afbf07fc67d198fe187fc2543c32",
                 "shasum": ""
             },
             "require": {
@@ -7925,7 +7925,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-08-30T21:30:07+00:00"
+            "time": "2018-09-03T21:12:37+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
@@ -7968,7 +7968,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -8041,18 +8041,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "86c1c73b7635d3bc7e8f932ac9d24197f54bba59"
+                "reference": "c2638cde2e7886c876a9d6752875f5e2ced1a86d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/86c1c73b7635d3bc7e8f932ac9d24197f54bba59",
-                "reference": "86c1c73b7635d3bc7e8f932ac9d24197f54bba59",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/c2638cde2e7886c876a9d6752875f5e2ced1a86d",
+                "reference": "c2638cde2e7886c876a9d6752875f5e2ced1a86d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
-                "zendframework/zend-filter": "*"
+                "zendframework/zend-filter": "^2.8.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
@@ -8074,7 +8074,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-08-22T14:28:34+00:00"
+            "time": "2018-09-04T09:50:22+00:00"
         },
         {
             "name": "spryker/code-sniffer",
