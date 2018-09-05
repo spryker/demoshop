@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9742a6188986faefec3b0b4c7a45c19f",
+    "content-hash": "7dcc333e4f3f42a269e79520379348fe",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2435,11 +2435,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-3048-exception-in-yves-with-not-existing-order-id",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ac65a197fb8701a5a91fdbc4b8a9775db3172f0e"
+                "reference": "f68a86852a1ccfbc2bded9cdda7802015dfc5ab6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2712,7 +2712,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-04T09:49:24+00:00"
+            "time": "2018-09-05T14:49:18+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
