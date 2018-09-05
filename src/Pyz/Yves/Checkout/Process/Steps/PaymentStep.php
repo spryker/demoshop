@@ -106,7 +106,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return null|string
+     * @return string|null
      */
     protected function getPaymentSelectionWithFallback(QuoteTransfer $quoteTransfer)
     {
