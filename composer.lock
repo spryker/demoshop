@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9742a6188986faefec3b0b4c7a45c19f",
+    "content-hash": "9808627b4a285720eb8ce73e28641a0f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2435,11 +2435,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-2959/master-shopping-list-notes",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ac65a197fb8701a5a91fdbc4b8a9775db3172f0e"
+                "reference": "8726b472e925528a3589a969a6d26498e7366c35"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2712,7 +2712,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-04T09:49:24+00:00"
+            "time": "2018-09-06T15:13:55+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
