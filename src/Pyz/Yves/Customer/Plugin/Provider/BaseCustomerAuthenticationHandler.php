@@ -41,7 +41,7 @@ class BaseCustomerAuthenticationHandler extends AbstractPlugin
      * @param string $allowedHost
      * @param string $fallbackUrl
      *
-     * @return null|string
+     * @return string|null
      */
     protected function filterUrl($refererUrl, $allowedHost, $fallbackUrl)
     {

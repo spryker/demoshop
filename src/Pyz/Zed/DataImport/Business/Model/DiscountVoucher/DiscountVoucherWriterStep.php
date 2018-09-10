@@ -95,7 +95,7 @@ class DiscountVoucherWriterStep implements DataImportStepInterface
     /**
      * @param int $length
      * @param int $quantity
-     * @param null|string $customCode
+     * @param string|null $customCode
      *
      * @return array
      */

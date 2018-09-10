@@ -7,8 +7,6 @@
 
 namespace PyzTest\Zed\CmsGui\Presentation;
 
-;
-
 use PyzTest\Zed\CmsGui\CmsGuiPresentationTester;
 use PyzTest\Zed\CmsGui\PageObject\CmsListPage;
 

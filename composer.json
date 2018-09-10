@@ -9,6 +9,7 @@
     "spryker/event-behavior": "dev-master",
     "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
+    "spryker/uuid-behavior": "dev-master",
 
     "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
@@ -88,7 +89,6 @@
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
     "phpdocumentor/reflection-docblock": "^4.3",
-    "squizlabs/php_codesniffer": "~3.1.0",
     "phpstan/phpstan": "^0.10.2",
     "phpunit/phpunit": "<7.0.0"
   },
