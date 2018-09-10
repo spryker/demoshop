@@ -162,7 +162,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
     protected function getProductConcreteAfterUpdatePlugins(Container $container)
     {
         /** @var \Spryker\Zed\Product\Dependency\Plugin\ProductConcretePluginUpdateInterface[] $plugins */
-        $plugins =  [
+        $plugins = [
             new ImageSetProductConcreteAfterUpdatePlugin(),
             new StockProductConcreteAfterUpdatePlugin(),
             new PriceProductConcreteAfterUpdatePlugin(),

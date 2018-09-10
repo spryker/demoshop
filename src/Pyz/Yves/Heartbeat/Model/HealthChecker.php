@@ -8,7 +8,6 @@
 namespace Pyz\Yves\Heartbeat\Model;
 
 use Generated\Shared\Transfer\HealthReportTransfer;
-use Pyz\Yves\Heartbeat\Model\HealthIndicator\AbstractHealthIndicator;
 use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class HealthChecker
