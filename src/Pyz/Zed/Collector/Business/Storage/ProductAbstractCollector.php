@@ -303,6 +303,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function buildPath(SpyCategoryNode $node)
     {
+        /** @var array $pathTokens */
         $pathTokens = $this->categoryQueryContainer
             ->queryPath($node->getIdCategoryNode(), $this->locale->getIdLocale(), false, true)
             ->find();

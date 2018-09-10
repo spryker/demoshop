@@ -3,6 +3,14 @@ parameters:
         - %rootDir%/../../../src/Generated/*
         - %rootDir%/../../../src/Orm/*
 
+    ignoreErrors:
+        - '#Call to an undefined method .+Criteria::filterBy.+\(\)#'
+        - '#Call to an undefined method .+ModelCriteria::useSpyProductLocalizedAttributesQuery\(\)#'
+        - '#Call to an undefined method .+Criteria::orderByProductOrder\(\)#'
+        - '#Method .+TwigSettings::getTwigFunctions\(\) should return array<.+TwigFunctionPluginInterface> but returns array<int, .+>#'
+
+    reportUnmatchedIgnoredErrors: false
+
     bootstrap: %rootDir%/../../../phpstan-bootstrap.php
 
 services:

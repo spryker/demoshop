@@ -21,7 +21,7 @@ use Twig_Loader_Filesystem;
 class TwigServiceProvider extends SilexTwigServiceProvider
 {
     /**
-     * @var \Silex\Application|\Spryker\Yves\Kernel\Application
+     * @var \Spryker\Yves\Kernel\Application
      */
     private $app;
 
@@ -39,7 +39,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
     }
 
     /**
-     * @param \Silex\Application $app
+     * @param \Spryker\Yves\Kernel\Application $app
      *
      * @return void
      */

@@ -162,7 +162,7 @@ class CheckoutController extends AbstractController
     }
 
     /**
-     * @return \Spryker\Yves\StepEngine\Process\StepEngine
+     * @return \Spryker\Yves\StepEngine\Process\StepEngineInterface
      */
     protected function createStepProcess()
     {

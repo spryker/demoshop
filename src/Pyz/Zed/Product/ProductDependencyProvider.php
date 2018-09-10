@@ -160,7 +160,8 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
      */
     protected function getProductConcreteAfterUpdatePlugins(Container $container)
     {
-        return [
+        /** @var \Spryker\Zed\Product\Dependency\Plugin\ProductConcretePluginUpdateInterface[] $plugins */
+        $plugins =  [
             new ImageSetProductConcreteAfterUpdatePlugin(),
             new StockProductConcreteAfterUpdatePlugin(),
             new PriceProductConcreteAfterUpdatePlugin(),
@@ -169,5 +170,7 @@ class ProductDependencyProvider extends SprykerProductDependencyProvider
             new ProductValidityUpdatePlugin(),
             new SupplierProductConcreteAfterUpdatePlugin(),
         ];
+
+        return $plugins;
     }
 }
