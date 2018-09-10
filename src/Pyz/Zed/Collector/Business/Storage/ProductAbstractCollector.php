@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Everon\Component\Collection\Collection;
-
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductCategoryTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;

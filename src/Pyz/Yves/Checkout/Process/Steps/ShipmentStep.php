@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -135,7 +136,7 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     {
         $shipmentTransfer = (new ShipmentTransfer())
             ->setShipmentSelection(
-                (new ShipmentConfig)->getNoShipmentMethodName()
+                (new ShipmentConfig())->getNoShipmentMethodName()
             );
 
         return $quoteTransfer->setShipment($shipmentTransfer);

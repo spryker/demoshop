@@ -15,6 +15,7 @@ use Spryker\Yves\Application\Routing\Helper;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Twig_Environment;
 use Twig_Loader_Chain;
 use Twig_Loader_Filesystem;
 
@@ -161,7 +162,7 @@ class TwigServiceProvider extends SilexTwigServiceProvider
         $app['twig'] = $app->share(
             $app->extend(
                 'twig',
-                function (\Twig_Environment $twig) use ($app) {
+                function (Twig_Environment $twig) use ($app) {
                     if (class_exists('Symfony\Bridge\Twig\Extension\RoutingExtension')) {
                         if (isset($app['form.factory'])) {
                             $app['twig.loader']->addLoader(
