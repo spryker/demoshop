@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -58,7 +59,7 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
@@ -75,7 +76,7 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -135,7 +136,7 @@ class ShipmentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     {
         $shipmentTransfer = (new ShipmentTransfer())
             ->setShipmentSelection(
-                (new ShipmentConfig)->getNoShipmentMethodName()
+                (new ShipmentConfig())->getNoShipmentMethodName()
             );
 
         return $quoteTransfer->setShipment($shipmentTransfer);

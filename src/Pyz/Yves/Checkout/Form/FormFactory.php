@@ -49,7 +49,9 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\FormTypeInterface[]
+     * Stack of classes of type \Symfony\Component\Form\FormTypeInterface.
+     *
+     * @return string[]
      */
     protected function getShipmentFormTypes()
     {
@@ -83,7 +85,9 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\FormTypeInterface[]
+     * Stack of classes of type \Symfony\Component\Form\FormTypeInterface. Can also hold objects.
+     *
+     * @return string[]|\Symfony\Component\Form\FormTypeInterface[]
      */
     protected function getCustomerFormTypes()
     {
@@ -111,7 +115,9 @@ class FormFactory extends SprykerFormFactory
     }
 
     /**
-     * @return \Symfony\Component\Form\FormTypeInterface[]
+     * Stack of classes of type \Symfony\Component\Form\FormTypeInterface.
+     *
+     * @return string[]
      */
     protected function getAddressFormTypes()
     {
