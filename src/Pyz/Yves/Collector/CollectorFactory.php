@@ -18,13 +18,16 @@ class CollectorFactory extends AbstractFactory
      */
     public function getResourceCreators()
     {
-        return [
+        /** @var \Pyz\Yves\Collector\Creator\ResourceCreatorInterface[] $plugins */
+        $plugins = [
             $this->getProductResourceCreatorPlugin(),
             $this->getCategoryResourceCreatorPlugin(),
             $this->getRedirectResourceCreatorPlugin(),
             $this->getPageResourceCreatorPlugin(),
             $this->getProductSetResourceCreatorPlugin(),
         ];
+
+        return $plugins;
     }
 
     /**
