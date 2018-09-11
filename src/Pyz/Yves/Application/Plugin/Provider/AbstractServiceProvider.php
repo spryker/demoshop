@@ -10,6 +10,7 @@ namespace Pyz\Yves\Application\Plugin\Provider;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Twig_Environment;
 
 /**
  * @method \Pyz\Yves\Application\ApplicationFactory getFactory()
@@ -25,7 +26,7 @@ abstract class AbstractServiceProvider extends AbstractPlugin implements Service
     protected function addTwigExtension(Application $app, array $twigExtensions)
     {
         $app['twig'] = $app->share(
-            $app->extend('twig', function (\Twig_Environment $twig) use ($twigExtensions) {
+            $app->extend('twig', function (Twig_Environment $twig) use ($twigExtensions) {
                 foreach ($twigExtensions as $extension) {
                     $twig->addExtension($extension);
                 }

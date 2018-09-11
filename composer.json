@@ -367,6 +367,9 @@
     "post-update-cmd": [
       "PhantomInstaller\\Installer::installPhantomJS"
     ],
+    "phpstan": [
+      "php -d memory_limit=1024M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 3"
+    ],
     "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }
 }
