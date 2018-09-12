@@ -122,7 +122,7 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     /**
      * @param int $idProductAbstract
      *
-     * @return \Orm\Zed\Product\Persistence\SpyProduct[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return array
      */
     protected function getConcreteProducts($idProductAbstract)
     {

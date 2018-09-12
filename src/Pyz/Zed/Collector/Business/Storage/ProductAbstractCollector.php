@@ -231,6 +231,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     {
         foreach ($productCategory->getSpyCategory()->getNodes() as $node) {
             $queryPath = $this->categoryQueryContainer->queryPath($node->getIdCategoryNode(), $this->locale->getIdLocale());
+            /** @var array $pathTokens */
             $pathTokens = $queryPath->find();
 
             $productCategoryCollection = $this->generateCategoryData($pathTokens, $productCategoryCollection);
