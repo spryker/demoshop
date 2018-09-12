@@ -61,7 +61,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     /**
      * Require input for customer authentication if the customer is not logged in already, or haven't authenticated yet.
      *
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -162,7 +162,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -172,7 +172,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

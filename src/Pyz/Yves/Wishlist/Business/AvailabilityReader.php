@@ -25,7 +25,7 @@ class AvailabilityReader implements AvailabilityReaderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer[] $wishlistItemMetaTransferCollection
+     * @param \Generated\Shared\Transfer\WishlistItemMetaTransfer[]|\ArrayObject $wishlistItemMetaTransferCollection
      *
      * @return array
      */
