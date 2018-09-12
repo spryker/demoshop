@@ -71,7 +71,7 @@ class PlaceOfferStep extends PlaceOrderStep
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
     {
@@ -136,7 +136,7 @@ class PlaceOfferStep extends PlaceOrderStep
     protected function setOfferErrorMessages(OfferResponseTransfer $offerResponseTransfer): void
     {
         foreach ($offerResponseTransfer->getMessages() as $responseMessageTransfer) {
-            $this->flashMessenger->addErrorMessage($responseMessageTransfer->getMessage());
+            $this->flashMessenger->addErrorMessage($responseMessageTransfer->getText());
         }
     }
 
@@ -148,7 +148,7 @@ class PlaceOfferStep extends PlaceOrderStep
     protected function setOfferInfoMessages(OfferResponseTransfer $offerResponseTransfer): void
     {
         foreach ($offerResponseTransfer->getMessages() as $responseMessageTransfer) {
-            $this->flashMessenger->addInfoMessage($responseMessageTransfer->getMessage());
+            $this->flashMessenger->addInfoMessage($responseMessageTransfer->getText());
         }
     }
 }
