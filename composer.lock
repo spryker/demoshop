@@ -2277,17 +2277,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "052f6003f46ae95bc477ebb8f83316a8d3b08047"
+                "reference": "77ecbf38ef59ca1b921e454152ae0147ef324989"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/052f6003f46ae95bc477ebb8f83316a8d3b08047",
-                "reference": "052f6003f46ae95bc477ebb8f83316a8d3b08047",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/77ecbf38ef59ca1b921e454152ae0147ef324989",
+                "reference": "77ecbf38ef59ca1b921e454152ae0147ef324989",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/error-handler": "^2.1.2",
                 "spryker/event": "^2.1.0",
                 "spryker/kernel": "^3.20.0",
                 "spryker/propel-orm": "^1.6.0",
@@ -2296,6 +2295,8 @@
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
+                "spryker/availability-storage": "*",
+                "spryker/category-storage": "*",
                 "spryker/code-sniffer": "*",
                 "spryker/config": "^3.1.0",
                 "spryker/console": "^3.1.0 || ^4.0.0",
@@ -2305,8 +2306,7 @@
             },
             "suggest": {
                 "spryker/console": "*",
-                "spryker/silex": "^2.0.0",
-                "spryker/symfony": "^3.0.0"
+                "spryker/silex": "^2.0.0"
             },
             "type": "propel-behavior",
             "extra": {
@@ -2329,7 +2329,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-09-10T15:10:33+00:00"
+            "time": "2018-09-11T15:49:17+00:00"
         },
         {
             "name": "spryker/install",
@@ -2440,7 +2440,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "dd22821712e04219541bec54b69c4a04b552efe2"
+                "reference": "add96ef21205d029e12209671fceecdede2d927a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-11T13:25:18+00:00"
+            "time": "2018-09-12T17:23:32+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2721,28 +2721,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "311673c36059437158eca999783698b93eddf547"
+                "reference": "06edc061c3b4fb1ccc0057a55e65569f3c26eeee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/311673c36059437158eca999783698b93eddf547",
-                "reference": "311673c36059437158eca999783698b93eddf547",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/06edc061c3b4fb1ccc0057a55e65569f3c26eeee",
+                "reference": "06edc061c3b4fb1ccc0057a55e65569f3c26eeee",
                 "shasum": ""
             },
             "require": {
                 "spryker/kernel": "^3.20.0",
                 "spryker/propel-orm": "^1.6.0",
+                "spryker/queue": "^1.1.0",
+                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0",
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/queue": "^1.1.0",
-                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0",
                 "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/queue": "Generated classes are using spryker/queue module.",
-                "spryker/synchronization": "Generated classes are using spryker/synchronization module."
             },
             "type": "propel-behavior",
             "extra": {
@@ -2765,7 +2761,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-09-03T08:13:05+00:00"
+            "time": "2018-09-11T22:10:58+00:00"
         },
         {
             "name": "spryker/uuid-behavior",
@@ -2773,12 +2769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/uuid-behavior.git",
-                "reference": "4cfe7577db908fbee334c9a1cf8f7b2476414b11"
+                "reference": "4a6df8b3520b749123e7757b8f2f3f1d3fd9b917"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/uuid-behavior/zipball/4cfe7577db908fbee334c9a1cf8f7b2476414b11",
-                "reference": "4cfe7577db908fbee334c9a1cf8f7b2476414b11",
+                "url": "https://api.github.com/repos/spryker/uuid-behavior/zipball/4a6df8b3520b749123e7757b8f2f3f1d3fd9b917",
+                "reference": "4a6df8b3520b749123e7757b8f2f3f1d3fd9b917",
                 "shasum": ""
             },
             "require": {
@@ -2790,6 +2786,7 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
                 "spryker/testify": "*"
             },
             "type": "propel-behavior",
@@ -2810,7 +2807,7 @@
                 "proprietary"
             ],
             "description": "UuidBehavior module",
-            "time": "2018-08-20T13:01:35+00:00"
+            "time": "2018-09-11T22:10:18+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
