@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a29133d87b2b50e1b27099b67872ef30",
+    "content-hash": "9742a6188986faefec3b0b4c7a45c19f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2436,11 +2436,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/core-4977-transfer-collections",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "38e297a58f9786a88ab2562dadc2663ea75a8553"
+                "reference": "874ac5c1064885d2483bed0fca622861ec6ebc39"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-11T15:45:50+00:00"
+            "time": "2018-09-12T09:43:33+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2721,28 +2721,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "e01ae8632776b131bcbb3b6b99682c327b146e32"
+                "reference": "06edc061c3b4fb1ccc0057a55e65569f3c26eeee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/e01ae8632776b131bcbb3b6b99682c327b146e32",
-                "reference": "e01ae8632776b131bcbb3b6b99682c327b146e32",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/06edc061c3b4fb1ccc0057a55e65569f3c26eeee",
+                "reference": "06edc061c3b4fb1ccc0057a55e65569f3c26eeee",
                 "shasum": ""
             },
             "require": {
                 "spryker/kernel": "^3.20.0",
                 "spryker/propel-orm": "^1.6.0",
+                "spryker/queue": "^1.1.0",
+                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0",
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
-                "spryker/queue": "^1.1.0",
-                "spryker/synchronization": "^0.1.0 || ^0.2.0 || ^1.0.0",
                 "spryker/testify": "*"
-            },
-            "suggest": {
-                "spryker/queue": "Generated classes are using spryker/queue module.",
-                "spryker/synchronization": "Generated classes are using spryker/synchronization module."
             },
             "type": "propel-behavior",
             "extra": {
@@ -2765,7 +2761,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-09-11T15:32:22+00:00"
+            "time": "2018-09-11T22:10:58+00:00"
         },
         {
             "name": "spryker/uuid-behavior",
@@ -2773,12 +2769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/uuid-behavior.git",
-                "reference": "f56d3f47f9c2875304e10c83692b7a34cbd0e47a"
+                "reference": "4a6df8b3520b749123e7757b8f2f3f1d3fd9b917"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/uuid-behavior/zipball/f56d3f47f9c2875304e10c83692b7a34cbd0e47a",
-                "reference": "f56d3f47f9c2875304e10c83692b7a34cbd0e47a",
+                "url": "https://api.github.com/repos/spryker/uuid-behavior/zipball/4a6df8b3520b749123e7757b8f2f3f1d3fd9b917",
+                "reference": "4a6df8b3520b749123e7757b8f2f3f1d3fd9b917",
                 "shasum": ""
             },
             "require": {
@@ -2790,6 +2786,7 @@
             },
             "require-dev": {
                 "spryker/code-sniffer": "*",
+                "spryker/propel": "*",
                 "spryker/testify": "*"
             },
             "type": "propel-behavior",
@@ -2810,7 +2807,7 @@
                 "proprietary"
             ],
             "description": "UuidBehavior module",
-            "time": "2018-09-11T15:32:22+00:00"
+            "time": "2018-09-11T22:10:18+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
