@@ -21,12 +21,12 @@ class ProductCategoryExpander implements ProductPageMapExpanderInterface
     const RESULT_FIELD_PRODUCT_ORDER = 'product_order';
 
     /**
-     * @var array
+     * @var array|null
      */
     protected static $categoryTree;
 
     /**
-     * @var string
+     * @var string[]|null
      */
     protected static $categoryName;
 
@@ -124,6 +124,7 @@ class ProductCategoryExpander implements ProductPageMapExpanderInterface
             ->find();
 
         foreach ($categoryNodes as $categoryNodeEntity) {
+            /** @var array $pathData */
             $pathData = $this->categoryQueryContainer
                 ->queryPath($categoryNodeEntity->getIdCategoryNode(), $localeTransfer->getIdLocale(), false)
                 ->find();
@@ -192,6 +193,7 @@ class ProductCategoryExpander implements ProductPageMapExpanderInterface
     {
         static::$categoryName = [];
 
+        /** @var \Orm\Zed\Category\Persistence\SpyCategoryAttribute[] $categoryAttributes */
         $categoryAttributes = $this
             ->categoryQueryContainer
             ->queryCategoryAttributesByLocale($localeTransfer)

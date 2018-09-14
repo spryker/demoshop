@@ -14,7 +14,6 @@ use Spryker\Shared\Config\Config;
 use Spryker\Shared\Config\Environment;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
-
 use Spryker\Yves\Kernel\ControllerResolver\YvesFragmentControllerResolver;
 use Spryker\Yves\Kernel\Plugin\Pimple;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,12 +24,12 @@ class ApplicationServiceProvider extends AbstractServiceProvider
     const REQUEST_URI = 'REQUEST_URI';
 
     /**
-     * @var \Silex\Application
+     * @var \Spryker\Shared\Kernel\Communication\Application
      */
     private $application;
 
     /**
-     * @param \Silex\Application $app
+     * @param \Spryker\Shared\Kernel\Communication\Application $app
      *
      * @return void
      */

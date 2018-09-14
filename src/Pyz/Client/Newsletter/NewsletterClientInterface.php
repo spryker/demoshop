@@ -33,7 +33,7 @@ interface NewsletterClientInterface extends SprykerNewsletterClientInterface
      * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param string|null $subscriberKey
      *
-     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResultTransfer
+     * @return \Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer
      */
     public function unsubscribeFromAllNewsletters(CustomerTransfer $customerTransfer, $subscriberKey = null);
 

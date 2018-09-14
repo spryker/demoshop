@@ -32,6 +32,7 @@ class StateMachineExampleItemReader
      */
     public function getStateMachineItemTransferByItemStateIds(array $stateIds = [])
     {
+        /** @var \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItem[] $stateMachineExampleItems */
         $stateMachineExampleItems = $this->stateMachineExampleQueryContainer
             ->queryStateMachineItemsByStateIds($stateIds)
             ->find();
@@ -51,7 +52,7 @@ class StateMachineExampleItemReader
     }
 
     /**
-     * @param \Propel\Runtime\Collection\ObjectCollection[]|\Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItem[] $stateMachineExampleItems
+     * @param \Propel\Runtime\Collection\ObjectCollection|\Orm\Zed\StateMachineExample\Persistence\PyzStateMachineExampleItem[] $stateMachineExampleItems
      *
      * @return \Generated\Shared\Transfer\StateMachineItemTransfer[]
      */

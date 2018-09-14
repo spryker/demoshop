@@ -9,6 +9,9 @@ namespace Pyz\Client\ProductSale;
 
 use Spryker\Client\Kernel\AbstractFactory;
 
+/**
+ * @method \Pyz\Client\ProductSale\ProductSaleConfig getConfig()
+ */
 class ProductSaleFactory extends AbstractFactory
 {
     /**
@@ -41,14 +44,6 @@ class ProductSaleFactory extends AbstractFactory
     public function getStore()
     {
         return $this->getProvidedDependency(ProductSaleDependencyProvider::STORE);
-    }
-
-    /**
-     * @return \Spryker\Client\Kernel\AbstractBundleConfig|\Pyz\Client\ProductSale\ProductSaleConfig
-     */
-    public function getConfig()
-    {
-        return parent::getConfig();
     }
 
     /**

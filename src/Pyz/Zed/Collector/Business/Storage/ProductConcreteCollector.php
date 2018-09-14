@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
-
 use Generated\Shared\Transfer\StorageProductImageTransfer;
 use Generated\Shared\Transfer\StorageProductTransfer;
 use Orm\Zed\Product\Persistence\SpyProductAttributeKeyQuery;

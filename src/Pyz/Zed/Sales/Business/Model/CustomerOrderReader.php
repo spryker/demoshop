@@ -80,6 +80,7 @@ class CustomerOrderReader extends SprykerCustomerOrderReader
 
         $orderListTransfer->setPagination($paginationTransfer);
 
+        /** @var \Orm\Zed\Sales\Persistence\SpySalesOrder[]|\Propel\Runtime\Collection\ObjectCollection $orderEntities */
         $orderEntities = $paginationModel->getResults();
 
         return $orderEntities;
