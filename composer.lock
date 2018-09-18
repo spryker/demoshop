@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0596df67771c9244cb408b4a424ca84",
+    "content-hash": "15eccf705645176823334437fe5fe0ea",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1804,7 +1804,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2436,11 +2436,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-3087/dev-shopping-list-widget",
+            "version": "dev-feature/ps-3087/master-shopping-list-widget",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "327afae2bd600371d0e5f3c8fb0a593b23e833e4"
+                "reference": "66f21cf99ffc4683defea55f919efa9eff69a3a1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-13T09:42:31+00:00"
+            "time": "2018-09-18T11:45:38+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7966,7 +7966,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],

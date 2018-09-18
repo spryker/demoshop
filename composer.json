@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/ps-3087/dev-shopping-list-widget",
+    "spryker/spryker": "dev-feature/ps-3087/master-shopping-list-widget",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
