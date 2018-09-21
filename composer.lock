@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9808627b4a285720eb8ce73e28641a0f",
+    "content-hash": "22a88eaeee4c77fafa592d40c012ae64",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2224,6 +2224,7 @@
             "keywords": [
                 "microframework"
             ],
+            "abandoned": "symfony/flex",
             "time": "2017-04-30T16:26:54+00:00"
         },
         {
@@ -2435,11 +2436,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-2959/master-shopping-list-notes",
+            "version": "dev-feature/ps-2959/dev-shopping-list-notes",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8726b472e925528a3589a969a6d26498e7366c35"
+                "reference": "01f378221aa28396450d09c9c34fb1ec8156f084"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2712,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-06T15:13:55+00:00"
+            "time": "2018-09-17T09:04:05+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7839,6 +7840,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
+            "abandoned": true,
             "time": "2016-05-04T16:32:42+00:00"
         },
         {
