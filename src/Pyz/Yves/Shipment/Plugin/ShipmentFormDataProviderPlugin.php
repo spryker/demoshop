@@ -17,26 +17,26 @@ use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 class ShipmentFormDataProviderPlugin extends AbstractPlugin implements StepEngineFormDataProviderInterface
 {
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function getData(AbstractTransfer $dataTransfer)
+    public function getData(AbstractTransfer $quoteTransfer)
     {
         return $this->getFactory()
             ->createShipmentDataProvider()
-            ->getData($dataTransfer);
+            ->getData($quoteTransfer);
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return array
      */
-    public function getOptions(AbstractTransfer $dataTransfer)
+    public function getOptions(AbstractTransfer $quoteTransfer)
     {
         return $this->getFactory()
             ->createShipmentDataProvider()
-            ->getOptions($dataTransfer);
+            ->getOptions($quoteTransfer);
     }
 }

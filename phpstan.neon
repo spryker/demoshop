@@ -8,6 +8,7 @@ parameters:
         - '#Call to an undefined method .+ModelCriteria::useSpyProductLocalizedAttributesQuery\(\)#'
         - '#Call to an undefined method .+Criteria::orderByProductOrder\(\)#'
         - '#Method .+TwigSettings::getTwigFunctions\(\) should return array<.+TwigFunctionPluginInterface> but returns array<int, .+>#'
+        - '#Casting to .+ something that.+s already .+\.#'
 
     reportUnmatchedIgnoredErrors: false
 
