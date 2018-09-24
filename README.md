@@ -4,6 +4,10 @@
 
 License: [MIT](LICENSE)
 
+
+**DEPRECATED** Use [Spryker suite](https://github.com/spryker-shop/suite) instead now.
+
+
 ## Installation
 In order to install Spryker Demoshop on your machine, you can follow the instructions described in the link below :
 
