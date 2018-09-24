@@ -5,7 +5,7 @@
 License: [MIT](LICENSE)
 
 
-**DEPRECATED** Use [Spryker suite](https://github.com/spryker-shop/suite) instead now.
+**DEPRECATED** Use [Spryker Master-Suite](https://github.com/spryker-shop/suite) instead now.
 
 
 ## Installation
