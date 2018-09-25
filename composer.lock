@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9742a6188986faefec3b0b4c7a45c19f",
+    "content-hash": "fd7130124a3e36f07aefb43c317ecd16",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2377,16 +2377,16 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "dev-master",
+            "version": "dev-bugfix/cc-880-demoshop-flickery-tests",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "86b75a2ad2e879fac9af7b73569e8fd380fa74bb"
+                "reference": "4d3968dea5ffc35c3d576c0c6ac5b0ab28b4bfce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/86b75a2ad2e879fac9af7b73569e8fd380fa74bb",
-                "reference": "86b75a2ad2e879fac9af7b73569e8fd380fa74bb",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/4d3968dea5ffc35c3d576c0c6ac5b0ab28b4bfce",
+                "reference": "4d3968dea5ffc35c3d576c0c6ac5b0ab28b4bfce",
                 "shasum": ""
             },
             "require": {
@@ -2432,7 +2432,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-08-09T12:54:53+00:00"
+            "time": "2018-09-25T07:17:43+00:00"
         },
         {
             "name": "spryker/spryker",

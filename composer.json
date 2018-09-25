@@ -5,7 +5,7 @@
   "require": {
     "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master",
-    "spryker/rabbit-mq": "dev-master",
+    "spryker/rabbit-mq": "dev-bugfix/cc-880-demoshop-flickery-tests",
     "spryker/event-behavior": "dev-master",
     "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
