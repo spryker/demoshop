@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9742a6188986faefec3b0b4c7a45c19f",
+    "content-hash": "bf1b068ece14ff9ed3a2e3120f85638e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2436,11 +2436,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/cc-115-enable-new-tls-support-for-spryker-mail",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1fbf088efdd81204498e59fe81267283f93c1a82"
+                "reference": "d0b51384f6687c60f9cf71eabf3f9636089cda82"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-25T11:00:09+00:00"
+            "time": "2018-09-25T13:51:36+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
