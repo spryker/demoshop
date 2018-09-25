@@ -182,6 +182,7 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
         if (!$quantity || $quantity <= 0) {
             $quantity = 1;
         }
+
         return $quantity;
     }
 
@@ -199,12 +200,11 @@ class CartOperationHandler extends BaseHandler implements CartOperationInterface
         $productConcreteAvailabilityTransfer = $this->availabilityClient
             ->findProductConcreteAvailability($productAvailabilityRequestTransfer);
 
-        if ($productConcreteAvailabilityTransfer->getIsNeverOutOfStock()) {
-            return $quantity;
-        }
-
-        if ($quantity > $productConcreteAvailabilityTransfer->getAvailability()) {
+        if ($quantity > $productConcreteAvailabilityTransfer->getAvailability()
+            && $productConcreteAvailabilityTransfer->getAvailability() !== 0
+        ) {
             $this->flashMessenger->addInfoMessage(static::TRANSLATION_KEY_QUANTITY_ADJUSTED);
+
             return $productConcreteAvailabilityTransfer->getAvailability();
         }
 
