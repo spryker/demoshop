@@ -44,7 +44,7 @@
     "symfony/twig-bridge": "^2.7.0 || ^3.0.0",
     "symfony/validator": "^2.6.13 || ^3.0.0",
     "symfony/yaml": "^2.6.13 || ^3.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5",
+    "swiftmailer/swiftmailer": "^6.1",
     "twig/twig": "^1.30.0",
     "zendframework/zend-config": "^3.1.0",
     "zendframework/zend-filter": "^2.5.1",
