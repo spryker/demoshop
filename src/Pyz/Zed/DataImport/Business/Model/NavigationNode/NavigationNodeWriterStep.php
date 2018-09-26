@@ -57,7 +57,7 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
 
         $navigationNodeEntity
             ->setPosition($this->getPosition($navigationNodeEntity, $dataSet))
-            ->setIsActive($this->getIsActive($navigationNodeEntity, $dataSet))
+            ->setIsActive($this->isActive($navigationNodeEntity, $dataSet))
             ->setNodeType($this->getNodeType($navigationNodeEntity, $dataSet));
 
         if ($dataSet[static::KEY_VALID_FROM] !== "") {
@@ -145,9 +145,9 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      * @param \Orm\Zed\Navigation\Persistence\SpyNavigationNode $navigationNodeEntity
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
-     * @return int
+     * @return bool
      */
-    protected function getIsActive(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
+    protected function isActive(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
         if (isset($dataSet[static::KEY_IS_ACTIVE]) && !empty($dataSet[static::KEY_IS_ACTIVE])) {
             return (bool)$dataSet[static::KEY_IS_ACTIVE];

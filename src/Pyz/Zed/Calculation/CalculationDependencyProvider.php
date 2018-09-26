@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -177,7 +178,8 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
      */
     protected function getQuoteCalculatorPluginStack(Container $container)
     {
-        return [
+        /** @var \Spryker\Zed\Calculation\Dependency\Plugin\CalculationPluginInterface[] $plugins */
+        $plugins = [
             new RemoveTotalsCalculatorPlugin(),
             new RemoveAllCalculatedDiscountsCalculatorPlugin(),
             new RemovePromotionItemsCalculatorPlugin(),
@@ -220,6 +222,8 @@ class CalculationDependencyProvider extends SprykerCalculationDependencyProvider
             new NetTotalCalculatorPlugin(),
             new PaymentCalculatorPlugin(),
         ];
+
+        return $plugins;
     }
 
     /**

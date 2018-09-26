@@ -61,7 +61,7 @@ class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterfa
      * @param \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepositoryInterface $categoryRepository
      * @param \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface $productRepository
      * @param \Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface $touchFacade
-     * @param null|int $bulkSize
+     * @param int|null $bulkSize
      */
     public function __construct(
         CategoryRepositoryInterface $categoryRepository,

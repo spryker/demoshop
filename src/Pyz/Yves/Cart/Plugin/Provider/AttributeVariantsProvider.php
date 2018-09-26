@@ -26,8 +26,6 @@ class AttributeVariantsProvider
     protected $cartItemHandler;
 
     /**
-     * CartItemsAttributeProvider constructor.
-     *
      * @param \Spryker\Yves\CartVariant\Dependency\Plugin\CartVariantAttributeMapperPluginInterface $cartVariantAttributeMapperPlugin
      * @param \Pyz\Yves\Cart\Handler\CartItemHandlerInterface $cartItemHandler
      */
@@ -74,6 +72,7 @@ class AttributeVariantsProvider
             $this->cartItemHandler->replaceCartItem($sku, $storageProductTransfer, $quantity, $groupKey, $optionValueIds);
             return true;
         }
+
         return false;
     }
 
@@ -86,7 +85,9 @@ class AttributeVariantsProvider
     public function formatUpdateActionResponse($sku, array $selectedAttributes)
     {
         return [
-            StorageProductTransfer::SELECTED_ATTRIBUTES => [$sku => $this->arrayRemoveEmpty($selectedAttributes)],
+            StorageProductTransfer::SELECTED_ATTRIBUTES => [
+                $sku => $this->arrayRemoveEmpty($selectedAttributes),
+            ],
         ];
     }
 

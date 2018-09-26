@@ -23,8 +23,6 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
-/**
- */
 class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
     const BULK_SIZE = 100;
