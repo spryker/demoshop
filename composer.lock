@@ -2440,7 +2440,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3ae1b065bfdf882008d4b1efcd5c8f7317f2c510"
+                "reference": "70a6f188a650f3e1882b0e50202723af3615d168"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-25T12:59:53+00:00"
+            "time": "2018-09-26T08:19:57+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7837,6 +7837,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
+            "abandoned": true,
             "time": "2016-05-04T16:32:42+00:00"
         },
         {
