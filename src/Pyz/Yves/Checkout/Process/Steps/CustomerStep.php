@@ -61,7 +61,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     /**
      * Require input for customer authentication if the customer is not logged in already, or haven't authenticated yet.
      *
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -78,9 +78,9 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
      * Update QuoteTransfer with customer step handler plugin.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer|\Spryker\Shared\Kernel\Transfer\AbstractTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
@@ -92,7 +92,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
      * If the CustomerTransfer is guest and the customer is logged in, then we override the guest customer with the
      * logged in customer, e.g. return false and execute() will do the rest.
      *
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -162,7 +162,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -172,7 +172,7 @@ class CustomerStep extends AbstractBaseStep implements StepWithBreadcrumbInterfa
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */

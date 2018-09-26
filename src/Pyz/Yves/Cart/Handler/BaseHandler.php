@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -25,7 +26,7 @@ class BaseHandler
     }
 
     /**
-     * @param \Spryker\Client\Cart\CartClient|\Spryker\Client\Kernel\AbstractClient|\Spryker\Client\Cart\CartClientInterface $client
+     * @param \Spryker\Client\Cart\CartClient $client
      *
      * @return void
      */

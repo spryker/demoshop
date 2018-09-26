@@ -90,9 +90,12 @@ class CartItemHandler extends BaseHandler implements CartItemHandlerInterface
     ) {
         $newItemSku = $storageProductTransfer->getSku();
         $this->cartOperationHandler->add($newItemSku, $quantity, $optionValueIds);
-        $this->setFlashMessagesFromLastZedRequest($this->cartClient);
 
-        if (count($this->cartClient->getZedStub()->getErrorMessages()) === 0) {
+        /** @var \Spryker\Client\Cart\CartClient $client */
+        $client = $this->cartClient;
+        $this->setFlashMessagesFromLastZedRequest($client);
+
+        if (count($client->getZedStub()->getErrorMessages()) === 0) {
             $this->cartOperationHandler->remove($currentItemSku, $groupKey);
         }
     }
