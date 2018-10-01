@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd7130124a3e36f07aefb43c317ecd16",
+    "content-hash": "9742a6188986faefec3b0b4c7a45c19f",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2377,16 +2377,16 @@
         },
         {
             "name": "spryker/rabbit-mq",
-            "version": "dev-bugfix/cc-880-demoshop-flickery-tests",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "4d3968dea5ffc35c3d576c0c6ac5b0ab28b4bfce"
+                "reference": "b24bbd32f48bce7e7ea266a863ffb539e842c533"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/4d3968dea5ffc35c3d576c0c6ac5b0ab28b4bfce",
-                "reference": "4d3968dea5ffc35c3d576c0c6ac5b0ab28b4bfce",        
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/b24bbd32f48bce7e7ea266a863ffb539e842c533",
+                "reference": "b24bbd32f48bce7e7ea266a863ffb539e842c533",
                 "shasum": ""
             },
             "require": {
@@ -2432,7 +2432,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-09-24T13:36:50+00:00"
+            "time": "2018-10-01T17:06:49+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2440,7 +2440,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "65f8269aec46c57a529423e46dd6a7feae34c206"
+                "reference": "dac96a4d6e78d0ded64fc443db8a4d44e81feea3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2713,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-01T12:58:29+00:00"
+            "time": "2018-10-01T14:10:26+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6109,7 +6109,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7967,7 +7967,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
