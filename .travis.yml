@@ -124,7 +124,7 @@ script:
 
   - vendor/bin/phantomjs --webdriver=4444 &
 
-  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -vvv -x Presentation ; fi
+  - if [[ $TEST_GROUP == 'without-acceptance' ]]; then vendor/bin/codecept run -x Presentation ; fi
   - if [[ $TEST_GROUP == 'acceptance' ]]; then vendor/bin/codecept run -g Presentation ; fi
 
 notifications:
