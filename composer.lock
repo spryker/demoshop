@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9742a6188986faefec3b0b4c7a45c19f",
+    "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -194,6 +194,73 @@
                 "symmetric key cryptography"
             ],
             "time": "2018-07-24T23:27:56+00:00"
+        },
+        {
+            "name": "doctrine/inflector",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/inflector.git",
+                "reference": "5527a48b7313d15261292c149e55e26eae771b0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/5527a48b7313d15261292c149e55e26eae771b0a",
+                "reference": "5527a48b7313d15261292c149e55e26eae771b0a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common String Manipulations with regard to casing and singular/plural rules.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string"
+            ],
+            "time": "2018-01-09T20:05:19+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -2381,12 +2448,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "fcb29aa7adb354ae0cad3718a2e3d7585126906a"
+                "reference": "b24bbd32f48bce7e7ea266a863ffb539e842c533"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/fcb29aa7adb354ae0cad3718a2e3d7585126906a",
-                "reference": "fcb29aa7adb354ae0cad3718a2e3d7585126906a",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/b24bbd32f48bce7e7ea266a863ffb539e842c533",
+                "reference": "b24bbd32f48bce7e7ea266a863ffb539e842c533",
                 "shasum": ""
             },
             "require": {
@@ -2432,7 +2499,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-09-24T13:36:50+00:00"
+            "time": "2018-10-01T17:06:49+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2440,7 +2507,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "68dce7bab98b8938413b24a6575e6c96191786e9"
+                "reference": "1262d0d8a59aae393544bfce5481f4751c728175"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2713,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-09-28T14:59:47+00:00"
+            "time": "2018-10-02T06:35:14+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6109,7 +6176,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7837,7 +7904,6 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "abandoned": true,
             "time": "2016-05-04T16:32:42+00:00"
         },
         {
@@ -7967,7 +8033,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
