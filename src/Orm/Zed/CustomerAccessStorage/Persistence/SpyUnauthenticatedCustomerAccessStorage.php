@@ -7,7 +7,7 @@
 
 namespace Orm\Zed\CustomerAccessStorage\Persistence;
 
-use Orm\Zed\CustomerAccessStorage\Persistence\Base\SpyUnauthenticatedCustomerAccessStorage as BaseSpyUnauthenticatedCustomerAccessStorage;
+use Spryker\Zed\CustomerAccessStorage\Persistence\Propel\AbstractSpyUnauthenticatedCustomerAccessStorage;
 
 /**
  * Skeleton subclass for representing a row from the 'spy_unauthenticated_customer_access_storage' table.
@@ -18,6 +18,6 @@ use Orm\Zed\CustomerAccessStorage\Persistence\Base\SpyUnauthenticatedCustomerAcc
  * application requirements. This class will only be generated as
  * long as it does not already exist in the output directory.
  */
-class SpyUnauthenticatedCustomerAccessStorage extends BaseSpyUnauthenticatedCustomerAccessStorage
+class SpyUnauthenticatedCustomerAccessStorage extends AbstractSpyUnauthenticatedCustomerAccessStorage
 {
 }
