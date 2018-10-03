@@ -215,7 +215,7 @@ class AddressController extends AbstractCustomerController
     }
 
     /**
-     * @param CustomerTransfer $customerTransfer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      * @param array $addressData
      *
      * @return \Generated\Shared\Transfer\CustomerTransfer
