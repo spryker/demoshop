@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6bd0272221a38edef15c9e65eb497b9f",
+    "content-hash": "103917361b0e3a7e0c98db9f20dea5f5",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2448,12 +2448,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "b24bbd32f48bce7e7ea266a863ffb539e842c533"
+                "reference": "5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/b24bbd32f48bce7e7ea266a863ffb539e842c533",
-                "reference": "b24bbd32f48bce7e7ea266a863ffb539e842c533",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49",
+                "reference": "5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49",
                 "shasum": ""
             },
             "require": {
@@ -2499,7 +2499,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-10-01T17:06:49+00:00"
+            "time": "2018-10-02T06:33:11+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2507,7 +2507,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "345b4400794cda8216c40b07879bb8736398bce6"
+                "reference": "7869a0acbf305e9608d03efc36824986f6406b9e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-01T12:28:54+00:00"
+            "time": "2018-10-03T09:40:06+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7909,6 +7909,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
+            "abandoned": true,
             "time": "2016-05-04T16:32:42+00:00"
         },
         {
