@@ -38,7 +38,6 @@ class AddressForm extends AbstractType
     const FIELD_IS_DEFAULT_SHIPPING = 'is_default_shipping';
     const FIELD_IS_DEFAULT_BILLING = 'is_default_billing';
     const FIELD_ID_CUSTOMER_ADDRESS = 'id_customer_address';
-    const FIELD_FK_CUSTOMER = 'fk_customer';
 
     const OPTION_COUNTRY_CHOICES = 'country_choices';
 
@@ -82,8 +81,7 @@ class AddressForm extends AbstractType
             ->addPhoneField($builder, $options)
             ->addIsDefaultShippingField($builder, $options)
             ->addIsDefaultBillingField($builder, $options)
-            ->addIdCustomerAddressField($builder, $options)
-            ->addFkCustomerField($builder, $options);
+            ->addIdCustomerAddressField($builder, $options);
     }
 
     /**
@@ -340,19 +338,6 @@ class AddressForm extends AbstractType
     protected function addIdCustomerAddressField(FormBuilderInterface $builder, array $options)
     {
         $builder->add(self::FIELD_ID_CUSTOMER_ADDRESS, HiddenType::class);
-
-        return $this;
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param array $options
-     *
-     * @return $this
-     */
-    protected function addFkCustomerField(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add(self::FIELD_FK_CUSTOMER, HiddenType::class);
 
         return $this;
     }
