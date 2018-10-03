@@ -6,6 +6,13 @@ env:
     - APPLICATION_STORE=DE
     - PROJECT=demoshop
 
+branches:
+  only:
+  - master
+  - /feature\/[a-z]+-\d+\/(master|dev).+/
+  - /(bugfix|hotfix)\/[a-z]+-\d+.+/
+  - /beta\/.+/
+
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
   fast_finish: true
