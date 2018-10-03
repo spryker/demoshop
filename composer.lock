@@ -2381,12 +2381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "fcb29aa7adb354ae0cad3718a2e3d7585126906a"
+                "reference": "5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/fcb29aa7adb354ae0cad3718a2e3d7585126906a",
-                "reference": "fcb29aa7adb354ae0cad3718a2e3d7585126906a",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49",
+                "reference": "5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49",
                 "shasum": ""
             },
             "require": {
@@ -2432,7 +2432,7 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-09-24T13:36:50+00:00"
+            "time": "2018-10-02T06:33:11+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -7894,16 +7894,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.8.3",
+            "version": "4.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "32e1ca205fc34920f323582ed29c0602e3897ae3"
+                "reference": "bc8a02f25e03eb5481c4976cc615621cdd75aef9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/32e1ca205fc34920f323582ed29c0602e3897ae3",
-                "reference": "32e1ca205fc34920f323582ed29c0602e3897ae3",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/bc8a02f25e03eb5481c4976cc615621cdd75aef9",
+                "reference": "bc8a02f25e03eb5481c4976cc615621cdd75aef9",
                 "shasum": ""
             },
             "require": {
@@ -7929,7 +7929,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-09-25T21:21:11+00:00"
+            "time": "2018-10-01T20:16:49+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
