@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <hello-spryker>
+        <label>Hello Spryker</label>
+        <title>Hello Spryker</title>
+        <bundle>hello-spryker</bundle>
+        <pages>
+            <hello-spryker>
+                <label>Demo</label>
+                <title>Demo</title>
+                <bundle>hello-spryker</bundle>
+                <controller>hello-spryker</controller>
+                <action>index</action>
+                <visible>1</visible>
+            </hello-spryker>
+        </pages>
+    </hello-spryker>
+</config>

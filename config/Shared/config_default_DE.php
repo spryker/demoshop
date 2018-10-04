@@ -1,5 +1,6 @@
 <?php
 
+use Pyz\Shared\HelloSpryker\HelloSprykerConstants;
 use Pyz\Shared\Newsletter\NewsletterConstants;
 use Spryker\Shared\Application\ApplicationConstants;
 use Spryker\Shared\Customer\CustomerConstants;
@@ -63,3 +64,5 @@ $config[EventConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/a
 
 // ---------- Glue host
 $config[GlueApplicationConstants::GLUE_APPLICATION_DOMAIN] = sprintf('http://glue.de.%s.local', $domain);
+
+$config[HelloSprykerConstants::HELLO_SPRYKER] = 'Hello Spryker!';
