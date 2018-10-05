@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
+    "content-hash": "5fb3802cda317edcf788dc66bc2f3d6c",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/cc-1043-exception-on-sale-page-when-sale-label-is-deactivated",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "98e452d988f556aaa8bc84361e249d267a64b2ee"
+                "reference": "82d268a8bddf022f55efbd722996d2f87749c12d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-04T19:43:28+00:00"
+            "time": "2018-10-04T15:21:15+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8034,7 +8034,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
