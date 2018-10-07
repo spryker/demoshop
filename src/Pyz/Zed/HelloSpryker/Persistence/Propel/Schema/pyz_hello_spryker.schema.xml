@@ -1,1 +1,18 @@
-vendor/bin/console propel:install
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          name="zed" xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
+          namespace="Orm\Zed\HelloSpryker\Persistence"
+          namespaceAutoPackage="false"
+          package="src.Orm.Zed.HelloSpryker.Persistence">
+
+    <table name="pyz_hello_spryker" idMethod="native">
+        <column name="id_hello_spryker" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="string" required="true" size="128" type="VARCHAR"/>
+
+        <unique name="pyz_hello_spryker-string">
+            <unique-column name="string"/>
+        </unique>
+        <id-method-parameter value="pyz_hello_spryker_pk_seq"/>
+    </table>
+
+</database>

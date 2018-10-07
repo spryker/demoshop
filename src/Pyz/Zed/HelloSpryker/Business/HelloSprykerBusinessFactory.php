@@ -12,6 +12,7 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
  * @method \Pyz\Zed\HelloSpryker\HelloSprykerConfig getConfig()
+ * @method \Pyz\Zed\HelloSpryker\Persistence\HelloSprykerQueryContainer getQueryContainer()
  */
 class HelloSprykerBusinessFactory extends AbstractBusinessFactory
 {
@@ -20,6 +21,6 @@ class HelloSprykerBusinessFactory extends AbstractBusinessFactory
      */
     public function createHelloSpryker(): HelloSpryker
     {
-        return new HelloSpryker($this->getConfig());
+        return new HelloSpryker($this->getConfig(), $this->getQueryContainer());
     }
 }

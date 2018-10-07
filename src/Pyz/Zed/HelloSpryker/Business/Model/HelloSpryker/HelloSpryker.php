@@ -6,7 +6,9 @@
 
 namespace Pyz\Zed\HelloSpryker\Business\Model\HelloSpryker;
 
+use Orm\Zed\HelloSpryker\Persistence\PyzHelloSpryker;
 use Pyz\Zed\HelloSpryker\HelloSprykerConfig;
+use Pyz\Zed\HelloSpryker\Persistence\HelloSprykerQueryContainer;
 
 class HelloSpryker
 {
@@ -17,10 +19,14 @@ class HelloSpryker
 
     /**
      * @param \Pyz\Zed\HelloSpryker\HelloSprykerConfig $config
+     * @param \Pyz\Zed\HelloSpryker\Persistence\HelloSprykerQueryContainer $helloSprykerQueryContainer
      */
-    public function __construct(HelloSprykerConfig $config)
+    public function __construct(HelloSprykerConfig $config, HelloSprykerQueryContainer $helloSprykerQueryContainer)
     {
         $this->config = $config;
+        $this->helloSprykerQueryContainer = $helloSprykerQueryContainer;
+
+        $this->initDatabaseFromConfig($this->config);
     }
 
     /**
@@ -28,8 +34,25 @@ class HelloSpryker
      */
     public function getReversedString(): string
     {
-        $string = $this->config->getString();
+        $helloSprykerEntity = $this->helloSprykerQueryContainer->queryHelloSpryker()->findOne();
 
-        return strrev($string);
+        return strrev($helloSprykerEntity->getString());
+    }
+
+    /**
+     * @param \Pyz\Zed\HelloSpryker\HelloSprykerConfigHelloSprykerConfig $helloSprykerConfig
+     *
+     * @return void
+     */
+    protected function initDatabaseFromConfig(HelloSprykerConfig $helloSprykerConfig)
+    {
+        $helloSprykerEntity = $this->helloSprykerQueryContainer->queryHelloSpryker()->findOne();
+
+        if (!$helloSprykerEntity) {
+            $helloSprykerEntity = new PyzHelloSpryker();
+        }
+
+        $helloSprykerEntity->setString($helloSprykerConfig->getString());
+        $helloSprykerEntity->save();
     }
 }
