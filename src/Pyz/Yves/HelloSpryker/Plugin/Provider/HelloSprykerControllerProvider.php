@@ -4,14 +4,14 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Yves\HelloWorld\Plugin\Provider;
+namespace Pyz\Yves\HelloSpryker\Plugin\Provider;
 
 use Pyz\Yves\Application\Plugin\Provider\AbstractYvesControllerProvider;
 use Silex\Application;
 
-class HelloWorldControllerProvider extends AbstractYvesControllerProvider
+class HelloSprykerControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_HELLO_WORLD = 'hello-world';
+    const HELLO_SPRYKER = 'hello-spryker';
 
     /**
      * @param \Silex\Application $app
@@ -20,6 +20,6 @@ class HelloWorldControllerProvider extends AbstractYvesControllerProvider
      */
     protected function defineControllers(Application $app)
     {
-        $this->createController('/hello-world', self::ROUTE_HELLO_WORLD, 'HelloWorld', 'Index', 'index');
+        $this->createController('/hello-spryker', static::HELLO_SPRYKER, 'HelloSpryker', 'HelloSpryker', 'index');
     }
 }

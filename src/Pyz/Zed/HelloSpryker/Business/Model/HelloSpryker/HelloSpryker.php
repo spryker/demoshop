@@ -26,7 +26,7 @@ class HelloSpryker
     /**
      * @return string
      */
-    public function getReversedString()
+    public function getReversedString(): string
     {
         $string = $this->config->getString();
 

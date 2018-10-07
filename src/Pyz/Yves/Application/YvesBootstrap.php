@@ -25,6 +25,7 @@ use Pyz\Yves\Customer\Plugin\Provider\CustomerControllerProvider;
 use Pyz\Yves\Customer\Plugin\Provider\CustomerSecurityServiceProvider;
 use Pyz\Yves\Glossary\Plugin\Provider\TranslationServiceProvider;
 use Pyz\Yves\Heartbeat\Plugin\Provider\HeartbeatControllerProvider;
+use Pyz\Yves\HelloSpryker\Plugin\Provider\HelloSprykerControllerProvider;
 use Pyz\Yves\HelloWorld\Plugin\Provider\HelloWorldControllerProvider;
 use Pyz\Yves\Newsletter\Plugin\Provider\NewsletterControllerProvider;
 use Pyz\Yves\Price\Plugin\PriceControllerProvider;
@@ -205,6 +206,7 @@ class YvesBootstrap
             new PriceControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
             new HelloWorldControllerProvider($isSsl),
+            new HelloSprykerControllerProvider($isSsl),
         ];
     }
 }

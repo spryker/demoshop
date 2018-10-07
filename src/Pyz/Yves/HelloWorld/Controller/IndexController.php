@@ -8,16 +8,12 @@ namespace Pyz\Yves\HelloWorld\Controller;
 
 use Pyz\Yves\Application\Controller\AbstractController;
 
-/**
- * Class IndexController
- * @package Pyz\Yves\HelloWorld\Controller
- */
 class IndexController extends AbstractController
 {
     /**
      * @return array
      */
-    public function indexAction()
+    public function indexAction(): array
     {
         return [
             'helloWorld' => 'Hello World',

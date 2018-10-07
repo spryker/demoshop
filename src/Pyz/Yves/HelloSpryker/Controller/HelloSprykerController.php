@@ -4,12 +4,12 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace Pyz\Zed\HelloSpryker\Communication\Controller;
+namespace Pyz\Yves\HelloSpryker\Controller;
 
-use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
+use Spryker\Yves\Kernel\Controller\AbstractController;
 
 /**
- * @method \Pyz\Zed\HelloSpryker\Business\HelloSprykerFacade getFacade()
+ * @method \Pyz\Client\HelloSpryker\HelloSprykerClientInterface getClient()
  */
 class HelloSprykerController extends AbstractController
 {
@@ -18,11 +18,11 @@ class HelloSprykerController extends AbstractController
      */
     public function indexAction(): array
     {
-        $reversedMessage = $this->getFacade()
+        $reversedStringTransfer = $this->getClient()
             ->getReversedString();
 
         return [
-            'reversedMessage' => $reversedMessage,
+            'reversedStringTransfer' => $reversedStringTransfer,
         ];
     }
 }

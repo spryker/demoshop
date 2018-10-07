@@ -18,7 +18,7 @@ class HelloSprykerBusinessFactory extends AbstractBusinessFactory
     /**
      * @return \Pyz\Zed\HelloSpryker\Business\Model\HelloSpryker\HelloSpryker
      */
-    public function createHelloSpryker()
+    public function createHelloSpryker(): HelloSpryker
     {
         return new HelloSpryker($this->getConfig());
     }

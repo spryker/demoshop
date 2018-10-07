@@ -10,14 +10,14 @@ namespace Pyz\Zed\HelloSpryker\Business;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
- * @method \Pyz\Zed\Category\Business\HelloSprykerBusinessFactory getFactory()
+ * @method \Pyz\Zed\HelloSpryker\Business\HelloSprykerBusinessFactory getFactory()
  */
-class HelloSprykerFacade extends AbstractFacade
+class HelloSprykerFacade extends AbstractFacade implements HelloSprykerFacadeInterface
 {
     /**
-     * @return mixed
+     * @return string
      */
-    public function getMessage()
+    public function getReversedString(): string
     {
         return $this->getFactory()
             ->createHelloSpryker()
