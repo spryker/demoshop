@@ -9,6 +9,7 @@ namespace Pyz\Zed\HelloSpryker\Business\Model\HelloSpryker;
 use Orm\Zed\HelloSpryker\Persistence\PyzHelloSpryker;
 use Pyz\Zed\HelloSpryker\HelloSprykerConfig;
 use Pyz\Zed\HelloSpryker\Persistence\HelloSprykerQueryContainer;
+use Pyz\Zed\StringFormat\Business\StringFormatFacadeInterface;
 
 class HelloSpryker
 {
@@ -18,13 +19,28 @@ class HelloSpryker
     private $config;
 
     /**
+     * @var \Pyz\Zed\HelloSpryker\Persistence\HelloSprykerQueryContainer
+     */
+    private $helloSprykerQueryContainer;
+
+    /**
+     * @var \Pyz\Zed\StringFormat\Business\StringFormatFacadeInterface
+     */
+    private $stringFormatFacade;
+
+    /**
      * @param \Pyz\Zed\HelloSpryker\HelloSprykerConfig $config
      * @param \Pyz\Zed\HelloSpryker\Persistence\HelloSprykerQueryContainer $helloSprykerQueryContainer
+     * @param \Pyz\Zed\StringFormat\Business\StringFormatFacadeInterface $stringFormatFacade
      */
-    public function __construct(HelloSprykerConfig $config, HelloSprykerQueryContainer $helloSprykerQueryContainer)
-    {
+    public function __construct(
+        HelloSprykerConfig $config,
+        HelloSprykerQueryContainer $helloSprykerQueryContainer,
+        StringFormatFacadeInterface $stringFormatFacade
+    ) {
         $this->config = $config;
         $this->helloSprykerQueryContainer = $helloSprykerQueryContainer;
+        $this->stringFormatFacade = $stringFormatFacade;
 
         $this->initDatabaseFromConfig($this->config);
     }
@@ -36,11 +52,11 @@ class HelloSpryker
     {
         $helloSprykerEntity = $this->helloSprykerQueryContainer->queryHelloSpryker()->findOne();
 
-        return strrev($helloSprykerEntity->getString());
+        return $this->stringFormatFacade->getReversedString($helloSprykerEntity->getString());
     }
 
     /**
-     * @param \Pyz\Zed\HelloSpryker\HelloSprykerConfigHelloSprykerConfig $helloSprykerConfig
+     * @param \Pyz\Zed\HelloSpryker\HelloSprykerConfig $helloSprykerConfig
      *
      * @return void
      */

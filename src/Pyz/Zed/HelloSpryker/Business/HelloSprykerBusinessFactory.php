@@ -8,6 +8,8 @@
 namespace Pyz\Zed\HelloSpryker\Business;
 
 use Pyz\Zed\HelloSpryker\Business\Model\HelloSpryker\HelloSpryker;
+use Pyz\Zed\HelloSpryker\HelloSprykerDependencyProvider;
+use Pyz\Zed\StringFormat\Business\StringFormatFacade;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
@@ -21,6 +23,18 @@ class HelloSprykerBusinessFactory extends AbstractBusinessFactory
      */
     public function createHelloSpryker(): HelloSpryker
     {
-        return new HelloSpryker($this->getConfig(), $this->getQueryContainer());
+        return new HelloSpryker(
+            $this->getConfig(),
+            $this->getQueryContainer(),
+            $this->getStringFormatFacade()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\StringFormat\Business\StringFormatFacade
+     */
+    protected function getStringFormatFacade(): StringFormatFacade
+    {
+        return $this->getProvidedDependency(HelloSprykerDependencyProvider::STRING_FORMAT_FACADE);
     }
 }
