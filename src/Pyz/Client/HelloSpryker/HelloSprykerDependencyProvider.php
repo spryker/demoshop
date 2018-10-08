@@ -34,7 +34,7 @@ class HelloSprykerDependencyProvider extends SprykerCustomerDependencyProvider
      */
     protected function addZedRequestClient(Container $container): Container
     {
-        $container[self::CLIENT_ZED_REQUEST] = function (Container $container) {
+        $container[static::CLIENT_ZED_REQUEST] = function (Container $container) {
             return $container->getLocator()->zedRequest()->client();
         };
 
@@ -48,7 +48,7 @@ class HelloSprykerDependencyProvider extends SprykerCustomerDependencyProvider
      */
     protected function addHelloSprykerClient(Container $container): Container
     {
-        $container[self::CLIENT_HELLO_SPRYKER] = function (Container $container) {
+        $container[static::CLIENT_HELLO_SPRYKER] = function (Container $container) {
             return $container->getLocator()->helloSpryker()->client();
         };
 

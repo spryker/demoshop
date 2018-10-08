@@ -33,7 +33,7 @@ class HelloSprykerDependencyProvider extends AbstractBundleDependencyProvider
      */
     protected function addStringFormatFacade(Container $container): Container
     {
-        $container[self::STRING_FORMAT_FACADE] = function (Container $container) {
+        $container[static::STRING_FORMAT_FACADE] = function (Container $container) {
             return $container->getLocator()->stringFormat()->facade();
         };
 
