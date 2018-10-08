@@ -15,9 +15,9 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class AvailabilityCollectorQuery extends AbstractPropelCollectorQuery
 {
-    const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
-    const ID_AVAILABILITY_ABSTRACT = 'id_availability_abstract';
-    const QUANTITY = 'quantity';
+    public const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+    public const ID_AVAILABILITY_ABSTRACT = 'id_availability_abstract';
+    public const QUANTITY = 'quantity';
 
     /**
      * @return void

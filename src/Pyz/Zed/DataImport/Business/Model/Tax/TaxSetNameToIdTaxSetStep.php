@@ -15,8 +15,8 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class TaxSetNameToIdTaxSetStep implements DataImportStepInterface
 {
-    const KEY_SOURCE = 'taxSetName';
-    const KEY_TARGET = 'idTaxSet';
+    public const KEY_SOURCE = 'taxSetName';
+    public const KEY_TARGET = 'idTaxSet';
 
     /**
      * @var string

@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class WishlistFormType extends AbstractType
 {
-    const FIELD_NAME = 'name';
+    public const FIELD_NAME = 'name';
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver

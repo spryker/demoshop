@@ -15,12 +15,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends AbstractCustomerController
 {
-    const ORDER_LIST_LIMIT = 10;
-    const ORDER_LIST_SORT_FIELD = 'created_at';
-    const ORDER_LIST_SORT_DIRECTION = 'DESC';
+    public const ORDER_LIST_LIMIT = 10;
+    public const ORDER_LIST_SORT_FIELD = 'created_at';
+    public const ORDER_LIST_SORT_DIRECTION = 'DESC';
 
-    const PARAM_PAGE = 'page';
-    const DEFAULT_PAGE = 1;
+    public const PARAM_PAGE = 'page';
+    public const DEFAULT_PAGE = 1;
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request

@@ -18,10 +18,10 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductCustomerPermissionWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 1000;
+    public const BULK_SIZE = 1000;
 
-    const KEY_PRODUCT_ABSTRACT_SKU = 'product_abstract_sku';
-    const KEY_CUSTOMER_REFERENCE = 'customer_reference';
+    public const KEY_PRODUCT_ABSTRACT_SKU = 'product_abstract_sku';
+    public const KEY_CUSTOMER_REFERENCE = 'customer_reference';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Customer\Repository\CustomerRepositoryInterface

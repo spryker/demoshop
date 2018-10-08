@@ -23,7 +23,7 @@ use Spryker\Yves\Kernel\Container;
  */
 class StepFactoryTest extends Unit
 {
-    const EXPECTED_DEPENDENCY = 'expected dependency';
+    public const EXPECTED_DEPENDENCY = 'expected dependency';
 
     /**
      * @return void

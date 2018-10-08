@@ -12,7 +12,7 @@ use Silex\Application;
 
 class NewsletterControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_NEWSLETTER_SUBSCRIBE = 'newsletter/subscribe';
+    public const ROUTE_NEWSLETTER_SUBSCRIBE = 'newsletter/subscribe';
 
     /**
      * @param \Silex\Application $app

@@ -11,8 +11,8 @@ use Spryker\Client\ProductReview\ProductReviewConfig as ProductReviewProductRevi
 
 class ProductReviewConfig extends ProductReviewProductReviewConfig
 {
-    const PAGINATION_DEFAULT_ITEMS_PER_PAGE = 3;
-    const PAGINATION_VALID_ITEMS_PER_PAGE = [
+    public const PAGINATION_DEFAULT_ITEMS_PER_PAGE = 3;
+    public const PAGINATION_VALID_ITEMS_PER_PAGE = [
         3,
     ];
 }

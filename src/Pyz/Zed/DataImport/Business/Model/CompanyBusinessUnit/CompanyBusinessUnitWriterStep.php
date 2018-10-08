@@ -14,13 +14,13 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CompanyBusinessUnitWriterStep implements DataImportStepInterface
 {
-    const KEY_NAME = 'name';
-    const KEY_COMPANY_NAME = 'company_name';
-    const KEY_EMAIL = 'email';
-    const KEY_PHONE = 'phone';
-    const KEY_EXTERNAL_URL = 'external_url';
-    const KEY_IBAN = 'iban';
-    const KEY_BIC = 'bic';
+    public const KEY_NAME = 'name';
+    public const KEY_COMPANY_NAME = 'company_name';
+    public const KEY_EMAIL = 'email';
+    public const KEY_PHONE = 'phone';
+    public const KEY_EXTERNAL_URL = 'external_url';
+    public const KEY_IBAN = 'iban';
+    public const KEY_BIC = 'bic';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
