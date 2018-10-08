@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
+    "content-hash": "dd489b2e46ab9a84f9204cd865fd1421",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-4828/master-dismiss-shared-shopping-list",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6025f2b7e1a4d94c5e93364006d2b63e957ac1f9"
+                "reference": "87bedc6e9a8ff107653dc25f81379a736ee86984"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-05T16:06:01+00:00"
+            "time": "2018-10-05T15:48:51+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8150,17 +8150,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "14c2511d74a82d81c31a94d8af6d45215f5a3b8b"
+                "reference": "25dac0ea700f20da098a43fdb85301f9c6638a6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/14c2511d74a82d81c31a94d8af6d45215f5a3b8b",
-                "reference": "14c2511d74a82d81c31a94d8af6d45215f5a3b8b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/25dac0ea700f20da098a43fdb85301f9c6638a6c",
+                "reference": "25dac0ea700f20da098a43fdb85301f9c6638a6c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "slevomat/coding-standard": "^4.8.1",
+                "slevomat/coding-standard": "^4.8.3",
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
@@ -8194,7 +8194,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-09-26T11:48:34+00:00"
+            "time": "2018-10-05T21:34:35+00:00"
         },
         {
             "name": "spryker/git-hook",
