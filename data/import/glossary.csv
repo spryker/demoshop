@@ -621,8 +621,18 @@ customer.password.recovery.mail.sent,"If there is an account associated with thi
 customer.password.recovery.mail.sent,"Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen",de_DE
 customer.address.number,Number,en_US
 customer.address.number,Nummer,de_DE
+countries.iso.AT,Austria,en_US
+countries.iso.AT,Österreich,de_DE
 countries.iso.DE,Germany,en_US
 countries.iso.DE,Deutschland,de_DE
+countries.iso.NO,Norway,en_US
+countries.iso.NO,Norwegen,de_DE
+countries.iso.CH,Switzerland,en_US
+countries.iso.CH,Schweiz,de_DE
+countries.iso.ES,Spain,en_US
+countries.iso.ES,Spanien,de_DE
+countries.iso.GB,United Kingdom,en_US
+countries.iso.GB,Großbritannien,de_DE
 customer.billingSameAsShipping,Billing address same as shipping address,en_US
 customer.billingSameAsShipping,Liefer- und Rechnungsadresse sind gleich,de_DE
 checkout.giftcard.label,"Gift card",en_US
@@ -975,8 +985,6 @@ customer.order.bundled_items,Produkte in diesem Bündel:,de_DE
 customer.order.bundled_items,Items in the bundle:,en_US
 customer.order.options,Produktoptionen:,de_DE
 customer.order.options,Product options:,en_US
-countries.iso.AT,Österreich,de_DE
-countries.iso.AT,Austria,en_US
 cart.item.option.description,Product options:,en_US
 cart.item.option.description,Produktoptionen:,de_DE
 cart.item.sku,SKU,en_US
