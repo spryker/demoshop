@@ -29,21 +29,21 @@ use Spryker\Zed\Url\UrlConfig;
  */
 class ProductSetWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_PRODUCT_SET_KEY = 'product_set_key';
-    const KEY_NAME = 'name';
-    const KEY_DESCRIPTION = 'description';
-    const KEY_META_TITLE = 'meta_title';
-    const KEY_META_DESCRIPTION = 'meta_description';
-    const KEY_META_KEYWORDS = 'meta_keywords';
-    const KEY_URL = 'url';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_WEIGHT = 'weight';
-    const KEY_ABSTRACT_SKUS = 'abstract_skus';
-    const KEY_IMAGE_SET = 'image_set';
-    const KEY_IMAGES = 'images';
-    const KEY_IMAGE_LARGE = 'image_large';
+    public const KEY_PRODUCT_SET_KEY = 'product_set_key';
+    public const KEY_NAME = 'name';
+    public const KEY_DESCRIPTION = 'description';
+    public const KEY_META_TITLE = 'meta_title';
+    public const KEY_META_DESCRIPTION = 'meta_description';
+    public const KEY_META_KEYWORDS = 'meta_keywords';
+    public const KEY_URL = 'url';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_WEIGHT = 'weight';
+    public const KEY_ABSTRACT_SKUS = 'abstract_skus';
+    public const KEY_IMAGE_SET = 'image_set';
+    public const KEY_IMAGES = 'images';
+    public const KEY_IMAGE_LARGE = 'image_large';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepositoryInterface

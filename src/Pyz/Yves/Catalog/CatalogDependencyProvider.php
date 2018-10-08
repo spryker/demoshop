@@ -12,10 +12,10 @@ use Spryker\Yves\Kernel\Container;
 
 class CatalogDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CLIENT_LOCALE = 'CLIENT_LOCALE';
-    const CLIENT_SEARCH = 'CLIENT_SEARCH';
-    const CLIENT_CATEGORY = 'CLIENT_CATEGORY';
-    const CLIENT_PRODUCT_CATEGORY_FILTER = 'CLIENT_PRODUCT_CATEGORY_FILTER';
+    public const CLIENT_LOCALE = 'CLIENT_LOCALE';
+    public const CLIENT_SEARCH = 'CLIENT_SEARCH';
+    public const CLIENT_CATEGORY = 'CLIENT_CATEGORY';
+    public const CLIENT_PRODUCT_CATEGORY_FILTER = 'CLIENT_PRODUCT_CATEGORY_FILTER';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

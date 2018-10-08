@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class AddAllAvailableProductsToCartFormType extends AbstractType
 {
-    const WISHLIST_ITEM_META_COLLECTION = 'wishlistItemMetaCollection';
+    public const WISHLIST_ITEM_META_COLLECTION = 'wishlistItemMetaCollection';
 
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $builder

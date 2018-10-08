@@ -9,13 +9,13 @@ namespace PyzTest\Zed\Tax\PageObject;
 
 class TaxRateListPage
 {
-    const URL = '/tax/rate/list';
+    public const URL = '/tax/rate/list';
 
-    const SELECTOR_DATA_TABLE = '.dataTables_wrapper';
+    public const SELECTOR_DATA_TABLE = '.dataTables_wrapper';
 
-    const SELECTOR_SEARCH = 'input.form-control.input-sm';
-    const SELECTOR_DELETE = 'Delete';
-    const SELECTOR_EDIT = 'i.fa.fa-pencil-square-o';
+    public const SELECTOR_SEARCH = 'input.form-control.input-sm';
+    public const SELECTOR_DELETE = 'Delete';
+    public const SELECTOR_EDIT = 'i.fa.fa-pencil-square-o';
 
-    const MESSAGE_EMPTY_TABLE = 'No matching records found';
+    public const MESSAGE_EMPTY_TABLE = 'No matching records found';
 }

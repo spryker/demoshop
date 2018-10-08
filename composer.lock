@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd489b2e46ab9a84f9204cd865fd1421",
+    "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-4828/master-dismiss-shared-shopping-list",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "87bedc6e9a8ff107653dc25f81379a736ee86984"
+                "reference": "8c1e7ecc9d95630363033acd1c5988924350963f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-05T15:48:51+00:00"
+            "time": "2018-10-08T09:32:54+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
