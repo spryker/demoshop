@@ -18,21 +18,21 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CustomerDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CLIENT_CUSTOMER = 'customer client';
-    const CLIENT_NEWSLETTER = 'newsletter client';
-    const CLIENT_SALES = 'client client';
-    const CLIENT_OFFER = 'client offer';
-    const CLIENT_QUOTE = 'client quote';
-    const CLIENT_PRODUCT_BUNDLE = 'client product bundle';
-    const CLIENT_CART = 'client cart';
-    const PLUGIN_APPLICATION = 'application plugin';
-    const PLUGIN_AUTHENTICATION_HANDLER = 'authentication plugin';
-    const PLUGIN_LOGIN_AUTHENTICATION_HANDLER = 'login authentication plugin';
-    const PLUGIN_GUEST_AUTHENTICATION_HANDLER = 'guest authentication plugin';
-    const PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER = 'registration authentication plugin';
-    const SERVICE_UTIL_VALIDATE = 'validate service';
-    const FLASH_MESSENGER = 'flash messenger';
-    const STORE = 'store';
+    public const CLIENT_CUSTOMER = 'customer client';
+    public const CLIENT_NEWSLETTER = 'newsletter client';
+    public const CLIENT_SALES = 'client client';
+    public const CLIENT_OFFER = 'client offer';
+    public const CLIENT_QUOTE = 'client quote';
+    public const CLIENT_PRODUCT_BUNDLE = 'client product bundle';
+    public const CLIENT_CART = 'client cart';
+    public const PLUGIN_APPLICATION = 'application plugin';
+    public const PLUGIN_AUTHENTICATION_HANDLER = 'authentication plugin';
+    public const PLUGIN_LOGIN_AUTHENTICATION_HANDLER = 'login authentication plugin';
+    public const PLUGIN_GUEST_AUTHENTICATION_HANDLER = 'guest authentication plugin';
+    public const PLUGIN_REGISTRATION_AUTHENTICATION_HANDLER = 'registration authentication plugin';
+    public const SERVICE_UTIL_VALIDATE = 'validate service';
+    public const FLASH_MESSENGER = 'flash messenger';
+    public const STORE = 'store';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

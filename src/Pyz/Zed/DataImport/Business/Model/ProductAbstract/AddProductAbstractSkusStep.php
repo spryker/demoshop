@@ -15,7 +15,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class AddProductAbstractSkusStep implements DataImportStepInterface
 {
-    const KEY_PRODUCT_ABSTRACT_SKUS = 'productAbstractSkus';
+    public const KEY_PRODUCT_ABSTRACT_SKUS = 'productAbstractSkus';
 
     /**
      * @var array
@@ -36,9 +36,12 @@ class AddProductAbstractSkusStep implements DataImportStepInterface
                 SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT,
             ])->setFormatter(new SimpleArrayFormatter());
 
-            foreach ($query->find() as $productAbstract) {
-                $key = $productAbstract[SpyProductAbstractTableMap::COL_SKU];
-                $value = $productAbstract[SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT];
+            /** @var array $productAbstractEntities */
+            $productAbstractEntities = $query->find();
+
+            foreach ($productAbstractEntities as $productAbstractEntity) {
+                $key = $productAbstractEntity[SpyProductAbstractTableMap::COL_SKU];
+                $value = $productAbstractEntity[SpyProductAbstractTableMap::COL_ID_PRODUCT_ABSTRACT];
                 $this->productAbstractSkus[$key] = $value;
             }
         }

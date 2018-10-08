@@ -16,8 +16,8 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CompanyUnitAddressLabelWriterStep implements DataImportStepInterface
 {
-    const KEY_NAME = 'name';
-    const KEY_COMPANY_UNIT_ADDRESS_ADDRESS_1 = 'company_unit_address_address1';
+    public const KEY_NAME = 'name';
+    public const KEY_COMPANY_UNIT_ADDRESS_ADDRESS_1 = 'company_unit_address_address1';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

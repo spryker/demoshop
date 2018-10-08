@@ -144,7 +144,7 @@ class DiscountDependencyProvider extends SprykerDiscountDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountViewBlockProviderPluginInterface[]
+     * @return \Spryker\Zed\Discount\Dependency\Plugin\DiscountApplicableFilterPluginInterface[]
      */
     protected function getDiscountApplicableFilterPlugins()
     {

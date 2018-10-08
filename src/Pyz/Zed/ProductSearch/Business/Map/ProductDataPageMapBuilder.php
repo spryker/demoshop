@@ -216,7 +216,7 @@ class ProductDataPageMapBuilder
         $productSearchableList = explode(',', $productData['product_searchable_status_aggregation']);
         $searchableProducts = [];
         foreach ($productSearchableList as $productSearchableStatus) {
-            list($concreteSku, $status) = explode(':', $productSearchableStatus);
+            [$concreteSku, $status] = explode(':', $productSearchableStatus);
 
             if (filter_var($status, FILTER_VALIDATE_BOOLEAN) && isset($activeProducts[$concreteSku])) {
                 $searchableProducts[$concreteSku] = true;
@@ -251,7 +251,7 @@ class ProductDataPageMapBuilder
         $rows = explode(',', $data);
         $activeConcreteData = [];
         foreach ($rows as $col) {
-            list($sku, $entry) = explode(':', $col);
+            [$sku, $entry] = explode(':', $col);
 
             if (isset($activeProducts[$sku])) {
                 $activeConcreteData[] = $entry;
@@ -271,7 +271,7 @@ class ProductDataPageMapBuilder
         $productStatusList = explode(',', $productData['product_status_aggregation']);
         $activeProducts = [];
         foreach ($productStatusList as $productStatus) {
-            list($abstractSku, $status) = explode(':', $productStatus);
+            [$abstractSku, $status] = explode(':', $productStatus);
 
             if (filter_var($status, FILTER_VALIDATE_BOOLEAN)) {
                 $activeProducts[$abstractSku] = true;

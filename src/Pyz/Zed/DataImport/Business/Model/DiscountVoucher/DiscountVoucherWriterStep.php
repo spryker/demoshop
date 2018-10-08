@@ -18,15 +18,15 @@ use Spryker\Zed\Discount\DiscountConfig;
 
 class DiscountVoucherWriterStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_DISCOUNT_KEY = 'discount_key';
-    const KEY_RANDOM_GENERATED_CODE_LENGTH = 'random_generated_code_length';
-    const KEY_QUANTITY = 'quantity';
-    const KEY_CUSTOM_CODE = 'custom_code';
-    const KEY_VOUCHER_BATCH = 'voucher_batch';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_MAX_NUMBER_OF_USES = 'max_number_of_uses';
+    public const KEY_DISCOUNT_KEY = 'discount_key';
+    public const KEY_RANDOM_GENERATED_CODE_LENGTH = 'random_generated_code_length';
+    public const KEY_QUANTITY = 'quantity';
+    public const KEY_CUSTOM_CODE = 'custom_code';
+    public const KEY_VOUCHER_BATCH = 'voucher_batch';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_MAX_NUMBER_OF_USES = 'max_number_of_uses';
 
     /**
      * @var \Spryker\Zed\Discount\DiscountConfig
@@ -95,7 +95,7 @@ class DiscountVoucherWriterStep implements DataImportStepInterface
     /**
      * @param int $length
      * @param int $quantity
-     * @param null|string $customCode
+     * @param string|null $customCode
      *
      * @return array
      */

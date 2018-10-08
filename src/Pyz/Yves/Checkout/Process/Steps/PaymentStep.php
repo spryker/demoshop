@@ -38,7 +38,9 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
      */
     private $paymentClient;
 
-    /** @var \Spryker\Client\Calculation\CalculationClientInterface */
+    /**
+     * @var \Spryker\Client\Calculation\CalculationClientInterface
+     */
     protected $calculationClient;
 
     /**
@@ -66,7 +68,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -78,9 +80,9 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer)
     {
@@ -106,7 +108,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return null|string
+     * @return string|null
      */
     protected function getPaymentSelectionWithFallback(QuoteTransfer $quoteTransfer)
     {
@@ -124,7 +126,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -164,7 +166,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
 
     /**
      * @param \Generated\Shared\Transfer\PaymentTransfer[]|\ArrayObject $paymentCollection
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -207,7 +209,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
      * @return bool
      */
@@ -217,7 +219,7 @@ class PaymentStep extends AbstractBaseStep implements StepWithBreadcrumbInterfac
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
      * @return bool
      */

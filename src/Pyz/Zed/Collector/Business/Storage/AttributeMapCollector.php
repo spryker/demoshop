@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
-
 use Generated\Shared\Transfer\StorageAttributeMapTransfer;
 use Orm\Zed\Product\Persistence\Base\SpyProductAttributeKeyQuery;
 use Orm\Zed\Product\Persistence\Map\SpyProductAttributeKeyTableMap;
@@ -123,7 +122,7 @@ class AttributeMapCollector extends AbstractStoragePropelCollector
     /**
      * @param int $idProductAbstract
      *
-     * @return \Orm\Zed\Product\Persistence\SpyProduct[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return array
      */
     protected function getConcreteProducts($idProductAbstract)
     {

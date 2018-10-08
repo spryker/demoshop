@@ -15,7 +15,7 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPropelCollectorQuery;
 
 class AttributeMapCollectorQuery extends AbstractPropelCollectorQuery
 {
-    const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+    public const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
 
     /**
      * @return void

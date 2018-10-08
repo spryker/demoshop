@@ -48,7 +48,7 @@ class PlaceOfferStep extends PlaceOrderStep
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
      * @return bool
      */
@@ -69,9 +69,9 @@ class PlaceOfferStep extends PlaceOrderStep
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
     public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
     {
@@ -100,7 +100,7 @@ class PlaceOfferStep extends PlaceOrderStep
     }
 
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|\Generated\Shared\Transfer\QuoteTransfer $dataTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer $dataTransfer
      *
      * @return bool
      */
@@ -136,7 +136,7 @@ class PlaceOfferStep extends PlaceOrderStep
     protected function setOfferErrorMessages(OfferResponseTransfer $offerResponseTransfer): void
     {
         foreach ($offerResponseTransfer->getMessages() as $responseMessageTransfer) {
-            $this->flashMessenger->addErrorMessage($responseMessageTransfer->getMessage());
+            $this->flashMessenger->addErrorMessage($responseMessageTransfer->getText());
         }
     }
 
@@ -148,7 +148,7 @@ class PlaceOfferStep extends PlaceOrderStep
     protected function setOfferInfoMessages(OfferResponseTransfer $offerResponseTransfer): void
     {
         foreach ($offerResponseTransfer->getMessages() as $responseMessageTransfer) {
-            $this->flashMessenger->addInfoMessage($responseMessageTransfer->getMessage());
+            $this->flashMessenger->addInfoMessage($responseMessageTransfer->getText());
         }
     }
 }

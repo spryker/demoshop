@@ -11,8 +11,8 @@ use Spryker\Client\Search\Dependency\Plugin\FacetSearchResultValueTransformerPlu
 
 class ProductRatingValueTransformer implements FacetSearchResultValueTransformerPluginInterface
 {
-    const CONVERSION_PRECISION = 100;
-    const RATING_VALUE_TOLERANCE = 25;
+    public const CONVERSION_PRECISION = 100;
+    public const RATING_VALUE_TOLERANCE = 25;
 
     /**
      * @param array $rangeValues

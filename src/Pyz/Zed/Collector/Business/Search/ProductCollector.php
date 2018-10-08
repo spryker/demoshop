@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Collector\Business\Search;
 
 use Spryker\Service\UtilDataReader\UtilDataReaderServiceInterface;
-
 use Spryker\Shared\Product\ProductConfig;
 use Spryker\Zed\Collector\Business\Collector\Search\AbstractSearchPdoCollector;
 use Spryker\Zed\Collector\CollectorConfig;
@@ -17,7 +16,7 @@ use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
 class ProductCollector extends AbstractSearchPdoCollector
 {
-    const COL_IS_IN_STORE = 'is_in_store';
+    public const COL_IS_IN_STORE = 'is_in_store';
 
     /**
      * @var \Spryker\Zed\Search\Dependency\Plugin\PageMapInterface

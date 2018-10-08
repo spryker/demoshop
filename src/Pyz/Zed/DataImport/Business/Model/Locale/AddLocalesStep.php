@@ -15,7 +15,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class AddLocalesStep implements DataImportStepInterface
 {
-    const KEY_LOCALES = 'locales';
+    public const KEY_LOCALES = 'locales';
 
     /**
      * @var array
