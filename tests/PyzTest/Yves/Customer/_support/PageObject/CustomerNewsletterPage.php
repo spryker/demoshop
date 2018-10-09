@@ -9,13 +9,13 @@ namespace PyzTest\Yves\Customer\PageObject;
 
 class CustomerNewsletterPage extends Customer
 {
-    const URL = '/customer/newsletter';
+    public const URL = '/customer/newsletter';
 
-    const FORM_FIELD_SELECTOR_NEWSLETTER_SUBSCRIPTION = 'newsletterSubscriptionForm[subscribe]';
+    public const FORM_FIELD_SELECTOR_NEWSLETTER_SUBSCRIPTION = 'newsletterSubscriptionForm[subscribe]';
 
-    const BUTTON_SUBMIT = 'Submit';
+    public const BUTTON_SUBMIT = 'Submit';
 
-    const SUCCESS_MESSAGE_SUBSCRIBED = 'You successfully subscribed to the newsletter';
-    const SUCCESS_MESSAGE_UN_SUBSCRIBED = 'You successfully unsubscribed from the newsletter';
-    const ERROR_MESSAGE = 'You are already subscribed to the newsletter';
+    public const SUCCESS_MESSAGE_SUBSCRIBED = 'You successfully subscribed to the newsletter';
+    public const SUCCESS_MESSAGE_UN_SUBSCRIBED = 'You successfully unsubscribed from the newsletter';
+    public const ERROR_MESSAGE = 'You are already subscribed to the newsletter';
 }

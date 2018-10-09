@@ -16,10 +16,10 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class LoginForm extends AbstractType
 {
-    const FORM_NAME = 'loginForm';
+    public const FORM_NAME = 'loginForm';
 
-    const FIELD_EMAIL = 'email';
-    const FIELD_PASSWORD = 'password';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_PASSWORD = 'password';
 
     /**
      * @return string

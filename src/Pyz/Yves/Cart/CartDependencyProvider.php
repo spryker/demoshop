@@ -19,17 +19,17 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CartDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CLIENT_CALCULATION = 'calculation client';
-    const CLIENT_CART = 'cart client';
-    const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
-    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+    public const CLIENT_CALCULATION = 'calculation client';
+    public const CLIENT_CART = 'cart client';
+    public const CLIENT_AVAILABILITY = 'CLIENT_AVAILABILITY';
+    public const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
 
-    const PLUGIN_APPLICATION = 'application plugin';
-    const PLUGIN_CHECKOUT_BREADCRUMB = 'PLUGIN_CHECKOUT_BREADCRUMB';
-    const PLUGIN_CART_VARIANT = 'PLUGIN_CART_VARIANT';
-    const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
-    const PLUGIN_PROMOTION_PRODUCT_MAPPER = 'PLUGIN_PROMOTION_PRODUCT_MAPPER';
-    const CODE_HANDLER_PLUGINS = 'CODE_HANDLER_PLUGINS';
+    public const PLUGIN_APPLICATION = 'application plugin';
+    public const PLUGIN_CHECKOUT_BREADCRUMB = 'PLUGIN_CHECKOUT_BREADCRUMB';
+    public const PLUGIN_CART_VARIANT = 'PLUGIN_CART_VARIANT';
+    public const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
+    public const PLUGIN_PROMOTION_PRODUCT_MAPPER = 'PLUGIN_PROMOTION_PRODUCT_MAPPER';
+    public const CODE_HANDLER_PLUGINS = 'CODE_HANDLER_PLUGINS';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

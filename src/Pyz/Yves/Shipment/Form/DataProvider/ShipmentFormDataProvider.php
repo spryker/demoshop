@@ -20,7 +20,7 @@ use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 
 class ShipmentFormDataProvider implements StepEngineFormDataProviderInterface
 {
-    const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
+    public const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
 
     /**
      * @var \Spryker\Client\Shipment\ShipmentClientInterface

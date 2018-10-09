@@ -12,8 +12,8 @@ use Silex\Application;
 
 class PreviewControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_PREVIEW = 'cms-preview';
-    const PARAM_PAGE = 'page';
+    public const ROUTE_PREVIEW = 'cms-preview';
+    public const PARAM_PAGE = 'page';
 
     /**
      * @param \Silex\Application $app

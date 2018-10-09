@@ -12,9 +12,9 @@ use Silex\Application;
 
 class CatalogControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_SEARCH = 'search';
-    const ROUTE_SUGGESTION = 'search/suggestion';
-    const ROUTER_CHANGE_VIEW_MODE = 'change-view-mode';
+    public const ROUTE_SEARCH = 'search';
+    public const ROUTE_SUGGESTION = 'search/suggestion';
+    public const ROUTER_CHANGE_VIEW_MODE = 'change-view-mode';
 
     /**
      * @param \Silex\Application $app
