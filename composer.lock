@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
+    "content-hash": "18afc1ac76c6dd9debebfc005a1d1041",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-27-hide-content-from-not-logged-in-user",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8c1e7ecc9d95630363033acd1c5988924350963f"
+                "reference": "17d8a8a7408d20912912e0a31d147d0048f77797"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-08T09:32:54+00:00"
+            "time": "2018-10-09T07:49:22+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6176,7 +6176,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8034,7 +8034,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
