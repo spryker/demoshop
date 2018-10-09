@@ -9,7 +9,7 @@ namespace PyzTest\Zed\ProductRelation\PageObject;
 
 class ProductRelationCreatePage
 {
-    const URL = 'product-relation/create/index';
+    public const URL = 'product-relation/create/index';
 
-    const PRODUCT_SUCCESS_FULLY_CREATED_MESSAGE = 'Product relation successfully created';
+    public const PRODUCT_SUCCESS_FULLY_CREATED_MESSAGE = 'Product relation successfully created';
 }

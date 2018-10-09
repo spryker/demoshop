@@ -13,9 +13,9 @@ use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class SessionHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {
-    const FAILURE_MESSAGE_UNABLE_TO_WRITE_SESSION = 'Unable to write session';
-    const FAILURE_MESSAGE_UNABLE_TO_READ_SESSION = 'Unable to read session';
-    const KEY_HEARTBEAT = 'heartbeat';
+    public const FAILURE_MESSAGE_UNABLE_TO_WRITE_SESSION = 'Unable to write session';
+    public const FAILURE_MESSAGE_UNABLE_TO_READ_SESSION = 'Unable to read session';
+    public const KEY_HEARTBEAT = 'heartbeat';
 
     /**
      * @var \Spryker\Client\Session\SessionClientInterface

@@ -35,13 +35,13 @@ use Spryker\Client\Search\Plugin\Elasticsearch\ResultFormatter\SuggestionByTypeR
 
 class CatalogDependencyProvider extends SprykerCatalogDependencyProvider
 {
-    const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
-    const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
+    public const FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS = 'FEATURED_PRODUCTS_RESULT_FORMATTER_PLUGINS';
+    public const FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS = 'FEATURED_PRODUCTS_QUERY_EXPANDER_PLUGINS';
 
-    const CLIENT_CURRENCY = 'CLIENT_CURRENCY';
-    const CLIENT_PRICE = 'CLIENT_PRICE';
-    const CLIENT_PRICE_PRODUCT = 'CLIENT_PRICE_PRODUCT';
-    const CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT = 'client price product connector client';
+    public const CLIENT_CURRENCY = 'CLIENT_CURRENCY';
+    public const CLIENT_PRICE = 'CLIENT_PRICE';
+    public const CLIENT_PRICE_PRODUCT = 'CLIENT_PRICE_PRODUCT';
+    public const CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT = 'client price product connector client';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container

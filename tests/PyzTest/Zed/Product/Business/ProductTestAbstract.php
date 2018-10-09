@@ -47,34 +47,34 @@ use Spryker\Zed\Url\Business\UrlFacade;
 
 abstract class ProductTestAbstract extends Unit
 {
-    const PRODUCT_ABSTRACT_NAME = [
+    public const PRODUCT_ABSTRACT_NAME = [
         'en_US' => 'Product name en_US',
         'de_DE' => 'Product name de_DE',
     ];
 
-    const PRODUCT_CONCRETE_NAME = [
+    public const PRODUCT_CONCRETE_NAME = [
         'en_US' => 'Product concrete name en_US',
         'de_DE' => 'Product concrete name de_DE',
     ];
 
-    const UPDATED_PRODUCT_ABSTRACT_NAME = [
+    public const UPDATED_PRODUCT_ABSTRACT_NAME = [
         'en_US' => 'Updated Product name en_US',
         'de_DE' => 'Updated Product name de_DE',
     ];
 
-    const UPDATED_PRODUCT_CONCRETE_NAME = [
+    public const UPDATED_PRODUCT_CONCRETE_NAME = [
         'en_US' => 'Updated Product concrete name en_US',
         'de_DE' => 'Updated Product concrete name de_DE',
     ];
 
-    const ABSTRACT_SKU = 'foo';
-    const CONCRETE_SKU = 'foo-concrete';
-    const IMAGE_SET_NAME = 'Default';
-    const IMAGE_URL_LARGE = 'large';
-    const IMAGE_URL_SMALL = 'small';
-    const PRICE = 1234;
-    const STOCK_QUANTITY = 99;
-    const CURRENCY_ISO_CODE = 'EUR';
+    public const ABSTRACT_SKU = 'foo';
+    public const CONCRETE_SKU = 'foo-concrete';
+    public const IMAGE_SET_NAME = 'Default';
+    public const IMAGE_URL_LARGE = 'large';
+    public const IMAGE_URL_SMALL = 'small';
+    public const PRICE = 1234;
+    public const STOCK_QUANTITY = 99;
+    public const CURRENCY_ISO_CODE = 'EUR';
 
     /**
      * @var \Generated\Shared\Transfer\LocaleTransfer[]

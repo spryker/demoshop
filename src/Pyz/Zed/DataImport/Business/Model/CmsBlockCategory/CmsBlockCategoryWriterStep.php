@@ -19,10 +19,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CmsBlockCategoryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const KEY_BLOCK_NAME = 'block_name';
-    const KEY_CATEGORY_KEY = 'category_key';
-    const KEY_CATEGORY_TEMPLATE_NAME = 'template_name';
-    const KEY_CMS_BLOCK_CATEGORY_POSITION_NAME = 'cms_block_category_position_name';
+    public const KEY_BLOCK_NAME = 'block_name';
+    public const KEY_CATEGORY_KEY = 'category_key';
+    public const KEY_CATEGORY_TEMPLATE_NAME = 'template_name';
+    public const KEY_CMS_BLOCK_CATEGORY_POSITION_NAME = 'cms_block_category_position_name';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

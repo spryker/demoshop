@@ -11,7 +11,7 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductOptionCollectorQuery extends AbstractPdoCollectorQuery
 {
-    const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
+    public const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
 
     /**
      * @return void
