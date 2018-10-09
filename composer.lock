@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18afc1ac76c6dd9debebfc005a1d1041",
+    "content-hash": "de8fd6cf7ce148374ff545d275965b3a",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2503,7 +2503,7 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-27-hide-content-from-not-logged-in-user",
+            "version": "dev-feature/ps-27/master-hide-content-from-not-logged-in-user",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
