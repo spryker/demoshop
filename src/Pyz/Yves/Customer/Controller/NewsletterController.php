@@ -17,11 +17,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class NewsletterController extends AbstractCustomerController
 {
-    const MESSAGE_UNSUBSCRIPTION_SUCCESS = 'newsletter.unsubscription.success';
-    const MESSAGE_UNSUBSCRIPTION_FAILED = 'newsletter.unsubscription.failed';
-    const MESSAGE_SUBSCRIPTION_CONFIRMATION_APPROVED = 'newsletter.subscription.confirmation.approved';
-    const MESSAGE_SUBSCRIPTION_FAILED = 'newsletter.subscription.failed';
-    const MESSAGE_SUBSCRIPTION_SUCCESS = 'newsletter.subscription.success';
+    public const MESSAGE_UNSUBSCRIPTION_SUCCESS = 'newsletter.unsubscription.success';
+    public const MESSAGE_UNSUBSCRIPTION_FAILED = 'newsletter.unsubscription.failed';
+    public const MESSAGE_SUBSCRIPTION_CONFIRMATION_APPROVED = 'newsletter.subscription.confirmation.approved';
+    public const MESSAGE_SUBSCRIPTION_FAILED = 'newsletter.subscription.failed';
+    public const MESSAGE_SUBSCRIPTION_SUCCESS = 'newsletter.subscription.success';
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request

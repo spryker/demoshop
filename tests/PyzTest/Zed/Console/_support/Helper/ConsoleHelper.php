@@ -13,8 +13,8 @@ use Codeception\Util\FileSystem;
 
 class ConsoleHelper extends Module
 {
-    const RUNNER = 'console_runner.php';
-    const SANDBOX_DIR = 'cli_sandbox/';
+    public const RUNNER = 'console_runner.php';
+    public const SANDBOX_DIR = 'cli_sandbox/';
 
     /**
      * @var array

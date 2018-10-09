@@ -13,16 +13,16 @@ use Spryker\Zed\ProductSearch\ProductSearchDependencyProvider as SprykerProductS
 
 class ProductSearchDependencyProvider extends SprykerProductSearchDependencyProvider
 {
-    const FACADE_PRODUCT_SEARCH = 'product search facade';
-    const FACADE_PRICE_PRODUCT = 'price product facade';
-    const FACADE_PRICE = 'price facade';
-    const FACADE_PRODUCT_LABEL = 'FACADE_PRODUCT_LABEL';
+    public const FACADE_PRODUCT_SEARCH = 'product search facade';
+    public const FACADE_PRICE_PRODUCT = 'price product facade';
+    public const FACADE_PRICE = 'price facade';
+    public const FACADE_PRODUCT_LABEL = 'FACADE_PRODUCT_LABEL';
 
-    const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
-    const QUERY_CONTAINER_CATEGORY = 'category query container';
-    const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
+    public const QUERY_CONTAINER_PRODUCT_IMAGE = 'product image query container';
+    public const QUERY_CONTAINER_CATEGORY = 'category query container';
+    public const QUERY_CONTAINER_PRODUCT_CATEGORY = 'product category query container';
 
-    const CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT = 'client price product connector client';
+    public const CLIENT_PRICE_PRODUCT_CONNECTOR_CLIENT = 'client price product connector client';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container

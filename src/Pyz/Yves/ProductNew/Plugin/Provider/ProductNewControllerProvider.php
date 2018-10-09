@@ -12,7 +12,7 @@ use Silex\Application;
 
 class ProductNewControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_NEW_PRODUCTS = 'new-products';
+    public const ROUTE_NEW_PRODUCTS = 'new-products';
 
     /**
      * @param \Silex\Application $app

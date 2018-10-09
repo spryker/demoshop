@@ -12,10 +12,10 @@ use Spryker\Zed\Url\UrlConfig;
 
 class RedirectCollector extends AbstractStoragePropelCollector
 {
-    const KEY_FROM_URL = 'from_url';
-    const KEY_TO_URL = 'to_url';
-    const KEY_STATUS = 'status';
-    const KEY_ID = 'id';
+    public const KEY_FROM_URL = 'from_url';
+    public const KEY_TO_URL = 'to_url';
+    public const KEY_STATUS = 'status';
+    public const KEY_ID = 'id';
 
     /**
      * @return string

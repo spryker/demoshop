@@ -45,37 +45,37 @@ use Symfony\Component\HttpFoundation\Session\Session;
  */
 class CheckoutControllerTest extends Unit
 {
-    const CUSTOMER_URL = '/checkout/customer';
-    const CUSTOMER_ACTION = 'customerAction';
-    const CUSTOMER_ROUTE = 'checkout-customer';
-    const GUEST_FORM = 'guestForm';
-    const CUSTOMER_EMAIL = 'hans@muster.de';
+    public const CUSTOMER_URL = '/checkout/customer';
+    public const CUSTOMER_ACTION = 'customerAction';
+    public const CUSTOMER_ROUTE = 'checkout-customer';
+    public const GUEST_FORM = 'guestForm';
+    public const CUSTOMER_EMAIL = 'hans@muster.de';
 
-    const ADDRESS_URL = '/checkout/address';
-    const ADDRESS_ACTION = 'addressAction';
-    const ADDRESS_ROUTE = 'checkout-address';
-    const ADDRESS_FORM = 'addressesForm';
+    public const ADDRESS_URL = '/checkout/address';
+    public const ADDRESS_ACTION = 'addressAction';
+    public const ADDRESS_ROUTE = 'checkout-address';
+    public const ADDRESS_FORM = 'addressesForm';
 
-    const SHIPMENT_URL = '/checkout/shipment';
-    const SHIPMENT_ACTION = 'shipmentAction';
-    const SHIPMENT_ROUTE = 'checkout-shipment';
-    const SHIPMENT_FORM = 'shipmentForm';
+    public const SHIPMENT_URL = '/checkout/shipment';
+    public const SHIPMENT_ACTION = 'shipmentAction';
+    public const SHIPMENT_ROUTE = 'checkout-shipment';
+    public const SHIPMENT_FORM = 'shipmentForm';
 
-    const PAYMENT_URL = '/checkout/payment';
-    const PAYMENT_ACTION = 'paymentAction';
-    const PAYMENT_ROUTE = 'checkout-payment';
-    const PAYMENT_FORM = 'paymentForm';
+    public const PAYMENT_URL = '/checkout/payment';
+    public const PAYMENT_ACTION = 'paymentAction';
+    public const PAYMENT_ROUTE = 'checkout-payment';
+    public const PAYMENT_FORM = 'paymentForm';
 
-    const SUMMARY_URL = '/checkout/summary';
-    const SUMMARY_ACTION = 'summaryAction';
-    const SUMMARY_ROUTE = 'checkout-summary';
-    const SUMMARY_FORM = 'summaryForm';
+    public const SUMMARY_URL = '/checkout/summary';
+    public const SUMMARY_ACTION = 'summaryAction';
+    public const SUMMARY_ROUTE = 'checkout-summary';
+    public const SUMMARY_FORM = 'summaryForm';
 
-    const PLACE_ORDER_URL = '/checkout/place-order';
-    const PLACE_ORDER_ACTION = 'placeOrderAction';
-    const PLACE_ORDER_ROUTE = 'checkout-place-order';
+    public const PLACE_ORDER_URL = '/checkout/place-order';
+    public const PLACE_ORDER_ACTION = 'placeOrderAction';
+    public const PLACE_ORDER_ROUTE = 'checkout-place-order';
 
-    const SUCCESS_URL = '/checkout/success';
+    public const SUCCESS_URL = '/checkout/success';
 
     /**
      * @var \Pyz\Yves\Checkout\Controller\CheckoutController

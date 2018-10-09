@@ -25,14 +25,14 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class WishlistController extends AbstractController
 {
-    const DEFAULT_NAME = 'My wishlist';
-    const DEFAULT_ITEMS_PER_PAGE = 10;
+    public const DEFAULT_NAME = 'My wishlist';
+    public const DEFAULT_ITEMS_PER_PAGE = 10;
 
-    const PARAM_ITEMS_PER_PAGE = 'ipp';
-    const PARAM_PAGE = 'page';
-    const PARAM_PRODUCT_ID = 'product-id';
-    const PARAM_SKU = 'sku';
-    const PARAM_WISHLIST_NAME = 'wishlist-name';
+    public const PARAM_ITEMS_PER_PAGE = 'ipp';
+    public const PARAM_PAGE = 'page';
+    public const PARAM_PRODUCT_ID = 'product-id';
+    public const PARAM_SKU = 'sku';
+    public const PARAM_WISHLIST_NAME = 'wishlist-name';
 
     /**
      * @param string $wishlistName

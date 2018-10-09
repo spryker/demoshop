@@ -12,7 +12,7 @@ use Spryker\Client\Kernel\Container;
 
 class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
 {
-    const CART_CLIENT = 'cart client';
+    public const CART_CLIENT = 'cart client';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container

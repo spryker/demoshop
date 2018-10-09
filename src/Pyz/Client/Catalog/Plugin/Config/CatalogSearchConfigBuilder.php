@@ -26,13 +26,13 @@ use Spryker\Shared\Search\SearchConfig;
  */
 class CatalogSearchConfigBuilder extends AbstractPlugin implements SearchConfigBuilderInterface
 {
-    const DEFAULT_ITEMS_PER_PAGE = 48;
-    const VALID_ITEMS_PER_PAGE_OPTIONS = [24, 36, 48];
-    const SIZE_UNLIMITED = 1000;
+    public const DEFAULT_ITEMS_PER_PAGE = 48;
+    public const VALID_ITEMS_PER_PAGE_OPTIONS = [24, 36, 48];
+    public const SIZE_UNLIMITED = 1000;
 
-    const CATEGORY_FACET_PARAM_NAME = 'category';
-    const LABEL_FACET_NAME = 'label';
-    const RATING_FACET_NAME = 'rating';
+    public const CATEGORY_FACET_PARAM_NAME = 'category';
+    public const LABEL_FACET_NAME = 'label';
+    public const RATING_FACET_NAME = 'rating';
 
     /**
      * @param \Spryker\Client\Search\Dependency\Plugin\FacetConfigBuilderInterface $facetConfigBuilder

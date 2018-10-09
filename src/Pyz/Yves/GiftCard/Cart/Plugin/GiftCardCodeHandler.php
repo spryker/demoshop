@@ -16,8 +16,8 @@ use Pyz\Yves\Cart\Plugin\CodeHandlerInterface;
 
 class GiftCardCodeHandler implements CodeHandlerInterface
 {
-    const CART_GIFT_CARD_APPLY_SUCCESSFUL = 'cart.giftcard.apply.successful';
-    const CART_GIFT_CARD_APPLY_FAILED = 'cart.giftcard.apply.failed';
+    public const CART_GIFT_CARD_APPLY_SUCCESSFUL = 'cart.giftcard.apply.successful';
+    public const CART_GIFT_CARD_APPLY_FAILED = 'cart.giftcard.apply.failed';
 
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
