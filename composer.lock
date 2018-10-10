@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23b6d95c4c177379435f00e0137ce306",
+    "content-hash": "dd489b2e46ab9a84f9204cd865fd1421",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1871,7 +1871,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/ps-2957/master-shopping-list-product-options",
+            "version": "dev-feature/ps-4828/master-dismiss-shared-shopping-list",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "45b3b4f3c4a2bf501afbfc34a15c096810402263"
+                "reference": "209717bb77a9103c167d139fcedefea459fcf59d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-09T13:49:03+00:00"
+            "time": "2018-10-09T10:16:22+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7904,6 +7904,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
+            "abandoned": true,
             "time": "2016-05-04T16:32:42+00:00"
         },
         {
@@ -8033,7 +8034,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
