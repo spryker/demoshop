@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.69.2",
+            "version": "3.69.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "65c88e074dffe4cb25b840c154b2f39564b39287"
+                "reference": "92ade997fc057d22bbee902468f749ef8db1c162"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/65c88e074dffe4cb25b840c154b2f39564b39287",
-                "reference": "65c88e074dffe4cb25b840c154b2f39564b39287",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/92ade997fc057d22bbee902468f749ef8db1c162",
+                "reference": "92ade997fc057d22bbee902468f749ef8db1c162",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-10-08T20:05:34+00:00"
+            "time": "2018-10-09T20:35:16+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -2406,16 +2406,16 @@
         },
         {
             "name": "spryker-shop/price-product-volume-widget",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker-shop/price-product-volume-widget.git",
-                "reference": "1cb92a19d8c96c0ef6d0f30ffcd224930116c3c0"
+                "reference": "4275b1c8ae82f25db786204a006adce4c29ae923"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker-shop/price-product-volume-widget/zipball/1cb92a19d8c96c0ef6d0f30ffcd224930116c3c0",
-                "reference": "1cb92a19d8c96c0ef6d0f30ffcd224930116c3c0",
+                "url": "https://api.github.com/repos/spryker-shop/price-product-volume-widget/zipball/4275b1c8ae82f25db786204a006adce4c29ae923",
+                "reference": "4275b1c8ae82f25db786204a006adce4c29ae923",
                 "shasum": ""
             },
             "require": {
@@ -2450,7 +2450,7 @@
                 "proprietary"
             ],
             "description": "PriceProductVolumeWidget module",
-            "time": "2018-10-02T14:52:11+00:00"
+            "time": "2018-10-08T08:00:32+00:00"
         },
         {
             "name": "spryker/acl",
@@ -15280,16 +15280,16 @@
         },
         {
             "name": "spryker/shopping-list",
-            "version": "1.6.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/shopping-list.git",
-                "reference": "a364c12679c96f19217f76db85b7d263c7da111d"
+                "reference": "fe5b821eb3725d5c6345c35840a418ebea549cd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/shopping-list/zipball/a364c12679c96f19217f76db85b7d263c7da111d",
-                "reference": "a364c12679c96f19217f76db85b7d263c7da111d",
+                "url": "https://api.github.com/repos/spryker/shopping-list/zipball/fe5b821eb3725d5c6345c35840a418ebea549cd4",
+                "reference": "fe5b821eb3725d5c6345c35840a418ebea549cd4",
                 "shasum": ""
             },
             "require": {
@@ -15339,7 +15339,7 @@
                 "proprietary"
             ],
             "description": "ShoppingList module",
-            "time": "2018-10-02T11:58:54+00:00"
+            "time": "2018-10-09T10:16:22+00:00"
         },
         {
             "name": "spryker/shopping-list-extension",
@@ -15382,23 +15382,23 @@
         },
         {
             "name": "spryker/shopping-list-note",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/shopping-list-note.git",
-                "reference": "634cdc2134dda1c9867969af044c98f771772538"
+                "reference": "3d742d35a488077f475491be0f2bf6718a2ead71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/shopping-list-note/zipball/634cdc2134dda1c9867969af044c98f771772538",
-                "reference": "634cdc2134dda1c9867969af044c98f771772538",
+                "url": "https://api.github.com/repos/spryker/shopping-list-note/zipball/3d742d35a488077f475491be0f2bf6718a2ead71",
+                "reference": "3d742d35a488077f475491be0f2bf6718a2ead71",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/cart": "^5.3.0",
                 "spryker/kernel": "^3.0.0",
-                "spryker/shopping-list": "^1.0.0",
+                "spryker/shopping-list": "^1.0.0 || ^2.0.0",
                 "spryker/shopping-list-extension": "^1.2.0"
             },
             "require-dev": {
@@ -15431,27 +15431,27 @@
                 "proprietary"
             ],
             "description": "ShoppingListNote module",
-            "time": "2018-09-30T10:21:34+00:00"
+            "time": "2018-10-08T11:55:20+00:00"
         },
         {
             "name": "spryker/shopping-list-session",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/shopping-list-session.git",
-                "reference": "20107e7944929210af9c6f8f9b02b4c74f93b9b2"
+                "reference": "4013037e2dd62af2fc0054ddcab8d51489f22a52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/shopping-list-session/zipball/20107e7944929210af9c6f8f9b02b4c74f93b9b2",
-                "reference": "20107e7944929210af9c6f8f9b02b4c74f93b9b2",
+                "url": "https://api.github.com/repos/spryker/shopping-list-session/zipball/4013037e2dd62af2fc0054ddcab8d51489f22a52",
+                "reference": "4013037e2dd62af2fc0054ddcab8d51489f22a52",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/kernel": "^3.0.0",
                 "spryker/session": "^3.0.0",
-                "spryker/shopping-list": "^1.1.0",
+                "spryker/shopping-list": "^1.1.0 || ^2.0.0",
                 "spryker/shopping-list-session-extension": "^1.0.0"
             },
             "require-dev": {
@@ -15475,7 +15475,7 @@
                 "proprietary"
             ],
             "description": "ShoppingListSession module",
-            "time": "2018-09-22T20:39:25+00:00"
+            "time": "2018-10-08T11:55:20+00:00"
         },
         {
             "name": "spryker/shopping-list-session-extension",
@@ -15518,16 +15518,16 @@
         },
         {
             "name": "spryker/shopping-list-storage",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/shopping-list-storage.git",
-                "reference": "360667fdd4c144008e3c6ac6bfcc9d21901fef8f"
+                "reference": "0e10faa8ab6ec5a2b4d985dd128be372c39cff9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/shopping-list-storage/zipball/360667fdd4c144008e3c6ac6bfcc9d21901fef8f",
-                "reference": "360667fdd4c144008e3c6ac6bfcc9d21901fef8f",
+                "url": "https://api.github.com/repos/spryker/shopping-list-storage/zipball/0e10faa8ab6ec5a2b4d985dd128be372c39cff9c",
+                "reference": "0e10faa8ab6ec5a2b4d985dd128be372c39cff9c",
                 "shasum": ""
             },
             "require": {
@@ -15538,7 +15538,7 @@
                 "spryker/event-behavior": "^1.1.0",
                 "spryker/kernel": "^3.17.0",
                 "spryker/propel-orm": "^1.0.0",
-                "spryker/shopping-list": "^1.2.0",
+                "spryker/shopping-list": "^1.2.0 || ^2.0.0",
                 "spryker/shopping-list-session-extension": "^1.0.0",
                 "spryker/storage": "^3.0.0",
                 "spryker/synchronization": "^1.0.0",
@@ -15568,7 +15568,7 @@
                 "proprietary"
             ],
             "description": "ShoppingListStorage module",
-            "time": "2018-09-27T11:48:41+00:00"
+            "time": "2018-10-08T11:55:20+00:00"
         },
         {
             "name": "spryker/silex",
@@ -20479,16 +20479,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.0.4",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c"
+                "reference": "d0230c5c77a7e3cfa69446febf340978540958c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fa6ee28600d21d49b2b4e1006b48426cec8e579c",
-                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/d0230c5c77a7e3cfa69446febf340978540958c0",
+                "reference": "d0230c5c77a7e3cfa69446febf340978540958c0",
                 "shasum": ""
             },
             "require": {
@@ -20504,7 +20504,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -20526,7 +20526,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-09-18T07:03:24+00:00"
+            "time": "2018-10-10T09:24:14+00:00"
         },
         {
             "name": "ocramius/package-versions",
