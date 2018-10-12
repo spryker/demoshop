@@ -16733,16 +16733,16 @@
         },
         {
             "name": "spryker/user",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/user.git",
-                "reference": "c8e0a8792a4f41502a445d46152cf357ac2426ac"
+                "reference": "fcdc272ae6d5d1d0c472267b8b5419d6bf5106b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/user/zipball/c8e0a8792a4f41502a445d46152cf357ac2426ac",
-                "reference": "c8e0a8792a4f41502a445d46152cf357ac2426ac",
+                "url": "https://api.github.com/repos/spryker/user/zipball/fcdc272ae6d5d1d0c472267b8b5419d6bf5106b3",
+                "reference": "fcdc272ae6d5d1d0c472267b8b5419d6bf5106b3",
                 "shasum": ""
             },
             "require": {
@@ -16785,7 +16785,7 @@
                 "proprietary"
             ],
             "description": "User module",
-            "time": "2018-09-05T09:34:01+00:00"
+            "time": "2018-10-08T16:09:45+00:00"
         },
         {
             "name": "spryker/user-extension",
