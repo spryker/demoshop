@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.69.5",
+            "version": "3.69.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "cf01c814404a28a76a2431f80d2e6ea82c9045c8"
+                "reference": "7772d90f021a160d8208e484513a41eaca848693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cf01c814404a28a76a2431f80d2e6ea82c9045c8",
-                "reference": "cf01c814404a28a76a2431f80d2e6ea82c9045c8",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7772d90f021a160d8208e484513a41eaca848693",
+                "reference": "7772d90f021a160d8208e484513a41eaca848693",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-10-11T22:32:08+00:00"
+            "time": "2018-10-12T21:44:38+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -4884,16 +4884,16 @@
         },
         {
             "name": "spryker/collector",
-            "version": "6.1.6",
+            "version": "6.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/collector.git",
-                "reference": "1b4f455ce3aee1db420aab5e69ca5a8277dee7f5"
+                "reference": "6ef79f1d9842271e2aa9f9f9c397a0552947de6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/collector/zipball/1b4f455ce3aee1db420aab5e69ca5a8277dee7f5",
-                "reference": "1b4f455ce3aee1db420aab5e69ca5a8277dee7f5",
+                "url": "https://api.github.com/repos/spryker/collector/zipball/6ef79f1d9842271e2aa9f9f9c397a0552947de6e",
+                "reference": "6ef79f1d9842271e2aa9f9f9c397a0552947de6e",
                 "shasum": ""
             },
             "require": {
@@ -4935,7 +4935,7 @@
                 "proprietary"
             ],
             "description": "Collector module",
-            "time": "2018-09-07T11:05:09+00:00"
+            "time": "2018-10-08T12:38:04+00:00"
         },
         {
             "name": "spryker/collector-search-connector",
@@ -10279,16 +10279,16 @@
         },
         {
             "name": "spryker/oms",
-            "version": "8.3.0",
+            "version": "8.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/oms.git",
-                "reference": "f181d22f74c8c17e938193eeda473c0da60825c6"
+                "reference": "1a28cb0c8ad8cbc1014b5e729ccba3bcc3702864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/oms/zipball/f181d22f74c8c17e938193eeda473c0da60825c6",
-                "reference": "f181d22f74c8c17e938193eeda473c0da60825c6",
+                "url": "https://api.github.com/repos/spryker/oms/zipball/1a28cb0c8ad8cbc1014b5e729ccba3bcc3702864",
+                "reference": "1a28cb0c8ad8cbc1014b5e729ccba3bcc3702864",
                 "shasum": ""
             },
             "require": {
@@ -10306,11 +10306,9 @@
                 "spryker/util-text": "^1.1.0"
             },
             "require-dev": {
+                "spryker/application": "*",
                 "spryker/checkout": "*",
-                "spryker/code-sniffer": "*",
-                "spryker/config": "*",
                 "spryker/propel": "*",
-                "spryker/silex": "*",
                 "spryker/testify": "*"
             },
             "suggest": {
@@ -10333,7 +10331,7 @@
                 "proprietary"
             ],
             "description": "Oms module",
-            "time": "2018-07-30T12:46:42+00:00"
+            "time": "2018-10-12T15:59:47+00:00"
         },
         {
             "name": "spryker/oms-discount-connector",
@@ -14592,16 +14590,16 @@
         },
         {
             "name": "spryker/sales",
-            "version": "8.14.1",
+            "version": "8.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/sales.git",
-                "reference": "6279109071a45e2f5f9792c44c5e0de269d9018f"
+                "reference": "a2c2263a983bacb6510e102d983e9b9ee4a09aed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/sales/zipball/6279109071a45e2f5f9792c44c5e0de269d9018f",
-                "reference": "6279109071a45e2f5f9792c44c5e0de269d9018f",
+                "url": "https://api.github.com/repos/spryker/sales/zipball/a2c2263a983bacb6510e102d983e9b9ee4a09aed",
+                "reference": "a2c2263a983bacb6510e102d983e9b9ee4a09aed",
                 "shasum": ""
             },
             "require": {
@@ -14658,7 +14656,7 @@
                 "proprietary"
             ],
             "description": "Sales module",
-            "time": "2018-10-05T18:19:18+00:00"
+            "time": "2018-10-12T12:20:56+00:00"
         },
         {
             "name": "spryker/sales-extension",
@@ -15040,16 +15038,16 @@
         },
         {
             "name": "spryker/search",
-            "version": "8.3.0",
+            "version": "8.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/search.git",
-                "reference": "cedcac50a1ad270ca9e410ebd99394518c6e11e5"
+                "reference": "6378fcde998740183067575f4c8e33af52955314"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/search/zipball/cedcac50a1ad270ca9e410ebd99394518c6e11e5",
-                "reference": "cedcac50a1ad270ca9e410ebd99394518c6e11e5",
+                "url": "https://api.github.com/repos/spryker/search/zipball/6378fcde998740183067575f4c8e33af52955314",
+                "reference": "6378fcde998740183067575f4c8e33af52955314",
                 "shasum": ""
             },
             "require": {
@@ -15088,7 +15086,7 @@
                 "proprietary"
             ],
             "description": "Search module",
-            "time": "2018-09-24T09:04:03+00:00"
+            "time": "2018-10-08T12:38:04+00:00"
         },
         {
             "name": "spryker/sequence-number",
@@ -17173,16 +17171,16 @@
         },
         {
             "name": "spryker/wishlist",
-            "version": "6.2.1",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/wishlist.git",
-                "reference": "11bfc8e7bca7673e7f4cc50d6b930a74a3fac23a"
+                "reference": "36719ae7efcab8f75fcc34054416feb25e7c8eec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/wishlist/zipball/11bfc8e7bca7673e7f4cc50d6b930a74a3fac23a",
-                "reference": "11bfc8e7bca7673e7f4cc50d6b930a74a3fac23a",
+                "url": "https://api.github.com/repos/spryker/wishlist/zipball/36719ae7efcab8f75fcc34054416feb25e7c8eec",
+                "reference": "36719ae7efcab8f75fcc34054416feb25e7c8eec",
                 "shasum": ""
             },
             "require": {
@@ -17217,7 +17215,7 @@
                 "proprietary"
             ],
             "description": "Wishlist module",
-            "time": "2018-10-10T08:41:26+00:00"
+            "time": "2018-10-12T14:55:45+00:00"
         },
         {
             "name": "spryker/wishlist-extension",
