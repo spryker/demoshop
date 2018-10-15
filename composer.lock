@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7345cf8764b4f89634c43aed0dcadb57",
+    "content-hash": "3fc9b263bdb41d986a957a24f550a04f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -15619,6 +15619,57 @@
             ],
             "description": "ShoppingListNote module",
             "time": "2018-10-08T11:55:20+00:00"
+        },
+        {
+            "name": "spryker/shopping-list-product-option-connector",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/shopping-list-product-option-connector.git",
+                "reference": "ddd0f39e1027e0a68e992d71468595bc5ae85199"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/shopping-list-product-option-connector/zipball/ddd0f39e1027e0a68e992d71468595bc5ae85199",
+                "reference": "ddd0f39e1027e0a68e992d71468595bc5ae85199",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product-option": "^6.4.0",
+                "spryker/propel-orm": "^1.0.0",
+                "spryker/shopping-list": "^1.7.0 || ^2.1.0",
+                "spryker/shopping-list-extension": "^1.3.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/company": "*",
+                "spryker/company-business-unit": "*",
+                "spryker/company-user": "*",
+                "spryker/customer": "*",
+                "spryker/permission": "*",
+                "spryker/product": "*",
+                "spryker/propel": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ShoppingListProductOptionConnector module",
+            "time": "2018-10-15T09:17:44+00:00"
         },
         {
             "name": "spryker/shopping-list-session",
