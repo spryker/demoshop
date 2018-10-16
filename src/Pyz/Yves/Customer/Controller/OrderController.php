@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\OrderListTransfer;
 use Generated\Shared\Transfer\OrderTransfer;
 use Generated\Shared\Transfer\PaginationTransfer;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class OrderController extends AbstractCustomerController
 {
@@ -105,6 +106,8 @@ class OrderController extends AbstractCustomerController
     /**
      * @param int $idSalesOrder
      *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
      * @return array
      */
     protected function getOrderDetailsResponseData($idSalesOrder)
@@ -119,6 +122,13 @@ class OrderController extends AbstractCustomerController
         $orderTransfer = $this->getFactory()
             ->getSalesClient()
             ->getOrderDetails($orderTransfer);
+
+        if ($orderTransfer->getIdSalesOrder() === null) {
+            throw new NotFoundHttpException(sprintf(
+                "Order with provided ID %s doesn't exist",
+                $idSalesOrder
+            ));
+        }
 
         $bundleItemGrouper = $this->getFactory()->createProductBundleGroupper();
         $items = $bundleItemGrouper->getGroupedBundleItems(
