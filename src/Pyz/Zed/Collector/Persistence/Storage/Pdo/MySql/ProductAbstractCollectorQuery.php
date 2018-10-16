@@ -11,7 +11,7 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductAbstractCollectorQuery extends AbstractPdoCollectorQuery
 {
-    const COL_IS_IN_STORE = 'is_in_store';
+    public const COL_IS_IN_STORE = 'is_in_store';
 
     /**
      * @return void

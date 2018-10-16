@@ -21,19 +21,19 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_ATTRIBUTES = 'attributes';
-    const KEY_LOCALIZED_ATTRIBUTES = 'localizedAttributes';
-    const KEY_NAME = 'name';
-    const KEY_DESCRIPTION = 'description';
-    const KEY_LOCALES = 'locales';
-    const KEY_CONCRETE_SKU = 'concrete_sku';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_ABSTRACT_SKU = 'abstract_sku';
-    const KEY_IS_COMPLETE = 'is_complete';
-    const KEY_IS_SEARCHABLE = 'is_searchable';
-    const KEY_BUNDLES = 'bundled';
+    public const KEY_ATTRIBUTES = 'attributes';
+    public const KEY_LOCALIZED_ATTRIBUTES = 'localizedAttributes';
+    public const KEY_NAME = 'name';
+    public const KEY_DESCRIPTION = 'description';
+    public const KEY_LOCALES = 'locales';
+    public const KEY_CONCRETE_SKU = 'concrete_sku';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_ABSTRACT_SKU = 'abstract_sku';
+    public const KEY_IS_COMPLETE = 'is_complete';
+    public const KEY_IS_SEARCHABLE = 'is_searchable';
+    public const KEY_BUNDLES = 'bundled';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository
@@ -136,7 +136,7 @@ class ProductConcreteWriter extends TouchAwareStep implements DataImportStepInte
             $bundleProducts = explode(',', $dataSet[static::KEY_BUNDLES]);
             foreach ($bundleProducts as $bundleProduct) {
                 $bundleProduct = trim($bundleProduct);
-                list($sku, $quantity) = explode('/', $bundleProduct);
+                [$sku, $quantity] = explode('/', $bundleProduct);
                 $idProduct = $this->productRepository->getIdProductByConcreteSku($sku);
 
                 $productBundleEntity = SpyProductBundleQuery::create()

@@ -12,7 +12,7 @@ use Spryker\Yves\Kernel\Container;
 
 class CalculationDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CLIENT_QUOTE = 'quote client';
+    public const CLIENT_QUOTE = 'quote client';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

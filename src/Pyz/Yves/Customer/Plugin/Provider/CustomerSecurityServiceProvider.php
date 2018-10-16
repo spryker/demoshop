@@ -20,9 +20,9 @@ use Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationL
  */
 class CustomerSecurityServiceProvider extends AbstractServiceProvider
 {
-    const FIREWALL_SECURED = 'secured';
-    const ROLE_USER = 'ROLE_USER';
-    const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';
+    public const FIREWALL_SECURED = 'secured';
+    public const ROLE_USER = 'ROLE_USER';
+    public const IS_AUTHENTICATED_ANONYMOUSLY = 'IS_AUTHENTICATED_ANONYMOUSLY';
 
     /**
      * @param \Silex\Application $app

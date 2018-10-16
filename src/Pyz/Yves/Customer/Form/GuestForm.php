@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -22,13 +23,13 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  */
 class GuestForm extends AbstractType
 {
-    const FIELD_SALUTATION = 'salutation';
-    const FIELD_FIRST_NAME = 'first_name';
-    const FIELD_LAST_NAME = 'last_name';
-    const FIELD_EMAIL = 'email';
-    const FIELD_IS_GUEST = 'is_guest';
-    const FIELD_ACCEPT_TERMS = 'accept_terms';
-    const BLOCK_PREFIX = 'guestForm';
+    public const FIELD_SALUTATION = 'salutation';
+    public const FIELD_FIRST_NAME = 'first_name';
+    public const FIELD_LAST_NAME = 'last_name';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_IS_GUEST = 'is_guest';
+    public const FIELD_ACCEPT_TERMS = 'accept_terms';
+    public const BLOCK_PREFIX = 'guestForm';
 
     /**
      * @return string

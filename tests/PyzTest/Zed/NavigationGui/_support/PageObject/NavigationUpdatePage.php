@@ -9,6 +9,6 @@ namespace PyzTest\Zed\NavigationGui\PageObject;
 
 class NavigationUpdatePage
 {
-    const URL = '/navigation-gui/update?id-navigation=%d';
-    const MESSAGE_SUCCESS = '/Navigation element (\d+) was updated successfully\\./';
+    public const URL = '/navigation-gui/update?id-navigation=%d';
+    public const MESSAGE_SUCCESS = '/Navigation element (\d+) was updated successfully\\./';
 }

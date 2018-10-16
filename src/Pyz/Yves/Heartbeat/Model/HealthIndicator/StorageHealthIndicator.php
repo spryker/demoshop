@@ -13,8 +13,8 @@ use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class StorageHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {
-    const FAILURE_MESSAGE_UNABLE_TO_READ_FROM_STORAGE = 'Unable to read from storage';
-    const KEY_HEARTBEAT = 'heartbeat';
+    public const FAILURE_MESSAGE_UNABLE_TO_READ_FROM_STORAGE = 'Unable to read from storage';
+    public const KEY_HEARTBEAT = 'heartbeat';
 
     /**
      * @var \Spryker\Client\Storage\StorageClientInterface

@@ -9,6 +9,6 @@ namespace PyzTest\Zed\NavigationGui\PageObject;
 
 class NavigationStatusTogglePage
 {
-    const URL = '/navigation-gui/toggle-status?id-navigation=%d';
-    const MESSAGE_ACTIVE_SUCCESS = '/Navigation element (\d+) was activated successfully\\./';
+    public const URL = '/navigation-gui/toggle-status?id-navigation=%d';
+    public const MESSAGE_ACTIVE_SUCCESS = '/Navigation element (\d+) was activated successfully\\./';
 }

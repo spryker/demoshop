@@ -18,8 +18,8 @@ use Symfony\Component\Routing\RouteCollection;
 
 class UrlGenerator extends SymfonyUrlGenerator
 {
-    const HOME = 'home';
-    const ERROR_PATH = '/error/404';
+    public const HOME = 'home';
+    public const ERROR_PATH = '/error/404';
 
     /**
      * @var \Pimple
@@ -50,7 +50,7 @@ class UrlGenerator extends SymfonyUrlGenerator
 
         $url = parent::generate($name, $parameters, $referenceType);
 
-        list($url, $queryParams) = $this->stripQueryParams($url);
+        [$url, $queryParams] = $this->stripQueryParams($url);
 
         $url = $this->setVariablePath($name, $url, $compiledRoute, $route, $referenceType);
         $url = $this->appendQueryParams($url, $queryParams);

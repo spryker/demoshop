@@ -17,15 +17,15 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CompanyUnitAddressWriterStep implements DataImportStepInterface
 {
-    const KEY_COUNTRY_CODE = 'country_code';
-    const KEY_COMPANY_NAME = 'company_name';
-    const KEY_ADDRESS1 = 'address1';
-    const KEY_ADDRESS2 = 'address2';
-    const KEY_ADDRESS3 = 'address3';
-    const KEY_CITY = 'city';
-    const KEY_ZIP_CODE = 'zip_code';
-    const KEY_PHONE = 'phone';
-    const KEY_COMMENT = 'comment';
+    public const KEY_COUNTRY_CODE = 'country_code';
+    public const KEY_COMPANY_NAME = 'company_name';
+    public const KEY_ADDRESS1 = 'address1';
+    public const KEY_ADDRESS2 = 'address2';
+    public const KEY_ADDRESS3 = 'address3';
+    public const KEY_CITY = 'city';
+    public const KEY_ZIP_CODE = 'zip_code';
+    public const KEY_PHONE = 'phone';
+    public const KEY_COMMENT = 'comment';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

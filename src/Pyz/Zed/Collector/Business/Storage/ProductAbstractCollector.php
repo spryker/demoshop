@@ -8,7 +8,6 @@
 namespace Pyz\Zed\Collector\Business\Storage;
 
 use Everon\Component\Collection\Collection;
-
 use Generated\Shared\Transfer\RawProductAttributesTransfer;
 use Generated\Shared\Transfer\StorageProductCategoryTransfer;
 use Generated\Shared\Transfer\StorageProductImageTransfer;
@@ -34,19 +33,19 @@ use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
  */
 class ProductAbstractCollector extends AbstractStoragePdoCollector
 {
-    const ID_CATEGORY_NODE = 'id_category_node';
-    const SKU = 'sku';
-    const URL = 'url';
-    const COLOR_CODE = 'color_code';
-    const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
-    const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
-    const NAME = 'name';
-    const DESCRIPTION = 'description';
-    const META_KEYWORDS = 'meta_keywords';
-    const META_TITLE = 'meta_title';
-    const META_DESCRIPTION = 'meta_description';
-    const SUPER_ATTRIBUTES_DEFINITION = 'super_attributes_definition';
-    const COL_IS_IN_STORE = 'is_in_store';
+    public const ID_CATEGORY_NODE = 'id_category_node';
+    public const SKU = 'sku';
+    public const URL = 'url';
+    public const COLOR_CODE = 'color_code';
+    public const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
+    public const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
+    public const NAME = 'name';
+    public const DESCRIPTION = 'description';
+    public const META_KEYWORDS = 'meta_keywords';
+    public const META_TITLE = 'meta_title';
+    public const META_DESCRIPTION = 'meta_description';
+    public const SUPER_ATTRIBUTES_DEFINITION = 'super_attributes_definition';
+    public const COL_IS_IN_STORE = 'is_in_store';
 
     /**
      * @var \Spryker\Zed\Category\Persistence\CategoryQueryContainerInterface
@@ -232,6 +231,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
     {
         foreach ($productCategory->getSpyCategory()->getNodes() as $node) {
             $queryPath = $this->categoryQueryContainer->queryPath($node->getIdCategoryNode(), $this->locale->getIdLocale());
+            /** @var array $pathTokens */
             $pathTokens = $queryPath->find();
 
             $productCategoryCollection = $this->generateCategoryData($pathTokens, $productCategoryCollection);
@@ -303,6 +303,7 @@ class ProductAbstractCollector extends AbstractStoragePdoCollector
      */
     protected function buildPath(SpyCategoryNode $node)
     {
+        /** @var array $pathTokens */
         $pathTokens = $this->categoryQueryContainer
             ->queryPath($node->getIdCategoryNode(), $this->locale->getIdLocale(), false, true)
             ->find();

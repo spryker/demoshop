@@ -12,7 +12,7 @@ use Silex\Application;
 
 class CurrencyControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_CART = 'currency-switch';
+    public const ROUTE_CART = 'currency-switch';
 
     /**
      * @param \Silex\Application $app
