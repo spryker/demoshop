@@ -72,9 +72,9 @@ class GiftCardCodeHandler implements CodeHandlerInterface
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param string $code
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    protected function removeGiftCardPayment(QuoteTransfer $quoteTransfer, string $code): void
+    protected function removeGiftCardPayment(QuoteTransfer $quoteTransfer, $code)
     {
         foreach ($quoteTransfer->getPayments() as $index => $payment) {
             if ($payment->getGiftCard() && $payment->getGiftCard()->getCode() === $code) {
@@ -83,6 +83,8 @@ class GiftCardCodeHandler implements CodeHandlerInterface
         }
 
         $quoteTransfer->setPayment(null);
+
+        return $quoteTransfer;
     }
 
     /**
