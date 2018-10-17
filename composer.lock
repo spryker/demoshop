@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
@@ -2508,7 +2508,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "75d0c08f0781a45013d999e966fe8d7036d3c240"
+                "reference": "d6d7e7a75a12c558dc5adb3a6c22b86460f536ef"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-16T16:40:10+00:00"
+            "time": "2018-10-17T10:06:39+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
