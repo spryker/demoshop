@@ -6343,16 +6343,16 @@
         },
         {
             "name": "spryker/customer",
-            "version": "7.12.0",
+            "version": "7.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/customer.git",
-                "reference": "c189599131d85ab81a098f817e6aa9d6f2ece808"
+                "reference": "c04ea36b927a6b7ad2f1481964688f72cf40d41d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/customer/zipball/c189599131d85ab81a098f817e6aa9d6f2ece808",
-                "reference": "c189599131d85ab81a098f817e6aa9d6f2ece808",
+                "url": "https://api.github.com/repos/spryker/customer/zipball/c04ea36b927a6b7ad2f1481964688f72cf40d41d",
+                "reference": "c04ea36b927a6b7ad2f1481964688f72cf40d41d",
                 "shasum": ""
             },
             "require": {
@@ -6402,7 +6402,7 @@
                 "proprietary"
             ],
             "description": "Customer module",
-            "time": "2018-10-17T12:52:21+00:00"
+            "time": "2018-10-18T08:19:33+00:00"
         },
         {
             "name": "spryker/customer-access",
@@ -22436,6 +22436,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
+            "abandoned": true,
             "time": "2016-05-04T16:32:42+00:00"
         },
         {
