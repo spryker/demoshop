@@ -5675,16 +5675,16 @@
         },
         {
             "name": "spryker/company-unit-address-gui",
-            "version": "0.2.3",
+            "version": "0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-unit-address-gui.git",
-                "reference": "8f298aeaaeaae5222a1d2b9bd1269fc0d1968158"
+                "reference": "6c6b8b9b77a9745ed0b7ddbd454e652d89fdf95e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-unit-address-gui/zipball/8f298aeaaeaae5222a1d2b9bd1269fc0d1968158",
-                "reference": "8f298aeaaeaae5222a1d2b9bd1269fc0d1968158",
+                "url": "https://api.github.com/repos/spryker/company-unit-address-gui/zipball/6c6b8b9b77a9745ed0b7ddbd454e652d89fdf95e",
+                "reference": "6c6b8b9b77a9745ed0b7ddbd454e652d89fdf95e",
                 "shasum": ""
             },
             "require": {
@@ -5719,7 +5719,7 @@
                 "proprietary"
             ],
             "description": "CompanyUnitAddressGui module",
-            "time": "2018-10-10T10:21:55+00:00"
+            "time": "2018-10-18T10:01:43+00:00"
         },
         {
             "name": "spryker/company-unit-address-gui-extension",
