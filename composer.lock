@@ -1039,7 +1039,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2508,7 +2508,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d6d7e7a75a12c558dc5adb3a6c22b86460f536ef"
+                "reference": "c5b378f11cbde5ef32406a00d9f023c5ec02eeeb"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-17T10:06:39+00:00"
+            "time": "2018-10-19T10:00:25+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8109,12 +8109,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "343350dd1a203d60e7f0734e4eb8fe778e24ea4d"
+                "reference": "391836c2f5debf303d15bca061d4f690e6580dd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/343350dd1a203d60e7f0734e4eb8fe778e24ea4d",
-                "reference": "343350dd1a203d60e7f0734e4eb8fe778e24ea4d",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/391836c2f5debf303d15bca061d4f690e6580dd0",
+                "reference": "391836c2f5debf303d15bca061d4f690e6580dd0",
                 "shasum": ""
             },
             "require": {
@@ -8144,7 +8144,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-09-10T12:37:02+00:00"
+            "time": "2018-10-17T13:53:06+00:00"
         },
         {
             "name": "spryker/code-sniffer",
