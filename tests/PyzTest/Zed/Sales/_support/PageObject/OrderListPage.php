@@ -9,5 +9,5 @@ namespace PyzTest\Zed\Sales\PageObject;
 
 class OrderListPage
 {
-    const ORDER_LIST_URL = '/sales';
+    public const ORDER_LIST_URL = '/sales';
 }

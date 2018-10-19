@@ -16,12 +16,12 @@ use Spryker\Zed\Glossary\GlossaryConfig;
 
 class GlossaryWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_KEY = 'key';
-    const KEY_TRANSLATION = 'translation';
-    const KEY_ID_LOCALE = 'idLocale';
-    const KEY_LOCALE = 'locale';
+    public const KEY_KEY = 'key';
+    public const KEY_TRANSLATION = 'translation';
+    public const KEY_ID_LOCALE = 'idLocale';
+    public const KEY_LOCALE = 'locale';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

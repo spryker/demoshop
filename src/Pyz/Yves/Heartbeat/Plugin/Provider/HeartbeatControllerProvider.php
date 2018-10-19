@@ -12,7 +12,7 @@ use Silex\Application;
 
 class HeartbeatControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_HEARTBEAT = 'heartbeat';
+    public const ROUTE_HEARTBEAT = 'heartbeat';
 
     /**
      * @param \Silex\Application $app

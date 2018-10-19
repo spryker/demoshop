@@ -22,21 +22,21 @@ use Spryker\Zed\ProductImage\Persistence\ProductImageQueryContainerInterface;
 
 class ProductConcreteCollector extends AbstractStoragePdoCollector
 {
-    const SKU = 'sku';
-    const QUANTITY = 'quantity';
-    const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
-    const CONCRETE_ATTRIBUTES = 'concrete_attributes';
-    const NAME = 'name';
-    const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
-    const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
-    const CONCRETE_DESCRIPTION = 'concrete_description';
-    const ABSTRACT_DESCRIPTION = 'abstract_description';
-    const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
-    const META_KEYWORDS = 'meta_keywords';
-    const META_TITLE = 'meta_title';
-    const META_DESCRIPTION = 'meta_description';
-    const URL = 'url';
-    const ATTRIBUTES = 'attributes';
+    public const SKU = 'sku';
+    public const QUANTITY = 'quantity';
+    public const CONCRETE_LOCALIZED_ATTRIBUTES = 'concrete_localized_attributes';
+    public const CONCRETE_ATTRIBUTES = 'concrete_attributes';
+    public const NAME = 'name';
+    public const ABSTRACT_ATTRIBUTES = 'abstract_attributes';
+    public const ABSTRACT_LOCALIZED_ATTRIBUTES = 'abstract_localized_attributes';
+    public const CONCRETE_DESCRIPTION = 'concrete_description';
+    public const ABSTRACT_DESCRIPTION = 'abstract_description';
+    public const ID_PRODUCT_ABSTRACT = 'id_product_abstract';
+    public const META_KEYWORDS = 'meta_keywords';
+    public const META_TITLE = 'meta_title';
+    public const META_DESCRIPTION = 'meta_description';
+    public const URL = 'url';
+    public const ATTRIBUTES = 'attributes';
 
     /**
      * @var \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
