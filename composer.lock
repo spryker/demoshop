@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
+    "content-hash": "103917361b0e3a7e0c98db9f20dea5f5",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2504,11 +2504,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/cc-115-enable-new-tls-support-for-spryker-mail",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d6d7e7a75a12c558dc5adb3a6c22b86460f536ef"
+                "reference": "55594d968ae0f1c32e8e971648c9efe9d6dca29f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-17T10:06:39+00:00"
+            "time": "2018-10-04T07:05:22+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2880,29 +2880,34 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.12",
+            "version": "v6.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950"
+                "reference": "8ddcb66ac10c392d3beb54829eef8ac1438595f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/181b89f18a90f8925ef805f950d47a7190e9b950",
-                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/8ddcb66ac10c392d3beb54829eef8ac1438595f4",
+                "reference": "8ddcb66ac10c392d3beb54829eef8ac1438595f4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "egulias/email-validator": "~2.0",
+                "php": ">=7.0.0"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.1",
-                "symfony/phpunit-bridge": "~3.2"
+                "symfony/phpunit-bridge": "~3.3@dev"
+            },
+            "suggest": {
+                "ext-intl": "Needed to support internationalized email addresses",
+                "true/punycode": "Needed to support internationalized email addresses, if ext-intl is not installed"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "6.1-dev"
                 }
             },
             "autoload": {
@@ -2930,7 +2935,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2018-07-31T09:26:32+00:00"
+            "time": "2018-09-11T07:12:52+00:00"
         },
         {
             "name": "symfony-cmf/routing",
@@ -8109,12 +8114,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "343350dd1a203d60e7f0734e4eb8fe778e24ea4d"
+                "reference": "391836c2f5debf303d15bca061d4f690e6580dd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/343350dd1a203d60e7f0734e4eb8fe778e24ea4d",
-                "reference": "343350dd1a203d60e7f0734e4eb8fe778e24ea4d",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/391836c2f5debf303d15bca061d4f690e6580dd0",
+                "reference": "391836c2f5debf303d15bca061d4f690e6580dd0",
                 "shasum": ""
             },
             "require": {
@@ -8144,7 +8149,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-09-10T12:37:02+00:00"
+            "time": "2018-10-17T13:53:06+00:00"
         },
         {
             "name": "spryker/code-sniffer",
