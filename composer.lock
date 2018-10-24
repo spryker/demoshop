@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9e3c10ad79c33d899fdf622e952d838",
+    "content-hash": "69dea4077d4eadb2659d1df2fe637e11",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-5802-schema-validation-max-char",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9ba152d5cf49e06c664fb28a6e8159fa6ec447e0"
+                "reference": "6200a9f33b65f20d2ff909c343c8d7774fdb366c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-24T14:58:46+00:00"
+            "time": "2018-10-24T17:53:24+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
