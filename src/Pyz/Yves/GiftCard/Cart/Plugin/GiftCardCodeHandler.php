@@ -82,6 +82,8 @@ class GiftCardCodeHandler implements CodeHandlerInterface
             }
         }
 
+        $quoteTransfer->setPayment(null);
+
         return $quoteTransfer;
     }
 
