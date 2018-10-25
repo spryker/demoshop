@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Type;
 
 class WishlistFormType extends AbstractType
 {
@@ -53,6 +54,10 @@ class WishlistFormType extends AbstractType
             'required' => true,
             'constraints' => [
                 new NotBlank(),
+                new Type([
+                    'type' => 'alnum',
+                    'message' => 'validation.error.value.alnum_type',
+                ]),
             ],
         ]);
 
