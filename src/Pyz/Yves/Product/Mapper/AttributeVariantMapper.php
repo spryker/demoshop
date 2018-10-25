@@ -175,9 +175,6 @@ class AttributeVariantMapper implements AttributeVariantMapperInterface
         foreach (array_keys($selectedNode) as $attributePath) {
             [$key, $value] = explode(ProductConfig::ATTRIBUTE_MAP_PATH_DELIMITER, $attributePath);
             $filteredAttributes[$key][] = $value;
-            if (is_array($value)) {
-                return $this->findAvailableAttributes($value, $filteredAttributes);
-            }
         }
 
         return $filteredAttributes;
