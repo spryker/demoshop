@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9e3c10ad79c33d899fdf622e952d838",
+    "content-hash": "d819b6ff7f3abb194cc6aa0e9fcc8a24",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1039,7 +1039,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/te-371-phpstan",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "9db0837eeb5d56b88f141a4b571de3fe736dfc47"
+                "reference": "a4b0d7739c7b88c71ea7b7ef0f7854e1a55ea7a0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-25T07:40:47+00:00"
+            "time": "2018-10-25T12:48:43+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
