@@ -69,6 +69,7 @@ install:
   - COMPOSER_MEMORY_LIMIT=-1 composer remove --dev spryker/git-hook
   - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
+  - config/Shared/ci/travis/install_mailcatcher.sh
 
 before_script:
   - nvm install 6
