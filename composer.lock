@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "103917361b0e3a7e0c98db9f20dea5f5",
+    "content-hash": "0255e3e367307ff2b1958fbeb6593880",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -55,19 +55,20 @@
         },
         {
             "name": "codeitnowin/barcode",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeitnowin/barcode-generator.git",
-                "reference": "a84e923469a631e48723cd1cca21858605966904"
+                "reference": "6325a15ae904ec401b947e1a3e868de1c2cc80b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeitnowin/barcode-generator/zipball/a84e923469a631e48723cd1cca21858605966904",
-                "reference": "a84e923469a631e48723cd1cca21858605966904",
+                "url": "https://api.github.com/repos/codeitnowin/barcode-generator/zipball/6325a15ae904ec401b947e1a3e868de1c2cc80b0",
+                "reference": "6325a15ae904ec401b947e1a3e868de1c2cc80b0",
                 "shasum": ""
             },
             "require": {
+                "ext-gd": "*",
                 "php": ">=5.3.2"
             },
             "type": "library",
@@ -99,7 +100,7 @@
                 "qrcode",
                 "symfony"
             ],
-            "time": "2018-06-01T13:33:52+00:00"
+            "time": "2018-10-25T18:32:10+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -600,16 +601,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.2.1",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "e79cd403fb77fc8963a99ecc30e80ddd885b3311"
+                "reference": "bc0fd11bc455cc20ee4b5edabc63ebbf859324c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/e79cd403fb77fc8963a99ecc30e80ddd885b3311",
-                "reference": "e79cd403fb77fc8963a99ecc30e80ddd885b3311",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
+                "reference": "bc0fd11bc455cc20ee4b5edabc63ebbf859324c7",
                 "shasum": ""
             },
             "require": {
@@ -657,7 +658,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2018-06-30T13:14:06+00:00"
+            "time": "2018-10-23T09:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -1614,22 +1615,21 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "v2.7.3",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "a8ba54bd35b973fc6861e4c2e105f71e9e95f43f"
+                "reference": "7df8553bd8b347cf6e919dd4a21e75f371547aa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/a8ba54bd35b973fc6861e4c2e105f71e9e95f43f",
-                "reference": "a8ba54bd35b973fc6861e4c2e105f71e9e95f43f",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/7df8553bd8b347cf6e919dd4a21e75f371547aa0",
+                "reference": "7df8553bd8b347cf6e919dd4a21e75f371547aa0",
                 "shasum": ""
             },
             "require": {
                 "ext-bcmath": "*",
-                "ext-mbstring": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "replace": {
                 "videlalvaro/php-amqplib": "self.version"
@@ -1646,7 +1646,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -1681,7 +1681,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2018-04-30T03:54:54+00:00"
+            "time": "2018-10-23T18:48:24+00:00"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -2504,11 +2504,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/cc-115-enable-new-tls-support-for-spryker-mail",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "5acb38fcdd219ec36832eeda4e882878fb4ccda9"
+                "reference": "6316ca633c1b235a026d2247f7e1b4f3cc2d98b4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-19T11:24:52+00:00"
+            "time": "2018-10-26T12:47:21+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6183,7 +6183,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6616,20 +6616,20 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.10.3",
+            "version": "0.10.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "dc62f78c9aa6e9f7c44e8d6518f1123cd1e1b1c0"
+                "reference": "c6a8cd1fe08a23b9d101a55ffa9ff6b91d71ef5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dc62f78c9aa6e9f7c44e8d6518f1123cd1e1b1c0",
-                "reference": "dc62f78c9aa6e9f7c44e8d6518f1123cd1e1b1c0",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c6a8cd1fe08a23b9d101a55ffa9ff6b91d71ef5d",
+                "reference": "c6a8cd1fe08a23b9d101a55ffa9ff6b91d71ef5d",
                 "shasum": ""
             },
             "require": {
-                "composer/xdebug-handler": "^1.0",
+                "composer/xdebug-handler": "^1.3.0",
                 "jean85/pretty-package-versions": "^1.0.3",
                 "nette/bootstrap": "^2.4 || ^3.0",
                 "nette/di": "^2.4.7 || ^3.0",
@@ -6643,21 +6643,21 @@
             },
             "require-dev": {
                 "brianium/paratest": "^2.0",
-                "consistence/coding-standard": "^3.3",
+                "consistence/coding-standard": "^3.5",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
                 "ext-gd": "*",
                 "ext-intl": "*",
                 "ext-mysqli": "*",
                 "ext-zip": "*",
                 "jakub-onderka/php-parallel-lint": "^1.0",
-                "localheinz/composer-normalize": "~0.8.0",
+                "localheinz/composer-normalize": "~0.9.0",
                 "phing/phing": "^2.16.0",
                 "phpstan/phpstan-deprecation-rules": "^0.10.2",
                 "phpstan/phpstan-php-parser": "^0.10",
                 "phpstan/phpstan-phpunit": "^0.10",
                 "phpstan/phpstan-strict-rules": "^0.10",
                 "phpunit/phpunit": "^7.0",
-                "slevomat/coding-standard": "^4.6.2"
+                "slevomat/coding-standard": "^4.7.2"
             },
             "bin": [
                 "bin/phpstan"
@@ -6681,7 +6681,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2018-08-12T15:14:21+00:00"
+            "time": "2018-10-20T17:24:55+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -8041,7 +8041,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
