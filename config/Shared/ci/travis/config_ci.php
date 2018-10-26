@@ -164,3 +164,5 @@ $config[ApplicationConstants::YVES_TRUSTED_HOSTS] = [
     $config[ApplicationConstants::HOST_ZED],
     'localhost',
 ];
+
+$config[MailConstants::SMTP_PORT] = 1025;
