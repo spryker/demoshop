@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8816ac1ecd2edf5c0ea062b4d806234",
+    "content-hash": "df74d4ccf427d67bcd4997534a9c843e",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1871,7 +1871,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2504,11 +2504,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-5614-zed-it-is-possible-to-apply-voucher-more-than-max-amount-of-usages",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d6d7e7a75a12c558dc5adb3a6c22b86460f536ef"
+                "reference": "9742f1abd83af1d1d90c3ee78d331a1a7b1d331d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-17T10:06:39+00:00"
+            "time": "2018-10-25T17:01:09+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6178,7 +6178,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8036,7 +8036,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -8166,7 +8166,6 @@
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
-                "phpstan/phpstan-shim": "^0.9.2",
                 "phpunit/phpunit": "<5.0"
             },
             "bin": [
