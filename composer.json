@@ -90,7 +90,7 @@
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
     "phpdocumentor/reflection-docblock": "^4.3",
-    "phpstan/phpstan": "^0.10.2",
+    "phpstan/phpstan": "^0.10.5",
     "phpunit/phpunit": "<7.0.0"
   },
   "autoload": {
