@@ -12,25 +12,25 @@ use Silex\Application;
 
 class CheckoutControllerProvider extends AbstractYvesControllerProvider
 {
-    const CHECKOUT_CUSTOMER = 'checkout-customer';
-    const CHECKOUT_ADDRESS = 'checkout-address';
-    const CHECKOUT_SHIPMENT = 'checkout-shipment';
-    const CHECKOUT_PAYMENT = 'checkout-payment';
-    const CHECKOUT_SUMMARY = 'checkout-summary';
-    const CHECKOUT_PLACE_ORDER = 'checkout-place-order';
-    const CHECKOUT_ERROR = 'checkout-error';
-    const CHECKOUT_SUCCESS = 'checkout-success';
-    const CHECKOUT_INDEX = 'checkout-index';
-    const CHECKOUT_VOUCHER_ADD = 'checkout-voucher-add';
+    public const CHECKOUT_CUSTOMER = 'checkout-customer';
+    public const CHECKOUT_ADDRESS = 'checkout-address';
+    public const CHECKOUT_SHIPMENT = 'checkout-shipment';
+    public const CHECKOUT_PAYMENT = 'checkout-payment';
+    public const CHECKOUT_SUMMARY = 'checkout-summary';
+    public const CHECKOUT_PLACE_ORDER = 'checkout-place-order';
+    public const CHECKOUT_ERROR = 'checkout-error';
+    public const CHECKOUT_SUCCESS = 'checkout-success';
+    public const CHECKOUT_INDEX = 'checkout-index';
+    public const CHECKOUT_VOUCHER_ADD = 'checkout-voucher-add';
 
-    const CHECKOUT_OFFER_INDEX = 'checkout-offer-index';
-    const CHECKOUT_OFFER_ADDRESS = 'checkout-offer-address';
-    const CHECKOUT_OFFER_SHIPMENT = 'checkout-offer-shipment';
-    const CHECKOUT_OFFER_PAYMENT = 'checkout-offer-payment';
-    const CHECKOUT_OFFER_SUMMARY = 'checkout-offer-summary';
-    const CHECKOUT_PLACE_OFFER = 'checkout-place-offer';
-    const CHECKOUT_OFFER_SUCCESS = 'checkout-offer-success';
-    const CHECKOUT_OFFER_CUSTOMER = 'checkout-offer-customer';
+    public const CHECKOUT_OFFER_INDEX = 'checkout-offer-index';
+    public const CHECKOUT_OFFER_ADDRESS = 'checkout-offer-address';
+    public const CHECKOUT_OFFER_SHIPMENT = 'checkout-offer-shipment';
+    public const CHECKOUT_OFFER_PAYMENT = 'checkout-offer-payment';
+    public const CHECKOUT_OFFER_SUMMARY = 'checkout-offer-summary';
+    public const CHECKOUT_PLACE_OFFER = 'checkout-place-offer';
+    public const CHECKOUT_OFFER_SUCCESS = 'checkout-offer-success';
+    public const CHECKOUT_OFFER_CUSTOMER = 'checkout-offer-customer';
 
     /**
      * @param \Silex\Application $app

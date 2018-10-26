@@ -15,7 +15,7 @@ use Pyz\Yves\Application\Controller\AbstractController;
  */
 class DetailController extends AbstractController
 {
-    const PARAM_ATTRIBUTE = 'attributes';
+    public const PARAM_ATTRIBUTE = 'attributes';
 
     /**
      * @param \Generated\Shared\Transfer\ProductSetStorageTransfer $productSetStorageTransfer

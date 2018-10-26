@@ -13,7 +13,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class AddCategoryKeysStep implements DataImportStepInterface
 {
-    const KEY_CATEGORY_KEYS = 'categoryKeys';
+    public const KEY_CATEGORY_KEYS = 'categoryKeys';
 
     /**
      * @var array

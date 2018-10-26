@@ -9,8 +9,8 @@ namespace PyzTest\Zed\CmsGui\PageObject;
 
 class CmsEditPage
 {
-    const URL = 'cms-gui/edit-page?id-cms-page=%d';
+    public const URL = 'cms-gui/edit-page?id-cms-page=%d';
 
-    const PAGE_ACTIVATE_SUCCESS_MESSAGE = 'Page was created successfully.';
-    const PAGE_PUBLISH_SUCCESS_MESSAGE = 'Page with version 1 successfully published.';
+    public const PAGE_ACTIVATE_SUCCESS_MESSAGE = 'Page was created successfully.';
+    public const PAGE_PUBLISH_SUCCESS_MESSAGE = 'Page with version 1 successfully published.';
 }

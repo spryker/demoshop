@@ -16,11 +16,11 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class HeartbeatController extends AbstractController
 {
-    const SYSTEM_UP = 'UP';
-    const SYSTEM_DOWN = 'DOWN';
-    const SYSTEM_STATUS = 'status';
-    const STATUS_REPORT = 'report';
-    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
+    public const SYSTEM_UP = 'UP';
+    public const SYSTEM_DOWN = 'DOWN';
+    public const SYSTEM_STATUS = 'status';
+    public const STATUS_REPORT = 'report';
+    public const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
      * @return \Symfony\Component\HttpFoundation\JsonResponse

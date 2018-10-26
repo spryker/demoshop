@@ -39,21 +39,21 @@ use Spryker\Zed\Url\UrlConfig;
  */
 class CmsPageWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_TEMPLATE_NAME = 'template_name';
-    const KEY_PAGE_KEY = 'page_key';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_IS_SEARCHABLE = 'is_searchable';
-    const KEY_NAME = 'name';
-    const KEY_META_TITLE = 'meta_title';
-    const KEY_META_DESCRIPTION = 'meta_description';
-    const KEY_META_KEYWORDS = 'meta_keywords';
-    const KEY_URL = 'url';
-    const KEY_PUBLISH = 'publish';
+    public const KEY_TEMPLATE_NAME = 'template_name';
+    public const KEY_PAGE_KEY = 'page_key';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_IS_SEARCHABLE = 'is_searchable';
+    public const KEY_NAME = 'name';
+    public const KEY_META_TITLE = 'meta_title';
+    public const KEY_META_DESCRIPTION = 'meta_description';
+    public const KEY_META_KEYWORDS = 'meta_keywords';
+    public const KEY_URL = 'url';
+    public const KEY_PUBLISH = 'publish';
 
-    const KEY_PLACEHOLDER_TITLE = 'placeholder.title';
-    const KEY_PLACEHOLDER_CONTENT = 'placeholder.content';
+    public const KEY_PLACEHOLDER_TITLE = 'placeholder.title';
+    public const KEY_PLACEHOLDER_CONTENT = 'placeholder.content';
 
     /**
      * @var \Spryker\Zed\Cms\Business\Version\Mapper\VersionDataMapperInterface

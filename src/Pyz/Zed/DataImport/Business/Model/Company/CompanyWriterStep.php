@@ -14,10 +14,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CompanyWriterStep implements DataImportStepInterface
 {
-    const KEY_NAME = 'name';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_STATUS = 'status';
-    const KEY_COMPANY_TYPE = 'company_type';
+    public const KEY_NAME = 'name';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_STATUS = 'status';
+    public const KEY_COMPANY_TYPE = 'company_type';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

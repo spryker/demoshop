@@ -12,7 +12,7 @@ use Silex\Application;
 
 class PriceControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_PRICE_SWITCH = 'price-mode-switch';
+    public const ROUTE_PRICE_SWITCH = 'price-mode-switch';
 
     /**
      * @param \Silex\Application $app
