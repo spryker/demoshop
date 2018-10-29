@@ -12,6 +12,7 @@ use Spryker\Zed\Sales\Business\SalesBusinessFactory as SprykerSalesBusinessFacto
 
 /**
  * @method \Pyz\Zed\Sales\SalesConfig getConfig()
+ * @method \Spryker\Zed\Sales\Persistence\SalesQueryContainer getQueryContainer()()
  */
 class SalesBusinessFactory extends SprykerSalesBusinessFactory
 {

@@ -29,7 +29,7 @@ class UserDependencyProvider extends SprykerUserDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\User\Dependency\Plugin\UsersTableExpanderPluginInterface[]
+     * @return \Spryker\Zed\UserExtension\Dependency\Plugin\UserTableActionExpanderPluginInterface[]
      */
     protected function getUsersTableExtenderPlugins()
     {

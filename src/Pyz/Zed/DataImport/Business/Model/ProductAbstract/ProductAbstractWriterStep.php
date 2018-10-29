@@ -23,30 +23,28 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 use Spryker\Zed\Url\UrlConfig;
 
-/**
- */
 class ProductAbstractWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_ABSTRACT_SKU = 'abstract_sku';
-    const KEY_IS_FEATURED = 'is_featured';
-    const KEY_COLOR_CODE = 'color_code';
-    const KEY_ID_TAX_SET = 'idTaxSet';
-    const KEY_ATTRIBUTES = 'attributes';
-    const KEY_NAME = 'name';
-    const KEY_URL = 'url';
-    const KEY_DESCRIPTION = 'description';
-    const KEY_META_TITLE = 'meta_title';
-    const KEY_META_DESCRIPTION = 'meta_description';
-    const KEY_META_KEYWORDS = 'meta_keywords';
-    const KEY_TAX_SET_NAME = 'tax_set_name';
-    const KEY_CATEGORY_KEY = 'category_key';
-    const KEY_CATEGORY_KEYS = 'categoryKeys';
-    const KEY_CATEGORY_PRODUCT_ORDER = 'category_product_order';
-    const KEY_LOCALES = 'locales';
-    const KEY_NEW_FROM = 'new_from';
-    const KEY_NEW_TO = 'new_to';
+    public const KEY_ABSTRACT_SKU = 'abstract_sku';
+    public const KEY_IS_FEATURED = 'is_featured';
+    public const KEY_COLOR_CODE = 'color_code';
+    public const KEY_ID_TAX_SET = 'idTaxSet';
+    public const KEY_ATTRIBUTES = 'attributes';
+    public const KEY_NAME = 'name';
+    public const KEY_URL = 'url';
+    public const KEY_DESCRIPTION = 'description';
+    public const KEY_META_TITLE = 'meta_title';
+    public const KEY_META_DESCRIPTION = 'meta_description';
+    public const KEY_META_KEYWORDS = 'meta_keywords';
+    public const KEY_TAX_SET_NAME = 'tax_set_name';
+    public const KEY_CATEGORY_KEY = 'category_key';
+    public const KEY_CATEGORY_KEYS = 'categoryKeys';
+    public const KEY_CATEGORY_PRODUCT_ORDER = 'category_product_order';
+    public const KEY_LOCALES = 'locales';
+    public const KEY_NEW_FROM = 'new_from';
+    public const KEY_NEW_TO = 'new_to';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository

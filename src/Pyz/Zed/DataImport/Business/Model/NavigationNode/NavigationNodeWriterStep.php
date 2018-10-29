@@ -22,26 +22,26 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const DEFAULT_IS_ACTIVE = true;
+    public const DEFAULT_IS_ACTIVE = true;
 
-    const KEY_NAVIGATION_KEY = 'navigation_key';
-    const KEY_NODE_KEY = 'node_key';
-    const KEY_PARENT_NODE_KEY = 'parent_node_key';
-    const KEY_POSITION = 'position';
-    const KEY_NODE_TYPE = 'node_type';
-    const KEY_TITLE = 'title';
-    const KEY_URL = 'url';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_CSS_CLASS = 'css_class';
-    const KEY_VALID_FROM = 'valid_from';
-    const KEY_VALID_TO = 'valid_to';
+    public const KEY_NAVIGATION_KEY = 'navigation_key';
+    public const KEY_NODE_KEY = 'node_key';
+    public const KEY_PARENT_NODE_KEY = 'parent_node_key';
+    public const KEY_POSITION = 'position';
+    public const KEY_NODE_TYPE = 'node_type';
+    public const KEY_TITLE = 'title';
+    public const KEY_URL = 'url';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_CSS_CLASS = 'css_class';
+    public const KEY_VALID_FROM = 'valid_from';
+    public const KEY_VALID_TO = 'valid_to';
 
-    const NODE_TYPE_LINK = 'link';
-    const NODE_TYPE_EXTERNAL_URL = 'external_url';
-    const NODE_TYPE_CATEGORY = 'category';
-    const NODE_TYPE_CMS_PAGE = 'cms_page';
+    public const NODE_TYPE_LINK = 'link';
+    public const NODE_TYPE_EXTERNAL_URL = 'external_url';
+    public const NODE_TYPE_CATEGORY = 'category';
+    public const NODE_TYPE_CMS_PAGE = 'cms_page';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
@@ -57,7 +57,7 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
 
         $navigationNodeEntity
             ->setPosition($this->getPosition($navigationNodeEntity, $dataSet))
-            ->setIsActive($this->getIsActive($navigationNodeEntity, $dataSet))
+            ->setIsActive($this->isActive($navigationNodeEntity, $dataSet))
             ->setNodeType($this->getNodeType($navigationNodeEntity, $dataSet));
 
         if ($dataSet[static::KEY_VALID_FROM] !== "") {
@@ -145,9 +145,9 @@ class NavigationNodeWriterStep extends TouchAwareStep implements DataImportStepI
      * @param \Orm\Zed\Navigation\Persistence\SpyNavigationNode $navigationNodeEntity
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
      *
-     * @return int
+     * @return bool
      */
-    protected function getIsActive(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
+    protected function isActive(SpyNavigationNode $navigationNodeEntity, DataSetInterface $dataSet)
     {
         if (isset($dataSet[static::KEY_IS_ACTIVE]) && !empty($dataSet[static::KEY_IS_ACTIVE])) {
             return (bool)$dataSet[static::KEY_IS_ACTIVE];

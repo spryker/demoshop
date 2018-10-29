@@ -17,7 +17,7 @@ use Spryker\Shared\Storage\StorageConstants;
  */
 class ProductController extends AbstractController
 {
-    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
+    public const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
     /**
      * @param \Generated\Shared\Transfer\StorageProductTransfer $storageProductTransfer

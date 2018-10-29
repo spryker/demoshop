@@ -24,7 +24,7 @@ class UrlDependencyProvider extends SprykerUrlDependencyProvider
     }
 
     /**
-     * @return \Spryker\Zed\Url\Dependency\Plugin\UrlUpdatePluginInterface[]
+     * @return \Spryker\Zed\Url\Dependency\Plugin\UrlDeletePluginInterface[]
      */
     protected function getUrlBeforeDeletePlugins()
     {

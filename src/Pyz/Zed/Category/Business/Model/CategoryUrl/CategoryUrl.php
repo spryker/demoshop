@@ -18,7 +18,7 @@ class CategoryUrl extends SprykerCategoryUrl
      * @param \Generated\Shared\Transfer\NodeTransfer $categoryNodeTransfer
      * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
-     * @return \Orm\Zed\Category\Persistence\SpyCategoryNode[]|\Propel\Runtime\Collection\ObjectCollection
+     * @return array
      */
     protected function getUrlPathPartsForCategoryNode(
         NodeTransfer $categoryNodeTransfer,

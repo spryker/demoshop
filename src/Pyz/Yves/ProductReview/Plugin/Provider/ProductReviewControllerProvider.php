@@ -12,10 +12,10 @@ use Silex\Application;
 
 class ProductReviewControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_PRODUCT_REVIEW_INDEX = 'product-review/index';
-    const ROUTE_PRODUCT_REVIEW_SUBMIT = 'product-review/submit';
+    public const ROUTE_PRODUCT_REVIEW_INDEX = 'product-review/index';
+    public const ROUTE_PRODUCT_REVIEW_SUBMIT = 'product-review/submit';
 
-    const ID_ABSTRACT_PRODUCT_REGEX = '[1-9][0-9]*';
+    public const ID_ABSTRACT_PRODUCT_REGEX = '[1-9][0-9]*';
 
     /**
      * @param \Silex\Application $app

@@ -9,6 +9,7 @@
     "spryker/event-behavior": "dev-master",
     "spryker/synchronization-behavior": "dev-master",
     "spryker/install": "dev-master",
+    "spryker/uuid-behavior": "dev-master",
 
     "php": ">=7.1",
     "braintree/braintree_php": "~3.15.0",
@@ -43,7 +44,7 @@
     "symfony/twig-bridge": "^2.7.0 || ^3.0.0",
     "symfony/validator": "^2.6.13 || ^3.0.0",
     "symfony/yaml": "^2.6.13 || ^3.0.0",
-    "swiftmailer/swiftmailer": "^5.4.5",
+    "swiftmailer/swiftmailer": "^6.1",
     "twig/twig": "^1.30.0",
     "zendframework/zend-config": "^3.1.0",
     "zendframework/zend-filter": "^2.5.1",
@@ -59,13 +60,18 @@
     "ext-readline": "*",
     "ext-redis": "*",
     "league/flysystem": "^1.0",
-    "egulias/email-validator": "^2.1.2"
+    "egulias/email-validator": "^2.1.2",
+    "league/oauth2-server": "^7.1",
+    "willdurand/negotiation": "^2.3",
+    "ramsey/uuid": "^3.8.0",
+    "doctrine/inflector": "^1.3"
   },
   "require-dev": {
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
     "spryker/git-hook": "dev-master",
+    "spryker/spryk": "dev-master",
 
     "codeception/codeception": "~2.3.8",
     "facebook/webdriver": "~1.3.0",
@@ -83,9 +89,8 @@
     "stecman/symfony-console-completion": "^0.7.0",
     "fzaninotto/faker": "^1.6",
     "nette/php-generator": "^2.6.1",
-    "phpdocumentor/reflection-docblock": "^2.0",
-    "squizlabs/php_codesniffer": "~3.1.0",
-    "phpstan/phpstan": "^0.9",
+    "phpdocumentor/reflection-docblock": "^4.3",
+    "phpstan/phpstan": "^0.10.5",
     "phpunit/phpunit": "<7.0.0"
   },
   "autoload": {
@@ -120,6 +125,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryker.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/spryk.git"
     }
   ],
   "scripts": {
@@ -139,7 +148,7 @@
       "GitHook\\Composer\\Scripts\\HookInstaller::installProjectHooks"
     ],
     "phpstan": [
-      "php -d memory_limit=1024M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1"
+      "php -d memory_limit=1024M vendor/bin/phpstan analyze -c phpstan.neon src/ -l 3"
     ],
     "phpstan-setup": "vendor/bin/console dev:ide:generate-auto-completion"
   }

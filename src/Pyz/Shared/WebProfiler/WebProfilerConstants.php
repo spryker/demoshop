@@ -9,5 +9,5 @@ namespace Pyz\Shared\WebProfiler;
 
 interface WebProfilerConstants
 {
-    const ENABLE_WEB_PROFILER = 'WEBPROFILER:ENABLE_WEB_PROFILER';
+    public const ENABLE_WEB_PROFILER = 'WEBPROFILER:ENABLE_WEB_PROFILER';
 }

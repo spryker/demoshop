@@ -38,21 +38,21 @@ class NavigationGuiPresentationTester extends Actor
 {
     use _generated\NavigationGuiPresentationTesterActions;
 
-    const ROOT_NODE_ANCHOR_SELECTOR = '#navigation-node-0_anchor';
-    const CHILD_NODE_ANCHOR_SELECTOR = '#navigation-node-%d_anchor';
-    const NAVIGATION_NODE_SELECTOR = '.jstree-node';
-    const NAVIGATION_TREE_SELECTOR = '#navigation-tree';
-    const NAVIGATION_TREE_SAVE_BUTTON_SELECTOR = '#navigation-tree-save-btn';
-    const REMOVE_NODE_BUTTON_SELECTOR = '#remove-selected-node-btn';
-    const ADD_CHILD_NODE_BUTTON_SELECTOR = '#add-child-node-btn';
-    const LOCALIZED_FORM_CONTAINER_SELECTOR = '#localized_attributes_container-%s .collapse-link';
-    const NODE_CHILD_SELECTOR = '#navigation-node-%d #navigation-node-%d';
-    const NODE_NAME_CHILD_SELECTOR = "//*[@id=\"navigation-node-%d\"]//*[text()[contains(.,'%s')]]";
-    const NODE_FORM_IFRAME_NAME = 'navigation-node-form-iframe';
-    const SUCCESS_MESSAGE_SELECTOR = '.flash-messages .alert-success';
-    const SWEET_ALERT_SELECTOR = '.sweet-alert';
-    const SWEET_ALERT_CONFIRM_SELECTOR = '.sweet-alert button.confirm';
-    const NODE_FORM_SELECTOR = 'form';
+    public const ROOT_NODE_ANCHOR_SELECTOR = '#navigation-node-0_anchor';
+    public const CHILD_NODE_ANCHOR_SELECTOR = '#navigation-node-%d_anchor';
+    public const NAVIGATION_NODE_SELECTOR = '.jstree-node';
+    public const NAVIGATION_TREE_SELECTOR = '#navigation-tree';
+    public const NAVIGATION_TREE_SAVE_BUTTON_SELECTOR = '#navigation-tree-save-btn';
+    public const REMOVE_NODE_BUTTON_SELECTOR = '#remove-selected-node-btn';
+    public const ADD_CHILD_NODE_BUTTON_SELECTOR = '#add-child-node-btn';
+    public const LOCALIZED_FORM_CONTAINER_SELECTOR = '#localized_attributes_container-%s .collapse-link';
+    public const NODE_CHILD_SELECTOR = '#navigation-node-%d #navigation-node-%d';
+    public const NODE_NAME_CHILD_SELECTOR = "//*[@id=\"navigation-node-%d\"]//*[text()[contains(.,'%s')]]";
+    public const NODE_FORM_IFRAME_NAME = 'navigation-node-form-iframe';
+    public const SUCCESS_MESSAGE_SELECTOR = '.flash-messages .alert-success';
+    public const SWEET_ALERT_SELECTOR = '.sweet-alert';
+    public const SWEET_ALERT_CONFIRM_SELECTOR = '.sweet-alert button.confirm';
+    public const NODE_FORM_SELECTOR = 'form';
 
     /**
      * @param \Codeception\Scenario $scenario
@@ -384,7 +384,6 @@ class NavigationGuiPresentationTester extends Actor
          * TODO: once we have Selenium, enable this test case.
          */
         return;
-//
 //        $i->wantTo('Remove child node.');
 //        $i->expect('Node should be removed from Zed.');
 //

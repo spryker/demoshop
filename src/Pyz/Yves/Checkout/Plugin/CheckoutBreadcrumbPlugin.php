@@ -17,7 +17,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 class CheckoutBreadcrumbPlugin extends AbstractPlugin
 {
     /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|null $dataTransfer
+     * @param \Generated\Shared\Transfer\QuoteTransfer|null $dataTransfer
      *
      * @return \Generated\Shared\Transfer\StepBreadcrumbsTransfer
      */

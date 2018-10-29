@@ -19,14 +19,14 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductImageWriterStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_LOCALE = 'locale';
-    const KEY_IMAGE_SET_NAME = 'image_set_name';
-    const KEY_ABSTRACT_SKU = 'abstract_sku';
-    const KEY_CONCRETE_SKU = 'concrete_sku';
-    const KEY_EXTERNAL_URL_LARGE = 'external_url_large';
-    const KEY_EXTERNAL_URL_SMALL = 'external_url_small';
+    public const KEY_LOCALE = 'locale';
+    public const KEY_IMAGE_SET_NAME = 'image_set_name';
+    public const KEY_ABSTRACT_SKU = 'abstract_sku';
+    public const KEY_CONCRETE_SKU = 'concrete_sku';
+    public const KEY_EXTERNAL_URL_LARGE = 'external_url_large';
+    public const KEY_EXTERNAL_URL_SMALL = 'external_url_small';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Locale\Repository\LocaleRepositoryInterface

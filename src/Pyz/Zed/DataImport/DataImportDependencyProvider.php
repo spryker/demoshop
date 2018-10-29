@@ -10,15 +10,16 @@ namespace Pyz\Zed\DataImport;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Zed\DataImport\DataImportDependencyProvider as SprykerDataImportDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\PriceProductDataImport\Communication\Plugin\PriceProductDataImportPlugin;
 
 class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
 {
-    const FACADE_AVAILABILITY = 'availability facade';
-    const FACADE_CATEGORY = 'category facade';
-    const FACADE_PRODUCT_BUNDLE = 'product bundle facade';
-    const FACADE_PRODUCT_RELATION = 'product relation facade';
-    const FACADE_PRODUCT_SEARCH = 'product search facade';
-    const STORE = 'store';
+    public const FACADE_AVAILABILITY = 'availability facade';
+    public const FACADE_CATEGORY = 'category facade';
+    public const FACADE_PRODUCT_BUNDLE = 'product bundle facade';
+    public const FACADE_PRODUCT_RELATION = 'product relation facade';
+    public const FACADE_PRODUCT_SEARCH = 'product search facade';
+    public const STORE = 'store';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -37,6 +38,16 @@ class DataImportDependencyProvider extends SprykerDataImportDependencyProvider
         $this->addStore($container);
 
         return $container;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDataImporterPlugins(): array
+    {
+        return [
+            new PriceProductDataImportPlugin(),
+        ];
     }
 
     /**
