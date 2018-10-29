@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3fc9b263bdb41d986a957a24f550a04f",
+    "content-hash": "8522e4cedb86f62f183be85e752128d5",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -11108,6 +11108,49 @@
             "time": "2018-10-02T07:35:34+00:00"
         },
         {
+            "name": "spryker/price-product-merchant-relationship-gui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/price-product-merchant-relationship-gui.git",
+                "reference": "9862481f4fbb57077a078b9320194a3ba40fc73d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/price-product-merchant-relationship-gui/zipball/9862481f4fbb57077a078b9320194a3ba40fc73d",
+                "reference": "9862481f4fbb57077a078b9320194a3ba40fc73d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/merchant-relationship": "^1.4.0",
+                "spryker/product-management-extension": "^1.2.0",
+                "spryker/symfony": "^3.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "PriceProductMerchantRelationshipGui module",
+            "time": "2018-10-26T10:41:03+00:00"
+        },
+        {
             "name": "spryker/price-product-merchant-relationship-storage",
             "version": "1.0.4",
             "source": {
@@ -13048,16 +13091,16 @@
         },
         {
             "name": "spryker/product-management",
-            "version": "0.14.8",
+            "version": "0.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/product-management.git",
-                "reference": "2554748df02265cf176e9059bbe5a9f631c9a888"
+                "reference": "d98ad727d91ee15fe1f49ecb30b56e3eae1c6de2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/product-management/zipball/2554748df02265cf176e9059bbe5a9f631c9a888",
-                "reference": "2554748df02265cf176e9059bbe5a9f631c9a888",
+                "url": "https://api.github.com/repos/spryker/product-management/zipball/d98ad727d91ee15fe1f49ecb30b56e3eae1c6de2",
+                "reference": "d98ad727d91ee15fe1f49ecb30b56e3eae1c6de2",
                 "shasum": ""
             },
             "require": {
@@ -13078,7 +13121,7 @@
                 "spryker/product-category": "^4.6.0",
                 "spryker/product-group": "^1.0.0",
                 "spryker/product-image": "^3.0.0",
-                "spryker/product-management-extension": "^1.1.0",
+                "spryker/product-management-extension": "^1.2.0",
                 "spryker/product-validity": "^1.0.0",
                 "spryker/propel-orm": "^1.0.0",
                 "spryker/stock": "^5.0.0",
@@ -13112,7 +13155,7 @@
                 "proprietary"
             ],
             "description": "ProductManagement module",
-            "time": "2018-10-24T09:14:45+00:00"
+            "time": "2018-10-29T11:02:49+00:00"
         },
         {
             "name": "spryker/product-management-extension",
