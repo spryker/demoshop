@@ -5029,22 +5029,22 @@
         },
         {
             "name": "spryker/company-business-unit",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-business-unit.git",
-                "reference": "f8bb87e61f2da86db8ec7398541f6c27fe89cf40"
+                "reference": "bb84f896d9c6c29671dafa520c46d6ddf408f178"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-business-unit/zipball/f8bb87e61f2da86db8ec7398541f6c27fe89cf40",
-                "reference": "f8bb87e61f2da86db8ec7398541f6c27fe89cf40",
+                "url": "https://api.github.com/repos/spryker/company-business-unit/zipball/bb84f896d9c6c29671dafa520c46d6ddf408f178",
+                "reference": "bb84f896d9c6c29671dafa520c46d6ddf408f178",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/company": "^1.0.0",
-                "spryker/company-business-unit-extension": "^1.1.0",
+                "spryker/company-business-unit-extension": "^1.2.0",
                 "spryker/company-extension": "^1.0.0",
                 "spryker/company-user-extension": "^1.0.0",
                 "spryker/kernel": "^3.0.0",
@@ -5076,20 +5076,20 @@
                 "proprietary"
             ],
             "description": "CompanyBusinessUnit module",
-            "time": "2018-10-19T07:49:44+00:00"
+            "time": "2018-10-26T16:19:49+00:00"
         },
         {
             "name": "spryker/company-business-unit-extension",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-business-unit-extension.git",
-                "reference": "e24395d53939b625fbba1a24182c270e78d7c6f8"
+                "reference": "aad8e102dfef3daa04fd743b9b4d3861c69d6311"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-business-unit-extension/zipball/e24395d53939b625fbba1a24182c270e78d7c6f8",
-                "reference": "e24395d53939b625fbba1a24182c270e78d7c6f8",
+                "url": "https://api.github.com/repos/spryker/company-business-unit-extension/zipball/aad8e102dfef3daa04fd743b9b4d3861c69d6311",
+                "reference": "aad8e102dfef3daa04fd743b9b4d3861c69d6311",
                 "shasum": ""
             },
             "require": {
@@ -5115,7 +5115,7 @@
                 "proprietary"
             ],
             "description": "CompanyBusinessUnitExtension module",
-            "time": "2018-10-02T08:10:17+00:00"
+            "time": "2018-10-26T10:31:11+00:00"
         },
         {
             "name": "spryker/company-business-unit-gui",
@@ -5540,23 +5540,23 @@
         },
         {
             "name": "spryker/company-unit-address",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-unit-address.git",
-                "reference": "3a5fef60fa31a7d566e8a5084f33e903cf02c459"
+                "reference": "7dfbb93caeb298106d659c392db088d751ab11de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-unit-address/zipball/3a5fef60fa31a7d566e8a5084f33e903cf02c459",
-                "reference": "3a5fef60fa31a7d566e8a5084f33e903cf02c459",
+                "url": "https://api.github.com/repos/spryker/company-unit-address/zipball/7dfbb93caeb298106d659c392db088d751ab11de",
+                "reference": "7dfbb93caeb298106d659c392db088d751ab11de",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
                 "spryker/company": "^1.0.0",
                 "spryker/company-business-unit": "^1.0.0 || ^2.0.0",
-                "spryker/company-business-unit-extension": "^1.0.0",
+                "spryker/company-business-unit-extension": "^1.2.0",
                 "spryker/company-unit-address-extension": "^1.0.0",
                 "spryker/country": "^3.0.0",
                 "spryker/kernel": "^3.0.0",
@@ -5585,7 +5585,7 @@
                 "proprietary"
             ],
             "description": "CompanyUnitAddress module",
-            "time": "2018-09-20T10:25:41+00:00"
+            "time": "2018-10-26T16:19:49+00:00"
         },
         {
             "name": "spryker/company-unit-address-extension",
