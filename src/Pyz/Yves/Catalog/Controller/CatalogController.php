@@ -19,10 +19,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CatalogController extends AbstractController
 {
-    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
+    public const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INCREMENTAL;
 
-    const URL_PARAM_VIEW_MODE = 'mode';
-    const URL_PARAM_REFERER_URL = 'referer-url';
+    public const URL_PARAM_VIEW_MODE = 'mode';
+    public const URL_PARAM_REFERER_URL = 'referer-url';
 
     /**
      * @param array $categoryNode

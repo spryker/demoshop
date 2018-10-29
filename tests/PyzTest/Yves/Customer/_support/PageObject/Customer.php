@@ -11,8 +11,8 @@ use Generated\Shared\Transfer\CustomerTransfer;
 
 class Customer
 {
-    const NEW_CUSTOMER_EMAIL = 'new-customer@spryker.com';
-    const REGISTERED_CUSTOMER_EMAIL = 'registered-customer@spryker.com';
+    public const NEW_CUSTOMER_EMAIL = 'new-customer@spryker.com';
+    public const REGISTERED_CUSTOMER_EMAIL = 'registered-customer@spryker.com';
 
     /**
      * @var array

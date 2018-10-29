@@ -13,9 +13,9 @@ use Spryker\Yves\Kernel\Container;
 
 class ProductSaleDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CLIENT_SEARCH = 'CLIENT_SEARCH';
-    const PLUGIN_CATEGORY_READER = 'PLUGIN_CATEGORY_READER';
-    const CLIENT_CATALOG = 'CLIENT_CATALOG';
+    public const CLIENT_SEARCH = 'CLIENT_SEARCH';
+    public const PLUGIN_CATEGORY_READER = 'PLUGIN_CATEGORY_READER';
+    public const CLIENT_CATALOG = 'CLIENT_CATALOG';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

@@ -13,7 +13,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerI
 
 class CustomerAuthenticationFailureHandler extends BaseCustomerAuthenticationHandler implements AuthenticationFailureHandlerInterface
 {
-    const MESSAGE_CUSTOMER_AUTHENTICATION_FAILED = 'customer.authentication.failed';
+    public const MESSAGE_CUSTOMER_AUTHENTICATION_FAILED = 'customer.authentication.failed';
 
     /**
      * @var \Spryker\Yves\Messenger\FlashMessenger\FlashMessengerInterface

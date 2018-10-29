@@ -9,6 +9,6 @@ namespace PyzTest\Zed\NavigationGui\PageObject;
 
 class NavigationDeletePage
 {
-    const URL = '/navigation-gui/delete?id-navigation=%d';
-    const MESSAGE_SUCCESS = '/Navigation element (\d+) was deleted successfully\\./';
+    public const URL = '/navigation-gui/delete?id-navigation=%d';
+    public const MESSAGE_SUCCESS = '/Navigation element (\d+) was deleted successfully\\./';
 }

@@ -9,5 +9,5 @@ namespace PyzTest\Zed\NavigationGui\PageObject;
 
 class NavigationNodeUpdatePage
 {
-    const MESSAGE_SUCCESS = '/Navigation node "([^"]*)" was updated successfully./';
+    public const MESSAGE_SUCCESS = '/Navigation node "([^"]*)" was updated successfully./';
 }

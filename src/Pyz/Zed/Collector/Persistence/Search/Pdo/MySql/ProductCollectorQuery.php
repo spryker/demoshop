@@ -12,9 +12,9 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class ProductCollectorQuery extends AbstractPdoCollectorQuery
 {
-    const CONCAT_DELIMITER = "':'";
+    public const CONCAT_DELIMITER = "':'";
 
-    const COL_IS_IN_STORE = 'is_in_store';
+    public const COL_IS_IN_STORE = 'is_in_store';
 
     /**
      * @return void

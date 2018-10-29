@@ -21,9 +21,9 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
 
 class ProductSearchAttributeWriter extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY = 'key';
+    public const KEY = 'key';
 
     /**
      * @var \Spryker\Shared\ProductSearch\Code\KeyBuilder\GlossaryKeyBuilderInterface

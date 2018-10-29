@@ -13,8 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class VoucherForm extends AbstractType
 {
-    const FORM_NAME = 'voucherForm';
-    const FIELD_VOUCHER_DISCOUNTS = 'voucherDiscounts';
+    public const FORM_NAME = 'voucherForm';
+    public const FIELD_VOUCHER_DISCOUNTS = 'voucherDiscounts';
 
     /**
      * @return string

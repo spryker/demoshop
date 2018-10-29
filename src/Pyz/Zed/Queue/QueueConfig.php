@@ -16,7 +16,7 @@ use Spryker\Zed\Queue\QueueConfig as SprykerQueueConfig;
 
 class QueueConfig extends SprykerQueueConfig
 {
-    const RABBITMQ = 'rabbitmq';
+    public const RABBITMQ = 'rabbitmq';
 
     /**
      * @return array

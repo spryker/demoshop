@@ -14,10 +14,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ProductRelationWriter implements DataImportStepInterface
 {
-    const KEY_RELATION_TYPE = 'relation_type';
-    const KEY_RULE = 'rule';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_IS_REBUILD_SCHEDULED = 'is_rebuild_scheduled';
+    public const KEY_RELATION_TYPE = 'relation_type';
+    public const KEY_RULE = 'rule';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_IS_REBUILD_SCHEDULED = 'is_rebuild_scheduled';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

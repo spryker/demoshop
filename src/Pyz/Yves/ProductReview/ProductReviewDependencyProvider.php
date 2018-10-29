@@ -12,9 +12,9 @@ use Spryker\Yves\ProductReview\ProductReviewDependencyProvider as SprykerProduct
 
 class ProductReviewDependencyProvider extends SprykerProductReviewDependencyProvider
 {
-    const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
-    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
-    const CLIENT_PRODUCT_REVIEW = 'CLIENT_PRODUCT_REVIEW';
+    public const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
+    public const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+    public const CLIENT_PRODUCT_REVIEW = 'CLIENT_PRODUCT_REVIEW';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

@@ -14,7 +14,7 @@ use Spryker\Zed\Kernel\Container;
 
 class WebProfilerDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const PLUGINS_WEB_PROFILER = 'PLUGINS_WEB_PROFILER';
+    public const PLUGINS_WEB_PROFILER = 'PLUGINS_WEB_PROFILER';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container

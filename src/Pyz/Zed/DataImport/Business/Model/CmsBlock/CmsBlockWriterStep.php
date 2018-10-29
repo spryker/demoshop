@@ -34,18 +34,18 @@ use Spryker\Zed\DataImport\Dependency\Facade\DataImportToTouchInterface;
  */
 class CmsBlockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_BLOCK_NAME = 'block_name';
-    const KEY_BLOCK_TYPE = 'type';
-    const KEY_BLOCK_VALUE = 'value';
-    const KEY_TEMPLATE_NAME = 'template_name';
-    const KEY_TEMPLATE_PATH = 'template_path';
-    const KEY_CATEGORIES = 'categories';
-    const KEY_PRODUCTS = 'products';
-    const KEY_ACTIVE = 'active';
-    const KEY_PLACEHOLDER_TITLE = 'placeholder.title';
-    const KEY_PLACEHOLDER_DESCRIPTION = 'placeholder.description';
+    public const KEY_BLOCK_NAME = 'block_name';
+    public const KEY_BLOCK_TYPE = 'type';
+    public const KEY_BLOCK_VALUE = 'value';
+    public const KEY_TEMPLATE_NAME = 'template_name';
+    public const KEY_TEMPLATE_PATH = 'template_path';
+    public const KEY_CATEGORIES = 'categories';
+    public const KEY_PRODUCTS = 'products';
+    public const KEY_ACTIVE = 'active';
+    public const KEY_PLACEHOLDER_TITLE = 'placeholder.title';
+    public const KEY_PLACEHOLDER_DESCRIPTION = 'placeholder.description';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Category\Repository\CategoryRepositoryInterface
