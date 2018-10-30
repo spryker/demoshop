@@ -2508,7 +2508,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "797732d6ebe8e5b1cbdd3a9e8c0dc8f5dffafb18"
+                "reference": "a0c18089a72e17e4202177ab2cdd7ed947d18b28"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-28T18:18:44+00:00"
+            "time": "2018-10-30T14:56:19+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8152,12 +8152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "25dac0ea700f20da098a43fdb85301f9c6638a6c"
+                "reference": "baf6dcca549d164e8d26240045e18383d313da44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/25dac0ea700f20da098a43fdb85301f9c6638a6c",
-                "reference": "25dac0ea700f20da098a43fdb85301f9c6638a6c",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/baf6dcca549d164e8d26240045e18383d313da44",
+                "reference": "baf6dcca549d164e8d26240045e18383d313da44",
                 "shasum": ""
             },
             "require": {
@@ -8166,6 +8166,7 @@
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
+                "phpstan/phpstan-shim": "^0.9.2",
                 "phpunit/phpunit": "<5.0"
             },
             "bin": [
@@ -8195,7 +8196,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-10-05T21:34:35+00:00"
+            "time": "2018-10-30T13:38:19+00:00"
         },
         {
             "name": "spryker/git-hook",
