@@ -1040,7 +1040,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2508,7 +2508,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f9166b909079ec3e7856e9a0cab019eb1d926370"
+                "reference": "5c9295a05e95bf145e9e264ed9867473af63dea0"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-31T08:25:34+00:00"
+            "time": "2018-10-31T16:09:15+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
