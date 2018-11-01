@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd7b924dd55151e7d1b114091b84c8d1",
+    "content-hash": "8b70c753a16aa5fed133b3c8ed8dcd48",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2504,11 +2504,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/cc-1298-checkout-button-is-not-displayed",
+            "version": "dev-bugfix/cc-859-flash-message-create-and-delete-occurs-in-wrong-place",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b1cc7e987755508c89f30a1b2249f4c4fb249900"
+                "reference": "c075086fcc95c481b73f617636e213e35b6f0450"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2778,7 +2778,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-31T10:54:50+00:00"
+            "time": "2018-10-04T07:08:47+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -7960,16 +7960,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.8.5",
+            "version": "4.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "057f3f154cf4888b60eb4cdffadc509a3ae9dccd"
+                "reference": "bc8a02f25e03eb5481c4976cc615621cdd75aef9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/057f3f154cf4888b60eb4cdffadc509a3ae9dccd",
-                "reference": "057f3f154cf4888b60eb4cdffadc509a3ae9dccd",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/bc8a02f25e03eb5481c4976cc615621cdd75aef9",
+                "reference": "bc8a02f25e03eb5481c4976cc615621cdd75aef9",
                 "shasum": ""
             },
             "require": {
@@ -7995,7 +7995,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-10-05T12:10:21+00:00"
+            "time": "2018-10-01T20:16:49+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
