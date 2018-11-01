@@ -15,8 +15,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class RestorePasswordForm extends AbstractType
 {
-    const FIELD_RESTORE_PASSWORD_KEY = 'restore_password_key';
-    const FIELD_PASSWORD = 'password';
+    public const FIELD_RESTORE_PASSWORD_KEY = 'restore_password_key';
+    public const FIELD_PASSWORD = 'password';
 
     /**
      * @return string

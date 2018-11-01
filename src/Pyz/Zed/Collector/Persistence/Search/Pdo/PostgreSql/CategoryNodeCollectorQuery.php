@@ -11,8 +11,8 @@ use Spryker\Zed\Collector\Persistence\Collector\AbstractPdoCollectorQuery;
 
 class CategoryNodeCollectorQuery extends AbstractPdoCollectorQuery
 {
-    const COL_IS_ACTIVE = 'is_active';
-    const COL_IS_SEARCHABLE = 'is_searchable';
+    public const COL_IS_ACTIVE = 'is_active';
+    public const COL_IS_SEARCHABLE = 'is_searchable';
 
     /**
      * @return void

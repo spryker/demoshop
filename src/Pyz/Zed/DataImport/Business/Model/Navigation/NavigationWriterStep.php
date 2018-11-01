@@ -16,10 +16,10 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class NavigationWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const NAME = 'name';
-    const KEY = 'key';
+    public const NAME = 'name';
+    public const KEY = 'key';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

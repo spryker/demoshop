@@ -14,9 +14,9 @@ use Spryker\Yves\Kernel\Container;
 
 class CmsDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CMS_TWIG_CONTENT_RENDERER_PLUGIN = 'cms twig content renderer plugin';
-    const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
-    const STORE = 'STORE';
+    public const CMS_TWIG_CONTENT_RENDERER_PLUGIN = 'cms twig content renderer plugin';
+    public const CLIENT_CUSTOMER = 'CLIENT_CUSTOMER';
+    public const STORE = 'STORE';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

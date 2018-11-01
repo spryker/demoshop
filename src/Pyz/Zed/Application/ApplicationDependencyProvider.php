@@ -40,7 +40,7 @@ use Spryker\Zed\Gui\Communication\Plugin\ServiceProvider\GuiTwigExtensionService
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Messenger\Communication\Plugin\ServiceProvider\MessengerServiceProvider;
 use Spryker\Zed\Money\Communication\Plugin\ServiceProvider\TwigMoneyServiceProvider;
-use Spryker\Zed\NewRelic\Communication\Plugin\ServiceProvider\NewRelicRequestTransactionServiceProvider;
+use Spryker\Zed\Monitoring\Communication\Plugin\ServiceProvider\MonitoringRequestTransactionServiceProvider;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Session\Communication\Plugin\ServiceProvider\SessionServiceProvider as SprykerSessionServiceProvider;
 use Spryker\Zed\Twig\Communication\Plugin\ServiceProvider\TwigServiceProvider as SprykerTwigServiceProvider;
@@ -50,15 +50,15 @@ use Spryker\Zed\ZedRequest\Communication\Plugin\GatewayServiceProviderPlugin;
 
 class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
-    const SERVICE_UTIL_DATE_TIME = 'util date time service';
-    const SERVICE_NETWORK = 'util network service';
-    const SERVICE_UTIL_IO = 'util io service';
-    const SERVICE_DATA = 'util data service';
+    public const SERVICE_UTIL_DATE_TIME = 'util date time service';
+    public const SERVICE_NETWORK = 'util network service';
+    public const SERVICE_UTIL_IO = 'util io service';
+    public const SERVICE_DATA = 'util data service';
 
-    const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
-    const SERVICE_PROVIDER_API = 'SERVICE_PROVIDER_API';
-    const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_CALL_SERVICE_PROVIDER';
-    const INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION = 'INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION';
+    public const SERVICE_PROVIDER = 'SERVICE_PROVIDER';
+    public const SERVICE_PROVIDER_API = 'SERVICE_PROVIDER_API';
+    public const INTERNAL_CALL_SERVICE_PROVIDER = 'INTERNAL_CALL_SERVICE_PROVIDER';
+    public const INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION = 'INTERNAL_CALL_SERVICE_PROVIDER_WITH_AUTHENTICATION';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -116,7 +116,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new TwigCurrencyServiceProvider(),
             new MessengerServiceProvider(),
             new ZedNavigationServiceProvider(),
-            new NewRelicRequestTransactionServiceProvider(),
+            new MonitoringRequestTransactionServiceProvider(),
             new TranslationServiceProvider(),
             new DateTimeFormatterServiceProvider(),
             new GuiTwigExtensionServiceProvider(),
@@ -177,7 +177,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new MvcRoutingServiceProvider(),
             new SilexRoutingServiceProvider(),
             new GatewayServiceProviderPlugin(),
-            new NewRelicRequestTransactionServiceProvider(),
+            new MonitoringRequestTransactionServiceProvider(),
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
             new TwigServiceProvider(),
@@ -206,7 +206,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new MvcRoutingServiceProvider(),
             new SilexRoutingServiceProvider(),
             new GatewayServiceProviderPlugin(),
-            new NewRelicRequestTransactionServiceProvider(),
+            new MonitoringRequestTransactionServiceProvider(),
             new HttpFragmentServiceProvider(),
             new SubRequestServiceProvider(),
             new TwigServiceProvider(),

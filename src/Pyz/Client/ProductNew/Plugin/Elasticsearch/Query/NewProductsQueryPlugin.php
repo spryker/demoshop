@@ -16,6 +16,7 @@ use Generated\Shared\Search\PageIndexMap;
 use Pyz\Client\Catalog\Plugin\Config\CatalogSearchConfigBuilder;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
+use Spryker\Shared\ProductNew\ProductNewConfig;
 
 /**
  * @method \Pyz\Client\ProductNew\ProductNewFactory getFactory()
@@ -76,16 +77,15 @@ class NewProductsQueryPlugin extends AbstractPlugin implements QueryInterface
         $localeName = $this->getFactory()
             ->getStore()
             ->getCurrentLocale();
-        $labelName = $this->getFactory()
-            ->getConfig()
-            ->getLabelNewName();
 
         $storageProductLabelTransfer = $this->getFactory()
             ->getProductLabelClient()
-            ->findLabelByName($labelName, $localeName);
+            ->findLabelByName(ProductNewConfig::DEFAULT_LABEL_NAME, $localeName);
+
+        $labelId = $storageProductLabelTransfer ? $storageProductLabelTransfer->getIdProductLabel() : 0;
 
         $stringFacetFieldFilter = $this->createStringFacetFieldFilter(CatalogSearchConfigBuilder::LABEL_FACET_NAME);
-        $stringFacetValueFilter = $this->createStringFacetValueFilter($storageProductLabelTransfer->getIdProductLabel());
+        $stringFacetValueFilter = $this->createStringFacetValueFilter($labelId);
 
         $newProductsBoolQuery = new BoolQuery();
         $newProductsBoolQuery

@@ -14,7 +14,7 @@ use Twig_SimpleFunction;
 
 class TwigCms extends AbstractPlugin implements TwigFunctionPluginInterface
 {
-    const CMS_PREFIX_KEY = 'generated.cms';
+    public const CMS_PREFIX_KEY = 'generated.cms';
 
     /**
      * @param \Silex\Application $application

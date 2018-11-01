@@ -15,12 +15,12 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ShipmentForm extends AbstractType
 {
-    const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
-    const OPTION_SHIPMENT_METHODS = 'shipmentMethods';
+    public const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
+    public const OPTION_SHIPMENT_METHODS = 'shipmentMethods';
 
-    const SHIPMENT_PROPERTY_PATH = 'shipment';
-    const SHIPMENT_SELECTION = 'shipmentSelection';
-    const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
+    public const SHIPMENT_PROPERTY_PATH = 'shipment';
+    public const SHIPMENT_SELECTION = 'shipmentSelection';
+    public const SHIPMENT_SELECTION_PROPERTY_PATH = self::SHIPMENT_PROPERTY_PATH . '.' . self::SHIPMENT_SELECTION;
 
     /**
      * @return string
