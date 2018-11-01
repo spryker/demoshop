@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0255e3e367307ff2b1958fbeb6593880",
+    "content-hash": "fd7b924dd55151e7d1b114091b84c8d1",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -1040,7 +1040,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2504,11 +2504,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/cc-1298-checkout-button-is-not-displayed",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "47a8af32fdbe9eee79c5d3b23069bb21f33672cc"
+                "reference": "b1cc7e987755508c89f30a1b2249f4c4fb249900"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2778,7 +2778,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-01T14:40:26+00:00"
+            "time": "2018-10-31T10:54:50+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5464,7 +5464,7 @@
                 "headless",
                 "phantomjs"
             ],
-            "time": "2017-08-16T08:57:05+00:00"
+            "time": "2017-08-16T08:44:29+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
