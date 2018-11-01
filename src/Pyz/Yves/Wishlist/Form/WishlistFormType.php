@@ -56,7 +56,7 @@ class WishlistFormType extends AbstractType
                 new NotBlank(),
                 new Type([
                     'type' => 'alnum',
-                    'message' => 'validation.error.value.alnum_type',
+                    'message' => 'wishlist.validation.error.incorrect_name',
                 ]),
             ],
         ]);
