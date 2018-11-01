@@ -14,7 +14,6 @@ use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
 use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\EventBehavior\EventBehaviorConstants;
-use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\FileManager\FileManagerConstants;
 use Spryker\Shared\FileSystem\FileSystemConstants;
 use Spryker\Shared\Flysystem\FlysystemConstants;
@@ -23,7 +22,6 @@ use Spryker\Shared\Kernel\ClassResolver\Cache\Provider\File;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
-use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Nopayment\NopaymentConfig;
 use Spryker\Shared\Nopayment\NopaymentConstants;
 use Spryker\Shared\Oauth\OauthConstants;
@@ -326,11 +324,6 @@ $config[LogConstants::LOG_SANITIZE_FIELDS] = [
 $config[LogConstants::LOG_QUEUE_NAME] = 'log-queue';
 $config[LogConstants::LOG_ERROR_QUEUE_NAME] = 'error-log-queue';
 
-/**
- * As long EventJournal is in ZedRequest bundle this needs to be disabled by hand
- */
-$config[EventJournalConstants::DISABLE_EVENT_JOURNAL] = true;
-
 // ---------- Auto-loader
 $config[KernelConstants::AUTO_LOADER_CACHE_FILE_NO_LOCK] = false;
 $config[KernelConstants::AUTO_LOADER_UNRESOLVABLE_CACHE_ENABLED] = false;
@@ -378,9 +371,6 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
     GiftCardConfig::PROVIDER_NAME => 'DummyPayment01',
     NopaymentConfig::PAYMENT_PROVIDER_NAME => 'Nopayment01',
 ];
-
-// ---------- NewRelic
-$config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 // ---------- Queue
 $config[QueueConstants::QUEUE_SERVER_ID] = (gethostname()) ?: php_uname('n');
