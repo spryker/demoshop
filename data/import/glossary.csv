@@ -1129,5 +1129,7 @@ catalog.new,New,en_US
 catalog.new,Neu,de_DE
 checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
+discount.voucher_code.usage_limit.reached,"Voucher code usage limit reached",en_US
+discount.voucher_code.usage_limit.reached,"Gutscheincode-Nutzungslimit erreicht",de_DE
 wishlist.validation.error.name.alnum_type,The value should consist of letters or digits.,en_US
 wishlist.validation.error.name.alnum_type,Der Wert sollte aus Buchstaben oder Zahlen bestehen.,de_DE

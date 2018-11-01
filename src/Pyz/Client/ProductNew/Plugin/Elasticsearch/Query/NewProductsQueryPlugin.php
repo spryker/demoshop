@@ -82,8 +82,10 @@ class NewProductsQueryPlugin extends AbstractPlugin implements QueryInterface
             ->getProductLabelClient()
             ->findLabelByName(ProductNewConfig::DEFAULT_LABEL_NAME, $localeName);
 
+        $labelId = $storageProductLabelTransfer ? $storageProductLabelTransfer->getIdProductLabel() : 0;
+
         $stringFacetFieldFilter = $this->createStringFacetFieldFilter(CatalogSearchConfigBuilder::LABEL_FACET_NAME);
-        $stringFacetValueFilter = $this->createStringFacetValueFilter($storageProductLabelTransfer->getIdProductLabel());
+        $stringFacetValueFilter = $this->createStringFacetValueFilter($labelId);
 
         $newProductsBoolQuery = new BoolQuery();
         $newProductsBoolQuery
