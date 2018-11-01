@@ -1129,5 +1129,5 @@ catalog.new,New,en_US
 catalog.new,Neu,de_DE
 checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
-validation.error.value.alnum_type,The value should consist of letters or digits.,en_US
-validation.error.value.alnum_type,Der Wert sollte aus Buchstaben oder Zahlen bestehen.,de_DE
+wishlist.validation.error.incorrect_name,The value should consist of letters or digits.,en_US
+wishlist.validation.error.incorrect_name,Der Wert sollte aus Buchstaben oder Zahlen bestehen.,de_DE
