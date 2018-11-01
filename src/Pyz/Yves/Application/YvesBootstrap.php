@@ -57,8 +57,8 @@ use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
 use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
+use Spryker\Yves\Monitoring\Plugin\ServiceProvider\MonitoringRequestTransactionServiceProvider;
 use Spryker\Yves\Navigation\Plugin\Provider\NavigationTwigServiceProvider;
-use Spryker\Yves\NewRelic\Plugin\ServiceProvider\NewRelicRequestTransactionServiceProvider;
 use Spryker\Yves\Price\Plugin\PriceModeSwitcherServiceProvider;
 use Spryker\Yves\ProductGroup\Plugin\Provider\ProductGroupTwigServiceProvider;
 use Spryker\Yves\ProductLabel\Plugin\Provider\ProductLabelTwigServiceProvider;
@@ -125,7 +125,7 @@ class YvesBootstrap
         $this->application->register(new CustomerSecurityServiceProvider());
         $this->application->register(new YvesSecurityServiceProvider());
         $this->application->register(new ExceptionServiceProvider());
-        $this->application->register(new NewRelicRequestTransactionServiceProvider());
+        $this->application->register(new MonitoringRequestTransactionServiceProvider());
         $this->application->register(new CookieServiceProvider());
         $this->application->register(new UrlGeneratorServiceProvider());
         $this->application->register(new ServiceControllerServiceProvider());
