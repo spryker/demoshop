@@ -9,7 +9,7 @@
                     <button type="submit" class="button float-right"><i class="fa fa-edit"></i></button>
                 </div>
             </div>
-            {{ form_errors(wishlistForm) }}
+            {{ form_errors(wishlistForm.name) }}
         {{ form_end(wishlistForm) }}
     {% else %}
         {{ parent() }}
