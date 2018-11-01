@@ -19,7 +19,7 @@ class WishlistFormType extends AbstractType
 {
     public const FIELD_NAME = 'name';
 
-    protected const GLOSSARY_KEY_INCORRECT_NAME = 'wishlist.validation.error.incorrect_name';
+    protected const GLOSSARY_KEY_NAME_VALIDATION_ERROR = 'wishlist.validation.error.name.alnum_type';
 
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
@@ -58,7 +58,7 @@ class WishlistFormType extends AbstractType
                 new NotBlank(),
                 new Type([
                     'type' => 'alnum',
-                    'message' => static::GLOSSARY_KEY_INCORRECT_NAME,
+                    'message' => static::GLOSSARY_KEY_NAME_VALIDATION_ERROR,
                 ]),
             ],
         ]);
