@@ -1131,6 +1131,8 @@ catalog.new,New,en_US
 catalog.new,Neu,de_DE
 checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
+discount.voucher_code.usage_limit.reached,"Voucher code usage limit reached",en_US
+discount.voucher_code.usage_limit.reached,"Gutscheincode-Nutzungslimit erreicht",de_DE
 This value should not be blank.,Dies ist ein Pflichtfeld.,de_DE
 This field should contain exactly 5 digits.,Dieses Feld muss genau 5 Ziffern enthalten.,de_DE
 "This value is not valid (accepted format e.g.: 12c).","Dieser Wert ist nicht gültig (akzeptiertes Format, z.B. 12c)",de_DE
