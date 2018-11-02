@@ -2508,7 +2508,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "75a4e64d57e09184680b0bd2e9ccbd77c1cad6d0"
+                "reference": "2a14ff0cd00d6f9c33081d4ab16297992e72bf87"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2595,7 +2595,6 @@
                 "spryker/elastica": "*",
                 "spryker/error-handler": "*",
                 "spryker/event": "*",
-                "spryker/event-journal": "*",
                 "spryker/file-system": "*",
                 "spryker/flysystem": "*",
                 "spryker/flysystem-aws3v3-filesystem": "*",
@@ -2630,8 +2629,6 @@
                 "spryker/navigation-collector": "*",
                 "spryker/navigation-gui": "*",
                 "spryker/navigation-storage": "*",
-                "spryker/new-relic": "*",
-                "spryker/new-relic-api": "*",
                 "spryker/newsletter": "*",
                 "spryker/nopayment": "*",
                 "spryker/oauth": "*",
@@ -2781,7 +2778,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-01T16:36:00+00:00"
+            "time": "2018-11-02T10:22:23+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
