@@ -4,6 +4,7 @@
   "license": "MIT",
   "require": {
     "spryker/spryker": "dev-bugfix/core-2148-product-option-sql-injection",
+
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
