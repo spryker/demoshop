@@ -1131,3 +1131,9 @@ checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
 discount.voucher_code.usage_limit.reached,"Voucher code usage limit reached",en_US
 discount.voucher_code.usage_limit.reached,"Gutscheincode-Nutzungslimit erreicht",de_DE
+product-cart.validation.error.abstract-product-exists,"Product not found",en_US
+product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",de_DE
+product-cart.validation.error.concrete-product-exists,"Product not found",en_US
+product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
+cart.item.option.pre.check.validation.error.exists,"Product option with value '%id%' does not exist.",en_US
+cart.item.option.pre.check.validation.error.exists,"Die Produktoption ‘%id%’ existiert nicht.",de_DE
