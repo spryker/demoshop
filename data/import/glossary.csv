@@ -1129,3 +1129,9 @@ catalog.new,New,en_US
 catalog.new,Neu,de_DE
 checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
+discount.voucher_code.usage_limit.reached,"Voucher code usage limit reached",en_US
+discount.voucher_code.usage_limit.reached,"Gutscheincode-Nutzungslimit erreicht",de_DE
+wishlist.validation.error.name.wrong_format,"Please enter name using only letters, numbers, underscores, spaces or dashes.",en_US
+wishlist.validation.error.name.wrong_format,"Bitte geben Sie Ihren Namen nur mit Buchstaben, Zahlen, Unterstriche, Leerzeichen oder Bindestriche ein.",de_DE
+wishlist.validation.error.name.already_exists,"A wishlist with the same name already exists.",en_US
+wishlist.validation.error.name.already_exists,"Eine Wunschliste mit dem gleichen Namen existiert schon.",de_DE
