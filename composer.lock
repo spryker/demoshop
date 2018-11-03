@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "81a4f93b574c4a69041241afd855b5b9",
-=======
-    "content-hash": "1584bfde6f57b9090f8ed39661e30ec5",
->>>>>>> 1a130aa4c1bf0cf3a3846a671291d6f91bd5c685
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -2515,11 +2511,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
                 "reference": "785b3ce0655c001249eee3946b34001a375212ee"
-=======
-                "reference": "a5eedf002dd5877f24dd4bfb89c057b31221066e"
->>>>>>> 1a130aa4c1bf0cf3a3846a671291d6f91bd5c685
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2789,11 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
             "time": "2018-11-03T11:45:36+00:00"
-=======
-            "time": "2018-01-31T10:01:57+00:00"
->>>>>>> 1a130aa4c1bf0cf3a3846a671291d6f91bd5c685
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2835,17 +2823,13 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-<<<<<<< HEAD
             "include-path": [
                 "src/"
             ],
-=======
->>>>>>> 1a130aa4c1bf0cf3a3846a671291d6f91bd5c685
             "license": [
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-<<<<<<< HEAD
             "time": "2018-10-16T08:48:28+00:00"
         },
         {
@@ -2893,9 +2877,6 @@
             ],
             "description": "UuidBehavior module",
             "time": "2018-10-16T08:52:03+00:00"
-=======
-            "time": "2017-11-13T10:53:51+00:00"
->>>>>>> 1a130aa4c1bf0cf3a3846a671291d6f91bd5c685
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8060,11 +8041,7 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
                     "name": "Sullivan SENECHAL",
-=======
-                    "name": "Sullivan Sénéchal",
->>>>>>> 1a130aa4c1bf0cf3a3846a671291d6f91bd5c685
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
