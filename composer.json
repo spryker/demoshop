@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/te-11-add-dependency-zed",
+    "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -71,7 +71,7 @@
     "spryker/code-generator": "dev-master",
     "spryker/code-sniffer": "dev-master",
     "spryker/git-hook": "dev-master",
-    "spryker/spryk": "dev-feature/new-spryks",
+    "spryker/spryk": "dev-master",
 
     "codeception/codeception": "^2.5.0",
     "phpmd/phpmd": "^2.4",

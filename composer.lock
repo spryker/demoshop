@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d249d75414e541d376ab7ff8c62e874",
+    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2460,10 +2460,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/te-11-add-dependency-zed",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2497,6 +2498,9 @@
 >>>>>>> te-11 updated composer
 =======
                 "reference": "18e0e9e0c48bcfc01454b6b8faf4b141eaa9d47e"
+>>>>>>> te-11 updated composer
+=======
+                "reference": "e290a1488e08bade4bc22312b2be05705e0c0e6b"
 >>>>>>> te-11 updated composer
             },
             "require": {
@@ -2772,6 +2776,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-11-05T14:08:05+00:00"
 =======
 =======
@@ -2800,6 +2805,9 @@
 >>>>>>> te-11 updated composer
 =======
             "time": "2018-11-05T15:51:40+00:00"
+>>>>>>> te-11 updated composer
+=======
+            "time": "2018-11-05T19:37:36+00:00"
 >>>>>>> te-11 updated composer
         },
         {
@@ -8335,11 +8343,11 @@
         },
         {
             "name": "spryker/spryk",
-            "version": "dev-feature/new-spryks",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "aafacfce7f738d5d0cbd10bbcc5f955f26e473c0"
+                "reference": "dba81bdf0a37184b8c2b6f0cdc670e8360c488ff"
             },
             "require": {
                 "php": ">=7.1",
@@ -8408,7 +8416,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-11-05T13:30:15+00:00"
+            "time": "2018-11-05T19:37:23+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
