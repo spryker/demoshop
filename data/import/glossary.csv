@@ -1137,3 +1137,7 @@ This value should not be blank.,Dies ist ein Pflichtfeld.,de_DE
 This field should contain exactly 5 digits.,Dieses Feld muss genau 5 Ziffern enthalten.,de_DE
 "This value is not valid (accepted format e.g.: 12c).","Dieser Wert ist nicht gültig (akzeptiertes Format, z.B. 12c)",de_DE
 This value is not valid.,Dieser Wert ist nicht gültig.,de_DE
+wishlist.validation.error.name.wrong_format,"Please enter name using only letters, numbers, underscores, spaces or dashes.",en_US
+wishlist.validation.error.name.wrong_format,"Bitte geben Sie Ihren Namen nur mit Buchstaben, Zahlen, Unterstriche, Leerzeichen oder Bindestriche ein.",de_DE
+wishlist.validation.error.name.already_exists,"A wishlist with the same name already exists.",en_US
+wishlist.validation.error.name.already_exists,"Eine Wunschliste mit dem gleichen Namen existiert schon.",de_DE
