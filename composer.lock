@@ -2467,6 +2467,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "59a2cf41ca6e1b0e82d144c07ce2dd0859ca34d3"
 =======
 =======
@@ -2489,6 +2490,9 @@
 =======
                 "reference": "852833cb041f3d6e8e935b477d2983b4ccfaec40"
 >>>>>>> te-11 updated composer
+>>>>>>> te-11 updated composer
+=======
+                "reference": "852833cb041f3d6e8e935b477d2983b4ccfaec40"
 >>>>>>> te-11 updated composer
             },
             "require": {
@@ -2762,6 +2766,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-11-05T14:08:05+00:00"
 =======
 =======
@@ -2784,6 +2789,9 @@
 =======
             "time": "2018-11-05T11:49:27+00:00"
 >>>>>>> te-11 updated composer
+>>>>>>> te-11 updated composer
+=======
+            "time": "2018-11-05T11:49:27+00:00"
 >>>>>>> te-11 updated composer
         },
         {
@@ -8392,7 +8400,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-09-27T12:55:24+00:00"
+            "time": "2018-11-05T10:28:21+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
