@@ -2468,6 +2468,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "reference": "59a2cf41ca6e1b0e82d144c07ce2dd0859ca34d3"
 =======
 =======
@@ -2493,6 +2494,9 @@
 >>>>>>> te-11 updated composer
 =======
                 "reference": "852833cb041f3d6e8e935b477d2983b4ccfaec40"
+>>>>>>> te-11 updated composer
+=======
+                "reference": "18e0e9e0c48bcfc01454b6b8faf4b141eaa9d47e"
 >>>>>>> te-11 updated composer
             },
             "require": {
@@ -2767,6 +2771,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-11-05T14:08:05+00:00"
 =======
 =======
@@ -2792,6 +2797,9 @@
 >>>>>>> te-11 updated composer
 =======
             "time": "2018-11-05T11:49:27+00:00"
+>>>>>>> te-11 updated composer
+=======
+            "time": "2018-11-05T15:51:40+00:00"
 >>>>>>> te-11 updated composer
         },
         {
@@ -8331,7 +8339,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "779c34e14d4078f44bfe6b2e374cb0ec71c8d9ea"
+                "reference": "aafacfce7f738d5d0cbd10bbcc5f955f26e473c0"
             },
             "require": {
                 "php": ">=7.1",
@@ -8400,7 +8408,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-11-05T10:28:21+00:00"
+            "time": "2018-11-05T13:30:15+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
