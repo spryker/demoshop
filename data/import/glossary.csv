@@ -1137,3 +1137,7 @@ product-cart.validation.error.concrete-product-exists,"Product not found",en_US
 product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
 cart.item.option.pre.check.validation.error.exists,"Product option with value '%id%' does not exist.",en_US
 cart.item.option.pre.check.validation.error.exists,"Die Produktoption ‘%id%’ existiert nicht.",de_DE
+wishlist.validation.error.name.wrong_format,"Please enter name using only letters, numbers, underscores, spaces or dashes.",en_US
+wishlist.validation.error.name.wrong_format,"Bitte geben Sie Ihren Namen nur mit Buchstaben, Zahlen, Unterstriche, Leerzeichen oder Bindestriche ein.",de_DE
+wishlist.validation.error.name.already_exists,"A wishlist with the same name already exists.",en_US
+wishlist.validation.error.name.already_exists,"Eine Wunschliste mit dem gleichen Namen existiert schon.",de_DE
