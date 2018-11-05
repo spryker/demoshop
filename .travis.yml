@@ -10,7 +10,7 @@ branches:
   only:
   - master
   - /feature\/[a-z]+-\d+\/(master|dev).+/
-  - /(bugfix|hotfix)\/[a-z]+-\d+.+/
+  - /(bugfix|hotfix)\/.+/
   - /beta\/.+/
 
 #Possible travis events (push, pull_request, cron, or api)
