@@ -38,6 +38,7 @@ class ProductRelationCreateRelationCest
 
         $i->selectRelationType(ProductRelationTypes::TYPE_RELATED_PRODUCTS);
         $i->filterProductsByName('Samsung Bundle');
+        $i->wait(5);
         $i->selectProduct(214);
 
         $i->switchToAssignProductsTab();
