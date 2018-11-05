@@ -2464,44 +2464,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "59a2cf41ca6e1b0e82d144c07ce2dd0859ca34d3"
-=======
-=======
->>>>>>> te-11 updated composer
-=======
->>>>>>> te-11 updated composer
-<<<<<<< HEAD
-                "reference": "0baa07fc3e3eb39dc21aed5b11d948e2461fdb6b"
-=======
-                "reference": "0368346675b0158321d202aceac470b01faa8705"
->>>>>>> te-11 updated dependencies
-<<<<<<< HEAD
->>>>>>> te-11 updated dependencies
-=======
-=======
-                "reference": "9d65633f1d036dc1557024a513caae77c3ee525e"
->>>>>>> te-11 updated composer
-<<<<<<< HEAD
-=======
-=======
-                "reference": "852833cb041f3d6e8e935b477d2983b4ccfaec40"
->>>>>>> te-11 updated composer
->>>>>>> te-11 updated composer
-=======
-                "reference": "852833cb041f3d6e8e935b477d2983b4ccfaec40"
->>>>>>> te-11 updated composer
-=======
-                "reference": "18e0e9e0c48bcfc01454b6b8faf4b141eaa9d47e"
->>>>>>> te-11 updated composer
-=======
                 "reference": "e290a1488e08bade4bc22312b2be05705e0c0e6b"
->>>>>>> te-11 updated composer
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2771,44 +2734,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-11-05T14:08:05+00:00"
-=======
-=======
->>>>>>> te-11 updated composer
-=======
->>>>>>> te-11 updated composer
-<<<<<<< HEAD
-            "time": "2018-11-03T19:42:16+00:00"
-=======
-            "time": "2018-11-02T09:00:46+00:00"
->>>>>>> te-11 updated dependencies
-<<<<<<< HEAD
->>>>>>> te-11 updated dependencies
-=======
-=======
-            "time": "2018-11-02T10:24:23+00:00"
->>>>>>> te-11 updated composer
-<<<<<<< HEAD
-=======
-=======
-            "time": "2018-11-05T11:49:27+00:00"
->>>>>>> te-11 updated composer
->>>>>>> te-11 updated composer
-=======
-            "time": "2018-11-05T11:49:27+00:00"
->>>>>>> te-11 updated composer
-=======
-            "time": "2018-11-05T15:51:40+00:00"
->>>>>>> te-11 updated composer
-=======
             "time": "2018-11-05T19:37:36+00:00"
->>>>>>> te-11 updated composer
         },
         {
             "name": "spryker/synchronization-behavior",
