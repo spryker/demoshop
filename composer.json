@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-master",
+    "spryker/spryker": "dev-feature/dt-1/dt-4-support-get-methods-annotation",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -69,7 +69,7 @@
   "require-dev": {
     "spryker/architecture-sniffer": "dev-master",
     "spryker/code-generator": "dev-master",
-    "spryker/code-sniffer": "dev-master",
+    "spryker/code-sniffer": "dev-feature/dt-1/dt-4-support-get-methods-annotation",
     "spryker/git-hook": "dev-master",
     "spryker/spryk": "dev-master",
 

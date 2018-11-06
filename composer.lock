@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "4333ad2d68e3cc6a865acf44c916dbfc",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -993,7 +993,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2460,11 +2460,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/dt-1/dt-4-support-get-methods-annotation",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "e290a1488e08bade4bc22312b2be05705e0c0e6b"
+                "reference": "6bc7596feaade7344dcfe27b4d6b3c3f1e488b99"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2734,7 +2734,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-05T19:37:36+00:00"
+            "time": "2018-11-06T07:34:43+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8052,7 +8052,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -8164,16 +8164,16 @@
         },
         {
             "name": "spryker/code-sniffer",
-            "version": "dev-master",
+            "version": "dev-feature/dt-1/dt-4-support-get-methods-annotation",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "baf6dcca549d164e8d26240045e18383d313da44"
+                "reference": "571da947c35fe35db3a66a9cd43f00dedc857945"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/baf6dcca549d164e8d26240045e18383d313da44",
-                "reference": "baf6dcca549d164e8d26240045e18383d313da44",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/571da947c35fe35db3a66a9cd43f00dedc857945",
+                "reference": "571da947c35fe35db3a66a9cd43f00dedc857945",
                 "shasum": ""
             },
             "require": {
@@ -8212,7 +8212,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-10-30T13:38:19+00:00"
+            "time": "2018-11-06T07:01:59+00:00"
         },
         {
             "name": "spryker/git-hook",
