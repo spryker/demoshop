@@ -1138,7 +1138,7 @@ product-cart.validation.error.abstract-product-exists,"Produkt nicht gefunden",d
 product-cart.validation.error.concrete-product-exists,"Product not found",en_US
 product-cart.validation.error.concrete-product-exists,"Produkt nicht gefunden",de_DE
 cart.item.option.pre.check.validation.error.exists,"Product option with value '%id%' does not exist.",en_US
-cart.item.option.pre.check.validation.error.exists,"Die Produktoption ‘%id%’ existiert nicht.",de_DE
+cart.item.option.pre.check.validation.error.exists,"Die Produktoption '%id%' existiert nicht.",de_DE
 This value should not be blank.,Dies ist ein Pflichtfeld.,de_DE
 This field should contain exactly 5 digits.,Dieses Feld muss genau 5 Ziffern enthalten.,de_DE
 "This value is not valid (accepted format e.g.: 12c).","Dieser Wert ist nicht gültig (akzeptiertes Format, z.B. 12c)",de_DE

@@ -8,10 +8,10 @@
 namespace Pyz\Shared\WebProfiler\Plugin\ServiceProvider;
 
 use Silex\Application;
-use Silex\Provider\WebProfilerServiceProvider as SilexWebProfilerServiceProvider;
 use Spryker\Shared\Kernel\Store;
+use Spryker\Shared\WebProfiler\Plugin\ServiceProvider\WebProfilerServiceProvider as SprykerWebProfilerServiceProvider;
 
-class WebProfilerServiceProvider extends SilexWebProfilerServiceProvider
+class WebProfilerServiceProvider extends SprykerWebProfilerServiceProvider
 {
     /**
      * @param \Silex\Application $app
