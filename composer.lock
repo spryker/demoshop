@@ -2508,7 +2508,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "effbb7a3ae914ebb3bcc23a1a41241fb6b4172e5"
+                "reference": "6f87be300bfebd41513d1b0f86e1f07f5f62b857"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2778,7 +2778,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-05T14:06:43+00:00"
+            "time": "2018-11-06T09:48:17+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6180,7 +6180,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8038,7 +8038,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -8259,12 +8259,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "f6e2c0e3683fc477b4cc5d759d02af0226142b2c"
+                "reference": "dba81bdf0a37184b8c2b6f0cdc670e8360c488ff"
             },
             "require": {
                 "php": ">=7.1",
                 "roave/better-reflection": "^2.0 || ^3.0",
                 "spryker/kernel": "^3.17.0",
+                "symfony/console": "^3.4.0 || ^4.0.0",
                 "symfony/finder": "^3.4.0 || ^4.0.0",
                 "symfony/yaml": "^3.4.9",
                 "twig/twig": "^1.34 || ^2.0.0",
@@ -8300,6 +8301,9 @@
                     "Spryker\\Shared\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/src/Spryker/Shared/FooBar/",
                     "Spryker\\Yves\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/src/Spryker/Yves/FooBar/",
                     "Spryker\\Zed\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/src/Spryker/Zed/FooBar/",
+                    "Spryker\\Zed\\ZipZap\\": "tests/_support/Fixtures/Spryker/Zed/ZipZap/",
+                    "Spryker\\Client\\ZipZap\\": "tests/_support/Fixtures/Spryker/Client/ZipZap/",
+                    "Spryker\\Service\\ZipZap\\": "tests/_support/Fixtures/Spryker/Service/ZipZap/",
                     "SprykerTest\\Zed\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/tests/SprykerTest/Zed/FooBar/"
                 }
             },
@@ -8311,10 +8315,10 @@
                     "GitHook\\Composer\\Scripts\\HookInstaller::installGitHook"
                 ],
                 "cs-check": [
-                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/"
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/ --ignore='/Fixtures/'"
                 ],
                 "cs-fix": [
-                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/"
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/ --ignore='/Fixtures/'"
                 ],
                 "phpstan": [
                     "phpstan analyse -l 7 -c phpstan.neon src/"
@@ -8324,7 +8328,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-09-10T10:30:07+00:00"
+            "time": "2018-11-05T19:37:23+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
