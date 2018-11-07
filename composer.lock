@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "73f3667cc4e66cbc14f39acf544e7435",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2499,11 +2499,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2148-product-option-sql-injection",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "8ce983a4992093bc5e23b6164da39344fe07a985"
+                "reference": "48603da6080e3daac9165868262fdbab89903ae9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2773,7 +2773,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-07T08:26:46+00:00"
+            "time": "2018-11-07T10:30:03+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
