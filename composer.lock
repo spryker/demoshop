@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "73f3667cc4e66cbc14f39acf544e7435",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -1035,7 +1035,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2499,11 +2499,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/core-2148-product-option-sql-injection",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "489c0813b44deca6f9b46c9644d5e7785afb5d13"
+                "reference": "a7f6955c0477a14a9439af5bd9ea670d9107a807"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2773,7 +2773,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-08T11:48:53+00:00"
+            "time": "2018-11-08T14:49:31+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
