@@ -1035,7 +1035,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2503,7 +2503,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c02684602e81df7fe6a7b1273ad672c82691b5b9"
+                "reference": "106aa57cb1a438e592d85e7b95742eef7fc2c9d3"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2773,7 +2773,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-08T19:45:37+00:00"
+            "time": "2018-11-08T22:00:10+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6445,7 +6445,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8207,7 +8207,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
