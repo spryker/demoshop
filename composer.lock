@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "73f3667cc4e66cbc14f39acf544e7435",
@@ -1035,7 +1035,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2503,7 +2503,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a7f6955c0477a14a9439af5bd9ea670d9107a807"
+                "reference": "97f943d95b6d6e9e9a839d173b737bffe1c755e1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2773,7 +2773,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-08T14:49:31+00:00"
+            "time": "2018-11-08T16:31:37+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
