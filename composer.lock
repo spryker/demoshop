@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "7462f575160f19b4c44f8fa4109e451b",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2499,11 +2499,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/cms-4-cms-page-shows-product-variant-price-instead-of-product-abstract-price",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "627d3946d62ce55fbd754e029b796de97ea0af58"
+                "reference": "f793da7694a2d1196b1dfae837938574129a5be9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2772,7 +2772,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-09T17:59:27+00:00"
+            "time": "2018-11-12T16:45:15+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
