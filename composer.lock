@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "a9884823725317b2d9a079613fd73ca6",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2499,11 +2499,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/ps-5802-schema-validation-max-char",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "627d3946d62ce55fbd754e029b796de97ea0af58"
+                "reference": "d9cf26ec866e24371f3160e993074495a77cd003"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2772,7 +2772,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-09T17:59:27+00:00"
+            "time": "2018-11-12T15:13:23+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
