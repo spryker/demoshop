@@ -26,6 +26,7 @@ use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\KernelLogServic
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\MvcRoutingServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RequestServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\RoutingServiceProvider;
+use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SaveSessionServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SilexRoutingServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SslServiceProvider;
 use Spryker\Zed\Application\Communication\Plugin\ServiceProvider\SubRequestServiceProvider;
@@ -122,6 +123,7 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
             new RedirectAfterLoginProvider(),
             new PropelServiceProvider(),
             new GuiTwigExtensionServiceProvider(),
+            new SaveSessionServiceProvider(),
         ];
 
         if (Environment::isDevelopment()) {
