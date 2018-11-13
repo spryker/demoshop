@@ -17,8 +17,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CartOperationHandler extends BaseHandler implements CartOperationInterface
 {
-    const URL_PARAM_ID_DISCOUNT_PROMOTION = 'idDiscountPromotion';
-    const TRANSLATION_KEY_QUANTITY_ADJUSTED = 'cart.quantity.adjusted';
+    public const URL_PARAM_ID_DISCOUNT_PROMOTION = 'idDiscountPromotion';
+    public const TRANSLATION_KEY_QUANTITY_ADJUSTED = 'cart.quantity.adjusted';
 
     /**
      * @var \Spryker\Client\Cart\CartClientInterface|\Spryker\Client\Kernel\AbstractClient

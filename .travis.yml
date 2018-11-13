@@ -10,7 +10,7 @@ branches:
   only:
   - master
   - /feature\/[a-z]+-\d+\/(master|dev).+/
-  - /(bugfix|hotfix)\/[a-z]+-\d+\/.+/
+  - /(bugfix|hotfix)\/.+/
   - /beta\/.+/
 
 #Possible travis events (push, pull_request, cron, or api)
@@ -21,7 +21,7 @@ matrix:
       env:
         - TEST_GROUP=without-acceptance
         - ON_EVENTS=cron,push
-    - php: "7.2"
+    - php: "7.3"
       env:
         - TEST_GROUP=without-acceptance
         - ON_EVENTS=cron,push
@@ -30,12 +30,12 @@ matrix:
       env:
         - TEST_GROUP=acceptance
         - ON_EVENTS=push,cron
-    - php: "7.2"
+    - php: "7.3"
       env:
         - TEST_GROUP=acceptance
         - ON_EVENTS=push,cron
         - DB=mysql
-    - php: "7.2"
+    - php: "7.3"
       env:
         - VALIDATION=1
 
@@ -78,6 +78,7 @@ install:
   - chmod -R a+x config/Shared/ci/travis/
   - composer install --optimize-autoloader --no-interaction
   - config/Shared/ci/travis/install_elasticsearch.sh
+  - config/Shared/ci/travis/install_mailcatcher.sh
 
 before_script:
   - nvm install 6

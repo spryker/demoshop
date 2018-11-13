@@ -12,27 +12,27 @@ use Silex\Application;
 
 class CustomerControllerProvider extends AbstractYvesControllerProvider
 {
-    const ROUTE_LOGIN = 'login';
-    const ROUTE_LOGOUT = 'logout';
-    const ROUTE_REGISTER = 'register';
-    const ROUTE_PASSWORD_FORGOTTEN = 'password/forgotten';
-    const ROUTE_PASSWORD_RESTORE = 'password/restore';
-    const ROUTE_CUSTOMER_OVERVIEW = 'customer/overview';
-    const ROUTE_CUSTOMER_PROFILE = 'customer/profile';
-    const ROUTE_CUSTOMER_ADDRESS = 'customer/address';
-    const ROUTE_CUSTOMER_NEW_ADDRESS = 'customer/address/new';
-    const ROUTE_CUSTOMER_UPDATE_ADDRESS = 'customer/address/update';
-    const ROUTE_CUSTOMER_DELETE_ADDRESS = 'customer/address/delete';
-    const ROUTE_CUSTOMER_REFRESH_ADDRESS = 'customer/address/refresh';
-    const ROUTE_CUSTOMER_ORDER = 'customer/order';
-    const ROUTE_CUSTOMER_OFFER = 'customer/offer';
-    const ROUTE_CUSTOMER_ORDER_DETAILS = 'customer/order/details';
-    const ROUTE_CUSTOMER_OFFER_DETAILS = 'customer/offer/details';
-    const ROUTE_CUSTOMER_NEWSLETTER = 'customer/newsletter';
-    const ROUTE_CUSTOMER_NEWSLETTER_UNSUBSCRIBE = 'customer/newsletter/unsubscribe';
-    const ROUTE_CUSTOMER_DELETE = 'customer/delete';
-    const ROUTE_CUSTOMER_DELETE_CONFIRM = 'customer/delete/confirm';
-    const ROUTE_CUSTOMER_OFFER_CONVERT = 'customer/offer/convert-offer';
+    public const ROUTE_LOGIN = 'login';
+    public const ROUTE_LOGOUT = 'logout';
+    public const ROUTE_REGISTER = 'register';
+    public const ROUTE_PASSWORD_FORGOTTEN = 'password/forgotten';
+    public const ROUTE_PASSWORD_RESTORE = 'password/restore';
+    public const ROUTE_CUSTOMER_OVERVIEW = 'customer/overview';
+    public const ROUTE_CUSTOMER_PROFILE = 'customer/profile';
+    public const ROUTE_CUSTOMER_ADDRESS = 'customer/address';
+    public const ROUTE_CUSTOMER_NEW_ADDRESS = 'customer/address/new';
+    public const ROUTE_CUSTOMER_UPDATE_ADDRESS = 'customer/address/update';
+    public const ROUTE_CUSTOMER_DELETE_ADDRESS = 'customer/address/delete';
+    public const ROUTE_CUSTOMER_REFRESH_ADDRESS = 'customer/address/refresh';
+    public const ROUTE_CUSTOMER_ORDER = 'customer/order';
+    public const ROUTE_CUSTOMER_OFFER = 'customer/offer';
+    public const ROUTE_CUSTOMER_ORDER_DETAILS = 'customer/order/details';
+    public const ROUTE_CUSTOMER_OFFER_DETAILS = 'customer/offer/details';
+    public const ROUTE_CUSTOMER_NEWSLETTER = 'customer/newsletter';
+    public const ROUTE_CUSTOMER_NEWSLETTER_UNSUBSCRIBE = 'customer/newsletter/unsubscribe';
+    public const ROUTE_CUSTOMER_DELETE = 'customer/delete';
+    public const ROUTE_CUSTOMER_DELETE_CONFIRM = 'customer/delete/confirm';
+    public const ROUTE_CUSTOMER_OFFER_CONVERT = 'customer/offer/convert-offer';
 
     /**
      * @param \Silex\Application $app

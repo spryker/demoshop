@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CartController extends AbstractController
 {
-    const PARAM_ITEMS = 'items';
+    public const PARAM_ITEMS = 'items';
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request

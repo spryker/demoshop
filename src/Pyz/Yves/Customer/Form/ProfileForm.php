@@ -17,10 +17,10 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProfileForm extends AbstractType
 {
-    const FIELD_EMAIL = 'email';
-    const FIELD_LAST_NAME = 'last_name';
-    const FIELD_FIRST_NAME = 'first_name';
-    const FIELD_SALUTATION = 'salutation';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_LAST_NAME = 'last_name';
+    public const FIELD_FIRST_NAME = 'first_name';
+    public const FIELD_SALUTATION = 'salutation';
 
     /**
      * @return string

@@ -22,7 +22,7 @@ use Spryker\Zed\ProductOption\ProductOptionConfig;
 
 class ProductOptionCollector extends AbstractStoragePdoCollector
 {
-    const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
+    public const ID_PRODUCT_OPTION_GROUP = 'id_product_option_group';
 
     /**
      * @var array

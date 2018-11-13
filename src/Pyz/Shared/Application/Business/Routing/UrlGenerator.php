@@ -18,8 +18,8 @@ use Symfony\Component\Routing\RouteCollection;
 
 class UrlGenerator extends SymfonyUrlGenerator
 {
-    const HOME = 'home';
-    const ERROR_PATH = '/error/404';
+    public const HOME = 'home';
+    public const ERROR_PATH = '/error/404';
 
     /**
      * @var \Pimple

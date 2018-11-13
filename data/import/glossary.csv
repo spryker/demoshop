@@ -373,7 +373,7 @@ customer.account.profile_data,Profile,en_US
 customer.account.profile_data,Benutzerdaten,de_DE
 customer.account.address,Addresses,en_US
 customer.account.address,Adressen,de_DE
-customer.account.order_history,Orders History,en_US
+customer.account.order_history,Order History,en_US
 customer.account.order_history,Bestellungen,de_DE
 customer.account.offer_history,Offers History,en_US
 customer.account.offer_history,Angebotshistorie,de_DE
@@ -621,8 +621,18 @@ customer.password.recovery.mail.sent,"If there is an account associated with thi
 customer.password.recovery.mail.sent,"Falls ein Konto für diese Emailaddresse existiert, werden Sie eine Email mit den weiteren Anweisungen bekommen",de_DE
 customer.address.number,Number,en_US
 customer.address.number,Nummer,de_DE
+countries.iso.AT,Austria,en_US
+countries.iso.AT,Österreich,de_DE
 countries.iso.DE,Germany,en_US
 countries.iso.DE,Deutschland,de_DE
+countries.iso.NO,Norway,en_US
+countries.iso.NO,Norwegen,de_DE
+countries.iso.CH,Switzerland,en_US
+countries.iso.CH,Schweiz,de_DE
+countries.iso.ES,Spain,en_US
+countries.iso.ES,Spanien,de_DE
+countries.iso.GB,United Kingdom,en_US
+countries.iso.GB,Großbritannien,de_DE
 customer.billingSameAsShipping,Billing address same as shipping address,en_US
 customer.billingSameAsShipping,Liefer- und Rechnungsadresse sind gleich,de_DE
 checkout.giftcard.label,"Gift card",en_US
@@ -975,8 +985,6 @@ customer.order.bundled_items,Produkte in diesem Bündel:,de_DE
 customer.order.bundled_items,Items in the bundle:,en_US
 customer.order.options,Produktoptionen:,de_DE
 customer.order.options,Product options:,en_US
-countries.iso.AT,Österreich,de_DE
-countries.iso.AT,Austria,en_US
 cart.item.option.description,Product options:,en_US
 cart.item.option.description,Produktoptionen:,de_DE
 cart.item.sku,SKU,en_US
@@ -1085,6 +1093,8 @@ product-cart.validation.error.abstract-product-exists,Product not found,en_US
 product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
 product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
+cart.item.option.pre.check.validation.error.exists,"Product option with value '%id%' does not exist.",en_US
+cart.item.option.pre.check.validation.error.exists,"Die Produktoption '%id%' existiert nicht.",de_DE
 product-cart.validation.error.no-product-permission,"Sorry, You are not allowed to buy this product.",en_US
 product-cart.validation.error.no-product-permission,"Entschuldigung, Sie dürfen dieses Produkt nicht kaufen.",de_DE
 product-cart.validation.error.product-option-value-price-exists,"Product option price not found for product '%sku%'.",en_US
@@ -1103,12 +1113,14 @@ price.mode.gross_mode,Gross prices,en_US
 price.mode.gross_mode,Bruttopreise,de_DE
 price.mode.net_mode,Net prices,en_US
 price.mode.net_mode,Nettopreise,de_DE
-cart.pre.check.price.failed,"Price in selected currency not found for product with sku '%sku%'. Please change the currency or remove product from order.",en_US
-cart.pre.check.price.failed,"Der Preis in der ausgewählten Währung wurde für das Produkt mit sku '%sku%' nicht gefunden. Bitte ändern Sie die Währung oder entfernen Sie das Produkt aus der Bestellung.",de_DE
 price.mode.switch.error,"Can't switch price mode when there are items in the cart.",en_US
 price.mode.switch.error,"Preismodus kann nicht geändert werden, wenn sich Artikel im Warenkorb befinden.",de_DE
+cart.pre.check.price.failed,"Price in selected currency not found for product with sku '%sku%'. Please change the currency or remove product from order.",en_US
+cart.pre.check.price.failed,"Der Preis in der ausgewählten Währung wurde für das Produkt mit sku '%sku%' nicht gefunden. Bitte ändern Sie die Währung oder entfernen Sie das Produkt aus der Bestellung.",de_DE
 cart.pre.check.shipment.failed,"Can't apply these changes. The shipment method not found. Please select another shipment method.",en_US
 cart.pre.check.shipment.failed,"Diese Änderungen können nicht angewendet werden. Die Versandart wurde nicht gefunden. Bitte wählen Sie eine andere Versandart.",de_DE
+cart.pre.check.quantity.value.failed,Falsche Menge für Produkt SKU '%sku%'.,de_DE
+cart.pre.check.quantity.value.failed,Wrong quantity for product SKU '%sku%'.,en_US
 catalog.view.mode.grid,Grid,en_US
 catalog.view.mode.grid,Gitter,de_DE
 catalog.view.mode.list,List,en_US
@@ -1121,3 +1133,13 @@ catalog.new,New,en_US
 catalog.new,Neu,de_DE
 checkout.pre.check.shipment.failed,Invalid shipping method.,en_US
 checkout.pre.check.shipment.failed,Ungültige Versandmethode,de_DE
+discount.voucher_code.usage_limit.reached,"Voucher code usage limit reached",en_US
+discount.voucher_code.usage_limit.reached,"Gutscheincode-Nutzungslimit erreicht",de_DE
+This value should not be blank.,Dies ist ein Pflichtfeld.,de_DE
+This field should contain exactly 5 digits.,Dieses Feld muss genau 5 Ziffern enthalten.,de_DE
+"This value is not valid (accepted format e.g.: 12c).","Dieser Wert ist nicht gültig (akzeptiertes Format, z.B. 12c)",de_DE
+This value is not valid.,Dieser Wert ist nicht gültig.,de_DE
+wishlist.validation.error.name.wrong_format,"Please enter name using only letters, numbers, underscores, spaces or dashes.",en_US
+wishlist.validation.error.name.wrong_format,"Bitte geben Sie Ihren Namen nur mit Buchstaben, Zahlen, Unterstriche, Leerzeichen oder Bindestriche ein.",de_DE
+wishlist.validation.error.name.already_exists,"A wishlist with the same name already exists.",en_US
+wishlist.validation.error.name.already_exists,"Eine Wunschliste mit dem gleichen Namen existiert schon.",de_DE

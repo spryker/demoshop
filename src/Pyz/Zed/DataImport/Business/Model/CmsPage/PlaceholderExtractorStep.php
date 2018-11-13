@@ -13,7 +13,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class PlaceholderExtractorStep implements DataImportStepInterface
 {
-    const KEY_PLACEHOLDER = 'placeholder';
+    public const KEY_PLACEHOLDER = 'placeholder';
 
     /**
      * @var array
