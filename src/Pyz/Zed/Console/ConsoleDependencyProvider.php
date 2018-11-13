@@ -244,8 +244,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new MaintenanceDisableConsole(),
 
             new PriceProductStoreOptimizeConsole(),
-
-            new PropelSchemaXmlNameValidatorConsole(),
         ];
 
         $propelCommands = $container->getLocator()->propel()->facade()->getConsoleCommands();
@@ -282,6 +280,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new CompletionCommand();
             $commands[] = new DataBuilderGeneratorConsole();
             $commands[] = new PropelSchemaValidatorConsole();
+            $commands[] = new PropelSchemaXmlNameValidatorConsole();
         }
 
         return $commands;
