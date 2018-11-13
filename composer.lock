@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d62e30d558ed23fd328e4c9d9aa7277",
+    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2336,16 +2336,16 @@
         },
         {
             "name": "spryker/event-behavior",
-            "version": "dev-bugfix/ps-5365-event-trigger-command-improvements",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "db7c71b6da08706c14488d93503a23aabb7111ad"
+                "reference": "77ecbf38ef59ca1b921e454152ae0147ef324989"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/db7c71b6da08706c14488d93503a23aabb7111ad",
-                "reference": "db7c71b6da08706c14488d93503a23aabb7111ad",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/77ecbf38ef59ca1b921e454152ae0147ef324989",
+                "reference": "77ecbf38ef59ca1b921e454152ae0147ef324989",
                 "shasum": ""
             },
             "require": {
@@ -2392,7 +2392,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-11-13T13:20:08+00:00"
+            "time": "2018-09-11T15:49:17+00:00"
         },
         {
             "name": "spryker/install",
@@ -2499,11 +2499,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/ps-5365-sync-data-command-improvements",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1122f0dffff4a9b168344e0114f8ea9b3e9296d5"
+                "reference": "627d3946d62ce55fbd754e029b796de97ea0af58"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2772,7 +2772,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-13T13:20:10+00:00"
+            "time": "2018-11-09T17:59:27+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
