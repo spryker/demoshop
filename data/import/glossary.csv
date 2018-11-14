@@ -893,8 +893,8 @@ product.groups,Product Groups,en_US
 product.groups,Produktgruppen,de_DE
 cart.pre.check.availability.failed,The availability of product %sku% is %stock% at the moment.,en_US
 cart.pre.check.availability.failed,Zurzeit haben wir von %sku% nur %stock% Stück auf Lager.,de_DE
-cart.pre.check.availability.failed.empty,Currently product with sku '%sku%' is not available.,en_US
-cart.pre.check.availability.failed.empty,Das Produkt mit sku '%sku%' ist zurzeit nicht verfügbar.,de_DE
+cart.pre.check.availability.failed.empty,Currently product with sku %sku% is not available.,en_US
+cart.pre.check.availability.failed.empty,Das Produkt mit sku %sku% ist zurzeit nicht verfügbar.,de_DE
 mail.sender.name,Spryker demoshop,en_US
 mail.sender.name,Spryker demoshop,de_DE
 mail.sender.email,demoshop@spryker.com,en_US
