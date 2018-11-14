@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "7462f575160f19b4c44f8fa4109e451b",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -1876,7 +1876,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2509,11 +2509,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/cms-4-cms-page-shows-product-variant-price-instead-of-product-abstract-price",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1e8be1ebe985dd7b897a8c4562d50299edb2f41d"
+                "reference": "915243a5a06232b7eea52f4fe36f1ce971a6e33a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2782,7 +2782,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-14T15:44:04+00:00"
+            "time": "2018-11-14T18:18:56+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6454,7 +6454,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8216,7 +8216,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
