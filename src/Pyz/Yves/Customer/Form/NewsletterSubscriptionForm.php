@@ -11,6 +11,9 @@ use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class NewsletterSubscriptionForm extends AbstractType
 {
     public const FIELD_SUBSCRIBE = 'subscribe';
