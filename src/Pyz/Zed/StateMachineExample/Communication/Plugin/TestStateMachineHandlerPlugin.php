@@ -17,6 +17,7 @@ use Spryker\Zed\StateMachine\Dependency\Plugin\StateMachineHandlerInterface;
 /**
  * @method \Pyz\Zed\StateMachineExample\Business\StateMachineExampleFacade getFacade()
  * @method \Pyz\Zed\StateMachineExample\Communication\StateMachineExampleCommunicationFactory getFactory()
+ * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface getQueryContainer()
  */
 class TestStateMachineHandlerPlugin extends AbstractPlugin implements StateMachineHandlerInterface
 {
