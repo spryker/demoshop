@@ -2350,12 +2350,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "e144f6f1730cbde1e3524ed1f448698f58f6aceb"
+                "reference": "618a94482cf0abefa7f632af0b3960a252a8d8aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/e144f6f1730cbde1e3524ed1f448698f58f6aceb",
-                "reference": "e144f6f1730cbde1e3524ed1f448698f58f6aceb",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/618a94482cf0abefa7f632af0b3960a252a8d8aa",
+                "reference": "618a94482cf0abefa7f632af0b3960a252a8d8aa",
                 "shasum": ""
             },
             "require": {
@@ -2400,7 +2400,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-11-16T10:49:43+00:00"
+            "time": "2018-11-19T11:21:35+00:00"
         },
         {
             "name": "spryker/install",
@@ -2511,7 +2511,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f48bd3397d726289e824b1625a2a93a014d0266f"
+                "reference": "46ad6cb56638b954b8ed41f61714bb6b48d838a2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-19T11:14:57+00:00"
+            "time": "2018-11-19T11:23:52+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
