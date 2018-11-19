@@ -1093,8 +1093,8 @@ product-cart.validation.error.abstract-product-exists,Product not found,en_US
 product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
 product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
-cart.item.option.pre.check.validation.error.exists,"Product option with value '%id%' does not exist.",en_US
-cart.item.option.pre.check.validation.error.exists,"Die Produktoption '%id%' existiert nicht.",de_DE
+cart.item.option.pre.check.validation.error.exists,"You can not reorder the product %name% directly, please add it to your cart separately.",en_US
+cart.item.option.pre.check.validation.error.exists,"Sie können das Produkt %name% nicht direkt nachbestellen, fügen Sie es bitte separat in Ihren Warenkorb.",de_DE
 product-cart.validation.error.no-product-permission,"Sorry, You are not allowed to buy this product.",en_US
 product-cart.validation.error.no-product-permission,"Entschuldigung, Sie dürfen dieses Produkt nicht kaufen.",de_DE
 product-cart.validation.error.product-option-value-price-exists,"Product option price not found for product '%sku%'.",en_US

@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
  */
 class AddressForm extends AbstractType
 {

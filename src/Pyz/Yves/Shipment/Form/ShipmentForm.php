@@ -13,6 +13,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * @method \Pyz\Yves\Shipment\ShipmentConfig getConfig()
+ */
 class ShipmentForm extends AbstractType
 {
     public const FIELD_ID_SHIPMENT_METHOD = 'idShipmentMethod';
