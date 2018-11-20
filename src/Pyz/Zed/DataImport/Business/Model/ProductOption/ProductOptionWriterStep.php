@@ -29,16 +29,16 @@ use Spryker\Zed\ProductOption\ProductOptionConfig;
  */
 class ProductOptionWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_ABSTRACT_PRODUCT_SKUS = 'abstract_product_skus';
-    const KEY_GROUP_NAME_TRANSLATION_KEY = 'group_name_translation_key';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_SKU = 'sku';
-    const KEY_OPTION_NAME_TRANSLATION_KEY = 'option_name_translation_key';
-    const KEY_OPTION_NAME = 'option_name';
-    const KEY_GROUP_NAME = 'group_name';
-    const KEY_TAX_SET_NAME = 'tax_set_name';
+    public const KEY_ABSTRACT_PRODUCT_SKUS = 'abstract_product_skus';
+    public const KEY_GROUP_NAME_TRANSLATION_KEY = 'group_name_translation_key';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_SKU = 'sku';
+    public const KEY_OPTION_NAME_TRANSLATION_KEY = 'option_name_translation_key';
+    public const KEY_OPTION_NAME = 'option_name';
+    public const KEY_GROUP_NAME = 'group_name';
+    public const KEY_TAX_SET_NAME = 'tax_set_name';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

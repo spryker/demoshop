@@ -14,6 +14,7 @@ use Elastica\Query\Nested;
 use Elastica\Query\Term;
 use Generated\Shared\Search\PageIndexMap;
 use Pyz\Client\Catalog\Plugin\Config\CatalogSearchConfigBuilder;
+use Pyz\Shared\ProductSale\ProductSaleConfig;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\Search\Dependency\Plugin\QueryInterface;
 
@@ -76,13 +77,10 @@ class SaleSearchQueryPlugin extends AbstractPlugin implements QueryInterface
         $localeName = $this->getFactory()
             ->getStore()
             ->getCurrentLocale();
-        $labelName = $this->getFactory()
-            ->getConfig()
-            ->getLabelSaleName();
 
         $storageProductLabelTransfer = $this->getFactory()
             ->getProductLabelClient()
-            ->findLabelByName($labelName, $localeName);
+            ->findLabelByName(ProductSaleConfig::DEFAULT_LABEL_NAME, $localeName);
 
         $stringFacetFieldFilter = $this->createStringFacetFieldFilter(CatalogSearchConfigBuilder::LABEL_FACET_NAME);
         $stringFacetValueFilter = $this->createStringFacetValueFilter($storageProductLabelTransfer->getIdProductLabel());

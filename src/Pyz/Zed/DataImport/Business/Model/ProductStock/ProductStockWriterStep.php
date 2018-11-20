@@ -20,13 +20,13 @@ use Spryker\Zed\Stock\StockConfig;
 
 class ProductStockWriterStep extends TouchAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
-    const KEY_NAME = 'name';
-    const KEY_CONCRETE_SKU = 'concrete_sku';
-    const KEY_QUANTITY = 'quantity';
-    const KEY_IS_NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
-    const KEY_IS_BUNDLE = 'is_bundle';
-    const KEY_STORE = 'store';
+    public const BULK_SIZE = 100;
+    public const KEY_NAME = 'name';
+    public const KEY_CONCRETE_SKU = 'concrete_sku';
+    public const KEY_QUANTITY = 'quantity';
+    public const KEY_IS_NEVER_OUT_OF_STOCK = 'is_never_out_of_stock';
+    public const KEY_IS_BUNDLE = 'is_bundle';
+    public const KEY_STORE = 'store';
 
     /**
      * @var \Pyz\Zed\DataImport\Business\Model\Product\Repository\ProductRepository

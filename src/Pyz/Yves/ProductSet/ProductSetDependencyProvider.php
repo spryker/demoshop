@@ -13,11 +13,11 @@ use Spryker\Yves\Kernel\Container;
 
 class ProductSetDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CLIENT_CART = 'CLIENT_CART';
-    const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
-    const CLIENT_PRODUCT_SET = 'CLIENT_PRODUCT_SET';
+    public const CLIENT_CART = 'CLIENT_CART';
+    public const CLIENT_PRODUCT = 'CLIENT_PRODUCT';
+    public const CLIENT_PRODUCT_SET = 'CLIENT_PRODUCT_SET';
 
-    const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
+    public const PLUGIN_STORAGE_PRODUCT_MAPPER = 'PLUGIN_STORAGE_PRODUCT_MAPPER';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -13,17 +14,20 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraint;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class CheckoutAddressCollectionForm extends AbstractType
 {
-    const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
-    const FIELD_BILLING_ADDRESS = 'billingAddress';
-    const FIELD_BILLING_SAME_AS_SHIPPING = 'billingSameAsShipping';
+    public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
+    public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_BILLING_SAME_AS_SHIPPING = 'billingSameAsShipping';
 
-    const OPTION_ADDRESS_CHOICES = 'address_choices';
-    const OPTION_COUNTRY_CHOICES = 'country_choices';
+    public const OPTION_ADDRESS_CHOICES = 'address_choices';
+    public const OPTION_COUNTRY_CHOICES = 'country_choices';
 
-    const GROUP_SHIPPING_ADDRESS = self::FIELD_SHIPPING_ADDRESS;
-    const GROUP_BILLING_ADDRESS = self::FIELD_BILLING_ADDRESS;
+    public const GROUP_SHIPPING_ADDRESS = self::FIELD_SHIPPING_ADDRESS;
+    public const GROUP_BILLING_ADDRESS = self::FIELD_BILLING_ADDRESS;
 
     /**
      * @return string

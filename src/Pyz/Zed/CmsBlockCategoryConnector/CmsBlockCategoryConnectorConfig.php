@@ -11,9 +11,9 @@ use Spryker\Zed\CmsBlockCategoryConnector\CmsBlockCategoryConnectorConfig as Spr
 
 class CmsBlockCategoryConnectorConfig extends SprykerCmsBlockCategoryConnectorConfig
 {
-    const CMS_BLOCK_CATEGORY_POSITION_TOP = 'Top';
-    const CMS_BLOCK_CATEGORY_POSITION_MIDDLE = 'Middle';
-    const CMS_BLOCK_CATEGORY_POSITION_BOTTOM = 'Bottom';
+    public const CMS_BLOCK_CATEGORY_POSITION_TOP = 'Top';
+    public const CMS_BLOCK_CATEGORY_POSITION_MIDDLE = 'Middle';
+    public const CMS_BLOCK_CATEGORY_POSITION_BOTTOM = 'Bottom';
 
     /**
      * @return array

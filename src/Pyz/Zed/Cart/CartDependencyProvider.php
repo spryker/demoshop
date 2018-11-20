@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Spryker Demoshop.
  * For full license information, please view the LICENSE file that was distributed with this source code.
@@ -23,6 +24,7 @@ use Spryker\Zed\ProductBundle\Communication\Plugin\Cart\ExpandBundleItemsWithIma
 use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductCartPlugin;
 use Spryker\Zed\ProductCartConnector\Communication\Plugin\ProductExistsCartPreCheckPlugin;
 use Spryker\Zed\ProductImageCartConnector\Communication\Plugin\ProductImageCartPlugin;
+use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\Cart\CartItemOptionPreCheckPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemGroupKeyOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\CartItemProductOptionPlugin;
 use Spryker\Zed\ProductOptionCartConnector\Communication\Plugin\ChangeProductOptionQuantityPlugin;
@@ -58,12 +60,13 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
-     * @return \Spryker\Zed\Cart\Dependency\CartPreCheckPluginInterface[]
+     * @return \Spryker\Zed\CartExtension\Dependency\Plugin\CartPreCheckPluginInterface[]
      */
     protected function getCartPreCheckPlugins(Container $container)
     {
         return [
             new ProductExistsCartPreCheckPlugin(),
+            new CartItemOptionPreCheckPlugin(),
             new CartItemPricePreCheckPlugin(),
             new ProductOptionValuePriceExistsCartPreCheckPlugin(),
             new CartBundleAvailabilityPreCheckPlugin(),

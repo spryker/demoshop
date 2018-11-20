@@ -11,9 +11,12 @@ use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class ForgottenPasswordForm extends AbstractType
 {
-    const FIELD_EMAIL = 'email';
+    public const FIELD_EMAIL = 'email';
 
     /**
      * @return string

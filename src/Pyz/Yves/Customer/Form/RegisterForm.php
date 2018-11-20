@@ -19,16 +19,19 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class RegisterForm extends AbstractType
 {
-    const FIELD_SALUTATION = 'salutation';
-    const FIELD_FIRST_NAME = 'first_name';
-    const FIELD_LAST_NAME = 'last_name';
-    const FIELD_EMAIL = 'email';
-    const FIELD_PASSWORD = 'password';
-    const FIELD_ACCEPT_TERMS = 'accept_terms';
-    const FIELD_IS_GUEST = 'is_guest';
-    const BLOCK_PREFIX = 'registerForm';
+    public const FIELD_SALUTATION = 'salutation';
+    public const FIELD_FIRST_NAME = 'first_name';
+    public const FIELD_LAST_NAME = 'last_name';
+    public const FIELD_EMAIL = 'email';
+    public const FIELD_PASSWORD = 'password';
+    public const FIELD_ACCEPT_TERMS = 'accept_terms';
+    public const FIELD_IS_GUEST = 'is_guest';
+    public const BLOCK_PREFIX = 'registerForm';
 
     /**
      * @return string

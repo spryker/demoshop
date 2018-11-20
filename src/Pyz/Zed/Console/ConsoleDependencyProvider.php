@@ -28,8 +28,10 @@ use Spryker\Zed\Development\Communication\Console\CodePhpstanConsole;
 use Spryker\Zed\Development\Communication\Console\CodeStyleSnifferConsole;
 use Spryker\Zed\Development\Communication\Console\CodeTestConsole;
 use Spryker\Zed\Development\Communication\Console\ComposerJsonUpdaterConsole;
+use Spryker\Zed\Development\Communication\Console\ComposerJsonValidatorConsole;
 use Spryker\Zed\Development\Communication\Console\DependencyTreeBuilderConsole;
-use Spryker\Zed\Development\Communication\Console\DependencyTreeDependencyViolationConsole;
+use Spryker\Zed\Development\Communication\Console\DependencyViolationFinderConsole;
+use Spryker\Zed\Development\Communication\Console\DependencyViolationFixConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateClientIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateGlueIdeAutoCompletionConsole;
 use Spryker\Zed\Development\Communication\Console\GenerateIdeAutoCompletionConsole;
@@ -45,8 +47,7 @@ use Spryker\Zed\Log\Communication\Console\DeleteLogFilesConsole;
 use Spryker\Zed\Maintenance\Communication\Console\MaintenanceDisableConsole;
 use Spryker\Zed\Maintenance\Communication\Console\MaintenanceEnableConsole;
 use Spryker\Zed\Money\Communication\Plugin\ServiceProvider\TwigMoneyServiceProvider;
-use Spryker\Zed\NewRelic\Communication\Console\RecordDeploymentConsole;
-use Spryker\Zed\NewRelic\Communication\Plugin\NewRelicConsolePlugin;
+use Spryker\Zed\Monitoring\Communication\Plugin\MonitoringConsolePlugin;
 use Spryker\Zed\Oms\Communication\Console\CheckConditionConsole as OmsCheckConditionConsole;
 use Spryker\Zed\Oms\Communication\Console\CheckTimeoutConsole as OmsCheckTimeoutConsole;
 use Spryker\Zed\Oms\Communication\Console\ClearLocksConsole as OmsClearLocksConsole;
@@ -62,6 +63,7 @@ use Spryker\Zed\Propel\Communication\Console\DatabaseExportConsole;
 use Spryker\Zed\Propel\Communication\Console\DatabaseImportConsole;
 use Spryker\Zed\Propel\Communication\Console\DeleteMigrationFilesConsole;
 use Spryker\Zed\Propel\Communication\Console\PropelSchemaValidatorConsole;
+use Spryker\Zed\Propel\Communication\Console\PropelSchemaXmlNameValidatorConsole;
 use Spryker\Zed\Propel\Communication\Plugin\ServiceProvider\PropelServiceProvider;
 use Spryker\Zed\Queue\Communication\Console\QueueTaskConsole;
 use Spryker\Zed\Queue\Communication\Console\QueueWorkerConsole;
@@ -129,7 +131,6 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             new EmptyAllCachesConsole(),
             new GeneratorConsole(),
             new InitializeDatabaseConsole(),
-            new RecordDeploymentConsole(),
             new SearchConsole(),
             new GenerateIndexMapConsole(),
             new OmsCheckConditionConsole(),
@@ -257,7 +258,9 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new ModuleCreateConsole();
             $commands[] = new CodePhpMessDetectorConsole();
             $commands[] = new DependencyTreeBuilderConsole();
-            $commands[] = new DependencyTreeDependencyViolationConsole();
+            $commands[] = new DependencyViolationFinderConsole();
+            $commands[] = new DependencyViolationFixConsole();
+            $commands[] = new ComposerJsonValidatorConsole();
             $commands[] = new ComposerJsonUpdaterConsole();
             $commands[] = new ProductTouchConsole();
             $commands[] = new ValidatorConsole();
@@ -277,6 +280,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
             $commands[] = new CompletionCommand();
             $commands[] = new DataBuilderGeneratorConsole();
             $commands[] = new PropelSchemaValidatorConsole();
+            $commands[] = new PropelSchemaXmlNameValidatorConsole();
         }
 
         return $commands;
@@ -293,7 +297,7 @@ class ConsoleDependencyProvider extends SprykerConsoleDependencyProvider
 
         if (!Environment::isDevelopment()) {
             $eventSubscriber[] = new ConsoleLogPlugin();
-            $eventSubscriber[] = new NewRelicConsolePlugin();
+            $eventSubscriber[] = new MonitoringConsolePlugin();
         }
 
         return $eventSubscriber;

@@ -13,14 +13,12 @@ use Orm\Zed\Store\Persistence\SpyStoreQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
-/**
- */
 class ProductAbstractStoreWriterStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_PRODUCT_ABSTRACT_SKU = 'product_abstract_sku';
-    const KEY_STORE_NAME = 'store_name';
+    public const KEY_PRODUCT_ABSTRACT_SKU = 'product_abstract_sku';
+    public const KEY_STORE_NAME = 'store_name';
 
     /**
      * @var int[] Keys are SKUs, values are product abstract ids.

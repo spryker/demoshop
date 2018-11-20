@@ -14,18 +14,18 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const SERVICE_UTIL_DATE_TIME = 'util date time service';
+    public const SERVICE_UTIL_DATE_TIME = 'util date time service';
 
-    const SERVICE_NETWORK = 'util network service';
+    public const SERVICE_NETWORK = 'util network service';
 
-    const SERVICE_UTIL_IO = 'util io service';
+    public const SERVICE_UTIL_IO = 'util io service';
 
-    const SERVICE_DATA = 'util data service';
+    public const SERVICE_DATA = 'util data service';
 
-    const CLIENT_SESSION = 'session client';
-    const CLIENT_CATALOG = 'catalog client';
-    const PLUGIN_APPLICATION = 'application plugin';
-    const PLUGIN_TWIG = 'twig plugin';
+    public const CLIENT_SESSION = 'session client';
+    public const CLIENT_CATALOG = 'catalog client';
+    public const PLUGIN_APPLICATION = 'application plugin';
+    public const PLUGIN_TWIG = 'twig plugin';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

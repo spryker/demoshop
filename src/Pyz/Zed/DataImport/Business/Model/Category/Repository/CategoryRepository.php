@@ -17,10 +17,10 @@ use Pyz\Zed\DataImport\Business\Exception\CategoryByKeyNotFoundException;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
-    const ID_CATEGORY_NODE = 'id_category_node';
-    const ID_LOCALE = 'idLocale';
-    const URL = 'url';
-    const ID_CATEGORY = 'id_category';
+    public const ID_CATEGORY_NODE = 'id_category_node';
+    public const ID_LOCALE = 'idLocale';
+    public const URL = 'url';
+    public const ID_CATEGORY = 'id_category';
 
     /**
      * @var \ArrayObject

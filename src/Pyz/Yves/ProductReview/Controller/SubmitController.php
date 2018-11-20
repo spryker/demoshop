@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SubmitController extends AbstractController
 {
-    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
+    public const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_INACTIVE;
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request

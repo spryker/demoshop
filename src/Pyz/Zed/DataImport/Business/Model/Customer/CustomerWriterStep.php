@@ -16,7 +16,7 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class CustomerWriterStep implements DataImportStepInterface
 {
-    const COL_CUSTOMER_REFERENCE = 'customer_reference';
+    public const COL_CUSTOMER_REFERENCE = 'customer_reference';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet

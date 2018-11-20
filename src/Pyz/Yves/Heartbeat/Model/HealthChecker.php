@@ -47,7 +47,7 @@ class HealthChecker
     }
 
     /**
-     * @param \Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface $healthIndicator
+     * @param \Pyz\Yves\Heartbeat\Model\HealthIndicator\AbstractHealthIndicator $healthIndicator
      *
      * @return void
      */
