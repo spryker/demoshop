@@ -11,6 +11,9 @@ use Spryker\Yves\Kernel\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class CustomerCheckoutForm extends AbstractType
 {
     public const SUB_FORM_CUSTOMER = 'customer';
