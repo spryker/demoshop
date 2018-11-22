@@ -11156,16 +11156,16 @@
         },
         {
             "name": "spryker/price-product-merchant-relationship-storage",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/price-product-merchant-relationship-storage.git",
-                "reference": "cf0a8f37ef54aa2e4c0b039b67ea6c83e06cf84d"
+                "reference": "49921e84fedffc914785d5e3dabf4d2fa8ef0b16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/price-product-merchant-relationship-storage/zipball/cf0a8f37ef54aa2e4c0b039b67ea6c83e06cf84d",
-                "reference": "cf0a8f37ef54aa2e4c0b039b67ea6c83e06cf84d",
+                "url": "https://api.github.com/repos/spryker/price-product-merchant-relationship-storage/zipball/49921e84fedffc914785d5e3dabf4d2fa8ef0b16",
+                "reference": "49921e84fedffc914785d5e3dabf4d2fa8ef0b16",
                 "shasum": ""
             },
             "require": {
@@ -11208,7 +11208,7 @@
                 "proprietary"
             ],
             "description": "PriceProductMerchantRelationshipStorage module",
-            "time": "2018-11-21T12:32:44+00:00"
+            "time": "2018-11-21T14:11:17+00:00"
         },
         {
             "name": "spryker/price-product-storage",
