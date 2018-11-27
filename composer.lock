@@ -472,16 +472,16 @@
         },
         {
             "name": "everon/criteria-builder",
-            "version": "v1.1.5",
+            "version": "v1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oliwierptak/everon-criteria-builder.git",
-                "reference": "b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112"
+                "reference": "5c8b0ba0dfb0bacb4e2a8f236d9201b6bdd26238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oliwierptak/everon-criteria-builder/zipball/b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112",
-                "reference": "b841624421ab0fadbf7a9d36ae9f9d5ebbbe7112",
+                "url": "https://api.github.com/repos/oliwierptak/everon-criteria-builder/zipball/5c8b0ba0dfb0bacb4e2a8f236d9201b6bdd26238",
+                "reference": "5c8b0ba0dfb0bacb4e2a8f236d9201b6bdd26238",
                 "shasum": ""
             },
             "require": {
@@ -512,7 +512,7 @@
                 }
             ],
             "description": "Everon Criteria Builder Component",
-            "time": "2016-03-20T14:50:11+00:00"
+            "time": "2018-10-11T12:41:03+00:00"
         },
         {
             "name": "everon/factory",
@@ -2300,15 +2300,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker-eco/loggly.git",
-                "reference": "7eba12eea3cc9b81d434a6de3ec52ea3cbff2e5b"
+                "reference": "db0cff40b0d164599cf9fdce150e31374c1369b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker-eco/loggly/zipball/7eba12eea3cc9b81d434a6de3ec52ea3cbff2e5b",
-                "reference": "7eba12eea3cc9b81d434a6de3ec52ea3cbff2e5b",
+                "url": "https://api.github.com/repos/spryker-eco/loggly/zipball/db0cff40b0d164599cf9fdce150e31374c1369b1",
+                "reference": "db0cff40b0d164599cf9fdce150e31374c1369b1",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/kernel": "^3.0.0"
             },
             "require-dev": {
@@ -2336,7 +2337,7 @@
                 "proprietary"
             ],
             "description": "Loggly module",
-            "time": "2018-09-04T14:37:05+00:00"
+            "time": "2018-10-16T13:00:22+00:00"
         },
         {
             "name": "spryker/event-behavior",
@@ -2344,12 +2345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "77ecbf38ef59ca1b921e454152ae0147ef324989"
+                "reference": "19e78d290035cb9ddfc4f0790ca2b52f183a941c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/77ecbf38ef59ca1b921e454152ae0147ef324989",
-                "reference": "77ecbf38ef59ca1b921e454152ae0147ef324989",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/19e78d290035cb9ddfc4f0790ca2b52f183a941c",
+                "reference": "19e78d290035cb9ddfc4f0790ca2b52f183a941c",
                 "shasum": ""
             },
             "require": {
@@ -2362,8 +2363,6 @@
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
-                "spryker/availability-storage": "*",
-                "spryker/category-storage": "*",
                 "spryker/code-sniffer": "*",
                 "spryker/config": "^3.1.0",
                 "spryker/console": "^3.1.0 || ^4.0.0",
@@ -2396,7 +2395,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-09-11T15:49:17+00:00"
+            "time": "2018-11-26T14:24:05+00:00"
         },
         {
             "name": "spryker/install",
@@ -2507,7 +2506,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "792ede895d8ff7a5113b85bc52b14f0f2de3f512"
+                "reference": "6cdabab9d740d0eebb380b7ecb3de60c158f262e"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2594,7 +2593,6 @@
                 "spryker/elastica": "*",
                 "spryker/error-handler": "*",
                 "spryker/event": "*",
-                "spryker/event-journal": "*",
                 "spryker/file-system": "*",
                 "spryker/flysystem": "*",
                 "spryker/flysystem-aws3v3-filesystem": "*",
@@ -2629,8 +2627,6 @@
                 "spryker/navigation-collector": "*",
                 "spryker/navigation-gui": "*",
                 "spryker/navigation-storage": "*",
-                "spryker/new-relic": "*",
-                "spryker/new-relic-api": "*",
                 "spryker/newsletter": "*",
                 "spryker/nopayment": "*",
                 "spryker/oauth": "*",
@@ -2676,7 +2672,6 @@
                 "spryker/product-management": "*",
                 "spryker/product-measurement-unit": "*",
                 "spryker/product-measurement-unit-data-import": "*",
-                "spryker/product-measurement-unit-gui": "*",
                 "spryker/product-measurement-unit-storage": "*",
                 "spryker/product-new": "*",
                 "spryker/product-option": "*",
@@ -2780,7 +2775,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-10-08T07:44:51+00:00"
+            "time": "2018-11-22T11:22:24+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -2788,15 +2783,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/synchronization-behavior.git",
-                "reference": "fd3050c45d11c80cb01c070f0f164d0738fd74f5"
+                "reference": "eda71d66b5cc13ff397f610e18f2b76164b2702c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/fd3050c45d11c80cb01c070f0f164d0738fd74f5",
-                "reference": "fd3050c45d11c80cb01c070f0f164d0738fd74f5",
+                "url": "https://api.github.com/repos/spryker/synchronization-behavior/zipball/eda71d66b5cc13ff397f610e18f2b76164b2702c",
+                "reference": "eda71d66b5cc13ff397f610e18f2b76164b2702c",
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1",
                 "spryker/kernel": "^3.20.0",
                 "spryker/propel-orm": "^1.6.0",
                 "spryker/queue": "^1.1.2",
@@ -2828,7 +2824,7 @@
                 "proprietary"
             ],
             "description": "SynchronizationBehavior module",
-            "time": "2018-09-24T13:36:34+00:00"
+            "time": "2018-10-16T08:48:28+00:00"
         },
         {
             "name": "spryker/uuid-behavior",
@@ -2836,12 +2832,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/uuid-behavior.git",
-                "reference": "4a6df8b3520b749123e7757b8f2f3f1d3fd9b917"
+                "reference": "4168390a888459485c3a39e29f9ee1e2e7d97c0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/uuid-behavior/zipball/4a6df8b3520b749123e7757b8f2f3f1d3fd9b917",
-                "reference": "4a6df8b3520b749123e7757b8f2f3f1d3fd9b917",
+                "url": "https://api.github.com/repos/spryker/uuid-behavior/zipball/4168390a888459485c3a39e29f9ee1e2e7d97c0c",
+                "reference": "4168390a888459485c3a39e29f9ee1e2e7d97c0c",
                 "shasum": ""
             },
             "require": {
@@ -2874,7 +2870,7 @@
                 "proprietary"
             ],
             "description": "UuidBehavior module",
-            "time": "2018-09-11T22:10:18+00:00"
+            "time": "2018-10-16T08:52:03+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8107,12 +8103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-generator.git",
-                "reference": "343350dd1a203d60e7f0734e4eb8fe778e24ea4d"
+                "reference": "391836c2f5debf303d15bca061d4f690e6580dd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-generator/zipball/343350dd1a203d60e7f0734e4eb8fe778e24ea4d",
-                "reference": "343350dd1a203d60e7f0734e4eb8fe778e24ea4d",
+                "url": "https://api.github.com/repos/spryker/code-generator/zipball/391836c2f5debf303d15bca061d4f690e6580dd0",
+                "reference": "391836c2f5debf303d15bca061d4f690e6580dd0",
                 "shasum": ""
             },
             "require": {
@@ -8142,7 +8138,7 @@
                 "MIT"
             ],
             "description": "CodeGenerator module",
-            "time": "2018-09-10T12:37:02+00:00"
+            "time": "2018-10-17T13:53:06+00:00"
         },
         {
             "name": "spryker/code-sniffer",
@@ -8150,21 +8146,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "14c2511d74a82d81c31a94d8af6d45215f5a3b8b"
+                "reference": "ff8fcbe8f6e5fc02918ed3698b63170fb0071c0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/14c2511d74a82d81c31a94d8af6d45215f5a3b8b",
-                "reference": "14c2511d74a82d81c31a94d8af6d45215f5a3b8b",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/ff8fcbe8f6e5fc02918ed3698b63170fb0071c0c",
+                "reference": "ff8fcbe8f6e5fc02918ed3698b63170fb0071c0c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "slevomat/coding-standard": "^4.8.1",
+                "slevomat/coding-standard": "^4.8.3",
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "require-dev": {
-                "phpstan/phpstan-shim": "^0.9.2",
+                "phpstan/phpstan-shim": "^0.10.0",
                 "phpunit/phpunit": "<5.0"
             },
             "bin": [
@@ -8194,7 +8190,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-09-26T11:48:34+00:00"
+            "time": "2018-11-24T14:46:47+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -8202,12 +8198,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/git-hook.git",
-                "reference": "e7931d2ebb21a853120c46d6cf7a678c6d5bee70"
+                "reference": "3a4decef0de2feb880538b00efd9149d5dffaf14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/git-hook/zipball/e7931d2ebb21a853120c46d6cf7a678c6d5bee70",
-                "reference": "e7931d2ebb21a853120c46d6cf7a678c6d5bee70",
+                "url": "https://api.github.com/repos/spryker/git-hook/zipball/3a4decef0de2feb880538b00efd9149d5dffaf14",
+                "reference": "3a4decef0de2feb880538b00efd9149d5dffaf14",
                 "shasum": ""
             },
             "require": {
@@ -8247,7 +8243,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-09-28T10:35:36+00:00"
+            "time": "2018-11-22T13:19:47+00:00"
         },
         {
             "name": "spryker/spryk",
@@ -8255,12 +8251,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "f6e2c0e3683fc477b4cc5d759d02af0226142b2c"
+                "reference": "dba81bdf0a37184b8c2b6f0cdc670e8360c488ff"
             },
             "require": {
                 "php": ">=7.1",
                 "roave/better-reflection": "^2.0 || ^3.0",
                 "spryker/kernel": "^3.17.0",
+                "symfony/console": "^3.4.0 || ^4.0.0",
                 "symfony/finder": "^3.4.0 || ^4.0.0",
                 "symfony/yaml": "^3.4.9",
                 "twig/twig": "^1.34 || ^2.0.0",
@@ -8296,6 +8293,9 @@
                     "Spryker\\Shared\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/src/Spryker/Shared/FooBar/",
                     "Spryker\\Yves\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/src/Spryker/Yves/FooBar/",
                     "Spryker\\Zed\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/src/Spryker/Zed/FooBar/",
+                    "Spryker\\Zed\\ZipZap\\": "tests/_support/Fixtures/Spryker/Zed/ZipZap/",
+                    "Spryker\\Client\\ZipZap\\": "tests/_support/Fixtures/Spryker/Client/ZipZap/",
+                    "Spryker\\Service\\ZipZap\\": "tests/_support/Fixtures/Spryker/Service/ZipZap/",
                     "SprykerTest\\Zed\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/tests/SprykerTest/Zed/FooBar/"
                 }
             },
@@ -8307,10 +8307,10 @@
                     "GitHook\\Composer\\Scripts\\HookInstaller::installGitHook"
                 ],
                 "cs-check": [
-                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/"
+                    "phpcs --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/ --ignore='/Fixtures/'"
                 ],
                 "cs-fix": [
-                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/"
+                    "phpcbf --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml -v src/ tests/ --ignore='/Fixtures/'"
                 ],
                 "phpstan": [
                     "phpstan analyse -l 7 -c phpstan.neon src/"
@@ -8320,7 +8320,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-09-10T10:30:07+00:00"
+            "time": "2018-11-05T19:37:23+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
