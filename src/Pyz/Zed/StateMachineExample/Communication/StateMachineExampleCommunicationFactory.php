@@ -12,6 +12,7 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 
 /**
  * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainer getQueryContainer()
+ * @method \Pyz\Zed\StateMachineExample\Business\StateMachineExampleFacadeInterface getFacade()
  */
 class StateMachineExampleCommunicationFactory extends AbstractCommunicationFactory
 {

@@ -11,17 +11,16 @@ use Spryker\Shared\Customer\CustomerConstants;
 use Spryker\Shared\DummyPayment\DummyPaymentConfig;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
 use Spryker\Shared\ErrorHandler\ErrorRenderer\WebHtmlErrorRenderer;
-use Spryker\Shared\EventJournal\EventJournalConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Kernel\Store;
 use Spryker\Shared\Log\LogConstants;
-use Spryker\Shared\NewRelic\NewRelicConstants;
 use Spryker\Shared\Oms\OmsConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Shared\Sales\SalesConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\SequenceNumber\SequenceNumberConstants;
+use Spryker\Shared\Session\SessionConfig;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Storage\StorageConstants;
 use Spryker\Shared\Tax\TaxConstants;
@@ -139,15 +138,15 @@ $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker
 $config[StorageConstants::STORAGE_KV_SOURCE] = 'redis';
 $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION] = true;
 
-$config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS_LOCKING;
-$config[SessionConstants::YVES_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
+$config[SessionConstants::YVES_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS_LOCKING;
+$config[SessionConstants::YVES_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_1_HOUR;
 $config[SessionConstants::YVES_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::YVES_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_YVES];
 $config[SessionConstants::YVES_SESSION_COOKIE_DOMAIN] = $config[ApplicationConstants::HOST_YVES];
 $config[SessionConstants::YVES_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
 
-$config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConstants::SESSION_HANDLER_REDIS;
-$config[SessionConstants::ZED_SESSION_TIME_TO_LIVE] = SessionConstants::SESSION_LIFETIME_1_HOUR;
+$config[SessionConstants::ZED_SESSION_SAVE_HANDLER] = SessionConfig::SESSION_HANDLER_REDIS;
+$config[SessionConstants::ZED_SESSION_TIME_TO_LIVE] = SessionConfig::SESSION_LIFETIME_1_HOUR;
 $config[SessionConstants::ZED_SESSION_FILE_PATH] = session_save_path();
 $config[SessionConstants::ZED_SESSION_COOKIE_NAME] = $config[ApplicationConstants::HOST_ZED_GUI];
 $config[SessionConstants::ZED_SESSION_PERSISTENT_CONNECTION] = $config[StorageConstants::STORAGE_PERSISTENT_CONNECTION];
@@ -294,57 +293,9 @@ $config[AclConstants::ACL_DEFAULT_CREDENTIALS] = [
  */
 $config[ZedNavigationConstants::ZED_NAVIGATION_CACHE_ENABLED] = true;
 
-$config[EventJournalConstants::COLLECTORS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-    '\\Pyz\\Yves\\EventJournal\\Collector\\YvesDataCollector',
-];
-$config[EventJournalConstants::LOCK_OPTIONS][EventJournalConstants::NO_LOCK] = false;
-$config[EventJournalConstants::WRITERS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
-];
-
-$config[EventJournalConstants::COLLECTORS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\ServerDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\RequestDataCollector',
-    '\\Spryker\\Shared\\EventJournal\\Model\\Collector\\EnvironmentDataCollector',
-];
-$config[EventJournalConstants::WRITERS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File',
-];
-
-$config[EventJournalConstants::FILTERS]['ZED'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
-];
-
-$config[EventJournalConstants::FILTERS]['YVES'] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter',
-];
-
-$config[EventJournalConstants::FILTER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Filter\\RecursiveFieldFilter' => [
-        'filter_pattern' => [
-            ['registerForm', 'password', 'first'],
-            ['registerForm', 'password', 'second'],
-            ['_password'],
-            ['transfer_data', 'login', 'password'],
-        ],
-        'filtered_string' => '***',
-    ],
-];
-
-$config[EventJournalConstants::WRITER_OPTIONS] = [
-    '\\Spryker\\Shared\\EventJournal\\Model\\Writer\\File' => [
-        'log_path' => APPLICATION_ROOT_DIR . '/data/DE/logs/',
-    ],
-];
-
 $config[SequenceNumberConstants::ENVIRONMENT_PREFIX]
     = $config[SalesConstants::ENVIRONMENT_PREFIX]
     = '';
-
-$config[NewRelicConstants::NEWRELIC_API_KEY] = null;
 
 // Due to some deprecation notices we silence all deprecations for the time being
 $config[ErrorHandlerConstants::ERROR_LEVEL] = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED;

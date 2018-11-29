@@ -20,7 +20,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @method \Pyz\Zed\Collector\Communication\CollectorCommunicationFactory getFactory()
  * @method \Pyz\Zed\Collector\Business\CollectorFacade getFacade()
  */
-
 class AttributeMapCollectorStoragePlugin extends AbstractCollectorPlugin
 {
     /**
