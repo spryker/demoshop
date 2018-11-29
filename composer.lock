@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "d1f19ad481fd3d437f91b95b775bf689",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2507,11 +2507,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/cc-1059-tax-calculation-bug",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "f00fbe166bf25f2fecc287b4dc1db6cd250f0b76"
+                "reference": "ba3d1f5d60cbfe07db52b565ab017d0bced7a4f5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-11-28T09:44:28+00:00"
+            "time": "2018-11-28T19:30:43+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
