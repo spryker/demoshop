@@ -9,7 +9,6 @@ namespace PyzTest\Zed\Calculation\Business;
 
 use ArrayObject;
 use Codeception\TestCase\Test;
-use DateTime;
 use Generated\Shared\Transfer\AddressTransfer;
 use Generated\Shared\Transfer\CurrencyTransfer;
 use Generated\Shared\Transfer\DiscountTransfer;
@@ -17,22 +16,7 @@ use Generated\Shared\Transfer\ExpenseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Generated\Shared\Transfer\StoreTransfer;
-use Orm\Zed\Country\Persistence\SpyCountryQuery;
-use Orm\Zed\Currency\Persistence\SpyCurrencyQuery;
-use Orm\Zed\Discount\Persistence\Base\SpyDiscountQuery;
-use Orm\Zed\Discount\Persistence\SpyDiscount;
-use Orm\Zed\Discount\Persistence\SpyDiscountAmount;
-use Orm\Zed\Discount\Persistence\SpyDiscountStore;
-use Orm\Zed\Discount\Persistence\SpyDiscountVoucher;
-use Orm\Zed\Discount\Persistence\SpyDiscountVoucherPool;
-use Orm\Zed\Product\Persistence\SpyProductAbstract;
-use Orm\Zed\Tax\Persistence\SpyTaxRate;
-use Orm\Zed\Tax\Persistence\SpyTaxSet;
-use Orm\Zed\Tax\Persistence\SpyTaxSetTax;
 use Spryker\Shared\Calculation\CalculationPriceMode;
-use Spryker\Shared\Tax\TaxConstants;
-use Spryker\Zed\Calculation\Business\CalculationFacade;
 use Spryker\Zed\Discount\DiscountDependencyProvider;
 
 /**
@@ -48,20 +32,26 @@ use Spryker\Zed\Discount\DiscountDependencyProvider;
 class CalculationWithCalculableObjectFacadeTest extends Test
 {
     /**
+     * @var \PyzTest\Zed\Calculation\CalculationBusinessTester
+     */
+    protected $tester;
+
+    /**
      * @return void
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
-        $this->resetCurrentDiscounts();
+
+        $this->tester->resetCurrentDiscounts();
     }
 
     /**
      * @return void
      */
-    public function testCalculatorStackWithGrossPriceMode()
+    public function testCalculatorStackWithGrossPriceMode(): void
     {
-        $calculationFacade = $this->createCalculationFacade();
+        $calculationFacade = $this->tester->createCalculationFacade();
 
         $quoteTransfer = $this->createFixtureDataForCalculation();
         $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_GROSS);
@@ -120,15 +110,15 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     /**
      * @return void
      */
-    public function testCalculatorStackWithGrossPriceModeAfterDiscounts()
+    public function testCalculatorStackWithGrossPriceModeAfterDiscounts(): void
     {
-        $calculationFacade = $this->createCalculationFacade();
+        $calculationFacade = $this->tester->createCalculationFacade();
 
         $discountAmount = 20;
         $quoteTransfer = $this->createFixtureDataForCalculation();
         $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_GROSS);
 
-        $voucherEntity = $this->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
+        $voucherEntity = $this->tester->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
 
         $voucherDiscountTransfer = new DiscountTransfer();
         $voucherDiscountTransfer->setVoucherCode($voucherEntity->getCode());
@@ -185,15 +175,15 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     /**
      * @return void
      */
-    public function testCalculatorStackWithNetTaxMode()
+    public function testCalculatorStackWithNetTaxMode(): void
     {
-        $calculationFacade = $this->createCalculationFacade();
+        $calculationFacade = $this->tester->createCalculationFacade();
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
         $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_NET);
 
         $discountAmount = 20;
-        $voucherEntity = $this->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
+        $voucherEntity = $this->tester->createDiscounts($discountAmount, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
 
         $voucherDiscountTransfer = new DiscountTransfer();
         $voucherDiscountTransfer->setVoucherCode($voucherEntity->getCode());
@@ -253,9 +243,9 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     /**
      * @return void
      */
-    public function testCalculatorStackWithNetTaxModeAfterDiscounts()
+    public function testCalculatorStackWithNetTaxModeAfterDiscounts(): void
     {
-        $calculationFacade = $this->createCalculationFacade();
+        $calculationFacade = $this->tester->createCalculationFacade();
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
         $quoteTransfer->setPriceMode(CalculationPriceMode::PRICE_MODE_NET);
@@ -314,15 +304,15 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     /**
      * @return void
      */
-    public function testTaxCalculationWhenDifferentRatesUsed()
+    public function testTaxCalculationWhenDifferentRatesUsed(): void
     {
-        $calculationFacade = $this->createCalculationFacade();
+        $calculationFacade = $this->tester->createCalculationFacade();
 
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
         $quoteTransfer->setExpenses(new ArrayObject());
 
-        $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
+        $abstractProductEntity = $this->tester->createAbstractProductWithTaxSet(7);
 
         $itemTransfer = $quoteTransfer->getItems()[0];
         $itemTransfer->setQuantity(1);
@@ -359,13 +349,13 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     /**
      * @return void
      */
-    public function testTaxCalculationWhenDifferentRatesAndDiscountUsed()
+    public function testTaxCalculationWhenDifferentRatesAndDiscountUsed(): void
     {
-        $calculationFacade = $this->createCalculationFacade();
+        $calculationFacade = $this->tester->createCalculationFacade();
 
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $abstractProductEntity = $this->createAbstractProductWithTaxSet(7);
+        $abstractProductEntity = $this->tester->createAbstractProductWithTaxSet(7);
 
         $quoteTransfer->setExpenses(new ArrayObject());
 
@@ -385,7 +375,7 @@ class CalculationWithCalculableObjectFacadeTest extends Test
         $productOptionTransfer->setQuantity(1);
         $itemTransfer->addProductOption($productOptionTransfer);
 
-        $voucherEntity = $this->createDiscounts(20, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
+        $voucherEntity = $this->tester->createDiscounts(20, DiscountDependencyProvider::PLUGIN_CALCULATOR_FIXED);
 
         $voucherDiscountTransfer = new DiscountTransfer();
         $voucherDiscountTransfer->setVoucherCode($voucherEntity->getCode());
@@ -409,13 +399,13 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     /**
      * @return void
      */
-    public function testCalculationWhenTaxExemptionIsUsedShouldUseEmptyTax()
+    public function testCalculationWhenTaxExemptionIsUsedShouldUseEmptyTax(): void
     {
-        $calculationFacade = $this->createCalculationFacade();
+        $calculationFacade = $this->tester->createCalculationFacade();
 
         $quoteTransfer = $this->createFixtureDataForCalculation();
 
-        $abstractProductEntity = $this->createAbstractProductWithTaxExemption();
+        $abstractProductEntity = $this->tester->createAbstractProductWithTaxExemption();
 
         $quoteTransfer->setExpenses(new ArrayObject());
 
@@ -440,10 +430,10 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     /**
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    protected function createFixtureDataForCalculation()
+    protected function createFixtureDataForCalculation(): QuoteTransfer
     {
         $quoteTransfer = new QuoteTransfer();
-        $quoteTransfer->setStore($this->getCurrentStoreTransfer());
+        $quoteTransfer->setStore($this->tester->getCurrentStoreTransfer());
 
         $currencyTransfer = new CurrencyTransfer();
         $currencyTransfer->setCode('EUR');
@@ -483,174 +473,145 @@ class CalculationWithCalculableObjectFacadeTest extends Test
     }
 
     /**
-     * @param int $discountAmount
-     * @param string $calculatorType
+     * @return array
+     */
+    public function getTaxInitTestData(): array
+    {
+        return [
+            'Gross - Test case 1' => [
+                CalculationPriceMode::PRICE_MODE_GROSS,
+                [
+                    [10000, 2, 19, [[2500, 2, 10], [1000, 2, 15]], [], 0],
+                    [33234, 1, 9.99, [[1012, 1, 4.21], [9954, 1, 0.98]], [], 0],
+                ],
+                [],
+                [71200, 0, 0, 71200, 7065, 71200],
+            ],
+            'Gross - Test case 2' => [
+                CalculationPriceMode::PRICE_MODE_GROSS,
+                [
+                    [100, 1, 19, [[50, 1, 10], [10, 1, 15]], [80], 0],
+                    [1000, 1, 9.99, [[100, 1, 4.21], [100, 1, 0.98]], [500], 0],
+                ],
+                [],
+                [1360, 0, 580, 780, 60, 780],
+            ],
+            'Gross - Test case 3' => [
+                CalculationPriceMode::PRICE_MODE_GROSS,
+                [
+                    [10000, 3, 19, [[2500, 3, 10], [1000, 3, 15]], [], 0],
+                    [33234, 2, 9.99, [[1012, 2, 4.21], [9954, 2, 0.98]], [], 0],
+                ],
+                [100000, 1, 20],
+                [128900, 100000, 0, 228900, 28842, 228900],
+            ],
+            'Gross - Test case 4' => [
+                CalculationPriceMode::PRICE_MODE_GROSS,
+                [
+                    [10000, 89, 19, [[2500, 89, 10], [1000, 89, 15]], [120932], 0],
+                    [33234, 43, 9.99, [[1012, 43, 4.21], [9954, 43, 0.98]], [876543], 0],
+                ],
+                [100000, 1, 20],
+                [3102100, 100000, 997475, 2204625, 227390, 2204625],
+            ],
+
+            'Net - Test case 1' => [
+                CalculationPriceMode::PRICE_MODE_NET,
+                [
+                    [10000, 49, 19, [[2500, 49, 10], [1000, 49, 15]], [], 0],
+                    [33234, 99, 9.99, [[1012, 99, 4.21], [9954, 99, 0.98]], [], 0],
+                ],
+                [],
+                [5037300, 0, 0, 5492563, 455263, 5492563],
+            ],
+            'Net - Test case 2' => [
+                CalculationPriceMode::PRICE_MODE_NET,
+                [
+                    [10000, 1, 19, [[2500, 1, 10], [1000, 1, 15]], [3200, 2100], 0],
+                    [33234, 1, 9.99, [[1012, 1, 4.21], [9954, 1, 0.98]], [10276, 111], 0],
+                ],
+                [],
+                [57700, 0, 15687, 45728, 3715, 45728],
+            ],
+            'Net - Test case 3' => [
+                CalculationPriceMode::PRICE_MODE_NET,
+                [
+                    [10000, 2, 19, [[2500, 2, 10], [1000, 2, 15]], [], 0],
+                    [33234, 12, 9.99, [[1012, 12, 4.21], [9954, 12, 0.98]], [], 0],
+                ],
+                [12089, 1, 5.55],
+                [557400, 12089, 0, 616283, 46794, 616283],
+            ],
+            'Net - Test case 4' => [
+                CalculationPriceMode::PRICE_MODE_NET,
+                [
+                    [10000, 87, 19, [[2500, 87, 10], [1000, 87, 15]], [120932], 40000],
+                    [33234, 13, 9.99, [[1012, 13, 4.21], [9954, 13, 0.98]], [276543], 66468],
+                ],
+                [100000, 1, 5.55],
+                [1749100, 100000, 397475, 1545186, 200029, 1545186],
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider getTaxInitTestData
      *
-     * @return \Orm\Zed\Discount\Persistence\SpyDiscountVoucher
-     */
-    protected function createDiscounts($discountAmount, $calculatorType)
-    {
-        $discountVoucherPoolEntity = new SpyDiscountVoucherPool();
-        $discountVoucherPoolEntity->setName('test-pool');
-        $discountVoucherPoolEntity->setIsActive(true);
-        $discountVoucherPoolEntity->save();
-
-        $discountVoucherEntity = new SpyDiscountVoucher();
-        $discountVoucherEntity->setCode('spryker-test');
-        $discountVoucherEntity->setIsActive(true);
-        $discountVoucherEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
-        $discountVoucherEntity->save();
-
-        $discountEntity = new SpyDiscount();
-        $discountEntity->setAmount($discountAmount);
-        $discountEntity->setDisplayName('test1');
-        $discountEntity->setIsActive(1);
-        $discountEntity->setValidFrom(new DateTime('1985-07-01'));
-        $discountEntity->setValidTo(new DateTime('2050-07-01'));
-        $discountEntity->setCalculatorPlugin($calculatorType);
-        $discountEntity->setCollectorQueryString('sku = "*"');
-        $discountEntity->setFkDiscountVoucherPool($discountVoucherPoolEntity->getIdDiscountVoucherPool());
-        $discountEntity->save();
-
-        (new SpyDiscountStore())
-            ->setFkDiscount($discountEntity->getIdDiscount())
-            ->setFkStore($this->getCurrentStoreTransfer()->getIdStore())
-            ->save();
-
-        $discountAmountEntity = new SpyDiscountAmount();
-        $currencyEntity = $this->getCurrency();
-        $discountAmountEntity->setFkCurrency($currencyEntity->getIdCurrency());
-        $discountAmountEntity->setNetAmount($discountAmount);
-        $discountAmountEntity->setGrossAmount($discountAmount);
-        $discountAmountEntity->setFkDiscount($discountEntity->getIdDiscount());
-        $discountAmountEntity->save();
-
-        $discountEntity->reload(true);
-        $pool = $discountEntity->getVoucherPool();
-        $pool->getDiscountVouchers();
-
-        return $discountVoucherEntity;
-    }
-
-    /**
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
-    protected function getCurrentStoreTransfer()
-    {
-        return (new StoreTransfer())
-            ->setIdStore(1)
-            ->setName('DE');
-    }
-
-    /**
-     * @return \Orm\Zed\Currency\Persistence\SpyCurrency
-     */
-    protected function getCurrency()
-    {
-        return SpyCurrencyQuery::create()->findOneByCode('EUR');
-    }
-
-    /**
-     * @return \Spryker\Zed\Calculation\Business\CalculationFacade
-     */
-    protected function createCalculationFacade()
-    {
-        return new CalculationFacade();
-    }
-
-    /**
+     * @param string $priceMode
+     * @param array $items
+     * @param array $expense
+     * @param array $results
+     *
      * @return void
      */
-    protected function resetCurrentDiscounts()
+    public function testCalculationTotalQuoteValues($priceMode, $items, $expense, $results): void
     {
-        $discounts = SpyDiscountQuery::create()->find();
-        foreach ($discounts as $discountEntity) {
-            $discountEntity->setIsActive(false);
-            $discountEntity->save();
+        $calculationFacade = $this->tester->createCalculationFacade();
+        $quoteTransfer = $this->createFixtureDataForTestCases($priceMode, $items, $expense);
+
+        $quoteTransfer = $calculationFacade->recalculateQuote($quoteTransfer);
+        $quoteTransfer = $this->tester->recalculateCanceledAmount($items, $quoteTransfer);
+
+        $this->assertSame($results[0], $quoteTransfer->getTotals()->getSubtotal());
+        $this->assertSame($results[1], $quoteTransfer->getTotals()->getExpenseTotal());
+        $this->assertSame($results[2], $quoteTransfer->getTotals()->getDiscountTotal());
+        $this->assertSame($results[3], $quoteTransfer->getTotals()->getGrandTotal());
+        $this->assertSame($results[4], $quoteTransfer->getTotals()->getTaxTotal()->getAmount());
+        $this->assertSame($results[5], $quoteTransfer->getTotals()->getRefundTotal());
+    }
+
+    /**
+     * @param string $priceMode
+     * @param array $items
+     * @param array $expense
+     *
+     * @return \Generated\Shared\Transfer\QuoteTransfer
+     */
+    protected function createFixtureDataForTestCases($priceMode, $items, $expense): QuoteTransfer
+    {
+        $quoteTransfer = new QuoteTransfer();
+        $quoteTransfer->setStore($this->tester->getCurrentStoreTransfer());
+        $quoteTransfer->setCurrency($this->tester->createCurrencyTransfer());
+        $quoteTransfer->setPriceMode($priceMode);
+
+        foreach ($items as $item) {
+            $itemTransfer = $this->tester->createItemTransfer($item[0], $priceMode, $item[2], $item[1]);
+
+            foreach ($item[3] as $productOption) {
+                $itemTransfer->addProductOption($this->tester->createProductOptionTransfer($productOption[0], $priceMode, $productOption[2], $productOption[1]));
+            }
+
+            foreach ($item[4] as $discountAmount) {
+                $quoteTransfer->addVoucherDiscount($this->tester->createDiscountTransfer($discountAmount, $itemTransfer->getSku()));
+            }
+
+            $quoteTransfer->addItem($itemTransfer);
         }
-    }
 
-    /**
-     * @param int $taxRate
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
-     */
-    protected function createAbstractProductWithTaxSet($taxRate)
-    {
-        $countryEntity = SpyCountryQuery::create()->findOneByIso2Code('DE');
+        if (!empty($expense)) {
+            $quoteTransfer->addExpense($this->tester->createExpenseTransfer($expense[0], $priceMode, $expense[2], $expense[1]));
+        }
 
-        $taxRateEntity = new SpyTaxRate();
-        $taxRateEntity->setRate($taxRate);
-        $taxRateEntity->setName('test rate');
-        $taxRateEntity->setFkCountry($countryEntity->getIdCountry());
-        $taxRateEntity->save();
-
-        $taxSetEntity = $this->createTaxSet();
-
-        $this->createTaxSetTax($taxSetEntity, $taxRateEntity);
-
-        $abstractProductEntity = $this->createAbstractProduct($taxSetEntity);
-
-        return $abstractProductEntity;
-    }
-
-    /**
-     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
-     */
-    protected function createAbstractProductWithTaxExemption()
-    {
-        $taxRateEntity = new SpyTaxRate();
-        $taxRateEntity->setRate(0);
-        $taxRateEntity->setName(TaxConstants::TAX_EXEMPT_PLACEHOLDER);
-        $taxRateEntity->save();
-
-        $taxSetEntity = $this->createTaxSet();
-
-        $this->createTaxSetTax($taxSetEntity, $taxRateEntity);
-
-        $abstractProductEntity = $this->createAbstractProduct($taxSetEntity);
-
-        return $abstractProductEntity;
-    }
-
-    /**
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductAbstract
-     */
-    protected function createAbstractProduct(SpyTaxSet $taxSetEntity)
-    {
-        $abstractProductEntity = new SpyProductAbstract();
-        $abstractProductEntity->setSku('test-abstract-sku');
-        $abstractProductEntity->setAttributes('');
-        $abstractProductEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
-        $abstractProductEntity->save();
-
-        return $abstractProductEntity;
-    }
-
-    /**
-     * @return \Orm\Zed\Tax\Persistence\SpyTaxSet
-     */
-    protected function createTaxSet()
-    {
-        $taxSetEntity = new SpyTaxSet();
-        $taxSetEntity->setName('name of tax set');
-        $taxSetEntity->save();
-        return $taxSetEntity;
-    }
-
-    /**
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxSet $taxSetEntity
-     * @param \Orm\Zed\Tax\Persistence\SpyTaxRate $taxRateEntity
-     *
-     * @return void
-     */
-    protected function createTaxSetTax(SpyTaxSet $taxSetEntity, SpyTaxRate $taxRateEntity)
-    {
-        $taxSetTaxRateEntity = new SpyTaxSetTax();
-        $taxSetTaxRateEntity->setFkTaxSet($taxSetEntity->getIdTaxSet());
-        $taxSetTaxRateEntity->setFkTaxRate($taxRateEntity->getIdTaxRate());
-        $taxSetTaxRateEntity->save();
+        return $quoteTransfer;
     }
 }
