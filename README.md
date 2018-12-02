@@ -5,7 +5,9 @@
 License: [MIT](LICENSE)
 
 
-**DEPRECATED** Use [Spryker Master-Suite](https://github.com/spryker-shop/suite) instead now.
+**DEPRECATED** 
+
+Use [B2C Demo Shop](https://github.com/spryker-shop/b2c-demo-shop) or [B2B Demo Shop](https://github.com/spryker-shop/b2b-demo-shop) instead.
 
 
 ## Installation
