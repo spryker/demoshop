@@ -401,8 +401,8 @@ customer.profile.order_history,Last Orders,en_US
 customer.profile.order_history,Letzte Bestellungen,de_DE
 customer.account.no_orders,No orders at the moment,en_US
 customer.account.no_orders,Keine Bestellungen,de_DE
-customer.address.updated,New address updated,en_US
-customer.address.updated,Neue Adresse hinzugefügt,de_DE
+customer.address.updated,Address was successfully updated,en_US
+customer.address.updated,Adresse wurde erfolgreich aktualisiert,de_DE
 customer.address.delete.success,Address deleted successfully,en_US
 customer.address.delete.success,Adresse erfolgreich gelöscht,de_DE
 customer.address.added,Address was successfully added,en_US
