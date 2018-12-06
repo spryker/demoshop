@@ -30,18 +30,18 @@
     "jquery-bar-rating": "^1.2.2"
   },
   "devDependencies": {
-    "@spryker/oryx": "^1.0.0",
-    "@spryker/oryx-for-zed": "^1.0.0",
+    "@spryker/oryx": "^1.2.0",
+    "@spryker/oryx-for-zed": "^2.1.0",
     "autoprefixer": "~6.7.6",
     "copy-webpack-plugin": "~4.0.1",
     "css-loader": "~0.27.1",
     "extract-text-webpack-plugin": "~2.1.0",
     "file-loader": "~0.10.1",
-    "node-sass": "~4.5.0",
+    "node-sass": "^4.11.0",
     "postcss-loader": "~1.3.3",
     "sass-loader": "~6.0.3",
     "style-loader": "~0.13.1",
-    "webpack": "~2.3.0",
+    "webpack": "^3.12.0",
     "yargs": "~7.0.2"
   }
 }
