@@ -17,7 +17,7 @@
     "zed:prod": "node ./node_modules/@spryker/oryx-for-zed/build --prod"
   },
   "engines": {
-    "node": "^6.0.0"
+    "node": ">=8.9.0"
   },
   "dependencies": {
     "es6-promise": "~4.1.0",
