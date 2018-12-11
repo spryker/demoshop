@@ -2554,7 +2554,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c359bc1cd0b1a05304dbec3f08fedcbf77ca7d76"
+                "reference": "2e28e447fc6eed409f296f9cff9a993a41a7d4fa"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2823,7 +2823,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-12-10T11:03:07+00:00"
+            "time": "2018-12-11T08:11:40+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8350,17 +8350,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "e33aac45113f3690a0c86b9183845656f6d56faf"
+                "reference": "5143080b523c48d7e27bce1f8dd2d518aa3613de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/e33aac45113f3690a0c86b9183845656f6d56faf",
-                "reference": "e33aac45113f3690a0c86b9183845656f6d56faf",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/5143080b523c48d7e27bce1f8dd2d518aa3613de",
+                "reference": "5143080b523c48d7e27bce1f8dd2d518aa3613de",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "phpmd/phpmd": "^2.4"
+                "phpmd/phpmd": "^2.4",
+                "roave/better-reflection": "*",
+                "symfony/finder": "*",
+                "zendframework/zend-config": "*",
+                "zendframework/zend-filter": "*"
             },
             "require-dev": {
                 "codeception/codeception": "^2.4",
@@ -8385,18 +8389,18 @@
             "authors": [
                 {
                     "name": "Spryker",
-                    "homepage": "http://spryker.com"
+                    "homepage": "https://spryker.com"
                 }
             ],
-            "description": "Spryker Code Architecture Sniffer",
-            "homepage": "http://spryker.com",
+            "description": "Spryker Architecture Sniffer",
+            "homepage": "https://spryker.com",
             "keywords": [
                 "architecture",
                 "framework",
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-11-30T10:56:30+00:00"
+            "time": "2018-12-10T16:03:30+00:00"
         },
         {
             "name": "spryker/code-generator",
