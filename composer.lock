@@ -2554,7 +2554,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "2e28e447fc6eed409f296f9cff9a993a41a7d4fa"
+                "reference": "1cb5eb31c94dbd5f9bf9ff1856cc6d8549e86aba"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2823,7 +2823,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-12-11T08:11:40+00:00"
+            "time": "2018-12-11T13:59:57+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8350,12 +8350,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/architecture-sniffer.git",
-                "reference": "5143080b523c48d7e27bce1f8dd2d518aa3613de"
+                "reference": "c9f6fd8e8b15dc5501ebfdbd6f8f9b7b041b3df9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/5143080b523c48d7e27bce1f8dd2d518aa3613de",
-                "reference": "5143080b523c48d7e27bce1f8dd2d518aa3613de",
+                "url": "https://api.github.com/repos/spryker/architecture-sniffer/zipball/c9f6fd8e8b15dc5501ebfdbd6f8f9b7b041b3df9",
+                "reference": "c9f6fd8e8b15dc5501ebfdbd6f8f9b7b041b3df9",
                 "shasum": ""
             },
             "require": {
@@ -8400,7 +8400,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-12-10T16:03:30+00:00"
+            "time": "2018-12-11T11:17:43+00:00"
         },
         {
             "name": "spryker/code-generator",
