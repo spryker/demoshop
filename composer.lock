@@ -9562,16 +9562,16 @@
         },
         {
             "name": "spryker/merchant-relationship-sales-order-threshold-gui",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/merchant-relationship-sales-order-threshold-gui.git",
-                "reference": "fac7d21f02a4078d74f41eb7a96195b7f016b8ac"
+                "reference": "0c069d4f4d152f0bfa92c7cc3b4ff56c5d2c5f8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/merchant-relationship-sales-order-threshold-gui/zipball/fac7d21f02a4078d74f41eb7a96195b7f016b8ac",
-                "reference": "fac7d21f02a4078d74f41eb7a96195b7f016b8ac",
+                "url": "https://api.github.com/repos/spryker/merchant-relationship-sales-order-threshold-gui/zipball/0c069d4f4d152f0bfa92c7cc3b4ff56c5d2c5f8a",
+                "reference": "0c069d4f4d152f0bfa92c7cc3b4ff56c5d2c5f8a",
                 "shasum": ""
             },
             "require": {
@@ -9585,6 +9585,7 @@
                 "spryker/merchant": "^1.0.0",
                 "spryker/merchant-relationship": "^1.0.0",
                 "spryker/merchant-relationship-sales-order-threshold": "^1.0.0",
+                "spryker/merchant-relationship-sales-order-threshold-gui-extension": "^1.0.0",
                 "spryker/money": "^2.1.0",
                 "spryker/sales-order-threshold": "^1.0.0",
                 "spryker/store": "^1.2.0",
@@ -9611,7 +9612,48 @@
                 "proprietary"
             ],
             "description": "MerchantRelationshipSalesOrderThresholdGui module",
-            "time": "2018-11-16T15:06:09+00:00"
+            "time": "2018-12-06T09:58:27+00:00"
+        },
+        {
+            "name": "spryker/merchant-relationship-sales-order-threshold-gui-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/merchant-relationship-sales-order-threshold-gui-extension.git",
+                "reference": "920bb6a4f4e1b43971a52c807392be948a1efd96"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/merchant-relationship-sales-order-threshold-gui-extension/zipball/920bb6a4f4e1b43971a52c807392be948a1efd96",
+                "reference": "920bb6a4f4e1b43971a52c807392be948a1efd96",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/symfony": "*"
+            },
+            "suggest": {
+                "spryker/symfony": "If you want to use the form expander plugins."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "MerchantRelationshipSalesOrderThresholdGuiExtension module",
+            "time": "2018-12-04T14:58:56+00:00"
         },
         {
             "name": "spryker/messenger",
@@ -14949,16 +14991,16 @@
         },
         {
             "name": "spryker/sales-order-threshold-gui",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/sales-order-threshold-gui.git",
-                "reference": "90511edecf2ee1ddb71d9a81da3e48d945b7e065"
+                "reference": "b35d36d97ca40b6356992ccf4ba84a8a9e7f6c34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/sales-order-threshold-gui/zipball/90511edecf2ee1ddb71d9a81da3e48d945b7e065",
-                "reference": "90511edecf2ee1ddb71d9a81da3e48d945b7e065",
+                "url": "https://api.github.com/repos/spryker/sales-order-threshold-gui/zipball/b35d36d97ca40b6356992ccf4ba84a8a9e7f6c34",
+                "reference": "b35d36d97ca40b6356992ccf4ba84a8a9e7f6c34",
                 "shasum": ""
             },
             "require": {
@@ -14969,6 +15011,7 @@
                 "spryker/locale": "^3.0.0",
                 "spryker/money": "^2.1.0",
                 "spryker/sales-order-threshold": "^1.0.0",
+                "spryker/sales-order-threshold-gui-extension": "^1.0.0",
                 "spryker/store": "^1.2.0",
                 "spryker/symfony": "^3.1.0",
                 "spryker/tax": "^5.0.0"
@@ -14993,7 +15036,50 @@
                 "proprietary"
             ],
             "description": "SalesOrderThresholdGui module",
-            "time": "2018-11-05T14:17:38+00:00"
+            "time": "2018-12-06T09:58:27+00:00"
+        },
+        {
+            "name": "spryker/sales-order-threshold-gui-extension",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/sales-order-threshold-gui-extension.git",
+                "reference": "0e5c98b60f636a5abd844a0ac16903cfe3c181a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/sales-order-threshold-gui-extension/zipball/0e5c98b60f636a5abd844a0ac16903cfe3c181a1",
+                "reference": "0e5c98b60f636a5abd844a0ac16903cfe3c181a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/symfony": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/symfony": "If you want to use the form expander plugins."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "SalesOrderThresholdGuiExtension module",
+            "time": "2018-12-04T14:58:56+00:00"
         },
         {
             "name": "spryker/sales-product-connector",
