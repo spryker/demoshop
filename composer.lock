@@ -2554,7 +2554,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1a8ca3271a07954b39d8083e8c24478179c22522"
+                "reference": "9f921c5e27a7721880e9165e9f1cfe857324c9af"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2823,7 +2823,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-12-13T14:29:30+00:00"
+            "time": "2018-12-14T09:55:45+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
