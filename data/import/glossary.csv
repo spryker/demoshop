@@ -230,7 +230,7 @@ shipment.hermes,Hermes,en_US
 customer.first_name,Vorname,de_DE
 customer.first_name,First Name,en_US
 customer.last_name,Name,de_DE
-customer.last_name,Name,en_US
+customer.last_name,Last Name,en_US
 customer.salutation.mr,Herr,de_DE
 customer.salutation.mr,Mr.,en_US
 customer.salutation.mrs,Frau,de_DE
