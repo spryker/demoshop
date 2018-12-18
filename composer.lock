@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "ba548abb7b64bf05b4e866ffab32680e",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2550,11 +2550,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/te-323/te-635-enabling-step-1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c82a9ce5ce8cec696e87f7bd8b8f63a5eb4d29fc"
+                "reference": "c686f6708a9e3ad9ed9a6e3f50ca00c6ced6198f"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2823,7 +2823,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-12-17T12:55:31+00:00"
+            "time": "2018-12-18T14:43:30+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8558,7 +8558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "dba81bdf0a37184b8c2b6f0cdc670e8360c488ff"
+                "reference": "d2fa48e64572b27948e6a9b870bb660e0dff4ea6"
             },
             "require": {
                 "php": ">=7.1",
@@ -8627,7 +8627,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-11-05T19:37:23+00:00"
+            "time": "2018-12-18T11:30:35+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
