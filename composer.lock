@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "2d51c54826983e98643918ebaee84019",
+=======
+    "content-hash": "ba548abb7b64bf05b4e866ffab32680e",
+>>>>>>> TE-323 composer lock
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2596,11 +2600,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/te-323/te-635-enabling-step-1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "17b066c6d69c20586a4e50f8c84892da352d044a"
+=======
+                "reference": "c686f6708a9e3ad9ed9a6e3f50ca00c6ced6198f"
+>>>>>>> TE-323 composer lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2870,7 +2878,11 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2019-01-09T08:20:26+00:00"
+=======
+            "time": "2018-12-18T14:43:30+00:00"
+>>>>>>> TE-323 composer lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8659,7 +8671,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
+<<<<<<< HEAD
                 "reference": "7520ca725ffc43cccfd188fba4d73f3967445756"
+=======
+                "reference": "d2fa48e64572b27948e6a9b870bb660e0dff4ea6"
+>>>>>>> TE-323 composer lock
             },
             "require": {
                 "php": ">=7.1",
@@ -8728,7 +8744,11 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
+<<<<<<< HEAD
             "time": "2018-12-21T13:52:36+00:00"
+=======
+            "time": "2018-12-18T11:30:35+00:00"
+>>>>>>> TE-323 composer lock
         },
         {
             "name": "squizlabs/php_codesniffer",
