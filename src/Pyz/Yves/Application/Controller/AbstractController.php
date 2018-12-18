@@ -18,7 +18,7 @@ abstract class AbstractController extends SprykerAbstractController
 {
     use StorageCacheControllerTrait;
 
-    const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_REPLACE;
+    public const STORAGE_CACHE_STRATEGY = StorageConstants::STORAGE_CACHE_STRATEGY_REPLACE;
 
     /**
      * @return void

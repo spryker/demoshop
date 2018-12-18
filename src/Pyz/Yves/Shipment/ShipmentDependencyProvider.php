@@ -14,12 +14,12 @@ use Spryker\Yves\Money\Plugin\MoneyPlugin;
 
 class ShipmentDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const CLIENT_SHIPMENT = 'shipment client';
-    const CLIENT_GLOSSARY = 'glossary client';
-    const CLIENT_PRICE = 'client price';
+    public const CLIENT_SHIPMENT = 'shipment client';
+    public const CLIENT_GLOSSARY = 'glossary client';
+    public const CLIENT_PRICE = 'client price';
 
-    const PLUGIN_MONEY = 'money plugin';
-    const STORE = 'store';
+    public const PLUGIN_MONEY = 'money plugin';
+    public const STORE = 'store';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

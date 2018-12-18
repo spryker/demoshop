@@ -12,10 +12,13 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class PasswordForm extends AbstractType
 {
-    const FIELD_NEW_PASSWORD = 'new_password';
-    const FIELD_PASSWORD = 'password';
+    public const FIELD_NEW_PASSWORD = 'new_password';
+    public const FIELD_PASSWORD = 'password';
 
     /**
      * @return string

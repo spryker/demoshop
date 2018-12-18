@@ -5,3 +5,9 @@ build:
     tests:
         override:
             - true # disable test execution on scrutinizer
+
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run

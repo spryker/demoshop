@@ -13,7 +13,7 @@ use Spryker\Shared\Heartbeat\Code\HealthIndicatorInterface;
 
 class SearchHealthIndicator extends AbstractHealthIndicator implements HealthIndicatorInterface
 {
-    const FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH = 'Unable to connect to search';
+    public const FAILURE_MESSAGE_UNABLE_TO_CONNECT_TO_SEARCH = 'Unable to connect to search';
 
     /**
      * @var \Spryker\Client\Search\SearchClientInterface

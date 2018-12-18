@@ -15,9 +15,9 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ListController extends AbstractController
 {
-    const PARAM_LIMIT = 'limit';
-    const PARAM_OFFSET = 'offset';
-    const DEFAULT_LIMIT = 100;
+    public const PARAM_LIMIT = 'limit';
+    public const PARAM_OFFSET = 'offset';
+    public const DEFAULT_LIMIT = 100;
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request

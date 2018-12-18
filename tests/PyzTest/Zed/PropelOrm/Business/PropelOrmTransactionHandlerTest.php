@@ -25,8 +25,8 @@ use Throwable;
  */
 class PropelOrmTransactionHandlerTest extends Unit
 {
-    const TEST_SKU = 'foo';
-    const TEST_NAME = 'Foo Bar';
+    public const TEST_SKU = 'foo';
+    public const TEST_NAME = 'Foo Bar';
 
     /**
      * @var \Spryker\Zed\Product\Persistence\ProductQueryContainerInterface

@@ -13,8 +13,8 @@ use Spryker\Client\ProductReview\ProductReviewClientInterface;
 
 class ProductReviewSummaryCalculator implements ProductReviewSummaryCalculatorInterface
 {
-    const MINIMUM_RATING = ProductReviewForm::MINIMUM_RATING;
-    const RATING_PRECISION = 1;
+    public const MINIMUM_RATING = ProductReviewForm::MINIMUM_RATING;
+    public const RATING_PRECISION = 1;
 
     /**
      * @var \Spryker\Client\ProductReview\ProductReviewClientInterface

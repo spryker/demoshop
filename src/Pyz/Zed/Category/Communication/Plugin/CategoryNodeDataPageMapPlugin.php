@@ -14,6 +14,8 @@ use Spryker\Zed\Search\Dependency\Plugin\PageMapInterface;
 
 /**
  * @method \Pyz\Zed\Category\Business\CategoryFacadeInterface getFacade()
+ * @method \Pyz\Zed\Category\CategoryConfig getConfig()
+ * @method \Pyz\Zed\Category\Persistence\CategoryQueryContainerInterface getQueryContainer()
  */
 class CategoryNodeDataPageMapPlugin extends AbstractPlugin implements PageMapInterface
 {

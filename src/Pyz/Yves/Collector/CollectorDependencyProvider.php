@@ -18,22 +18,22 @@ use Spryker\Yves\Kernel\Plugin\Pimple;
 
 class CollectorDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const SERVICE_UTIL_DATE_TIME = 'util date time service';
+    public const SERVICE_UTIL_DATE_TIME = 'util date time service';
 
-    const SERVICE_NETWORK = 'util network service';
+    public const SERVICE_NETWORK = 'util network service';
 
-    const SERVICE_UTIL_IO = 'util io service';
+    public const SERVICE_UTIL_IO = 'util io service';
 
-    const SERVICE_DATA = 'util data service';
+    public const SERVICE_DATA = 'util data service';
 
-    const CLIENT_URL = 'CLIENT_URL';
-    const CLIENT_CATALOG = 'client client';
-    const PLUGIN_APPLICATION = 'application plugin';
-    const PLUGIN_CATEGORY_RESOURCE_CREATOR = 'category resource plugin';
-    const PLUGIN_PAGE_RESOURCE_CREATOR = 'page resource creator plugin';
-    const PLUGIN_PRODUCT_RESOURCE_CREATOR = 'page product creator plugin';
-    const PLUGIN_REDIRECT_RESOURCE_CREATOR = 'redirect resource creator plugin';
-    const PLUGIN_PRODUCT_SET_RESOURCE_CREATOR = 'PLUGIN_PRODUCT_SET_RESOURCE_CREATOR';
+    public const CLIENT_URL = 'CLIENT_URL';
+    public const CLIENT_CATALOG = 'client client';
+    public const PLUGIN_APPLICATION = 'application plugin';
+    public const PLUGIN_CATEGORY_RESOURCE_CREATOR = 'category resource plugin';
+    public const PLUGIN_PAGE_RESOURCE_CREATOR = 'page resource creator plugin';
+    public const PLUGIN_PRODUCT_RESOURCE_CREATOR = 'page product creator plugin';
+    public const PLUGIN_REDIRECT_RESOURCE_CREATOR = 'redirect resource creator plugin';
+    public const PLUGIN_PRODUCT_SET_RESOURCE_CREATOR = 'PLUGIN_PRODUCT_SET_RESOURCE_CREATOR';
 
     /**
      * @param \Spryker\Yves\Kernel\Container $container

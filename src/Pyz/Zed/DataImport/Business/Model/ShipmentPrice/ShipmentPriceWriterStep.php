@@ -16,11 +16,11 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class ShipmentPriceWriterStep implements DataImportStepInterface
 {
-    const COL_STORE = 'store';
-    const COL_CURRENCY = 'currency';
-    const COL_SHIPMENT_METHOD_KEY = 'shipment_method_key';
-    const COL_NET_AMOUNT = 'value_net';
-    const COL_GROSS_AMOUNT = 'value_gross';
+    public const COL_STORE = 'store';
+    public const COL_CURRENCY = 'currency';
+    public const COL_SHIPMENT_METHOD_KEY = 'shipment_method_key';
+    public const COL_NET_AMOUNT = 'value_net';
+    public const COL_GROSS_AMOUNT = 'value_gross';
 
     /**
      * @var int[] Keys are shipment method keys, values are shipment method ids.

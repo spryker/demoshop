@@ -9,19 +9,19 @@ namespace PyzTest\Yves\Customer\PageObject;
 
 class CustomerRegistrationPage extends Customer
 {
-    const URL = '/register';
+    public const URL = '/register';
 
-    const TITLE_CREATE_ACCOUNT = 'Create account';
+    public const TITLE_CREATE_ACCOUNT = 'Create account';
 
-    const BUTTON_REGISTER = 'Register';
+    public const BUTTON_REGISTER = 'Register';
 
-    const FORM_FIELD_SELECTOR_SALUTATION = 'registerForm[salutation]';
-    const FORM_FIELD_SELECTOR_FIRST_NAME = 'registerForm[first_name]';
-    const FORM_FIELD_SELECTOR_LAST_NAME = 'registerForm[last_name]';
-    const FORM_FIELD_SELECTOR_EMAIL = 'registerForm[email]';
-    const FORM_FIELD_SELECTOR_PASSWORD = 'registerForm[password][pass]';
-    const FORM_FIELD_SELECTOR_PASSWORD_CONFIRM = 'registerForm[password][confirm]';
-    const FORM_FIELD_SELECTOR_ACCEPT_TERMS = '#registerForm_accept_terms';
+    public const FORM_FIELD_SELECTOR_SALUTATION = 'registerForm[salutation]';
+    public const FORM_FIELD_SELECTOR_FIRST_NAME = 'registerForm[first_name]';
+    public const FORM_FIELD_SELECTOR_LAST_NAME = 'registerForm[last_name]';
+    public const FORM_FIELD_SELECTOR_EMAIL = 'registerForm[email]';
+    public const FORM_FIELD_SELECTOR_PASSWORD = 'registerForm[password][pass]';
+    public const FORM_FIELD_SELECTOR_PASSWORD_CONFIRM = 'registerForm[password][confirm]';
+    public const FORM_FIELD_SELECTOR_ACCEPT_TERMS = '#registerForm_accept_terms';
 
-    const SUCCESS_MESSAGE = 'Registration Successful';
+    public const SUCCESS_MESSAGE = 'Registration Successful';
 }

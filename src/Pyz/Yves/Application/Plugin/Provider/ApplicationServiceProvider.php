@@ -20,8 +20,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ApplicationServiceProvider extends AbstractServiceProvider
 {
-    const LOCALE = 'locale';
-    const REQUEST_URI = 'REQUEST_URI';
+    public const LOCALE = 'locale';
+    public const REQUEST_URI = 'REQUEST_URI';
 
     /**
      * @var \Spryker\Shared\Kernel\Communication\Application

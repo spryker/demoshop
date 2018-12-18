@@ -20,21 +20,21 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
 
 class DiscountWriterStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
-    const KEY_DISCOUNT_KEY = 'discount_key';
-    const KEY_DISPLAY_NAME = 'display_name';
-    const KEY_DESCRIPTION = 'description';
-    const KEY_AMOUNT = 'amount';
-    const KEY_IS_ACTIVE = 'is_active';
-    const KEY_IS_EXCLUSIVE = 'is_exclusive';
-    const KEY_VALID_FROM = 'valid_from';
-    const KEY_VALID_TO = 'valid_to';
-    const KEY_CALCULATOR_PLUGIN = 'calculator_plugin';
-    const KEY_DISCOUNT_TYPE = 'discount_type';
-    const KEY_DECISION_RULE_QUERY_STRING = 'decision_rule_query_string';
-    const KEY_COLLECTOR_QUERY_STRING = 'collector_query_string';
-    const KEY_PROMOTION_SKU = 'promotion_sku';
-    const KEY_PROMOTION_QUANTITY = 'promotion_quantity';
+    public const BULK_SIZE = 100;
+    public const KEY_DISCOUNT_KEY = 'discount_key';
+    public const KEY_DISPLAY_NAME = 'display_name';
+    public const KEY_DESCRIPTION = 'description';
+    public const KEY_AMOUNT = 'amount';
+    public const KEY_IS_ACTIVE = 'is_active';
+    public const KEY_IS_EXCLUSIVE = 'is_exclusive';
+    public const KEY_VALID_FROM = 'valid_from';
+    public const KEY_VALID_TO = 'valid_to';
+    public const KEY_CALCULATOR_PLUGIN = 'calculator_plugin';
+    public const KEY_DISCOUNT_TYPE = 'discount_type';
+    public const KEY_DECISION_RULE_QUERY_STRING = 'decision_rule_query_string';
+    public const KEY_COLLECTOR_QUERY_STRING = 'collector_query_string';
+    public const KEY_PROMOTION_SKU = 'promotion_sku';
+    public const KEY_PROMOTION_QUANTITY = 'promotion_quantity';
 
     /**
      * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
