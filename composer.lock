@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "da1766cb186e20445dd85d6433917adf",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -1037,7 +1037,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2550,11 +2550,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-1855/master-quick-add-to-cart-part-2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c82a9ce5ce8cec696e87f7bd8b8f63a5eb4d29fc"
+                "reference": "3bd0cea0cce0e569439b2882fce06cba9efccc09"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2823,7 +2823,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-12-17T12:55:31+00:00"
+            "time": "2018-12-18T14:28:57+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
