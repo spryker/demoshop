@@ -2554,7 +2554,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c82a9ce5ce8cec696e87f7bd8b8f63a5eb4d29fc"
+                "reference": "410e6eefd4b1e9f48adca0ccbb980e054c653be9"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2823,7 +2823,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-12-17T12:55:31+00:00"
+            "time": "2018-12-19T07:49:08+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5185,16 +5185,16 @@
         },
         {
             "name": "zendframework/zend-filter",
-            "version": "2.9.0",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-filter.git",
-                "reference": "875da9790e5cb16b9a12f41453d5f7c441452daf"
+                "reference": "1c3e6d02f9cd5f6c929c9859498f5efbe216e86f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/875da9790e5cb16b9a12f41453d5f7c441452daf",
-                "reference": "875da9790e5cb16b9a12f41453d5f7c441452daf",
+                "url": "https://api.github.com/repos/zendframework/zend-filter/zipball/1c3e6d02f9cd5f6c929c9859498f5efbe216e86f",
+                "reference": "1c3e6d02f9cd5f6c929c9859498f5efbe216e86f",
                 "shasum": ""
             },
             "require": {
@@ -5246,7 +5246,7 @@
                 "filter",
                 "zf"
             ],
-            "time": "2018-12-12T23:14:25+00:00"
+            "time": "2018-12-17T16:00:04+00:00"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -8558,7 +8558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "dba81bdf0a37184b8c2b6f0cdc670e8360c488ff"
+                "reference": "d2fa48e64572b27948e6a9b870bb660e0dff4ea6"
             },
             "require": {
                 "php": ">=7.1",
@@ -8627,7 +8627,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-11-05T19:37:23+00:00"
+            "time": "2018-12-18T11:30:35+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
