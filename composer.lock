@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "2d51c54826983e98643918ebaee84019",
 =======
     "content-hash": "ba548abb7b64bf05b4e866ffab32680e",
@@ -17,6 +18,9 @@
 =======
     "content-hash": "5cfecc408949c427504052037868dc6e",
 >>>>>>> TE-635: bc check
+=======
+    "content-hash": "2980b2fcbac1c94853c37e4b150c8ec2",
+>>>>>>> TE-635: Fixed composer violation
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -9064,42 +9068,43 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v4.0.15",
+            "version": "v3.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "277f744012cee9e61baa5e5f5328d7a3f8666cb1"
+                "reference": "23debaca4bbd90b78b4c54799496a344011531b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/277f744012cee9e61baa5e5f5328d7a3f8666cb1",
-                "reference": "277f744012cee9e61baa5e5f5328d7a3f8666cb1",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/23debaca4bbd90b78b4c54799496a344011531b6",
+                "reference": "23debaca4bbd90b78b4c54799496a344011531b6",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
-                "symfony/http-kernel": "~3.4|~4.0",
-                "symfony/routing": "~3.4|~4.0",
-                "symfony/twig-bridge": "~3.4|~4.0",
-                "symfony/var-dumper": "~3.4|~4.0",
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/http-kernel": "~3.3|~4.0",
+                "symfony/polyfill-php70": "~1.0",
+                "symfony/routing": "~2.8|~3.0|~4.0",
+                "symfony/twig-bridge": "~2.8|~3.0|~4.0",
+                "symfony/var-dumper": "~3.3|~4.0",
                 "twig/twig": "~1.34|~2.4"
             },
             "conflict": {
                 "symfony/config": "<3.4",
                 "symfony/dependency-injection": "<3.4",
-                "symfony/event-dispatcher": "<3.4",
-                "symfony/var-dumper": "<3.4"
+                "symfony/event-dispatcher": "<3.3.1",
+                "symfony/var-dumper": "<3.3"
             },
             "require-dev": {
                 "symfony/config": "~3.4|~4.0",
-                "symfony/console": "~3.4|~4.0",
+                "symfony/console": "~2.8|~3.0|~4.0",
                 "symfony/dependency-injection": "~3.4|~4.0",
-                "symfony/stopwatch": "~3.4|~4.0"
+                "symfony/stopwatch": "~2.8|~3.0|~4.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -9126,7 +9131,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:22:46+00:00"
+            "time": "2018-12-01T19:42:50+00:00"
         },
         {
             "name": "theseer/fdomdocument",
