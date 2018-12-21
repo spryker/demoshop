@@ -256,6 +256,8 @@
     "spryker/propel-orm": "^1.0.0",
     "spryker/propel-query-builder": "^0.3.0",
     "spryker/queue": "^1.0.0",
+    "spryker/quick-order": "^1.0.0",
+    "spryker/quick-order-extension": "^1.0.0",
     "spryker/quote": "^2.0.0",
     "spryker/quote-extension": "^1.0.0",
     "spryker/rabbit-mq": "^2.0.0",

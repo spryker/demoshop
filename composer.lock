@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5580dcda1f10f2e6a7e0f53625f33149",
+    "content-hash": "f2297fd17ca97d4d3ab5799efa064a9e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -14477,6 +14477,87 @@
             ],
             "description": "Queue module",
             "time": "2018-10-02T06:35:14+00:00"
+        },
+        {
+            "name": "spryker/quick-order",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/quick-order.git",
+                "reference": "453f33dc27fdd0b4e132db800a945206e851d9a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/quick-order/zipball/453f33dc27fdd0b4e132db800a945206e851d9a7",
+                "reference": "453f33dc27fdd0b4e132db800a945206e851d9a7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.0.0",
+                "spryker/product-storage": "^1.6.0",
+                "spryker/quick-order-extension": "^1.0.0"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "QuickOrder module",
+            "time": "2018-12-18T18:01:18+00:00"
+        },
+        {
+            "name": "spryker/quick-order-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/quick-order-extension.git",
+                "reference": "697ae64ed1d4d4f375f60a0868d079c0655d5958"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/quick-order-extension/zipball/697ae64ed1d4d4f375f60a0868d079c0655d5958",
+                "reference": "697ae64ed1d4d4f375f60a0868d079c0655d5958",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "QuickOrderExtension module",
+            "time": "2018-12-18T15:41:13+00:00"
         },
         {
             "name": "spryker/quote",
