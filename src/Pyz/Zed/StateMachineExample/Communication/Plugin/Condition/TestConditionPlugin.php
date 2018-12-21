@@ -14,6 +14,7 @@ use Spryker\Zed\StateMachine\Dependency\Plugin\ConditionPluginInterface;
 /**
  * @method \Pyz\Zed\StateMachineExample\Business\StateMachineExampleFacade getFacade()
  * @method \Pyz\Zed\StateMachineExample\Communication\StateMachineExampleCommunicationFactory getFactory()
+ * @method \Pyz\Zed\StateMachineExample\Persistence\StateMachineExampleQueryContainerInterface getQueryContainer()
  */
 class TestConditionPlugin extends AbstractPlugin implements ConditionPluginInterface
 {

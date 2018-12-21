@@ -20,6 +20,7 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
  */
 class GuestForm extends AbstractType
 {

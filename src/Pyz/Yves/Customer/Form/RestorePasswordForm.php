@@ -13,6 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class RestorePasswordForm extends AbstractType
 {
     public const FIELD_RESTORE_PASSWORD_KEY = 'restore_password_key';
