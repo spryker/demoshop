@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "673a4a23f8e425154bb47dfc23557b16",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -1327,52 +1327,6 @@
             "time": "2015-09-22T13:58:03+00:00"
         },
         {
-            "name": "mikey179/vfsStream",
-            "version": "v1.6.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mikey179/vfsStream.git",
-                "reference": "d5fec95f541d4d71c4823bb5e30cf9b9e5b96145"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/d5fec95f541d4d71c4823bb5e30cf9b9e5b96145",
-                "reference": "d5fec95f541d4d71c4823bb5e30cf9b9e5b96145",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "org\\bovigo\\vfs\\": "src/main/php"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Frank Kleine",
-                    "homepage": "http://frankkleine.de/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Virtual file system to mock the real file system in unit tests.",
-            "homepage": "http://vfs.bovigo.org/",
-            "time": "2017-08-01T08:02:14+00:00"
-        },
-        {
             "name": "moneyphp/money",
             "version": "v3.2.0",
             "source": {
@@ -2554,16 +2508,15 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/cc-523/master-new-template-for-categories-page",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "1aa01d6a16802ccc2672a55a26b826a434bf26f4"
+                "reference": "0c8b6fd94392adbb2a3527af83eba5575b28ed22"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
                 "fzaninotto/faker": "^1.6",
-                "mikey179/vfsstream": "^1.6",
                 "moneyphp/money": "^3.0.0",
                 "php": ">=7.1",
                 "phpdocumentor/graphviz": "^1.0.4"
@@ -2828,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2018-12-20T15:57:40+00:00"
+            "time": "2018-12-05T11:12:50+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5139,23 +5092,23 @@
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "3.3.2",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "9f35a104b8d4d3b32da5f4a3b6efc0dd62e5af42"
+                "reference": "a1ed6140d0d3ee803fec96582593ed024950067b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/9f35a104b8d4d3b32da5f4a3b6efc0dd62e5af42",
-                "reference": "9f35a104b8d4d3b32da5f4a3b6efc0dd62e5af42",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/a1ed6140d0d3ee803fec96582593ed024950067b",
+                "reference": "a1ed6140d0d3ee803fec96582593ed024950067b",
                 "shasum": ""
             },
             "require": {
                 "container-interop/container-interop": "^1.2",
                 "php": "^5.6 || ^7.0",
                 "psr/container": "^1.0",
-                "zendframework/zend-stdlib": "^3.1"
+                "zendframework/zend-stdlib": "^3.2.1"
             },
             "provide": {
                 "container-interop/container-interop-implementation": "^1.2",
@@ -5203,7 +5156,7 @@
                 "servicemanager",
                 "zf"
             ],
-            "time": "2018-01-29T16:48:37+00:00"
+            "time": "2018-12-22T06:05:09+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -8342,12 +8295,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "f06a2ad4116981ac9f3439209508493ca7f8864a"
+                "reference": "4d480e06bf1782f6b480c455775eaef29aff895f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/f06a2ad4116981ac9f3439209508493ca7f8864a",
-                "reference": "f06a2ad4116981ac9f3439209508493ca7f8864a",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4d480e06bf1782f6b480c455775eaef29aff895f",
+                "reference": "4d480e06bf1782f6b480c455775eaef29aff895f",
                 "shasum": ""
             },
             "require": {
@@ -8365,7 +8318,8 @@
             "type": "phpcodesniffer-standard",
             "autoload": {
                 "psr-4": {
-                    "Spryker\\": "Spryker"
+                    "Spryker\\": "Spryker",
+                    "SprykerStrict\\": "SprykerStrict"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -8386,7 +8340,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-12-17T09:14:25+00:00"
+            "time": "2018-12-21T16:50:58+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -8447,7 +8401,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "d2fa48e64572b27948e6a9b870bb660e0dff4ea6"
+                "reference": "7520ca725ffc43cccfd188fba4d73f3967445756"
             },
             "require": {
                 "php": ">=7.1",
@@ -8516,7 +8470,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-12-18T11:30:35+00:00"
+            "time": "2018-12-21T13:52:36+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
