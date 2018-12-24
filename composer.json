@@ -100,6 +100,9 @@
       "PyzTest\\": "tests/PyzTest/",
       "PhpStan\\": "tests/PhpStan/"
     },
+    "psr-0": {
+      "Pimple": "vendor/spryker/Bundles/Container/src/"
+    },
     "files": [
       "test-autoload.php"
     ]
