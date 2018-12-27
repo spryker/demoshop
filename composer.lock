@@ -5969,16 +5969,16 @@
         },
         {
             "name": "spryker/company-user-gui-extension",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/company-user-gui-extension.git",
-                "reference": "8d62b363bb129369d8a21e6d2c061cbe63c0b045"
+                "reference": "ca3a9c698aa09852d2d426e70b58c53d7bdb502a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/company-user-gui-extension/zipball/8d62b363bb129369d8a21e6d2c061cbe63c0b045",
-                "reference": "8d62b363bb129369d8a21e6d2c061cbe63c0b045",
+                "url": "https://api.github.com/repos/spryker/company-user-gui-extension/zipball/ca3a9c698aa09852d2d426e70b58c53d7bdb502a",
+                "reference": "ca3a9c698aa09852d2d426e70b58c53d7bdb502a",
                 "shasum": ""
             },
             "require": {
@@ -6010,7 +6010,7 @@
                 "proprietary"
             ],
             "description": "CompanyUserGuiExtension module",
-            "time": "2018-10-09T13:16:53+00:00"
+            "time": "2018-12-20T12:46:33+00:00"
         },
         {
             "name": "spryker/company-user-invitation",
