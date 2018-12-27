@@ -14,6 +14,9 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraint;
 
+/**
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
+ */
 class CheckoutAddressCollectionForm extends AbstractType
 {
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';

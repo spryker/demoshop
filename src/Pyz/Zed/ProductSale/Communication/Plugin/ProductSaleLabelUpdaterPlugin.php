@@ -12,6 +12,8 @@ use Spryker\Zed\ProductLabel\Dependency\Plugin\ProductLabelRelationUpdaterPlugin
 
 /**
  * @method \Pyz\Zed\ProductSale\Business\ProductSaleFacadeInterface getFacade()
+ * @method \Pyz\Zed\ProductSale\ProductSaleConfig getConfig()
+ * @method \Pyz\Zed\ProductSale\Persistence\ProductSaleQueryContainerInterface getQueryContainer()
  */
 class ProductSaleLabelUpdaterPlugin extends AbstractPlugin implements ProductLabelRelationUpdaterPluginInterface
 {

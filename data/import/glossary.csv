@@ -230,7 +230,7 @@ shipment.hermes,Hermes,en_US
 customer.first_name,Vorname,de_DE
 customer.first_name,First Name,en_US
 customer.last_name,Name,de_DE
-customer.last_name,Name,en_US
+customer.last_name,Last Name,en_US
 customer.salutation.mr,Herr,de_DE
 customer.salutation.mr,Mr.,en_US
 customer.salutation.mrs,Frau,de_DE
@@ -401,8 +401,8 @@ customer.profile.order_history,Last Orders,en_US
 customer.profile.order_history,Letzte Bestellungen,de_DE
 customer.account.no_orders,No orders at the moment,en_US
 customer.account.no_orders,Keine Bestellungen,de_DE
-customer.address.updated,New address updated,en_US
-customer.address.updated,Neue Adresse hinzugefügt,de_DE
+customer.address.updated,Address was successfully updated,en_US
+customer.address.updated,Adresse wurde erfolgreich aktualisiert,de_DE
 customer.address.delete.success,Address deleted successfully,en_US
 customer.address.delete.success,Adresse erfolgreich gelöscht,de_DE
 customer.address.added,Address was successfully added,en_US
@@ -895,8 +895,8 @@ product.groups,Product Groups,en_US
 product.groups,Produktgruppen,de_DE
 cart.pre.check.availability.failed,The availability of product %sku% is %stock% at the moment.,en_US
 cart.pre.check.availability.failed,Zurzeit haben wir von %sku% nur %stock% Stück auf Lager.,de_DE
-cart.pre.check.availability.failed.empty,Currently product with sku '%sku%' is not available.,en_US
-cart.pre.check.availability.failed.empty,Das Produkt mit sku '%sku%' ist zurzeit nicht verfügbar.,de_DE
+cart.pre.check.availability.failed.empty,Currently product with sku %sku% is not available.,en_US
+cart.pre.check.availability.failed.empty,Das Produkt mit sku %sku% ist zurzeit nicht verfügbar.,de_DE
 mail.sender.name,Spryker demoshop,en_US
 mail.sender.name,Spryker demoshop,de_DE
 mail.sender.email,demoshop@spryker.com,en_US
@@ -1095,8 +1095,8 @@ product-cart.validation.error.abstract-product-exists,Product not found,en_US
 product-cart.validation.error.abstract-product-exists,Produkt nicht gefunden,de_DE
 product-cart.validation.error.concrete-product-exists,Product not found,en_US
 product-cart.validation.error.concrete-product-exists,Produkt nicht gefunden,de_DE
-cart.item.option.pre.check.validation.error.exists,"Product option with value '%id%' does not exist.",en_US
-cart.item.option.pre.check.validation.error.exists,"Die Produktoption '%id%' existiert nicht.",de_DE
+cart.item.option.pre.check.validation.error.exists,"You can not reorder the product %name% directly, please add it to your cart separately.",en_US
+cart.item.option.pre.check.validation.error.exists,"Sie können das Produkt %name% nicht direkt nachbestellen, fügen Sie es bitte separat in Ihren Warenkorb.",de_DE
 product-cart.validation.error.no-product-permission,"Sorry, You are not allowed to buy this product.",en_US
 product-cart.validation.error.no-product-permission,"Entschuldigung, Sie dürfen dieses Produkt nicht kaufen.",de_DE
 product-cart.validation.error.product-option-value-price-exists,"Product option price not found for product '%sku%'.",en_US

@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * @method \Pyz\Yves\Customer\CustomerFactory getFactory()
+ * @method \Pyz\Yves\Customer\CustomerConfig getConfig()
  */
 class AddressForm extends AbstractType
 {
@@ -38,7 +39,6 @@ class AddressForm extends AbstractType
     public const FIELD_IS_DEFAULT_SHIPPING = 'is_default_shipping';
     public const FIELD_IS_DEFAULT_BILLING = 'is_default_billing';
     public const FIELD_ID_CUSTOMER_ADDRESS = 'id_customer_address';
-    public const FIELD_FK_CUSTOMER = 'fk_customer';
 
     public const OPTION_COUNTRY_CHOICES = 'country_choices';
 
@@ -82,8 +82,7 @@ class AddressForm extends AbstractType
             ->addPhoneField($builder, $options)
             ->addIsDefaultShippingField($builder, $options)
             ->addIsDefaultBillingField($builder, $options)
-            ->addIdCustomerAddressField($builder, $options)
-            ->addFkCustomerField($builder, $options);
+            ->addIdCustomerAddressField($builder, $options);
     }
 
     /**
@@ -340,19 +339,6 @@ class AddressForm extends AbstractType
     protected function addIdCustomerAddressField(FormBuilderInterface $builder, array $options)
     {
         $builder->add(self::FIELD_ID_CUSTOMER_ADDRESS, HiddenType::class);
-
-        return $this;
-    }
-
-    /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
-     * @param array $options
-     *
-     * @return $this
-     */
-    protected function addFkCustomerField(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add(self::FIELD_FK_CUSTOMER, HiddenType::class);
 
         return $this;
     }
