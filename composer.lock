@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "2d51c54826983e98643918ebaee84019",
 =======
     "content-hash": "ba548abb7b64bf05b4e866ffab32680e",
@@ -21,6 +22,9 @@
 =======
     "content-hash": "2980b2fcbac1c94853c37e4b150c8ec2",
 >>>>>>> TE-635: Fixed composer violation
+=======
+    "content-hash": "2980b2fcbac1c94853c37e4b150c8ec2",
+>>>>>>> TE-635: Updated composer.lock
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2450,7 +2454,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/silexphp.git",
+<<<<<<< HEAD
                 "reference": "2fd522bc54d03830c2fb81ca375464e071faede9"
+=======
+                "reference": "83083c9a494e4df4dc02de2cb55ecc7a3cfc2f35"
+>>>>>>> TE-635: Updated composer.lock
             },
             "require": {
                 "php": ">=7.1",
@@ -2518,7 +2526,11 @@
             "keywords": [
                 "microframework"
             ],
+<<<<<<< HEAD
             "time": "2018-12-20T13:30:50+00:00"
+=======
+            "time": "2018-12-21T09:59:46+00:00"
+>>>>>>> TE-635: Updated composer.lock
         },
         {
             "name": "spryker/spryker",
@@ -2526,6 +2538,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2539,6 +2552,9 @@
 =======
                 "reference": "03602925984f37f51bcbdde5ad236cf0e9a8a99f"
 >>>>>>> TE-635: bc check
+=======
+                "reference": "03602925984f37f51bcbdde5ad236cf0e9a8a99f"
+>>>>>>> TE-635: Updated composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2810,6 +2826,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2019-01-09T08:20:26+00:00"
 =======
             "time": "2018-12-18T14:43:30+00:00"
@@ -2820,6 +2837,9 @@
 =======
             "time": "2018-12-18T16:23:36+00:00"
 >>>>>>> TE-635: bc check
+=======
+            "time": "2018-12-18T16:23:36+00:00"
+>>>>>>> TE-635: Updated composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6907,6 +6927,7 @@
         },
         {
             "name": "phpstan/phpstan",
+<<<<<<< HEAD
             "version": "0.10.8",
             "source": {
                 "type": "git",
@@ -6917,6 +6938,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4f828460a0276180da76c670a0a6e592e7c38b71",
                 "reference": "4f828460a0276180da76c670a0a6e592e7c38b71",
+=======
+            "version": "0.10.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "b7a70043d9a933c9d1575df49a7b141dbc3c469f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b7a70043d9a933c9d1575df49a7b141dbc3c469f",
+                "reference": "b7a70043d9a933c9d1575df49a7b141dbc3c469f",
+>>>>>>> TE-635: Updated composer.lock
                 "shasum": ""
             },
             "require": {
@@ -6976,7 +7009,11 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
+<<<<<<< HEAD
             "time": "2019-01-08T09:51:19+00:00"
+=======
+            "time": "2018-12-28T13:47:37+00:00"
+>>>>>>> TE-635: Updated composer.lock
         },
         {
             "name": "phpunit/php-code-coverage",
