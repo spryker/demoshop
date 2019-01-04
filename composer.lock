@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.82.3",
+            "version": "3.82.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a0353c24b18d2ba0f5bb7ca8a478b4ce0b8153f7"
+                "reference": "5382f946b12eaaab830cb9fc1098b28d2efb0cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a0353c24b18d2ba0f5bb7ca8a478b4ce0b8153f7",
-                "reference": "a0353c24b18d2ba0f5bb7ca8a478b4ce0b8153f7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5382f946b12eaaab830cb9fc1098b28d2efb0cff",
+                "reference": "5382f946b12eaaab830cb9fc1098b28d2efb0cff",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-12-21T22:21:50+00:00"
+            "time": "2019-01-03T22:54:10+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -15741,16 +15741,16 @@
         },
         {
             "name": "spryker/shopping-list",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/shopping-list.git",
-                "reference": "df6460c1455a38d27294ad13e1e294e87c3f17c8"
+                "reference": "db8bbe0cba04cacfbeed66eda0ca9dad5b8fddc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/shopping-list/zipball/df6460c1455a38d27294ad13e1e294e87c3f17c8",
-                "reference": "df6460c1455a38d27294ad13e1e294e87c3f17c8",
+                "url": "https://api.github.com/repos/spryker/shopping-list/zipball/db8bbe0cba04cacfbeed66eda0ca9dad5b8fddc4",
+                "reference": "db8bbe0cba04cacfbeed66eda0ca9dad5b8fddc4",
                 "shasum": ""
             },
             "require": {
@@ -15802,7 +15802,7 @@
                 "proprietary"
             ],
             "description": "ShoppingList module",
-            "time": "2018-12-19T12:18:21+00:00"
+            "time": "2018-12-28T09:57:27+00:00"
         },
         {
             "name": "spryker/shopping-list-extension",
@@ -21517,16 +21517,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.10.6",
+            "version": "0.10.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "f0252a5ab6b4a293fb25f218d9c64386f272280f"
+                "reference": "b7a70043d9a933c9d1575df49a7b141dbc3c469f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f0252a5ab6b4a293fb25f218d9c64386f272280f",
-                "reference": "f0252a5ab6b4a293fb25f218d9c64386f272280f",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b7a70043d9a933c9d1575df49a7b141dbc3c469f",
+                "reference": "b7a70043d9a933c9d1575df49a7b141dbc3c469f",
                 "shasum": ""
             },
             "require": {
@@ -21586,7 +21586,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2018-12-04T07:28:04+00:00"
+            "time": "2018-12-28T13:47:37+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -22723,21 +22723,21 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.8.6",
+            "version": "4.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "af0c0c99e84106525484ef25f15144b9831522bb"
+                "reference": "bff96313d8c7c2ba57a4edb13c1c141df8988c58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/af0c0c99e84106525484ef25f15144b9831522bb",
-                "reference": "af0c0c99e84106525484ef25f15144b9831522bb",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/bff96313d8c7c2ba57a4edb13c1c141df8988c58",
+                "reference": "bff96313d8c7c2ba57a4edb13c1c141df8988c58",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1",
-                "squizlabs/php_codesniffer": "^3.3.1"
+                "squizlabs/php_codesniffer": "^3.4.0"
             },
             "require-dev": {
                 "jakub-onderka/php-parallel-lint": "1.0.0",
@@ -22745,7 +22745,7 @@
                 "phpstan/phpstan": "0.9.2",
                 "phpstan/phpstan-phpunit": "0.9.4",
                 "phpstan/phpstan-strict-rules": "0.9",
-                "phpunit/phpunit": "7.3.5"
+                "phpunit/phpunit": "7.5.1"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -22758,7 +22758,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-11-03T21:28:29+00:00"
+            "time": "2019-01-03T13:15:50+00:00"
         },
         {
             "name": "sllh/composer-versions-check",
