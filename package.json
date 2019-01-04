@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@spryker/oryx": "^1.2.0",
-    "@spryker/oryx-for-zed": "^1.0.0 || ^2.1.0",
+    "@spryker/oryx-for-zed": "^1.2.1",
     "autoprefixer": "~6.7.6",
     "copy-webpack-plugin": "~4.0.1",
     "css-loader": "~0.27.1",
