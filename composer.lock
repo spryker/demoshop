@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a90d8487cb2331b883a61a01e2c1b4d4",
+    "content-hash": "c46e61d7aabd48a2b2e0c843a11c913a",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -1037,7 +1037,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2596,11 +2596,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/dt-136/merge-only",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "15f84ea70ff6e5f7fc426ec798e5d078d0fcbf75"
+                "reference": "d8ec324821bd41611752cbff015d7a233c379a09"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2870,7 +2870,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-02T16:59:16+00:00"
+            "time": "2019-01-04T08:58:17+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8380,7 +8380,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
@@ -8392,6 +8392,59 @@
                 "versions"
             ],
             "time": "2017-06-16T09:29:23+00:00"
+        },
+        {
+            "name": "spryker-sdk/phpstan-spryker",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-sdk/phpstan-spryker.git",
+                "reference": "a62130c0b1e96472e1183d0d9cbddafe68500267"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-sdk/phpstan-spryker/zipball/a62130c0b1e96472e1183d0d9cbddafe68500267",
+                "reference": "a62130c0b1e96472e1183d0d9cbddafe68500267",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "phpstan/phpstan": "^0.10.2"
+            },
+            "require-dev": {
+                "consistence/coding-standard": "^3.5",
+                "jakub-onderka/php-parallel-lint": "^1.0",
+                "localheinz/composer-normalize": "~0.9.0",
+                "phing/phing": "^2.16.0",
+                "phpstan/phpstan-strict-rules": "^0.10",
+                "slevomat/coding-standard": "^4.7.2",
+                "spryker/code-sniffer": "dev-master",
+                "spryker/kernel": "*",
+                "squizlabs/php_codesniffer": "^3.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Spryker",
+                    "homepage": "http://spryker.com"
+                }
+            ],
+            "description": "Spryker PHPStan Extensions",
+            "homepage": "http://spryker.com",
+            "keywords": [
+                "PHPStan",
+                "analyzing"
+            ],
+            "time": "2018-12-20T14:15:37+00:00"
         },
         {
             "name": "spryker/architecture-sniffer",
