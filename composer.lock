@@ -6355,16 +6355,16 @@
         },
         {
             "name": "spryker/customer",
-            "version": "7.15.1",
+            "version": "7.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/customer.git",
-                "reference": "d4c499e86540dae756d9dba8da6d4f07248f2c55"
+                "reference": "3866168e55495414e322172da7eeae59526c9fc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/customer/zipball/d4c499e86540dae756d9dba8da6d4f07248f2c55",
-                "reference": "d4c499e86540dae756d9dba8da6d4f07248f2c55",
+                "url": "https://api.github.com/repos/spryker/customer/zipball/3866168e55495414e322172da7eeae59526c9fc8",
+                "reference": "3866168e55495414e322172da7eeae59526c9fc8",
                 "shasum": ""
             },
             "require": {
@@ -6414,7 +6414,7 @@
                 "proprietary"
             ],
             "description": "Customer module",
-            "time": "2018-12-19T14:19:37+00:00"
+            "time": "2018-12-27T08:39:46+00:00"
         },
         {
             "name": "spryker/customer-access",
