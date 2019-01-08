@@ -340,6 +340,7 @@
     "spryker/development": "^3.0.0",
     "spryker/testify": "^3.0.0",
     "spryker/web-profiler": "^1.0.0",
+    "spryker-sdk/phpstan-spryker": "^0.1",
     "stecman/symfony-console-completion": "^0.7.0",
     "symfony/var-dumper": "*",
     "symfony/web-profiler-bundle": "*"
