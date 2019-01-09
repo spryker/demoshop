@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "2d51c54826983e98643918ebaee84019",
 =======
     "content-hash": "ba548abb7b64bf05b4e866ffab32680e",
@@ -25,6 +26,9 @@
 =======
     "content-hash": "2980b2fcbac1c94853c37e4b150c8ec2",
 >>>>>>> TE-635: Updated composer.lock
+=======
+    "content-hash": "3b98bc09def63e7468130892eaf929dd",
+>>>>>>> te-635 updated composer.lock
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -1015,7 +1019,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2441,12 +2445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/rabbit-mq.git",
-                "reference": "5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49"
+                "reference": "d86e10a51eea1de94a8e92d802c48760e699a7e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49",
-                "reference": "5da48f3e7f34b3a2c777c9a6ac3f5d7a4e5f4f49",
+                "url": "https://api.github.com/repos/spryker/rabbit-mq/zipball/d86e10a51eea1de94a8e92d802c48760e699a7e5",
+                "reference": "d86e10a51eea1de94a8e92d802c48760e699a7e5",
                 "shasum": ""
             },
             "require": {
@@ -2492,19 +2496,30 @@
                 "rabbit-mq",
                 "standards"
             ],
-            "time": "2018-10-02T06:33:11+00:00"
+            "time": "2019-01-09T13:45:36+00:00"
         },
         {
             "name": "spryker/silexphp",
-            "version": "dev-feature/te-323/te-635-composer-violations-fixing",
+            "version": "dev-master",
             "source": {
                 "type": "git",
+<<<<<<< HEAD
                 "url": "git@github.com:spryker/silexphp.git",
 <<<<<<< HEAD
                 "reference": "2fd522bc54d03830c2fb81ca375464e071faede9"
 =======
                 "reference": "83083c9a494e4df4dc02de2cb55ecc7a3cfc2f35"
 >>>>>>> TE-635: Updated composer.lock
+=======
+                "url": "https://github.com/spryker/silexphp.git",
+                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/silexphp/zipball/5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
+                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
+                "shasum": ""
+>>>>>>> te-635 updated composer.lock
             },
             "require": {
                 "php": ">=7.1",
@@ -2549,11 +2564,7 @@
                     "Silex\\": "src/Silex"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Silex\\Tests\\": "tests/Silex/Tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2573,17 +2584,22 @@
                 "microframework"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2018-12-20T13:30:50+00:00"
 =======
             "time": "2018-12-21T09:59:46+00:00"
 >>>>>>> TE-635: Updated composer.lock
+=======
+            "time": "2019-01-09T14:00:16+00:00"
+>>>>>>> te-635 updated composer.lock
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/te-323/te-635-enabling-step-1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2613,6 +2629,9 @@
 =======
                 "reference": "73389d5736f764d9f41b921cd392099fa83d7d55"
 >>>>>>> composer update
+=======
+                "reference": "59afa25a5477782a298107dcfd4a3399531d284d"
+>>>>>>> te-635 updated composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2889,6 +2908,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2019-01-09T08:20:26+00:00"
 =======
             "time": "2018-12-18T14:43:30+00:00"
@@ -2911,6 +2931,9 @@
 =======
             "time": "2019-01-09T10:06:06+00:00"
 >>>>>>> composer update
+=======
+            "time": "2019-01-09T14:33:03+00:00"
+>>>>>>> te-635 updated composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5513,10 +5536,14 @@
                 "unit testing"
             ],
 <<<<<<< HEAD
+<<<<<<< HEAD
             "time": "2019-01-02T10:28:51+00:00"
 =======
             "time": "2019-01-01T19:55:00+00:00"
 >>>>>>> TE-635: Updated composer.lock
+=======
+            "time": "2019-01-02T10:28:51+00:00"
+>>>>>>> te-635 updated composer.lock
         },
         {
             "name": "codeception/phpunit-wrapper",
