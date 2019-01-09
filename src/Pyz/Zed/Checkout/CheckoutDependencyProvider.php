@@ -25,7 +25,6 @@ use Spryker\Zed\ProductOption\Communication\Plugin\Checkout\ProductOptionOrderSa
 use Spryker\Zed\Sales\Communication\Plugin\Checkout\SalesOrderSaverPlugin;
 use Spryker\Zed\Sales\Communication\Plugin\SalesOrderExpanderPlugin;
 use Spryker\Zed\SalesProductConnector\Communication\Plugin\Checkout\ItemMetadataSaverPlugin;
-use Spryker\Zed\SalesReclamation\Communication\Plugin\Checkout\ReclamationOrderSaverPlugin;
 use Spryker\Zed\Shipment\Communication\Plugin\Checkout\OrderShipmentSavePlugin;
 use Spryker\Zed\ShipmentCheckoutConnector\Communication\Plugin\Checkout\ShipmentCheckoutPreCheckPlugin;
 
@@ -65,7 +64,6 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new DiscountOrderSavePlugin(),
             new ProductBundleOrderSaverPlugin(),
             new PaymentOrderSaverPlugin(),
-            new ReclamationOrderSaverPlugin(),
         ];
 
         return $plugins;
