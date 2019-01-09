@@ -84,7 +84,7 @@
     "jakoch/phantomjs-installer": "^2.1.0",
     "stecman/symfony-console-completion": "^0.8.0",
     "fzaninotto/faker": "^1.6",
-    "phpstan/phpstan": "^0.10.5"
+    "spryker-sdk/phpstan-spryker": "^0.1"
   },
   "autoload": {
     "psr-4": {
