@@ -4,31 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "2d51c54826983e98643918ebaee84019",
-=======
-    "content-hash": "ba548abb7b64bf05b4e866ffab32680e",
->>>>>>> TE-323 composer lock
-=======
-    "content-hash": "5cfecc408949c427504052037868dc6e",
->>>>>>> TE-635: Fixing of composer dependencies
-=======
-    "content-hash": "5cfecc408949c427504052037868dc6e",
->>>>>>> TE-635: bc check
-=======
-    "content-hash": "2980b2fcbac1c94853c37e4b150c8ec2",
->>>>>>> TE-635: Fixed composer violation
-=======
-    "content-hash": "2980b2fcbac1c94853c37e4b150c8ec2",
->>>>>>> TE-635: Updated composer.lock
-=======
     "content-hash": "3b98bc09def63e7468130892eaf929dd",
->>>>>>> te-635 updated composer.lock
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2503,14 +2479,6 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-<<<<<<< HEAD
-                "url": "git@github.com:spryker/silexphp.git",
-<<<<<<< HEAD
-                "reference": "2fd522bc54d03830c2fb81ca375464e071faede9"
-=======
-                "reference": "83083c9a494e4df4dc02de2cb55ecc7a3cfc2f35"
->>>>>>> TE-635: Updated composer.lock
-=======
                 "url": "https://github.com/spryker/silexphp.git",
                 "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2"
             },
@@ -2519,7 +2487,6 @@
                 "url": "https://api.github.com/repos/spryker/silexphp/zipball/5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
                 "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
                 "shasum": ""
->>>>>>> te-635 updated composer.lock
             },
             "require": {
                 "php": ">=7.1",
@@ -2583,15 +2550,7 @@
             "keywords": [
                 "microframework"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2018-12-20T13:30:50+00:00"
-=======
-            "time": "2018-12-21T09:59:46+00:00"
->>>>>>> TE-635: Updated composer.lock
-=======
             "time": "2019-01-09T14:00:16+00:00"
->>>>>>> te-635 updated composer.lock
         },
         {
             "name": "spryker/spryker",
@@ -2599,39 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "17b066c6d69c20586a4e50f8c84892da352d044a"
-=======
-                "reference": "c686f6708a9e3ad9ed9a6e3f50ca00c6ced6198f"
->>>>>>> TE-323 composer lock
-=======
-                "reference": "03602925984f37f51bcbdde5ad236cf0e9a8a99f"
->>>>>>> TE-635: Fixing of composer dependencies
-=======
-                "reference": "03602925984f37f51bcbdde5ad236cf0e9a8a99f"
->>>>>>> TE-635: bc check
-=======
-                "reference": "03602925984f37f51bcbdde5ad236cf0e9a8a99f"
->>>>>>> TE-635: Updated composer.lock
-=======
-                "reference": "e72776b6589f339b01c368f7ff02d5ef0b0859aa"
->>>>>>> TE-635: Updated composer.lock
-=======
-                "reference": "439d3fbe016de5ce58f8b8460d962379c1c39b8b"
->>>>>>> TE-635: Composer update
-=======
-                "reference": "73389d5736f764d9f41b921cd392099fa83d7d55"
->>>>>>> composer update
-=======
                 "reference": "59afa25a5477782a298107dcfd4a3399531d284d"
->>>>>>> te-635 updated composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2901,39 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2019-01-09T08:20:26+00:00"
-=======
-            "time": "2018-12-18T14:43:30+00:00"
->>>>>>> TE-323 composer lock
-=======
-            "time": "2018-12-18T16:23:36+00:00"
->>>>>>> TE-635: Fixing of composer dependencies
-=======
-            "time": "2018-12-18T16:23:36+00:00"
->>>>>>> TE-635: bc check
-=======
-            "time": "2018-12-18T16:23:36+00:00"
->>>>>>> TE-635: Updated composer.lock
-=======
-            "time": "2019-01-02T17:56:04+00:00"
->>>>>>> TE-635: Updated composer.lock
-=======
-            "time": "2019-01-08T11:57:33+00:00"
->>>>>>> TE-635: Composer update
-=======
-            "time": "2019-01-09T10:06:06+00:00"
->>>>>>> composer update
-=======
             "time": "2019-01-09T14:33:03+00:00"
->>>>>>> te-635 updated composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3406,16 +3301,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.2.1",
+            "version": "v4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "921f49c3158a276d27c0d770a5a347a3b718b328"
+                "reference": "887de6d34c86cf0cb6cbf910afb170cdb743cb5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/921f49c3158a276d27c0d770a5a347a3b718b328",
-                "reference": "921f49c3158a276d27c0d770a5a347a3b718b328",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/887de6d34c86cf0cb6cbf910afb170cdb743cb5e",
+                "reference": "887de6d34c86cf0cb6cbf910afb170cdb743cb5e",
                 "shasum": ""
             },
             "require": {
@@ -3466,7 +3361,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-01T08:52:38+00:00"
+            "time": "2019-01-05T16:37:49+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -3569,16 +3464,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "5cc31ca9e7e0cfc240ce8454296558175869053f"
+                "reference": "ddf55d5a380be3d76e7848e773a4c13d85d95844"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/5cc31ca9e7e0cfc240ce8454296558175869053f",
-                "reference": "5cc31ca9e7e0cfc240ce8454296558175869053f",
+                "url": "https://api.github.com/repos/symfony/form/zipball/ddf55d5a380be3d76e7848e773a4c13d85d95844",
+                "reference": "ddf55d5a380be3d76e7848e773a4c13d85d95844",
                 "shasum": ""
             },
             "require": {
@@ -3646,20 +3541,20 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-06T11:25:03+00:00"
+            "time": "2019-01-05T06:17:43+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "ea61dd57c4399b0b2a4162e1820cd9d0783acd38"
+                "reference": "2b97319e68816d2120eee7f13f4b76da12e04d03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/ea61dd57c4399b0b2a4162e1820cd9d0783acd38",
-                "reference": "ea61dd57c4399b0b2a4162e1820cd9d0783acd38",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2b97319e68816d2120eee7f13f4b76da12e04d03",
+                "reference": "2b97319e68816d2120eee7f13f4b76da12e04d03",
                 "shasum": ""
             },
             "require": {
@@ -3700,20 +3595,20 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-26T10:17:44+00:00"
+            "time": "2019-01-05T08:05:37+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "31f20eb6e00467ae85501dd98770aef17cd9aba7"
+                "reference": "60bd9d7444ca436e131c347d78ec039dd99a34b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/31f20eb6e00467ae85501dd98770aef17cd9aba7",
-                "reference": "31f20eb6e00467ae85501dd98770aef17cd9aba7",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/60bd9d7444ca436e131c347d78ec039dd99a34b4",
+                "reference": "60bd9d7444ca436e131c347d78ec039dd99a34b4",
                 "shasum": ""
             },
             "require": {
@@ -3789,7 +3684,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-06T14:59:33+00:00"
+            "time": "2019-01-06T15:53:59+00:00"
         },
         {
             "name": "symfony/inflector",
@@ -4439,16 +4334,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "94a3dd89bda078bef0c3bf79eb024fe136dd58f9"
+                "reference": "445d3629a26930158347a50d1a5f2456c49e0ae6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/94a3dd89bda078bef0c3bf79eb024fe136dd58f9",
-                "reference": "94a3dd89bda078bef0c3bf79eb024fe136dd58f9",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/445d3629a26930158347a50d1a5f2456c49e0ae6",
+                "reference": "445d3629a26930158347a50d1a5f2456c49e0ae6",
                 "shasum": ""
             },
             "require": {
@@ -4512,20 +4407,20 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-12-03T13:20:34+00:00"
+            "time": "2019-01-01T13:45:19+00:00"
         },
         {
             "name": "symfony/security",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
-                "reference": "ee26f3b8aa1fdebcaea2ee573d99d25fd1c179a3"
+                "reference": "cf155892eda9ac8ecab73ab93f04273ab2d0a077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security/zipball/ee26f3b8aa1fdebcaea2ee573d99d25fd1c179a3",
-                "reference": "ee26f3b8aa1fdebcaea2ee573d99d25fd1c179a3",
+                "url": "https://api.github.com/repos/symfony/security/zipball/cf155892eda9ac8ecab73ab93f04273ab2d0a077",
+                "reference": "cf155892eda9ac8ecab73ab93f04273ab2d0a077",
                 "shasum": ""
             },
             "require": {
@@ -4594,7 +4489,7 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-06T11:25:03+00:00"
+            "time": "2019-01-01T13:45:19+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -4885,16 +4780,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "39bcf80269aa504c5aa3f18c7c63938ed0b66f00"
+                "reference": "cd3fba16d309347883b74bb0ee8cb4720a60554c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/39bcf80269aa504c5aa3f18c7c63938ed0b66f00",
-                "reference": "39bcf80269aa504c5aa3f18c7c63938ed0b66f00",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/cd3fba16d309347883b74bb0ee8cb4720a60554c",
+                "reference": "cd3fba16d309347883b74bb0ee8cb4720a60554c",
                 "shasum": ""
             },
             "require": {
@@ -4966,7 +4861,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-01T08:21:59+00:00"
+            "time": "2019-01-06T14:07:11+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -5535,15 +5430,7 @@
                 "functional testing",
                 "unit testing"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
             "time": "2019-01-02T10:28:51+00:00"
-=======
-            "time": "2019-01-01T19:55:00+00:00"
->>>>>>> TE-635: Updated composer.lock
-=======
-            "time": "2019-01-02T10:28:51+00:00"
->>>>>>> te-635 updated composer.lock
         },
         {
             "name": "codeception/phpunit-wrapper",
@@ -7029,7 +6916,6 @@
         },
         {
             "name": "phpstan/phpstan",
-<<<<<<< HEAD
             "version": "0.10.8",
             "source": {
                 "type": "git",
@@ -7040,18 +6926,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4f828460a0276180da76c670a0a6e592e7c38b71",
                 "reference": "4f828460a0276180da76c670a0a6e592e7c38b71",
-=======
-            "version": "0.10.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "b7a70043d9a933c9d1575df49a7b141dbc3c469f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b7a70043d9a933c9d1575df49a7b141dbc3c469f",
-                "reference": "b7a70043d9a933c9d1575df49a7b141dbc3c469f",
->>>>>>> TE-635: Updated composer.lock
                 "shasum": ""
             },
             "require": {
@@ -7111,11 +6985,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-<<<<<<< HEAD
             "time": "2019-01-08T09:51:19+00:00"
-=======
-            "time": "2018-12-28T13:47:37+00:00"
->>>>>>> TE-635: Updated composer.lock
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -8659,11 +8529,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-<<<<<<< HEAD
                 "reference": "7520ca725ffc43cccfd188fba4d73f3967445756"
-=======
-                "reference": "d2fa48e64572b27948e6a9b870bb660e0dff4ea6"
->>>>>>> TE-323 composer lock
             },
             "require": {
                 "php": ">=7.1",
@@ -8732,11 +8598,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-<<<<<<< HEAD
             "time": "2018-12-21T13:52:36+00:00"
-=======
-            "time": "2018-12-18T11:30:35+00:00"
->>>>>>> TE-323 composer lock
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -9207,16 +9069,16 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "23debaca4bbd90b78b4c54799496a344011531b6"
+                "reference": "938046a45ebf03cf41bb89fd47ed00da86ea33db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/23debaca4bbd90b78b4c54799496a344011531b6",
-                "reference": "23debaca4bbd90b78b4c54799496a344011531b6",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/938046a45ebf03cf41bb89fd47ed00da86ea33db",
+                "reference": "938046a45ebf03cf41bb89fd47ed00da86ea33db",
                 "shasum": ""
             },
             "require": {
@@ -9270,7 +9132,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2018-12-01T19:42:50+00:00"
+            "time": "2019-01-01T13:45:19+00:00"
         },
         {
             "name": "theseer/fdomdocument",
