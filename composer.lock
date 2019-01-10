@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.82.6",
+            "version": "3.84.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a254cef386f193249e2dea5ca54f66b3e2c00963"
+                "reference": "2c1800a5260ef4399b366857b3792a307f4881a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a254cef386f193249e2dea5ca54f66b3e2c00963",
-                "reference": "a254cef386f193249e2dea5ca54f66b3e2c00963",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2c1800a5260ef4399b366857b3792a307f4881a9",
+                "reference": "2c1800a5260ef4399b366857b3792a307f4881a9",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-01-04T23:01:07+00:00"
+            "time": "2019-01-09T22:26:16+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -2542,21 +2542,23 @@
         },
         {
             "name": "spryker/application",
-            "version": "3.11.0",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/application.git",
-                "reference": "c2355d92378fd15cb88d264e59e5c69297e9b73a"
+                "reference": "665a2a4545f42ec5cb7222e058385bc106578b90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/application/zipball/c2355d92378fd15cb88d264e59e5c69297e9b73a",
-                "reference": "c2355d92378fd15cb88d264e59e5c69297e9b73a",
+                "url": "https://api.github.com/repos/spryker/application/zipball/665a2a4545f42ec5cb7222e058385bc106578b90",
+                "reference": "665a2a4545f42ec5cb7222e058385bc106578b90",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
+                "spryker/application-extension": "^1.0.0",
                 "spryker/config": "^3.0.0",
+                "spryker/container": "^1.0.0",
                 "spryker/error-handler": "^2.0.0",
                 "spryker/kernel": "^3.8.0",
                 "spryker/log": "^3.1.0",
@@ -2592,7 +2594,50 @@
                 "proprietary"
             ],
             "description": "Application module",
-            "time": "2019-01-09T12:29:30+00:00"
+            "time": "2019-01-10T11:11:21+00:00"
+        },
+        {
+            "name": "spryker/application-extension",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/application-extension.git",
+                "reference": "47f1b52b1daac7bf5901be73e8b48eca9a00ce37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/application-extension/zipball/47f1b52b1daac7bf5901be73e8b48eca9a00ce37",
+                "reference": "47f1b52b1daac7bf5901be73e8b48eca9a00ce37",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/container": "*",
+                "spryker/testify": "*"
+            },
+            "suggest": {
+                "spryker/container": "If you want to use ApplicationExtensionInterface or BootableApplicationExtensionInterface"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ApplicationExtension module",
+            "time": "2019-01-10T11:11:20+00:00"
         },
         {
             "name": "spryker/assertion",
@@ -3616,16 +3661,16 @@
         },
         {
             "name": "spryker/category",
-            "version": "4.10.0",
+            "version": "4.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/category.git",
-                "reference": "5a7ffafe45c3a2d8675c7cb21ffdc6e80551d1c1"
+                "reference": "99fcf801f233d325a1b6d04acafc7edd79e5dc65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/category/zipball/5a7ffafe45c3a2d8675c7cb21ffdc6e80551d1c1",
-                "reference": "5a7ffafe45c3a2d8675c7cb21ffdc6e80551d1c1",
+                "url": "https://api.github.com/repos/spryker/category/zipball/99fcf801f233d325a1b6d04acafc7edd79e5dc65",
+                "reference": "99fcf801f233d325a1b6d04acafc7edd79e5dc65",
                 "shasum": ""
             },
             "require": {
@@ -3669,7 +3714,7 @@
                 "proprietary"
             ],
             "description": "Category module",
-            "time": "2018-11-16T17:20:56+00:00"
+            "time": "2019-01-10T11:11:16+00:00"
         },
         {
             "name": "spryker/category-data-feed",
@@ -6091,6 +6136,45 @@
             ],
             "description": "Console module",
             "time": "2017-11-29T17:42:02+00:00"
+        },
+        {
+            "name": "spryker/container",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker/container.git",
+                "reference": "6c4b1631e9785204c709910ecf88c257706235b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/container/zipball/6c4b1631e9785204c709910ecf88c257706235b4",
+                "reference": "6c4b1631e9785204c709910ecf88c257706235b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "spryker/code-sniffer": "*",
+                "spryker/testify": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spryker\\": "src/Spryker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Container module",
+            "time": "2019-01-10T11:11:21+00:00"
         },
         {
             "name": "spryker/country",
@@ -8715,24 +8799,24 @@
         },
         {
             "name": "spryker/kernel",
-            "version": "3.29.2",
+            "version": "3.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/kernel.git",
-                "reference": "e2d492ee6dda1de8a8d2bfee629816e01e16d53a"
+                "reference": "2c860462222de8115d87ecba6fd389cc1e158fe7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/kernel/zipball/e2d492ee6dda1de8a8d2bfee629816e01e16d53a",
-                "reference": "e2d492ee6dda1de8a8d2bfee629816e01e16d53a",
+                "url": "https://api.github.com/repos/spryker/kernel/zipball/2c860462222de8115d87ecba6fd389cc1e158fe7",
+                "reference": "2c860462222de8115d87ecba6fd389cc1e158fe7",
                 "shasum": ""
             },
             "require": {
                 "everon/collection": "^1.0.0",
                 "php": ">=5.6.0",
                 "spryker/config": "^3.0.0",
+                "spryker/container": "^1.0.0",
                 "spryker/error-handler": "^2.2.0",
-                "spryker/pimple": "^2.0.0",
                 "spryker/propel-orm": "^1.6.0",
                 "spryker/silex": "^2.0.0",
                 "spryker/symfony": "^3.0.0",
@@ -8760,7 +8844,7 @@
                 "proprietary"
             ],
             "description": "Kernel module",
-            "time": "2019-01-08T14:16:26+00:00"
+            "time": "2019-01-10T11:11:21+00:00"
         },
         {
             "name": "spryker/key-builder",
@@ -23035,16 +23119,16 @@
         },
         {
             "name": "spryker/development",
-            "version": "3.16.1",
+            "version": "3.16.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/development.git",
-                "reference": "1e76a226583a2edd4717ac9164b6d7ea7e1875e9"
+                "reference": "b3ccba25ef4802e2e9e43970bc3a3d1aaba520b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/development/zipball/1e76a226583a2edd4717ac9164b6d7ea7e1875e9",
-                "reference": "1e76a226583a2edd4717ac9164b6d7ea7e1875e9",
+                "url": "https://api.github.com/repos/spryker/development/zipball/b3ccba25ef4802e2e9e43970bc3a3d1aaba520b5",
+                "reference": "b3ccba25ef4802e2e9e43970bc3a3d1aaba520b5",
                 "shasum": ""
             },
             "require": {
@@ -23082,20 +23166,20 @@
                 "proprietary"
             ],
             "description": "Development module",
-            "time": "2018-12-18T08:49:34+00:00"
+            "time": "2019-01-10T10:04:23+00:00"
         },
         {
             "name": "spryker/testify",
-            "version": "3.7.0",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/testify.git",
-                "reference": "ef97bb93f1fe17fd7a7329766ce476e33e6c3f7b"
+                "reference": "9cdd1d256d1f14ae91b8a74976aa0d996a953859"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/testify/zipball/ef97bb93f1fe17fd7a7329766ce476e33e6c3f7b",
-                "reference": "ef97bb93f1fe17fd7a7329766ce476e33e6c3f7b",
+                "url": "https://api.github.com/repos/spryker/testify/zipball/9cdd1d256d1f14ae91b8a74976aa0d996a953859",
+                "reference": "9cdd1d256d1f14ae91b8a74976aa0d996a953859",
                 "shasum": ""
             },
             "require": {
@@ -23130,7 +23214,7 @@
                 "proprietary"
             ],
             "description": "Testify module",
-            "time": "2018-12-05T13:19:53+00:00"
+            "time": "2019-01-10T11:11:20+00:00"
         },
         {
             "name": "spryker/web-profiler",
