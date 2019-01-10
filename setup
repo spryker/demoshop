@@ -1,0 +1,5 @@
+This file is temporarily necessary to be able to `vagrant up` the VM.
+
+Please use https://github.com/spryker/install and
+  vendor/bin/install
+now.
