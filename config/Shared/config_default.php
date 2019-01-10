@@ -432,6 +432,7 @@ $config[CmsGuiConstants::CMS_PAGE_PREVIEW_URI] = '/en/cms/preview/%d';
 
 // ----------- Glue Application
 $config[GlueApplicationConstants::GLUE_APPLICATION_DOMAIN] = '';
+$config[GlueApplicationConstants::GLUE_APPLICATION_CORS_ALLOW_ORIGIN] = '';
 $config[GlueApplicationConstants::GLUE_APPLICATION_REST_DEBUG] = false;
 
 // ----------- OAUTH
