@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "3b98bc09def63e7468130892eaf929dd",
@@ -995,7 +995,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2558,7 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "59afa25a5477782a298107dcfd4a3399531d284d"
+                "reference": "3472decd3be2896d491e7043424c2d8ee6be3884"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-09T14:33:03+00:00"
+            "time": "2019-01-10T10:04:23+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8423,12 +8423,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "4d480e06bf1782f6b480c455775eaef29aff895f"
+                "reference": "a1cd44dd7a67877d55e7d705c876e14d061f571d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/4d480e06bf1782f6b480c455775eaef29aff895f",
-                "reference": "4d480e06bf1782f6b480c455775eaef29aff895f",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a1cd44dd7a67877d55e7d705c876e14d061f571d",
+                "reference": "a1cd44dd7a67877d55e7d705c876e14d061f571d",
                 "shasum": ""
             },
             "require": {
@@ -8468,7 +8468,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-12-21T16:50:58+00:00"
+            "time": "2019-01-10T09:34:59+00:00"
         },
         {
             "name": "spryker/git-hook",
@@ -8476,23 +8476,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/git-hook.git",
-                "reference": "3a4decef0de2feb880538b00efd9149d5dffaf14"
+                "reference": "aab2ad407f341d07e4667736e84421eafc21623c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/git-hook/zipball/3a4decef0de2feb880538b00efd9149d5dffaf14",
-                "reference": "3a4decef0de2feb880538b00efd9149d5dffaf14",
+                "url": "https://api.github.com/repos/spryker/git-hook/zipball/aab2ad407f341d07e4667736e84421eafc21623c",
+                "reference": "aab2ad407f341d07e4667736e84421eafc21623c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
+                "symfony/process": "^3.0.0",
                 "symfony/yaml": "^2.8|^3",
                 "zendframework/zend-filter": "^2.0.0"
             },
             "require-dev": {
                 "codeception/codeception": "^2.2.10",
                 "phpmd/phpmd": "^2.6",
-                "phpstan/phpstan": "^0.8 || ^0.9",
+                "phpstan/phpstan": "^0.10.0",
                 "sebastian/phpcpd": "^3.0",
                 "spryker/code-sniffer": "*",
                 "symfony/var-dumper": "^3.3"
@@ -8521,7 +8522,7 @@
                 "sniffer",
                 "standards"
             ],
-            "time": "2018-11-22T13:19:47+00:00"
+            "time": "2019-01-10T08:43:51+00:00"
         },
         {
             "name": "spryker/spryk",
@@ -8529,7 +8530,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "7520ca725ffc43cccfd188fba4d73f3967445756"
+                "reference": "57712bdcc791310a10486419460cb7b8381367c9"
             },
             "require": {
                 "php": ">=7.1",
@@ -8542,13 +8543,13 @@
                 "zendframework/zend-filter": "^2.8"
             },
             "require-dev": {
-                "codeception/codeception": "^2.4.0",
+                "codeception/codeception": "^2.4.1",
                 "nette/finder": "^2.4.0",
                 "nette/utils": "^2.5.0",
                 "php-coveralls/php-coveralls": "^1.0",
-                "phpstan/phpstan": "^0.9.0 || ^0.10.0",
-                "phpstan/phpstan-phpunit": "^0.9.0 || ^0.10.0",
-                "phpstan/phpstan-strict-rules": "^0.9.0 || ^0.10.0",
+                "phpstan/phpstan": "^0.10.0",
+                "phpstan/phpstan-phpunit": "^0.10.0",
+                "phpstan/phpstan-strict-rules": "^0.10.0",
                 "spryker/code-sniffer": "dev-master",
                 "spryker/git-hook": "dev-master",
                 "symfony/var-dumper": "^4.0.9"
@@ -8598,7 +8599,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2018-12-21T13:52:36+00:00"
+            "time": "2019-01-10T00:21:56+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
