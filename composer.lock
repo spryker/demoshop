@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b98bc09def63e7468130892eaf929dd",
+    "content-hash": "86f380a5988ff03fc4ce6100ebe166c5",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -995,7 +995,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -1883,7 +1883,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2558,8 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ef8bd12f852d654f9e65c81e05905077046de1c9"
-                "reference": "024bffaf8cdd7243f32434ef8ce5dcaf2fc9394d"
+                "reference": "9d627c94952bec93bd90a1b76e54bf5d0b5b726c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2829,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-09T11:01:27+00:00"
+            "time": "2019-01-11T09:33:45+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6484,7 +6483,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8251,7 +8250,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
