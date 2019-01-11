@@ -2559,6 +2559,7 @@
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
                 "reference": "ef8bd12f852d654f9e65c81e05905077046de1c9"
+                "reference": "024bffaf8cdd7243f32434ef8ce5dcaf2fc9394d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -8530,7 +8531,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "57712bdcc791310a10486419460cb7b8381367c9"
+                "reference": "913ea099a07529127f98e5164b5c357b95a67d4b"
             },
             "require": {
                 "php": ">=7.1",
@@ -8599,7 +8600,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2019-01-10T00:21:56+00:00"
+            "time": "2019-01-10T17:22:48+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
