@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b98bc09def63e7468130892eaf929dd",
+    "content-hash": "e0ff2db8bffe5a4850da2e79a85d6b9d",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2476,16 +2476,16 @@
         },
         {
             "name": "spryker/silexphp",
-            "version": "dev-master",
+            "version": "dev-bugfix/te-1065-update-version-constraints-in-spryker-symfony",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/silexphp.git",
-                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2"
+                "reference": "020574f446277c6f8715b64034c76053c70c9c4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/silexphp/zipball/5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
-                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
+                "url": "https://api.github.com/repos/spryker/silexphp/zipball/020574f446277c6f8715b64034c76053c70c9c4f",
+                "reference": "020574f446277c6f8715b64034c76053c70c9c4f",
                 "shasum": ""
             },
             "require": {
@@ -2516,7 +2516,7 @@
                 "symfony/security": "~2.3|3.0.*",
                 "symfony/serializer": "~2.3|3.0.*",
                 "symfony/translation": "~2.3|3.0.*",
-                "symfony/twig-bridge": "~2.3|3.0.*",
+                "symfony/twig-bridge": "^3.2.0 || ^4.0.0",
                 "symfony/validator": "^3.0.0",
                 "twig/twig": "~1.28|~2.0"
             },
@@ -2550,15 +2550,23 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2019-01-09T14:00:16+00:00"
+            "time": "2019-01-14T17:59:39+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/te-1065-update-version-constraints-in-spryker-symfony",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
+<<<<<<< HEAD
                 "reference": "a9896593598890f0788e0c764174aaf9f529e28e"
+=======
+<<<<<<< HEAD
+                "reference": "d69d2c12dba5363c89a901e0d08e1afaf995cdf4"
+=======
+                "reference": "066121a062d51d2bb2d73f10c71968691483dc3d"
+>>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
+>>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2836,15 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
+<<<<<<< HEAD
             "time": "2019-01-22T14:27:29+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2019-01-16T09:06:56+00:00"
+=======
+            "time": "2019-01-14T18:00:21+00:00"
+>>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
+>>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -5430,7 +5446,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2019-01-02T10:28:51+00:00"
+            "time": "2019-01-01T19:55:00+00:00"
         },
         {
             "name": "codeception/phpunit-wrapper",
