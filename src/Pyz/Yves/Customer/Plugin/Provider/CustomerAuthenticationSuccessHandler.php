@@ -25,18 +25,20 @@ class CustomerAuthenticationSuccessHandler extends BaseCustomerAuthenticationHan
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
-        $this->setCustomerSession($token->getUser()->getCustomerTransfer());
+        /** @var \Pyz\Yves\Customer\Security\Customer $customer */
+        $customer = $token->getUser();
+        $this->setCustomerSession($customer->getCustomerTransfer());
 
         return $this->createRefererRedirectResponse($request);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customer
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
      *
      * @return void
      */
-    protected function setCustomerSession(CustomerTransfer $customer)
+    protected function setCustomerSession(CustomerTransfer $customerTransfer)
     {
-        $this->getClient()->setCustomer($customer);
+        $this->getClient()->setCustomer($customerTransfer);
     }
 }
