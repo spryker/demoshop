@@ -16,6 +16,14 @@ branches:
 #Possible travis events (push, pull_request, cron, or api)
 matrix:
   fast_finish: true
+
+  allow_failures:
+    - php: "7.3"
+      env:
+        - TEST_GROUP=acceptance
+        - ON_EVENTS=push,cron
+        - DB=mysql
+
   include:
     - php: "7.1"
       env:
@@ -30,6 +38,11 @@ matrix:
       env:
         - TEST_GROUP=acceptance
         - ON_EVENTS=push,cron
+    - php: "7.2"
+      env:
+        - TEST_GROUP=acceptance
+        - ON_EVENTS=push,cron
+        - DB=mysql
     - php: "7.3"
       env:
         - TEST_GROUP=acceptance
