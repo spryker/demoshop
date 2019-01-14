@@ -41,6 +41,7 @@ use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use Spryker\Shared\Application\Application;
 use Spryker\Shared\Application\ServiceProvider\FormFactoryServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\HeadersSecurityServiceProvider;
 use Spryker\Shared\Application\ServiceProvider\RoutingServiceProvider;
@@ -54,7 +55,11 @@ use Spryker\Yves\Application\Plugin\ServiceProvider\KernelLogServiceProvider;
 use Spryker\Yves\Application\Plugin\ServiceProvider\SslServiceProvider;
 use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
 use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
-use Spryker\Yves\Kernel\Application;
+use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Yves\Kernel\Application as SilexApplication;
+use Spryker\Yves\Kernel\BundleDependencyProviderResolverAwareTrait;
+use Spryker\Yves\Kernel\Container;
+use Spryker\Yves\Kernel\Dependency\Injector\DependencyInjector;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Monitoring\Plugin\ServiceProvider\MonitoringRequestTransactionServiceProvider;
@@ -73,6 +78,8 @@ use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
 
 class YvesBootstrap
 {
+    use BundleDependencyProviderResolverAwareTrait;
+
     /**
      * @var \Spryker\Yves\Kernel\Application
      */
@@ -83,22 +90,45 @@ class YvesBootstrap
      */
     protected $config;
 
+    /**
+     * @var \Spryker\Service\Container\ContainerInterface
+     */
+    protected $serviceContainer;
+
+    /**
+     * @var \Spryker\Shared\Application\Application
+     */
+    protected $sprykerApplication;
+
     public function __construct()
     {
-        $this->application = new Application();
+        // Currently the SilexApplication is an instance of our ContainerInterface
+        // to make both applications use the same container we use the old application
+        // as the current container
+        $this->serviceContainer
+            = $this->application
+            = new SilexApplication();
+
+        $this->sprykerApplication = new Application($this->serviceContainer);
         $this->config = new ApplicationConfig();
     }
 
     /**
-     * @return \Spryker\Yves\Kernel\Application
+     * @return \Spryker\Shared\Application\Application
      */
     public function boot()
     {
         $this->registerServiceProviders();
+
+        $this->setupApplication();
+
         $this->registerRouters();
         $this->registerControllerProviders();
 
-        return $this->application;
+        $this->application->boot();
+        $this->sprykerApplication->boot();
+
+        return $this->sprykerApplication;
     }
 
     /**
@@ -203,5 +233,49 @@ class YvesBootstrap
             new ProductReviewControllerProvider($isSsl),
             new PriceControllerProvider($isSsl),
         ];
+    }
+
+    /**
+     * @return void
+     */
+    protected function setupApplication(): void
+    {
+        foreach ($this->getApplicationPlugins() as $applicationExtension) {
+            $this->sprykerApplication->registerApplicationPlugin($applicationExtension);
+        }
+    }
+
+    /**
+     * @return \Spryker\Shared\ApplicationExtension\Dependency\Plugin\ApplicationPluginInterface[]
+     */
+    protected function getApplicationPlugins(): array
+    {
+        return $this->getProvidedDependency(ApplicationDependencyProvider::PLUGINS_APPLICATION);
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\AbstractBundleDependencyProvider $dependencyProvider
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function provideExternalDependencies(AbstractBundleDependencyProvider $dependencyProvider, Container $container): Container
+    {
+        $container = $dependencyProvider->provideDependencies($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Yves\Kernel\Dependency\Injector\DependencyInjector $dependencyInjector
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container
+     */
+    protected function injectExternalDependencies(DependencyInjector $dependencyInjector, Container $container): Container
+    {
+        $container = $dependencyInjector->injectDependencies($container);
+
+        return $container;
     }
 }
