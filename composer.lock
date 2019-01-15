@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b98bc09def63e7468130892eaf929dd",
+    "content-hash": "5c3faae221cd953f823381f784ff608d",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -995,7 +995,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2554,11 +2554,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-2940/master-reclamtion-techdebt",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "28c780e0fc37728b148a995a155d005b3780e2ea"
+                "reference": "3d846aab1665851d5c9e154da1a1bea2a68ad327"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-11T14:06:24+00:00"
+            "time": "2019-01-15T10:29:11+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
