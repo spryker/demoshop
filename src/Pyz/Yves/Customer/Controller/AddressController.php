@@ -64,9 +64,8 @@ class AddressController extends AbstractCustomerController
         }
 
         if ($addressForm->isValid()) {
-            $customerTransfer = $this->createAddress($customerTransfer, $addressForm->getData());
-
             if ($customerTransfer) {
+                $this->createAddress($customerTransfer, $addressForm->getData());
                 $this->addSuccessMessage(Messages::CUSTOMER_ADDRESS_ADDED);
 
                 return $this->redirectResponseInternal(CustomerControllerProvider::ROUTE_CUSTOMER_ADDRESS);
