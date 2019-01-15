@@ -162,7 +162,7 @@ class ProductOptionCollector extends AbstractStoragePdoCollector
     /**
      * @param int $idProductOptionGroup
      *
-     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup
+     * @return \Orm\Zed\ProductOption\Persistence\SpyProductOptionGroup|null
      */
     protected function getOptionGroupEntityById($idProductOptionGroup)
     {

@@ -76,6 +76,7 @@ class TaxSetNameToIdTaxSetStep implements DataImportStepInterface
      */
     protected function resolveIdStock($taxSetName)
     {
+        /** @var \Orm\Zed\Tax\Persistence\SpyTaxSet|null $taxSetEntity */
         $taxSetEntity = SpyTaxSetQuery::create()
             ->filterByName($taxSetName)
             ->findOneOrCreate();
