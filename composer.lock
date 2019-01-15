@@ -2434,11 +2434,11 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/silexphp.git",
-                "reference": "08eceb2d8989d0613b7a2f191c81728e9626c9dd"
+                "reference": "44df57db3ddacccd0ad3b1050b7b73f687906351"
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/container": "^1.0.0",
+                "spryker/container": "dev-beta/te-323/te-648-enabling-step-3",
                 "symfony/event-dispatcher": "^3.0.0 || ^4.0.0",
                 "symfony/http-foundation": "^3.0.0",
                 "symfony/http-kernel": "^3.0.0 || ^4.0.0",
@@ -2502,7 +2502,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2019-01-15T12:34:36+00:00"
+            "time": "2019-01-15T15:24:52+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2510,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "6a0b70a8c31b2b2d5dd203bc0086d66b37595b22"
+                "reference": "c03ab4513508bfe2f95f03946f580005c2bb1ca1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-15T12:57:22+00:00"
+            "time": "2019-01-15T18:20:11+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
