@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "3b98bc09def63e7468130892eaf929dd",
@@ -2377,12 +2377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/install.git",
-                "reference": "8d087c65e4b432f9a13462e40c56c80498ed8457"
+                "reference": "dded70d67f02077affeb2723ef9ac139336a9abe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/install/zipball/8d087c65e4b432f9a13462e40c56c80498ed8457",
-                "reference": "8d087c65e4b432f9a13462e40c56c80498ed8457",
+                "url": "https://api.github.com/repos/spryker/install/zipball/dded70d67f02077affeb2723ef9ac139336a9abe",
+                "reference": "dded70d67f02077affeb2723ef9ac139336a9abe",
                 "shasum": ""
             },
             "require": {
@@ -2395,7 +2395,7 @@
             "require-dev": {
                 "codeception/codeception": "*",
                 "php-coveralls/php-coveralls": "^1.0",
-                "phpstan/phpstan": "^0.8.5",
+                "phpstan/phpstan": "^0.10.0",
                 "spryker/code-sniffer": "dev-master as 1.0.0",
                 "symfony/var-dumper": "^3.0.0"
             },
@@ -2413,7 +2413,7 @@
                 "MIT"
             ],
             "description": "Spryker install tool",
-            "time": "2019-01-02T10:41:34+00:00"
+            "time": "2019-01-10T13:26:53+00:00"
         },
         {
             "name": "spryker/rabbit-mq",
@@ -2558,7 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3472decd3be2896d491e7043424c2d8ee6be3884"
+                "reference": "28c780e0fc37728b148a995a155d005b3780e2ea"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-10T10:04:23+00:00"
+            "time": "2019-01-11T14:06:24+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8530,7 +8530,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "57712bdcc791310a10486419460cb7b8381367c9"
+                "reference": "913ea099a07529127f98e5164b5c357b95a67d4b"
             },
             "require": {
                 "php": ">=7.1",
@@ -8599,7 +8599,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2019-01-10T00:21:56+00:00"
+            "time": "2019-01-10T17:22:48+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
