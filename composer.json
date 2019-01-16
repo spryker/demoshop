@@ -101,7 +101,7 @@
       "PhpStan\\": "tests/PhpStan/"
     },
     "psr-0": {
-      "Pimple": "vendor/spryker/spryker/Bundles/Container/src/"
+      "Pimple": "vendor/spryker/spryker/Bundles/Container/src/Spryker"
     },
     "files": [
       "test-autoload.php"

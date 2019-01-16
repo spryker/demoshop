@@ -2434,7 +2434,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/silexphp.git",
-                "reference": "44df57db3ddacccd0ad3b1050b7b73f687906351"
+                "reference": "cbd024de34d6ac3e35a3eabf4a239748785826b2"
             },
             "require": {
                 "php": ">=7.1",
@@ -2502,7 +2502,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2019-01-15T15:24:52+00:00"
+            "time": "2019-01-16T13:19:01+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2510,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c03ab4513508bfe2f95f03946f580005c2bb1ca1"
+                "reference": "873c48b573b46617d590c562b262b462a7d7eec5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-15T18:20:11+00:00"
+            "time": "2019-01-16T13:05:01+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
