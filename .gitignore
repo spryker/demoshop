@@ -36,6 +36,8 @@ config/accumulated-config.json
 /src/Orm/Propel/*/Migration_mysql/
 /vendor/
 FOSS.md
+/public/Yves/maintenance/maintenance.marker
+/public/Zed/maintenance/maintenance.marker
 
 /data/*
 !/data/import/

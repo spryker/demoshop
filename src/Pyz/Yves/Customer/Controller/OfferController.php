@@ -80,6 +80,7 @@ class OfferController extends AbstractCustomerController
     public function convertOfferAction(Request $request)
     {
         $idOffer = $request->query->get('offerId');
+        /** @var \Generated\Shared\Transfer\OfferTransfer|null $offerTransfer */
         $offerTransfer = $this->getFactory()
             ->getOfferClient()
             ->getOfferById(
