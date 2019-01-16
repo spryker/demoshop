@@ -2166,16 +2166,16 @@
         },
         {
             "name": "ruflin/elastica",
-            "version": "5.3.3",
+            "version": "5.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "afc663647c58e2533700ec4dcd2dee35b242caf0"
+                "reference": "6d7c20e632e203bac4aaf8ae9df9802fbabb6453"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/afc663647c58e2533700ec4dcd2dee35b242caf0",
-                "reference": "afc663647c58e2533700ec4dcd2dee35b242caf0",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/6d7c20e632e203bac4aaf8ae9df9802fbabb6453",
+                "reference": "6d7c20e632e203bac4aaf8ae9df9802fbabb6453",
                 "shasum": ""
             },
             "require": {
@@ -2220,7 +2220,7 @@
                 "client",
                 "search"
             ],
-            "time": "2018-10-16T09:32:04+00:00"
+            "time": "2019-01-16T13:43:32+00:00"
         },
         {
             "name": "spryker-eco/loggly",
@@ -2510,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "873c48b573b46617d590c562b262b462a7d7eec5"
+                "reference": "ca1482677a91dc2cb0cf9b4d8ef6ee25eb09f9ac"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-16T13:05:01+00:00"
+            "time": "2019-01-16T13:51:40+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
