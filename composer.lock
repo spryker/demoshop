@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86f380a5988ff03fc4ce6100ebe166c5",
+    "content-hash": "3b98bc09def63e7468130892eaf929dd",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -995,7 +995,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2554,11 +2554,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-feature/glue-2308/master-glue-in-terms-of-cors",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "51880c00d5ff0cdf0b08245f994e61e51e22f790"
+                "reference": "d69d2c12dba5363c89a901e0d08e1afaf995cdf4"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-11T14:20:01+00:00"
+            "time": "2019-01-16T09:06:56+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -4924,20 +4924,20 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.36.0",
+            "version": "v1.37.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "730c9c4471b5152d23061feb02b03382264c8a15"
+                "reference": "66be9366c76cbf23e82e7171d47cbfa54a057a62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/730c9c4471b5152d23061feb02b03382264c8a15",
-                "reference": "730c9c4471b5152d23061feb02b03382264c8a15",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/66be9366c76cbf23e82e7171d47cbfa54a057a62",
+                "reference": "66be9366c76cbf23e82e7171d47cbfa54a057a62",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
+                "php": ">=5.4.0",
                 "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
@@ -4948,7 +4948,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.36-dev"
+                    "dev-master": "1.37-dev"
                 }
             },
             "autoload": {
@@ -4986,7 +4986,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2018-12-16T10:34:11+00:00"
+            "time": "2019-01-14T14:59:29+00:00"
         },
         {
             "name": "willdurand/negotiation",
@@ -5434,16 +5434,16 @@
         },
         {
             "name": "codeception/phpunit-wrapper",
-            "version": "7.6.0",
+            "version": "7.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "7c95e2022cbde2f013d52cc87ae878f1b996ed4d"
+                "reference": "ed4b12beb167dc2ecea293b4f6df6c20ce8d280f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/7c95e2022cbde2f013d52cc87ae878f1b996ed4d",
-                "reference": "7c95e2022cbde2f013d52cc87ae878f1b996ed4d",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/ed4b12beb167dc2ecea293b4f6df6c20ce8d280f",
+                "reference": "ed4b12beb167dc2ecea293b4f6df6c20ce8d280f",
                 "shasum": ""
             },
             "require": {
@@ -5473,7 +5473,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2018-12-31T10:33:06+00:00"
+            "time": "2019-01-13T10:34:39+00:00"
         },
         {
             "name": "codeception/stub",
@@ -6347,16 +6347,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.1.1",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610"
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
-                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
                 "shasum": ""
             },
             "require": {
@@ -6372,7 +6372,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -6394,7 +6394,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-12-26T11:32:39+00:00"
+            "time": "2019-01-12T16:31:37+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -6483,7 +6483,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6870,16 +6870,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "0.3",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "ed3223362174b8067729930439e139794e9e514a"
+                "reference": "2cc49f47c69b023eaf05b48e6529389893b13d74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/ed3223362174b8067729930439e139794e9e514a",
-                "reference": "ed3223362174b8067729930439e139794e9e514a",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/2cc49f47c69b023eaf05b48e6529389893b13d74",
+                "reference": "2cc49f47c69b023eaf05b48e6529389893b13d74",
                 "shasum": ""
             },
             "require": {
@@ -6889,7 +6889,7 @@
                 "consistence/coding-standard": "^2.0.0",
                 "jakub-onderka/php-parallel-lint": "^0.9.2",
                 "phing/phing": "^2.16.0",
-                "phpstan/phpstan": "^0.10@dev",
+                "phpstan/phpstan": "^0.10",
                 "phpunit/phpunit": "^6.3",
                 "slevomat/coding-standard": "^3.3.0",
                 "symfony/process": "^3.4 || ^4.0"
@@ -6912,7 +6912,7 @@
                 "MIT"
             ],
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
-            "time": "2018-06-20T17:48:01+00:00"
+            "time": "2019-01-14T12:26:23+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -7241,16 +7241,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.1",
+            "version": "7.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c23d78776ad415d5506e0679723cb461d71f488f"
+                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c23d78776ad415d5506e0679723cb461d71f488f",
-                "reference": "c23d78776ad415d5506e0679723cb461d71f488f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7c89093bd00f7d5ddf0ab81dee04f801416b4944",
+                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944",
                 "shasum": ""
             },
             "require": {
@@ -7321,7 +7321,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-12-12T07:20:32+00:00"
+            "time": "2019-01-15T08:19:08+00:00"
         },
         {
             "name": "roave/better-reflection",
@@ -8250,7 +8250,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
