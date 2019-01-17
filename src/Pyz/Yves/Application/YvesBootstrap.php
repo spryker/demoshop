@@ -264,7 +264,7 @@ class YvesBootstrap
      */
     protected function injectExternalDependencies(DependencyInjector $dependencyInjector, Container $container): Container
     {
-        $container = $dependencyInjector->injectDependencies($container);
+        $container = $dependencyInjector->inject($container);
 
         return $container;
     }
