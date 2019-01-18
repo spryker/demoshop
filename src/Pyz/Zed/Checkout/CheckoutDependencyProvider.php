@@ -12,6 +12,7 @@ use Spryker\Zed\Checkout\CheckoutDependencyProvider as SprykerCheckoutDependency
 use Spryker\Zed\Customer\Communication\Plugin\Checkout\CustomerOrderSavePlugin;
 use Spryker\Zed\Customer\Communication\Plugin\CustomerPreConditionCheckerPlugin;
 use Spryker\Zed\Discount\Communication\Plugin\Checkout\DiscountOrderSavePlugin;
+use Spryker\Zed\Discount\Communication\Plugin\Checkout\VoucherDiscountMaxUsageCheckoutPreConditionPlugin;
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardOrderItemSaverPlugin;
 use Spryker\Zed\GiftCardMailConnector\Communication\Plugin\Checkout\SendEmailToGiftCardUser;
 use Spryker\Zed\Kernel\Container;
@@ -44,6 +45,7 @@ class CheckoutDependencyProvider extends SprykerCheckoutDependencyProvider
             new ProductsAvailableCheckoutPreConditionPlugin(),
             new PaymentPreCheckPlugin(),
             new ShipmentCheckoutPreCheckPlugin(),
+            new VoucherDiscountMaxUsageCheckoutPreConditionPlugin(),
         ];
     }
 

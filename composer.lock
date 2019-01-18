@@ -995,7 +995,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -2319,21 +2319,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "975efc301d6a53e28e3a553247487a4bfa1f4ac7"
+                "reference": "3bda07a7ac5b6e8f65de70dfe348042f31023da4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/975efc301d6a53e28e3a553247487a4bfa1f4ac7",
-                "reference": "975efc301d6a53e28e3a553247487a4bfa1f4ac7",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/3bda07a7ac5b6e8f65de70dfe348042f31023da4",
+                "reference": "3bda07a7ac5b6e8f65de70dfe348042f31023da4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/event": "^2.1.0",
+                "spryker/event": "^2.4.0",
                 "spryker/kernel": "^3.20.0",
                 "spryker/propel-orm": "^1.6.0",
                 "spryker/symfony": "^3.1.0",
-                "spryker/util-encoding": "^2.0.0",
+                "spryker/util-encoding": "^2.1.0",
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
@@ -2369,7 +2369,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-12-05T12:50:38+00:00"
+            "time": "2019-01-18T15:14:18+00:00"
         },
         {
             "name": "spryker/install",
@@ -2558,7 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b0caed61403806df3c7862abf76d685b70c76c50"
+                "reference": "f6a7f123f959735003496556dcb8fd7b261b0189"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-17T12:40:44+00:00"
+            "time": "2019-01-18T19:01:55+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -6483,7 +6483,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-12T17:28:44+00:00"
+            "time": "2017-12-13T13:21:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8250,7 +8250,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Senechal",
+                    "name": "Sullivan SENECHAL",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
