@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0aa662bb0710367eff133d2dca7a01a9",
+    "content-hash": "fc95e66b1cbd76fbd7136f3543d50500",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2510,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0abeb3d4a74361b1be9dadbcecfce3349cfe9bf4"
+                "reference": "c22d47c3c572756792d07ec23fd4d34d0fa715f5"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-17T19:05:55+00:00"
+            "time": "2019-01-18T08:20:05+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
