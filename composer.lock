@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a58c542dce57e0fa775e3e06f0f5d7f4",
+    "content-hash": "3b98bc09def63e7468130892eaf929dd",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -995,7 +995,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -1883,7 +1883,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2554,11 +2554,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/ps-5614-zed-it-is-possible-to-apply-voucher-more-than-max-amount-of-usages",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "da022175da835b1b4dce28b5455be98555c34454"
+                "reference": "b0caed61403806df3c7862abf76d685b70c76c50"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-16T15:45:32+00:00"
+            "time": "2019-01-17T12:40:44+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8250,7 +8250,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan Sénéchal",
+                    "name": "Sullivan Senechal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
