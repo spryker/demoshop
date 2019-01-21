@@ -2273,21 +2273,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/event-behavior.git",
-                "reference": "975efc301d6a53e28e3a553247487a4bfa1f4ac7"
+                "reference": "3bda07a7ac5b6e8f65de70dfe348042f31023da4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/975efc301d6a53e28e3a553247487a4bfa1f4ac7",
-                "reference": "975efc301d6a53e28e3a553247487a4bfa1f4ac7",
+                "url": "https://api.github.com/repos/spryker/event-behavior/zipball/3bda07a7ac5b6e8f65de70dfe348042f31023da4",
+                "reference": "3bda07a7ac5b6e8f65de70dfe348042f31023da4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "spryker/event": "^2.1.0",
+                "spryker/event": "^2.4.0",
                 "spryker/kernel": "^3.20.0",
                 "spryker/propel-orm": "^1.6.0",
                 "spryker/symfony": "^3.1.0",
-                "spryker/util-encoding": "^2.0.0",
+                "spryker/util-encoding": "^2.1.0",
                 "spryker/zend": "^2.1.0"
             },
             "require-dev": {
@@ -2323,7 +2323,7 @@
                 "proprietary"
             ],
             "description": "EventBehavior module",
-            "time": "2018-12-05T12:50:38+00:00"
+            "time": "2019-01-18T15:14:18+00:00"
         },
         {
             "name": "spryker/install",
@@ -2510,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c22d47c3c572756792d07ec23fd4d34d0fa715f5"
+                "reference": "60744d77e1f39efacf8bf7a4cb81b98bf7775c98"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2780,7 +2780,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-18T08:20:05+00:00"
+            "time": "2019-01-21T14:11:47+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8482,7 +8482,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "913ea099a07529127f98e5164b5c357b95a67d4b"
+                "reference": "446a927d4d5ab22cb8f034540d383d4d9bc84d78"
             },
             "require": {
                 "php": ">=7.1",
@@ -8527,7 +8527,12 @@
                     "Spryker\\Zed\\ZipZap\\": "tests/_support/Fixtures/Spryker/Zed/ZipZap/",
                     "Spryker\\Client\\ZipZap\\": "tests/_support/Fixtures/Spryker/Client/ZipZap/",
                     "Spryker\\Service\\ZipZap\\": "tests/_support/Fixtures/Spryker/Service/ZipZap/",
-                    "SprykerTest\\Zed\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/tests/SprykerTest/Zed/FooBar/"
+                    "SprykerTest\\Zed\\FooBar\\": "tests/_data/vendor/spryker/spryker/Bundles/FooBar/tests/SprykerTest/Zed/FooBar/",
+                    "Pyz\\Client\\FooBar\\": "tests/_data/src/Pyz/Client/FooBar/",
+                    "Pyz\\Shared\\FooBar\\": "tests/_data/src/Pyz/Shared/FooBar/",
+                    "Pyz\\Yves\\FooBar\\": "tests/_data/src/Pyz/Yves/FooBar/",
+                    "Pyz\\Zed\\FooBar\\": "tests/_data/src/Pyz/Zed/FooBar/",
+                    "PyzTest\\Zed\\FooBar\\": "tests/_data/tests/PyzTest/Zed/FooBar/"
                 }
             },
             "scripts": {
@@ -8551,7 +8556,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2019-01-10T17:22:48+00:00"
+            "time": "2019-01-21T10:17:41+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
