@@ -43,7 +43,7 @@ class ProductImageExpander implements ProductPageMapExpanderInterface
     }
 
     /**
-     * @param int $idImageSet
+     * @param int|null $idImageSet
      *
      * @return array
      */
