@@ -2558,7 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "7072847a5aeefe3af067e031f7b5c1cf98304d26"
+                "reference": "3e75442238e9eac94f63ad7b8baa12c5baaa5051"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2758,7 +2758,6 @@
                 "spryker/queue": "*",
                 "spryker/quote": "*",
                 "spryker/ramsey-uuid": "*",
-                "spryker/ratepay": "*",
                 "spryker/redis": "*",
                 "spryker/refund": "*",
                 "spryker/sales": "*",
@@ -2828,7 +2827,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-22T14:40:22+00:00"
+            "time": "2019-01-22T15:15:05+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
