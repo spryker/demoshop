@@ -12,7 +12,6 @@
     <navigation/>
     <tax/>
     <shipment/>
-    <payment/>
     <acl/>
     <maintenance/>
 </config>
