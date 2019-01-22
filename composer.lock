@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "ffc8841b05f1ea89baf9e044052c3021",
-=======
-    "content-hash": "f2771732d6a24f7c759581151a6afa21",
->>>>>>> te-1024 removed Ratepay
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2558,15 +2554,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-bugfix/te-1024-remove-ratepay",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-                "reference": "7072847a5aeefe3af067e031f7b5c1cf98304d26"
-=======
-                "reference": "7b52ea7ce3992d2fa004c3e1fcf11cd7af73d2d7"
->>>>>>> te-1024 removed Ratepay
+                "reference": "3e75442238e9eac94f63ad7b8baa12c5baaa5051"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2835,11 +2827,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-            "time": "2019-01-22T14:40:22+00:00"
-=======
-            "time": "2019-01-22T10:51:57+00:00"
->>>>>>> te-1024 removed Ratepay
+            "time": "2019-01-22T15:15:05+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
