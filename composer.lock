@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b98bc09def63e7468130892eaf929dd",
+    "content-hash": "ffc8841b05f1ea89baf9e044052c3021",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2480,12 +2480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/silexphp.git",
-                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2"
+                "reference": "cd27a915aa2c0b06fe7966aab7402c76ad6de9c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/silexphp/zipball/5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
-                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
+                "url": "https://api.github.com/repos/spryker/silexphp/zipball/cd27a915aa2c0b06fe7966aab7402c76ad6de9c3",
+                "reference": "cd27a915aa2c0b06fe7966aab7402c76ad6de9c3",
                 "shasum": ""
             },
             "require": {
@@ -2516,7 +2516,7 @@
                 "symfony/security": "~2.3|3.0.*",
                 "symfony/serializer": "~2.3|3.0.*",
                 "symfony/translation": "~2.3|3.0.*",
-                "symfony/twig-bridge": "~2.3|3.0.*",
+                "symfony/twig-bridge": "^3.2.0 || ^4.0.0",
                 "symfony/validator": "^3.0.0",
                 "twig/twig": "~1.28|~2.0"
             },
@@ -2550,7 +2550,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2019-01-09T14:00:16+00:00"
+            "time": "2019-01-22T14:39:39+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2558,7 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "a9896593598890f0788e0c764174aaf9f529e28e"
+                "reference": "7072847a5aeefe3af067e031f7b5c1cf98304d26"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-22T14:27:29+00:00"
+            "time": "2019-01-22T14:40:22+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3918,7 +3918,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
