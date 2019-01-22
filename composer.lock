@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b98bc09def63e7468130892eaf929dd",
+    "content-hash": "5c3faae221cd953f823381f784ff608d",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -1883,7 +1883,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -2480,12 +2480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/silexphp.git",
-                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2"
+                "reference": "cd27a915aa2c0b06fe7966aab7402c76ad6de9c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/silexphp/zipball/5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
-                "reference": "5e61f3f5a4e2362cfe7138958a51f2a7a12117b2",
+                "url": "https://api.github.com/repos/spryker/silexphp/zipball/cd27a915aa2c0b06fe7966aab7402c76ad6de9c3",
+                "reference": "cd27a915aa2c0b06fe7966aab7402c76ad6de9c3",
                 "shasum": ""
             },
             "require": {
@@ -2516,7 +2516,7 @@
                 "symfony/security": "~2.3|3.0.*",
                 "symfony/serializer": "~2.3|3.0.*",
                 "symfony/translation": "~2.3|3.0.*",
-                "symfony/twig-bridge": "~2.3|3.0.*",
+                "symfony/twig-bridge": "^3.2.0 || ^4.0.0",
                 "symfony/validator": "^3.0.0",
                 "twig/twig": "~1.28|~2.0"
             },
@@ -2550,15 +2550,15 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2019-01-09T14:00:16+00:00"
+            "time": "2019-01-22T14:39:39+00:00"
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-feature/ps-2940/master-reclamtion-techdebt",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "0eb840c4a82272bca556e0d8eca2729cbbf9def4"
+                "reference": "92b31000e8cab528dcc225f92e616a90fee6d64a"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-22T13:12:24+00:00"
+            "time": "2019-01-22T15:40:07+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3918,7 +3918,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -6483,7 +6483,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2017-12-13T13:21:38+00:00"
+            "time": "2017-12-12T17:28:44+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -8250,7 +8250,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sullivan SENECHAL",
+                    "name": "Sullivan Sénéchal",
                     "email": "soullivaneuh@gmail.com"
                 }
             ],
