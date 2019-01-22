@@ -2558,23 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "reference": "a9896593598890f0788e0c764174aaf9f529e28e"
-=======
-<<<<<<< HEAD
-                "reference": "d69d2c12dba5363c89a901e0d08e1afaf995cdf4"
-=======
-                "reference": "066121a062d51d2bb2d73f10c71968691483dc3d"
->>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
->>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
-=======
-                "reference": "066121a062d51d2bb2d73f10c71968691483dc3d"
->>>>>>> te-1065updated composer.lock
-=======
                 "reference": "7072847a5aeefe3af067e031f7b5c1cf98304d26"
->>>>>>> te-1065 updated composer.lock
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2844,23 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "time": "2019-01-22T14:27:29+00:00"
-=======
-<<<<<<< HEAD
-            "time": "2019-01-16T09:06:56+00:00"
-=======
-            "time": "2019-01-14T18:00:21+00:00"
->>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
->>>>>>> TE-1065: BC-check. Updated symfony/twig-bridge constraint
-=======
-            "time": "2019-01-14T18:00:21+00:00"
->>>>>>> te-1065updated composer.lock
-=======
             "time": "2019-01-22T14:40:22+00:00"
->>>>>>> te-1065 updated composer.lock
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3950,7 +3918,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
