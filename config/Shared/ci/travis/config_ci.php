@@ -18,7 +18,6 @@ use Spryker\Shared\Mail\MailConstants;
 use Spryker\Shared\ProductManagement\ProductManagementConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\RabbitMq\RabbitMqEnv;
-use Spryker\Shared\Ratepay\RatepayConstants;
 use Spryker\Shared\Search\SearchConstants;
 use Spryker\Shared\Session\SessionConstants;
 use Spryker\Shared\Setup\SetupConstants;
@@ -134,14 +133,6 @@ $config[SetupConstants::JENKINS_DIRECTORY] = APPLICATION_ROOT_DIR . '/shared/dat
 
 // ---------- Email
 $config[MailConstants::MAILCATCHER_GUI] = 'http://' . $config[ApplicationConstants::HOST_ZED] . ':1080';
-
-// ---------- Ratepay
-$config[RatepayConstants::PROFILE_ID] = '';
-$config[RatepayConstants::SECURITY_CODE] = '';
-$config[RatepayConstants::SNIPPET_ID] = 'ratepay';
-$config[RatepayConstants::SHOP_ID] = '';
-$config[RatepayConstants::SYSTEM_ID] = 'Spryker ' . $config[ApplicationConstants::HOST_YVES];
-$config[RatepayConstants::API_URL] = 'https://gateway-int.ratepay.com/api/xml/1_0';
 
 // ---------- Propel
 $config[PropelConstants::ZED_DB_DATABASE] = 'DE_test_zed';
