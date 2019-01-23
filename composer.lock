@@ -2558,7 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "3e75442238e9eac94f63ad7b8baa12c5baaa5051"
+                "reference": "5ac891cfdb2e890c8c29ad2c6122dc00b054063c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2827,7 +2827,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-22T15:15:05+00:00"
+            "time": "2019-01-23T08:03:21+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -3917,7 +3917,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
