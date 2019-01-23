@@ -2434,7 +2434,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/silexphp.git",
-                "reference": "7edfffc807316154a395e8d58b4832672065a629"
+                "reference": "9128702a6b3fc9934f0118c8045e4adbe814df19"
             },
             "require": {
                 "php": ">=7.1",
@@ -2464,7 +2464,7 @@
                 "symfony/security": "~2.3|3.0.*",
                 "symfony/serializer": "~2.3|3.0.*",
                 "symfony/translation": "~2.3|3.0.*",
-                "symfony/twig-bridge": "~2.3|3.0.*",
+                "symfony/twig-bridge": "^3.2.0 || ^4.0.0",
                 "symfony/validator": "^3.0.0",
                 "twig/twig": "~1.28|~2.0"
             },
@@ -2502,7 +2502,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2019-01-22T08:03:08+00:00"
+            "time": "2019-01-23T10:10:55+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2510,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "b9dd5d4340b7010cccc60d638e777195028ed64f"
+                "reference": "d2cff4a273e8084a3642e94c6baf93dd4617d3c2"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2710,7 +2710,6 @@
                 "spryker/queue": "*",
                 "spryker/quote": "*",
                 "spryker/ramsey-uuid": "*",
-                "spryker/ratepay": "*",
                 "spryker/redis": "*",
                 "spryker/refund": "*",
                 "spryker/sales": "*",
@@ -2780,7 +2779,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-22T13:59:37+00:00"
+            "time": "2019-01-23T10:08:00+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8482,7 +8481,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "446a927d4d5ab22cb8f034540d383d4d9bc84d78"
+                "reference": "953df17cbf5718392703694878a80fa2fed2faa4"
             },
             "require": {
                 "php": ">=7.1",
@@ -8556,7 +8555,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2019-01-21T10:17:41+00:00"
+            "time": "2019-01-23T09:08:13+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
