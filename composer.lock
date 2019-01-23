@@ -2480,12 +2480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/silexphp.git",
-                "reference": "cd27a915aa2c0b06fe7966aab7402c76ad6de9c3"
+                "reference": "7df3e1b93fe711f1854a5e31a2d5b704569b8de3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/silexphp/zipball/cd27a915aa2c0b06fe7966aab7402c76ad6de9c3",
-                "reference": "cd27a915aa2c0b06fe7966aab7402c76ad6de9c3",
+                "url": "https://api.github.com/repos/spryker/silexphp/zipball/7df3e1b93fe711f1854a5e31a2d5b704569b8de3",
+                "reference": "7df3e1b93fe711f1854a5e31a2d5b704569b8de3",
                 "shasum": ""
             },
             "require": {
@@ -2550,7 +2550,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2019-01-22T14:39:39+00:00"
+            "time": "2019-01-23T09:16:57+00:00"
         },
         {
             "name": "spryker/spryker",
@@ -2558,7 +2558,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "92b31000e8cab528dcc225f92e616a90fee6d64a"
+                "reference": "26454c063ae709e887e7c7c72505f794de7518b1"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2828,7 +2828,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-22T15:40:07+00:00"
+            "time": "2019-01-23T10:28:19+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8530,7 +8530,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "446a927d4d5ab22cb8f034540d383d4d9bc84d78"
+                "reference": "953df17cbf5718392703694878a80fa2fed2faa4"
             },
             "require": {
                 "php": ">=7.1",
@@ -8604,7 +8604,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2019-01-21T10:17:41+00:00"
+            "time": "2019-01-23T09:08:13+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
