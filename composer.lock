@@ -2510,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "d2cff4a273e8084a3642e94c6baf93dd4617d3c2"
+                "reference": "a68a81e62a0fb96090684db6aa0377d016c0b5e6"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2779,7 +2779,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-23T10:08:00+00:00"
+            "time": "2019-01-24T08:23:03+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8481,7 +8481,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryk.git",
-                "reference": "953df17cbf5718392703694878a80fa2fed2faa4"
+                "reference": "07521d82bcf9fadae67434e79a100860dff8f853"
             },
             "require": {
                 "php": ">=7.1",
@@ -8555,7 +8555,7 @@
                 "MIT"
             ],
             "description": "Spryker Spryk build tool",
-            "time": "2019-01-23T09:08:13+00:00"
+            "time": "2019-01-23T14:54:17+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
