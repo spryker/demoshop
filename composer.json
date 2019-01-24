@@ -19,7 +19,6 @@
     "mandrill/mandrill": "~1.0.55",
     "monolog/monolog": "^1.21.0",
     "nesbot/carbon": "~1.13.0",
-    "spryker/container": "^1.0.0",
     "predis/predis": "^1.1.1",
     "propel/propel": "2.0.0-alpha8",
     "psr/log": "^1.0.0",

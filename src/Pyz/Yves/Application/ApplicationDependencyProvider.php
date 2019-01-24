@@ -8,11 +8,11 @@
 namespace Pyz\Yves\Application;
 
 use Pyz\Yves\Twig\Plugin\TwigYves;
-use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Yves\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
 
-class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
+class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
     public const SERVICE_UTIL_DATE_TIME = 'util date time service';
 
@@ -27,8 +27,6 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
     public const PLUGIN_APPLICATION = 'application plugin';
     public const PLUGIN_TWIG = 'twig plugin';
 
-    public const PLUGINS_APPLICATION = 'PLUGINS_APPLICATION';
-
     /**
      * @param \Spryker\Yves\Kernel\Container $container
      *
@@ -36,10 +34,10 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideDependencies(Container $container)
     {
+        $container = parent::provideDependencies($container);
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
         $container = $this->addUtilDateTimeService($container);
-        $container = $this->addApplicationPlugins($container);
 
         return $container;
     }
@@ -93,20 +91,6 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
         $container[self::SERVICE_UTIL_DATE_TIME] = function (Container $container) {
             return $container->getLocator()->utilDateTime()->service();
         };
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
-    protected function addApplicationPlugins(Container $container): Container
-    {
-        $container->set(static::PLUGINS_APPLICATION, function (Container $container): array {
-            return $this->getApplicationPlugins();
-        });
 
         return $container;
     }
