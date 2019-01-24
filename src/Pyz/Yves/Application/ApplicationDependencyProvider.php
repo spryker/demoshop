@@ -94,12 +94,4 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 
         return $container;
     }
-
-    /**
-     * @return \Spryker\Shared\ApplicationExtension\Dependency\Plugin\ApplicationPluginInterface[]
-     */
-    protected function getApplicationPlugins(): array
-    {
-        return [];
-    }
 }
