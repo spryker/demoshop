@@ -8,6 +8,14 @@ env:
 
 matrix:
   fast_finish: true
+
+  allow_failures:
+    - php: "7.3"
+      env:
+        - TEST_GROUP=acceptance
+        - ON_EVENTS=push,cron
+        - DB=mysql
+
   include:
     - php: "7.1"
       env:
@@ -19,6 +27,11 @@ matrix:
     - php: "7.1"
       env:
         - TEST_GROUP=acceptance
+    - php: "7.2"
+      env:
+        - TEST_GROUP=acceptance
+        - ON_EVENTS=push,cron
+        - DB=mysql
     - php: "7.2"
       env:
         - TEST_GROUP=acceptance
@@ -105,7 +118,7 @@ before_script:
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console setup:search ; fi
 
 script:
-  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpstan analyze -c phpstan.neon src/ -l 1 ; fi
+  - if [[ $VALIDATION == 1 ]] ; then vendor/bin/phpstan analyze -c phpstan.neon src/ -l 4 ; fi
 
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console propel:schema:validate ; fi
   - if [[ $VALIDATION == 1 ]] ; then vendor/bin/console propel:schema:validate-xml-names ; fi

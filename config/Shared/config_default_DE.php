@@ -63,3 +63,4 @@ $config[EventConstants::LOG_FILE_PATH] = APPLICATION_ROOT_DIR . '/data/DE/logs/a
 
 // ---------- Glue host
 $config[GlueApplicationConstants::GLUE_APPLICATION_DOMAIN] = sprintf('http://glue.de.%s.local', $domain);
+$config[GlueApplicationConstants::GLUE_APPLICATION_CORS_ALLOW_ORIGIN] = sprintf('http://glue.de.%s.local', $domain);

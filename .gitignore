@@ -34,6 +34,8 @@ config/accumulated-config.json
 /src/Generated/
 /vendor/
 FOSS.md
+/public/Yves/maintenance/maintenance.marker
+/public/Zed/maintenance/maintenance.marker
 
 /data/*
 !/data/import/
