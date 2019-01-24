@@ -2436,6 +2436,12 @@
                 "url": "git@github.com:spryker/silexphp.git",
                 "reference": "9128702a6b3fc9934f0118c8045e4adbe814df19"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker/silexphp/zipball/9128702a6b3fc9934f0118c8045e4adbe814df19",
+                "reference": "9128702a6b3fc9934f0118c8045e4adbe814df19",
+                "shasum": ""
+            },
             "require": {
                 "php": ">=7.1",
                 "spryker/container": "dev-beta/te-323/te-648-enabling-step-3",
@@ -2479,11 +2485,7 @@
                     "Silex\\": "src/Silex"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Silex\\Tests\\": "tests/Silex/Tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2510,7 +2512,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "c309a75327da62752bb60f7aed67d420a7cbe6be"
+                "reference": "a2c44e08e49d6d083c1aeb482b027678d2cc125d"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2779,7 +2781,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-24T14:07:10+00:00"
+            "time": "2019-01-24T14:35:59+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
