@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32d850ad8e1ecdacc5d1291dc12bdd44",
+    "content-hash": "9e6bf8a61b756a5217dec04ef6be306e",
     "packages": [
         {
             "name": "codeitnowin/barcode",
@@ -2506,11 +2506,11 @@
         },
         {
             "name": "spryker/spryker",
-            "version": "dev-master",
+            "version": "dev-bugfix/remove-dependencies-to-spryker-pimple",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "ae8bd73b4d9b6f4add45c5d9854ef480b6fabc43"
+                "reference": "6d045242086b5fdd52748e8a1dcf77c7d245e91c"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2779,7 +2779,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-25T08:35:32+00:00"
+            "time": "2019-01-25T09:47:40+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
