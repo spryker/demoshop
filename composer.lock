@@ -2436,12 +2436,6 @@
                 "url": "git@github.com:spryker/silexphp.git",
                 "reference": "9128702a6b3fc9934f0118c8045e4adbe814df19"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spryker/silexphp/zipball/9128702a6b3fc9934f0118c8045e4adbe814df19",
-                "reference": "9128702a6b3fc9934f0118c8045e4adbe814df19",
-                "shasum": ""
-            },
             "require": {
                 "php": ">=7.1",
                 "spryker/container": "dev-beta/te-323/te-648-enabling-step-3",
@@ -2485,7 +2479,11 @@
                     "Silex\\": "src/Silex"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Silex\\Tests\\": "tests/Silex/Tests"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -2512,7 +2510,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:spryker/spryker.git",
-                "reference": "81f68e4850ca793b9c8b58a3d73c56b250af6b6e"
+                "reference": "a0a8025502cb9b22488e4b56a28102157e90f382"
             },
             "require": {
                 "everon/criteria-builder": "^1.1.5",
@@ -2781,7 +2779,7 @@
                 "proprietary"
             ],
             "description": "Spryker Framework",
-            "time": "2019-01-24T15:01:33+00:00"
+            "time": "2019-01-25T08:10:20+00:00"
         },
         {
             "name": "spryker/synchronization-behavior",
@@ -8376,12 +8374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spryker/code-sniffer.git",
-                "reference": "a1cd44dd7a67877d55e7d705c876e14d061f571d"
+                "reference": "e433c2104f34a9f4db2b1d84c7e8ce32311f865f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/a1cd44dd7a67877d55e7d705c876e14d061f571d",
-                "reference": "a1cd44dd7a67877d55e7d705c876e14d061f571d",
+                "url": "https://api.github.com/repos/spryker/code-sniffer/zipball/e433c2104f34a9f4db2b1d84c7e8ce32311f865f",
+                "reference": "e433c2104f34a9f4db2b1d84c7e8ce32311f865f",
                 "shasum": ""
             },
             "require": {
@@ -8421,7 +8419,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-01-10T09:34:59+00:00"
+            "time": "2019-01-24T17:20:26+00:00"
         },
         {
             "name": "spryker/git-hook",
