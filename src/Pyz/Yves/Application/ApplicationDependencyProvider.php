@@ -8,11 +8,11 @@
 namespace Pyz\Yves\Application;
 
 use Pyz\Yves\Twig\Plugin\TwigYves;
-use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
+use Spryker\Yves\Application\ApplicationDependencyProvider as SprykerApplicationDependencyProvider;
 use Spryker\Yves\Kernel\Container;
 use Spryker\Yves\Kernel\Plugin\Pimple;
 
-class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
+class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
 {
     public const SERVICE_UTIL_DATE_TIME = 'util date time service';
 
@@ -34,6 +34,7 @@ class ApplicationDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideDependencies(Container $container)
     {
+        $container = parent::provideDependencies($container);
         $container = $this->provideClients($container);
         $container = $this->providePlugins($container);
         $container = $this->addUtilDateTimeService($container);
