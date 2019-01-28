@@ -67,6 +67,8 @@ class ApplicationDependencyProvider extends SprykerApplicationDependencyProvider
      */
     public function provideCommunicationLayerDependencies(Container $container)
     {
+        $container = parent::provideCommunicationLayerDependencies($container);
+
         $container[self::SERVICE_PROVIDER] = function (Container $container) {
             return $this->getServiceProviders($container);
         };

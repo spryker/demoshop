@@ -52,9 +52,9 @@ use Spryker\Yves\Application\Plugin\Provider\YvesHstsServiceProvider;
 use Spryker\Yves\Application\Plugin\ServiceProvider\AssertUrlConfigurationServiceProvider;
 use Spryker\Yves\Application\Plugin\ServiceProvider\KernelLogServiceProvider;
 use Spryker\Yves\Application\Plugin\ServiceProvider\SslServiceProvider;
+use Spryker\Yves\Application\YvesBootstrap as SprykerYvesBootstrap;
 use Spryker\Yves\CmsContentWidget\Plugin\CmsContentWidgetServiceProvider;
 use Spryker\Yves\Currency\Plugin\CurrencySwitcherServiceProvider;
-use Spryker\Yves\Kernel\Application;
 use Spryker\Yves\Messenger\Plugin\Provider\FlashMessengerServiceProvider;
 use Spryker\Yves\Money\Plugin\ServiceProvider\TwigMoneyServiceProvider;
 use Spryker\Yves\Monitoring\Plugin\ServiceProvider\MonitoringRequestTransactionServiceProvider;
@@ -71,36 +71,8 @@ use Spryker\Yves\Url\Plugin\LanguageSwitcherServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestHeaderServiceProvider;
 use Spryker\Yves\ZedRequest\Plugin\ServiceProvider\ZedRequestLogServiceProvider;
 
-class YvesBootstrap
+class YvesBootstrap extends SprykerYvesBootstrap
 {
-    /**
-     * @var \Spryker\Yves\Kernel\Application
-     */
-    protected $application;
-
-    /**
-     * @var \Pyz\Yves\Application\ApplicationConfig
-     */
-    protected $config;
-
-    public function __construct()
-    {
-        $this->application = new Application();
-        $this->config = new ApplicationConfig();
-    }
-
-    /**
-     * @return \Spryker\Yves\Kernel\Application
-     */
-    public function boot()
-    {
-        $this->registerServiceProviders();
-        $this->registerRouters();
-        $this->registerControllerProviders();
-
-        return $this->application;
-    }
-
     /**
      * @return void
      */

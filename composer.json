@@ -3,7 +3,7 @@
   "description": "Spryker Demoshop (internal)",
   "license": "MIT",
   "require": {
-    "spryker/spryker": "dev-feature/ps-2940/master-reclamtion-techdebt",
+    "spryker/spryker": "dev-master",
     "spryker-eco/loggly": "dev-master",
     "spryker/rabbit-mq": "dev-master",
     "spryker/event-behavior": "dev-master",
@@ -19,7 +19,6 @@
     "mandrill/mandrill": "~1.0.55",
     "monolog/monolog": "^1.21.0",
     "nesbot/carbon": "~1.13.0",
-    "pimple/pimple": "~1.1.1",
     "predis/predis": "^1.1.1",
     "propel/propel": "2.0.0-alpha8",
     "psr/log": "^1.0.0",
@@ -41,11 +40,11 @@
     "symfony/serializer": "^2.6.13 || ^3.0.0",
     "symfony/stopwatch": "^3.0.0 || ^4.0.0",
     "symfony/translation": "^2.6.13 || ^3.0.0",
-    "symfony/twig-bridge": "^2.7.0 || ^3.0.0 || ^4.0.0",
+    "symfony/twig-bridge": "^3.2.0 || ^4.0.0",
     "symfony/validator": "^2.6.13 || ^3.0.0",
     "symfony/yaml": "^2.6.13 || ^3.0.0",
     "swiftmailer/swiftmailer": "^6.1",
-    "twig/twig": "^1.30.0",
+    "twig/twig": "^1.36.0",
     "zendframework/zend-config": "^3.1.0",
     "zendframework/zend-filter": "^2.5.1",
     "zendframework/zend-servicemanager": "^3.3",
@@ -100,6 +99,9 @@
       "PyzTest\\": "tests/PyzTest/",
       "PhpStan\\": "tests/PhpStan/"
     },
+    "psr-0": {
+      "Pimple": "vendor/spryker/spryker/Bundles/Container/src/Spryker"
+    },
     "files": [
       "test-autoload.php"
     ]
@@ -121,6 +123,10 @@
     {
       "type": "git",
       "url": "git@github.com:spryker/spryk.git"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:spryker/silexphp.git"
     }
   ],
   "scripts": {
